@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- account for a shared image.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSharedImagePermissions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679288936"><span id="local-6989586621679288937"></span></span><span class="hs-keyword">data</span><span> </span><span id="SharedImagePermissions"><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-var">SharedImagePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SharedImagePermissions%27"><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions%27"><span class="hs-identifier hs-var">SharedImagePermissions'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679289186"><span id="local-6989586621679289187"></span></span><span class="hs-keyword">data</span><span> </span><span id="SharedImagePermissions"><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-var">SharedImagePermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SharedImagePermissions%27"><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions%27"><span class="hs-identifier hs-var">SharedImagePermissions'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The 12-digit identifier of the AWS account with which the image is</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- shared.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AsharedAccountId%3ASharedImagePermissions%27"><span class="annot"><span class="annottext">SharedImagePermissions -&gt; Text
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AimagePermissions%3ASharedImagePermissions%27"><span class="annot"><span class="annottext">SharedImagePermissions -&gt; ImagePermissions
 </span><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#%24sel%3AimagePermissions%3ASharedImagePermissions%27"><span class="hs-identifier hs-var hs-var">imagePermissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288929"><span id="local-6989586621679288931"><span class="annot"><span class="annottext">SharedImagePermissions -&gt; SharedImagePermissions -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679289179"><span id="local-6989586621679289181"><span class="annot"><span class="annottext">SharedImagePermissions -&gt; SharedImagePermissions -&gt; Bool
 (SharedImagePermissions -&gt; SharedImagePermissions -&gt; Bool)
 -&gt; (SharedImagePermissions -&gt; SharedImagePermissions -&gt; Bool)
 -&gt; Eq SharedImagePermissions
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SharedImagePermissions -&gt; SharedImagePermissions -&gt; Bool
 == :: SharedImagePermissions -&gt; SharedImagePermissions -&gt; Bool
 $c== :: SharedImagePermissions -&gt; SharedImagePermissions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288920"><span id="local-6989586621679288922"><span id="local-6989586621679288924"><span id="local-6989586621679288926"><span class="annot"><span class="annottext">ReadPrec [SharedImagePermissions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289170"><span id="local-6989586621679289172"><span id="local-6989586621679289174"><span id="local-6989586621679289176"><span class="annot"><span class="annottext">ReadPrec [SharedImagePermissions]
 ReadPrec SharedImagePermissions
 Int -&gt; ReadS SharedImagePermissions
 ReadS [SharedImagePermissions]
@@ -66,7 +66,7 @@ readList :: ReadS [SharedImagePermissions]
 $creadList :: ReadS [SharedImagePermissions]
 readsPrec :: Int -&gt; ReadS SharedImagePermissions
 $creadsPrec :: Int -&gt; ReadS SharedImagePermissions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288913"><span id="local-6989586621679288915"><span id="local-6989586621679288917"><span class="annot"><span class="annottext">Int -&gt; SharedImagePermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679289163"><span id="local-6989586621679289165"><span id="local-6989586621679289167"><span class="annot"><span class="annottext">Int -&gt; SharedImagePermissions -&gt; ShowS
 [SharedImagePermissions] -&gt; ShowS
 SharedImagePermissions -&gt; String
 (Int -&gt; SharedImagePermissions -&gt; ShowS)
@@ -113,19 +113,19 @@ $cfrom :: forall x. SharedImagePermissions -&gt; Rep SharedImagePermissions x
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-type">SharedImagePermissions</span></a></span><span>
 </span><span id="line-58"></span><span id="newSharedImagePermissions"><span class="annot"><span class="annottext">newSharedImagePermissions :: Text -&gt; ImagePermissions -&gt; SharedImagePermissions
 </span><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#newSharedImagePermissions"><span class="hs-identifier hs-var hs-var">newSharedImagePermissions</span></a></span></span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679288907"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288907"><span class="hs-identifier hs-var">pSharedAccountId_</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span id="local-6989586621679288906"><span class="annot"><span class="annottext">ImagePermissions
-</span><a href="#local-6989586621679288906"><span class="hs-identifier hs-var">pImagePermissions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679289157"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289157"><span class="hs-identifier hs-var">pSharedAccountId_</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679289156"><span class="annot"><span class="annottext">ImagePermissions
+</span><a href="#local-6989586621679289156"><span class="hs-identifier hs-var">pImagePermissions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">SharedImagePermissions' :: Text -&gt; ImagePermissions -&gt; SharedImagePermissions
 </span><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions%27"><span class="hs-identifier hs-type">SharedImagePermissions'</span></a></span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sharedAccountId:SharedImagePermissions' :: Text
 </span><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#%24sel%3AsharedAccountId%3ASharedImagePermissions%27"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288907"><span class="hs-identifier hs-var">pSharedAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679289157"><span class="hs-identifier hs-var">pSharedAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>        </span><span class="annot"><span class="annottext">$sel:imagePermissions:SharedImagePermissions' :: ImagePermissions
 </span><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#%24sel%3AimagePermissions%3ASharedImagePermissions%27"><span class="hs-identifier hs-var">imagePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImagePermissions
-</span><a href="#local-6989586621679288906"><span class="hs-identifier hs-var">pImagePermissions_</span></a></span><span>
+</span><a href="#local-6989586621679289156"><span class="hs-identifier hs-var">pImagePermissions_</span></a></span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The 12-digit identifier of the AWS account with which the image is</span><span>
@@ -137,16 +137,16 @@ $cfrom :: forall x. SharedImagePermissions -&gt; Rep SharedImagePermissions x
 -&gt; (SharedImagePermissions -&gt; Text -&gt; SharedImagePermissions)
 -&gt; Lens SharedImagePermissions SharedImagePermissions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions%27"><span class="hs-identifier hs-type">SharedImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288902"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions%27"><span class="hs-identifier hs-type">SharedImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289152"><span class="annot"><span class="annottext">Text
 sharedAccountId :: Text
 $sel:sharedAccountId:SharedImagePermissions' :: SharedImagePermissions -&gt; Text
-</span><a href="#local-6989586621679288902"><span class="hs-identifier hs-var hs-var">sharedAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288902"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288901"><span class="annot"><span class="annottext">s :: SharedImagePermissions
-</span><a href="#local-6989586621679288901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions%27"><span class="hs-identifier hs-type">SharedImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288900"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedImagePermissions
-</span><a href="#local-6989586621679288901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedAccountId:SharedImagePermissions' :: Text
+</span><a href="#local-6989586621679289152"><span class="hs-identifier hs-var hs-var">sharedAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289152"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289151"><span class="annot"><span class="annottext">s :: SharedImagePermissions
+</span><a href="#local-6989586621679289151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions%27"><span class="hs-identifier hs-type">SharedImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289150"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679289150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedImagePermissions
+</span><a href="#local-6989586621679289151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedAccountId:SharedImagePermissions' :: Text
 </span><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#%24sel%3AsharedAccountId%3ASharedImagePermissions%27"><span class="hs-identifier hs-var">sharedAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679288900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-type">SharedImagePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-type">SharedImagePermissions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | Describes the permissions for a shared image.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#sharedImagePermissions_imagePermissions"><span class="hs-identifier hs-type">sharedImagePermissions_imagePermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-type">SharedImagePermissions</span></a></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImagePermissions.html#ImagePermissions"><span class="hs-identifier hs-type">ImagePermissions</span></a></span><span>
@@ -161,19 +161,19 @@ $sel:sharedAccountId:SharedImagePermissions' :: SharedImagePermissions -&gt; Tex
      ImagePermissions
      ImagePermissions
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions%27"><span class="hs-identifier hs-type">SharedImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288898"><span class="annot"><span class="annottext">ImagePermissions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions%27"><span class="hs-identifier hs-type">SharedImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679289148"><span class="annot"><span class="annottext">ImagePermissions
 imagePermissions :: ImagePermissions
 $sel:imagePermissions:SharedImagePermissions' :: SharedImagePermissions -&gt; ImagePermissions
-</span><a href="#local-6989586621679288898"><span class="hs-identifier hs-var hs-var">imagePermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImagePermissions
-</span><a href="#local-6989586621679288898"><span class="hs-identifier hs-var">imagePermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288897"><span class="annot"><span class="annottext">s :: SharedImagePermissions
-</span><a href="#local-6989586621679288897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions%27"><span class="hs-identifier hs-type">SharedImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288896"><span class="annot"><span class="annottext">ImagePermissions
-</span><a href="#local-6989586621679288896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedImagePermissions
-</span><a href="#local-6989586621679288897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imagePermissions:SharedImagePermissions' :: ImagePermissions
+</span><a href="#local-6989586621679289148"><span class="hs-identifier hs-var hs-var">imagePermissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImagePermissions
+</span><a href="#local-6989586621679289148"><span class="hs-identifier hs-var">imagePermissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679289147"><span class="annot"><span class="annottext">s :: SharedImagePermissions
+</span><a href="#local-6989586621679289147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions%27"><span class="hs-identifier hs-type">SharedImagePermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679289146"><span class="annot"><span class="annottext">ImagePermissions
+</span><a href="#local-6989586621679289146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharedImagePermissions
+</span><a href="#local-6989586621679289147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imagePermissions:SharedImagePermissions' :: ImagePermissions
 </span><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#%24sel%3AimagePermissions%3ASharedImagePermissions%27"><span class="hs-identifier hs-var">imagePermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImagePermissions
-</span><a href="#local-6989586621679288896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-type">SharedImagePermissions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679289146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-type">SharedImagePermissions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288893"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-type">SharedImagePermissions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679288891"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SharedImagePermissions
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289143"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-type">SharedImagePermissions</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679289141"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SharedImagePermissions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SharedImagePermissions)
@@ -183,8 +183,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SharedImagePermissions&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288888"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288888"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679289138"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679289138"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; ImagePermissions -&gt; SharedImagePermissions
 </span><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions%27"><span class="hs-identifier hs-var">SharedImagePermissions'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; ImagePermissions -&gt; SharedImagePermissions)
@@ -192,7 +192,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (ImagePermissions -&gt; SharedImagePermissions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679289138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sharedAccountId&quot;</span></span><span class="hs-special">)</span><span>
@@ -200,13 +200,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser ImagePermissions -&gt; Parser SharedImagePermissions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679288888"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ImagePermissions
+</span><a href="#local-6989586621679289138"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ImagePermissions
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;imagePermissions&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288882"><span id="local-6989586621679288884"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-type">SharedImagePermissions</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289132"><span id="local-6989586621679289134"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-type">SharedImagePermissions</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679288879"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-type">SharedImagePermissions</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679289129"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.SharedImagePermissions.html#SharedImagePermissions"><span class="hs-identifier hs-type">SharedImagePermissions</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

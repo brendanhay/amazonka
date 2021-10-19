@@ -44,10 +44,10 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newUnpeerVpc' smart constructor.</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679663160"><span id="local-6989586621679663161"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnpeerVpc"><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc"><span class="hs-identifier hs-var">UnpeerVpc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnpeerVpc%27"><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc%27"><span class="hs-identifier hs-var">UnpeerVpc'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679664223"><span id="local-6989586621679664224"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnpeerVpc"><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc"><span class="hs-identifier hs-var">UnpeerVpc</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnpeerVpc%27"><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc%27"><span class="hs-identifier hs-var">UnpeerVpc'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679663155"><span id="local-6989586621679663157"><span class="annot"><span class="annottext">UnpeerVpc -&gt; UnpeerVpc -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679664218"><span id="local-6989586621679664220"><span class="annot"><span class="annottext">UnpeerVpc -&gt; UnpeerVpc -&gt; Bool
 (UnpeerVpc -&gt; UnpeerVpc -&gt; Bool)
 -&gt; (UnpeerVpc -&gt; UnpeerVpc -&gt; Bool) -&gt; Eq UnpeerVpc
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UnpeerVpc -&gt; UnpeerVpc -&gt; Bool
 == :: UnpeerVpc -&gt; UnpeerVpc -&gt; Bool
 $c== :: UnpeerVpc -&gt; UnpeerVpc -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663146"><span id="local-6989586621679663148"><span id="local-6989586621679663150"><span id="local-6989586621679663152"><span class="annot"><span class="annottext">ReadPrec [UnpeerVpc]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679664209"><span id="local-6989586621679664211"><span id="local-6989586621679664213"><span id="local-6989586621679664215"><span class="annot"><span class="annottext">ReadPrec [UnpeerVpc]
 ReadPrec UnpeerVpc
 Int -&gt; ReadS UnpeerVpc
 ReadS [UnpeerVpc]
@@ -75,7 +75,7 @@ readList :: ReadS [UnpeerVpc]
 $creadList :: ReadS [UnpeerVpc]
 readsPrec :: Int -&gt; ReadS UnpeerVpc
 $creadsPrec :: Int -&gt; ReadS UnpeerVpc
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663139"><span id="local-6989586621679663141"><span id="local-6989586621679663143"><span class="annot"><span class="annottext">Int -&gt; UnpeerVpc -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679664202"><span id="local-6989586621679664204"><span id="local-6989586621679664206"><span class="annot"><span class="annottext">Int -&gt; UnpeerVpc -&gt; ShowS
 [UnpeerVpc] -&gt; ShowS
 UnpeerVpc -&gt; String
 (Int -&gt; UnpeerVpc -&gt; ShowS)
@@ -112,12 +112,12 @@ $cfrom :: forall x. UnpeerVpc -&gt; Rep UnpeerVpc x
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc"><span class="hs-identifier hs-type">UnpeerVpc</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc"><span class="hs-identifier hs-type">UnpeerVpc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse"><span class="hs-identifier hs-type">UnpeerVpcResponse</span></a></span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679663131"><span class="annot"><span class="annottext">request :: UnpeerVpc -&gt; Request UnpeerVpc
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679664194"><span class="annot"><span class="annottext">request :: UnpeerVpc -&gt; Request UnpeerVpc
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UnpeerVpc -&gt; Request UnpeerVpc
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679663127"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679664190"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UnpeerVpc
 -&gt; ClientResponse ClientBody
@@ -141,10 +141,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679663124"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663124"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679663123"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679663123"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679663122"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679663122"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679664187"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679664187"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679664186"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679664186"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679664185"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679664185"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>          </span><span class="annot"><span class="annottext">Maybe Operation -&gt; Int -&gt; UnpeerVpcResponse
 </span><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse%27"><span class="hs-identifier hs-var">UnpeerVpcResponse'</span></a></span><span>
 </span><span id="line-67"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Operation -&gt; Int -&gt; UnpeerVpcResponse)
@@ -152,7 +152,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UnpeerVpcResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679663122"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
+</span><a href="#local-6989586621679664185"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Operation)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operation&quot;</span></span><span class="hs-special">)</span><span>
@@ -164,15 +164,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663124"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679664187"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663114"><span id="local-6989586621679663116"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc"><span class="hs-identifier hs-type">UnpeerVpc</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679664177"><span id="local-6989586621679664179"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc"><span class="hs-identifier hs-type">UnpeerVpc</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663111"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc"><span class="hs-identifier hs-type">UnpeerVpc</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679664174"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc"><span class="hs-identifier hs-type">UnpeerVpc</span></a></span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc"><span class="hs-identifier hs-type">UnpeerVpc</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679663107"><span class="annot"><span class="annottext">toHeaders :: UnpeerVpc -&gt; ResponseHeaders
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679664170"><span class="annot"><span class="annottext">toHeaders :: UnpeerVpc -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UnpeerVpc -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -199,8 +199,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663097"><span id="local-6989586621679663099"><span id="local-6989586621679663101"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc"><span class="hs-identifier hs-type">UnpeerVpc</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679663095"><span class="annot"><span class="annottext">toJSON :: UnpeerVpc -&gt; Value
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679664160"><span id="local-6989586621679664162"><span id="local-6989586621679664164"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc"><span class="hs-identifier hs-type">UnpeerVpc</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679664158"><span class="annot"><span class="annottext">toJSON :: UnpeerVpc -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; UnpeerVpc -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -209,14 +209,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc"><span class="hs-identifier hs-type">UnpeerVpc</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679663090"><span class="annot"><span class="annottext">toPath :: UnpeerVpc -&gt; ByteString
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679664153"><span class="annot"><span class="annottext">toPath :: UnpeerVpc -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UnpeerVpc -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpc"><span class="hs-identifier hs-type">UnpeerVpc</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679663086"><span class="annot"><span class="annottext">toQuery :: UnpeerVpc -&gt; QueryString
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679664149"><span class="annot"><span class="annottext">toQuery :: UnpeerVpc -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UnpeerVpc -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -224,7 +224,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | /See:/ 'newUnpeerVpcResponse' smart constructor.</span><span>
-</span><span id="line-100"></span><span id="local-6989586621679663083"><span id="local-6989586621679663084"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnpeerVpcResponse"><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse"><span class="hs-identifier hs-var">UnpeerVpcResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnpeerVpcResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse%27"><span class="hs-identifier hs-var">UnpeerVpcResponse'</span></a></span></span><span>
+</span><span id="line-100"></span><span id="local-6989586621679664146"><span id="local-6989586621679664147"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnpeerVpcResponse"><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse"><span class="hs-identifier hs-var">UnpeerVpcResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnpeerVpcResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse%27"><span class="hs-identifier hs-var">UnpeerVpcResponse'</span></a></span></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -234,7 +234,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-106"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUnpeerVpcResponse%27"><span class="annot"><span class="annottext">UnpeerVpcResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.UnpeerVpc.html#%24sel%3AhttpStatus%3AUnpeerVpcResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679663077"><span id="local-6989586621679663079"><span class="annot"><span class="annottext">UnpeerVpcResponse -&gt; UnpeerVpcResponse -&gt; Bool
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679664140"><span id="local-6989586621679664142"><span class="annot"><span class="annottext">UnpeerVpcResponse -&gt; UnpeerVpcResponse -&gt; Bool
 (UnpeerVpcResponse -&gt; UnpeerVpcResponse -&gt; Bool)
 -&gt; (UnpeerVpcResponse -&gt; UnpeerVpcResponse -&gt; Bool)
 -&gt; Eq UnpeerVpcResponse
@@ -243,7 +243,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UnpeerVpcResponse -&gt; UnpeerVpcResponse -&gt; Bool
 == :: UnpeerVpcResponse -&gt; UnpeerVpcResponse -&gt; Bool
 $c== :: UnpeerVpcResponse -&gt; UnpeerVpcResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663069"><span id="local-6989586621679663071"><span id="local-6989586621679663073"><span id="local-6989586621679663075"><span class="annot"><span class="annottext">ReadPrec [UnpeerVpcResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679664132"><span id="local-6989586621679664134"><span id="local-6989586621679664136"><span id="local-6989586621679664138"><span class="annot"><span class="annottext">ReadPrec [UnpeerVpcResponse]
 ReadPrec UnpeerVpcResponse
 Int -&gt; ReadS UnpeerVpcResponse
 ReadS [UnpeerVpcResponse]
@@ -263,7 +263,7 @@ readList :: ReadS [UnpeerVpcResponse]
 $creadList :: ReadS [UnpeerVpcResponse]
 readsPrec :: Int -&gt; ReadS UnpeerVpcResponse
 $creadsPrec :: Int -&gt; ReadS UnpeerVpcResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679663063"><span id="local-6989586621679663065"><span id="local-6989586621679663067"><span class="annot"><span class="annottext">Int -&gt; UnpeerVpcResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679664126"><span id="local-6989586621679664128"><span id="local-6989586621679664130"><span class="annot"><span class="annottext">Int -&gt; UnpeerVpcResponse -&gt; ShowS
 [UnpeerVpcResponse] -&gt; ShowS
 UnpeerVpcResponse -&gt; String
 (Int -&gt; UnpeerVpcResponse -&gt; ShowS)
@@ -307,8 +307,8 @@ $cfrom :: forall x. UnpeerVpcResponse -&gt; Rep UnpeerVpcResponse x
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse"><span class="hs-identifier hs-type">UnpeerVpcResponse</span></a></span><span>
 </span><span id="line-127"></span><span id="newUnpeerVpcResponse"><span class="annot"><span class="annottext">newUnpeerVpcResponse :: Int -&gt; UnpeerVpcResponse
-</span><a href="Network.AWS.Lightsail.UnpeerVpc.html#newUnpeerVpcResponse"><span class="hs-identifier hs-var hs-var">newUnpeerVpcResponse</span></a></span></span><span> </span><span id="local-6989586621679663060"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.UnpeerVpc.html#newUnpeerVpcResponse"><span class="hs-identifier hs-var hs-var">newUnpeerVpcResponse</span></a></span></span><span> </span><span id="local-6989586621679664123"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679664123"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">UnpeerVpcResponse' :: Maybe Operation -&gt; Int -&gt; UnpeerVpcResponse
 </span><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse%27"><span class="hs-identifier hs-type">UnpeerVpcResponse'</span></a></span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operation:UnpeerVpcResponse' :: Maybe Operation
@@ -317,7 +317,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UnpeerVpcResponse' :: Int
 </span><a href="Network.AWS.Lightsail.UnpeerVpc.html#%24sel%3AhttpStatus%3AUnpeerVpcResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663060"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679664123"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -334,16 +334,16 @@ forall a. Maybe a
      (Maybe Operation)
      (Maybe Operation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse%27"><span class="hs-identifier hs-type">UnpeerVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663057"><span class="annot"><span class="annottext">Maybe Operation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse%27"><span class="hs-identifier hs-type">UnpeerVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664120"><span class="annot"><span class="annottext">Maybe Operation
 operation :: Maybe Operation
 $sel:operation:UnpeerVpcResponse' :: UnpeerVpcResponse -&gt; Maybe Operation
-</span><a href="#local-6989586621679663057"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679663057"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663056"><span class="annot"><span class="annottext">s :: UnpeerVpcResponse
-</span><a href="#local-6989586621679663056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse%27"><span class="hs-identifier hs-type">UnpeerVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663055"><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679663055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnpeerVpcResponse
-</span><a href="#local-6989586621679663056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:UnpeerVpcResponse' :: Maybe Operation
+</span><a href="#local-6989586621679664120"><span class="hs-identifier hs-var hs-var">operation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679664120"><span class="hs-identifier hs-var">operation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679664119"><span class="annot"><span class="annottext">s :: UnpeerVpcResponse
+</span><a href="#local-6989586621679664119"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse%27"><span class="hs-identifier hs-type">UnpeerVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679664118"><span class="annot"><span class="annottext">Maybe Operation
+</span><a href="#local-6989586621679664118"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnpeerVpcResponse
+</span><a href="#local-6989586621679664119"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operation:UnpeerVpcResponse' :: Maybe Operation
 </span><a href="Network.AWS.Lightsail.UnpeerVpc.html#%24sel%3Aoperation%3AUnpeerVpcResponse%27"><span class="hs-identifier hs-var">operation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Operation
-</span><a href="#local-6989586621679663055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse"><span class="hs-identifier hs-type">UnpeerVpcResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679664118"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse"><span class="hs-identifier hs-type">UnpeerVpcResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-140"></span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#unpeerVpcResponse_httpStatus"><span class="hs-identifier hs-type">unpeerVpcResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse"><span class="hs-identifier hs-type">UnpeerVpcResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -352,16 +352,16 @@ $sel:operation:UnpeerVpcResponse' :: UnpeerVpcResponse -&gt; Maybe Operation
 -&gt; (UnpeerVpcResponse -&gt; Int -&gt; UnpeerVpcResponse)
 -&gt; Lens UnpeerVpcResponse UnpeerVpcResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse%27"><span class="hs-identifier hs-type">UnpeerVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679663054"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse%27"><span class="hs-identifier hs-type">UnpeerVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664117"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UnpeerVpcResponse' :: UnpeerVpcResponse -&gt; Int
-</span><a href="#local-6989586621679663054"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663054"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679663053"><span class="annot"><span class="annottext">s :: UnpeerVpcResponse
-</span><a href="#local-6989586621679663053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse%27"><span class="hs-identifier hs-type">UnpeerVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679663052"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnpeerVpcResponse
-</span><a href="#local-6989586621679663053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UnpeerVpcResponse' :: Int
+</span><a href="#local-6989586621679664117"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679664117"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679664116"><span class="annot"><span class="annottext">s :: UnpeerVpcResponse
+</span><a href="#local-6989586621679664116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse%27"><span class="hs-identifier hs-type">UnpeerVpcResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679664115"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679664115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnpeerVpcResponse
+</span><a href="#local-6989586621679664116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UnpeerVpcResponse' :: Int
 </span><a href="Network.AWS.Lightsail.UnpeerVpc.html#%24sel%3AhttpStatus%3AUnpeerVpcResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679663052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse"><span class="hs-identifier hs-type">UnpeerVpcResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679664115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse"><span class="hs-identifier hs-type">UnpeerVpcResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679663050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse"><span class="hs-identifier hs-type">UnpeerVpcResponse</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679664113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.UnpeerVpc.html#UnpeerVpcResponse"><span class="hs-identifier hs-type">UnpeerVpcResponse</span></a></span></span><span>
 </span><span id="line-144"></span></pre></body></html>

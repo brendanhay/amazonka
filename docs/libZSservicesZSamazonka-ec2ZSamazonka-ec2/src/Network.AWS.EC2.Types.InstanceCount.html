@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes a Reserved Instance listing state.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newInstanceCount' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681091045"><span id="local-6989586621681091046"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceCount"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount"><span class="hs-identifier hs-var">InstanceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceCount%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount%27"><span class="hs-identifier hs-var">InstanceCount'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681125737"><span id="local-6989586621681125738"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceCount"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount"><span class="hs-identifier hs-var">InstanceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceCount%27"><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount%27"><span class="hs-identifier hs-var">InstanceCount'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The states of the listed Reserved Instances.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Astate%3AInstanceCount%27"><span class="annot"><span class="annottext">InstanceCount -&gt; Maybe ListingState
 </span><a href="Network.AWS.EC2.Types.InstanceCount.html#%24sel%3Astate%3AInstanceCount%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ListingState.html#ListingState"><span class="hs-identifier hs-type">ListingState</span></a></span><span class="hs-special">,</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AinstanceCount%3AInstanceCount%27"><span class="annot"><span class="annottext">InstanceCount -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.Types.InstanceCount.html#%24sel%3AinstanceCount%3AInstanceCount%27"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681091038"><span id="local-6989586621681091040"><span class="annot"><span class="annottext">InstanceCount -&gt; InstanceCount -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681125730"><span id="local-6989586621681125732"><span class="annot"><span class="annottext">InstanceCount -&gt; InstanceCount -&gt; Bool
 (InstanceCount -&gt; InstanceCount -&gt; Bool)
 -&gt; (InstanceCount -&gt; InstanceCount -&gt; Bool) -&gt; Eq InstanceCount
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InstanceCount -&gt; InstanceCount -&gt; Bool
 == :: InstanceCount -&gt; InstanceCount -&gt; Bool
 $c== :: InstanceCount -&gt; InstanceCount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681091029"><span id="local-6989586621681091031"><span id="local-6989586621681091033"><span id="local-6989586621681091035"><span class="annot"><span class="annottext">ReadPrec [InstanceCount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681125721"><span id="local-6989586621681125723"><span id="local-6989586621681125725"><span id="local-6989586621681125727"><span class="annot"><span class="annottext">ReadPrec [InstanceCount]
 ReadPrec InstanceCount
 Int -&gt; ReadS InstanceCount
 ReadS [InstanceCount]
@@ -65,7 +65,7 @@ readList :: ReadS [InstanceCount]
 $creadList :: ReadS [InstanceCount]
 readsPrec :: Int -&gt; ReadS InstanceCount
 $creadsPrec :: Int -&gt; ReadS InstanceCount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681091022"><span id="local-6989586621681091024"><span id="local-6989586621681091026"><span class="annot"><span class="annottext">Int -&gt; InstanceCount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681125714"><span id="local-6989586621681125716"><span id="local-6989586621681125718"><span class="annot"><span class="annottext">Int -&gt; InstanceCount -&gt; ShowS
 [InstanceCount] -&gt; ShowS
 InstanceCount -&gt; String
 (Int -&gt; InstanceCount -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
      (Maybe ListingState)
      (Maybe ListingState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount%27"><span class="hs-identifier hs-type">InstanceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681091013"><span class="annot"><span class="annottext">Maybe ListingState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount%27"><span class="hs-identifier hs-type">InstanceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125705"><span class="annot"><span class="annottext">Maybe ListingState
 state :: Maybe ListingState
 $sel:state:InstanceCount' :: InstanceCount -&gt; Maybe ListingState
-</span><a href="#local-6989586621681091013"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ListingState
-</span><a href="#local-6989586621681091013"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681091012"><span class="annot"><span class="annottext">s :: InstanceCount
-</span><a href="#local-6989586621681091012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount%27"><span class="hs-identifier hs-type">InstanceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681091011"><span class="annot"><span class="annottext">Maybe ListingState
-</span><a href="#local-6989586621681091011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceCount
-</span><a href="#local-6989586621681091012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:InstanceCount' :: Maybe ListingState
+</span><a href="#local-6989586621681125705"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ListingState
+</span><a href="#local-6989586621681125705"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125704"><span class="annot"><span class="annottext">s :: InstanceCount
+</span><a href="#local-6989586621681125704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount%27"><span class="hs-identifier hs-type">InstanceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125703"><span class="annot"><span class="annottext">Maybe ListingState
+</span><a href="#local-6989586621681125703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceCount
+</span><a href="#local-6989586621681125704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:InstanceCount' :: Maybe ListingState
 </span><a href="Network.AWS.EC2.Types.InstanceCount.html#%24sel%3Astate%3AInstanceCount%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ListingState
-</span><a href="#local-6989586621681091011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount"><span class="hs-identifier hs-type">InstanceCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681125703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount"><span class="hs-identifier hs-type">InstanceCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The number of listed Reserved Instances in the state specified by the</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- @state@.</span><span>
@@ -150,21 +150,21 @@ $sel:state:InstanceCount' :: InstanceCount -&gt; Maybe ListingState
 -&gt; (InstanceCount -&gt; Maybe Int -&gt; InstanceCount)
 -&gt; Lens InstanceCount InstanceCount (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount%27"><span class="hs-identifier hs-type">InstanceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681091009"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount%27"><span class="hs-identifier hs-type">InstanceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125701"><span class="annot"><span class="annottext">Maybe Int
 instanceCount :: Maybe Int
 $sel:instanceCount:InstanceCount' :: InstanceCount -&gt; Maybe Int
-</span><a href="#local-6989586621681091009"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681091009"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681091008"><span class="annot"><span class="annottext">s :: InstanceCount
-</span><a href="#local-6989586621681091008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount%27"><span class="hs-identifier hs-type">InstanceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681091007"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681091007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceCount
-</span><a href="#local-6989586621681091008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:InstanceCount' :: Maybe Int
+</span><a href="#local-6989586621681125701"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681125701"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125700"><span class="annot"><span class="annottext">s :: InstanceCount
+</span><a href="#local-6989586621681125700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount%27"><span class="hs-identifier hs-type">InstanceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125699"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681125699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceCount
+</span><a href="#local-6989586621681125700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:InstanceCount' :: Maybe Int
 </span><a href="Network.AWS.EC2.Types.InstanceCount.html#%24sel%3AinstanceCount%3AInstanceCount%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681091007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount"><span class="hs-identifier hs-type">InstanceCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681125699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount"><span class="hs-identifier hs-type">InstanceCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount"><span class="hs-identifier hs-type">InstanceCount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621681091004"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceCount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681091002"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681091002"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621681125696"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InstanceCount
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681125694"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681125694"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">Maybe ListingState -&gt; Maybe Int -&gt; InstanceCount
 </span><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount%27"><span class="hs-identifier hs-var">InstanceCount'</span></a></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ListingState -&gt; Maybe Int -&gt; InstanceCount)
@@ -172,7 +172,7 @@ $sel:instanceCount:InstanceCount' :: InstanceCount -&gt; Maybe Int
 -&gt; Either String (Maybe Int -&gt; InstanceCount)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681091002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ListingState)
+</span><a href="#local-6989586621681125694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ListingState)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
@@ -180,12 +180,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Int) -&gt; Either String InstanceCount
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681091002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621681125694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceCount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681090996"><span id="local-6989586621681090998"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount"><span class="hs-identifier hs-type">InstanceCount</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681125688"><span id="local-6989586621681125690"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount"><span class="hs-identifier hs-type">InstanceCount</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681090993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount"><span class="hs-identifier hs-type">InstanceCount</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681125685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.InstanceCount.html#InstanceCount"><span class="hs-identifier hs-type">InstanceCount</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

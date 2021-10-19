@@ -82,70 +82,70 @@
 </span><span id="line-82"></span><span class="hs-comment">-- -   __timeCreated__ - The time the case was created, in ISO-8601 format.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- /See:/ 'newCaseDetails' smart constructor.</span><span>
-</span><span id="line-85"></span><span id="local-6989586621679170990"><span id="local-6989586621679170991"></span></span><span class="hs-keyword">data</span><span> </span><span id="CaseDetails"><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-var">CaseDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaseDetails%27"><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-var">CaseDetails'</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID displayed for the case in the AWS Support Center. This is a</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- numeric string.</span><span>
-</span><span id="line-88"></span><span>    </span><span id="%24sel%3AdisplayId%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AdisplayId%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">displayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The status of the case.</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- Valid values:</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   @opened@</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- -   @pending-customer-action@</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- -   @reopened@</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   @resolved@</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   @unassigned@</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   @work-in-progress@</span><span>
-</span><span id="line-104"></span><span>    </span><span id="%24sel%3Astatus%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Astatus%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The support case ID requested or returned in the call. The case ID is an</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- alphanumeric string formatted as shown in this example:</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- case-/12345678910-2013-c4c1d2bf33c5cf47/</span><span>
-</span><span id="line-108"></span><span>    </span><span id="%24sel%3AcaseId%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AcaseId%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The five most recent communications between you and AWS Support Center,</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- including the IDs of any attachments to the communications. Also</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- includes a @nextToken@ that you can use to retrieve earlier</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- communications.</span><span>
-</span><span id="line-113"></span><span>    </span><span id="%24sel%3ArecentCommunications%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe RecentCaseCommunications
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3ArecentCommunications%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">recentCommunications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.RecentCaseCommunications.html#RecentCaseCommunications"><span class="hs-identifier hs-type">RecentCaseCommunications</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | The code for the AWS service. You can get a list of codes and the</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- corresponding service names by calling DescribeServices.</span><span>
-</span><span id="line-116"></span><span>    </span><span id="%24sel%3AserviceCode%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AserviceCode%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The category of problem for the support case.</span><span>
-</span><span id="line-118"></span><span>    </span><span id="%24sel%3AcategoryCode%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AcategoryCode%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">categoryCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The email address of the account that submitted the case.</span><span>
-</span><span id="line-120"></span><span>    </span><span id="%24sel%3AsubmittedBy%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AsubmittedBy%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">submittedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The subject line for the case in the AWS Support Center.</span><span>
-</span><span id="line-122"></span><span>    </span><span id="%24sel%3Asubject%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
+</span><span id="line-85"></span><span id="local-6989586621679171078"><span id="local-6989586621679171079"></span></span><span class="hs-keyword">data</span><span> </span><span id="CaseDetails"><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-var">CaseDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaseDetails%27"><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-var">CaseDetails'</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The subject line for the case in the AWS Support Center.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Asubject%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Asubject%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The email addresses that receive copies of communication about the case.</span><span>
-</span><span id="line-124"></span><span>    </span><span id="%24sel%3AccEmailAddresses%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe [Text]
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AccEmailAddresses%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">ccEmailAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The code for the severity level returned by the call to</span><span>
-</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- DescribeSeverityLevels.</span><span>
-</span><span id="line-127"></span><span>    </span><span id="%24sel%3AseverityCode%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The status of the case.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Valid values:</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   @opened@</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- -   @pending-customer-action@</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   @reopened@</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- -   @resolved@</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- -   @unassigned@</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- -   @work-in-progress@</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3Astatus%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Astatus%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The five most recent communications between you and AWS Support Center,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- including the IDs of any attachments to the communications. Also</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- includes a @nextToken@ that you can use to retrieve earlier</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- communications.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3ArecentCommunications%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe RecentCaseCommunications
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3ArecentCommunications%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">recentCommunications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.RecentCaseCommunications.html#RecentCaseCommunications"><span class="hs-identifier hs-type">RecentCaseCommunications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The code for the severity level returned by the call to</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- DescribeSeverityLevels.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AseverityCode%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AseverityCode%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">severityCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The support case ID requested or returned in the call. The case ID is an</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- alphanumeric string formatted as shown in this example:</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- case-/12345678910-2013-c4c1d2bf33c5cf47/</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3AcaseId%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AcaseId%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- | The email addresses that receive copies of communication about the case.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AccEmailAddresses%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe [Text]
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AccEmailAddresses%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">ccEmailAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | The ID displayed for the case in the AWS Support Center. This is a</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- numeric string.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AdisplayId%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AdisplayId%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">displayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The email address of the account that submitted the case.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AsubmittedBy%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AsubmittedBy%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">submittedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | The ISO 639-1 code for the language in which AWS provides support. AWS</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- Support currently supports English (\&quot;en\&quot;) and Japanese (\&quot;ja\&quot;).</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- Language parameters must be passed explicitly for operations that take</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- them.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3Alanguage%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Alanguage%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The time that the case was created in the AWS Support Center.</span><span>
 </span><span id="line-129"></span><span>    </span><span id="%24sel%3AtimeCreated%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AtimeCreated%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">timeCreated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The ISO 639-1 code for the language in which AWS provides support. AWS</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- Support currently supports English (\&quot;en\&quot;) and Japanese (\&quot;ja\&quot;).</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- Language parameters must be passed explicitly for operations that take</span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- them.</span><span>
-</span><span id="line-134"></span><span>    </span><span id="%24sel%3Alanguage%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Alanguage%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The category of problem for the support case.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AcategoryCode%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AcategoryCode%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">categoryCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The code for the AWS service. You can get a list of codes and the</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- corresponding service names by calling DescribeServices.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AserviceCode%3ACaseDetails%27"><span class="annot"><span class="annottext">CaseDetails -&gt; Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AserviceCode%3ACaseDetails%27"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679170973"><span id="local-6989586621679170975"><span class="annot"><span class="annottext">CaseDetails -&gt; CaseDetails -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679171061"><span id="local-6989586621679171063"><span class="annot"><span class="annottext">CaseDetails -&gt; CaseDetails -&gt; Bool
 (CaseDetails -&gt; CaseDetails -&gt; Bool)
 -&gt; (CaseDetails -&gt; CaseDetails -&gt; Bool) -&gt; Eq CaseDetails
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -153,7 +153,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CaseDetails -&gt; CaseDetails -&gt; Bool
 == :: CaseDetails -&gt; CaseDetails -&gt; Bool
 $c== :: CaseDetails -&gt; CaseDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170964"><span id="local-6989586621679170966"><span id="local-6989586621679170968"><span id="local-6989586621679170970"><span class="annot"><span class="annottext">ReadPrec [CaseDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171052"><span id="local-6989586621679171054"><span id="local-6989586621679171056"><span id="local-6989586621679171058"><span class="annot"><span class="annottext">ReadPrec [CaseDetails]
 ReadPrec CaseDetails
 Int -&gt; ReadS CaseDetails
 ReadS [CaseDetails]
@@ -173,7 +173,7 @@ readList :: ReadS [CaseDetails]
 $creadList :: ReadS [CaseDetails]
 readsPrec :: Int -&gt; ReadS CaseDetails
 $creadsPrec :: Int -&gt; ReadS CaseDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679170957"><span id="local-6989586621679170959"><span id="local-6989586621679170961"><span class="annot"><span class="annottext">Int -&gt; CaseDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679171045"><span id="local-6989586621679171047"><span id="local-6989586621679171049"><span class="annot"><span class="annottext">Int -&gt; CaseDetails -&gt; ShowS
 [CaseDetails] -&gt; ShowS
 CaseDetails -&gt; String
 (Int -&gt; CaseDetails -&gt; ShowS)
@@ -207,199 +207,178 @@ $cfrom :: forall x. CaseDetails -&gt; Rep CaseDetails x
 </span><span id="line-143"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-145"></span><span class="hs-comment">--</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- 'displayId', 'caseDetails_displayId' - The ID displayed for the case in the AWS Support Center. This is a</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- numeric string.</span><span>
-</span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- 'status', 'caseDetails_status' - The status of the case.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- Valid values:</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- -   @opened@</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- -   @pending-customer-action@</span><span>
-</span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- -   @reopened@</span><span>
-</span><span id="line-158"></span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- -   @resolved@</span><span>
-</span><span id="line-160"></span><span class="hs-comment">--</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- -   @unassigned@</span><span>
-</span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- -   @work-in-progress@</span><span>
-</span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- 'caseId', 'caseDetails_caseId' - The support case ID requested or returned in the call. The case ID is an</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- alphanumeric string formatted as shown in this example:</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- case-/12345678910-2013-c4c1d2bf33c5cf47/</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'subject', 'caseDetails_subject' - The subject line for the case in the AWS Support Center.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'status', 'caseDetails_status' - The status of the case.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Valid values:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- -   @opened@</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- -   @pending-customer-action@</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   @reopened@</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- -   @resolved@</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   @unassigned@</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   @work-in-progress@</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'recentCommunications', 'caseDetails_recentCommunications' - The five most recent communications between you and AWS Support Center,</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- including the IDs of any attachments to the communications. Also</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- includes a @nextToken@ that you can use to retrieve earlier</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- communications.</span><span>
 </span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- 'recentCommunications', 'caseDetails_recentCommunications' - The five most recent communications between you and AWS Support Center,</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- including the IDs of any attachments to the communications. Also</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- includes a @nextToken@ that you can use to retrieve earlier</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- communications.</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- 'serviceCode', 'caseDetails_serviceCode' - The code for the AWS service. You can get a list of codes and the</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- corresponding service names by calling DescribeServices.</span><span>
-</span><span id="line-176"></span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- 'categoryCode', 'caseDetails_categoryCode' - The category of problem for the support case.</span><span>
-</span><span id="line-178"></span><span class="hs-comment">--</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- 'submittedBy', 'caseDetails_submittedBy' - The email address of the account that submitted the case.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'severityCode', 'caseDetails_severityCode' - The code for the severity level returned by the call to</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- DescribeSeverityLevels.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'caseId', 'caseDetails_caseId' - The support case ID requested or returned in the call. The case ID is an</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- alphanumeric string formatted as shown in this example:</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- case-/12345678910-2013-c4c1d2bf33c5cf47/</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'ccEmailAddresses', 'caseDetails_ccEmailAddresses' - The email addresses that receive copies of communication about the case.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'displayId', 'caseDetails_displayId' - The ID displayed for the case in the AWS Support Center. This is a</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- numeric string.</span><span>
 </span><span id="line-180"></span><span class="hs-comment">--</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- 'subject', 'caseDetails_subject' - The subject line for the case in the AWS Support Center.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'submittedBy', 'caseDetails_submittedBy' - The email address of the account that submitted the case.</span><span>
 </span><span id="line-182"></span><span class="hs-comment">--</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- 'ccEmailAddresses', 'caseDetails_ccEmailAddresses' - The email addresses that receive copies of communication about the case.</span><span>
-</span><span id="line-184"></span><span class="hs-comment">--</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- 'severityCode', 'caseDetails_severityCode' - The code for the severity level returned by the call to</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- DescribeSeverityLevels.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'language', 'caseDetails_language' - The ISO 639-1 code for the language in which AWS provides support. AWS</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Support currently supports English (\&quot;en\&quot;) and Japanese (\&quot;ja\&quot;).</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Language parameters must be passed explicitly for operations that take</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- them.</span><span>
 </span><span id="line-187"></span><span class="hs-comment">--</span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- 'timeCreated', 'caseDetails_timeCreated' - The time that the case was created in the AWS Support Center.</span><span>
 </span><span id="line-189"></span><span class="hs-comment">--</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- 'language', 'caseDetails_language' - The ISO 639-1 code for the language in which AWS provides support. AWS</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- Support currently supports English (\&quot;en\&quot;) and Japanese (\&quot;ja\&quot;).</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- Language parameters must be passed explicitly for operations that take</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- them.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'categoryCode', 'caseDetails_categoryCode' - The category of problem for the support case.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'serviceCode', 'caseDetails_serviceCode' - The code for the AWS service. You can get a list of codes and the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- corresponding service names by calling DescribeServices.</span><span>
 </span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#newCaseDetails"><span class="hs-identifier hs-type">newCaseDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-195"></span><span>  </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span>
 </span><span id="line-196"></span><span id="newCaseDetails"><span class="annot"><span class="annottext">newCaseDetails :: CaseDetails
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#newCaseDetails"><span class="hs-identifier hs-var hs-var">newCaseDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>  </span><span class="annot"><span class="annottext">CaseDetails' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe RecentCaseCommunications
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; CaseDetails
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span>
-</span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:displayId:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AdisplayId%3ACaseDetails%27"><span class="hs-identifier hs-var">displayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-198"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subject:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Asubject%3ACaseDetails%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:CaseDetails' :: Maybe Text
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Astatus%3ACaseDetails%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:caseId:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AcaseId%3ACaseDetails%27"><span class="hs-identifier hs-var">caseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:recentCommunications:CaseDetails' :: Maybe RecentCaseCommunications
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:recentCommunications:CaseDetails' :: Maybe RecentCaseCommunications
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3ArecentCommunications%3ACaseDetails%27"><span class="hs-identifier hs-var">recentCommunications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecentCaseCommunications
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceCode:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AserviceCode%3ACaseDetails%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:categoryCode:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AcategoryCode%3ACaseDetails%27"><span class="hs-identifier hs-var">categoryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:submittedBy:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AsubmittedBy%3ACaseDetails%27"><span class="hs-identifier hs-var">submittedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:subject:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Asubject%3ACaseDetails%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:ccEmailAddresses:CaseDetails' :: Maybe [Text]
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AccEmailAddresses%3ACaseDetails%27"><span class="hs-identifier hs-var">ccEmailAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:severityCode:CaseDetails' :: Maybe Text
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:severityCode:CaseDetails' :: Maybe Text
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AseverityCode%3ACaseDetails%27"><span class="hs-identifier hs-var">severityCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeCreated:CaseDetails' :: Maybe Text
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:caseId:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AcaseId%3ACaseDetails%27"><span class="hs-identifier hs-var">caseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:ccEmailAddresses:CaseDetails' :: Maybe [Text]
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AccEmailAddresses%3ACaseDetails%27"><span class="hs-identifier hs-var">ccEmailAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayId:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AdisplayId%3ACaseDetails%27"><span class="hs-identifier hs-var">displayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:submittedBy:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AsubmittedBy%3ACaseDetails%27"><span class="hs-identifier hs-var">submittedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:language:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Alanguage%3ACaseDetails%27"><span class="hs-identifier hs-var">language</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeCreated:CaseDetails' :: Maybe Text
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AtimeCreated%3ACaseDetails%27"><span class="hs-identifier hs-var">timeCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:language:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Alanguage%3ACaseDetails%27"><span class="hs-identifier hs-var">language</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:categoryCode:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AcategoryCode%3ACaseDetails%27"><span class="hs-identifier hs-var">categoryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceCode:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AserviceCode%3ACaseDetails%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- | The ID displayed for the case in the AWS Support Center. This is a</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- numeric string.</span><span>
-</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_displayId"><span class="hs-identifier hs-type">caseDetails_displayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span id="caseDetails_displayId"><span class="annot"><span class="annottext">caseDetails_displayId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_displayId"><span class="hs-identifier hs-var hs-var">caseDetails_displayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
+</span><span id="line-212"></span><span class="hs-comment">-- | The subject line for the case in the AWS Support Center.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_subject"><span class="hs-identifier hs-type">caseDetails_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="caseDetails_subject"><span class="annot"><span class="annottext">caseDetails_subject :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_subject"><span class="hs-identifier hs-var hs-var">caseDetails_subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
 -&gt; (CaseDetails -&gt; Maybe Text -&gt; CaseDetails)
 -&gt; Lens CaseDetails CaseDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170948"><span class="annot"><span class="annottext">Maybe Text
-displayId :: Maybe Text
-$sel:displayId:CaseDetails' :: CaseDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679170948"><span class="hs-identifier hs-var hs-var">displayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170948"><span class="hs-identifier hs-var">displayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170947"><span class="annot"><span class="annottext">s :: CaseDetails
-</span><a href="#local-6989586621679170947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170946"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
-</span><a href="#local-6989586621679170947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayId:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AdisplayId%3ACaseDetails%27"><span class="hs-identifier hs-var">displayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- | The status of the case.</span><span>
-</span><span id="line-218"></span><span class="hs-comment">--</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- Valid values:</span><span>
-</span><span id="line-220"></span><span class="hs-comment">--</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- -   @opened@</span><span>
-</span><span id="line-222"></span><span class="hs-comment">--</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- -   @pending-customer-action@</span><span>
-</span><span id="line-224"></span><span class="hs-comment">--</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- -   @reopened@</span><span>
-</span><span id="line-226"></span><span class="hs-comment">--</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- -   @resolved@</span><span>
-</span><span id="line-228"></span><span class="hs-comment">--</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- -   @unassigned@</span><span>
-</span><span id="line-230"></span><span class="hs-comment">--</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- -   @work-in-progress@</span><span>
-</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_status"><span class="hs-identifier hs-type">caseDetails_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-233"></span><span id="caseDetails_status"><span class="annot"><span class="annottext">caseDetails_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171036"><span class="annot"><span class="annottext">Maybe Text
+subject :: Maybe Text
+$sel:subject:CaseDetails' :: CaseDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679171036"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171036"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171035"><span class="annot"><span class="annottext">s :: CaseDetails
+</span><a href="#local-6989586621679171035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171034"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
+</span><a href="#local-6989586621679171035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Asubject%3ACaseDetails%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The status of the case.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Valid values:</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- -   @opened@</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- -   @pending-customer-action@</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- -   @reopened@</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- -   @resolved@</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- -   @unassigned@</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- -   @work-in-progress@</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_status"><span class="hs-identifier hs-type">caseDetails_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="caseDetails_status"><span class="annot"><span class="annottext">caseDetails_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_status"><span class="hs-identifier hs-var hs-var">caseDetails_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
 -&gt; (CaseDetails -&gt; Maybe Text -&gt; CaseDetails)
 -&gt; Lens CaseDetails CaseDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170944"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171032"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:CaseDetails' :: CaseDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679170944"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170944"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170943"><span class="annot"><span class="annottext">s :: CaseDetails
-</span><a href="#local-6989586621679170943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170942"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
-</span><a href="#local-6989586621679170943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CaseDetails' :: Maybe Text
+</span><a href="#local-6989586621679171032"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171032"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171031"><span class="annot"><span class="annottext">s :: CaseDetails
+</span><a href="#local-6989586621679171031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171030"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
+</span><a href="#local-6989586621679171031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CaseDetails' :: Maybe Text
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Astatus%3ACaseDetails%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- | The support case ID requested or returned in the call. The case ID is an</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- alphanumeric string formatted as shown in this example:</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- case-/12345678910-2013-c4c1d2bf33c5cf47/</span><span>
-</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_caseId"><span class="hs-identifier hs-type">caseDetails_caseId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-239"></span><span id="caseDetails_caseId"><span class="annot"><span class="annottext">caseDetails_caseId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_caseId"><span class="hs-identifier hs-var hs-var">caseDetails_caseId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
--&gt; (CaseDetails -&gt; Maybe Text -&gt; CaseDetails)
--&gt; Lens CaseDetails CaseDetails (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170940"><span class="annot"><span class="annottext">Maybe Text
-caseId :: Maybe Text
-$sel:caseId:CaseDetails' :: CaseDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679170940"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170940"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170939"><span class="annot"><span class="annottext">s :: CaseDetails
-</span><a href="#local-6989586621679170939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170938"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
-</span><a href="#local-6989586621679170939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseId:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AcaseId%3ACaseDetails%27"><span class="hs-identifier hs-var">caseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-240"></span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- | The five most recent communications between you and AWS Support Center,</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- including the IDs of any attachments to the communications. Also</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- includes a @nextToken@ that you can use to retrieve earlier</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- communications.</span><span>
-</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_recentCommunications"><span class="hs-identifier hs-type">caseDetails_recentCommunications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.RecentCaseCommunications.html#RecentCaseCommunications"><span class="hs-identifier hs-type">RecentCaseCommunications</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span id="caseDetails_recentCommunications"><span class="annot"><span class="annottext">caseDetails_recentCommunications :: (Maybe RecentCaseCommunications
+</span><a href="#local-6989586621679171030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The five most recent communications between you and AWS Support Center,</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- including the IDs of any attachments to the communications. Also</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- includes a @nextToken@ that you can use to retrieve earlier</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- communications.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_recentCommunications"><span class="hs-identifier hs-type">caseDetails_recentCommunications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.RecentCaseCommunications.html#RecentCaseCommunications"><span class="hs-identifier hs-type">RecentCaseCommunications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="caseDetails_recentCommunications"><span class="annot"><span class="annottext">caseDetails_recentCommunications :: (Maybe RecentCaseCommunications
  -&gt; f (Maybe RecentCaseCommunications))
 -&gt; CaseDetails -&gt; f CaseDetails
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_recentCommunications"><span class="hs-identifier hs-var hs-var">caseDetails_recentCommunications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe RecentCaseCommunications)
@@ -410,107 +389,73 @@ $sel:caseId:CaseDetails' :: CaseDetails -&gt; Maybe Text
      (Maybe RecentCaseCommunications)
      (Maybe RecentCaseCommunications)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170936"><span class="annot"><span class="annottext">Maybe RecentCaseCommunications
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171028"><span class="annot"><span class="annottext">Maybe RecentCaseCommunications
 recentCommunications :: Maybe RecentCaseCommunications
 $sel:recentCommunications:CaseDetails' :: CaseDetails -&gt; Maybe RecentCaseCommunications
-</span><a href="#local-6989586621679170936"><span class="hs-identifier hs-var hs-var">recentCommunications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecentCaseCommunications
-</span><a href="#local-6989586621679170936"><span class="hs-identifier hs-var">recentCommunications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170935"><span class="annot"><span class="annottext">s :: CaseDetails
-</span><a href="#local-6989586621679170935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170934"><span class="annot"><span class="annottext">Maybe RecentCaseCommunications
-</span><a href="#local-6989586621679170934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
-</span><a href="#local-6989586621679170935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recentCommunications:CaseDetails' :: Maybe RecentCaseCommunications
+</span><a href="#local-6989586621679171028"><span class="hs-identifier hs-var hs-var">recentCommunications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RecentCaseCommunications
+</span><a href="#local-6989586621679171028"><span class="hs-identifier hs-var">recentCommunications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171027"><span class="annot"><span class="annottext">s :: CaseDetails
+</span><a href="#local-6989586621679171027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171026"><span class="annot"><span class="annottext">Maybe RecentCaseCommunications
+</span><a href="#local-6989586621679171026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
+</span><a href="#local-6989586621679171027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recentCommunications:CaseDetails' :: Maybe RecentCaseCommunications
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3ArecentCommunications%3ACaseDetails%27"><span class="hs-identifier hs-var">recentCommunications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RecentCaseCommunications
-</span><a href="#local-6989586621679170934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- | The code for the AWS service. You can get a list of codes and the</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- corresponding service names by calling DescribeServices.</span><span>
-</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_serviceCode"><span class="hs-identifier hs-type">caseDetails_serviceCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-251"></span><span id="caseDetails_serviceCode"><span class="annot"><span class="annottext">caseDetails_serviceCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_serviceCode"><span class="hs-identifier hs-var hs-var">caseDetails_serviceCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
+</span><a href="#local-6989586621679171026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | The code for the severity level returned by the call to</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- DescribeSeverityLevels.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_severityCode"><span class="hs-identifier hs-type">caseDetails_severityCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="caseDetails_severityCode"><span class="annot"><span class="annottext">caseDetails_severityCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_severityCode"><span class="hs-identifier hs-var hs-var">caseDetails_severityCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
 -&gt; (CaseDetails -&gt; Maybe Text -&gt; CaseDetails)
 -&gt; Lens CaseDetails CaseDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170932"><span class="annot"><span class="annottext">Maybe Text
-serviceCode :: Maybe Text
-$sel:serviceCode:CaseDetails' :: CaseDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679170932"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170932"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170931"><span class="annot"><span class="annottext">s :: CaseDetails
-</span><a href="#local-6989586621679170931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170930"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
-</span><a href="#local-6989586621679170931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AserviceCode%3ACaseDetails%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- | The category of problem for the support case.</span><span>
-</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_categoryCode"><span class="hs-identifier hs-type">caseDetails_categoryCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span id="caseDetails_categoryCode"><span class="annot"><span class="annottext">caseDetails_categoryCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_categoryCode"><span class="hs-identifier hs-var hs-var">caseDetails_categoryCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171024"><span class="annot"><span class="annottext">Maybe Text
+severityCode :: Maybe Text
+$sel:severityCode:CaseDetails' :: CaseDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679171024"><span class="hs-identifier hs-var hs-var">severityCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171024"><span class="hs-identifier hs-var">severityCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171023"><span class="annot"><span class="annottext">s :: CaseDetails
+</span><a href="#local-6989586621679171023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171022"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
+</span><a href="#local-6989586621679171023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severityCode:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AseverityCode%3ACaseDetails%27"><span class="hs-identifier hs-var">severityCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The support case ID requested or returned in the call. The case ID is an</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- alphanumeric string formatted as shown in this example:</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- case-/12345678910-2013-c4c1d2bf33c5cf47/</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_caseId"><span class="hs-identifier hs-type">caseDetails_caseId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span id="caseDetails_caseId"><span class="annot"><span class="annottext">caseDetails_caseId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_caseId"><span class="hs-identifier hs-var hs-var">caseDetails_caseId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
 -&gt; (CaseDetails -&gt; Maybe Text -&gt; CaseDetails)
 -&gt; Lens CaseDetails CaseDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170928"><span class="annot"><span class="annottext">Maybe Text
-categoryCode :: Maybe Text
-$sel:categoryCode:CaseDetails' :: CaseDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679170928"><span class="hs-identifier hs-var hs-var">categoryCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170928"><span class="hs-identifier hs-var">categoryCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170927"><span class="annot"><span class="annottext">s :: CaseDetails
-</span><a href="#local-6989586621679170927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170926"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
-</span><a href="#local-6989586621679170927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categoryCode:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AcategoryCode%3ACaseDetails%27"><span class="hs-identifier hs-var">categoryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- | The email address of the account that submitted the case.</span><span>
-</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_submittedBy"><span class="hs-identifier hs-type">caseDetails_submittedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-259"></span><span id="caseDetails_submittedBy"><span class="annot"><span class="annottext">caseDetails_submittedBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_submittedBy"><span class="hs-identifier hs-var hs-var">caseDetails_submittedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
--&gt; (CaseDetails -&gt; Maybe Text -&gt; CaseDetails)
--&gt; Lens CaseDetails CaseDetails (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170924"><span class="annot"><span class="annottext">Maybe Text
-submittedBy :: Maybe Text
-$sel:submittedBy:CaseDetails' :: CaseDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679170924"><span class="hs-identifier hs-var hs-var">submittedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170924"><span class="hs-identifier hs-var">submittedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170923"><span class="annot"><span class="annottext">s :: CaseDetails
-</span><a href="#local-6989586621679170923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170922"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
-</span><a href="#local-6989586621679170923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submittedBy:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AsubmittedBy%3ACaseDetails%27"><span class="hs-identifier hs-var">submittedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-260"></span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- | The subject line for the case in the AWS Support Center.</span><span>
-</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_subject"><span class="hs-identifier hs-type">caseDetails_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-263"></span><span id="caseDetails_subject"><span class="annot"><span class="annottext">caseDetails_subject :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_subject"><span class="hs-identifier hs-var hs-var">caseDetails_subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
--&gt; (CaseDetails -&gt; Maybe Text -&gt; CaseDetails)
--&gt; Lens CaseDetails CaseDetails (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170920"><span class="annot"><span class="annottext">Maybe Text
-subject :: Maybe Text
-$sel:subject:CaseDetails' :: CaseDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679170920"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170920"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170919"><span class="annot"><span class="annottext">s :: CaseDetails
-</span><a href="#local-6989586621679170919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170918"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
-</span><a href="#local-6989586621679170919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Asubject%3ACaseDetails%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-comment">-- | The email addresses that receive copies of communication about the case.</span><span>
-</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_ccEmailAddresses"><span class="hs-identifier hs-type">caseDetails_ccEmailAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-267"></span><span id="caseDetails_ccEmailAddresses"><span class="annot"><span class="annottext">caseDetails_ccEmailAddresses :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CaseDetails -&gt; f CaseDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171020"><span class="annot"><span class="annottext">Maybe Text
+caseId :: Maybe Text
+$sel:caseId:CaseDetails' :: CaseDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679171020"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171020"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171019"><span class="annot"><span class="annottext">s :: CaseDetails
+</span><a href="#local-6989586621679171019"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171018"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171018"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
+</span><a href="#local-6989586621679171019"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseId:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AcaseId%3ACaseDetails%27"><span class="hs-identifier hs-var">caseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171018"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The email addresses that receive copies of communication about the case.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_ccEmailAddresses"><span class="hs-identifier hs-type">caseDetails_ccEmailAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="caseDetails_ccEmailAddresses"><span class="annot"><span class="annottext">caseDetails_ccEmailAddresses :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; CaseDetails -&gt; f CaseDetails
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_ccEmailAddresses"><span class="hs-identifier hs-var hs-var">caseDetails_ccEmailAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe [Text])
 -&gt; (CaseDetails -&gt; Maybe [Text] -&gt; CaseDetails)
 -&gt; Lens CaseDetails CaseDetails (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170916"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171016"><span class="annot"><span class="annottext">Maybe [Text]
 ccEmailAddresses :: Maybe [Text]
 $sel:ccEmailAddresses:CaseDetails' :: CaseDetails -&gt; Maybe [Text]
-</span><a href="#local-6989586621679170916"><span class="hs-identifier hs-var hs-var">ccEmailAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679170916"><span class="hs-identifier hs-var">ccEmailAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170915"><span class="annot"><span class="annottext">s :: CaseDetails
-</span><a href="#local-6989586621679170915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170914"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679170914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
-</span><a href="#local-6989586621679170915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ccEmailAddresses:CaseDetails' :: Maybe [Text]
+</span><a href="#local-6989586621679171016"><span class="hs-identifier hs-var hs-var">ccEmailAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679171016"><span class="hs-identifier hs-var">ccEmailAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171015"><span class="annot"><span class="annottext">s :: CaseDetails
+</span><a href="#local-6989586621679171015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171014"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679171014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
+</span><a href="#local-6989586621679171015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ccEmailAddresses:CaseDetails' :: Maybe [Text]
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AccEmailAddresses%3ACaseDetails%27"><span class="hs-identifier hs-var">ccEmailAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679170914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679171014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; CaseDetails -&gt; f CaseDetails)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -524,69 +469,124 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-268"></span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- | The code for the severity level returned by the call to</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- DescribeSeverityLevels.</span><span>
-</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_severityCode"><span class="hs-identifier hs-type">caseDetails_severityCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-272"></span><span id="caseDetails_severityCode"><span class="annot"><span class="annottext">caseDetails_severityCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_severityCode"><span class="hs-identifier hs-var hs-var">caseDetails_severityCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The ID displayed for the case in the AWS Support Center. This is a</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- numeric string.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_displayId"><span class="hs-identifier hs-type">caseDetails_displayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="caseDetails_displayId"><span class="annot"><span class="annottext">caseDetails_displayId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_displayId"><span class="hs-identifier hs-var hs-var">caseDetails_displayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
 -&gt; (CaseDetails -&gt; Maybe Text -&gt; CaseDetails)
 -&gt; Lens CaseDetails CaseDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170909"><span class="annot"><span class="annottext">Maybe Text
-severityCode :: Maybe Text
-$sel:severityCode:CaseDetails' :: CaseDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679170909"><span class="hs-identifier hs-var hs-var">severityCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170909"><span class="hs-identifier hs-var">severityCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170908"><span class="annot"><span class="annottext">s :: CaseDetails
-</span><a href="#local-6989586621679170908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170907"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
-</span><a href="#local-6989586621679170908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severityCode:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AseverityCode%3ACaseDetails%27"><span class="hs-identifier hs-var">severityCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-273"></span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- | The time that the case was created in the AWS Support Center.</span><span>
-</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_timeCreated"><span class="hs-identifier hs-type">caseDetails_timeCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-276"></span><span id="caseDetails_timeCreated"><span class="annot"><span class="annottext">caseDetails_timeCreated :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_timeCreated"><span class="hs-identifier hs-var hs-var">caseDetails_timeCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171009"><span class="annot"><span class="annottext">Maybe Text
+displayId :: Maybe Text
+$sel:displayId:CaseDetails' :: CaseDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679171009"><span class="hs-identifier hs-var hs-var">displayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171009"><span class="hs-identifier hs-var">displayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171008"><span class="annot"><span class="annottext">s :: CaseDetails
+</span><a href="#local-6989586621679171008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171007"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
+</span><a href="#local-6989586621679171008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayId:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AdisplayId%3ACaseDetails%27"><span class="hs-identifier hs-var">displayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The email address of the account that submitted the case.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_submittedBy"><span class="hs-identifier hs-type">caseDetails_submittedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="caseDetails_submittedBy"><span class="annot"><span class="annottext">caseDetails_submittedBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_submittedBy"><span class="hs-identifier hs-var hs-var">caseDetails_submittedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
 -&gt; (CaseDetails -&gt; Maybe Text -&gt; CaseDetails)
 -&gt; Lens CaseDetails CaseDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170905"><span class="annot"><span class="annottext">Maybe Text
-timeCreated :: Maybe Text
-$sel:timeCreated:CaseDetails' :: CaseDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679170905"><span class="hs-identifier hs-var hs-var">timeCreated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170905"><span class="hs-identifier hs-var">timeCreated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170904"><span class="annot"><span class="annottext">s :: CaseDetails
-</span><a href="#local-6989586621679170904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170903"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
-</span><a href="#local-6989586621679170904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeCreated:CaseDetails' :: Maybe Text
-</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AtimeCreated%3ACaseDetails%27"><span class="hs-identifier hs-var">timeCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-277"></span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- | The ISO 639-1 code for the language in which AWS provides support. AWS</span><span>
-</span><span id="line-279"></span><span class="hs-comment">-- Support currently supports English (\&quot;en\&quot;) and Japanese (\&quot;ja\&quot;).</span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- Language parameters must be passed explicitly for operations that take</span><span>
-</span><span id="line-281"></span><span class="hs-comment">-- them.</span><span>
-</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_language"><span class="hs-identifier hs-type">caseDetails_language</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-283"></span><span id="caseDetails_language"><span class="annot"><span class="annottext">caseDetails_language :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171005"><span class="annot"><span class="annottext">Maybe Text
+submittedBy :: Maybe Text
+$sel:submittedBy:CaseDetails' :: CaseDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679171005"><span class="hs-identifier hs-var hs-var">submittedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171005"><span class="hs-identifier hs-var">submittedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171004"><span class="annot"><span class="annottext">s :: CaseDetails
+</span><a href="#local-6989586621679171004"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679171003"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171003"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
+</span><a href="#local-6989586621679171004"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:submittedBy:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AsubmittedBy%3ACaseDetails%27"><span class="hs-identifier hs-var">submittedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171003"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The ISO 639-1 code for the language in which AWS provides support. AWS</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- Support currently supports English (\&quot;en\&quot;) and Japanese (\&quot;ja\&quot;).</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- Language parameters must be passed explicitly for operations that take</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- them.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_language"><span class="hs-identifier hs-type">caseDetails_language</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="caseDetails_language"><span class="annot"><span class="annottext">caseDetails_language :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_language"><span class="hs-identifier hs-var hs-var">caseDetails_language</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
 -&gt; (CaseDetails -&gt; Maybe Text -&gt; CaseDetails)
 -&gt; Lens CaseDetails CaseDetails (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170901"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679171001"><span class="annot"><span class="annottext">Maybe Text
 language :: Maybe Text
 $sel:language:CaseDetails' :: CaseDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679170901"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170901"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170900"><span class="annot"><span class="annottext">s :: CaseDetails
-</span><a href="#local-6989586621679170900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170899"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
-</span><a href="#local-6989586621679170900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:language:CaseDetails' :: Maybe Text
+</span><a href="#local-6989586621679171001"><span class="hs-identifier hs-var hs-var">language</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679171001"><span class="hs-identifier hs-var">language</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679171000"><span class="annot"><span class="annottext">s :: CaseDetails
+</span><a href="#local-6989586621679171000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170999"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
+</span><a href="#local-6989586621679171000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:language:CaseDetails' :: Maybe Text
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3Alanguage%3ACaseDetails%27"><span class="hs-identifier hs-var">language</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679170899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679170999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The time that the case was created in the AWS Support Center.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_timeCreated"><span class="hs-identifier hs-type">caseDetails_timeCreated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="caseDetails_timeCreated"><span class="annot"><span class="annottext">caseDetails_timeCreated :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_timeCreated"><span class="hs-identifier hs-var hs-var">caseDetails_timeCreated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
+-&gt; (CaseDetails -&gt; Maybe Text -&gt; CaseDetails)
+-&gt; Lens CaseDetails CaseDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170997"><span class="annot"><span class="annottext">Maybe Text
+timeCreated :: Maybe Text
+$sel:timeCreated:CaseDetails' :: CaseDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679170997"><span class="hs-identifier hs-var hs-var">timeCreated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170997"><span class="hs-identifier hs-var">timeCreated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170996"><span class="annot"><span class="annottext">s :: CaseDetails
+</span><a href="#local-6989586621679170996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170995"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
+</span><a href="#local-6989586621679170996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeCreated:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AtimeCreated%3ACaseDetails%27"><span class="hs-identifier hs-var">timeCreated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | The category of problem for the support case.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_categoryCode"><span class="hs-identifier hs-type">caseDetails_categoryCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="caseDetails_categoryCode"><span class="annot"><span class="annottext">caseDetails_categoryCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_categoryCode"><span class="hs-identifier hs-var hs-var">caseDetails_categoryCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
+-&gt; (CaseDetails -&gt; Maybe Text -&gt; CaseDetails)
+-&gt; Lens CaseDetails CaseDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170993"><span class="annot"><span class="annottext">Maybe Text
+categoryCode :: Maybe Text
+$sel:categoryCode:CaseDetails' :: CaseDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679170993"><span class="hs-identifier hs-var hs-var">categoryCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170993"><span class="hs-identifier hs-var">categoryCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170992"><span class="annot"><span class="annottext">s :: CaseDetails
+</span><a href="#local-6989586621679170992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170991"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
+</span><a href="#local-6989586621679170992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:categoryCode:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AcategoryCode%3ACaseDetails%27"><span class="hs-identifier hs-var">categoryCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | The code for the AWS service. You can get a list of codes and the</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- corresponding service names by calling DescribeServices.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_serviceCode"><span class="hs-identifier hs-type">caseDetails_serviceCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="caseDetails_serviceCode"><span class="annot"><span class="annottext">caseDetails_serviceCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CaseDetails -&gt; f CaseDetails
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#caseDetails_serviceCode"><span class="hs-identifier hs-var hs-var">caseDetails_serviceCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CaseDetails -&gt; Maybe Text)
+-&gt; (CaseDetails -&gt; Maybe Text -&gt; CaseDetails)
+-&gt; Lens CaseDetails CaseDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679170989"><span class="annot"><span class="annottext">Maybe Text
+serviceCode :: Maybe Text
+$sel:serviceCode:CaseDetails' :: CaseDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679170989"><span class="hs-identifier hs-var hs-var">serviceCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170989"><span class="hs-identifier hs-var">serviceCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679170988"><span class="annot"><span class="annottext">s :: CaseDetails
+</span><a href="#local-6989586621679170988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-type">CaseDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679170987"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CaseDetails
+</span><a href="#local-6989586621679170988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceCode:CaseDetails' :: Maybe Text
+</span><a href="Network.AWS.Support.Types.CaseDetails.html#%24sel%3AserviceCode%3ACaseDetails%27"><span class="hs-identifier hs-var">serviceCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679170987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
-</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170896"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-286"></span><span>  </span><span id="local-6989586621679170894"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CaseDetails
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170984"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621679170982"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CaseDetails
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-287"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CaseDetails) -&gt; Value -&gt; Parser CaseDetails
@@ -594,17 +594,17 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-288"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CaseDetails&quot;</span></span><span>
-</span><span id="line-289"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170891"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-289"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679170979"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170979"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-290"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe RecentCaseCommunications
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -612,13 +612,13 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails%27"><span class="hs-identifier hs-var">CaseDetails'</span></a></span><span>
 </span><span id="line-291"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe RecentCaseCommunications
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
@@ -626,63 +626,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe RecentCaseCommunications
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; CaseDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679170979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;displayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;subject&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-292"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe RecentCaseCommunications
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe [Text]
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; CaseDetails)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe RecentCaseCommunications
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; CaseDetails)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-293"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe RecentCaseCommunications
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
@@ -692,26 +661,28 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe RecentCaseCommunications
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; CaseDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679170979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;caseId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe RecentCaseCommunications
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
@@ -720,94 +691,54 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; CaseDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RecentCaseCommunications)
+</span><a href="#local-6989586621679170979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RecentCaseCommunications)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;recentCommunications&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; CaseDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; CaseDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;severityCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-295"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe [Text]
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; CaseDetails)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; CaseDetails)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;serviceCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-296"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; CaseDetails)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; CaseDetails)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;categoryCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-297"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe [Text]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; CaseDetails)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe [Text]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; CaseDetails)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;submittedBy&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-298"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe [Text]
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
@@ -815,59 +746,128 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe [Text]
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CaseDetails)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; CaseDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679170979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;subject&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-299"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;caseId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [Text]
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CaseDetails)
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; CaseDetails)
 -&gt; Parser (Maybe [Text])
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CaseDetails)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; CaseDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679170979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ccEmailAddresses&quot;</span></span><span>
-</span><span id="line-300"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+</span><span id="line-297"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
 -&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-301"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; CaseDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; CaseDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;displayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; CaseDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CaseDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;submittedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CaseDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CaseDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679170979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;language&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; CaseDetails)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; CaseDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679170979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;severityCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;timeCreated&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-303"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; CaseDetails)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; CaseDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679170979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;timeCreated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;categoryCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; CaseDetails)
 -&gt; Parser (Maybe Text) -&gt; Parser CaseDetails
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679170891"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679170979"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;language&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;serviceCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-305"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-306"></span><span>
-</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170884"><span id="local-6989586621679170886"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span></span></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170972"><span id="local-6989586621679170974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span></span></span><span>
 </span><span id="line-308"></span><span>
-</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170881"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679170969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.CaseDetails.html#CaseDetails"><span class="hs-identifier hs-type">CaseDetails</span></a></span></span><span>
 </span><span id="line-310"></span></pre></body></html>

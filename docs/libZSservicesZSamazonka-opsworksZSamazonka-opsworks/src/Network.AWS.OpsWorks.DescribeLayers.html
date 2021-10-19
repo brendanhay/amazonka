@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDescribeLayers' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679388412"><span id="local-6989586621679388413"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLayers"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-var">DescribeLayers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLayers%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers%27"><span class="hs-identifier hs-var">DescribeLayers'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679388829"><span id="local-6989586621679388830"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLayers"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-var">DescribeLayers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLayers%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers%27"><span class="hs-identifier hs-var">DescribeLayers'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of layer IDs that specify the layers to be described. If you</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- omit this parameter, @DescribeLayers@ returns a description of every</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- layer in the specified stack.</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AstackId%3ADescribeLayers%27"><span class="annot"><span class="annottext">DescribeLayers -&gt; Maybe Text
 </span><a href="Network.AWS.OpsWorks.DescribeLayers.html#%24sel%3AstackId%3ADescribeLayers%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388405"><span id="local-6989586621679388407"><span class="annot"><span class="annottext">DescribeLayers -&gt; DescribeLayers -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388822"><span id="local-6989586621679388824"><span class="annot"><span class="annottext">DescribeLayers -&gt; DescribeLayers -&gt; Bool
 (DescribeLayers -&gt; DescribeLayers -&gt; Bool)
 -&gt; (DescribeLayers -&gt; DescribeLayers -&gt; Bool) -&gt; Eq DescribeLayers
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeLayers -&gt; DescribeLayers -&gt; Bool
 == :: DescribeLayers -&gt; DescribeLayers -&gt; Bool
 $c== :: DescribeLayers -&gt; DescribeLayers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388396"><span id="local-6989586621679388398"><span id="local-6989586621679388400"><span id="local-6989586621679388402"><span class="annot"><span class="annottext">ReadPrec [DescribeLayers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388813"><span id="local-6989586621679388815"><span id="local-6989586621679388817"><span id="local-6989586621679388819"><span class="annot"><span class="annottext">ReadPrec [DescribeLayers]
 ReadPrec DescribeLayers
 Int -&gt; ReadS DescribeLayers
 ReadS [DescribeLayers]
@@ -94,7 +94,7 @@ readList :: ReadS [DescribeLayers]
 $creadList :: ReadS [DescribeLayers]
 readsPrec :: Int -&gt; ReadS DescribeLayers
 $creadsPrec :: Int -&gt; ReadS DescribeLayers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388389"><span id="local-6989586621679388391"><span id="local-6989586621679388393"><span class="annot"><span class="annottext">Int -&gt; DescribeLayers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388806"><span id="local-6989586621679388808"><span id="local-6989586621679388810"><span class="annot"><span class="annottext">Int -&gt; DescribeLayers -&gt; ShowS
 [DescribeLayers] -&gt; ShowS
 DescribeLayers -&gt; String
 (Int -&gt; DescribeLayers -&gt; ShowS)
@@ -159,16 +159,16 @@ forall a. Maybe a
 -&gt; (DescribeLayers -&gt; Maybe [Text] -&gt; DescribeLayers)
 -&gt; Lens DescribeLayers DescribeLayers (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers%27"><span class="hs-identifier hs-type">DescribeLayers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388382"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers%27"><span class="hs-identifier hs-type">DescribeLayers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388799"><span class="annot"><span class="annottext">Maybe [Text]
 layerIds :: Maybe [Text]
 $sel:layerIds:DescribeLayers' :: DescribeLayers -&gt; Maybe [Text]
-</span><a href="#local-6989586621679388382"><span class="hs-identifier hs-var hs-var">layerIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388382"><span class="hs-identifier hs-var">layerIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388381"><span class="annot"><span class="annottext">s :: DescribeLayers
-</span><a href="#local-6989586621679388381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers%27"><span class="hs-identifier hs-type">DescribeLayers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388380"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLayers
-</span><a href="#local-6989586621679388381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerIds:DescribeLayers' :: Maybe [Text]
+</span><a href="#local-6989586621679388799"><span class="hs-identifier hs-var hs-var">layerIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679388799"><span class="hs-identifier hs-var">layerIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388798"><span class="annot"><span class="annottext">s :: DescribeLayers
+</span><a href="#local-6989586621679388798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers%27"><span class="hs-identifier hs-type">DescribeLayers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388797"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679388797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLayers
+</span><a href="#local-6989586621679388798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerIds:DescribeLayers' :: Maybe [Text]
 </span><a href="Network.AWS.OpsWorks.DescribeLayers.html#%24sel%3AlayerIds%3ADescribeLayers%27"><span class="hs-identifier hs-var">layerIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679388797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeLayers -&gt; f DescribeLayers)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -182,8 +182,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | The stack ID.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#describeLayers_stackId"><span class="hs-identifier hs-type">describeLayers_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -193,27 +193,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DescribeLayers -&gt; Maybe Text -&gt; DescribeLayers)
 -&gt; Lens DescribeLayers DescribeLayers (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers%27"><span class="hs-identifier hs-type">DescribeLayers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388376"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers%27"><span class="hs-identifier hs-type">DescribeLayers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388793"><span class="annot"><span class="annottext">Maybe Text
 stackId :: Maybe Text
 $sel:stackId:DescribeLayers' :: DescribeLayers -&gt; Maybe Text
-</span><a href="#local-6989586621679388376"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388376"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388375"><span class="annot"><span class="annottext">s :: DescribeLayers
-</span><a href="#local-6989586621679388375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers%27"><span class="hs-identifier hs-type">DescribeLayers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388374"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLayers
-</span><a href="#local-6989586621679388375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:DescribeLayers' :: Maybe Text
+</span><a href="#local-6989586621679388793"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388793"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388792"><span class="annot"><span class="annottext">s :: DescribeLayers
+</span><a href="#local-6989586621679388792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers%27"><span class="hs-identifier hs-type">DescribeLayers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388791"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLayers
+</span><a href="#local-6989586621679388792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:DescribeLayers' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.DescribeLayers.html#%24sel%3AstackId%3ADescribeLayers%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse"><span class="hs-identifier hs-type">DescribeLayersResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679388370"><span class="annot"><span class="annottext">request :: DescribeLayers -&gt; Request DescribeLayers
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679388787"><span class="annot"><span class="annottext">request :: DescribeLayers -&gt; Request DescribeLayers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeLayers -&gt; Request DescribeLayers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679388366"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679388783"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeLayers
 -&gt; ClientResponse ClientBody
@@ -237,10 +237,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388363"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388363"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388362"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679388362"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388361"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388361"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388780"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388780"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388779"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388779"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388778"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388778"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Layer] -&gt; Int -&gt; DescribeLayersResponse
 </span><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse%27"><span class="hs-identifier hs-var">DescribeLayersResponse'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Layer] -&gt; Int -&gt; DescribeLayersResponse)
@@ -248,7 +248,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeLayersResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679388361"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Layer]))
+</span><a href="#local-6989586621679388778"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Layer]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Layers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Layer]))
@@ -265,15 +265,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388363"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388780"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388352"><span id="local-6989586621679388354"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388769"><span id="local-6989586621679388771"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388766"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679388345"><span class="annot"><span class="annottext">toHeaders :: DescribeLayers -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679388762"><span class="annot"><span class="annottext">toHeaders :: DescribeLayers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeLayers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -300,15 +300,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-129"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388335"><span id="local-6989586621679388337"><span id="local-6989586621679388339"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679388333"><span class="annot"><span class="annottext">toJSON :: DescribeLayers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers%27"><span class="hs-identifier hs-type">DescribeLayers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388330"><span id="local-6989586621679388331"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388752"><span id="local-6989586621679388754"><span id="local-6989586621679388756"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679388750"><span class="annot"><span class="annottext">toJSON :: DescribeLayers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers%27"><span class="hs-identifier hs-type">DescribeLayers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388747"><span id="local-6989586621679388748"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
 stackId :: Maybe Text
 layerIds :: Maybe [Text]
 $sel:stackId:DescribeLayers' :: DescribeLayers -&gt; Maybe Text
 $sel:layerIds:DescribeLayers' :: DescribeLayers -&gt; Maybe [Text]
-</span><a href="#local-6989586621679388330"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679388747"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -320,26 +320,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679388331"><span class="hs-identifier hs-var">layerIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679388748"><span class="hs-identifier hs-var">layerIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679388330"><span class="hs-identifier hs-var">stackId</span></a></span><span>
+</span><a href="#local-6989586621679388747"><span class="hs-identifier hs-var">stackId</span></a></span><span>
 </span><span id="line-138"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679388324"><span class="annot"><span class="annottext">toPath :: DescribeLayers -&gt; ByteString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679388741"><span class="annot"><span class="annottext">toPath :: DescribeLayers -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeLayers -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayers"><span class="hs-identifier hs-type">DescribeLayers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679388320"><span class="annot"><span class="annottext">toQuery :: DescribeLayers -&gt; QueryString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679388737"><span class="annot"><span class="annottext">toQuery :: DescribeLayers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeLayers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -349,7 +349,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-147"></span><span class="hs-comment">-- | Contains the response to a @DescribeLayers@ request.</span><span>
 </span><span id="line-148"></span><span class="hs-comment">--</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- /See:/ 'newDescribeLayersResponse' smart constructor.</span><span>
-</span><span id="line-150"></span><span id="local-6989586621679388317"><span id="local-6989586621679388318"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLayersResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse"><span class="hs-identifier hs-var">DescribeLayersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLayersResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse%27"><span class="hs-identifier hs-var">DescribeLayersResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span id="local-6989586621679388734"><span id="local-6989586621679388735"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeLayersResponse"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse"><span class="hs-identifier hs-var">DescribeLayersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeLayersResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse%27"><span class="hs-identifier hs-var">DescribeLayersResponse'</span></a></span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @Layer@ objects that describe the layers.</span><span>
 </span><span id="line-152"></span><span>    </span><span id="%24sel%3Alayers%3ADescribeLayersResponse%27"><span class="annot"><span class="annottext">DescribeLayersResponse -&gt; Maybe [Layer]
 </span><a href="Network.AWS.OpsWorks.DescribeLayers.html#%24sel%3Alayers%3ADescribeLayersResponse%27"><span class="hs-identifier hs-var hs-var">layers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.OpsWorks.Types.Layer.html#Layer"><span class="hs-identifier hs-type">Layer</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -357,7 +357,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeLayersResponse%27"><span class="annot"><span class="annottext">DescribeLayersResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorks.DescribeLayers.html#%24sel%3AhttpStatus%3ADescribeLayersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388311"><span id="local-6989586621679388313"><span class="annot"><span class="annottext">DescribeLayersResponse -&gt; DescribeLayersResponse -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388728"><span id="local-6989586621679388730"><span class="annot"><span class="annottext">DescribeLayersResponse -&gt; DescribeLayersResponse -&gt; Bool
 (DescribeLayersResponse -&gt; DescribeLayersResponse -&gt; Bool)
 -&gt; (DescribeLayersResponse -&gt; DescribeLayersResponse -&gt; Bool)
 -&gt; Eq DescribeLayersResponse
@@ -366,7 +366,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeLayersResponse -&gt; DescribeLayersResponse -&gt; Bool
 == :: DescribeLayersResponse -&gt; DescribeLayersResponse -&gt; Bool
 $c== :: DescribeLayersResponse -&gt; DescribeLayersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388303"><span id="local-6989586621679388305"><span id="local-6989586621679388307"><span id="local-6989586621679388309"><span class="annot"><span class="annottext">ReadPrec [DescribeLayersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388720"><span id="local-6989586621679388722"><span id="local-6989586621679388724"><span id="local-6989586621679388726"><span class="annot"><span class="annottext">ReadPrec [DescribeLayersResponse]
 ReadPrec DescribeLayersResponse
 Int -&gt; ReadS DescribeLayersResponse
 ReadS [DescribeLayersResponse]
@@ -386,7 +386,7 @@ readList :: ReadS [DescribeLayersResponse]
 $creadList :: ReadS [DescribeLayersResponse]
 readsPrec :: Int -&gt; ReadS DescribeLayersResponse
 $creadsPrec :: Int -&gt; ReadS DescribeLayersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388297"><span id="local-6989586621679388299"><span id="local-6989586621679388301"><span class="annot"><span class="annottext">Int -&gt; DescribeLayersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388714"><span id="local-6989586621679388716"><span id="local-6989586621679388718"><span class="annot"><span class="annottext">Int -&gt; DescribeLayersResponse -&gt; ShowS
 [DescribeLayersResponse] -&gt; ShowS
 DescribeLayersResponse -&gt; String
 (Int -&gt; DescribeLayersResponse -&gt; ShowS)
@@ -429,8 +429,8 @@ $cfrom :: forall x. DescribeLayersResponse -&gt; Rep DescribeLayersResponse x
 </span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-172"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse"><span class="hs-identifier hs-type">DescribeLayersResponse</span></a></span><span>
 </span><span id="line-173"></span><span id="newDescribeLayersResponse"><span class="annot"><span class="annottext">newDescribeLayersResponse :: Int -&gt; DescribeLayersResponse
-</span><a href="Network.AWS.OpsWorks.DescribeLayers.html#newDescribeLayersResponse"><span class="hs-identifier hs-var hs-var">newDescribeLayersResponse</span></a></span></span><span> </span><span id="local-6989586621679388294"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388294"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.DescribeLayers.html#newDescribeLayersResponse"><span class="hs-identifier hs-var hs-var">newDescribeLayersResponse</span></a></span></span><span> </span><span id="local-6989586621679388711"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388711"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">DescribeLayersResponse' :: Maybe [Layer] -&gt; Int -&gt; DescribeLayersResponse
 </span><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse%27"><span class="hs-identifier hs-type">DescribeLayersResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:layers:DescribeLayersResponse' :: Maybe [Layer]
@@ -439,7 +439,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLayersResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribeLayers.html#%24sel%3AhttpStatus%3ADescribeLayersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388294"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679388711"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | An array of @Layer@ objects that describe the layers.</span><span>
@@ -455,16 +455,16 @@ forall a. Maybe a
      (Maybe [Layer])
      (Maybe [Layer])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse%27"><span class="hs-identifier hs-type">DescribeLayersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388293"><span class="annot"><span class="annottext">Maybe [Layer]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse%27"><span class="hs-identifier hs-type">DescribeLayersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388710"><span class="annot"><span class="annottext">Maybe [Layer]
 layers :: Maybe [Layer]
 $sel:layers:DescribeLayersResponse' :: DescribeLayersResponse -&gt; Maybe [Layer]
-</span><a href="#local-6989586621679388293"><span class="hs-identifier hs-var hs-var">layers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Layer]
-</span><a href="#local-6989586621679388293"><span class="hs-identifier hs-var">layers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388292"><span class="annot"><span class="annottext">s :: DescribeLayersResponse
-</span><a href="#local-6989586621679388292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse%27"><span class="hs-identifier hs-type">DescribeLayersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388291"><span class="annot"><span class="annottext">Maybe [Layer]
-</span><a href="#local-6989586621679388291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLayersResponse
-</span><a href="#local-6989586621679388292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layers:DescribeLayersResponse' :: Maybe [Layer]
+</span><a href="#local-6989586621679388710"><span class="hs-identifier hs-var hs-var">layers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Layer]
+</span><a href="#local-6989586621679388710"><span class="hs-identifier hs-var">layers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388709"><span class="annot"><span class="annottext">s :: DescribeLayersResponse
+</span><a href="#local-6989586621679388709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse%27"><span class="hs-identifier hs-type">DescribeLayersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388708"><span class="annot"><span class="annottext">Maybe [Layer]
+</span><a href="#local-6989586621679388708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLayersResponse
+</span><a href="#local-6989586621679388709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layers:DescribeLayersResponse' :: Maybe [Layer]
 </span><a href="Network.AWS.OpsWorks.DescribeLayers.html#%24sel%3Alayers%3ADescribeLayersResponse%27"><span class="hs-identifier hs-var">layers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Layer]
-</span><a href="#local-6989586621679388291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse"><span class="hs-identifier hs-type">DescribeLayersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Layer] -&gt; f (Maybe [Layer]))
+</span><a href="#local-6989586621679388708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse"><span class="hs-identifier hs-type">DescribeLayersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Layer] -&gt; f (Maybe [Layer]))
  -&gt; DescribeLayersResponse -&gt; f DescribeLayersResponse)
 -&gt; ((Maybe [Layer] -&gt; f (Maybe [Layer]))
     -&gt; Maybe [Layer] -&gt; f (Maybe [Layer]))
@@ -479,8 +479,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Layer] [Layer] [Layer] [Layer]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-184"></span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#describeLayersResponse_httpStatus"><span class="hs-identifier hs-type">describeLayersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse"><span class="hs-identifier hs-type">DescribeLayersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -490,16 +490,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DescribeLayersResponse -&gt; Int -&gt; DescribeLayersResponse)
 -&gt; Lens DescribeLayersResponse DescribeLayersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse%27"><span class="hs-identifier hs-type">DescribeLayersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388290"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse%27"><span class="hs-identifier hs-type">DescribeLayersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388707"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeLayersResponse' :: DescribeLayersResponse -&gt; Int
-</span><a href="#local-6989586621679388290"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388290"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388289"><span class="annot"><span class="annottext">s :: DescribeLayersResponse
-</span><a href="#local-6989586621679388289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse%27"><span class="hs-identifier hs-type">DescribeLayersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388288"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLayersResponse
-</span><a href="#local-6989586621679388289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLayersResponse' :: Int
+</span><a href="#local-6989586621679388707"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388707"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388706"><span class="annot"><span class="annottext">s :: DescribeLayersResponse
+</span><a href="#local-6989586621679388706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse%27"><span class="hs-identifier hs-type">DescribeLayersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388705"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeLayersResponse
+</span><a href="#local-6989586621679388706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeLayersResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.DescribeLayers.html#%24sel%3AhttpStatus%3ADescribeLayersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse"><span class="hs-identifier hs-type">DescribeLayersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679388705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse"><span class="hs-identifier hs-type">DescribeLayersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388286"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse"><span class="hs-identifier hs-type">DescribeLayersResponse</span></a></span></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.DescribeLayers.html#DescribeLayersResponse"><span class="hs-identifier hs-type">DescribeLayersResponse</span></a></span></span><span>
 </span><span id="line-188"></span></pre></body></html>

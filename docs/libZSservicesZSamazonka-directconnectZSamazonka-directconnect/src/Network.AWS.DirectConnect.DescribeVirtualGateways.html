@@ -47,10 +47,10 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDescribeVirtualGateways' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679286403"><span id="local-6989586621679286404"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVirtualGateways"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways"><span class="hs-identifier hs-var">DescribeVirtualGateways</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVirtualGateways%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways%27"><span class="hs-identifier hs-var">DescribeVirtualGateways'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679286651"><span id="local-6989586621679286652"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVirtualGateways"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways"><span class="hs-identifier hs-var">DescribeVirtualGateways</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVirtualGateways%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways%27"><span class="hs-identifier hs-var">DescribeVirtualGateways'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286398"><span id="local-6989586621679286400"><span class="annot"><span class="annottext">DescribeVirtualGateways -&gt; DescribeVirtualGateways -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286646"><span id="local-6989586621679286648"><span class="annot"><span class="annottext">DescribeVirtualGateways -&gt; DescribeVirtualGateways -&gt; Bool
 (DescribeVirtualGateways -&gt; DescribeVirtualGateways -&gt; Bool)
 -&gt; (DescribeVirtualGateways -&gt; DescribeVirtualGateways -&gt; Bool)
 -&gt; Eq DescribeVirtualGateways
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeVirtualGateways -&gt; DescribeVirtualGateways -&gt; Bool
 == :: DescribeVirtualGateways -&gt; DescribeVirtualGateways -&gt; Bool
 $c== :: DescribeVirtualGateways -&gt; DescribeVirtualGateways -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286389"><span id="local-6989586621679286391"><span id="local-6989586621679286393"><span id="local-6989586621679286395"><span class="annot"><span class="annottext">ReadPrec [DescribeVirtualGateways]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286637"><span id="local-6989586621679286639"><span id="local-6989586621679286641"><span id="local-6989586621679286643"><span class="annot"><span class="annottext">ReadPrec [DescribeVirtualGateways]
 ReadPrec DescribeVirtualGateways
 Int -&gt; ReadS DescribeVirtualGateways
 ReadS [DescribeVirtualGateways]
@@ -79,7 +79,7 @@ readList :: ReadS [DescribeVirtualGateways]
 $creadList :: ReadS [DescribeVirtualGateways]
 readsPrec :: Int -&gt; ReadS DescribeVirtualGateways
 $creadsPrec :: Int -&gt; ReadS DescribeVirtualGateways
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286382"><span id="local-6989586621679286384"><span id="local-6989586621679286386"><span class="annot"><span class="annottext">Int -&gt; DescribeVirtualGateways -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286630"><span id="local-6989586621679286632"><span id="local-6989586621679286634"><span class="annot"><span class="annottext">Int -&gt; DescribeVirtualGateways -&gt; ShowS
 [DescribeVirtualGateways] -&gt; ShowS
 DescribeVirtualGateways -&gt; String
 (Int -&gt; DescribeVirtualGateways -&gt; ShowS)
@@ -121,13 +121,13 @@ $cfrom :: forall x. DescribeVirtualGateways -&gt; Rep DescribeVirtualGateways x
 </span><span id="line-64"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-65"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways"><span class="hs-identifier hs-type">DescribeVirtualGateways</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse</span></a></span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679286374"><span class="annot"><span class="annottext">request :: DescribeVirtualGateways -&gt; Request DescribeVirtualGateways
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679286622"><span class="annot"><span class="annottext">request :: DescribeVirtualGateways -&gt; Request DescribeVirtualGateways
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeVirtualGateways -&gt; Request DescribeVirtualGateways
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679286370"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679286618"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeVirtualGateways
 -&gt; ClientResponse ClientBody
@@ -153,10 +153,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286367"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286367"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286366"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679286366"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286365"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679286365"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286615"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286615"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286614"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679286614"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286613"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679286613"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe [VirtualGateway] -&gt; Int -&gt; DescribeVirtualGatewaysResponse
 </span><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-var">DescribeVirtualGatewaysResponse'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [VirtualGateway] -&gt; Int -&gt; DescribeVirtualGatewaysResponse)
@@ -164,7 +164,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeVirtualGatewaysResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679286365"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [VirtualGateway]))
+</span><a href="#local-6989586621679286613"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [VirtualGateway]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;virtualGateways&quot;</span></span><span>
@@ -184,15 +184,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286367"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286615"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286356"><span id="local-6989586621679286358"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways"><span class="hs-identifier hs-type">DescribeVirtualGateways</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286604"><span id="local-6989586621679286606"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways"><span class="hs-identifier hs-type">DescribeVirtualGateways</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286353"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways"><span class="hs-identifier hs-type">DescribeVirtualGateways</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286601"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways"><span class="hs-identifier hs-type">DescribeVirtualGateways</span></a></span></span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways"><span class="hs-identifier hs-type">DescribeVirtualGateways</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679286349"><span class="annot"><span class="annottext">toHeaders :: DescribeVirtualGateways -&gt; ResponseHeaders
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679286597"><span class="annot"><span class="annottext">toHeaders :: DescribeVirtualGateways -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeVirtualGateways -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -219,8 +219,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286339"><span id="local-6989586621679286341"><span id="local-6989586621679286343"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways"><span class="hs-identifier hs-type">DescribeVirtualGateways</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679286337"><span class="annot"><span class="annottext">toJSON :: DescribeVirtualGateways -&gt; Value
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286587"><span id="local-6989586621679286589"><span id="local-6989586621679286591"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways"><span class="hs-identifier hs-type">DescribeVirtualGateways</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679286585"><span class="annot"><span class="annottext">toJSON :: DescribeVirtualGateways -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; DescribeVirtualGateways -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -229,14 +229,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways"><span class="hs-identifier hs-type">DescribeVirtualGateways</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679286332"><span class="annot"><span class="annottext">toPath :: DescribeVirtualGateways -&gt; ByteString
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679286580"><span class="annot"><span class="annottext">toPath :: DescribeVirtualGateways -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeVirtualGateways -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGateways"><span class="hs-identifier hs-type">DescribeVirtualGateways</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679286328"><span class="annot"><span class="annottext">toQuery :: DescribeVirtualGateways -&gt; QueryString
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679286576"><span class="annot"><span class="annottext">toQuery :: DescribeVirtualGateways -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeVirtualGateways -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -244,7 +244,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | /See:/ 'newDescribeVirtualGatewaysResponse' smart constructor.</span><span>
-</span><span id="line-107"></span><span id="local-6989586621679286325"><span id="local-6989586621679286326"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVirtualGatewaysResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse"><span class="hs-identifier hs-var">DescribeVirtualGatewaysResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVirtualGatewaysResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-var">DescribeVirtualGatewaysResponse'</span></a></span></span><span>
+</span><span id="line-107"></span><span id="local-6989586621679286573"><span id="local-6989586621679286574"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVirtualGatewaysResponse"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse"><span class="hs-identifier hs-var">DescribeVirtualGatewaysResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVirtualGatewaysResponse%27"><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-var">DescribeVirtualGatewaysResponse'</span></a></span></span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The virtual private gateways.</span><span>
 </span><span id="line-109"></span><span>    </span><span id="%24sel%3AvirtualGateways%3ADescribeVirtualGatewaysResponse%27"><span class="annot"><span class="annottext">DescribeVirtualGatewaysResponse -&gt; Maybe [VirtualGateway]
 </span><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#%24sel%3AvirtualGateways%3ADescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-var hs-var">virtualGateways</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.VirtualGateway.html#VirtualGateway"><span class="hs-identifier hs-type">VirtualGateway</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -252,7 +252,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-111"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeVirtualGatewaysResponse%27"><span class="annot"><span class="annottext">DescribeVirtualGatewaysResponse -&gt; Int
 </span><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#%24sel%3AhttpStatus%3ADescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286319"><span id="local-6989586621679286321"><span class="annot"><span class="annottext">DescribeVirtualGatewaysResponse
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286567"><span id="local-6989586621679286569"><span class="annot"><span class="annottext">DescribeVirtualGatewaysResponse
 -&gt; DescribeVirtualGatewaysResponse -&gt; Bool
 (DescribeVirtualGatewaysResponse
  -&gt; DescribeVirtualGatewaysResponse -&gt; Bool)
@@ -268,7 +268,7 @@ $c/= :: DescribeVirtualGatewaysResponse
 -&gt; DescribeVirtualGatewaysResponse -&gt; Bool
 $c== :: DescribeVirtualGatewaysResponse
 -&gt; DescribeVirtualGatewaysResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286311"><span id="local-6989586621679286313"><span id="local-6989586621679286315"><span id="local-6989586621679286317"><span class="annot"><span class="annottext">ReadPrec [DescribeVirtualGatewaysResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286559"><span id="local-6989586621679286561"><span id="local-6989586621679286563"><span id="local-6989586621679286565"><span class="annot"><span class="annottext">ReadPrec [DescribeVirtualGatewaysResponse]
 ReadPrec DescribeVirtualGatewaysResponse
 Int -&gt; ReadS DescribeVirtualGatewaysResponse
 ReadS [DescribeVirtualGatewaysResponse]
@@ -288,7 +288,7 @@ readList :: ReadS [DescribeVirtualGatewaysResponse]
 $creadList :: ReadS [DescribeVirtualGatewaysResponse]
 readsPrec :: Int -&gt; ReadS DescribeVirtualGatewaysResponse
 $creadsPrec :: Int -&gt; ReadS DescribeVirtualGatewaysResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286305"><span id="local-6989586621679286307"><span id="local-6989586621679286309"><span class="annot"><span class="annottext">Int -&gt; DescribeVirtualGatewaysResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286553"><span id="local-6989586621679286555"><span id="local-6989586621679286557"><span class="annot"><span class="annottext">Int -&gt; DescribeVirtualGatewaysResponse -&gt; ShowS
 [DescribeVirtualGatewaysResponse] -&gt; ShowS
 DescribeVirtualGatewaysResponse -&gt; String
 (Int -&gt; DescribeVirtualGatewaysResponse -&gt; ShowS)
@@ -342,8 +342,8 @@ DescribeVirtualGatewaysResponse
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse</span></a></span><span>
 </span><span id="line-130"></span><span id="newDescribeVirtualGatewaysResponse"><span class="annot"><span class="annottext">newDescribeVirtualGatewaysResponse :: Int -&gt; DescribeVirtualGatewaysResponse
-</span><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#newDescribeVirtualGatewaysResponse"><span class="hs-identifier hs-var hs-var">newDescribeVirtualGatewaysResponse</span></a></span></span><span> </span><span id="local-6989586621679286302"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286302"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#newDescribeVirtualGatewaysResponse"><span class="hs-identifier hs-var hs-var">newDescribeVirtualGatewaysResponse</span></a></span></span><span> </span><span id="local-6989586621679286550"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286550"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>  </span><span class="annot"><span class="annottext">DescribeVirtualGatewaysResponse' :: Maybe [VirtualGateway] -&gt; Int -&gt; DescribeVirtualGatewaysResponse
 </span><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse'</span></a></span><span>
 </span><span id="line-132"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:virtualGateways:DescribeVirtualGatewaysResponse' :: Maybe [VirtualGateway]
@@ -353,7 +353,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVirtualGatewaysResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#%24sel%3AhttpStatus%3ADescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286302"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679286550"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The virtual private gateways.</span><span>
@@ -370,16 +370,16 @@ forall a. Maybe a
      (Maybe [VirtualGateway])
      (Maybe [VirtualGateway])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286299"><span class="annot"><span class="annottext">Maybe [VirtualGateway]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286547"><span class="annot"><span class="annottext">Maybe [VirtualGateway]
 virtualGateways :: Maybe [VirtualGateway]
 $sel:virtualGateways:DescribeVirtualGatewaysResponse' :: DescribeVirtualGatewaysResponse -&gt; Maybe [VirtualGateway]
-</span><a href="#local-6989586621679286299"><span class="hs-identifier hs-var hs-var">virtualGateways</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VirtualGateway]
-</span><a href="#local-6989586621679286299"><span class="hs-identifier hs-var">virtualGateways</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286298"><span class="annot"><span class="annottext">s :: DescribeVirtualGatewaysResponse
-</span><a href="#local-6989586621679286298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286297"><span class="annot"><span class="annottext">Maybe [VirtualGateway]
-</span><a href="#local-6989586621679286297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVirtualGatewaysResponse
-</span><a href="#local-6989586621679286298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualGateways:DescribeVirtualGatewaysResponse' :: Maybe [VirtualGateway]
+</span><a href="#local-6989586621679286547"><span class="hs-identifier hs-var hs-var">virtualGateways</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VirtualGateway]
+</span><a href="#local-6989586621679286547"><span class="hs-identifier hs-var">virtualGateways</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286546"><span class="annot"><span class="annottext">s :: DescribeVirtualGatewaysResponse
+</span><a href="#local-6989586621679286546"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286545"><span class="annot"><span class="annottext">Maybe [VirtualGateway]
+</span><a href="#local-6989586621679286545"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVirtualGatewaysResponse
+</span><a href="#local-6989586621679286546"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualGateways:DescribeVirtualGatewaysResponse' :: Maybe [VirtualGateway]
 </span><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#%24sel%3AvirtualGateways%3ADescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-var">virtualGateways</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VirtualGateway]
-</span><a href="#local-6989586621679286297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VirtualGateway] -&gt; f (Maybe [VirtualGateway]))
+</span><a href="#local-6989586621679286545"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VirtualGateway] -&gt; f (Maybe [VirtualGateway]))
  -&gt; DescribeVirtualGatewaysResponse
  -&gt; f DescribeVirtualGatewaysResponse)
 -&gt; ((Maybe [VirtualGateway] -&gt; f (Maybe [VirtualGateway]))
@@ -400,8 +400,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [VirtualGateway] [VirtualGateway] [VirtualGateway] [VirtualGateway]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-142"></span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#describeVirtualGatewaysResponse_httpStatus"><span class="hs-identifier hs-type">describeVirtualGatewaysResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -417,18 +417,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286293"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286541"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeVirtualGatewaysResponse' :: DescribeVirtualGatewaysResponse -&gt; Int
-</span><a href="#local-6989586621679286293"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286293"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286292"><span class="annot"><span class="annottext">s :: DescribeVirtualGatewaysResponse
-</span><a href="#local-6989586621679286292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286291"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVirtualGatewaysResponse
-</span><a href="#local-6989586621679286292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVirtualGatewaysResponse' :: Int
+</span><a href="#local-6989586621679286541"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286541"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286540"><span class="annot"><span class="annottext">s :: DescribeVirtualGatewaysResponse
+</span><a href="#local-6989586621679286540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286539"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVirtualGatewaysResponse
+</span><a href="#local-6989586621679286540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVirtualGatewaysResponse' :: Int
 </span><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#%24sel%3AhttpStatus%3ADescribeVirtualGatewaysResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679286291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679286539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679286289"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679286537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.DescribeVirtualGateways.html#DescribeVirtualGatewaysResponse"><span class="hs-identifier hs-type">DescribeVirtualGatewaysResponse</span></a></span></span><span>
 </span><span id="line-148"></span></pre></body></html>

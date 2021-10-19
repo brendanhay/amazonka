@@ -70,7 +70,7 @@
 </span><span id="line-70"></span><span class="hs-comment">-- | Provides options for deleting a vault from Amazon S3 Glacier.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- /See:/ 'newDeleteVault' smart constructor.</span><span>
-</span><span id="line-73"></span><span id="local-6989586621679225005"><span id="local-6989586621679225006"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVault"><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-var">DeleteVault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVault%27"><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault%27"><span class="hs-identifier hs-var">DeleteVault'</span></a></span></span><span>
+</span><span id="line-73"></span><span id="local-6989586621679225064"><span id="local-6989586621679225065"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVault"><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-var">DeleteVault</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVault%27"><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault%27"><span class="hs-identifier hs-var">DeleteVault'</span></a></span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- \'@-@\' (hyphen), in which case Amazon S3 Glacier uses the AWS account</span><span>
@@ -82,7 +82,7 @@
 </span><span id="line-81"></span><span>    </span><span id="%24sel%3AvaultName%3ADeleteVault%27"><span class="annot"><span class="annottext">DeleteVault -&gt; Text
 </span><a href="Network.AWS.Glacier.DeleteVault.html#%24sel%3AvaultName%3ADeleteVault%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224998"><span id="local-6989586621679225000"><span class="annot"><span class="annottext">DeleteVault -&gt; DeleteVault -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225057"><span id="local-6989586621679225059"><span class="annot"><span class="annottext">DeleteVault -&gt; DeleteVault -&gt; Bool
 (DeleteVault -&gt; DeleteVault -&gt; Bool)
 -&gt; (DeleteVault -&gt; DeleteVault -&gt; Bool) -&gt; Eq DeleteVault
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -90,7 +90,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteVault -&gt; DeleteVault -&gt; Bool
 == :: DeleteVault -&gt; DeleteVault -&gt; Bool
 $c== :: DeleteVault -&gt; DeleteVault -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224989"><span id="local-6989586621679224991"><span id="local-6989586621679224993"><span id="local-6989586621679224995"><span class="annot"><span class="annottext">ReadPrec [DeleteVault]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225048"><span id="local-6989586621679225050"><span id="local-6989586621679225052"><span id="local-6989586621679225054"><span class="annot"><span class="annottext">ReadPrec [DeleteVault]
 ReadPrec DeleteVault
 Int -&gt; ReadS DeleteVault
 ReadS [DeleteVault]
@@ -110,7 +110,7 @@ readList :: ReadS [DeleteVault]
 $creadList :: ReadS [DeleteVault]
 readsPrec :: Int -&gt; ReadS DeleteVault
 $creadsPrec :: Int -&gt; ReadS DeleteVault
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224982"><span id="local-6989586621679224984"><span id="local-6989586621679224986"><span class="annot"><span class="annottext">Int -&gt; DeleteVault -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225041"><span id="local-6989586621679225043"><span id="local-6989586621679225045"><span class="annot"><span class="annottext">Int -&gt; DeleteVault -&gt; ShowS
 [DeleteVault] -&gt; ShowS
 DeleteVault -&gt; String
 (Int -&gt; DeleteVault -&gt; ShowS)
@@ -158,17 +158,17 @@ $cfrom :: forall x. DeleteVault -&gt; Rep DeleteVault x
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span><span>
 </span><span id="line-106"></span><span id="newDeleteVault"><span class="annot"><span class="annottext">newDeleteVault :: Text -&gt; Text -&gt; DeleteVault
-</span><a href="Network.AWS.Glacier.DeleteVault.html#newDeleteVault"><span class="hs-identifier hs-var hs-var">newDeleteVault</span></a></span></span><span> </span><span id="local-6989586621679224977"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224977"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679224976"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224976"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.DeleteVault.html#newDeleteVault"><span class="hs-identifier hs-var hs-var">newDeleteVault</span></a></span></span><span> </span><span id="local-6989586621679225036"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225036"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679225035"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225035"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">DeleteVault' :: Text -&gt; Text -&gt; DeleteVault
 </span><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault%27"><span class="hs-identifier hs-type">DeleteVault'</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:DeleteVault' :: Text
 </span><a href="Network.AWS.Glacier.DeleteVault.html#%24sel%3AaccountId%3ADeleteVault%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224977"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225036"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:DeleteVault' :: Text
 </span><a href="Network.AWS.Glacier.DeleteVault.html#%24sel%3AvaultName%3ADeleteVault%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224976"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
+</span><a href="#local-6989586621679225035"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
@@ -182,16 +182,16 @@ $cfrom :: forall x. DeleteVault -&gt; Rep DeleteVault x
 -&gt; (DeleteVault -&gt; Text -&gt; DeleteVault)
 -&gt; Lens DeleteVault DeleteVault Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault%27"><span class="hs-identifier hs-type">DeleteVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224973"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault%27"><span class="hs-identifier hs-type">DeleteVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225032"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:DeleteVault' :: DeleteVault -&gt; Text
-</span><a href="#local-6989586621679224973"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224973"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224972"><span class="annot"><span class="annottext">s :: DeleteVault
-</span><a href="#local-6989586621679224972"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault%27"><span class="hs-identifier hs-type">DeleteVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224971"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224971"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVault
-</span><a href="#local-6989586621679224972"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DeleteVault' :: Text
+</span><a href="#local-6989586621679225032"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225032"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225031"><span class="annot"><span class="annottext">s :: DeleteVault
+</span><a href="#local-6989586621679225031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault%27"><span class="hs-identifier hs-type">DeleteVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225030"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVault
+</span><a href="#local-6989586621679225031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:DeleteVault' :: Text
 </span><a href="Network.AWS.Glacier.DeleteVault.html#%24sel%3AaccountId%3ADeleteVault%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224971"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#deleteVault_vaultName"><span class="hs-identifier hs-type">deleteVault_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -200,20 +200,20 @@ $sel:accountId:DeleteVault' :: DeleteVault -&gt; Text
 -&gt; (DeleteVault -&gt; Text -&gt; DeleteVault)
 -&gt; Lens DeleteVault DeleteVault Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault%27"><span class="hs-identifier hs-type">DeleteVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224970"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault%27"><span class="hs-identifier hs-type">DeleteVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225029"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:DeleteVault' :: DeleteVault -&gt; Text
-</span><a href="#local-6989586621679224970"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224970"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224969"><span class="annot"><span class="annottext">s :: DeleteVault
-</span><a href="#local-6989586621679224969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault%27"><span class="hs-identifier hs-type">DeleteVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224968"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVault
-</span><a href="#local-6989586621679224969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:DeleteVault' :: Text
+</span><a href="#local-6989586621679225029"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225029"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225028"><span class="annot"><span class="annottext">s :: DeleteVault
+</span><a href="#local-6989586621679225028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault%27"><span class="hs-identifier hs-type">DeleteVault'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225027"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVault
+</span><a href="#local-6989586621679225028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:DeleteVault' :: Text
 </span><a href="Network.AWS.Glacier.DeleteVault.html#%24sel%3AvaultName%3ADeleteVault%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVaultResponse"><span class="hs-identifier hs-type">DeleteVaultResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679224964"><span class="annot"><span class="annottext">request :: DeleteVault -&gt; Request DeleteVault
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679225023"><span class="annot"><span class="annottext">request :: DeleteVault -&gt; Request DeleteVault
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; Request DeleteVault -&gt; Request DeleteVault
 forall a. ByteString -&gt; Request a -&gt; Request a
@@ -229,7 +229,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679224957"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679225016"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteVault
 -&gt; ClientResponse ClientBody
@@ -252,12 +252,12 @@ AWSResponse a
 DeleteVaultResponse
 </span><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVaultResponse%27"><span class="hs-identifier hs-var">DeleteVaultResponse'</span></a></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224950"><span id="local-6989586621679224952"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225009"><span id="local-6989586621679225011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span></span></span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224947"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679224943"><span class="annot"><span class="annottext">toHeaders :: DeleteVault -&gt; [Header]
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679225002"><span class="annot"><span class="annottext">toHeaders :: DeleteVault -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteVault -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -265,13 +265,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679224938"><span class="annot"><span class="annottext">toPath :: DeleteVault -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault%27"><span class="hs-identifier hs-type">DeleteVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224935"><span id="local-6989586621679224936"><span class="annot"><span class="annottext">Text
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679224997"><span class="annot"><span class="annottext">toPath :: DeleteVault -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault%27"><span class="hs-identifier hs-type">DeleteVault'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224994"><span id="local-6989586621679224995"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 accountId :: Text
 $sel:vaultName:DeleteVault' :: DeleteVault -&gt; Text
 $sel:accountId:DeleteVault' :: DeleteVault -&gt; Text
-</span><a href="#local-6989586621679224935"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679224994"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -280,17 +280,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224936"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679224995"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224935"><span class="hs-identifier hs-var">vaultName</span></a></span><span>
+</span><a href="#local-6989586621679224994"><span class="hs-identifier hs-var">vaultName</span></a></span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVault"><span class="hs-identifier hs-type">DeleteVault</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679224931"><span class="annot"><span class="annottext">toQuery :: DeleteVault -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679224990"><span class="annot"><span class="annottext">toQuery :: DeleteVault -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteVault -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -298,10 +298,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newDeleteVaultResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679224928"><span id="local-6989586621679224929"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVaultResponse"><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVaultResponse"><span class="hs-identifier hs-var">DeleteVaultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVaultResponse%27"><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVaultResponse%27"><span class="hs-identifier hs-var">DeleteVaultResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679224987"><span id="local-6989586621679224988"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVaultResponse"><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVaultResponse"><span class="hs-identifier hs-var">DeleteVaultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVaultResponse%27"><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVaultResponse%27"><span class="hs-identifier hs-var">DeleteVaultResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224924"><span id="local-6989586621679224926"><span class="annot"><span class="annottext">DeleteVaultResponse -&gt; DeleteVaultResponse -&gt; Bool
+</span><span id="line-154"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224983"><span id="local-6989586621679224985"><span class="annot"><span class="annottext">DeleteVaultResponse -&gt; DeleteVaultResponse -&gt; Bool
 (DeleteVaultResponse -&gt; DeleteVaultResponse -&gt; Bool)
 -&gt; (DeleteVaultResponse -&gt; DeleteVaultResponse -&gt; Bool)
 -&gt; Eq DeleteVaultResponse
@@ -310,7 +310,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteVaultResponse -&gt; DeleteVaultResponse -&gt; Bool
 == :: DeleteVaultResponse -&gt; DeleteVaultResponse -&gt; Bool
 $c== :: DeleteVaultResponse -&gt; DeleteVaultResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224916"><span id="local-6989586621679224918"><span id="local-6989586621679224920"><span id="local-6989586621679224922"><span class="annot"><span class="annottext">ReadPrec [DeleteVaultResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224975"><span id="local-6989586621679224977"><span id="local-6989586621679224979"><span id="local-6989586621679224981"><span class="annot"><span class="annottext">ReadPrec [DeleteVaultResponse]
 ReadPrec DeleteVaultResponse
 Int -&gt; ReadS DeleteVaultResponse
 ReadS [DeleteVaultResponse]
@@ -330,7 +330,7 @@ readList :: ReadS [DeleteVaultResponse]
 $creadList :: ReadS [DeleteVaultResponse]
 readsPrec :: Int -&gt; ReadS DeleteVaultResponse
 $creadsPrec :: Int -&gt; ReadS DeleteVaultResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224910"><span id="local-6989586621679224912"><span id="local-6989586621679224914"><span class="annot"><span class="annottext">Int -&gt; DeleteVaultResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224969"><span id="local-6989586621679224971"><span id="local-6989586621679224973"><span class="annot"><span class="annottext">Int -&gt; DeleteVaultResponse -&gt; ShowS
 [DeleteVaultResponse] -&gt; ShowS
 DeleteVaultResponse -&gt; String
 (Int -&gt; DeleteVaultResponse -&gt; ShowS)
@@ -366,5 +366,5 @@ $cfrom :: forall x. DeleteVaultResponse -&gt; Rep DeleteVaultResponse x
 </span><a href="Network.AWS.Glacier.DeleteVault.html#newDeleteVaultResponse"><span class="hs-identifier hs-var hs-var">newDeleteVaultResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteVaultResponse
 </span><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVaultResponse%27"><span class="hs-identifier hs-var">DeleteVaultResponse'</span></a></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224906"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVaultResponse"><span class="hs-identifier hs-type">DeleteVaultResponse</span></a></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224965"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DeleteVault.html#DeleteVaultResponse"><span class="hs-identifier hs-type">DeleteVaultResponse</span></a></span></span><span>
 </span><span id="line-165"></span></pre></body></html>

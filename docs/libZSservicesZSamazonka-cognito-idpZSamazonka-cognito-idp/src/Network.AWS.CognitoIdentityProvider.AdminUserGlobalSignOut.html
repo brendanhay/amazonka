@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-comment">-- | The request to sign out of all devices, as an administrator.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newAdminUserGlobalSignOut' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679453631"><span id="local-6989586621679453632"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminUserGlobalSignOut"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-var">AdminUserGlobalSignOut</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminUserGlobalSignOut%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut%27"><span class="hs-identifier hs-var">AdminUserGlobalSignOut'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679454144"><span id="local-6989586621679454145"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminUserGlobalSignOut"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-var">AdminUserGlobalSignOut</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminUserGlobalSignOut%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut%27"><span class="hs-identifier hs-var">AdminUserGlobalSignOut'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user pool ID.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AuserPoolId%3AAdminUserGlobalSignOut%27"><span class="annot"><span class="annottext">AdminUserGlobalSignOut -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#%24sel%3AuserPoolId%3AAdminUserGlobalSignOut%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3Ausername%3AAdminUserGlobalSignOut%27"><span class="annot"><span class="annottext">AdminUserGlobalSignOut -&gt; Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#%24sel%3Ausername%3AAdminUserGlobalSignOut%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453624"><span id="local-6989586621679453626"><span class="annot"><span class="annottext">AdminUserGlobalSignOut -&gt; AdminUserGlobalSignOut -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454137"><span id="local-6989586621679454139"><span class="annot"><span class="annottext">AdminUserGlobalSignOut -&gt; AdminUserGlobalSignOut -&gt; Bool
 (AdminUserGlobalSignOut -&gt; AdminUserGlobalSignOut -&gt; Bool)
 -&gt; (AdminUserGlobalSignOut -&gt; AdminUserGlobalSignOut -&gt; Bool)
 -&gt; Eq AdminUserGlobalSignOut
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AdminUserGlobalSignOut -&gt; AdminUserGlobalSignOut -&gt; Bool
 == :: AdminUserGlobalSignOut -&gt; AdminUserGlobalSignOut -&gt; Bool
 $c== :: AdminUserGlobalSignOut -&gt; AdminUserGlobalSignOut -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453617"><span id="local-6989586621679453619"><span id="local-6989586621679453621"><span class="annot"><span class="annottext">Int -&gt; AdminUserGlobalSignOut -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454130"><span id="local-6989586621679454132"><span id="local-6989586621679454134"><span class="annot"><span class="annottext">Int -&gt; AdminUserGlobalSignOut -&gt; ShowS
 [AdminUserGlobalSignOut] -&gt; ShowS
 AdminUserGlobalSignOut -&gt; String
 (Int -&gt; AdminUserGlobalSignOut -&gt; ShowS)
@@ -116,14 +116,14 @@ $cfrom :: forall x. AdminUserGlobalSignOut -&gt; Rep AdminUserGlobalSignOut x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span><span>
 </span><span id="line-82"></span><span id="newAdminUserGlobalSignOut"><span class="annot"><span class="annottext">newAdminUserGlobalSignOut :: Text -&gt; Text -&gt; AdminUserGlobalSignOut
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#newAdminUserGlobalSignOut"><span class="hs-identifier hs-var hs-var">newAdminUserGlobalSignOut</span></a></span></span><span> </span><span id="local-6989586621679453612"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453612"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679453611"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453611"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#newAdminUserGlobalSignOut"><span class="hs-identifier hs-var hs-var">newAdminUserGlobalSignOut</span></a></span></span><span> </span><span id="local-6989586621679454125"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454125"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679454124"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454124"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">AdminUserGlobalSignOut' :: Text -&gt; Sensitive Text -&gt; AdminUserGlobalSignOut
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOut'</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userPoolId:AdminUserGlobalSignOut' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#%24sel%3AuserPoolId%3AAdminUserGlobalSignOut%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453612"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679454125"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:AdminUserGlobalSignOut' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#%24sel%3Ausername%3AAdminUserGlobalSignOut%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -133,7 +133,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453611"><span class="hs-identifier hs-var">pUsername_</span></a></span><span>
+</span><a href="#local-6989586621679454124"><span class="hs-identifier hs-var">pUsername_</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The user pool ID.</span><span>
@@ -144,16 +144,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (AdminUserGlobalSignOut -&gt; Text -&gt; AdminUserGlobalSignOut)
 -&gt; Lens AdminUserGlobalSignOut AdminUserGlobalSignOut Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOut'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453606"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOut'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454119"><span class="annot"><span class="annottext">Text
 userPoolId :: Text
 $sel:userPoolId:AdminUserGlobalSignOut' :: AdminUserGlobalSignOut -&gt; Text
-</span><a href="#local-6989586621679453606"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453606"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453605"><span class="annot"><span class="annottext">s :: AdminUserGlobalSignOut
-</span><a href="#local-6989586621679453605"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOut'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453604"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453604"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUserGlobalSignOut
-</span><a href="#local-6989586621679453605"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminUserGlobalSignOut' :: Text
+</span><a href="#local-6989586621679454119"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454119"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454118"><span class="annot"><span class="annottext">s :: AdminUserGlobalSignOut
+</span><a href="#local-6989586621679454118"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOut'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454117"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679454117"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUserGlobalSignOut
+</span><a href="#local-6989586621679454118"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminUserGlobalSignOut' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#%24sel%3AuserPoolId%3AAdminUserGlobalSignOut%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453604"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454117"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | The user name.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#adminUserGlobalSignOut_username"><span class="hs-identifier hs-type">adminUserGlobalSignOut_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -168,16 +168,16 @@ $sel:userPoolId:AdminUserGlobalSignOut' :: AdminUserGlobalSignOut -&gt; Text
      (Sensitive Text)
      (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOut'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453603"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOut'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454116"><span class="annot"><span class="annottext">Sensitive Text
 username :: Sensitive Text
 $sel:username:AdminUserGlobalSignOut' :: AdminUserGlobalSignOut -&gt; Sensitive Text
-</span><a href="#local-6989586621679453603"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679453603"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453602"><span class="annot"><span class="annottext">s :: AdminUserGlobalSignOut
-</span><a href="#local-6989586621679453602"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOut'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453601"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679453601"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUserGlobalSignOut
-</span><a href="#local-6989586621679453602"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminUserGlobalSignOut' :: Sensitive Text
+</span><a href="#local-6989586621679454116"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679454116"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454115"><span class="annot"><span class="annottext">s :: AdminUserGlobalSignOut
+</span><a href="#local-6989586621679454115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOut'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454114"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679454114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUserGlobalSignOut
+</span><a href="#local-6989586621679454115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminUserGlobalSignOut' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#%24sel%3Ausername%3AAdminUserGlobalSignOut%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679453601"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679454114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; AdminUserGlobalSignOut -&gt; f AdminUserGlobalSignOut)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -192,12 +192,12 @@ forall a. Iso' (Sensitive a) a
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-98"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse"><span class="hs-identifier hs-type">AdminUserGlobalSignOutResponse</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679453596"><span class="annot"><span class="annottext">request :: AdminUserGlobalSignOut -&gt; Request AdminUserGlobalSignOut
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679454109"><span class="annot"><span class="annottext">request :: AdminUserGlobalSignOut -&gt; Request AdminUserGlobalSignOut
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AdminUserGlobalSignOut -&gt; Request AdminUserGlobalSignOut
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679453592"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679454105"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AdminUserGlobalSignOut
 -&gt; ClientResponse ClientBody
@@ -223,10 +223,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679453589"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453589"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679453588"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679453588"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679453587"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679453587"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679454102"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454102"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679454101"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679454101"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679454100"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679454100"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AdminUserGlobalSignOutResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse%27"><span class="hs-identifier hs-var">AdminUserGlobalSignOutResponse'</span></a></span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AdminUserGlobalSignOutResponse)
@@ -238,15 +238,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453589"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454102"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453580"><span id="local-6989586621679453582"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454093"><span id="local-6989586621679454095"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453577"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679453573"><span class="annot"><span class="annottext">toHeaders :: AdminUserGlobalSignOut -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679454086"><span class="annot"><span class="annottext">toHeaders :: AdminUserGlobalSignOut -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AdminUserGlobalSignOut -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -273,15 +273,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453563"><span id="local-6989586621679453565"><span id="local-6989586621679453567"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679453561"><span class="annot"><span class="annottext">toJSON :: AdminUserGlobalSignOut -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOut'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453558"><span id="local-6989586621679453559"><span class="annot"><span class="annottext">Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679454076"><span id="local-6989586621679454078"><span id="local-6989586621679454080"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679454074"><span class="annot"><span class="annottext">toJSON :: AdminUserGlobalSignOut -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOut'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454071"><span id="local-6989586621679454072"><span class="annot"><span class="annottext">Text
 Sensitive Text
 username :: Sensitive Text
 userPoolId :: Text
 $sel:username:AdminUserGlobalSignOut' :: AdminUserGlobalSignOut -&gt; Sensitive Text
 $sel:userPoolId:AdminUserGlobalSignOut' :: AdminUserGlobalSignOut -&gt; Text
-</span><a href="#local-6989586621679453558"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679454071"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -293,26 +293,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453559"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679454072"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679453558"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454071"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679453552"><span class="annot"><span class="annottext">toPath :: AdminUserGlobalSignOut -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679454065"><span class="annot"><span class="annottext">toPath :: AdminUserGlobalSignOut -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AdminUserGlobalSignOut -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOut"><span class="hs-identifier hs-type">AdminUserGlobalSignOut</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679453548"><span class="annot"><span class="annottext">toQuery :: AdminUserGlobalSignOut -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679454061"><span class="annot"><span class="annottext">toQuery :: AdminUserGlobalSignOut -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AdminUserGlobalSignOut -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -322,12 +322,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-142"></span><span class="hs-comment">-- | The global sign-out response, as an administrator.</span><span>
 </span><span id="line-143"></span><span class="hs-comment">--</span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- /See:/ 'newAdminUserGlobalSignOutResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679453545"><span id="local-6989586621679453546"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminUserGlobalSignOutResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse"><span class="hs-identifier hs-var">AdminUserGlobalSignOutResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminUserGlobalSignOutResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse%27"><span class="hs-identifier hs-var">AdminUserGlobalSignOutResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679454058"><span id="local-6989586621679454059"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminUserGlobalSignOutResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse"><span class="hs-identifier hs-var">AdminUserGlobalSignOutResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminUserGlobalSignOutResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse%27"><span class="hs-identifier hs-var">AdminUserGlobalSignOutResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-147"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAdminUserGlobalSignOutResponse%27"><span class="annot"><span class="annottext">AdminUserGlobalSignOutResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#%24sel%3AhttpStatus%3AAdminUserGlobalSignOutResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453540"><span id="local-6989586621679453542"><span class="annot"><span class="annottext">AdminUserGlobalSignOutResponse
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679454053"><span id="local-6989586621679454055"><span class="annot"><span class="annottext">AdminUserGlobalSignOutResponse
 -&gt; AdminUserGlobalSignOutResponse -&gt; Bool
 (AdminUserGlobalSignOutResponse
  -&gt; AdminUserGlobalSignOutResponse -&gt; Bool)
@@ -343,7 +343,7 @@ $c/= :: AdminUserGlobalSignOutResponse
 -&gt; AdminUserGlobalSignOutResponse -&gt; Bool
 $c== :: AdminUserGlobalSignOutResponse
 -&gt; AdminUserGlobalSignOutResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453532"><span id="local-6989586621679453534"><span id="local-6989586621679453536"><span id="local-6989586621679453538"><span class="annot"><span class="annottext">ReadPrec [AdminUserGlobalSignOutResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454045"><span id="local-6989586621679454047"><span id="local-6989586621679454049"><span id="local-6989586621679454051"><span class="annot"><span class="annottext">ReadPrec [AdminUserGlobalSignOutResponse]
 ReadPrec AdminUserGlobalSignOutResponse
 Int -&gt; ReadS AdminUserGlobalSignOutResponse
 ReadS [AdminUserGlobalSignOutResponse]
@@ -363,7 +363,7 @@ readList :: ReadS [AdminUserGlobalSignOutResponse]
 $creadList :: ReadS [AdminUserGlobalSignOutResponse]
 readsPrec :: Int -&gt; ReadS AdminUserGlobalSignOutResponse
 $creadsPrec :: Int -&gt; ReadS AdminUserGlobalSignOutResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453525"><span id="local-6989586621679453527"><span id="local-6989586621679453529"><span class="annot"><span class="annottext">Int -&gt; AdminUserGlobalSignOutResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679454038"><span id="local-6989586621679454040"><span id="local-6989586621679454042"><span class="annot"><span class="annottext">Int -&gt; AdminUserGlobalSignOutResponse -&gt; ShowS
 [AdminUserGlobalSignOutResponse] -&gt; ShowS
 AdminUserGlobalSignOutResponse -&gt; String
 (Int -&gt; AdminUserGlobalSignOutResponse -&gt; ShowS)
@@ -415,14 +415,14 @@ AdminUserGlobalSignOutResponse
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse"><span class="hs-identifier hs-type">AdminUserGlobalSignOutResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newAdminUserGlobalSignOutResponse"><span class="annot"><span class="annottext">newAdminUserGlobalSignOutResponse :: Int -&gt; AdminUserGlobalSignOutResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#newAdminUserGlobalSignOutResponse"><span class="hs-identifier hs-var hs-var">newAdminUserGlobalSignOutResponse</span></a></span></span><span> </span><span id="local-6989586621679453522"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#newAdminUserGlobalSignOutResponse"><span class="hs-identifier hs-var hs-var">newAdminUserGlobalSignOutResponse</span></a></span></span><span> </span><span id="local-6989586621679454035"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454035"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">AdminUserGlobalSignOutResponse' :: Int -&gt; AdminUserGlobalSignOutResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOutResponse'</span></a></span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AdminUserGlobalSignOutResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#%24sel%3AhttpStatus%3AAdminUserGlobalSignOutResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453522"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679454035"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -439,18 +439,18 @@ AdminUserGlobalSignOutResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOutResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453521"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOutResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679454034"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AdminUserGlobalSignOutResponse' :: AdminUserGlobalSignOutResponse -&gt; Int
-</span><a href="#local-6989586621679453521"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453521"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453520"><span class="annot"><span class="annottext">s :: AdminUserGlobalSignOutResponse
-</span><a href="#local-6989586621679453520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOutResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453519"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUserGlobalSignOutResponse
-</span><a href="#local-6989586621679453520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminUserGlobalSignOutResponse' :: Int
+</span><a href="#local-6989586621679454034"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454034"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679454033"><span class="annot"><span class="annottext">s :: AdminUserGlobalSignOutResponse
+</span><a href="#local-6989586621679454033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse%27"><span class="hs-identifier hs-type">AdminUserGlobalSignOutResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679454032"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679454032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminUserGlobalSignOutResponse
+</span><a href="#local-6989586621679454033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminUserGlobalSignOutResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#%24sel%3AhttpStatus%3AAdminUserGlobalSignOutResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse"><span class="hs-identifier hs-type">AdminUserGlobalSignOutResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679454032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse"><span class="hs-identifier hs-type">AdminUserGlobalSignOutResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679453517"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679454030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.AdminUserGlobalSignOut.html#AdminUserGlobalSignOutResponse"><span class="hs-identifier hs-type">AdminUserGlobalSignOutResponse</span></a></span></span><span>
 </span><span id="line-177"></span></pre></body></html>

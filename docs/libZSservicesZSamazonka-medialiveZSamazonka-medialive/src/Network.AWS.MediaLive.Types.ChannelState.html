@@ -39,13 +39,13 @@
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span class="hs-comment">-- | Placeholder documentation for ChannelState</span><span>
-</span><span id="line-42"></span><span id="local-6989586621679863440"><span id="local-6989586621679863441"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChannelState"><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelState.html#ChannelState"><span class="hs-identifier hs-var">ChannelState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelState%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelState.html#ChannelState%27"><span class="hs-identifier hs-var">ChannelState'</span></a></span></span><span>
+</span><span id="line-42"></span><span id="local-6989586621679870101"><span id="local-6989586621679870102"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChannelState"><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelState.html#ChannelState"><span class="hs-identifier hs-var">ChannelState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelState%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.ChannelState.html#ChannelState%27"><span class="hs-identifier hs-var">ChannelState'</span></a></span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChannelState"><span class="annot"><span class="annottext">ChannelState -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.ChannelState.html#fromChannelState"><span class="hs-identifier hs-var hs-var">fromChannelState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-44"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679863432"><span id="local-6989586621679863434"><span id="local-6989586621679863436"><span class="annot"><span class="annottext">Int -&gt; ChannelState -&gt; ShowS
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679870093"><span id="local-6989586621679870095"><span id="local-6989586621679870097"><span class="annot"><span class="annottext">Int -&gt; ChannelState -&gt; ShowS
 [ChannelState] -&gt; ShowS
 ChannelState -&gt; String
 (Int -&gt; ChannelState -&gt; ShowS)
@@ -61,7 +61,7 @@ $cshow :: ChannelState -&gt; String
 showsPrec :: Int -&gt; ChannelState -&gt; ShowS
 $cshowsPrec :: Int -&gt; ChannelState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679863423"><span id="local-6989586621679863425"><span id="local-6989586621679863427"><span id="local-6989586621679863429"><span class="annot"><span class="annottext">ReadPrec [ChannelState]
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679870084"><span id="local-6989586621679870086"><span id="local-6989586621679870088"><span id="local-6989586621679870090"><span class="annot"><span class="annottext">ReadPrec [ChannelState]
 ReadPrec ChannelState
 Int -&gt; ReadS ChannelState
 ReadS [ChannelState]
@@ -82,7 +82,7 @@ $creadList :: ReadS [ChannelState]
 readsPrec :: Int -&gt; ReadS ChannelState
 $creadsPrec :: Int -&gt; ReadS ChannelState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679863418"><span id="local-6989586621679863420"><span class="annot"><span class="annottext">ChannelState -&gt; ChannelState -&gt; Bool
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679870079"><span id="local-6989586621679870081"><span class="annot"><span class="annottext">ChannelState -&gt; ChannelState -&gt; Bool
 (ChannelState -&gt; ChannelState -&gt; Bool)
 -&gt; (ChannelState -&gt; ChannelState -&gt; Bool) -&gt; Eq ChannelState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -91,7 +91,7 @@ $c/= :: ChannelState -&gt; ChannelState -&gt; Bool
 == :: ChannelState -&gt; ChannelState -&gt; Bool
 $c== :: ChannelState -&gt; ChannelState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679863402"><span id="local-6989586621679863404"><span id="local-6989586621679863406"><span id="local-6989586621679863408"><span id="local-6989586621679863410"><span id="local-6989586621679863412"><span id="local-6989586621679863414"><span class="annot"><span class="annottext">Eq ChannelState
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679870063"><span id="local-6989586621679870065"><span id="local-6989586621679870067"><span id="local-6989586621679870069"><span id="local-6989586621679870071"><span id="local-6989586621679870073"><span id="local-6989586621679870075"><span class="annot"><span class="annottext">Eq ChannelState
 Eq ChannelState
 -&gt; (ChannelState -&gt; ChannelState -&gt; Ordering)
 -&gt; (ChannelState -&gt; ChannelState -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. ChannelState -&gt; Rep ChannelState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679863394"><span id="local-6989586621679863396"><span class="annot"><span class="annottext">Int -&gt; ChannelState -&gt; Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679870055"><span id="local-6989586621679870057"><span class="annot"><span class="annottext">Int -&gt; ChannelState -&gt; Int
 ChannelState -&gt; Int
 (Int -&gt; ChannelState -&gt; Int)
 -&gt; (ChannelState -&gt; Int) -&gt; Hashable ChannelState
@@ -152,49 +152,49 @@ $chash :: ChannelState -&gt; Int
 hashWithSalt :: Int -&gt; ChannelState -&gt; Int
 $chashWithSalt :: Int -&gt; ChannelState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679863391"><span class="annot"><span class="annottext">ChannelState -&gt; ()
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679870052"><span class="annot"><span class="annottext">ChannelState -&gt; ()
 (ChannelState -&gt; ()) -&gt; NFData ChannelState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ChannelState -&gt; ()
 $crnf :: ChannelState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679863388"><span class="annot"><span class="annottext">Text -&gt; Either String ChannelState
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679870049"><span class="annot"><span class="annottext">Text -&gt; Either String ChannelState
 (Text -&gt; Either String ChannelState) -&gt; FromText ChannelState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ChannelState
 $cfromText :: Text -&gt; Either String ChannelState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679863385"><span class="annot"><span class="annottext">ChannelState -&gt; Text
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679870046"><span class="annot"><span class="annottext">ChannelState -&gt; Text
 (ChannelState -&gt; Text) -&gt; ToText ChannelState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ChannelState -&gt; Text
 $ctoText :: ChannelState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679863382"><span class="annot"><span class="annottext">ChannelState -&gt; ByteString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679870043"><span class="annot"><span class="annottext">ChannelState -&gt; ByteString
 (ChannelState -&gt; ByteString) -&gt; ToByteString ChannelState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ChannelState -&gt; ByteString
 $ctoBS :: ChannelState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679863379"><span class="annot"><span class="annottext">ChannelState -&gt; ByteStringBuilder
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679870040"><span class="annot"><span class="annottext">ChannelState -&gt; ByteStringBuilder
 (ChannelState -&gt; ByteStringBuilder) -&gt; ToLog ChannelState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ChannelState -&gt; ByteStringBuilder
 $cbuild :: ChannelState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679863376"><span class="annot"><span class="annottext">HeaderName -&gt; ChannelState -&gt; [Header]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679870037"><span class="annot"><span class="annottext">HeaderName -&gt; ChannelState -&gt; [Header]
 (HeaderName -&gt; ChannelState -&gt; [Header]) -&gt; ToHeader ChannelState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ChannelState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ChannelState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679863373"><span class="annot"><span class="annottext">ChannelState -&gt; QueryString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679870034"><span class="annot"><span class="annottext">ChannelState -&gt; QueryString
 (ChannelState -&gt; QueryString) -&gt; ToQuery ChannelState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ChannelState -&gt; QueryString
 $ctoQuery :: ChannelState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679863368"><span id="local-6989586621679863370"><span class="annot"><span class="annottext">Value -&gt; Parser [ChannelState]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679870029"><span id="local-6989586621679870031"><span class="annot"><span class="annottext">Value -&gt; Parser [ChannelState]
 Value -&gt; Parser ChannelState
 (Value -&gt; Parser ChannelState)
 -&gt; (Value -&gt; Parser [ChannelState]) -&gt; FromJSON ChannelState
@@ -205,7 +205,7 @@ $cparseJSONList :: Value -&gt; Parser [ChannelState]
 parseJSON :: Value -&gt; Parser ChannelState
 $cparseJSON :: Value -&gt; Parser ChannelState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679863363"><span id="local-6989586621679863365"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChannelState]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679870024"><span id="local-6989586621679870026"><span class="annot"><span class="annottext">FromJSONKeyFunction [ChannelState]
 FromJSONKeyFunction ChannelState
 FromJSONKeyFunction ChannelState
 -&gt; FromJSONKeyFunction [ChannelState] -&gt; FromJSONKey ChannelState
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ChannelState]
 fromJSONKey :: FromJSONKeyFunction ChannelState
 $cfromJSONKey :: FromJSONKeyFunction ChannelState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679863354"><span id="local-6989586621679863356"><span id="local-6989586621679863358"><span id="local-6989586621679863360"><span class="annot"><span class="annottext">[ChannelState] -&gt; Encoding
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679870015"><span id="local-6989586621679870017"><span id="local-6989586621679870019"><span id="local-6989586621679870021"><span class="annot"><span class="annottext">[ChannelState] -&gt; Encoding
 [ChannelState] -&gt; Value
 ChannelState -&gt; Encoding
 ChannelState -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: ChannelState -&gt; Encoding
 toJSON :: ChannelState -&gt; Value
 $ctoJSON :: ChannelState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679863349"><span id="local-6989586621679863351"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChannelState]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679870010"><span id="local-6989586621679870012"><span class="annot"><span class="annottext">ToJSONKeyFunction [ChannelState]
 ToJSONKeyFunction ChannelState
 ToJSONKeyFunction ChannelState
 -&gt; ToJSONKeyFunction [ChannelState] -&gt; ToJSONKey ChannelState
@@ -251,13 +251,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ChannelState]
 toJSONKey :: ToJSONKeyFunction ChannelState
 $ctoJSONKey :: ToJSONKeyFunction ChannelState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679863346"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChannelState
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679870007"><span class="annot"><span class="annottext">[Node] -&gt; Either String ChannelState
 ([Node] -&gt; Either String ChannelState) -&gt; FromXML ChannelState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ChannelState
 $cparseXML :: [Node] -&gt; Either String ChannelState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679863343"><span class="annot"><span class="annottext">ChannelState -&gt; XML
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679870004"><span class="annot"><span class="annottext">ChannelState -&gt; XML
 (ChannelState -&gt; XML) -&gt; ToXML ChannelState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ChannelState -&gt; XML

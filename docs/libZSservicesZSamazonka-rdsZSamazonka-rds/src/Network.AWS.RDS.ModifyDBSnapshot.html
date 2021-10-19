@@ -31,8 +31,8 @@
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#newModifyDBSnapshot"><span class="hs-identifier">newModifyDBSnapshot</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_optionGroupName"><span class="hs-identifier">modifyDBSnapshot_optionGroupName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_engineVersion"><span class="hs-identifier">modifyDBSnapshot_engineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_engineVersion"><span class="hs-identifier">modifyDBSnapshot_engineVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_optionGroupName"><span class="hs-identifier">modifyDBSnapshot_optionGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_dbSnapshotIdentifier"><span class="hs-identifier">modifyDBSnapshot_dbSnapshotIdentifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -53,45 +53,45 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newModifyDBSnapshot' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679780800"><span id="local-6989586621679780801"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDBSnapshot"><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-var">ModifyDBSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDBSnapshot%27"><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-var">ModifyDBSnapshot'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The option group to identify with the upgraded DB snapshot.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679781905"><span id="local-6989586621679781906"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDBSnapshot"><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-var">ModifyDBSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDBSnapshot%27"><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-var">ModifyDBSnapshot'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The engine version to upgrade the DB snapshot to.</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- You can specify this parameter when you upgrade an Oracle DB snapshot.</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- The same option group considerations apply when upgrading a DB snapshot</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- as when upgrading a DB instance. For more information, see</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations&gt;</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- in the /Amazon RDS User Guide./</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AoptionGroupName%3AModifyDBSnapshot%27"><span class="annot"><span class="annottext">ModifyDBSnapshot -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AoptionGroupName%3AModifyDBSnapshot%27"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The engine version to upgrade the DB snapshot to.</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- The following are the database engines and engine versions that are</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- available when you upgrade a DB snapshot.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- The following are the database engines and engine versions that are</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- available when you upgrade a DB snapshot.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- __MySQL__</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @5.5.46@ (supported for 5.1 DB snapshots)</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- __Oracle__</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @12.1.0.2.v8@ (supported for 12.1.0.1 DB snapshots)</span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- __MySQL__</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   @11.2.0.4.v12@ (supported for 11.2.0.2 DB snapshots)</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   @5.5.46@ (supported for 5.1 DB snapshots)</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   @11.2.0.4.v11@ (supported for 11.2.0.3 DB snapshots)</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- __Oracle__</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- __PostgreSQL__</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   @12.1.0.2.v8@ (supported for 12.1.0.1 DB snapshots)</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- -   @11.2.0.4.v12@ (supported for 11.2.0.2 DB snapshots)</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- -   @11.2.0.4.v11@ (supported for 11.2.0.3 DB snapshots)</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- __PostgreSQL__</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- For the list of engine versions that are available for upgrading a DB</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- snapshot, see</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion Upgrading the PostgreSQL DB Engine for Amazon RDS&gt;.</span><span>
-</span><span id="line-87"></span><span>    </span><span id="%24sel%3AengineVersion%3AModifyDBSnapshot%27"><span class="annot"><span class="annottext">ModifyDBSnapshot -&gt; Maybe Text
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- For the list of engine versions that are available for upgrading a DB</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- snapshot, see</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion Upgrading the PostgreSQL DB Engine for Amazon RDS&gt;.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AengineVersion%3AModifyDBSnapshot%27"><span class="annot"><span class="annottext">ModifyDBSnapshot -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AengineVersion%3AModifyDBSnapshot%27"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The option group to identify with the upgraded DB snapshot.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- You can specify this parameter when you upgrade an Oracle DB snapshot.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- The same option group considerations apply when upgrading a DB snapshot</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- as when upgrading a DB instance. For more information, see</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations&gt;</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- in the /Amazon RDS User Guide./</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AoptionGroupName%3AModifyDBSnapshot%27"><span class="annot"><span class="annottext">ModifyDBSnapshot -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AoptionGroupName%3AModifyDBSnapshot%27"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The identifier of the DB snapshot to modify.</span><span>
 </span><span id="line-89"></span><span>    </span><span id="%24sel%3AdbSnapshotIdentifier%3AModifyDBSnapshot%27"><span class="annot"><span class="annottext">ModifyDBSnapshot -&gt; Text
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AdbSnapshotIdentifier%3AModifyDBSnapshot%27"><span class="hs-identifier hs-var hs-var">dbSnapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679780792"><span id="local-6989586621679780794"><span class="annot"><span class="annottext">ModifyDBSnapshot -&gt; ModifyDBSnapshot -&gt; Bool
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679781897"><span id="local-6989586621679781899"><span class="annot"><span class="annottext">ModifyDBSnapshot -&gt; ModifyDBSnapshot -&gt; Bool
 (ModifyDBSnapshot -&gt; ModifyDBSnapshot -&gt; Bool)
 -&gt; (ModifyDBSnapshot -&gt; ModifyDBSnapshot -&gt; Bool)
 -&gt; Eq ModifyDBSnapshot
@@ -100,7 +100,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyDBSnapshot -&gt; ModifyDBSnapshot -&gt; Bool
 == :: ModifyDBSnapshot -&gt; ModifyDBSnapshot -&gt; Bool
 $c== :: ModifyDBSnapshot -&gt; ModifyDBSnapshot -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780783"><span id="local-6989586621679780785"><span id="local-6989586621679780787"><span id="local-6989586621679780789"><span class="annot"><span class="annottext">ReadPrec [ModifyDBSnapshot]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781888"><span id="local-6989586621679781890"><span id="local-6989586621679781892"><span id="local-6989586621679781894"><span class="annot"><span class="annottext">ReadPrec [ModifyDBSnapshot]
 ReadPrec ModifyDBSnapshot
 Int -&gt; ReadS ModifyDBSnapshot
 ReadS [ModifyDBSnapshot]
@@ -120,7 +120,7 @@ readList :: ReadS [ModifyDBSnapshot]
 $creadList :: ReadS [ModifyDBSnapshot]
 readsPrec :: Int -&gt; ReadS ModifyDBSnapshot
 $creadsPrec :: Int -&gt; ReadS ModifyDBSnapshot
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780776"><span id="local-6989586621679780778"><span id="local-6989586621679780780"><span class="annot"><span class="annottext">Int -&gt; ModifyDBSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781881"><span id="local-6989586621679781883"><span id="local-6989586621679781885"><span class="annot"><span class="annottext">Int -&gt; ModifyDBSnapshot -&gt; ShowS
 [ModifyDBSnapshot] -&gt; ShowS
 ModifyDBSnapshot -&gt; String
 (Int -&gt; ModifyDBSnapshot -&gt; ShowS)
@@ -154,36 +154,36 @@ $cfrom :: forall x. ModifyDBSnapshot -&gt; Rep ModifyDBSnapshot x
 </span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'optionGroupName', 'modifyDBSnapshot_optionGroupName' - The option group to identify with the upgraded DB snapshot.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'engineVersion', 'modifyDBSnapshot_engineVersion' - The engine version to upgrade the DB snapshot to.</span><span>
 </span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- You can specify this parameter when you upgrade an Oracle DB snapshot.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- The same option group considerations apply when upgrading a DB snapshot</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- as when upgrading a DB instance. For more information, see</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations&gt;</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- in the /Amazon RDS User Guide./</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- 'engineVersion', 'modifyDBSnapshot_engineVersion' - The engine version to upgrade the DB snapshot to.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- The following are the database engines and engine versions that are</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- available when you upgrade a DB snapshot.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- The following are the database engines and engine versions that are</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- available when you upgrade a DB snapshot.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- __MySQL__</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- -   @5.5.46@ (supported for 5.1 DB snapshots)</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- __Oracle__</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   @12.1.0.2.v8@ (supported for 12.1.0.1 DB snapshots)</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- __MySQL__</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -   @11.2.0.4.v12@ (supported for 11.2.0.2 DB snapshots)</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- -   @5.5.46@ (supported for 5.1 DB snapshots)</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   @11.2.0.4.v11@ (supported for 11.2.0.3 DB snapshots)</span><span>
 </span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- __Oracle__</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- __PostgreSQL__</span><span>
 </span><span id="line-119"></span><span class="hs-comment">--</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- -   @12.1.0.2.v8@ (supported for 12.1.0.1 DB snapshots)</span><span>
-</span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- -   @11.2.0.4.v12@ (supported for 11.2.0.2 DB snapshots)</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- For the list of engine versions that are available for upgrading a DB</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- snapshot, see</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion Upgrading the PostgreSQL DB Engine for Amazon RDS&gt;.</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- -   @11.2.0.4.v11@ (supported for 11.2.0.3 DB snapshots)</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'optionGroupName', 'modifyDBSnapshot_optionGroupName' - The option group to identify with the upgraded DB snapshot.</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- __PostgreSQL__</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- For the list of engine versions that are available for upgrading a DB</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- snapshot, see</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion Upgrading the PostgreSQL DB Engine for Amazon RDS&gt;.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- You can specify this parameter when you upgrade an Oracle DB snapshot.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- The same option group considerations apply when upgrading a DB snapshot</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- as when upgrading a DB instance. For more information, see</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations&gt;</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- in the /Amazon RDS User Guide./</span><span>
 </span><span id="line-131"></span><span class="hs-comment">--</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- 'dbSnapshotIdentifier', 'modifyDBSnapshot_dbSnapshotIdentifier' - The identifier of the DB snapshot to modify.</span><span>
 </span><span id="line-133"></span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#newModifyDBSnapshot"><span class="hs-identifier hs-type">newModifyDBSnapshot</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -191,123 +191,122 @@ $cfrom :: forall x. ModifyDBSnapshot -&gt; Rep ModifyDBSnapshot x
 </span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span>
 </span><span id="line-137"></span><span id="newModifyDBSnapshot"><span class="annot"><span class="annottext">newModifyDBSnapshot :: Text -&gt; ModifyDBSnapshot
-</span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#newModifyDBSnapshot"><span class="hs-identifier hs-var hs-var">newModifyDBSnapshot</span></a></span></span><span> </span><span id="local-6989586621679780771"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780771"><span class="hs-identifier hs-var">pDBSnapshotIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#newModifyDBSnapshot"><span class="hs-identifier hs-var hs-var">newModifyDBSnapshot</span></a></span></span><span> </span><span id="local-6989586621679781876"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781876"><span class="hs-identifier hs-var">pDBSnapshotIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="annottext">ModifyDBSnapshot' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ModifyDBSnapshot
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:optionGroupName:ModifyDBSnapshot' :: Maybe Text
-</span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AoptionGroupName%3AModifyDBSnapshot%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineVersion:ModifyDBSnapshot' :: Maybe Text
+</span><span id="line-139"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:engineVersion:ModifyDBSnapshot' :: Maybe Text
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AengineVersion%3AModifyDBSnapshot%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSnapshotIdentifier:ModifyDBSnapshot' :: Text
-</span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AdbSnapshotIdentifier%3AModifyDBSnapshot%27"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780771"><span class="hs-identifier hs-var">pDBSnapshotIdentifier_</span></a></span><span>
-</span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | The option group to identify with the upgraded DB snapshot.</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- You can specify this parameter when you upgrade an Oracle DB snapshot.</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- The same option group considerations apply when upgrading a DB snapshot</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- as when upgrading a DB instance. For more information, see</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations&gt;</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- in the /Amazon RDS User Guide./</span><span>
-</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_optionGroupName"><span class="hs-identifier hs-type">modifyDBSnapshot_optionGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span id="modifyDBSnapshot_optionGroupName"><span class="annot"><span class="annottext">modifyDBSnapshot_optionGroupName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ModifyDBSnapshot -&gt; f ModifyDBSnapshot
-</span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_optionGroupName"><span class="hs-identifier hs-var hs-var">modifyDBSnapshot_optionGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBSnapshot -&gt; Maybe Text)
--&gt; (ModifyDBSnapshot -&gt; Maybe Text -&gt; ModifyDBSnapshot)
--&gt; Lens ModifyDBSnapshot ModifyDBSnapshot (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780768"><span class="annot"><span class="annottext">Maybe Text
-optionGroupName :: Maybe Text
-$sel:optionGroupName:ModifyDBSnapshot' :: ModifyDBSnapshot -&gt; Maybe Text
-</span><a href="#local-6989586621679780768"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679780768"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780767"><span class="annot"><span class="annottext">s :: ModifyDBSnapshot
-</span><a href="#local-6989586621679780767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780766"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679780766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSnapshot
-</span><a href="#local-6989586621679780767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupName:ModifyDBSnapshot' :: Maybe Text
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:optionGroupName:ModifyDBSnapshot' :: Maybe Text
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AoptionGroupName%3AModifyDBSnapshot%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679780766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- | The engine version to upgrade the DB snapshot to.</span><span>
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:dbSnapshotIdentifier:ModifyDBSnapshot' :: Text
+</span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AdbSnapshotIdentifier%3AModifyDBSnapshot%27"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781876"><span class="hs-identifier hs-var">pDBSnapshotIdentifier_</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The engine version to upgrade the DB snapshot to.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- The following are the database engines and engine versions that are</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- available when you upgrade a DB snapshot.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- __MySQL__</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @5.5.46@ (supported for 5.1 DB snapshots)</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- __Oracle__</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -   @12.1.0.2.v8@ (supported for 12.1.0.1 DB snapshots)</span><span>
 </span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- The following are the database engines and engine versions that are</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- available when you upgrade a DB snapshot.</span><span>
-</span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- __MySQL__</span><span>
-</span><span id="line-161"></span><span class="hs-comment">--</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- -   @5.5.46@ (supported for 5.1 DB snapshots)</span><span>
-</span><span id="line-163"></span><span class="hs-comment">--</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- __Oracle__</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- -   @12.1.0.2.v8@ (supported for 12.1.0.1 DB snapshots)</span><span>
-</span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- -   @11.2.0.4.v12@ (supported for 11.2.0.2 DB snapshots)</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- -   @11.2.0.4.v11@ (supported for 11.2.0.3 DB snapshots)</span><span>
-</span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- __PostgreSQL__</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- For the list of engine versions that are available for upgrading a DB</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- snapshot, see</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion Upgrading the PostgreSQL DB Engine for Amazon RDS&gt;.</span><span>
-</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_engineVersion"><span class="hs-identifier hs-type">modifyDBSnapshot_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span id="modifyDBSnapshot_engineVersion"><span class="annot"><span class="annottext">modifyDBSnapshot_engineVersion :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-157"></span><span class="hs-comment">-- -   @11.2.0.4.v12@ (supported for 11.2.0.2 DB snapshots)</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- -   @11.2.0.4.v11@ (supported for 11.2.0.3 DB snapshots)</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- __PostgreSQL__</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- For the list of engine versions that are available for upgrading a DB</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- snapshot, see</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion Upgrading the PostgreSQL DB Engine for Amazon RDS&gt;.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_engineVersion"><span class="hs-identifier hs-type">modifyDBSnapshot_engineVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="modifyDBSnapshot_engineVersion"><span class="annot"><span class="annottext">modifyDBSnapshot_engineVersion :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ModifyDBSnapshot -&gt; f ModifyDBSnapshot
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_engineVersion"><span class="hs-identifier hs-var hs-var">modifyDBSnapshot_engineVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBSnapshot -&gt; Maybe Text)
 -&gt; (ModifyDBSnapshot -&gt; Maybe Text -&gt; ModifyDBSnapshot)
 -&gt; Lens ModifyDBSnapshot ModifyDBSnapshot (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780765"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781873"><span class="annot"><span class="annottext">Maybe Text
 engineVersion :: Maybe Text
 $sel:engineVersion:ModifyDBSnapshot' :: ModifyDBSnapshot -&gt; Maybe Text
-</span><a href="#local-6989586621679780765"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679780765"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780764"><span class="annot"><span class="annottext">s :: ModifyDBSnapshot
-</span><a href="#local-6989586621679780764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780763"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679780763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSnapshot
-</span><a href="#local-6989586621679780764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:ModifyDBSnapshot' :: Maybe Text
+</span><a href="#local-6989586621679781873"><span class="hs-identifier hs-var hs-var">engineVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781873"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781872"><span class="annot"><span class="annottext">s :: ModifyDBSnapshot
+</span><a href="#local-6989586621679781872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781871"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSnapshot
+</span><a href="#local-6989586621679781872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineVersion:ModifyDBSnapshot' :: Maybe Text
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AengineVersion%3AModifyDBSnapshot%27"><span class="hs-identifier hs-var">engineVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679780763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- | The identifier of the DB snapshot to modify.</span><span>
-</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_dbSnapshotIdentifier"><span class="hs-identifier hs-type">modifyDBSnapshot_dbSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-182"></span><span id="modifyDBSnapshot_dbSnapshotIdentifier"><span class="annot"><span class="annottext">modifyDBSnapshot_dbSnapshotIdentifier :: (Text -&gt; f Text) -&gt; ModifyDBSnapshot -&gt; f ModifyDBSnapshot
+</span><a href="#local-6989586621679781871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The option group to identify with the upgraded DB snapshot.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- You can specify this parameter when you upgrade an Oracle DB snapshot.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- The same option group considerations apply when upgrading a DB snapshot</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- as when upgrading a DB instance. For more information, see</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option group considerations&gt;</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- in the /Amazon RDS User Guide./</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_optionGroupName"><span class="hs-identifier hs-type">modifyDBSnapshot_optionGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="modifyDBSnapshot_optionGroupName"><span class="annot"><span class="annottext">modifyDBSnapshot_optionGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyDBSnapshot -&gt; f ModifyDBSnapshot
+</span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_optionGroupName"><span class="hs-identifier hs-var hs-var">modifyDBSnapshot_optionGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBSnapshot -&gt; Maybe Text)
+-&gt; (ModifyDBSnapshot -&gt; Maybe Text -&gt; ModifyDBSnapshot)
+-&gt; Lens ModifyDBSnapshot ModifyDBSnapshot (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781870"><span class="annot"><span class="annottext">Maybe Text
+optionGroupName :: Maybe Text
+$sel:optionGroupName:ModifyDBSnapshot' :: ModifyDBSnapshot -&gt; Maybe Text
+</span><a href="#local-6989586621679781870"><span class="hs-identifier hs-var hs-var">optionGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781870"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781869"><span class="annot"><span class="annottext">s :: ModifyDBSnapshot
+</span><a href="#local-6989586621679781869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781868"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSnapshot
+</span><a href="#local-6989586621679781869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:optionGroupName:ModifyDBSnapshot' :: Maybe Text
+</span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AoptionGroupName%3AModifyDBSnapshot%27"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The identifier of the DB snapshot to modify.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_dbSnapshotIdentifier"><span class="hs-identifier hs-type">modifyDBSnapshot_dbSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-181"></span><span id="modifyDBSnapshot_dbSnapshotIdentifier"><span class="annot"><span class="annottext">modifyDBSnapshot_dbSnapshotIdentifier :: (Text -&gt; f Text) -&gt; ModifyDBSnapshot -&gt; f ModifyDBSnapshot
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshot_dbSnapshotIdentifier"><span class="hs-identifier hs-var hs-var">modifyDBSnapshot_dbSnapshotIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBSnapshot -&gt; Text)
 -&gt; (ModifyDBSnapshot -&gt; Text -&gt; ModifyDBSnapshot)
 -&gt; Lens ModifyDBSnapshot ModifyDBSnapshot Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780762"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781867"><span class="annot"><span class="annottext">Text
 dbSnapshotIdentifier :: Text
 $sel:dbSnapshotIdentifier:ModifyDBSnapshot' :: ModifyDBSnapshot -&gt; Text
-</span><a href="#local-6989586621679780762"><span class="hs-identifier hs-var hs-var">dbSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780762"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780761"><span class="annot"><span class="annottext">s :: ModifyDBSnapshot
-</span><a href="#local-6989586621679780761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780760"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSnapshot
-</span><a href="#local-6989586621679780761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshotIdentifier:ModifyDBSnapshot' :: Text
+</span><a href="#local-6989586621679781867"><span class="hs-identifier hs-var hs-var">dbSnapshotIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781867"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781866"><span class="annot"><span class="annottext">s :: ModifyDBSnapshot
+</span><a href="#local-6989586621679781866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781865"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679781865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSnapshot
+</span><a href="#local-6989586621679781866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshotIdentifier:ModifyDBSnapshot' :: Text
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AdbSnapshotIdentifier%3AModifyDBSnapshot%27"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-186"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-187"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679780756"><span class="annot"><span class="annottext">request :: ModifyDBSnapshot -&gt; Request ModifyDBSnapshot
+</span><a href="#local-6989586621679781865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-185"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679781861"><span class="annot"><span class="annottext">request :: ModifyDBSnapshot -&gt; Request ModifyDBSnapshot
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyDBSnapshot -&gt; Request ModifyDBSnapshot
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679780752"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679781857"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyDBSnapshot
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse ModifyDBSnapshot)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">Text
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">Text
 -&gt; (Int
     -&gt; ResponseHeaders
     -&gt; [Node]
@@ -328,24 +327,24 @@ Text
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
-</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ModifyDBSnapshotResult&quot;</span></span><span>
-</span><span id="line-192"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679780749"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780749"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679780748"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679780748"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679780747"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679780747"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-193"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBSnapshot -&gt; Int -&gt; ModifyDBSnapshotResponse
+</span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679781854"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781854"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679781853"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679781853"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679781852"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679781852"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBSnapshot -&gt; Int -&gt; ModifyDBSnapshotResponse
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse%27"><span class="hs-identifier hs-var">ModifyDBSnapshotResponse'</span></a></span><span>
-</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBSnapshot -&gt; Int -&gt; ModifyDBSnapshotResponse)
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBSnapshot -&gt; Int -&gt; ModifyDBSnapshotResponse)
 -&gt; Either String (Maybe DBSnapshot)
 -&gt; Either String (Int -&gt; ModifyDBSnapshotResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679780747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBSnapshot)
+</span><a href="#local-6989586621679781852"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBSnapshot)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBSnapshot&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyDBSnapshotResponse)
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyDBSnapshotResponse)
 -&gt; Either String Int -&gt; Either String ModifyDBSnapshotResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -353,80 +352,80 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780749"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780739"><span id="local-6989586621679780741"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span></span></span><span>
-</span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span></span><span>
-</span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-203"></span><span>  </span><span id="local-6989586621679780732"><span class="annot"><span class="annottext">toHeaders :: ModifyDBSnapshot -&gt; ResponseHeaders
+</span><a href="#local-6989586621679781854"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781844"><span id="local-6989586621679781846"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span></span></span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781841"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span></span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679781837"><span class="annot"><span class="annottext">toHeaders :: ModifyDBSnapshot -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyDBSnapshot -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679780727"><span class="annot"><span class="annottext">toPath :: ModifyDBSnapshot -&gt; ByteString
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679781832"><span class="annot"><span class="annottext">toPath :: ModifyDBSnapshot -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyDBSnapshot -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679780723"><span class="annot"><span class="annottext">toQuery :: ModifyDBSnapshot -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780719"><span id="local-6989586621679780720"><span id="local-6989586621679780721"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot"><span class="hs-identifier hs-type">ModifyDBSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679781828"><span class="annot"><span class="annottext">toQuery :: ModifyDBSnapshot -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshot%27"><span class="hs-identifier hs-type">ModifyDBSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781824"><span id="local-6989586621679781825"><span id="local-6989586621679781826"><span class="annot"><span class="annottext">Maybe Text
 Text
 dbSnapshotIdentifier :: Text
-engineVersion :: Maybe Text
 optionGroupName :: Maybe Text
+engineVersion :: Maybe Text
 $sel:dbSnapshotIdentifier:ModifyDBSnapshot' :: ModifyDBSnapshot -&gt; Text
-$sel:engineVersion:ModifyDBSnapshot' :: ModifyDBSnapshot -&gt; Maybe Text
 $sel:optionGroupName:ModifyDBSnapshot' :: ModifyDBSnapshot -&gt; Maybe Text
-</span><a href="#local-6989586621679780719"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+$sel:engineVersion:ModifyDBSnapshot' :: ModifyDBSnapshot -&gt; Maybe Text
+</span><a href="#local-6989586621679781824"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-211"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-210"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Action&quot;</span></span><span>
-</span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ModifyDBSnapshot&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Version&quot;</span></span><span>
-</span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-213"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679781826"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;OptionGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679780721"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679781825"><span class="hs-identifier hs-var">optionGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;EngineVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679780720"><span class="hs-identifier hs-var">engineVersion</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DBSnapshotIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679780719"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span>
-</span><span id="line-218"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- | /See:/ 'newModifyDBSnapshotResponse' smart constructor.</span><span>
-</span><span id="line-221"></span><span id="local-6989586621679780716"><span id="local-6989586621679780717"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDBSnapshotResponse"><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-var">ModifyDBSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDBSnapshotResponse%27"><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse%27"><span class="hs-identifier hs-var">ModifyDBSnapshotResponse'</span></a></span></span><span>
-</span><span id="line-222"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbSnapshot%3AModifyDBSnapshotResponse%27"><span class="annot"><span class="annottext">ModifyDBSnapshotResponse -&gt; Maybe DBSnapshot
+</span><a href="#local-6989586621679781824"><span class="hs-identifier hs-var">dbSnapshotIdentifier</span></a></span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | /See:/ 'newModifyDBSnapshotResponse' smart constructor.</span><span>
+</span><span id="line-220"></span><span id="local-6989586621679781821"><span id="local-6989586621679781822"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyDBSnapshotResponse"><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-var">ModifyDBSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyDBSnapshotResponse%27"><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse%27"><span class="hs-identifier hs-var">ModifyDBSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbSnapshot%3AModifyDBSnapshotResponse%27"><span class="annot"><span class="annottext">ModifyDBSnapshotResponse -&gt; Maybe DBSnapshot
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AdbSnapshot%3AModifyDBSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">dbSnapshot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSnapshot.html#DBSnapshot"><span class="hs-identifier hs-type">DBSnapshot</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyDBSnapshotResponse%27"><span class="annot"><span class="annottext">ModifyDBSnapshotResponse -&gt; Int
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyDBSnapshotResponse%27"><span class="annot"><span class="annottext">ModifyDBSnapshotResponse -&gt; Int
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AhttpStatus%3AModifyDBSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-225"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679780710"><span id="local-6989586621679780712"><span class="annot"><span class="annottext">ModifyDBSnapshotResponse -&gt; ModifyDBSnapshotResponse -&gt; Bool
+</span><span id="line-224"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679781815"><span id="local-6989586621679781817"><span class="annot"><span class="annottext">ModifyDBSnapshotResponse -&gt; ModifyDBSnapshotResponse -&gt; Bool
 (ModifyDBSnapshotResponse -&gt; ModifyDBSnapshotResponse -&gt; Bool)
 -&gt; (ModifyDBSnapshotResponse -&gt; ModifyDBSnapshotResponse -&gt; Bool)
 -&gt; Eq ModifyDBSnapshotResponse
@@ -435,7 +434,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyDBSnapshotResponse -&gt; ModifyDBSnapshotResponse -&gt; Bool
 == :: ModifyDBSnapshotResponse -&gt; ModifyDBSnapshotResponse -&gt; Bool
 $c== :: ModifyDBSnapshotResponse -&gt; ModifyDBSnapshotResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780702"><span id="local-6989586621679780704"><span id="local-6989586621679780706"><span id="local-6989586621679780708"><span class="annot"><span class="annottext">ReadPrec [ModifyDBSnapshotResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781807"><span id="local-6989586621679781809"><span id="local-6989586621679781811"><span id="local-6989586621679781813"><span class="annot"><span class="annottext">ReadPrec [ModifyDBSnapshotResponse]
 ReadPrec ModifyDBSnapshotResponse
 Int -&gt; ReadS ModifyDBSnapshotResponse
 ReadS [ModifyDBSnapshotResponse]
@@ -455,7 +454,7 @@ readList :: ReadS [ModifyDBSnapshotResponse]
 $creadList :: ReadS [ModifyDBSnapshotResponse]
 readsPrec :: Int -&gt; ReadS ModifyDBSnapshotResponse
 $creadsPrec :: Int -&gt; ReadS ModifyDBSnapshotResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679780696"><span id="local-6989586621679780698"><span id="local-6989586621679780700"><span class="annot"><span class="annottext">Int -&gt; ModifyDBSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679781801"><span id="local-6989586621679781803"><span id="local-6989586621679781805"><span class="annot"><span class="annottext">Int -&gt; ModifyDBSnapshotResponse -&gt; ShowS
 [ModifyDBSnapshotResponse] -&gt; ShowS
 ModifyDBSnapshotResponse -&gt; String
 (Int -&gt; ModifyDBSnapshotResponse -&gt; ShowS)
@@ -486,40 +485,40 @@ Rep ModifyDBSnapshotResponse x -&gt; ModifyDBSnapshotResponse
 $cfrom :: forall x.
 ModifyDBSnapshotResponse -&gt; Rep ModifyDBSnapshotResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- Create a value of 'ModifyDBSnapshotResponse' with all optional fields omitted.</span><span>
-</span><span id="line-230"></span><span class="hs-comment">--</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-232"></span><span class="hs-comment">--</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-235"></span><span class="hs-comment">--</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- 'dbSnapshot', 'modifyDBSnapshotResponse_dbSnapshot' - Undocumented member.</span><span>
-</span><span id="line-237"></span><span class="hs-comment">--</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- 'httpStatus', 'modifyDBSnapshotResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#newModifyDBSnapshotResponse"><span class="hs-identifier hs-type">newModifyDBSnapshotResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-240"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-241"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-242"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span><span>
-</span><span id="line-243"></span><span id="newModifyDBSnapshotResponse"><span class="annot"><span class="annottext">newModifyDBSnapshotResponse :: Int -&gt; ModifyDBSnapshotResponse
-</span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#newModifyDBSnapshotResponse"><span class="hs-identifier hs-var hs-var">newModifyDBSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679780693"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-244"></span><span>  </span><span class="annot"><span class="annottext">ModifyDBSnapshotResponse' :: Maybe DBSnapshot -&gt; Int -&gt; ModifyDBSnapshotResponse
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Create a value of 'ModifyDBSnapshotResponse' with all optional fields omitted.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'dbSnapshot', 'modifyDBSnapshotResponse_dbSnapshot' - Undocumented member.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'httpStatus', 'modifyDBSnapshotResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#newModifyDBSnapshotResponse"><span class="hs-identifier hs-type">newModifyDBSnapshotResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span><span>
+</span><span id="line-242"></span><span id="newModifyDBSnapshotResponse"><span class="annot"><span class="annottext">newModifyDBSnapshotResponse :: Int -&gt; ModifyDBSnapshotResponse
+</span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#newModifyDBSnapshotResponse"><span class="hs-identifier hs-var hs-var">newModifyDBSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679781798"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781798"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><span class="annottext">ModifyDBSnapshotResponse' :: Maybe DBSnapshot -&gt; Int -&gt; ModifyDBSnapshotResponse
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse%27"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse'</span></a></span><span>
-</span><span id="line-245"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbSnapshot:ModifyDBSnapshotResponse' :: Maybe DBSnapshot
+</span><span id="line-244"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbSnapshot:ModifyDBSnapshotResponse' :: Maybe DBSnapshot
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AdbSnapshot%3AModifyDBSnapshotResponse%27"><span class="hs-identifier hs-var">dbSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">Maybe DBSnapshot
+</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">Maybe DBSnapshot
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyDBSnapshotResponse' :: Int
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyDBSnapshotResponse' :: Int
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AhttpStatus%3AModifyDBSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780693"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-248"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-249"></span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshotResponse_dbSnapshot"><span class="hs-identifier hs-type">modifyDBSnapshotResponse_dbSnapshot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSnapshot.html#DBSnapshot"><span class="hs-identifier hs-type">DBSnapshot</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span id="modifyDBSnapshotResponse_dbSnapshot"><span class="annot"><span class="annottext">modifyDBSnapshotResponse_dbSnapshot :: (Maybe DBSnapshot -&gt; f (Maybe DBSnapshot))
+</span><a href="#local-6989586621679781798"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshotResponse_dbSnapshot"><span class="hs-identifier hs-type">modifyDBSnapshotResponse_dbSnapshot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBSnapshot.html#DBSnapshot"><span class="hs-identifier hs-type">DBSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="modifyDBSnapshotResponse_dbSnapshot"><span class="annot"><span class="annottext">modifyDBSnapshotResponse_dbSnapshot :: (Maybe DBSnapshot -&gt; f (Maybe DBSnapshot))
 -&gt; ModifyDBSnapshotResponse -&gt; f ModifyDBSnapshotResponse
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshotResponse_dbSnapshot"><span class="hs-identifier hs-var hs-var">modifyDBSnapshotResponse_dbSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBSnapshotResponse -&gt; Maybe DBSnapshot)
 -&gt; (ModifyDBSnapshotResponse
@@ -530,35 +529,35 @@ forall a. Maybe a
      (Maybe DBSnapshot)
      (Maybe DBSnapshot)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse%27"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780692"><span class="annot"><span class="annottext">Maybe DBSnapshot
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse%27"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781797"><span class="annot"><span class="annottext">Maybe DBSnapshot
 dbSnapshot :: Maybe DBSnapshot
 $sel:dbSnapshot:ModifyDBSnapshotResponse' :: ModifyDBSnapshotResponse -&gt; Maybe DBSnapshot
-</span><a href="#local-6989586621679780692"><span class="hs-identifier hs-var hs-var">dbSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBSnapshot
-</span><a href="#local-6989586621679780692"><span class="hs-identifier hs-var">dbSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780691"><span class="annot"><span class="annottext">s :: ModifyDBSnapshotResponse
-</span><a href="#local-6989586621679780691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse%27"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780690"><span class="annot"><span class="annottext">Maybe DBSnapshot
-</span><a href="#local-6989586621679780690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSnapshotResponse
-</span><a href="#local-6989586621679780691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshot:ModifyDBSnapshotResponse' :: Maybe DBSnapshot
+</span><a href="#local-6989586621679781797"><span class="hs-identifier hs-var hs-var">dbSnapshot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBSnapshot
+</span><a href="#local-6989586621679781797"><span class="hs-identifier hs-var">dbSnapshot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781796"><span class="annot"><span class="annottext">s :: ModifyDBSnapshotResponse
+</span><a href="#local-6989586621679781796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse%27"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781795"><span class="annot"><span class="annottext">Maybe DBSnapshot
+</span><a href="#local-6989586621679781795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSnapshotResponse
+</span><a href="#local-6989586621679781796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbSnapshot:ModifyDBSnapshotResponse' :: Maybe DBSnapshot
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AdbSnapshot%3AModifyDBSnapshotResponse%27"><span class="hs-identifier hs-var">dbSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBSnapshot
-</span><a href="#local-6989586621679780690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshotResponse_httpStatus"><span class="hs-identifier hs-type">modifyDBSnapshotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-256"></span><span id="modifyDBSnapshotResponse_httpStatus"><span class="annot"><span class="annottext">modifyDBSnapshotResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679781795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshotResponse_httpStatus"><span class="hs-identifier hs-type">modifyDBSnapshotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-255"></span><span id="modifyDBSnapshotResponse_httpStatus"><span class="annot"><span class="annottext">modifyDBSnapshotResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; ModifyDBSnapshotResponse -&gt; f ModifyDBSnapshotResponse
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#modifyDBSnapshotResponse_httpStatus"><span class="hs-identifier hs-var hs-var">modifyDBSnapshotResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyDBSnapshotResponse -&gt; Int)
 -&gt; (ModifyDBSnapshotResponse -&gt; Int -&gt; ModifyDBSnapshotResponse)
 -&gt; Lens ModifyDBSnapshotResponse ModifyDBSnapshotResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse%27"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679780689"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse%27"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679781794"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyDBSnapshotResponse' :: ModifyDBSnapshotResponse -&gt; Int
-</span><a href="#local-6989586621679780689"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780689"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679780688"><span class="annot"><span class="annottext">s :: ModifyDBSnapshotResponse
-</span><a href="#local-6989586621679780688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse%27"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679780687"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSnapshotResponse
-</span><a href="#local-6989586621679780688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyDBSnapshotResponse' :: Int
+</span><a href="#local-6989586621679781794"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781794"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679781793"><span class="annot"><span class="annottext">s :: ModifyDBSnapshotResponse
+</span><a href="#local-6989586621679781793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse%27"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679781792"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679781792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyDBSnapshotResponse
+</span><a href="#local-6989586621679781793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyDBSnapshotResponse' :: Int
 </span><a href="Network.AWS.RDS.ModifyDBSnapshot.html#%24sel%3AhttpStatus%3AModifyDBSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679780687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679780685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span></span><span>
-</span><span id="line-259"></span></pre></body></html>
+</span><a href="#local-6989586621679781792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679781790"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.ModifyDBSnapshot.html#ModifyDBSnapshotResponse"><span class="hs-identifier hs-type">ModifyDBSnapshotResponse</span></a></span></span><span>
+</span><span id="line-258"></span></pre></body></html>

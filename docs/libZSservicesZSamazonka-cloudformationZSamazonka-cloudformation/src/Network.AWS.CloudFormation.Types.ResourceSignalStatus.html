@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679419859"><span id="local-6989586621679419860"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceSignalStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus"><span class="hs-identifier hs-var">ResourceSignalStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceSignalStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus%27"><span class="hs-identifier hs-var">ResourceSignalStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679420262"><span id="local-6989586621679420263"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ResourceSignalStatus"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus"><span class="hs-identifier hs-var">ResourceSignalStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceSignalStatus%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.ResourceSignalStatus.html#ResourceSignalStatus%27"><span class="hs-identifier hs-var">ResourceSignalStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromResourceSignalStatus"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.ResourceSignalStatus.html#fromResourceSignalStatus"><span class="hs-identifier hs-var hs-var">fromResourceSignalStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679419851"><span id="local-6989586621679419853"><span id="local-6989586621679419855"><span class="annot"><span class="annottext">Int -&gt; ResourceSignalStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679420254"><span id="local-6989586621679420256"><span id="local-6989586621679420258"><span class="annot"><span class="annottext">Int -&gt; ResourceSignalStatus -&gt; ShowS
 [ResourceSignalStatus] -&gt; ShowS
 ResourceSignalStatus -&gt; String
 (Int -&gt; ResourceSignalStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ResourceSignalStatus -&gt; String
 showsPrec :: Int -&gt; ResourceSignalStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ResourceSignalStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679419842"><span id="local-6989586621679419844"><span id="local-6989586621679419846"><span id="local-6989586621679419848"><span class="annot"><span class="annottext">ReadPrec [ResourceSignalStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679420245"><span id="local-6989586621679420247"><span id="local-6989586621679420249"><span id="local-6989586621679420251"><span class="annot"><span class="annottext">ReadPrec [ResourceSignalStatus]
 ReadPrec ResourceSignalStatus
 Int -&gt; ReadS ResourceSignalStatus
 ReadS [ResourceSignalStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ResourceSignalStatus]
 readsPrec :: Int -&gt; ReadS ResourceSignalStatus
 $creadsPrec :: Int -&gt; ReadS ResourceSignalStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679419837"><span id="local-6989586621679419839"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679420240"><span id="local-6989586621679420242"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
 (ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool)
 -&gt; (ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool)
 -&gt; Eq ResourceSignalStatus
@@ -82,7 +82,7 @@ $c/= :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
 == :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
 $c== :: ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679419821"><span id="local-6989586621679419823"><span id="local-6989586621679419825"><span id="local-6989586621679419827"><span id="local-6989586621679419829"><span id="local-6989586621679419831"><span id="local-6989586621679419833"><span class="annot"><span class="annottext">Eq ResourceSignalStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679420224"><span id="local-6989586621679420226"><span id="local-6989586621679420228"><span id="local-6989586621679420230"><span id="local-6989586621679420232"><span id="local-6989586621679420234"><span id="local-6989586621679420236"><span class="annot"><span class="annottext">Eq ResourceSignalStatus
 Eq ResourceSignalStatus
 -&gt; (ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Ordering)
 -&gt; (ResourceSignalStatus -&gt; ResourceSignalStatus -&gt; Bool)
@@ -140,7 +140,7 @@ $cfrom :: forall x. ResourceSignalStatus -&gt; Rep ResourceSignalStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679419813"><span id="local-6989586621679419815"><span class="annot"><span class="annottext">Int -&gt; ResourceSignalStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679420216"><span id="local-6989586621679420218"><span class="annot"><span class="annottext">Int -&gt; ResourceSignalStatus -&gt; Int
 ResourceSignalStatus -&gt; Int
 (Int -&gt; ResourceSignalStatus -&gt; Int)
 -&gt; (ResourceSignalStatus -&gt; Int) -&gt; Hashable ResourceSignalStatus
@@ -150,54 +150,54 @@ $chash :: ResourceSignalStatus -&gt; Int
 hashWithSalt :: Int -&gt; ResourceSignalStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ResourceSignalStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679419810"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679420213"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; ()
 (ResourceSignalStatus -&gt; ()) -&gt; NFData ResourceSignalStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ResourceSignalStatus -&gt; ()
 $crnf :: ResourceSignalStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679419807"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceSignalStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679420210"><span class="annot"><span class="annottext">Text -&gt; Either String ResourceSignalStatus
 (Text -&gt; Either String ResourceSignalStatus)
 -&gt; FromText ResourceSignalStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ResourceSignalStatus
 $cfromText :: Text -&gt; Either String ResourceSignalStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679419804"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679420207"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; Text
 (ResourceSignalStatus -&gt; Text) -&gt; ToText ResourceSignalStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ResourceSignalStatus -&gt; Text
 $ctoText :: ResourceSignalStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679419801"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679420204"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; ByteString
 (ResourceSignalStatus -&gt; ByteString)
 -&gt; ToByteString ResourceSignalStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ResourceSignalStatus -&gt; ByteString
 $ctoBS :: ResourceSignalStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679419798"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679420201"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; ByteStringBuilder
 (ResourceSignalStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ResourceSignalStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ResourceSignalStatus -&gt; ByteStringBuilder
 $cbuild :: ResourceSignalStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679419795"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceSignalStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679420198"><span class="annot"><span class="annottext">HeaderName -&gt; ResourceSignalStatus -&gt; [Header]
 (HeaderName -&gt; ResourceSignalStatus -&gt; [Header])
 -&gt; ToHeader ResourceSignalStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ResourceSignalStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ResourceSignalStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679419792"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679420195"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; QueryString
 (ResourceSignalStatus -&gt; QueryString)
 -&gt; ToQuery ResourceSignalStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ResourceSignalStatus -&gt; QueryString
 $ctoQuery :: ResourceSignalStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679419787"><span id="local-6989586621679419789"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceSignalStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679420190"><span id="local-6989586621679420192"><span class="annot"><span class="annottext">Value -&gt; Parser [ResourceSignalStatus]
 Value -&gt; Parser ResourceSignalStatus
 (Value -&gt; Parser ResourceSignalStatus)
 -&gt; (Value -&gt; Parser [ResourceSignalStatus])
@@ -209,7 +209,7 @@ $cparseJSONList :: Value -&gt; Parser [ResourceSignalStatus]
 parseJSON :: Value -&gt; Parser ResourceSignalStatus
 $cparseJSON :: Value -&gt; Parser ResourceSignalStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679419782"><span id="local-6989586621679419784"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceSignalStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679420185"><span id="local-6989586621679420187"><span class="annot"><span class="annottext">FromJSONKeyFunction [ResourceSignalStatus]
 FromJSONKeyFunction ResourceSignalStatus
 FromJSONKeyFunction ResourceSignalStatus
 -&gt; FromJSONKeyFunction [ResourceSignalStatus]
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ResourceSignalStatus]
 fromJSONKey :: FromJSONKeyFunction ResourceSignalStatus
 $cfromJSONKey :: FromJSONKeyFunction ResourceSignalStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679419773"><span id="local-6989586621679419775"><span id="local-6989586621679419777"><span id="local-6989586621679419779"><span class="annot"><span class="annottext">[ResourceSignalStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679420176"><span id="local-6989586621679420178"><span id="local-6989586621679420180"><span id="local-6989586621679420182"><span class="annot"><span class="annottext">[ResourceSignalStatus] -&gt; Encoding
 [ResourceSignalStatus] -&gt; Value
 ResourceSignalStatus -&gt; Encoding
 ResourceSignalStatus -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: ResourceSignalStatus -&gt; Encoding
 toJSON :: ResourceSignalStatus -&gt; Value
 $ctoJSON :: ResourceSignalStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679419768"><span id="local-6989586621679419770"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceSignalStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679420171"><span id="local-6989586621679420173"><span class="annot"><span class="annottext">ToJSONKeyFunction [ResourceSignalStatus]
 ToJSONKeyFunction ResourceSignalStatus
 ToJSONKeyFunction ResourceSignalStatus
 -&gt; ToJSONKeyFunction [ResourceSignalStatus]
@@ -257,14 +257,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ResourceSignalStatus]
 toJSONKey :: ToJSONKeyFunction ResourceSignalStatus
 $ctoJSONKey :: ToJSONKeyFunction ResourceSignalStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679419765"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceSignalStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679420168"><span class="annot"><span class="annottext">[Node] -&gt; Either String ResourceSignalStatus
 ([Node] -&gt; Either String ResourceSignalStatus)
 -&gt; FromXML ResourceSignalStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ResourceSignalStatus
 $cparseXML :: [Node] -&gt; Either String ResourceSignalStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679419762"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679420165"><span class="annot"><span class="annottext">ResourceSignalStatus -&gt; XML
 (ResourceSignalStatus -&gt; XML) -&gt; ToXML ResourceSignalStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ResourceSignalStatus -&gt; XML

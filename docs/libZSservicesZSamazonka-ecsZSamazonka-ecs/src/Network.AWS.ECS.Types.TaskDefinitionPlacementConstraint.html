@@ -32,20 +32,20 @@
 </span><span id="line-32"></span><span class="hs-comment">-- Task placement constraints are not supported for tasks run on Fargate.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newTaskDefinitionPlacementConstraint' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679462451"><span id="local-6989586621679462452"></span></span><span class="hs-keyword">data</span><span> </span><span id="TaskDefinitionPlacementConstraint"><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-var">TaskDefinitionPlacementConstraint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskDefinitionPlacementConstraint%27"><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var">TaskDefinitionPlacementConstraint'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of constraint. The @MemberOf@ constraint restricts selection to</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- be from a group of valid candidates.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atype%27%3ATaskDefinitionPlacementConstraint%27"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraint
+</span><span id="line-35"></span><span id="local-6989586621679463177"><span id="local-6989586621679463178"></span></span><span class="hs-keyword">data</span><span> </span><span id="TaskDefinitionPlacementConstraint"><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-var">TaskDefinitionPlacementConstraint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskDefinitionPlacementConstraint%27"><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var">TaskDefinitionPlacementConstraint'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A cluster query language expression to apply to the constraint. For more</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language&gt;</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aexpression%3ATaskDefinitionPlacementConstraint%27"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraint -&gt; Maybe Text
+</span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#%24sel%3Aexpression%3ATaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The type of constraint. The @MemberOf@ constraint restricts selection to</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- be from a group of valid candidates.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atype%27%3ATaskDefinitionPlacementConstraint%27"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraint
 -&gt; Maybe TaskDefinitionPlacementConstraintType
-</span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#%24sel%3Atype%27%3ATaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraintType.html#TaskDefinitionPlacementConstraintType"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraintType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A cluster query language expression to apply to the constraint. For more</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language&gt;</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Aexpression%3ATaskDefinitionPlacementConstraint%27"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraint -&gt; Maybe Text
-</span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#%24sel%3Aexpression%3ATaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#%24sel%3Atype%27%3ATaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraintType.html#TaskDefinitionPlacementConstraintType"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraintType</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679462444"><span id="local-6989586621679462446"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraint
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463170"><span id="local-6989586621679463172"><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraint
 -&gt; TaskDefinitionPlacementConstraint -&gt; Bool
 (TaskDefinitionPlacementConstraint
  -&gt; TaskDefinitionPlacementConstraint -&gt; Bool)
@@ -61,7 +61,7 @@ $c/= :: TaskDefinitionPlacementConstraint
 -&gt; TaskDefinitionPlacementConstraint -&gt; Bool
 $c== :: TaskDefinitionPlacementConstraint
 -&gt; TaskDefinitionPlacementConstraint -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462435"><span id="local-6989586621679462437"><span id="local-6989586621679462439"><span id="local-6989586621679462441"><span class="annot"><span class="annottext">ReadPrec [TaskDefinitionPlacementConstraint]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463161"><span id="local-6989586621679463163"><span id="local-6989586621679463165"><span id="local-6989586621679463167"><span class="annot"><span class="annottext">ReadPrec [TaskDefinitionPlacementConstraint]
 ReadPrec TaskDefinitionPlacementConstraint
 Int -&gt; ReadS TaskDefinitionPlacementConstraint
 ReadS [TaskDefinitionPlacementConstraint]
@@ -81,7 +81,7 @@ readList :: ReadS [TaskDefinitionPlacementConstraint]
 $creadList :: ReadS [TaskDefinitionPlacementConstraint]
 readsPrec :: Int -&gt; ReadS TaskDefinitionPlacementConstraint
 $creadsPrec :: Int -&gt; ReadS TaskDefinitionPlacementConstraint
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462428"><span id="local-6989586621679462430"><span id="local-6989586621679462432"><span class="annot"><span class="annottext">Int -&gt; TaskDefinitionPlacementConstraint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463154"><span id="local-6989586621679463156"><span id="local-6989586621679463158"><span class="annot"><span class="annottext">Int -&gt; TaskDefinitionPlacementConstraint -&gt; ShowS
 [TaskDefinitionPlacementConstraint] -&gt; ShowS
 TaskDefinitionPlacementConstraint -&gt; String
 (Int -&gt; TaskDefinitionPlacementConstraint -&gt; ShowS)
@@ -127,35 +127,64 @@ TaskDefinitionPlacementConstraint
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'type'', 'taskDefinitionPlacementConstraint_type' - The type of constraint. The @MemberOf@ constraint restricts selection to</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- be from a group of valid candidates.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'expression', 'taskDefinitionPlacementConstraint_expression' - A cluster query language expression to apply to the constraint. For more</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language&gt;</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'expression', 'taskDefinitionPlacementConstraint_expression' - A cluster query language expression to apply to the constraint. For more</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language&gt;</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'type'', 'taskDefinitionPlacementConstraint_type' - The type of constraint. The @MemberOf@ constraint restricts selection to</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- be from a group of valid candidates.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#newTaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">newTaskDefinitionPlacementConstraint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-63"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint</span></a></span><span>
 </span><span id="line-64"></span><span id="newTaskDefinitionPlacementConstraint"><span class="annot"><span class="annottext">newTaskDefinitionPlacementConstraint :: TaskDefinitionPlacementConstraint
 </span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#newTaskDefinitionPlacementConstraint"><span class="hs-identifier hs-var hs-var">newTaskDefinitionPlacementConstraint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraint' :: Maybe TaskDefinitionPlacementConstraintType
--&gt; Maybe Text -&gt; TaskDefinitionPlacementConstraint
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraint' :: Maybe Text
+-&gt; Maybe TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraint
 </span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:type':TaskDefinitionPlacementConstraint' :: Maybe TaskDefinitionPlacementConstraintType
-</span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#%24sel%3Atype%27%3ATaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe TaskDefinitionPlacementConstraintType
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expression:TaskDefinitionPlacementConstraint' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#%24sel%3Aexpression%3ATaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:expression:TaskDefinitionPlacementConstraint' :: Maybe Text
-</span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#%24sel%3Aexpression%3ATaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':TaskDefinitionPlacementConstraint' :: Maybe TaskDefinitionPlacementConstraintType
+</span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#%24sel%3Atype%27%3ATaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskDefinitionPlacementConstraintType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The type of constraint. The @MemberOf@ constraint restricts selection to</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- be from a group of valid candidates.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#taskDefinitionPlacementConstraint_type"><span class="hs-identifier hs-type">taskDefinitionPlacementConstraint_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraintType.html#TaskDefinitionPlacementConstraintType"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraintType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="taskDefinitionPlacementConstraint_type"><span class="annot"><span class="annottext">taskDefinitionPlacementConstraint_type :: (Maybe TaskDefinitionPlacementConstraintType
+</span><span id="line-71"></span><span class="hs-comment">-- | A cluster query language expression to apply to the constraint. For more</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language&gt;</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#taskDefinitionPlacementConstraint_expression"><span class="hs-identifier hs-type">taskDefinitionPlacementConstraint_expression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="taskDefinitionPlacementConstraint_expression"><span class="annot"><span class="annottext">taskDefinitionPlacementConstraint_expression :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TaskDefinitionPlacementConstraint
+-&gt; f TaskDefinitionPlacementConstraint
+</span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#taskDefinitionPlacementConstraint_expression"><span class="hs-identifier hs-var hs-var">taskDefinitionPlacementConstraint_expression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskDefinitionPlacementConstraint -&gt; Maybe Text)
+-&gt; (TaskDefinitionPlacementConstraint
+    -&gt; Maybe Text -&gt; TaskDefinitionPlacementConstraint)
+-&gt; Lens
+     TaskDefinitionPlacementConstraint
+     TaskDefinitionPlacementConstraint
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463145"><span class="annot"><span class="annottext">Maybe Text
+expression :: Maybe Text
+$sel:expression:TaskDefinitionPlacementConstraint' :: TaskDefinitionPlacementConstraint -&gt; Maybe Text
+</span><a href="#local-6989586621679463145"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463145"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463144"><span class="annot"><span class="annottext">s :: TaskDefinitionPlacementConstraint
+</span><a href="#local-6989586621679463144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463143"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraint
+</span><a href="#local-6989586621679463144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:TaskDefinitionPlacementConstraint' :: Maybe Text
+</span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#%24sel%3Aexpression%3ATaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The type of constraint. The @MemberOf@ constraint restricts selection to</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- be from a group of valid candidates.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#taskDefinitionPlacementConstraint_type"><span class="hs-identifier hs-type">taskDefinitionPlacementConstraint_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraintType.html#TaskDefinitionPlacementConstraintType"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraintType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="taskDefinitionPlacementConstraint_type"><span class="annot"><span class="annottext">taskDefinitionPlacementConstraint_type :: (Maybe TaskDefinitionPlacementConstraintType
  -&gt; f (Maybe TaskDefinitionPlacementConstraintType))
 -&gt; TaskDefinitionPlacementConstraint
 -&gt; f TaskDefinitionPlacementConstraint
@@ -170,51 +199,23 @@ forall a. Maybe a
      (Maybe TaskDefinitionPlacementConstraintType)
      (Maybe TaskDefinitionPlacementConstraintType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462419"><span class="annot"><span class="annottext">Maybe TaskDefinitionPlacementConstraintType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463141"><span class="annot"><span class="annottext">Maybe TaskDefinitionPlacementConstraintType
 type' :: Maybe TaskDefinitionPlacementConstraintType
 $sel:type':TaskDefinitionPlacementConstraint' :: TaskDefinitionPlacementConstraint
 -&gt; Maybe TaskDefinitionPlacementConstraintType
-</span><a href="#local-6989586621679462419"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskDefinitionPlacementConstraintType
-</span><a href="#local-6989586621679462419"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462418"><span class="annot"><span class="annottext">s :: TaskDefinitionPlacementConstraint
-</span><a href="#local-6989586621679462418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462417"><span class="annot"><span class="annottext">Maybe TaskDefinitionPlacementConstraintType
-</span><a href="#local-6989586621679462417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraint
-</span><a href="#local-6989586621679462418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':TaskDefinitionPlacementConstraint' :: Maybe TaskDefinitionPlacementConstraintType
+</span><a href="#local-6989586621679463141"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskDefinitionPlacementConstraintType
+</span><a href="#local-6989586621679463141"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679463140"><span class="annot"><span class="annottext">s :: TaskDefinitionPlacementConstraint
+</span><a href="#local-6989586621679463140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679463139"><span class="annot"><span class="annottext">Maybe TaskDefinitionPlacementConstraintType
+</span><a href="#local-6989586621679463139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraint
+</span><a href="#local-6989586621679463140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':TaskDefinitionPlacementConstraint' :: Maybe TaskDefinitionPlacementConstraintType
 </span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#%24sel%3Atype%27%3ATaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskDefinitionPlacementConstraintType
-</span><a href="#local-6989586621679462417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | A cluster query language expression to apply to the constraint. For more</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html Cluster query language&gt;</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- in the /Amazon Elastic Container Service Developer Guide/.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#taskDefinitionPlacementConstraint_expression"><span class="hs-identifier hs-type">taskDefinitionPlacementConstraint_expression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="taskDefinitionPlacementConstraint_expression"><span class="annot"><span class="annottext">taskDefinitionPlacementConstraint_expression :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TaskDefinitionPlacementConstraint
--&gt; f TaskDefinitionPlacementConstraint
-</span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#taskDefinitionPlacementConstraint_expression"><span class="hs-identifier hs-var hs-var">taskDefinitionPlacementConstraint_expression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TaskDefinitionPlacementConstraint -&gt; Maybe Text)
--&gt; (TaskDefinitionPlacementConstraint
-    -&gt; Maybe Text -&gt; TaskDefinitionPlacementConstraint)
--&gt; Lens
-     TaskDefinitionPlacementConstraint
-     TaskDefinitionPlacementConstraint
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462415"><span class="annot"><span class="annottext">Maybe Text
-expression :: Maybe Text
-$sel:expression:TaskDefinitionPlacementConstraint' :: TaskDefinitionPlacementConstraint -&gt; Maybe Text
-</span><a href="#local-6989586621679462415"><span class="hs-identifier hs-var hs-var">expression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462415"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462414"><span class="annot"><span class="annottext">s :: TaskDefinitionPlacementConstraint
-</span><a href="#local-6989586621679462414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462413"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaskDefinitionPlacementConstraint
-</span><a href="#local-6989586621679462414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expression:TaskDefinitionPlacementConstraint' :: Maybe Text
-</span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#%24sel%3Aexpression%3ATaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var">expression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679463139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679462410"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679463136"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-85"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint</span></a></span></span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679462408"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TaskDefinitionPlacementConstraint
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679463134"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TaskDefinitionPlacementConstraint
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TaskDefinitionPlacementConstraint)
@@ -224,73 +225,80 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TaskDefinitionPlacementConstraint&quot;</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679462405"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679462405"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe TaskDefinitionPlacementConstraintType
--&gt; Maybe Text -&gt; TaskDefinitionPlacementConstraint
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679463131"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679463131"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe TaskDefinitionPlacementConstraintType
+-&gt; TaskDefinitionPlacementConstraint
 </span><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-var">TaskDefinitionPlacementConstraint'</span></a></span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TaskDefinitionPlacementConstraintType
- -&gt; Maybe Text -&gt; TaskDefinitionPlacementConstraint)
--&gt; Parser (Maybe TaskDefinitionPlacementConstraintType)
--&gt; Parser (Maybe Text -&gt; TaskDefinitionPlacementConstraint)
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe TaskDefinitionPlacementConstraintType
+ -&gt; TaskDefinitionPlacementConstraint)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe TaskDefinitionPlacementConstraintType
+      -&gt; TaskDefinitionPlacementConstraint)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679462405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679463131"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;expression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TaskDefinitionPlacementConstraintType
+   -&gt; TaskDefinitionPlacementConstraint)
+-&gt; Parser (Maybe TaskDefinitionPlacementConstraintType)
+-&gt; Parser TaskDefinitionPlacementConstraint
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679463131"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe TaskDefinitionPlacementConstraintType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; TaskDefinitionPlacementConstraint)
--&gt; Parser (Maybe Text) -&gt; Parser TaskDefinitionPlacementConstraint
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679462405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;expression&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679462399"><span id="local-6989586621679462401"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679463125"><span id="local-6989586621679463127"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint</span></a></span></span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679462396"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679463122"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679462388"><span id="local-6989586621679462390"><span id="local-6989586621679462392"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679463114"><span id="local-6989586621679463116"><span id="local-6989586621679463118"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint</span></a></span></span></span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679462386"><span class="annot"><span class="annottext">toJSON :: TaskDefinitionPlacementConstraint -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462383"><span id="local-6989586621679462384"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679463112"><span class="annot"><span class="annottext">toJSON :: TaskDefinitionPlacementConstraint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.TaskDefinitionPlacementConstraint.html#TaskDefinitionPlacementConstraint%27"><span class="hs-identifier hs-type">TaskDefinitionPlacementConstraint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463109"><span id="local-6989586621679463110"><span class="annot"><span class="annottext">Maybe Text
 Maybe TaskDefinitionPlacementConstraintType
-expression :: Maybe Text
 type' :: Maybe TaskDefinitionPlacementConstraintType
-$sel:expression:TaskDefinitionPlacementConstraint' :: TaskDefinitionPlacementConstraint -&gt; Maybe Text
+expression :: Maybe Text
 $sel:type':TaskDefinitionPlacementConstraint' :: TaskDefinitionPlacementConstraint
 -&gt; Maybe TaskDefinitionPlacementConstraintType
-</span><a href="#local-6989586621679462383"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:expression:TaskDefinitionPlacementConstraint' :: TaskDefinitionPlacementConstraint -&gt; Maybe Text
+</span><a href="#local-6989586621679463109"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;expression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679463110"><span class="hs-identifier hs-var">expression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TaskDefinitionPlacementConstraintType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TaskDefinitionPlacementConstraintType -&gt; Pair)
 -&gt; Maybe TaskDefinitionPlacementConstraintType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TaskDefinitionPlacementConstraintType
-</span><a href="#local-6989586621679462384"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;expression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462383"><span class="hs-identifier hs-var">expression</span></a></span><span>
+</span><a href="#local-6989586621679463109"><span class="hs-identifier hs-var">type'</span></a></span><span>
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span></pre></body></html>

@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679275731"><span id="local-6989586621679275732"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TranscriptFilterType"><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilterType.html#TranscriptFilterType"><span class="hs-identifier hs-var">TranscriptFilterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TranscriptFilterType%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilterType.html#TranscriptFilterType%27"><span class="hs-identifier hs-var">TranscriptFilterType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679275898"><span id="local-6989586621679275899"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TranscriptFilterType"><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilterType.html#TranscriptFilterType"><span class="hs-identifier hs-var">TranscriptFilterType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TranscriptFilterType%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilterType.html#TranscriptFilterType%27"><span class="hs-identifier hs-var">TranscriptFilterType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTranscriptFilterType"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; Text
 </span><a href="Network.AWS.Transcribe.Types.TranscriptFilterType.html#fromTranscriptFilterType"><span class="hs-identifier hs-var hs-var">fromTranscriptFilterType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275723"><span id="local-6989586621679275725"><span id="local-6989586621679275727"><span class="annot"><span class="annottext">Int -&gt; TranscriptFilterType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275890"><span id="local-6989586621679275892"><span id="local-6989586621679275894"><span class="annot"><span class="annottext">Int -&gt; TranscriptFilterType -&gt; ShowS
 [TranscriptFilterType] -&gt; ShowS
 TranscriptFilterType -&gt; String
 (Int -&gt; TranscriptFilterType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: TranscriptFilterType -&gt; String
 showsPrec :: Int -&gt; TranscriptFilterType -&gt; ShowS
 $cshowsPrec :: Int -&gt; TranscriptFilterType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679275714"><span id="local-6989586621679275716"><span id="local-6989586621679275718"><span id="local-6989586621679275720"><span class="annot"><span class="annottext">ReadPrec [TranscriptFilterType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679275881"><span id="local-6989586621679275883"><span id="local-6989586621679275885"><span id="local-6989586621679275887"><span class="annot"><span class="annottext">ReadPrec [TranscriptFilterType]
 ReadPrec TranscriptFilterType
 Int -&gt; ReadS TranscriptFilterType
 ReadS [TranscriptFilterType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [TranscriptFilterType]
 readsPrec :: Int -&gt; ReadS TranscriptFilterType
 $creadsPrec :: Int -&gt; ReadS TranscriptFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679275709"><span id="local-6989586621679275711"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; TranscriptFilterType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679275876"><span id="local-6989586621679275878"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; TranscriptFilterType -&gt; Bool
 (TranscriptFilterType -&gt; TranscriptFilterType -&gt; Bool)
 -&gt; (TranscriptFilterType -&gt; TranscriptFilterType -&gt; Bool)
 -&gt; Eq TranscriptFilterType
@@ -81,7 +81,7 @@ $c/= :: TranscriptFilterType -&gt; TranscriptFilterType -&gt; Bool
 == :: TranscriptFilterType -&gt; TranscriptFilterType -&gt; Bool
 $c== :: TranscriptFilterType -&gt; TranscriptFilterType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679275693"><span id="local-6989586621679275695"><span id="local-6989586621679275697"><span id="local-6989586621679275699"><span id="local-6989586621679275701"><span id="local-6989586621679275703"><span id="local-6989586621679275705"><span class="annot"><span class="annottext">Eq TranscriptFilterType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679275860"><span id="local-6989586621679275862"><span id="local-6989586621679275864"><span id="local-6989586621679275866"><span id="local-6989586621679275868"><span id="local-6989586621679275870"><span id="local-6989586621679275872"><span class="annot"><span class="annottext">Eq TranscriptFilterType
 Eq TranscriptFilterType
 -&gt; (TranscriptFilterType -&gt; TranscriptFilterType -&gt; Ordering)
 -&gt; (TranscriptFilterType -&gt; TranscriptFilterType -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. TranscriptFilterType -&gt; Rep TranscriptFilterType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275685"><span id="local-6989586621679275687"><span class="annot"><span class="annottext">Int -&gt; TranscriptFilterType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275852"><span id="local-6989586621679275854"><span class="annot"><span class="annottext">Int -&gt; TranscriptFilterType -&gt; Int
 TranscriptFilterType -&gt; Int
 (Int -&gt; TranscriptFilterType -&gt; Int)
 -&gt; (TranscriptFilterType -&gt; Int) -&gt; Hashable TranscriptFilterType
@@ -149,54 +149,54 @@ $chash :: TranscriptFilterType -&gt; Int
 hashWithSalt :: Int -&gt; TranscriptFilterType -&gt; Int
 $chashWithSalt :: Int -&gt; TranscriptFilterType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679275682"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679275849"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; ()
 (TranscriptFilterType -&gt; ()) -&gt; NFData TranscriptFilterType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: TranscriptFilterType -&gt; ()
 $crnf :: TranscriptFilterType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679275679"><span class="annot"><span class="annottext">Text -&gt; Either String TranscriptFilterType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679275846"><span class="annot"><span class="annottext">Text -&gt; Either String TranscriptFilterType
 (Text -&gt; Either String TranscriptFilterType)
 -&gt; FromText TranscriptFilterType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String TranscriptFilterType
 $cfromText :: Text -&gt; Either String TranscriptFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679275676"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679275843"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; Text
 (TranscriptFilterType -&gt; Text) -&gt; ToText TranscriptFilterType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: TranscriptFilterType -&gt; Text
 $ctoText :: TranscriptFilterType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679275673"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679275840"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; ByteString
 (TranscriptFilterType -&gt; ByteString)
 -&gt; ToByteString TranscriptFilterType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: TranscriptFilterType -&gt; ByteString
 $ctoBS :: TranscriptFilterType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679275670"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679275837"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; ByteStringBuilder
 (TranscriptFilterType -&gt; ByteStringBuilder)
 -&gt; ToLog TranscriptFilterType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: TranscriptFilterType -&gt; ByteStringBuilder
 $cbuild :: TranscriptFilterType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679275667"><span class="annot"><span class="annottext">HeaderName -&gt; TranscriptFilterType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679275834"><span class="annot"><span class="annottext">HeaderName -&gt; TranscriptFilterType -&gt; [Header]
 (HeaderName -&gt; TranscriptFilterType -&gt; [Header])
 -&gt; ToHeader TranscriptFilterType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; TranscriptFilterType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; TranscriptFilterType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679275664"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679275831"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; QueryString
 (TranscriptFilterType -&gt; QueryString)
 -&gt; ToQuery TranscriptFilterType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: TranscriptFilterType -&gt; QueryString
 $ctoQuery :: TranscriptFilterType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679275659"><span id="local-6989586621679275661"><span class="annot"><span class="annottext">Value -&gt; Parser [TranscriptFilterType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679275826"><span id="local-6989586621679275828"><span class="annot"><span class="annottext">Value -&gt; Parser [TranscriptFilterType]
 Value -&gt; Parser TranscriptFilterType
 (Value -&gt; Parser TranscriptFilterType)
 -&gt; (Value -&gt; Parser [TranscriptFilterType])
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [TranscriptFilterType]
 parseJSON :: Value -&gt; Parser TranscriptFilterType
 $cparseJSON :: Value -&gt; Parser TranscriptFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679275654"><span id="local-6989586621679275656"><span class="annot"><span class="annottext">FromJSONKeyFunction [TranscriptFilterType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679275821"><span id="local-6989586621679275823"><span class="annot"><span class="annottext">FromJSONKeyFunction [TranscriptFilterType]
 FromJSONKeyFunction TranscriptFilterType
 FromJSONKeyFunction TranscriptFilterType
 -&gt; FromJSONKeyFunction [TranscriptFilterType]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [TranscriptFilterType]
 fromJSONKey :: FromJSONKeyFunction TranscriptFilterType
 $cfromJSONKey :: FromJSONKeyFunction TranscriptFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679275645"><span id="local-6989586621679275647"><span id="local-6989586621679275649"><span id="local-6989586621679275651"><span class="annot"><span class="annottext">[TranscriptFilterType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679275812"><span id="local-6989586621679275814"><span id="local-6989586621679275816"><span id="local-6989586621679275818"><span class="annot"><span class="annottext">[TranscriptFilterType] -&gt; Encoding
 [TranscriptFilterType] -&gt; Value
 TranscriptFilterType -&gt; Encoding
 TranscriptFilterType -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: TranscriptFilterType -&gt; Encoding
 toJSON :: TranscriptFilterType -&gt; Value
 $ctoJSON :: TranscriptFilterType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679275640"><span id="local-6989586621679275642"><span class="annot"><span class="annottext">ToJSONKeyFunction [TranscriptFilterType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679275807"><span id="local-6989586621679275809"><span class="annot"><span class="annottext">ToJSONKeyFunction [TranscriptFilterType]
 ToJSONKeyFunction TranscriptFilterType
 ToJSONKeyFunction TranscriptFilterType
 -&gt; ToJSONKeyFunction [TranscriptFilterType]
@@ -256,14 +256,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [TranscriptFilterType]
 toJSONKey :: ToJSONKeyFunction TranscriptFilterType
 $ctoJSONKey :: ToJSONKeyFunction TranscriptFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679275637"><span class="annot"><span class="annottext">[Node] -&gt; Either String TranscriptFilterType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679275804"><span class="annot"><span class="annottext">[Node] -&gt; Either String TranscriptFilterType
 ([Node] -&gt; Either String TranscriptFilterType)
 -&gt; FromXML TranscriptFilterType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String TranscriptFilterType
 $cparseXML :: [Node] -&gt; Either String TranscriptFilterType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679275634"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679275801"><span class="annot"><span class="annottext">TranscriptFilterType -&gt; XML
 (TranscriptFilterType -&gt; XML) -&gt; ToXML TranscriptFilterType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: TranscriptFilterType -&gt; XML

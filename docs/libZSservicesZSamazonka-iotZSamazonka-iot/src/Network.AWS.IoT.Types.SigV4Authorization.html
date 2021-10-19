@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html Signature Version 4 signing process&gt;.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSigV4Authorization' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679797069"><span id="local-6989586621679797070"></span></span><span class="hs-keyword">data</span><span> </span><span id="SigV4Authorization"><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-var">SigV4Authorization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SigV4Authorization%27"><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-var">SigV4Authorization'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679797940"><span id="local-6989586621679797941"></span></span><span class="hs-keyword">data</span><span> </span><span id="SigV4Authorization"><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-var">SigV4Authorization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SigV4Authorization%27"><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-var">SigV4Authorization'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The signing region.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AsigningRegion%3ASigV4Authorization%27"><span class="annot"><span class="annottext">SigV4Authorization -&gt; Text
 </span><a href="Network.AWS.IoT.Types.SigV4Authorization.html#%24sel%3AsigningRegion%3ASigV4Authorization%27"><span class="hs-identifier hs-var hs-var">signingRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AroleArn%3ASigV4Authorization%27"><span class="annot"><span class="annottext">SigV4Authorization -&gt; Text
 </span><a href="Network.AWS.IoT.Types.SigV4Authorization.html#%24sel%3AroleArn%3ASigV4Authorization%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797061"><span id="local-6989586621679797063"><span class="annot"><span class="annottext">SigV4Authorization -&gt; SigV4Authorization -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797932"><span id="local-6989586621679797934"><span class="annot"><span class="annottext">SigV4Authorization -&gt; SigV4Authorization -&gt; Bool
 (SigV4Authorization -&gt; SigV4Authorization -&gt; Bool)
 -&gt; (SigV4Authorization -&gt; SigV4Authorization -&gt; Bool)
 -&gt; Eq SigV4Authorization
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SigV4Authorization -&gt; SigV4Authorization -&gt; Bool
 == :: SigV4Authorization -&gt; SigV4Authorization -&gt; Bool
 $c== :: SigV4Authorization -&gt; SigV4Authorization -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797052"><span id="local-6989586621679797054"><span id="local-6989586621679797056"><span id="local-6989586621679797058"><span class="annot"><span class="annottext">ReadPrec [SigV4Authorization]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797923"><span id="local-6989586621679797925"><span id="local-6989586621679797927"><span id="local-6989586621679797929"><span class="annot"><span class="annottext">ReadPrec [SigV4Authorization]
 ReadPrec SigV4Authorization
 Int -&gt; ReadS SigV4Authorization
 ReadS [SigV4Authorization]
@@ -67,7 +67,7 @@ readList :: ReadS [SigV4Authorization]
 $creadList :: ReadS [SigV4Authorization]
 readsPrec :: Int -&gt; ReadS SigV4Authorization
 $creadsPrec :: Int -&gt; ReadS SigV4Authorization
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797045"><span id="local-6989586621679797047"><span id="local-6989586621679797049"><span class="annot"><span class="annottext">Int -&gt; SigV4Authorization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797916"><span id="local-6989586621679797918"><span id="local-6989586621679797920"><span class="annot"><span class="annottext">Int -&gt; SigV4Authorization -&gt; ShowS
 [SigV4Authorization] -&gt; ShowS
 SigV4Authorization -&gt; String
 (Int -&gt; SigV4Authorization -&gt; ShowS)
@@ -116,24 +116,24 @@ $cfrom :: forall x. SigV4Authorization -&gt; Rep SigV4Authorization x
 </span><span id="line-60"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span><span>
 </span><span id="line-61"></span><span id="newSigV4Authorization"><span class="annot"><span class="annottext">newSigV4Authorization :: Text -&gt; Text -&gt; Text -&gt; SigV4Authorization
 </span><a href="Network.AWS.IoT.Types.SigV4Authorization.html#newSigV4Authorization"><span class="hs-identifier hs-var hs-var">newSigV4Authorization</span></a></span></span><span>
-</span><span id="line-62"></span><span>  </span><span id="local-6989586621679797039"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797039"><span class="hs-identifier hs-var">pSigningRegion_</span></a></span></span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679797038"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797038"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679797037"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797037"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679797910"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797910"><span class="hs-identifier hs-var">pSigningRegion_</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679797909"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797909"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679797908"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797908"><span class="hs-identifier hs-var">pRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">SigV4Authorization' :: Text -&gt; Text -&gt; Text -&gt; SigV4Authorization
 </span><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:signingRegion:SigV4Authorization' :: Text
 </span><a href="Network.AWS.IoT.Types.SigV4Authorization.html#%24sel%3AsigningRegion%3ASigV4Authorization%27"><span class="hs-identifier hs-var">signingRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797039"><span class="hs-identifier hs-var">pSigningRegion_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679797910"><span class="hs-identifier hs-var">pSigningRegion_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceName:SigV4Authorization' :: Text
 </span><a href="Network.AWS.IoT.Types.SigV4Authorization.html#%24sel%3AserviceName%3ASigV4Authorization%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797038"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679797909"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleArn:SigV4Authorization' :: Text
 </span><a href="Network.AWS.IoT.Types.SigV4Authorization.html#%24sel%3AroleArn%3ASigV4Authorization%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797037"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621679797908"><span class="hs-identifier hs-var">pRoleArn_</span></a></span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The signing region.</span><span>
@@ -143,16 +143,16 @@ $cfrom :: forall x. SigV4Authorization -&gt; Rep SigV4Authorization x
 -&gt; (SigV4Authorization -&gt; Text -&gt; SigV4Authorization)
 -&gt; Lens SigV4Authorization SigV4Authorization Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797033"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797904"><span class="annot"><span class="annottext">Text
 signingRegion :: Text
 $sel:signingRegion:SigV4Authorization' :: SigV4Authorization -&gt; Text
-</span><a href="#local-6989586621679797033"><span class="hs-identifier hs-var hs-var">signingRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797033"><span class="hs-identifier hs-var">signingRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797032"><span class="annot"><span class="annottext">s :: SigV4Authorization
-</span><a href="#local-6989586621679797032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797031"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigV4Authorization
-</span><a href="#local-6989586621679797032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingRegion:SigV4Authorization' :: Text
+</span><a href="#local-6989586621679797904"><span class="hs-identifier hs-var hs-var">signingRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797904"><span class="hs-identifier hs-var">signingRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797903"><span class="annot"><span class="annottext">s :: SigV4Authorization
+</span><a href="#local-6989586621679797903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigV4Authorization
+</span><a href="#local-6989586621679797903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingRegion:SigV4Authorization' :: Text
 </span><a href="Network.AWS.IoT.Types.SigV4Authorization.html#%24sel%3AsigningRegion%3ASigV4Authorization%27"><span class="hs-identifier hs-var">signingRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The service name to use while signing with Sig V4.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#sigV4Authorization_serviceName"><span class="hs-identifier hs-type">sigV4Authorization_serviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -161,16 +161,16 @@ $sel:signingRegion:SigV4Authorization' :: SigV4Authorization -&gt; Text
 -&gt; (SigV4Authorization -&gt; Text -&gt; SigV4Authorization)
 -&gt; Lens SigV4Authorization SigV4Authorization Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797029"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797900"><span class="annot"><span class="annottext">Text
 serviceName :: Text
 $sel:serviceName:SigV4Authorization' :: SigV4Authorization -&gt; Text
-</span><a href="#local-6989586621679797029"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797029"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797028"><span class="annot"><span class="annottext">s :: SigV4Authorization
-</span><a href="#local-6989586621679797028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797027"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigV4Authorization
-</span><a href="#local-6989586621679797028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:SigV4Authorization' :: Text
+</span><a href="#local-6989586621679797900"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797900"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797899"><span class="annot"><span class="annottext">s :: SigV4Authorization
+</span><a href="#local-6989586621679797899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigV4Authorization
+</span><a href="#local-6989586621679797899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:SigV4Authorization' :: Text
 </span><a href="Network.AWS.IoT.Types.SigV4Authorization.html#%24sel%3AserviceName%3ASigV4Authorization%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The ARN of the signing role.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#sigV4Authorization_roleArn"><span class="hs-identifier hs-type">sigV4Authorization_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -179,19 +179,19 @@ $sel:serviceName:SigV4Authorization' :: SigV4Authorization -&gt; Text
 -&gt; (SigV4Authorization -&gt; Text -&gt; SigV4Authorization)
 -&gt; Lens SigV4Authorization SigV4Authorization Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797025"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797896"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 $sel:roleArn:SigV4Authorization' :: SigV4Authorization -&gt; Text
-</span><a href="#local-6989586621679797025"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797025"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797024"><span class="annot"><span class="annottext">s :: SigV4Authorization
-</span><a href="#local-6989586621679797024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797023"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigV4Authorization
-</span><a href="#local-6989586621679797024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:SigV4Authorization' :: Text
+</span><a href="#local-6989586621679797896"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797896"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797895"><span class="annot"><span class="annottext">s :: SigV4Authorization
+</span><a href="#local-6989586621679797895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797894"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigV4Authorization
+</span><a href="#local-6989586621679797895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:SigV4Authorization' :: Text
 </span><a href="Network.AWS.IoT.Types.SigV4Authorization.html#%24sel%3AroleArn%3ASigV4Authorization%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679797023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797020"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679797018"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SigV4Authorization
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797891"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679797889"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SigV4Authorization
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SigV4Authorization)
@@ -201,15 +201,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SigV4Authorization&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679797015"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797015"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679797886"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679797886"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; SigV4Authorization
 </span><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-var">SigV4Authorization'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; Text -&gt; SigV4Authorization)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; SigV4Authorization)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679797886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;signingRegion&quot;</span></span><span class="hs-special">)</span><span>
@@ -217,7 +217,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; SigV4Authorization)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679797886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serviceName&quot;</span></span><span class="hs-special">)</span><span>
@@ -225,26 +225,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser SigV4Authorization
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679797015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679797886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797009"><span id="local-6989586621679797011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797880"><span id="local-6989586621679797882"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797877"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796998"><span id="local-6989586621679797000"><span id="local-6989586621679797002"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679796996"><span class="annot"><span class="annottext">toJSON :: SigV4Authorization -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796992"><span id="local-6989586621679796993"><span id="local-6989586621679796994"><span class="annot"><span class="annottext">Text
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797869"><span id="local-6989586621679797871"><span id="local-6989586621679797873"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization"><span class="hs-identifier hs-type">SigV4Authorization</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679797867"><span class="annot"><span class="annottext">toJSON :: SigV4Authorization -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SigV4Authorization.html#SigV4Authorization%27"><span class="hs-identifier hs-type">SigV4Authorization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797863"><span id="local-6989586621679797864"><span id="local-6989586621679797865"><span class="annot"><span class="annottext">Text
 roleArn :: Text
 serviceName :: Text
 signingRegion :: Text
 $sel:roleArn:SigV4Authorization' :: SigV4Authorization -&gt; Text
 $sel:serviceName:SigV4Authorization' :: SigV4Authorization -&gt; Text
 $sel:signingRegion:SigV4Authorization' :: SigV4Authorization -&gt; Text
-</span><a href="#local-6989586621679796992"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679797863"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -257,21 +257,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;signingRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796994"><span class="hs-identifier hs-var">signingRegion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679797865"><span class="hs-identifier hs-var">signingRegion</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796993"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679797864"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;roleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796992"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797863"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span></pre></body></html>

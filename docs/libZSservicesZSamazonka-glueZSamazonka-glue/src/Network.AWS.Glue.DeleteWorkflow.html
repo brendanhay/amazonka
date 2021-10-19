@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteWorkflow' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679731190"><span id="local-6989586621679731191"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteWorkflow"><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-var">DeleteWorkflow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteWorkflow%27"><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow%27"><span class="hs-identifier hs-var">DeleteWorkflow'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679732977"><span id="local-6989586621679732978"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteWorkflow"><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-var">DeleteWorkflow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteWorkflow%27"><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow%27"><span class="hs-identifier hs-var">DeleteWorkflow'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the workflow to be deleted.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3ADeleteWorkflow%27"><span class="annot"><span class="annottext">DeleteWorkflow -&gt; Text
 </span><a href="Network.AWS.Glue.DeleteWorkflow.html#%24sel%3Aname%3ADeleteWorkflow%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679731184"><span id="local-6989586621679731186"><span class="annot"><span class="annottext">DeleteWorkflow -&gt; DeleteWorkflow -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679732971"><span id="local-6989586621679732973"><span class="annot"><span class="annottext">DeleteWorkflow -&gt; DeleteWorkflow -&gt; Bool
 (DeleteWorkflow -&gt; DeleteWorkflow -&gt; Bool)
 -&gt; (DeleteWorkflow -&gt; DeleteWorkflow -&gt; Bool) -&gt; Eq DeleteWorkflow
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteWorkflow -&gt; DeleteWorkflow -&gt; Bool
 == :: DeleteWorkflow -&gt; DeleteWorkflow -&gt; Bool
 $c== :: DeleteWorkflow -&gt; DeleteWorkflow -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731175"><span id="local-6989586621679731177"><span id="local-6989586621679731179"><span id="local-6989586621679731181"><span class="annot"><span class="annottext">ReadPrec [DeleteWorkflow]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732962"><span id="local-6989586621679732964"><span id="local-6989586621679732966"><span id="local-6989586621679732968"><span class="annot"><span class="annottext">ReadPrec [DeleteWorkflow]
 ReadPrec DeleteWorkflow
 Int -&gt; ReadS DeleteWorkflow
 ReadS [DeleteWorkflow]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteWorkflow]
 $creadList :: ReadS [DeleteWorkflow]
 readsPrec :: Int -&gt; ReadS DeleteWorkflow
 $creadsPrec :: Int -&gt; ReadS DeleteWorkflow
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731168"><span id="local-6989586621679731170"><span id="local-6989586621679731172"><span class="annot"><span class="annottext">Int -&gt; DeleteWorkflow -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732955"><span id="local-6989586621679732957"><span id="local-6989586621679732959"><span class="annot"><span class="annottext">Int -&gt; DeleteWorkflow -&gt; ShowS
 [DeleteWorkflow] -&gt; ShowS
 DeleteWorkflow -&gt; String
 (Int -&gt; DeleteWorkflow -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. DeleteWorkflow -&gt; Rep DeleteWorkflow x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteWorkflow"><span class="annot"><span class="annottext">newDeleteWorkflow :: Text -&gt; DeleteWorkflow
-</span><a href="Network.AWS.Glue.DeleteWorkflow.html#newDeleteWorkflow"><span class="hs-identifier hs-var hs-var">newDeleteWorkflow</span></a></span></span><span> </span><span id="local-6989586621679731163"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679731163"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.DeleteWorkflow.html#newDeleteWorkflow"><span class="hs-identifier hs-var hs-var">newDeleteWorkflow</span></a></span></span><span> </span><span id="local-6989586621679732950"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732950"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteWorkflow' :: Text -&gt; DeleteWorkflow
 </span><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow%27"><span class="hs-identifier hs-type">DeleteWorkflow'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteWorkflow' :: Text
 </span><a href="Network.AWS.Glue.DeleteWorkflow.html#%24sel%3Aname%3ADeleteWorkflow%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679731163"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679732950"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | Name of the workflow to be deleted.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#deleteWorkflow_name"><span class="hs-identifier hs-type">deleteWorkflow_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,27 +134,27 @@ $cfrom :: forall x. DeleteWorkflow -&gt; Rep DeleteWorkflow x
 -&gt; (DeleteWorkflow -&gt; Text -&gt; DeleteWorkflow)
 -&gt; Lens DeleteWorkflow DeleteWorkflow Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow%27"><span class="hs-identifier hs-type">DeleteWorkflow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731160"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow%27"><span class="hs-identifier hs-type">DeleteWorkflow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732947"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteWorkflow' :: DeleteWorkflow -&gt; Text
-</span><a href="#local-6989586621679731160"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679731160"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731159"><span class="annot"><span class="annottext">s :: DeleteWorkflow
-</span><a href="#local-6989586621679731159"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow%27"><span class="hs-identifier hs-type">DeleteWorkflow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731158"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679731158"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWorkflow
-</span><a href="#local-6989586621679731159"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteWorkflow' :: Text
+</span><a href="#local-6989586621679732947"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732947"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732946"><span class="annot"><span class="annottext">s :: DeleteWorkflow
+</span><a href="#local-6989586621679732946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow%27"><span class="hs-identifier hs-type">DeleteWorkflow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732945"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679732945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWorkflow
+</span><a href="#local-6989586621679732946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteWorkflow' :: Text
 </span><a href="Network.AWS.Glue.DeleteWorkflow.html#%24sel%3Aname%3ADeleteWorkflow%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679731158"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679732945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse"><span class="hs-identifier hs-type">DeleteWorkflowResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679731154"><span class="annot"><span class="annottext">request :: DeleteWorkflow -&gt; Request DeleteWorkflow
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679732941"><span class="annot"><span class="annottext">request :: DeleteWorkflow -&gt; Request DeleteWorkflow
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteWorkflow -&gt; Request DeleteWorkflow
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679731150"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679732937"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteWorkflow
 -&gt; ClientResponse ClientBody
@@ -178,10 +178,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679731147"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731147"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679731146"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679731146"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679731145"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679731145"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679732934"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732934"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679732933"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679732933"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679732932"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679732932"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DeleteWorkflowResponse
 </span><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse%27"><span class="hs-identifier hs-var">DeleteWorkflowResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DeleteWorkflowResponse)
@@ -189,7 +189,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DeleteWorkflowResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679731145"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679732932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
@@ -201,15 +201,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731147"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679732934"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679731137"><span id="local-6989586621679731139"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732924"><span id="local-6989586621679732926"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679731134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732921"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679731130"><span class="annot"><span class="annottext">toHeaders :: DeleteWorkflow -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679732917"><span class="annot"><span class="annottext">toHeaders :: DeleteWorkflow -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteWorkflow -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -234,12 +234,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679731120"><span id="local-6989586621679731122"><span id="local-6989586621679731124"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679731118"><span class="annot"><span class="annottext">toJSON :: DeleteWorkflow -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow%27"><span class="hs-identifier hs-type">DeleteWorkflow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731116"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732907"><span id="local-6989586621679732909"><span id="local-6989586621679732911"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679732905"><span class="annot"><span class="annottext">toJSON :: DeleteWorkflow -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow%27"><span class="hs-identifier hs-type">DeleteWorkflow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732903"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteWorkflow' :: DeleteWorkflow -&gt; Text
-</span><a href="#local-6989586621679731116"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679732903"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -251,18 +251,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679731116"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679732903"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679731110"><span class="annot"><span class="annottext">toPath :: DeleteWorkflow -&gt; ByteString
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679732897"><span class="annot"><span class="annottext">toPath :: DeleteWorkflow -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteWorkflow -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflow"><span class="hs-identifier hs-type">DeleteWorkflow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679731106"><span class="annot"><span class="annottext">toQuery :: DeleteWorkflow -&gt; QueryString
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679732893"><span class="annot"><span class="annottext">toQuery :: DeleteWorkflow -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteWorkflow -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -270,7 +270,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteWorkflowResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679731103"><span id="local-6989586621679731104"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteWorkflowResponse"><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse"><span class="hs-identifier hs-var">DeleteWorkflowResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteWorkflowResponse%27"><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse%27"><span class="hs-identifier hs-var">DeleteWorkflowResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679732890"><span id="local-6989586621679732891"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteWorkflowResponse"><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse"><span class="hs-identifier hs-var">DeleteWorkflowResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteWorkflowResponse%27"><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse%27"><span class="hs-identifier hs-var">DeleteWorkflowResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the workflow specified in input.</span><span>
 </span><span id="line-122"></span><span>    </span><span id="%24sel%3Aname%3ADeleteWorkflowResponse%27"><span class="annot"><span class="annottext">DeleteWorkflowResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.DeleteWorkflow.html#%24sel%3Aname%3ADeleteWorkflowResponse%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -278,7 +278,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-124"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteWorkflowResponse%27"><span class="annot"><span class="annottext">DeleteWorkflowResponse -&gt; Int
 </span><a href="Network.AWS.Glue.DeleteWorkflow.html#%24sel%3AhttpStatus%3ADeleteWorkflowResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679731097"><span id="local-6989586621679731099"><span class="annot"><span class="annottext">DeleteWorkflowResponse -&gt; DeleteWorkflowResponse -&gt; Bool
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679732884"><span id="local-6989586621679732886"><span class="annot"><span class="annottext">DeleteWorkflowResponse -&gt; DeleteWorkflowResponse -&gt; Bool
 (DeleteWorkflowResponse -&gt; DeleteWorkflowResponse -&gt; Bool)
 -&gt; (DeleteWorkflowResponse -&gt; DeleteWorkflowResponse -&gt; Bool)
 -&gt; Eq DeleteWorkflowResponse
@@ -287,7 +287,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteWorkflowResponse -&gt; DeleteWorkflowResponse -&gt; Bool
 == :: DeleteWorkflowResponse -&gt; DeleteWorkflowResponse -&gt; Bool
 $c== :: DeleteWorkflowResponse -&gt; DeleteWorkflowResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731089"><span id="local-6989586621679731091"><span id="local-6989586621679731093"><span id="local-6989586621679731095"><span class="annot"><span class="annottext">ReadPrec [DeleteWorkflowResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732876"><span id="local-6989586621679732878"><span id="local-6989586621679732880"><span id="local-6989586621679732882"><span class="annot"><span class="annottext">ReadPrec [DeleteWorkflowResponse]
 ReadPrec DeleteWorkflowResponse
 Int -&gt; ReadS DeleteWorkflowResponse
 ReadS [DeleteWorkflowResponse]
@@ -307,7 +307,7 @@ readList :: ReadS [DeleteWorkflowResponse]
 $creadList :: ReadS [DeleteWorkflowResponse]
 readsPrec :: Int -&gt; ReadS DeleteWorkflowResponse
 $creadsPrec :: Int -&gt; ReadS DeleteWorkflowResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679731083"><span id="local-6989586621679731085"><span id="local-6989586621679731087"><span class="annot"><span class="annottext">Int -&gt; DeleteWorkflowResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732870"><span id="local-6989586621679732872"><span id="local-6989586621679732874"><span class="annot"><span class="annottext">Int -&gt; DeleteWorkflowResponse -&gt; ShowS
 [DeleteWorkflowResponse] -&gt; ShowS
 DeleteWorkflowResponse -&gt; String
 (Int -&gt; DeleteWorkflowResponse -&gt; ShowS)
@@ -350,8 +350,8 @@ $cfrom :: forall x. DeleteWorkflowResponse -&gt; Rep DeleteWorkflowResponse x
 </span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse"><span class="hs-identifier hs-type">DeleteWorkflowResponse</span></a></span><span>
 </span><span id="line-143"></span><span id="newDeleteWorkflowResponse"><span class="annot"><span class="annottext">newDeleteWorkflowResponse :: Int -&gt; DeleteWorkflowResponse
-</span><a href="Network.AWS.Glue.DeleteWorkflow.html#newDeleteWorkflowResponse"><span class="hs-identifier hs-var hs-var">newDeleteWorkflowResponse</span></a></span></span><span> </span><span id="local-6989586621679731080"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731080"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.DeleteWorkflow.html#newDeleteWorkflowResponse"><span class="hs-identifier hs-var hs-var">newDeleteWorkflowResponse</span></a></span></span><span> </span><span id="local-6989586621679732867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">DeleteWorkflowResponse' :: Maybe Text -&gt; Int -&gt; DeleteWorkflowResponse
 </span><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse%27"><span class="hs-identifier hs-type">DeleteWorkflowResponse'</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:DeleteWorkflowResponse' :: Maybe Text
@@ -360,7 +360,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteWorkflowResponse' :: Int
 </span><a href="Network.AWS.Glue.DeleteWorkflow.html#%24sel%3AhttpStatus%3ADeleteWorkflowResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731080"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679732867"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | Name of the workflow specified in input.</span><span>
@@ -375,16 +375,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse%27"><span class="hs-identifier hs-type">DeleteWorkflowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731079"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse%27"><span class="hs-identifier hs-type">DeleteWorkflowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732866"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:DeleteWorkflowResponse' :: DeleteWorkflowResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679731079"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679731079"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731078"><span class="annot"><span class="annottext">s :: DeleteWorkflowResponse
-</span><a href="#local-6989586621679731078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse%27"><span class="hs-identifier hs-type">DeleteWorkflowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731077"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679731077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWorkflowResponse
-</span><a href="#local-6989586621679731078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteWorkflowResponse' :: Maybe Text
+</span><a href="#local-6989586621679732866"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679732866"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732865"><span class="annot"><span class="annottext">s :: DeleteWorkflowResponse
+</span><a href="#local-6989586621679732865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse%27"><span class="hs-identifier hs-type">DeleteWorkflowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732864"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679732864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWorkflowResponse
+</span><a href="#local-6989586621679732865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteWorkflowResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.DeleteWorkflow.html#%24sel%3Aname%3ADeleteWorkflowResponse%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679731077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse"><span class="hs-identifier hs-type">DeleteWorkflowResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679732864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse"><span class="hs-identifier hs-type">DeleteWorkflowResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#deleteWorkflowResponse_httpStatus"><span class="hs-identifier hs-type">deleteWorkflowResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse"><span class="hs-identifier hs-type">DeleteWorkflowResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -394,16 +394,16 @@ $sel:name:DeleteWorkflowResponse' :: DeleteWorkflowResponse -&gt; Maybe Text
 -&gt; (DeleteWorkflowResponse -&gt; Int -&gt; DeleteWorkflowResponse)
 -&gt; Lens DeleteWorkflowResponse DeleteWorkflowResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse%27"><span class="hs-identifier hs-type">DeleteWorkflowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679731076"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse%27"><span class="hs-identifier hs-type">DeleteWorkflowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732863"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteWorkflowResponse' :: DeleteWorkflowResponse -&gt; Int
-</span><a href="#local-6989586621679731076"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731076"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679731075"><span class="annot"><span class="annottext">s :: DeleteWorkflowResponse
-</span><a href="#local-6989586621679731075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse%27"><span class="hs-identifier hs-type">DeleteWorkflowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679731074"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWorkflowResponse
-</span><a href="#local-6989586621679731075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteWorkflowResponse' :: Int
+</span><a href="#local-6989586621679732863"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732863"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732862"><span class="annot"><span class="annottext">s :: DeleteWorkflowResponse
+</span><a href="#local-6989586621679732862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse%27"><span class="hs-identifier hs-type">DeleteWorkflowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732861"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679732861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWorkflowResponse
+</span><a href="#local-6989586621679732862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteWorkflowResponse' :: Int
 </span><a href="Network.AWS.Glue.DeleteWorkflow.html#%24sel%3AhttpStatus%3ADeleteWorkflowResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679731074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse"><span class="hs-identifier hs-type">DeleteWorkflowResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679732861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse"><span class="hs-identifier hs-type">DeleteWorkflowResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679731072"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse"><span class="hs-identifier hs-type">DeleteWorkflowResponse</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteWorkflow.html#DeleteWorkflowResponse"><span class="hs-identifier hs-type">DeleteWorkflowResponse</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

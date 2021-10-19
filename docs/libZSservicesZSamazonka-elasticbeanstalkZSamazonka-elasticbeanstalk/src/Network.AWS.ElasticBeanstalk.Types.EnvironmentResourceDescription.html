@@ -34,33 +34,33 @@
 </span><span id="line-34"></span><span class="hs-comment">-- live.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newEnvironmentResourceDescription' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679308093"><span id="local-6989586621679308094"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnvironmentResourceDescription"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-var">EnvironmentResourceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentResourceDescription%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-var">EnvironmentResourceDescription'</span></a></span></span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon EC2 launch templates in use by this environment.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AlaunchTemplates%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe [LaunchTemplate]
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AlaunchTemplates%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var hs-var">launchTemplates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Auto Scaling launch configurations in use by this environment.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlaunchConfigurations%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe [LaunchConfiguration]
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AlaunchConfigurations%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var hs-var">launchConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchConfiguration.html#LaunchConfiguration"><span class="hs-identifier hs-type">LaunchConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The @AutoScaling@ triggers in use by this environment.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atriggers%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe [Trigger]
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Atriggers%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The queues used by this environment.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aqueues%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe [Queue]
+</span><span id="line-37"></span><span id="local-6989586621679308389"><span id="local-6989586621679308390"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnvironmentResourceDescription"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-var">EnvironmentResourceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentResourceDescription%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-var">EnvironmentResourceDescription'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The queues used by this environment.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aqueues%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe [Queue]
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Aqueues%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var hs-var">queues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Queue.html#Queue"><span class="hs-identifier hs-type">Queue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The Amazon EC2 instances used by this environment.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Ainstances%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe [Instance]
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Ainstances%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The name of the environment.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AenvironmentName%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AenvironmentName%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The LoadBalancers in use by this environment.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AloadBalancers%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe [LoadBalancer]
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The @AutoScaling@ triggers in use by this environment.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Atriggers%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe [Trigger]
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Atriggers%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon EC2 launch templates in use by this environment.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlaunchTemplates%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe [LaunchTemplate]
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AlaunchTemplates%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var hs-var">launchTemplates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The LoadBalancers in use by this environment.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AloadBalancers%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe [LoadBalancer]
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AloadBalancers%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var hs-var">loadBalancers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancer.html#LoadBalancer"><span class="hs-identifier hs-type">LoadBalancer</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the environment.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AenvironmentName%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AenvironmentName%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The Amazon EC2 instances used by this environment.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Ainstances%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe [Instance]
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Ainstances%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The Auto Scaling launch configurations in use by this environment.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AlaunchConfigurations%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe [LaunchConfiguration]
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AlaunchConfigurations%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var hs-var">launchConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchConfiguration.html#LaunchConfiguration"><span class="hs-identifier hs-type">LaunchConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The @AutoScalingGroups@ used by this environment.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AautoScalingGroups%3AEnvironmentResourceDescription%27"><span class="annot"><span class="annottext">EnvironmentResourceDescription -&gt; Maybe [AutoScalingGroup]
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AautoScalingGroups%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308080"><span id="local-6989586621679308082"><span class="annot"><span class="annottext">EnvironmentResourceDescription
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308376"><span id="local-6989586621679308378"><span class="annot"><span class="annottext">EnvironmentResourceDescription
 -&gt; EnvironmentResourceDescription -&gt; Bool
 (EnvironmentResourceDescription
  -&gt; EnvironmentResourceDescription -&gt; Bool)
@@ -76,7 +76,7 @@ $c/= :: EnvironmentResourceDescription
 -&gt; EnvironmentResourceDescription -&gt; Bool
 $c== :: EnvironmentResourceDescription
 -&gt; EnvironmentResourceDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308071"><span id="local-6989586621679308073"><span id="local-6989586621679308075"><span id="local-6989586621679308077"><span class="annot"><span class="annottext">ReadPrec [EnvironmentResourceDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308367"><span id="local-6989586621679308369"><span id="local-6989586621679308371"><span id="local-6989586621679308373"><span class="annot"><span class="annottext">ReadPrec [EnvironmentResourceDescription]
 ReadPrec EnvironmentResourceDescription
 Int -&gt; ReadS EnvironmentResourceDescription
 ReadS [EnvironmentResourceDescription]
@@ -96,7 +96,7 @@ readList :: ReadS [EnvironmentResourceDescription]
 $creadList :: ReadS [EnvironmentResourceDescription]
 readsPrec :: Int -&gt; ReadS EnvironmentResourceDescription
 $creadsPrec :: Int -&gt; ReadS EnvironmentResourceDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308064"><span id="local-6989586621679308066"><span id="local-6989586621679308068"><span class="annot"><span class="annottext">Int -&gt; EnvironmentResourceDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308360"><span id="local-6989586621679308362"><span id="local-6989586621679308364"><span class="annot"><span class="annottext">Int -&gt; EnvironmentResourceDescription -&gt; ShowS
 [EnvironmentResourceDescription] -&gt; ShowS
 EnvironmentResourceDescription -&gt; String
 (Int -&gt; EnvironmentResourceDescription -&gt; ShowS)
@@ -142,62 +142,62 @@ EnvironmentResourceDescription
 </span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'launchTemplates', 'environmentResourceDescription_launchTemplates' - The Amazon EC2 launch templates in use by this environment.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'queues', 'environmentResourceDescription_queues' - The queues used by this environment.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'launchConfigurations', 'environmentResourceDescription_launchConfigurations' - The Auto Scaling launch configurations in use by this environment.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'triggers', 'environmentResourceDescription_triggers' - The @AutoScaling@ triggers in use by this environment.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'triggers', 'environmentResourceDescription_triggers' - The @AutoScaling@ triggers in use by this environment.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'launchTemplates', 'environmentResourceDescription_launchTemplates' - The Amazon EC2 launch templates in use by this environment.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'queues', 'environmentResourceDescription_queues' - The queues used by this environment.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'loadBalancers', 'environmentResourceDescription_loadBalancers' - The LoadBalancers in use by this environment.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'instances', 'environmentResourceDescription_instances' - The Amazon EC2 instances used by this environment.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'environmentName', 'environmentResourceDescription_environmentName' - The name of the environment.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'environmentName', 'environmentResourceDescription_environmentName' - The name of the environment.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'instances', 'environmentResourceDescription_instances' - The Amazon EC2 instances used by this environment.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'loadBalancers', 'environmentResourceDescription_loadBalancers' - The LoadBalancers in use by this environment.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'launchConfigurations', 'environmentResourceDescription_launchConfigurations' - The Auto Scaling launch configurations in use by this environment.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- 'autoScalingGroups', 'environmentResourceDescription_autoScalingGroups' - The @AutoScalingGroups@ used by this environment.</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#newEnvironmentResourceDescription"><span class="hs-identifier hs-type">newEnvironmentResourceDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span>
 </span><span id="line-82"></span><span id="newEnvironmentResourceDescription"><span class="annot"><span class="annottext">newEnvironmentResourceDescription :: EnvironmentResourceDescription
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#newEnvironmentResourceDescription"><span class="hs-identifier hs-var hs-var">newEnvironmentResourceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">EnvironmentResourceDescription' :: Maybe [LaunchTemplate]
--&gt; Maybe [LaunchConfiguration]
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">EnvironmentResourceDescription' :: Maybe [Queue]
 -&gt; Maybe [Trigger]
--&gt; Maybe [Queue]
--&gt; Maybe [Instance]
--&gt; Maybe Text
+-&gt; Maybe [LaunchTemplate]
 -&gt; Maybe [LoadBalancer]
+-&gt; Maybe Text
+-&gt; Maybe [Instance]
+-&gt; Maybe [LaunchConfiguration]
 -&gt; Maybe [AutoScalingGroup]
 -&gt; EnvironmentResourceDescription
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:launchTemplates:EnvironmentResourceDescription' :: Maybe [LaunchTemplate]
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AlaunchTemplates%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">launchTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">Maybe [LaunchTemplate]
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queues:EnvironmentResourceDescription' :: Maybe [Queue]
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Aqueues%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">queues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Queue]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchConfigurations:EnvironmentResourceDescription' :: Maybe [LaunchConfiguration]
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AlaunchConfigurations%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">launchConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LaunchConfiguration]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:triggers:EnvironmentResourceDescription' :: Maybe [Trigger]
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:triggers:EnvironmentResourceDescription' :: Maybe [Trigger]
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Atriggers%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">triggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Trigger]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:queues:EnvironmentResourceDescription' :: Maybe [Queue]
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Aqueues%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">queues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Queue]
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchTemplates:EnvironmentResourceDescription' :: Maybe [LaunchTemplate]
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AlaunchTemplates%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">launchTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LaunchTemplate]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:instances:EnvironmentResourceDescription' :: Maybe [Instance]
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Ainstances%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:loadBalancers:EnvironmentResourceDescription' :: Maybe [LoadBalancer]
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AloadBalancers%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">loadBalancers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LoadBalancer]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:EnvironmentResourceDescription' :: Maybe Text
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:EnvironmentResourceDescription' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AenvironmentName%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:loadBalancers:EnvironmentResourceDescription' :: Maybe [LoadBalancer]
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AloadBalancers%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">loadBalancers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LoadBalancer]
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:instances:EnvironmentResourceDescription' :: Maybe [Instance]
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Ainstances%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchConfigurations:EnvironmentResourceDescription' :: Maybe [LaunchConfiguration]
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AlaunchConfigurations%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">launchConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LaunchConfiguration]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroups:EnvironmentResourceDescription' :: Maybe [AutoScalingGroup]
@@ -206,9 +206,96 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The Amazon EC2 launch templates in use by this environment.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_launchTemplates"><span class="hs-identifier hs-type">environmentResourceDescription_launchTemplates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="environmentResourceDescription_launchTemplates"><span class="annot"><span class="annottext">environmentResourceDescription_launchTemplates :: (Maybe [LaunchTemplate] -&gt; f (Maybe [LaunchTemplate]))
+</span><span id="line-95"></span><span class="hs-comment">-- | The queues used by this environment.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_queues"><span class="hs-identifier hs-type">environmentResourceDescription_queues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Queue.html#Queue"><span class="hs-identifier hs-type">Queue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="environmentResourceDescription_queues"><span class="annot"><span class="annottext">environmentResourceDescription_queues :: (Maybe [Queue] -&gt; f (Maybe [Queue]))
+-&gt; EnvironmentResourceDescription
+-&gt; f EnvironmentResourceDescription
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_queues"><span class="hs-identifier hs-var hs-var">environmentResourceDescription_queues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentResourceDescription -&gt; Maybe [Queue])
+-&gt; (EnvironmentResourceDescription
+    -&gt; Maybe [Queue] -&gt; EnvironmentResourceDescription)
+-&gt; Lens
+     EnvironmentResourceDescription
+     EnvironmentResourceDescription
+     (Maybe [Queue])
+     (Maybe [Queue])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308351"><span class="annot"><span class="annottext">Maybe [Queue]
+queues :: Maybe [Queue]
+$sel:queues:EnvironmentResourceDescription' :: EnvironmentResourceDescription -&gt; Maybe [Queue]
+</span><a href="#local-6989586621679308351"><span class="hs-identifier hs-var hs-var">queues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Queue]
+</span><a href="#local-6989586621679308351"><span class="hs-identifier hs-var">queues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308350"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
+</span><a href="#local-6989586621679308350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308349"><span class="annot"><span class="annottext">Maybe [Queue]
+</span><a href="#local-6989586621679308349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
+</span><a href="#local-6989586621679308350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queues:EnvironmentResourceDescription' :: Maybe [Queue]
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Aqueues%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">queues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Queue]
+</span><a href="#local-6989586621679308349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Queue] -&gt; f (Maybe [Queue]))
+ -&gt; EnvironmentResourceDescription
+ -&gt; f EnvironmentResourceDescription)
+-&gt; ((Maybe [Queue] -&gt; f (Maybe [Queue]))
+    -&gt; Maybe [Queue] -&gt; f (Maybe [Queue]))
+-&gt; (Maybe [Queue] -&gt; f (Maybe [Queue]))
+-&gt; EnvironmentResourceDescription
+-&gt; f EnvironmentResourceDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Queue] [Queue] [Queue] [Queue]
+-&gt; Iso
+     (Maybe [Queue]) (Maybe [Queue]) (Maybe [Queue]) (Maybe [Queue])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Queue] [Queue] [Queue] [Queue]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The @AutoScaling@ triggers in use by this environment.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_triggers"><span class="hs-identifier hs-type">environmentResourceDescription_triggers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="environmentResourceDescription_triggers"><span class="annot"><span class="annottext">environmentResourceDescription_triggers :: (Maybe [Trigger] -&gt; f (Maybe [Trigger]))
+-&gt; EnvironmentResourceDescription
+-&gt; f EnvironmentResourceDescription
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_triggers"><span class="hs-identifier hs-var hs-var">environmentResourceDescription_triggers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentResourceDescription -&gt; Maybe [Trigger])
+-&gt; (EnvironmentResourceDescription
+    -&gt; Maybe [Trigger] -&gt; EnvironmentResourceDescription)
+-&gt; Lens
+     EnvironmentResourceDescription
+     EnvironmentResourceDescription
+     (Maybe [Trigger])
+     (Maybe [Trigger])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308344"><span class="annot"><span class="annottext">Maybe [Trigger]
+triggers :: Maybe [Trigger]
+$sel:triggers:EnvironmentResourceDescription' :: EnvironmentResourceDescription -&gt; Maybe [Trigger]
+</span><a href="#local-6989586621679308344"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Trigger]
+</span><a href="#local-6989586621679308344"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308343"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
+</span><a href="#local-6989586621679308343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308342"><span class="annot"><span class="annottext">Maybe [Trigger]
+</span><a href="#local-6989586621679308342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
+</span><a href="#local-6989586621679308343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggers:EnvironmentResourceDescription' :: Maybe [Trigger]
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Atriggers%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">triggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Trigger]
+</span><a href="#local-6989586621679308342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Trigger] -&gt; f (Maybe [Trigger]))
+ -&gt; EnvironmentResourceDescription
+ -&gt; f EnvironmentResourceDescription)
+-&gt; ((Maybe [Trigger] -&gt; f (Maybe [Trigger]))
+    -&gt; Maybe [Trigger] -&gt; f (Maybe [Trigger]))
+-&gt; (Maybe [Trigger] -&gt; f (Maybe [Trigger]))
+-&gt; EnvironmentResourceDescription
+-&gt; f EnvironmentResourceDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Trigger] [Trigger] [Trigger] [Trigger]
+-&gt; Iso
+     (Maybe [Trigger])
+     (Maybe [Trigger])
+     (Maybe [Trigger])
+     (Maybe [Trigger])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Trigger] [Trigger] [Trigger] [Trigger]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The Amazon EC2 launch templates in use by this environment.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_launchTemplates"><span class="hs-identifier hs-type">environmentResourceDescription_launchTemplates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchTemplate.html#LaunchTemplate"><span class="hs-identifier hs-type">LaunchTemplate</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="environmentResourceDescription_launchTemplates"><span class="annot"><span class="annottext">environmentResourceDescription_launchTemplates :: (Maybe [LaunchTemplate] -&gt; f (Maybe [LaunchTemplate]))
 -&gt; EnvironmentResourceDescription
 -&gt; f EnvironmentResourceDescription
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_launchTemplates"><span class="hs-identifier hs-var hs-var">environmentResourceDescription_launchTemplates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentResourceDescription -&gt; Maybe [LaunchTemplate])
@@ -220,16 +307,16 @@ forall a. Maybe a
      (Maybe [LaunchTemplate])
      (Maybe [LaunchTemplate])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308055"><span class="annot"><span class="annottext">Maybe [LaunchTemplate]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308340"><span class="annot"><span class="annottext">Maybe [LaunchTemplate]
 launchTemplates :: Maybe [LaunchTemplate]
 $sel:launchTemplates:EnvironmentResourceDescription' :: EnvironmentResourceDescription -&gt; Maybe [LaunchTemplate]
-</span><a href="#local-6989586621679308055"><span class="hs-identifier hs-var hs-var">launchTemplates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LaunchTemplate]
-</span><a href="#local-6989586621679308055"><span class="hs-identifier hs-var">launchTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308054"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
-</span><a href="#local-6989586621679308054"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308053"><span class="annot"><span class="annottext">Maybe [LaunchTemplate]
-</span><a href="#local-6989586621679308053"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
-</span><a href="#local-6989586621679308054"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplates:EnvironmentResourceDescription' :: Maybe [LaunchTemplate]
+</span><a href="#local-6989586621679308340"><span class="hs-identifier hs-var hs-var">launchTemplates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LaunchTemplate]
+</span><a href="#local-6989586621679308340"><span class="hs-identifier hs-var">launchTemplates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308339"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
+</span><a href="#local-6989586621679308339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308338"><span class="annot"><span class="annottext">Maybe [LaunchTemplate]
+</span><a href="#local-6989586621679308338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
+</span><a href="#local-6989586621679308339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchTemplates:EnvironmentResourceDescription' :: Maybe [LaunchTemplate]
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AlaunchTemplates%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">launchTemplates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LaunchTemplate]
-</span><a href="#local-6989586621679308053"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LaunchTemplate] -&gt; f (Maybe [LaunchTemplate]))
+</span><a href="#local-6989586621679308338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LaunchTemplate] -&gt; f (Maybe [LaunchTemplate]))
  -&gt; EnvironmentResourceDescription
  -&gt; f EnvironmentResourceDescription)
 -&gt; ((Maybe [LaunchTemplate] -&gt; f (Maybe [LaunchTemplate]))
@@ -250,12 +337,127 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [LaunchTemplate] [LaunchTemplate] [LaunchTemplate] [LaunchTemplate]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The Auto Scaling launch configurations in use by this environment.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_launchConfigurations"><span class="hs-identifier hs-type">environmentResourceDescription_launchConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchConfiguration.html#LaunchConfiguration"><span class="hs-identifier hs-type">LaunchConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="environmentResourceDescription_launchConfigurations"><span class="annot"><span class="annottext">environmentResourceDescription_launchConfigurations :: (Maybe [LaunchConfiguration] -&gt; f (Maybe [LaunchConfiguration]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The LoadBalancers in use by this environment.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_loadBalancers"><span class="hs-identifier hs-type">environmentResourceDescription_loadBalancers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancer.html#LoadBalancer"><span class="hs-identifier hs-type">LoadBalancer</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="environmentResourceDescription_loadBalancers"><span class="annot"><span class="annottext">environmentResourceDescription_loadBalancers :: (Maybe [LoadBalancer] -&gt; f (Maybe [LoadBalancer]))
+-&gt; EnvironmentResourceDescription
+-&gt; f EnvironmentResourceDescription
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_loadBalancers"><span class="hs-identifier hs-var hs-var">environmentResourceDescription_loadBalancers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentResourceDescription -&gt; Maybe [LoadBalancer])
+-&gt; (EnvironmentResourceDescription
+    -&gt; Maybe [LoadBalancer] -&gt; EnvironmentResourceDescription)
+-&gt; Lens
+     EnvironmentResourceDescription
+     EnvironmentResourceDescription
+     (Maybe [LoadBalancer])
+     (Maybe [LoadBalancer])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308336"><span class="annot"><span class="annottext">Maybe [LoadBalancer]
+loadBalancers :: Maybe [LoadBalancer]
+$sel:loadBalancers:EnvironmentResourceDescription' :: EnvironmentResourceDescription -&gt; Maybe [LoadBalancer]
+</span><a href="#local-6989586621679308336"><span class="hs-identifier hs-var hs-var">loadBalancers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LoadBalancer]
+</span><a href="#local-6989586621679308336"><span class="hs-identifier hs-var">loadBalancers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308335"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
+</span><a href="#local-6989586621679308335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308334"><span class="annot"><span class="annottext">Maybe [LoadBalancer]
+</span><a href="#local-6989586621679308334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
+</span><a href="#local-6989586621679308335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancers:EnvironmentResourceDescription' :: Maybe [LoadBalancer]
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AloadBalancers%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">loadBalancers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LoadBalancer]
+</span><a href="#local-6989586621679308334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LoadBalancer] -&gt; f (Maybe [LoadBalancer]))
+ -&gt; EnvironmentResourceDescription
+ -&gt; f EnvironmentResourceDescription)
+-&gt; ((Maybe [LoadBalancer] -&gt; f (Maybe [LoadBalancer]))
+    -&gt; Maybe [LoadBalancer] -&gt; f (Maybe [LoadBalancer]))
+-&gt; (Maybe [LoadBalancer] -&gt; f (Maybe [LoadBalancer]))
+-&gt; EnvironmentResourceDescription
+-&gt; f EnvironmentResourceDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [LoadBalancer] [LoadBalancer] [LoadBalancer] [LoadBalancer]
+-&gt; Iso
+     (Maybe [LoadBalancer])
+     (Maybe [LoadBalancer])
+     (Maybe [LoadBalancer])
+     (Maybe [LoadBalancer])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [LoadBalancer] [LoadBalancer] [LoadBalancer] [LoadBalancer]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The name of the environment.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_environmentName"><span class="hs-identifier hs-type">environmentResourceDescription_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="environmentResourceDescription_environmentName"><span class="annot"><span class="annottext">environmentResourceDescription_environmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnvironmentResourceDescription
+-&gt; f EnvironmentResourceDescription
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_environmentName"><span class="hs-identifier hs-var hs-var">environmentResourceDescription_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentResourceDescription -&gt; Maybe Text)
+-&gt; (EnvironmentResourceDescription
+    -&gt; Maybe Text -&gt; EnvironmentResourceDescription)
+-&gt; Lens
+     EnvironmentResourceDescription
+     EnvironmentResourceDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308332"><span class="annot"><span class="annottext">Maybe Text
+environmentName :: Maybe Text
+$sel:environmentName:EnvironmentResourceDescription' :: EnvironmentResourceDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679308332"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308332"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308331"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
+</span><a href="#local-6989586621679308331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308330"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
+</span><a href="#local-6989586621679308331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:EnvironmentResourceDescription' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AenvironmentName%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679308330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The Amazon EC2 instances used by this environment.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_instances"><span class="hs-identifier hs-type">environmentResourceDescription_instances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="environmentResourceDescription_instances"><span class="annot"><span class="annottext">environmentResourceDescription_instances :: (Maybe [Instance] -&gt; f (Maybe [Instance]))
+-&gt; EnvironmentResourceDescription
+-&gt; f EnvironmentResourceDescription
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_instances"><span class="hs-identifier hs-var hs-var">environmentResourceDescription_instances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentResourceDescription -&gt; Maybe [Instance])
+-&gt; (EnvironmentResourceDescription
+    -&gt; Maybe [Instance] -&gt; EnvironmentResourceDescription)
+-&gt; Lens
+     EnvironmentResourceDescription
+     EnvironmentResourceDescription
+     (Maybe [Instance])
+     (Maybe [Instance])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308328"><span class="annot"><span class="annottext">Maybe [Instance]
+instances :: Maybe [Instance]
+$sel:instances:EnvironmentResourceDescription' :: EnvironmentResourceDescription -&gt; Maybe [Instance]
+</span><a href="#local-6989586621679308328"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
+</span><a href="#local-6989586621679308328"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308327"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
+</span><a href="#local-6989586621679308327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308326"><span class="annot"><span class="annottext">Maybe [Instance]
+</span><a href="#local-6989586621679308326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
+</span><a href="#local-6989586621679308327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:EnvironmentResourceDescription' :: Maybe [Instance]
+</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Ainstances%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
+</span><a href="#local-6989586621679308326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Instance] -&gt; f (Maybe [Instance]))
+ -&gt; EnvironmentResourceDescription
+ -&gt; f EnvironmentResourceDescription)
+-&gt; ((Maybe [Instance] -&gt; f (Maybe [Instance]))
+    -&gt; Maybe [Instance] -&gt; f (Maybe [Instance]))
+-&gt; (Maybe [Instance] -&gt; f (Maybe [Instance]))
+-&gt; EnvironmentResourceDescription
+-&gt; f EnvironmentResourceDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Instance] [Instance] [Instance] [Instance]
+-&gt; Iso
+     (Maybe [Instance])
+     (Maybe [Instance])
+     (Maybe [Instance])
+     (Maybe [Instance])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Instance] [Instance] [Instance] [Instance]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The Auto Scaling launch configurations in use by this environment.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_launchConfigurations"><span class="hs-identifier hs-type">environmentResourceDescription_launchConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LaunchConfiguration.html#LaunchConfiguration"><span class="hs-identifier hs-type">LaunchConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="environmentResourceDescription_launchConfigurations"><span class="annot"><span class="annottext">environmentResourceDescription_launchConfigurations :: (Maybe [LaunchConfiguration] -&gt; f (Maybe [LaunchConfiguration]))
 -&gt; EnvironmentResourceDescription
 -&gt; f EnvironmentResourceDescription
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_launchConfigurations"><span class="hs-identifier hs-var hs-var">environmentResourceDescription_launchConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentResourceDescription -&gt; Maybe [LaunchConfiguration])
@@ -267,16 +469,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [LaunchConfiguration])
      (Maybe [LaunchConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308048"><span class="annot"><span class="annottext">Maybe [LaunchConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308324"><span class="annot"><span class="annottext">Maybe [LaunchConfiguration]
 launchConfigurations :: Maybe [LaunchConfiguration]
 $sel:launchConfigurations:EnvironmentResourceDescription' :: EnvironmentResourceDescription -&gt; Maybe [LaunchConfiguration]
-</span><a href="#local-6989586621679308048"><span class="hs-identifier hs-var hs-var">launchConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LaunchConfiguration]
-</span><a href="#local-6989586621679308048"><span class="hs-identifier hs-var">launchConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308047"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
-</span><a href="#local-6989586621679308047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308046"><span class="annot"><span class="annottext">Maybe [LaunchConfiguration]
-</span><a href="#local-6989586621679308046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
-</span><a href="#local-6989586621679308047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchConfigurations:EnvironmentResourceDescription' :: Maybe [LaunchConfiguration]
+</span><a href="#local-6989586621679308324"><span class="hs-identifier hs-var hs-var">launchConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LaunchConfiguration]
+</span><a href="#local-6989586621679308324"><span class="hs-identifier hs-var">launchConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308323"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
+</span><a href="#local-6989586621679308323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308322"><span class="annot"><span class="annottext">Maybe [LaunchConfiguration]
+</span><a href="#local-6989586621679308322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
+</span><a href="#local-6989586621679308323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchConfigurations:EnvironmentResourceDescription' :: Maybe [LaunchConfiguration]
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AlaunchConfigurations%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">launchConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LaunchConfiguration]
-</span><a href="#local-6989586621679308046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LaunchConfiguration] -&gt; f (Maybe [LaunchConfiguration]))
+</span><a href="#local-6989586621679308322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LaunchConfiguration] -&gt; f (Maybe [LaunchConfiguration]))
  -&gt; EnvironmentResourceDescription
  -&gt; f EnvironmentResourceDescription)
 -&gt; ((Maybe [LaunchConfiguration]
@@ -304,210 +506,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [LaunchConfiguration]
   [LaunchConfiguration]
   [LaunchConfiguration]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The @AutoScaling@ triggers in use by this environment.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_triggers"><span class="hs-identifier hs-type">environmentResourceDescription_triggers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Trigger.html#Trigger"><span class="hs-identifier hs-type">Trigger</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="environmentResourceDescription_triggers"><span class="annot"><span class="annottext">environmentResourceDescription_triggers :: (Maybe [Trigger] -&gt; f (Maybe [Trigger]))
--&gt; EnvironmentResourceDescription
--&gt; f EnvironmentResourceDescription
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_triggers"><span class="hs-identifier hs-var hs-var">environmentResourceDescription_triggers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentResourceDescription -&gt; Maybe [Trigger])
--&gt; (EnvironmentResourceDescription
-    -&gt; Maybe [Trigger] -&gt; EnvironmentResourceDescription)
--&gt; Lens
-     EnvironmentResourceDescription
-     EnvironmentResourceDescription
-     (Maybe [Trigger])
-     (Maybe [Trigger])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308044"><span class="annot"><span class="annottext">Maybe [Trigger]
-triggers :: Maybe [Trigger]
-$sel:triggers:EnvironmentResourceDescription' :: EnvironmentResourceDescription -&gt; Maybe [Trigger]
-</span><a href="#local-6989586621679308044"><span class="hs-identifier hs-var hs-var">triggers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Trigger]
-</span><a href="#local-6989586621679308044"><span class="hs-identifier hs-var">triggers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308043"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
-</span><a href="#local-6989586621679308043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308042"><span class="annot"><span class="annottext">Maybe [Trigger]
-</span><a href="#local-6989586621679308042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
-</span><a href="#local-6989586621679308043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:triggers:EnvironmentResourceDescription' :: Maybe [Trigger]
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Atriggers%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">triggers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Trigger]
-</span><a href="#local-6989586621679308042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Trigger] -&gt; f (Maybe [Trigger]))
- -&gt; EnvironmentResourceDescription
- -&gt; f EnvironmentResourceDescription)
--&gt; ((Maybe [Trigger] -&gt; f (Maybe [Trigger]))
-    -&gt; Maybe [Trigger] -&gt; f (Maybe [Trigger]))
--&gt; (Maybe [Trigger] -&gt; f (Maybe [Trigger]))
--&gt; EnvironmentResourceDescription
--&gt; f EnvironmentResourceDescription
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Trigger] [Trigger] [Trigger] [Trigger]
--&gt; Iso
-     (Maybe [Trigger])
-     (Maybe [Trigger])
-     (Maybe [Trigger])
-     (Maybe [Trigger])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Trigger] [Trigger] [Trigger] [Trigger]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The queues used by this environment.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_queues"><span class="hs-identifier hs-type">environmentResourceDescription_queues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Queue.html#Queue"><span class="hs-identifier hs-type">Queue</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="environmentResourceDescription_queues"><span class="annot"><span class="annottext">environmentResourceDescription_queues :: (Maybe [Queue] -&gt; f (Maybe [Queue]))
--&gt; EnvironmentResourceDescription
--&gt; f EnvironmentResourceDescription
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_queues"><span class="hs-identifier hs-var hs-var">environmentResourceDescription_queues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentResourceDescription -&gt; Maybe [Queue])
--&gt; (EnvironmentResourceDescription
-    -&gt; Maybe [Queue] -&gt; EnvironmentResourceDescription)
--&gt; Lens
-     EnvironmentResourceDescription
-     EnvironmentResourceDescription
-     (Maybe [Queue])
-     (Maybe [Queue])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308040"><span class="annot"><span class="annottext">Maybe [Queue]
-queues :: Maybe [Queue]
-$sel:queues:EnvironmentResourceDescription' :: EnvironmentResourceDescription -&gt; Maybe [Queue]
-</span><a href="#local-6989586621679308040"><span class="hs-identifier hs-var hs-var">queues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Queue]
-</span><a href="#local-6989586621679308040"><span class="hs-identifier hs-var">queues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308039"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
-</span><a href="#local-6989586621679308039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308038"><span class="annot"><span class="annottext">Maybe [Queue]
-</span><a href="#local-6989586621679308038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
-</span><a href="#local-6989586621679308039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queues:EnvironmentResourceDescription' :: Maybe [Queue]
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Aqueues%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">queues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Queue]
-</span><a href="#local-6989586621679308038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Queue] -&gt; f (Maybe [Queue]))
- -&gt; EnvironmentResourceDescription
- -&gt; f EnvironmentResourceDescription)
--&gt; ((Maybe [Queue] -&gt; f (Maybe [Queue]))
-    -&gt; Maybe [Queue] -&gt; f (Maybe [Queue]))
--&gt; (Maybe [Queue] -&gt; f (Maybe [Queue]))
--&gt; EnvironmentResourceDescription
--&gt; f EnvironmentResourceDescription
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Queue] [Queue] [Queue] [Queue]
--&gt; Iso
-     (Maybe [Queue]) (Maybe [Queue]) (Maybe [Queue]) (Maybe [Queue])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Queue] [Queue] [Queue] [Queue]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The Amazon EC2 instances used by this environment.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_instances"><span class="hs-identifier hs-type">environmentResourceDescription_instances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="environmentResourceDescription_instances"><span class="annot"><span class="annottext">environmentResourceDescription_instances :: (Maybe [Instance] -&gt; f (Maybe [Instance]))
--&gt; EnvironmentResourceDescription
--&gt; f EnvironmentResourceDescription
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_instances"><span class="hs-identifier hs-var hs-var">environmentResourceDescription_instances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentResourceDescription -&gt; Maybe [Instance])
--&gt; (EnvironmentResourceDescription
-    -&gt; Maybe [Instance] -&gt; EnvironmentResourceDescription)
--&gt; Lens
-     EnvironmentResourceDescription
-     EnvironmentResourceDescription
-     (Maybe [Instance])
-     (Maybe [Instance])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308036"><span class="annot"><span class="annottext">Maybe [Instance]
-instances :: Maybe [Instance]
-$sel:instances:EnvironmentResourceDescription' :: EnvironmentResourceDescription -&gt; Maybe [Instance]
-</span><a href="#local-6989586621679308036"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621679308036"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308035"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
-</span><a href="#local-6989586621679308035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308034"><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621679308034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
-</span><a href="#local-6989586621679308035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:EnvironmentResourceDescription' :: Maybe [Instance]
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3Ainstances%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Instance]
-</span><a href="#local-6989586621679308034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Instance] -&gt; f (Maybe [Instance]))
- -&gt; EnvironmentResourceDescription
- -&gt; f EnvironmentResourceDescription)
--&gt; ((Maybe [Instance] -&gt; f (Maybe [Instance]))
-    -&gt; Maybe [Instance] -&gt; f (Maybe [Instance]))
--&gt; (Maybe [Instance] -&gt; f (Maybe [Instance]))
--&gt; EnvironmentResourceDescription
--&gt; f EnvironmentResourceDescription
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Instance] [Instance] [Instance] [Instance]
--&gt; Iso
-     (Maybe [Instance])
-     (Maybe [Instance])
-     (Maybe [Instance])
-     (Maybe [Instance])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Instance] [Instance] [Instance] [Instance]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The name of the environment.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_environmentName"><span class="hs-identifier hs-type">environmentResourceDescription_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="environmentResourceDescription_environmentName"><span class="annot"><span class="annottext">environmentResourceDescription_environmentName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; EnvironmentResourceDescription
--&gt; f EnvironmentResourceDescription
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_environmentName"><span class="hs-identifier hs-var hs-var">environmentResourceDescription_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentResourceDescription -&gt; Maybe Text)
--&gt; (EnvironmentResourceDescription
-    -&gt; Maybe Text -&gt; EnvironmentResourceDescription)
--&gt; Lens
-     EnvironmentResourceDescription
-     EnvironmentResourceDescription
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308032"><span class="annot"><span class="annottext">Maybe Text
-environmentName :: Maybe Text
-$sel:environmentName:EnvironmentResourceDescription' :: EnvironmentResourceDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679308032"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308032"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308031"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
-</span><a href="#local-6989586621679308031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308030"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
-</span><a href="#local-6989586621679308031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:EnvironmentResourceDescription' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AenvironmentName%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679308030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The LoadBalancers in use by this environment.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_loadBalancers"><span class="hs-identifier hs-type">environmentResourceDescription_loadBalancers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.LoadBalancer.html#LoadBalancer"><span class="hs-identifier hs-type">LoadBalancer</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="environmentResourceDescription_loadBalancers"><span class="annot"><span class="annottext">environmentResourceDescription_loadBalancers :: (Maybe [LoadBalancer] -&gt; f (Maybe [LoadBalancer]))
--&gt; EnvironmentResourceDescription
--&gt; f EnvironmentResourceDescription
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_loadBalancers"><span class="hs-identifier hs-var hs-var">environmentResourceDescription_loadBalancers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnvironmentResourceDescription -&gt; Maybe [LoadBalancer])
--&gt; (EnvironmentResourceDescription
-    -&gt; Maybe [LoadBalancer] -&gt; EnvironmentResourceDescription)
--&gt; Lens
-     EnvironmentResourceDescription
-     EnvironmentResourceDescription
-     (Maybe [LoadBalancer])
-     (Maybe [LoadBalancer])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308028"><span class="annot"><span class="annottext">Maybe [LoadBalancer]
-loadBalancers :: Maybe [LoadBalancer]
-$sel:loadBalancers:EnvironmentResourceDescription' :: EnvironmentResourceDescription -&gt; Maybe [LoadBalancer]
-</span><a href="#local-6989586621679308028"><span class="hs-identifier hs-var hs-var">loadBalancers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LoadBalancer]
-</span><a href="#local-6989586621679308028"><span class="hs-identifier hs-var">loadBalancers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308027"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
-</span><a href="#local-6989586621679308027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308026"><span class="annot"><span class="annottext">Maybe [LoadBalancer]
-</span><a href="#local-6989586621679308026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
-</span><a href="#local-6989586621679308027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loadBalancers:EnvironmentResourceDescription' :: Maybe [LoadBalancer]
-</span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AloadBalancers%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">loadBalancers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LoadBalancer]
-</span><a href="#local-6989586621679308026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LoadBalancer] -&gt; f (Maybe [LoadBalancer]))
- -&gt; EnvironmentResourceDescription
- -&gt; f EnvironmentResourceDescription)
--&gt; ((Maybe [LoadBalancer] -&gt; f (Maybe [LoadBalancer]))
-    -&gt; Maybe [LoadBalancer] -&gt; f (Maybe [LoadBalancer]))
--&gt; (Maybe [LoadBalancer] -&gt; f (Maybe [LoadBalancer]))
--&gt; EnvironmentResourceDescription
--&gt; f EnvironmentResourceDescription
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [LoadBalancer] [LoadBalancer] [LoadBalancer] [LoadBalancer]
--&gt; Iso
-     (Maybe [LoadBalancer])
-     (Maybe [LoadBalancer])
-     (Maybe [LoadBalancer])
-     (Maybe [LoadBalancer])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [LoadBalancer] [LoadBalancer] [LoadBalancer] [LoadBalancer]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The @AutoScalingGroups@ used by this environment.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#environmentResourceDescription_autoScalingGroups"><span class="hs-identifier hs-type">environmentResourceDescription_autoScalingGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup.html#AutoScalingGroup"><span class="hs-identifier hs-type">AutoScalingGroup</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -523,16 +523,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [AutoScalingGroup])
      (Maybe [AutoScalingGroup])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308024"><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308320"><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
 autoScalingGroups :: Maybe [AutoScalingGroup]
 $sel:autoScalingGroups:EnvironmentResourceDescription' :: EnvironmentResourceDescription -&gt; Maybe [AutoScalingGroup]
-</span><a href="#local-6989586621679308024"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
-</span><a href="#local-6989586621679308024"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308023"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
-</span><a href="#local-6989586621679308023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308022"><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
-</span><a href="#local-6989586621679308022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
-</span><a href="#local-6989586621679308023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroups:EnvironmentResourceDescription' :: Maybe [AutoScalingGroup]
+</span><a href="#local-6989586621679308320"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
+</span><a href="#local-6989586621679308320"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308319"><span class="annot"><span class="annottext">s :: EnvironmentResourceDescription
+</span><a href="#local-6989586621679308319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-type">EnvironmentResourceDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308318"><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
+</span><a href="#local-6989586621679308318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentResourceDescription
+</span><a href="#local-6989586621679308319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroups:EnvironmentResourceDescription' :: Maybe [AutoScalingGroup]
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#%24sel%3AautoScalingGroups%3AEnvironmentResourceDescription%27"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoScalingGroup]
-</span><a href="#local-6989586621679308022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AutoScalingGroup] -&gt; f (Maybe [AutoScalingGroup]))
+</span><a href="#local-6989586621679308318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AutoScalingGroup] -&gt; f (Maybe [AutoScalingGroup]))
  -&gt; EnvironmentResourceDescription
  -&gt; f EnvironmentResourceDescription)
 -&gt; ((Maybe [AutoScalingGroup] -&gt; f (Maybe [AutoScalingGroup]))
@@ -559,173 +559,46 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AutoScalingGroup]
   [AutoScalingGroup]
   [AutoScalingGroup]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679308019"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EnvironmentResourceDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679308017"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679308017"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">Maybe [LaunchTemplate]
--&gt; Maybe [LaunchConfiguration]
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679308315"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EnvironmentResourceDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679308313"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679308313"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Queue]
 -&gt; Maybe [Trigger]
--&gt; Maybe [Queue]
--&gt; Maybe [Instance]
--&gt; Maybe Text
+-&gt; Maybe [LaunchTemplate]
 -&gt; Maybe [LoadBalancer]
+-&gt; Maybe Text
+-&gt; Maybe [Instance]
+-&gt; Maybe [LaunchConfiguration]
 -&gt; Maybe [AutoScalingGroup]
 -&gt; EnvironmentResourceDescription
 </span><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription%27"><span class="hs-identifier hs-var">EnvironmentResourceDescription'</span></a></span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [LaunchTemplate]
- -&gt; Maybe [LaunchConfiguration]
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Queue]
  -&gt; Maybe [Trigger]
- -&gt; Maybe [Queue]
- -&gt; Maybe [Instance]
- -&gt; Maybe Text
+ -&gt; Maybe [LaunchTemplate]
  -&gt; Maybe [LoadBalancer]
+ -&gt; Maybe Text
+ -&gt; Maybe [Instance]
+ -&gt; Maybe [LaunchConfiguration]
  -&gt; Maybe [AutoScalingGroup]
  -&gt; EnvironmentResourceDescription)
--&gt; Either String (Maybe [LaunchTemplate])
+-&gt; Either String (Maybe [Queue])
 -&gt; Either
      String
-     (Maybe [LaunchConfiguration]
-      -&gt; Maybe [Trigger]
-      -&gt; Maybe [Queue]
-      -&gt; Maybe [Instance]
-      -&gt; Maybe Text
+     (Maybe [Trigger]
+      -&gt; Maybe [LaunchTemplate]
       -&gt; Maybe [LoadBalancer]
+      -&gt; Maybe Text
+      -&gt; Maybe [Instance]
+      -&gt; Maybe [LaunchConfiguration]
       -&gt; Maybe [AutoScalingGroup]
       -&gt; EnvironmentResourceDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679308017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LaunchTemplates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-131"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
--&gt; ([Node] -&gt; Either String (Maybe [LaunchTemplate]))
--&gt; Either String (Maybe [LaunchTemplate])
-forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
-</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [LaunchTemplate])
--&gt; [Node] -&gt; Either String (Maybe [LaunchTemplate])
-forall (f :: * -&gt; *) a b.
-Applicative f =&gt;
-([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
-</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [LaunchTemplate]
-forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
-</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [LaunchConfiguration]
-   -&gt; Maybe [Trigger]
-   -&gt; Maybe [Queue]
-   -&gt; Maybe [Instance]
-   -&gt; Maybe Text
-   -&gt; Maybe [LoadBalancer]
-   -&gt; Maybe [AutoScalingGroup]
-   -&gt; EnvironmentResourceDescription)
--&gt; Either String (Maybe [LaunchConfiguration])
--&gt; Either
-     String
-     (Maybe [Trigger]
-      -&gt; Maybe [Queue]
-      -&gt; Maybe [Instance]
-      -&gt; Maybe Text
-      -&gt; Maybe [LoadBalancer]
-      -&gt; Maybe [AutoScalingGroup]
-      -&gt; EnvironmentResourceDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679308017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LaunchConfigurations&quot;</span></span><span>
-</span><span id="line-134"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-135"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
--&gt; ([Node] -&gt; Either String (Maybe [LaunchConfiguration]))
--&gt; Either String (Maybe [LaunchConfiguration])
-forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
-</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [LaunchConfiguration])
--&gt; [Node] -&gt; Either String (Maybe [LaunchConfiguration])
-forall (f :: * -&gt; *) a b.
-Applicative f =&gt;
-([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
-</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [LaunchConfiguration]
-forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
-</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [Trigger]
-   -&gt; Maybe [Queue]
-   -&gt; Maybe [Instance]
-   -&gt; Maybe Text
-   -&gt; Maybe [LoadBalancer]
-   -&gt; Maybe [AutoScalingGroup]
-   -&gt; EnvironmentResourceDescription)
--&gt; Either String (Maybe [Trigger])
--&gt; Either
-     String
-     (Maybe [Queue]
-      -&gt; Maybe [Instance]
-      -&gt; Maybe Text
-      -&gt; Maybe [LoadBalancer]
-      -&gt; Maybe [AutoScalingGroup]
-      -&gt; EnvironmentResourceDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679308017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Triggers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-138"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
--&gt; ([Node] -&gt; Either String (Maybe [Trigger]))
--&gt; Either String (Maybe [Trigger])
-forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
-</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Trigger])
--&gt; [Node] -&gt; Either String (Maybe [Trigger])
-forall (f :: * -&gt; *) a b.
-Applicative f =&gt;
-([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
-</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Trigger]
-forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
-</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [Queue]
-   -&gt; Maybe [Instance]
-   -&gt; Maybe Text
-   -&gt; Maybe [LoadBalancer]
-   -&gt; Maybe [AutoScalingGroup]
-   -&gt; EnvironmentResourceDescription)
--&gt; Either String (Maybe [Queue])
--&gt; Either
-     String
-     (Maybe [Instance]
-      -&gt; Maybe Text
-      -&gt; Maybe [LoadBalancer]
-      -&gt; Maybe [AutoScalingGroup]
-      -&gt; EnvironmentResourceDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679308017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679308313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Queues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -733,7 +606,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-141"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-131"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Queue]))
 -&gt; Either String (Maybe [Queue])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -746,24 +619,167 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Trigger]
+   -&gt; Maybe [LaunchTemplate]
+   -&gt; Maybe [LoadBalancer]
+   -&gt; Maybe Text
+   -&gt; Maybe [Instance]
+   -&gt; Maybe [LaunchConfiguration]
+   -&gt; Maybe [AutoScalingGroup]
+   -&gt; EnvironmentResourceDescription)
+-&gt; Either String (Maybe [Trigger])
+-&gt; Either
+     String
+     (Maybe [LaunchTemplate]
+      -&gt; Maybe [LoadBalancer]
+      -&gt; Maybe Text
+      -&gt; Maybe [Instance]
+      -&gt; Maybe [LaunchConfiguration]
+      -&gt; Maybe [AutoScalingGroup]
+      -&gt; EnvironmentResourceDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679308313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Triggers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Trigger]))
+-&gt; Either String (Maybe [Trigger])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Trigger])
+-&gt; [Node] -&gt; Either String (Maybe [Trigger])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Trigger]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [LaunchTemplate]
+   -&gt; Maybe [LoadBalancer]
+   -&gt; Maybe Text
+   -&gt; Maybe [Instance]
+   -&gt; Maybe [LaunchConfiguration]
+   -&gt; Maybe [AutoScalingGroup]
+   -&gt; EnvironmentResourceDescription)
+-&gt; Either String (Maybe [LaunchTemplate])
+-&gt; Either
+     String
+     (Maybe [LoadBalancer]
+      -&gt; Maybe Text
+      -&gt; Maybe [Instance]
+      -&gt; Maybe [LaunchConfiguration]
+      -&gt; Maybe [AutoScalingGroup]
+      -&gt; EnvironmentResourceDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679308313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LaunchTemplates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-137"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [LaunchTemplate]))
+-&gt; Either String (Maybe [LaunchTemplate])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [LaunchTemplate])
+-&gt; [Node] -&gt; Either String (Maybe [LaunchTemplate])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [LaunchTemplate]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [LoadBalancer]
+   -&gt; Maybe Text
+   -&gt; Maybe [Instance]
+   -&gt; Maybe [LaunchConfiguration]
+   -&gt; Maybe [AutoScalingGroup]
+   -&gt; EnvironmentResourceDescription)
+-&gt; Either String (Maybe [LoadBalancer])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Instance]
+      -&gt; Maybe [LaunchConfiguration]
+      -&gt; Maybe [AutoScalingGroup]
+      -&gt; EnvironmentResourceDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679308313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LoadBalancers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-140"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [LoadBalancer]))
+-&gt; Either String (Maybe [LoadBalancer])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [LoadBalancer])
+-&gt; [Node] -&gt; Either String (Maybe [LoadBalancer])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [LoadBalancer]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Instance]
+   -&gt; Maybe [LaunchConfiguration]
+   -&gt; Maybe [AutoScalingGroup]
+   -&gt; EnvironmentResourceDescription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Instance]
+      -&gt; Maybe [LaunchConfiguration]
+      -&gt; Maybe [AutoScalingGroup]
+      -&gt; EnvironmentResourceDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679308313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [Instance]
-   -&gt; Maybe Text
-   -&gt; Maybe [LoadBalancer]
+   -&gt; Maybe [LaunchConfiguration]
    -&gt; Maybe [AutoScalingGroup]
    -&gt; EnvironmentResourceDescription)
 -&gt; Either String (Maybe [Instance])
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe [LoadBalancer]
-      -&gt; Maybe [AutoScalingGroup]
-      -&gt; EnvironmentResourceDescription)
+     (Maybe [LaunchConfiguration]
+      -&gt; Maybe [AutoScalingGroup] -&gt; EnvironmentResourceDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679308017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679308313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Instances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -787,48 +803,32 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-145"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe [LoadBalancer]
-   -&gt; Maybe [AutoScalingGroup]
-   -&gt; EnvironmentResourceDescription)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [LoadBalancer]
-      -&gt; Maybe [AutoScalingGroup] -&gt; EnvironmentResourceDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679308017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [LoadBalancer]
+  (Maybe [LaunchConfiguration]
    -&gt; Maybe [AutoScalingGroup] -&gt; EnvironmentResourceDescription)
--&gt; Either String (Maybe [LoadBalancer])
+-&gt; Either String (Maybe [LaunchConfiguration])
 -&gt; Either
      String (Maybe [AutoScalingGroup] -&gt; EnvironmentResourceDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679308017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679308313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LoadBalancers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span class="hs-string">&quot;LaunchConfigurations&quot;</span></span><span>
+</span><span id="line-147"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-148"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
--&gt; ([Node] -&gt; Either String (Maybe [LoadBalancer]))
--&gt; Either String (Maybe [LoadBalancer])
+-&gt; ([Node] -&gt; Either String (Maybe [LaunchConfiguration]))
+-&gt; Either String (Maybe [LaunchConfiguration])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
-</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [LoadBalancer])
--&gt; [Node] -&gt; Either String (Maybe [LoadBalancer])
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [LaunchConfiguration])
+-&gt; [Node] -&gt; Either String (Maybe [LaunchConfiguration])
 forall (f :: * -&gt; *) a b.
 Applicative f =&gt;
 ([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
-</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [LoadBalancer]
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [LaunchConfiguration]
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
@@ -839,7 +839,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String EnvironmentResourceDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679308017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679308313"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AutoScalingGroups&quot;</span></span><span>
@@ -864,10 +864,10 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span id="line-153"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679308008"><span id="local-6989586621679308010"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679308304"><span id="local-6989586621679308306"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679308005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679308301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription.html#EnvironmentResourceDescription"><span class="hs-identifier hs-type">EnvironmentResourceDescription</span></a></span></span><span>
 </span><span id="line-162"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679364294"><span id="local-6989586621679364295"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkProfileType"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.NetworkProfileType.html#NetworkProfileType"><span class="hs-identifier hs-var">NetworkProfileType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkProfileType%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.NetworkProfileType.html#NetworkProfileType%27"><span class="hs-identifier hs-var">NetworkProfileType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679364531"><span id="local-6989586621679364532"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="NetworkProfileType"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.NetworkProfileType.html#NetworkProfileType"><span class="hs-identifier hs-var">NetworkProfileType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkProfileType%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.NetworkProfileType.html#NetworkProfileType%27"><span class="hs-identifier hs-var">NetworkProfileType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromNetworkProfileType"><span class="annot"><span class="annottext">NetworkProfileType -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.Types.NetworkProfileType.html#fromNetworkProfileType"><span class="hs-identifier hs-var hs-var">fromNetworkProfileType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364286"><span id="local-6989586621679364288"><span id="local-6989586621679364290"><span class="annot"><span class="annottext">Int -&gt; NetworkProfileType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364523"><span id="local-6989586621679364525"><span id="local-6989586621679364527"><span class="annot"><span class="annottext">Int -&gt; NetworkProfileType -&gt; ShowS
 [NetworkProfileType] -&gt; ShowS
 NetworkProfileType -&gt; String
 (Int -&gt; NetworkProfileType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: NetworkProfileType -&gt; String
 showsPrec :: Int -&gt; NetworkProfileType -&gt; ShowS
 $cshowsPrec :: Int -&gt; NetworkProfileType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679364277"><span id="local-6989586621679364279"><span id="local-6989586621679364281"><span id="local-6989586621679364283"><span class="annot"><span class="annottext">ReadPrec [NetworkProfileType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679364514"><span id="local-6989586621679364516"><span id="local-6989586621679364518"><span id="local-6989586621679364520"><span class="annot"><span class="annottext">ReadPrec [NetworkProfileType]
 ReadPrec NetworkProfileType
 Int -&gt; ReadS NetworkProfileType
 ReadS [NetworkProfileType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [NetworkProfileType]
 readsPrec :: Int -&gt; ReadS NetworkProfileType
 $creadsPrec :: Int -&gt; ReadS NetworkProfileType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679364272"><span id="local-6989586621679364274"><span class="annot"><span class="annottext">NetworkProfileType -&gt; NetworkProfileType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679364509"><span id="local-6989586621679364511"><span class="annot"><span class="annottext">NetworkProfileType -&gt; NetworkProfileType -&gt; Bool
 (NetworkProfileType -&gt; NetworkProfileType -&gt; Bool)
 -&gt; (NetworkProfileType -&gt; NetworkProfileType -&gt; Bool)
 -&gt; Eq NetworkProfileType
@@ -82,7 +82,7 @@ $c/= :: NetworkProfileType -&gt; NetworkProfileType -&gt; Bool
 == :: NetworkProfileType -&gt; NetworkProfileType -&gt; Bool
 $c== :: NetworkProfileType -&gt; NetworkProfileType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679364256"><span id="local-6989586621679364258"><span id="local-6989586621679364260"><span id="local-6989586621679364262"><span id="local-6989586621679364264"><span id="local-6989586621679364266"><span id="local-6989586621679364268"><span class="annot"><span class="annottext">Eq NetworkProfileType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679364493"><span id="local-6989586621679364495"><span id="local-6989586621679364497"><span id="local-6989586621679364499"><span id="local-6989586621679364501"><span id="local-6989586621679364503"><span id="local-6989586621679364505"><span class="annot"><span class="annottext">Eq NetworkProfileType
 Eq NetworkProfileType
 -&gt; (NetworkProfileType -&gt; NetworkProfileType -&gt; Ordering)
 -&gt; (NetworkProfileType -&gt; NetworkProfileType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. NetworkProfileType -&gt; Rep NetworkProfileType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364248"><span id="local-6989586621679364250"><span class="annot"><span class="annottext">Int -&gt; NetworkProfileType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364485"><span id="local-6989586621679364487"><span class="annot"><span class="annottext">Int -&gt; NetworkProfileType -&gt; Int
 NetworkProfileType -&gt; Int
 (Int -&gt; NetworkProfileType -&gt; Int)
 -&gt; (NetworkProfileType -&gt; Int) -&gt; Hashable NetworkProfileType
@@ -143,53 +143,53 @@ $chash :: NetworkProfileType -&gt; Int
 hashWithSalt :: Int -&gt; NetworkProfileType -&gt; Int
 $chashWithSalt :: Int -&gt; NetworkProfileType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679364245"><span class="annot"><span class="annottext">NetworkProfileType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679364482"><span class="annot"><span class="annottext">NetworkProfileType -&gt; ()
 (NetworkProfileType -&gt; ()) -&gt; NFData NetworkProfileType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: NetworkProfileType -&gt; ()
 $crnf :: NetworkProfileType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679364242"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkProfileType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679364479"><span class="annot"><span class="annottext">Text -&gt; Either String NetworkProfileType
 (Text -&gt; Either String NetworkProfileType)
 -&gt; FromText NetworkProfileType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String NetworkProfileType
 $cfromText :: Text -&gt; Either String NetworkProfileType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364239"><span class="annot"><span class="annottext">NetworkProfileType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679364476"><span class="annot"><span class="annottext">NetworkProfileType -&gt; Text
 (NetworkProfileType -&gt; Text) -&gt; ToText NetworkProfileType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: NetworkProfileType -&gt; Text
 $ctoText :: NetworkProfileType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364236"><span class="annot"><span class="annottext">NetworkProfileType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679364473"><span class="annot"><span class="annottext">NetworkProfileType -&gt; ByteString
 (NetworkProfileType -&gt; ByteString)
 -&gt; ToByteString NetworkProfileType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: NetworkProfileType -&gt; ByteString
 $ctoBS :: NetworkProfileType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364233"><span class="annot"><span class="annottext">NetworkProfileType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679364470"><span class="annot"><span class="annottext">NetworkProfileType -&gt; ByteStringBuilder
 (NetworkProfileType -&gt; ByteStringBuilder)
 -&gt; ToLog NetworkProfileType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: NetworkProfileType -&gt; ByteStringBuilder
 $cbuild :: NetworkProfileType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364230"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkProfileType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364467"><span class="annot"><span class="annottext">HeaderName -&gt; NetworkProfileType -&gt; [Header]
 (HeaderName -&gt; NetworkProfileType -&gt; [Header])
 -&gt; ToHeader NetworkProfileType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; NetworkProfileType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; NetworkProfileType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364227"><span class="annot"><span class="annottext">NetworkProfileType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364464"><span class="annot"><span class="annottext">NetworkProfileType -&gt; QueryString
 (NetworkProfileType -&gt; QueryString) -&gt; ToQuery NetworkProfileType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: NetworkProfileType -&gt; QueryString
 $ctoQuery :: NetworkProfileType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364222"><span id="local-6989586621679364224"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkProfileType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364459"><span id="local-6989586621679364461"><span class="annot"><span class="annottext">Value -&gt; Parser [NetworkProfileType]
 Value -&gt; Parser NetworkProfileType
 (Value -&gt; Parser NetworkProfileType)
 -&gt; (Value -&gt; Parser [NetworkProfileType])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [NetworkProfileType]
 parseJSON :: Value -&gt; Parser NetworkProfileType
 $cparseJSON :: Value -&gt; Parser NetworkProfileType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364217"><span id="local-6989586621679364219"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkProfileType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364454"><span id="local-6989586621679364456"><span class="annot"><span class="annottext">FromJSONKeyFunction [NetworkProfileType]
 FromJSONKeyFunction NetworkProfileType
 FromJSONKeyFunction NetworkProfileType
 -&gt; FromJSONKeyFunction [NetworkProfileType]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [NetworkProfileType]
 fromJSONKey :: FromJSONKeyFunction NetworkProfileType
 $cfromJSONKey :: FromJSONKeyFunction NetworkProfileType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364208"><span id="local-6989586621679364210"><span id="local-6989586621679364212"><span id="local-6989586621679364214"><span class="annot"><span class="annottext">[NetworkProfileType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364445"><span id="local-6989586621679364447"><span id="local-6989586621679364449"><span id="local-6989586621679364451"><span class="annot"><span class="annottext">[NetworkProfileType] -&gt; Encoding
 [NetworkProfileType] -&gt; Value
 NetworkProfileType -&gt; Encoding
 NetworkProfileType -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: NetworkProfileType -&gt; Encoding
 toJSON :: NetworkProfileType -&gt; Value
 $ctoJSON :: NetworkProfileType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679364203"><span id="local-6989586621679364205"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkProfileType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679364440"><span id="local-6989586621679364442"><span class="annot"><span class="annottext">ToJSONKeyFunction [NetworkProfileType]
 ToJSONKeyFunction NetworkProfileType
 ToJSONKeyFunction NetworkProfileType
 -&gt; ToJSONKeyFunction [NetworkProfileType]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [NetworkProfileType]
 toJSONKey :: ToJSONKeyFunction NetworkProfileType
 $ctoJSONKey :: ToJSONKeyFunction NetworkProfileType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679364200"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkProfileType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679364437"><span class="annot"><span class="annottext">[Node] -&gt; Either String NetworkProfileType
 ([Node] -&gt; Either String NetworkProfileType)
 -&gt; FromXML NetworkProfileType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String NetworkProfileType
 $cparseXML :: [Node] -&gt; Either String NetworkProfileType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679364197"><span class="annot"><span class="annottext">NetworkProfileType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679364434"><span class="annot"><span class="annottext">NetworkProfileType -&gt; XML
 (NetworkProfileType -&gt; XML) -&gt; ToXML NetworkProfileType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: NetworkProfileType -&gt; XML

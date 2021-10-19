@@ -26,18 +26,18 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A collection of accounts and regions.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAccountAggregationSource' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679393748"><span id="local-6989586621679393749"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountAggregationSource"><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-var">AccountAggregationSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountAggregationSource%27"><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-var">AccountAggregationSource'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If true, aggregate existing Config regions and future regions.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AallAwsRegions%3AAccountAggregationSource%27"><span class="annot"><span class="annottext">AccountAggregationSource -&gt; Maybe Bool
-</span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#%24sel%3AallAwsRegions%3AAccountAggregationSource%27"><span class="hs-identifier hs-var hs-var">allAwsRegions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The source regions being aggregated.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AawsRegions%3AAccountAggregationSource%27"><span class="annot"><span class="annottext">AccountAggregationSource -&gt; Maybe (NonEmpty Text)
+</span><span id="line-29"></span><span id="local-6989586621679394325"><span id="local-6989586621679394326"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccountAggregationSource"><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-var">AccountAggregationSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountAggregationSource%27"><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-var">AccountAggregationSource'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The source regions being aggregated.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AawsRegions%3AAccountAggregationSource%27"><span class="annot"><span class="annottext">AccountAggregationSource -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#%24sel%3AawsRegions%3AAccountAggregationSource%27"><span class="hs-identifier hs-var hs-var">awsRegions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | If true, aggregate existing Config regions and future regions.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AallAwsRegions%3AAccountAggregationSource%27"><span class="annot"><span class="annottext">AccountAggregationSource -&gt; Maybe Bool
+</span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#%24sel%3AallAwsRegions%3AAccountAggregationSource%27"><span class="hs-identifier hs-var hs-var">allAwsRegions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The 12-digit account ID of the account being aggregated.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AaccountIds%3AAccountAggregationSource%27"><span class="annot"><span class="annottext">AccountAggregationSource -&gt; NonEmpty Text
 </span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#%24sel%3AaccountIds%3AAccountAggregationSource%27"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393740"><span id="local-6989586621679393742"><span class="annot"><span class="annottext">AccountAggregationSource -&gt; AccountAggregationSource -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679394317"><span id="local-6989586621679394319"><span class="annot"><span class="annottext">AccountAggregationSource -&gt; AccountAggregationSource -&gt; Bool
 (AccountAggregationSource -&gt; AccountAggregationSource -&gt; Bool)
 -&gt; (AccountAggregationSource -&gt; AccountAggregationSource -&gt; Bool)
 -&gt; Eq AccountAggregationSource
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AccountAggregationSource -&gt; AccountAggregationSource -&gt; Bool
 == :: AccountAggregationSource -&gt; AccountAggregationSource -&gt; Bool
 $c== :: AccountAggregationSource -&gt; AccountAggregationSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393731"><span id="local-6989586621679393733"><span id="local-6989586621679393735"><span id="local-6989586621679393737"><span class="annot"><span class="annottext">ReadPrec [AccountAggregationSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394308"><span id="local-6989586621679394310"><span id="local-6989586621679394312"><span id="local-6989586621679394314"><span class="annot"><span class="annottext">ReadPrec [AccountAggregationSource]
 ReadPrec AccountAggregationSource
 Int -&gt; ReadS AccountAggregationSource
 ReadS [AccountAggregationSource]
@@ -66,7 +66,7 @@ readList :: ReadS [AccountAggregationSource]
 $creadList :: ReadS [AccountAggregationSource]
 readsPrec :: Int -&gt; ReadS AccountAggregationSource
 $creadsPrec :: Int -&gt; ReadS AccountAggregationSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393724"><span id="local-6989586621679393726"><span id="local-6989586621679393728"><span class="annot"><span class="annottext">Int -&gt; AccountAggregationSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679394301"><span id="local-6989586621679394303"><span id="local-6989586621679394305"><span class="annot"><span class="annottext">Int -&gt; AccountAggregationSource -&gt; ShowS
 [AccountAggregationSource] -&gt; ShowS
 AccountAggregationSource -&gt; String
 (Int -&gt; AccountAggregationSource -&gt; ShowS)
@@ -106,9 +106,9 @@ AccountAggregationSource -&gt; Rep AccountAggregationSource x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'allAwsRegions', 'accountAggregationSource_allAwsRegions' - If true, aggregate existing Config regions and future regions.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'awsRegions', 'accountAggregationSource_awsRegions' - The source regions being aggregated.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'awsRegions', 'accountAggregationSource_awsRegions' - The source regions being aggregated.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'allAwsRegions', 'accountAggregationSource_allAwsRegions' - If true, aggregate existing Config regions and future regions.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- 'accountIds', 'accountAggregationSource_accountIds' - The 12-digit account ID of the account being aggregated.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#newAccountAggregationSource"><span class="hs-identifier hs-type">newAccountAggregationSource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -116,61 +116,35 @@ AccountAggregationSource -&gt; Rep AccountAggregationSource x
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span>
 </span><span id="line-56"></span><span id="newAccountAggregationSource"><span class="annot"><span class="annottext">newAccountAggregationSource :: NonEmpty Text -&gt; AccountAggregationSource
-</span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#newAccountAggregationSource"><span class="hs-identifier hs-var hs-var">newAccountAggregationSource</span></a></span></span><span> </span><span id="local-6989586621679393718"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679393718"><span class="hs-identifier hs-var">pAccountIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">AccountAggregationSource' :: Maybe Bool
--&gt; Maybe (NonEmpty Text)
--&gt; NonEmpty Text
--&gt; AccountAggregationSource
+</span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#newAccountAggregationSource"><span class="hs-identifier hs-var hs-var">newAccountAggregationSource</span></a></span></span><span> </span><span id="local-6989586621679394295"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679394295"><span class="hs-identifier hs-var">pAccountIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">AccountAggregationSource' :: Maybe (NonEmpty Text)
+-&gt; Maybe Bool -&gt; NonEmpty Text -&gt; AccountAggregationSource
 </span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allAwsRegions:AccountAggregationSource' :: Maybe Bool
-</span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#%24sel%3AallAwsRegions%3AAccountAggregationSource%27"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsRegions:AccountAggregationSource' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#%24sel%3AawsRegions%3AAccountAggregationSource%27"><span class="hs-identifier hs-var">awsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegions:AccountAggregationSource' :: Maybe (NonEmpty Text)
-</span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#%24sel%3AawsRegions%3AAccountAggregationSource%27"><span class="hs-identifier hs-var">awsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:allAwsRegions:AccountAggregationSource' :: Maybe Bool
+</span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#%24sel%3AallAwsRegions%3AAccountAggregationSource%27"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountIds:AccountAggregationSource' :: NonEmpty Text
 </span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#%24sel%3AaccountIds%3AAccountAggregationSource%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679393718"><span class="hs-identifier hs-var">pAccountIds_</span></a></span><span>
+</span><a href="#local-6989586621679394295"><span class="hs-identifier hs-var">pAccountIds_</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | If true, aggregate existing Config regions and future regions.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#accountAggregationSource_allAwsRegions"><span class="hs-identifier hs-type">accountAggregationSource_allAwsRegions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="accountAggregationSource_allAwsRegions"><span class="annot"><span class="annottext">accountAggregationSource_allAwsRegions :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; AccountAggregationSource -&gt; f AccountAggregationSource
-</span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#accountAggregationSource_allAwsRegions"><span class="hs-identifier hs-var hs-var">accountAggregationSource_allAwsRegions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAggregationSource -&gt; Maybe Bool)
--&gt; (AccountAggregationSource
-    -&gt; Maybe Bool -&gt; AccountAggregationSource)
--&gt; Lens
-     AccountAggregationSource
-     AccountAggregationSource
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393712"><span class="annot"><span class="annottext">Maybe Bool
-allAwsRegions :: Maybe Bool
-$sel:allAwsRegions:AccountAggregationSource' :: AccountAggregationSource -&gt; Maybe Bool
-</span><a href="#local-6989586621679393712"><span class="hs-identifier hs-var hs-var">allAwsRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679393712"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393711"><span class="annot"><span class="annottext">s :: AccountAggregationSource
-</span><a href="#local-6989586621679393711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393710"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679393710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAggregationSource
-</span><a href="#local-6989586621679393711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allAwsRegions:AccountAggregationSource' :: Maybe Bool
-</span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#%24sel%3AallAwsRegions%3AAccountAggregationSource%27"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679393710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The source regions being aggregated.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#accountAggregationSource_awsRegions"><span class="hs-identifier hs-type">accountAggregationSource_awsRegions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="accountAggregationSource_awsRegions"><span class="annot"><span class="annottext">accountAggregationSource_awsRegions :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><span id="line-64"></span><span class="hs-comment">-- | The source regions being aggregated.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#accountAggregationSource_awsRegions"><span class="hs-identifier hs-type">accountAggregationSource_awsRegions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="accountAggregationSource_awsRegions"><span class="annot"><span class="annottext">accountAggregationSource_awsRegions :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
 -&gt; AccountAggregationSource -&gt; f AccountAggregationSource
 </span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#accountAggregationSource_awsRegions"><span class="hs-identifier hs-var hs-var">accountAggregationSource_awsRegions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAggregationSource -&gt; Maybe (NonEmpty Text))
 -&gt; (AccountAggregationSource
@@ -181,16 +155,16 @@ $sel:allAwsRegions:AccountAggregationSource' :: AccountAggregationSource -&gt; M
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393708"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394289"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 awsRegions :: Maybe (NonEmpty Text)
 $sel:awsRegions:AccountAggregationSource' :: AccountAggregationSource -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679393708"><span class="hs-identifier hs-var hs-var">awsRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679393708"><span class="hs-identifier hs-var">awsRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393707"><span class="annot"><span class="annottext">s :: AccountAggregationSource
-</span><a href="#local-6989586621679393707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393706"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679393706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAggregationSource
-</span><a href="#local-6989586621679393707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegions:AccountAggregationSource' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679394289"><span class="hs-identifier hs-var hs-var">awsRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679394289"><span class="hs-identifier hs-var">awsRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394288"><span class="annot"><span class="annottext">s :: AccountAggregationSource
+</span><a href="#local-6989586621679394288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394287"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679394287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAggregationSource
+</span><a href="#local-6989586621679394288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegions:AccountAggregationSource' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#%24sel%3AawsRegions%3AAccountAggregationSource%27"><span class="hs-identifier hs-var">awsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679393706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679394287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; AccountAggregationSource -&gt; f AccountAggregationSource)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -210,8 +184,32 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | If true, aggregate existing Config regions and future regions.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#accountAggregationSource_allAwsRegions"><span class="hs-identifier hs-type">accountAggregationSource_allAwsRegions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="accountAggregationSource_allAwsRegions"><span class="annot"><span class="annottext">accountAggregationSource_allAwsRegions :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AccountAggregationSource -&gt; f AccountAggregationSource
+</span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#accountAggregationSource_allAwsRegions"><span class="hs-identifier hs-var hs-var">accountAggregationSource_allAwsRegions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccountAggregationSource -&gt; Maybe Bool)
+-&gt; (AccountAggregationSource
+    -&gt; Maybe Bool -&gt; AccountAggregationSource)
+-&gt; Lens
+     AccountAggregationSource
+     AccountAggregationSource
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394283"><span class="annot"><span class="annottext">Maybe Bool
+allAwsRegions :: Maybe Bool
+$sel:allAwsRegions:AccountAggregationSource' :: AccountAggregationSource -&gt; Maybe Bool
+</span><a href="#local-6989586621679394283"><span class="hs-identifier hs-var hs-var">allAwsRegions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679394283"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394282"><span class="annot"><span class="annottext">s :: AccountAggregationSource
+</span><a href="#local-6989586621679394282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394281"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679394281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAggregationSource
+</span><a href="#local-6989586621679394282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allAwsRegions:AccountAggregationSource' :: Maybe Bool
+</span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#%24sel%3AallAwsRegions%3AAccountAggregationSource%27"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679394281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The 12-digit account ID of the account being aggregated.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#accountAggregationSource_accountIds"><span class="hs-identifier hs-type">accountAggregationSource_accountIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -226,16 +224,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (NonEmpty Text)
      (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393702"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394279"><span class="annot"><span class="annottext">NonEmpty Text
 accountIds :: NonEmpty Text
 $sel:accountIds:AccountAggregationSource' :: AccountAggregationSource -&gt; NonEmpty Text
-</span><a href="#local-6989586621679393702"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679393702"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393701"><span class="annot"><span class="annottext">s :: AccountAggregationSource
-</span><a href="#local-6989586621679393701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393700"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679393700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAggregationSource
-</span><a href="#local-6989586621679393701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:AccountAggregationSource' :: NonEmpty Text
+</span><a href="#local-6989586621679394279"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679394279"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679394278"><span class="annot"><span class="annottext">s :: AccountAggregationSource
+</span><a href="#local-6989586621679394278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679394277"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679394277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccountAggregationSource
+</span><a href="#local-6989586621679394278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:AccountAggregationSource' :: NonEmpty Text
 </span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#%24sel%3AaccountIds%3AAccountAggregationSource%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679393700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679394277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; AccountAggregationSource -&gt; f AccountAggregationSource)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -245,11 +243,11 @@ $sel:accountIds:AccountAggregationSource' :: AccountAggregationSource -&gt; NonE
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393697"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679393695"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccountAggregationSource
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394274"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679394272"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccountAggregationSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AccountAggregationSource)
@@ -259,90 +257,82 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AccountAggregationSource&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679393692"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393692"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
--&gt; Maybe (NonEmpty Text)
--&gt; NonEmpty Text
--&gt; AccountAggregationSource
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679394269"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394269"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+-&gt; Maybe Bool -&gt; NonEmpty Text -&gt; AccountAggregationSource
 </span><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-var">AccountAggregationSource'</span></a></span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
- -&gt; Maybe (NonEmpty Text)
- -&gt; NonEmpty Text
- -&gt; AccountAggregationSource)
--&gt; Parser (Maybe Bool)
--&gt; Parser
-     (Maybe (NonEmpty Text)
-      -&gt; NonEmpty Text -&gt; AccountAggregationSource)
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Text)
+ -&gt; Maybe Bool -&gt; NonEmpty Text -&gt; AccountAggregationSource)
+-&gt; Parser (Maybe (NonEmpty Text))
+-&gt; Parser (Maybe Bool -&gt; NonEmpty Text -&gt; AccountAggregationSource)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AllAwsRegions&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (NonEmpty Text)
-   -&gt; NonEmpty Text -&gt; AccountAggregationSource)
--&gt; Parser (Maybe (NonEmpty Text))
--&gt; Parser (NonEmpty Text -&gt; AccountAggregationSource)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
+</span><a href="#local-6989586621679394269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AwsRegions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; NonEmpty Text -&gt; AccountAggregationSource)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (NonEmpty Text -&gt; AccountAggregationSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679394269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AllAwsRegions&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (NonEmpty Text -&gt; AccountAggregationSource)
 -&gt; Parser (NonEmpty Text) -&gt; Parser AccountAggregationSource
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679393692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
+</span><a href="#local-6989586621679394269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountIds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393685"><span id="local-6989586621679393687"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394262"><span id="local-6989586621679394264"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393682"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394259"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393674"><span id="local-6989586621679393676"><span id="local-6989586621679393678"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679393672"><span class="annot"><span class="annottext">toJSON :: AccountAggregationSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393668"><span id="local-6989586621679393669"><span id="local-6989586621679393670"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679394251"><span id="local-6989586621679394253"><span id="local-6989586621679394255"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource"><span class="hs-identifier hs-type">AccountAggregationSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679394249"><span class="annot"><span class="annottext">toJSON :: AccountAggregationSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.AccountAggregationSource.html#AccountAggregationSource%27"><span class="hs-identifier hs-type">AccountAggregationSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679394245"><span id="local-6989586621679394246"><span id="local-6989586621679394247"><span class="annot"><span class="annottext">Maybe Bool
 Maybe (NonEmpty Text)
 NonEmpty Text
 accountIds :: NonEmpty Text
-awsRegions :: Maybe (NonEmpty Text)
 allAwsRegions :: Maybe Bool
+awsRegions :: Maybe (NonEmpty Text)
 $sel:accountIds:AccountAggregationSource' :: AccountAggregationSource -&gt; NonEmpty Text
-$sel:awsRegions:AccountAggregationSource' :: AccountAggregationSource -&gt; Maybe (NonEmpty Text)
 $sel:allAwsRegions:AccountAggregationSource' :: AccountAggregationSource -&gt; Maybe Bool
-</span><a href="#local-6989586621679393668"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:awsRegions:AccountAggregationSource' :: AccountAggregationSource -&gt; Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679394245"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AllAwsRegions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679393670"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AwsRegions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679393669"><span class="hs-identifier hs-var">awsRegions</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679394247"><span class="hs-identifier hs-var">awsRegions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AllAwsRegions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679394246"><span class="hs-identifier hs-var">allAwsRegions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AccountIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679393668"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679394245"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span></pre></body></html>

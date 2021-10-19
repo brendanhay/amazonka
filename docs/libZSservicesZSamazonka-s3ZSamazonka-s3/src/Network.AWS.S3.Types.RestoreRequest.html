@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Container for restore job parameters.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newRestoreRequest' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679558941"><span id="local-6989586621679558942"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreRequest"><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-var">RestoreRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreRequest%27"><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-var">RestoreRequest'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679559601"><span id="local-6989586621679559602"></span></span><span class="hs-keyword">data</span><span> </span><span id="RestoreRequest"><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-var">RestoreRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RestoreRequest%27"><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-var">RestoreRequest'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Lifetime of the active copy in days. Do not use with restores that</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- specify @OutputLocation@.</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -43,24 +43,24 @@
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Describes the parameters for Select job types.</span><span>
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AselectParameters%3ARestoreRequest%27"><span class="annot"><span class="annottext">RestoreRequest -&gt; Maybe SelectParameters
 </span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3AselectParameters%3ARestoreRequest%27"><span class="hs-identifier hs-var hs-var">selectParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectParameters.html#SelectParameters"><span class="hs-identifier hs-type">SelectParameters</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The optional description for the job.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Adescription%3ARestoreRequest%27"><span class="annot"><span class="annottext">RestoreRequest -&gt; Maybe Text
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Adescription%3ARestoreRequest%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Type of restore request.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Atype%27%3ARestoreRequest%27"><span class="annot"><span class="annottext">RestoreRequest -&gt; Maybe RestoreRequestType
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Atype%27%3ARestoreRequest%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequestType.html#RestoreRequestType"><span class="hs-identifier hs-type">RestoreRequestType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Describes the location where the restore job\'s output is stored.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AoutputLocation%3ARestoreRequest%27"><span class="annot"><span class="annottext">RestoreRequest -&gt; Maybe OutputLocation
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3AoutputLocation%3ARestoreRequest%27"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Retrieval tier at which the restore will be processed.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Atier%3ARestoreRequest%27"><span class="annot"><span class="annottext">RestoreRequest -&gt; Maybe Tier
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Atier%3ARestoreRequest%27"><span class="hs-identifier hs-var hs-var">tier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tier.html#Tier"><span class="hs-identifier hs-type">Tier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | S3 Glacier related parameters pertaining to this job. Do not use with</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">-- restores that specify @OutputLocation@.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AglacierJobParameters%3ARestoreRequest%27"><span class="annot"><span class="annottext">RestoreRequest -&gt; Maybe GlacierJobParameters
 </span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3AglacierJobParameters%3ARestoreRequest%27"><span class="hs-identifier hs-var hs-var">glacierJobParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.GlacierJobParameters.html#GlacierJobParameters"><span class="hs-identifier hs-type">GlacierJobParameters</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Retrieval tier at which the restore will be processed.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3Atier%3ARestoreRequest%27"><span class="annot"><span class="annottext">RestoreRequest -&gt; Maybe Tier
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Atier%3ARestoreRequest%27"><span class="hs-identifier hs-var hs-var">tier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tier.html#Tier"><span class="hs-identifier hs-type">Tier</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Describes the location where the restore job\'s output is stored.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AoutputLocation%3ARestoreRequest%27"><span class="annot"><span class="annottext">RestoreRequest -&gt; Maybe OutputLocation
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3AoutputLocation%3ARestoreRequest%27"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Type of restore request.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Atype%27%3ARestoreRequest%27"><span class="annot"><span class="annottext">RestoreRequest -&gt; Maybe RestoreRequestType
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Atype%27%3ARestoreRequest%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequestType.html#RestoreRequestType"><span class="hs-identifier hs-type">RestoreRequestType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The optional description for the job.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Adescription%3ARestoreRequest%27"><span class="annot"><span class="annottext">RestoreRequest -&gt; Maybe Text
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Adescription%3ARestoreRequest%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679558929"><span id="local-6989586621679558931"><span class="annot"><span class="annottext">RestoreRequest -&gt; RestoreRequest -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679559589"><span id="local-6989586621679559591"><span class="annot"><span class="annottext">RestoreRequest -&gt; RestoreRequest -&gt; Bool
 (RestoreRequest -&gt; RestoreRequest -&gt; Bool)
 -&gt; (RestoreRequest -&gt; RestoreRequest -&gt; Bool) -&gt; Eq RestoreRequest
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RestoreRequest -&gt; RestoreRequest -&gt; Bool
 == :: RestoreRequest -&gt; RestoreRequest -&gt; Bool
 $c== :: RestoreRequest -&gt; RestoreRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558922"><span id="local-6989586621679558924"><span id="local-6989586621679558926"><span class="annot"><span class="annottext">Int -&gt; RestoreRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679559582"><span id="local-6989586621679559584"><span id="local-6989586621679559586"><span class="annot"><span class="annottext">Int -&gt; RestoreRequest -&gt; ShowS
 [RestoreRequest] -&gt; ShowS
 RestoreRequest -&gt; String
 (Int -&gt; RestoreRequest -&gt; ShowS)
@@ -110,27 +110,27 @@ $cfrom :: forall x. RestoreRequest -&gt; Rep RestoreRequest x
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- 'selectParameters', 'restoreRequest_selectParameters' - Describes the parameters for Select job types.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'description', 'restoreRequest_description' - The optional description for the job.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'outputLocation', 'restoreRequest_outputLocation' - Describes the location where the restore job\'s output is stored.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'type'', 'restoreRequest_type' - Type of restore request.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'tier', 'restoreRequest_tier' - Retrieval tier at which the restore will be processed.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- 'glacierJobParameters', 'restoreRequest_glacierJobParameters' - S3 Glacier related parameters pertaining to this job. Do not use with</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- restores that specify @OutputLocation@.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'tier', 'restoreRequest_tier' - Retrieval tier at which the restore will be processed.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'type'', 'restoreRequest_type' - Type of restore request.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'outputLocation', 'restoreRequest_outputLocation' - Describes the location where the restore job\'s output is stored.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'description', 'restoreRequest_description' - The optional description for the job.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#newRestoreRequest"><span class="hs-identifier hs-type">newRestoreRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span>
 </span><span id="line-86"></span><span id="newRestoreRequest"><span class="annot"><span class="annottext">newRestoreRequest :: RestoreRequest
 </span><a href="Network.AWS.S3.Types.RestoreRequest.html#newRestoreRequest"><span class="hs-identifier hs-var hs-var">newRestoreRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">RestoreRequest' :: Maybe Int
 -&gt; Maybe SelectParameters
--&gt; Maybe Text
--&gt; Maybe RestoreRequestType
--&gt; Maybe GlacierJobParameters
--&gt; Maybe Tier
 -&gt; Maybe OutputLocation
+-&gt; Maybe Tier
+-&gt; Maybe GlacierJobParameters
+-&gt; Maybe RestoreRequestType
+-&gt; Maybe Text
 -&gt; RestoreRequest
 </span><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:days:RestoreRequest' :: Maybe Int
@@ -141,24 +141,24 @@ forall a. Maybe a
 </span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3AselectParameters%3ARestoreRequest%27"><span class="hs-identifier hs-var">selectParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SelectParameters
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:RestoreRequest' :: Maybe Text
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Adescription%3ARestoreRequest%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputLocation:RestoreRequest' :: Maybe OutputLocation
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3AoutputLocation%3ARestoreRequest%27"><span class="hs-identifier hs-var">outputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocation
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':RestoreRequest' :: Maybe RestoreRequestType
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Atype%27%3ARestoreRequest%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RestoreRequestType
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:tier:RestoreRequest' :: Maybe Tier
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Atier%3ARestoreRequest%27"><span class="hs-identifier hs-var">tier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tier
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:glacierJobParameters:RestoreRequest' :: Maybe GlacierJobParameters
 </span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3AglacierJobParameters%3ARestoreRequest%27"><span class="hs-identifier hs-var">glacierJobParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlacierJobParameters
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:tier:RestoreRequest' :: Maybe Tier
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Atier%3ARestoreRequest%27"><span class="hs-identifier hs-var">tier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tier
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':RestoreRequest' :: Maybe RestoreRequestType
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Atype%27%3ARestoreRequest%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RestoreRequestType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputLocation:RestoreRequest' :: Maybe OutputLocation
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3AoutputLocation%3ARestoreRequest%27"><span class="hs-identifier hs-var">outputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocation
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:RestoreRequest' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Adescription%3ARestoreRequest%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
@@ -174,16 +174,16 @@ forall a. Maybe a
 -&gt; (RestoreRequest -&gt; Maybe Int -&gt; RestoreRequest)
 -&gt; Lens RestoreRequest RestoreRequest (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558913"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559573"><span class="annot"><span class="annottext">Maybe Int
 days :: Maybe Int
 $sel:days:RestoreRequest' :: RestoreRequest -&gt; Maybe Int
-</span><a href="#local-6989586621679558913"><span class="hs-identifier hs-var hs-var">days</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679558913"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558912"><span class="annot"><span class="annottext">s :: RestoreRequest
-</span><a href="#local-6989586621679558912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558911"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679558911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
-</span><a href="#local-6989586621679558912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:days:RestoreRequest' :: Maybe Int
+</span><a href="#local-6989586621679559573"><span class="hs-identifier hs-var hs-var">days</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679559573"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559572"><span class="annot"><span class="annottext">s :: RestoreRequest
+</span><a href="#local-6989586621679559572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559571"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679559571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
+</span><a href="#local-6989586621679559572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:days:RestoreRequest' :: Maybe Int
 </span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Adays%3ARestoreRequest%27"><span class="hs-identifier hs-var">days</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679558911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679559571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | Describes the parameters for Select job types.</span><span>
 </span><span id="line-106"></span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_selectParameters"><span class="hs-identifier hs-type">restoreRequest_selectParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SelectParameters.html#SelectParameters"><span class="hs-identifier hs-type">SelectParameters</span></a></span><span class="hs-special">)</span><span>
@@ -197,58 +197,58 @@ $sel:days:RestoreRequest' :: RestoreRequest -&gt; Maybe Int
      (Maybe SelectParameters)
      (Maybe SelectParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558909"><span class="annot"><span class="annottext">Maybe SelectParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559569"><span class="annot"><span class="annottext">Maybe SelectParameters
 selectParameters :: Maybe SelectParameters
 $sel:selectParameters:RestoreRequest' :: RestoreRequest -&gt; Maybe SelectParameters
-</span><a href="#local-6989586621679558909"><span class="hs-identifier hs-var hs-var">selectParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SelectParameters
-</span><a href="#local-6989586621679558909"><span class="hs-identifier hs-var">selectParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558908"><span class="annot"><span class="annottext">s :: RestoreRequest
-</span><a href="#local-6989586621679558908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558907"><span class="annot"><span class="annottext">Maybe SelectParameters
-</span><a href="#local-6989586621679558907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
-</span><a href="#local-6989586621679558908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectParameters:RestoreRequest' :: Maybe SelectParameters
+</span><a href="#local-6989586621679559569"><span class="hs-identifier hs-var hs-var">selectParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SelectParameters
+</span><a href="#local-6989586621679559569"><span class="hs-identifier hs-var">selectParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559568"><span class="annot"><span class="annottext">s :: RestoreRequest
+</span><a href="#local-6989586621679559568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559567"><span class="annot"><span class="annottext">Maybe SelectParameters
+</span><a href="#local-6989586621679559567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
+</span><a href="#local-6989586621679559568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:selectParameters:RestoreRequest' :: Maybe SelectParameters
 </span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3AselectParameters%3ARestoreRequest%27"><span class="hs-identifier hs-var">selectParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SelectParameters
-</span><a href="#local-6989586621679558907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679559567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The optional description for the job.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_description"><span class="hs-identifier hs-type">restoreRequest_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="restoreRequest_description"><span class="annot"><span class="annottext">restoreRequest_description :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-109"></span><span class="hs-comment">-- | Describes the location where the restore job\'s output is stored.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_outputLocation"><span class="hs-identifier hs-type">restoreRequest_outputLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="restoreRequest_outputLocation"><span class="annot"><span class="annottext">restoreRequest_outputLocation :: (Maybe OutputLocation -&gt; f (Maybe OutputLocation))
 -&gt; RestoreRequest -&gt; f RestoreRequest
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_description"><span class="hs-identifier hs-var hs-var">restoreRequest_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreRequest -&gt; Maybe Text)
--&gt; (RestoreRequest -&gt; Maybe Text -&gt; RestoreRequest)
--&gt; Lens RestoreRequest RestoreRequest (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558905"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:RestoreRequest' :: RestoreRequest -&gt; Maybe Text
-</span><a href="#local-6989586621679558905"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558905"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558904"><span class="annot"><span class="annottext">s :: RestoreRequest
-</span><a href="#local-6989586621679558904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558903"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
-</span><a href="#local-6989586621679558904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RestoreRequest' :: Maybe Text
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Adescription%3ARestoreRequest%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | Type of restore request.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_type"><span class="hs-identifier hs-type">restoreRequest_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequestType.html#RestoreRequestType"><span class="hs-identifier hs-type">RestoreRequestType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="restoreRequest_type"><span class="annot"><span class="annottext">restoreRequest_type :: (Maybe RestoreRequestType -&gt; f (Maybe RestoreRequestType))
--&gt; RestoreRequest -&gt; f RestoreRequest
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_type"><span class="hs-identifier hs-var hs-var">restoreRequest_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreRequest -&gt; Maybe RestoreRequestType)
--&gt; (RestoreRequest -&gt; Maybe RestoreRequestType -&gt; RestoreRequest)
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_outputLocation"><span class="hs-identifier hs-var hs-var">restoreRequest_outputLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreRequest -&gt; Maybe OutputLocation)
+-&gt; (RestoreRequest -&gt; Maybe OutputLocation -&gt; RestoreRequest)
 -&gt; Lens
      RestoreRequest
      RestoreRequest
-     (Maybe RestoreRequestType)
-     (Maybe RestoreRequestType)
+     (Maybe OutputLocation)
+     (Maybe OutputLocation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558901"><span class="annot"><span class="annottext">Maybe RestoreRequestType
-type' :: Maybe RestoreRequestType
-$sel:type':RestoreRequest' :: RestoreRequest -&gt; Maybe RestoreRequestType
-</span><a href="#local-6989586621679558901"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RestoreRequestType
-</span><a href="#local-6989586621679558901"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558900"><span class="annot"><span class="annottext">s :: RestoreRequest
-</span><a href="#local-6989586621679558900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558899"><span class="annot"><span class="annottext">Maybe RestoreRequestType
-</span><a href="#local-6989586621679558899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
-</span><a href="#local-6989586621679558900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':RestoreRequest' :: Maybe RestoreRequestType
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Atype%27%3ARestoreRequest%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RestoreRequestType
-</span><a href="#local-6989586621679558899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559565"><span class="annot"><span class="annottext">Maybe OutputLocation
+outputLocation :: Maybe OutputLocation
+$sel:outputLocation:RestoreRequest' :: RestoreRequest -&gt; Maybe OutputLocation
+</span><a href="#local-6989586621679559565"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocation
+</span><a href="#local-6989586621679559565"><span class="hs-identifier hs-var">outputLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559564"><span class="annot"><span class="annottext">s :: RestoreRequest
+</span><a href="#local-6989586621679559564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559563"><span class="annot"><span class="annottext">Maybe OutputLocation
+</span><a href="#local-6989586621679559563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
+</span><a href="#local-6989586621679559564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputLocation:RestoreRequest' :: Maybe OutputLocation
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3AoutputLocation%3ARestoreRequest%27"><span class="hs-identifier hs-var">outputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocation
+</span><a href="#local-6989586621679559563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Retrieval tier at which the restore will be processed.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_tier"><span class="hs-identifier hs-type">restoreRequest_tier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tier.html#Tier"><span class="hs-identifier hs-type">Tier</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="restoreRequest_tier"><span class="annot"><span class="annottext">restoreRequest_tier :: (Maybe Tier -&gt; f (Maybe Tier))
+-&gt; RestoreRequest -&gt; f RestoreRequest
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_tier"><span class="hs-identifier hs-var hs-var">restoreRequest_tier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreRequest -&gt; Maybe Tier)
+-&gt; (RestoreRequest -&gt; Maybe Tier -&gt; RestoreRequest)
+-&gt; Lens RestoreRequest RestoreRequest (Maybe Tier) (Maybe Tier)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559561"><span class="annot"><span class="annottext">Maybe Tier
+tier :: Maybe Tier
+$sel:tier:RestoreRequest' :: RestoreRequest -&gt; Maybe Tier
+</span><a href="#local-6989586621679559561"><span class="hs-identifier hs-var hs-var">tier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tier
+</span><a href="#local-6989586621679559561"><span class="hs-identifier hs-var">tier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559560"><span class="annot"><span class="annottext">s :: RestoreRequest
+</span><a href="#local-6989586621679559560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559559"><span class="annot"><span class="annottext">Maybe Tier
+</span><a href="#local-6989586621679559559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
+</span><a href="#local-6989586621679559560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tier:RestoreRequest' :: Maybe Tier
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Atier%3ARestoreRequest%27"><span class="hs-identifier hs-var">tier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tier
+</span><a href="#local-6989586621679559559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | S3 Glacier related parameters pertaining to this job. Do not use with</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- restores that specify @OutputLocation@.</span><span>
@@ -263,87 +263,87 @@ $sel:type':RestoreRequest' :: RestoreRequest -&gt; Maybe RestoreRequestType
      (Maybe GlacierJobParameters)
      (Maybe GlacierJobParameters)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558897"><span class="annot"><span class="annottext">Maybe GlacierJobParameters
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559557"><span class="annot"><span class="annottext">Maybe GlacierJobParameters
 glacierJobParameters :: Maybe GlacierJobParameters
 $sel:glacierJobParameters:RestoreRequest' :: RestoreRequest -&gt; Maybe GlacierJobParameters
-</span><a href="#local-6989586621679558897"><span class="hs-identifier hs-var hs-var">glacierJobParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlacierJobParameters
-</span><a href="#local-6989586621679558897"><span class="hs-identifier hs-var">glacierJobParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558896"><span class="annot"><span class="annottext">s :: RestoreRequest
-</span><a href="#local-6989586621679558896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558895"><span class="annot"><span class="annottext">Maybe GlacierJobParameters
-</span><a href="#local-6989586621679558895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
-</span><a href="#local-6989586621679558896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:glacierJobParameters:RestoreRequest' :: Maybe GlacierJobParameters
+</span><a href="#local-6989586621679559557"><span class="hs-identifier hs-var hs-var">glacierJobParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GlacierJobParameters
+</span><a href="#local-6989586621679559557"><span class="hs-identifier hs-var">glacierJobParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559556"><span class="annot"><span class="annottext">s :: RestoreRequest
+</span><a href="#local-6989586621679559556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559555"><span class="annot"><span class="annottext">Maybe GlacierJobParameters
+</span><a href="#local-6989586621679559555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
+</span><a href="#local-6989586621679559556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:glacierJobParameters:RestoreRequest' :: Maybe GlacierJobParameters
 </span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3AglacierJobParameters%3ARestoreRequest%27"><span class="hs-identifier hs-var">glacierJobParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GlacierJobParameters
-</span><a href="#local-6989586621679558895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679559555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | Retrieval tier at which the restore will be processed.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_tier"><span class="hs-identifier hs-type">restoreRequest_tier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tier.html#Tier"><span class="hs-identifier hs-type">Tier</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="restoreRequest_tier"><span class="annot"><span class="annottext">restoreRequest_tier :: (Maybe Tier -&gt; f (Maybe Tier))
+</span><span id="line-122"></span><span class="hs-comment">-- | Type of restore request.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_type"><span class="hs-identifier hs-type">restoreRequest_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequestType.html#RestoreRequestType"><span class="hs-identifier hs-type">RestoreRequestType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="restoreRequest_type"><span class="annot"><span class="annottext">restoreRequest_type :: (Maybe RestoreRequestType -&gt; f (Maybe RestoreRequestType))
 -&gt; RestoreRequest -&gt; f RestoreRequest
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_tier"><span class="hs-identifier hs-var hs-var">restoreRequest_tier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreRequest -&gt; Maybe Tier)
--&gt; (RestoreRequest -&gt; Maybe Tier -&gt; RestoreRequest)
--&gt; Lens RestoreRequest RestoreRequest (Maybe Tier) (Maybe Tier)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558893"><span class="annot"><span class="annottext">Maybe Tier
-tier :: Maybe Tier
-$sel:tier:RestoreRequest' :: RestoreRequest -&gt; Maybe Tier
-</span><a href="#local-6989586621679558893"><span class="hs-identifier hs-var hs-var">tier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tier
-</span><a href="#local-6989586621679558893"><span class="hs-identifier hs-var">tier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558892"><span class="annot"><span class="annottext">s :: RestoreRequest
-</span><a href="#local-6989586621679558892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558891"><span class="annot"><span class="annottext">Maybe Tier
-</span><a href="#local-6989586621679558891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
-</span><a href="#local-6989586621679558892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tier:RestoreRequest' :: Maybe Tier
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Atier%3ARestoreRequest%27"><span class="hs-identifier hs-var">tier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tier
-</span><a href="#local-6989586621679558891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | Describes the location where the restore job\'s output is stored.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_outputLocation"><span class="hs-identifier hs-type">restoreRequest_outputLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.OutputLocation.html#OutputLocation"><span class="hs-identifier hs-type">OutputLocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="restoreRequest_outputLocation"><span class="annot"><span class="annottext">restoreRequest_outputLocation :: (Maybe OutputLocation -&gt; f (Maybe OutputLocation))
--&gt; RestoreRequest -&gt; f RestoreRequest
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_outputLocation"><span class="hs-identifier hs-var hs-var">restoreRequest_outputLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreRequest -&gt; Maybe OutputLocation)
--&gt; (RestoreRequest -&gt; Maybe OutputLocation -&gt; RestoreRequest)
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_type"><span class="hs-identifier hs-var hs-var">restoreRequest_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreRequest -&gt; Maybe RestoreRequestType)
+-&gt; (RestoreRequest -&gt; Maybe RestoreRequestType -&gt; RestoreRequest)
 -&gt; Lens
      RestoreRequest
      RestoreRequest
-     (Maybe OutputLocation)
-     (Maybe OutputLocation)
+     (Maybe RestoreRequestType)
+     (Maybe RestoreRequestType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558889"><span class="annot"><span class="annottext">Maybe OutputLocation
-outputLocation :: Maybe OutputLocation
-$sel:outputLocation:RestoreRequest' :: RestoreRequest -&gt; Maybe OutputLocation
-</span><a href="#local-6989586621679558889"><span class="hs-identifier hs-var hs-var">outputLocation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocation
-</span><a href="#local-6989586621679558889"><span class="hs-identifier hs-var">outputLocation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558888"><span class="annot"><span class="annottext">s :: RestoreRequest
-</span><a href="#local-6989586621679558888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558887"><span class="annot"><span class="annottext">Maybe OutputLocation
-</span><a href="#local-6989586621679558887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
-</span><a href="#local-6989586621679558888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputLocation:RestoreRequest' :: Maybe OutputLocation
-</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3AoutputLocation%3ARestoreRequest%27"><span class="hs-identifier hs-var">outputLocation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocation
-</span><a href="#local-6989586621679558887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559553"><span class="annot"><span class="annottext">Maybe RestoreRequestType
+type' :: Maybe RestoreRequestType
+$sel:type':RestoreRequest' :: RestoreRequest -&gt; Maybe RestoreRequestType
+</span><a href="#local-6989586621679559553"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RestoreRequestType
+</span><a href="#local-6989586621679559553"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559552"><span class="annot"><span class="annottext">s :: RestoreRequest
+</span><a href="#local-6989586621679559552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559551"><span class="annot"><span class="annottext">Maybe RestoreRequestType
+</span><a href="#local-6989586621679559551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
+</span><a href="#local-6989586621679559552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':RestoreRequest' :: Maybe RestoreRequestType
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Atype%27%3ARestoreRequest%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RestoreRequestType
+</span><a href="#local-6989586621679559551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The optional description for the job.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_description"><span class="hs-identifier hs-type">restoreRequest_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="restoreRequest_description"><span class="annot"><span class="annottext">restoreRequest_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RestoreRequest -&gt; f RestoreRequest
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#restoreRequest_description"><span class="hs-identifier hs-var hs-var">restoreRequest_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RestoreRequest -&gt; Maybe Text)
+-&gt; (RestoreRequest -&gt; Maybe Text -&gt; RestoreRequest)
+-&gt; Lens RestoreRequest RestoreRequest (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559549"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:RestoreRequest' :: RestoreRequest -&gt; Maybe Text
+</span><a href="#local-6989586621679559549"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679559549"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679559548"><span class="annot"><span class="annottext">s :: RestoreRequest
+</span><a href="#local-6989586621679559548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679559547"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679559547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RestoreRequest
+</span><a href="#local-6989586621679559548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:RestoreRequest' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.RestoreRequest.html#%24sel%3Adescription%3ARestoreRequest%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679559547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558883"><span id="local-6989586621679558885"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559543"><span id="local-6989586621679559545"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558880"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679559540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest"><span class="hs-identifier hs-type">RestoreRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679558876"><span class="annot"><span class="annottext">toXML :: RestoreRequest -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558868"><span id="local-6989586621679558869"><span id="local-6989586621679558870"><span id="local-6989586621679558871"><span id="local-6989586621679558872"><span id="local-6989586621679558873"><span id="local-6989586621679558874"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679559536"><span class="annot"><span class="annottext">toXML :: RestoreRequest -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.RestoreRequest.html#RestoreRequest%27"><span class="hs-identifier hs-type">RestoreRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679559528"><span id="local-6989586621679559529"><span id="local-6989586621679559530"><span id="local-6989586621679559531"><span id="local-6989586621679559532"><span id="local-6989586621679559533"><span id="local-6989586621679559534"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe RestoreRequestType
 Maybe SelectParameters
 Maybe Tier
 Maybe GlacierJobParameters
 Maybe OutputLocation
-outputLocation :: Maybe OutputLocation
-tier :: Maybe Tier
-glacierJobParameters :: Maybe GlacierJobParameters
-type' :: Maybe RestoreRequestType
 description :: Maybe Text
+type' :: Maybe RestoreRequestType
+glacierJobParameters :: Maybe GlacierJobParameters
+tier :: Maybe Tier
+outputLocation :: Maybe OutputLocation
 selectParameters :: Maybe SelectParameters
 days :: Maybe Int
-$sel:outputLocation:RestoreRequest' :: RestoreRequest -&gt; Maybe OutputLocation
-$sel:tier:RestoreRequest' :: RestoreRequest -&gt; Maybe Tier
-$sel:glacierJobParameters:RestoreRequest' :: RestoreRequest -&gt; Maybe GlacierJobParameters
-$sel:type':RestoreRequest' :: RestoreRequest -&gt; Maybe RestoreRequestType
 $sel:description:RestoreRequest' :: RestoreRequest -&gt; Maybe Text
+$sel:type':RestoreRequest' :: RestoreRequest -&gt; Maybe RestoreRequestType
+$sel:glacierJobParameters:RestoreRequest' :: RestoreRequest -&gt; Maybe GlacierJobParameters
+$sel:tier:RestoreRequest' :: RestoreRequest -&gt; Maybe Tier
+$sel:outputLocation:RestoreRequest' :: RestoreRequest -&gt; Maybe OutputLocation
 $sel:selectParameters:RestoreRequest' :: RestoreRequest -&gt; Maybe SelectParameters
 $sel:days:RestoreRequest' :: RestoreRequest -&gt; Maybe Int
-</span><a href="#local-6989586621679558868"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679559528"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -351,36 +351,36 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Days&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Int -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679558874"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679559534"><span class="hs-identifier hs-var">days</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;SelectParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe SelectParameters -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe SelectParameters
-</span><a href="#local-6989586621679558873"><span class="hs-identifier hs-var">selectParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679559533"><span class="hs-identifier hs-var">selectParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+</span><span class="hs-string">&quot;OutputLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe OutputLocation -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679558872"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocation
+</span><a href="#local-6989586621679559532"><span class="hs-identifier hs-var">outputLocation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe RestoreRequestType -&gt; XML
+</span><span class="hs-string">&quot;Tier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Tier -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe RestoreRequestType
-</span><a href="#local-6989586621679558871"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Tier
+</span><a href="#local-6989586621679559531"><span class="hs-identifier hs-var">tier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;GlacierJobParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe GlacierJobParameters -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe GlacierJobParameters
-</span><a href="#local-6989586621679558870"><span class="hs-identifier hs-var">glacierJobParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679559530"><span class="hs-identifier hs-var">glacierJobParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;Tier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Tier -&gt; XML
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe RestoreRequestType -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Tier
-</span><a href="#local-6989586621679558869"><span class="hs-identifier hs-var">tier</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe RestoreRequestType
+</span><a href="#local-6989586621679559529"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;OutputLocation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe OutputLocation -&gt; XML
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe OutputLocation
-</span><a href="#local-6989586621679558868"><span class="hs-identifier hs-var">outputLocation</span></a></span><span>
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679559528"><span class="hs-identifier hs-var">description</span></a></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span></pre></body></html>

@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newGetRevision' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679185776"><span id="local-6989586621679185777"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRevision"><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-var">GetRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRevision%27"><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-var">GetRevision'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679185822"><span id="local-6989586621679185823"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRevision"><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-var">GetRevision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRevision%27"><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-var">GetRevision'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The latest block location covered by the digest for which to request a</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- proof. An address is an Amazon Ion structure that has two fields:</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @strandId@ and @sequenceNo@.</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-73"></span><span>    </span><span id="%24sel%3AdocumentId%3AGetRevision%27"><span class="annot"><span class="annottext">GetRevision -&gt; Text
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3AdocumentId%3AGetRevision%27"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185767"><span id="local-6989586621679185769"><span class="annot"><span class="annottext">GetRevision -&gt; GetRevision -&gt; Bool
+</span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185813"><span id="local-6989586621679185815"><span class="annot"><span class="annottext">GetRevision -&gt; GetRevision -&gt; Bool
 (GetRevision -&gt; GetRevision -&gt; Bool)
 -&gt; (GetRevision -&gt; GetRevision -&gt; Bool) -&gt; Eq GetRevision
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRevision -&gt; GetRevision -&gt; Bool
 == :: GetRevision -&gt; GetRevision -&gt; Bool
 $c== :: GetRevision -&gt; GetRevision -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185760"><span id="local-6989586621679185762"><span id="local-6989586621679185764"><span class="annot"><span class="annottext">Int -&gt; GetRevision -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185806"><span id="local-6989586621679185808"><span id="local-6989586621679185810"><span class="annot"><span class="annottext">Int -&gt; GetRevision -&gt; ShowS
 [GetRevision] -&gt; ShowS
 GetRevision -&gt; String
 (Int -&gt; GetRevision -&gt; ShowS)
@@ -143,10 +143,10 @@ $cfrom :: forall x. GetRevision -&gt; Rep GetRevision x
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span>
 </span><span id="line-109"></span><span id="newGetRevision"><span class="annot"><span class="annottext">newGetRevision :: Text -&gt; ValueHolder -&gt; Text -&gt; GetRevision
-</span><a href="Network.AWS.QLDB.GetRevision.html#newGetRevision"><span class="hs-identifier hs-var hs-var">newGetRevision</span></a></span></span><span> </span><span id="local-6989586621679185755"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185755"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679185754"><span class="annot"><span class="annottext">ValueHolder
-</span><a href="#local-6989586621679185754"><span class="hs-identifier hs-var">pBlockAddress_</span></a></span></span><span> </span><span id="local-6989586621679185753"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185753"><span class="hs-identifier hs-var">pDocumentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.QLDB.GetRevision.html#newGetRevision"><span class="hs-identifier hs-var hs-var">newGetRevision</span></a></span></span><span> </span><span id="local-6989586621679185801"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185801"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679185800"><span class="annot"><span class="annottext">ValueHolder
+</span><a href="#local-6989586621679185800"><span class="hs-identifier hs-var">pBlockAddress_</span></a></span></span><span> </span><span id="local-6989586621679185799"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185799"><span class="hs-identifier hs-var">pDocumentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">GetRevision' :: Maybe (Sensitive ValueHolder)
 -&gt; Text -&gt; Sensitive ValueHolder -&gt; Text -&gt; GetRevision
 </span><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span>
@@ -156,7 +156,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GetRevision' :: Text
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3Aname%3AGetRevision%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185755"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185801"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:blockAddress:GetRevision' :: Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3AblockAddress%3AGetRevision%27"><span class="hs-identifier hs-var">blockAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ValueHolder (Identity ValueHolder)
 -&gt; Tagged
@@ -168,10 +168,10 @@ forall a. Iso' (Sensitive a) a
 -&gt; ValueHolder -&gt; Sensitive ValueHolder
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ValueHolder
-</span><a href="#local-6989586621679185754"><span class="hs-identifier hs-var">pBlockAddress_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185800"><span class="hs-identifier hs-var">pBlockAddress_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentId:GetRevision' :: Text
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3AdocumentId%3AGetRevision%27"><span class="hs-identifier hs-var">documentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185753"><span class="hs-identifier hs-var">pDocumentId_</span></a></span><span>
+</span><a href="#local-6989586621679185799"><span class="hs-identifier hs-var">pDocumentId_</span></a></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The latest block location covered by the digest for which to request a</span><span>
@@ -190,16 +190,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe (Sensitive ValueHolder))
      (Maybe (Sensitive ValueHolder))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185748"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185794"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
 digestTipAddress :: Maybe (Sensitive ValueHolder)
 $sel:digestTipAddress:GetRevision' :: GetRevision -&gt; Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679185748"><span class="hs-identifier hs-var hs-var">digestTipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679185748"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185747"><span class="annot"><span class="annottext">s :: GetRevision
-</span><a href="#local-6989586621679185747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185746"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679185746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevision
-</span><a href="#local-6989586621679185747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:digestTipAddress:GetRevision' :: Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679185794"><span class="hs-identifier hs-var hs-var">digestTipAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679185794"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185793"><span class="annot"><span class="annottext">s :: GetRevision
+</span><a href="#local-6989586621679185793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185792"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679185792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevision
+</span><a href="#local-6989586621679185793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:digestTipAddress:GetRevision' :: Maybe (Sensitive ValueHolder)
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3AdigestTipAddress%3AGetRevision%27"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679185746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679185792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive ValueHolder)
   -&gt; f (Maybe (Sensitive ValueHolder)))
  -&gt; GetRevision -&gt; f GetRevision)
 -&gt; ((Maybe ValueHolder -&gt; f (Maybe ValueHolder))
@@ -237,16 +237,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (GetRevision -&gt; Text -&gt; GetRevision)
 -&gt; Lens GetRevision GetRevision Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185743"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185789"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:GetRevision' :: GetRevision -&gt; Text
-</span><a href="#local-6989586621679185743"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185743"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185742"><span class="annot"><span class="annottext">s :: GetRevision
-</span><a href="#local-6989586621679185742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185741"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevision
-</span><a href="#local-6989586621679185742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetRevision' :: Text
+</span><a href="#local-6989586621679185789"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185789"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185788"><span class="annot"><span class="annottext">s :: GetRevision
+</span><a href="#local-6989586621679185788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185787"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevision
+</span><a href="#local-6989586621679185788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GetRevision' :: Text
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3Aname%3AGetRevision%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The block location of the document revision to be verified. An address</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- is an Amazon Ion structure that has two fields: @strandId@ and</span><span>
@@ -263,16 +263,16 @@ $sel:name:GetRevision' :: GetRevision -&gt; Text
      (Sensitive ValueHolder)
      (Sensitive ValueHolder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185740"><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185786"><span class="annot"><span class="annottext">Sensitive ValueHolder
 blockAddress :: Sensitive ValueHolder
 $sel:blockAddress:GetRevision' :: GetRevision -&gt; Sensitive ValueHolder
-</span><a href="#local-6989586621679185740"><span class="hs-identifier hs-var hs-var">blockAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679185740"><span class="hs-identifier hs-var">blockAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185739"><span class="annot"><span class="annottext">s :: GetRevision
-</span><a href="#local-6989586621679185739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185738"><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679185738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevision
-</span><a href="#local-6989586621679185739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockAddress:GetRevision' :: Sensitive ValueHolder
+</span><a href="#local-6989586621679185786"><span class="hs-identifier hs-var hs-var">blockAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><a href="#local-6989586621679185786"><span class="hs-identifier hs-var">blockAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185785"><span class="annot"><span class="annottext">s :: GetRevision
+</span><a href="#local-6989586621679185785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185784"><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><a href="#local-6989586621679185784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevision
+</span><a href="#local-6989586621679185785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockAddress:GetRevision' :: Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3AblockAddress%3AGetRevision%27"><span class="hs-identifier hs-var">blockAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679185738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
+</span><a href="#local-6989586621679185784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
  -&gt; GetRevision -&gt; f GetRevision)
 -&gt; ((ValueHolder -&gt; f ValueHolder)
     -&gt; Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
@@ -293,25 +293,25 @@ forall a. Iso' (Sensitive a) a
 -&gt; (GetRevision -&gt; Text -&gt; GetRevision)
 -&gt; Lens GetRevision GetRevision Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185737"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185783"><span class="annot"><span class="annottext">Text
 documentId :: Text
 $sel:documentId:GetRevision' :: GetRevision -&gt; Text
-</span><a href="#local-6989586621679185737"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185737"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185736"><span class="annot"><span class="annottext">s :: GetRevision
-</span><a href="#local-6989586621679185736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185735"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevision
-</span><a href="#local-6989586621679185736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentId:GetRevision' :: Text
+</span><a href="#local-6989586621679185783"><span class="hs-identifier hs-var hs-var">documentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185783"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185782"><span class="annot"><span class="annottext">s :: GetRevision
+</span><a href="#local-6989586621679185782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185781"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevision
+</span><a href="#local-6989586621679185782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentId:GetRevision' :: Text
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3AdocumentId%3AGetRevision%27"><span class="hs-identifier hs-var">documentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse"><span class="hs-identifier hs-type">GetRevisionResponse</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679185731"><span class="annot"><span class="annottext">request :: GetRevision -&gt; Request GetRevision
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679185777"><span class="annot"><span class="annottext">request :: GetRevision -&gt; Request GetRevision
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetRevision -&gt; Request GetRevision
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.QLDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679185727"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679185773"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetRevision
 -&gt; ClientResponse ClientBody
@@ -335,10 +335,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185724"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185724"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185723"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679185723"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185722"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185722"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185770"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185770"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679185769"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679185769"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679185768"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185768"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
 -&gt; Int -&gt; Sensitive ValueHolder -&gt; GetRevisionResponse
 </span><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-var">GetRevisionResponse'</span></a></span><span>
@@ -349,7 +349,7 @@ MonadResource m =&gt;
      String (Int -&gt; Sensitive ValueHolder -&gt; GetRevisionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive ValueHolder))
+</span><a href="#local-6989586621679185768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive ValueHolder))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Proof&quot;</span></span><span class="hs-special">)</span><span>
@@ -362,24 +362,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185724"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185770"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either String (Sensitive ValueHolder -&gt; GetRevisionResponse)
 -&gt; Either String (Sensitive ValueHolder)
 -&gt; Either String GetRevisionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185722"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Sensitive ValueHolder)
+</span><a href="#local-6989586621679185768"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Sensitive ValueHolder)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Revision&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185713"><span id="local-6989586621679185715"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185759"><span id="local-6989586621679185761"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185710"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679185706"><span class="annot"><span class="annottext">toHeaders :: GetRevision -&gt; ResponseHeaders
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679185752"><span class="annot"><span class="annottext">toHeaders :: GetRevision -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetRevision -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -398,9 +398,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-166"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185696"><span id="local-6989586621679185698"><span id="local-6989586621679185700"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679185694"><span class="annot"><span class="annottext">toJSON :: GetRevision -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185689"><span id="local-6989586621679185690"><span id="local-6989586621679185691"><span id="local-6989586621679185692"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185742"><span id="local-6989586621679185744"><span id="local-6989586621679185746"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679185740"><span class="annot"><span class="annottext">toJSON :: GetRevision -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185735"><span id="local-6989586621679185736"><span id="local-6989586621679185737"><span id="local-6989586621679185738"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
 Text
 Sensitive ValueHolder
 documentId :: Text
@@ -411,7 +411,7 @@ $sel:documentId:GetRevision' :: GetRevision -&gt; Text
 $sel:blockAddress:GetRevision' :: GetRevision -&gt; Sensitive ValueHolder
 $sel:name:GetRevision' :: GetRevision -&gt; Text
 $sel:digestTipAddress:GetRevision' :: GetRevision -&gt; Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679185689"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679185735"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -425,27 +425,27 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (Sensitive ValueHolder) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679185692"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185738"><span class="hs-identifier hs-var">digestTipAddress</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlockAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive ValueHolder -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679185690"><span class="hs-identifier hs-var">blockAddress</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185736"><span class="hs-identifier hs-var">blockAddress</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DocumentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185689"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185735"><span class="hs-identifier hs-var">documentId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679185683"><span class="annot"><span class="annottext">toPath :: GetRevision -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185678"><span id="local-6989586621679185679"><span id="local-6989586621679185680"><span id="local-6989586621679185681"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679185729"><span class="annot"><span class="annottext">toPath :: GetRevision -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision%27"><span class="hs-identifier hs-type">GetRevision'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185724"><span id="local-6989586621679185725"><span id="local-6989586621679185726"><span id="local-6989586621679185727"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
 Text
 Sensitive ValueHolder
 documentId :: Text
@@ -456,7 +456,7 @@ $sel:documentId:GetRevision' :: GetRevision -&gt; Text
 $sel:blockAddress:GetRevision' :: GetRevision -&gt; Sensitive ValueHolder
 $sel:name:GetRevision' :: GetRevision -&gt; Text
 $sel:digestTipAddress:GetRevision' :: GetRevision -&gt; Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679185678"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679185724"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -464,11 +464,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/ledgers/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185680"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679185726"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/revision&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevision"><span class="hs-identifier hs-type">GetRevision</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679185674"><span class="annot"><span class="annottext">toQuery :: GetRevision -&gt; QueryString
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679185720"><span class="annot"><span class="annottext">toQuery :: GetRevision -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRevision -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -476,7 +476,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | /See:/ 'newGetRevisionResponse' smart constructor.</span><span>
-</span><span id="line-189"></span><span id="local-6989586621679185671"><span id="local-6989586621679185672"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRevisionResponse"><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse"><span class="hs-identifier hs-var">GetRevisionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRevisionResponse%27"><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-var">GetRevisionResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span id="local-6989586621679185717"><span id="local-6989586621679185718"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRevisionResponse"><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse"><span class="hs-identifier hs-var">GetRevisionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRevisionResponse%27"><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-var">GetRevisionResponse'</span></a></span></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The proof object in Amazon Ion format returned by a @GetRevision@</span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-comment">-- request. A proof contains the list of hash values that are required to</span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-comment">-- recalculate the specified digest using a Merkle tree, starting with the</span><span>
@@ -490,7 +490,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-198"></span><span>    </span><span id="%24sel%3Arevision%3AGetRevisionResponse%27"><span class="annot"><span class="annottext">GetRevisionResponse -&gt; Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3Arevision%3AGetRevisionResponse%27"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185664"><span id="local-6989586621679185666"><span class="annot"><span class="annottext">GetRevisionResponse -&gt; GetRevisionResponse -&gt; Bool
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185710"><span id="local-6989586621679185712"><span class="annot"><span class="annottext">GetRevisionResponse -&gt; GetRevisionResponse -&gt; Bool
 (GetRevisionResponse -&gt; GetRevisionResponse -&gt; Bool)
 -&gt; (GetRevisionResponse -&gt; GetRevisionResponse -&gt; Bool)
 -&gt; Eq GetRevisionResponse
@@ -499,7 +499,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRevisionResponse -&gt; GetRevisionResponse -&gt; Bool
 == :: GetRevisionResponse -&gt; GetRevisionResponse -&gt; Bool
 $c== :: GetRevisionResponse -&gt; GetRevisionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185658"><span id="local-6989586621679185660"><span id="local-6989586621679185662"><span class="annot"><span class="annottext">Int -&gt; GetRevisionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185704"><span id="local-6989586621679185706"><span id="local-6989586621679185708"><span class="annot"><span class="annottext">Int -&gt; GetRevisionResponse -&gt; ShowS
 [GetRevisionResponse] -&gt; ShowS
 GetRevisionResponse -&gt; String
 (Int -&gt; GetRevisionResponse -&gt; ShowS)
@@ -548,9 +548,9 @@ $cfrom :: forall x. GetRevisionResponse -&gt; Rep GetRevisionResponse x
 </span><span id="line-222"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-223"></span><span>  </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse"><span class="hs-identifier hs-type">GetRevisionResponse</span></a></span><span>
 </span><span id="line-224"></span><span id="newGetRevisionResponse"><span class="annot"><span class="annottext">newGetRevisionResponse :: Int -&gt; ValueHolder -&gt; GetRevisionResponse
-</span><a href="Network.AWS.QLDB.GetRevision.html#newGetRevisionResponse"><span class="hs-identifier hs-var hs-var">newGetRevisionResponse</span></a></span></span><span> </span><span id="local-6989586621679185655"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185655"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679185654"><span class="annot"><span class="annottext">ValueHolder
-</span><a href="#local-6989586621679185654"><span class="hs-identifier hs-var">pRevision_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.QLDB.GetRevision.html#newGetRevisionResponse"><span class="hs-identifier hs-var hs-var">newGetRevisionResponse</span></a></span></span><span> </span><span id="local-6989586621679185701"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185701"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679185700"><span class="annot"><span class="annottext">ValueHolder
+</span><a href="#local-6989586621679185700"><span class="hs-identifier hs-var">pRevision_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">GetRevisionResponse' :: Maybe (Sensitive ValueHolder)
 -&gt; Int -&gt; Sensitive ValueHolder -&gt; GetRevisionResponse
 </span><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-type">GetRevisionResponse'</span></a></span><span>
@@ -560,7 +560,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRevisionResponse' :: Int
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3AhttpStatus%3AGetRevisionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185655"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185701"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:revision:GetRevisionResponse' :: Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3Arevision%3AGetRevisionResponse%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ValueHolder (Identity ValueHolder)
 -&gt; Tagged
@@ -572,7 +572,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; ValueHolder -&gt; Sensitive ValueHolder
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ValueHolder
-</span><a href="#local-6989586621679185654"><span class="hs-identifier hs-var">pRevision_</span></a></span><span>
+</span><a href="#local-6989586621679185700"><span class="hs-identifier hs-var">pRevision_</span></a></span><span>
 </span><span id="line-229"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The proof object in Amazon Ion format returned by a @GetRevision@</span><span>
@@ -591,16 +591,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe (Sensitive ValueHolder))
      (Maybe (Sensitive ValueHolder))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-type">GetRevisionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185653"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-type">GetRevisionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185699"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
 proof :: Maybe (Sensitive ValueHolder)
 $sel:proof:GetRevisionResponse' :: GetRevisionResponse -&gt; Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679185653"><span class="hs-identifier hs-var hs-var">proof</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679185653"><span class="hs-identifier hs-var">proof</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185652"><span class="annot"><span class="annottext">s :: GetRevisionResponse
-</span><a href="#local-6989586621679185652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-type">GetRevisionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185651"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679185651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevisionResponse
-</span><a href="#local-6989586621679185652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:proof:GetRevisionResponse' :: Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679185699"><span class="hs-identifier hs-var hs-var">proof</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679185699"><span class="hs-identifier hs-var">proof</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185698"><span class="annot"><span class="annottext">s :: GetRevisionResponse
+</span><a href="#local-6989586621679185698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-type">GetRevisionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185697"><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679185697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevisionResponse
+</span><a href="#local-6989586621679185698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:proof:GetRevisionResponse' :: Maybe (Sensitive ValueHolder)
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3Aproof%3AGetRevisionResponse%27"><span class="hs-identifier hs-var">proof</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive ValueHolder)
-</span><a href="#local-6989586621679185651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse"><span class="hs-identifier hs-type">GetRevisionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive ValueHolder)
+</span><a href="#local-6989586621679185697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse"><span class="hs-identifier hs-type">GetRevisionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive ValueHolder)
   -&gt; f (Maybe (Sensitive ValueHolder)))
  -&gt; GetRevisionResponse -&gt; f GetRevisionResponse)
 -&gt; ((Maybe ValueHolder -&gt; f (Maybe ValueHolder))
@@ -638,16 +638,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; (GetRevisionResponse -&gt; Int -&gt; GetRevisionResponse)
 -&gt; Lens GetRevisionResponse GetRevisionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-type">GetRevisionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185650"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-type">GetRevisionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185696"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetRevisionResponse' :: GetRevisionResponse -&gt; Int
-</span><a href="#local-6989586621679185650"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185650"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185649"><span class="annot"><span class="annottext">s :: GetRevisionResponse
-</span><a href="#local-6989586621679185649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-type">GetRevisionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185648"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevisionResponse
-</span><a href="#local-6989586621679185649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRevisionResponse' :: Int
+</span><a href="#local-6989586621679185696"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185696"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185695"><span class="annot"><span class="annottext">s :: GetRevisionResponse
+</span><a href="#local-6989586621679185695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-type">GetRevisionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185694"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679185694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevisionResponse
+</span><a href="#local-6989586621679185695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRevisionResponse' :: Int
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3AhttpStatus%3AGetRevisionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679185648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse"><span class="hs-identifier hs-type">GetRevisionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse"><span class="hs-identifier hs-type">GetRevisionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- | The document revision data object in Amazon Ion format.</span><span>
 </span><span id="line-243"></span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#getRevisionResponse_revision"><span class="hs-identifier hs-type">getRevisionResponse_revision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse"><span class="hs-identifier hs-type">GetRevisionResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.Types.ValueHolder.html#ValueHolder"><span class="hs-identifier hs-type">ValueHolder</span></a></span><span>
@@ -662,16 +662,16 @@ $sel:httpStatus:GetRevisionResponse' :: GetRevisionResponse -&gt; Int
      (Sensitive ValueHolder)
      (Sensitive ValueHolder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-type">GetRevisionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185647"><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-type">GetRevisionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185693"><span class="annot"><span class="annottext">Sensitive ValueHolder
 revision :: Sensitive ValueHolder
 $sel:revision:GetRevisionResponse' :: GetRevisionResponse -&gt; Sensitive ValueHolder
-</span><a href="#local-6989586621679185647"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679185647"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185646"><span class="annot"><span class="annottext">s :: GetRevisionResponse
-</span><a href="#local-6989586621679185646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-type">GetRevisionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185645"><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679185645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevisionResponse
-</span><a href="#local-6989586621679185646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revision:GetRevisionResponse' :: Sensitive ValueHolder
+</span><a href="#local-6989586621679185693"><span class="hs-identifier hs-var hs-var">revision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><a href="#local-6989586621679185693"><span class="hs-identifier hs-var">revision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185692"><span class="annot"><span class="annottext">s :: GetRevisionResponse
+</span><a href="#local-6989586621679185692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse%27"><span class="hs-identifier hs-type">GetRevisionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185691"><span class="annot"><span class="annottext">Sensitive ValueHolder
+</span><a href="#local-6989586621679185691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRevisionResponse
+</span><a href="#local-6989586621679185692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revision:GetRevisionResponse' :: Sensitive ValueHolder
 </span><a href="Network.AWS.QLDB.GetRevision.html#%24sel%3Arevision%3AGetRevisionResponse%27"><span class="hs-identifier hs-var">revision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive ValueHolder
-</span><a href="#local-6989586621679185645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse"><span class="hs-identifier hs-type">GetRevisionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
+</span><a href="#local-6989586621679185691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse"><span class="hs-identifier hs-type">GetRevisionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
  -&gt; GetRevisionResponse -&gt; f GetRevisionResponse)
 -&gt; ((ValueHolder -&gt; f ValueHolder)
     -&gt; Sensitive ValueHolder -&gt; f (Sensitive ValueHolder))
@@ -684,5 +684,5 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-245"></span><span>
-</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185643"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse"><span class="hs-identifier hs-type">GetRevisionResponse</span></a></span></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185689"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.QLDB.GetRevision.html#GetRevisionResponse"><span class="hs-identifier hs-type">GetRevisionResponse</span></a></span></span><span>
 </span><span id="line-247"></span></pre></body></html>

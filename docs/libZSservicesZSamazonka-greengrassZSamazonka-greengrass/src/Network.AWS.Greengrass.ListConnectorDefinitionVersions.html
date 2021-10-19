@@ -41,8 +41,8 @@
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#newListConnectorDefinitionVersionsResponse"><span class="hs-identifier">newListConnectorDefinitionVersionsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersionsResponse_nextToken"><span class="hs-identifier">listConnectorDefinitionVersionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersionsResponse_versions"><span class="hs-identifier">listConnectorDefinitionVersionsResponse_versions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersionsResponse_versions"><span class="hs-identifier">listConnectorDefinitionVersionsResponse_versions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersionsResponse_nextToken"><span class="hs-identifier">listConnectorDefinitionVersionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersionsResponse_httpStatus"><span class="hs-identifier">listConnectorDefinitionVersionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span class="hs-keyword">where</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListConnectorDefinitionVersions' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679354443"><span id="local-6989586621679354444"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConnectorDefinitionVersions"><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-var">ListConnectorDefinitionVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConnectorDefinitionVersions%27"><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-var">ListConnectorDefinitionVersions'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679354724"><span id="local-6989586621679354725"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConnectorDefinitionVersions"><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-var">ListConnectorDefinitionVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConnectorDefinitionVersions%27"><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-var">ListConnectorDefinitionVersions'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListConnectorDefinitionVersions%27"><span class="annot"><span class="annottext">ListConnectorDefinitionVersions -&gt; Maybe Text
@@ -67,7 +67,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AconnectorDefinitionId%3AListConnectorDefinitionVersions%27"><span class="annot"><span class="annottext">ListConnectorDefinitionVersions -&gt; Text
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AconnectorDefinitionId%3AListConnectorDefinitionVersions%27"><span class="hs-identifier hs-var hs-var">connectorDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354435"><span id="local-6989586621679354437"><span class="annot"><span class="annottext">ListConnectorDefinitionVersions
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354716"><span id="local-6989586621679354718"><span class="annot"><span class="annottext">ListConnectorDefinitionVersions
 -&gt; ListConnectorDefinitionVersions -&gt; Bool
 (ListConnectorDefinitionVersions
  -&gt; ListConnectorDefinitionVersions -&gt; Bool)
@@ -83,7 +83,7 @@ $c/= :: ListConnectorDefinitionVersions
 -&gt; ListConnectorDefinitionVersions -&gt; Bool
 $c== :: ListConnectorDefinitionVersions
 -&gt; ListConnectorDefinitionVersions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354426"><span id="local-6989586621679354428"><span id="local-6989586621679354430"><span id="local-6989586621679354432"><span class="annot"><span class="annottext">ReadPrec [ListConnectorDefinitionVersions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354707"><span id="local-6989586621679354709"><span id="local-6989586621679354711"><span id="local-6989586621679354713"><span class="annot"><span class="annottext">ReadPrec [ListConnectorDefinitionVersions]
 ReadPrec ListConnectorDefinitionVersions
 Int -&gt; ReadS ListConnectorDefinitionVersions
 ReadS [ListConnectorDefinitionVersions]
@@ -103,7 +103,7 @@ readList :: ReadS [ListConnectorDefinitionVersions]
 $creadList :: ReadS [ListConnectorDefinitionVersions]
 readsPrec :: Int -&gt; ReadS ListConnectorDefinitionVersions
 $creadsPrec :: Int -&gt; ReadS ListConnectorDefinitionVersions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354419"><span id="local-6989586621679354421"><span id="local-6989586621679354423"><span class="annot"><span class="annottext">Int -&gt; ListConnectorDefinitionVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354700"><span id="local-6989586621679354702"><span id="local-6989586621679354704"><span class="annot"><span class="annottext">Int -&gt; ListConnectorDefinitionVersions -&gt; ShowS
 [ListConnectorDefinitionVersions] -&gt; ShowS
 ListConnectorDefinitionVersions -&gt; String
 (Int -&gt; ListConnectorDefinitionVersions -&gt; ShowS)
@@ -161,8 +161,8 @@ ListConnectorDefinitionVersions
 </span><span id="line-86"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span>
 </span><span id="line-87"></span><span id="newListConnectorDefinitionVersions"><span class="annot"><span class="annottext">newListConnectorDefinitionVersions :: Text -&gt; ListConnectorDefinitionVersions
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#newListConnectorDefinitionVersions"><span class="hs-identifier hs-var hs-var">newListConnectorDefinitionVersions</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679354414"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354414"><span class="hs-identifier hs-var">pConnectorDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679354695"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354695"><span class="hs-identifier hs-var">pConnectorDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersions' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ListConnectorDefinitionVersions
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListConnectorDefinitionVersions' :: Maybe Text
@@ -177,7 +177,7 @@ forall a. Maybe a
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:connectorDefinitionId:ListConnectorDefinitionVersions' :: Text
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AconnectorDefinitionId%3AListConnectorDefinitionVersions%27"><span class="hs-identifier hs-var">connectorDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354414"><span class="hs-identifier hs-var">pConnectorDefinitionId_</span></a></span><span>
+</span><a href="#local-6989586621679354695"><span class="hs-identifier hs-var">pConnectorDefinitionId_</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
@@ -195,16 +195,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354412"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354693"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListConnectorDefinitionVersions' :: ListConnectorDefinitionVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679354412"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354412"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354411"><span class="annot"><span class="annottext">s :: ListConnectorDefinitionVersions
-</span><a href="#local-6989586621679354411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354410"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersions
-</span><a href="#local-6989586621679354411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConnectorDefinitionVersions' :: Maybe Text
+</span><a href="#local-6989586621679354693"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354693"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354692"><span class="annot"><span class="annottext">s :: ListConnectorDefinitionVersions
+</span><a href="#local-6989586621679354692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354691"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersions
+</span><a href="#local-6989586621679354692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConnectorDefinitionVersions' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AnextToken%3AListConnectorDefinitionVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersions_maxResults"><span class="hs-identifier hs-type">listConnectorDefinitionVersions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -220,16 +220,16 @@ $sel:nextToken:ListConnectorDefinitionVersions' :: ListConnectorDefinitionVersio
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354409"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354690"><span class="annot"><span class="annottext">Maybe Text
 maxResults :: Maybe Text
 $sel:maxResults:ListConnectorDefinitionVersions' :: ListConnectorDefinitionVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679354409"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354409"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354408"><span class="annot"><span class="annottext">s :: ListConnectorDefinitionVersions
-</span><a href="#local-6989586621679354408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354407"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersions
-</span><a href="#local-6989586621679354408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListConnectorDefinitionVersions' :: Maybe Text
+</span><a href="#local-6989586621679354690"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354690"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354689"><span class="annot"><span class="annottext">s :: ListConnectorDefinitionVersions
+</span><a href="#local-6989586621679354689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354688"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersions
+</span><a href="#local-6989586621679354689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListConnectorDefinitionVersions' :: Maybe Text
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AmaxResults%3AListConnectorDefinitionVersions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- | The ID of the connector definition.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersions_connectorDefinitionId"><span class="hs-identifier hs-type">listConnectorDefinitionVersions_connectorDefinitionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -245,33 +245,33 @@ $sel:maxResults:ListConnectorDefinitionVersions' :: ListConnectorDefinitionVersi
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354406"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354687"><span class="annot"><span class="annottext">Text
 connectorDefinitionId :: Text
 $sel:connectorDefinitionId:ListConnectorDefinitionVersions' :: ListConnectorDefinitionVersions -&gt; Text
-</span><a href="#local-6989586621679354406"><span class="hs-identifier hs-var hs-var">connectorDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354406"><span class="hs-identifier hs-var">connectorDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354405"><span class="annot"><span class="annottext">s :: ListConnectorDefinitionVersions
-</span><a href="#local-6989586621679354405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354404"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersions
-</span><a href="#local-6989586621679354405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorDefinitionId:ListConnectorDefinitionVersions' :: Text
+</span><a href="#local-6989586621679354687"><span class="hs-identifier hs-var hs-var">connectorDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354687"><span class="hs-identifier hs-var">connectorDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354686"><span class="annot"><span class="annottext">s :: ListConnectorDefinitionVersions
+</span><a href="#local-6989586621679354686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354685"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679354685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersions
+</span><a href="#local-6989586621679354686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectorDefinitionId:ListConnectorDefinitionVersions' :: Text
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AconnectorDefinitionId%3AListConnectorDefinitionVersions%27"><span class="hs-identifier hs-var">connectorDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679354400"><span class="annot"><span class="annottext">page :: ListConnectorDefinitionVersions
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679354681"><span class="annot"><span class="annottext">page :: ListConnectorDefinitionVersions
 -&gt; AWSResponse ListConnectorDefinitionVersions
 -&gt; Maybe ListConnectorDefinitionVersions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679354398"><span class="annot"><span class="annottext">ListConnectorDefinitionVersions
-</span><a href="#local-6989586621679354398"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679354397"><span class="annot"><span class="annottext">AWSResponse ListConnectorDefinitionVersions
-</span><a href="#local-6989586621679354397"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679354679"><span class="annot"><span class="annottext">ListConnectorDefinitionVersions
+</span><a href="#local-6989586621679354679"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679354678"><span class="annot"><span class="annottext">AWSResponse ListConnectorDefinitionVersions
+</span><a href="#local-6989586621679354678"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-116"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListConnectorDefinitionVersions
 ListConnectorDefinitionVersionsResponse
-</span><a href="#local-6989586621679354397"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679354678"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse
 -&gt; Getting
      (First Text) ListConnectorDefinitionVersionsResponse Text
@@ -303,7 +303,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-122"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListConnectorDefinitionVersions
 ListConnectorDefinitionVersionsResponse
-</span><a href="#local-6989586621679354397"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679354678"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse
 -&gt; Getting
      (First [VersionInformation])
@@ -358,7 +358,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersions
-</span><a href="#local-6989586621679354398"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679354679"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersions
 -&gt; (ListConnectorDefinitionVersions
     -&gt; ListConnectorDefinitionVersions)
@@ -382,7 +382,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListConnectorDefinitionVersions
 ListConnectorDefinitionVersionsResponse
-</span><a href="#local-6989586621679354397"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679354678"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse
 -&gt; Getting
      (First Text) ListConnectorDefinitionVersionsResponse Text
@@ -413,7 +413,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679354387"><span class="annot"><span class="annottext">request :: ListConnectorDefinitionVersions
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679354668"><span class="annot"><span class="annottext">request :: ListConnectorDefinitionVersions
 -&gt; Request ListConnectorDefinitionVersions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListConnectorDefinitionVersions
@@ -421,7 +421,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679354383"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679354664"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListConnectorDefinitionVersions
 -&gt; ClientResponse ClientBody
@@ -449,39 +449,22 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354380"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354380"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679354379"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679354379"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679354378"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354378"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [VersionInformation]
--&gt; Int
--&gt; ListConnectorDefinitionVersionsResponse
+</span><span id="line-145"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679354661"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354661"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679354660"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679354660"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679354659"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354659"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
+-&gt; Maybe Text -&gt; Int -&gt; ListConnectorDefinitionVersionsResponse
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">ListConnectorDefinitionVersionsResponse'</span></a></span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [VersionInformation]
- -&gt; Int
- -&gt; ListConnectorDefinitionVersionsResponse)
--&gt; Either String (Maybe Text)
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [VersionInformation]
+ -&gt; Maybe Text -&gt; Int -&gt; ListConnectorDefinitionVersionsResponse)
+-&gt; Either String (Maybe [VersionInformation])
 -&gt; Either
      String
-     (Maybe [VersionInformation]
-      -&gt; Int -&gt; ListConnectorDefinitionVersionsResponse)
+     (Maybe Text -&gt; Int -&gt; ListConnectorDefinitionVersionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354378"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [VersionInformation]
-   -&gt; Int -&gt; ListConnectorDefinitionVersionsResponse)
--&gt; Either String (Maybe [VersionInformation])
--&gt; Either String (Int -&gt; ListConnectorDefinitionVersionsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679354378"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [VersionInformation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -492,6 +475,17 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; ListConnectorDefinitionVersionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListConnectorDefinitionVersionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679354659"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListConnectorDefinitionVersionsResponse)
 -&gt; Either String Int
 -&gt; Either String ListConnectorDefinitionVersionsResponse
@@ -501,22 +495,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354380"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354661"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679354369"><span id="local-6989586621679354371"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679354650"><span id="local-6989586621679354652"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-154"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span></span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679354366"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679354647"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679354362"><span class="annot"><span class="annottext">toHeaders :: ListConnectorDefinitionVersions -&gt; ResponseHeaders
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679354643"><span class="annot"><span class="annottext">toHeaders :: ListConnectorDefinitionVersions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; ListConnectorDefinitionVersions -&gt; ResponseHeaders
@@ -537,8 +531,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679354356"><span class="annot"><span class="annottext">toPath :: ListConnectorDefinitionVersions -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354352"><span id="local-6989586621679354353"><span id="local-6989586621679354354"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679354637"><span class="annot"><span class="annottext">toPath :: ListConnectorDefinitionVersions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354633"><span id="local-6989586621679354634"><span id="local-6989586621679354635"><span class="annot"><span class="annottext">Maybe Text
 Text
 connectorDefinitionId :: Text
 maxResults :: Maybe Text
@@ -546,7 +540,7 @@ nextToken :: Maybe Text
 $sel:connectorDefinitionId:ListConnectorDefinitionVersions' :: ListConnectorDefinitionVersions -&gt; Text
 $sel:maxResults:ListConnectorDefinitionVersions' :: ListConnectorDefinitionVersions -&gt; Maybe Text
 $sel:nextToken:ListConnectorDefinitionVersions' :: ListConnectorDefinitionVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679354352"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679354633"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -555,14 +549,14 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679354352"><span class="hs-identifier hs-var">connectorDefinitionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354633"><span class="hs-identifier hs-var">connectorDefinitionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/versions&quot;</span></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621679354348"><span class="annot"><span class="annottext">toQuery :: ListConnectorDefinitionVersions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354344"><span id="local-6989586621679354345"><span id="local-6989586621679354346"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679354629"><span class="annot"><span class="annottext">toQuery :: ListConnectorDefinitionVersions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersions%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354625"><span id="local-6989586621679354626"><span id="local-6989586621679354627"><span class="annot"><span class="annottext">Maybe Text
 Text
 connectorDefinitionId :: Text
 maxResults :: Maybe Text
@@ -570,7 +564,7 @@ nextToken :: Maybe Text
 $sel:connectorDefinitionId:ListConnectorDefinitionVersions' :: ListConnectorDefinitionVersions -&gt; Text
 $sel:maxResults:ListConnectorDefinitionVersions' :: ListConnectorDefinitionVersions -&gt; Maybe Text
 $sel:nextToken:ListConnectorDefinitionVersions' :: ListConnectorDefinitionVersions -&gt; Maybe Text
-</span><a href="#local-6989586621679354344"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679354625"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -578,29 +572,29 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354346"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679354627"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354345"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679354626"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | /See:/ 'newListConnectorDefinitionVersionsResponse' smart constructor.</span><span>
-</span><span id="line-190"></span><span id="local-6989586621679354341"><span id="local-6989586621679354342"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConnectorDefinitionVersionsResponse"><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-var">ListConnectorDefinitionVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConnectorDefinitionVersionsResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">ListConnectorDefinitionVersionsResponse'</span></a></span></span><span>
-</span><span id="line-191"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
-</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-193"></span><span>    </span><span id="%24sel%3AnextToken%3AListConnectorDefinitionVersionsResponse%27"><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AnextToken%3AListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | Information about a version.</span><span>
-</span><span id="line-195"></span><span>    </span><span id="%24sel%3Aversions%3AListConnectorDefinitionVersionsResponse%27"><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse
+</span><span id="line-190"></span><span id="local-6989586621679354622"><span id="local-6989586621679354623"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListConnectorDefinitionVersionsResponse"><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-var">ListConnectorDefinitionVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListConnectorDefinitionVersionsResponse%27"><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">ListConnectorDefinitionVersionsResponse'</span></a></span></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about a version.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3Aversions%3AListConnectorDefinitionVersionsResponse%27"><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse
 -&gt; Maybe [VersionInformation]
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3Aversions%3AListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.VersionInformation.html#VersionInformation"><span class="hs-identifier hs-type">VersionInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AnextToken%3AListConnectorDefinitionVersionsResponse%27"><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AnextToken%3AListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-197"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListConnectorDefinitionVersionsResponse%27"><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse -&gt; Int
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AhttpStatus%3AListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-198"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354334"><span id="local-6989586621679354336"><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse
+</span><span id="line-199"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679354615"><span id="local-6989586621679354617"><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse
 -&gt; ListConnectorDefinitionVersionsResponse -&gt; Bool
 (ListConnectorDefinitionVersionsResponse
  -&gt; ListConnectorDefinitionVersionsResponse -&gt; Bool)
@@ -616,7 +610,7 @@ $c/= :: ListConnectorDefinitionVersionsResponse
 -&gt; ListConnectorDefinitionVersionsResponse -&gt; Bool
 $c== :: ListConnectorDefinitionVersionsResponse
 -&gt; ListConnectorDefinitionVersionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354326"><span id="local-6989586621679354328"><span id="local-6989586621679354330"><span id="local-6989586621679354332"><span class="annot"><span class="annottext">ReadPrec [ListConnectorDefinitionVersionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354607"><span id="local-6989586621679354609"><span id="local-6989586621679354611"><span id="local-6989586621679354613"><span class="annot"><span class="annottext">ReadPrec [ListConnectorDefinitionVersionsResponse]
 ReadPrec ListConnectorDefinitionVersionsResponse
 Int -&gt; ReadS ListConnectorDefinitionVersionsResponse
 ReadS [ListConnectorDefinitionVersionsResponse]
@@ -636,7 +630,7 @@ readList :: ReadS [ListConnectorDefinitionVersionsResponse]
 $creadList :: ReadS [ListConnectorDefinitionVersionsResponse]
 readsPrec :: Int -&gt; ReadS ListConnectorDefinitionVersionsResponse
 $creadsPrec :: Int -&gt; ReadS ListConnectorDefinitionVersionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354320"><span id="local-6989586621679354322"><span id="local-6989586621679354324"><span class="annot"><span class="annottext">Int -&gt; ListConnectorDefinitionVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679354601"><span id="local-6989586621679354603"><span id="local-6989586621679354605"><span class="annot"><span class="annottext">Int -&gt; ListConnectorDefinitionVersionsResponse -&gt; ShowS
 [ListConnectorDefinitionVersionsResponse] -&gt; ShowS
 ListConnectorDefinitionVersionsResponse -&gt; String
 (Int -&gt; ListConnectorDefinitionVersionsResponse -&gt; ShowS)
@@ -682,10 +676,10 @@ ListConnectorDefinitionVersionsResponse
 </span><span id="line-206"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-208"></span><span class="hs-comment">--</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- 'nextToken', 'listConnectorDefinitionVersionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-211"></span><span class="hs-comment">--</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- 'versions', 'listConnectorDefinitionVersionsResponse_versions' - Information about a version.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'versions', 'listConnectorDefinitionVersionsResponse_versions' - Information about a version.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'nextToken', 'listConnectorDefinitionVersionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- additional results.</span><span>
 </span><span id="line-213"></span><span class="hs-comment">--</span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- 'httpStatus', 'listConnectorDefinitionVersionsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-215"></span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#newListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">newListConnectorDefinitionVersionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -694,52 +688,28 @@ ListConnectorDefinitionVersionsResponse
 </span><span id="line-218"></span><span>  </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span><span>
 </span><span id="line-219"></span><span id="newListConnectorDefinitionVersionsResponse"><span class="annot"><span class="annottext">newListConnectorDefinitionVersionsResponse :: Int -&gt; ListConnectorDefinitionVersionsResponse
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#newListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-var hs-var">newListConnectorDefinitionVersionsResponse</span></a></span></span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621679354317"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354317"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse' :: Maybe Text
--&gt; Maybe [VersionInformation]
--&gt; Int
--&gt; ListConnectorDefinitionVersionsResponse
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679354598"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse' :: Maybe [VersionInformation]
+-&gt; Maybe Text -&gt; Int -&gt; ListConnectorDefinitionVersionsResponse
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse'</span></a></span><span>
-</span><span id="line-222"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListConnectorDefinitionVersionsResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AnextToken%3AListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-222"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versions:ListConnectorDefinitionVersionsResponse' :: Maybe [VersionInformation]
+</span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3Aversions%3AListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:versions:ListConnectorDefinitionVersionsResponse' :: Maybe [VersionInformation]
-</span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3Aversions%3AListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:ListConnectorDefinitionVersionsResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AnextToken%3AListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListConnectorDefinitionVersionsResponse' :: Int
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AhttpStatus%3AListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354317"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679354598"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- additional results.</span><span>
-</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersionsResponse_nextToken"><span class="hs-identifier hs-type">listConnectorDefinitionVersionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-231"></span><span id="listConnectorDefinitionVersionsResponse_nextToken"><span class="annot"><span class="annottext">listConnectorDefinitionVersionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListConnectorDefinitionVersionsResponse
--&gt; f ListConnectorDefinitionVersionsResponse
-</span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listConnectorDefinitionVersionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConnectorDefinitionVersionsResponse -&gt; Maybe Text)
--&gt; (ListConnectorDefinitionVersionsResponse
-    -&gt; Maybe Text -&gt; ListConnectorDefinitionVersionsResponse)
--&gt; Lens' ListConnectorDefinitionVersionsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354316"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListConnectorDefinitionVersionsResponse' :: ListConnectorDefinitionVersionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679354316"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354316"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354315"><span class="annot"><span class="annottext">s :: ListConnectorDefinitionVersionsResponse
-</span><a href="#local-6989586621679354315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354314"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse
-</span><a href="#local-6989586621679354315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConnectorDefinitionVersionsResponse' :: Maybe Text
-</span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AnextToken%3AListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679354314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- | Information about a version.</span><span>
-</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersionsResponse_versions"><span class="hs-identifier hs-type">listConnectorDefinitionVersionsResponse_versions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.VersionInformation.html#VersionInformation"><span class="hs-identifier hs-type">VersionInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span id="listConnectorDefinitionVersionsResponse_versions"><span class="annot"><span class="annottext">listConnectorDefinitionVersionsResponse_versions :: (Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
+</span><span id="line-228"></span><span class="hs-comment">-- | Information about a version.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersionsResponse_versions"><span class="hs-identifier hs-type">listConnectorDefinitionVersionsResponse_versions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Greengrass.Types.VersionInformation.html#VersionInformation"><span class="hs-identifier hs-type">VersionInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="listConnectorDefinitionVersionsResponse_versions"><span class="annot"><span class="annottext">listConnectorDefinitionVersionsResponse_versions :: (Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
 -&gt; ListConnectorDefinitionVersionsResponse
 -&gt; f ListConnectorDefinitionVersionsResponse
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersionsResponse_versions"><span class="hs-identifier hs-var hs-var">listConnectorDefinitionVersionsResponse_versions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConnectorDefinitionVersionsResponse
@@ -751,17 +721,17 @@ $sel:nextToken:ListConnectorDefinitionVersionsResponse' :: ListConnectorDefiniti
      ListConnectorDefinitionVersionsResponse
      (Maybe [VersionInformation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354313"><span class="annot"><span class="annottext">Maybe [VersionInformation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354597"><span class="annot"><span class="annottext">Maybe [VersionInformation]
 versions :: Maybe [VersionInformation]
 $sel:versions:ListConnectorDefinitionVersionsResponse' :: ListConnectorDefinitionVersionsResponse
 -&gt; Maybe [VersionInformation]
-</span><a href="#local-6989586621679354313"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
-</span><a href="#local-6989586621679354313"><span class="hs-identifier hs-var">versions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354312"><span class="annot"><span class="annottext">s :: ListConnectorDefinitionVersionsResponse
-</span><a href="#local-6989586621679354312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354311"><span class="annot"><span class="annottext">Maybe [VersionInformation]
-</span><a href="#local-6989586621679354311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse
-</span><a href="#local-6989586621679354312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versions:ListConnectorDefinitionVersionsResponse' :: Maybe [VersionInformation]
+</span><a href="#local-6989586621679354597"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
+</span><a href="#local-6989586621679354597"><span class="hs-identifier hs-var">versions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354596"><span class="annot"><span class="annottext">s :: ListConnectorDefinitionVersionsResponse
+</span><a href="#local-6989586621679354596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354595"><span class="annot"><span class="annottext">Maybe [VersionInformation]
+</span><a href="#local-6989586621679354595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse
+</span><a href="#local-6989586621679354596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versions:ListConnectorDefinitionVersionsResponse' :: Maybe [VersionInformation]
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3Aversions%3AListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
-</span><a href="#local-6989586621679354311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
+</span><a href="#local-6989586621679354595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
  -&gt; ListConnectorDefinitionVersionsResponse
  -&gt; f ListConnectorDefinitionVersionsResponse)
 -&gt; ((Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
@@ -788,8 +758,30 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [VersionInformation]
   [VersionInformation]
   [VersionInformation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersionsResponse_nextToken"><span class="hs-identifier hs-type">listConnectorDefinitionVersionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="listConnectorDefinitionVersionsResponse_nextToken"><span class="annot"><span class="annottext">listConnectorDefinitionVersionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListConnectorDefinitionVersionsResponse
+-&gt; f ListConnectorDefinitionVersionsResponse
+</span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listConnectorDefinitionVersionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListConnectorDefinitionVersionsResponse -&gt; Maybe Text)
+-&gt; (ListConnectorDefinitionVersionsResponse
+    -&gt; Maybe Text -&gt; ListConnectorDefinitionVersionsResponse)
+-&gt; Lens' ListConnectorDefinitionVersionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354592"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListConnectorDefinitionVersionsResponse' :: ListConnectorDefinitionVersionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679354592"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354592"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354591"><span class="annot"><span class="annottext">s :: ListConnectorDefinitionVersionsResponse
+</span><a href="#local-6989586621679354591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354590"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse
+</span><a href="#local-6989586621679354591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListConnectorDefinitionVersionsResponse' :: Maybe Text
+</span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AnextToken%3AListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679354590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-238"></span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#listConnectorDefinitionVersionsResponse_httpStatus"><span class="hs-identifier hs-type">listConnectorDefinitionVersionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -805,18 +797,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354308"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679354589"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListConnectorDefinitionVersionsResponse' :: ListConnectorDefinitionVersionsResponse -&gt; Int
-</span><a href="#local-6989586621679354308"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354308"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354307"><span class="annot"><span class="annottext">s :: ListConnectorDefinitionVersionsResponse
-</span><a href="#local-6989586621679354307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354306"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse
-</span><a href="#local-6989586621679354307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListConnectorDefinitionVersionsResponse' :: Int
+</span><a href="#local-6989586621679354589"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354589"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679354588"><span class="annot"><span class="annottext">s :: ListConnectorDefinitionVersionsResponse
+</span><a href="#local-6989586621679354588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679354587"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679354587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListConnectorDefinitionVersionsResponse
+</span><a href="#local-6989586621679354588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListConnectorDefinitionVersionsResponse' :: Int
 </span><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#%24sel%3AhttpStatus%3AListConnectorDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679354306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679354587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621679354304"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679354585"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-243"></span><span>    </span><span class="annot"><a href="Network.AWS.Greengrass.ListConnectorDefinitionVersions.html#ListConnectorDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListConnectorDefinitionVersionsResponse</span></a></span></span><span>
 </span><span id="line-244"></span></pre></body></html>

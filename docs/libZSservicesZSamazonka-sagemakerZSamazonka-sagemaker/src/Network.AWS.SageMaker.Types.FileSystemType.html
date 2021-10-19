@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621680304925"><span id="local-6989586621680304926"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FileSystemType"><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemType.html#FileSystemType"><span class="hs-identifier hs-var">FileSystemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileSystemType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemType.html#FileSystemType%27"><span class="hs-identifier hs-var">FileSystemType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680306300"><span id="local-6989586621680306301"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FileSystemType"><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemType.html#FileSystemType"><span class="hs-identifier hs-var">FileSystemType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileSystemType%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FileSystemType.html#FileSystemType%27"><span class="hs-identifier hs-var">FileSystemType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFileSystemType"><span class="annot"><span class="annottext">FileSystemType -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.FileSystemType.html#fromFileSystemType"><span class="hs-identifier hs-var hs-var">fromFileSystemType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680304917"><span id="local-6989586621680304919"><span id="local-6989586621680304921"><span class="annot"><span class="annottext">Int -&gt; FileSystemType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680306292"><span id="local-6989586621680306294"><span id="local-6989586621680306296"><span class="annot"><span class="annottext">Int -&gt; FileSystemType -&gt; ShowS
 [FileSystemType] -&gt; ShowS
 FileSystemType -&gt; String
 (Int -&gt; FileSystemType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: FileSystemType -&gt; String
 showsPrec :: Int -&gt; FileSystemType -&gt; ShowS
 $cshowsPrec :: Int -&gt; FileSystemType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621680304908"><span id="local-6989586621680304910"><span id="local-6989586621680304912"><span id="local-6989586621680304914"><span class="annot"><span class="annottext">ReadPrec [FileSystemType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680306283"><span id="local-6989586621680306285"><span id="local-6989586621680306287"><span id="local-6989586621680306289"><span class="annot"><span class="annottext">ReadPrec [FileSystemType]
 ReadPrec FileSystemType
 Int -&gt; ReadS FileSystemType
 ReadS [FileSystemType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [FileSystemType]
 readsPrec :: Int -&gt; ReadS FileSystemType
 $creadsPrec :: Int -&gt; ReadS FileSystemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621680304903"><span id="local-6989586621680304905"><span class="annot"><span class="annottext">FileSystemType -&gt; FileSystemType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680306278"><span id="local-6989586621680306280"><span class="annot"><span class="annottext">FileSystemType -&gt; FileSystemType -&gt; Bool
 (FileSystemType -&gt; FileSystemType -&gt; Bool)
 -&gt; (FileSystemType -&gt; FileSystemType -&gt; Bool) -&gt; Eq FileSystemType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: FileSystemType -&gt; FileSystemType -&gt; Bool
 == :: FileSystemType -&gt; FileSystemType -&gt; Bool
 $c== :: FileSystemType -&gt; FileSystemType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621680304887"><span id="local-6989586621680304889"><span id="local-6989586621680304891"><span id="local-6989586621680304893"><span id="local-6989586621680304895"><span id="local-6989586621680304897"><span id="local-6989586621680304899"><span class="annot"><span class="annottext">Eq FileSystemType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680306262"><span id="local-6989586621680306264"><span id="local-6989586621680306266"><span id="local-6989586621680306268"><span id="local-6989586621680306270"><span id="local-6989586621680306272"><span id="local-6989586621680306274"><span class="annot"><span class="annottext">Eq FileSystemType
 Eq FileSystemType
 -&gt; (FileSystemType -&gt; FileSystemType -&gt; Ordering)
 -&gt; (FileSystemType -&gt; FileSystemType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. FileSystemType -&gt; Rep FileSystemType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680304879"><span id="local-6989586621680304881"><span class="annot"><span class="annottext">Int -&gt; FileSystemType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680306254"><span id="local-6989586621680306256"><span class="annot"><span class="annottext">Int -&gt; FileSystemType -&gt; Int
 FileSystemType -&gt; Int
 (Int -&gt; FileSystemType -&gt; Int)
 -&gt; (FileSystemType -&gt; Int) -&gt; Hashable FileSystemType
@@ -142,50 +142,50 @@ $chash :: FileSystemType -&gt; Int
 hashWithSalt :: Int -&gt; FileSystemType -&gt; Int
 $chashWithSalt :: Int -&gt; FileSystemType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621680304876"><span class="annot"><span class="annottext">FileSystemType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680306251"><span class="annot"><span class="annottext">FileSystemType -&gt; ()
 (FileSystemType -&gt; ()) -&gt; NFData FileSystemType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FileSystemType -&gt; ()
 $crnf :: FileSystemType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621680304873"><span class="annot"><span class="annottext">Text -&gt; Either String FileSystemType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680306248"><span class="annot"><span class="annottext">Text -&gt; Either String FileSystemType
 (Text -&gt; Either String FileSystemType) -&gt; FromText FileSystemType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FileSystemType
 $cfromText :: Text -&gt; Either String FileSystemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621680304870"><span class="annot"><span class="annottext">FileSystemType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680306245"><span class="annot"><span class="annottext">FileSystemType -&gt; Text
 (FileSystemType -&gt; Text) -&gt; ToText FileSystemType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FileSystemType -&gt; Text
 $ctoText :: FileSystemType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680304867"><span class="annot"><span class="annottext">FileSystemType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680306242"><span class="annot"><span class="annottext">FileSystemType -&gt; ByteString
 (FileSystemType -&gt; ByteString) -&gt; ToByteString FileSystemType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FileSystemType -&gt; ByteString
 $ctoBS :: FileSystemType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680304864"><span class="annot"><span class="annottext">FileSystemType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680306239"><span class="annot"><span class="annottext">FileSystemType -&gt; ByteStringBuilder
 (FileSystemType -&gt; ByteStringBuilder) -&gt; ToLog FileSystemType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FileSystemType -&gt; ByteStringBuilder
 $cbuild :: FileSystemType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680304861"><span class="annot"><span class="annottext">HeaderName -&gt; FileSystemType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680306236"><span class="annot"><span class="annottext">HeaderName -&gt; FileSystemType -&gt; [Header]
 (HeaderName -&gt; FileSystemType -&gt; [Header])
 -&gt; ToHeader FileSystemType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FileSystemType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FileSystemType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680304858"><span class="annot"><span class="annottext">FileSystemType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680306233"><span class="annot"><span class="annottext">FileSystemType -&gt; QueryString
 (FileSystemType -&gt; QueryString) -&gt; ToQuery FileSystemType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FileSystemType -&gt; QueryString
 $ctoQuery :: FileSystemType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680304853"><span id="local-6989586621680304855"><span class="annot"><span class="annottext">Value -&gt; Parser [FileSystemType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680306228"><span id="local-6989586621680306230"><span class="annot"><span class="annottext">Value -&gt; Parser [FileSystemType]
 Value -&gt; Parser FileSystemType
 (Value -&gt; Parser FileSystemType)
 -&gt; (Value -&gt; Parser [FileSystemType]) -&gt; FromJSON FileSystemType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [FileSystemType]
 parseJSON :: Value -&gt; Parser FileSystemType
 $cparseJSON :: Value -&gt; Parser FileSystemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680304848"><span id="local-6989586621680304850"><span class="annot"><span class="annottext">FromJSONKeyFunction [FileSystemType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680306223"><span id="local-6989586621680306225"><span class="annot"><span class="annottext">FromJSONKeyFunction [FileSystemType]
 FromJSONKeyFunction FileSystemType
 FromJSONKeyFunction FileSystemType
 -&gt; FromJSONKeyFunction [FileSystemType]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FileSystemType]
 fromJSONKey :: FromJSONKeyFunction FileSystemType
 $cfromJSONKey :: FromJSONKeyFunction FileSystemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680304839"><span id="local-6989586621680304841"><span id="local-6989586621680304843"><span id="local-6989586621680304845"><span class="annot"><span class="annottext">[FileSystemType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680306214"><span id="local-6989586621680306216"><span id="local-6989586621680306218"><span id="local-6989586621680306220"><span class="annot"><span class="annottext">[FileSystemType] -&gt; Encoding
 [FileSystemType] -&gt; Value
 FileSystemType -&gt; Encoding
 FileSystemType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: FileSystemType -&gt; Encoding
 toJSON :: FileSystemType -&gt; Value
 $ctoJSON :: FileSystemType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680304834"><span id="local-6989586621680304836"><span class="annot"><span class="annottext">ToJSONKeyFunction [FileSystemType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680306209"><span id="local-6989586621680306211"><span class="annot"><span class="annottext">ToJSONKeyFunction [FileSystemType]
 ToJSONKeyFunction FileSystemType
 ToJSONKeyFunction FileSystemType
 -&gt; ToJSONKeyFunction [FileSystemType] -&gt; ToJSONKey FileSystemType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FileSystemType]
 toJSONKey :: ToJSONKeyFunction FileSystemType
 $ctoJSONKey :: ToJSONKeyFunction FileSystemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680304831"><span class="annot"><span class="annottext">[Node] -&gt; Either String FileSystemType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680306206"><span class="annot"><span class="annottext">[Node] -&gt; Either String FileSystemType
 ([Node] -&gt; Either String FileSystemType) -&gt; FromXML FileSystemType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FileSystemType
 $cparseXML :: [Node] -&gt; Either String FileSystemType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680304828"><span class="annot"><span class="annottext">FileSystemType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680306203"><span class="annot"><span class="annottext">FileSystemType -&gt; XML
 (FileSystemType -&gt; XML) -&gt; ToXML FileSystemType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FileSystemType -&gt; XML

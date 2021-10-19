@@ -36,9 +36,9 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#newBatchGetApplicationRevisionsResponse"><span class="hs-identifier">newBatchGetApplicationRevisionsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_revisions"><span class="hs-identifier">batchGetApplicationRevisionsResponse_revisions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_errorMessage"><span class="hs-identifier">batchGetApplicationRevisionsResponse_errorMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_applicationName"><span class="hs-identifier">batchGetApplicationRevisionsResponse_applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_applicationName"><span class="hs-identifier">batchGetApplicationRevisionsResponse_applicationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_revisions"><span class="hs-identifier">batchGetApplicationRevisionsResponse_revisions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_errorMessage"><span class="hs-identifier">batchGetApplicationRevisionsResponse_errorMessage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_httpStatus"><span class="hs-identifier">batchGetApplicationRevisionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span class="hs-keyword">where</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Represents the input of a @BatchGetApplicationRevisions@ operation.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newBatchGetApplicationRevisions' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679326829"><span id="local-6989586621679326830"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetApplicationRevisions"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-var">BatchGetApplicationRevisions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetApplicationRevisions%27"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions%27"><span class="hs-identifier hs-var">BatchGetApplicationRevisions'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679327156"><span id="local-6989586621679327157"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetApplicationRevisions"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-var">BatchGetApplicationRevisions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetApplicationRevisions%27"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions%27"><span class="hs-identifier hs-var">BatchGetApplicationRevisions'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of an AWS CodeDeploy application about which to get revision</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- information.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AapplicationName%3ABatchGetApplicationRevisions%27"><span class="annot"><span class="annottext">BatchGetApplicationRevisions -&gt; Text
@@ -64,7 +64,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3Arevisions%3ABatchGetApplicationRevisions%27"><span class="annot"><span class="annottext">BatchGetApplicationRevisions -&gt; [RevisionLocation]
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3Arevisions%3ABatchGetApplicationRevisions%27"><span class="hs-identifier hs-var hs-var">revisions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionLocation.html#RevisionLocation"><span class="hs-identifier hs-type">RevisionLocation</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326822"><span id="local-6989586621679326824"><span class="annot"><span class="annottext">BatchGetApplicationRevisions
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327149"><span id="local-6989586621679327151"><span class="annot"><span class="annottext">BatchGetApplicationRevisions
 -&gt; BatchGetApplicationRevisions -&gt; Bool
 (BatchGetApplicationRevisions
  -&gt; BatchGetApplicationRevisions -&gt; Bool)
@@ -80,7 +80,7 @@ $c/= :: BatchGetApplicationRevisions
 -&gt; BatchGetApplicationRevisions -&gt; Bool
 $c== :: BatchGetApplicationRevisions
 -&gt; BatchGetApplicationRevisions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326813"><span id="local-6989586621679326815"><span id="local-6989586621679326817"><span id="local-6989586621679326819"><span class="annot"><span class="annottext">ReadPrec [BatchGetApplicationRevisions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327140"><span id="local-6989586621679327142"><span id="local-6989586621679327144"><span id="local-6989586621679327146"><span class="annot"><span class="annottext">ReadPrec [BatchGetApplicationRevisions]
 ReadPrec BatchGetApplicationRevisions
 Int -&gt; ReadS BatchGetApplicationRevisions
 ReadS [BatchGetApplicationRevisions]
@@ -100,7 +100,7 @@ readList :: ReadS [BatchGetApplicationRevisions]
 $creadList :: ReadS [BatchGetApplicationRevisions]
 readsPrec :: Int -&gt; ReadS BatchGetApplicationRevisions
 $creadsPrec :: Int -&gt; ReadS BatchGetApplicationRevisions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326806"><span id="local-6989586621679326808"><span id="local-6989586621679326810"><span class="annot"><span class="annottext">Int -&gt; BatchGetApplicationRevisions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327133"><span id="local-6989586621679327135"><span id="local-6989586621679327137"><span class="annot"><span class="annottext">Int -&gt; BatchGetApplicationRevisions -&gt; ShowS
 [BatchGetApplicationRevisions] -&gt; ShowS
 BatchGetApplicationRevisions -&gt; String
 (Int -&gt; BatchGetApplicationRevisions -&gt; ShowS)
@@ -151,14 +151,14 @@ BatchGetApplicationRevisions -&gt; Rep BatchGetApplicationRevisions x
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span><span>
 </span><span id="line-85"></span><span id="newBatchGetApplicationRevisions"><span class="annot"><span class="annottext">newBatchGetApplicationRevisions :: Text -&gt; BatchGetApplicationRevisions
-</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#newBatchGetApplicationRevisions"><span class="hs-identifier hs-var hs-var">newBatchGetApplicationRevisions</span></a></span></span><span> </span><span id="local-6989586621679326801"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326801"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#newBatchGetApplicationRevisions"><span class="hs-identifier hs-var hs-var">newBatchGetApplicationRevisions</span></a></span></span><span> </span><span id="local-6989586621679327128"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327128"><span class="hs-identifier hs-var">pApplicationName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">BatchGetApplicationRevisions' :: Text -&gt; [RevisionLocation] -&gt; BatchGetApplicationRevisions
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisions'</span></a></span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationName:BatchGetApplicationRevisions' :: Text
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AapplicationName%3ABatchGetApplicationRevisions%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326801"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679327128"><span class="hs-identifier hs-var">pApplicationName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:revisions:BatchGetApplicationRevisions' :: [RevisionLocation]
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3Arevisions%3ABatchGetApplicationRevisions%27"><span class="hs-identifier hs-var">revisions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RevisionLocation]
 forall a. Monoid a =&gt; a
@@ -176,16 +176,16 @@ forall a. Monoid a =&gt; a
 -&gt; Lens
      BatchGetApplicationRevisions BatchGetApplicationRevisions Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326798"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327125"><span class="annot"><span class="annottext">Text
 applicationName :: Text
 $sel:applicationName:BatchGetApplicationRevisions' :: BatchGetApplicationRevisions -&gt; Text
-</span><a href="#local-6989586621679326798"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326798"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326797"><span class="annot"><span class="annottext">s :: BatchGetApplicationRevisions
-</span><a href="#local-6989586621679326797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326796"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetApplicationRevisions
-</span><a href="#local-6989586621679326797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:BatchGetApplicationRevisions' :: Text
+</span><a href="#local-6989586621679327125"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327125"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327124"><span class="annot"><span class="annottext">s :: BatchGetApplicationRevisions
+</span><a href="#local-6989586621679327124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327123"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679327123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetApplicationRevisions
+</span><a href="#local-6989586621679327124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:BatchGetApplicationRevisions' :: Text
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AapplicationName%3ABatchGetApplicationRevisions%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679327123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | An array of @RevisionLocation@ objects that specify information to get</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- about the application revisions, including type and location. The</span><span>
@@ -202,16 +202,16 @@ $sel:applicationName:BatchGetApplicationRevisions' :: BatchGetApplicationRevisio
      [RevisionLocation]
      [RevisionLocation]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326795"><span class="annot"><span class="annottext">[RevisionLocation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327122"><span class="annot"><span class="annottext">[RevisionLocation]
 revisions :: [RevisionLocation]
 $sel:revisions:BatchGetApplicationRevisions' :: BatchGetApplicationRevisions -&gt; [RevisionLocation]
-</span><a href="#local-6989586621679326795"><span class="hs-identifier hs-var hs-var">revisions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RevisionLocation]
-</span><a href="#local-6989586621679326795"><span class="hs-identifier hs-var">revisions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326794"><span class="annot"><span class="annottext">s :: BatchGetApplicationRevisions
-</span><a href="#local-6989586621679326794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326793"><span class="annot"><span class="annottext">[RevisionLocation]
-</span><a href="#local-6989586621679326793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetApplicationRevisions
-</span><a href="#local-6989586621679326794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisions:BatchGetApplicationRevisions' :: [RevisionLocation]
+</span><a href="#local-6989586621679327122"><span class="hs-identifier hs-var hs-var">revisions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RevisionLocation]
+</span><a href="#local-6989586621679327122"><span class="hs-identifier hs-var">revisions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327121"><span class="annot"><span class="annottext">s :: BatchGetApplicationRevisions
+</span><a href="#local-6989586621679327121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327120"><span class="annot"><span class="annottext">[RevisionLocation]
+</span><a href="#local-6989586621679327120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetApplicationRevisions
+</span><a href="#local-6989586621679327121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisions:BatchGetApplicationRevisions' :: [RevisionLocation]
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3Arevisions%3ABatchGetApplicationRevisions%27"><span class="hs-identifier hs-var">revisions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RevisionLocation]
-</span><a href="#local-6989586621679326793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RevisionLocation] -&gt; f [RevisionLocation])
+</span><a href="#local-6989586621679327120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RevisionLocation] -&gt; f [RevisionLocation])
  -&gt; BatchGetApplicationRevisions -&gt; f BatchGetApplicationRevisions)
 -&gt; (([RevisionLocation] -&gt; f [RevisionLocation])
     -&gt; [RevisionLocation] -&gt; f [RevisionLocation])
@@ -221,14 +221,14 @@ $sel:revisions:BatchGetApplicationRevisions' :: BatchGetApplicationRevisions -&g
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([RevisionLocation] -&gt; f [RevisionLocation])
 -&gt; [RevisionLocation] -&gt; f [RevisionLocation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679326787"><span class="annot"><span class="annottext">request :: BatchGetApplicationRevisions
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679327114"><span class="annot"><span class="annottext">request :: BatchGetApplicationRevisions
 -&gt; Request BatchGetApplicationRevisions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; BatchGetApplicationRevisions
@@ -236,7 +236,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679326783"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679327110"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchGetApplicationRevisions
 -&gt; ClientResponse ClientBody
@@ -262,29 +262,42 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326780"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326780"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679326779"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679326779"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679326778"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326778"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RevisionInfo]
--&gt; Maybe Text
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327107"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327107"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679327106"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679327106"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679327105"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327105"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [RevisionInfo]
 -&gt; Maybe Text
 -&gt; Int
 -&gt; BatchGetApplicationRevisionsResponse
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">BatchGetApplicationRevisionsResponse'</span></a></span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [RevisionInfo]
- -&gt; Maybe Text
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [RevisionInfo]
  -&gt; Maybe Text
  -&gt; Int
  -&gt; BatchGetApplicationRevisionsResponse)
--&gt; Either String (Maybe [RevisionInfo])
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe [RevisionInfo]
       -&gt; Maybe Text -&gt; Int -&gt; BatchGetApplicationRevisionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326778"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RevisionInfo]))
+</span><a href="#local-6989586621679327105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;applicationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [RevisionInfo]
+   -&gt; Maybe Text -&gt; Int -&gt; BatchGetApplicationRevisionsResponse)
+-&gt; Either String (Maybe [RevisionInfo])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; BatchGetApplicationRevisionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RevisionInfo]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;revisions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RevisionInfo]))
@@ -293,29 +306,16 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RevisionInfo]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Int -&gt; BatchGetApplicationRevisionsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe Text -&gt; Int -&gt; BatchGetApplicationRevisionsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326778"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;errorMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Int -&gt; BatchGetApplicationRevisionsResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; BatchGetApplicationRevisionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326778"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679327105"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;applicationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;errorMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchGetApplicationRevisionsResponse)
 -&gt; Either String Int
 -&gt; Either String BatchGetApplicationRevisionsResponse
@@ -325,17 +325,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326780"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679327107"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679326769"><span id="local-6989586621679326771"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679327096"><span id="local-6989586621679327098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326766"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679326762"><span class="annot"><span class="annottext">toHeaders :: BatchGetApplicationRevisions -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679327089"><span class="annot"><span class="annottext">toHeaders :: BatchGetApplicationRevisions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchGetApplicationRevisions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -362,15 +362,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326752"><span id="local-6989586621679326754"><span id="local-6989586621679326756"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679326750"><span class="annot"><span class="annottext">toJSON :: BatchGetApplicationRevisions -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326747"><span id="local-6989586621679326748"><span class="annot"><span class="annottext">[RevisionLocation]
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327079"><span id="local-6989586621679327081"><span id="local-6989586621679327083"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679327077"><span class="annot"><span class="annottext">toJSON :: BatchGetApplicationRevisions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327074"><span id="local-6989586621679327075"><span class="annot"><span class="annottext">[RevisionLocation]
 Text
 revisions :: [RevisionLocation]
 applicationName :: Text
 $sel:revisions:BatchGetApplicationRevisions' :: BatchGetApplicationRevisions -&gt; [RevisionLocation]
 $sel:applicationName:BatchGetApplicationRevisions' :: BatchGetApplicationRevisions -&gt; Text
-</span><a href="#local-6989586621679326747"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679327074"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -383,26 +383,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;applicationName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679326748"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679327075"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;revisions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [RevisionLocation] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[RevisionLocation]
-</span><a href="#local-6989586621679326747"><span class="hs-identifier hs-var">revisions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679327074"><span class="hs-identifier hs-var">revisions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679326741"><span class="annot"><span class="annottext">toPath :: BatchGetApplicationRevisions -&gt; ByteString
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679327068"><span class="annot"><span class="annottext">toPath :: BatchGetApplicationRevisions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchGetApplicationRevisions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisions"><span class="hs-identifier hs-type">BatchGetApplicationRevisions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679326737"><span class="annot"><span class="annottext">toQuery :: BatchGetApplicationRevisions -&gt; QueryString
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679327064"><span class="annot"><span class="annottext">toQuery :: BatchGetApplicationRevisions -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchGetApplicationRevisions -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -412,22 +412,22 @@ forall a. Monoid a =&gt; a
 </span><span id="line-155"></span><span class="hs-comment">-- | Represents the output of a @BatchGetApplicationRevisions@ operation.</span><span>
 </span><span id="line-156"></span><span class="hs-comment">--</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- /See:/ 'newBatchGetApplicationRevisionsResponse' smart constructor.</span><span>
-</span><span id="line-158"></span><span id="local-6989586621679326734"><span id="local-6989586621679326735"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetApplicationRevisionsResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-var">BatchGetApplicationRevisionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetApplicationRevisionsResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">BatchGetApplicationRevisionsResponse'</span></a></span></span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Additional information about the revisions, including the type and</span><span>
-</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- location.</span><span>
-</span><span id="line-161"></span><span>    </span><span id="%24sel%3Arevisions%3ABatchGetApplicationRevisionsResponse%27"><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse -&gt; Maybe [RevisionInfo]
-</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3Arevisions%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var hs-var">revisions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionInfo.html#RevisionInfo"><span class="hs-identifier hs-type">RevisionInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | Information about errors that might have occurred during the API call.</span><span>
-</span><span id="line-163"></span><span>    </span><span id="%24sel%3AerrorMessage%3ABatchGetApplicationRevisionsResponse%27"><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AerrorMessage%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | The name of the application that corresponds to the revisions.</span><span>
-</span><span id="line-165"></span><span>    </span><span id="%24sel%3AapplicationName%3ABatchGetApplicationRevisionsResponse%27"><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse -&gt; Maybe Text
+</span><span id="line-158"></span><span id="local-6989586621679327061"><span id="local-6989586621679327062"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetApplicationRevisionsResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-var">BatchGetApplicationRevisionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetApplicationRevisionsResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">BatchGetApplicationRevisionsResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the application that corresponds to the revisions.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AapplicationName%3ABatchGetApplicationRevisionsResponse%27"><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AapplicationName%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | Additional information about the revisions, including the type and</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- location.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3Arevisions%3ABatchGetApplicationRevisionsResponse%27"><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse -&gt; Maybe [RevisionInfo]
+</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3Arevisions%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var hs-var">revisions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionInfo.html#RevisionInfo"><span class="hs-identifier hs-type">RevisionInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- | Information about errors that might have occurred during the API call.</span><span>
+</span><span id="line-165"></span><span>    </span><span id="%24sel%3AerrorMessage%3ABatchGetApplicationRevisionsResponse%27"><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AerrorMessage%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-167"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchGetApplicationRevisionsResponse%27"><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse -&gt; Int
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AhttpStatus%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326726"><span id="local-6989586621679326728"><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327053"><span id="local-6989586621679327055"><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse
 -&gt; BatchGetApplicationRevisionsResponse -&gt; Bool
 (BatchGetApplicationRevisionsResponse
  -&gt; BatchGetApplicationRevisionsResponse -&gt; Bool)
@@ -443,7 +443,7 @@ $c/= :: BatchGetApplicationRevisionsResponse
 -&gt; BatchGetApplicationRevisionsResponse -&gt; Bool
 $c== :: BatchGetApplicationRevisionsResponse
 -&gt; BatchGetApplicationRevisionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326718"><span id="local-6989586621679326720"><span id="local-6989586621679326722"><span id="local-6989586621679326724"><span class="annot"><span class="annottext">ReadPrec [BatchGetApplicationRevisionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327045"><span id="local-6989586621679327047"><span id="local-6989586621679327049"><span id="local-6989586621679327051"><span class="annot"><span class="annottext">ReadPrec [BatchGetApplicationRevisionsResponse]
 ReadPrec BatchGetApplicationRevisionsResponse
 Int -&gt; ReadS BatchGetApplicationRevisionsResponse
 ReadS [BatchGetApplicationRevisionsResponse]
@@ -463,7 +463,7 @@ readList :: ReadS [BatchGetApplicationRevisionsResponse]
 $creadList :: ReadS [BatchGetApplicationRevisionsResponse]
 readsPrec :: Int -&gt; ReadS BatchGetApplicationRevisionsResponse
 $creadsPrec :: Int -&gt; ReadS BatchGetApplicationRevisionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326712"><span id="local-6989586621679326714"><span id="local-6989586621679326716"><span class="annot"><span class="annottext">Int -&gt; BatchGetApplicationRevisionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327039"><span id="local-6989586621679327041"><span id="local-6989586621679327043"><span class="annot"><span class="annottext">Int -&gt; BatchGetApplicationRevisionsResponse -&gt; ShowS
 [BatchGetApplicationRevisionsResponse] -&gt; ShowS
 BatchGetApplicationRevisionsResponse -&gt; String
 (Int -&gt; BatchGetApplicationRevisionsResponse -&gt; ShowS)
@@ -509,12 +509,12 @@ BatchGetApplicationRevisionsResponse
 </span><span id="line-176"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-178"></span><span class="hs-comment">--</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- 'revisions', 'batchGetApplicationRevisionsResponse_revisions' - Additional information about the revisions, including the type and</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- location.</span><span>
-</span><span id="line-181"></span><span class="hs-comment">--</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- 'errorMessage', 'batchGetApplicationRevisionsResponse_errorMessage' - Information about errors that might have occurred during the API call.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- 'applicationName', 'batchGetApplicationRevisionsResponse_applicationName' - The name of the application that corresponds to the revisions.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'revisions', 'batchGetApplicationRevisionsResponse_revisions' - Additional information about the revisions, including the type and</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- location.</span><span>
 </span><span id="line-183"></span><span class="hs-comment">--</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- 'applicationName', 'batchGetApplicationRevisionsResponse_applicationName' - The name of the application that corresponds to the revisions.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'errorMessage', 'batchGetApplicationRevisionsResponse_errorMessage' - Information about errors that might have occurred during the API call.</span><span>
 </span><span id="line-185"></span><span class="hs-comment">--</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- 'httpStatus', 'batchGetApplicationRevisionsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-187"></span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#newBatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">newBatchGetApplicationRevisionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -522,36 +522,61 @@ BatchGetApplicationRevisionsResponse
 </span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span>
 </span><span id="line-191"></span><span id="newBatchGetApplicationRevisionsResponse"><span class="annot"><span class="annottext">newBatchGetApplicationRevisionsResponse :: Int -&gt; BatchGetApplicationRevisionsResponse
-</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#newBatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-var hs-var">newBatchGetApplicationRevisionsResponse</span></a></span></span><span> </span><span id="local-6989586621679326709"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326709"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse' :: Maybe [RevisionInfo]
--&gt; Maybe Text
+</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#newBatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-var hs-var">newBatchGetApplicationRevisionsResponse</span></a></span></span><span> </span><span id="local-6989586621679327036"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327036"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse' :: Maybe Text
+-&gt; Maybe [RevisionInfo]
 -&gt; Maybe Text
 -&gt; Int
 -&gt; BatchGetApplicationRevisionsResponse
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span>
-</span><span id="line-193"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:revisions:BatchGetApplicationRevisionsResponse' :: Maybe [RevisionInfo]
-</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3Arevisions%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">revisions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">Maybe [RevisionInfo]
+</span><span id="line-193"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applicationName:BatchGetApplicationRevisionsResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AapplicationName%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:BatchGetApplicationRevisionsResponse' :: Maybe Text
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:revisions:BatchGetApplicationRevisionsResponse' :: Maybe [RevisionInfo]
+</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3Arevisions%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">revisions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RevisionInfo]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:BatchGetApplicationRevisionsResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AerrorMessage%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationName:BatchGetApplicationRevisionsResponse' :: Maybe Text
-</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AapplicationName%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetApplicationRevisionsResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AhttpStatus%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326709"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679327036"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-198"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- | Additional information about the revisions, including the type and</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- location.</span><span>
-</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_revisions"><span class="hs-identifier hs-type">batchGetApplicationRevisionsResponse_revisions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionInfo.html#RevisionInfo"><span class="hs-identifier hs-type">RevisionInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span id="batchGetApplicationRevisionsResponse_revisions"><span class="annot"><span class="annottext">batchGetApplicationRevisionsResponse_revisions :: (Maybe [RevisionInfo] -&gt; f (Maybe [RevisionInfo]))
+</span><span id="line-200"></span><span class="hs-comment">-- | The name of the application that corresponds to the revisions.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_applicationName"><span class="hs-identifier hs-type">batchGetApplicationRevisionsResponse_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="batchGetApplicationRevisionsResponse_applicationName"><span class="annot"><span class="annottext">batchGetApplicationRevisionsResponse_applicationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchGetApplicationRevisionsResponse
+-&gt; f BatchGetApplicationRevisionsResponse
+</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_applicationName"><span class="hs-identifier hs-var hs-var">batchGetApplicationRevisionsResponse_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetApplicationRevisionsResponse -&gt; Maybe Text)
+-&gt; (BatchGetApplicationRevisionsResponse
+    -&gt; Maybe Text -&gt; BatchGetApplicationRevisionsResponse)
+-&gt; Lens
+     BatchGetApplicationRevisionsResponse
+     BatchGetApplicationRevisionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327035"><span class="annot"><span class="annottext">Maybe Text
+applicationName :: Maybe Text
+$sel:applicationName:BatchGetApplicationRevisionsResponse' :: BatchGetApplicationRevisionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679327035"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327035"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327034"><span class="annot"><span class="annottext">s :: BatchGetApplicationRevisionsResponse
+</span><a href="#local-6989586621679327034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327033"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse
+</span><a href="#local-6989586621679327034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:BatchGetApplicationRevisionsResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AapplicationName%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | Additional information about the revisions, including the type and</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- location.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_revisions"><span class="hs-identifier hs-type">batchGetApplicationRevisionsResponse_revisions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.RevisionInfo.html#RevisionInfo"><span class="hs-identifier hs-type">RevisionInfo</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="batchGetApplicationRevisionsResponse_revisions"><span class="annot"><span class="annottext">batchGetApplicationRevisionsResponse_revisions :: (Maybe [RevisionInfo] -&gt; f (Maybe [RevisionInfo]))
 -&gt; BatchGetApplicationRevisionsResponse
 -&gt; f BatchGetApplicationRevisionsResponse
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_revisions"><span class="hs-identifier hs-var hs-var">batchGetApplicationRevisionsResponse_revisions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetApplicationRevisionsResponse -&gt; Maybe [RevisionInfo])
@@ -563,16 +588,16 @@ forall a. Maybe a
      (Maybe [RevisionInfo])
      (Maybe [RevisionInfo])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326708"><span class="annot"><span class="annottext">Maybe [RevisionInfo]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327032"><span class="annot"><span class="annottext">Maybe [RevisionInfo]
 revisions :: Maybe [RevisionInfo]
 $sel:revisions:BatchGetApplicationRevisionsResponse' :: BatchGetApplicationRevisionsResponse -&gt; Maybe [RevisionInfo]
-</span><a href="#local-6989586621679326708"><span class="hs-identifier hs-var hs-var">revisions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RevisionInfo]
-</span><a href="#local-6989586621679326708"><span class="hs-identifier hs-var">revisions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326707"><span class="annot"><span class="annottext">s :: BatchGetApplicationRevisionsResponse
-</span><a href="#local-6989586621679326707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326706"><span class="annot"><span class="annottext">Maybe [RevisionInfo]
-</span><a href="#local-6989586621679326706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse
-</span><a href="#local-6989586621679326707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisions:BatchGetApplicationRevisionsResponse' :: Maybe [RevisionInfo]
+</span><a href="#local-6989586621679327032"><span class="hs-identifier hs-var hs-var">revisions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RevisionInfo]
+</span><a href="#local-6989586621679327032"><span class="hs-identifier hs-var">revisions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327031"><span class="annot"><span class="annottext">s :: BatchGetApplicationRevisionsResponse
+</span><a href="#local-6989586621679327031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327030"><span class="annot"><span class="annottext">Maybe [RevisionInfo]
+</span><a href="#local-6989586621679327030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse
+</span><a href="#local-6989586621679327031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisions:BatchGetApplicationRevisionsResponse' :: Maybe [RevisionInfo]
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3Arevisions%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">revisions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RevisionInfo]
-</span><a href="#local-6989586621679326706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RevisionInfo] -&gt; f (Maybe [RevisionInfo]))
+</span><a href="#local-6989586621679327030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RevisionInfo] -&gt; f (Maybe [RevisionInfo]))
  -&gt; BatchGetApplicationRevisionsResponse
  -&gt; f BatchGetApplicationRevisionsResponse)
 -&gt; ((Maybe [RevisionInfo] -&gt; f (Maybe [RevisionInfo]))
@@ -591,12 +616,12 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RevisionInfo] [RevisionInfo] [RevisionInfo] [RevisionInfo]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- | Information about errors that might have occurred during the API call.</span><span>
-</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_errorMessage"><span class="hs-identifier hs-type">batchGetApplicationRevisionsResponse_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span id="batchGetApplicationRevisionsResponse_errorMessage"><span class="annot"><span class="annottext">batchGetApplicationRevisionsResponse_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | Information about errors that might have occurred during the API call.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_errorMessage"><span class="hs-identifier hs-type">batchGetApplicationRevisionsResponse_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="batchGetApplicationRevisionsResponse_errorMessage"><span class="annot"><span class="annottext">batchGetApplicationRevisionsResponse_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; BatchGetApplicationRevisionsResponse
 -&gt; f BatchGetApplicationRevisionsResponse
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_errorMessage"><span class="hs-identifier hs-var hs-var">batchGetApplicationRevisionsResponse_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetApplicationRevisionsResponse -&gt; Maybe Text)
@@ -608,41 +633,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326704"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327028"><span class="annot"><span class="annottext">Maybe Text
 errorMessage :: Maybe Text
 $sel:errorMessage:BatchGetApplicationRevisionsResponse' :: BatchGetApplicationRevisionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679326704"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326704"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326703"><span class="annot"><span class="annottext">s :: BatchGetApplicationRevisionsResponse
-</span><a href="#local-6989586621679326703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326702"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse
-</span><a href="#local-6989586621679326703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:BatchGetApplicationRevisionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679327028"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327028"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327027"><span class="annot"><span class="annottext">s :: BatchGetApplicationRevisionsResponse
+</span><a href="#local-6989586621679327027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327026"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679327026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse
+</span><a href="#local-6989586621679327027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:BatchGetApplicationRevisionsResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AerrorMessage%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- | The name of the application that corresponds to the revisions.</span><span>
-</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_applicationName"><span class="hs-identifier hs-type">batchGetApplicationRevisionsResponse_applicationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span id="batchGetApplicationRevisionsResponse_applicationName"><span class="annot"><span class="annottext">batchGetApplicationRevisionsResponse_applicationName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; BatchGetApplicationRevisionsResponse
--&gt; f BatchGetApplicationRevisionsResponse
-</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_applicationName"><span class="hs-identifier hs-var hs-var">batchGetApplicationRevisionsResponse_applicationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetApplicationRevisionsResponse -&gt; Maybe Text)
--&gt; (BatchGetApplicationRevisionsResponse
-    -&gt; Maybe Text -&gt; BatchGetApplicationRevisionsResponse)
--&gt; Lens
-     BatchGetApplicationRevisionsResponse
-     BatchGetApplicationRevisionsResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326701"><span class="annot"><span class="annottext">Maybe Text
-applicationName :: Maybe Text
-$sel:applicationName:BatchGetApplicationRevisionsResponse' :: BatchGetApplicationRevisionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679326701"><span class="hs-identifier hs-var hs-var">applicationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326701"><span class="hs-identifier hs-var">applicationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326700"><span class="annot"><span class="annottext">s :: BatchGetApplicationRevisionsResponse
-</span><a href="#local-6989586621679326700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326699"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse
-</span><a href="#local-6989586621679326700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationName:BatchGetApplicationRevisionsResponse' :: Maybe Text
-</span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AapplicationName%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">applicationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679326699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679327026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-214"></span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#batchGetApplicationRevisionsResponse_httpStatus"><span class="hs-identifier hs-type">batchGetApplicationRevisionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -658,18 +658,18 @@ $sel:applicationName:BatchGetApplicationRevisionsResponse' :: BatchGetApplicatio
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326698"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327025"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchGetApplicationRevisionsResponse' :: BatchGetApplicationRevisionsResponse -&gt; Int
-</span><a href="#local-6989586621679326698"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326698"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326697"><span class="annot"><span class="annottext">s :: BatchGetApplicationRevisionsResponse
-</span><a href="#local-6989586621679326697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326696"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse
-</span><a href="#local-6989586621679326697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetApplicationRevisionsResponse' :: Int
+</span><a href="#local-6989586621679327025"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327025"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327024"><span class="annot"><span class="annottext">s :: BatchGetApplicationRevisionsResponse
+</span><a href="#local-6989586621679327024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327023"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679327023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetApplicationRevisionsResponse
+</span><a href="#local-6989586621679327024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchGetApplicationRevisionsResponse' :: Int
 </span><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#%24sel%3AhttpStatus%3ABatchGetApplicationRevisionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679326696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679327023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679326694"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679327021"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-219"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.BatchGetApplicationRevisions.html#BatchGetApplicationRevisionsResponse"><span class="hs-identifier hs-type">BatchGetApplicationRevisionsResponse</span></a></span></span><span>
 </span><span id="line-220"></span></pre></body></html>

@@ -30,17 +30,17 @@
 </span><span id="line-30"></span><span class="hs-comment">-- job from the series of jobs scheduled to collect data periodically.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newDataQualityBaselineConfig' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621680320874"><span id="local-6989586621680320875"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataQualityBaselineConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-var">DataQualityBaselineConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataQualityBaselineConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-var">DataQualityBaselineConfig'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AstatisticsResource%3ADataQualityBaselineConfig%27"><span class="annot"><span class="annottext">DataQualityBaselineConfig -&gt; Maybe MonitoringStatisticsResource
-</span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#%24sel%3AstatisticsResource%3ADataQualityBaselineConfig%27"><span class="hs-identifier hs-var hs-var">statisticsResource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringStatisticsResource.html#MonitoringStatisticsResource"><span class="hs-identifier hs-type">MonitoringStatisticsResource</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AconstraintsResource%3ADataQualityBaselineConfig%27"><span class="annot"><span class="annottext">DataQualityBaselineConfig -&gt; Maybe MonitoringConstraintsResource
+</span><span id="line-33"></span><span id="local-6989586621680322259"><span id="local-6989586621680322260"></span></span><span class="hs-keyword">data</span><span> </span><span id="DataQualityBaselineConfig"><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-var">DataQualityBaselineConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataQualityBaselineConfig%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-var">DataQualityBaselineConfig'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AconstraintsResource%3ADataQualityBaselineConfig%27"><span class="annot"><span class="annottext">DataQualityBaselineConfig -&gt; Maybe MonitoringConstraintsResource
 </span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#%24sel%3AconstraintsResource%3ADataQualityBaselineConfig%27"><span class="hs-identifier hs-var hs-var">constraintsResource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringConstraintsResource.html#MonitoringConstraintsResource"><span class="hs-identifier hs-type">MonitoringConstraintsResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AstatisticsResource%3ADataQualityBaselineConfig%27"><span class="annot"><span class="annottext">DataQualityBaselineConfig -&gt; Maybe MonitoringStatisticsResource
+</span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#%24sel%3AstatisticsResource%3ADataQualityBaselineConfig%27"><span class="hs-identifier hs-var hs-var">statisticsResource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringStatisticsResource.html#MonitoringStatisticsResource"><span class="hs-identifier hs-type">MonitoringStatisticsResource</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the job that performs baselining for the data quality</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- monitoring job.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AbaseliningJobName%3ADataQualityBaselineConfig%27"><span class="annot"><span class="annottext">DataQualityBaselineConfig -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#%24sel%3AbaseliningJobName%3ADataQualityBaselineConfig%27"><span class="hs-identifier hs-var hs-var">baseliningJobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680320866"><span id="local-6989586621680320868"><span class="annot"><span class="annottext">DataQualityBaselineConfig -&gt; DataQualityBaselineConfig -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680322251"><span id="local-6989586621680322253"><span class="annot"><span class="annottext">DataQualityBaselineConfig -&gt; DataQualityBaselineConfig -&gt; Bool
 (DataQualityBaselineConfig -&gt; DataQualityBaselineConfig -&gt; Bool)
 -&gt; (DataQualityBaselineConfig -&gt; DataQualityBaselineConfig -&gt; Bool)
 -&gt; Eq DataQualityBaselineConfig
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DataQualityBaselineConfig -&gt; DataQualityBaselineConfig -&gt; Bool
 == :: DataQualityBaselineConfig -&gt; DataQualityBaselineConfig -&gt; Bool
 $c== :: DataQualityBaselineConfig -&gt; DataQualityBaselineConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680320857"><span id="local-6989586621680320859"><span id="local-6989586621680320861"><span id="local-6989586621680320863"><span class="annot"><span class="annottext">ReadPrec [DataQualityBaselineConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680322242"><span id="local-6989586621680322244"><span id="local-6989586621680322246"><span id="local-6989586621680322248"><span class="annot"><span class="annottext">ReadPrec [DataQualityBaselineConfig]
 ReadPrec DataQualityBaselineConfig
 Int -&gt; ReadS DataQualityBaselineConfig
 ReadS [DataQualityBaselineConfig]
@@ -69,7 +69,7 @@ readList :: ReadS [DataQualityBaselineConfig]
 $creadList :: ReadS [DataQualityBaselineConfig]
 readsPrec :: Int -&gt; ReadS DataQualityBaselineConfig
 $creadsPrec :: Int -&gt; ReadS DataQualityBaselineConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680320850"><span id="local-6989586621680320852"><span id="local-6989586621680320854"><span class="annot"><span class="annottext">Int -&gt; DataQualityBaselineConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680322235"><span id="local-6989586621680322237"><span id="local-6989586621680322239"><span class="annot"><span class="annottext">Int -&gt; DataQualityBaselineConfig -&gt; ShowS
 [DataQualityBaselineConfig] -&gt; ShowS
 DataQualityBaselineConfig -&gt; String
 (Int -&gt; DataQualityBaselineConfig -&gt; ShowS)
@@ -109,9 +109,9 @@ DataQualityBaselineConfig -&gt; Rep DataQualityBaselineConfig x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'statisticsResource', 'dataQualityBaselineConfig_statisticsResource' - Undocumented member.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'constraintsResource', 'dataQualityBaselineConfig_constraintsResource' - Undocumented member.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'constraintsResource', 'dataQualityBaselineConfig_constraintsResource' - Undocumented member.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'statisticsResource', 'dataQualityBaselineConfig_statisticsResource' - Undocumented member.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'baseliningJobName', 'dataQualityBaselineConfig_baseliningJobName' - The name of the job that performs baselining for the data quality</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- monitoring job.</span><span>
@@ -119,18 +119,18 @@ DataQualityBaselineConfig -&gt; Rep DataQualityBaselineConfig x
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span><span>
 </span><span id="line-58"></span><span id="newDataQualityBaselineConfig"><span class="annot"><span class="annottext">newDataQualityBaselineConfig :: DataQualityBaselineConfig
 </span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#newDataQualityBaselineConfig"><span class="hs-identifier hs-var hs-var">newDataQualityBaselineConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">DataQualityBaselineConfig' :: Maybe MonitoringStatisticsResource
--&gt; Maybe MonitoringConstraintsResource
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">DataQualityBaselineConfig' :: Maybe MonitoringConstraintsResource
+-&gt; Maybe MonitoringStatisticsResource
 -&gt; Maybe Text
 -&gt; DataQualityBaselineConfig
 </span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statisticsResource:DataQualityBaselineConfig' :: Maybe MonitoringStatisticsResource
-</span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#%24sel%3AstatisticsResource%3ADataQualityBaselineConfig%27"><span class="hs-identifier hs-var">statisticsResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe MonitoringStatisticsResource
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:constraintsResource:DataQualityBaselineConfig' :: Maybe MonitoringConstraintsResource
+</span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#%24sel%3AconstraintsResource%3ADataQualityBaselineConfig%27"><span class="hs-identifier hs-var">constraintsResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe MonitoringConstraintsResource
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:constraintsResource:DataQualityBaselineConfig' :: Maybe MonitoringConstraintsResource
-</span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#%24sel%3AconstraintsResource%3ADataQualityBaselineConfig%27"><span class="hs-identifier hs-var">constraintsResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringConstraintsResource
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:statisticsResource:DataQualityBaselineConfig' :: Maybe MonitoringStatisticsResource
+</span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#%24sel%3AstatisticsResource%3ADataQualityBaselineConfig%27"><span class="hs-identifier hs-var">statisticsResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStatisticsResource
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:baseliningJobName:DataQualityBaselineConfig' :: Maybe Text
@@ -140,33 +140,8 @@ forall a. Maybe a
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#dataQualityBaselineConfig_statisticsResource"><span class="hs-identifier hs-type">dataQualityBaselineConfig_statisticsResource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringStatisticsResource.html#MonitoringStatisticsResource"><span class="hs-identifier hs-type">MonitoringStatisticsResource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="dataQualityBaselineConfig_statisticsResource"><span class="annot"><span class="annottext">dataQualityBaselineConfig_statisticsResource :: (Maybe MonitoringStatisticsResource
- -&gt; f (Maybe MonitoringStatisticsResource))
--&gt; DataQualityBaselineConfig -&gt; f DataQualityBaselineConfig
-</span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#dataQualityBaselineConfig_statisticsResource"><span class="hs-identifier hs-var hs-var">dataQualityBaselineConfig_statisticsResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataQualityBaselineConfig -&gt; Maybe MonitoringStatisticsResource)
--&gt; (DataQualityBaselineConfig
-    -&gt; Maybe MonitoringStatisticsResource -&gt; DataQualityBaselineConfig)
--&gt; Lens
-     DataQualityBaselineConfig
-     DataQualityBaselineConfig
-     (Maybe MonitoringStatisticsResource)
-     (Maybe MonitoringStatisticsResource)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320841"><span class="annot"><span class="annottext">Maybe MonitoringStatisticsResource
-statisticsResource :: Maybe MonitoringStatisticsResource
-$sel:statisticsResource:DataQualityBaselineConfig' :: DataQualityBaselineConfig -&gt; Maybe MonitoringStatisticsResource
-</span><a href="#local-6989586621680320841"><span class="hs-identifier hs-var hs-var">statisticsResource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStatisticsResource
-</span><a href="#local-6989586621680320841"><span class="hs-identifier hs-var">statisticsResource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320840"><span class="annot"><span class="annottext">s :: DataQualityBaselineConfig
-</span><a href="#local-6989586621680320840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320839"><span class="annot"><span class="annottext">Maybe MonitoringStatisticsResource
-</span><a href="#local-6989586621680320839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataQualityBaselineConfig
-</span><a href="#local-6989586621680320840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statisticsResource:DataQualityBaselineConfig' :: Maybe MonitoringStatisticsResource
-</span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#%24sel%3AstatisticsResource%3ADataQualityBaselineConfig%27"><span class="hs-identifier hs-var">statisticsResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStatisticsResource
-</span><a href="#local-6989586621680320839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#dataQualityBaselineConfig_constraintsResource"><span class="hs-identifier hs-type">dataQualityBaselineConfig_constraintsResource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringConstraintsResource.html#MonitoringConstraintsResource"><span class="hs-identifier hs-type">MonitoringConstraintsResource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="dataQualityBaselineConfig_constraintsResource"><span class="annot"><span class="annottext">dataQualityBaselineConfig_constraintsResource :: (Maybe MonitoringConstraintsResource
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#dataQualityBaselineConfig_constraintsResource"><span class="hs-identifier hs-type">dataQualityBaselineConfig_constraintsResource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringConstraintsResource.html#MonitoringConstraintsResource"><span class="hs-identifier hs-type">MonitoringConstraintsResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="dataQualityBaselineConfig_constraintsResource"><span class="annot"><span class="annottext">dataQualityBaselineConfig_constraintsResource :: (Maybe MonitoringConstraintsResource
  -&gt; f (Maybe MonitoringConstraintsResource))
 -&gt; DataQualityBaselineConfig -&gt; f DataQualityBaselineConfig
 </span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#dataQualityBaselineConfig_constraintsResource"><span class="hs-identifier hs-var hs-var">dataQualityBaselineConfig_constraintsResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataQualityBaselineConfig -&gt; Maybe MonitoringConstraintsResource)
@@ -179,16 +154,41 @@ $sel:statisticsResource:DataQualityBaselineConfig' :: DataQualityBaselineConfig 
      (Maybe MonitoringConstraintsResource)
      (Maybe MonitoringConstraintsResource)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320837"><span class="annot"><span class="annottext">Maybe MonitoringConstraintsResource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322226"><span class="annot"><span class="annottext">Maybe MonitoringConstraintsResource
 constraintsResource :: Maybe MonitoringConstraintsResource
 $sel:constraintsResource:DataQualityBaselineConfig' :: DataQualityBaselineConfig -&gt; Maybe MonitoringConstraintsResource
-</span><a href="#local-6989586621680320837"><span class="hs-identifier hs-var hs-var">constraintsResource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringConstraintsResource
-</span><a href="#local-6989586621680320837"><span class="hs-identifier hs-var">constraintsResource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320836"><span class="annot"><span class="annottext">s :: DataQualityBaselineConfig
-</span><a href="#local-6989586621680320836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320835"><span class="annot"><span class="annottext">Maybe MonitoringConstraintsResource
-</span><a href="#local-6989586621680320835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataQualityBaselineConfig
-</span><a href="#local-6989586621680320836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraintsResource:DataQualityBaselineConfig' :: Maybe MonitoringConstraintsResource
+</span><a href="#local-6989586621680322226"><span class="hs-identifier hs-var hs-var">constraintsResource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringConstraintsResource
+</span><a href="#local-6989586621680322226"><span class="hs-identifier hs-var">constraintsResource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322225"><span class="annot"><span class="annottext">s :: DataQualityBaselineConfig
+</span><a href="#local-6989586621680322225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322224"><span class="annot"><span class="annottext">Maybe MonitoringConstraintsResource
+</span><a href="#local-6989586621680322224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataQualityBaselineConfig
+</span><a href="#local-6989586621680322225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:constraintsResource:DataQualityBaselineConfig' :: Maybe MonitoringConstraintsResource
 </span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#%24sel%3AconstraintsResource%3ADataQualityBaselineConfig%27"><span class="hs-identifier hs-var">constraintsResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringConstraintsResource
-</span><a href="#local-6989586621680320835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680322224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#dataQualityBaselineConfig_statisticsResource"><span class="hs-identifier hs-type">dataQualityBaselineConfig_statisticsResource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MonitoringStatisticsResource.html#MonitoringStatisticsResource"><span class="hs-identifier hs-type">MonitoringStatisticsResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="dataQualityBaselineConfig_statisticsResource"><span class="annot"><span class="annottext">dataQualityBaselineConfig_statisticsResource :: (Maybe MonitoringStatisticsResource
+ -&gt; f (Maybe MonitoringStatisticsResource))
+-&gt; DataQualityBaselineConfig -&gt; f DataQualityBaselineConfig
+</span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#dataQualityBaselineConfig_statisticsResource"><span class="hs-identifier hs-var hs-var">dataQualityBaselineConfig_statisticsResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DataQualityBaselineConfig -&gt; Maybe MonitoringStatisticsResource)
+-&gt; (DataQualityBaselineConfig
+    -&gt; Maybe MonitoringStatisticsResource -&gt; DataQualityBaselineConfig)
+-&gt; Lens
+     DataQualityBaselineConfig
+     DataQualityBaselineConfig
+     (Maybe MonitoringStatisticsResource)
+     (Maybe MonitoringStatisticsResource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322222"><span class="annot"><span class="annottext">Maybe MonitoringStatisticsResource
+statisticsResource :: Maybe MonitoringStatisticsResource
+$sel:statisticsResource:DataQualityBaselineConfig' :: DataQualityBaselineConfig -&gt; Maybe MonitoringStatisticsResource
+</span><a href="#local-6989586621680322222"><span class="hs-identifier hs-var hs-var">statisticsResource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStatisticsResource
+</span><a href="#local-6989586621680322222"><span class="hs-identifier hs-var">statisticsResource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322221"><span class="annot"><span class="annottext">s :: DataQualityBaselineConfig
+</span><a href="#local-6989586621680322221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322220"><span class="annot"><span class="annottext">Maybe MonitoringStatisticsResource
+</span><a href="#local-6989586621680322220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataQualityBaselineConfig
+</span><a href="#local-6989586621680322221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statisticsResource:DataQualityBaselineConfig' :: Maybe MonitoringStatisticsResource
+</span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#%24sel%3AstatisticsResource%3ADataQualityBaselineConfig%27"><span class="hs-identifier hs-var">statisticsResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStatisticsResource
+</span><a href="#local-6989586621680322220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The name of the job that performs baselining for the data quality</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- monitoring job.</span><span>
@@ -204,19 +204,19 @@ $sel:constraintsResource:DataQualityBaselineConfig' :: DataQualityBaselineConfig
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320833"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322218"><span class="annot"><span class="annottext">Maybe Text
 baseliningJobName :: Maybe Text
 $sel:baseliningJobName:DataQualityBaselineConfig' :: DataQualityBaselineConfig -&gt; Maybe Text
-</span><a href="#local-6989586621680320833"><span class="hs-identifier hs-var hs-var">baseliningJobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680320833"><span class="hs-identifier hs-var">baseliningJobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680320832"><span class="annot"><span class="annottext">s :: DataQualityBaselineConfig
-</span><a href="#local-6989586621680320832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680320831"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680320831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataQualityBaselineConfig
-</span><a href="#local-6989586621680320832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseliningJobName:DataQualityBaselineConfig' :: Maybe Text
+</span><a href="#local-6989586621680322218"><span class="hs-identifier hs-var hs-var">baseliningJobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680322218"><span class="hs-identifier hs-var">baseliningJobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680322217"><span class="annot"><span class="annottext">s :: DataQualityBaselineConfig
+</span><a href="#local-6989586621680322217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680322216"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680322216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DataQualityBaselineConfig
+</span><a href="#local-6989586621680322217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseliningJobName:DataQualityBaselineConfig' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#%24sel%3AbaseliningJobName%3ADataQualityBaselineConfig%27"><span class="hs-identifier hs-var">baseliningJobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680320831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680322216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320828"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621680320826"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataQualityBaselineConfig
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322213"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621680322211"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DataQualityBaselineConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DataQualityBaselineConfig)
@@ -226,87 +226,87 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DataQualityBaselineConfig&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680320823"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680320823"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe MonitoringStatisticsResource
--&gt; Maybe MonitoringConstraintsResource
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680322208"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680322208"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe MonitoringConstraintsResource
+-&gt; Maybe MonitoringStatisticsResource
 -&gt; Maybe Text
 -&gt; DataQualityBaselineConfig
 </span><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-var">DataQualityBaselineConfig'</span></a></span><span>
-</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MonitoringStatisticsResource
- -&gt; Maybe MonitoringConstraintsResource
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MonitoringConstraintsResource
+ -&gt; Maybe MonitoringStatisticsResource
  -&gt; Maybe Text
  -&gt; DataQualityBaselineConfig)
--&gt; Parser (Maybe MonitoringStatisticsResource)
+-&gt; Parser (Maybe MonitoringConstraintsResource)
 -&gt; Parser
-     (Maybe MonitoringConstraintsResource
+     (Maybe MonitoringStatisticsResource
       -&gt; Maybe Text -&gt; DataQualityBaselineConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680320823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MonitoringStatisticsResource)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StatisticsResource&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe MonitoringConstraintsResource
-   -&gt; Maybe Text -&gt; DataQualityBaselineConfig)
--&gt; Parser (Maybe MonitoringConstraintsResource)
--&gt; Parser (Maybe Text -&gt; DataQualityBaselineConfig)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680320823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MonitoringConstraintsResource)
+</span><a href="#local-6989586621680322208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MonitoringConstraintsResource)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConstraintsResource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MonitoringStatisticsResource
+   -&gt; Maybe Text -&gt; DataQualityBaselineConfig)
+-&gt; Parser (Maybe MonitoringStatisticsResource)
+-&gt; Parser (Maybe Text -&gt; DataQualityBaselineConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680322208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MonitoringStatisticsResource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatisticsResource&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DataQualityBaselineConfig)
 -&gt; Parser (Maybe Text) -&gt; Parser DataQualityBaselineConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680320823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680322208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BaseliningJobName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320817"><span id="local-6989586621680320819"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322202"><span id="local-6989586621680322204"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320814"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322199"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680320806"><span id="local-6989586621680320808"><span id="local-6989586621680320810"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621680320804"><span class="annot"><span class="annottext">toJSON :: DataQualityBaselineConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680320800"><span id="local-6989586621680320801"><span id="local-6989586621680320802"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680322191"><span id="local-6989586621680322193"><span id="local-6989586621680322195"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig"><span class="hs-identifier hs-type">DataQualityBaselineConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621680322189"><span class="annot"><span class="annottext">toJSON :: DataQualityBaselineConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.DataQualityBaselineConfig.html#DataQualityBaselineConfig%27"><span class="hs-identifier hs-type">DataQualityBaselineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680322185"><span id="local-6989586621680322186"><span id="local-6989586621680322187"><span class="annot"><span class="annottext">Maybe Text
 Maybe MonitoringConstraintsResource
 Maybe MonitoringStatisticsResource
 baseliningJobName :: Maybe Text
-constraintsResource :: Maybe MonitoringConstraintsResource
 statisticsResource :: Maybe MonitoringStatisticsResource
+constraintsResource :: Maybe MonitoringConstraintsResource
 $sel:baseliningJobName:DataQualityBaselineConfig' :: DataQualityBaselineConfig -&gt; Maybe Text
-$sel:constraintsResource:DataQualityBaselineConfig' :: DataQualityBaselineConfig -&gt; Maybe MonitoringConstraintsResource
 $sel:statisticsResource:DataQualityBaselineConfig' :: DataQualityBaselineConfig -&gt; Maybe MonitoringStatisticsResource
-</span><a href="#local-6989586621680320800"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:constraintsResource:DataQualityBaselineConfig' :: DataQualityBaselineConfig -&gt; Maybe MonitoringConstraintsResource
+</span><a href="#local-6989586621680322185"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StatisticsResource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringStatisticsResource -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringStatisticsResource -&gt; Pair)
--&gt; Maybe MonitoringStatisticsResource -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStatisticsResource
-</span><a href="#local-6989586621680320802"><span class="hs-identifier hs-var">statisticsResource</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConstraintsResource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringConstraintsResource -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringConstraintsResource -&gt; Pair)
+</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringConstraintsResource -&gt; Pair)
 -&gt; Maybe MonitoringConstraintsResource -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringConstraintsResource
-</span><a href="#local-6989586621680320801"><span class="hs-identifier hs-var">constraintsResource</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680322187"><span class="hs-identifier hs-var">constraintsResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StatisticsResource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MonitoringStatisticsResource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">(MonitoringStatisticsResource -&gt; Pair)
+-&gt; Maybe MonitoringStatisticsResource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MonitoringStatisticsResource
+</span><a href="#local-6989586621680322186"><span class="hs-identifier hs-var">statisticsResource</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BaseliningJobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -314,7 +314,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680320800"><span class="hs-identifier hs-var">baseliningJobName</span></a></span><span>
+</span><a href="#local-6989586621680322185"><span class="hs-identifier hs-var">baseliningJobName</span></a></span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span></pre></body></html>

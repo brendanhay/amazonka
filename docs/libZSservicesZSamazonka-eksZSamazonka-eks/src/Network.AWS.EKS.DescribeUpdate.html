@@ -32,8 +32,8 @@
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#newDescribeUpdate"><span class="hs-identifier">newDescribeUpdate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_nodegroupName"><span class="hs-identifier">describeUpdate_nodegroupName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_addonName"><span class="hs-identifier">describeUpdate_addonName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_addonName"><span class="hs-identifier">describeUpdate_addonName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_nodegroupName"><span class="hs-identifier">describeUpdate_nodegroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_name"><span class="hs-identifier">describeUpdate_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_updateId"><span class="hs-identifier">describeUpdate_updateId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
@@ -55,15 +55,15 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeUpdate' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679274311"><span id="local-6989586621679274312"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUpdate"><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-var">DescribeUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUpdate%27"><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-var">DescribeUpdate'</span></a></span></span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Amazon EKS node group associated with the update.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AnodegroupName%3ADescribeUpdate%27"><span class="annot"><span class="annottext">DescribeUpdate -&gt; Maybe Text
-</span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AnodegroupName%3ADescribeUpdate%27"><span class="hs-identifier hs-var hs-var">nodegroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The name of the add-on. The name must match one of the names returned by</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons&gt;</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- .</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AaddonName%3ADescribeUpdate%27"><span class="annot"><span class="annottext">DescribeUpdate -&gt; Maybe Text
+</span><span id="line-58"></span><span id="local-6989586621679274595"><span id="local-6989586621679274596"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUpdate"><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-var">DescribeUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUpdate%27"><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-var">DescribeUpdate'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the add-on. The name must match one of the names returned by</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons&gt;</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- .</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AaddonName%3ADescribeUpdate%27"><span class="annot"><span class="annottext">DescribeUpdate -&gt; Maybe Text
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AaddonName%3ADescribeUpdate%27"><span class="hs-identifier hs-var hs-var">addonName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon EKS node group associated with the update.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AnodegroupName%3ADescribeUpdate%27"><span class="annot"><span class="annottext">DescribeUpdate -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AnodegroupName%3ADescribeUpdate%27"><span class="hs-identifier hs-var hs-var">nodegroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon EKS cluster associated with the update.</span><span>
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3Aname%3ADescribeUpdate%27"><span class="annot"><span class="annottext">DescribeUpdate -&gt; Text
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3Aname%3ADescribeUpdate%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -71,7 +71,7 @@
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AupdateId%3ADescribeUpdate%27"><span class="annot"><span class="annottext">DescribeUpdate -&gt; Text
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AupdateId%3ADescribeUpdate%27"><span class="hs-identifier hs-var hs-var">updateId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274302"><span id="local-6989586621679274304"><span class="annot"><span class="annottext">DescribeUpdate -&gt; DescribeUpdate -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274586"><span id="local-6989586621679274588"><span class="annot"><span class="annottext">DescribeUpdate -&gt; DescribeUpdate -&gt; Bool
 (DescribeUpdate -&gt; DescribeUpdate -&gt; Bool)
 -&gt; (DescribeUpdate -&gt; DescribeUpdate -&gt; Bool) -&gt; Eq DescribeUpdate
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -79,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeUpdate -&gt; DescribeUpdate -&gt; Bool
 == :: DescribeUpdate -&gt; DescribeUpdate -&gt; Bool
 $c== :: DescribeUpdate -&gt; DescribeUpdate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274293"><span id="local-6989586621679274295"><span id="local-6989586621679274297"><span id="local-6989586621679274299"><span class="annot"><span class="annottext">ReadPrec [DescribeUpdate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274577"><span id="local-6989586621679274579"><span id="local-6989586621679274581"><span id="local-6989586621679274583"><span class="annot"><span class="annottext">ReadPrec [DescribeUpdate]
 ReadPrec DescribeUpdate
 Int -&gt; ReadS DescribeUpdate
 ReadS [DescribeUpdate]
@@ -99,7 +99,7 @@ readList :: ReadS [DescribeUpdate]
 $creadList :: ReadS [DescribeUpdate]
 readsPrec :: Int -&gt; ReadS DescribeUpdate
 $creadsPrec :: Int -&gt; ReadS DescribeUpdate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274286"><span id="local-6989586621679274288"><span id="local-6989586621679274290"><span class="annot"><span class="annottext">Int -&gt; DescribeUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274570"><span id="local-6989586621679274572"><span id="local-6989586621679274574"><span class="annot"><span class="annottext">Int -&gt; DescribeUpdate -&gt; ShowS
 [DescribeUpdate] -&gt; ShowS
 DescribeUpdate -&gt; String
 (Int -&gt; DescribeUpdate -&gt; ShowS)
@@ -133,11 +133,11 @@ $cfrom :: forall x. DescribeUpdate -&gt; Rep DescribeUpdate x
 </span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'nodegroupName', 'describeUpdate_nodegroupName' - The name of the Amazon EKS node group associated with the update.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'addonName', 'describeUpdate_addonName' - The name of the add-on. The name must match one of the names returned by</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons&gt;</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- .</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'addonName', 'describeUpdate_addonName' - The name of the add-on. The name must match one of the names returned by</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons&gt;</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- .</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'nodegroupName', 'describeUpdate_nodegroupName' - The name of the Amazon EKS node group associated with the update.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- 'name', 'describeUpdate_name' - The name of the Amazon EKS cluster associated with the update.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
@@ -149,66 +149,66 @@ $cfrom :: forall x. DescribeUpdate -&gt; Rep DescribeUpdate x
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span>
 </span><span id="line-95"></span><span id="newDescribeUpdate"><span class="annot"><span class="annottext">newDescribeUpdate :: Text -&gt; Text -&gt; DescribeUpdate
-</span><a href="Network.AWS.EKS.DescribeUpdate.html#newDescribeUpdate"><span class="hs-identifier hs-var hs-var">newDescribeUpdate</span></a></span></span><span> </span><span id="local-6989586621679274281"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274281"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679274280"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274280"><span class="hs-identifier hs-var">pUpdateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.DescribeUpdate.html#newDescribeUpdate"><span class="hs-identifier hs-var hs-var">newDescribeUpdate</span></a></span></span><span> </span><span id="local-6989586621679274565"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274565"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679274564"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274564"><span class="hs-identifier hs-var">pUpdateId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">DescribeUpdate' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; DescribeUpdate
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nodegroupName:DescribeUpdate' :: Maybe Text
-</span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AnodegroupName%3ADescribeUpdate%27"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:addonName:DescribeUpdate' :: Maybe Text
+</span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AaddonName%3ADescribeUpdate%27"><span class="hs-identifier hs-var">addonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:addonName:DescribeUpdate' :: Maybe Text
-</span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AaddonName%3ADescribeUpdate%27"><span class="hs-identifier hs-var">addonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:nodegroupName:DescribeUpdate' :: Maybe Text
+</span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AnodegroupName%3ADescribeUpdate%27"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:DescribeUpdate' :: Text
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3Aname%3ADescribeUpdate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274281"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274565"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:updateId:DescribeUpdate' :: Text
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AupdateId%3ADescribeUpdate%27"><span class="hs-identifier hs-var">updateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274280"><span class="hs-identifier hs-var">pUpdateId_</span></a></span><span>
+</span><a href="#local-6989586621679274564"><span class="hs-identifier hs-var">pUpdateId_</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The name of the Amazon EKS node group associated with the update.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_nodegroupName"><span class="hs-identifier hs-type">describeUpdate_nodegroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="describeUpdate_nodegroupName"><span class="annot"><span class="annottext">describeUpdate_nodegroupName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeUpdate -&gt; f DescribeUpdate
-</span><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_nodegroupName"><span class="hs-identifier hs-var hs-var">describeUpdate_nodegroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUpdate -&gt; Maybe Text)
--&gt; (DescribeUpdate -&gt; Maybe Text -&gt; DescribeUpdate)
--&gt; Lens DescribeUpdate DescribeUpdate (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274277"><span class="annot"><span class="annottext">Maybe Text
-nodegroupName :: Maybe Text
-$sel:nodegroupName:DescribeUpdate' :: DescribeUpdate -&gt; Maybe Text
-</span><a href="#local-6989586621679274277"><span class="hs-identifier hs-var hs-var">nodegroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274277"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274276"><span class="annot"><span class="annottext">s :: DescribeUpdate
-</span><a href="#local-6989586621679274276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274275"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUpdate
-</span><a href="#local-6989586621679274276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodegroupName:DescribeUpdate' :: Maybe Text
-</span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AnodegroupName%3ADescribeUpdate%27"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The name of the add-on. The name must match one of the names returned by</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons&gt;</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- .</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_addonName"><span class="hs-identifier hs-type">describeUpdate_addonName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="describeUpdate_addonName"><span class="annot"><span class="annottext">describeUpdate_addonName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-103"></span><span class="hs-comment">-- | The name of the add-on. The name must match one of the names returned by</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/APIReference/API_ListAddons.html ListAddons&gt;</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- .</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_addonName"><span class="hs-identifier hs-type">describeUpdate_addonName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="describeUpdate_addonName"><span class="annot"><span class="annottext">describeUpdate_addonName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeUpdate -&gt; f DescribeUpdate
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_addonName"><span class="hs-identifier hs-var hs-var">describeUpdate_addonName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUpdate -&gt; Maybe Text)
 -&gt; (DescribeUpdate -&gt; Maybe Text -&gt; DescribeUpdate)
 -&gt; Lens DescribeUpdate DescribeUpdate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274274"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274561"><span class="annot"><span class="annottext">Maybe Text
 addonName :: Maybe Text
 $sel:addonName:DescribeUpdate' :: DescribeUpdate -&gt; Maybe Text
-</span><a href="#local-6989586621679274274"><span class="hs-identifier hs-var hs-var">addonName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274274"><span class="hs-identifier hs-var">addonName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274273"><span class="annot"><span class="annottext">s :: DescribeUpdate
-</span><a href="#local-6989586621679274273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274272"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUpdate
-</span><a href="#local-6989586621679274273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addonName:DescribeUpdate' :: Maybe Text
+</span><a href="#local-6989586621679274561"><span class="hs-identifier hs-var hs-var">addonName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274561"><span class="hs-identifier hs-var">addonName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274560"><span class="annot"><span class="annottext">s :: DescribeUpdate
+</span><a href="#local-6989586621679274560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274559"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUpdate
+</span><a href="#local-6989586621679274560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addonName:DescribeUpdate' :: Maybe Text
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AaddonName%3ADescribeUpdate%27"><span class="hs-identifier hs-var">addonName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name of the Amazon EKS node group associated with the update.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_nodegroupName"><span class="hs-identifier hs-type">describeUpdate_nodegroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="describeUpdate_nodegroupName"><span class="annot"><span class="annottext">describeUpdate_nodegroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeUpdate -&gt; f DescribeUpdate
+</span><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_nodegroupName"><span class="hs-identifier hs-var hs-var">describeUpdate_nodegroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUpdate -&gt; Maybe Text)
+-&gt; (DescribeUpdate -&gt; Maybe Text -&gt; DescribeUpdate)
+-&gt; Lens DescribeUpdate DescribeUpdate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274558"><span class="annot"><span class="annottext">Maybe Text
+nodegroupName :: Maybe Text
+$sel:nodegroupName:DescribeUpdate' :: DescribeUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679274558"><span class="hs-identifier hs-var hs-var">nodegroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274558"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274557"><span class="annot"><span class="annottext">s :: DescribeUpdate
+</span><a href="#local-6989586621679274557"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274556"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274556"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUpdate
+</span><a href="#local-6989586621679274557"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nodegroupName:DescribeUpdate' :: Maybe Text
+</span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AnodegroupName%3ADescribeUpdate%27"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274556"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | The name of the Amazon EKS cluster associated with the update.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_name"><span class="hs-identifier hs-type">describeUpdate_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -217,16 +217,16 @@ $sel:addonName:DescribeUpdate' :: DescribeUpdate -&gt; Maybe Text
 -&gt; (DescribeUpdate -&gt; Text -&gt; DescribeUpdate)
 -&gt; Lens DescribeUpdate DescribeUpdate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274271"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274555"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DescribeUpdate' :: DescribeUpdate -&gt; Text
-</span><a href="#local-6989586621679274271"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274271"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274270"><span class="annot"><span class="annottext">s :: DescribeUpdate
-</span><a href="#local-6989586621679274270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274269"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUpdate
-</span><a href="#local-6989586621679274270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeUpdate' :: Text
+</span><a href="#local-6989586621679274555"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274555"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274554"><span class="annot"><span class="annottext">s :: DescribeUpdate
+</span><a href="#local-6989586621679274554"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274553"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274553"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUpdate
+</span><a href="#local-6989586621679274554"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DescribeUpdate' :: Text
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3Aname%3ADescribeUpdate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274553"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The ID of the update to describe.</span><span>
 </span><span id="line-118"></span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdate_updateId"><span class="hs-identifier hs-type">describeUpdate_updateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -235,27 +235,27 @@ $sel:name:DescribeUpdate' :: DescribeUpdate -&gt; Text
 -&gt; (DescribeUpdate -&gt; Text -&gt; DescribeUpdate)
 -&gt; Lens DescribeUpdate DescribeUpdate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274268"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274552"><span class="annot"><span class="annottext">Text
 updateId :: Text
 $sel:updateId:DescribeUpdate' :: DescribeUpdate -&gt; Text
-</span><a href="#local-6989586621679274268"><span class="hs-identifier hs-var hs-var">updateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274268"><span class="hs-identifier hs-var">updateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274267"><span class="annot"><span class="annottext">s :: DescribeUpdate
-</span><a href="#local-6989586621679274267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274266"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUpdate
-</span><a href="#local-6989586621679274267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateId:DescribeUpdate' :: Text
+</span><a href="#local-6989586621679274552"><span class="hs-identifier hs-var hs-var">updateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274552"><span class="hs-identifier hs-var">updateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274551"><span class="annot"><span class="annottext">s :: DescribeUpdate
+</span><a href="#local-6989586621679274551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274550"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUpdate
+</span><a href="#local-6989586621679274551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateId:DescribeUpdate' :: Text
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AupdateId%3ADescribeUpdate%27"><span class="hs-identifier hs-var">updateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-123"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>      </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse"><span class="hs-identifier hs-type">DescribeUpdateResponse</span></a></span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679274262"><span class="annot"><span class="annottext">request :: DescribeUpdate -&gt; Request DescribeUpdate
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679274546"><span class="annot"><span class="annottext">request :: DescribeUpdate -&gt; Request DescribeUpdate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeUpdate -&gt; Request DescribeUpdate
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EKS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679274258"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679274542"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeUpdate
 -&gt; ClientResponse ClientBody
@@ -279,10 +279,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274255"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274255"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679274254"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679274254"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679274253"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274253"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274539"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274539"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679274538"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679274538"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679274537"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274537"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe Update -&gt; Int -&gt; DescribeUpdateResponse
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse%27"><span class="hs-identifier hs-var">DescribeUpdateResponse'</span></a></span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Update -&gt; Int -&gt; DescribeUpdateResponse)
@@ -290,7 +290,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeUpdateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679274253"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Update)
+</span><a href="#local-6989586621679274537"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Update)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;update&quot;</span></span><span class="hs-special">)</span><span>
@@ -302,15 +302,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274255"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274539"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274245"><span id="local-6989586621679274247"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274529"><span id="local-6989586621679274531"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274242"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679274238"><span class="annot"><span class="annottext">toHeaders :: DescribeUpdate -&gt; ResponseHeaders
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679274522"><span class="annot"><span class="annottext">toHeaders :: DescribeUpdate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeUpdate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -330,18 +330,18 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679274232"><span class="annot"><span class="annottext">toPath :: DescribeUpdate -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274227"><span id="local-6989586621679274228"><span id="local-6989586621679274229"><span id="local-6989586621679274230"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679274516"><span class="annot"><span class="annottext">toPath :: DescribeUpdate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274511"><span id="local-6989586621679274512"><span id="local-6989586621679274513"><span id="local-6989586621679274514"><span class="annot"><span class="annottext">Maybe Text
 Text
 updateId :: Text
 name :: Text
-addonName :: Maybe Text
 nodegroupName :: Maybe Text
+addonName :: Maybe Text
 $sel:updateId:DescribeUpdate' :: DescribeUpdate -&gt; Text
 $sel:name:DescribeUpdate' :: DescribeUpdate -&gt; Text
-$sel:addonName:DescribeUpdate' :: DescribeUpdate -&gt; Maybe Text
 $sel:nodegroupName:DescribeUpdate' :: DescribeUpdate -&gt; Maybe Text
-</span><a href="#local-6989586621679274227"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:addonName:DescribeUpdate' :: DescribeUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679274511"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -350,45 +350,45 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274228"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679274512"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/updates/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679274227"><span class="hs-identifier hs-var">updateId</span></a></span><span>
+</span><a href="#local-6989586621679274511"><span class="hs-identifier hs-var">updateId</span></a></span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate"><span class="hs-identifier hs-type">DescribeUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679274223"><span class="annot"><span class="annottext">toQuery :: DescribeUpdate -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274218"><span id="local-6989586621679274219"><span id="local-6989586621679274220"><span id="local-6989586621679274221"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679274507"><span class="annot"><span class="annottext">toQuery :: DescribeUpdate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdate%27"><span class="hs-identifier hs-type">DescribeUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274502"><span id="local-6989586621679274503"><span id="local-6989586621679274504"><span id="local-6989586621679274505"><span class="annot"><span class="annottext">Maybe Text
 Text
 updateId :: Text
 name :: Text
-addonName :: Maybe Text
 nodegroupName :: Maybe Text
+addonName :: Maybe Text
 $sel:updateId:DescribeUpdate' :: DescribeUpdate -&gt; Text
 $sel:name:DescribeUpdate' :: DescribeUpdate -&gt; Text
-$sel:addonName:DescribeUpdate' :: DescribeUpdate -&gt; Maybe Text
 $sel:nodegroupName:DescribeUpdate' :: DescribeUpdate -&gt; Maybe Text
-</span><a href="#local-6989586621679274218"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:addonName:DescribeUpdate' :: DescribeUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679274502"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;nodegroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274221"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;addonName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679274220"><span class="hs-identifier hs-var">addonName</span></a></span><span>
+</span><a href="#local-6989586621679274505"><span class="hs-identifier hs-var">addonName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nodegroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274504"><span class="hs-identifier hs-var">nodegroupName</span></a></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | /See:/ 'newDescribeUpdateResponse' smart constructor.</span><span>
-</span><span id="line-166"></span><span id="local-6989586621679274215"><span id="local-6989586621679274216"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUpdateResponse"><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse"><span class="hs-identifier hs-var">DescribeUpdateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUpdateResponse%27"><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse%27"><span class="hs-identifier hs-var">DescribeUpdateResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span id="local-6989586621679274499"><span id="local-6989586621679274500"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUpdateResponse"><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse"><span class="hs-identifier hs-var">DescribeUpdateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUpdateResponse%27"><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse%27"><span class="hs-identifier hs-var">DescribeUpdateResponse'</span></a></span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The full description of the specified update.</span><span>
 </span><span id="line-168"></span><span>    </span><span id="%24sel%3Aupdate%3ADescribeUpdateResponse%27"><span class="annot"><span class="annottext">DescribeUpdateResponse -&gt; Maybe Update
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3Aupdate%3ADescribeUpdateResponse%27"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">,</span><span>
@@ -396,7 +396,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeUpdateResponse%27"><span class="annot"><span class="annottext">DescribeUpdateResponse -&gt; Int
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AhttpStatus%3ADescribeUpdateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274209"><span id="local-6989586621679274211"><span class="annot"><span class="annottext">DescribeUpdateResponse -&gt; DescribeUpdateResponse -&gt; Bool
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274493"><span id="local-6989586621679274495"><span class="annot"><span class="annottext">DescribeUpdateResponse -&gt; DescribeUpdateResponse -&gt; Bool
 (DescribeUpdateResponse -&gt; DescribeUpdateResponse -&gt; Bool)
 -&gt; (DescribeUpdateResponse -&gt; DescribeUpdateResponse -&gt; Bool)
 -&gt; Eq DescribeUpdateResponse
@@ -405,7 +405,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeUpdateResponse -&gt; DescribeUpdateResponse -&gt; Bool
 == :: DescribeUpdateResponse -&gt; DescribeUpdateResponse -&gt; Bool
 $c== :: DescribeUpdateResponse -&gt; DescribeUpdateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274201"><span id="local-6989586621679274203"><span id="local-6989586621679274205"><span id="local-6989586621679274207"><span class="annot"><span class="annottext">ReadPrec [DescribeUpdateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274485"><span id="local-6989586621679274487"><span id="local-6989586621679274489"><span id="local-6989586621679274491"><span class="annot"><span class="annottext">ReadPrec [DescribeUpdateResponse]
 ReadPrec DescribeUpdateResponse
 Int -&gt; ReadS DescribeUpdateResponse
 ReadS [DescribeUpdateResponse]
@@ -425,7 +425,7 @@ readList :: ReadS [DescribeUpdateResponse]
 $creadList :: ReadS [DescribeUpdateResponse]
 readsPrec :: Int -&gt; ReadS DescribeUpdateResponse
 $creadsPrec :: Int -&gt; ReadS DescribeUpdateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274195"><span id="local-6989586621679274197"><span id="local-6989586621679274199"><span class="annot"><span class="annottext">Int -&gt; DescribeUpdateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274479"><span id="local-6989586621679274481"><span id="local-6989586621679274483"><span class="annot"><span class="annottext">Int -&gt; DescribeUpdateResponse -&gt; ShowS
 [DescribeUpdateResponse] -&gt; ShowS
 DescribeUpdateResponse -&gt; String
 (Int -&gt; DescribeUpdateResponse -&gt; ShowS)
@@ -468,8 +468,8 @@ $cfrom :: forall x. DescribeUpdateResponse -&gt; Rep DescribeUpdateResponse x
 </span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse"><span class="hs-identifier hs-type">DescribeUpdateResponse</span></a></span><span>
 </span><span id="line-189"></span><span id="newDescribeUpdateResponse"><span class="annot"><span class="annottext">newDescribeUpdateResponse :: Int -&gt; DescribeUpdateResponse
-</span><a href="Network.AWS.EKS.DescribeUpdate.html#newDescribeUpdateResponse"><span class="hs-identifier hs-var hs-var">newDescribeUpdateResponse</span></a></span></span><span> </span><span id="local-6989586621679274192"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274192"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EKS.DescribeUpdate.html#newDescribeUpdateResponse"><span class="hs-identifier hs-var hs-var">newDescribeUpdateResponse</span></a></span></span><span> </span><span id="local-6989586621679274476"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">DescribeUpdateResponse' :: Maybe Update -&gt; Int -&gt; DescribeUpdateResponse
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse%27"><span class="hs-identifier hs-type">DescribeUpdateResponse'</span></a></span><span>
 </span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:update:DescribeUpdateResponse' :: Maybe Update
@@ -478,7 +478,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUpdateResponse' :: Int
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AhttpStatus%3ADescribeUpdateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274192"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679274476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- | The full description of the specified update.</span><span>
@@ -494,16 +494,16 @@ forall a. Maybe a
      (Maybe Update)
      (Maybe Update)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse%27"><span class="hs-identifier hs-type">DescribeUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274191"><span class="annot"><span class="annottext">Maybe Update
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse%27"><span class="hs-identifier hs-type">DescribeUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274475"><span class="annot"><span class="annottext">Maybe Update
 update :: Maybe Update
 $sel:update:DescribeUpdateResponse' :: DescribeUpdateResponse -&gt; Maybe Update
-</span><a href="#local-6989586621679274191"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Update
-</span><a href="#local-6989586621679274191"><span class="hs-identifier hs-var">update</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274190"><span class="annot"><span class="annottext">s :: DescribeUpdateResponse
-</span><a href="#local-6989586621679274190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse%27"><span class="hs-identifier hs-type">DescribeUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274189"><span class="annot"><span class="annottext">Maybe Update
-</span><a href="#local-6989586621679274189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUpdateResponse
-</span><a href="#local-6989586621679274190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:update:DescribeUpdateResponse' :: Maybe Update
+</span><a href="#local-6989586621679274475"><span class="hs-identifier hs-var hs-var">update</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Update
+</span><a href="#local-6989586621679274475"><span class="hs-identifier hs-var">update</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274474"><span class="annot"><span class="annottext">s :: DescribeUpdateResponse
+</span><a href="#local-6989586621679274474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse%27"><span class="hs-identifier hs-type">DescribeUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274473"><span class="annot"><span class="annottext">Maybe Update
+</span><a href="#local-6989586621679274473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUpdateResponse
+</span><a href="#local-6989586621679274474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:update:DescribeUpdateResponse' :: Maybe Update
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3Aupdate%3ADescribeUpdateResponse%27"><span class="hs-identifier hs-var">update</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Update
-</span><a href="#local-6989586621679274189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse"><span class="hs-identifier hs-type">DescribeUpdateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse"><span class="hs-identifier hs-type">DescribeUpdateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-200"></span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#describeUpdateResponse_httpStatus"><span class="hs-identifier hs-type">describeUpdateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse"><span class="hs-identifier hs-type">DescribeUpdateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -513,16 +513,16 @@ $sel:update:DescribeUpdateResponse' :: DescribeUpdateResponse -&gt; Maybe Update
 -&gt; (DescribeUpdateResponse -&gt; Int -&gt; DescribeUpdateResponse)
 -&gt; Lens DescribeUpdateResponse DescribeUpdateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse%27"><span class="hs-identifier hs-type">DescribeUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274188"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse%27"><span class="hs-identifier hs-type">DescribeUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274472"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeUpdateResponse' :: DescribeUpdateResponse -&gt; Int
-</span><a href="#local-6989586621679274188"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274188"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274187"><span class="annot"><span class="annottext">s :: DescribeUpdateResponse
-</span><a href="#local-6989586621679274187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse%27"><span class="hs-identifier hs-type">DescribeUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274186"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUpdateResponse
-</span><a href="#local-6989586621679274187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUpdateResponse' :: Int
+</span><a href="#local-6989586621679274472"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274472"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274471"><span class="annot"><span class="annottext">s :: DescribeUpdateResponse
+</span><a href="#local-6989586621679274471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse%27"><span class="hs-identifier hs-type">DescribeUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274470"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUpdateResponse
+</span><a href="#local-6989586621679274471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUpdateResponse' :: Int
 </span><a href="Network.AWS.EKS.DescribeUpdate.html#%24sel%3AhttpStatus%3ADescribeUpdateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679274186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse"><span class="hs-identifier hs-type">DescribeUpdateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse"><span class="hs-identifier hs-type">DescribeUpdateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse"><span class="hs-identifier hs-type">DescribeUpdateResponse</span></a></span></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.DescribeUpdate.html#DescribeUpdateResponse"><span class="hs-identifier hs-type">DescribeUpdateResponse</span></a></span></span><span>
 </span><span id="line-204"></span></pre></body></html>

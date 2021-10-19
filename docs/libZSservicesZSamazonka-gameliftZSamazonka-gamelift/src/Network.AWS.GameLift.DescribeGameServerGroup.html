@@ -68,13 +68,13 @@
 </span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newDescribeGameServerGroup' smart constructor.</span><span>
-</span><span id="line-71"></span><span id="local-6989586621679453254"><span id="local-6989586621679453255"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGameServerGroup"><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-var">DescribeGameServerGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGameServerGroup%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup%27"><span class="hs-identifier hs-var">DescribeGameServerGroup'</span></a></span></span><span>
+</span><span id="line-71"></span><span id="local-6989586621679453752"><span id="local-6989586621679453753"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGameServerGroup"><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-var">DescribeGameServerGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGameServerGroup%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup%27"><span class="hs-identifier hs-var">DescribeGameServerGroup'</span></a></span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the game server group. Use either the</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- GameServerGroup name or ARN value.</span><span>
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AgameServerGroupName%3ADescribeGameServerGroup%27"><span class="annot"><span class="annottext">DescribeGameServerGroup -&gt; Text
 </span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#%24sel%3AgameServerGroupName%3ADescribeGameServerGroup%27"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453248"><span id="local-6989586621679453250"><span class="annot"><span class="annottext">DescribeGameServerGroup -&gt; DescribeGameServerGroup -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453746"><span id="local-6989586621679453748"><span class="annot"><span class="annottext">DescribeGameServerGroup -&gt; DescribeGameServerGroup -&gt; Bool
 (DescribeGameServerGroup -&gt; DescribeGameServerGroup -&gt; Bool)
 -&gt; (DescribeGameServerGroup -&gt; DescribeGameServerGroup -&gt; Bool)
 -&gt; Eq DescribeGameServerGroup
@@ -83,7 +83,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeGameServerGroup -&gt; DescribeGameServerGroup -&gt; Bool
 == :: DescribeGameServerGroup -&gt; DescribeGameServerGroup -&gt; Bool
 $c== :: DescribeGameServerGroup -&gt; DescribeGameServerGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453239"><span id="local-6989586621679453241"><span id="local-6989586621679453243"><span id="local-6989586621679453245"><span class="annot"><span class="annottext">ReadPrec [DescribeGameServerGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453737"><span id="local-6989586621679453739"><span id="local-6989586621679453741"><span id="local-6989586621679453743"><span class="annot"><span class="annottext">ReadPrec [DescribeGameServerGroup]
 ReadPrec DescribeGameServerGroup
 Int -&gt; ReadS DescribeGameServerGroup
 ReadS [DescribeGameServerGroup]
@@ -103,7 +103,7 @@ readList :: ReadS [DescribeGameServerGroup]
 $creadList :: ReadS [DescribeGameServerGroup]
 readsPrec :: Int -&gt; ReadS DescribeGameServerGroup
 $creadsPrec :: Int -&gt; ReadS DescribeGameServerGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453232"><span id="local-6989586621679453234"><span id="local-6989586621679453236"><span class="annot"><span class="annottext">Int -&gt; DescribeGameServerGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453730"><span id="local-6989586621679453732"><span id="local-6989586621679453734"><span class="annot"><span class="annottext">Int -&gt; DescribeGameServerGroup -&gt; ShowS
 [DescribeGameServerGroup] -&gt; ShowS
 DescribeGameServerGroup -&gt; String
 (Int -&gt; DescribeGameServerGroup -&gt; ShowS)
@@ -146,14 +146,14 @@ $cfrom :: forall x. DescribeGameServerGroup -&gt; Rep DescribeGameServerGroup x
 </span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span><span>
 </span><span id="line-92"></span><span id="newDescribeGameServerGroup"><span class="annot"><span class="annottext">newDescribeGameServerGroup :: Text -&gt; DescribeGameServerGroup
-</span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#newDescribeGameServerGroup"><span class="hs-identifier hs-var hs-var">newDescribeGameServerGroup</span></a></span></span><span> </span><span id="local-6989586621679453227"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453227"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#newDescribeGameServerGroup"><span class="hs-identifier hs-var hs-var">newDescribeGameServerGroup</span></a></span></span><span> </span><span id="local-6989586621679453725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453725"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">DescribeGameServerGroup' :: Text -&gt; DescribeGameServerGroup
 </span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup%27"><span class="hs-identifier hs-type">DescribeGameServerGroup'</span></a></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameServerGroupName:DescribeGameServerGroup' :: Text
 </span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#%24sel%3AgameServerGroupName%3ADescribeGameServerGroup%27"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453227"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span><span>
+</span><a href="#local-6989586621679453725"><span class="hs-identifier hs-var">pGameServerGroupName_</span></a></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | A unique identifier for the game server group. Use either the</span><span>
@@ -165,28 +165,28 @@ $cfrom :: forall x. DescribeGameServerGroup -&gt; Rep DescribeGameServerGroup x
 -&gt; (DescribeGameServerGroup -&gt; Text -&gt; DescribeGameServerGroup)
 -&gt; Lens DescribeGameServerGroup DescribeGameServerGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup%27"><span class="hs-identifier hs-type">DescribeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453224"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup%27"><span class="hs-identifier hs-type">DescribeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453722"><span class="annot"><span class="annottext">Text
 gameServerGroupName :: Text
 $sel:gameServerGroupName:DescribeGameServerGroup' :: DescribeGameServerGroup -&gt; Text
-</span><a href="#local-6989586621679453224"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453224"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453223"><span class="annot"><span class="annottext">s :: DescribeGameServerGroup
-</span><a href="#local-6989586621679453223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup%27"><span class="hs-identifier hs-type">DescribeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453222"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameServerGroup
-</span><a href="#local-6989586621679453223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroupName:DescribeGameServerGroup' :: Text
+</span><a href="#local-6989586621679453722"><span class="hs-identifier hs-var hs-var">gameServerGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453722"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453721"><span class="annot"><span class="annottext">s :: DescribeGameServerGroup
+</span><a href="#local-6989586621679453721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup%27"><span class="hs-identifier hs-type">DescribeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453720"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679453720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameServerGroup
+</span><a href="#local-6989586621679453721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroupName:DescribeGameServerGroup' :: Text
 </span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#%24sel%3AgameServerGroupName%3ADescribeGameServerGroup%27"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679453218"><span class="annot"><span class="annottext">request :: DescribeGameServerGroup -&gt; Request DescribeGameServerGroup
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679453716"><span class="annot"><span class="annottext">request :: DescribeGameServerGroup -&gt; Request DescribeGameServerGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeGameServerGroup -&gt; Request DescribeGameServerGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679453214"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679453712"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeGameServerGroup
 -&gt; ClientResponse ClientBody
@@ -212,10 +212,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679453211"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453211"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679453210"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679453210"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679453209"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453209"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679453709"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453709"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679453708"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679453708"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679453707"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679453707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe GameServerGroup -&gt; Int -&gt; DescribeGameServerGroupResponse
 </span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse%27"><span class="hs-identifier hs-var">DescribeGameServerGroupResponse'</span></a></span><span>
 </span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GameServerGroup -&gt; Int -&gt; DescribeGameServerGroupResponse)
@@ -223,7 +223,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DescribeGameServerGroupResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679453209"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameServerGroup)
+</span><a href="#local-6989586621679453707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameServerGroup)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GameServerGroup&quot;</span></span><span class="hs-special">)</span><span>
@@ -236,15 +236,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453211"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453709"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453201"><span id="local-6989586621679453203"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453699"><span id="local-6989586621679453701"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453198"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453696"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679453194"><span class="annot"><span class="annottext">toHeaders :: DescribeGameServerGroup -&gt; ResponseHeaders
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679453692"><span class="annot"><span class="annottext">toHeaders :: DescribeGameServerGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeGameServerGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -271,12 +271,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453184"><span id="local-6989586621679453186"><span id="local-6989586621679453188"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679453182"><span class="annot"><span class="annottext">toJSON :: DescribeGameServerGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup%27"><span class="hs-identifier hs-type">DescribeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453180"><span class="annot"><span class="annottext">Text
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679453682"><span id="local-6989586621679453684"><span id="local-6989586621679453686"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679453680"><span class="annot"><span class="annottext">toJSON :: DescribeGameServerGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup%27"><span class="hs-identifier hs-type">DescribeGameServerGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453678"><span class="annot"><span class="annottext">Text
 gameServerGroupName :: Text
 $sel:gameServerGroupName:DescribeGameServerGroup' :: DescribeGameServerGroup -&gt; Text
-</span><a href="#local-6989586621679453180"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679453678"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -289,19 +289,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;GameServerGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679453180"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453678"><span class="hs-identifier hs-var">gameServerGroupName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679453174"><span class="annot"><span class="annottext">toPath :: DescribeGameServerGroup -&gt; ByteString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679453672"><span class="annot"><span class="annottext">toPath :: DescribeGameServerGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeGameServerGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroup"><span class="hs-identifier hs-type">DescribeGameServerGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679453170"><span class="annot"><span class="annottext">toQuery :: DescribeGameServerGroup -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679453668"><span class="annot"><span class="annottext">toQuery :: DescribeGameServerGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeGameServerGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -309,7 +309,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newDescribeGameServerGroupResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679453167"><span id="local-6989586621679453168"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGameServerGroupResponse"><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse"><span class="hs-identifier hs-var">DescribeGameServerGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGameServerGroupResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse%27"><span class="hs-identifier hs-var">DescribeGameServerGroupResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679453665"><span id="local-6989586621679453666"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeGameServerGroupResponse"><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse"><span class="hs-identifier hs-var">DescribeGameServerGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeGameServerGroupResponse%27"><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse%27"><span class="hs-identifier hs-var">DescribeGameServerGroupResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object with the property settings for the requested game server group</span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-comment">-- resource.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AgameServerGroup%3ADescribeGameServerGroupResponse%27"><span class="annot"><span class="annottext">DescribeGameServerGroupResponse -&gt; Maybe GameServerGroup
@@ -318,7 +318,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-156"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeGameServerGroupResponse%27"><span class="annot"><span class="annottext">DescribeGameServerGroupResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#%24sel%3AhttpStatus%3ADescribeGameServerGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-157"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453161"><span id="local-6989586621679453163"><span class="annot"><span class="annottext">DescribeGameServerGroupResponse
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679453659"><span id="local-6989586621679453661"><span class="annot"><span class="annottext">DescribeGameServerGroupResponse
 -&gt; DescribeGameServerGroupResponse -&gt; Bool
 (DescribeGameServerGroupResponse
  -&gt; DescribeGameServerGroupResponse -&gt; Bool)
@@ -334,7 +334,7 @@ $c/= :: DescribeGameServerGroupResponse
 -&gt; DescribeGameServerGroupResponse -&gt; Bool
 $c== :: DescribeGameServerGroupResponse
 -&gt; DescribeGameServerGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453153"><span id="local-6989586621679453155"><span id="local-6989586621679453157"><span id="local-6989586621679453159"><span class="annot"><span class="annottext">ReadPrec [DescribeGameServerGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453651"><span id="local-6989586621679453653"><span id="local-6989586621679453655"><span id="local-6989586621679453657"><span class="annot"><span class="annottext">ReadPrec [DescribeGameServerGroupResponse]
 ReadPrec DescribeGameServerGroupResponse
 Int -&gt; ReadS DescribeGameServerGroupResponse
 ReadS [DescribeGameServerGroupResponse]
@@ -354,7 +354,7 @@ readList :: ReadS [DescribeGameServerGroupResponse]
 $creadList :: ReadS [DescribeGameServerGroupResponse]
 readsPrec :: Int -&gt; ReadS DescribeGameServerGroupResponse
 $creadsPrec :: Int -&gt; ReadS DescribeGameServerGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453147"><span id="local-6989586621679453149"><span id="local-6989586621679453151"><span class="annot"><span class="annottext">Int -&gt; DescribeGameServerGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679453645"><span id="local-6989586621679453647"><span id="local-6989586621679453649"><span class="annot"><span class="annottext">Int -&gt; DescribeGameServerGroupResponse -&gt; ShowS
 [DescribeGameServerGroupResponse] -&gt; ShowS
 DescribeGameServerGroupResponse -&gt; String
 (Int -&gt; DescribeGameServerGroupResponse -&gt; ShowS)
@@ -409,8 +409,8 @@ DescribeGameServerGroupResponse
 </span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse</span></a></span><span>
 </span><span id="line-176"></span><span id="newDescribeGameServerGroupResponse"><span class="annot"><span class="annottext">newDescribeGameServerGroupResponse :: Int -&gt; DescribeGameServerGroupResponse
-</span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#newDescribeGameServerGroupResponse"><span class="hs-identifier hs-var hs-var">newDescribeGameServerGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679453144"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453144"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#newDescribeGameServerGroupResponse"><span class="hs-identifier hs-var hs-var">newDescribeGameServerGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679453642"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453642"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">DescribeGameServerGroupResponse' :: Maybe GameServerGroup -&gt; Int -&gt; DescribeGameServerGroupResponse
 </span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse%27"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse'</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameServerGroup:DescribeGameServerGroupResponse' :: Maybe GameServerGroup
@@ -420,7 +420,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGameServerGroupResponse' :: Int
 </span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#%24sel%3AhttpStatus%3ADescribeGameServerGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453144"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679453642"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-182"></span><span>
 </span><span id="line-183"></span><span class="hs-comment">-- | An object with the property settings for the requested game server group</span><span>
@@ -438,16 +438,16 @@ forall a. Maybe a
      (Maybe GameServerGroup)
      (Maybe GameServerGroup)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse%27"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453143"><span class="annot"><span class="annottext">Maybe GameServerGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse%27"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453641"><span class="annot"><span class="annottext">Maybe GameServerGroup
 gameServerGroup :: Maybe GameServerGroup
 $sel:gameServerGroup:DescribeGameServerGroupResponse' :: DescribeGameServerGroupResponse -&gt; Maybe GameServerGroup
-</span><a href="#local-6989586621679453143"><span class="hs-identifier hs-var hs-var">gameServerGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroup
-</span><a href="#local-6989586621679453143"><span class="hs-identifier hs-var">gameServerGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453142"><span class="annot"><span class="annottext">s :: DescribeGameServerGroupResponse
-</span><a href="#local-6989586621679453142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse%27"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453141"><span class="annot"><span class="annottext">Maybe GameServerGroup
-</span><a href="#local-6989586621679453141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameServerGroupResponse
-</span><a href="#local-6989586621679453142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroup:DescribeGameServerGroupResponse' :: Maybe GameServerGroup
+</span><a href="#local-6989586621679453641"><span class="hs-identifier hs-var hs-var">gameServerGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroup
+</span><a href="#local-6989586621679453641"><span class="hs-identifier hs-var">gameServerGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453640"><span class="annot"><span class="annottext">s :: DescribeGameServerGroupResponse
+</span><a href="#local-6989586621679453640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse%27"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453639"><span class="annot"><span class="annottext">Maybe GameServerGroup
+</span><a href="#local-6989586621679453639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameServerGroupResponse
+</span><a href="#local-6989586621679453640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameServerGroup:DescribeGameServerGroupResponse' :: Maybe GameServerGroup
 </span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#%24sel%3AgameServerGroup%3ADescribeGameServerGroupResponse%27"><span class="hs-identifier hs-var">gameServerGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameServerGroup
-</span><a href="#local-6989586621679453141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-189"></span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#describeGameServerGroupResponse_httpStatus"><span class="hs-identifier hs-type">describeGameServerGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -463,18 +463,18 @@ $sel:gameServerGroup:DescribeGameServerGroupResponse' :: DescribeGameServerGroup
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse%27"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453140"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse%27"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679453638"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeGameServerGroupResponse' :: DescribeGameServerGroupResponse -&gt; Int
-</span><a href="#local-6989586621679453140"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453140"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453139"><span class="annot"><span class="annottext">s :: DescribeGameServerGroupResponse
-</span><a href="#local-6989586621679453139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse%27"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453138"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameServerGroupResponse
-</span><a href="#local-6989586621679453139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGameServerGroupResponse' :: Int
+</span><a href="#local-6989586621679453638"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453638"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679453637"><span class="annot"><span class="annottext">s :: DescribeGameServerGroupResponse
+</span><a href="#local-6989586621679453637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse%27"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679453636"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679453636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeGameServerGroupResponse
+</span><a href="#local-6989586621679453637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeGameServerGroupResponse' :: Int
 </span><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#%24sel%3AhttpStatus%3ADescribeGameServerGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679453138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679453636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679453136"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679453634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-194"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.DescribeGameServerGroup.html#DescribeGameServerGroupResponse"><span class="hs-identifier hs-type">DescribeGameServerGroupResponse</span></a></span></span><span>
 </span><span id="line-195"></span></pre></body></html>

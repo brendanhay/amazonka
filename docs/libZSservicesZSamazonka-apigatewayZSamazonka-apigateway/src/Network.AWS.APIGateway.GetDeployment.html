@@ -36,9 +36,9 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#newDeployment"><span class="hs-identifier">newDeployment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#deployment_createdDate"><span class="hs-identifier">deployment_createdDate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#deployment_id"><span class="hs-identifier">deployment_id</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#deployment_apiSummary"><span class="hs-identifier">deployment_apiSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#deployment_apiSummary"><span class="hs-identifier">deployment_apiSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#deployment_createdDate"><span class="hs-identifier">deployment_createdDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#deployment_id"><span class="hs-identifier">deployment_id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#deployment_description"><span class="hs-identifier">deployment_description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span class="hs-keyword">where</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Requests API Gateway to get information about a Deployment resource.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newGetDeployment' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679383601"><span id="local-6989586621679383602"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeployment"><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-var">GetDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeployment%27"><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-var">GetDeployment'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679384151"><span id="local-6989586621679384152"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDeployment"><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-var">GetDeployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDeployment%27"><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-var">GetDeployment'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A query parameter to retrieve the specified embedded resources of the</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- returned Deployment resource in the response. In a REST API call, this</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @embed@ parameter value is a list of comma-separated strings, as in</span><span>
@@ -74,7 +74,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AdeploymentId%3AGetDeployment%27"><span class="annot"><span class="annottext">GetDeployment -&gt; Text
 </span><a href="Network.AWS.APIGateway.GetDeployment.html#%24sel%3AdeploymentId%3AGetDeployment%27"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383593"><span id="local-6989586621679383595"><span class="annot"><span class="annottext">GetDeployment -&gt; GetDeployment -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384143"><span id="local-6989586621679384145"><span class="annot"><span class="annottext">GetDeployment -&gt; GetDeployment -&gt; Bool
 (GetDeployment -&gt; GetDeployment -&gt; Bool)
 -&gt; (GetDeployment -&gt; GetDeployment -&gt; Bool) -&gt; Eq GetDeployment
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetDeployment -&gt; GetDeployment -&gt; Bool
 == :: GetDeployment -&gt; GetDeployment -&gt; Bool
 $c== :: GetDeployment -&gt; GetDeployment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383584"><span id="local-6989586621679383586"><span id="local-6989586621679383588"><span id="local-6989586621679383590"><span class="annot"><span class="annottext">ReadPrec [GetDeployment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384134"><span id="local-6989586621679384136"><span id="local-6989586621679384138"><span id="local-6989586621679384140"><span class="annot"><span class="annottext">ReadPrec [GetDeployment]
 ReadPrec GetDeployment
 Int -&gt; ReadS GetDeployment
 ReadS [GetDeployment]
@@ -102,7 +102,7 @@ readList :: ReadS [GetDeployment]
 $creadList :: ReadS [GetDeployment]
 readsPrec :: Int -&gt; ReadS GetDeployment
 $creadsPrec :: Int -&gt; ReadS GetDeployment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383577"><span id="local-6989586621679383579"><span id="local-6989586621679383581"><span class="annot"><span class="annottext">Int -&gt; GetDeployment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384127"><span id="local-6989586621679384129"><span id="local-6989586621679384131"><span class="annot"><span class="annottext">Int -&gt; GetDeployment -&gt; ShowS
 [GetDeployment] -&gt; ShowS
 GetDeployment -&gt; String
 (Int -&gt; GetDeployment -&gt; ShowS)
@@ -158,9 +158,9 @@ $cfrom :: forall x. GetDeployment -&gt; Rep GetDeployment x
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span><span>
 </span><span id="line-105"></span><span id="newGetDeployment"><span class="annot"><span class="annottext">newGetDeployment :: Text -&gt; Text -&gt; GetDeployment
-</span><a href="Network.AWS.APIGateway.GetDeployment.html#newGetDeployment"><span class="hs-identifier hs-var hs-var">newGetDeployment</span></a></span></span><span> </span><span id="local-6989586621679383572"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383572"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679383571"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383571"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.GetDeployment.html#newGetDeployment"><span class="hs-identifier hs-var hs-var">newGetDeployment</span></a></span></span><span> </span><span id="local-6989586621679384122"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384122"><span class="hs-identifier hs-var">pRestApiId_</span></a></span></span><span> </span><span id="local-6989586621679384121"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384121"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">GetDeployment' :: Maybe [Text] -&gt; Text -&gt; Text -&gt; GetDeployment
 </span><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:embed:GetDeployment' :: Maybe [Text]
@@ -169,10 +169,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:restApiId:GetDeployment' :: Text
 </span><a href="Network.AWS.APIGateway.GetDeployment.html#%24sel%3ArestApiId%3AGetDeployment%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383572"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384122"><span class="hs-identifier hs-var">pRestApiId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentId:GetDeployment' :: Text
 </span><a href="Network.AWS.APIGateway.GetDeployment.html#%24sel%3AdeploymentId%3AGetDeployment%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383571"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span><span>
+</span><a href="#local-6989586621679384121"><span class="hs-identifier hs-var">pDeploymentId_</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | A query parameter to retrieve the specified embedded resources of the</span><span>
@@ -192,16 +192,16 @@ forall a. Maybe a
 -&gt; (GetDeployment -&gt; Maybe [Text] -&gt; GetDeployment)
 -&gt; Lens GetDeployment GetDeployment (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383568"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384118"><span class="annot"><span class="annottext">Maybe [Text]
 embed :: Maybe [Text]
 $sel:embed:GetDeployment' :: GetDeployment -&gt; Maybe [Text]
-</span><a href="#local-6989586621679383568"><span class="hs-identifier hs-var hs-var">embed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679383568"><span class="hs-identifier hs-var">embed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383567"><span class="annot"><span class="annottext">s :: GetDeployment
-</span><a href="#local-6989586621679383567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383566"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679383566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeployment
-</span><a href="#local-6989586621679383567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:embed:GetDeployment' :: Maybe [Text]
+</span><a href="#local-6989586621679384118"><span class="hs-identifier hs-var hs-var">embed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679384118"><span class="hs-identifier hs-var">embed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384117"><span class="annot"><span class="annottext">s :: GetDeployment
+</span><a href="#local-6989586621679384117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384116"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679384116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeployment
+</span><a href="#local-6989586621679384117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:embed:GetDeployment' :: Maybe [Text]
 </span><a href="Network.AWS.APIGateway.GetDeployment.html#%24sel%3Aembed%3AGetDeployment%27"><span class="hs-identifier hs-var">embed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679383566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679384116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; GetDeployment -&gt; f GetDeployment)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -215,8 +215,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | [Required] The string identifier of the associated RestApi.</span><span>
 </span><span id="line-126"></span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#getDeployment_restApiId"><span class="hs-identifier hs-type">getDeployment_restApiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -225,16 +225,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetDeployment -&gt; Text -&gt; GetDeployment)
 -&gt; Lens GetDeployment GetDeployment Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383562"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384112"><span class="annot"><span class="annottext">Text
 restApiId :: Text
 $sel:restApiId:GetDeployment' :: GetDeployment -&gt; Text
-</span><a href="#local-6989586621679383562"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383562"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383561"><span class="annot"><span class="annottext">s :: GetDeployment
-</span><a href="#local-6989586621679383561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383560"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeployment
-</span><a href="#local-6989586621679383561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:GetDeployment' :: Text
+</span><a href="#local-6989586621679384112"><span class="hs-identifier hs-var hs-var">restApiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384112"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384111"><span class="annot"><span class="annottext">s :: GetDeployment
+</span><a href="#local-6989586621679384111"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384110"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384110"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeployment
+</span><a href="#local-6989586621679384111"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restApiId:GetDeployment' :: Text
 </span><a href="Network.AWS.APIGateway.GetDeployment.html#%24sel%3ArestApiId%3AGetDeployment%27"><span class="hs-identifier hs-var">restApiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384110"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | [Required] The identifier of the Deployment resource to get information</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- about.</span><span>
@@ -244,25 +244,25 @@ $sel:restApiId:GetDeployment' :: GetDeployment -&gt; Text
 -&gt; (GetDeployment -&gt; Text -&gt; GetDeployment)
 -&gt; Lens GetDeployment GetDeployment Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383559"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384109"><span class="annot"><span class="annottext">Text
 deploymentId :: Text
 $sel:deploymentId:GetDeployment' :: GetDeployment -&gt; Text
-</span><a href="#local-6989586621679383559"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383559"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383558"><span class="annot"><span class="annottext">s :: GetDeployment
-</span><a href="#local-6989586621679383558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383557"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeployment
-</span><a href="#local-6989586621679383558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:GetDeployment' :: Text
+</span><a href="#local-6989586621679384109"><span class="hs-identifier hs-var hs-var">deploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384109"><span class="hs-identifier hs-var">deploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384108"><span class="annot"><span class="annottext">s :: GetDeployment
+</span><a href="#local-6989586621679384108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384107"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679384107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDeployment
+</span><a href="#local-6989586621679384108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentId:GetDeployment' :: Text
 </span><a href="Network.AWS.APIGateway.GetDeployment.html#%24sel%3AdeploymentId%3AGetDeployment%27"><span class="hs-identifier hs-var">deploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.Deployment.html#Deployment"><span class="hs-identifier hs-type">Deployment</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679383553"><span class="annot"><span class="annottext">request :: GetDeployment -&gt; Request GetDeployment
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679384103"><span class="annot"><span class="annottext">request :: GetDeployment -&gt; Request GetDeployment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDeployment -&gt; Request GetDeployment
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679383549"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679384099"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetDeployment
 -&gt; ClientResponse ClientBody
@@ -286,20 +286,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383546"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679383546"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383545"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679383545"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383544"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383544"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Deployment
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384096"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384096"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384095"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679384095"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384094"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679384094"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String Deployment
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679383544"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384094"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383539"><span id="local-6989586621679383541"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384089"><span id="local-6989586621679384091"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span></span></span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383536"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384086"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679383532"><span class="annot"><span class="annottext">toHeaders :: GetDeployment -&gt; ResponseHeaders
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679384082"><span class="annot"><span class="annottext">toHeaders :: GetDeployment -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDeployment -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -317,8 +317,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679383526"><span class="annot"><span class="annottext">toPath :: GetDeployment -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383522"><span id="local-6989586621679383523"><span id="local-6989586621679383524"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679384076"><span class="annot"><span class="annottext">toPath :: GetDeployment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384072"><span id="local-6989586621679384073"><span id="local-6989586621679384074"><span class="annot"><span class="annottext">Maybe [Text]
 Text
 deploymentId :: Text
 restApiId :: Text
@@ -326,7 +326,7 @@ embed :: Maybe [Text]
 $sel:deploymentId:GetDeployment' :: GetDeployment -&gt; Text
 $sel:restApiId:GetDeployment' :: GetDeployment -&gt; Text
 $sel:embed:GetDeployment' :: GetDeployment -&gt; Maybe [Text]
-</span><a href="#local-6989586621679383522"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679384072"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -335,18 +335,18 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383523"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384073"><span class="hs-identifier hs-var">restApiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/deployments/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679383522"><span class="hs-identifier hs-var">deploymentId</span></a></span><span>
+</span><a href="#local-6989586621679384072"><span class="hs-identifier hs-var">deploymentId</span></a></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment"><span class="hs-identifier hs-type">GetDeployment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679383518"><span class="annot"><span class="annottext">toQuery :: GetDeployment -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383514"><span id="local-6989586621679383515"><span id="local-6989586621679383516"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679384068"><span class="annot"><span class="annottext">toQuery :: GetDeployment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.GetDeployment.html#GetDeployment%27"><span class="hs-identifier hs-type">GetDeployment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384064"><span id="local-6989586621679384065"><span id="local-6989586621679384066"><span class="annot"><span class="annottext">Maybe [Text]
 Text
 deploymentId :: Text
 restApiId :: Text
@@ -354,7 +354,7 @@ embed :: Maybe [Text]
 $sel:deploymentId:GetDeployment' :: GetDeployment -&gt; Text
 $sel:restApiId:GetDeployment' :: GetDeployment -&gt; Text
 $sel:embed:GetDeployment' :: GetDeployment -&gt; Maybe [Text]
-</span><a href="#local-6989586621679383514"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679384064"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -373,6 +373,6 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679383516"><span class="hs-identifier hs-var">embed</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384066"><span class="hs-identifier hs-var">embed</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span></pre></body></html>

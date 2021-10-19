@@ -26,25 +26,25 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains an asset property value (of a single type).</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAssetPropertyVariant' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679773401"><span id="local-6989586621679773402"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssetPropertyVariant"><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-var">AssetPropertyVariant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssetPropertyVariant%27"><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-var">AssetPropertyVariant'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. The string value of the value entry. Accepts substitution</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- templates.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AstringValue%3AAssetPropertyVariant%27"><span class="annot"><span class="annottext">AssetPropertyVariant -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AstringValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679774243"><span id="local-6989586621679774244"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssetPropertyVariant"><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-var">AssetPropertyVariant</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssetPropertyVariant%27"><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-var">AssetPropertyVariant'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional. A string that contains the integer value of the value entry.</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Accepts substitution templates.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AintegerValue%3AAssetPropertyVariant%27"><span class="annot"><span class="annottext">AssetPropertyVariant -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AintegerValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var hs-var">integerValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Optional. A string that contains the double value of the value entry.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Accepts substitution templates.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AdoubleValue%3AAssetPropertyVariant%27"><span class="annot"><span class="annottext">AssetPropertyVariant -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AdoubleValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var hs-var">doubleValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Optional. A string that contains the boolean value (@true@ or @false@)</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- of the value entry. Accepts substitution templates.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AbooleanValue%3AAssetPropertyVariant%27"><span class="annot"><span class="annottext">AssetPropertyVariant -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AbooleanValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var hs-var">booleanValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Optional. A string that contains the integer value of the value entry.</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Accepts substitution templates.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AintegerValue%3AAssetPropertyVariant%27"><span class="annot"><span class="annottext">AssetPropertyVariant -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AintegerValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var hs-var">integerValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Optional. The string value of the value entry. Accepts substitution</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- templates.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstringValue%3AAssetPropertyVariant%27"><span class="annot"><span class="annottext">AssetPropertyVariant -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AstringValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Optional. A string that contains the boolean value (@true@ or @false@)</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- of the value entry. Accepts substitution templates.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AbooleanValue%3AAssetPropertyVariant%27"><span class="annot"><span class="annottext">AssetPropertyVariant -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AbooleanValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var hs-var">booleanValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679773392"><span id="local-6989586621679773394"><span class="annot"><span class="annottext">AssetPropertyVariant -&gt; AssetPropertyVariant -&gt; Bool
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774234"><span id="local-6989586621679774236"><span class="annot"><span class="annottext">AssetPropertyVariant -&gt; AssetPropertyVariant -&gt; Bool
 (AssetPropertyVariant -&gt; AssetPropertyVariant -&gt; Bool)
 -&gt; (AssetPropertyVariant -&gt; AssetPropertyVariant -&gt; Bool)
 -&gt; Eq AssetPropertyVariant
@@ -53,7 +53,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssetPropertyVariant -&gt; AssetPropertyVariant -&gt; Bool
 == :: AssetPropertyVariant -&gt; AssetPropertyVariant -&gt; Bool
 $c== :: AssetPropertyVariant -&gt; AssetPropertyVariant -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773383"><span id="local-6989586621679773385"><span id="local-6989586621679773387"><span id="local-6989586621679773389"><span class="annot"><span class="annottext">ReadPrec [AssetPropertyVariant]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774225"><span id="local-6989586621679774227"><span id="local-6989586621679774229"><span id="local-6989586621679774231"><span class="annot"><span class="annottext">ReadPrec [AssetPropertyVariant]
 ReadPrec AssetPropertyVariant
 Int -&gt; ReadS AssetPropertyVariant
 ReadS [AssetPropertyVariant]
@@ -73,7 +73,7 @@ readList :: ReadS [AssetPropertyVariant]
 $creadList :: ReadS [AssetPropertyVariant]
 readsPrec :: Int -&gt; ReadS AssetPropertyVariant
 $creadsPrec :: Int -&gt; ReadS AssetPropertyVariant
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773376"><span id="local-6989586621679773378"><span id="local-6989586621679773380"><span class="annot"><span class="annottext">Int -&gt; AssetPropertyVariant -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774218"><span id="local-6989586621679774220"><span id="local-6989586621679774222"><span class="annot"><span class="annottext">Int -&gt; AssetPropertyVariant -&gt; ShowS
 [AssetPropertyVariant] -&gt; ShowS
 AssetPropertyVariant -&gt; String
 (Int -&gt; AssetPropertyVariant -&gt; ShowS)
@@ -107,17 +107,17 @@ $cfrom :: forall x. AssetPropertyVariant -&gt; Rep AssetPropertyVariant x
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'stringValue', 'assetPropertyVariant_stringValue' - Optional. The string value of the value entry. Accepts substitution</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- templates.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'integerValue', 'assetPropertyVariant_integerValue' - Optional. A string that contains the integer value of the value entry.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Accepts substitution templates.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- 'doubleValue', 'assetPropertyVariant_doubleValue' - Optional. A string that contains the double value of the value entry.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- Accepts substitution templates.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'booleanValue', 'assetPropertyVariant_booleanValue' - Optional. A string that contains the boolean value (@true@ or @false@)</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- of the value entry. Accepts substitution templates.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'stringValue', 'assetPropertyVariant_stringValue' - Optional. The string value of the value entry. Accepts substitution</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- templates.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'integerValue', 'assetPropertyVariant_integerValue' - Optional. A string that contains the integer value of the value entry.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- Accepts substitution templates.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'booleanValue', 'assetPropertyVariant_booleanValue' - Optional. A string that contains the boolean value (@true@ or @false@)</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- of the value entry. Accepts substitution templates.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#newAssetPropertyVariant"><span class="hs-identifier hs-type">newAssetPropertyVariant</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span>
 </span><span id="line-66"></span><span id="newAssetPropertyVariant"><span class="annot"><span class="annottext">newAssetPropertyVariant :: AssetPropertyVariant
@@ -125,8 +125,8 @@ $cfrom :: forall x. AssetPropertyVariant -&gt; Rep AssetPropertyVariant x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">AssetPropertyVariant' :: Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AssetPropertyVariant
 </span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stringValue:AssetPropertyVariant' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AstringValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:integerValue:AssetPropertyVariant' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AintegerValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var">integerValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
@@ -134,36 +134,36 @@ forall a. Maybe a
 </span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AdoubleValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var">doubleValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:booleanValue:AssetPropertyVariant' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AbooleanValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var">booleanValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:stringValue:AssetPropertyVariant' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AstringValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:integerValue:AssetPropertyVariant' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AintegerValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var">integerValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:booleanValue:AssetPropertyVariant' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AbooleanValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var">booleanValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | Optional. The string value of the value entry. Accepts substitution</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- templates.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#assetPropertyVariant_stringValue"><span class="hs-identifier hs-type">assetPropertyVariant_stringValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="assetPropertyVariant_stringValue"><span class="annot"><span class="annottext">assetPropertyVariant_stringValue :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-75"></span><span class="hs-comment">-- | Optional. A string that contains the integer value of the value entry.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Accepts substitution templates.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#assetPropertyVariant_integerValue"><span class="hs-identifier hs-type">assetPropertyVariant_integerValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="assetPropertyVariant_integerValue"><span class="annot"><span class="annottext">assetPropertyVariant_integerValue :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AssetPropertyVariant -&gt; f AssetPropertyVariant
-</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#assetPropertyVariant_stringValue"><span class="hs-identifier hs-var hs-var">assetPropertyVariant_stringValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetPropertyVariant -&gt; Maybe Text)
+</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#assetPropertyVariant_integerValue"><span class="hs-identifier hs-var hs-var">assetPropertyVariant_integerValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetPropertyVariant -&gt; Maybe Text)
 -&gt; (AssetPropertyVariant -&gt; Maybe Text -&gt; AssetPropertyVariant)
 -&gt; Lens
      AssetPropertyVariant AssetPropertyVariant (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773367"><span class="annot"><span class="annottext">Maybe Text
-stringValue :: Maybe Text
-$sel:stringValue:AssetPropertyVariant' :: AssetPropertyVariant -&gt; Maybe Text
-</span><a href="#local-6989586621679773367"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773367"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773366"><span class="annot"><span class="annottext">s :: AssetPropertyVariant
-</span><a href="#local-6989586621679773366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773365"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetPropertyVariant
-</span><a href="#local-6989586621679773366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:AssetPropertyVariant' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AstringValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774209"><span class="annot"><span class="annottext">Maybe Text
+integerValue :: Maybe Text
+$sel:integerValue:AssetPropertyVariant' :: AssetPropertyVariant -&gt; Maybe Text
+</span><a href="#local-6989586621679774209"><span class="hs-identifier hs-var hs-var">integerValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774209"><span class="hs-identifier hs-var">integerValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774208"><span class="annot"><span class="annottext">s :: AssetPropertyVariant
+</span><a href="#local-6989586621679774208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774207"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetPropertyVariant
+</span><a href="#local-6989586621679774208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integerValue:AssetPropertyVariant' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AintegerValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var">integerValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | Optional. A string that contains the double value of the value entry.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- Accepts substitution templates.</span><span>
@@ -175,61 +175,61 @@ $sel:stringValue:AssetPropertyVariant' :: AssetPropertyVariant -&gt; Maybe Text
 -&gt; Lens
      AssetPropertyVariant AssetPropertyVariant (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773363"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774205"><span class="annot"><span class="annottext">Maybe Text
 doubleValue :: Maybe Text
 $sel:doubleValue:AssetPropertyVariant' :: AssetPropertyVariant -&gt; Maybe Text
-</span><a href="#local-6989586621679773363"><span class="hs-identifier hs-var hs-var">doubleValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773363"><span class="hs-identifier hs-var">doubleValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773362"><span class="annot"><span class="annottext">s :: AssetPropertyVariant
-</span><a href="#local-6989586621679773362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773361"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetPropertyVariant
-</span><a href="#local-6989586621679773362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:doubleValue:AssetPropertyVariant' :: Maybe Text
+</span><a href="#local-6989586621679774205"><span class="hs-identifier hs-var hs-var">doubleValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774205"><span class="hs-identifier hs-var">doubleValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774204"><span class="annot"><span class="annottext">s :: AssetPropertyVariant
+</span><a href="#local-6989586621679774204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774203"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetPropertyVariant
+</span><a href="#local-6989586621679774204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:doubleValue:AssetPropertyVariant' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AdoubleValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var">doubleValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | Optional. A string that contains the boolean value (@true@ or @false@)</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- of the value entry. Accepts substitution templates.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#assetPropertyVariant_booleanValue"><span class="hs-identifier hs-type">assetPropertyVariant_booleanValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="assetPropertyVariant_booleanValue"><span class="annot"><span class="annottext">assetPropertyVariant_booleanValue :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-85"></span><span class="hs-comment">-- | Optional. The string value of the value entry. Accepts substitution</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- templates.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#assetPropertyVariant_stringValue"><span class="hs-identifier hs-type">assetPropertyVariant_stringValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="assetPropertyVariant_stringValue"><span class="annot"><span class="annottext">assetPropertyVariant_stringValue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssetPropertyVariant -&gt; f AssetPropertyVariant
+</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#assetPropertyVariant_stringValue"><span class="hs-identifier hs-var hs-var">assetPropertyVariant_stringValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetPropertyVariant -&gt; Maybe Text)
+-&gt; (AssetPropertyVariant -&gt; Maybe Text -&gt; AssetPropertyVariant)
+-&gt; Lens
+     AssetPropertyVariant AssetPropertyVariant (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774201"><span class="annot"><span class="annottext">Maybe Text
+stringValue :: Maybe Text
+$sel:stringValue:AssetPropertyVariant' :: AssetPropertyVariant -&gt; Maybe Text
+</span><a href="#local-6989586621679774201"><span class="hs-identifier hs-var hs-var">stringValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774201"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774200"><span class="annot"><span class="annottext">s :: AssetPropertyVariant
+</span><a href="#local-6989586621679774200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774199"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetPropertyVariant
+</span><a href="#local-6989586621679774200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stringValue:AssetPropertyVariant' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AstringValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var">stringValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Optional. A string that contains the boolean value (@true@ or @false@)</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- of the value entry. Accepts substitution templates.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#assetPropertyVariant_booleanValue"><span class="hs-identifier hs-type">assetPropertyVariant_booleanValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="assetPropertyVariant_booleanValue"><span class="annot"><span class="annottext">assetPropertyVariant_booleanValue :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AssetPropertyVariant -&gt; f AssetPropertyVariant
 </span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#assetPropertyVariant_booleanValue"><span class="hs-identifier hs-var hs-var">assetPropertyVariant_booleanValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetPropertyVariant -&gt; Maybe Text)
 -&gt; (AssetPropertyVariant -&gt; Maybe Text -&gt; AssetPropertyVariant)
 -&gt; Lens
      AssetPropertyVariant AssetPropertyVariant (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773359"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774197"><span class="annot"><span class="annottext">Maybe Text
 booleanValue :: Maybe Text
 $sel:booleanValue:AssetPropertyVariant' :: AssetPropertyVariant -&gt; Maybe Text
-</span><a href="#local-6989586621679773359"><span class="hs-identifier hs-var hs-var">booleanValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773359"><span class="hs-identifier hs-var">booleanValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773358"><span class="annot"><span class="annottext">s :: AssetPropertyVariant
-</span><a href="#local-6989586621679773358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773357"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetPropertyVariant
-</span><a href="#local-6989586621679773358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:booleanValue:AssetPropertyVariant' :: Maybe Text
+</span><a href="#local-6989586621679774197"><span class="hs-identifier hs-var hs-var">booleanValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774197"><span class="hs-identifier hs-var">booleanValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774196"><span class="annot"><span class="annottext">s :: AssetPropertyVariant
+</span><a href="#local-6989586621679774196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774195"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetPropertyVariant
+</span><a href="#local-6989586621679774196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:booleanValue:AssetPropertyVariant' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AbooleanValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var">booleanValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | Optional. A string that contains the integer value of the value entry.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- Accepts substitution templates.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#assetPropertyVariant_integerValue"><span class="hs-identifier hs-type">assetPropertyVariant_integerValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="assetPropertyVariant_integerValue"><span class="annot"><span class="annottext">assetPropertyVariant_integerValue :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AssetPropertyVariant -&gt; f AssetPropertyVariant
-</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#assetPropertyVariant_integerValue"><span class="hs-identifier hs-var hs-var">assetPropertyVariant_integerValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssetPropertyVariant -&gt; Maybe Text)
--&gt; (AssetPropertyVariant -&gt; Maybe Text -&gt; AssetPropertyVariant)
--&gt; Lens
-     AssetPropertyVariant AssetPropertyVariant (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773355"><span class="annot"><span class="annottext">Maybe Text
-integerValue :: Maybe Text
-$sel:integerValue:AssetPropertyVariant' :: AssetPropertyVariant -&gt; Maybe Text
-</span><a href="#local-6989586621679773355"><span class="hs-identifier hs-var hs-var">integerValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773355"><span class="hs-identifier hs-var">integerValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773354"><span class="annot"><span class="annottext">s :: AssetPropertyVariant
-</span><a href="#local-6989586621679773354"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773353"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773353"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssetPropertyVariant
-</span><a href="#local-6989586621679773354"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:integerValue:AssetPropertyVariant' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#%24sel%3AintegerValue%3AAssetPropertyVariant%27"><span class="hs-identifier hs-var">integerValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773353"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773350"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679773348"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssetPropertyVariant
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774192"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679774190"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AssetPropertyVariant
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AssetPropertyVariant)
@@ -239,8 +239,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AssetPropertyVariant&quot;</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679773345"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679773345"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679774187"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679774187"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AssetPropertyVariant
 </span><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-var">AssetPropertyVariant'</span></a></span><span>
@@ -251,17 +251,17 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AssetPropertyVariant)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679773345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679774187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;stringValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;integerValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; AssetPropertyVariant)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; AssetPropertyVariant)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679773345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679774187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;doubleValue&quot;</span></span><span class="hs-special">)</span><span>
@@ -270,69 +270,69 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text -&gt; AssetPropertyVariant)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679773345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679774187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;booleanValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;stringValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AssetPropertyVariant)
 -&gt; Parser (Maybe Text) -&gt; Parser AssetPropertyVariant
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679773345"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679774187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;integerValue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;booleanValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773339"><span id="local-6989586621679773341"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774181"><span id="local-6989586621679774183"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773336"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773328"><span id="local-6989586621679773330"><span id="local-6989586621679773332"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679773326"><span class="annot"><span class="annottext">toJSON :: AssetPropertyVariant -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773321"><span id="local-6989586621679773322"><span id="local-6989586621679773323"><span id="local-6989586621679773324"><span class="annot"><span class="annottext">Maybe Text
-integerValue :: Maybe Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774170"><span id="local-6989586621679774172"><span id="local-6989586621679774174"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant"><span class="hs-identifier hs-type">AssetPropertyVariant</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679774168"><span class="annot"><span class="annottext">toJSON :: AssetPropertyVariant -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AssetPropertyVariant.html#AssetPropertyVariant%27"><span class="hs-identifier hs-type">AssetPropertyVariant'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774163"><span id="local-6989586621679774164"><span id="local-6989586621679774165"><span id="local-6989586621679774166"><span class="annot"><span class="annottext">Maybe Text
 booleanValue :: Maybe Text
-doubleValue :: Maybe Text
 stringValue :: Maybe Text
-$sel:integerValue:AssetPropertyVariant' :: AssetPropertyVariant -&gt; Maybe Text
+doubleValue :: Maybe Text
+integerValue :: Maybe Text
 $sel:booleanValue:AssetPropertyVariant' :: AssetPropertyVariant -&gt; Maybe Text
-$sel:doubleValue:AssetPropertyVariant' :: AssetPropertyVariant -&gt; Maybe Text
 $sel:stringValue:AssetPropertyVariant' :: AssetPropertyVariant -&gt; Maybe Text
-</span><a href="#local-6989586621679773321"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:doubleValue:AssetPropertyVariant' :: AssetPropertyVariant -&gt; Maybe Text
+$sel:integerValue:AssetPropertyVariant' :: AssetPropertyVariant -&gt; Maybe Text
+</span><a href="#local-6989586621679774163"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;stringValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;integerValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773324"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774166"><span class="hs-identifier hs-var">integerValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;doubleValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773323"><span class="hs-identifier hs-var">doubleValue</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774165"><span class="hs-identifier hs-var">doubleValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stringValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774164"><span class="hs-identifier hs-var">stringValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;booleanValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773322"><span class="hs-identifier hs-var">booleanValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;integerValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773321"><span class="hs-identifier hs-var">integerValue</span></a></span><span>
+</span><a href="#local-6989586621679774163"><span class="hs-identifier hs-var">booleanValue</span></a></span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span></pre></body></html>

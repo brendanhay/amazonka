@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Hls Encryption Type</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679879702"><span id="local-6989586621679879703"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsEncryptionType"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsEncryptionType.html#HlsEncryptionType"><span class="hs-identifier hs-var">HlsEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsEncryptionType%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsEncryptionType.html#HlsEncryptionType%27"><span class="hs-identifier hs-var">HlsEncryptionType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679886363"><span id="local-6989586621679886364"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsEncryptionType"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsEncryptionType.html#HlsEncryptionType"><span class="hs-identifier hs-var">HlsEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsEncryptionType%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsEncryptionType.html#HlsEncryptionType%27"><span class="hs-identifier hs-var">HlsEncryptionType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsEncryptionType"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.HlsEncryptionType.html#fromHlsEncryptionType"><span class="hs-identifier hs-var hs-var">fromHlsEncryptionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679879694"><span id="local-6989586621679879696"><span id="local-6989586621679879698"><span class="annot"><span class="annottext">Int -&gt; HlsEncryptionType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679886355"><span id="local-6989586621679886357"><span id="local-6989586621679886359"><span class="annot"><span class="annottext">Int -&gt; HlsEncryptionType -&gt; ShowS
 [HlsEncryptionType] -&gt; ShowS
 HlsEncryptionType -&gt; String
 (Int -&gt; HlsEncryptionType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HlsEncryptionType -&gt; String
 showsPrec :: Int -&gt; HlsEncryptionType -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsEncryptionType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679879685"><span id="local-6989586621679879687"><span id="local-6989586621679879689"><span id="local-6989586621679879691"><span class="annot"><span class="annottext">ReadPrec [HlsEncryptionType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679886346"><span id="local-6989586621679886348"><span id="local-6989586621679886350"><span id="local-6989586621679886352"><span class="annot"><span class="annottext">ReadPrec [HlsEncryptionType]
 ReadPrec HlsEncryptionType
 Int -&gt; ReadS HlsEncryptionType
 ReadS [HlsEncryptionType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HlsEncryptionType]
 readsPrec :: Int -&gt; ReadS HlsEncryptionType
 $creadsPrec :: Int -&gt; ReadS HlsEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679879680"><span id="local-6989586621679879682"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; HlsEncryptionType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679886341"><span id="local-6989586621679886343"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; HlsEncryptionType -&gt; Bool
 (HlsEncryptionType -&gt; HlsEncryptionType -&gt; Bool)
 -&gt; (HlsEncryptionType -&gt; HlsEncryptionType -&gt; Bool)
 -&gt; Eq HlsEncryptionType
@@ -83,7 +83,7 @@ $c/= :: HlsEncryptionType -&gt; HlsEncryptionType -&gt; Bool
 == :: HlsEncryptionType -&gt; HlsEncryptionType -&gt; Bool
 $c== :: HlsEncryptionType -&gt; HlsEncryptionType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679879664"><span id="local-6989586621679879666"><span id="local-6989586621679879668"><span id="local-6989586621679879670"><span id="local-6989586621679879672"><span id="local-6989586621679879674"><span id="local-6989586621679879676"><span class="annot"><span class="annottext">Eq HlsEncryptionType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679886325"><span id="local-6989586621679886327"><span id="local-6989586621679886329"><span id="local-6989586621679886331"><span id="local-6989586621679886333"><span id="local-6989586621679886335"><span id="local-6989586621679886337"><span class="annot"><span class="annottext">Eq HlsEncryptionType
 Eq HlsEncryptionType
 -&gt; (HlsEncryptionType -&gt; HlsEncryptionType -&gt; Ordering)
 -&gt; (HlsEncryptionType -&gt; HlsEncryptionType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. HlsEncryptionType -&gt; Rep HlsEncryptionType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679879656"><span id="local-6989586621679879658"><span class="annot"><span class="annottext">Int -&gt; HlsEncryptionType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679886317"><span id="local-6989586621679886319"><span class="annot"><span class="annottext">Int -&gt; HlsEncryptionType -&gt; Int
 HlsEncryptionType -&gt; Int
 (Int -&gt; HlsEncryptionType -&gt; Int)
 -&gt; (HlsEncryptionType -&gt; Int) -&gt; Hashable HlsEncryptionType
@@ -144,51 +144,51 @@ $chash :: HlsEncryptionType -&gt; Int
 hashWithSalt :: Int -&gt; HlsEncryptionType -&gt; Int
 $chashWithSalt :: Int -&gt; HlsEncryptionType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679879653"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679886314"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; ()
 (HlsEncryptionType -&gt; ()) -&gt; NFData HlsEncryptionType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsEncryptionType -&gt; ()
 $crnf :: HlsEncryptionType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679879650"><span class="annot"><span class="annottext">Text -&gt; Either String HlsEncryptionType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679886311"><span class="annot"><span class="annottext">Text -&gt; Either String HlsEncryptionType
 (Text -&gt; Either String HlsEncryptionType)
 -&gt; FromText HlsEncryptionType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsEncryptionType
 $cfromText :: Text -&gt; Either String HlsEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679879647"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679886308"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; Text
 (HlsEncryptionType -&gt; Text) -&gt; ToText HlsEncryptionType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsEncryptionType -&gt; Text
 $ctoText :: HlsEncryptionType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679879644"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679886305"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; ByteString
 (HlsEncryptionType -&gt; ByteString) -&gt; ToByteString HlsEncryptionType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsEncryptionType -&gt; ByteString
 $ctoBS :: HlsEncryptionType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679879641"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679886302"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; ByteStringBuilder
 (HlsEncryptionType -&gt; ByteStringBuilder) -&gt; ToLog HlsEncryptionType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsEncryptionType -&gt; ByteStringBuilder
 $cbuild :: HlsEncryptionType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679879638"><span class="annot"><span class="annottext">HeaderName -&gt; HlsEncryptionType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679886299"><span class="annot"><span class="annottext">HeaderName -&gt; HlsEncryptionType -&gt; [Header]
 (HeaderName -&gt; HlsEncryptionType -&gt; [Header])
 -&gt; ToHeader HlsEncryptionType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsEncryptionType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsEncryptionType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679879635"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679886296"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; QueryString
 (HlsEncryptionType -&gt; QueryString) -&gt; ToQuery HlsEncryptionType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsEncryptionType -&gt; QueryString
 $ctoQuery :: HlsEncryptionType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679879630"><span id="local-6989586621679879632"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsEncryptionType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679886291"><span id="local-6989586621679886293"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsEncryptionType]
 Value -&gt; Parser HlsEncryptionType
 (Value -&gt; Parser HlsEncryptionType)
 -&gt; (Value -&gt; Parser [HlsEncryptionType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsEncryptionType]
 parseJSON :: Value -&gt; Parser HlsEncryptionType
 $cparseJSON :: Value -&gt; Parser HlsEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679879625"><span id="local-6989586621679879627"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsEncryptionType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679886286"><span id="local-6989586621679886288"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsEncryptionType]
 FromJSONKeyFunction HlsEncryptionType
 FromJSONKeyFunction HlsEncryptionType
 -&gt; FromJSONKeyFunction [HlsEncryptionType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsEncryptionType]
 fromJSONKey :: FromJSONKeyFunction HlsEncryptionType
 $cfromJSONKey :: FromJSONKeyFunction HlsEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679879616"><span id="local-6989586621679879618"><span id="local-6989586621679879620"><span id="local-6989586621679879622"><span class="annot"><span class="annottext">[HlsEncryptionType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679886277"><span id="local-6989586621679886279"><span id="local-6989586621679886281"><span id="local-6989586621679886283"><span class="annot"><span class="annottext">[HlsEncryptionType] -&gt; Encoding
 [HlsEncryptionType] -&gt; Value
 HlsEncryptionType -&gt; Encoding
 HlsEncryptionType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: HlsEncryptionType -&gt; Encoding
 toJSON :: HlsEncryptionType -&gt; Value
 $ctoJSON :: HlsEncryptionType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679879611"><span id="local-6989586621679879613"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsEncryptionType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679886272"><span id="local-6989586621679886274"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsEncryptionType]
 ToJSONKeyFunction HlsEncryptionType
 ToJSONKeyFunction HlsEncryptionType
 -&gt; ToJSONKeyFunction [HlsEncryptionType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsEncryptionType]
 toJSONKey :: ToJSONKeyFunction HlsEncryptionType
 $ctoJSONKey :: ToJSONKeyFunction HlsEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679879608"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsEncryptionType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679886269"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsEncryptionType
 ([Node] -&gt; Either String HlsEncryptionType)
 -&gt; FromXML HlsEncryptionType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsEncryptionType
 $cparseXML :: [Node] -&gt; Either String HlsEncryptionType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679879605"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679886266"><span class="annot"><span class="annottext">HlsEncryptionType -&gt; XML
 (HlsEncryptionType -&gt; XML) -&gt; ToXML HlsEncryptionType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsEncryptionType -&gt; XML

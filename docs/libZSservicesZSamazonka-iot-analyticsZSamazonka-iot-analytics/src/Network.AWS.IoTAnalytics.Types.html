@@ -17,13 +17,13 @@
 </span><span id="line-17"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-18"></span><span>
 </span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
-</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ResourceAlreadyExistsException"><span class="hs-identifier">_ResourceAlreadyExistsException</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ServiceUnavailableException"><span class="hs-identifier">_ServiceUnavailableException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_InvalidRequestException"><span class="hs-identifier">_InvalidRequestException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ResourceAlreadyExistsException"><span class="hs-identifier">_ResourceAlreadyExistsException</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ThrottlingException"><span class="hs-identifier">_ThrottlingException</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_InvalidRequestException"><span class="hs-identifier">_InvalidRequestException</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_InternalFailureException"><span class="hs-identifier">_InternalFailureException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ServiceUnavailableException"><span class="hs-identifier">_ServiceUnavailableException</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_InternalFailureException"><span class="hs-identifier">_InternalFailureException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-27"></span><span>
 </span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelStatus</span></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelStatus.html#ChannelStatus"><span class="hs-identifier">ChannelStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -62,21 +62,21 @@
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchPutMessageErrorEntry</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.BatchPutMessageErrorEntry.html#BatchPutMessageErrorEntry"><span class="hs-identifier">BatchPutMessageErrorEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.BatchPutMessageErrorEntry.html#newBatchPutMessageErrorEntry"><span class="hs-identifier">newBatchPutMessageErrorEntry</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.BatchPutMessageErrorEntry.html#batchPutMessageErrorEntry_messageId"><span class="hs-identifier">batchPutMessageErrorEntry_messageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.BatchPutMessageErrorEntry.html#batchPutMessageErrorEntry_errorCode"><span class="hs-identifier">batchPutMessageErrorEntry_errorCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.BatchPutMessageErrorEntry.html#batchPutMessageErrorEntry_errorMessage"><span class="hs-identifier">batchPutMessageErrorEntry_errorMessage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.BatchPutMessageErrorEntry.html#batchPutMessageErrorEntry_errorCode"><span class="hs-identifier">batchPutMessageErrorEntry_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.BatchPutMessageErrorEntry.html#batchPutMessageErrorEntry_messageId"><span class="hs-identifier">batchPutMessageErrorEntry_messageId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Channel</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#Channel"><span class="hs-identifier">Channel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#newChannel"><span class="hs-identifier">newChannel</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_lastMessageArrivalTime"><span class="hs-identifier">channel_lastMessageArrivalTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_creationTime"><span class="hs-identifier">channel_creationTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_status"><span class="hs-identifier">channel_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_creationTime"><span class="hs-identifier">channel_creationTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_lastUpdateTime"><span class="hs-identifier">channel_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_arn"><span class="hs-identifier">channel_arn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_name"><span class="hs-identifier">channel_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_retentionPeriod"><span class="hs-identifier">channel_retentionPeriod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_storage"><span class="hs-identifier">channel_storage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_lastMessageArrivalTime"><span class="hs-identifier">channel_lastMessageArrivalTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_arn"><span class="hs-identifier">channel_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_storage"><span class="hs-identifier">channel_storage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_retentionPeriod"><span class="hs-identifier">channel_retentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_name"><span class="hs-identifier">channel_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Channel.html#channel_lastUpdateTime"><span class="hs-identifier">channel_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelActivity</span></span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelActivity.html#ChannelActivity"><span class="hs-identifier">ChannelActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -110,12 +110,12 @@
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ChannelSummary</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#ChannelSummary"><span class="hs-identifier">ChannelSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#newChannelSummary"><span class="hs-identifier">newChannelSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#channelSummary_lastMessageArrivalTime"><span class="hs-identifier">channelSummary_lastMessageArrivalTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#channelSummary_creationTime"><span class="hs-identifier">channelSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#channelSummary_status"><span class="hs-identifier">channelSummary_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#channelSummary_channelName"><span class="hs-identifier">channelSummary_channelName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#channelSummary_creationTime"><span class="hs-identifier">channelSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#channelSummary_lastUpdateTime"><span class="hs-identifier">channelSummary_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#channelSummary_channelStorage"><span class="hs-identifier">channelSummary_channelStorage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#channelSummary_lastMessageArrivalTime"><span class="hs-identifier">channelSummary_lastMessageArrivalTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#channelSummary_channelName"><span class="hs-identifier">channelSummary_channelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#channelSummary_channelStorage"><span class="hs-identifier">channelSummary_channelStorage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ChannelSummary.html#channelSummary_lastUpdateTime"><span class="hs-identifier">channelSummary_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Column</span></span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Column.html#Column"><span class="hs-identifier">Column</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -141,9 +141,9 @@
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomerManagedChannelS3StorageSummary</span></span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary.html#CustomerManagedChannelS3StorageSummary"><span class="hs-identifier">CustomerManagedChannelS3StorageSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary.html#newCustomerManagedChannelS3StorageSummary"><span class="hs-identifier">newCustomerManagedChannelS3StorageSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary.html#customerManagedChannelS3StorageSummary_keyPrefix"><span class="hs-identifier">customerManagedChannelS3StorageSummary_keyPrefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary.html#customerManagedChannelS3StorageSummary_roleArn"><span class="hs-identifier">customerManagedChannelS3StorageSummary_roleArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary.html#customerManagedChannelS3StorageSummary_bucket"><span class="hs-identifier">customerManagedChannelS3StorageSummary_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary.html#customerManagedChannelS3StorageSummary_bucket"><span class="hs-identifier">customerManagedChannelS3StorageSummary_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary.html#customerManagedChannelS3StorageSummary_keyPrefix"><span class="hs-identifier">customerManagedChannelS3StorageSummary_keyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary.html#customerManagedChannelS3StorageSummary_roleArn"><span class="hs-identifier">customerManagedChannelS3StorageSummary_roleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomerManagedDatastoreS3Storage</span></span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage.html#CustomerManagedDatastoreS3Storage"><span class="hs-identifier">CustomerManagedDatastoreS3Storage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -155,30 +155,30 @@
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomerManagedDatastoreS3StorageSummary</span></span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary.html#CustomerManagedDatastoreS3StorageSummary"><span class="hs-identifier">CustomerManagedDatastoreS3StorageSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary.html#newCustomerManagedDatastoreS3StorageSummary"><span class="hs-identifier">newCustomerManagedDatastoreS3StorageSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary.html#customerManagedDatastoreS3StorageSummary_keyPrefix"><span class="hs-identifier">customerManagedDatastoreS3StorageSummary_keyPrefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary.html#customerManagedDatastoreS3StorageSummary_roleArn"><span class="hs-identifier">customerManagedDatastoreS3StorageSummary_roleArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary.html#customerManagedDatastoreS3StorageSummary_bucket"><span class="hs-identifier">customerManagedDatastoreS3StorageSummary_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary.html#customerManagedDatastoreS3StorageSummary_bucket"><span class="hs-identifier">customerManagedDatastoreS3StorageSummary_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary.html#customerManagedDatastoreS3StorageSummary_keyPrefix"><span class="hs-identifier">customerManagedDatastoreS3StorageSummary_keyPrefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3StorageSummary.html#customerManagedDatastoreS3StorageSummary_roleArn"><span class="hs-identifier">customerManagedDatastoreS3StorageSummary_roleArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Dataset</span></span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#Dataset"><span class="hs-identifier">Dataset</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#newDataset"><span class="hs-identifier">newDataset</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_status"><span class="hs-identifier">dataset_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_creationTime"><span class="hs-identifier">dataset_creationTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_lastUpdateTime"><span class="hs-identifier">dataset_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_triggers"><span class="hs-identifier">dataset_triggers</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_arn"><span class="hs-identifier">dataset_arn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_actions"><span class="hs-identifier">dataset_actions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_name"><span class="hs-identifier">dataset_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_creationTime"><span class="hs-identifier">dataset_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_status"><span class="hs-identifier">dataset_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_versioningConfiguration"><span class="hs-identifier">dataset_versioningConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_arn"><span class="hs-identifier">dataset_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_actions"><span class="hs-identifier">dataset_actions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_triggers"><span class="hs-identifier">dataset_triggers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_retentionPeriod"><span class="hs-identifier">dataset_retentionPeriod</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_lateDataRules"><span class="hs-identifier">dataset_lateDataRules</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_retentionPeriod"><span class="hs-identifier">dataset_retentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_name"><span class="hs-identifier">dataset_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_contentDeliveryRules"><span class="hs-identifier">dataset_contentDeliveryRules</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_versioningConfiguration"><span class="hs-identifier">dataset_versioningConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Dataset.html#dataset_lastUpdateTime"><span class="hs-identifier">dataset_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatasetAction</span></span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#DatasetAction"><span class="hs-identifier">DatasetAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#newDatasetAction"><span class="hs-identifier">newDatasetAction</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#datasetAction_actionName"><span class="hs-identifier">datasetAction_actionName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#datasetAction_queryAction"><span class="hs-identifier">datasetAction_queryAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#datasetAction_queryAction"><span class="hs-identifier">datasetAction_queryAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#datasetAction_actionName"><span class="hs-identifier">datasetAction_actionName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetAction.html#datasetAction_containerAction"><span class="hs-identifier">datasetAction_containerAction</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatasetActionSummary</span></span><span>
@@ -208,10 +208,10 @@
 </span><span id="line-208"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatasetContentSummary</span></span><span>
 </span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#DatasetContentSummary"><span class="hs-identifier">DatasetContentSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#newDatasetContentSummary"><span class="hs-identifier">newDatasetContentSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_status"><span class="hs-identifier">datasetContentSummary_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_creationTime"><span class="hs-identifier">datasetContentSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_completionTime"><span class="hs-identifier">datasetContentSummary_completionTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_scheduleTime"><span class="hs-identifier">datasetContentSummary_scheduleTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_creationTime"><span class="hs-identifier">datasetContentSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_status"><span class="hs-identifier">datasetContentSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_scheduleTime"><span class="hs-identifier">datasetContentSummary_scheduleTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_completionTime"><span class="hs-identifier">datasetContentSummary_completionTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetContentSummary.html#datasetContentSummary_version"><span class="hs-identifier">datasetContentSummary_version</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatasetContentVersionValue</span></span><span>
@@ -222,38 +222,38 @@
 </span><span id="line-222"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatasetEntry</span></span><span>
 </span><span id="line-223"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetEntry.html#DatasetEntry"><span class="hs-identifier">DatasetEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetEntry.html#newDatasetEntry"><span class="hs-identifier">newDatasetEntry</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetEntry.html#datasetEntry_dataURI"><span class="hs-identifier">datasetEntry_dataURI</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetEntry.html#datasetEntry_entryName"><span class="hs-identifier">datasetEntry_entryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetEntry.html#datasetEntry_entryName"><span class="hs-identifier">datasetEntry_entryName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetEntry.html#datasetEntry_dataURI"><span class="hs-identifier">datasetEntry_dataURI</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatasetSummary</span></span><span>
 </span><span id="line-229"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetSummary.html#DatasetSummary"><span class="hs-identifier">DatasetSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetSummary.html#newDatasetSummary"><span class="hs-identifier">newDatasetSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetSummary.html#datasetSummary_status"><span class="hs-identifier">datasetSummary_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetSummary.html#datasetSummary_creationTime"><span class="hs-identifier">datasetSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetSummary.html#datasetSummary_lastUpdateTime"><span class="hs-identifier">datasetSummary_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetSummary.html#datasetSummary_creationTime"><span class="hs-identifier">datasetSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetSummary.html#datasetSummary_status"><span class="hs-identifier">datasetSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetSummary.html#datasetSummary_actions"><span class="hs-identifier">datasetSummary_actions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetSummary.html#datasetSummary_triggers"><span class="hs-identifier">datasetSummary_triggers</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetSummary.html#datasetSummary_actions"><span class="hs-identifier">datasetSummary_actions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetSummary.html#datasetSummary_datasetName"><span class="hs-identifier">datasetSummary_datasetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetSummary.html#datasetSummary_datasetName"><span class="hs-identifier">datasetSummary_datasetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetSummary.html#datasetSummary_lastUpdateTime"><span class="hs-identifier">datasetSummary_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>
 </span><span id="line-238"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatasetTrigger</span></span><span>
 </span><span id="line-239"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#DatasetTrigger"><span class="hs-identifier">DatasetTrigger</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#newDatasetTrigger"><span class="hs-identifier">newDatasetTrigger</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#datasetTrigger_schedule"><span class="hs-identifier">datasetTrigger_schedule</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#datasetTrigger_dataset"><span class="hs-identifier">datasetTrigger_dataset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#datasetTrigger_dataset"><span class="hs-identifier">datasetTrigger_dataset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatasetTrigger.html#datasetTrigger_schedule"><span class="hs-identifier">datasetTrigger_schedule</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>
 </span><span id="line-244"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Datastore</span></span><span>
 </span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#Datastore"><span class="hs-identifier">Datastore</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#newDatastore"><span class="hs-identifier">newDatastore</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_lastMessageArrivalTime"><span class="hs-identifier">datastore_lastMessageArrivalTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_creationTime"><span class="hs-identifier">datastore_creationTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-248"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_status"><span class="hs-identifier">datastore_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_creationTime"><span class="hs-identifier">datastore_creationTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_datastorePartitions"><span class="hs-identifier">datastore_datastorePartitions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_lastUpdateTime"><span class="hs-identifier">datastore_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_fileFormatConfiguration"><span class="hs-identifier">datastore_fileFormatConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_arn"><span class="hs-identifier">datastore_arn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_name"><span class="hs-identifier">datastore_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_retentionPeriod"><span class="hs-identifier">datastore_retentionPeriod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_storage"><span class="hs-identifier">datastore_storage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_lastMessageArrivalTime"><span class="hs-identifier">datastore_lastMessageArrivalTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_arn"><span class="hs-identifier">datastore_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_fileFormatConfiguration"><span class="hs-identifier">datastore_fileFormatConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_datastorePartitions"><span class="hs-identifier">datastore_datastorePartitions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_storage"><span class="hs-identifier">datastore_storage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_retentionPeriod"><span class="hs-identifier">datastore_retentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_name"><span class="hs-identifier">datastore_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Datastore.html#datastore_lastUpdateTime"><span class="hs-identifier">datastore_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-257"></span><span>
 </span><span id="line-258"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatastoreActivity</span></span><span>
 </span><span id="line-259"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreActivity.html#DatastoreActivity"><span class="hs-identifier">DatastoreActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -274,8 +274,8 @@
 </span><span id="line-274"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatastorePartition</span></span><span>
 </span><span id="line-275"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartition.html#DatastorePartition"><span class="hs-identifier">DatastorePartition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-276"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartition.html#newDatastorePartition"><span class="hs-identifier">newDatastorePartition</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartition.html#datastorePartition_timestampPartition"><span class="hs-identifier">datastorePartition_timestampPartition</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartition.html#datastorePartition_attributePartition"><span class="hs-identifier">datastorePartition_attributePartition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartition.html#datastorePartition_attributePartition"><span class="hs-identifier">datastorePartition_attributePartition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartition.html#datastorePartition_timestampPartition"><span class="hs-identifier">datastorePartition_timestampPartition</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-279"></span><span>
 </span><span id="line-280"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatastorePartitions</span></span><span>
 </span><span id="line-281"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastorePartitions.html#DatastorePartitions"><span class="hs-identifier">DatastorePartitions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -304,14 +304,14 @@
 </span><span id="line-304"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DatastoreSummary</span></span><span>
 </span><span id="line-305"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#DatastoreSummary"><span class="hs-identifier">DatastoreSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-306"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#newDatastoreSummary"><span class="hs-identifier">newDatastoreSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_lastMessageArrivalTime"><span class="hs-identifier">datastoreSummary_lastMessageArrivalTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_creationTime"><span class="hs-identifier">datastoreSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-308"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_status"><span class="hs-identifier">datastoreSummary_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_creationTime"><span class="hs-identifier">datastoreSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_datastoreStorage"><span class="hs-identifier">datastoreSummary_datastoreStorage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_lastMessageArrivalTime"><span class="hs-identifier">datastoreSummary_lastMessageArrivalTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_datastoreName"><span class="hs-identifier">datastoreSummary_datastoreName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-311"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_datastorePartitions"><span class="hs-identifier">datastoreSummary_datastorePartitions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-312"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_lastUpdateTime"><span class="hs-identifier">datastoreSummary_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_fileFormatType"><span class="hs-identifier">datastoreSummary_fileFormatType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_datastoreName"><span class="hs-identifier">datastoreSummary_datastoreName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_fileFormatType"><span class="hs-identifier">datastoreSummary_fileFormatType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_lastUpdateTime"><span class="hs-identifier">datastoreSummary_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DatastoreSummary.html#datastoreSummary_datastoreStorage"><span class="hs-identifier">datastoreSummary_datastoreStorage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-315"></span><span>
 </span><span id="line-316"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DeltaTime</span></span><span>
 </span><span id="line-317"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier">DeltaTime</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -345,14 +345,14 @@
 </span><span id="line-345"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EstimatedResourceSize</span></span><span>
 </span><span id="line-346"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#EstimatedResourceSize"><span class="hs-identifier">EstimatedResourceSize</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-347"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#newEstimatedResourceSize"><span class="hs-identifier">newEstimatedResourceSize</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-348"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#estimatedResourceSize_estimatedSizeInBytes"><span class="hs-identifier">estimatedResourceSize_estimatedSizeInBytes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-349"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#estimatedResourceSize_estimatedOn"><span class="hs-identifier">estimatedResourceSize_estimatedOn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#estimatedResourceSize_estimatedOn"><span class="hs-identifier">estimatedResourceSize_estimatedOn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.EstimatedResourceSize.html#estimatedResourceSize_estimatedSizeInBytes"><span class="hs-identifier">estimatedResourceSize_estimatedSizeInBytes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-350"></span><span>
 </span><span id="line-351"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FileFormatConfiguration</span></span><span>
 </span><span id="line-352"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier">FileFormatConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-353"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#newFileFormatConfiguration"><span class="hs-identifier">newFileFormatConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-354"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#fileFormatConfiguration_parquetConfiguration"><span class="hs-identifier">fileFormatConfiguration_parquetConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-355"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#fileFormatConfiguration_jsonConfiguration"><span class="hs-identifier">fileFormatConfiguration_jsonConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#fileFormatConfiguration_jsonConfiguration"><span class="hs-identifier">fileFormatConfiguration_jsonConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-355"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#fileFormatConfiguration_parquetConfiguration"><span class="hs-identifier">fileFormatConfiguration_parquetConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-356"></span><span>
 </span><span id="line-357"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FilterActivity</span></span><span>
 </span><span id="line-358"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FilterActivity.html#FilterActivity"><span class="hs-identifier">FilterActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -382,8 +382,8 @@
 </span><span id="line-382"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IotSiteWiseCustomerManagedDatastoreS3StorageSummary</span></span><span>
 </span><span id="line-383"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.IotSiteWiseCustomerManagedDatastoreS3StorageSummary.html#IotSiteWiseCustomerManagedDatastoreS3StorageSummary"><span class="hs-identifier">IotSiteWiseCustomerManagedDatastoreS3StorageSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-384"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.IotSiteWiseCustomerManagedDatastoreS3StorageSummary.html#newIotSiteWiseCustomerManagedDatastoreS3StorageSummary"><span class="hs-identifier">newIotSiteWiseCustomerManagedDatastoreS3StorageSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-385"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.IotSiteWiseCustomerManagedDatastoreS3StorageSummary.html#iotSiteWiseCustomerManagedDatastoreS3StorageSummary_keyPrefix"><span class="hs-identifier">iotSiteWiseCustomerManagedDatastoreS3StorageSummary_keyPrefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-386"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.IotSiteWiseCustomerManagedDatastoreS3StorageSummary.html#iotSiteWiseCustomerManagedDatastoreS3StorageSummary_bucket"><span class="hs-identifier">iotSiteWiseCustomerManagedDatastoreS3StorageSummary_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.IotSiteWiseCustomerManagedDatastoreS3StorageSummary.html#iotSiteWiseCustomerManagedDatastoreS3StorageSummary_bucket"><span class="hs-identifier">iotSiteWiseCustomerManagedDatastoreS3StorageSummary_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-386"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.IotSiteWiseCustomerManagedDatastoreS3StorageSummary.html#iotSiteWiseCustomerManagedDatastoreS3StorageSummary_keyPrefix"><span class="hs-identifier">iotSiteWiseCustomerManagedDatastoreS3StorageSummary_keyPrefix</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-387"></span><span>
 </span><span id="line-388"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JsonConfiguration</span></span><span>
 </span><span id="line-389"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.JsonConfiguration.html#JsonConfiguration"><span class="hs-identifier">JsonConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -448,33 +448,33 @@
 </span><span id="line-448"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Pipeline.html#Pipeline"><span class="hs-identifier">Pipeline</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-449"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Pipeline.html#newPipeline"><span class="hs-identifier">newPipeline</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-450"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Pipeline.html#pipeline_creationTime"><span class="hs-identifier">pipeline_creationTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-451"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Pipeline.html#pipeline_lastUpdateTime"><span class="hs-identifier">pipeline_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-451"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Pipeline.html#pipeline_arn"><span class="hs-identifier">pipeline_arn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-452"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Pipeline.html#pipeline_activities"><span class="hs-identifier">pipeline_activities</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-453"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Pipeline.html#pipeline_arn"><span class="hs-identifier">pipeline_arn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-454"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Pipeline.html#pipeline_name"><span class="hs-identifier">pipeline_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-455"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Pipeline.html#pipeline_reprocessingSummaries"><span class="hs-identifier">pipeline_reprocessingSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-453"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Pipeline.html#pipeline_name"><span class="hs-identifier">pipeline_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-454"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Pipeline.html#pipeline_reprocessingSummaries"><span class="hs-identifier">pipeline_reprocessingSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-455"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Pipeline.html#pipeline_lastUpdateTime"><span class="hs-identifier">pipeline_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-456"></span><span>
 </span><span id="line-457"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PipelineActivity</span></span><span>
 </span><span id="line-458"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#PipelineActivity"><span class="hs-identifier">PipelineActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-459"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#newPipelineActivity"><span class="hs-identifier">newPipelineActivity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-460"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_selectAttributes"><span class="hs-identifier">pipelineActivity_selectAttributes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-461"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_datastore"><span class="hs-identifier">pipelineActivity_datastore</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-462"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_removeAttributes"><span class="hs-identifier">pipelineActivity_removeAttributes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-463"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_addAttributes"><span class="hs-identifier">pipelineActivity_addAttributes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-464"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_deviceShadowEnrich"><span class="hs-identifier">pipelineActivity_deviceShadowEnrich</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-461"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_channel"><span class="hs-identifier">pipelineActivity_channel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-462"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_addAttributes"><span class="hs-identifier">pipelineActivity_addAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-463"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_deviceRegistryEnrich"><span class="hs-identifier">pipelineActivity_deviceRegistryEnrich</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-464"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_removeAttributes"><span class="hs-identifier">pipelineActivity_removeAttributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-465"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_lambda"><span class="hs-identifier">pipelineActivity_lambda</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-466"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_deviceRegistryEnrich"><span class="hs-identifier">pipelineActivity_deviceRegistryEnrich</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-467"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_channel"><span class="hs-identifier">pipelineActivity_channel</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-468"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_math"><span class="hs-identifier">pipelineActivity_math</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-469"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_filter"><span class="hs-identifier">pipelineActivity_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-466"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_datastore"><span class="hs-identifier">pipelineActivity_datastore</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-467"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_deviceShadowEnrich"><span class="hs-identifier">pipelineActivity_deviceShadowEnrich</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-468"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_filter"><span class="hs-identifier">pipelineActivity_filter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-469"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineActivity.html#pipelineActivity_math"><span class="hs-identifier">pipelineActivity_math</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-470"></span><span>
 </span><span id="line-471"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PipelineSummary</span></span><span>
 </span><span id="line-472"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#PipelineSummary"><span class="hs-identifier">PipelineSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-473"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#newPipelineSummary"><span class="hs-identifier">newPipelineSummary</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-474"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_creationTime"><span class="hs-identifier">pipelineSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-475"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_lastUpdateTime"><span class="hs-identifier">pipelineSummary_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-475"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_pipelineName"><span class="hs-identifier">pipelineSummary_pipelineName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-476"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_reprocessingSummaries"><span class="hs-identifier">pipelineSummary_reprocessingSummaries</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-477"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_pipelineName"><span class="hs-identifier">pipelineSummary_pipelineName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-477"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.PipelineSummary.html#pipelineSummary_lastUpdateTime"><span class="hs-identifier">pipelineSummary_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-478"></span><span>
 </span><span id="line-479"></span><span>    </span><span class="annot"><span class="hs-comment">-- * QueryFilter</span></span><span>
 </span><span id="line-480"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter"><span class="hs-identifier">QueryFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -491,8 +491,8 @@
 </span><span id="line-491"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ReprocessingSummary</span></span><span>
 </span><span id="line-492"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#ReprocessingSummary"><span class="hs-identifier">ReprocessingSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-493"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#newReprocessingSummary"><span class="hs-identifier">newReprocessingSummary</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-494"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_status"><span class="hs-identifier">reprocessingSummary_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-495"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_creationTime"><span class="hs-identifier">reprocessingSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-494"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_creationTime"><span class="hs-identifier">reprocessingSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-495"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_status"><span class="hs-identifier">reprocessingSummary_status</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-496"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ReprocessingSummary.html#reprocessingSummary_id"><span class="hs-identifier">reprocessingSummary_id</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-497"></span><span>
 </span><span id="line-498"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ResourceConfiguration</span></span><span>
@@ -504,8 +504,8 @@
 </span><span id="line-504"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RetentionPeriod</span></span><span>
 </span><span id="line-505"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#RetentionPeriod"><span class="hs-identifier">RetentionPeriod</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-506"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#newRetentionPeriod"><span class="hs-identifier">newRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-507"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#retentionPeriod_numberOfDays"><span class="hs-identifier">retentionPeriod_numberOfDays</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-508"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#retentionPeriod_unlimited"><span class="hs-identifier">retentionPeriod_unlimited</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-507"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#retentionPeriod_unlimited"><span class="hs-identifier">retentionPeriod_unlimited</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-508"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.RetentionPeriod.html#retentionPeriod_numberOfDays"><span class="hs-identifier">retentionPeriod_numberOfDays</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-509"></span><span>
 </span><span id="line-510"></span><span>    </span><span class="annot"><span class="hs-comment">-- * S3DestinationConfiguration</span></span><span>
 </span><span id="line-511"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.S3DestinationConfiguration.html#S3DestinationConfiguration"><span class="hs-identifier">S3DestinationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -575,16 +575,16 @@
 </span><span id="line-575"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#Variable"><span class="hs-identifier">Variable</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-576"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#newVariable"><span class="hs-identifier">newVariable</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-577"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_outputFileUriValue"><span class="hs-identifier">variable_outputFileUriValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-578"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_stringValue"><span class="hs-identifier">variable_stringValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-579"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_doubleValue"><span class="hs-identifier">variable_doubleValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-578"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_doubleValue"><span class="hs-identifier">variable_doubleValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-579"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_stringValue"><span class="hs-identifier">variable_stringValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-580"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_datasetContentVersionValue"><span class="hs-identifier">variable_datasetContentVersionValue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-581"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.Variable.html#variable_name"><span class="hs-identifier">variable_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-582"></span><span>
 </span><span id="line-583"></span><span>    </span><span class="annot"><span class="hs-comment">-- * VersioningConfiguration</span></span><span>
 </span><span id="line-584"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.VersioningConfiguration.html#VersioningConfiguration"><span class="hs-identifier">VersioningConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-585"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.VersioningConfiguration.html#newVersioningConfiguration"><span class="hs-identifier">newVersioningConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-586"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.VersioningConfiguration.html#versioningConfiguration_maxVersions"><span class="hs-identifier">versioningConfiguration_maxVersions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-587"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.VersioningConfiguration.html#versioningConfiguration_unlimited"><span class="hs-identifier">versioningConfiguration_unlimited</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-586"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.VersioningConfiguration.html#versioningConfiguration_unlimited"><span class="hs-identifier">versioningConfiguration_unlimited</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-587"></span><span>    </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.VersioningConfiguration.html#versioningConfiguration_maxVersions"><span class="hs-identifier">versioningConfiguration_maxVersions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-588"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-589"></span><span class="hs-keyword">where</span><span>
 </span><span id="line-590"></span><span>
@@ -732,11 +732,11 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;IoTAnalytics&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-699"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
 </span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
-</span><a href="#local-6989586621679263257"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><a href="#local-6989586621679263475"><span class="hs-identifier hs-var">retry</span></a></span><span>
 </span><span id="line-700"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-701"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-702"></span><span>    </span><span id="local-6989586621679263257"><span class="annot"><span class="annottext">retry :: Retry
-</span><a href="#local-6989586621679263257"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-702"></span><span>    </span><span id="local-6989586621679263475"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679263475"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-703"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
 </span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
 </span><span id="line-704"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
@@ -751,35 +751,21 @@ forall a. a -&gt; Maybe a
 </span><span id="line-707"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
 </span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
 forall a. IsString a =&gt; ServiceError -&gt; Maybe a
-</span><a href="#local-6989586621679263251"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><a href="#local-6989586621679263469"><span class="hs-identifier hs-var">check</span></a></span><span>
 </span><span id="line-708"></span><span>        </span><span class="hs-special">}</span><span>
-</span><span id="line-709"></span><span>    </span><span id="local-6989586621679263251"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
-</span><a href="#local-6989586621679263251"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679263250"><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679263250"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-709"></span><span>    </span><span id="local-6989586621679263469"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679263469"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679263468"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263468"><span class="hs-identifier hs-var">e</span></a></span></span><span>
 </span><span id="line-710"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-Int -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679263250"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-711"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
-forall a. a -&gt; Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
-</span><span id="line-712"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
-forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-713"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+</span><span id="line-711"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 ErrorCode -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
-</span><span id="line-714"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
-</span><span id="line-715"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-712"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -789,40 +775,14 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">400</span></span><span>
-</span><span id="line-716"></span><span>          </span><span class="hs-special">)</span><span>
-</span><span id="line-717"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679263250"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-718"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+</span><span id="line-713"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-714"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263468"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-715"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
-</span><span id="line-719"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
-forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-Int -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679263250"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-720"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
-forall a. a -&gt; Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
-</span><span id="line-721"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
-forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-Int -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679263250"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-722"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
-forall a. a -&gt; Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
-</span><span id="line-723"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-716"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
@@ -830,21 +790,21 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679263250"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-724"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+</span><a href="#local-6989586621679263468"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-717"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
-</span><span id="line-725"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+</span><span id="line-718"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-726"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+</span><span id="line-719"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 ErrorCode -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
-</span><span id="line-727"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-720"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
@@ -854,22 +814,49 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">400</span></span><span>
-</span><span id="line-728"></span><span>          </span><span class="hs-special">)</span><span>
-</span><span id="line-729"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679263250"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-730"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+</span><span id="line-721"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-722"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263468"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-723"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
-</span><span id="line-731"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-724"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-732"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+</span><span id="line-725"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 ErrorCode -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-726"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-727"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-728"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263468"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-729"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-730"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-731"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-732"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
 </span><span id="line-733"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
 -&gt; Getting Any ServiceError ServiceError
@@ -882,11 +869,11 @@ Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-number">400</span></span><span>
 </span><span id="line-734"></span><span>          </span><span class="hs-special">)</span><span>
 </span><span id="line-735"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679263250"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679263468"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-736"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
 </span><span id="line-737"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
@@ -894,13 +881,65 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679263250"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263468"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-738"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
 </span><span id="line-739"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-740"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-741"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-742"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-743"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263468"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-744"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-745"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263468"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-746"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-747"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263468"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-748"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-749"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
 </span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
@@ -908,72 +947,33 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679263250"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-740"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+</span><a href="#local-6989586621679263468"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-750"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
 </span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
-</span><span id="line-741"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+</span><span id="line-751"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
 forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-742"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-ErrorCode -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
-</span><span id="line-743"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
--&gt; Getting Any ServiceError ServiceError
--&gt; Getting Any ServiceError ServiceError
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
 forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">400</span></span><span>
-</span><span id="line-744"></span><span>          </span><span class="hs-special">)</span><span>
-</span><span id="line-745"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679263250"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-746"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
-forall a. a -&gt; Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
-</span><span id="line-747"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
-forall s a. Getting Any s a -&gt; s -&gt; Bool
-</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
-</span><span id="line-748"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-ErrorCode -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
-</span><span id="line-749"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
--&gt; Getting Any ServiceError ServiceError
--&gt; Getting Any ServiceError ServiceError
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
-forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
-(Applicative f, Choice p) =&gt;
-Int -&gt; Optic' p f ServiceError ServiceError
-</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">400</span></span><span>
-</span><span id="line-750"></span><span>          </span><span class="hs-special">)</span><span>
-</span><span id="line-751"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
-</span><a href="#local-6989586621679263250"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679263468"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-752"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
-</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
 </span><span id="line-753"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
 </span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-754"></span><span>
-</span><span id="line-755"></span><span class="hs-comment">-- | A resource with the same name already exists.</span><span>
-</span><span id="line-756"></span><span id="local-6989586621679263245"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ResourceAlreadyExistsException"><span class="hs-identifier hs-type">_ResourceAlreadyExistsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263245"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263245"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-757"></span><span id="_ResourceAlreadyExistsException"><span class="annot"><span class="annottext">_ResourceAlreadyExistsException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.IoTAnalytics.Types.html#_ResourceAlreadyExistsException"><span class="hs-identifier hs-var hs-var">_ResourceAlreadyExistsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-755"></span><span class="hs-comment">-- | The request was not valid.</span><span>
+</span><span id="line-756"></span><span id="local-6989586621679263463"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_InvalidRequestException"><span class="hs-identifier hs-type">_InvalidRequestException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263463"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263463"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-757"></span><span id="_InvalidRequestException"><span class="annot"><span class="annottext">_InvalidRequestException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.IoTAnalytics.Types.html#_InvalidRequestException"><span class="hs-identifier hs-var hs-var">_InvalidRequestException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-758"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 forall a.
 AsError a =&gt;
@@ -982,7 +982,7 @@ Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 </span><span id="line-759"></span><span>    </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
 </span><span id="line-760"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ResourceAlreadyExistsException&quot;</span></span><span>
+</span><span class="hs-string">&quot;InvalidRequestException&quot;</span></span><span>
 </span><span id="line-761"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
 -&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
     -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
@@ -996,12 +996,12 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">409</span></span><span>
+</span><span class="hs-number">400</span></span><span>
 </span><span id="line-762"></span><span>
-</span><span id="line-763"></span><span class="hs-comment">-- | The service is temporarily unavailable.</span><span>
-</span><span id="line-764"></span><span id="local-6989586621679263243"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ServiceUnavailableException"><span class="hs-identifier hs-type">_ServiceUnavailableException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263243"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263243"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-765"></span><span id="_ServiceUnavailableException"><span class="annot"><span class="annottext">_ServiceUnavailableException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.IoTAnalytics.Types.html#_ServiceUnavailableException"><span class="hs-identifier hs-var hs-var">_ServiceUnavailableException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-763"></span><span class="hs-comment">-- | A resource with the same name already exists.</span><span>
+</span><span id="line-764"></span><span id="local-6989586621679263461"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ResourceAlreadyExistsException"><span class="hs-identifier hs-type">_ResourceAlreadyExistsException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263461"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263461"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-765"></span><span id="_ResourceAlreadyExistsException"><span class="annot"><span class="annottext">_ResourceAlreadyExistsException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.IoTAnalytics.Types.html#_ResourceAlreadyExistsException"><span class="hs-identifier hs-var hs-var">_ResourceAlreadyExistsException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-766"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 forall a.
 AsError a =&gt;
@@ -1010,7 +1010,7 @@ Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 </span><span id="line-767"></span><span>    </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
 </span><span id="line-768"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;ServiceUnavailableException&quot;</span></span><span>
+</span><span class="hs-string">&quot;ResourceAlreadyExistsException&quot;</span></span><span>
 </span><span id="line-769"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
 -&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
     -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
@@ -1024,10 +1024,10 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">503</span></span><span>
+</span><span class="hs-number">409</span></span><span>
 </span><span id="line-770"></span><span>
 </span><span id="line-771"></span><span class="hs-comment">-- | The request was denied due to request throttling.</span><span>
-</span><span id="line-772"></span><span id="local-6989586621679263242"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ThrottlingException"><span class="hs-identifier hs-type">_ThrottlingException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263242"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263242"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-772"></span><span id="local-6989586621679263460"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ThrottlingException"><span class="hs-identifier hs-type">_ThrottlingException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263460"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263460"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
 </span><span id="line-773"></span><span id="_ThrottlingException"><span class="annot"><span class="annottext">_ThrottlingException :: Getting (First ServiceError) a ServiceError
 </span><a href="Network.AWS.IoTAnalytics.Types.html#_ThrottlingException"><span class="hs-identifier hs-var hs-var">_ThrottlingException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-774"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
@@ -1054,10 +1054,10 @@ Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">429</span></span><span>
 </span><span id="line-778"></span><span>
-</span><span id="line-779"></span><span class="hs-comment">-- | The request was not valid.</span><span>
-</span><span id="line-780"></span><span id="local-6989586621679263241"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_InvalidRequestException"><span class="hs-identifier hs-type">_InvalidRequestException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263241"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263241"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-781"></span><span id="_InvalidRequestException"><span class="annot"><span class="annottext">_InvalidRequestException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.IoTAnalytics.Types.html#_InvalidRequestException"><span class="hs-identifier hs-var hs-var">_InvalidRequestException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-779"></span><span class="hs-comment">-- | There was an internal failure.</span><span>
+</span><span id="line-780"></span><span id="local-6989586621679263459"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_InternalFailureException"><span class="hs-identifier hs-type">_InternalFailureException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263459"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263459"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-781"></span><span id="_InternalFailureException"><span class="annot"><span class="annottext">_InternalFailureException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.IoTAnalytics.Types.html#_InternalFailureException"><span class="hs-identifier hs-var hs-var">_InternalFailureException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-782"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 forall a.
 AsError a =&gt;
@@ -1066,7 +1066,7 @@ Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 </span><span id="line-783"></span><span>    </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
 </span><span id="line-784"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;InvalidRequestException&quot;</span></span><span>
+</span><span class="hs-string">&quot;InternalFailureException&quot;</span></span><span>
 </span><span id="line-785"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
 -&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
     -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
@@ -1080,12 +1080,12 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">400</span></span><span>
+</span><span class="hs-number">500</span></span><span>
 </span><span id="line-786"></span><span>
-</span><span id="line-787"></span><span class="hs-comment">-- | The command caused an internal limit to be exceeded.</span><span>
-</span><span id="line-788"></span><span id="local-6989586621679263240"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263240"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263240"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-789"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.IoTAnalytics.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-787"></span><span class="hs-comment">-- | The service is temporarily unavailable.</span><span>
+</span><span id="line-788"></span><span id="local-6989586621679263458"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ServiceUnavailableException"><span class="hs-identifier hs-type">_ServiceUnavailableException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263458"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263458"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-789"></span><span id="_ServiceUnavailableException"><span class="annot"><span class="annottext">_ServiceUnavailableException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.IoTAnalytics.Types.html#_ServiceUnavailableException"><span class="hs-identifier hs-var hs-var">_ServiceUnavailableException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-790"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 forall a.
 AsError a =&gt;
@@ -1094,7 +1094,7 @@ Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 </span><span id="line-791"></span><span>    </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
 </span><span id="line-792"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
+</span><span class="hs-string">&quot;ServiceUnavailableException&quot;</span></span><span>
 </span><span id="line-793"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
 -&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
     -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
@@ -1108,10 +1108,10 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">410</span></span><span>
+</span><span class="hs-number">503</span></span><span>
 </span><span id="line-794"></span><span>
 </span><span id="line-795"></span><span class="hs-comment">-- | A resource with the specified name could not be found.</span><span>
-</span><span id="line-796"></span><span id="local-6989586621679263239"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263239"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263239"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-796"></span><span id="local-6989586621679263457"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263457"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263457"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
 </span><span id="line-797"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
 </span><a href="Network.AWS.IoTAnalytics.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-798"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
@@ -1138,10 +1138,10 @@ Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">404</span></span><span>
 </span><span id="line-802"></span><span>
-</span><span id="line-803"></span><span class="hs-comment">-- | There was an internal failure.</span><span>
-</span><span id="line-804"></span><span id="local-6989586621679263238"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_InternalFailureException"><span class="hs-identifier hs-type">_InternalFailureException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263238"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263238"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
-</span><span id="line-805"></span><span id="_InternalFailureException"><span class="annot"><span class="annottext">_InternalFailureException :: Getting (First ServiceError) a ServiceError
-</span><a href="Network.AWS.IoTAnalytics.Types.html#_InternalFailureException"><span class="hs-identifier hs-var hs-var">_InternalFailureException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-803"></span><span class="hs-comment">-- | The command caused an internal limit to be exceeded.</span><span>
+</span><span id="line-804"></span><span id="local-6989586621679263456"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679263456"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679263456"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-805"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Network.AWS.IoTAnalytics.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-806"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 forall a.
 AsError a =&gt;
@@ -1150,7 +1150,7 @@ Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
 </span><span id="line-807"></span><span>    </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoTAnalytics.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
 </span><span id="line-808"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
-</span><span class="hs-string">&quot;InternalFailureException&quot;</span></span><span>
+</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
 </span><span id="line-809"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
 -&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
     -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
@@ -1164,5 +1164,5 @@ forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
 (Applicative f, Choice p) =&gt;
 Int -&gt; Optic' p f ServiceError ServiceError
 </span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><span class="hs-number">500</span></span><span>
+</span><span class="hs-number">410</span></span><span>
 </span><span id="line-810"></span></pre></body></html>

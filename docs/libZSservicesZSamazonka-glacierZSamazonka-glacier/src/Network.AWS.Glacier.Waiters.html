@@ -23,14 +23,14 @@
 </span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-24"></span><span>
 </span><span id="line-25"></span><span class="hs-comment">-- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.</span><span>
-</span><span id="line-26"></span><span class="annot"><a href="Network.AWS.Glacier.Waiters.html#newVaultExists"><span class="hs-identifier hs-type">newVaultExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span>
-</span><span id="line-27"></span><span id="newVaultExists"><span class="annot"><span class="annottext">newVaultExists :: Wait DescribeVault
-</span><a href="Network.AWS.Glacier.Waiters.html#newVaultExists"><span class="hs-identifier hs-var hs-var">newVaultExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-26"></span><span class="annot"><a href="Network.AWS.Glacier.Waiters.html#newVaultNotExists"><span class="hs-identifier hs-type">newVaultNotExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span>
+</span><span id="line-27"></span><span id="newVaultNotExists"><span class="annot"><span class="annottext">newVaultNotExists :: Wait DescribeVault
+</span><a href="Network.AWS.Glacier.Waiters.html#newVaultNotExists"><span class="hs-identifier hs-var hs-var">newVaultNotExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-28"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
 </span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
 </span><span id="line-29"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
 </span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;VaultExists&quot;</span></span><span class="hs-special">,</span><span>
+</span><span class="hs-string">&quot;VaultNotExists&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
 </span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">15</span></span><span class="hs-special">,</span><span>
@@ -43,26 +43,26 @@
 forall a. Int -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">200</span></span><span> </span><span class="annot"><span class="annottext">Accept
-</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>          </span><span class="annot"><span class="annottext">ErrorCode -&gt; Accept -&gt; Acceptor DescribeVault
 forall a. ErrorCode -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchError</span></span><span>
 </span><span id="line-35"></span><span>            </span><span class="annot"><span class="annottext">ErrorCode
 </span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
 </span><span id="line-36"></span><span>            </span><span class="annot"><span class="annottext">Accept
-</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
 </span><span id="line-37"></span><span>        </span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span class="hs-comment">-- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.</span><span>
-</span><span id="line-41"></span><span class="annot"><a href="Network.AWS.Glacier.Waiters.html#newVaultNotExists"><span class="hs-identifier hs-type">newVaultNotExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span>
-</span><span id="line-42"></span><span id="newVaultNotExists"><span class="annot"><span class="annottext">newVaultNotExists :: Wait DescribeVault
-</span><a href="Network.AWS.Glacier.Waiters.html#newVaultNotExists"><span class="hs-identifier hs-var hs-var">newVaultNotExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-41"></span><span class="annot"><a href="Network.AWS.Glacier.Waiters.html#newVaultExists"><span class="hs-identifier hs-type">newVaultExists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.DescribeVault.html#DescribeVault"><span class="hs-identifier hs-type">DescribeVault</span></a></span><span>
+</span><span id="line-42"></span><span id="newVaultExists"><span class="annot"><span class="annottext">newVaultExists :: Wait DescribeVault
+</span><a href="Network.AWS.Glacier.Waiters.html#newVaultExists"><span class="hs-identifier hs-var hs-var">newVaultExists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-43"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
 </span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
 </span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;VaultNotExists&quot;</span></span><span class="hs-special">,</span><span>
+</span><span class="hs-string">&quot;VaultExists&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
 </span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">15</span></span><span class="hs-special">,</span><span>
@@ -75,14 +75,14 @@ forall a. ErrorCode -&gt; Accept -&gt; Acceptor a
 forall a. Int -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
 </span><span class="hs-number">200</span></span><span> </span><span class="annot"><span class="annottext">Accept
-</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span class="hs-special">,</span><span>
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>          </span><span class="annot"><span class="annottext">ErrorCode -&gt; Accept -&gt; Acceptor DescribeVault
 forall a. ErrorCode -&gt; Accept -&gt; Acceptor a
 </span><span class="hs-identifier hs-var">Core.matchError</span></span><span>
 </span><span id="line-50"></span><span>            </span><span class="annot"><span class="annottext">ErrorCode
 </span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
 </span><span id="line-51"></span><span>            </span><span class="annot"><span class="annottext">Accept
-</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span class="hs-identifier hs-var">Core.AcceptRetry</span></span><span>
 </span><span id="line-52"></span><span>        </span><span class="hs-special">]</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span></pre></body></html>

@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- scaled after initial configuration.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newComputeLimits' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679367194"><span id="local-6989586621679367195"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComputeLimits"><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-var">ComputeLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeLimits%27"><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-var">ComputeLimits'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679367540"><span id="local-6989586621679367541"></span></span><span class="hs-keyword">data</span><span> </span><span id="ComputeLimits"><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-var">ComputeLimits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComputeLimits%27"><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-var">ComputeLimits'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The upper boundary of On-Demand EC2 units. It is measured through vCPU</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- cores or instances for instance groups and measured through units for</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- instance fleets. The On-Demand units are not allowed to scale beyond</span><span>
@@ -63,7 +63,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AmaximumCapacityUnits%3AComputeLimits%27"><span class="annot"><span class="annottext">ComputeLimits -&gt; Int
 </span><a href="Network.AWS.EMR.Types.ComputeLimits.html#%24sel%3AmaximumCapacityUnits%3AComputeLimits%27"><span class="hs-identifier hs-var hs-var">maximumCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367184"><span id="local-6989586621679367186"><span class="annot"><span class="annottext">ComputeLimits -&gt; ComputeLimits -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367530"><span id="local-6989586621679367532"><span class="annot"><span class="annottext">ComputeLimits -&gt; ComputeLimits -&gt; Bool
 (ComputeLimits -&gt; ComputeLimits -&gt; Bool)
 -&gt; (ComputeLimits -&gt; ComputeLimits -&gt; Bool) -&gt; Eq ComputeLimits
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ComputeLimits -&gt; ComputeLimits -&gt; Bool
 == :: ComputeLimits -&gt; ComputeLimits -&gt; Bool
 $c== :: ComputeLimits -&gt; ComputeLimits -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367175"><span id="local-6989586621679367177"><span id="local-6989586621679367179"><span id="local-6989586621679367181"><span class="annot"><span class="annottext">ReadPrec [ComputeLimits]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367521"><span id="local-6989586621679367523"><span id="local-6989586621679367525"><span id="local-6989586621679367527"><span class="annot"><span class="annottext">ReadPrec [ComputeLimits]
 ReadPrec ComputeLimits
 Int -&gt; ReadS ComputeLimits
 ReadS [ComputeLimits]
@@ -91,7 +91,7 @@ readList :: ReadS [ComputeLimits]
 $creadList :: ReadS [ComputeLimits]
 readsPrec :: Int -&gt; ReadS ComputeLimits
 $creadsPrec :: Int -&gt; ReadS ComputeLimits
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367168"><span id="local-6989586621679367170"><span id="local-6989586621679367172"><span class="annot"><span class="annottext">Int -&gt; ComputeLimits -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367514"><span id="local-6989586621679367516"><span id="local-6989586621679367518"><span class="annot"><span class="annottext">Int -&gt; ComputeLimits -&gt; ShowS
 [ComputeLimits] -&gt; ShowS
 ComputeLimits -&gt; String
 (Int -&gt; ComputeLimits -&gt; ShowS)
@@ -160,12 +160,12 @@ $cfrom :: forall x. ComputeLimits -&gt; Rep ComputeLimits x
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span><span>
 </span><span id="line-104"></span><span id="newComputeLimits"><span class="annot"><span class="annottext">newComputeLimits :: ComputeLimitsUnitType -&gt; Int -&gt; Int -&gt; ComputeLimits
 </span><a href="Network.AWS.EMR.Types.ComputeLimits.html#newComputeLimits"><span class="hs-identifier hs-var hs-var">newComputeLimits</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679367162"><span class="annot"><span class="annottext">ComputeLimitsUnitType
-</span><a href="#local-6989586621679367162"><span class="hs-identifier hs-var">pUnitType_</span></a></span></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679367161"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367161"><span class="hs-identifier hs-var">pMinimumCapacityUnits_</span></a></span></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679367160"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367160"><span class="hs-identifier hs-var">pMaximumCapacityUnits_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679367508"><span class="annot"><span class="annottext">ComputeLimitsUnitType
+</span><a href="#local-6989586621679367508"><span class="hs-identifier hs-var">pUnitType_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679367507"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367507"><span class="hs-identifier hs-var">pMinimumCapacityUnits_</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679367506"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367506"><span class="hs-identifier hs-var">pMaximumCapacityUnits_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ComputeLimits' :: Maybe Int
 -&gt; Maybe Int
 -&gt; ComputeLimitsUnitType
@@ -184,13 +184,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:unitType:ComputeLimits' :: ComputeLimitsUnitType
 </span><a href="Network.AWS.EMR.Types.ComputeLimits.html#%24sel%3AunitType%3AComputeLimits%27"><span class="hs-identifier hs-var">unitType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComputeLimitsUnitType
-</span><a href="#local-6989586621679367162"><span class="hs-identifier hs-var">pUnitType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367508"><span class="hs-identifier hs-var">pUnitType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:minimumCapacityUnits:ComputeLimits' :: Int
 </span><a href="Network.AWS.EMR.Types.ComputeLimits.html#%24sel%3AminimumCapacityUnits%3AComputeLimits%27"><span class="hs-identifier hs-var">minimumCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367161"><span class="hs-identifier hs-var">pMinimumCapacityUnits_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367507"><span class="hs-identifier hs-var">pMinimumCapacityUnits_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:maximumCapacityUnits:ComputeLimits' :: Int
 </span><a href="Network.AWS.EMR.Types.ComputeLimits.html#%24sel%3AmaximumCapacityUnits%3AComputeLimits%27"><span class="hs-identifier hs-var">maximumCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367160"><span class="hs-identifier hs-var">pMaximumCapacityUnits_</span></a></span><span>
+</span><a href="#local-6989586621679367506"><span class="hs-identifier hs-var">pMaximumCapacityUnits_</span></a></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The upper boundary of On-Demand EC2 units. It is measured through vCPU</span><span>
@@ -204,16 +204,16 @@ forall a. Maybe a
 -&gt; (ComputeLimits -&gt; Maybe Int -&gt; ComputeLimits)
 -&gt; Lens ComputeLimits ComputeLimits (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367156"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367502"><span class="annot"><span class="annottext">Maybe Int
 maximumOnDemandCapacityUnits :: Maybe Int
 $sel:maximumOnDemandCapacityUnits:ComputeLimits' :: ComputeLimits -&gt; Maybe Int
-</span><a href="#local-6989586621679367156"><span class="hs-identifier hs-var hs-var">maximumOnDemandCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679367156"><span class="hs-identifier hs-var">maximumOnDemandCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367155"><span class="annot"><span class="annottext">s :: ComputeLimits
-</span><a href="#local-6989586621679367155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367154"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679367154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeLimits
-</span><a href="#local-6989586621679367155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumOnDemandCapacityUnits:ComputeLimits' :: Maybe Int
+</span><a href="#local-6989586621679367502"><span class="hs-identifier hs-var hs-var">maximumOnDemandCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679367502"><span class="hs-identifier hs-var">maximumOnDemandCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367501"><span class="annot"><span class="annottext">s :: ComputeLimits
+</span><a href="#local-6989586621679367501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367500"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679367500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeLimits
+</span><a href="#local-6989586621679367501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumOnDemandCapacityUnits:ComputeLimits' :: Maybe Int
 </span><a href="Network.AWS.EMR.Types.ComputeLimits.html#%24sel%3AmaximumOnDemandCapacityUnits%3AComputeLimits%27"><span class="hs-identifier hs-var">maximumOnDemandCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679367154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- | The upper boundary of EC2 units for core node type in a cluster. It is</span><span>
 </span><span id="line-126"></span><span class="hs-comment">-- measured through vCPU cores or instances for instance groups and</span><span>
@@ -226,16 +226,16 @@ $sel:maximumOnDemandCapacityUnits:ComputeLimits' :: ComputeLimits -&gt; Maybe In
 -&gt; (ComputeLimits -&gt; Maybe Int -&gt; ComputeLimits)
 -&gt; Lens ComputeLimits ComputeLimits (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367152"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367498"><span class="annot"><span class="annottext">Maybe Int
 maximumCoreCapacityUnits :: Maybe Int
 $sel:maximumCoreCapacityUnits:ComputeLimits' :: ComputeLimits -&gt; Maybe Int
-</span><a href="#local-6989586621679367152"><span class="hs-identifier hs-var hs-var">maximumCoreCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679367152"><span class="hs-identifier hs-var">maximumCoreCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367151"><span class="annot"><span class="annottext">s :: ComputeLimits
-</span><a href="#local-6989586621679367151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367150"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679367150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeLimits
-</span><a href="#local-6989586621679367151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumCoreCapacityUnits:ComputeLimits' :: Maybe Int
+</span><a href="#local-6989586621679367498"><span class="hs-identifier hs-var hs-var">maximumCoreCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679367498"><span class="hs-identifier hs-var">maximumCoreCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367497"><span class="annot"><span class="annottext">s :: ComputeLimits
+</span><a href="#local-6989586621679367497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367496"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679367496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeLimits
+</span><a href="#local-6989586621679367497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumCoreCapacityUnits:ComputeLimits' :: Maybe Int
 </span><a href="Network.AWS.EMR.Types.ComputeLimits.html#%24sel%3AmaximumCoreCapacityUnits%3AComputeLimits%27"><span class="hs-identifier hs-var">maximumCoreCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679367150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The unit type used for specifying a managed scaling policy.</span><span>
 </span><span id="line-134"></span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#computeLimits_unitType"><span class="hs-identifier hs-type">computeLimits_unitType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimitsUnitType.html#ComputeLimitsUnitType"><span class="hs-identifier hs-type">ComputeLimitsUnitType</span></a></span><span>
@@ -249,16 +249,16 @@ $sel:maximumCoreCapacityUnits:ComputeLimits' :: ComputeLimits -&gt; Maybe Int
      ComputeLimitsUnitType
      ComputeLimitsUnitType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367148"><span class="annot"><span class="annottext">ComputeLimitsUnitType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367494"><span class="annot"><span class="annottext">ComputeLimitsUnitType
 unitType :: ComputeLimitsUnitType
 $sel:unitType:ComputeLimits' :: ComputeLimits -&gt; ComputeLimitsUnitType
-</span><a href="#local-6989586621679367148"><span class="hs-identifier hs-var hs-var">unitType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeLimitsUnitType
-</span><a href="#local-6989586621679367148"><span class="hs-identifier hs-var">unitType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367147"><span class="annot"><span class="annottext">s :: ComputeLimits
-</span><a href="#local-6989586621679367147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367146"><span class="annot"><span class="annottext">ComputeLimitsUnitType
-</span><a href="#local-6989586621679367146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeLimits
-</span><a href="#local-6989586621679367147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unitType:ComputeLimits' :: ComputeLimitsUnitType
+</span><a href="#local-6989586621679367494"><span class="hs-identifier hs-var hs-var">unitType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeLimitsUnitType
+</span><a href="#local-6989586621679367494"><span class="hs-identifier hs-var">unitType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367493"><span class="annot"><span class="annottext">s :: ComputeLimits
+</span><a href="#local-6989586621679367493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367492"><span class="annot"><span class="annottext">ComputeLimitsUnitType
+</span><a href="#local-6989586621679367492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeLimits
+</span><a href="#local-6989586621679367493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unitType:ComputeLimits' :: ComputeLimitsUnitType
 </span><a href="Network.AWS.EMR.Types.ComputeLimits.html#%24sel%3AunitType%3AComputeLimits%27"><span class="hs-identifier hs-var">unitType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ComputeLimitsUnitType
-</span><a href="#local-6989586621679367146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The lower boundary of EC2 units. It is measured through vCPU cores or</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- instances for instance groups and measured through units for instance</span><span>
@@ -271,16 +271,16 @@ $sel:unitType:ComputeLimits' :: ComputeLimits -&gt; ComputeLimitsUnitType
 -&gt; (ComputeLimits -&gt; Int -&gt; ComputeLimits)
 -&gt; Lens ComputeLimits ComputeLimits Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367144"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367490"><span class="annot"><span class="annottext">Int
 minimumCapacityUnits :: Int
 $sel:minimumCapacityUnits:ComputeLimits' :: ComputeLimits -&gt; Int
-</span><a href="#local-6989586621679367144"><span class="hs-identifier hs-var hs-var">minimumCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367144"><span class="hs-identifier hs-var">minimumCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367143"><span class="annot"><span class="annottext">s :: ComputeLimits
-</span><a href="#local-6989586621679367143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367142"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeLimits
-</span><a href="#local-6989586621679367143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumCapacityUnits:ComputeLimits' :: Int
+</span><a href="#local-6989586621679367490"><span class="hs-identifier hs-var hs-var">minimumCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367490"><span class="hs-identifier hs-var">minimumCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367489"><span class="annot"><span class="annottext">s :: ComputeLimits
+</span><a href="#local-6989586621679367489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367488"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeLimits
+</span><a href="#local-6989586621679367489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumCapacityUnits:ComputeLimits' :: Int
 </span><a href="Network.AWS.EMR.Types.ComputeLimits.html#%24sel%3AminimumCapacityUnits%3AComputeLimits%27"><span class="hs-identifier hs-var">minimumCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | The upper boundary of EC2 units. It is measured through vCPU cores or</span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- instances for instance groups and measured through units for instance</span><span>
@@ -293,19 +293,19 @@ $sel:minimumCapacityUnits:ComputeLimits' :: ComputeLimits -&gt; Int
 -&gt; (ComputeLimits -&gt; Int -&gt; ComputeLimits)
 -&gt; Lens ComputeLimits ComputeLimits Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367140"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367486"><span class="annot"><span class="annottext">Int
 maximumCapacityUnits :: Int
 $sel:maximumCapacityUnits:ComputeLimits' :: ComputeLimits -&gt; Int
-</span><a href="#local-6989586621679367140"><span class="hs-identifier hs-var hs-var">maximumCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367140"><span class="hs-identifier hs-var">maximumCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367139"><span class="annot"><span class="annottext">s :: ComputeLimits
-</span><a href="#local-6989586621679367139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367138"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeLimits
-</span><a href="#local-6989586621679367139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumCapacityUnits:ComputeLimits' :: Int
+</span><a href="#local-6989586621679367486"><span class="hs-identifier hs-var hs-var">maximumCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367486"><span class="hs-identifier hs-var">maximumCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367485"><span class="annot"><span class="annottext">s :: ComputeLimits
+</span><a href="#local-6989586621679367485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367484"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ComputeLimits
+</span><a href="#local-6989586621679367485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumCapacityUnits:ComputeLimits' :: Int
 </span><a href="Network.AWS.EMR.Types.ComputeLimits.html#%24sel%3AmaximumCapacityUnits%3AComputeLimits%27"><span class="hs-identifier hs-var">maximumCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367135"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679367133"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComputeLimits
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367481"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679367479"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ComputeLimits
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ComputeLimits)
@@ -315,8 +315,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ComputeLimits&quot;</span></span><span>
-</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367130"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367130"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367476"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367476"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 -&gt; Maybe Int
 -&gt; ComputeLimitsUnitType
@@ -335,7 +335,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Int -&gt; ComputeLimitsUnitType -&gt; Int -&gt; Int -&gt; ComputeLimits)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679367476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumOnDemandCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
@@ -345,7 +345,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (ComputeLimitsUnitType -&gt; Int -&gt; Int -&gt; ComputeLimits)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679367476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumCoreCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
@@ -354,7 +354,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Int -&gt; Int -&gt; ComputeLimits)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ComputeLimitsUnitType
+</span><a href="#local-6989586621679367476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ComputeLimitsUnitType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UnitType&quot;</span></span><span class="hs-special">)</span><span>
@@ -362,26 +362,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Int -&gt; Parser (Int -&gt; ComputeLimits)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679367476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinimumCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser (Int -&gt; ComputeLimits) -&gt; Parser Int -&gt; Parser ComputeLimits
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+</span><a href="#local-6989586621679367476"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367123"><span id="local-6989586621679367125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367469"><span id="local-6989586621679367471"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span></span></span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367466"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span></span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367112"><span id="local-6989586621679367114"><span id="local-6989586621679367116"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679367110"><span class="annot"><span class="annottext">toJSON :: ComputeLimits -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367104"><span id="local-6989586621679367105"><span id="local-6989586621679367106"><span id="local-6989586621679367107"><span id="local-6989586621679367108"><span class="annot"><span class="annottext">Int
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367458"><span id="local-6989586621679367460"><span id="local-6989586621679367462"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits"><span class="hs-identifier hs-type">ComputeLimits</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679367456"><span class="annot"><span class="annottext">toJSON :: ComputeLimits -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ComputeLimits.html#ComputeLimits%27"><span class="hs-identifier hs-type">ComputeLimits'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367450"><span id="local-6989586621679367451"><span id="local-6989586621679367452"><span id="local-6989586621679367453"><span id="local-6989586621679367454"><span class="annot"><span class="annottext">Int
 Maybe Int
 ComputeLimitsUnitType
 maximumCapacityUnits :: Int
@@ -394,7 +394,7 @@ $sel:minimumCapacityUnits:ComputeLimits' :: ComputeLimits -&gt; Int
 $sel:unitType:ComputeLimits' :: ComputeLimits -&gt; ComputeLimitsUnitType
 $sel:maximumCoreCapacityUnits:ComputeLimits' :: ComputeLimits -&gt; Maybe Int
 $sel:maximumOnDemandCapacityUnits:ComputeLimits' :: ComputeLimits -&gt; Maybe Int
-</span><a href="#local-6989586621679367104"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679367450"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -407,7 +407,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679367108"><span class="hs-identifier hs-var">maximumOnDemandCapacityUnits</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367454"><span class="hs-identifier hs-var">maximumOnDemandCapacityUnits</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaximumCoreCapacityUnits&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -415,14 +415,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679367107"><span class="hs-identifier hs-var">maximumCoreCapacityUnits</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367453"><span class="hs-identifier hs-var">maximumCoreCapacityUnits</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UnitType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ComputeLimitsUnitType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ComputeLimitsUnitType
-</span><a href="#local-6989586621679367106"><span class="hs-identifier hs-var">unitType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367452"><span class="hs-identifier hs-var">unitType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -431,7 +431,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-181"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367105"><span class="hs-identifier hs-var">minimumCapacityUnits</span></a></span><span>
+</span><a href="#local-6989586621679367451"><span class="hs-identifier hs-var">minimumCapacityUnits</span></a></span><span>
 </span><span id="line-182"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -441,7 +441,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-185"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367104"><span class="hs-identifier hs-var">maximumCapacityUnits</span></a></span><span>
+</span><a href="#local-6989586621679367450"><span class="hs-identifier hs-var">maximumCapacityUnits</span></a></span><span>
 </span><span id="line-186"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-188"></span><span>      </span><span class="hs-special">)</span><span>

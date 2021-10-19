@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An output parameter of a pipeline step.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newOutputParameter' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621680325729"><span id="local-6989586621680325730"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputParameter"><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-var">OutputParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputParameter%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-var">OutputParameter'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621680327124"><span id="local-6989586621680327125"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputParameter"><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-var">OutputParameter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputParameter%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-var">OutputParameter'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the output parameter.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AOutputParameter%27"><span class="annot"><span class="annottext">OutputParameter -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.OutputParameter.html#%24sel%3Aname%3AOutputParameter%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalue%3AOutputParameter%27"><span class="annot"><span class="annottext">OutputParameter -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.OutputParameter.html#%24sel%3Avalue%3AOutputParameter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680325722"><span id="local-6989586621680325724"><span class="annot"><span class="annottext">OutputParameter -&gt; OutputParameter -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680327117"><span id="local-6989586621680327119"><span class="annot"><span class="annottext">OutputParameter -&gt; OutputParameter -&gt; Bool
 (OutputParameter -&gt; OutputParameter -&gt; Bool)
 -&gt; (OutputParameter -&gt; OutputParameter -&gt; Bool)
 -&gt; Eq OutputParameter
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: OutputParameter -&gt; OutputParameter -&gt; Bool
 == :: OutputParameter -&gt; OutputParameter -&gt; Bool
 $c== :: OutputParameter -&gt; OutputParameter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680325713"><span id="local-6989586621680325715"><span id="local-6989586621680325717"><span id="local-6989586621680325719"><span class="annot"><span class="annottext">ReadPrec [OutputParameter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680327108"><span id="local-6989586621680327110"><span id="local-6989586621680327112"><span id="local-6989586621680327114"><span class="annot"><span class="annottext">ReadPrec [OutputParameter]
 ReadPrec OutputParameter
 Int -&gt; ReadS OutputParameter
 ReadS [OutputParameter]
@@ -63,7 +63,7 @@ readList :: ReadS [OutputParameter]
 $creadList :: ReadS [OutputParameter]
 readsPrec :: Int -&gt; ReadS OutputParameter
 $creadsPrec :: Int -&gt; ReadS OutputParameter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680325706"><span id="local-6989586621680325708"><span id="local-6989586621680325710"><span class="annot"><span class="annottext">Int -&gt; OutputParameter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680327101"><span id="local-6989586621680327103"><span id="local-6989586621680327105"><span class="annot"><span class="annottext">Int -&gt; OutputParameter -&gt; ShowS
 [OutputParameter] -&gt; ShowS
 OutputParameter -&gt; String
 (Int -&gt; OutputParameter -&gt; ShowS)
@@ -107,15 +107,15 @@ $cfrom :: forall x. OutputParameter -&gt; Rep OutputParameter x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span><span>
 </span><span id="line-54"></span><span id="newOutputParameter"><span class="annot"><span class="annottext">newOutputParameter :: Text -&gt; Text -&gt; OutputParameter
-</span><a href="Network.AWS.SageMaker.Types.OutputParameter.html#newOutputParameter"><span class="hs-identifier hs-var hs-var">newOutputParameter</span></a></span></span><span> </span><span id="local-6989586621680325700"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680325700"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621680325699"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680325699"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.OutputParameter.html#newOutputParameter"><span class="hs-identifier hs-var hs-var">newOutputParameter</span></a></span></span><span> </span><span id="local-6989586621680327095"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680327095"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621680327094"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680327094"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">OutputParameter' :: Text -&gt; Text -&gt; OutputParameter
 </span><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-type">OutputParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:OutputParameter' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OutputParameter.html#%24sel%3Aname%3AOutputParameter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680325700"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:OutputParameter' :: Text
+</span><a href="#local-6989586621680327095"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:OutputParameter' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OutputParameter.html#%24sel%3Avalue%3AOutputParameter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680325699"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680327094"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | The name of the output parameter.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#outputParameter_name"><span class="hs-identifier hs-type">outputParameter_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -124,16 +124,16 @@ $cfrom :: forall x. OutputParameter -&gt; Rep OutputParameter x
 -&gt; (OutputParameter -&gt; Text -&gt; OutputParameter)
 -&gt; Lens OutputParameter OutputParameter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-type">OutputParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325695"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-type">OutputParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327090"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:OutputParameter' :: OutputParameter -&gt; Text
-</span><a href="#local-6989586621680325695"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680325695"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325694"><span class="annot"><span class="annottext">s :: OutputParameter
-</span><a href="#local-6989586621680325694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-type">OutputParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325693"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680325693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputParameter
-</span><a href="#local-6989586621680325694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:OutputParameter' :: Text
+</span><a href="#local-6989586621680327090"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680327090"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327089"><span class="annot"><span class="annottext">s :: OutputParameter
+</span><a href="#local-6989586621680327089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-type">OutputParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327088"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680327088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputParameter
+</span><a href="#local-6989586621680327089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:OutputParameter' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OutputParameter.html#%24sel%3Aname%3AOutputParameter%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680325693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680327088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The value of the output parameter.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#outputParameter_value"><span class="hs-identifier hs-type">outputParameter_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -142,19 +142,19 @@ $sel:name:OutputParameter' :: OutputParameter -&gt; Text
 -&gt; (OutputParameter -&gt; Text -&gt; OutputParameter)
 -&gt; Lens OutputParameter OutputParameter Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-type">OutputParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325691"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-type">OutputParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327086"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:OutputParameter' :: OutputParameter -&gt; Text
-</span><a href="#local-6989586621680325691"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680325691"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325690"><span class="annot"><span class="annottext">s :: OutputParameter
-</span><a href="#local-6989586621680325690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-type">OutputParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325689"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680325689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputParameter
-</span><a href="#local-6989586621680325690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:OutputParameter' :: Text
+</span><a href="#local-6989586621680327086"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680327086"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680327085"><span class="annot"><span class="annottext">s :: OutputParameter
+</span><a href="#local-6989586621680327085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-type">OutputParameter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680327084"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680327084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputParameter
+</span><a href="#local-6989586621680327085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:OutputParameter' :: Text
 </span><a href="Network.AWS.SageMaker.Types.OutputParameter.html#%24sel%3Avalue%3AOutputParameter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680325689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680327084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325686"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621680325684"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputParameter
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327081"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621680327079"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputParameter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser OutputParameter)
@@ -164,39 +164,39 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;OutputParameter&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680325681"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680325681"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680327076"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680327076"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; OutputParameter
 </span><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-var">OutputParameter'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; OutputParameter)
 -&gt; Parser Text -&gt; Parser (Text -&gt; OutputParameter)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680325681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680327076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; OutputParameter)
 -&gt; Parser Text -&gt; Parser OutputParameter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680325681"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680327076"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325675"><span id="local-6989586621680325677"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327070"><span id="local-6989586621680327072"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327067"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325664"><span id="local-6989586621680325666"><span id="local-6989586621680325668"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621680325662"><span class="annot"><span class="annottext">toJSON :: OutputParameter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-type">OutputParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325659"><span id="local-6989586621680325660"><span class="annot"><span class="annottext">Text
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680327059"><span id="local-6989586621680327061"><span id="local-6989586621680327063"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter"><span class="hs-identifier hs-type">OutputParameter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621680327057"><span class="annot"><span class="annottext">toJSON :: OutputParameter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.OutputParameter.html#OutputParameter%27"><span class="hs-identifier hs-type">OutputParameter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680327054"><span id="local-6989586621680327055"><span class="annot"><span class="annottext">Text
 value :: Text
 name :: Text
 $sel:value:OutputParameter' :: OutputParameter -&gt; Text
 $sel:name:OutputParameter' :: OutputParameter -&gt; Text
-</span><a href="#local-6989586621680325659"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680327054"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -208,14 +208,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680325660"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680327055"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680325659"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680327054"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span></pre></body></html>

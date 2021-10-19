@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | The action to take on content advisory XDS packets. If you select</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- PASSTHROUGH, packets will not be changed. If you select STRIP, any</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- packets will be removed in output captions.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621680006444"><span id="local-6989586621680006445"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VchipAction"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VchipAction.html#VchipAction"><span class="hs-identifier hs-var">VchipAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VchipAction%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VchipAction.html#VchipAction%27"><span class="hs-identifier hs-var">VchipAction'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680011377"><span id="local-6989586621680011378"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VchipAction"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VchipAction.html#VchipAction"><span class="hs-identifier hs-var">VchipAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VchipAction%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.VchipAction.html#VchipAction%27"><span class="hs-identifier hs-var">VchipAction'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVchipAction"><span class="annot"><span class="annottext">VchipAction -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.VchipAction.html#fromVchipAction"><span class="hs-identifier hs-var hs-var">fromVchipAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680006436"><span id="local-6989586621680006438"><span id="local-6989586621680006440"><span class="annot"><span class="annottext">Int -&gt; VchipAction -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680011369"><span id="local-6989586621680011371"><span id="local-6989586621680011373"><span class="annot"><span class="annottext">Int -&gt; VchipAction -&gt; ShowS
 [VchipAction] -&gt; ShowS
 VchipAction -&gt; String
 (Int -&gt; VchipAction -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: VchipAction -&gt; String
 showsPrec :: Int -&gt; VchipAction -&gt; ShowS
 $cshowsPrec :: Int -&gt; VchipAction -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680006427"><span id="local-6989586621680006429"><span id="local-6989586621680006431"><span id="local-6989586621680006433"><span class="annot"><span class="annottext">ReadPrec [VchipAction]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680011360"><span id="local-6989586621680011362"><span id="local-6989586621680011364"><span id="local-6989586621680011366"><span class="annot"><span class="annottext">ReadPrec [VchipAction]
 ReadPrec VchipAction
 Int -&gt; ReadS VchipAction
 ReadS [VchipAction]
@@ -75,7 +75,7 @@ $creadList :: ReadS [VchipAction]
 readsPrec :: Int -&gt; ReadS VchipAction
 $creadsPrec :: Int -&gt; ReadS VchipAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680006422"><span id="local-6989586621680006424"><span class="annot"><span class="annottext">VchipAction -&gt; VchipAction -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680011355"><span id="local-6989586621680011357"><span class="annot"><span class="annottext">VchipAction -&gt; VchipAction -&gt; Bool
 (VchipAction -&gt; VchipAction -&gt; Bool)
 -&gt; (VchipAction -&gt; VchipAction -&gt; Bool) -&gt; Eq VchipAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -84,7 +84,7 @@ $c/= :: VchipAction -&gt; VchipAction -&gt; Bool
 == :: VchipAction -&gt; VchipAction -&gt; Bool
 $c== :: VchipAction -&gt; VchipAction -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680006406"><span id="local-6989586621680006408"><span id="local-6989586621680006410"><span id="local-6989586621680006412"><span id="local-6989586621680006414"><span id="local-6989586621680006416"><span id="local-6989586621680006418"><span class="annot"><span class="annottext">Eq VchipAction
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680011339"><span id="local-6989586621680011341"><span id="local-6989586621680011343"><span id="local-6989586621680011345"><span id="local-6989586621680011347"><span id="local-6989586621680011349"><span id="local-6989586621680011351"><span class="annot"><span class="annottext">Eq VchipAction
 Eq VchipAction
 -&gt; (VchipAction -&gt; VchipAction -&gt; Ordering)
 -&gt; (VchipAction -&gt; VchipAction -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. VchipAction -&gt; Rep VchipAction x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680006398"><span id="local-6989586621680006400"><span class="annot"><span class="annottext">Int -&gt; VchipAction -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680011331"><span id="local-6989586621680011333"><span class="annot"><span class="annottext">Int -&gt; VchipAction -&gt; Int
 VchipAction -&gt; Int
 (Int -&gt; VchipAction -&gt; Int)
 -&gt; (VchipAction -&gt; Int) -&gt; Hashable VchipAction
@@ -145,49 +145,49 @@ $chash :: VchipAction -&gt; Int
 hashWithSalt :: Int -&gt; VchipAction -&gt; Int
 $chashWithSalt :: Int -&gt; VchipAction -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680006395"><span class="annot"><span class="annottext">VchipAction -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680011328"><span class="annot"><span class="annottext">VchipAction -&gt; ()
 (VchipAction -&gt; ()) -&gt; NFData VchipAction
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: VchipAction -&gt; ()
 $crnf :: VchipAction -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680006392"><span class="annot"><span class="annottext">Text -&gt; Either String VchipAction
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680011325"><span class="annot"><span class="annottext">Text -&gt; Either String VchipAction
 (Text -&gt; Either String VchipAction) -&gt; FromText VchipAction
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String VchipAction
 $cfromText :: Text -&gt; Either String VchipAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680006389"><span class="annot"><span class="annottext">VchipAction -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680011322"><span class="annot"><span class="annottext">VchipAction -&gt; Text
 (VchipAction -&gt; Text) -&gt; ToText VchipAction
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: VchipAction -&gt; Text
 $ctoText :: VchipAction -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680006386"><span class="annot"><span class="annottext">VchipAction -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680011319"><span class="annot"><span class="annottext">VchipAction -&gt; ByteString
 (VchipAction -&gt; ByteString) -&gt; ToByteString VchipAction
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: VchipAction -&gt; ByteString
 $ctoBS :: VchipAction -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680006383"><span class="annot"><span class="annottext">VchipAction -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680011316"><span class="annot"><span class="annottext">VchipAction -&gt; ByteStringBuilder
 (VchipAction -&gt; ByteStringBuilder) -&gt; ToLog VchipAction
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: VchipAction -&gt; ByteStringBuilder
 $cbuild :: VchipAction -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680006380"><span class="annot"><span class="annottext">HeaderName -&gt; VchipAction -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680011313"><span class="annot"><span class="annottext">HeaderName -&gt; VchipAction -&gt; [Header]
 (HeaderName -&gt; VchipAction -&gt; [Header]) -&gt; ToHeader VchipAction
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; VchipAction -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; VchipAction -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680006377"><span class="annot"><span class="annottext">VchipAction -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680011310"><span class="annot"><span class="annottext">VchipAction -&gt; QueryString
 (VchipAction -&gt; QueryString) -&gt; ToQuery VchipAction
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: VchipAction -&gt; QueryString
 $ctoQuery :: VchipAction -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680006372"><span id="local-6989586621680006374"><span class="annot"><span class="annottext">Value -&gt; Parser [VchipAction]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680011305"><span id="local-6989586621680011307"><span class="annot"><span class="annottext">Value -&gt; Parser [VchipAction]
 Value -&gt; Parser VchipAction
 (Value -&gt; Parser VchipAction)
 -&gt; (Value -&gt; Parser [VchipAction]) -&gt; FromJSON VchipAction
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [VchipAction]
 parseJSON :: Value -&gt; Parser VchipAction
 $cparseJSON :: Value -&gt; Parser VchipAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680006367"><span id="local-6989586621680006369"><span class="annot"><span class="annottext">FromJSONKeyFunction [VchipAction]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680011300"><span id="local-6989586621680011302"><span class="annot"><span class="annottext">FromJSONKeyFunction [VchipAction]
 FromJSONKeyFunction VchipAction
 FromJSONKeyFunction VchipAction
 -&gt; FromJSONKeyFunction [VchipAction] -&gt; FromJSONKey VchipAction
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [VchipAction]
 fromJSONKey :: FromJSONKeyFunction VchipAction
 $cfromJSONKey :: FromJSONKeyFunction VchipAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680006358"><span id="local-6989586621680006360"><span id="local-6989586621680006362"><span id="local-6989586621680006364"><span class="annot"><span class="annottext">[VchipAction] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680011291"><span id="local-6989586621680011293"><span id="local-6989586621680011295"><span id="local-6989586621680011297"><span class="annot"><span class="annottext">[VchipAction] -&gt; Encoding
 [VchipAction] -&gt; Value
 VchipAction -&gt; Encoding
 VchipAction -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: VchipAction -&gt; Encoding
 toJSON :: VchipAction -&gt; Value
 $ctoJSON :: VchipAction -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680006353"><span id="local-6989586621680006355"><span class="annot"><span class="annottext">ToJSONKeyFunction [VchipAction]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680011286"><span id="local-6989586621680011288"><span class="annot"><span class="annottext">ToJSONKeyFunction [VchipAction]
 ToJSONKeyFunction VchipAction
 ToJSONKeyFunction VchipAction
 -&gt; ToJSONKeyFunction [VchipAction] -&gt; ToJSONKey VchipAction
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [VchipAction]
 toJSONKey :: ToJSONKeyFunction VchipAction
 $ctoJSONKey :: ToJSONKeyFunction VchipAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680006350"><span class="annot"><span class="annottext">[Node] -&gt; Either String VchipAction
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680011283"><span class="annot"><span class="annottext">[Node] -&gt; Either String VchipAction
 ([Node] -&gt; Either String VchipAction) -&gt; FromXML VchipAction
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String VchipAction
 $cparseXML :: [Node] -&gt; Either String VchipAction
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680006347"><span class="annot"><span class="annottext">VchipAction -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680011280"><span class="annot"><span class="annottext">VchipAction -&gt; XML
 (VchipAction -&gt; XML) -&gt; ToXML VchipAction
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: VchipAction -&gt; XML

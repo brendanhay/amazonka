@@ -28,22 +28,22 @@
 </span><span id="line-28"></span><span class="hs-comment">-- resources.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newScope' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679247656"><span id="local-6989586621679247657"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scope"><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-var">Scope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scope%27"><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope%27"><span class="hs-identifier hs-var">Scope'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the scope.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Akey%3AScope%27"><span class="annot"><span class="annottext">Scope -&gt; Maybe ScopeType
-</span><a href="Network.AWS.Inspector.Types.Scope.html#%24sel%3Akey%3AScope%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ScopeType.html#ScopeType"><span class="hs-identifier hs-type">ScopeType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The resource identifier for the specified scope type.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Avalue%3AScope%27"><span class="annot"><span class="annottext">Scope -&gt; Maybe Text
-</span><a href="Network.AWS.Inspector.Types.Scope.html#%24sel%3Avalue%3AScope%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679248014"><span id="local-6989586621679248015"></span></span><span class="hs-keyword">data</span><span> </span><span id="Scope"><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-var">Scope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Scope%27"><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope%27"><span class="hs-identifier hs-var">Scope'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource identifier for the specified scope type.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalue%3AScope%27"><span class="annot"><span class="annottext">Scope -&gt; Maybe Text
+</span><a href="Network.AWS.Inspector.Types.Scope.html#%24sel%3Avalue%3AScope%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The type of the scope.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Akey%3AScope%27"><span class="annot"><span class="annottext">Scope -&gt; Maybe ScopeType
+</span><a href="Network.AWS.Inspector.Types.Scope.html#%24sel%3Akey%3AScope%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ScopeType.html#ScopeType"><span class="hs-identifier hs-type">ScopeType</span></a></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679247649"><span id="local-6989586621679247651"><span class="annot"><span class="annottext">Scope -&gt; Scope -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679248007"><span id="local-6989586621679248009"><span class="annot"><span class="annottext">Scope -&gt; Scope -&gt; Bool
 (Scope -&gt; Scope -&gt; Bool) -&gt; (Scope -&gt; Scope -&gt; Bool) -&gt; Eq Scope
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Scope -&gt; Scope -&gt; Bool
 $c/= :: Scope -&gt; Scope -&gt; Bool
 == :: Scope -&gt; Scope -&gt; Bool
 $c== :: Scope -&gt; Scope -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247640"><span id="local-6989586621679247642"><span id="local-6989586621679247644"><span id="local-6989586621679247646"><span class="annot"><span class="annottext">ReadPrec [Scope]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247998"><span id="local-6989586621679248000"><span id="local-6989586621679248002"><span id="local-6989586621679248004"><span class="annot"><span class="annottext">ReadPrec [Scope]
 ReadPrec Scope
 Int -&gt; ReadS Scope
 ReadS [Scope]
@@ -63,7 +63,7 @@ readList :: ReadS [Scope]
 $creadList :: ReadS [Scope]
 readsPrec :: Int -&gt; ReadS Scope
 $creadsPrec :: Int -&gt; ReadS Scope
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247633"><span id="local-6989586621679247635"><span id="local-6989586621679247637"><span class="annot"><span class="annottext">Int -&gt; Scope -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679247991"><span id="local-6989586621679247993"><span id="local-6989586621679247995"><span class="annot"><span class="annottext">Int -&gt; Scope -&gt; ShowS
 [Scope] -&gt; ShowS
 Scope -&gt; String
 (Int -&gt; Scope -&gt; ShowS)
@@ -94,90 +94,91 @@ $cfrom :: forall x. Scope -&gt; Rep Scope x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'key', 'scope_key' - The type of the scope.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'value', 'scope_value' - The resource identifier for the specified scope type.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'value', 'scope_value' - The resource identifier for the specified scope type.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'key', 'scope_key' - The type of the scope.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#newScope"><span class="hs-identifier hs-type">newScope</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span>
 </span><span id="line-52"></span><span id="newScope"><span class="annot"><span class="annottext">newScope :: Scope
 </span><a href="Network.AWS.Inspector.Types.Scope.html#newScope"><span class="hs-identifier hs-var hs-var">newScope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">Scope' :: Maybe ScopeType -&gt; Maybe Text -&gt; Scope
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">Scope' :: Maybe Text -&gt; Maybe ScopeType -&gt; Scope
 </span><a href="Network.AWS.Inspector.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:Scope' :: Maybe ScopeType
-</span><a href="Network.AWS.Inspector.Types.Scope.html#%24sel%3Akey%3AScope%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScopeType
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:Scope' :: Maybe Text
+</span><a href="Network.AWS.Inspector.Types.Scope.html#%24sel%3Avalue%3AScope%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:Scope' :: Maybe Text
-</span><a href="Network.AWS.Inspector.Types.Scope.html#%24sel%3Avalue%3AScope%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:Scope' :: Maybe ScopeType
+</span><a href="Network.AWS.Inspector.Types.Scope.html#%24sel%3Akey%3AScope%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScopeType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The type of the scope.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#scope_key"><span class="hs-identifier hs-type">scope_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ScopeType.html#ScopeType"><span class="hs-identifier hs-type">ScopeType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="scope_key"><span class="annot"><span class="annottext">scope_key :: (Maybe ScopeType -&gt; f (Maybe ScopeType)) -&gt; Scope -&gt; f Scope
-</span><a href="Network.AWS.Inspector.Types.Scope.html#scope_key"><span class="hs-identifier hs-var hs-var">scope_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Scope -&gt; Maybe ScopeType)
--&gt; (Scope -&gt; Maybe ScopeType -&gt; Scope)
--&gt; Lens Scope Scope (Maybe ScopeType) (Maybe ScopeType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247624"><span class="annot"><span class="annottext">Maybe ScopeType
-key :: Maybe ScopeType
-$sel:key:Scope' :: Scope -&gt; Maybe ScopeType
-</span><a href="#local-6989586621679247624"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScopeType
-</span><a href="#local-6989586621679247624"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247623"><span class="annot"><span class="annottext">s :: Scope
-</span><a href="#local-6989586621679247623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247622"><span class="annot"><span class="annottext">Maybe ScopeType
-</span><a href="#local-6989586621679247622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scope
-</span><a href="#local-6989586621679247623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Scope' :: Maybe ScopeType
-</span><a href="Network.AWS.Inspector.Types.Scope.html#%24sel%3Akey%3AScope%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScopeType
-</span><a href="#local-6989586621679247622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The resource identifier for the specified scope type.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#scope_value"><span class="hs-identifier hs-type">scope_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="scope_value"><span class="annot"><span class="annottext">scope_value :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Scope -&gt; f Scope
+</span><span id="line-58"></span><span class="hs-comment">-- | The resource identifier for the specified scope type.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#scope_value"><span class="hs-identifier hs-type">scope_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="scope_value"><span class="annot"><span class="annottext">scope_value :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Scope -&gt; f Scope
 </span><a href="Network.AWS.Inspector.Types.Scope.html#scope_value"><span class="hs-identifier hs-var hs-var">scope_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Scope -&gt; Maybe Text)
 -&gt; (Scope -&gt; Maybe Text -&gt; Scope)
 -&gt; Lens Scope Scope (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247620"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247982"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:Scope' :: Scope -&gt; Maybe Text
-</span><a href="#local-6989586621679247620"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247620"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247619"><span class="annot"><span class="annottext">s :: Scope
-</span><a href="#local-6989586621679247619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247618"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scope
-</span><a href="#local-6989586621679247619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Scope' :: Maybe Text
+</span><a href="#local-6989586621679247982"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247982"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247981"><span class="annot"><span class="annottext">s :: Scope
+</span><a href="#local-6989586621679247981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247980"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679247980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scope
+</span><a href="#local-6989586621679247981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Scope' :: Maybe Text
 </span><a href="Network.AWS.Inspector.Types.Scope.html#%24sel%3Avalue%3AScope%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679247618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679247980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The type of the scope.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#scope_key"><span class="hs-identifier hs-type">scope_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.ScopeType.html#ScopeType"><span class="hs-identifier hs-type">ScopeType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="scope_key"><span class="annot"><span class="annottext">scope_key :: (Maybe ScopeType -&gt; f (Maybe ScopeType)) -&gt; Scope -&gt; f Scope
+</span><a href="Network.AWS.Inspector.Types.Scope.html#scope_key"><span class="hs-identifier hs-var hs-var">scope_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Scope -&gt; Maybe ScopeType)
+-&gt; (Scope -&gt; Maybe ScopeType -&gt; Scope)
+-&gt; Lens Scope Scope (Maybe ScopeType) (Maybe ScopeType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679247978"><span class="annot"><span class="annottext">Maybe ScopeType
+key :: Maybe ScopeType
+$sel:key:Scope' :: Scope -&gt; Maybe ScopeType
+</span><a href="#local-6989586621679247978"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScopeType
+</span><a href="#local-6989586621679247978"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679247977"><span class="annot"><span class="annottext">s :: Scope
+</span><a href="#local-6989586621679247977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope%27"><span class="hs-identifier hs-type">Scope'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679247976"><span class="annot"><span class="annottext">Maybe ScopeType
+</span><a href="#local-6989586621679247976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Scope
+</span><a href="#local-6989586621679247977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Scope' :: Maybe ScopeType
+</span><a href="Network.AWS.Inspector.Types.Scope.html#%24sel%3Akey%3AScope%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScopeType
+</span><a href="#local-6989586621679247976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247615"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679247613"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Scope
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247973"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679247971"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Scope
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Scope) -&gt; Value -&gt; Parser Scope
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Scope&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247610"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247610"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe ScopeType -&gt; Maybe Text -&gt; Scope
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679247968"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679247968"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe ScopeType -&gt; Scope
 </span><a href="Network.AWS.Inspector.Types.Scope.html#Scope%27"><span class="hs-identifier hs-var">Scope'</span></a></span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ScopeType -&gt; Maybe Text -&gt; Scope)
--&gt; Parser (Maybe ScopeType) -&gt; Parser (Maybe Text -&gt; Scope)
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe ScopeType -&gt; Scope)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe ScopeType -&gt; Scope)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ScopeType)
+</span><a href="#local-6989586621679247968"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;key&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Scope) -&gt; Parser (Maybe Text) -&gt; Parser Scope
+</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe ScopeType -&gt; Scope)
+-&gt; Parser (Maybe ScopeType) -&gt; Parser Scope
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679247610"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679247968"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ScopeType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;key&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247604"><span id="local-6989586621679247606"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247962"><span id="local-6989586621679247964"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247601"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679247959"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.Scope.html#Scope"><span class="hs-identifier hs-type">Scope</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

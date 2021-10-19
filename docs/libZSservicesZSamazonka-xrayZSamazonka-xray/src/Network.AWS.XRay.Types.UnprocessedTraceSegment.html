@@ -26,18 +26,18 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a segment that failed processing.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newUnprocessedTraceSegment' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679257360"><span id="local-6989586621679257361"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnprocessedTraceSegment"><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-var">UnprocessedTraceSegment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnprocessedTraceSegment%27"><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-var">UnprocessedTraceSegment'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error message.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Amessage%3AUnprocessedTraceSegment%27"><span class="annot"><span class="annottext">UnprocessedTraceSegment -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3Amessage%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679257655"><span id="local-6989586621679257656"></span></span><span class="hs-keyword">data</span><span> </span><span id="UnprocessedTraceSegment"><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-var">UnprocessedTraceSegment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UnprocessedTraceSegment%27"><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-var">UnprocessedTraceSegment'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error that caused processing to fail.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AerrorCode%3AUnprocessedTraceSegment%27"><span class="annot"><span class="annottext">UnprocessedTraceSegment -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3AerrorCode%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The segment\'s ID.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aid%3AUnprocessedTraceSegment%27"><span class="annot"><span class="annottext">UnprocessedTraceSegment -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3Aid%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The error that caused processing to fail.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AerrorCode%3AUnprocessedTraceSegment%27"><span class="annot"><span class="annottext">UnprocessedTraceSegment -&gt; Maybe Text
-</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3AerrorCode%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The error message.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Amessage%3AUnprocessedTraceSegment%27"><span class="annot"><span class="annottext">UnprocessedTraceSegment -&gt; Maybe Text
+</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3Amessage%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257352"><span id="local-6989586621679257354"><span class="annot"><span class="annottext">UnprocessedTraceSegment -&gt; UnprocessedTraceSegment -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257647"><span id="local-6989586621679257649"><span class="annot"><span class="annottext">UnprocessedTraceSegment -&gt; UnprocessedTraceSegment -&gt; Bool
 (UnprocessedTraceSegment -&gt; UnprocessedTraceSegment -&gt; Bool)
 -&gt; (UnprocessedTraceSegment -&gt; UnprocessedTraceSegment -&gt; Bool)
 -&gt; Eq UnprocessedTraceSegment
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UnprocessedTraceSegment -&gt; UnprocessedTraceSegment -&gt; Bool
 == :: UnprocessedTraceSegment -&gt; UnprocessedTraceSegment -&gt; Bool
 $c== :: UnprocessedTraceSegment -&gt; UnprocessedTraceSegment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257343"><span id="local-6989586621679257345"><span id="local-6989586621679257347"><span id="local-6989586621679257349"><span class="annot"><span class="annottext">ReadPrec [UnprocessedTraceSegment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257638"><span id="local-6989586621679257640"><span id="local-6989586621679257642"><span id="local-6989586621679257644"><span class="annot"><span class="annottext">ReadPrec [UnprocessedTraceSegment]
 ReadPrec UnprocessedTraceSegment
 Int -&gt; ReadS UnprocessedTraceSegment
 ReadS [UnprocessedTraceSegment]
@@ -66,7 +66,7 @@ readList :: ReadS [UnprocessedTraceSegment]
 $creadList :: ReadS [UnprocessedTraceSegment]
 readsPrec :: Int -&gt; ReadS UnprocessedTraceSegment
 $creadsPrec :: Int -&gt; ReadS UnprocessedTraceSegment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257336"><span id="local-6989586621679257338"><span id="local-6989586621679257340"><span class="annot"><span class="annottext">Int -&gt; UnprocessedTraceSegment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257631"><span id="local-6989586621679257633"><span id="local-6989586621679257635"><span class="annot"><span class="annottext">Int -&gt; UnprocessedTraceSegment -&gt; ShowS
 [UnprocessedTraceSegment] -&gt; ShowS
 UnprocessedTraceSegment -&gt; String
 (Int -&gt; UnprocessedTraceSegment -&gt; ShowS)
@@ -102,82 +102,35 @@ $cfrom :: forall x. UnprocessedTraceSegment -&gt; Rep UnprocessedTraceSegment x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'message', 'unprocessedTraceSegment_message' - The error message.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'errorCode', 'unprocessedTraceSegment_errorCode' - The error that caused processing to fail.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- 'id', 'unprocessedTraceSegment_id' - The segment\'s ID.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'errorCode', 'unprocessedTraceSegment_errorCode' - The error that caused processing to fail.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'message', 'unprocessedTraceSegment_message' - The error message.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#newUnprocessedTraceSegment"><span class="hs-identifier hs-type">newUnprocessedTraceSegment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span><span>
 </span><span id="line-54"></span><span id="newUnprocessedTraceSegment"><span class="annot"><span class="annottext">newUnprocessedTraceSegment :: UnprocessedTraceSegment
 </span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#newUnprocessedTraceSegment"><span class="hs-identifier hs-var hs-var">newUnprocessedTraceSegment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">UnprocessedTraceSegment' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; UnprocessedTraceSegment
 </span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-type">UnprocessedTraceSegment'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:UnprocessedTraceSegment' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3Amessage%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorCode:UnprocessedTraceSegment' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3AerrorCode%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:UnprocessedTraceSegment' :: Maybe Text
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:UnprocessedTraceSegment' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3Aid%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:UnprocessedTraceSegment' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3AerrorCode%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:UnprocessedTraceSegment' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3Amessage%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- | The error message.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#unprocessedTraceSegment_message"><span class="hs-identifier hs-type">unprocessedTraceSegment_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="unprocessedTraceSegment_message"><span class="annot"><span class="annottext">unprocessedTraceSegment_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UnprocessedTraceSegment -&gt; f UnprocessedTraceSegment
-</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#unprocessedTraceSegment_message"><span class="hs-identifier hs-var hs-var">unprocessedTraceSegment_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnprocessedTraceSegment -&gt; Maybe Text)
--&gt; (UnprocessedTraceSegment
-    -&gt; Maybe Text -&gt; UnprocessedTraceSegment)
--&gt; Lens
-     UnprocessedTraceSegment
-     UnprocessedTraceSegment
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-type">UnprocessedTraceSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257327"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:UnprocessedTraceSegment' :: UnprocessedTraceSegment -&gt; Maybe Text
-</span><a href="#local-6989586621679257327"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257327"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257326"><span class="annot"><span class="annottext">s :: UnprocessedTraceSegment
-</span><a href="#local-6989586621679257326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-type">UnprocessedTraceSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257325"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedTraceSegment
-</span><a href="#local-6989586621679257326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:UnprocessedTraceSegment' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3Amessage%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | The segment\'s ID.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#unprocessedTraceSegment_id"><span class="hs-identifier hs-type">unprocessedTraceSegment_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="unprocessedTraceSegment_id"><span class="annot"><span class="annottext">unprocessedTraceSegment_id :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UnprocessedTraceSegment -&gt; f UnprocessedTraceSegment
-</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#unprocessedTraceSegment_id"><span class="hs-identifier hs-var hs-var">unprocessedTraceSegment_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnprocessedTraceSegment -&gt; Maybe Text)
--&gt; (UnprocessedTraceSegment
-    -&gt; Maybe Text -&gt; UnprocessedTraceSegment)
--&gt; Lens
-     UnprocessedTraceSegment
-     UnprocessedTraceSegment
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-type">UnprocessedTraceSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257323"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:UnprocessedTraceSegment' :: UnprocessedTraceSegment -&gt; Maybe Text
-</span><a href="#local-6989586621679257323"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257323"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257322"><span class="annot"><span class="annottext">s :: UnprocessedTraceSegment
-</span><a href="#local-6989586621679257322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-type">UnprocessedTraceSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257321"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedTraceSegment
-</span><a href="#local-6989586621679257322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UnprocessedTraceSegment' :: Maybe Text
-</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3Aid%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | The error that caused processing to fail.</span><span>
-</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#unprocessedTraceSegment_errorCode"><span class="hs-identifier hs-type">unprocessedTraceSegment_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span id="unprocessedTraceSegment_errorCode"><span class="annot"><span class="annottext">unprocessedTraceSegment_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The error that caused processing to fail.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#unprocessedTraceSegment_errorCode"><span class="hs-identifier hs-type">unprocessedTraceSegment_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="unprocessedTraceSegment_errorCode"><span class="annot"><span class="annottext">unprocessedTraceSegment_errorCode :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UnprocessedTraceSegment -&gt; f UnprocessedTraceSegment
 </span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#unprocessedTraceSegment_errorCode"><span class="hs-identifier hs-var hs-var">unprocessedTraceSegment_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnprocessedTraceSegment -&gt; Maybe Text)
 -&gt; (UnprocessedTraceSegment
@@ -188,61 +141,109 @@ $sel:id:UnprocessedTraceSegment' :: UnprocessedTraceSegment -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-type">UnprocessedTraceSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257319"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-type">UnprocessedTraceSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257622"><span class="annot"><span class="annottext">Maybe Text
 errorCode :: Maybe Text
 $sel:errorCode:UnprocessedTraceSegment' :: UnprocessedTraceSegment -&gt; Maybe Text
-</span><a href="#local-6989586621679257319"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257319"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257318"><span class="annot"><span class="annottext">s :: UnprocessedTraceSegment
-</span><a href="#local-6989586621679257318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-type">UnprocessedTraceSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257317"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedTraceSegment
-</span><a href="#local-6989586621679257318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:UnprocessedTraceSegment' :: Maybe Text
+</span><a href="#local-6989586621679257622"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257622"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257621"><span class="annot"><span class="annottext">s :: UnprocessedTraceSegment
+</span><a href="#local-6989586621679257621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-type">UnprocessedTraceSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257620"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedTraceSegment
+</span><a href="#local-6989586621679257621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:UnprocessedTraceSegment' :: Maybe Text
 </span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3AerrorCode%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679257317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257314"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679257312"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UnprocessedTraceSegment
+</span><a href="#local-6989586621679257620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The segment\'s ID.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#unprocessedTraceSegment_id"><span class="hs-identifier hs-type">unprocessedTraceSegment_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="unprocessedTraceSegment_id"><span class="annot"><span class="annottext">unprocessedTraceSegment_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UnprocessedTraceSegment -&gt; f UnprocessedTraceSegment
+</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#unprocessedTraceSegment_id"><span class="hs-identifier hs-var hs-var">unprocessedTraceSegment_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnprocessedTraceSegment -&gt; Maybe Text)
+-&gt; (UnprocessedTraceSegment
+    -&gt; Maybe Text -&gt; UnprocessedTraceSegment)
+-&gt; Lens
+     UnprocessedTraceSegment
+     UnprocessedTraceSegment
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-type">UnprocessedTraceSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257618"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:UnprocessedTraceSegment' :: UnprocessedTraceSegment -&gt; Maybe Text
+</span><a href="#local-6989586621679257618"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257618"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257617"><span class="annot"><span class="annottext">s :: UnprocessedTraceSegment
+</span><a href="#local-6989586621679257617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-type">UnprocessedTraceSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257616"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedTraceSegment
+</span><a href="#local-6989586621679257617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UnprocessedTraceSegment' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3Aid%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The error message.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#unprocessedTraceSegment_message"><span class="hs-identifier hs-type">unprocessedTraceSegment_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="unprocessedTraceSegment_message"><span class="annot"><span class="annottext">unprocessedTraceSegment_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UnprocessedTraceSegment -&gt; f UnprocessedTraceSegment
+</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#unprocessedTraceSegment_message"><span class="hs-identifier hs-var hs-var">unprocessedTraceSegment_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UnprocessedTraceSegment -&gt; Maybe Text)
+-&gt; (UnprocessedTraceSegment
+    -&gt; Maybe Text -&gt; UnprocessedTraceSegment)
+-&gt; Lens
+     UnprocessedTraceSegment
+     UnprocessedTraceSegment
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-type">UnprocessedTraceSegment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257614"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:UnprocessedTraceSegment' :: UnprocessedTraceSegment -&gt; Maybe Text
+</span><a href="#local-6989586621679257614"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257614"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257613"><span class="annot"><span class="annottext">s :: UnprocessedTraceSegment
+</span><a href="#local-6989586621679257613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-type">UnprocessedTraceSegment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257612"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UnprocessedTraceSegment
+</span><a href="#local-6989586621679257613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:UnprocessedTraceSegment' :: Maybe Text
+</span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#%24sel%3Amessage%3AUnprocessedTraceSegment%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257609"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679257607"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UnprocessedTraceSegment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UnprocessedTraceSegment)
 -&gt; Value
 -&gt; Parser UnprocessedTraceSegment
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UnprocessedTraceSegment&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257309"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257309"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; UnprocessedTraceSegment
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257604"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257604"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; UnprocessedTraceSegment
 </span><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment%27"><span class="hs-identifier hs-var">UnprocessedTraceSegment'</span></a></span><span>
-</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; UnprocessedTraceSegment)
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; UnprocessedTraceSegment)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; UnprocessedTraceSegment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679257604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; UnprocessedTraceSegment)
+</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; UnprocessedTraceSegment)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; UnprocessedTraceSegment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679257604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; UnprocessedTraceSegment)
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; UnprocessedTraceSegment)
 -&gt; Parser (Maybe Text) -&gt; Parser UnprocessedTraceSegment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679257604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257303"><span id="local-6989586621679257305"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span></span></span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span></span><span>
-</span><span id="line-87"></span></pre></body></html>
+</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257598"><span id="local-6989586621679257600"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257595"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.UnprocessedTraceSegment.html#UnprocessedTraceSegment"><span class="hs-identifier hs-type">UnprocessedTraceSegment</span></a></span></span><span>
+</span><span id="line-88"></span></pre></body></html>

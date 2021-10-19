@@ -27,25 +27,25 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Configuration information for profiling rules.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newProfilerRuleConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680333481"><span id="local-6989586621680333482"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProfilerRuleConfiguration"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-var">ProfilerRuleConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProfilerRuleConfiguration%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">ProfilerRuleConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680334889"><span id="local-6989586621680334890"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProfilerRuleConfiguration"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-var">ProfilerRuleConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProfilerRuleConfiguration%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">ProfilerRuleConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Runtime configuration for rule container.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AruleParameters%3AProfilerRuleConfiguration%27"><span class="annot"><span class="annottext">ProfilerRuleConfiguration -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AruleParameters%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">ruleParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The instance type to deploy a Debugger custom rule for profiling a</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- training job.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AinstanceType%3AProfilerRuleConfiguration%27"><span class="annot"><span class="annottext">ProfilerRuleConfiguration -&gt; Maybe ProcessingInstanceType
-</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AinstanceType%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInstanceType.html#ProcessingInstanceType"><span class="hs-identifier hs-type">ProcessingInstanceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Path to Amazon S3 storage location for rules.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3As3OutputPath%3AProfilerRuleConfiguration%27"><span class="annot"><span class="annottext">ProfilerRuleConfiguration -&gt; Maybe Text
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Path to Amazon S3 storage location for rules.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3As3OutputPath%3AProfilerRuleConfiguration%27"><span class="annot"><span class="annottext">ProfilerRuleConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3As3OutputPath%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The size, in GB, of the ML storage volume attached to the processing</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- instance.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AvolumeSizeInGB%3AProfilerRuleConfiguration%27"><span class="annot"><span class="annottext">ProfilerRuleConfiguration -&gt; Maybe Natural
-</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AvolumeSizeInGB%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Path to local storage location for output of rules. Defaults to</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- @\/opt\/ml\/processing\/output\/rule\/@.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlocalPath%3AProfilerRuleConfiguration%27"><span class="annot"><span class="annottext">ProfilerRuleConfiguration -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Path to local storage location for output of rules. Defaults to</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @\/opt\/ml\/processing\/output\/rule\/@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlocalPath%3AProfilerRuleConfiguration%27"><span class="annot"><span class="annottext">ProfilerRuleConfiguration -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AlocalPath%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The instance type to deploy a Debugger custom rule for profiling a</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- training job.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AinstanceType%3AProfilerRuleConfiguration%27"><span class="annot"><span class="annottext">ProfilerRuleConfiguration -&gt; Maybe ProcessingInstanceType
+</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AinstanceType%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInstanceType.html#ProcessingInstanceType"><span class="hs-identifier hs-type">ProcessingInstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The size, in GB, of the ML storage volume attached to the processing</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AvolumeSizeInGB%3AProfilerRuleConfiguration%27"><span class="annot"><span class="annottext">ProfilerRuleConfiguration -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AvolumeSizeInGB%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the rule configuration. It must be unique relative to other</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- rule configuration names.</span><span>
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3AruleConfigurationName%3AProfilerRuleConfiguration%27"><span class="annot"><span class="annottext">ProfilerRuleConfiguration -&gt; Text
@@ -55,7 +55,7 @@
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3AruleEvaluatorImage%3AProfilerRuleConfiguration%27"><span class="annot"><span class="annottext">ProfilerRuleConfiguration -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AruleEvaluatorImage%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var hs-var">ruleEvaluatorImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680333469"><span id="local-6989586621680333471"><span class="annot"><span class="annottext">ProfilerRuleConfiguration -&gt; ProfilerRuleConfiguration -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680334877"><span id="local-6989586621680334879"><span class="annot"><span class="annottext">ProfilerRuleConfiguration -&gt; ProfilerRuleConfiguration -&gt; Bool
 (ProfilerRuleConfiguration -&gt; ProfilerRuleConfiguration -&gt; Bool)
 -&gt; (ProfilerRuleConfiguration -&gt; ProfilerRuleConfiguration -&gt; Bool)
 -&gt; Eq ProfilerRuleConfiguration
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProfilerRuleConfiguration -&gt; ProfilerRuleConfiguration -&gt; Bool
 == :: ProfilerRuleConfiguration -&gt; ProfilerRuleConfiguration -&gt; Bool
 $c== :: ProfilerRuleConfiguration -&gt; ProfilerRuleConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680333460"><span id="local-6989586621680333462"><span id="local-6989586621680333464"><span id="local-6989586621680333466"><span class="annot"><span class="annottext">ReadPrec [ProfilerRuleConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680334868"><span id="local-6989586621680334870"><span id="local-6989586621680334872"><span id="local-6989586621680334874"><span class="annot"><span class="annottext">ReadPrec [ProfilerRuleConfiguration]
 ReadPrec ProfilerRuleConfiguration
 Int -&gt; ReadS ProfilerRuleConfiguration
 ReadS [ProfilerRuleConfiguration]
@@ -84,7 +84,7 @@ readList :: ReadS [ProfilerRuleConfiguration]
 $creadList :: ReadS [ProfilerRuleConfiguration]
 readsPrec :: Int -&gt; ReadS ProfilerRuleConfiguration
 $creadsPrec :: Int -&gt; ReadS ProfilerRuleConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680333453"><span id="local-6989586621680333455"><span id="local-6989586621680333457"><span class="annot"><span class="annottext">Int -&gt; ProfilerRuleConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680334861"><span id="local-6989586621680334863"><span id="local-6989586621680334865"><span class="annot"><span class="annottext">Int -&gt; ProfilerRuleConfiguration -&gt; ShowS
 [ProfilerRuleConfiguration] -&gt; ShowS
 ProfilerRuleConfiguration -&gt; String
 (Int -&gt; ProfilerRuleConfiguration -&gt; ShowS)
@@ -126,16 +126,16 @@ ProfilerRuleConfiguration -&gt; Rep ProfilerRuleConfiguration x
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'ruleParameters', 'profilerRuleConfiguration_ruleParameters' - Runtime configuration for rule container.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'instanceType', 'profilerRuleConfiguration_instanceType' - The instance type to deploy a Debugger custom rule for profiling a</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- training job.</span><span>
-</span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 's3OutputPath', 'profilerRuleConfiguration_s3OutputPath' - Path to Amazon S3 storage location for rules.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 's3OutputPath', 'profilerRuleConfiguration_s3OutputPath' - Path to Amazon S3 storage location for rules.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'localPath', 'profilerRuleConfiguration_localPath' - Path to local storage location for output of rules. Defaults to</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- @\/opt\/ml\/processing\/output\/rule\/@.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'volumeSizeInGB', 'profilerRuleConfiguration_volumeSizeInGB' - The size, in GB, of the ML storage volume attached to the processing</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'instanceType', 'profilerRuleConfiguration_instanceType' - The instance type to deploy a Debugger custom rule for profiling a</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- training job.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'localPath', 'profilerRuleConfiguration_localPath' - Path to local storage location for output of rules. Defaults to</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- @\/opt\/ml\/processing\/output\/rule\/@.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'volumeSizeInGB', 'profilerRuleConfiguration_volumeSizeInGB' - The size, in GB, of the ML storage volume attached to the processing</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- instance.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- 'ruleConfigurationName', 'profilerRuleConfiguration_ruleConfigurationName' - The name of the rule configuration. It must be unique relative to other</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- rule configuration names.</span><span>
@@ -150,15 +150,15 @@ ProfilerRuleConfiguration -&gt; Rep ProfilerRuleConfiguration x
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span>
 </span><span id="line-85"></span><span id="newProfilerRuleConfiguration"><span class="annot"><span class="annottext">newProfilerRuleConfiguration :: Text -&gt; Text -&gt; ProfilerRuleConfiguration
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#newProfilerRuleConfiguration"><span class="hs-identifier hs-var hs-var">newProfilerRuleConfiguration</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621680333447"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680333447"><span class="hs-identifier hs-var">pRuleConfigurationName_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621680333446"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680333446"><span class="hs-identifier hs-var">pRuleEvaluatorImage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621680334855"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334855"><span class="hs-identifier hs-var">pRuleConfigurationName_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621680334854"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334854"><span class="hs-identifier hs-var">pRuleEvaluatorImage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration' :: Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe ProcessingInstanceType
--&gt; Maybe Text
 -&gt; Maybe Natural
--&gt; Maybe Text
 -&gt; Text
 -&gt; Text
 -&gt; ProfilerRuleConfiguration
@@ -168,28 +168,28 @@ ProfilerRuleConfiguration -&gt; Rep ProfilerRuleConfiguration x
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceType:ProfilerRuleConfiguration' :: Maybe ProcessingInstanceType
-</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AinstanceType%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3OutputPath:ProfilerRuleConfiguration' :: Maybe Text
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:s3OutputPath:ProfilerRuleConfiguration' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3As3OutputPath%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:ProfilerRuleConfiguration' :: Maybe Natural
-</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AvolumeSizeInGB%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:localPath:ProfilerRuleConfiguration' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AlocalPath%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:localPath:ProfilerRuleConfiguration' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AlocalPath%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceType:ProfilerRuleConfiguration' :: Maybe ProcessingInstanceType
+</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AinstanceType%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:ProfilerRuleConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AvolumeSizeInGB%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleConfigurationName:ProfilerRuleConfiguration' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AruleConfigurationName%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680333447"><span class="hs-identifier hs-var">pRuleConfigurationName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680334855"><span class="hs-identifier hs-var">pRuleConfigurationName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleEvaluatorImage:ProfilerRuleConfiguration' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AruleEvaluatorImage%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">ruleEvaluatorImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680333446"><span class="hs-identifier hs-var">pRuleEvaluatorImage_</span></a></span><span>
+</span><a href="#local-6989586621680334854"><span class="hs-identifier hs-var">pRuleEvaluatorImage_</span></a></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | Runtime configuration for rule container.</span><span>
@@ -205,16 +205,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680333442"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334850"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 ruleParameters :: Maybe (HashMap Text Text)
 $sel:ruleParameters:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680333442"><span class="hs-identifier hs-var hs-var">ruleParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680333442"><span class="hs-identifier hs-var">ruleParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680333441"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680333440"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680333440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleParameters:ProfilerRuleConfiguration' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680334850"><span class="hs-identifier hs-var hs-var">ruleParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680334850"><span class="hs-identifier hs-var">ruleParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334849"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334848"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621680334848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleParameters:ProfilerRuleConfiguration' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AruleParameters%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">ruleParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680333440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680334848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ProfilerRuleConfiguration -&gt; f ProfilerRuleConfiguration)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -240,37 +240,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The instance type to deploy a Debugger custom rule for profiling a</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- training job.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_instanceType"><span class="hs-identifier hs-type">profilerRuleConfiguration_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInstanceType.html#ProcessingInstanceType"><span class="hs-identifier hs-type">ProcessingInstanceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="profilerRuleConfiguration_instanceType"><span class="annot"><span class="annottext">profilerRuleConfiguration_instanceType :: (Maybe ProcessingInstanceType -&gt; f (Maybe ProcessingInstanceType))
--&gt; ProfilerRuleConfiguration -&gt; f ProfilerRuleConfiguration
-</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_instanceType"><span class="hs-identifier hs-var hs-var">profilerRuleConfiguration_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProfilerRuleConfiguration -&gt; Maybe ProcessingInstanceType)
--&gt; (ProfilerRuleConfiguration
-    -&gt; Maybe ProcessingInstanceType -&gt; ProfilerRuleConfiguration)
--&gt; Lens
-     ProfilerRuleConfiguration
-     ProfilerRuleConfiguration
-     (Maybe ProcessingInstanceType)
-     (Maybe ProcessingInstanceType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680333435"><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
-instanceType :: Maybe ProcessingInstanceType
-$sel:instanceType:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe ProcessingInstanceType
-</span><a href="#local-6989586621680333435"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
-</span><a href="#local-6989586621680333435"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680333434"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680333433"><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
-</span><a href="#local-6989586621680333433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ProfilerRuleConfiguration' :: Maybe ProcessingInstanceType
-</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AinstanceType%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
-</span><a href="#local-6989586621680333433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | Path to Amazon S3 storage location for rules.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_s3OutputPath"><span class="hs-identifier hs-type">profilerRuleConfiguration_s3OutputPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="profilerRuleConfiguration_s3OutputPath"><span class="annot"><span class="annottext">profilerRuleConfiguration_s3OutputPath :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-103"></span><span class="hs-comment">-- | Path to Amazon S3 storage location for rules.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_s3OutputPath"><span class="hs-identifier hs-type">profilerRuleConfiguration_s3OutputPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="profilerRuleConfiguration_s3OutputPath"><span class="annot"><span class="annottext">profilerRuleConfiguration_s3OutputPath :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ProfilerRuleConfiguration -&gt; f ProfilerRuleConfiguration
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_s3OutputPath"><span class="hs-identifier hs-var hs-var">profilerRuleConfiguration_s3OutputPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProfilerRuleConfiguration -&gt; Maybe Text)
 -&gt; (ProfilerRuleConfiguration
@@ -281,46 +256,21 @@ $sel:instanceType:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680333431"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334843"><span class="annot"><span class="annottext">Maybe Text
 s3OutputPath :: Maybe Text
 $sel:s3OutputPath:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621680333431"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680333431"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680333430"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680333429"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680333429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:ProfilerRuleConfiguration' :: Maybe Text
+</span><a href="#local-6989586621680334843"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680334843"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334842"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334841"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680334841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:ProfilerRuleConfiguration' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3As3OutputPath%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680333429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The size, in GB, of the ML storage volume attached to the processing</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- instance.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_volumeSizeInGB"><span class="hs-identifier hs-type">profilerRuleConfiguration_volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="profilerRuleConfiguration_volumeSizeInGB"><span class="annot"><span class="annottext">profilerRuleConfiguration_volumeSizeInGB :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ProfilerRuleConfiguration -&gt; f ProfilerRuleConfiguration
-</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_volumeSizeInGB"><span class="hs-identifier hs-var hs-var">profilerRuleConfiguration_volumeSizeInGB</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProfilerRuleConfiguration -&gt; Maybe Natural)
--&gt; (ProfilerRuleConfiguration
-    -&gt; Maybe Natural -&gt; ProfilerRuleConfiguration)
--&gt; Lens
-     ProfilerRuleConfiguration
-     ProfilerRuleConfiguration
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680333427"><span class="annot"><span class="annottext">Maybe Natural
-volumeSizeInGB :: Maybe Natural
-$sel:volumeSizeInGB:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe Natural
-</span><a href="#local-6989586621680333427"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680333427"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680333426"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680333425"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680333425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:ProfilerRuleConfiguration' :: Maybe Natural
-</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AvolumeSizeInGB%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680333425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | Path to local storage location for output of rules. Defaults to</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- @\/opt\/ml\/processing\/output\/rule\/@.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_localPath"><span class="hs-identifier hs-type">profilerRuleConfiguration_localPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="profilerRuleConfiguration_localPath"><span class="annot"><span class="annottext">profilerRuleConfiguration_localPath :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621680334841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Path to local storage location for output of rules. Defaults to</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @\/opt\/ml\/processing\/output\/rule\/@.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_localPath"><span class="hs-identifier hs-type">profilerRuleConfiguration_localPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="profilerRuleConfiguration_localPath"><span class="annot"><span class="annottext">profilerRuleConfiguration_localPath :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ProfilerRuleConfiguration -&gt; f ProfilerRuleConfiguration
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_localPath"><span class="hs-identifier hs-var hs-var">profilerRuleConfiguration_localPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProfilerRuleConfiguration -&gt; Maybe Text)
 -&gt; (ProfilerRuleConfiguration
@@ -331,16 +281,66 @@ $sel:volumeSizeInGB:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680333423"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334839"><span class="annot"><span class="annottext">Maybe Text
 localPath :: Maybe Text
 $sel:localPath:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe Text
-</span><a href="#local-6989586621680333423"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680333423"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680333422"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333422"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680333421"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680333421"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333422"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localPath:ProfilerRuleConfiguration' :: Maybe Text
+</span><a href="#local-6989586621680334839"><span class="hs-identifier hs-var hs-var">localPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680334839"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334838"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334837"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680334837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:localPath:ProfilerRuleConfiguration' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AlocalPath%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">localPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680333421"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The instance type to deploy a Debugger custom rule for profiling a</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- training job.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_instanceType"><span class="hs-identifier hs-type">profilerRuleConfiguration_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProcessingInstanceType.html#ProcessingInstanceType"><span class="hs-identifier hs-type">ProcessingInstanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="profilerRuleConfiguration_instanceType"><span class="annot"><span class="annottext">profilerRuleConfiguration_instanceType :: (Maybe ProcessingInstanceType -&gt; f (Maybe ProcessingInstanceType))
+-&gt; ProfilerRuleConfiguration -&gt; f ProfilerRuleConfiguration
+</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_instanceType"><span class="hs-identifier hs-var hs-var">profilerRuleConfiguration_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProfilerRuleConfiguration -&gt; Maybe ProcessingInstanceType)
+-&gt; (ProfilerRuleConfiguration
+    -&gt; Maybe ProcessingInstanceType -&gt; ProfilerRuleConfiguration)
+-&gt; Lens
+     ProfilerRuleConfiguration
+     ProfilerRuleConfiguration
+     (Maybe ProcessingInstanceType)
+     (Maybe ProcessingInstanceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334835"><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
+instanceType :: Maybe ProcessingInstanceType
+$sel:instanceType:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe ProcessingInstanceType
+</span><a href="#local-6989586621680334835"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
+</span><a href="#local-6989586621680334835"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334834"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334833"><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
+</span><a href="#local-6989586621680334833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ProfilerRuleConfiguration' :: Maybe ProcessingInstanceType
+</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AinstanceType%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
+</span><a href="#local-6989586621680334833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The size, in GB, of the ML storage volume attached to the processing</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_volumeSizeInGB"><span class="hs-identifier hs-type">profilerRuleConfiguration_volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="profilerRuleConfiguration_volumeSizeInGB"><span class="annot"><span class="annottext">profilerRuleConfiguration_volumeSizeInGB :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ProfilerRuleConfiguration -&gt; f ProfilerRuleConfiguration
+</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#profilerRuleConfiguration_volumeSizeInGB"><span class="hs-identifier hs-var hs-var">profilerRuleConfiguration_volumeSizeInGB</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProfilerRuleConfiguration -&gt; Maybe Natural)
+-&gt; (ProfilerRuleConfiguration
+    -&gt; Maybe Natural -&gt; ProfilerRuleConfiguration)
+-&gt; Lens
+     ProfilerRuleConfiguration
+     ProfilerRuleConfiguration
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334831"><span class="annot"><span class="annottext">Maybe Natural
+volumeSizeInGB :: Maybe Natural
+$sel:volumeSizeInGB:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe Natural
+</span><a href="#local-6989586621680334831"><span class="hs-identifier hs-var hs-var">volumeSizeInGB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680334831"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334830"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334829"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680334829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeSizeInGB:ProfilerRuleConfiguration' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AvolumeSizeInGB%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680334829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | The name of the rule configuration. It must be unique relative to other</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- rule configuration names.</span><span>
@@ -352,16 +352,16 @@ $sel:localPath:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; May
 -&gt; Lens
      ProfilerRuleConfiguration ProfilerRuleConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680333419"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334827"><span class="annot"><span class="annottext">Text
 ruleConfigurationName :: Text
 $sel:ruleConfigurationName:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Text
-</span><a href="#local-6989586621680333419"><span class="hs-identifier hs-var hs-var">ruleConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680333419"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680333418"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680333417"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680333417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleConfigurationName:ProfilerRuleConfiguration' :: Text
+</span><a href="#local-6989586621680334827"><span class="hs-identifier hs-var hs-var">ruleConfigurationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334827"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334826"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334825"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleConfigurationName:ProfilerRuleConfiguration' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AruleConfigurationName%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680333417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The Amazon Elastic Container (ECR) Image for the managed rule</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- evaluation.</span><span>
@@ -373,19 +373,19 @@ $sel:ruleConfigurationName:ProfilerRuleConfiguration' :: ProfilerRuleConfigurati
 -&gt; Lens
      ProfilerRuleConfiguration ProfilerRuleConfiguration Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680333415"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334823"><span class="annot"><span class="annottext">Text
 ruleEvaluatorImage :: Text
 $sel:ruleEvaluatorImage:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Text
-</span><a href="#local-6989586621680333415"><span class="hs-identifier hs-var hs-var">ruleEvaluatorImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680333415"><span class="hs-identifier hs-var">ruleEvaluatorImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680333414"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680333413"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680333413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
-</span><a href="#local-6989586621680333414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleEvaluatorImage:ProfilerRuleConfiguration' :: Text
+</span><a href="#local-6989586621680334823"><span class="hs-identifier hs-var hs-var">ruleEvaluatorImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334823"><span class="hs-identifier hs-var">ruleEvaluatorImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680334822"><span class="annot"><span class="annottext">s :: ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680334821"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProfilerRuleConfiguration
+</span><a href="#local-6989586621680334822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleEvaluatorImage:ProfilerRuleConfiguration' :: Text
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#%24sel%3AruleEvaluatorImage%3AProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">ruleEvaluatorImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680333413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680333410"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621680333408"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProfilerRuleConfiguration
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334818"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621680334816"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProfilerRuleConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProfilerRuleConfiguration)
@@ -395,37 +395,37 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProfilerRuleConfiguration&quot;</span></span><span>
-</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680333405"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680333405"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680334813"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680334813"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe ProcessingInstanceType
--&gt; Maybe Text
 -&gt; Maybe Natural
--&gt; Maybe Text
 -&gt; Text
 -&gt; Text
 -&gt; ProfilerRuleConfiguration
 </span><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-var">ProfilerRuleConfiguration'</span></a></span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe ProcessingInstanceType
- -&gt; Maybe Text
  -&gt; Maybe Natural
- -&gt; Maybe Text
  -&gt; Text
  -&gt; Text
  -&gt; ProfilerRuleConfiguration)
 -&gt; Parser (Maybe (HashMap Text Text))
 -&gt; Parser
-     (Maybe ProcessingInstanceType
+     (Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe ProcessingInstanceType
       -&gt; Maybe Natural
-      -&gt; Maybe Text
       -&gt; Text
       -&gt; Text
       -&gt; ProfilerRuleConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680333405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621680334813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RuleParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -435,69 +435,70 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe ProcessingInstanceType
+  (Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe ProcessingInstanceType
    -&gt; Maybe Natural
-   -&gt; Maybe Text
    -&gt; Text
    -&gt; Text
    -&gt; ProfilerRuleConfiguration)
--&gt; Parser (Maybe ProcessingInstanceType)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
+      -&gt; Maybe ProcessingInstanceType
       -&gt; Maybe Natural
-      -&gt; Maybe Text
       -&gt; Text
       -&gt; Text
       -&gt; ProfilerRuleConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680333405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingInstanceType)
+</span><a href="#local-6989586621680334813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
+   -&gt; Maybe ProcessingInstanceType
    -&gt; Maybe Natural
-   -&gt; Maybe Text
    -&gt; Text
    -&gt; Text
    -&gt; ProfilerRuleConfiguration)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Natural
-      -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; ProfilerRuleConfiguration)
+     (Maybe ProcessingInstanceType
+      -&gt; Maybe Natural -&gt; Text -&gt; Text -&gt; ProfilerRuleConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680333405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
-   -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; ProfilerRuleConfiguration)
--&gt; Parser (Maybe Natural)
--&gt; Parser (Maybe Text -&gt; Text -&gt; Text -&gt; ProfilerRuleConfiguration)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680333405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VolumeSizeInGB&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Text -&gt; ProfilerRuleConfiguration)
--&gt; Parser (Maybe Text)
--&gt; Parser (Text -&gt; Text -&gt; ProfilerRuleConfiguration)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680333405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680334813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LocalPath&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ProcessingInstanceType
+   -&gt; Maybe Natural -&gt; Text -&gt; Text -&gt; ProfilerRuleConfiguration)
+-&gt; Parser (Maybe ProcessingInstanceType)
+-&gt; Parser
+     (Maybe Natural -&gt; Text -&gt; Text -&gt; ProfilerRuleConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680334813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ProcessingInstanceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Text -&gt; Text -&gt; ProfilerRuleConfiguration)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Text -&gt; Text -&gt; ProfilerRuleConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680334813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeSizeInGB&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; ProfilerRuleConfiguration)
 -&gt; Parser Text -&gt; Parser (Text -&gt; ProfilerRuleConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680333405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680334813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RuleConfigurationName&quot;</span></span><span class="hs-special">)</span><span>
@@ -505,38 +506,38 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ProfilerRuleConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680333405"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680334813"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RuleEvaluatorImage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680333397"><span id="local-6989586621680333399"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334805"><span id="local-6989586621680334807"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span></span></span><span>
 </span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680333394"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334802"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span></span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680333386"><span id="local-6989586621680333388"><span id="local-6989586621680333390"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621680333384"><span class="annot"><span class="annottext">toJSON :: ProfilerRuleConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680333376"><span id="local-6989586621680333377"><span id="local-6989586621680333378"><span id="local-6989586621680333379"><span id="local-6989586621680333380"><span id="local-6989586621680333381"><span id="local-6989586621680333382"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680334794"><span id="local-6989586621680334796"><span id="local-6989586621680334798"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration"><span class="hs-identifier hs-type">ProfilerRuleConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621680334792"><span class="annot"><span class="annottext">toJSON :: ProfilerRuleConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ProfilerRuleConfiguration.html#ProfilerRuleConfiguration%27"><span class="hs-identifier hs-type">ProfilerRuleConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680334784"><span id="local-6989586621680334785"><span id="local-6989586621680334786"><span id="local-6989586621680334787"><span id="local-6989586621680334788"><span id="local-6989586621680334789"><span id="local-6989586621680334790"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe (HashMap Text Text)
 Maybe ProcessingInstanceType
 Text
 ruleEvaluatorImage :: Text
 ruleConfigurationName :: Text
-localPath :: Maybe Text
 volumeSizeInGB :: Maybe Natural
-s3OutputPath :: Maybe Text
 instanceType :: Maybe ProcessingInstanceType
+localPath :: Maybe Text
+s3OutputPath :: Maybe Text
 ruleParameters :: Maybe (HashMap Text Text)
 $sel:ruleEvaluatorImage:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Text
 $sel:ruleConfigurationName:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Text
-$sel:localPath:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe Text
 $sel:volumeSizeInGB:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe Natural
-$sel:s3OutputPath:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe Text
 $sel:instanceType:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe ProcessingInstanceType
+$sel:localPath:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe Text
+$sel:s3OutputPath:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe Text
 $sel:ruleParameters:ProfilerRuleConfiguration' :: ProfilerRuleConfiguration -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680333376"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680334784"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -550,37 +551,37 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621680333382"><span class="hs-identifier hs-var">ruleParameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680334790"><span class="hs-identifier hs-var">ruleParameters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680334789"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocalPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680334788"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProcessingInstanceType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ProcessingInstanceType -&gt; Pair)
 -&gt; Maybe ProcessingInstanceType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingInstanceType
-</span><a href="#local-6989586621680333381"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680333380"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-159"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680334787"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VolumeSizeInGB&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680333379"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LocalPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680333378"><span class="hs-identifier hs-var">localPath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680334786"><span class="hs-identifier hs-var">volumeSizeInGB</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -589,7 +590,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-164"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680333377"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span>
+</span><a href="#local-6989586621680334785"><span class="hs-identifier hs-var">ruleConfigurationName</span></a></span><span>
 </span><span id="line-165"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -598,7 +599,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RuleEvaluatorImage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680333376"><span class="hs-identifier hs-var">ruleEvaluatorImage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680334784"><span class="hs-identifier hs-var">ruleEvaluatorImage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span></pre></body></html>

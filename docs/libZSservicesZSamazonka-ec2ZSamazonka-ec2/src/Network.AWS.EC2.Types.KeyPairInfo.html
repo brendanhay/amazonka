@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes a key pair.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newKeyPairInfo' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681125895"><span id="local-6989586621681125896"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyPairInfo"><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-var">KeyPairInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyPairInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-var">KeyPairInfo'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681160778"><span id="local-6989586621681160779"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyPairInfo"><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-var">KeyPairInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyPairInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-var">KeyPairInfo'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If you used CreateKeyPair to create the key pair:</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   For RSA key pairs, the key fingerprint is the SHA-1 digest of the</span><span>
@@ -49,20 +49,20 @@
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">--     &lt;http://www.openssh.com/txt/release-6.8 OpenSSH 6.8&gt;.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AkeyFingerprint%3AKeyPairInfo%27"><span class="annot"><span class="annottext">KeyPairInfo -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyFingerprint%3AKeyPairInfo%27"><span class="hs-identifier hs-var hs-var">keyFingerprint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The ID of the key pair.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AkeyPairId%3AKeyPairInfo%27"><span class="annot"><span class="annottext">KeyPairInfo -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyPairId%3AKeyPairInfo%27"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The type of key pair.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AkeyType%3AKeyPairInfo%27"><span class="annot"><span class="annottext">KeyPairInfo -&gt; Maybe KeyType
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The type of key pair.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AkeyType%3AKeyPairInfo%27"><span class="annot"><span class="annottext">KeyPairInfo -&gt; Maybe KeyType
 </span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyType%3AKeyPairInfo%27"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyType.html#KeyType"><span class="hs-identifier hs-type">KeyType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Any tags applied to the key pair.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3Atags%3AKeyPairInfo%27"><span class="annot"><span class="annottext">KeyPairInfo -&gt; Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3Atags%3AKeyPairInfo%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name of the key pair.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AkeyName%3AKeyPairInfo%27"><span class="annot"><span class="annottext">KeyPairInfo -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyName%3AKeyPairInfo%27"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The name of the key pair.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AkeyName%3AKeyPairInfo%27"><span class="annot"><span class="annottext">KeyPairInfo -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyName%3AKeyPairInfo%27"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The ID of the key pair.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AkeyPairId%3AKeyPairInfo%27"><span class="annot"><span class="annottext">KeyPairInfo -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyPairId%3AKeyPairInfo%27"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Any tags applied to the key pair.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Atags%3AKeyPairInfo%27"><span class="annot"><span class="annottext">KeyPairInfo -&gt; Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3Atags%3AKeyPairInfo%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681125885"><span id="local-6989586621681125887"><span class="annot"><span class="annottext">KeyPairInfo -&gt; KeyPairInfo -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681160768"><span id="local-6989586621681160770"><span class="annot"><span class="annottext">KeyPairInfo -&gt; KeyPairInfo -&gt; Bool
 (KeyPairInfo -&gt; KeyPairInfo -&gt; Bool)
 -&gt; (KeyPairInfo -&gt; KeyPairInfo -&gt; Bool) -&gt; Eq KeyPairInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KeyPairInfo -&gt; KeyPairInfo -&gt; Bool
 == :: KeyPairInfo -&gt; KeyPairInfo -&gt; Bool
 $c== :: KeyPairInfo -&gt; KeyPairInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681125876"><span id="local-6989586621681125878"><span id="local-6989586621681125880"><span id="local-6989586621681125882"><span class="annot"><span class="annottext">ReadPrec [KeyPairInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681160759"><span id="local-6989586621681160761"><span id="local-6989586621681160763"><span id="local-6989586621681160765"><span class="annot"><span class="annottext">ReadPrec [KeyPairInfo]
 ReadPrec KeyPairInfo
 Int -&gt; ReadS KeyPairInfo
 ReadS [KeyPairInfo]
@@ -90,7 +90,7 @@ readList :: ReadS [KeyPairInfo]
 $creadList :: ReadS [KeyPairInfo]
 readsPrec :: Int -&gt; ReadS KeyPairInfo
 $creadsPrec :: Int -&gt; ReadS KeyPairInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681125869"><span id="local-6989586621681125871"><span id="local-6989586621681125873"><span class="annot"><span class="annottext">Int -&gt; KeyPairInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681160752"><span id="local-6989586621681160754"><span id="local-6989586621681160756"><span class="annot"><span class="annottext">Int -&gt; KeyPairInfo -&gt; ShowS
 [KeyPairInfo] -&gt; ShowS
 KeyPairInfo -&gt; String
 (Int -&gt; KeyPairInfo -&gt; ShowS)
@@ -142,42 +142,42 @@ $cfrom :: forall x. KeyPairInfo -&gt; Rep KeyPairInfo x
 </span><span id="line-85"></span><span class="hs-comment">--     SHA-256 digest, which is the default for OpenSSH, starting with</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--     &lt;http://www.openssh.com/txt/release-6.8 OpenSSH 6.8&gt;.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'keyPairId', 'keyPairInfo_keyPairId' - The ID of the key pair.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'keyType', 'keyPairInfo_keyType' - The type of key pair.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'keyType', 'keyPairInfo_keyType' - The type of key pair.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'keyName', 'keyPairInfo_keyName' - The name of the key pair.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'tags', 'keyPairInfo_tags' - Any tags applied to the key pair.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'keyPairId', 'keyPairInfo_keyPairId' - The ID of the key pair.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'keyName', 'keyPairInfo_keyName' - The name of the key pair.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'tags', 'keyPairInfo_tags' - Any tags applied to the key pair.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#newKeyPairInfo"><span class="hs-identifier hs-type">newKeyPairInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span>
 </span><span id="line-97"></span><span id="newKeyPairInfo"><span class="annot"><span class="annottext">newKeyPairInfo :: KeyPairInfo
 </span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#newKeyPairInfo"><span class="hs-identifier hs-var hs-var">newKeyPairInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">KeyPairInfo' :: Maybe Text
--&gt; Maybe Text
 -&gt; Maybe KeyType
--&gt; Maybe [Tag]
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
 -&gt; KeyPairInfo
 </span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:keyFingerprint:KeyPairInfo' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyFingerprint%3AKeyPairInfo%27"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyPairId:KeyPairInfo' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyPairId%3AKeyPairInfo%27"><span class="hs-identifier hs-var">keyPairId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyType:KeyPairInfo' :: Maybe KeyType
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyType:KeyPairInfo' :: Maybe KeyType
 </span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyType%3AKeyPairInfo%27"><span class="hs-identifier hs-var">keyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:KeyPairInfo' :: Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3Atags%3AKeyPairInfo%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyName:KeyPairInfo' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyName%3AKeyPairInfo%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyName:KeyPairInfo' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyName%3AKeyPairInfo%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyPairId:KeyPairInfo' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyPairId%3AKeyPairInfo%27"><span class="hs-identifier hs-var">keyPairId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:KeyPairInfo' :: Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3Atags%3AKeyPairInfo%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
@@ -205,71 +205,89 @@ forall a. Maybe a
 -&gt; (KeyPairInfo -&gt; Maybe Text -&gt; KeyPairInfo)
 -&gt; Lens KeyPairInfo KeyPairInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125860"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160743"><span class="annot"><span class="annottext">Maybe Text
 keyFingerprint :: Maybe Text
 $sel:keyFingerprint:KeyPairInfo' :: KeyPairInfo -&gt; Maybe Text
-</span><a href="#local-6989586621681125860"><span class="hs-identifier hs-var hs-var">keyFingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125860"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125859"><span class="annot"><span class="annottext">s :: KeyPairInfo
-</span><a href="#local-6989586621681125859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125858"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairInfo
-</span><a href="#local-6989586621681125859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyFingerprint:KeyPairInfo' :: Maybe Text
+</span><a href="#local-6989586621681160743"><span class="hs-identifier hs-var hs-var">keyFingerprint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160743"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160742"><span class="annot"><span class="annottext">s :: KeyPairInfo
+</span><a href="#local-6989586621681160742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160741"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairInfo
+</span><a href="#local-6989586621681160742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyFingerprint:KeyPairInfo' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyFingerprint%3AKeyPairInfo%27"><span class="hs-identifier hs-var">keyFingerprint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681160741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The ID of the key pair.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_keyPairId"><span class="hs-identifier hs-type">keyPairInfo_keyPairId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="keyPairInfo_keyPairId"><span class="annot"><span class="annottext">keyPairInfo_keyPairId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; KeyPairInfo -&gt; f KeyPairInfo
-</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_keyPairId"><span class="hs-identifier hs-var hs-var">keyPairInfo_keyPairId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyPairInfo -&gt; Maybe Text)
--&gt; (KeyPairInfo -&gt; Maybe Text -&gt; KeyPairInfo)
--&gt; Lens KeyPairInfo KeyPairInfo (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125856"><span class="annot"><span class="annottext">Maybe Text
-keyPairId :: Maybe Text
-$sel:keyPairId:KeyPairInfo' :: KeyPairInfo -&gt; Maybe Text
-</span><a href="#local-6989586621681125856"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125856"><span class="hs-identifier hs-var">keyPairId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125855"><span class="annot"><span class="annottext">s :: KeyPairInfo
-</span><a href="#local-6989586621681125855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125854"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairInfo
-</span><a href="#local-6989586621681125855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairId:KeyPairInfo' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyPairId%3AKeyPairInfo%27"><span class="hs-identifier hs-var">keyPairId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The type of key pair.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_keyType"><span class="hs-identifier hs-type">keyPairInfo_keyType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyType.html#KeyType"><span class="hs-identifier hs-type">KeyType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="keyPairInfo_keyType"><span class="annot"><span class="annottext">keyPairInfo_keyType :: (Maybe KeyType -&gt; f (Maybe KeyType))
+</span><span id="line-126"></span><span class="hs-comment">-- | The type of key pair.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_keyType"><span class="hs-identifier hs-type">keyPairInfo_keyType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyType.html#KeyType"><span class="hs-identifier hs-type">KeyType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="keyPairInfo_keyType"><span class="annot"><span class="annottext">keyPairInfo_keyType :: (Maybe KeyType -&gt; f (Maybe KeyType))
 -&gt; KeyPairInfo -&gt; f KeyPairInfo
 </span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_keyType"><span class="hs-identifier hs-var hs-var">keyPairInfo_keyType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyPairInfo -&gt; Maybe KeyType)
 -&gt; (KeyPairInfo -&gt; Maybe KeyType -&gt; KeyPairInfo)
 -&gt; Lens KeyPairInfo KeyPairInfo (Maybe KeyType) (Maybe KeyType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125852"><span class="annot"><span class="annottext">Maybe KeyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160739"><span class="annot"><span class="annottext">Maybe KeyType
 keyType :: Maybe KeyType
 $sel:keyType:KeyPairInfo' :: KeyPairInfo -&gt; Maybe KeyType
-</span><a href="#local-6989586621681125852"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
-</span><a href="#local-6989586621681125852"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125851"><span class="annot"><span class="annottext">s :: KeyPairInfo
-</span><a href="#local-6989586621681125851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125850"><span class="annot"><span class="annottext">Maybe KeyType
-</span><a href="#local-6989586621681125850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairInfo
-</span><a href="#local-6989586621681125851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyType:KeyPairInfo' :: Maybe KeyType
+</span><a href="#local-6989586621681160739"><span class="hs-identifier hs-var hs-var">keyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
+</span><a href="#local-6989586621681160739"><span class="hs-identifier hs-var">keyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160738"><span class="annot"><span class="annottext">s :: KeyPairInfo
+</span><a href="#local-6989586621681160738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160737"><span class="annot"><span class="annottext">Maybe KeyType
+</span><a href="#local-6989586621681160737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairInfo
+</span><a href="#local-6989586621681160738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyType:KeyPairInfo' :: Maybe KeyType
 </span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyType%3AKeyPairInfo%27"><span class="hs-identifier hs-var">keyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyType
-</span><a href="#local-6989586621681125850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681160737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The name of the key pair.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_keyName"><span class="hs-identifier hs-type">keyPairInfo_keyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="keyPairInfo_keyName"><span class="annot"><span class="annottext">keyPairInfo_keyName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; KeyPairInfo -&gt; f KeyPairInfo
+</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_keyName"><span class="hs-identifier hs-var hs-var">keyPairInfo_keyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyPairInfo -&gt; Maybe Text)
+-&gt; (KeyPairInfo -&gt; Maybe Text -&gt; KeyPairInfo)
+-&gt; Lens KeyPairInfo KeyPairInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160735"><span class="annot"><span class="annottext">Maybe Text
+keyName :: Maybe Text
+$sel:keyName:KeyPairInfo' :: KeyPairInfo -&gt; Maybe Text
+</span><a href="#local-6989586621681160735"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160735"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160734"><span class="annot"><span class="annottext">s :: KeyPairInfo
+</span><a href="#local-6989586621681160734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160733"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairInfo
+</span><a href="#local-6989586621681160734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:KeyPairInfo' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyName%3AKeyPairInfo%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | Any tags applied to the key pair.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_tags"><span class="hs-identifier hs-type">keyPairInfo_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="keyPairInfo_tags"><span class="annot"><span class="annottext">keyPairInfo_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; KeyPairInfo -&gt; f KeyPairInfo
+</span><span id="line-134"></span><span class="hs-comment">-- | The ID of the key pair.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_keyPairId"><span class="hs-identifier hs-type">keyPairInfo_keyPairId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="keyPairInfo_keyPairId"><span class="annot"><span class="annottext">keyPairInfo_keyPairId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; KeyPairInfo -&gt; f KeyPairInfo
+</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_keyPairId"><span class="hs-identifier hs-var hs-var">keyPairInfo_keyPairId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyPairInfo -&gt; Maybe Text)
+-&gt; (KeyPairInfo -&gt; Maybe Text -&gt; KeyPairInfo)
+-&gt; Lens KeyPairInfo KeyPairInfo (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160731"><span class="annot"><span class="annottext">Maybe Text
+keyPairId :: Maybe Text
+$sel:keyPairId:KeyPairInfo' :: KeyPairInfo -&gt; Maybe Text
+</span><a href="#local-6989586621681160731"><span class="hs-identifier hs-var hs-var">keyPairId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160731"><span class="hs-identifier hs-var">keyPairId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160730"><span class="annot"><span class="annottext">s :: KeyPairInfo
+</span><a href="#local-6989586621681160730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160729"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairInfo
+</span><a href="#local-6989586621681160730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairId:KeyPairInfo' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyPairId%3AKeyPairInfo%27"><span class="hs-identifier hs-var">keyPairId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681160729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Any tags applied to the key pair.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_tags"><span class="hs-identifier hs-type">keyPairInfo_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="keyPairInfo_tags"><span class="annot"><span class="annottext">keyPairInfo_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; KeyPairInfo -&gt; f KeyPairInfo
 </span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_tags"><span class="hs-identifier hs-var hs-var">keyPairInfo_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyPairInfo -&gt; Maybe [Tag])
 -&gt; (KeyPairInfo -&gt; Maybe [Tag] -&gt; KeyPairInfo)
 -&gt; Lens KeyPairInfo KeyPairInfo (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125848"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160727"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:KeyPairInfo' :: KeyPairInfo -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681125848"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681125848"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125847"><span class="annot"><span class="annottext">s :: KeyPairInfo
-</span><a href="#local-6989586621681125847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125846"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681125846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairInfo
-</span><a href="#local-6989586621681125847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:KeyPairInfo' :: Maybe [Tag]
+</span><a href="#local-6989586621681160727"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681160727"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160726"><span class="annot"><span class="annottext">s :: KeyPairInfo
+</span><a href="#local-6989586621681160726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160725"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681160725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairInfo
+</span><a href="#local-6989586621681160726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:KeyPairInfo' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3Atags%3AKeyPairInfo%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681125846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; KeyPairInfo -&gt; f KeyPairInfo)
+</span><a href="#local-6989586621681160725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; KeyPairInfo -&gt; f KeyPairInfo)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -282,84 +300,74 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | The name of the key pair.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_keyName"><span class="hs-identifier hs-type">keyPairInfo_keyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="keyPairInfo_keyName"><span class="annot"><span class="annottext">keyPairInfo_keyName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; KeyPairInfo -&gt; f KeyPairInfo
-</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#keyPairInfo_keyName"><span class="hs-identifier hs-var hs-var">keyPairInfo_keyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(KeyPairInfo -&gt; Maybe Text)
--&gt; (KeyPairInfo -&gt; Maybe Text -&gt; KeyPairInfo)
--&gt; Lens KeyPairInfo KeyPairInfo (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125841"><span class="annot"><span class="annottext">Maybe Text
-keyName :: Maybe Text
-$sel:keyName:KeyPairInfo' :: KeyPairInfo -&gt; Maybe Text
-</span><a href="#local-6989586621681125841"><span class="hs-identifier hs-var hs-var">keyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125841"><span class="hs-identifier hs-var">keyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125840"><span class="annot"><span class="annottext">s :: KeyPairInfo
-</span><a href="#local-6989586621681125840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-type">KeyPairInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125839"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyPairInfo
-</span><a href="#local-6989586621681125840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyName:KeyPairInfo' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#%24sel%3AkeyName%3AKeyPairInfo%27"><span class="hs-identifier hs-var">keyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681125839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621681125836"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String KeyPairInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681125834"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125834"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621681160719"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String KeyPairInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681160717"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
 -&gt; Maybe KeyType
--&gt; Maybe [Tag]
 -&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
 -&gt; KeyPairInfo
 </span><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo%27"><span class="hs-identifier hs-var">KeyPairInfo'</span></a></span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe KeyType
- -&gt; Maybe [Tag]
  -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Tag]
  -&gt; KeyPairInfo)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe KeyType -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; KeyPairInfo)
+     (Maybe KeyType
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; KeyPairInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681160717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyFingerprint&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe KeyType -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; KeyPairInfo)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe KeyType -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; KeyPairInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;keyPairId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe KeyType -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; KeyPairInfo)
+  (Maybe KeyType
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; KeyPairInfo)
 -&gt; Either String (Maybe KeyType)
--&gt; Either String (Maybe [Tag] -&gt; Maybe Text -&gt; KeyPairInfo)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; KeyPairInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe KeyType)
+</span><a href="#local-6989586621681160717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe KeyType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;keyType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; Maybe Text -&gt; KeyPairInfo)
--&gt; Either String (Maybe [Tag])
--&gt; Either String (Maybe Text -&gt; KeyPairInfo)
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; KeyPairInfo)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe [Tag] -&gt; KeyPairInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Tag] -&gt; KeyPairInfo)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Tag] -&gt; KeyPairInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681160717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;keyPairId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; KeyPairInfo)
+-&gt; Either String (Maybe [Tag]) -&gt; Either String KeyPairInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681160717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -367,7 +375,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-149"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-150"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -380,17 +388,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; KeyPairInfo)
--&gt; Either String (Maybe Text) -&gt; Either String KeyPairInfo
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681125834"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;keyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681125825"><span id="local-6989586621681125827"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681160708"><span id="local-6989586621681160710"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681125822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681160705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.KeyPairInfo.html#KeyPairInfo"><span class="hs-identifier hs-type">KeyPairInfo</span></a></span></span><span>
 </span><span id="line-156"></span></pre></body></html>

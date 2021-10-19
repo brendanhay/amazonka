@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newPutSchemaFromJson' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679335604"><span id="local-6989586621679335605"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutSchemaFromJson"><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-var">PutSchemaFromJson</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutSchemaFromJson%27"><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-var">PutSchemaFromJson'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679335993"><span id="local-6989586621679335994"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutSchemaFromJson"><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-var">PutSchemaFromJson</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutSchemaFromJson%27"><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-var">PutSchemaFromJson'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the schema to update.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AschemaArn%3APutSchemaFromJson%27"><span class="annot"><span class="annottext">PutSchemaFromJson -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#%24sel%3AschemaArn%3APutSchemaFromJson%27"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Adocument%3APutSchemaFromJson%27"><span class="annot"><span class="annottext">PutSchemaFromJson -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#%24sel%3Adocument%3APutSchemaFromJson%27"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335597"><span id="local-6989586621679335599"><span class="annot"><span class="annottext">PutSchemaFromJson -&gt; PutSchemaFromJson -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335986"><span id="local-6989586621679335988"><span class="annot"><span class="annottext">PutSchemaFromJson -&gt; PutSchemaFromJson -&gt; Bool
 (PutSchemaFromJson -&gt; PutSchemaFromJson -&gt; Bool)
 -&gt; (PutSchemaFromJson -&gt; PutSchemaFromJson -&gt; Bool)
 -&gt; Eq PutSchemaFromJson
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutSchemaFromJson -&gt; PutSchemaFromJson -&gt; Bool
 == :: PutSchemaFromJson -&gt; PutSchemaFromJson -&gt; Bool
 $c== :: PutSchemaFromJson -&gt; PutSchemaFromJson -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335588"><span id="local-6989586621679335590"><span id="local-6989586621679335592"><span id="local-6989586621679335594"><span class="annot"><span class="annottext">ReadPrec [PutSchemaFromJson]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335977"><span id="local-6989586621679335979"><span id="local-6989586621679335981"><span id="local-6989586621679335983"><span class="annot"><span class="annottext">ReadPrec [PutSchemaFromJson]
 ReadPrec PutSchemaFromJson
 Int -&gt; ReadS PutSchemaFromJson
 ReadS [PutSchemaFromJson]
@@ -88,7 +88,7 @@ readList :: ReadS [PutSchemaFromJson]
 $creadList :: ReadS [PutSchemaFromJson]
 readsPrec :: Int -&gt; ReadS PutSchemaFromJson
 $creadsPrec :: Int -&gt; ReadS PutSchemaFromJson
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335581"><span id="local-6989586621679335583"><span id="local-6989586621679335585"><span class="annot"><span class="annottext">Int -&gt; PutSchemaFromJson -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335970"><span id="local-6989586621679335972"><span id="local-6989586621679335974"><span class="annot"><span class="annottext">Int -&gt; PutSchemaFromJson -&gt; ShowS
 [PutSchemaFromJson] -&gt; ShowS
 PutSchemaFromJson -&gt; String
 (Int -&gt; PutSchemaFromJson -&gt; ShowS)
@@ -132,17 +132,17 @@ $cfrom :: forall x. PutSchemaFromJson -&gt; Rep PutSchemaFromJson x
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span><span>
 </span><span id="line-79"></span><span id="newPutSchemaFromJson"><span class="annot"><span class="annottext">newPutSchemaFromJson :: Text -&gt; Text -&gt; PutSchemaFromJson
-</span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#newPutSchemaFromJson"><span class="hs-identifier hs-var hs-var">newPutSchemaFromJson</span></a></span></span><span> </span><span id="local-6989586621679335576"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335576"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span></span><span> </span><span id="local-6989586621679335575"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335575"><span class="hs-identifier hs-var">pDocument_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#newPutSchemaFromJson"><span class="hs-identifier hs-var hs-var">newPutSchemaFromJson</span></a></span></span><span> </span><span id="local-6989586621679335965"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335965"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span></span><span> </span><span id="local-6989586621679335964"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335964"><span class="hs-identifier hs-var">pDocument_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">PutSchemaFromJson' :: Text -&gt; Text -&gt; PutSchemaFromJson
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-type">PutSchemaFromJson'</span></a></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schemaArn:PutSchemaFromJson' :: Text
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#%24sel%3AschemaArn%3APutSchemaFromJson%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335576"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679335965"><span class="hs-identifier hs-var">pSchemaArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:document:PutSchemaFromJson' :: Text
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#%24sel%3Adocument%3APutSchemaFromJson%27"><span class="hs-identifier hs-var">document</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335575"><span class="hs-identifier hs-var">pDocument_</span></a></span><span>
+</span><a href="#local-6989586621679335964"><span class="hs-identifier hs-var">pDocument_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The ARN of the schema to update.</span><span>
@@ -152,16 +152,16 @@ $cfrom :: forall x. PutSchemaFromJson -&gt; Rep PutSchemaFromJson x
 -&gt; (PutSchemaFromJson -&gt; Text -&gt; PutSchemaFromJson)
 -&gt; Lens PutSchemaFromJson PutSchemaFromJson Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-type">PutSchemaFromJson'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335572"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-type">PutSchemaFromJson'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335961"><span class="annot"><span class="annottext">Text
 schemaArn :: Text
 $sel:schemaArn:PutSchemaFromJson' :: PutSchemaFromJson -&gt; Text
-</span><a href="#local-6989586621679335572"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335572"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335571"><span class="annot"><span class="annottext">s :: PutSchemaFromJson
-</span><a href="#local-6989586621679335571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-type">PutSchemaFromJson'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335570"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSchemaFromJson
-</span><a href="#local-6989586621679335571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:PutSchemaFromJson' :: Text
+</span><a href="#local-6989586621679335961"><span class="hs-identifier hs-var hs-var">schemaArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335961"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335960"><span class="annot"><span class="annottext">s :: PutSchemaFromJson
+</span><a href="#local-6989586621679335960"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-type">PutSchemaFromJson'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335959"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335959"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSchemaFromJson
+</span><a href="#local-6989586621679335960"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaArn:PutSchemaFromJson' :: Text
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#%24sel%3AschemaArn%3APutSchemaFromJson%27"><span class="hs-identifier hs-var">schemaArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679335959"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The replacement JSON schema.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#putSchemaFromJson_document"><span class="hs-identifier hs-type">putSchemaFromJson_document</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -170,27 +170,27 @@ $sel:schemaArn:PutSchemaFromJson' :: PutSchemaFromJson -&gt; Text
 -&gt; (PutSchemaFromJson -&gt; Text -&gt; PutSchemaFromJson)
 -&gt; Lens PutSchemaFromJson PutSchemaFromJson Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-type">PutSchemaFromJson'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335569"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-type">PutSchemaFromJson'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335958"><span class="annot"><span class="annottext">Text
 document :: Text
 $sel:document:PutSchemaFromJson' :: PutSchemaFromJson -&gt; Text
-</span><a href="#local-6989586621679335569"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335569"><span class="hs-identifier hs-var">document</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335568"><span class="annot"><span class="annottext">s :: PutSchemaFromJson
-</span><a href="#local-6989586621679335568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-type">PutSchemaFromJson'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335567"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSchemaFromJson
-</span><a href="#local-6989586621679335568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:document:PutSchemaFromJson' :: Text
+</span><a href="#local-6989586621679335958"><span class="hs-identifier hs-var hs-var">document</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335958"><span class="hs-identifier hs-var">document</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335957"><span class="annot"><span class="annottext">s :: PutSchemaFromJson
+</span><a href="#local-6989586621679335957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-type">PutSchemaFromJson'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335956"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679335956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSchemaFromJson
+</span><a href="#local-6989586621679335957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:document:PutSchemaFromJson' :: Text
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#%24sel%3Adocument%3APutSchemaFromJson%27"><span class="hs-identifier hs-var">document</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679335956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679335563"><span class="annot"><span class="annottext">request :: PutSchemaFromJson -&gt; Request PutSchemaFromJson
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679335952"><span class="annot"><span class="annottext">request :: PutSchemaFromJson -&gt; Request PutSchemaFromJson
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutSchemaFromJson -&gt; Request PutSchemaFromJson
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679335559"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679335948"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutSchemaFromJson
 -&gt; ClientResponse ClientBody
@@ -216,10 +216,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679335556"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335556"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679335555"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679335555"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679335554"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679335554"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679335945"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335945"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679335944"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679335944"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679335943"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679335943"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; PutSchemaFromJsonResponse
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse%27"><span class="hs-identifier hs-var">PutSchemaFromJsonResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; PutSchemaFromJsonResponse)
@@ -227,7 +227,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; PutSchemaFromJsonResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679335554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679335943"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
@@ -239,21 +239,21 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335556"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679335945"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335546"><span id="local-6989586621679335548"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335935"><span id="local-6989586621679335937"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679335539"><span class="annot"><span class="annottext">toHeaders :: PutSchemaFromJson -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-type">PutSchemaFromJson'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335536"><span id="local-6989586621679335537"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679335928"><span class="annot"><span class="annottext">toHeaders :: PutSchemaFromJson -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-type">PutSchemaFromJson'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335925"><span id="local-6989586621679335926"><span class="annot"><span class="annottext">Text
 document :: Text
 schemaArn :: Text
 $sel:document:PutSchemaFromJson' :: PutSchemaFromJson -&gt; Text
 $sel:schemaArn:PutSchemaFromJson' :: PutSchemaFromJson -&gt; Text
-</span><a href="#local-6989586621679335536"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679335925"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -261,16 +261,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335537"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679335926"><span class="hs-identifier hs-var">schemaArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335528"><span id="local-6989586621679335530"><span id="local-6989586621679335532"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679335526"><span class="annot"><span class="annottext">toJSON :: PutSchemaFromJson -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-type">PutSchemaFromJson'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335523"><span id="local-6989586621679335524"><span class="annot"><span class="annottext">Text
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335917"><span id="local-6989586621679335919"><span id="local-6989586621679335921"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679335915"><span class="annot"><span class="annottext">toJSON :: PutSchemaFromJson -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson%27"><span class="hs-identifier hs-type">PutSchemaFromJson'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335912"><span id="local-6989586621679335913"><span class="annot"><span class="annottext">Text
 document :: Text
 schemaArn :: Text
 $sel:document:PutSchemaFromJson' :: PutSchemaFromJson -&gt; Text
 $sel:schemaArn:PutSchemaFromJson' :: PutSchemaFromJson -&gt; Text
-</span><a href="#local-6989586621679335523"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679335912"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -282,11 +282,11 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Document&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679335523"><span class="hs-identifier hs-var">document</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679335912"><span class="hs-identifier hs-var">document</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679335517"><span class="annot"><span class="annottext">toPath :: PutSchemaFromJson -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679335906"><span class="annot"><span class="annottext">toPath :: PutSchemaFromJson -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; PutSchemaFromJson -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -295,7 +295,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/schema/json&quot;</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJson"><span class="hs-identifier hs-type">PutSchemaFromJson</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679335512"><span class="annot"><span class="annottext">toQuery :: PutSchemaFromJson -&gt; QueryString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679335901"><span class="annot"><span class="annottext">toQuery :: PutSchemaFromJson -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutSchemaFromJson -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -303,7 +303,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newPutSchemaFromJsonResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679335509"><span id="local-6989586621679335510"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutSchemaFromJsonResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse"><span class="hs-identifier hs-var">PutSchemaFromJsonResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutSchemaFromJsonResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse%27"><span class="hs-identifier hs-var">PutSchemaFromJsonResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679335898"><span id="local-6989586621679335899"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutSchemaFromJsonResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse"><span class="hs-identifier hs-var">PutSchemaFromJsonResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutSchemaFromJsonResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse%27"><span class="hs-identifier hs-var">PutSchemaFromJsonResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the schema to update.</span><span>
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3Aarn%3APutSchemaFromJsonResponse%27"><span class="annot"><span class="annottext">PutSchemaFromJsonResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#%24sel%3Aarn%3APutSchemaFromJsonResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -311,7 +311,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutSchemaFromJsonResponse%27"><span class="annot"><span class="annottext">PutSchemaFromJsonResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#%24sel%3AhttpStatus%3APutSchemaFromJsonResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335503"><span id="local-6989586621679335505"><span class="annot"><span class="annottext">PutSchemaFromJsonResponse -&gt; PutSchemaFromJsonResponse -&gt; Bool
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679335892"><span id="local-6989586621679335894"><span class="annot"><span class="annottext">PutSchemaFromJsonResponse -&gt; PutSchemaFromJsonResponse -&gt; Bool
 (PutSchemaFromJsonResponse -&gt; PutSchemaFromJsonResponse -&gt; Bool)
 -&gt; (PutSchemaFromJsonResponse -&gt; PutSchemaFromJsonResponse -&gt; Bool)
 -&gt; Eq PutSchemaFromJsonResponse
@@ -320,7 +320,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutSchemaFromJsonResponse -&gt; PutSchemaFromJsonResponse -&gt; Bool
 == :: PutSchemaFromJsonResponse -&gt; PutSchemaFromJsonResponse -&gt; Bool
 $c== :: PutSchemaFromJsonResponse -&gt; PutSchemaFromJsonResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335495"><span id="local-6989586621679335497"><span id="local-6989586621679335499"><span id="local-6989586621679335501"><span class="annot"><span class="annottext">ReadPrec [PutSchemaFromJsonResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335884"><span id="local-6989586621679335886"><span id="local-6989586621679335888"><span id="local-6989586621679335890"><span class="annot"><span class="annottext">ReadPrec [PutSchemaFromJsonResponse]
 ReadPrec PutSchemaFromJsonResponse
 Int -&gt; ReadS PutSchemaFromJsonResponse
 ReadS [PutSchemaFromJsonResponse]
@@ -340,7 +340,7 @@ readList :: ReadS [PutSchemaFromJsonResponse]
 $creadList :: ReadS [PutSchemaFromJsonResponse]
 readsPrec :: Int -&gt; ReadS PutSchemaFromJsonResponse
 $creadsPrec :: Int -&gt; ReadS PutSchemaFromJsonResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335489"><span id="local-6989586621679335491"><span id="local-6989586621679335493"><span class="annot"><span class="annottext">Int -&gt; PutSchemaFromJsonResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679335878"><span id="local-6989586621679335880"><span id="local-6989586621679335882"><span class="annot"><span class="annottext">Int -&gt; PutSchemaFromJsonResponse -&gt; ShowS
 [PutSchemaFromJsonResponse] -&gt; ShowS
 PutSchemaFromJsonResponse -&gt; String
 (Int -&gt; PutSchemaFromJsonResponse -&gt; ShowS)
@@ -388,8 +388,8 @@ PutSchemaFromJsonResponse -&gt; Rep PutSchemaFromJsonResponse x
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse</span></a></span><span>
 </span><span id="line-154"></span><span id="newPutSchemaFromJsonResponse"><span class="annot"><span class="annottext">newPutSchemaFromJsonResponse :: Int -&gt; PutSchemaFromJsonResponse
-</span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#newPutSchemaFromJsonResponse"><span class="hs-identifier hs-var hs-var">newPutSchemaFromJsonResponse</span></a></span></span><span> </span><span id="local-6989586621679335486"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335486"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#newPutSchemaFromJsonResponse"><span class="hs-identifier hs-var hs-var">newPutSchemaFromJsonResponse</span></a></span></span><span> </span><span id="local-6989586621679335875"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335875"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">PutSchemaFromJsonResponse' :: Maybe Text -&gt; Int -&gt; PutSchemaFromJsonResponse
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse%27"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse'</span></a></span><span>
 </span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:PutSchemaFromJsonResponse' :: Maybe Text
@@ -398,7 +398,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutSchemaFromJsonResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#%24sel%3AhttpStatus%3APutSchemaFromJsonResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335486"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679335875"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The ARN of the schema to update.</span><span>
@@ -414,16 +414,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse%27"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335485"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse%27"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335874"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:PutSchemaFromJsonResponse' :: PutSchemaFromJsonResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679335485"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679335485"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335484"><span class="annot"><span class="annottext">s :: PutSchemaFromJsonResponse
-</span><a href="#local-6989586621679335484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse%27"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335483"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679335483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSchemaFromJsonResponse
-</span><a href="#local-6989586621679335484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:PutSchemaFromJsonResponse' :: Maybe Text
+</span><a href="#local-6989586621679335874"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335874"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335873"><span class="annot"><span class="annottext">s :: PutSchemaFromJsonResponse
+</span><a href="#local-6989586621679335873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse%27"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335872"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679335872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSchemaFromJsonResponse
+</span><a href="#local-6989586621679335873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:PutSchemaFromJsonResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#%24sel%3Aarn%3APutSchemaFromJsonResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679335483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679335872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#putSchemaFromJsonResponse_httpStatus"><span class="hs-identifier hs-type">putSchemaFromJsonResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -433,16 +433,16 @@ $sel:arn:PutSchemaFromJsonResponse' :: PutSchemaFromJsonResponse -&gt; Maybe Tex
 -&gt; (PutSchemaFromJsonResponse -&gt; Int -&gt; PutSchemaFromJsonResponse)
 -&gt; Lens PutSchemaFromJsonResponse PutSchemaFromJsonResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse%27"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335482"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse%27"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679335871"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutSchemaFromJsonResponse' :: PutSchemaFromJsonResponse -&gt; Int
-</span><a href="#local-6989586621679335482"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335482"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335481"><span class="annot"><span class="annottext">s :: PutSchemaFromJsonResponse
-</span><a href="#local-6989586621679335481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse%27"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335480"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSchemaFromJsonResponse
-</span><a href="#local-6989586621679335481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutSchemaFromJsonResponse' :: Int
+</span><a href="#local-6989586621679335871"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335871"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679335870"><span class="annot"><span class="annottext">s :: PutSchemaFromJsonResponse
+</span><a href="#local-6989586621679335870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse%27"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679335869"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679335869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutSchemaFromJsonResponse
+</span><a href="#local-6989586621679335870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutSchemaFromJsonResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#%24sel%3AhttpStatus%3APutSchemaFromJsonResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679335480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679335869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335478"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse</span></a></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679335867"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.PutSchemaFromJson.html#PutSchemaFromJsonResponse"><span class="hs-identifier hs-type">PutSchemaFromJsonResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

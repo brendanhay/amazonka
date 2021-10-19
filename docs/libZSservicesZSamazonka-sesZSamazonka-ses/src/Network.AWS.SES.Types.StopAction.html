@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-stop.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newStopAction' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679275535"><span id="local-6989586621679275536"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopAction"><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-var">StopAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopAction%27"><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-var">StopAction'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679275734"><span id="local-6989586621679275735"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopAction"><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-var">StopAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopAction%27"><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-var">StopAction'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the stop action is taken. An example of an Amazon SNS topic ARN is</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @arn:aws:sns:us-west-2:123456789012:MyTopic@. For more information about</span><span>
@@ -44,7 +44,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3Ascope%3AStopAction%27"><span class="annot"><span class="annottext">StopAction -&gt; StopScope
 </span><a href="Network.AWS.SES.Types.StopAction.html#%24sel%3Ascope%3AStopAction%27"><span class="hs-identifier hs-var hs-var">scope</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopScope.html#StopScope"><span class="hs-identifier hs-type">StopScope</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275528"><span id="local-6989586621679275530"><span class="annot"><span class="annottext">StopAction -&gt; StopAction -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275727"><span id="local-6989586621679275729"><span class="annot"><span class="annottext">StopAction -&gt; StopAction -&gt; Bool
 (StopAction -&gt; StopAction -&gt; Bool)
 -&gt; (StopAction -&gt; StopAction -&gt; Bool) -&gt; Eq StopAction
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopAction -&gt; StopAction -&gt; Bool
 == :: StopAction -&gt; StopAction -&gt; Bool
 $c== :: StopAction -&gt; StopAction -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275519"><span id="local-6989586621679275521"><span id="local-6989586621679275523"><span id="local-6989586621679275525"><span class="annot"><span class="annottext">ReadPrec [StopAction]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275718"><span id="local-6989586621679275720"><span id="local-6989586621679275722"><span id="local-6989586621679275724"><span class="annot"><span class="annottext">ReadPrec [StopAction]
 ReadPrec StopAction
 Int -&gt; ReadS StopAction
 ReadS [StopAction]
@@ -72,7 +72,7 @@ readList :: ReadS [StopAction]
 $creadList :: ReadS [StopAction]
 readsPrec :: Int -&gt; ReadS StopAction
 $creadsPrec :: Int -&gt; ReadS StopAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275512"><span id="local-6989586621679275514"><span id="local-6989586621679275516"><span class="annot"><span class="annottext">Int -&gt; StopAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275711"><span id="local-6989586621679275713"><span id="local-6989586621679275715"><span class="annot"><span class="annottext">Int -&gt; StopAction -&gt; ShowS
 [StopAction] -&gt; ShowS
 StopAction -&gt; String
 (Int -&gt; StopAction -&gt; ShowS)
@@ -117,8 +117,8 @@ $cfrom :: forall x. StopAction -&gt; Rep StopAction x
 </span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.StopScope.html#StopScope"><span class="hs-identifier hs-type">StopScope</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-type">StopAction</span></a></span><span>
 </span><span id="line-66"></span><span id="newStopAction"><span class="annot"><span class="annottext">newStopAction :: StopScope -&gt; StopAction
-</span><a href="Network.AWS.SES.Types.StopAction.html#newStopAction"><span class="hs-identifier hs-var hs-var">newStopAction</span></a></span></span><span> </span><span id="local-6989586621679275506"><span class="annot"><span class="annottext">StopScope
-</span><a href="#local-6989586621679275506"><span class="hs-identifier hs-var">pScope_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SES.Types.StopAction.html#newStopAction"><span class="hs-identifier hs-var hs-var">newStopAction</span></a></span></span><span> </span><span id="local-6989586621679275705"><span class="annot"><span class="annottext">StopScope
+</span><a href="#local-6989586621679275705"><span class="hs-identifier hs-var">pScope_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">StopAction' :: Maybe Text -&gt; StopScope -&gt; StopAction
 </span><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-type">StopAction'</span></a></span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:topicArn:StopAction' :: Maybe Text
@@ -127,7 +127,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:scope:StopAction' :: StopScope
 </span><a href="Network.AWS.SES.Types.StopAction.html#%24sel%3Ascope%3AStopAction%27"><span class="hs-identifier hs-var">scope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StopScope
-</span><a href="#local-6989586621679275506"><span class="hs-identifier hs-var">pScope_</span></a></span><span>
+</span><a href="#local-6989586621679275705"><span class="hs-identifier hs-var">pScope_</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when</span><span>
@@ -141,16 +141,16 @@ forall a. Maybe a
 -&gt; (StopAction -&gt; Maybe Text -&gt; StopAction)
 -&gt; Lens StopAction StopAction (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-type">StopAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275502"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-type">StopAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275701"><span class="annot"><span class="annottext">Maybe Text
 topicArn :: Maybe Text
 $sel:topicArn:StopAction' :: StopAction -&gt; Maybe Text
-</span><a href="#local-6989586621679275502"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679275502"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275501"><span class="annot"><span class="annottext">s :: StopAction
-</span><a href="#local-6989586621679275501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-type">StopAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275500"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679275500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopAction
-</span><a href="#local-6989586621679275501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:StopAction' :: Maybe Text
+</span><a href="#local-6989586621679275701"><span class="hs-identifier hs-var hs-var">topicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275701"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275700"><span class="annot"><span class="annottext">s :: StopAction
+</span><a href="#local-6989586621679275700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-type">StopAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275699"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopAction
+</span><a href="#local-6989586621679275700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:topicArn:StopAction' :: Maybe Text
 </span><a href="Network.AWS.SES.Types.StopAction.html#%24sel%3AtopicArn%3AStopAction%27"><span class="hs-identifier hs-var">topicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679275500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-type">StopAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-type">StopAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The scope of the StopAction. The only acceptable value is @RuleSet@.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#stopAction_scope"><span class="hs-identifier hs-type">stopAction_scope</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-type">StopAction</span></a></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopScope.html#StopScope"><span class="hs-identifier hs-type">StopScope</span></a></span><span>
@@ -159,21 +159,21 @@ $sel:topicArn:StopAction' :: StopAction -&gt; Maybe Text
 -&gt; (StopAction -&gt; StopScope -&gt; StopAction)
 -&gt; Lens StopAction StopAction StopScope StopScope
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-type">StopAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275498"><span class="annot"><span class="annottext">StopScope
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-type">StopAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275697"><span class="annot"><span class="annottext">StopScope
 scope :: StopScope
 $sel:scope:StopAction' :: StopAction -&gt; StopScope
-</span><a href="#local-6989586621679275498"><span class="hs-identifier hs-var hs-var">scope</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopScope
-</span><a href="#local-6989586621679275498"><span class="hs-identifier hs-var">scope</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275497"><span class="annot"><span class="annottext">s :: StopAction
-</span><a href="#local-6989586621679275497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-type">StopAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275496"><span class="annot"><span class="annottext">StopScope
-</span><a href="#local-6989586621679275496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopAction
-</span><a href="#local-6989586621679275497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scope:StopAction' :: StopScope
+</span><a href="#local-6989586621679275697"><span class="hs-identifier hs-var hs-var">scope</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopScope
+</span><a href="#local-6989586621679275697"><span class="hs-identifier hs-var">scope</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275696"><span class="annot"><span class="annottext">s :: StopAction
+</span><a href="#local-6989586621679275696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-type">StopAction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275695"><span class="annot"><span class="annottext">StopScope
+</span><a href="#local-6989586621679275695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopAction
+</span><a href="#local-6989586621679275696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scope:StopAction' :: StopScope
 </span><a href="Network.AWS.SES.Types.StopAction.html#%24sel%3Ascope%3AStopAction%27"><span class="hs-identifier hs-var">scope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StopScope
-</span><a href="#local-6989586621679275496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-type">StopAction</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-type">StopAction</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-type">StopAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679275493"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StopAction
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679275491"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275491"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679275692"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StopAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679275690"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679275690"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; StopScope -&gt; StopAction
 </span><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-var">StopAction'</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; StopScope -&gt; StopAction)
@@ -181,7 +181,7 @@ $sel:scope:StopAction' :: StopAction -&gt; StopScope
 -&gt; Either String (StopScope -&gt; StopAction)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679275690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -189,24 +189,24 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String StopScope -&gt; Either String StopAction
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679275491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StopScope
+</span><a href="#local-6989586621679275690"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StopScope
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Scope&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275484"><span id="local-6989586621679275486"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-type">StopAction</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275683"><span id="local-6989586621679275685"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-type">StopAction</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275481"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-type">StopAction</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275680"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-type">StopAction</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction"><span class="hs-identifier hs-type">StopAction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679275477"><span class="annot"><span class="annottext">toQuery :: StopAction -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-type">StopAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275474"><span id="local-6989586621679275475"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679275676"><span class="annot"><span class="annottext">toQuery :: StopAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.StopAction.html#StopAction%27"><span class="hs-identifier hs-type">StopAction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275673"><span id="local-6989586621679275674"><span class="annot"><span class="annottext">Maybe Text
 StopScope
 scope :: StopScope
 topicArn :: Maybe Text
 $sel:scope:StopAction' :: StopAction -&gt; StopScope
 $sel:topicArn:StopAction' :: StopAction -&gt; Maybe Text
-</span><a href="#local-6989586621679275474"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275673"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -214,9 +214,9 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;TopicArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679275475"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679275674"><span class="hs-identifier hs-var">topicArn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Scope&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopScope -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">StopScope
-</span><a href="#local-6989586621679275474"><span class="hs-identifier hs-var">scope</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679275673"><span class="hs-identifier hs-var">scope</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-98"></span></pre></body></html>

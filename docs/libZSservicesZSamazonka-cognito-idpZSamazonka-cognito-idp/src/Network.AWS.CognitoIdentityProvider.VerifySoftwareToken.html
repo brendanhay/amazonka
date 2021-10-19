@@ -29,8 +29,8 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#newVerifySoftwareToken"><span class="hs-identifier">newVerifySoftwareToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_friendlyDeviceName"><span class="hs-identifier">verifySoftwareToken_friendlyDeviceName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_accessToken"><span class="hs-identifier">verifySoftwareToken_accessToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_accessToken"><span class="hs-identifier">verifySoftwareToken_accessToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_friendlyDeviceName"><span class="hs-identifier">verifySoftwareToken_friendlyDeviceName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_session"><span class="hs-identifier">verifySoftwareToken_session</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_userCode"><span class="hs-identifier">verifySoftwareToken_userCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
@@ -53,13 +53,13 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newVerifySoftwareToken' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679462474"><span id="local-6989586621679462475"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifySoftwareToken"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-var">VerifySoftwareToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifySoftwareToken%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-var">VerifySoftwareToken'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The friendly device name.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AfriendlyDeviceName%3AVerifySoftwareToken%27"><span class="annot"><span class="annottext">VerifySoftwareToken -&gt; Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AfriendlyDeviceName%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var hs-var">friendlyDeviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The access token.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AaccessToken%3AVerifySoftwareToken%27"><span class="annot"><span class="annottext">VerifySoftwareToken -&gt; Maybe (Sensitive Text)
+</span><span id="line-56"></span><span id="local-6989586621679463024"><span id="local-6989586621679463025"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifySoftwareToken"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-var">VerifySoftwareToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifySoftwareToken%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-var">VerifySoftwareToken'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The access token.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AaccessToken%3AVerifySoftwareToken%27"><span class="annot"><span class="annottext">VerifySoftwareToken -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AaccessToken%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The friendly device name.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AfriendlyDeviceName%3AVerifySoftwareToken%27"><span class="annot"><span class="annottext">VerifySoftwareToken -&gt; Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AfriendlyDeviceName%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var hs-var">friendlyDeviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The session which should be passed both ways in challenge-response calls</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- to the service.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3Asession%3AVerifySoftwareToken%27"><span class="annot"><span class="annottext">VerifySoftwareToken -&gt; Maybe Text
@@ -69,7 +69,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AuserCode%3AVerifySoftwareToken%27"><span class="annot"><span class="annottext">VerifySoftwareToken -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AuserCode%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var hs-var">userCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679462465"><span id="local-6989586621679462467"><span class="annot"><span class="annottext">VerifySoftwareToken -&gt; VerifySoftwareToken -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679463015"><span id="local-6989586621679463017"><span class="annot"><span class="annottext">VerifySoftwareToken -&gt; VerifySoftwareToken -&gt; Bool
 (VerifySoftwareToken -&gt; VerifySoftwareToken -&gt; Bool)
 -&gt; (VerifySoftwareToken -&gt; VerifySoftwareToken -&gt; Bool)
 -&gt; Eq VerifySoftwareToken
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VerifySoftwareToken -&gt; VerifySoftwareToken -&gt; Bool
 == :: VerifySoftwareToken -&gt; VerifySoftwareToken -&gt; Bool
 $c== :: VerifySoftwareToken -&gt; VerifySoftwareToken -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462458"><span id="local-6989586621679462460"><span id="local-6989586621679462462"><span class="annot"><span class="annottext">Int -&gt; VerifySoftwareToken -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679463008"><span id="local-6989586621679463010"><span id="local-6989586621679463012"><span class="annot"><span class="annottext">Int -&gt; VerifySoftwareToken -&gt; ShowS
 [VerifySoftwareToken] -&gt; ShowS
 VerifySoftwareToken -&gt; String
 (Int -&gt; VerifySoftwareToken -&gt; ShowS)
@@ -112,9 +112,9 @@ $cfrom :: forall x. VerifySoftwareToken -&gt; Rep VerifySoftwareToken x
 </span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'friendlyDeviceName', 'verifySoftwareToken_friendlyDeviceName' - The friendly device name.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'accessToken', 'verifySoftwareToken_accessToken' - The access token.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'accessToken', 'verifySoftwareToken_accessToken' - The access token.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'friendlyDeviceName', 'verifySoftwareToken_friendlyDeviceName' - The friendly device name.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- 'session', 'verifySoftwareToken_session' - The session which should be passed both ways in challenge-response calls</span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- to the service.</span><span>
@@ -126,55 +126,31 @@ $cfrom :: forall x. VerifySoftwareToken -&gt; Rep VerifySoftwareToken x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span>
 </span><span id="line-91"></span><span id="newVerifySoftwareToken"><span class="annot"><span class="annottext">newVerifySoftwareToken :: Text -&gt; VerifySoftwareToken
-</span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#newVerifySoftwareToken"><span class="hs-identifier hs-var hs-var">newVerifySoftwareToken</span></a></span></span><span> </span><span id="local-6989586621679462453"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462453"><span class="hs-identifier hs-var">pUserCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">VerifySoftwareToken' :: Maybe Text
--&gt; Maybe (Sensitive Text)
--&gt; Maybe Text
--&gt; Text
--&gt; VerifySoftwareToken
+</span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#newVerifySoftwareToken"><span class="hs-identifier hs-var hs-var">newVerifySoftwareToken</span></a></span></span><span> </span><span id="local-6989586621679463003"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679463003"><span class="hs-identifier hs-var">pUserCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">VerifySoftwareToken' :: Maybe (Sensitive Text)
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; VerifySoftwareToken
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:friendlyDeviceName:VerifySoftwareToken' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AfriendlyDeviceName%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var">friendlyDeviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessToken:VerifySoftwareToken' :: Maybe (Sensitive Text)
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accessToken:VerifySoftwareToken' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AaccessToken%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:session:VerifySoftwareToken' :: Maybe Text
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:friendlyDeviceName:VerifySoftwareToken' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AfriendlyDeviceName%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var">friendlyDeviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:session:VerifySoftwareToken' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3Asession%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var">session</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:userCode:VerifySoftwareToken' :: Text
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:userCode:VerifySoftwareToken' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AuserCode%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var">userCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462453"><span class="hs-identifier hs-var">pUserCode_</span></a></span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The friendly device name.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_friendlyDeviceName"><span class="hs-identifier hs-type">verifySoftwareToken_friendlyDeviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="verifySoftwareToken_friendlyDeviceName"><span class="annot"><span class="annottext">verifySoftwareToken_friendlyDeviceName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; VerifySoftwareToken -&gt; f VerifySoftwareToken
-</span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_friendlyDeviceName"><span class="hs-identifier hs-var hs-var">verifySoftwareToken_friendlyDeviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VerifySoftwareToken -&gt; Maybe Text)
--&gt; (VerifySoftwareToken -&gt; Maybe Text -&gt; VerifySoftwareToken)
--&gt; Lens
-     VerifySoftwareToken VerifySoftwareToken (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462450"><span class="annot"><span class="annottext">Maybe Text
-friendlyDeviceName :: Maybe Text
-$sel:friendlyDeviceName:VerifySoftwareToken' :: VerifySoftwareToken -&gt; Maybe Text
-</span><a href="#local-6989586621679462450"><span class="hs-identifier hs-var hs-var">friendlyDeviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462450"><span class="hs-identifier hs-var">friendlyDeviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462449"><span class="annot"><span class="annottext">s :: VerifySoftwareToken
-</span><a href="#local-6989586621679462449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462448"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareToken
-</span><a href="#local-6989586621679462449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:friendlyDeviceName:VerifySoftwareToken' :: Maybe Text
-</span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AfriendlyDeviceName%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var">friendlyDeviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The access token.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_accessToken"><span class="hs-identifier hs-type">verifySoftwareToken_accessToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="verifySoftwareToken_accessToken"><span class="annot"><span class="annottext">verifySoftwareToken_accessToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679463003"><span class="hs-identifier hs-var">pUserCode_</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The access token.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_accessToken"><span class="hs-identifier hs-type">verifySoftwareToken_accessToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="verifySoftwareToken_accessToken"><span class="annot"><span class="annottext">verifySoftwareToken_accessToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; VerifySoftwareToken -&gt; f VerifySoftwareToken
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_accessToken"><span class="hs-identifier hs-var hs-var">verifySoftwareToken_accessToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VerifySoftwareToken -&gt; Maybe (Sensitive Text))
 -&gt; (VerifySoftwareToken
@@ -185,16 +161,16 @@ $sel:friendlyDeviceName:VerifySoftwareToken' :: VerifySoftwareToken -&gt; Maybe 
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462447"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679463000"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 accessToken :: Maybe (Sensitive Text)
 $sel:accessToken:VerifySoftwareToken' :: VerifySoftwareToken -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679462447"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679462447"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462446"><span class="annot"><span class="annottext">s :: VerifySoftwareToken
-</span><a href="#local-6989586621679462446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462445"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679462445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareToken
-</span><a href="#local-6989586621679462446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:VerifySoftwareToken' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679463000"><span class="hs-identifier hs-var hs-var">accessToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679463000"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462999"><span class="annot"><span class="annottext">s :: VerifySoftwareToken
+</span><a href="#local-6989586621679462999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462998"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679462998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareToken
+</span><a href="#local-6989586621679462999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessToken:VerifySoftwareToken' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AaccessToken%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var">accessToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679462445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679462998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; VerifySoftwareToken -&gt; f VerifySoftwareToken)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -214,64 +190,84 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The session which should be passed both ways in challenge-response calls</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- to the service.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_session"><span class="hs-identifier hs-type">verifySoftwareToken_session</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="verifySoftwareToken_session"><span class="annot"><span class="annottext">verifySoftwareToken_session :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The friendly device name.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_friendlyDeviceName"><span class="hs-identifier hs-type">verifySoftwareToken_friendlyDeviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="verifySoftwareToken_friendlyDeviceName"><span class="annot"><span class="annottext">verifySoftwareToken_friendlyDeviceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; VerifySoftwareToken -&gt; f VerifySoftwareToken
+</span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_friendlyDeviceName"><span class="hs-identifier hs-var hs-var">verifySoftwareToken_friendlyDeviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VerifySoftwareToken -&gt; Maybe Text)
+-&gt; (VerifySoftwareToken -&gt; Maybe Text -&gt; VerifySoftwareToken)
+-&gt; Lens
+     VerifySoftwareToken VerifySoftwareToken (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462994"><span class="annot"><span class="annottext">Maybe Text
+friendlyDeviceName :: Maybe Text
+$sel:friendlyDeviceName:VerifySoftwareToken' :: VerifySoftwareToken -&gt; Maybe Text
+</span><a href="#local-6989586621679462994"><span class="hs-identifier hs-var hs-var">friendlyDeviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679462994"><span class="hs-identifier hs-var">friendlyDeviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462993"><span class="annot"><span class="annottext">s :: VerifySoftwareToken
+</span><a href="#local-6989586621679462993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462992"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679462992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareToken
+</span><a href="#local-6989586621679462993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:friendlyDeviceName:VerifySoftwareToken' :: Maybe Text
+</span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AfriendlyDeviceName%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var">friendlyDeviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679462992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The session which should be passed both ways in challenge-response calls</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- to the service.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_session"><span class="hs-identifier hs-type">verifySoftwareToken_session</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="verifySoftwareToken_session"><span class="annot"><span class="annottext">verifySoftwareToken_session :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; VerifySoftwareToken -&gt; f VerifySoftwareToken
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_session"><span class="hs-identifier hs-var hs-var">verifySoftwareToken_session</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VerifySoftwareToken -&gt; Maybe Text)
 -&gt; (VerifySoftwareToken -&gt; Maybe Text -&gt; VerifySoftwareToken)
 -&gt; Lens
      VerifySoftwareToken VerifySoftwareToken (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462441"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462991"><span class="annot"><span class="annottext">Maybe Text
 session :: Maybe Text
 $sel:session:VerifySoftwareToken' :: VerifySoftwareToken -&gt; Maybe Text
-</span><a href="#local-6989586621679462441"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462441"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462440"><span class="annot"><span class="annottext">s :: VerifySoftwareToken
-</span><a href="#local-6989586621679462440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462439"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareToken
-</span><a href="#local-6989586621679462440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:session:VerifySoftwareToken' :: Maybe Text
+</span><a href="#local-6989586621679462991"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679462991"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462990"><span class="annot"><span class="annottext">s :: VerifySoftwareToken
+</span><a href="#local-6989586621679462990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462989"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679462989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareToken
+</span><a href="#local-6989586621679462990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:session:VerifySoftwareToken' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3Asession%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var">session</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The one time password computed using the secret code returned by</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken\&quot;&gt;.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_userCode"><span class="hs-identifier hs-type">verifySoftwareToken_userCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-116"></span><span id="verifySoftwareToken_userCode"><span class="annot"><span class="annottext">verifySoftwareToken_userCode :: (Text -&gt; f Text) -&gt; VerifySoftwareToken -&gt; f VerifySoftwareToken
+</span><a href="#local-6989586621679462989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The one time password computed using the secret code returned by</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html AssociateSoftwareToken\&quot;&gt;.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_userCode"><span class="hs-identifier hs-type">verifySoftwareToken_userCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="verifySoftwareToken_userCode"><span class="annot"><span class="annottext">verifySoftwareToken_userCode :: (Text -&gt; f Text) -&gt; VerifySoftwareToken -&gt; f VerifySoftwareToken
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareToken_userCode"><span class="hs-identifier hs-var hs-var">verifySoftwareToken_userCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VerifySoftwareToken -&gt; Text)
 -&gt; (VerifySoftwareToken -&gt; Text -&gt; VerifySoftwareToken)
 -&gt; Lens VerifySoftwareToken VerifySoftwareToken Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462438"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462988"><span class="annot"><span class="annottext">Text
 userCode :: Text
 $sel:userCode:VerifySoftwareToken' :: VerifySoftwareToken -&gt; Text
-</span><a href="#local-6989586621679462438"><span class="hs-identifier hs-var hs-var">userCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462438"><span class="hs-identifier hs-var">userCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462437"><span class="annot"><span class="annottext">s :: VerifySoftwareToken
-</span><a href="#local-6989586621679462437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462436"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareToken
-</span><a href="#local-6989586621679462437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userCode:VerifySoftwareToken' :: Text
+</span><a href="#local-6989586621679462988"><span class="hs-identifier hs-var hs-var">userCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679462988"><span class="hs-identifier hs-var">userCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462987"><span class="annot"><span class="annottext">s :: VerifySoftwareToken
+</span><a href="#local-6989586621679462987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462986"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679462986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareToken
+</span><a href="#local-6989586621679462987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userCode:VerifySoftwareToken' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AuserCode%3AVerifySoftwareToken%27"><span class="hs-identifier hs-var">userCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679462432"><span class="annot"><span class="annottext">request :: VerifySoftwareToken -&gt; Request VerifySoftwareToken
+</span><a href="#local-6989586621679462986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-119"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679462982"><span class="annot"><span class="annottext">request :: VerifySoftwareToken -&gt; Request VerifySoftwareToken
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; VerifySoftwareToken -&gt; Request VerifySoftwareToken
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679462428"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679462978"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy VerifySoftwareToken
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse VerifySoftwareToken)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; Object
  -&gt; Either String (AWSResponse VerifySoftwareToken))
@@ -290,34 +286,34 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679462425"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679462425"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679462424"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679462424"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679462423"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679462423"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe VerifySoftwareTokenResponseType
+</span><span id="line-124"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679462975"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679462975"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679462974"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679462974"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679462973"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679462973"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">Maybe VerifySoftwareTokenResponseType
 -&gt; Maybe Text -&gt; Int -&gt; VerifySoftwareTokenResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-var">VerifySoftwareTokenResponse'</span></a></span><span>
-</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VerifySoftwareTokenResponseType
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VerifySoftwareTokenResponseType
  -&gt; Maybe Text -&gt; Int -&gt; VerifySoftwareTokenResponse)
 -&gt; Either String (Maybe VerifySoftwareTokenResponseType)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; VerifySoftwareTokenResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679462423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679462973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe VerifySoftwareTokenResponseType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; VerifySoftwareTokenResponse)
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; VerifySoftwareTokenResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; VerifySoftwareTokenResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679462423"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679462973"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Session&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; VerifySoftwareTokenResponse)
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; VerifySoftwareTokenResponse)
 -&gt; Either String Int -&gt; Either String VerifySoftwareTokenResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -325,122 +321,122 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679462425"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462415"><span id="local-6989586621679462417"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span></span></span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462412"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span></span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679462408"><span class="annot"><span class="annottext">toHeaders :: VerifySoftwareToken -&gt; ResponseHeaders
+</span><a href="#local-6989586621679462975"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462965"><span id="local-6989586621679462967"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462962"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679462958"><span class="annot"><span class="annottext">toHeaders :: VerifySoftwareToken -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; VerifySoftwareToken -&gt; ResponseHeaders
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; VerifySoftwareToken -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
-</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;AWSCognitoIdentityProviderService.VerifySoftwareToken&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-141"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-142"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
-</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-146"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-147"></span><span>                      </span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462398"><span id="local-6989586621679462400"><span id="local-6989586621679462402"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679462396"><span class="annot"><span class="annottext">toJSON :: VerifySoftwareToken -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462391"><span id="local-6989586621679462392"><span id="local-6989586621679462393"><span id="local-6989586621679462394"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-145"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-146"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462948"><span id="local-6989586621679462950"><span id="local-6989586621679462952"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679462946"><span class="annot"><span class="annottext">toJSON :: VerifySoftwareToken -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken%27"><span class="hs-identifier hs-type">VerifySoftwareToken'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462941"><span id="local-6989586621679462942"><span id="local-6989586621679462943"><span id="local-6989586621679462944"><span class="annot"><span class="annottext">Maybe Text
 Maybe (Sensitive Text)
 Text
 userCode :: Text
 session :: Maybe Text
-accessToken :: Maybe (Sensitive Text)
 friendlyDeviceName :: Maybe Text
+accessToken :: Maybe (Sensitive Text)
 $sel:userCode:VerifySoftwareToken' :: VerifySoftwareToken -&gt; Text
 $sel:session:VerifySoftwareToken' :: VerifySoftwareToken -&gt; Maybe Text
-$sel:accessToken:VerifySoftwareToken' :: VerifySoftwareToken -&gt; Maybe (Sensitive Text)
 $sel:friendlyDeviceName:VerifySoftwareToken' :: VerifySoftwareToken -&gt; Maybe Text
-</span><a href="#local-6989586621679462391"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:accessToken:VerifySoftwareToken' :: VerifySoftwareToken -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679462941"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-155"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-154"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccessToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679462944"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FriendlyDeviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462394"><span class="hs-identifier hs-var">friendlyDeviceName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679462943"><span class="hs-identifier hs-var">friendlyDeviceName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AccessToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679462393"><span class="hs-identifier hs-var">accessToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Session&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462392"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679462942"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679462391"><span class="hs-identifier hs-var">userCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679462385"><span class="annot"><span class="annottext">toPath :: VerifySoftwareToken -&gt; ByteString
+</span><a href="#local-6989586621679462941"><span class="hs-identifier hs-var">userCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679462935"><span class="annot"><span class="annottext">toPath :: VerifySoftwareToken -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; VerifySoftwareToken -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679462381"><span class="annot"><span class="annottext">toQuery :: VerifySoftwareToken -&gt; QueryString
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareToken"><span class="hs-identifier hs-type">VerifySoftwareToken</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679462931"><span class="annot"><span class="annottext">toQuery :: VerifySoftwareToken -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; VerifySoftwareToken -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- | /See:/ 'newVerifySoftwareTokenResponse' smart constructor.</span><span>
-</span><span id="line-170"></span><span id="local-6989586621679462378"><span id="local-6989586621679462379"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifySoftwareTokenResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-var">VerifySoftwareTokenResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifySoftwareTokenResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-var">VerifySoftwareTokenResponse'</span></a></span></span><span>
-</span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the verify software token.</span><span>
-</span><span id="line-172"></span><span>    </span><span id="%24sel%3Astatus%3AVerifySoftwareTokenResponse%27"><span class="annot"><span class="annottext">VerifySoftwareTokenResponse
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | /See:/ 'newVerifySoftwareTokenResponse' smart constructor.</span><span>
+</span><span id="line-169"></span><span id="local-6989586621679462928"><span id="local-6989586621679462929"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifySoftwareTokenResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-var">VerifySoftwareTokenResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifySoftwareTokenResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-var">VerifySoftwareTokenResponse'</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the verify software token.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3Astatus%3AVerifySoftwareTokenResponse%27"><span class="annot"><span class="annottext">VerifySoftwareTokenResponse
 -&gt; Maybe VerifySoftwareTokenResponseType
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3Astatus%3AVerifySoftwareTokenResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.VerifySoftwareTokenResponseType.html#VerifySoftwareTokenResponseType"><span class="hs-identifier hs-type">VerifySoftwareTokenResponseType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The session which should be passed both ways in challenge-response calls</span><span>
-</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- to the service.</span><span>
-</span><span id="line-175"></span><span>    </span><span id="%24sel%3Asession%3AVerifySoftwareTokenResponse%27"><span class="annot"><span class="annottext">VerifySoftwareTokenResponse -&gt; Maybe Text
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The session which should be passed both ways in challenge-response calls</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- to the service.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3Asession%3AVerifySoftwareTokenResponse%27"><span class="annot"><span class="annottext">VerifySoftwareTokenResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3Asession%3AVerifySoftwareTokenResponse%27"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-177"></span><span>    </span><span id="%24sel%3AhttpStatus%3AVerifySoftwareTokenResponse%27"><span class="annot"><span class="annottext">VerifySoftwareTokenResponse -&gt; Int
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3AVerifySoftwareTokenResponse%27"><span class="annot"><span class="annottext">VerifySoftwareTokenResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AhttpStatus%3AVerifySoftwareTokenResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-178"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-179"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679462371"><span id="local-6989586621679462373"><span class="annot"><span class="annottext">VerifySoftwareTokenResponse -&gt; VerifySoftwareTokenResponse -&gt; Bool
+</span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679462921"><span id="local-6989586621679462923"><span class="annot"><span class="annottext">VerifySoftwareTokenResponse -&gt; VerifySoftwareTokenResponse -&gt; Bool
 (VerifySoftwareTokenResponse
  -&gt; VerifySoftwareTokenResponse -&gt; Bool)
 -&gt; (VerifySoftwareTokenResponse
@@ -451,7 +447,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VerifySoftwareTokenResponse -&gt; VerifySoftwareTokenResponse -&gt; Bool
 == :: VerifySoftwareTokenResponse -&gt; VerifySoftwareTokenResponse -&gt; Bool
 $c== :: VerifySoftwareTokenResponse -&gt; VerifySoftwareTokenResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462363"><span id="local-6989586621679462365"><span id="local-6989586621679462367"><span id="local-6989586621679462369"><span class="annot"><span class="annottext">ReadPrec [VerifySoftwareTokenResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462913"><span id="local-6989586621679462915"><span id="local-6989586621679462917"><span id="local-6989586621679462919"><span class="annot"><span class="annottext">ReadPrec [VerifySoftwareTokenResponse]
 ReadPrec VerifySoftwareTokenResponse
 Int -&gt; ReadS VerifySoftwareTokenResponse
 ReadS [VerifySoftwareTokenResponse]
@@ -471,7 +467,7 @@ readList :: ReadS [VerifySoftwareTokenResponse]
 $creadList :: ReadS [VerifySoftwareTokenResponse]
 readsPrec :: Int -&gt; ReadS VerifySoftwareTokenResponse
 $creadsPrec :: Int -&gt; ReadS VerifySoftwareTokenResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462356"><span id="local-6989586621679462358"><span id="local-6989586621679462360"><span class="annot"><span class="annottext">Int -&gt; VerifySoftwareTokenResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679462906"><span id="local-6989586621679462908"><span id="local-6989586621679462910"><span class="annot"><span class="annottext">Int -&gt; VerifySoftwareTokenResponse -&gt; ShowS
 [VerifySoftwareTokenResponse] -&gt; ShowS
 VerifySoftwareTokenResponse -&gt; String
 (Int -&gt; VerifySoftwareTokenResponse -&gt; ShowS)
@@ -502,48 +498,48 @@ Rep VerifySoftwareTokenResponse x -&gt; VerifySoftwareTokenResponse
 $cfrom :: forall x.
 VerifySoftwareTokenResponse -&gt; Rep VerifySoftwareTokenResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- Create a value of 'VerifySoftwareTokenResponse' with all optional fields omitted.</span><span>
-</span><span id="line-183"></span><span class="hs-comment">--</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-185"></span><span class="hs-comment">--</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-188"></span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- 'status', 'verifySoftwareTokenResponse_status' - The status of the verify software token.</span><span>
-</span><span id="line-190"></span><span class="hs-comment">--</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- 'session', 'verifySoftwareTokenResponse_session' - The session which should be passed both ways in challenge-response calls</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- to the service.</span><span>
-</span><span id="line-193"></span><span class="hs-comment">--</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- 'httpStatus', 'verifySoftwareTokenResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#newVerifySoftwareTokenResponse"><span class="hs-identifier hs-type">newVerifySoftwareTokenResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span>
-</span><span id="line-199"></span><span id="newVerifySoftwareTokenResponse"><span class="annot"><span class="annottext">newVerifySoftwareTokenResponse :: Int -&gt; VerifySoftwareTokenResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#newVerifySoftwareTokenResponse"><span class="hs-identifier hs-var hs-var">newVerifySoftwareTokenResponse</span></a></span></span><span> </span><span id="local-6989586621679462353"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679462353"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">VerifySoftwareTokenResponse' :: Maybe VerifySoftwareTokenResponseType
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Create a value of 'VerifySoftwareTokenResponse' with all optional fields omitted.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'status', 'verifySoftwareTokenResponse_status' - The status of the verify software token.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'session', 'verifySoftwareTokenResponse_session' - The session which should be passed both ways in challenge-response calls</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- to the service.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'verifySoftwareTokenResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#newVerifySoftwareTokenResponse"><span class="hs-identifier hs-type">newVerifySoftwareTokenResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newVerifySoftwareTokenResponse"><span class="annot"><span class="annottext">newVerifySoftwareTokenResponse :: Int -&gt; VerifySoftwareTokenResponse
+</span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#newVerifySoftwareTokenResponse"><span class="hs-identifier hs-var hs-var">newVerifySoftwareTokenResponse</span></a></span></span><span> </span><span id="local-6989586621679462903"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679462903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">VerifySoftwareTokenResponse' :: Maybe VerifySoftwareTokenResponseType
 -&gt; Maybe Text -&gt; Int -&gt; VerifySoftwareTokenResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse'</span></a></span><span>
-</span><span id="line-201"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:VerifySoftwareTokenResponse' :: Maybe VerifySoftwareTokenResponseType
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:VerifySoftwareTokenResponse' :: Maybe VerifySoftwareTokenResponseType
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3Astatus%3AVerifySoftwareTokenResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">Maybe VerifySoftwareTokenResponseType
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Maybe VerifySoftwareTokenResponseType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:session:VerifySoftwareTokenResponse' :: Maybe Text
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:session:VerifySoftwareTokenResponse' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3Asession%3AVerifySoftwareTokenResponse%27"><span class="hs-identifier hs-var">session</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:VerifySoftwareTokenResponse' :: Int
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:VerifySoftwareTokenResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AhttpStatus%3AVerifySoftwareTokenResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679462353"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | The status of the verify software token.</span><span>
-</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareTokenResponse_status"><span class="hs-identifier hs-type">verifySoftwareTokenResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.VerifySoftwareTokenResponseType.html#VerifySoftwareTokenResponseType"><span class="hs-identifier hs-type">VerifySoftwareTokenResponseType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span id="verifySoftwareTokenResponse_status"><span class="annot"><span class="annottext">verifySoftwareTokenResponse_status :: (Maybe VerifySoftwareTokenResponseType
+</span><a href="#local-6989586621679462903"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The status of the verify software token.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareTokenResponse_status"><span class="hs-identifier hs-type">verifySoftwareTokenResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.VerifySoftwareTokenResponseType.html#VerifySoftwareTokenResponseType"><span class="hs-identifier hs-type">VerifySoftwareTokenResponseType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="verifySoftwareTokenResponse_status"><span class="annot"><span class="annottext">verifySoftwareTokenResponse_status :: (Maybe VerifySoftwareTokenResponseType
  -&gt; f (Maybe VerifySoftwareTokenResponseType))
 -&gt; VerifySoftwareTokenResponse -&gt; f VerifySoftwareTokenResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareTokenResponse_status"><span class="hs-identifier hs-var hs-var">verifySoftwareTokenResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VerifySoftwareTokenResponse
@@ -557,22 +553,22 @@ forall a. Maybe a
      (Maybe VerifySoftwareTokenResponseType)
      (Maybe VerifySoftwareTokenResponseType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462352"><span class="annot"><span class="annottext">Maybe VerifySoftwareTokenResponseType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462902"><span class="annot"><span class="annottext">Maybe VerifySoftwareTokenResponseType
 status :: Maybe VerifySoftwareTokenResponseType
 $sel:status:VerifySoftwareTokenResponse' :: VerifySoftwareTokenResponse
 -&gt; Maybe VerifySoftwareTokenResponseType
-</span><a href="#local-6989586621679462352"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VerifySoftwareTokenResponseType
-</span><a href="#local-6989586621679462352"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462351"><span class="annot"><span class="annottext">s :: VerifySoftwareTokenResponse
-</span><a href="#local-6989586621679462351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462350"><span class="annot"><span class="annottext">Maybe VerifySoftwareTokenResponseType
-</span><a href="#local-6989586621679462350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareTokenResponse
-</span><a href="#local-6989586621679462351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:VerifySoftwareTokenResponse' :: Maybe VerifySoftwareTokenResponseType
+</span><a href="#local-6989586621679462902"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VerifySoftwareTokenResponseType
+</span><a href="#local-6989586621679462902"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462901"><span class="annot"><span class="annottext">s :: VerifySoftwareTokenResponse
+</span><a href="#local-6989586621679462901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462900"><span class="annot"><span class="annottext">Maybe VerifySoftwareTokenResponseType
+</span><a href="#local-6989586621679462900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareTokenResponse
+</span><a href="#local-6989586621679462901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:VerifySoftwareTokenResponse' :: Maybe VerifySoftwareTokenResponseType
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3Astatus%3AVerifySoftwareTokenResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VerifySoftwareTokenResponseType
-</span><a href="#local-6989586621679462350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- | The session which should be passed both ways in challenge-response calls</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- to the service.</span><span>
-</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareTokenResponse_session"><span class="hs-identifier hs-type">verifySoftwareTokenResponse_session</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span id="verifySoftwareTokenResponse_session"><span class="annot"><span class="annottext">verifySoftwareTokenResponse_session :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679462900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The session which should be passed both ways in challenge-response calls</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- to the service.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareTokenResponse_session"><span class="hs-identifier hs-type">verifySoftwareTokenResponse_session</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="verifySoftwareTokenResponse_session"><span class="annot"><span class="annottext">verifySoftwareTokenResponse_session :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; VerifySoftwareTokenResponse -&gt; f VerifySoftwareTokenResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareTokenResponse_session"><span class="hs-identifier hs-var hs-var">verifySoftwareTokenResponse_session</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VerifySoftwareTokenResponse -&gt; Maybe Text)
 -&gt; (VerifySoftwareTokenResponse
@@ -583,20 +579,20 @@ $sel:status:VerifySoftwareTokenResponse' :: VerifySoftwareTokenResponse
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462349"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462899"><span class="annot"><span class="annottext">Maybe Text
 session :: Maybe Text
 $sel:session:VerifySoftwareTokenResponse' :: VerifySoftwareTokenResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679462349"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462349"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462348"><span class="annot"><span class="annottext">s :: VerifySoftwareTokenResponse
-</span><a href="#local-6989586621679462348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462347"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareTokenResponse
-</span><a href="#local-6989586621679462348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:session:VerifySoftwareTokenResponse' :: Maybe Text
+</span><a href="#local-6989586621679462899"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679462899"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462898"><span class="annot"><span class="annottext">s :: VerifySoftwareTokenResponse
+</span><a href="#local-6989586621679462898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462897"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679462897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareTokenResponse
+</span><a href="#local-6989586621679462898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:session:VerifySoftwareTokenResponse' :: Maybe Text
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3Asession%3AVerifySoftwareTokenResponse%27"><span class="hs-identifier hs-var">session</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679462347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareTokenResponse_httpStatus"><span class="hs-identifier hs-type">verifySoftwareTokenResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-218"></span><span id="verifySoftwareTokenResponse_httpStatus"><span class="annot"><span class="annottext">verifySoftwareTokenResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679462897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareTokenResponse_httpStatus"><span class="hs-identifier hs-type">verifySoftwareTokenResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span id="verifySoftwareTokenResponse_httpStatus"><span class="annot"><span class="annottext">verifySoftwareTokenResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; VerifySoftwareTokenResponse -&gt; f VerifySoftwareTokenResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#verifySoftwareTokenResponse_httpStatus"><span class="hs-identifier hs-var hs-var">verifySoftwareTokenResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VerifySoftwareTokenResponse -&gt; Int)
 -&gt; (VerifySoftwareTokenResponse
@@ -604,16 +600,16 @@ $sel:session:VerifySoftwareTokenResponse' :: VerifySoftwareTokenResponse -&gt; M
 -&gt; Lens
      VerifySoftwareTokenResponse VerifySoftwareTokenResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462346"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679462896"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:VerifySoftwareTokenResponse' :: VerifySoftwareTokenResponse -&gt; Int
-</span><a href="#local-6989586621679462346"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679462346"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462345"><span class="annot"><span class="annottext">s :: VerifySoftwareTokenResponse
-</span><a href="#local-6989586621679462345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462344"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679462344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareTokenResponse
-</span><a href="#local-6989586621679462345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:VerifySoftwareTokenResponse' :: Int
+</span><a href="#local-6989586621679462896"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679462896"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679462895"><span class="annot"><span class="annottext">s :: VerifySoftwareTokenResponse
+</span><a href="#local-6989586621679462895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse%27"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679462894"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679462894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifySoftwareTokenResponse
+</span><a href="#local-6989586621679462895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:VerifySoftwareTokenResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#%24sel%3AhttpStatus%3AVerifySoftwareTokenResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679462344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462342"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span></span><span>
-</span><span id="line-221"></span></pre></body></html>
+</span><a href="#local-6989586621679462894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679462892"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.VerifySoftwareToken.html#VerifySoftwareTokenResponse"><span class="hs-identifier hs-type">VerifySoftwareTokenResponse</span></a></span></span><span>
+</span><span id="line-220"></span></pre></body></html>

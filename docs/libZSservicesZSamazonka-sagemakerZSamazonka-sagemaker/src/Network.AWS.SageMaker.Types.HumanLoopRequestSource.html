@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Container for configuring the source of human task requests.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHumanLoopRequestSource' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680306503"><span id="local-6989586621680306504"></span></span><span class="hs-keyword">data</span><span> </span><span id="HumanLoopRequestSource"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-var">HumanLoopRequestSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HumanLoopRequestSource%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource%27"><span class="hs-identifier hs-var">HumanLoopRequestSource'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680307878"><span id="local-6989586621680307879"></span></span><span class="hs-keyword">data</span><span> </span><span id="HumanLoopRequestSource"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-var">HumanLoopRequestSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HumanLoopRequestSource%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource%27"><span class="hs-identifier hs-var">HumanLoopRequestSource'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether Amazon Rekognition or Amazon Textract are used as the</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- integration source. The default field settings and JSON parsing rules</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- are different based on the integration source. Valid values:</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AawsManagedHumanLoopRequestSource%3AHumanLoopRequestSource%27"><span class="annot"><span class="annottext">HumanLoopRequestSource -&gt; AwsManagedHumanLoopRequestSource
 </span><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#%24sel%3AawsManagedHumanLoopRequestSource%3AHumanLoopRequestSource%27"><span class="hs-identifier hs-var hs-var">awsManagedHumanLoopRequestSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.AwsManagedHumanLoopRequestSource.html#AwsManagedHumanLoopRequestSource"><span class="hs-identifier hs-type">AwsManagedHumanLoopRequestSource</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680306497"><span id="local-6989586621680306499"><span class="annot"><span class="annottext">HumanLoopRequestSource -&gt; HumanLoopRequestSource -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680307872"><span id="local-6989586621680307874"><span class="annot"><span class="annottext">HumanLoopRequestSource -&gt; HumanLoopRequestSource -&gt; Bool
 (HumanLoopRequestSource -&gt; HumanLoopRequestSource -&gt; Bool)
 -&gt; (HumanLoopRequestSource -&gt; HumanLoopRequestSource -&gt; Bool)
 -&gt; Eq HumanLoopRequestSource
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HumanLoopRequestSource -&gt; HumanLoopRequestSource -&gt; Bool
 == :: HumanLoopRequestSource -&gt; HumanLoopRequestSource -&gt; Bool
 $c== :: HumanLoopRequestSource -&gt; HumanLoopRequestSource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680306488"><span id="local-6989586621680306490"><span id="local-6989586621680306492"><span id="local-6989586621680306494"><span class="annot"><span class="annottext">ReadPrec [HumanLoopRequestSource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680307863"><span id="local-6989586621680307865"><span id="local-6989586621680307867"><span id="local-6989586621680307869"><span class="annot"><span class="annottext">ReadPrec [HumanLoopRequestSource]
 ReadPrec HumanLoopRequestSource
 Int -&gt; ReadS HumanLoopRequestSource
 ReadS [HumanLoopRequestSource]
@@ -63,7 +63,7 @@ readList :: ReadS [HumanLoopRequestSource]
 $creadList :: ReadS [HumanLoopRequestSource]
 readsPrec :: Int -&gt; ReadS HumanLoopRequestSource
 $creadsPrec :: Int -&gt; ReadS HumanLoopRequestSource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680306481"><span id="local-6989586621680306483"><span id="local-6989586621680306485"><span class="annot"><span class="annottext">Int -&gt; HumanLoopRequestSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680307856"><span id="local-6989586621680307858"><span id="local-6989586621680307860"><span class="annot"><span class="annottext">Int -&gt; HumanLoopRequestSource -&gt; ShowS
 [HumanLoopRequestSource] -&gt; ShowS
 HumanLoopRequestSource -&gt; String
 (Int -&gt; HumanLoopRequestSource -&gt; ShowS)
@@ -107,14 +107,14 @@ $cfrom :: forall x. HumanLoopRequestSource -&gt; Rep HumanLoopRequestSource x
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-type">HumanLoopRequestSource</span></a></span><span>
 </span><span id="line-53"></span><span id="newHumanLoopRequestSource"><span class="annot"><span class="annottext">newHumanLoopRequestSource :: AwsManagedHumanLoopRequestSource -&gt; HumanLoopRequestSource
 </span><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#newHumanLoopRequestSource"><span class="hs-identifier hs-var hs-var">newHumanLoopRequestSource</span></a></span></span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621680306475"><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource
-</span><a href="#local-6989586621680306475"><span class="hs-identifier hs-var">pAwsManagedHumanLoopRequestSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621680307850"><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource
+</span><a href="#local-6989586621680307850"><span class="hs-identifier hs-var">pAwsManagedHumanLoopRequestSource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">HumanLoopRequestSource' :: AwsManagedHumanLoopRequestSource -&gt; HumanLoopRequestSource
 </span><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource%27"><span class="hs-identifier hs-type">HumanLoopRequestSource'</span></a></span><span>
 </span><span id="line-56"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsManagedHumanLoopRequestSource:HumanLoopRequestSource' :: AwsManagedHumanLoopRequestSource
 </span><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#%24sel%3AawsManagedHumanLoopRequestSource%3AHumanLoopRequestSource%27"><span class="hs-identifier hs-var">awsManagedHumanLoopRequestSource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>          </span><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource
-</span><a href="#local-6989586621680306475"><span class="hs-identifier hs-var">pAwsManagedHumanLoopRequestSource_</span></a></span><span>
+</span><a href="#local-6989586621680307850"><span class="hs-identifier hs-var">pAwsManagedHumanLoopRequestSource_</span></a></span><span>
 </span><span id="line-58"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | Specifies whether Amazon Rekognition or Amazon Textract are used as the</span><span>
@@ -133,19 +133,19 @@ $cfrom :: forall x. HumanLoopRequestSource -&gt; Rep HumanLoopRequestSource x
      AwsManagedHumanLoopRequestSource
      AwsManagedHumanLoopRequestSource
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource%27"><span class="hs-identifier hs-type">HumanLoopRequestSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680306471"><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource%27"><span class="hs-identifier hs-type">HumanLoopRequestSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680307846"><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource
 awsManagedHumanLoopRequestSource :: AwsManagedHumanLoopRequestSource
 $sel:awsManagedHumanLoopRequestSource:HumanLoopRequestSource' :: HumanLoopRequestSource -&gt; AwsManagedHumanLoopRequestSource
-</span><a href="#local-6989586621680306471"><span class="hs-identifier hs-var hs-var">awsManagedHumanLoopRequestSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource
-</span><a href="#local-6989586621680306471"><span class="hs-identifier hs-var">awsManagedHumanLoopRequestSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680306470"><span class="annot"><span class="annottext">s :: HumanLoopRequestSource
-</span><a href="#local-6989586621680306470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource%27"><span class="hs-identifier hs-type">HumanLoopRequestSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680306469"><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource
-</span><a href="#local-6989586621680306469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanLoopRequestSource
-</span><a href="#local-6989586621680306470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsManagedHumanLoopRequestSource:HumanLoopRequestSource' :: AwsManagedHumanLoopRequestSource
+</span><a href="#local-6989586621680307846"><span class="hs-identifier hs-var hs-var">awsManagedHumanLoopRequestSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource
+</span><a href="#local-6989586621680307846"><span class="hs-identifier hs-var">awsManagedHumanLoopRequestSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680307845"><span class="annot"><span class="annottext">s :: HumanLoopRequestSource
+</span><a href="#local-6989586621680307845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource%27"><span class="hs-identifier hs-type">HumanLoopRequestSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680307844"><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource
+</span><a href="#local-6989586621680307844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HumanLoopRequestSource
+</span><a href="#local-6989586621680307845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsManagedHumanLoopRequestSource:HumanLoopRequestSource' :: AwsManagedHumanLoopRequestSource
 </span><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#%24sel%3AawsManagedHumanLoopRequestSource%3AHumanLoopRequestSource%27"><span class="hs-identifier hs-var">awsManagedHumanLoopRequestSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource
-</span><a href="#local-6989586621680306469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-type">HumanLoopRequestSource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680307844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-type">HumanLoopRequestSource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680306466"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-type">HumanLoopRequestSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621680306464"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HumanLoopRequestSource
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680307841"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-type">HumanLoopRequestSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621680307839"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HumanLoopRequestSource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HumanLoopRequestSource)
@@ -155,8 +155,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HumanLoopRequestSource&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680306461"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680306461"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680307836"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680307836"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource -&gt; HumanLoopRequestSource
 </span><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource%27"><span class="hs-identifier hs-var">HumanLoopRequestSource'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(AwsManagedHumanLoopRequestSource -&gt; HumanLoopRequestSource)
@@ -164,22 +164,22 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser HumanLoopRequestSource
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680306461"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AwsManagedHumanLoopRequestSource
+</span><a href="#local-6989586621680307836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser AwsManagedHumanLoopRequestSource
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AwsManagedHumanLoopRequestSource&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680306455"><span id="local-6989586621680306457"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-type">HumanLoopRequestSource</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680307830"><span id="local-6989586621680307832"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-type">HumanLoopRequestSource</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680306452"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-type">HumanLoopRequestSource</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680307827"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-type">HumanLoopRequestSource</span></a></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680306444"><span id="local-6989586621680306446"><span id="local-6989586621680306448"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-type">HumanLoopRequestSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621680306442"><span class="annot"><span class="annottext">toJSON :: HumanLoopRequestSource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource%27"><span class="hs-identifier hs-type">HumanLoopRequestSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680306440"><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680307819"><span id="local-6989586621680307821"><span id="local-6989586621680307823"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource"><span class="hs-identifier hs-type">HumanLoopRequestSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621680307817"><span class="annot"><span class="annottext">toJSON :: HumanLoopRequestSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.HumanLoopRequestSource.html#HumanLoopRequestSource%27"><span class="hs-identifier hs-type">HumanLoopRequestSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680307815"><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource
 awsManagedHumanLoopRequestSource :: AwsManagedHumanLoopRequestSource
 $sel:awsManagedHumanLoopRequestSource:HumanLoopRequestSource' :: HumanLoopRequestSource -&gt; AwsManagedHumanLoopRequestSource
-</span><a href="#local-6989586621680306440"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680307815"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -193,7 +193,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-85"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; AwsManagedHumanLoopRequestSource -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AwsManagedHumanLoopRequestSource
-</span><a href="#local-6989586621680306440"><span class="hs-identifier hs-var">awsManagedHumanLoopRequestSource</span></a></span><span>
+</span><a href="#local-6989586621680307815"><span class="hs-identifier hs-var">awsManagedHumanLoopRequestSource</span></a></span><span>
 </span><span id="line-86"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>

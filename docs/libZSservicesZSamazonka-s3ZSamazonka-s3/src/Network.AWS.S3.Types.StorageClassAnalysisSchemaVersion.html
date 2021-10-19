@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html"><span class="hs-identifier">Network.AWS.S3.Internal</span></a></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679554071"><span id="local-6989586621679554072"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StorageClassAnalysisSchemaVersion"><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysisSchemaVersion.html#StorageClassAnalysisSchemaVersion"><span class="hs-identifier hs-var">StorageClassAnalysisSchemaVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageClassAnalysisSchemaVersion%27"><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysisSchemaVersion.html#StorageClassAnalysisSchemaVersion%27"><span class="hs-identifier hs-var">StorageClassAnalysisSchemaVersion'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679554712"><span id="local-6989586621679554713"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StorageClassAnalysisSchemaVersion"><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysisSchemaVersion.html#StorageClassAnalysisSchemaVersion"><span class="hs-identifier hs-var">StorageClassAnalysisSchemaVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StorageClassAnalysisSchemaVersion%27"><span class="annot"><a href="Network.AWS.S3.Types.StorageClassAnalysisSchemaVersion.html#StorageClassAnalysisSchemaVersion%27"><span class="hs-identifier hs-var">StorageClassAnalysisSchemaVersion'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStorageClassAnalysisSchemaVersion"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion -&gt; Text
 </span><a href="Network.AWS.S3.Types.StorageClassAnalysisSchemaVersion.html#fromStorageClassAnalysisSchemaVersion"><span class="hs-identifier hs-var hs-var">fromStorageClassAnalysisSchemaVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679554063"><span id="local-6989586621679554065"><span id="local-6989586621679554067"><span class="annot"><span class="annottext">Int -&gt; StorageClassAnalysisSchemaVersion -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679554704"><span id="local-6989586621679554706"><span id="local-6989586621679554708"><span class="annot"><span class="annottext">Int -&gt; StorageClassAnalysisSchemaVersion -&gt; ShowS
 [StorageClassAnalysisSchemaVersion] -&gt; ShowS
 StorageClassAnalysisSchemaVersion -&gt; String
 (Int -&gt; StorageClassAnalysisSchemaVersion -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: StorageClassAnalysisSchemaVersion -&gt; String
 showsPrec :: Int -&gt; StorageClassAnalysisSchemaVersion -&gt; ShowS
 $cshowsPrec :: Int -&gt; StorageClassAnalysisSchemaVersion -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679554054"><span id="local-6989586621679554056"><span id="local-6989586621679554058"><span id="local-6989586621679554060"><span class="annot"><span class="annottext">ReadPrec [StorageClassAnalysisSchemaVersion]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679554695"><span id="local-6989586621679554697"><span id="local-6989586621679554699"><span id="local-6989586621679554701"><span class="annot"><span class="annottext">ReadPrec [StorageClassAnalysisSchemaVersion]
 ReadPrec StorageClassAnalysisSchemaVersion
 Int -&gt; ReadS StorageClassAnalysisSchemaVersion
 ReadS [StorageClassAnalysisSchemaVersion]
@@ -72,7 +72,7 @@ $creadList :: ReadS [StorageClassAnalysisSchemaVersion]
 readsPrec :: Int -&gt; ReadS StorageClassAnalysisSchemaVersion
 $creadsPrec :: Int -&gt; ReadS StorageClassAnalysisSchemaVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679554049"><span id="local-6989586621679554051"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679554690"><span id="local-6989586621679554692"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion
 -&gt; StorageClassAnalysisSchemaVersion -&gt; Bool
 (StorageClassAnalysisSchemaVersion
  -&gt; StorageClassAnalysisSchemaVersion -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: StorageClassAnalysisSchemaVersion
 $c== :: StorageClassAnalysisSchemaVersion
 -&gt; StorageClassAnalysisSchemaVersion -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679554033"><span id="local-6989586621679554035"><span id="local-6989586621679554037"><span id="local-6989586621679554039"><span id="local-6989586621679554041"><span id="local-6989586621679554043"><span id="local-6989586621679554045"><span class="annot"><span class="annottext">Eq StorageClassAnalysisSchemaVersion
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679554674"><span id="local-6989586621679554676"><span id="local-6989586621679554678"><span id="local-6989586621679554680"><span id="local-6989586621679554682"><span id="local-6989586621679554684"><span id="local-6989586621679554686"><span class="annot"><span class="annottext">Eq StorageClassAnalysisSchemaVersion
 Eq StorageClassAnalysisSchemaVersion
 -&gt; (StorageClassAnalysisSchemaVersion
     -&gt; StorageClassAnalysisSchemaVersion -&gt; Ordering)
@@ -183,7 +183,7 @@ StorageClassAnalysisSchemaVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679554025"><span id="local-6989586621679554027"><span class="annot"><span class="annottext">Int -&gt; StorageClassAnalysisSchemaVersion -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679554666"><span id="local-6989586621679554668"><span class="annot"><span class="annottext">Int -&gt; StorageClassAnalysisSchemaVersion -&gt; Int
 StorageClassAnalysisSchemaVersion -&gt; Int
 (Int -&gt; StorageClassAnalysisSchemaVersion -&gt; Int)
 -&gt; (StorageClassAnalysisSchemaVersion -&gt; Int)
@@ -194,56 +194,56 @@ $chash :: StorageClassAnalysisSchemaVersion -&gt; Int
 hashWithSalt :: Int -&gt; StorageClassAnalysisSchemaVersion -&gt; Int
 $chashWithSalt :: Int -&gt; StorageClassAnalysisSchemaVersion -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679554022"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679554663"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion -&gt; ()
 (StorageClassAnalysisSchemaVersion -&gt; ())
 -&gt; NFData StorageClassAnalysisSchemaVersion
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StorageClassAnalysisSchemaVersion -&gt; ()
 $crnf :: StorageClassAnalysisSchemaVersion -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679554019"><span class="annot"><span class="annottext">Text -&gt; Either String StorageClassAnalysisSchemaVersion
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679554660"><span class="annot"><span class="annottext">Text -&gt; Either String StorageClassAnalysisSchemaVersion
 (Text -&gt; Either String StorageClassAnalysisSchemaVersion)
 -&gt; FromText StorageClassAnalysisSchemaVersion
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StorageClassAnalysisSchemaVersion
 $cfromText :: Text -&gt; Either String StorageClassAnalysisSchemaVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679554016"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679554657"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion -&gt; Text
 (StorageClassAnalysisSchemaVersion -&gt; Text)
 -&gt; ToText StorageClassAnalysisSchemaVersion
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StorageClassAnalysisSchemaVersion -&gt; Text
 $ctoText :: StorageClassAnalysisSchemaVersion -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679554013"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679554654"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion -&gt; ByteString
 (StorageClassAnalysisSchemaVersion -&gt; ByteString)
 -&gt; ToByteString StorageClassAnalysisSchemaVersion
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StorageClassAnalysisSchemaVersion -&gt; ByteString
 $ctoBS :: StorageClassAnalysisSchemaVersion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679554010"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679554651"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion -&gt; ByteStringBuilder
 (StorageClassAnalysisSchemaVersion -&gt; ByteStringBuilder)
 -&gt; ToLog StorageClassAnalysisSchemaVersion
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StorageClassAnalysisSchemaVersion -&gt; ByteStringBuilder
 $cbuild :: StorageClassAnalysisSchemaVersion -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679554007"><span class="annot"><span class="annottext">HeaderName -&gt; StorageClassAnalysisSchemaVersion -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679554648"><span class="annot"><span class="annottext">HeaderName -&gt; StorageClassAnalysisSchemaVersion -&gt; [Header]
 (HeaderName -&gt; StorageClassAnalysisSchemaVersion -&gt; [Header])
 -&gt; ToHeader StorageClassAnalysisSchemaVersion
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StorageClassAnalysisSchemaVersion -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StorageClassAnalysisSchemaVersion -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679554004"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679554645"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion -&gt; QueryString
 (StorageClassAnalysisSchemaVersion -&gt; QueryString)
 -&gt; ToQuery StorageClassAnalysisSchemaVersion
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StorageClassAnalysisSchemaVersion -&gt; QueryString
 $ctoQuery :: StorageClassAnalysisSchemaVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679553999"><span id="local-6989586621679554001"><span class="annot"><span class="annottext">Value -&gt; Parser [StorageClassAnalysisSchemaVersion]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679554640"><span id="local-6989586621679554642"><span class="annot"><span class="annottext">Value -&gt; Parser [StorageClassAnalysisSchemaVersion]
 Value -&gt; Parser StorageClassAnalysisSchemaVersion
 (Value -&gt; Parser StorageClassAnalysisSchemaVersion)
 -&gt; (Value -&gt; Parser [StorageClassAnalysisSchemaVersion])
@@ -255,7 +255,7 @@ $cparseJSONList :: Value -&gt; Parser [StorageClassAnalysisSchemaVersion]
 parseJSON :: Value -&gt; Parser StorageClassAnalysisSchemaVersion
 $cparseJSON :: Value -&gt; Parser StorageClassAnalysisSchemaVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679553994"><span id="local-6989586621679553996"><span class="annot"><span class="annottext">FromJSONKeyFunction [StorageClassAnalysisSchemaVersion]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679554635"><span id="local-6989586621679554637"><span class="annot"><span class="annottext">FromJSONKeyFunction [StorageClassAnalysisSchemaVersion]
 FromJSONKeyFunction StorageClassAnalysisSchemaVersion
 FromJSONKeyFunction StorageClassAnalysisSchemaVersion
 -&gt; FromJSONKeyFunction [StorageClassAnalysisSchemaVersion]
@@ -267,7 +267,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StorageClassAnalysisSchemaVersion]
 fromJSONKey :: FromJSONKeyFunction StorageClassAnalysisSchemaVersion
 $cfromJSONKey :: FromJSONKeyFunction StorageClassAnalysisSchemaVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679553985"><span id="local-6989586621679553987"><span id="local-6989586621679553989"><span id="local-6989586621679553991"><span class="annot"><span class="annottext">[StorageClassAnalysisSchemaVersion] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679554626"><span id="local-6989586621679554628"><span id="local-6989586621679554630"><span id="local-6989586621679554632"><span class="annot"><span class="annottext">[StorageClassAnalysisSchemaVersion] -&gt; Encoding
 [StorageClassAnalysisSchemaVersion] -&gt; Value
 StorageClassAnalysisSchemaVersion -&gt; Encoding
 StorageClassAnalysisSchemaVersion -&gt; Value
@@ -291,7 +291,7 @@ $ctoEncoding :: StorageClassAnalysisSchemaVersion -&gt; Encoding
 toJSON :: StorageClassAnalysisSchemaVersion -&gt; Value
 $ctoJSON :: StorageClassAnalysisSchemaVersion -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679553980"><span id="local-6989586621679553982"><span class="annot"><span class="annottext">ToJSONKeyFunction [StorageClassAnalysisSchemaVersion]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679554621"><span id="local-6989586621679554623"><span class="annot"><span class="annottext">ToJSONKeyFunction [StorageClassAnalysisSchemaVersion]
 ToJSONKeyFunction StorageClassAnalysisSchemaVersion
 ToJSONKeyFunction StorageClassAnalysisSchemaVersion
 -&gt; ToJSONKeyFunction [StorageClassAnalysisSchemaVersion]
@@ -303,14 +303,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StorageClassAnalysisSchemaVersion]
 toJSONKey :: ToJSONKeyFunction StorageClassAnalysisSchemaVersion
 $ctoJSONKey :: ToJSONKeyFunction StorageClassAnalysisSchemaVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679553977"><span class="annot"><span class="annottext">[Node] -&gt; Either String StorageClassAnalysisSchemaVersion
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679554618"><span class="annot"><span class="annottext">[Node] -&gt; Either String StorageClassAnalysisSchemaVersion
 ([Node] -&gt; Either String StorageClassAnalysisSchemaVersion)
 -&gt; FromXML StorageClassAnalysisSchemaVersion
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StorageClassAnalysisSchemaVersion
 $cparseXML :: [Node] -&gt; Either String StorageClassAnalysisSchemaVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679553974"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679554615"><span class="annot"><span class="annottext">StorageClassAnalysisSchemaVersion -&gt; XML
 (StorageClassAnalysisSchemaVersion -&gt; XML)
 -&gt; ToXML StorageClassAnalysisSchemaVersion
 forall a. (a -&gt; XML) -&gt; ToXML a

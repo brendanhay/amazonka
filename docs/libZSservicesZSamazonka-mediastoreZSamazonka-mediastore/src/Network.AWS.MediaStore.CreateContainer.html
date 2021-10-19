@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newCreateContainer' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679168538"><span id="local-6989586621679168539"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContainer"><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-var">CreateContainer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContainer%27"><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer%27"><span class="hs-identifier hs-var">CreateContainer'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679168606"><span id="local-6989586621679168607"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContainer"><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-var">CreateContainer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContainer%27"><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer%27"><span class="hs-identifier hs-var">CreateContainer'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of key:value pairs that you define. These values can be</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- anything that you want. Typically, the tag key represents a category</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- (such as \&quot;environment\&quot;) and the tag value represents a specific value</span><span>
@@ -67,7 +67,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AcontainerName%3ACreateContainer%27"><span class="annot"><span class="annottext">CreateContainer -&gt; Text
 </span><a href="Network.AWS.MediaStore.CreateContainer.html#%24sel%3AcontainerName%3ACreateContainer%27"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168531"><span id="local-6989586621679168533"><span class="annot"><span class="annottext">CreateContainer -&gt; CreateContainer -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168599"><span id="local-6989586621679168601"><span class="annot"><span class="annottext">CreateContainer -&gt; CreateContainer -&gt; Bool
 (CreateContainer -&gt; CreateContainer -&gt; Bool)
 -&gt; (CreateContainer -&gt; CreateContainer -&gt; Bool)
 -&gt; Eq CreateContainer
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateContainer -&gt; CreateContainer -&gt; Bool
 == :: CreateContainer -&gt; CreateContainer -&gt; Bool
 $c== :: CreateContainer -&gt; CreateContainer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168522"><span id="local-6989586621679168524"><span id="local-6989586621679168526"><span id="local-6989586621679168528"><span class="annot"><span class="annottext">ReadPrec [CreateContainer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168590"><span id="local-6989586621679168592"><span id="local-6989586621679168594"><span id="local-6989586621679168596"><span class="annot"><span class="annottext">ReadPrec [CreateContainer]
 ReadPrec CreateContainer
 Int -&gt; ReadS CreateContainer
 ReadS [CreateContainer]
@@ -96,7 +96,7 @@ readList :: ReadS [CreateContainer]
 $creadList :: ReadS [CreateContainer]
 readsPrec :: Int -&gt; ReadS CreateContainer
 $creadsPrec :: Int -&gt; ReadS CreateContainer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168515"><span id="local-6989586621679168517"><span id="local-6989586621679168519"><span class="annot"><span class="annottext">Int -&gt; CreateContainer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168583"><span id="local-6989586621679168585"><span id="local-6989586621679168587"><span class="annot"><span class="annottext">Int -&gt; CreateContainer -&gt; ShowS
 [CreateContainer] -&gt; ShowS
 CreateContainer -&gt; String
 (Int -&gt; CreateContainer -&gt; ShowS)
@@ -148,8 +148,8 @@ $cfrom :: forall x. CreateContainer -&gt; Rep CreateContainer x
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span><span>
 </span><span id="line-95"></span><span id="newCreateContainer"><span class="annot"><span class="annottext">newCreateContainer :: Text -&gt; CreateContainer
-</span><a href="Network.AWS.MediaStore.CreateContainer.html#newCreateContainer"><span class="hs-identifier hs-var hs-var">newCreateContainer</span></a></span></span><span> </span><span id="local-6989586621679168510"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168510"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.CreateContainer.html#newCreateContainer"><span class="hs-identifier hs-var hs-var">newCreateContainer</span></a></span></span><span> </span><span id="local-6989586621679168578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679168578"><span class="hs-identifier hs-var">pContainerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">CreateContainer' :: Maybe (NonEmpty Tag) -&gt; Text -&gt; CreateContainer
 </span><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer%27"><span class="hs-identifier hs-type">CreateContainer'</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateContainer' :: Maybe (NonEmpty Tag)
@@ -158,7 +158,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerName:CreateContainer' :: Text
 </span><a href="Network.AWS.MediaStore.CreateContainer.html#%24sel%3AcontainerName%3ACreateContainer%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168510"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span>
+</span><a href="#local-6989586621679168578"><span class="hs-identifier hs-var">pContainerName_</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | An array of key:value pairs that you define. These values can be</span><span>
@@ -179,16 +179,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Tag))
      (Maybe (NonEmpty Tag))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer%27"><span class="hs-identifier hs-type">CreateContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168507"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer%27"><span class="hs-identifier hs-type">CreateContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168575"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 tags :: Maybe (NonEmpty Tag)
 $sel:tags:CreateContainer' :: CreateContainer -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679168507"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679168507"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168506"><span class="annot"><span class="annottext">s :: CreateContainer
-</span><a href="#local-6989586621679168506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer%27"><span class="hs-identifier hs-type">CreateContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679168505"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679168505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainer
-</span><a href="#local-6989586621679168506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateContainer' :: Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679168575"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679168575"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168574"><span class="annot"><span class="annottext">s :: CreateContainer
+</span><a href="#local-6989586621679168574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer%27"><span class="hs-identifier hs-type">CreateContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679168573"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679168573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainer
+</span><a href="#local-6989586621679168574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateContainer' :: Maybe (NonEmpty Tag)
 </span><a href="Network.AWS.MediaStore.CreateContainer.html#%24sel%3Atags%3ACreateContainer%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679168505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+</span><a href="#local-6989586621679168573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
  -&gt; CreateContainer -&gt; f CreateContainer)
 -&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
     -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
@@ -206,8 +206,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The name for the container. The name must be from 1 to 255 characters.</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- Container names must be unique to your AWS account within a specific</span><span>
@@ -220,27 +220,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (CreateContainer -&gt; Text -&gt; CreateContainer)
 -&gt; Lens CreateContainer CreateContainer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer%27"><span class="hs-identifier hs-type">CreateContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168501"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer%27"><span class="hs-identifier hs-type">CreateContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168569"><span class="annot"><span class="annottext">Text
 containerName :: Text
 $sel:containerName:CreateContainer' :: CreateContainer -&gt; Text
-</span><a href="#local-6989586621679168501"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168501"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168500"><span class="annot"><span class="annottext">s :: CreateContainer
-</span><a href="#local-6989586621679168500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer%27"><span class="hs-identifier hs-type">CreateContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679168499"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainer
-</span><a href="#local-6989586621679168500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:CreateContainer' :: Text
+</span><a href="#local-6989586621679168569"><span class="hs-identifier hs-var hs-var">containerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679168569"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168568"><span class="annot"><span class="annottext">s :: CreateContainer
+</span><a href="#local-6989586621679168568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer%27"><span class="hs-identifier hs-type">CreateContainer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679168567"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679168567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainer
+</span><a href="#local-6989586621679168568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerName:CreateContainer' :: Text
 </span><a href="Network.AWS.MediaStore.CreateContainer.html#%24sel%3AcontainerName%3ACreateContainer%27"><span class="hs-identifier hs-var">containerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>      </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse"><span class="hs-identifier hs-type">CreateContainerResponse</span></a></span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679168495"><span class="annot"><span class="annottext">request :: CreateContainer -&gt; Request CreateContainer
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679168563"><span class="annot"><span class="annottext">request :: CreateContainer -&gt; Request CreateContainer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateContainer -&gt; Request CreateContainer
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MediaStore.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679168491"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679168559"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateContainer
 -&gt; ClientResponse ClientBody
@@ -264,10 +264,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679168488"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168488"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168487"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679168487"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679168486"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679168486"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679168556"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679168556"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679168555"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679168555"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679168554"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679168554"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Container -&gt; CreateContainerResponse
 </span><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse%27"><span class="hs-identifier hs-var">CreateContainerResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Container -&gt; CreateContainerResponse)
@@ -279,23 +279,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168488"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168556"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either String (Container -&gt; CreateContainerResponse)
 -&gt; Either String Container -&gt; Either String CreateContainerResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679168486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Container
+</span><a href="#local-6989586621679168554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Container
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Container&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168478"><span id="local-6989586621679168480"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168546"><span id="local-6989586621679168548"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span></span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168475"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168543"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679168471"><span class="annot"><span class="annottext">toHeaders :: CreateContainer -&gt; ResponseHeaders
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679168539"><span class="annot"><span class="annottext">toHeaders :: CreateContainer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateContainer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -322,15 +322,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168461"><span id="local-6989586621679168463"><span id="local-6989586621679168465"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679168459"><span class="annot"><span class="annottext">toJSON :: CreateContainer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer%27"><span class="hs-identifier hs-type">CreateContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168456"><span id="local-6989586621679168457"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168529"><span id="local-6989586621679168531"><span id="local-6989586621679168533"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679168527"><span class="annot"><span class="annottext">toJSON :: CreateContainer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer%27"><span class="hs-identifier hs-type">CreateContainer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168524"><span id="local-6989586621679168525"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 Text
 containerName :: Text
 tags :: Maybe (NonEmpty Tag)
 $sel:containerName:CreateContainer' :: CreateContainer -&gt; Text
 $sel:tags:CreateContainer' :: CreateContainer -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679168456"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679168524"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -342,7 +342,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679168457"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679168525"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -350,19 +350,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ContainerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679168456"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168524"><span class="hs-identifier hs-var">containerName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679168450"><span class="annot"><span class="annottext">toPath :: CreateContainer -&gt; ByteString
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679168518"><span class="annot"><span class="annottext">toPath :: CreateContainer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateContainer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainer"><span class="hs-identifier hs-type">CreateContainer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679168446"><span class="annot"><span class="annottext">toQuery :: CreateContainer -&gt; QueryString
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679168514"><span class="annot"><span class="annottext">toQuery :: CreateContainer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateContainer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -370,7 +370,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | /See:/ 'newCreateContainerResponse' smart constructor.</span><span>
-</span><span id="line-168"></span><span id="local-6989586621679168443"><span id="local-6989586621679168444"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContainerResponse"><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse"><span class="hs-identifier hs-var">CreateContainerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContainerResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse%27"><span class="hs-identifier hs-var">CreateContainerResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span id="local-6989586621679168511"><span id="local-6989586621679168512"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContainerResponse"><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse"><span class="hs-identifier hs-var">CreateContainerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContainerResponse%27"><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse%27"><span class="hs-identifier hs-var">CreateContainerResponse'</span></a></span></span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateContainerResponse%27"><span class="annot"><span class="annottext">CreateContainerResponse -&gt; Int
 </span><a href="Network.AWS.MediaStore.CreateContainer.html#%24sel%3AhttpStatus%3ACreateContainerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -394,7 +394,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-188"></span><span>    </span><span id="%24sel%3Acontainer%3ACreateContainerResponse%27"><span class="annot"><span class="annottext">CreateContainerResponse -&gt; Container
 </span><a href="Network.AWS.MediaStore.CreateContainer.html#%24sel%3Acontainer%3ACreateContainerResponse%27"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span>
 </span><span id="line-189"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168437"><span id="local-6989586621679168439"><span class="annot"><span class="annottext">CreateContainerResponse -&gt; CreateContainerResponse -&gt; Bool
+</span><span id="line-190"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679168505"><span id="local-6989586621679168507"><span class="annot"><span class="annottext">CreateContainerResponse -&gt; CreateContainerResponse -&gt; Bool
 (CreateContainerResponse -&gt; CreateContainerResponse -&gt; Bool)
 -&gt; (CreateContainerResponse -&gt; CreateContainerResponse -&gt; Bool)
 -&gt; Eq CreateContainerResponse
@@ -403,7 +403,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateContainerResponse -&gt; CreateContainerResponse -&gt; Bool
 == :: CreateContainerResponse -&gt; CreateContainerResponse -&gt; Bool
 $c== :: CreateContainerResponse -&gt; CreateContainerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168429"><span id="local-6989586621679168431"><span id="local-6989586621679168433"><span id="local-6989586621679168435"><span class="annot"><span class="annottext">ReadPrec [CreateContainerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168497"><span id="local-6989586621679168499"><span id="local-6989586621679168501"><span id="local-6989586621679168503"><span class="annot"><span class="annottext">ReadPrec [CreateContainerResponse]
 ReadPrec CreateContainerResponse
 Int -&gt; ReadS CreateContainerResponse
 ReadS [CreateContainerResponse]
@@ -423,7 +423,7 @@ readList :: ReadS [CreateContainerResponse]
 $creadList :: ReadS [CreateContainerResponse]
 readsPrec :: Int -&gt; ReadS CreateContainerResponse
 $creadsPrec :: Int -&gt; ReadS CreateContainerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168423"><span id="local-6989586621679168425"><span id="local-6989586621679168427"><span class="annot"><span class="annottext">Int -&gt; CreateContainerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679168491"><span id="local-6989586621679168493"><span id="local-6989586621679168495"><span class="annot"><span class="annottext">Int -&gt; CreateContainerResponse -&gt; ShowS
 [CreateContainerResponse] -&gt; ShowS
 CreateContainerResponse -&gt; String
 (Int -&gt; CreateContainerResponse -&gt; ShowS)
@@ -485,17 +485,17 @@ $cfrom :: forall x. CreateContainerResponse -&gt; Rep CreateContainerResponse x
 </span><span id="line-223"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-224"></span><span>  </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse"><span class="hs-identifier hs-type">CreateContainerResponse</span></a></span><span>
 </span><span id="line-225"></span><span id="newCreateContainerResponse"><span class="annot"><span class="annottext">newCreateContainerResponse :: Int -&gt; Container -&gt; CreateContainerResponse
-</span><a href="Network.AWS.MediaStore.CreateContainer.html#newCreateContainerResponse"><span class="hs-identifier hs-var hs-var">newCreateContainerResponse</span></a></span></span><span> </span><span id="local-6989586621679168420"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168420"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679168419"><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679168419"><span class="hs-identifier hs-var">pContainer_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MediaStore.CreateContainer.html#newCreateContainerResponse"><span class="hs-identifier hs-var hs-var">newCreateContainerResponse</span></a></span></span><span> </span><span id="local-6989586621679168488"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679168488"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679168487"><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679168487"><span class="hs-identifier hs-var">pContainer_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-226"></span><span>  </span><span class="annot"><span class="annottext">CreateContainerResponse' :: Int -&gt; Container -&gt; CreateContainerResponse
 </span><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse%27"><span class="hs-identifier hs-type">CreateContainerResponse'</span></a></span><span>
 </span><span id="line-227"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContainerResponse' :: Int
 </span><a href="Network.AWS.MediaStore.CreateContainer.html#%24sel%3AhttpStatus%3ACreateContainerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168420"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679168488"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:container:CreateContainerResponse' :: Container
 </span><a href="Network.AWS.MediaStore.CreateContainer.html#%24sel%3Acontainer%3ACreateContainerResponse%27"><span class="hs-identifier hs-var">container</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679168419"><span class="hs-identifier hs-var">pContainer_</span></a></span><span>
+</span><a href="#local-6989586621679168487"><span class="hs-identifier hs-var">pContainer_</span></a></span><span>
 </span><span id="line-229"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -506,16 +506,16 @@ $cfrom :: forall x. CreateContainerResponse -&gt; Rep CreateContainerResponse x
 -&gt; (CreateContainerResponse -&gt; Int -&gt; CreateContainerResponse)
 -&gt; Lens CreateContainerResponse CreateContainerResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse%27"><span class="hs-identifier hs-type">CreateContainerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168418"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse%27"><span class="hs-identifier hs-type">CreateContainerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168486"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateContainerResponse' :: CreateContainerResponse -&gt; Int
-</span><a href="#local-6989586621679168418"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168418"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168417"><span class="annot"><span class="annottext">s :: CreateContainerResponse
-</span><a href="#local-6989586621679168417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse%27"><span class="hs-identifier hs-type">CreateContainerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679168416"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerResponse
-</span><a href="#local-6989586621679168417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContainerResponse' :: Int
+</span><a href="#local-6989586621679168486"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679168486"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168485"><span class="annot"><span class="annottext">s :: CreateContainerResponse
+</span><a href="#local-6989586621679168485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse%27"><span class="hs-identifier hs-type">CreateContainerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679168484"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679168484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerResponse
+</span><a href="#local-6989586621679168485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContainerResponse' :: Int
 </span><a href="Network.AWS.MediaStore.CreateContainer.html#%24sel%3AhttpStatus%3ACreateContainerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679168416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse"><span class="hs-identifier hs-type">CreateContainerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse"><span class="hs-identifier hs-type">CreateContainerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-comment">-- | ContainerARN: The Amazon Resource Name (ARN) of the newly created</span><span>
 </span><span id="line-236"></span><span class="hs-comment">-- container. The ARN has the following format: arn:aws:\&lt;region&gt;:\&lt;account</span><span>
@@ -543,16 +543,16 @@ $sel:httpStatus:CreateContainerResponse' :: CreateContainerResponse -&gt; Int
 -&gt; Lens
      CreateContainerResponse CreateContainerResponse Container Container
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse%27"><span class="hs-identifier hs-type">CreateContainerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168415"><span class="annot"><span class="annottext">Container
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse%27"><span class="hs-identifier hs-type">CreateContainerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679168483"><span class="annot"><span class="annottext">Container
 container :: Container
 $sel:container:CreateContainerResponse' :: CreateContainerResponse -&gt; Container
-</span><a href="#local-6989586621679168415"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679168415"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168414"><span class="annot"><span class="annottext">s :: CreateContainerResponse
-</span><a href="#local-6989586621679168414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse%27"><span class="hs-identifier hs-type">CreateContainerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679168413"><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679168413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerResponse
-</span><a href="#local-6989586621679168414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:container:CreateContainerResponse' :: Container
+</span><a href="#local-6989586621679168483"><span class="hs-identifier hs-var hs-var">container</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679168483"><span class="hs-identifier hs-var">container</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679168482"><span class="annot"><span class="annottext">s :: CreateContainerResponse
+</span><a href="#local-6989586621679168482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse%27"><span class="hs-identifier hs-type">CreateContainerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679168481"><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679168481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerResponse
+</span><a href="#local-6989586621679168482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:container:CreateContainerResponse' :: Container
 </span><a href="Network.AWS.MediaStore.CreateContainer.html#%24sel%3Acontainer%3ACreateContainerResponse%27"><span class="hs-identifier hs-var">container</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Container
-</span><a href="#local-6989586621679168413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse"><span class="hs-identifier hs-type">CreateContainerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679168481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse"><span class="hs-identifier hs-type">CreateContainerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
-</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168411"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse"><span class="hs-identifier hs-type">CreateContainerResponse</span></a></span></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679168479"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaStore.CreateContainer.html#CreateContainerResponse"><span class="hs-identifier hs-type">CreateContainerResponse</span></a></span></span><span>
 </span><span id="line-256"></span></pre></body></html>

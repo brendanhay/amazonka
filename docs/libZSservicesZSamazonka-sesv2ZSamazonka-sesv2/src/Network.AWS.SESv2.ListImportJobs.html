@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobs_nextToken"><span class="hs-identifier">listImportJobs_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobs_importDestinationType"><span class="hs-identifier">listImportJobs_importDestinationType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobs_pageSize"><span class="hs-identifier">listImportJobs_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobs_pageSize"><span class="hs-identifier">listImportJobs_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobs_importDestinationType"><span class="hs-identifier">listImportJobs_importDestinationType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier">ListImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#newListImportJobsResponse"><span class="hs-identifier">newListImportJobsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobsResponse_nextToken"><span class="hs-identifier">listImportJobsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobsResponse_importJobs"><span class="hs-identifier">listImportJobsResponse_importJobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobsResponse_importJobs"><span class="hs-identifier">listImportJobsResponse_importJobs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobsResponse_nextToken"><span class="hs-identifier">listImportJobsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobsResponse_httpStatus"><span class="hs-identifier">listImportJobsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span class="hs-keyword">where</span><span>
@@ -53,26 +53,26 @@
 </span><span id="line-53"></span><span class="hs-comment">-- destination within the specified maximum number of import jobs.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newListImportJobs' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679339709"><span id="local-6989586621679339710"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListImportJobs"><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-var">ListImportJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListImportJobs%27"><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-var">ListImportJobs'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679342257"><span id="local-6989586621679342258"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListImportJobs"><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-var">ListImportJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListImportJobs%27"><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-var">ListImportJobs'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string token indicating that there might be additional import jobs</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- available to be listed. Copy this token to a subsequent call to</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @ListImportJobs@ with the same parameters to retrieve the next page of</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- import jobs.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListImportJobs%27"><span class="annot"><span class="annottext">ListImportJobs -&gt; Maybe Text
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AnextToken%3AListImportJobs%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The destination of the import job, which can be used to list import jobs</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- that have a certain @ImportDestinationType@.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AimportDestinationType%3AListImportJobs%27"><span class="annot"><span class="annottext">ListImportJobs -&gt; Maybe ImportDestinationType
-</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AimportDestinationType%3AListImportJobs%27"><span class="hs-identifier hs-var hs-var">importDestinationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestinationType.html#ImportDestinationType"><span class="hs-identifier hs-type">ImportDestinationType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Maximum number of import jobs to return at once. Use this parameter to</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- paginate results. If additional import jobs exist beyond the specified</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- limit, the @NextToken@ element is sent in the response. Use the</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @NextToken@ value in subsequent requests to retrieve additional</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- addresses.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3ApageSize%3AListImportJobs%27"><span class="annot"><span class="annottext">ListImportJobs -&gt; Maybe Int
-</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3ApageSize%3AListImportJobs%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Maximum number of import jobs to return at once. Use this parameter to</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- paginate results. If additional import jobs exist beyond the specified</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- limit, the @NextToken@ element is sent in the response. Use the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @NextToken@ value in subsequent requests to retrieve additional</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- addresses.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3ApageSize%3AListImportJobs%27"><span class="annot"><span class="annottext">ListImportJobs -&gt; Maybe Int
+</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3ApageSize%3AListImportJobs%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The destination of the import job, which can be used to list import jobs</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- that have a certain @ImportDestinationType@.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AimportDestinationType%3AListImportJobs%27"><span class="annot"><span class="annottext">ListImportJobs -&gt; Maybe ImportDestinationType
+</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AimportDestinationType%3AListImportJobs%27"><span class="hs-identifier hs-var hs-var">importDestinationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestinationType.html#ImportDestinationType"><span class="hs-identifier hs-type">ImportDestinationType</span></a></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339701"><span id="local-6989586621679339703"><span class="annot"><span class="annottext">ListImportJobs -&gt; ListImportJobs -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342249"><span id="local-6989586621679342251"><span class="annot"><span class="annottext">ListImportJobs -&gt; ListImportJobs -&gt; Bool
 (ListImportJobs -&gt; ListImportJobs -&gt; Bool)
 -&gt; (ListImportJobs -&gt; ListImportJobs -&gt; Bool) -&gt; Eq ListImportJobs
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -80,7 +80,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListImportJobs -&gt; ListImportJobs -&gt; Bool
 == :: ListImportJobs -&gt; ListImportJobs -&gt; Bool
 $c== :: ListImportJobs -&gt; ListImportJobs -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339692"><span id="local-6989586621679339694"><span id="local-6989586621679339696"><span id="local-6989586621679339698"><span class="annot"><span class="annottext">ReadPrec [ListImportJobs]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342240"><span id="local-6989586621679342242"><span id="local-6989586621679342244"><span id="local-6989586621679342246"><span class="annot"><span class="annottext">ReadPrec [ListImportJobs]
 ReadPrec ListImportJobs
 Int -&gt; ReadS ListImportJobs
 ReadS [ListImportJobs]
@@ -100,7 +100,7 @@ readList :: ReadS [ListImportJobs]
 $creadList :: ReadS [ListImportJobs]
 readsPrec :: Int -&gt; ReadS ListImportJobs
 $creadsPrec :: Int -&gt; ReadS ListImportJobs
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339685"><span id="local-6989586621679339687"><span id="local-6989586621679339689"><span class="annot"><span class="annottext">Int -&gt; ListImportJobs -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342233"><span id="local-6989586621679342235"><span id="local-6989586621679342237"><span class="annot"><span class="annottext">Int -&gt; ListImportJobs -&gt; ShowS
 [ListImportJobs] -&gt; ShowS
 ListImportJobs -&gt; String
 (Int -&gt; ListImportJobs -&gt; ShowS)
@@ -139,31 +139,31 @@ $cfrom :: forall x. ListImportJobs -&gt; Rep ListImportJobs x
 </span><span id="line-84"></span><span class="hs-comment">-- @ListImportJobs@ with the same parameters to retrieve the next page of</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- import jobs.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'importDestinationType', 'listImportJobs_importDestinationType' - The destination of the import job, which can be used to list import jobs</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- that have a certain @ImportDestinationType@.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'pageSize', 'listImportJobs_pageSize' - Maximum number of import jobs to return at once. Use this parameter to</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- paginate results. If additional import jobs exist beyond the specified</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- limit, the @NextToken@ element is sent in the response. Use the</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- @NextToken@ value in subsequent requests to retrieve additional</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- addresses.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'pageSize', 'listImportJobs_pageSize' - Maximum number of import jobs to return at once. Use this parameter to</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- paginate results. If additional import jobs exist beyond the specified</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- limit, the @NextToken@ element is sent in the response. Use the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- @NextToken@ value in subsequent requests to retrieve additional</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- addresses.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'importDestinationType', 'listImportJobs_importDestinationType' - The destination of the import job, which can be used to list import jobs</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- that have a certain @ImportDestinationType@.</span><span>
 </span><span id="line-95"></span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#newListImportJobs"><span class="hs-identifier hs-type">newListImportJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span>
 </span><span id="line-97"></span><span id="newListImportJobs"><span class="annot"><span class="annottext">newListImportJobs :: ListImportJobs
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#newListImportJobs"><span class="hs-identifier hs-var hs-var">newListImportJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">ListImportJobs' :: Maybe Text
--&gt; Maybe ImportDestinationType -&gt; Maybe Int -&gt; ListImportJobs
+-&gt; Maybe Int -&gt; Maybe ImportDestinationType -&gt; ListImportJobs
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListImportJobs' :: Maybe Text
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AnextToken%3AListImportJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:importDestinationType:ListImportJobs' :: Maybe ImportDestinationType
-</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AimportDestinationType%3AListImportJobs%27"><span class="hs-identifier hs-var">importDestinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportDestinationType
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSize:ListImportJobs' :: Maybe Int
+</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3ApageSize%3AListImportJobs%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSize:ListImportJobs' :: Maybe Int
-</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3ApageSize%3AListImportJobs%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:importDestinationType:ListImportJobs' :: Maybe ImportDestinationType
+</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AimportDestinationType%3AListImportJobs%27"><span class="hs-identifier hs-var">importDestinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportDestinationType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
@@ -179,21 +179,43 @@ forall a. Maybe a
 -&gt; (ListImportJobs -&gt; Maybe Text -&gt; ListImportJobs)
 -&gt; Lens ListImportJobs ListImportJobs (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339678"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342226"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListImportJobs' :: ListImportJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679339678"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339678"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339677"><span class="annot"><span class="annottext">s :: ListImportJobs
-</span><a href="#local-6989586621679339677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339676"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportJobs
-</span><a href="#local-6989586621679339677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListImportJobs' :: Maybe Text
+</span><a href="#local-6989586621679342226"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342226"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342225"><span class="annot"><span class="annottext">s :: ListImportJobs
+</span><a href="#local-6989586621679342225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342224"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportJobs
+</span><a href="#local-6989586621679342225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListImportJobs' :: Maybe Text
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AnextToken%3AListImportJobs%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The destination of the import job, which can be used to list import jobs</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- that have a certain @ImportDestinationType@.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobs_importDestinationType"><span class="hs-identifier hs-type">listImportJobs_importDestinationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestinationType.html#ImportDestinationType"><span class="hs-identifier hs-type">ImportDestinationType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="listImportJobs_importDestinationType"><span class="annot"><span class="annottext">listImportJobs_importDestinationType :: (Maybe ImportDestinationType -&gt; f (Maybe ImportDestinationType))
+</span><span id="line-111"></span><span class="hs-comment">-- | Maximum number of import jobs to return at once. Use this parameter to</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- paginate results. If additional import jobs exist beyond the specified</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- limit, the @NextToken@ element is sent in the response. Use the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @NextToken@ value in subsequent requests to retrieve additional</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- addresses.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobs_pageSize"><span class="hs-identifier hs-type">listImportJobs_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="listImportJobs_pageSize"><span class="annot"><span class="annottext">listImportJobs_pageSize :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ListImportJobs -&gt; f ListImportJobs
+</span><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobs_pageSize"><span class="hs-identifier hs-var hs-var">listImportJobs_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImportJobs -&gt; Maybe Int)
+-&gt; (ListImportJobs -&gt; Maybe Int -&gt; ListImportJobs)
+-&gt; Lens ListImportJobs ListImportJobs (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342223"><span class="annot"><span class="annottext">Maybe Int
+pageSize :: Maybe Int
+$sel:pageSize:ListImportJobs' :: ListImportJobs -&gt; Maybe Int
+</span><a href="#local-6989586621679342223"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679342223"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342222"><span class="annot"><span class="annottext">s :: ListImportJobs
+</span><a href="#local-6989586621679342222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342221"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679342221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportJobs
+</span><a href="#local-6989586621679342222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListImportJobs' :: Maybe Int
+</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3ApageSize%3AListImportJobs%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679342221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The destination of the import job, which can be used to list import jobs</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- that have a certain @ImportDestinationType@.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobs_importDestinationType"><span class="hs-identifier hs-type">listImportJobs_importDestinationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestinationType.html#ImportDestinationType"><span class="hs-identifier hs-type">ImportDestinationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="listImportJobs_importDestinationType"><span class="annot"><span class="annottext">listImportJobs_importDestinationType :: (Maybe ImportDestinationType -&gt; f (Maybe ImportDestinationType))
 -&gt; ListImportJobs -&gt; f ListImportJobs
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobs_importDestinationType"><span class="hs-identifier hs-var hs-var">listImportJobs_importDestinationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImportJobs -&gt; Maybe ImportDestinationType)
 -&gt; (ListImportJobs
@@ -204,49 +226,27 @@ $sel:nextToken:ListImportJobs' :: ListImportJobs -&gt; Maybe Text
      (Maybe ImportDestinationType)
      (Maybe ImportDestinationType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339675"><span class="annot"><span class="annottext">Maybe ImportDestinationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342220"><span class="annot"><span class="annottext">Maybe ImportDestinationType
 importDestinationType :: Maybe ImportDestinationType
 $sel:importDestinationType:ListImportJobs' :: ListImportJobs -&gt; Maybe ImportDestinationType
-</span><a href="#local-6989586621679339675"><span class="hs-identifier hs-var hs-var">importDestinationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImportDestinationType
-</span><a href="#local-6989586621679339675"><span class="hs-identifier hs-var">importDestinationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339674"><span class="annot"><span class="annottext">s :: ListImportJobs
-</span><a href="#local-6989586621679339674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339673"><span class="annot"><span class="annottext">Maybe ImportDestinationType
-</span><a href="#local-6989586621679339673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportJobs
-</span><a href="#local-6989586621679339674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importDestinationType:ListImportJobs' :: Maybe ImportDestinationType
+</span><a href="#local-6989586621679342220"><span class="hs-identifier hs-var hs-var">importDestinationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImportDestinationType
+</span><a href="#local-6989586621679342220"><span class="hs-identifier hs-var">importDestinationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342219"><span class="annot"><span class="annottext">s :: ListImportJobs
+</span><a href="#local-6989586621679342219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342218"><span class="annot"><span class="annottext">Maybe ImportDestinationType
+</span><a href="#local-6989586621679342218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportJobs
+</span><a href="#local-6989586621679342219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importDestinationType:ListImportJobs' :: Maybe ImportDestinationType
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AimportDestinationType%3AListImportJobs%27"><span class="hs-identifier hs-var">importDestinationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImportDestinationType
-</span><a href="#local-6989586621679339673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | Maximum number of import jobs to return at once. Use this parameter to</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- paginate results. If additional import jobs exist beyond the specified</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- limit, the @NextToken@ element is sent in the response. Use the</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- @NextToken@ value in subsequent requests to retrieve additional</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- addresses.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobs_pageSize"><span class="hs-identifier hs-type">listImportJobs_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="listImportJobs_pageSize"><span class="annot"><span class="annottext">listImportJobs_pageSize :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ListImportJobs -&gt; f ListImportJobs
-</span><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobs_pageSize"><span class="hs-identifier hs-var hs-var">listImportJobs_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImportJobs -&gt; Maybe Int)
--&gt; (ListImportJobs -&gt; Maybe Int -&gt; ListImportJobs)
--&gt; Lens ListImportJobs ListImportJobs (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339672"><span class="annot"><span class="annottext">Maybe Int
-pageSize :: Maybe Int
-$sel:pageSize:ListImportJobs' :: ListImportJobs -&gt; Maybe Int
-</span><a href="#local-6989586621679339672"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679339672"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339671"><span class="annot"><span class="annottext">s :: ListImportJobs
-</span><a href="#local-6989586621679339671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339670"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679339670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportJobs
-</span><a href="#local-6989586621679339671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListImportJobs' :: Maybe Int
-</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3ApageSize%3AListImportJobs%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679339670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-126"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679339666"><span class="annot"><span class="annottext">request :: ListImportJobs -&gt; Request ListImportJobs
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679342214"><span class="annot"><span class="annottext">request :: ListImportJobs -&gt; Request ListImportJobs
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListImportJobs -&gt; Request ListImportJobs
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679339662"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679342210"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListImportJobs
 -&gt; ClientResponse ClientBody
@@ -270,31 +270,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679339659"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339659"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679339658"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679339658"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679339657"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339657"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [ImportJobSummary] -&gt; Int -&gt; ListImportJobsResponse
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342207"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342207"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679342206"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679342206"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679342205"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342205"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ImportJobSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListImportJobsResponse
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-var">ListImportJobsResponse'</span></a></span><span>
-</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [ImportJobSummary] -&gt; Int -&gt; ListImportJobsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe [ImportJobSummary] -&gt; Int -&gt; ListImportJobsResponse)
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ImportJobSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListImportJobsResponse)
+-&gt; Either String (Maybe [ImportJobSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListImportJobsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe [ImportJobSummary] -&gt; Int -&gt; ListImportJobsResponse)
--&gt; Either String (Maybe [ImportJobSummary])
--&gt; Either String (Int -&gt; ListImportJobsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679339657"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ImportJobSummary]))
+</span><a href="#local-6989586621679342205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ImportJobSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImportJobs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ImportJobSummary]))
@@ -304,6 +293,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ImportJobSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListImportJobsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListImportJobsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342205"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListImportJobsResponse)
 -&gt; Either String Int -&gt; Either String ListImportJobsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -312,15 +310,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339659"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342207"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339648"><span id="local-6989586621679339650"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342196"><span id="local-6989586621679342198"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339645"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342193"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679339641"><span class="annot"><span class="annottext">toHeaders :: ListImportJobs -&gt; ResponseHeaders
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679342189"><span class="annot"><span class="annottext">toHeaders :: ListImportJobs -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListImportJobs -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -340,24 +338,24 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679339635"><span class="annot"><span class="annottext">toPath :: ListImportJobs -&gt; ByteString
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679342183"><span class="annot"><span class="annottext">toPath :: ListImportJobs -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListImportJobs -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/v2/email/import-jobs&quot;</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs"><span class="hs-identifier hs-type">ListImportJobs</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679339631"><span class="annot"><span class="annottext">toQuery :: ListImportJobs -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339627"><span id="local-6989586621679339628"><span id="local-6989586621679339629"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679342179"><span class="annot"><span class="annottext">toQuery :: ListImportJobs -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobs%27"><span class="hs-identifier hs-type">ListImportJobs'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342175"><span id="local-6989586621679342176"><span id="local-6989586621679342177"><span class="annot"><span class="annottext">Maybe Int
 Maybe Text
 Maybe ImportDestinationType
-pageSize :: Maybe Int
 importDestinationType :: Maybe ImportDestinationType
+pageSize :: Maybe Int
 nextToken :: Maybe Text
-$sel:pageSize:ListImportJobs' :: ListImportJobs -&gt; Maybe Int
 $sel:importDestinationType:ListImportJobs' :: ListImportJobs -&gt; Maybe ImportDestinationType
+$sel:pageSize:ListImportJobs' :: ListImportJobs -&gt; Maybe Int
 $sel:nextToken:ListImportJobs' :: ListImportJobs -&gt; Maybe Text
-</span><a href="#local-6989586621679339627"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679342175"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -365,33 +363,33 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339629"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342177"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679339627"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
+</span><a href="#local-6989586621679342176"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | An HTTP 200 response if the request succeeds, or an error message if the</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- request fails.</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- /See:/ 'newListImportJobsResponse' smart constructor.</span><span>
-</span><span id="line-167"></span><span id="local-6989586621679339624"><span id="local-6989586621679339625"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListImportJobsResponse"><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-var">ListImportJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListImportJobsResponse%27"><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-var">ListImportJobsResponse'</span></a></span></span><span>
-</span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string token indicating that there might be additional import jobs</span><span>
-</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- available to be listed. Copy this token to a subsequent call to</span><span>
-</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- @ListImportJobs@ with the same parameters to retrieve the next page of</span><span>
-</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- import jobs.</span><span>
-</span><span id="line-172"></span><span>    </span><span id="%24sel%3AnextToken%3AListImportJobsResponse%27"><span class="annot"><span class="annottext">ListImportJobsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AnextToken%3AListImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | A list of the import job summaries.</span><span>
-</span><span id="line-174"></span><span>    </span><span id="%24sel%3AimportJobs%3AListImportJobsResponse%27"><span class="annot"><span class="annottext">ListImportJobsResponse -&gt; Maybe [ImportJobSummary]
+</span><span id="line-167"></span><span id="local-6989586621679342172"><span id="local-6989586621679342173"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListImportJobsResponse"><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-var">ListImportJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListImportJobsResponse%27"><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-var">ListImportJobsResponse'</span></a></span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the import job summaries.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AimportJobs%3AListImportJobsResponse%27"><span class="annot"><span class="annottext">ListImportJobsResponse -&gt; Maybe [ImportJobSummary]
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AimportJobs%3AListImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">importJobs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportJobSummary.html#ImportJobSummary"><span class="hs-identifier hs-type">ImportJobSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | A string token indicating that there might be additional import jobs</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- available to be listed. Copy this token to a subsequent call to</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- @ListImportJobs@ with the same parameters to retrieve the next page of</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- import jobs.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AnextToken%3AListImportJobsResponse%27"><span class="annot"><span class="annottext">ListImportJobsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AnextToken%3AListImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListImportJobsResponse%27"><span class="annot"><span class="annottext">ListImportJobsResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AhttpStatus%3AListImportJobsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679339617"><span id="local-6989586621679339619"><span class="annot"><span class="annottext">ListImportJobsResponse -&gt; ListImportJobsResponse -&gt; Bool
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342165"><span id="local-6989586621679342167"><span class="annot"><span class="annottext">ListImportJobsResponse -&gt; ListImportJobsResponse -&gt; Bool
 (ListImportJobsResponse -&gt; ListImportJobsResponse -&gt; Bool)
 -&gt; (ListImportJobsResponse -&gt; ListImportJobsResponse -&gt; Bool)
 -&gt; Eq ListImportJobsResponse
@@ -400,7 +398,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListImportJobsResponse -&gt; ListImportJobsResponse -&gt; Bool
 == :: ListImportJobsResponse -&gt; ListImportJobsResponse -&gt; Bool
 $c== :: ListImportJobsResponse -&gt; ListImportJobsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339609"><span id="local-6989586621679339611"><span id="local-6989586621679339613"><span id="local-6989586621679339615"><span class="annot"><span class="annottext">ReadPrec [ListImportJobsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342157"><span id="local-6989586621679342159"><span id="local-6989586621679342161"><span id="local-6989586621679342163"><span class="annot"><span class="annottext">ReadPrec [ListImportJobsResponse]
 ReadPrec ListImportJobsResponse
 Int -&gt; ReadS ListImportJobsResponse
 ReadS [ListImportJobsResponse]
@@ -420,7 +418,7 @@ readList :: ReadS [ListImportJobsResponse]
 $creadList :: ReadS [ListImportJobsResponse]
 readsPrec :: Int -&gt; ReadS ListImportJobsResponse
 $creadsPrec :: Int -&gt; ReadS ListImportJobsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679339603"><span id="local-6989586621679339605"><span id="local-6989586621679339607"><span class="annot"><span class="annottext">Int -&gt; ListImportJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342151"><span id="local-6989586621679342153"><span id="local-6989586621679342155"><span class="annot"><span class="annottext">Int -&gt; ListImportJobsResponse -&gt; ShowS
 [ListImportJobsResponse] -&gt; ShowS
 ListImportJobsResponse -&gt; String
 (Int -&gt; ListImportJobsResponse -&gt; ShowS)
@@ -455,12 +453,12 @@ $cfrom :: forall x. ListImportJobsResponse -&gt; Rep ListImportJobsResponse x
 </span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-187"></span><span class="hs-comment">--</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- 'nextToken', 'listImportJobsResponse_nextToken' - A string token indicating that there might be additional import jobs</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- available to be listed. Copy this token to a subsequent call to</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- @ListImportJobs@ with the same parameters to retrieve the next page of</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- import jobs.</span><span>
-</span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- 'importJobs', 'listImportJobsResponse_importJobs' - A list of the import job summaries.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'importJobs', 'listImportJobsResponse_importJobs' - A list of the import job summaries.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'nextToken', 'listImportJobsResponse_nextToken' - A string token indicating that there might be additional import jobs</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- available to be listed. Copy this token to a subsequent call to</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- @ListImportJobs@ with the same parameters to retrieve the next page of</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- import jobs.</span><span>
 </span><span id="line-194"></span><span class="hs-comment">--</span><span>
 </span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'listImportJobsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-196"></span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#newListImportJobsResponse"><span class="hs-identifier hs-type">newListImportJobsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -468,54 +466,28 @@ $cfrom :: forall x. ListImportJobsResponse -&gt; Rep ListImportJobsResponse x
 </span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-199"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span><span>
 </span><span id="line-200"></span><span id="newListImportJobsResponse"><span class="annot"><span class="annottext">newListImportJobsResponse :: Int -&gt; ListImportJobsResponse
-</span><a href="Network.AWS.SESv2.ListImportJobs.html#newListImportJobsResponse"><span class="hs-identifier hs-var hs-var">newListImportJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679339600"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339600"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">ListImportJobsResponse' :: Maybe Text
--&gt; Maybe [ImportJobSummary] -&gt; Int -&gt; ListImportJobsResponse
+</span><a href="Network.AWS.SESv2.ListImportJobs.html#newListImportJobsResponse"><span class="hs-identifier hs-var hs-var">newListImportJobsResponse</span></a></span></span><span> </span><span id="local-6989586621679342148"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342148"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">ListImportJobsResponse' :: Maybe [ImportJobSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListImportJobsResponse
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-type">ListImportJobsResponse'</span></a></span><span>
-</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListImportJobsResponse' :: Maybe Text
-</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AnextToken%3AListImportJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:importJobs:ListImportJobsResponse' :: Maybe [ImportJobSummary]
+</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AimportJobs%3AListImportJobsResponse%27"><span class="hs-identifier hs-var">importJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ImportJobSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:importJobs:ListImportJobsResponse' :: Maybe [ImportJobSummary]
-</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AimportJobs%3AListImportJobsResponse%27"><span class="hs-identifier hs-var">importJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImportJobSummary]
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListImportJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AnextToken%3AListImportJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListImportJobsResponse' :: Int
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AhttpStatus%3AListImportJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339600"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679342148"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-206"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- | A string token indicating that there might be additional import jobs</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- available to be listed. Copy this token to a subsequent call to</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- @ListImportJobs@ with the same parameters to retrieve the next page of</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- import jobs.</span><span>
-</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobsResponse_nextToken"><span class="hs-identifier hs-type">listImportJobsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span id="listImportJobsResponse_nextToken"><span class="annot"><span class="annottext">listImportJobsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListImportJobsResponse -&gt; f ListImportJobsResponse
-</span><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listImportJobsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImportJobsResponse -&gt; Maybe Text)
--&gt; (ListImportJobsResponse -&gt; Maybe Text -&gt; ListImportJobsResponse)
--&gt; Lens
-     ListImportJobsResponse
-     ListImportJobsResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-type">ListImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339599"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListImportJobsResponse' :: ListImportJobsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679339599"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339599"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339598"><span class="annot"><span class="annottext">s :: ListImportJobsResponse
-</span><a href="#local-6989586621679339598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-type">ListImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339597"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportJobsResponse
-</span><a href="#local-6989586621679339598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListImportJobsResponse' :: Maybe Text
-</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AnextToken%3AListImportJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679339597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- | A list of the import job summaries.</span><span>
-</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobsResponse_importJobs"><span class="hs-identifier hs-type">listImportJobsResponse_importJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportJobSummary.html#ImportJobSummary"><span class="hs-identifier hs-type">ImportJobSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span id="listImportJobsResponse_importJobs"><span class="annot"><span class="annottext">listImportJobsResponse_importJobs :: (Maybe [ImportJobSummary] -&gt; f (Maybe [ImportJobSummary]))
+</span><span id="line-208"></span><span class="hs-comment">-- | A list of the import job summaries.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobsResponse_importJobs"><span class="hs-identifier hs-type">listImportJobsResponse_importJobs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportJobSummary.html#ImportJobSummary"><span class="hs-identifier hs-type">ImportJobSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="listImportJobsResponse_importJobs"><span class="annot"><span class="annottext">listImportJobsResponse_importJobs :: (Maybe [ImportJobSummary] -&gt; f (Maybe [ImportJobSummary]))
 -&gt; ListImportJobsResponse -&gt; f ListImportJobsResponse
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobsResponse_importJobs"><span class="hs-identifier hs-var hs-var">listImportJobsResponse_importJobs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImportJobsResponse -&gt; Maybe [ImportJobSummary])
 -&gt; (ListImportJobsResponse
@@ -526,16 +498,16 @@ $sel:nextToken:ListImportJobsResponse' :: ListImportJobsResponse -&gt; Maybe Tex
      (Maybe [ImportJobSummary])
      (Maybe [ImportJobSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-type">ListImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339596"><span class="annot"><span class="annottext">Maybe [ImportJobSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-type">ListImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342147"><span class="annot"><span class="annottext">Maybe [ImportJobSummary]
 importJobs :: Maybe [ImportJobSummary]
 $sel:importJobs:ListImportJobsResponse' :: ListImportJobsResponse -&gt; Maybe [ImportJobSummary]
-</span><a href="#local-6989586621679339596"><span class="hs-identifier hs-var hs-var">importJobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImportJobSummary]
-</span><a href="#local-6989586621679339596"><span class="hs-identifier hs-var">importJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339595"><span class="annot"><span class="annottext">s :: ListImportJobsResponse
-</span><a href="#local-6989586621679339595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-type">ListImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339594"><span class="annot"><span class="annottext">Maybe [ImportJobSummary]
-</span><a href="#local-6989586621679339594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportJobsResponse
-</span><a href="#local-6989586621679339595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importJobs:ListImportJobsResponse' :: Maybe [ImportJobSummary]
+</span><a href="#local-6989586621679342147"><span class="hs-identifier hs-var hs-var">importJobs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ImportJobSummary]
+</span><a href="#local-6989586621679342147"><span class="hs-identifier hs-var">importJobs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342146"><span class="annot"><span class="annottext">s :: ListImportJobsResponse
+</span><a href="#local-6989586621679342146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-type">ListImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342145"><span class="annot"><span class="annottext">Maybe [ImportJobSummary]
+</span><a href="#local-6989586621679342145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportJobsResponse
+</span><a href="#local-6989586621679342146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:importJobs:ListImportJobsResponse' :: Maybe [ImportJobSummary]
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AimportJobs%3AListImportJobsResponse%27"><span class="hs-identifier hs-var">importJobs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ImportJobSummary]
-</span><a href="#local-6989586621679339594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImportJobSummary] -&gt; f (Maybe [ImportJobSummary]))
+</span><a href="#local-6989586621679342145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ImportJobSummary] -&gt; f (Maybe [ImportJobSummary]))
  -&gt; ListImportJobsResponse -&gt; f ListImportJobsResponse)
 -&gt; ((Maybe [ImportJobSummary] -&gt; f (Maybe [ImportJobSummary]))
     -&gt; Maybe [ImportJobSummary] -&gt; f (Maybe [ImportJobSummary]))
@@ -561,8 +533,34 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ImportJobSummary]
   [ImportJobSummary]
   [ImportJobSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | A string token indicating that there might be additional import jobs</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- available to be listed. Copy this token to a subsequent call to</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- @ListImportJobs@ with the same parameters to retrieve the next page of</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- import jobs.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobsResponse_nextToken"><span class="hs-identifier hs-type">listImportJobsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="listImportJobsResponse_nextToken"><span class="annot"><span class="annottext">listImportJobsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListImportJobsResponse -&gt; f ListImportJobsResponse
+</span><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listImportJobsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImportJobsResponse -&gt; Maybe Text)
+-&gt; (ListImportJobsResponse -&gt; Maybe Text -&gt; ListImportJobsResponse)
+-&gt; Lens
+     ListImportJobsResponse
+     ListImportJobsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-type">ListImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342141"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListImportJobsResponse' :: ListImportJobsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679342141"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342141"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342140"><span class="annot"><span class="annottext">s :: ListImportJobsResponse
+</span><a href="#local-6989586621679342140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-type">ListImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342139"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportJobsResponse
+</span><a href="#local-6989586621679342140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListImportJobsResponse' :: Maybe Text
+</span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AnextToken%3AListImportJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-220"></span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#listImportJobsResponse_httpStatus"><span class="hs-identifier hs-type">listImportJobsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -572,16 +570,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListImportJobsResponse -&gt; Int -&gt; ListImportJobsResponse)
 -&gt; Lens ListImportJobsResponse ListImportJobsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-type">ListImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679339590"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-type">ListImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342138"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListImportJobsResponse' :: ListImportJobsResponse -&gt; Int
-</span><a href="#local-6989586621679339590"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339590"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679339589"><span class="annot"><span class="annottext">s :: ListImportJobsResponse
-</span><a href="#local-6989586621679339589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-type">ListImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679339588"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportJobsResponse
-</span><a href="#local-6989586621679339589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListImportJobsResponse' :: Int
+</span><a href="#local-6989586621679342138"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342138"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342137"><span class="annot"><span class="annottext">s :: ListImportJobsResponse
+</span><a href="#local-6989586621679342137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse%27"><span class="hs-identifier hs-type">ListImportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342136"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportJobsResponse
+</span><a href="#local-6989586621679342137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListImportJobsResponse' :: Int
 </span><a href="Network.AWS.SESv2.ListImportJobs.html#%24sel%3AhttpStatus%3AListImportJobsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679339588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679339586"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342134"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.ListImportJobs.html#ListImportJobsResponse"><span class="hs-identifier hs-type">ListImportJobsResponse</span></a></span></span><span>
 </span><span id="line-224"></span></pre></body></html>

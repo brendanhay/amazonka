@@ -65,14 +65,14 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newEnableAWSServiceAccess' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679246640"><span id="local-6989586621679246641"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableAWSServiceAccess"><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-var">EnableAWSServiceAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableAWSServiceAccess%27"><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess%27"><span class="hs-identifier hs-var">EnableAWSServiceAccess'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679246786"><span id="local-6989586621679246787"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableAWSServiceAccess"><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-var">EnableAWSServiceAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableAWSServiceAccess%27"><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess%27"><span class="hs-identifier hs-var">EnableAWSServiceAccess'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The service principal name of the AWS service for which you want to</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- enable integration with your organization. This is typically in the form</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- of a URL, such as @ service-abbreviation.amazonaws.com@.</span><span>
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AservicePrincipal%3AEnableAWSServiceAccess%27"><span class="annot"><span class="annottext">EnableAWSServiceAccess -&gt; Text
 </span><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#%24sel%3AservicePrincipal%3AEnableAWSServiceAccess%27"><span class="hs-identifier hs-var hs-var">servicePrincipal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246634"><span id="local-6989586621679246636"><span class="annot"><span class="annottext">EnableAWSServiceAccess -&gt; EnableAWSServiceAccess -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246780"><span id="local-6989586621679246782"><span class="annot"><span class="annottext">EnableAWSServiceAccess -&gt; EnableAWSServiceAccess -&gt; Bool
 (EnableAWSServiceAccess -&gt; EnableAWSServiceAccess -&gt; Bool)
 -&gt; (EnableAWSServiceAccess -&gt; EnableAWSServiceAccess -&gt; Bool)
 -&gt; Eq EnableAWSServiceAccess
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnableAWSServiceAccess -&gt; EnableAWSServiceAccess -&gt; Bool
 == :: EnableAWSServiceAccess -&gt; EnableAWSServiceAccess -&gt; Bool
 $c== :: EnableAWSServiceAccess -&gt; EnableAWSServiceAccess -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246625"><span id="local-6989586621679246627"><span id="local-6989586621679246629"><span id="local-6989586621679246631"><span class="annot"><span class="annottext">ReadPrec [EnableAWSServiceAccess]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246771"><span id="local-6989586621679246773"><span id="local-6989586621679246775"><span id="local-6989586621679246777"><span class="annot"><span class="annottext">ReadPrec [EnableAWSServiceAccess]
 ReadPrec EnableAWSServiceAccess
 Int -&gt; ReadS EnableAWSServiceAccess
 ReadS [EnableAWSServiceAccess]
@@ -101,7 +101,7 @@ readList :: ReadS [EnableAWSServiceAccess]
 $creadList :: ReadS [EnableAWSServiceAccess]
 readsPrec :: Int -&gt; ReadS EnableAWSServiceAccess
 $creadsPrec :: Int -&gt; ReadS EnableAWSServiceAccess
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246618"><span id="local-6989586621679246620"><span id="local-6989586621679246622"><span class="annot"><span class="annottext">Int -&gt; EnableAWSServiceAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246764"><span id="local-6989586621679246766"><span id="local-6989586621679246768"><span class="annot"><span class="annottext">Int -&gt; EnableAWSServiceAccess -&gt; ShowS
 [EnableAWSServiceAccess] -&gt; ShowS
 EnableAWSServiceAccess -&gt; String
 (Int -&gt; EnableAWSServiceAccess -&gt; ShowS)
@@ -144,14 +144,14 @@ $cfrom :: forall x. EnableAWSServiceAccess -&gt; Rep EnableAWSServiceAccess x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span><span>
 </span><span id="line-91"></span><span id="newEnableAWSServiceAccess"><span class="annot"><span class="annottext">newEnableAWSServiceAccess :: Text -&gt; EnableAWSServiceAccess
-</span><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#newEnableAWSServiceAccess"><span class="hs-identifier hs-var hs-var">newEnableAWSServiceAccess</span></a></span></span><span> </span><span id="local-6989586621679246613"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679246613"><span class="hs-identifier hs-var">pServicePrincipal_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#newEnableAWSServiceAccess"><span class="hs-identifier hs-var hs-var">newEnableAWSServiceAccess</span></a></span></span><span> </span><span id="local-6989586621679246759"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246759"><span class="hs-identifier hs-var">pServicePrincipal_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">EnableAWSServiceAccess' :: Text -&gt; EnableAWSServiceAccess
 </span><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess%27"><span class="hs-identifier hs-type">EnableAWSServiceAccess'</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:servicePrincipal:EnableAWSServiceAccess' :: Text
 </span><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#%24sel%3AservicePrincipal%3AEnableAWSServiceAccess%27"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679246613"><span class="hs-identifier hs-var">pServicePrincipal_</span></a></span><span>
+</span><a href="#local-6989586621679246759"><span class="hs-identifier hs-var">pServicePrincipal_</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The service principal name of the AWS service for which you want to</span><span>
@@ -164,27 +164,27 @@ $cfrom :: forall x. EnableAWSServiceAccess -&gt; Rep EnableAWSServiceAccess x
 -&gt; (EnableAWSServiceAccess -&gt; Text -&gt; EnableAWSServiceAccess)
 -&gt; Lens EnableAWSServiceAccess EnableAWSServiceAccess Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess%27"><span class="hs-identifier hs-type">EnableAWSServiceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246610"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess%27"><span class="hs-identifier hs-type">EnableAWSServiceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246756"><span class="annot"><span class="annottext">Text
 servicePrincipal :: Text
 $sel:servicePrincipal:EnableAWSServiceAccess' :: EnableAWSServiceAccess -&gt; Text
-</span><a href="#local-6989586621679246610"><span class="hs-identifier hs-var hs-var">servicePrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679246610"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246609"><span class="annot"><span class="annottext">s :: EnableAWSServiceAccess
-</span><a href="#local-6989586621679246609"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess%27"><span class="hs-identifier hs-type">EnableAWSServiceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246608"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679246608"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableAWSServiceAccess
-</span><a href="#local-6989586621679246609"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:servicePrincipal:EnableAWSServiceAccess' :: Text
+</span><a href="#local-6989586621679246756"><span class="hs-identifier hs-var hs-var">servicePrincipal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246756"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246755"><span class="annot"><span class="annottext">s :: EnableAWSServiceAccess
+</span><a href="#local-6989586621679246755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess%27"><span class="hs-identifier hs-type">EnableAWSServiceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246754"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679246754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableAWSServiceAccess
+</span><a href="#local-6989586621679246755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:servicePrincipal:EnableAWSServiceAccess' :: Text
 </span><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#%24sel%3AservicePrincipal%3AEnableAWSServiceAccess%27"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679246608"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679246754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-104"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-105"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccessResponse"><span class="hs-identifier hs-type">EnableAWSServiceAccessResponse</span></a></span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679246604"><span class="annot"><span class="annottext">request :: EnableAWSServiceAccess -&gt; Request EnableAWSServiceAccess
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679246750"><span class="annot"><span class="annottext">request :: EnableAWSServiceAccess -&gt; Request EnableAWSServiceAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; EnableAWSServiceAccess -&gt; Request EnableAWSServiceAccess
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Organizations.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679246600"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679246746"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy EnableAWSServiceAccess
 -&gt; ClientResponse ClientBody
@@ -211,12 +211,12 @@ AWSResponse a
 EnableAWSServiceAccessResponse
 </span><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccessResponse%27"><span class="hs-identifier hs-var">EnableAWSServiceAccessResponse'</span></a></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246593"><span id="local-6989586621679246595"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246739"><span id="local-6989586621679246741"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679246586"><span class="annot"><span class="annottext">toHeaders :: EnableAWSServiceAccess -&gt; [Header]
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679246732"><span class="annot"><span class="annottext">toHeaders :: EnableAWSServiceAccess -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; EnableAWSServiceAccess -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -243,12 +243,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246576"><span id="local-6989586621679246578"><span id="local-6989586621679246580"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679246574"><span class="annot"><span class="annottext">toJSON :: EnableAWSServiceAccess -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess%27"><span class="hs-identifier hs-type">EnableAWSServiceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246572"><span class="annot"><span class="annottext">Text
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246722"><span id="local-6989586621679246724"><span id="local-6989586621679246726"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679246720"><span class="annot"><span class="annottext">toJSON :: EnableAWSServiceAccess -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess%27"><span class="hs-identifier hs-type">EnableAWSServiceAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246718"><span class="annot"><span class="annottext">Text
 servicePrincipal :: Text
 $sel:servicePrincipal:EnableAWSServiceAccess' :: EnableAWSServiceAccess -&gt; Text
-</span><a href="#local-6989586621679246572"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679246718"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -261,19 +261,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ServicePrincipal&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679246572"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679246718"><span class="hs-identifier hs-var">servicePrincipal</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679246566"><span class="annot"><span class="annottext">toPath :: EnableAWSServiceAccess -&gt; ByteString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679246712"><span class="annot"><span class="annottext">toPath :: EnableAWSServiceAccess -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnableAWSServiceAccess -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccess"><span class="hs-identifier hs-type">EnableAWSServiceAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679246562"><span class="annot"><span class="annottext">toQuery :: EnableAWSServiceAccess -&gt; QueryString
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679246708"><span class="annot"><span class="annottext">toQuery :: EnableAWSServiceAccess -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; EnableAWSServiceAccess -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -281,10 +281,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newEnableAWSServiceAccessResponse' smart constructor.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679246559"><span id="local-6989586621679246560"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableAWSServiceAccessResponse"><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccessResponse"><span class="hs-identifier hs-var">EnableAWSServiceAccessResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableAWSServiceAccessResponse%27"><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccessResponse%27"><span class="hs-identifier hs-var">EnableAWSServiceAccessResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span id="local-6989586621679246705"><span id="local-6989586621679246706"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableAWSServiceAccessResponse"><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccessResponse"><span class="hs-identifier hs-var">EnableAWSServiceAccessResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableAWSServiceAccessResponse%27"><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccessResponse%27"><span class="hs-identifier hs-var">EnableAWSServiceAccessResponse'</span></a></span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246555"><span id="local-6989586621679246557"><span class="annot"><span class="annottext">EnableAWSServiceAccessResponse
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246701"><span id="local-6989586621679246703"><span class="annot"><span class="annottext">EnableAWSServiceAccessResponse
 -&gt; EnableAWSServiceAccessResponse -&gt; Bool
 (EnableAWSServiceAccessResponse
  -&gt; EnableAWSServiceAccessResponse -&gt; Bool)
@@ -300,7 +300,7 @@ $c/= :: EnableAWSServiceAccessResponse
 -&gt; EnableAWSServiceAccessResponse -&gt; Bool
 $c== :: EnableAWSServiceAccessResponse
 -&gt; EnableAWSServiceAccessResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246547"><span id="local-6989586621679246549"><span id="local-6989586621679246551"><span id="local-6989586621679246553"><span class="annot"><span class="annottext">ReadPrec [EnableAWSServiceAccessResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246693"><span id="local-6989586621679246695"><span id="local-6989586621679246697"><span id="local-6989586621679246699"><span class="annot"><span class="annottext">ReadPrec [EnableAWSServiceAccessResponse]
 ReadPrec EnableAWSServiceAccessResponse
 Int -&gt; ReadS EnableAWSServiceAccessResponse
 ReadS [EnableAWSServiceAccessResponse]
@@ -320,7 +320,7 @@ readList :: ReadS [EnableAWSServiceAccessResponse]
 $creadList :: ReadS [EnableAWSServiceAccessResponse]
 readsPrec :: Int -&gt; ReadS EnableAWSServiceAccessResponse
 $creadsPrec :: Int -&gt; ReadS EnableAWSServiceAccessResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246541"><span id="local-6989586621679246543"><span id="local-6989586621679246545"><span class="annot"><span class="annottext">Int -&gt; EnableAWSServiceAccessResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246687"><span id="local-6989586621679246689"><span id="local-6989586621679246691"><span class="annot"><span class="annottext">Int -&gt; EnableAWSServiceAccessResponse -&gt; ShowS
 [EnableAWSServiceAccessResponse] -&gt; ShowS
 EnableAWSServiceAccessResponse -&gt; String
 (Int -&gt; EnableAWSServiceAccessResponse -&gt; ShowS)
@@ -370,6 +370,6 @@ EnableAWSServiceAccessResponse
 </span><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccessResponse%27"><span class="hs-identifier hs-var">EnableAWSServiceAccessResponse'</span></a></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679246537"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679246683"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.Organizations.EnableAWSServiceAccess.html#EnableAWSServiceAccessResponse"><span class="hs-identifier hs-type">EnableAWSServiceAccessResponse</span></a></span></span><span>
 </span><span id="line-164"></span></pre></body></html>

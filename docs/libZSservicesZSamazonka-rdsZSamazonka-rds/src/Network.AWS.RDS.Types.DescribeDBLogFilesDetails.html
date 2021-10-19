@@ -26,18 +26,18 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | This data type is used as a response element to @DescribeDBLogFiles@.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDescribeDBLogFilesDetails' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679759283"><span id="local-6989586621679759284"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBLogFilesDetails"><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-var">DescribeDBLogFilesDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBLogFilesDetails%27"><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var">DescribeDBLogFilesDetails'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679760326"><span id="local-6989586621679760327"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeDBLogFilesDetails"><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-var">DescribeDBLogFilesDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeDBLogFilesDetails%27"><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var">DescribeDBLogFilesDetails'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A POSIX timestamp when the last log entry was written.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AlastWritten%3ADescribeDBLogFilesDetails%27"><span class="annot"><span class="annottext">DescribeDBLogFilesDetails -&gt; Maybe Integer
 </span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3AlastWritten%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var hs-var">lastWritten</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The name of the log file for the specified DB instance.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AlogFileName%3ADescribeDBLogFilesDetails%27"><span class="annot"><span class="annottext">DescribeDBLogFilesDetails -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3AlogFileName%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var hs-var">logFileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The size, in bytes, of the log file for the specified DB instance.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Asize%3ADescribeDBLogFilesDetails%27"><span class="annot"><span class="annottext">DescribeDBLogFilesDetails -&gt; Maybe Integer
-</span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3Asize%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The size, in bytes, of the log file for the specified DB instance.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Asize%3ADescribeDBLogFilesDetails%27"><span class="annot"><span class="annottext">DescribeDBLogFilesDetails -&gt; Maybe Integer
+</span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3Asize%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The name of the log file for the specified DB instance.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlogFileName%3ADescribeDBLogFilesDetails%27"><span class="annot"><span class="annottext">DescribeDBLogFilesDetails -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3AlogFileName%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var hs-var">logFileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679759275"><span id="local-6989586621679759277"><span class="annot"><span class="annottext">DescribeDBLogFilesDetails -&gt; DescribeDBLogFilesDetails -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679760318"><span id="local-6989586621679760320"><span class="annot"><span class="annottext">DescribeDBLogFilesDetails -&gt; DescribeDBLogFilesDetails -&gt; Bool
 (DescribeDBLogFilesDetails -&gt; DescribeDBLogFilesDetails -&gt; Bool)
 -&gt; (DescribeDBLogFilesDetails -&gt; DescribeDBLogFilesDetails -&gt; Bool)
 -&gt; Eq DescribeDBLogFilesDetails
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeDBLogFilesDetails -&gt; DescribeDBLogFilesDetails -&gt; Bool
 == :: DescribeDBLogFilesDetails -&gt; DescribeDBLogFilesDetails -&gt; Bool
 $c== :: DescribeDBLogFilesDetails -&gt; DescribeDBLogFilesDetails -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679759266"><span id="local-6989586621679759268"><span id="local-6989586621679759270"><span id="local-6989586621679759272"><span class="annot"><span class="annottext">ReadPrec [DescribeDBLogFilesDetails]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679760309"><span id="local-6989586621679760311"><span id="local-6989586621679760313"><span id="local-6989586621679760315"><span class="annot"><span class="annottext">ReadPrec [DescribeDBLogFilesDetails]
 ReadPrec DescribeDBLogFilesDetails
 Int -&gt; ReadS DescribeDBLogFilesDetails
 ReadS [DescribeDBLogFilesDetails]
@@ -66,7 +66,7 @@ readList :: ReadS [DescribeDBLogFilesDetails]
 $creadList :: ReadS [DescribeDBLogFilesDetails]
 readsPrec :: Int -&gt; ReadS DescribeDBLogFilesDetails
 $creadsPrec :: Int -&gt; ReadS DescribeDBLogFilesDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679759259"><span id="local-6989586621679759261"><span id="local-6989586621679759263"><span class="annot"><span class="annottext">Int -&gt; DescribeDBLogFilesDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679760302"><span id="local-6989586621679760304"><span id="local-6989586621679760306"><span class="annot"><span class="annottext">Int -&gt; DescribeDBLogFilesDetails -&gt; ShowS
 [DescribeDBLogFilesDetails] -&gt; ShowS
 DescribeDBLogFilesDetails -&gt; String
 (Int -&gt; DescribeDBLogFilesDetails -&gt; ShowS)
@@ -108,27 +108,27 @@ DescribeDBLogFilesDetails -&gt; Rep DescribeDBLogFilesDetails x
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- 'lastWritten', 'describeDBLogFilesDetails_lastWritten' - A POSIX timestamp when the last log entry was written.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'logFileName', 'describeDBLogFilesDetails_logFileName' - The name of the log file for the specified DB instance.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'size', 'describeDBLogFilesDetails_size' - The size, in bytes, of the log file for the specified DB instance.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'size', 'describeDBLogFilesDetails_size' - The size, in bytes, of the log file for the specified DB instance.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'logFileName', 'describeDBLogFilesDetails_logFileName' - The name of the log file for the specified DB instance.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#newDescribeDBLogFilesDetails"><span class="hs-identifier hs-type">newDescribeDBLogFilesDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span><span>
 </span><span id="line-54"></span><span id="newDescribeDBLogFilesDetails"><span class="annot"><span class="annottext">newDescribeDBLogFilesDetails :: DescribeDBLogFilesDetails
 </span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#newDescribeDBLogFilesDetails"><span class="hs-identifier hs-var hs-var">newDescribeDBLogFilesDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">DescribeDBLogFilesDetails' :: Maybe Integer
--&gt; Maybe Text -&gt; Maybe Integer -&gt; DescribeDBLogFilesDetails
+-&gt; Maybe Integer -&gt; Maybe Text -&gt; DescribeDBLogFilesDetails
 </span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastWritten:DescribeDBLogFilesDetails' :: Maybe Integer
 </span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3AlastWritten%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var">lastWritten</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:logFileName:DescribeDBLogFilesDetails' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3AlogFileName%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var">logFileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:size:DescribeDBLogFilesDetails' :: Maybe Integer
+</span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3Asize%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:size:DescribeDBLogFilesDetails' :: Maybe Integer
-</span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3Asize%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:logFileName:DescribeDBLogFilesDetails' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3AlogFileName%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var">logFileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
@@ -146,44 +146,20 @@ forall a. Maybe a
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679759250"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679760293"><span class="annot"><span class="annottext">Maybe Integer
 lastWritten :: Maybe Integer
 $sel:lastWritten:DescribeDBLogFilesDetails' :: DescribeDBLogFilesDetails -&gt; Maybe Integer
-</span><a href="#local-6989586621679759250"><span class="hs-identifier hs-var hs-var">lastWritten</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679759250"><span class="hs-identifier hs-var">lastWritten</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679759249"><span class="annot"><span class="annottext">s :: DescribeDBLogFilesDetails
-</span><a href="#local-6989586621679759249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679759248"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679759248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBLogFilesDetails
-</span><a href="#local-6989586621679759249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastWritten:DescribeDBLogFilesDetails' :: Maybe Integer
+</span><a href="#local-6989586621679760293"><span class="hs-identifier hs-var hs-var">lastWritten</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679760293"><span class="hs-identifier hs-var">lastWritten</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679760292"><span class="annot"><span class="annottext">s :: DescribeDBLogFilesDetails
+</span><a href="#local-6989586621679760292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679760291"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679760291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBLogFilesDetails
+</span><a href="#local-6989586621679760292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastWritten:DescribeDBLogFilesDetails' :: Maybe Integer
 </span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3AlastWritten%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var">lastWritten</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679759248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679760291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The name of the log file for the specified DB instance.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#describeDBLogFilesDetails_logFileName"><span class="hs-identifier hs-type">describeDBLogFilesDetails_logFileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="describeDBLogFilesDetails_logFileName"><span class="annot"><span class="annottext">describeDBLogFilesDetails_logFileName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeDBLogFilesDetails -&gt; f DescribeDBLogFilesDetails
-</span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#describeDBLogFilesDetails_logFileName"><span class="hs-identifier hs-var hs-var">describeDBLogFilesDetails_logFileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBLogFilesDetails -&gt; Maybe Text)
--&gt; (DescribeDBLogFilesDetails
-    -&gt; Maybe Text -&gt; DescribeDBLogFilesDetails)
--&gt; Lens
-     DescribeDBLogFilesDetails
-     DescribeDBLogFilesDetails
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679759246"><span class="annot"><span class="annottext">Maybe Text
-logFileName :: Maybe Text
-$sel:logFileName:DescribeDBLogFilesDetails' :: DescribeDBLogFilesDetails -&gt; Maybe Text
-</span><a href="#local-6989586621679759246"><span class="hs-identifier hs-var hs-var">logFileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679759246"><span class="hs-identifier hs-var">logFileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679759245"><span class="annot"><span class="annottext">s :: DescribeDBLogFilesDetails
-</span><a href="#local-6989586621679759245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679759244"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679759244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBLogFilesDetails
-</span><a href="#local-6989586621679759245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logFileName:DescribeDBLogFilesDetails' :: Maybe Text
-</span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3AlogFileName%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var">logFileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679759244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The size, in bytes, of the log file for the specified DB instance.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#describeDBLogFilesDetails_size"><span class="hs-identifier hs-type">describeDBLogFilesDetails_size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="describeDBLogFilesDetails_size"><span class="annot"><span class="annottext">describeDBLogFilesDetails_size :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><span id="line-66"></span><span class="hs-comment">-- | The size, in bytes, of the log file for the specified DB instance.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#describeDBLogFilesDetails_size"><span class="hs-identifier hs-type">describeDBLogFilesDetails_size</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="describeDBLogFilesDetails_size"><span class="annot"><span class="annottext">describeDBLogFilesDetails_size :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; DescribeDBLogFilesDetails -&gt; f DescribeDBLogFilesDetails
 </span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#describeDBLogFilesDetails_size"><span class="hs-identifier hs-var hs-var">describeDBLogFilesDetails_size</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBLogFilesDetails -&gt; Maybe Integer)
 -&gt; (DescribeDBLogFilesDetails
@@ -194,56 +170,80 @@ $sel:logFileName:DescribeDBLogFilesDetails' :: DescribeDBLogFilesDetails -&gt; M
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679759242"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679760289"><span class="annot"><span class="annottext">Maybe Integer
 size :: Maybe Integer
 $sel:size:DescribeDBLogFilesDetails' :: DescribeDBLogFilesDetails -&gt; Maybe Integer
-</span><a href="#local-6989586621679759242"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679759242"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679759241"><span class="annot"><span class="annottext">s :: DescribeDBLogFilesDetails
-</span><a href="#local-6989586621679759241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679759240"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679759240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBLogFilesDetails
-</span><a href="#local-6989586621679759241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:DescribeDBLogFilesDetails' :: Maybe Integer
+</span><a href="#local-6989586621679760289"><span class="hs-identifier hs-var hs-var">size</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679760289"><span class="hs-identifier hs-var">size</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679760288"><span class="annot"><span class="annottext">s :: DescribeDBLogFilesDetails
+</span><a href="#local-6989586621679760288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679760287"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679760287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBLogFilesDetails
+</span><a href="#local-6989586621679760288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:size:DescribeDBLogFilesDetails' :: Maybe Integer
 </span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3Asize%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var">size</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679759240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679760287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The name of the log file for the specified DB instance.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#describeDBLogFilesDetails_logFileName"><span class="hs-identifier hs-type">describeDBLogFilesDetails_logFileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="describeDBLogFilesDetails_logFileName"><span class="annot"><span class="annottext">describeDBLogFilesDetails_logFileName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeDBLogFilesDetails -&gt; f DescribeDBLogFilesDetails
+</span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#describeDBLogFilesDetails_logFileName"><span class="hs-identifier hs-var hs-var">describeDBLogFilesDetails_logFileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeDBLogFilesDetails -&gt; Maybe Text)
+-&gt; (DescribeDBLogFilesDetails
+    -&gt; Maybe Text -&gt; DescribeDBLogFilesDetails)
+-&gt; Lens
+     DescribeDBLogFilesDetails
+     DescribeDBLogFilesDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679760285"><span class="annot"><span class="annottext">Maybe Text
+logFileName :: Maybe Text
+$sel:logFileName:DescribeDBLogFilesDetails' :: DescribeDBLogFilesDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679760285"><span class="hs-identifier hs-var hs-var">logFileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679760285"><span class="hs-identifier hs-var">logFileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679760284"><span class="annot"><span class="annottext">s :: DescribeDBLogFilesDetails
+</span><a href="#local-6989586621679760284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679760283"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679760283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeDBLogFilesDetails
+</span><a href="#local-6989586621679760284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logFileName:DescribeDBLogFilesDetails' :: Maybe Text
+</span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#%24sel%3AlogFileName%3ADescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var">logFileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679760283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679759237"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DescribeDBLogFilesDetails
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679759235"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679759235"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679760280"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DescribeDBLogFilesDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679760278"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679760278"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer
--&gt; Maybe Text -&gt; Maybe Integer -&gt; DescribeDBLogFilesDetails
+-&gt; Maybe Integer -&gt; Maybe Text -&gt; DescribeDBLogFilesDetails
 </span><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails%27"><span class="hs-identifier hs-var">DescribeDBLogFilesDetails'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Integer
- -&gt; Maybe Text -&gt; Maybe Integer -&gt; DescribeDBLogFilesDetails)
+ -&gt; Maybe Integer -&gt; Maybe Text -&gt; DescribeDBLogFilesDetails)
 -&gt; Either String (Maybe Integer)
 -&gt; Either
-     String (Maybe Text -&gt; Maybe Integer -&gt; DescribeDBLogFilesDetails)
+     String (Maybe Integer -&gt; Maybe Text -&gt; DescribeDBLogFilesDetails)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679759235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679760278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastWritten&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Maybe Integer -&gt; DescribeDBLogFilesDetails)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Integer -&gt; DescribeDBLogFilesDetails)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679759235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LogFileName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Integer -&gt; DescribeDBLogFilesDetails)
+  String (Maybe Integer -&gt; Maybe Text -&gt; DescribeDBLogFilesDetails)
 -&gt; Either String (Maybe Integer)
--&gt; Either String DescribeDBLogFilesDetails
+-&gt; Either String (Maybe Text -&gt; DescribeDBLogFilesDetails)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679759235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679760278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Size&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DescribeDBLogFilesDetails)
+-&gt; Either String (Maybe Text)
+-&gt; Either String DescribeDBLogFilesDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679760278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogFileName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679759229"><span id="local-6989586621679759231"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679760272"><span id="local-6989586621679760274"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679759226"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679760269"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DescribeDBLogFilesDetails.html#DescribeDBLogFilesDetails"><span class="hs-identifier hs-type">DescribeDBLogFilesDetails</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

@@ -46,14 +46,14 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newPutRetentionPolicy' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679225056"><span id="local-6989586621679225057"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRetentionPolicy"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-var">PutRetentionPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRetentionPolicy%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-var">PutRetentionPolicy'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679225201"><span id="local-6989586621679225202"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRetentionPolicy"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-var">PutRetentionPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRetentionPolicy%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-var">PutRetentionPolicy'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the log group.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AlogGroupName%3APutRetentionPolicy%27"><span class="annot"><span class="annottext">PutRetentionPolicy -&gt; Text
 </span><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#%24sel%3AlogGroupName%3APutRetentionPolicy%27"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AretentionInDays%3APutRetentionPolicy%27"><span class="annot"><span class="annottext">PutRetentionPolicy -&gt; Int
 </span><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#%24sel%3AretentionInDays%3APutRetentionPolicy%27"><span class="hs-identifier hs-var hs-var">retentionInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225049"><span id="local-6989586621679225051"><span class="annot"><span class="annottext">PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225194"><span id="local-6989586621679225196"><span class="annot"><span class="annottext">PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool
 (PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool)
 -&gt; (PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool)
 -&gt; Eq PutRetentionPolicy
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool
 == :: PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool
 $c== :: PutRetentionPolicy -&gt; PutRetentionPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225040"><span id="local-6989586621679225042"><span id="local-6989586621679225044"><span id="local-6989586621679225046"><span class="annot"><span class="annottext">ReadPrec [PutRetentionPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225185"><span id="local-6989586621679225187"><span id="local-6989586621679225189"><span id="local-6989586621679225191"><span class="annot"><span class="annottext">ReadPrec [PutRetentionPolicy]
 ReadPrec PutRetentionPolicy
 Int -&gt; ReadS PutRetentionPolicy
 ReadS [PutRetentionPolicy]
@@ -82,7 +82,7 @@ readList :: ReadS [PutRetentionPolicy]
 $creadList :: ReadS [PutRetentionPolicy]
 readsPrec :: Int -&gt; ReadS PutRetentionPolicy
 $creadsPrec :: Int -&gt; ReadS PutRetentionPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225033"><span id="local-6989586621679225035"><span id="local-6989586621679225037"><span class="annot"><span class="annottext">Int -&gt; PutRetentionPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225178"><span id="local-6989586621679225180"><span id="local-6989586621679225182"><span class="annot"><span class="annottext">Int -&gt; PutRetentionPolicy -&gt; ShowS
 [PutRetentionPolicy] -&gt; ShowS
 PutRetentionPolicy -&gt; String
 (Int -&gt; PutRetentionPolicy -&gt; ShowS)
@@ -127,18 +127,18 @@ $cfrom :: forall x. PutRetentionPolicy -&gt; Rep PutRetentionPolicy x
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span>
 </span><span id="line-73"></span><span id="newPutRetentionPolicy"><span class="annot"><span class="annottext">newPutRetentionPolicy :: Text -&gt; Int -&gt; PutRetentionPolicy
 </span><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#newPutRetentionPolicy"><span class="hs-identifier hs-var hs-var">newPutRetentionPolicy</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679225028"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225028"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679225027"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225027"><span class="hs-identifier hs-var">pRetentionInDays_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679225173"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225173"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679225172"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225172"><span class="hs-identifier hs-var">pRetentionInDays_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">PutRetentionPolicy' :: Text -&gt; Int -&gt; PutRetentionPolicy
 </span><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:logGroupName:PutRetentionPolicy' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#%24sel%3AlogGroupName%3APutRetentionPolicy%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225028"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225173"><span class="hs-identifier hs-var">pLogGroupName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:retentionInDays:PutRetentionPolicy' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#%24sel%3AretentionInDays%3APutRetentionPolicy%27"><span class="hs-identifier hs-var">retentionInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225027"><span class="hs-identifier hs-var">pRetentionInDays_</span></a></span><span>
+</span><a href="#local-6989586621679225172"><span class="hs-identifier hs-var">pRetentionInDays_</span></a></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The name of the log group.</span><span>
@@ -148,16 +148,16 @@ $cfrom :: forall x. PutRetentionPolicy -&gt; Rep PutRetentionPolicy x
 -&gt; (PutRetentionPolicy -&gt; Text -&gt; PutRetentionPolicy)
 -&gt; Lens PutRetentionPolicy PutRetentionPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225024"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225169"><span class="annot"><span class="annottext">Text
 logGroupName :: Text
 $sel:logGroupName:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Text
-</span><a href="#local-6989586621679225024"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225024"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225023"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
-</span><a href="#local-6989586621679225023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225022"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
-</span><a href="#local-6989586621679225023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:PutRetentionPolicy' :: Text
+</span><a href="#local-6989586621679225169"><span class="hs-identifier hs-var hs-var">logGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225169"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225168"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
+</span><a href="#local-6989586621679225168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225167"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
+</span><a href="#local-6989586621679225168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logGroupName:PutRetentionPolicy' :: Text
 </span><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#%24sel%3AlogGroupName%3APutRetentionPolicy%27"><span class="hs-identifier hs-var">logGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#putRetentionPolicy_retentionInDays"><span class="hs-identifier hs-type">putRetentionPolicy_retentionInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -166,27 +166,27 @@ $sel:logGroupName:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Text
 -&gt; (PutRetentionPolicy -&gt; Int -&gt; PutRetentionPolicy)
 -&gt; Lens PutRetentionPolicy PutRetentionPolicy Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225021"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225166"><span class="annot"><span class="annottext">Int
 retentionInDays :: Int
 $sel:retentionInDays:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Int
-</span><a href="#local-6989586621679225021"><span class="hs-identifier hs-var hs-var">retentionInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225021"><span class="hs-identifier hs-var">retentionInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225020"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
-</span><a href="#local-6989586621679225020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225019"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
-</span><a href="#local-6989586621679225020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionInDays:PutRetentionPolicy' :: Int
+</span><a href="#local-6989586621679225166"><span class="hs-identifier hs-var hs-var">retentionInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225166"><span class="hs-identifier hs-var">retentionInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225165"><span class="annot"><span class="annottext">s :: PutRetentionPolicy
+</span><a href="#local-6989586621679225165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225164"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRetentionPolicy
+</span><a href="#local-6989586621679225165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionInDays:PutRetentionPolicy' :: Int
 </span><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#%24sel%3AretentionInDays%3APutRetentionPolicy%27"><span class="hs-identifier hs-var">retentionInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicyResponse"><span class="hs-identifier hs-type">PutRetentionPolicyResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679225015"><span class="annot"><span class="annottext">request :: PutRetentionPolicy -&gt; Request PutRetentionPolicy
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679225160"><span class="annot"><span class="annottext">request :: PutRetentionPolicy -&gt; Request PutRetentionPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutRetentionPolicy -&gt; Request PutRetentionPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatchLogs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679225011"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679225156"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutRetentionPolicy
 -&gt; ClientResponse ClientBody
@@ -212,12 +212,12 @@ AWSResponse a
 PutRetentionPolicyResponse
 </span><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicyResponse%27"><span class="hs-identifier hs-var">PutRetentionPolicyResponse'</span></a></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225004"><span id="local-6989586621679225006"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225149"><span id="local-6989586621679225151"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225001"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225146"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679224997"><span class="annot"><span class="annottext">toHeaders :: PutRetentionPolicy -&gt; [Header]
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679225142"><span class="annot"><span class="annottext">toHeaders :: PutRetentionPolicy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutRetentionPolicy -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -244,15 +244,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224987"><span id="local-6989586621679224989"><span id="local-6989586621679224991"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679224985"><span class="annot"><span class="annottext">toJSON :: PutRetentionPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224982"><span id="local-6989586621679224983"><span class="annot"><span class="annottext">Int
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225132"><span id="local-6989586621679225134"><span id="local-6989586621679225136"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679225130"><span class="annot"><span class="annottext">toJSON :: PutRetentionPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy%27"><span class="hs-identifier hs-type">PutRetentionPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225127"><span id="local-6989586621679225128"><span class="annot"><span class="annottext">Int
 Text
 retentionInDays :: Int
 logGroupName :: Text
 $sel:retentionInDays:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Int
 $sel:logGroupName:PutRetentionPolicy' :: PutRetentionPolicy -&gt; Text
-</span><a href="#local-6989586621679224982"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679225127"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -264,7 +264,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;logGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679224983"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679225128"><span class="hs-identifier hs-var">logGroupName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -272,19 +272,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;retentionInDays&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679224982"><span class="hs-identifier hs-var">retentionInDays</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225127"><span class="hs-identifier hs-var">retentionInDays</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679224976"><span class="annot"><span class="annottext">toPath :: PutRetentionPolicy -&gt; ByteString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679225121"><span class="annot"><span class="annottext">toPath :: PutRetentionPolicy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutRetentionPolicy -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicy"><span class="hs-identifier hs-type">PutRetentionPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679224972"><span class="annot"><span class="annottext">toQuery :: PutRetentionPolicy -&gt; QueryString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679225117"><span class="annot"><span class="annottext">toQuery :: PutRetentionPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutRetentionPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -292,10 +292,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newPutRetentionPolicyResponse' smart constructor.</span><span>
-</span><span id="line-133"></span><span id="local-6989586621679224969"><span id="local-6989586621679224970"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRetentionPolicyResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicyResponse"><span class="hs-identifier hs-var">PutRetentionPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRetentionPolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicyResponse%27"><span class="hs-identifier hs-var">PutRetentionPolicyResponse'</span></a></span></span><span>
+</span><span id="line-133"></span><span id="local-6989586621679225114"><span id="local-6989586621679225115"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRetentionPolicyResponse"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicyResponse"><span class="hs-identifier hs-var">PutRetentionPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRetentionPolicyResponse%27"><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicyResponse%27"><span class="hs-identifier hs-var">PutRetentionPolicyResponse'</span></a></span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224965"><span id="local-6989586621679224967"><span class="annot"><span class="annottext">PutRetentionPolicyResponse -&gt; PutRetentionPolicyResponse -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225110"><span id="local-6989586621679225112"><span class="annot"><span class="annottext">PutRetentionPolicyResponse -&gt; PutRetentionPolicyResponse -&gt; Bool
 (PutRetentionPolicyResponse -&gt; PutRetentionPolicyResponse -&gt; Bool)
 -&gt; (PutRetentionPolicyResponse
     -&gt; PutRetentionPolicyResponse -&gt; Bool)
@@ -305,7 +305,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutRetentionPolicyResponse -&gt; PutRetentionPolicyResponse -&gt; Bool
 == :: PutRetentionPolicyResponse -&gt; PutRetentionPolicyResponse -&gt; Bool
 $c== :: PutRetentionPolicyResponse -&gt; PutRetentionPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224957"><span id="local-6989586621679224959"><span id="local-6989586621679224961"><span id="local-6989586621679224963"><span class="annot"><span class="annottext">ReadPrec [PutRetentionPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225102"><span id="local-6989586621679225104"><span id="local-6989586621679225106"><span id="local-6989586621679225108"><span class="annot"><span class="annottext">ReadPrec [PutRetentionPolicyResponse]
 ReadPrec PutRetentionPolicyResponse
 Int -&gt; ReadS PutRetentionPolicyResponse
 ReadS [PutRetentionPolicyResponse]
@@ -325,7 +325,7 @@ readList :: ReadS [PutRetentionPolicyResponse]
 $creadList :: ReadS [PutRetentionPolicyResponse]
 readsPrec :: Int -&gt; ReadS PutRetentionPolicyResponse
 $creadsPrec :: Int -&gt; ReadS PutRetentionPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224951"><span id="local-6989586621679224953"><span id="local-6989586621679224955"><span class="annot"><span class="annottext">Int -&gt; PutRetentionPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225096"><span id="local-6989586621679225098"><span id="local-6989586621679225100"><span class="annot"><span class="annottext">Int -&gt; PutRetentionPolicyResponse -&gt; ShowS
 [PutRetentionPolicyResponse] -&gt; ShowS
 PutRetentionPolicyResponse -&gt; String
 (Int -&gt; PutRetentionPolicyResponse -&gt; ShowS)
@@ -368,5 +368,5 @@ PutRetentionPolicyResponse -&gt; Rep PutRetentionPolicyResponse x
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">PutRetentionPolicyResponse
 </span><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicyResponse%27"><span class="hs-identifier hs-var">PutRetentionPolicyResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679224947"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicyResponse"><span class="hs-identifier hs-type">PutRetentionPolicyResponse</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchLogs.PutRetentionPolicy.html#PutRetentionPolicyResponse"><span class="hs-identifier hs-type">PutRetentionPolicyResponse</span></a></span></span><span>
 </span><span id="line-148"></span></pre></body></html>

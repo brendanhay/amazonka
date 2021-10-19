@@ -28,18 +28,18 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes an IPv4 CIDR block associated with a VPC.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newVpcCidrBlockAssociation' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681151886"><span id="local-6989586621681151887"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcCidrBlockAssociation"><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-var">VpcCidrBlockAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcCidrBlockAssociation%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-var">VpcCidrBlockAssociation'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the state of the CIDR block.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcidrBlockState%3AVpcCidrBlockAssociation%27"><span class="annot"><span class="annottext">VpcCidrBlockAssociation -&gt; Maybe VpcCidrBlockState
-</span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#%24sel%3AcidrBlockState%3AVpcCidrBlockAssociation%27"><span class="hs-identifier hs-var hs-var">cidrBlockState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The association ID for the IPv4 CIDR block.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AassociationId%3AVpcCidrBlockAssociation%27"><span class="annot"><span class="annottext">VpcCidrBlockAssociation -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621681187068"><span id="local-6989586621681187069"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcCidrBlockAssociation"><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-var">VpcCidrBlockAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcCidrBlockAssociation%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-var">VpcCidrBlockAssociation'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The association ID for the IPv4 CIDR block.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AassociationId%3AVpcCidrBlockAssociation%27"><span class="annot"><span class="annottext">VpcCidrBlockAssociation -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#%24sel%3AassociationId%3AVpcCidrBlockAssociation%27"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Information about the state of the CIDR block.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcidrBlockState%3AVpcCidrBlockAssociation%27"><span class="annot"><span class="annottext">VpcCidrBlockAssociation -&gt; Maybe VpcCidrBlockState
+</span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#%24sel%3AcidrBlockState%3AVpcCidrBlockAssociation%27"><span class="hs-identifier hs-var hs-var">cidrBlockState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The IPv4 CIDR block.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AcidrBlock%3AVpcCidrBlockAssociation%27"><span class="annot"><span class="annottext">VpcCidrBlockAssociation -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#%24sel%3AcidrBlock%3AVpcCidrBlockAssociation%27"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681151878"><span id="local-6989586621681151880"><span class="annot"><span class="annottext">VpcCidrBlockAssociation -&gt; VpcCidrBlockAssociation -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681187060"><span id="local-6989586621681187062"><span class="annot"><span class="annottext">VpcCidrBlockAssociation -&gt; VpcCidrBlockAssociation -&gt; Bool
 (VpcCidrBlockAssociation -&gt; VpcCidrBlockAssociation -&gt; Bool)
 -&gt; (VpcCidrBlockAssociation -&gt; VpcCidrBlockAssociation -&gt; Bool)
 -&gt; Eq VpcCidrBlockAssociation
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VpcCidrBlockAssociation -&gt; VpcCidrBlockAssociation -&gt; Bool
 == :: VpcCidrBlockAssociation -&gt; VpcCidrBlockAssociation -&gt; Bool
 $c== :: VpcCidrBlockAssociation -&gt; VpcCidrBlockAssociation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681151869"><span id="local-6989586621681151871"><span id="local-6989586621681151873"><span id="local-6989586621681151875"><span class="annot"><span class="annottext">ReadPrec [VpcCidrBlockAssociation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681187051"><span id="local-6989586621681187053"><span id="local-6989586621681187055"><span id="local-6989586621681187057"><span class="annot"><span class="annottext">ReadPrec [VpcCidrBlockAssociation]
 ReadPrec VpcCidrBlockAssociation
 Int -&gt; ReadS VpcCidrBlockAssociation
 ReadS [VpcCidrBlockAssociation]
@@ -68,7 +68,7 @@ readList :: ReadS [VpcCidrBlockAssociation]
 $creadList :: ReadS [VpcCidrBlockAssociation]
 readsPrec :: Int -&gt; ReadS VpcCidrBlockAssociation
 $creadsPrec :: Int -&gt; ReadS VpcCidrBlockAssociation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681151862"><span id="local-6989586621681151864"><span id="local-6989586621681151866"><span class="annot"><span class="annottext">Int -&gt; VpcCidrBlockAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681187044"><span id="local-6989586621681187046"><span id="local-6989586621681187048"><span class="annot"><span class="annottext">Int -&gt; VpcCidrBlockAssociation -&gt; ShowS
 [VpcCidrBlockAssociation] -&gt; ShowS
 VpcCidrBlockAssociation -&gt; String
 (Int -&gt; VpcCidrBlockAssociation -&gt; ShowS)
@@ -104,25 +104,25 @@ $cfrom :: forall x. VpcCidrBlockAssociation -&gt; Rep VpcCidrBlockAssociation x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'cidrBlockState', 'vpcCidrBlockAssociation_cidrBlockState' - Information about the state of the CIDR block.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'associationId', 'vpcCidrBlockAssociation_associationId' - The association ID for the IPv4 CIDR block.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'associationId', 'vpcCidrBlockAssociation_associationId' - The association ID for the IPv4 CIDR block.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'cidrBlockState', 'vpcCidrBlockAssociation_cidrBlockState' - Information about the state of the CIDR block.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- 'cidrBlock', 'vpcCidrBlockAssociation_cidrBlock' - The IPv4 CIDR block.</span><span>
 </span><span id="line-54"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#newVpcCidrBlockAssociation"><span class="hs-identifier hs-type">newVpcCidrBlockAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span><span>
 </span><span id="line-56"></span><span id="newVpcCidrBlockAssociation"><span class="annot"><span class="annottext">newVpcCidrBlockAssociation :: VpcCidrBlockAssociation
 </span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#newVpcCidrBlockAssociation"><span class="hs-identifier hs-var hs-var">newVpcCidrBlockAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">VpcCidrBlockAssociation' :: Maybe VpcCidrBlockState
--&gt; Maybe Text -&gt; Maybe Text -&gt; VpcCidrBlockAssociation
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">VpcCidrBlockAssociation' :: Maybe Text
+-&gt; Maybe VpcCidrBlockState -&gt; Maybe Text -&gt; VpcCidrBlockAssociation
 </span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-type">VpcCidrBlockAssociation'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cidrBlockState:VpcCidrBlockAssociation' :: Maybe VpcCidrBlockState
-</span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#%24sel%3AcidrBlockState%3AVpcCidrBlockAssociation%27"><span class="hs-identifier hs-var">cidrBlockState</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe VpcCidrBlockState
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:associationId:VpcCidrBlockAssociation' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#%24sel%3AassociationId%3AVpcCidrBlockAssociation%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationId:VpcCidrBlockAssociation' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#%24sel%3AassociationId%3AVpcCidrBlockAssociation%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidrBlockState:VpcCidrBlockAssociation' :: Maybe VpcCidrBlockState
+</span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#%24sel%3AcidrBlockState%3AVpcCidrBlockAssociation%27"><span class="hs-identifier hs-var">cidrBlockState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcCidrBlockState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidrBlock:VpcCidrBlockAssociation' :: Maybe Text
@@ -131,33 +131,9 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | Information about the state of the CIDR block.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#vpcCidrBlockAssociation_cidrBlockState"><span class="hs-identifier hs-type">vpcCidrBlockAssociation_cidrBlockState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="vpcCidrBlockAssociation_cidrBlockState"><span class="annot"><span class="annottext">vpcCidrBlockAssociation_cidrBlockState :: (Maybe VpcCidrBlockState -&gt; f (Maybe VpcCidrBlockState))
--&gt; VpcCidrBlockAssociation -&gt; f VpcCidrBlockAssociation
-</span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#vpcCidrBlockAssociation_cidrBlockState"><span class="hs-identifier hs-var hs-var">vpcCidrBlockAssociation_cidrBlockState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcCidrBlockAssociation -&gt; Maybe VpcCidrBlockState)
--&gt; (VpcCidrBlockAssociation
-    -&gt; Maybe VpcCidrBlockState -&gt; VpcCidrBlockAssociation)
--&gt; Lens
-     VpcCidrBlockAssociation
-     VpcCidrBlockAssociation
-     (Maybe VpcCidrBlockState)
-     (Maybe VpcCidrBlockState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-type">VpcCidrBlockAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681151853"><span class="annot"><span class="annottext">Maybe VpcCidrBlockState
-cidrBlockState :: Maybe VpcCidrBlockState
-$sel:cidrBlockState:VpcCidrBlockAssociation' :: VpcCidrBlockAssociation -&gt; Maybe VpcCidrBlockState
-</span><a href="#local-6989586621681151853"><span class="hs-identifier hs-var hs-var">cidrBlockState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcCidrBlockState
-</span><a href="#local-6989586621681151853"><span class="hs-identifier hs-var">cidrBlockState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681151852"><span class="annot"><span class="annottext">s :: VpcCidrBlockAssociation
-</span><a href="#local-6989586621681151852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-type">VpcCidrBlockAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681151851"><span class="annot"><span class="annottext">Maybe VpcCidrBlockState
-</span><a href="#local-6989586621681151851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcCidrBlockAssociation
-</span><a href="#local-6989586621681151852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlockState:VpcCidrBlockAssociation' :: Maybe VpcCidrBlockState
-</span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#%24sel%3AcidrBlockState%3AVpcCidrBlockAssociation%27"><span class="hs-identifier hs-var">cidrBlockState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcCidrBlockState
-</span><a href="#local-6989586621681151851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The association ID for the IPv4 CIDR block.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#vpcCidrBlockAssociation_associationId"><span class="hs-identifier hs-type">vpcCidrBlockAssociation_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="vpcCidrBlockAssociation_associationId"><span class="annot"><span class="annottext">vpcCidrBlockAssociation_associationId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-64"></span><span class="hs-comment">-- | The association ID for the IPv4 CIDR block.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#vpcCidrBlockAssociation_associationId"><span class="hs-identifier hs-type">vpcCidrBlockAssociation_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="vpcCidrBlockAssociation_associationId"><span class="annot"><span class="annottext">vpcCidrBlockAssociation_associationId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; VpcCidrBlockAssociation -&gt; f VpcCidrBlockAssociation
 </span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#vpcCidrBlockAssociation_associationId"><span class="hs-identifier hs-var hs-var">vpcCidrBlockAssociation_associationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcCidrBlockAssociation -&gt; Maybe Text)
 -&gt; (VpcCidrBlockAssociation
@@ -168,16 +144,40 @@ $sel:cidrBlockState:VpcCidrBlockAssociation' :: VpcCidrBlockAssociation -&gt; Ma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-type">VpcCidrBlockAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681151849"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-type">VpcCidrBlockAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681187035"><span class="annot"><span class="annottext">Maybe Text
 associationId :: Maybe Text
 $sel:associationId:VpcCidrBlockAssociation' :: VpcCidrBlockAssociation -&gt; Maybe Text
-</span><a href="#local-6989586621681151849"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681151849"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681151848"><span class="annot"><span class="annottext">s :: VpcCidrBlockAssociation
-</span><a href="#local-6989586621681151848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-type">VpcCidrBlockAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681151847"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681151847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcCidrBlockAssociation
-</span><a href="#local-6989586621681151848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:VpcCidrBlockAssociation' :: Maybe Text
+</span><a href="#local-6989586621681187035"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681187035"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681187034"><span class="annot"><span class="annottext">s :: VpcCidrBlockAssociation
+</span><a href="#local-6989586621681187034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-type">VpcCidrBlockAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681187033"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681187033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcCidrBlockAssociation
+</span><a href="#local-6989586621681187034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:VpcCidrBlockAssociation' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#%24sel%3AassociationId%3AVpcCidrBlockAssociation%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681151847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681187033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Information about the state of the CIDR block.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#vpcCidrBlockAssociation_cidrBlockState"><span class="hs-identifier hs-type">vpcCidrBlockAssociation_cidrBlockState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockState.html#VpcCidrBlockState"><span class="hs-identifier hs-type">VpcCidrBlockState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="vpcCidrBlockAssociation_cidrBlockState"><span class="annot"><span class="annottext">vpcCidrBlockAssociation_cidrBlockState :: (Maybe VpcCidrBlockState -&gt; f (Maybe VpcCidrBlockState))
+-&gt; VpcCidrBlockAssociation -&gt; f VpcCidrBlockAssociation
+</span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#vpcCidrBlockAssociation_cidrBlockState"><span class="hs-identifier hs-var hs-var">vpcCidrBlockAssociation_cidrBlockState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcCidrBlockAssociation -&gt; Maybe VpcCidrBlockState)
+-&gt; (VpcCidrBlockAssociation
+    -&gt; Maybe VpcCidrBlockState -&gt; VpcCidrBlockAssociation)
+-&gt; Lens
+     VpcCidrBlockAssociation
+     VpcCidrBlockAssociation
+     (Maybe VpcCidrBlockState)
+     (Maybe VpcCidrBlockState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-type">VpcCidrBlockAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681187031"><span class="annot"><span class="annottext">Maybe VpcCidrBlockState
+cidrBlockState :: Maybe VpcCidrBlockState
+$sel:cidrBlockState:VpcCidrBlockAssociation' :: VpcCidrBlockAssociation -&gt; Maybe VpcCidrBlockState
+</span><a href="#local-6989586621681187031"><span class="hs-identifier hs-var hs-var">cidrBlockState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcCidrBlockState
+</span><a href="#local-6989586621681187031"><span class="hs-identifier hs-var">cidrBlockState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681187030"><span class="annot"><span class="annottext">s :: VpcCidrBlockAssociation
+</span><a href="#local-6989586621681187030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-type">VpcCidrBlockAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681187029"><span class="annot"><span class="annottext">Maybe VpcCidrBlockState
+</span><a href="#local-6989586621681187029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcCidrBlockAssociation
+</span><a href="#local-6989586621681187030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlockState:VpcCidrBlockAssociation' :: Maybe VpcCidrBlockState
+</span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#%24sel%3AcidrBlockState%3AVpcCidrBlockAssociation%27"><span class="hs-identifier hs-var">cidrBlockState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcCidrBlockState
+</span><a href="#local-6989586621681187029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The IPv4 CIDR block.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#vpcCidrBlockAssociation_cidrBlock"><span class="hs-identifier hs-type">vpcCidrBlockAssociation_cidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -192,55 +192,60 @@ $sel:associationId:VpcCidrBlockAssociation' :: VpcCidrBlockAssociation -&gt; May
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-type">VpcCidrBlockAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681151845"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-type">VpcCidrBlockAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681187027"><span class="annot"><span class="annottext">Maybe Text
 cidrBlock :: Maybe Text
 $sel:cidrBlock:VpcCidrBlockAssociation' :: VpcCidrBlockAssociation -&gt; Maybe Text
-</span><a href="#local-6989586621681151845"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681151845"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681151844"><span class="annot"><span class="annottext">s :: VpcCidrBlockAssociation
-</span><a href="#local-6989586621681151844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-type">VpcCidrBlockAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681151843"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681151843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcCidrBlockAssociation
-</span><a href="#local-6989586621681151844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:VpcCidrBlockAssociation' :: Maybe Text
+</span><a href="#local-6989586621681187027"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681187027"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681187026"><span class="annot"><span class="annottext">s :: VpcCidrBlockAssociation
+</span><a href="#local-6989586621681187026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-type">VpcCidrBlockAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681187025"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681187025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcCidrBlockAssociation
+</span><a href="#local-6989586621681187026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:VpcCidrBlockAssociation' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#%24sel%3AcidrBlock%3AVpcCidrBlockAssociation%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681151843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681187025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621681151840"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VpcCidrBlockAssociation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681151838"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681151838"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">Maybe VpcCidrBlockState
--&gt; Maybe Text -&gt; Maybe Text -&gt; VpcCidrBlockAssociation
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621681187022"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VpcCidrBlockAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681187020"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681187020"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe VpcCidrBlockState -&gt; Maybe Text -&gt; VpcCidrBlockAssociation
 </span><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation%27"><span class="hs-identifier hs-var">VpcCidrBlockAssociation'</span></a></span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">(Maybe VpcCidrBlockState
- -&gt; Maybe Text -&gt; Maybe Text -&gt; VpcCidrBlockAssociation)
--&gt; Either String (Maybe VpcCidrBlockState)
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe VpcCidrBlockState
+ -&gt; Maybe Text
+ -&gt; VpcCidrBlockAssociation)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Maybe Text -&gt; VpcCidrBlockAssociation)
+     String
+     (Maybe VpcCidrBlockState -&gt; Maybe Text -&gt; VpcCidrBlockAssociation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681151838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpcCidrBlockState)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;cidrBlockState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; VpcCidrBlockAssociation)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Text -&gt; VpcCidrBlockAssociation)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681151838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681187020"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;associationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe VpcCidrBlockState -&gt; Maybe Text -&gt; VpcCidrBlockAssociation)
+-&gt; Either String (Maybe VpcCidrBlockState)
+-&gt; Either String (Maybe Text -&gt; VpcCidrBlockAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681187020"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpcCidrBlockState)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cidrBlockState&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; VpcCidrBlockAssociation)
 -&gt; Either String (Maybe Text)
 -&gt; Either String VpcCidrBlockAssociation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681151838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681187020"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cidrBlock&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681151832"><span id="local-6989586621681151834"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681187014"><span id="local-6989586621681187016"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681151829"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681187011"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpcCidrBlockAssociation.html#VpcCidrBlockAssociation"><span class="hs-identifier hs-type">VpcCidrBlockAssociation</span></a></span></span><span>
 </span><span id="line-86"></span></pre></body></html>

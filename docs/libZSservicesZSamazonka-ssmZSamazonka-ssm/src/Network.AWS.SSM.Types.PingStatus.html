@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679808911"><span id="local-6989586621679808912"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PingStatus"><span class="annot"><a href="Network.AWS.SSM.Types.PingStatus.html#PingStatus"><span class="hs-identifier hs-var">PingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PingStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.PingStatus.html#PingStatus%27"><span class="hs-identifier hs-var">PingStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679810601"><span id="local-6989586621679810602"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PingStatus"><span class="annot"><a href="Network.AWS.SSM.Types.PingStatus.html#PingStatus"><span class="hs-identifier hs-var">PingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PingStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.PingStatus.html#PingStatus%27"><span class="hs-identifier hs-var">PingStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPingStatus"><span class="annot"><span class="annottext">PingStatus -&gt; Text
 </span><a href="Network.AWS.SSM.Types.PingStatus.html#fromPingStatus"><span class="hs-identifier hs-var hs-var">fromPingStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679808903"><span id="local-6989586621679808905"><span id="local-6989586621679808907"><span class="annot"><span class="annottext">Int -&gt; PingStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679810593"><span id="local-6989586621679810595"><span id="local-6989586621679810597"><span class="annot"><span class="annottext">Int -&gt; PingStatus -&gt; ShowS
 [PingStatus] -&gt; ShowS
 PingStatus -&gt; String
 (Int -&gt; PingStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: PingStatus -&gt; String
 showsPrec :: Int -&gt; PingStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; PingStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679808894"><span id="local-6989586621679808896"><span id="local-6989586621679808898"><span id="local-6989586621679808900"><span class="annot"><span class="annottext">ReadPrec [PingStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679810584"><span id="local-6989586621679810586"><span id="local-6989586621679810588"><span id="local-6989586621679810590"><span class="annot"><span class="annottext">ReadPrec [PingStatus]
 ReadPrec PingStatus
 Int -&gt; ReadS PingStatus
 ReadS [PingStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [PingStatus]
 readsPrec :: Int -&gt; ReadS PingStatus
 $creadsPrec :: Int -&gt; ReadS PingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679808889"><span id="local-6989586621679808891"><span class="annot"><span class="annottext">PingStatus -&gt; PingStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679810579"><span id="local-6989586621679810581"><span class="annot"><span class="annottext">PingStatus -&gt; PingStatus -&gt; Bool
 (PingStatus -&gt; PingStatus -&gt; Bool)
 -&gt; (PingStatus -&gt; PingStatus -&gt; Bool) -&gt; Eq PingStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: PingStatus -&gt; PingStatus -&gt; Bool
 == :: PingStatus -&gt; PingStatus -&gt; Bool
 $c== :: PingStatus -&gt; PingStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679808873"><span id="local-6989586621679808875"><span id="local-6989586621679808877"><span id="local-6989586621679808879"><span id="local-6989586621679808881"><span id="local-6989586621679808883"><span id="local-6989586621679808885"><span class="annot"><span class="annottext">Eq PingStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679810563"><span id="local-6989586621679810565"><span id="local-6989586621679810567"><span id="local-6989586621679810569"><span id="local-6989586621679810571"><span id="local-6989586621679810573"><span id="local-6989586621679810575"><span class="annot"><span class="annottext">Eq PingStatus
 Eq PingStatus
 -&gt; (PingStatus -&gt; PingStatus -&gt; Ordering)
 -&gt; (PingStatus -&gt; PingStatus -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. PingStatus -&gt; Rep PingStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679808865"><span id="local-6989586621679808867"><span class="annot"><span class="annottext">Int -&gt; PingStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679810555"><span id="local-6989586621679810557"><span class="annot"><span class="annottext">Int -&gt; PingStatus -&gt; Int
 PingStatus -&gt; Int
 (Int -&gt; PingStatus -&gt; Int)
 -&gt; (PingStatus -&gt; Int) -&gt; Hashable PingStatus
@@ -142,49 +142,49 @@ $chash :: PingStatus -&gt; Int
 hashWithSalt :: Int -&gt; PingStatus -&gt; Int
 $chashWithSalt :: Int -&gt; PingStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679808862"><span class="annot"><span class="annottext">PingStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679810552"><span class="annot"><span class="annottext">PingStatus -&gt; ()
 (PingStatus -&gt; ()) -&gt; NFData PingStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PingStatus -&gt; ()
 $crnf :: PingStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679808859"><span class="annot"><span class="annottext">Text -&gt; Either String PingStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679810549"><span class="annot"><span class="annottext">Text -&gt; Either String PingStatus
 (Text -&gt; Either String PingStatus) -&gt; FromText PingStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PingStatus
 $cfromText :: Text -&gt; Either String PingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679808856"><span class="annot"><span class="annottext">PingStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679810546"><span class="annot"><span class="annottext">PingStatus -&gt; Text
 (PingStatus -&gt; Text) -&gt; ToText PingStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PingStatus -&gt; Text
 $ctoText :: PingStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679808853"><span class="annot"><span class="annottext">PingStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679810543"><span class="annot"><span class="annottext">PingStatus -&gt; ByteString
 (PingStatus -&gt; ByteString) -&gt; ToByteString PingStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PingStatus -&gt; ByteString
 $ctoBS :: PingStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679808850"><span class="annot"><span class="annottext">PingStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679810540"><span class="annot"><span class="annottext">PingStatus -&gt; ByteStringBuilder
 (PingStatus -&gt; ByteStringBuilder) -&gt; ToLog PingStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PingStatus -&gt; ByteStringBuilder
 $cbuild :: PingStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679808847"><span class="annot"><span class="annottext">HeaderName -&gt; PingStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679810537"><span class="annot"><span class="annottext">HeaderName -&gt; PingStatus -&gt; [Header]
 (HeaderName -&gt; PingStatus -&gt; [Header]) -&gt; ToHeader PingStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PingStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PingStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679808844"><span class="annot"><span class="annottext">PingStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679810534"><span class="annot"><span class="annottext">PingStatus -&gt; QueryString
 (PingStatus -&gt; QueryString) -&gt; ToQuery PingStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PingStatus -&gt; QueryString
 $ctoQuery :: PingStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679808839"><span id="local-6989586621679808841"><span class="annot"><span class="annottext">Value -&gt; Parser [PingStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679810529"><span id="local-6989586621679810531"><span class="annot"><span class="annottext">Value -&gt; Parser [PingStatus]
 Value -&gt; Parser PingStatus
 (Value -&gt; Parser PingStatus)
 -&gt; (Value -&gt; Parser [PingStatus]) -&gt; FromJSON PingStatus
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [PingStatus]
 parseJSON :: Value -&gt; Parser PingStatus
 $cparseJSON :: Value -&gt; Parser PingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679808834"><span id="local-6989586621679808836"><span class="annot"><span class="annottext">FromJSONKeyFunction [PingStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679810524"><span id="local-6989586621679810526"><span class="annot"><span class="annottext">FromJSONKeyFunction [PingStatus]
 FromJSONKeyFunction PingStatus
 FromJSONKeyFunction PingStatus
 -&gt; FromJSONKeyFunction [PingStatus] -&gt; FromJSONKey PingStatus
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PingStatus]
 fromJSONKey :: FromJSONKeyFunction PingStatus
 $cfromJSONKey :: FromJSONKeyFunction PingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679808825"><span id="local-6989586621679808827"><span id="local-6989586621679808829"><span id="local-6989586621679808831"><span class="annot"><span class="annottext">[PingStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679810515"><span id="local-6989586621679810517"><span id="local-6989586621679810519"><span id="local-6989586621679810521"><span class="annot"><span class="annottext">[PingStatus] -&gt; Encoding
 [PingStatus] -&gt; Value
 PingStatus -&gt; Encoding
 PingStatus -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: PingStatus -&gt; Encoding
 toJSON :: PingStatus -&gt; Value
 $ctoJSON :: PingStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679808820"><span id="local-6989586621679808822"><span class="annot"><span class="annottext">ToJSONKeyFunction [PingStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679810510"><span id="local-6989586621679810512"><span class="annot"><span class="annottext">ToJSONKeyFunction [PingStatus]
 ToJSONKeyFunction PingStatus
 ToJSONKeyFunction PingStatus
 -&gt; ToJSONKeyFunction [PingStatus] -&gt; ToJSONKey PingStatus
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PingStatus]
 toJSONKey :: ToJSONKeyFunction PingStatus
 $ctoJSONKey :: ToJSONKeyFunction PingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679808817"><span class="annot"><span class="annottext">[Node] -&gt; Either String PingStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679810507"><span class="annot"><span class="annottext">[Node] -&gt; Either String PingStatus
 ([Node] -&gt; Either String PingStatus) -&gt; FromXML PingStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PingStatus
 $cparseXML :: [Node] -&gt; Either String PingStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679808814"><span class="annot"><span class="annottext">PingStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679810504"><span class="annot"><span class="annottext">PingStatus -&gt; XML
 (PingStatus -&gt; XML) -&gt; ToXML PingStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PingStatus -&gt; XML

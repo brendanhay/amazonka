@@ -36,8 +36,8 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#newGetAppsListResponse"><span class="hs-identifier">newGetAppsListResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#getAppsListResponse_appsList"><span class="hs-identifier">getAppsListResponse_appsList</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#getAppsListResponse_appsListArn"><span class="hs-identifier">getAppsListResponse_appsListArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#getAppsListResponse_appsListArn"><span class="hs-identifier">getAppsListResponse_appsListArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#getAppsListResponse_appsList"><span class="hs-identifier">getAppsListResponse_appsList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#getAppsListResponse_httpStatus"><span class="hs-identifier">getAppsListResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span class="hs-keyword">where</span><span>
@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetAppsList' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679256762"><span id="local-6989586621679256763"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAppsList"><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-var">GetAppsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAppsList%27"><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList%27"><span class="hs-identifier hs-var">GetAppsList'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679257026"><span id="local-6989586621679257027"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAppsList"><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-var">GetAppsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAppsList%27"><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList%27"><span class="hs-identifier hs-var">GetAppsList'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether the list to retrieve is a default list owned by</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Firewall Manager.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AdefaultList%3AGetAppsList%27"><span class="annot"><span class="annottext">GetAppsList -&gt; Maybe Bool
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AlistId%3AGetAppsList%27"><span class="annot"><span class="annottext">GetAppsList -&gt; Text
 </span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AlistId%3AGetAppsList%27"><span class="hs-identifier hs-var hs-var">listId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256755"><span id="local-6989586621679256757"><span class="annot"><span class="annottext">GetAppsList -&gt; GetAppsList -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257019"><span id="local-6989586621679257021"><span class="annot"><span class="annottext">GetAppsList -&gt; GetAppsList -&gt; Bool
 (GetAppsList -&gt; GetAppsList -&gt; Bool)
 -&gt; (GetAppsList -&gt; GetAppsList -&gt; Bool) -&gt; Eq GetAppsList
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAppsList -&gt; GetAppsList -&gt; Bool
 == :: GetAppsList -&gt; GetAppsList -&gt; Bool
 $c== :: GetAppsList -&gt; GetAppsList -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256746"><span id="local-6989586621679256748"><span id="local-6989586621679256750"><span id="local-6989586621679256752"><span class="annot"><span class="annottext">ReadPrec [GetAppsList]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257010"><span id="local-6989586621679257012"><span id="local-6989586621679257014"><span id="local-6989586621679257016"><span class="annot"><span class="annottext">ReadPrec [GetAppsList]
 ReadPrec GetAppsList
 Int -&gt; ReadS GetAppsList
 ReadS [GetAppsList]
@@ -88,7 +88,7 @@ readList :: ReadS [GetAppsList]
 $creadList :: ReadS [GetAppsList]
 readsPrec :: Int -&gt; ReadS GetAppsList
 $creadsPrec :: Int -&gt; ReadS GetAppsList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256739"><span id="local-6989586621679256741"><span id="local-6989586621679256743"><span class="annot"><span class="annottext">Int -&gt; GetAppsList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257003"><span id="local-6989586621679257005"><span id="local-6989586621679257007"><span class="annot"><span class="annottext">Int -&gt; GetAppsList -&gt; ShowS
 [GetAppsList] -&gt; ShowS
 GetAppsList -&gt; String
 (Int -&gt; GetAppsList -&gt; ShowS)
@@ -132,8 +132,8 @@ $cfrom :: forall x. GetAppsList -&gt; Rep GetAppsList x
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span><span>
 </span><span id="line-80"></span><span id="newGetAppsList"><span class="annot"><span class="annottext">newGetAppsList :: Text -&gt; GetAppsList
-</span><a href="Network.AWS.FMS.GetAppsList.html#newGetAppsList"><span class="hs-identifier hs-var hs-var">newGetAppsList</span></a></span></span><span> </span><span id="local-6989586621679256734"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256734"><span class="hs-identifier hs-var">pListId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.FMS.GetAppsList.html#newGetAppsList"><span class="hs-identifier hs-var hs-var">newGetAppsList</span></a></span></span><span> </span><span id="local-6989586621679256998"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256998"><span class="hs-identifier hs-var">pListId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">GetAppsList' :: Maybe Bool -&gt; Text -&gt; GetAppsList
 </span><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList%27"><span class="hs-identifier hs-type">GetAppsList'</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:defaultList:GetAppsList' :: Maybe Bool
@@ -142,7 +142,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:listId:GetAppsList' :: Text
 </span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AlistId%3AGetAppsList%27"><span class="hs-identifier hs-var">listId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256734"><span class="hs-identifier hs-var">pListId_</span></a></span><span>
+</span><a href="#local-6989586621679256998"><span class="hs-identifier hs-var">pListId_</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | Specifies whether the list to retrieve is a default list owned by</span><span>
@@ -153,16 +153,16 @@ forall a. Maybe a
 -&gt; (GetAppsList -&gt; Maybe Bool -&gt; GetAppsList)
 -&gt; Lens GetAppsList GetAppsList (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList%27"><span class="hs-identifier hs-type">GetAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256731"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList%27"><span class="hs-identifier hs-type">GetAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256995"><span class="annot"><span class="annottext">Maybe Bool
 defaultList :: Maybe Bool
 $sel:defaultList:GetAppsList' :: GetAppsList -&gt; Maybe Bool
-</span><a href="#local-6989586621679256731"><span class="hs-identifier hs-var hs-var">defaultList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679256731"><span class="hs-identifier hs-var">defaultList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256730"><span class="annot"><span class="annottext">s :: GetAppsList
-</span><a href="#local-6989586621679256730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList%27"><span class="hs-identifier hs-type">GetAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256729"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679256729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppsList
-</span><a href="#local-6989586621679256730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultList:GetAppsList' :: Maybe Bool
+</span><a href="#local-6989586621679256995"><span class="hs-identifier hs-var hs-var">defaultList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679256995"><span class="hs-identifier hs-var">defaultList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256994"><span class="annot"><span class="annottext">s :: GetAppsList
+</span><a href="#local-6989586621679256994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList%27"><span class="hs-identifier hs-type">GetAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256993"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679256993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppsList
+</span><a href="#local-6989586621679256994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultList:GetAppsList' :: Maybe Bool
 </span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AdefaultList%3AGetAppsList%27"><span class="hs-identifier hs-var">defaultList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679256729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- | The ID of the Firewall Manager applications list that you want the</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- details for.</span><span>
@@ -172,25 +172,25 @@ $sel:defaultList:GetAppsList' :: GetAppsList -&gt; Maybe Bool
 -&gt; (GetAppsList -&gt; Text -&gt; GetAppsList)
 -&gt; Lens GetAppsList GetAppsList Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList%27"><span class="hs-identifier hs-type">GetAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256728"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList%27"><span class="hs-identifier hs-type">GetAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256992"><span class="annot"><span class="annottext">Text
 listId :: Text
 $sel:listId:GetAppsList' :: GetAppsList -&gt; Text
-</span><a href="#local-6989586621679256728"><span class="hs-identifier hs-var hs-var">listId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256728"><span class="hs-identifier hs-var">listId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256727"><span class="annot"><span class="annottext">s :: GetAppsList
-</span><a href="#local-6989586621679256727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList%27"><span class="hs-identifier hs-type">GetAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256726"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppsList
-</span><a href="#local-6989586621679256727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listId:GetAppsList' :: Text
+</span><a href="#local-6989586621679256992"><span class="hs-identifier hs-var hs-var">listId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256992"><span class="hs-identifier hs-var">listId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256991"><span class="annot"><span class="annottext">s :: GetAppsList
+</span><a href="#local-6989586621679256991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList%27"><span class="hs-identifier hs-type">GetAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256990"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppsList
+</span><a href="#local-6989586621679256991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:listId:GetAppsList' :: Text
 </span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AlistId%3AGetAppsList%27"><span class="hs-identifier hs-var">listId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679256722"><span class="annot"><span class="annottext">request :: GetAppsList -&gt; Request GetAppsList
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679256986"><span class="annot"><span class="annottext">request :: GetAppsList -&gt; Request GetAppsList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetAppsList -&gt; Request GetAppsList
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.FMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679256718"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679256982"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetAppsList
 -&gt; ClientResponse ClientBody
@@ -214,30 +214,30 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256715"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256715"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256714"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679256714"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256713"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256713"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe AppsListData -&gt; Maybe Text -&gt; Int -&gt; GetAppsListResponse
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256979"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256979"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256978"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679256978"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256977"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256977"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe AppsListData -&gt; Int -&gt; GetAppsListResponse
 </span><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-var">GetAppsListResponse'</span></a></span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AppsListData -&gt; Maybe Text -&gt; Int -&gt; GetAppsListResponse)
--&gt; Either String (Maybe AppsListData)
--&gt; Either String (Maybe Text -&gt; Int -&gt; GetAppsListResponse)
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe AppsListData -&gt; Int -&gt; GetAppsListResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe AppsListData -&gt; Int -&gt; GetAppsListResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AppsListData)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AppsList&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetAppsListResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; GetAppsListResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679256713"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679256977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AppsListArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe AppsListData -&gt; Int -&gt; GetAppsListResponse)
+-&gt; Either String (Maybe AppsListData)
+-&gt; Either String (Int -&gt; GetAppsListResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256977"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe AppsListData)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppsList&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetAppsListResponse)
 -&gt; Either String Int -&gt; Either String GetAppsListResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -246,15 +246,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256715"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256979"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256705"><span id="local-6989586621679256707"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256969"><span id="local-6989586621679256971"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256966"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679256698"><span class="annot"><span class="annottext">toHeaders :: GetAppsList -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679256962"><span class="annot"><span class="annottext">toHeaders :: GetAppsList -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetAppsList -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -281,15 +281,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256688"><span id="local-6989586621679256690"><span id="local-6989586621679256692"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679256686"><span class="annot"><span class="annottext">toJSON :: GetAppsList -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList%27"><span class="hs-identifier hs-type">GetAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256683"><span id="local-6989586621679256684"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256952"><span id="local-6989586621679256954"><span id="local-6989586621679256956"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679256950"><span class="annot"><span class="annottext">toJSON :: GetAppsList -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList%27"><span class="hs-identifier hs-type">GetAppsList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256947"><span id="local-6989586621679256948"><span class="annot"><span class="annottext">Maybe Bool
 Text
 listId :: Text
 defaultList :: Maybe Bool
 $sel:listId:GetAppsList' :: GetAppsList -&gt; Text
 $sel:defaultList:GetAppsList' :: GetAppsList -&gt; Maybe Bool
-</span><a href="#local-6989586621679256683"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679256947"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -301,26 +301,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679256684"><span class="hs-identifier hs-var">defaultList</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256948"><span class="hs-identifier hs-var">defaultList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ListId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256683"><span class="hs-identifier hs-var">listId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256947"><span class="hs-identifier hs-var">listId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679256677"><span class="annot"><span class="annottext">toPath :: GetAppsList -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679256941"><span class="annot"><span class="annottext">toPath :: GetAppsList -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAppsList -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsList"><span class="hs-identifier hs-type">GetAppsList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679256673"><span class="annot"><span class="annottext">toQuery :: GetAppsList -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679256937"><span class="annot"><span class="annottext">toQuery :: GetAppsList -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAppsList -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -328,18 +328,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newGetAppsListResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679256670"><span id="local-6989586621679256671"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAppsListResponse"><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-var">GetAppsListResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAppsListResponse%27"><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-var">GetAppsListResponse'</span></a></span></span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the specified Firewall Manager applications list.</span><span>
-</span><span id="line-145"></span><span>    </span><span id="%24sel%3AappsList%3AGetAppsListResponse%27"><span class="annot"><span class="annottext">GetAppsListResponse -&gt; Maybe AppsListData
-</span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AappsList%3AGetAppsListResponse%27"><span class="hs-identifier hs-var hs-var">appsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AppsListData.html#AppsListData"><span class="hs-identifier hs-type">AppsListData</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the applications list.</span><span>
-</span><span id="line-147"></span><span>    </span><span id="%24sel%3AappsListArn%3AGetAppsListResponse%27"><span class="annot"><span class="annottext">GetAppsListResponse -&gt; Maybe Text
+</span><span id="line-143"></span><span id="local-6989586621679256934"><span id="local-6989586621679256935"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAppsListResponse"><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-var">GetAppsListResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAppsListResponse%27"><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-var">GetAppsListResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the applications list.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AappsListArn%3AGetAppsListResponse%27"><span class="annot"><span class="annottext">GetAppsListResponse -&gt; Maybe Text
 </span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AappsListArn%3AGetAppsListResponse%27"><span class="hs-identifier hs-var hs-var">appsListArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | Information about the specified Firewall Manager applications list.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AappsList%3AGetAppsListResponse%27"><span class="annot"><span class="annottext">GetAppsListResponse -&gt; Maybe AppsListData
+</span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AappsList%3AGetAppsListResponse%27"><span class="hs-identifier hs-var hs-var">appsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AppsListData.html#AppsListData"><span class="hs-identifier hs-type">AppsListData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAppsListResponse%27"><span class="annot"><span class="annottext">GetAppsListResponse -&gt; Int
 </span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AhttpStatus%3AGetAppsListResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256663"><span id="local-6989586621679256665"><span class="annot"><span class="annottext">GetAppsListResponse -&gt; GetAppsListResponse -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256927"><span id="local-6989586621679256929"><span class="annot"><span class="annottext">GetAppsListResponse -&gt; GetAppsListResponse -&gt; Bool
 (GetAppsListResponse -&gt; GetAppsListResponse -&gt; Bool)
 -&gt; (GetAppsListResponse -&gt; GetAppsListResponse -&gt; Bool)
 -&gt; Eq GetAppsListResponse
@@ -348,7 +348,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetAppsListResponse -&gt; GetAppsListResponse -&gt; Bool
 == :: GetAppsListResponse -&gt; GetAppsListResponse -&gt; Bool
 $c== :: GetAppsListResponse -&gt; GetAppsListResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256655"><span id="local-6989586621679256657"><span id="local-6989586621679256659"><span id="local-6989586621679256661"><span class="annot"><span class="annottext">ReadPrec [GetAppsListResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256919"><span id="local-6989586621679256921"><span id="local-6989586621679256923"><span id="local-6989586621679256925"><span class="annot"><span class="annottext">ReadPrec [GetAppsListResponse]
 ReadPrec GetAppsListResponse
 Int -&gt; ReadS GetAppsListResponse
 ReadS [GetAppsListResponse]
@@ -368,7 +368,7 @@ readList :: ReadS [GetAppsListResponse]
 $creadList :: ReadS [GetAppsListResponse]
 readsPrec :: Int -&gt; ReadS GetAppsListResponse
 $creadsPrec :: Int -&gt; ReadS GetAppsListResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256649"><span id="local-6989586621679256651"><span id="local-6989586621679256653"><span class="annot"><span class="annottext">Int -&gt; GetAppsListResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256913"><span id="local-6989586621679256915"><span id="local-6989586621679256917"><span class="annot"><span class="annottext">Int -&gt; GetAppsListResponse -&gt; ShowS
 [GetAppsListResponse] -&gt; ShowS
 GetAppsListResponse -&gt; String
 (Int -&gt; GetAppsListResponse -&gt; ShowS)
@@ -402,9 +402,9 @@ $cfrom :: forall x. GetAppsListResponse -&gt; Rep GetAppsListResponse x
 </span><span id="line-158"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-160"></span><span class="hs-comment">--</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- 'appsList', 'getAppsListResponse_appsList' - Information about the specified Firewall Manager applications list.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'appsListArn', 'getAppsListResponse_appsListArn' - The Amazon Resource Name (ARN) of the applications list.</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- 'appsListArn', 'getAppsListResponse_appsListArn' - The Amazon Resource Name (ARN) of the applications list.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'appsList', 'getAppsListResponse_appsList' - Information about the specified Firewall Manager applications list.</span><span>
 </span><span id="line-164"></span><span class="hs-comment">--</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- 'httpStatus', 'getAppsListResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-166"></span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#newGetAppsListResponse"><span class="hs-identifier hs-type">newGetAppsListResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -412,26 +412,46 @@ $cfrom :: forall x. GetAppsListResponse -&gt; Rep GetAppsListResponse x
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span><span>
 </span><span id="line-170"></span><span id="newGetAppsListResponse"><span class="annot"><span class="annottext">newGetAppsListResponse :: Int -&gt; GetAppsListResponse
-</span><a href="Network.AWS.FMS.GetAppsList.html#newGetAppsListResponse"><span class="hs-identifier hs-var hs-var">newGetAppsListResponse</span></a></span></span><span> </span><span id="local-6989586621679256646"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256646"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">GetAppsListResponse' :: Maybe AppsListData -&gt; Maybe Text -&gt; Int -&gt; GetAppsListResponse
+</span><a href="Network.AWS.FMS.GetAppsList.html#newGetAppsListResponse"><span class="hs-identifier hs-var hs-var">newGetAppsListResponse</span></a></span></span><span> </span><span id="local-6989586621679256910"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256910"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">GetAppsListResponse' :: Maybe Text -&gt; Maybe AppsListData -&gt; Int -&gt; GetAppsListResponse
 </span><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-type">GetAppsListResponse'</span></a></span><span>
-</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appsList:GetAppsListResponse' :: Maybe AppsListData
-</span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AappsList%3AGetAppsListResponse%27"><span class="hs-identifier hs-var">appsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppsListData
+</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appsListArn:GetAppsListResponse' :: Maybe Text
+</span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AappsListArn%3AGetAppsListResponse%27"><span class="hs-identifier hs-var">appsListArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:appsListArn:GetAppsListResponse' :: Maybe Text
-</span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AappsListArn%3AGetAppsListResponse%27"><span class="hs-identifier hs-var">appsListArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:appsList:GetAppsListResponse' :: Maybe AppsListData
+</span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AappsList%3AGetAppsListResponse%27"><span class="hs-identifier hs-var">appsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppsListData
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppsListResponse' :: Int
 </span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AhttpStatus%3AGetAppsListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256646"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679256910"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- | Information about the specified Firewall Manager applications list.</span><span>
-</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#getAppsListResponse_appsList"><span class="hs-identifier hs-type">getAppsListResponse_appsList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AppsListData.html#AppsListData"><span class="hs-identifier hs-type">AppsListData</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span id="getAppsListResponse_appsList"><span class="annot"><span class="annottext">getAppsListResponse_appsList :: (Maybe AppsListData -&gt; f (Maybe AppsListData))
+</span><span id="line-177"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the applications list.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#getAppsListResponse_appsListArn"><span class="hs-identifier hs-type">getAppsListResponse_appsListArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="getAppsListResponse_appsListArn"><span class="annot"><span class="annottext">getAppsListResponse_appsListArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetAppsListResponse -&gt; f GetAppsListResponse
+</span><a href="Network.AWS.FMS.GetAppsList.html#getAppsListResponse_appsListArn"><span class="hs-identifier hs-var hs-var">getAppsListResponse_appsListArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAppsListResponse -&gt; Maybe Text)
+-&gt; (GetAppsListResponse -&gt; Maybe Text -&gt; GetAppsListResponse)
+-&gt; Lens
+     GetAppsListResponse GetAppsListResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-type">GetAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256909"><span class="annot"><span class="annottext">Maybe Text
+appsListArn :: Maybe Text
+$sel:appsListArn:GetAppsListResponse' :: GetAppsListResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679256909"><span class="hs-identifier hs-var hs-var">appsListArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256909"><span class="hs-identifier hs-var">appsListArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256908"><span class="annot"><span class="annottext">s :: GetAppsListResponse
+</span><a href="#local-6989586621679256908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-type">GetAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256907"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppsListResponse
+</span><a href="#local-6989586621679256908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appsListArn:GetAppsListResponse' :: Maybe Text
+</span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AappsListArn%3AGetAppsListResponse%27"><span class="hs-identifier hs-var">appsListArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679256907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | Information about the specified Firewall Manager applications list.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#getAppsListResponse_appsList"><span class="hs-identifier hs-type">getAppsListResponse_appsList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.AppsListData.html#AppsListData"><span class="hs-identifier hs-type">AppsListData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="getAppsListResponse_appsList"><span class="annot"><span class="annottext">getAppsListResponse_appsList :: (Maybe AppsListData -&gt; f (Maybe AppsListData))
 -&gt; GetAppsListResponse -&gt; f GetAppsListResponse
 </span><a href="Network.AWS.FMS.GetAppsList.html#getAppsListResponse_appsList"><span class="hs-identifier hs-var hs-var">getAppsListResponse_appsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAppsListResponse -&gt; Maybe AppsListData)
 -&gt; (GetAppsListResponse
@@ -442,36 +462,16 @@ forall a. Maybe a
      (Maybe AppsListData)
      (Maybe AppsListData)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-type">GetAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256645"><span class="annot"><span class="annottext">Maybe AppsListData
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-type">GetAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256906"><span class="annot"><span class="annottext">Maybe AppsListData
 appsList :: Maybe AppsListData
 $sel:appsList:GetAppsListResponse' :: GetAppsListResponse -&gt; Maybe AppsListData
-</span><a href="#local-6989586621679256645"><span class="hs-identifier hs-var hs-var">appsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppsListData
-</span><a href="#local-6989586621679256645"><span class="hs-identifier hs-var">appsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256644"><span class="annot"><span class="annottext">s :: GetAppsListResponse
-</span><a href="#local-6989586621679256644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-type">GetAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256643"><span class="annot"><span class="annottext">Maybe AppsListData
-</span><a href="#local-6989586621679256643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppsListResponse
-</span><a href="#local-6989586621679256644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appsList:GetAppsListResponse' :: Maybe AppsListData
+</span><a href="#local-6989586621679256906"><span class="hs-identifier hs-var hs-var">appsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AppsListData
+</span><a href="#local-6989586621679256906"><span class="hs-identifier hs-var">appsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256905"><span class="annot"><span class="annottext">s :: GetAppsListResponse
+</span><a href="#local-6989586621679256905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-type">GetAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256904"><span class="annot"><span class="annottext">Maybe AppsListData
+</span><a href="#local-6989586621679256904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppsListResponse
+</span><a href="#local-6989586621679256905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appsList:GetAppsListResponse' :: Maybe AppsListData
 </span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AappsList%3AGetAppsListResponse%27"><span class="hs-identifier hs-var">appsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AppsListData
-</span><a href="#local-6989586621679256643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the applications list.</span><span>
-</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#getAppsListResponse_appsListArn"><span class="hs-identifier hs-type">getAppsListResponse_appsListArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span id="getAppsListResponse_appsListArn"><span class="annot"><span class="annottext">getAppsListResponse_appsListArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetAppsListResponse -&gt; f GetAppsListResponse
-</span><a href="Network.AWS.FMS.GetAppsList.html#getAppsListResponse_appsListArn"><span class="hs-identifier hs-var hs-var">getAppsListResponse_appsListArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAppsListResponse -&gt; Maybe Text)
--&gt; (GetAppsListResponse -&gt; Maybe Text -&gt; GetAppsListResponse)
--&gt; Lens
-     GetAppsListResponse GetAppsListResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-type">GetAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256642"><span class="annot"><span class="annottext">Maybe Text
-appsListArn :: Maybe Text
-$sel:appsListArn:GetAppsListResponse' :: GetAppsListResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679256642"><span class="hs-identifier hs-var hs-var">appsListArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256642"><span class="hs-identifier hs-var">appsListArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256641"><span class="annot"><span class="annottext">s :: GetAppsListResponse
-</span><a href="#local-6989586621679256641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-type">GetAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256640"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppsListResponse
-</span><a href="#local-6989586621679256641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appsListArn:GetAppsListResponse' :: Maybe Text
-</span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AappsListArn%3AGetAppsListResponse%27"><span class="hs-identifier hs-var">appsListArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679256640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#getAppsListResponse_httpStatus"><span class="hs-identifier hs-type">getAppsListResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -480,16 +480,16 @@ $sel:appsListArn:GetAppsListResponse' :: GetAppsListResponse -&gt; Maybe Text
 -&gt; (GetAppsListResponse -&gt; Int -&gt; GetAppsListResponse)
 -&gt; Lens GetAppsListResponse GetAppsListResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-type">GetAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256639"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-type">GetAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256903"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetAppsListResponse' :: GetAppsListResponse -&gt; Int
-</span><a href="#local-6989586621679256639"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256639"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256638"><span class="annot"><span class="annottext">s :: GetAppsListResponse
-</span><a href="#local-6989586621679256638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-type">GetAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256637"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppsListResponse
-</span><a href="#local-6989586621679256638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppsListResponse' :: Int
+</span><a href="#local-6989586621679256903"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256903"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256902"><span class="annot"><span class="annottext">s :: GetAppsListResponse
+</span><a href="#local-6989586621679256902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse%27"><span class="hs-identifier hs-type">GetAppsListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256901"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAppsListResponse
+</span><a href="#local-6989586621679256902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAppsListResponse' :: Int
 </span><a href="Network.AWS.FMS.GetAppsList.html#%24sel%3AhttpStatus%3AGetAppsListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679256637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.GetAppsList.html#GetAppsListResponse"><span class="hs-identifier hs-type">GetAppsListResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

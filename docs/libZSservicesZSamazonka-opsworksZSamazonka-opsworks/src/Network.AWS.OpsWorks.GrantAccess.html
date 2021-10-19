@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGrantAccess' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679384664"><span id="local-6989586621679384665"></span></span><span class="hs-keyword">data</span><span> </span><span id="GrantAccess"><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-var">GrantAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrantAccess%27"><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess%27"><span class="hs-identifier hs-var">GrantAccess'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679385070"><span id="local-6989586621679385071"></span></span><span class="hs-keyword">data</span><span> </span><span id="GrantAccess"><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-var">GrantAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrantAccess%27"><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess%27"><span class="hs-identifier hs-var">GrantAccess'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The length of time (in minutes) that the grant is valid. When the grant</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- expires at the end of this period, the user will no longer be able to</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- use the credentials to log in. If the user is logged in at the time, he</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3AinstanceId%3AGrantAccess%27"><span class="annot"><span class="annottext">GrantAccess -&gt; Text
 </span><a href="Network.AWS.OpsWorks.GrantAccess.html#%24sel%3AinstanceId%3AGrantAccess%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384657"><span id="local-6989586621679384659"><span class="annot"><span class="annottext">GrantAccess -&gt; GrantAccess -&gt; Bool
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679385063"><span id="local-6989586621679385065"><span class="annot"><span class="annottext">GrantAccess -&gt; GrantAccess -&gt; Bool
 (GrantAccess -&gt; GrantAccess -&gt; Bool)
 -&gt; (GrantAccess -&gt; GrantAccess -&gt; Bool) -&gt; Eq GrantAccess
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GrantAccess -&gt; GrantAccess -&gt; Bool
 == :: GrantAccess -&gt; GrantAccess -&gt; Bool
 $c== :: GrantAccess -&gt; GrantAccess -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384648"><span id="local-6989586621679384650"><span id="local-6989586621679384652"><span id="local-6989586621679384654"><span class="annot"><span class="annottext">ReadPrec [GrantAccess]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385054"><span id="local-6989586621679385056"><span id="local-6989586621679385058"><span id="local-6989586621679385060"><span class="annot"><span class="annottext">ReadPrec [GrantAccess]
 ReadPrec GrantAccess
 Int -&gt; ReadS GrantAccess
 ReadS [GrantAccess]
@@ -89,7 +89,7 @@ readList :: ReadS [GrantAccess]
 $creadList :: ReadS [GrantAccess]
 readsPrec :: Int -&gt; ReadS GrantAccess
 $creadsPrec :: Int -&gt; ReadS GrantAccess
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384641"><span id="local-6989586621679384643"><span id="local-6989586621679384645"><span class="annot"><span class="annottext">Int -&gt; GrantAccess -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679385047"><span id="local-6989586621679385049"><span id="local-6989586621679385051"><span class="annot"><span class="annottext">Int -&gt; GrantAccess -&gt; ShowS
 [GrantAccess] -&gt; ShowS
 GrantAccess -&gt; String
 (Int -&gt; GrantAccess -&gt; ShowS)
@@ -134,8 +134,8 @@ $cfrom :: forall x. GrantAccess -&gt; Rep GrantAccess x
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span><span>
 </span><span id="line-82"></span><span id="newGrantAccess"><span class="annot"><span class="annottext">newGrantAccess :: Text -&gt; GrantAccess
-</span><a href="Network.AWS.OpsWorks.GrantAccess.html#newGrantAccess"><span class="hs-identifier hs-var hs-var">newGrantAccess</span></a></span></span><span> </span><span id="local-6989586621679384636"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384636"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.GrantAccess.html#newGrantAccess"><span class="hs-identifier hs-var hs-var">newGrantAccess</span></a></span></span><span> </span><span id="local-6989586621679385042"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385042"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">GrantAccess' :: Maybe Natural -&gt; Text -&gt; GrantAccess
 </span><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess%27"><span class="hs-identifier hs-type">GrantAccess'</span></a></span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:validForInMinutes:GrantAccess' :: Maybe Natural
@@ -144,7 +144,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:GrantAccess' :: Text
 </span><a href="Network.AWS.OpsWorks.GrantAccess.html#%24sel%3AinstanceId%3AGrantAccess%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384636"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679385042"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The length of time (in minutes) that the grant is valid. When the grant</span><span>
@@ -158,16 +158,16 @@ forall a. Maybe a
 -&gt; (GrantAccess -&gt; Maybe Natural -&gt; GrantAccess)
 -&gt; Lens GrantAccess GrantAccess (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess%27"><span class="hs-identifier hs-type">GrantAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384633"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess%27"><span class="hs-identifier hs-type">GrantAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385039"><span class="annot"><span class="annottext">Maybe Natural
 validForInMinutes :: Maybe Natural
 $sel:validForInMinutes:GrantAccess' :: GrantAccess -&gt; Maybe Natural
-</span><a href="#local-6989586621679384633"><span class="hs-identifier hs-var hs-var">validForInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679384633"><span class="hs-identifier hs-var">validForInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384632"><span class="annot"><span class="annottext">s :: GrantAccess
-</span><a href="#local-6989586621679384632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess%27"><span class="hs-identifier hs-type">GrantAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384631"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679384631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantAccess
-</span><a href="#local-6989586621679384632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validForInMinutes:GrantAccess' :: Maybe Natural
+</span><a href="#local-6989586621679385039"><span class="hs-identifier hs-var hs-var">validForInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679385039"><span class="hs-identifier hs-var">validForInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385038"><span class="annot"><span class="annottext">s :: GrantAccess
+</span><a href="#local-6989586621679385038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess%27"><span class="hs-identifier hs-type">GrantAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385037"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679385037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantAccess
+</span><a href="#local-6989586621679385038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:validForInMinutes:GrantAccess' :: Maybe Natural
 </span><a href="Network.AWS.OpsWorks.GrantAccess.html#%24sel%3AvalidForInMinutes%3AGrantAccess%27"><span class="hs-identifier hs-var">validForInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679384631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The instance\'s AWS OpsWorks Stacks ID.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#grantAccess_instanceId"><span class="hs-identifier hs-type">grantAccess_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -176,25 +176,25 @@ $sel:validForInMinutes:GrantAccess' :: GrantAccess -&gt; Maybe Natural
 -&gt; (GrantAccess -&gt; Text -&gt; GrantAccess)
 -&gt; Lens GrantAccess GrantAccess Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess%27"><span class="hs-identifier hs-type">GrantAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384630"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess%27"><span class="hs-identifier hs-type">GrantAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679385036"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:GrantAccess' :: GrantAccess -&gt; Text
-</span><a href="#local-6989586621679384630"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384630"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384629"><span class="annot"><span class="annottext">s :: GrantAccess
-</span><a href="#local-6989586621679384629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess%27"><span class="hs-identifier hs-type">GrantAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384628"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantAccess
-</span><a href="#local-6989586621679384629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:GrantAccess' :: Text
+</span><a href="#local-6989586621679385036"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385036"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679385035"><span class="annot"><span class="annottext">s :: GrantAccess
+</span><a href="#local-6989586621679385035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess%27"><span class="hs-identifier hs-type">GrantAccess'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679385034"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679385034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantAccess
+</span><a href="#local-6989586621679385035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:GrantAccess' :: Text
 </span><a href="Network.AWS.OpsWorks.GrantAccess.html#%24sel%3AinstanceId%3AGrantAccess%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse"><span class="hs-identifier hs-type">GrantAccessResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679384624"><span class="annot"><span class="annottext">request :: GrantAccess -&gt; Request GrantAccess
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679385030"><span class="annot"><span class="annottext">request :: GrantAccess -&gt; Request GrantAccess
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GrantAccess -&gt; Request GrantAccess
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679384620"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679385026"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GrantAccess
 -&gt; ClientResponse ClientBody
@@ -218,10 +218,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679384617"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384617"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679384616"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679384616"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679384615"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679385023"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679385023"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679385022"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679385022"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679385021"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679385021"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe TemporaryCredential -&gt; Int -&gt; GrantAccessResponse
 </span><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse%27"><span class="hs-identifier hs-var">GrantAccessResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TemporaryCredential -&gt; Int -&gt; GrantAccessResponse)
@@ -229,7 +229,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GrantAccessResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679384615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TemporaryCredential)
+</span><a href="#local-6989586621679385021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe TemporaryCredential)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TemporaryCredential&quot;</span></span><span class="hs-special">)</span><span>
@@ -241,15 +241,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384617"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679385023"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384607"><span id="local-6989586621679384609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385013"><span id="local-6989586621679385015"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679385010"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679384600"><span class="annot"><span class="annottext">toHeaders :: GrantAccess -&gt; ResponseHeaders
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679385006"><span class="annot"><span class="annottext">toHeaders :: GrantAccess -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GrantAccess -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -276,15 +276,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384590"><span id="local-6989586621679384592"><span id="local-6989586621679384594"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679384588"><span class="annot"><span class="annottext">toJSON :: GrantAccess -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess%27"><span class="hs-identifier hs-type">GrantAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384585"><span id="local-6989586621679384586"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384996"><span id="local-6989586621679384998"><span id="local-6989586621679385000"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679384994"><span class="annot"><span class="annottext">toJSON :: GrantAccess -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess%27"><span class="hs-identifier hs-type">GrantAccess'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384991"><span id="local-6989586621679384992"><span class="annot"><span class="annottext">Maybe Natural
 Text
 instanceId :: Text
 validForInMinutes :: Maybe Natural
 $sel:instanceId:GrantAccess' :: GrantAccess -&gt; Text
 $sel:validForInMinutes:GrantAccess' :: GrantAccess -&gt; Maybe Natural
-</span><a href="#local-6989586621679384585"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679384991"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -297,26 +297,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679384586"><span class="hs-identifier hs-var">validForInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679384992"><span class="hs-identifier hs-var">validForInMinutes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679384585"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384991"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679384579"><span class="annot"><span class="annottext">toPath :: GrantAccess -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679384985"><span class="annot"><span class="annottext">toPath :: GrantAccess -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GrantAccess -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccess"><span class="hs-identifier hs-type">GrantAccess</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679384575"><span class="annot"><span class="annottext">toQuery :: GrantAccess -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679384981"><span class="annot"><span class="annottext">toQuery :: GrantAccess -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GrantAccess -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -326,7 +326,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-145"></span><span class="hs-comment">-- | Contains the response to a @GrantAccess@ request.</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- /See:/ 'newGrantAccessResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679384572"><span id="local-6989586621679384573"></span></span><span class="hs-keyword">data</span><span> </span><span id="GrantAccessResponse"><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse"><span class="hs-identifier hs-var">GrantAccessResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrantAccessResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse%27"><span class="hs-identifier hs-var">GrantAccessResponse'</span></a></span></span><span>
+</span><span id="line-148"></span><span id="local-6989586621679384978"><span id="local-6989586621679384979"></span></span><span class="hs-keyword">data</span><span> </span><span id="GrantAccessResponse"><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse"><span class="hs-identifier hs-var">GrantAccessResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GrantAccessResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse%27"><span class="hs-identifier hs-var">GrantAccessResponse'</span></a></span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @TemporaryCredential@ object that contains the data needed to log in</span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-comment">-- to the instance by RDP clients, such as the Microsoft Remote Desktop</span><span>
 </span><span id="line-151"></span><span>    </span><span class="hs-comment">-- Connection.</span><span>
@@ -336,7 +336,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGrantAccessResponse%27"><span class="annot"><span class="annottext">GrantAccessResponse -&gt; Int
 </span><a href="Network.AWS.OpsWorks.GrantAccess.html#%24sel%3AhttpStatus%3AGrantAccessResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384566"><span id="local-6989586621679384568"><span class="annot"><span class="annottext">GrantAccessResponse -&gt; GrantAccessResponse -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679384972"><span id="local-6989586621679384974"><span class="annot"><span class="annottext">GrantAccessResponse -&gt; GrantAccessResponse -&gt; Bool
 (GrantAccessResponse -&gt; GrantAccessResponse -&gt; Bool)
 -&gt; (GrantAccessResponse -&gt; GrantAccessResponse -&gt; Bool)
 -&gt; Eq GrantAccessResponse
@@ -345,7 +345,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GrantAccessResponse -&gt; GrantAccessResponse -&gt; Bool
 == :: GrantAccessResponse -&gt; GrantAccessResponse -&gt; Bool
 $c== :: GrantAccessResponse -&gt; GrantAccessResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384558"><span id="local-6989586621679384560"><span id="local-6989586621679384562"><span id="local-6989586621679384564"><span class="annot"><span class="annottext">ReadPrec [GrantAccessResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384964"><span id="local-6989586621679384966"><span id="local-6989586621679384968"><span id="local-6989586621679384970"><span class="annot"><span class="annottext">ReadPrec [GrantAccessResponse]
 ReadPrec GrantAccessResponse
 Int -&gt; ReadS GrantAccessResponse
 ReadS [GrantAccessResponse]
@@ -365,7 +365,7 @@ readList :: ReadS [GrantAccessResponse]
 $creadList :: ReadS [GrantAccessResponse]
 readsPrec :: Int -&gt; ReadS GrantAccessResponse
 $creadsPrec :: Int -&gt; ReadS GrantAccessResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384552"><span id="local-6989586621679384554"><span id="local-6989586621679384556"><span class="annot"><span class="annottext">Int -&gt; GrantAccessResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679384958"><span id="local-6989586621679384960"><span id="local-6989586621679384962"><span class="annot"><span class="annottext">Int -&gt; GrantAccessResponse -&gt; ShowS
 [GrantAccessResponse] -&gt; ShowS
 GrantAccessResponse -&gt; String
 (Int -&gt; GrantAccessResponse -&gt; ShowS)
@@ -409,8 +409,8 @@ $cfrom :: forall x. GrantAccessResponse -&gt; Rep GrantAccessResponse x
 </span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse"><span class="hs-identifier hs-type">GrantAccessResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newGrantAccessResponse"><span class="annot"><span class="annottext">newGrantAccessResponse :: Int -&gt; GrantAccessResponse
-</span><a href="Network.AWS.OpsWorks.GrantAccess.html#newGrantAccessResponse"><span class="hs-identifier hs-var hs-var">newGrantAccessResponse</span></a></span></span><span> </span><span id="local-6989586621679384549"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384549"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.GrantAccess.html#newGrantAccessResponse"><span class="hs-identifier hs-var hs-var">newGrantAccessResponse</span></a></span></span><span> </span><span id="local-6989586621679384955"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384955"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">GrantAccessResponse' :: Maybe TemporaryCredential -&gt; Int -&gt; GrantAccessResponse
 </span><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse%27"><span class="hs-identifier hs-type">GrantAccessResponse'</span></a></span><span>
 </span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:temporaryCredential:GrantAccessResponse' :: Maybe TemporaryCredential
@@ -420,7 +420,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GrantAccessResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.GrantAccess.html#%24sel%3AhttpStatus%3AGrantAccessResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384549"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679384955"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | A @TemporaryCredential@ object that contains the data needed to log in</span><span>
@@ -438,16 +438,16 @@ forall a. Maybe a
      (Maybe TemporaryCredential)
      (Maybe TemporaryCredential)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse%27"><span class="hs-identifier hs-type">GrantAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384548"><span class="annot"><span class="annottext">Maybe TemporaryCredential
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse%27"><span class="hs-identifier hs-type">GrantAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384954"><span class="annot"><span class="annottext">Maybe TemporaryCredential
 temporaryCredential :: Maybe TemporaryCredential
 $sel:temporaryCredential:GrantAccessResponse' :: GrantAccessResponse -&gt; Maybe TemporaryCredential
-</span><a href="#local-6989586621679384548"><span class="hs-identifier hs-var hs-var">temporaryCredential</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TemporaryCredential
-</span><a href="#local-6989586621679384548"><span class="hs-identifier hs-var">temporaryCredential</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384547"><span class="annot"><span class="annottext">s :: GrantAccessResponse
-</span><a href="#local-6989586621679384547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse%27"><span class="hs-identifier hs-type">GrantAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384546"><span class="annot"><span class="annottext">Maybe TemporaryCredential
-</span><a href="#local-6989586621679384546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantAccessResponse
-</span><a href="#local-6989586621679384547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:temporaryCredential:GrantAccessResponse' :: Maybe TemporaryCredential
+</span><a href="#local-6989586621679384954"><span class="hs-identifier hs-var hs-var">temporaryCredential</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TemporaryCredential
+</span><a href="#local-6989586621679384954"><span class="hs-identifier hs-var">temporaryCredential</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384953"><span class="annot"><span class="annottext">s :: GrantAccessResponse
+</span><a href="#local-6989586621679384953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse%27"><span class="hs-identifier hs-type">GrantAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384952"><span class="annot"><span class="annottext">Maybe TemporaryCredential
+</span><a href="#local-6989586621679384952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantAccessResponse
+</span><a href="#local-6989586621679384953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:temporaryCredential:GrantAccessResponse' :: Maybe TemporaryCredential
 </span><a href="Network.AWS.OpsWorks.GrantAccess.html#%24sel%3AtemporaryCredential%3AGrantAccessResponse%27"><span class="hs-identifier hs-var">temporaryCredential</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TemporaryCredential
-</span><a href="#local-6989586621679384546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse"><span class="hs-identifier hs-type">GrantAccessResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse"><span class="hs-identifier hs-type">GrantAccessResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-189"></span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#grantAccessResponse_httpStatus"><span class="hs-identifier hs-type">grantAccessResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse"><span class="hs-identifier hs-type">GrantAccessResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -456,16 +456,16 @@ $sel:temporaryCredential:GrantAccessResponse' :: GrantAccessResponse -&gt; Maybe
 -&gt; (GrantAccessResponse -&gt; Int -&gt; GrantAccessResponse)
 -&gt; Lens GrantAccessResponse GrantAccessResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse%27"><span class="hs-identifier hs-type">GrantAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384545"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse%27"><span class="hs-identifier hs-type">GrantAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679384951"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GrantAccessResponse' :: GrantAccessResponse -&gt; Int
-</span><a href="#local-6989586621679384545"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384545"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384544"><span class="annot"><span class="annottext">s :: GrantAccessResponse
-</span><a href="#local-6989586621679384544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse%27"><span class="hs-identifier hs-type">GrantAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384543"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantAccessResponse
-</span><a href="#local-6989586621679384544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GrantAccessResponse' :: Int
+</span><a href="#local-6989586621679384951"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384951"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679384950"><span class="annot"><span class="annottext">s :: GrantAccessResponse
+</span><a href="#local-6989586621679384950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse%27"><span class="hs-identifier hs-type">GrantAccessResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679384949"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679384949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GrantAccessResponse
+</span><a href="#local-6989586621679384950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GrantAccessResponse' :: Int
 </span><a href="Network.AWS.OpsWorks.GrantAccess.html#%24sel%3AhttpStatus%3AGrantAccessResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679384543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse"><span class="hs-identifier hs-type">GrantAccessResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679384949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse"><span class="hs-identifier hs-type">GrantAccessResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse"><span class="hs-identifier hs-type">GrantAccessResponse</span></a></span></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679384947"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.GrantAccess.html#GrantAccessResponse"><span class="hs-identifier hs-type">GrantAccessResponse</span></a></span></span><span>
 </span><span id="line-193"></span></pre></body></html>

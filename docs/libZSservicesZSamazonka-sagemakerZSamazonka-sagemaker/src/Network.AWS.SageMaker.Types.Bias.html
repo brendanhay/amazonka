@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains bias metrics for a model.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBias' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621680315372"><span id="local-6989586621680315373"></span></span><span class="hs-keyword">data</span><span> </span><span id="Bias"><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias"><span class="hs-identifier hs-var">Bias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Bias%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias%27"><span class="hs-identifier hs-var">Bias'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621680316751"><span id="local-6989586621680316752"></span></span><span class="hs-keyword">data</span><span> </span><span id="Bias"><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias"><span class="hs-identifier hs-var">Bias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Bias%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias%27"><span class="hs-identifier hs-var">Bias'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The bias report for a model</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Areport%3ABias%27"><span class="annot"><span class="annottext">Bias -&gt; Maybe MetricsSource
 </span><a href="Network.AWS.SageMaker.Types.Bias.html#%24sel%3Areport%3ABias%27"><span class="hs-identifier hs-var hs-var">report</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricsSource.html#MetricsSource"><span class="hs-identifier hs-type">MetricsSource</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680315366"><span id="local-6989586621680315368"><span class="annot"><span class="annottext">Bias -&gt; Bias -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680316745"><span id="local-6989586621680316747"><span class="annot"><span class="annottext">Bias -&gt; Bias -&gt; Bool
 (Bias -&gt; Bias -&gt; Bool) -&gt; (Bias -&gt; Bias -&gt; Bool) -&gt; Eq Bias
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Bias -&gt; Bias -&gt; Bool
 $c/= :: Bias -&gt; Bias -&gt; Bool
 == :: Bias -&gt; Bias -&gt; Bool
 $c== :: Bias -&gt; Bias -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680315357"><span id="local-6989586621680315359"><span id="local-6989586621680315361"><span id="local-6989586621680315363"><span class="annot"><span class="annottext">ReadPrec [Bias]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680316736"><span id="local-6989586621680316738"><span id="local-6989586621680316740"><span id="local-6989586621680316742"><span class="annot"><span class="annottext">ReadPrec [Bias]
 ReadPrec Bias
 Int -&gt; ReadS Bias
 ReadS [Bias]
@@ -56,7 +56,7 @@ readList :: ReadS [Bias]
 $creadList :: ReadS [Bias]
 readsPrec :: Int -&gt; ReadS Bias
 $creadsPrec :: Int -&gt; ReadS Bias
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680315350"><span id="local-6989586621680315352"><span id="local-6989586621680315354"><span class="annot"><span class="annottext">Int -&gt; Bias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680316729"><span id="local-6989586621680316731"><span id="local-6989586621680316733"><span class="annot"><span class="annottext">Int -&gt; Bias -&gt; ShowS
 [Bias] -&gt; ShowS
 Bias -&gt; String
 (Int -&gt; Bias -&gt; ShowS)
@@ -104,46 +104,46 @@ forall a. Maybe a
 -&gt; (Bias -&gt; Maybe MetricsSource -&gt; Bias)
 -&gt; Lens Bias Bias (Maybe MetricsSource) (Maybe MetricsSource)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias%27"><span class="hs-identifier hs-type">Bias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680315341"><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias%27"><span class="hs-identifier hs-type">Bias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680316720"><span class="annot"><span class="annottext">Maybe MetricsSource
 report :: Maybe MetricsSource
 $sel:report:Bias' :: Bias -&gt; Maybe MetricsSource
-</span><a href="#local-6989586621680315341"><span class="hs-identifier hs-var hs-var">report</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680315341"><span class="hs-identifier hs-var">report</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680315340"><span class="annot"><span class="annottext">s :: Bias
-</span><a href="#local-6989586621680315340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias%27"><span class="hs-identifier hs-type">Bias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680315339"><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680315339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bias
-</span><a href="#local-6989586621680315340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:report:Bias' :: Maybe MetricsSource
+</span><a href="#local-6989586621680316720"><span class="hs-identifier hs-var hs-var">report</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><a href="#local-6989586621680316720"><span class="hs-identifier hs-var">report</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680316719"><span class="annot"><span class="annottext">s :: Bias
+</span><a href="#local-6989586621680316719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias%27"><span class="hs-identifier hs-type">Bias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680316718"><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><a href="#local-6989586621680316718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bias
+</span><a href="#local-6989586621680316719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:report:Bias' :: Maybe MetricsSource
 </span><a href="Network.AWS.SageMaker.Types.Bias.html#%24sel%3Areport%3ABias%27"><span class="hs-identifier hs-var">report</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680315339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias"><span class="hs-identifier hs-type">Bias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680316718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias"><span class="hs-identifier hs-type">Bias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315336"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias"><span class="hs-identifier hs-type">Bias</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621680315334"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Bias
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316715"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias"><span class="hs-identifier hs-type">Bias</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621680316713"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Bias
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Bias) -&gt; Value -&gt; Parser Bias
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Bias&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680315331"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680315331"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource -&gt; Bias
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680316710"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680316710"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource -&gt; Bias
 </span><a href="Network.AWS.SageMaker.Types.Bias.html#Bias%27"><span class="hs-identifier hs-var">Bias'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe MetricsSource -&gt; Bias)
 -&gt; Parser (Maybe MetricsSource) -&gt; Parser Bias
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680315331"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricsSource)
+</span><a href="#local-6989586621680316710"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricsSource)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Report&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315325"><span id="local-6989586621680315327"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias"><span class="hs-identifier hs-type">Bias</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316704"><span id="local-6989586621680316706"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias"><span class="hs-identifier hs-type">Bias</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias"><span class="hs-identifier hs-type">Bias</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316701"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias"><span class="hs-identifier hs-type">Bias</span></a></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315314"><span id="local-6989586621680315316"><span id="local-6989586621680315318"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias"><span class="hs-identifier hs-type">Bias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621680315312"><span class="annot"><span class="annottext">toJSON :: Bias -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias%27"><span class="hs-identifier hs-type">Bias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680315310"><span class="annot"><span class="annottext">Maybe MetricsSource
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680316693"><span id="local-6989586621680316695"><span id="local-6989586621680316697"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias"><span class="hs-identifier hs-type">Bias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621680316691"><span class="annot"><span class="annottext">toJSON :: Bias -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.Bias.html#Bias%27"><span class="hs-identifier hs-type">Bias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680316689"><span class="annot"><span class="annottext">Maybe MetricsSource
 report :: Maybe MetricsSource
 $sel:report:Bias' :: Bias -&gt; Maybe MetricsSource
-</span><a href="#local-6989586621680315310"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680316689"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -155,6 +155,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MetricsSource -&gt; Pair) -&gt; Maybe MetricsSource -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MetricsSource
-</span><a href="#local-6989586621680315310"><span class="hs-identifier hs-var">report</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621680316689"><span class="hs-identifier hs-var">report</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span></pre></body></html>

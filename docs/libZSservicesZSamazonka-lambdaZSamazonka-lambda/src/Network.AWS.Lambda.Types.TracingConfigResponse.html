@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The function\'s X-Ray tracing configuration.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTracingConfigResponse' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679295220"><span id="local-6989586621679295221"></span></span><span class="hs-keyword">data</span><span> </span><span id="TracingConfigResponse"><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse"><span class="hs-identifier hs-var">TracingConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TracingConfigResponse%27"><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse%27"><span class="hs-identifier hs-var">TracingConfigResponse'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679300082"><span id="local-6989586621679300083"></span></span><span class="hs-keyword">data</span><span> </span><span id="TracingConfigResponse"><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse"><span class="hs-identifier hs-var">TracingConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TracingConfigResponse%27"><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse%27"><span class="hs-identifier hs-var">TracingConfigResponse'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tracing mode.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Amode%3ATracingConfigResponse%27"><span class="annot"><span class="annottext">TracingConfigResponse -&gt; Maybe TracingMode
 </span><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#%24sel%3Amode%3ATracingConfigResponse%27"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.TracingMode.html#TracingMode"><span class="hs-identifier hs-type">TracingMode</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679295214"><span id="local-6989586621679295216"><span class="annot"><span class="annottext">TracingConfigResponse -&gt; TracingConfigResponse -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679300076"><span id="local-6989586621679300078"><span class="annot"><span class="annottext">TracingConfigResponse -&gt; TracingConfigResponse -&gt; Bool
 (TracingConfigResponse -&gt; TracingConfigResponse -&gt; Bool)
 -&gt; (TracingConfigResponse -&gt; TracingConfigResponse -&gt; Bool)
 -&gt; Eq TracingConfigResponse
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TracingConfigResponse -&gt; TracingConfigResponse -&gt; Bool
 == :: TracingConfigResponse -&gt; TracingConfigResponse -&gt; Bool
 $c== :: TracingConfigResponse -&gt; TracingConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295205"><span id="local-6989586621679295207"><span id="local-6989586621679295209"><span id="local-6989586621679295211"><span class="annot"><span class="annottext">ReadPrec [TracingConfigResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300067"><span id="local-6989586621679300069"><span id="local-6989586621679300071"><span id="local-6989586621679300073"><span class="annot"><span class="annottext">ReadPrec [TracingConfigResponse]
 ReadPrec TracingConfigResponse
 Int -&gt; ReadS TracingConfigResponse
 ReadS [TracingConfigResponse]
@@ -61,7 +61,7 @@ readList :: ReadS [TracingConfigResponse]
 $creadList :: ReadS [TracingConfigResponse]
 readsPrec :: Int -&gt; ReadS TracingConfigResponse
 $creadsPrec :: Int -&gt; ReadS TracingConfigResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679295198"><span id="local-6989586621679295200"><span id="local-6989586621679295202"><span class="annot"><span class="annottext">Int -&gt; TracingConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679300060"><span id="local-6989586621679300062"><span id="local-6989586621679300064"><span class="annot"><span class="annottext">Int -&gt; TracingConfigResponse -&gt; ShowS
 [TracingConfigResponse] -&gt; ShowS
 TracingConfigResponse -&gt; String
 (Int -&gt; TracingConfigResponse -&gt; ShowS)
@@ -119,19 +119,19 @@ forall a. Maybe a
      (Maybe TracingMode)
      (Maybe TracingMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse%27"><span class="hs-identifier hs-type">TracingConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679295189"><span class="annot"><span class="annottext">Maybe TracingMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse%27"><span class="hs-identifier hs-type">TracingConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679300051"><span class="annot"><span class="annottext">Maybe TracingMode
 mode :: Maybe TracingMode
 $sel:mode:TracingConfigResponse' :: TracingConfigResponse -&gt; Maybe TracingMode
-</span><a href="#local-6989586621679295189"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TracingMode
-</span><a href="#local-6989586621679295189"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679295188"><span class="annot"><span class="annottext">s :: TracingConfigResponse
-</span><a href="#local-6989586621679295188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse%27"><span class="hs-identifier hs-type">TracingConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679295187"><span class="annot"><span class="annottext">Maybe TracingMode
-</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TracingConfigResponse
-</span><a href="#local-6989586621679295188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:TracingConfigResponse' :: Maybe TracingMode
+</span><a href="#local-6989586621679300051"><span class="hs-identifier hs-var hs-var">mode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TracingMode
+</span><a href="#local-6989586621679300051"><span class="hs-identifier hs-var">mode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679300050"><span class="annot"><span class="annottext">s :: TracingConfigResponse
+</span><a href="#local-6989586621679300050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse%27"><span class="hs-identifier hs-type">TracingConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679300049"><span class="annot"><span class="annottext">Maybe TracingMode
+</span><a href="#local-6989586621679300049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TracingConfigResponse
+</span><a href="#local-6989586621679300050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mode:TracingConfigResponse' :: Maybe TracingMode
 </span><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#%24sel%3Amode%3ATracingConfigResponse%27"><span class="hs-identifier hs-var">mode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TracingMode
-</span><a href="#local-6989586621679295187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse"><span class="hs-identifier hs-type">TracingConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679300049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse"><span class="hs-identifier hs-type">TracingConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295184"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse"><span class="hs-identifier hs-type">TracingConfigResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679295182"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TracingConfigResponse
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300046"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse"><span class="hs-identifier hs-type">TracingConfigResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679300044"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TracingConfigResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TracingConfigResponse)
@@ -141,21 +141,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TracingConfigResponse&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679295179"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295179"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679300041"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679300041"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe TracingMode -&gt; TracingConfigResponse
 </span><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse%27"><span class="hs-identifier hs-var">TracingConfigResponse'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TracingMode -&gt; TracingConfigResponse)
 -&gt; Parser (Maybe TracingMode) -&gt; Parser TracingConfigResponse
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679295179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TracingMode)
+</span><a href="#local-6989586621679300041"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TracingMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Mode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295173"><span id="local-6989586621679295175"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse"><span class="hs-identifier hs-type">TracingConfigResponse</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300035"><span id="local-6989586621679300037"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse"><span class="hs-identifier hs-type">TracingConfigResponse</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679295170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse"><span class="hs-identifier hs-type">TracingConfigResponse</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679300032"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.TracingConfigResponse.html#TracingConfigResponse"><span class="hs-identifier hs-type">TracingConfigResponse</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

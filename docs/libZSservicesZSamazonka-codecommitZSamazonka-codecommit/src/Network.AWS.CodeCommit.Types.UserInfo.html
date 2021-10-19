@@ -26,19 +26,19 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about the user who made a specified commit.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newUserInfo' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679355415"><span id="local-6989586621679355416"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserInfo"><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-var">UserInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserInfo%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-var">UserInfo'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the user who made the specified commit.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AUserInfo%27"><span class="annot"><span class="annottext">UserInfo -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Aname%3AUserInfo%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679355694"><span id="local-6989586621679355695"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserInfo"><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-var">UserInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserInfo%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-var">UserInfo'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email address associated with the user who made the commit, if any.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aemail%3AUserInfo%27"><span class="annot"><span class="annottext">UserInfo -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Aemail%3AUserInfo%27"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The date when the specified commit was commited, in timestamp format</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- with GMT offset.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Adate%3AUserInfo%27"><span class="annot"><span class="annottext">UserInfo -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Adate%3AUserInfo%27"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The email address associated with the user who made the commit, if any.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aemail%3AUserInfo%27"><span class="annot"><span class="annottext">UserInfo -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Aemail%3AUserInfo%27"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the user who made the specified commit.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3AUserInfo%27"><span class="annot"><span class="annottext">UserInfo -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Aname%3AUserInfo%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679355407"><span id="local-6989586621679355409"><span class="annot"><span class="annottext">UserInfo -&gt; UserInfo -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679355686"><span id="local-6989586621679355688"><span class="annot"><span class="annottext">UserInfo -&gt; UserInfo -&gt; Bool
 (UserInfo -&gt; UserInfo -&gt; Bool)
 -&gt; (UserInfo -&gt; UserInfo -&gt; Bool) -&gt; Eq UserInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserInfo -&gt; UserInfo -&gt; Bool
 == :: UserInfo -&gt; UserInfo -&gt; Bool
 $c== :: UserInfo -&gt; UserInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355398"><span id="local-6989586621679355400"><span id="local-6989586621679355402"><span id="local-6989586621679355404"><span class="annot"><span class="annottext">ReadPrec [UserInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355677"><span id="local-6989586621679355679"><span id="local-6989586621679355681"><span id="local-6989586621679355683"><span class="annot"><span class="annottext">ReadPrec [UserInfo]
 ReadPrec UserInfo
 Int -&gt; ReadS UserInfo
 ReadS [UserInfo]
@@ -66,7 +66,7 @@ readList :: ReadS [UserInfo]
 $creadList :: ReadS [UserInfo]
 readsPrec :: Int -&gt; ReadS UserInfo
 $creadsPrec :: Int -&gt; ReadS UserInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355391"><span id="local-6989586621679355393"><span id="local-6989586621679355395"><span class="annot"><span class="annottext">Int -&gt; UserInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679355670"><span id="local-6989586621679355672"><span id="local-6989586621679355674"><span class="annot"><span class="annottext">Int -&gt; UserInfo -&gt; ShowS
 [UserInfo] -&gt; ShowS
 UserInfo -&gt; String
 (Int -&gt; UserInfo -&gt; ShowS)
@@ -97,49 +97,49 @@ $cfrom :: forall x. UserInfo -&gt; Rep UserInfo x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'name', 'userInfo_name' - The name of the user who made the specified commit.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'email', 'userInfo_email' - The email address associated with the user who made the commit, if any.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- 'date', 'userInfo_date' - The date when the specified commit was commited, in timestamp format</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- with GMT offset.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'email', 'userInfo_email' - The email address associated with the user who made the commit, if any.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'name', 'userInfo_name' - The name of the user who made the specified commit.</span><span>
 </span><span id="line-54"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#newUserInfo"><span class="hs-identifier hs-type">newUserInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span><span>
 </span><span id="line-56"></span><span id="newUserInfo"><span class="annot"><span class="annottext">newUserInfo :: UserInfo
 </span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#newUserInfo"><span class="hs-identifier hs-var hs-var">newUserInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">UserInfo' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; UserInfo
 </span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-type">UserInfo'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:UserInfo' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Aname%3AUserInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:email:UserInfo' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Aemail%3AUserInfo%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:date:UserInfo' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Adate%3AUserInfo%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:email:UserInfo' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Aemail%3AUserInfo%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UserInfo' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Aname%3AUserInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The name of the user who made the specified commit.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#userInfo_name"><span class="hs-identifier hs-type">userInfo_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="userInfo_name"><span class="annot"><span class="annottext">userInfo_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UserInfo -&gt; f UserInfo
-</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#userInfo_name"><span class="hs-identifier hs-var hs-var">userInfo_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserInfo -&gt; Maybe Text)
+</span><span id="line-63"></span><span class="hs-comment">-- | The email address associated with the user who made the commit, if any.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#userInfo_email"><span class="hs-identifier hs-type">userInfo_email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="userInfo_email"><span class="annot"><span class="annottext">userInfo_email :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UserInfo -&gt; f UserInfo
+</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#userInfo_email"><span class="hs-identifier hs-var hs-var">userInfo_email</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserInfo -&gt; Maybe Text)
 -&gt; (UserInfo -&gt; Maybe Text -&gt; UserInfo)
 -&gt; Lens UserInfo UserInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-type">UserInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355382"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:UserInfo' :: UserInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679355382"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355382"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355381"><span class="annot"><span class="annottext">s :: UserInfo
-</span><a href="#local-6989586621679355381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-type">UserInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355380"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserInfo
-</span><a href="#local-6989586621679355381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UserInfo' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Aname%3AUserInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-type">UserInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355661"><span class="annot"><span class="annottext">Maybe Text
+email :: Maybe Text
+$sel:email:UserInfo' :: UserInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679355661"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355661"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355660"><span class="annot"><span class="annottext">s :: UserInfo
+</span><a href="#local-6989586621679355660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-type">UserInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355659"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserInfo
+</span><a href="#local-6989586621679355660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:UserInfo' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Aemail%3AUserInfo%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The date when the specified commit was commited, in timestamp format</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- with GMT offset.</span><span>
@@ -149,45 +149,45 @@ $sel:name:UserInfo' :: UserInfo -&gt; Maybe Text
 -&gt; (UserInfo -&gt; Maybe Text -&gt; UserInfo)
 -&gt; Lens UserInfo UserInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-type">UserInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355378"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-type">UserInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355657"><span class="annot"><span class="annottext">Maybe Text
 date :: Maybe Text
 $sel:date:UserInfo' :: UserInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679355378"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355378"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355377"><span class="annot"><span class="annottext">s :: UserInfo
-</span><a href="#local-6989586621679355377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-type">UserInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355376"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserInfo
-</span><a href="#local-6989586621679355377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:UserInfo' :: Maybe Text
+</span><a href="#local-6989586621679355657"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355657"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355656"><span class="annot"><span class="annottext">s :: UserInfo
+</span><a href="#local-6989586621679355656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-type">UserInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355655"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserInfo
+</span><a href="#local-6989586621679355656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:UserInfo' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Adate%3AUserInfo%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679355655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The email address associated with the user who made the commit, if any.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#userInfo_email"><span class="hs-identifier hs-type">userInfo_email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="userInfo_email"><span class="annot"><span class="annottext">userInfo_email :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UserInfo -&gt; f UserInfo
-</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#userInfo_email"><span class="hs-identifier hs-var hs-var">userInfo_email</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserInfo -&gt; Maybe Text)
+</span><span id="line-72"></span><span class="hs-comment">-- | The name of the user who made the specified commit.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#userInfo_name"><span class="hs-identifier hs-type">userInfo_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="userInfo_name"><span class="annot"><span class="annottext">userInfo_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UserInfo -&gt; f UserInfo
+</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#userInfo_name"><span class="hs-identifier hs-var hs-var">userInfo_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserInfo -&gt; Maybe Text)
 -&gt; (UserInfo -&gt; Maybe Text -&gt; UserInfo)
 -&gt; Lens UserInfo UserInfo (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-type">UserInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355374"><span class="annot"><span class="annottext">Maybe Text
-email :: Maybe Text
-$sel:email:UserInfo' :: UserInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679355374"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355374"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355373"><span class="annot"><span class="annottext">s :: UserInfo
-</span><a href="#local-6989586621679355373"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-type">UserInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355372"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355372"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserInfo
-</span><a href="#local-6989586621679355373"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:UserInfo' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Aemail%3AUserInfo%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679355372"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-type">UserInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679355653"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UserInfo' :: UserInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679355653"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355653"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679355652"><span class="annot"><span class="annottext">s :: UserInfo
+</span><a href="#local-6989586621679355652"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-type">UserInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679355651"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355651"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserInfo
+</span><a href="#local-6989586621679355652"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UserInfo' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#%24sel%3Aname%3AUserInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679355651"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355369"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679355367"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserInfo
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355648"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679355646"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser UserInfo) -&gt; Value -&gt; Parser UserInfo
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UserInfo&quot;</span></span><span>
-</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679355364"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355364"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679355643"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679355643"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; UserInfo
 </span><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo%27"><span class="hs-identifier hs-var">UserInfo'</span></a></span><span>
 </span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; UserInfo)
@@ -195,15 +195,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; UserInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679355643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;email&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; UserInfo)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; UserInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679355643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;date&quot;</span></span><span class="hs-special">)</span><span>
@@ -211,13 +211,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser UserInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679355364"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679355643"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;email&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355358"><span id="local-6989586621679355360"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355637"><span id="local-6989586621679355639"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355355"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679355634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.UserInfo.html#UserInfo"><span class="hs-identifier hs-type">UserInfo</span></a></span></span><span>
 </span><span id="line-90"></span></pre></body></html>

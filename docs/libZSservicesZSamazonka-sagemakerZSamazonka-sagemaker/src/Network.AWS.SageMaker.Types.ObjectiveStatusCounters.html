@@ -30,23 +30,23 @@
 </span><span id="line-30"></span><span class="hs-comment">-- hyperparameter tuning process.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newObjectiveStatusCounters' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621680323752"><span id="local-6989586621680323753"></span></span><span class="hs-keyword">data</span><span> </span><span id="ObjectiveStatusCounters"><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-var">ObjectiveStatusCounters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectiveStatusCounters%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-var">ObjectiveStatusCounters'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of training jobs whose final objective metric was evaluated</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- by the hyperparameter tuning job and used in the hyperparameter tuning</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- process.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Asucceeded%3AObjectiveStatusCounters%27"><span class="annot"><span class="annottext">ObjectiveStatusCounters -&gt; Maybe Natural
-</span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#%24sel%3Asucceeded%3AObjectiveStatusCounters%27"><span class="hs-identifier hs-var hs-var">succeeded</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of training jobs that are in progress and pending evaluation</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- of their final objective metric.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Apending%3AObjectiveStatusCounters%27"><span class="annot"><span class="annottext">ObjectiveStatusCounters -&gt; Maybe Natural
+</span><span id="line-33"></span><span id="local-6989586621680325143"><span id="local-6989586621680325144"></span></span><span class="hs-keyword">data</span><span> </span><span id="ObjectiveStatusCounters"><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-var">ObjectiveStatusCounters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ObjectiveStatusCounters%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-var">ObjectiveStatusCounters'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of training jobs that are in progress and pending evaluation</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- of their final objective metric.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Apending%3AObjectiveStatusCounters%27"><span class="annot"><span class="annottext">ObjectiveStatusCounters -&gt; Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#%24sel%3Apending%3AObjectiveStatusCounters%27"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The number of training jobs whose final objective metric was evaluated</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- by the hyperparameter tuning job and used in the hyperparameter tuning</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- process.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Asucceeded%3AObjectiveStatusCounters%27"><span class="annot"><span class="annottext">ObjectiveStatusCounters -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#%24sel%3Asucceeded%3AObjectiveStatusCounters%27"><span class="hs-identifier hs-var hs-var">succeeded</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The number of training jobs whose final objective metric was not</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- evaluated and used in the hyperparameter tuning process. This typically</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- occurs when the training job failed or did not emit an objective metric.</span><span>
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Afailed%3AObjectiveStatusCounters%27"><span class="annot"><span class="annottext">ObjectiveStatusCounters -&gt; Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#%24sel%3Afailed%3AObjectiveStatusCounters%27"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680323744"><span id="local-6989586621680323746"><span class="annot"><span class="annottext">ObjectiveStatusCounters -&gt; ObjectiveStatusCounters -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680325135"><span id="local-6989586621680325137"><span class="annot"><span class="annottext">ObjectiveStatusCounters -&gt; ObjectiveStatusCounters -&gt; Bool
 (ObjectiveStatusCounters -&gt; ObjectiveStatusCounters -&gt; Bool)
 -&gt; (ObjectiveStatusCounters -&gt; ObjectiveStatusCounters -&gt; Bool)
 -&gt; Eq ObjectiveStatusCounters
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ObjectiveStatusCounters -&gt; ObjectiveStatusCounters -&gt; Bool
 == :: ObjectiveStatusCounters -&gt; ObjectiveStatusCounters -&gt; Bool
 $c== :: ObjectiveStatusCounters -&gt; ObjectiveStatusCounters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680323735"><span id="local-6989586621680323737"><span id="local-6989586621680323739"><span id="local-6989586621680323741"><span class="annot"><span class="annottext">ReadPrec [ObjectiveStatusCounters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680325126"><span id="local-6989586621680325128"><span id="local-6989586621680325130"><span id="local-6989586621680325132"><span class="annot"><span class="annottext">ReadPrec [ObjectiveStatusCounters]
 ReadPrec ObjectiveStatusCounters
 Int -&gt; ReadS ObjectiveStatusCounters
 ReadS [ObjectiveStatusCounters]
@@ -75,7 +75,7 @@ readList :: ReadS [ObjectiveStatusCounters]
 $creadList :: ReadS [ObjectiveStatusCounters]
 readsPrec :: Int -&gt; ReadS ObjectiveStatusCounters
 $creadsPrec :: Int -&gt; ReadS ObjectiveStatusCounters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680323728"><span id="local-6989586621680323730"><span id="local-6989586621680323732"><span class="annot"><span class="annottext">Int -&gt; ObjectiveStatusCounters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680325119"><span id="local-6989586621680325121"><span id="local-6989586621680325123"><span class="annot"><span class="annottext">Int -&gt; ObjectiveStatusCounters -&gt; ShowS
 [ObjectiveStatusCounters] -&gt; ShowS
 ObjectiveStatusCounters -&gt; String
 (Int -&gt; ObjectiveStatusCounters -&gt; ShowS)
@@ -111,12 +111,12 @@ $cfrom :: forall x. ObjectiveStatusCounters -&gt; Rep ObjectiveStatusCounters x
 </span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'succeeded', 'objectiveStatusCounters_succeeded' - The number of training jobs whose final objective metric was evaluated</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- by the hyperparameter tuning job and used in the hyperparameter tuning</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- process.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'pending', 'objectiveStatusCounters_pending' - The number of training jobs that are in progress and pending evaluation</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- of their final objective metric.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'pending', 'objectiveStatusCounters_pending' - The number of training jobs that are in progress and pending evaluation</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- of their final objective metric.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'succeeded', 'objectiveStatusCounters_succeeded' - The number of training jobs whose final objective metric was evaluated</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- by the hyperparameter tuning job and used in the hyperparameter tuning</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- process.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- 'failed', 'objectiveStatusCounters_failed' - The number of training jobs whose final objective metric was not</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- evaluated and used in the hyperparameter tuning process. This typically</span><span>
@@ -128,51 +128,24 @@ $cfrom :: forall x. ObjectiveStatusCounters -&gt; Rep ObjectiveStatusCounters x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">ObjectiveStatusCounters' :: Maybe Natural
 -&gt; Maybe Natural -&gt; Maybe Natural -&gt; ObjectiveStatusCounters
 </span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-type">ObjectiveStatusCounters'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:succeeded:ObjectiveStatusCounters' :: Maybe Natural
-</span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#%24sel%3Asucceeded%3AObjectiveStatusCounters%27"><span class="hs-identifier hs-var">succeeded</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:pending:ObjectiveStatusCounters' :: Maybe Natural
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pending:ObjectiveStatusCounters' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#%24sel%3Apending%3AObjectiveStatusCounters%27"><span class="hs-identifier hs-var">pending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:failed:ObjectiveStatusCounters' :: Maybe Natural
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:succeeded:ObjectiveStatusCounters' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#%24sel%3Asucceeded%3AObjectiveStatusCounters%27"><span class="hs-identifier hs-var">succeeded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:failed:ObjectiveStatusCounters' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#%24sel%3Afailed%3AObjectiveStatusCounters%27"><span class="hs-identifier hs-var">failed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | The number of training jobs whose final objective metric was evaluated</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- by the hyperparameter tuning job and used in the hyperparameter tuning</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- process.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#objectiveStatusCounters_succeeded"><span class="hs-identifier hs-type">objectiveStatusCounters_succeeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="objectiveStatusCounters_succeeded"><span class="annot"><span class="annottext">objectiveStatusCounters_succeeded :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ObjectiveStatusCounters -&gt; f ObjectiveStatusCounters
-</span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#objectiveStatusCounters_succeeded"><span class="hs-identifier hs-var hs-var">objectiveStatusCounters_succeeded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ObjectiveStatusCounters -&gt; Maybe Natural)
--&gt; (ObjectiveStatusCounters
-    -&gt; Maybe Natural -&gt; ObjectiveStatusCounters)
--&gt; Lens
-     ObjectiveStatusCounters
-     ObjectiveStatusCounters
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-type">ObjectiveStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680323719"><span class="annot"><span class="annottext">Maybe Natural
-succeeded :: Maybe Natural
-$sel:succeeded:ObjectiveStatusCounters' :: ObjectiveStatusCounters -&gt; Maybe Natural
-</span><a href="#local-6989586621680323719"><span class="hs-identifier hs-var hs-var">succeeded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680323719"><span class="hs-identifier hs-var">succeeded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680323718"><span class="annot"><span class="annottext">s :: ObjectiveStatusCounters
-</span><a href="#local-6989586621680323718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-type">ObjectiveStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680323717"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680323717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectiveStatusCounters
-</span><a href="#local-6989586621680323718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:succeeded:ObjectiveStatusCounters' :: Maybe Natural
-</span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#%24sel%3Asucceeded%3AObjectiveStatusCounters%27"><span class="hs-identifier hs-var">succeeded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680323717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The number of training jobs that are in progress and pending evaluation</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- of their final objective metric.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#objectiveStatusCounters_pending"><span class="hs-identifier hs-type">objectiveStatusCounters_pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="objectiveStatusCounters_pending"><span class="annot"><span class="annottext">objectiveStatusCounters_pending :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The number of training jobs that are in progress and pending evaluation</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- of their final objective metric.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#objectiveStatusCounters_pending"><span class="hs-identifier hs-type">objectiveStatusCounters_pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="objectiveStatusCounters_pending"><span class="annot"><span class="annottext">objectiveStatusCounters_pending :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ObjectiveStatusCounters -&gt; f ObjectiveStatusCounters
 </span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#objectiveStatusCounters_pending"><span class="hs-identifier hs-var hs-var">objectiveStatusCounters_pending</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ObjectiveStatusCounters -&gt; Maybe Natural)
 -&gt; (ObjectiveStatusCounters
@@ -183,22 +156,48 @@ $sel:succeeded:ObjectiveStatusCounters' :: ObjectiveStatusCounters -&gt; Maybe N
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-type">ObjectiveStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680323715"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-type">ObjectiveStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325110"><span class="annot"><span class="annottext">Maybe Natural
 pending :: Maybe Natural
 $sel:pending:ObjectiveStatusCounters' :: ObjectiveStatusCounters -&gt; Maybe Natural
-</span><a href="#local-6989586621680323715"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680323715"><span class="hs-identifier hs-var">pending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680323714"><span class="annot"><span class="annottext">s :: ObjectiveStatusCounters
-</span><a href="#local-6989586621680323714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-type">ObjectiveStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680323713"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680323713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectiveStatusCounters
-</span><a href="#local-6989586621680323714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pending:ObjectiveStatusCounters' :: Maybe Natural
+</span><a href="#local-6989586621680325110"><span class="hs-identifier hs-var hs-var">pending</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680325110"><span class="hs-identifier hs-var">pending</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325109"><span class="annot"><span class="annottext">s :: ObjectiveStatusCounters
+</span><a href="#local-6989586621680325109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-type">ObjectiveStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325108"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680325108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectiveStatusCounters
+</span><a href="#local-6989586621680325109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pending:ObjectiveStatusCounters' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#%24sel%3Apending%3AObjectiveStatusCounters%27"><span class="hs-identifier hs-var">pending</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680323713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The number of training jobs whose final objective metric was not</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- evaluated and used in the hyperparameter tuning process. This typically</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- occurs when the training job failed or did not emit an objective metric.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#objectiveStatusCounters_failed"><span class="hs-identifier hs-type">objectiveStatusCounters_failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="objectiveStatusCounters_failed"><span class="annot"><span class="annottext">objectiveStatusCounters_failed :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621680325108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The number of training jobs whose final objective metric was evaluated</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- by the hyperparameter tuning job and used in the hyperparameter tuning</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- process.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#objectiveStatusCounters_succeeded"><span class="hs-identifier hs-type">objectiveStatusCounters_succeeded</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="objectiveStatusCounters_succeeded"><span class="annot"><span class="annottext">objectiveStatusCounters_succeeded :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ObjectiveStatusCounters -&gt; f ObjectiveStatusCounters
+</span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#objectiveStatusCounters_succeeded"><span class="hs-identifier hs-var hs-var">objectiveStatusCounters_succeeded</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ObjectiveStatusCounters -&gt; Maybe Natural)
+-&gt; (ObjectiveStatusCounters
+    -&gt; Maybe Natural -&gt; ObjectiveStatusCounters)
+-&gt; Lens
+     ObjectiveStatusCounters
+     ObjectiveStatusCounters
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-type">ObjectiveStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325106"><span class="annot"><span class="annottext">Maybe Natural
+succeeded :: Maybe Natural
+$sel:succeeded:ObjectiveStatusCounters' :: ObjectiveStatusCounters -&gt; Maybe Natural
+</span><a href="#local-6989586621680325106"><span class="hs-identifier hs-var hs-var">succeeded</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680325106"><span class="hs-identifier hs-var">succeeded</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325105"><span class="annot"><span class="annottext">s :: ObjectiveStatusCounters
+</span><a href="#local-6989586621680325105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-type">ObjectiveStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325104"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680325104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectiveStatusCounters
+</span><a href="#local-6989586621680325105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:succeeded:ObjectiveStatusCounters' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#%24sel%3Asucceeded%3AObjectiveStatusCounters%27"><span class="hs-identifier hs-var">succeeded</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680325104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The number of training jobs whose final objective metric was not</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- evaluated and used in the hyperparameter tuning process. This typically</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- occurs when the training job failed or did not emit an objective metric.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#objectiveStatusCounters_failed"><span class="hs-identifier hs-type">objectiveStatusCounters_failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="objectiveStatusCounters_failed"><span class="annot"><span class="annottext">objectiveStatusCounters_failed :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ObjectiveStatusCounters -&gt; f ObjectiveStatusCounters
 </span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#objectiveStatusCounters_failed"><span class="hs-identifier hs-var hs-var">objectiveStatusCounters_failed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ObjectiveStatusCounters -&gt; Maybe Natural)
 -&gt; (ObjectiveStatusCounters
@@ -209,64 +208,64 @@ $sel:pending:ObjectiveStatusCounters' :: ObjectiveStatusCounters -&gt; Maybe Nat
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-type">ObjectiveStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680323711"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-type">ObjectiveStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680325102"><span class="annot"><span class="annottext">Maybe Natural
 failed :: Maybe Natural
 $sel:failed:ObjectiveStatusCounters' :: ObjectiveStatusCounters -&gt; Maybe Natural
-</span><a href="#local-6989586621680323711"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680323711"><span class="hs-identifier hs-var">failed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680323710"><span class="annot"><span class="annottext">s :: ObjectiveStatusCounters
-</span><a href="#local-6989586621680323710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-type">ObjectiveStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680323709"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680323709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectiveStatusCounters
-</span><a href="#local-6989586621680323710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failed:ObjectiveStatusCounters' :: Maybe Natural
+</span><a href="#local-6989586621680325102"><span class="hs-identifier hs-var hs-var">failed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680325102"><span class="hs-identifier hs-var">failed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680325101"><span class="annot"><span class="annottext">s :: ObjectiveStatusCounters
+</span><a href="#local-6989586621680325101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-type">ObjectiveStatusCounters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680325100"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680325100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectiveStatusCounters
+</span><a href="#local-6989586621680325101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failed:ObjectiveStatusCounters' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#%24sel%3Afailed%3AObjectiveStatusCounters%27"><span class="hs-identifier hs-var">failed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680323709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680323706"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621680323704"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ObjectiveStatusCounters
+</span><a href="#local-6989586621680325100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325097"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621680325095"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ObjectiveStatusCounters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ObjectiveStatusCounters)
 -&gt; Value
 -&gt; Parser ObjectiveStatusCounters
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ObjectiveStatusCounters&quot;</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680323701"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680323701"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680325092"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680325092"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural -&gt; Maybe Natural -&gt; ObjectiveStatusCounters
 </span><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters%27"><span class="hs-identifier hs-var">ObjectiveStatusCounters'</span></a></span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
  -&gt; Maybe Natural -&gt; Maybe Natural -&gt; ObjectiveStatusCounters)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
      (Maybe Natural -&gt; Maybe Natural -&gt; ObjectiveStatusCounters)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680323701"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680325092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Succeeded&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Natural -&gt; ObjectiveStatusCounters)
+</span><span class="hs-string">&quot;Pending&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Natural -&gt; ObjectiveStatusCounters)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser (Maybe Natural -&gt; ObjectiveStatusCounters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680323701"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680325092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Pending&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; ObjectiveStatusCounters)
+</span><span class="hs-string">&quot;Succeeded&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; ObjectiveStatusCounters)
 -&gt; Parser (Maybe Natural) -&gt; Parser ObjectiveStatusCounters
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680323701"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621680325092"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Failed&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680323695"><span id="local-6989586621680323697"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span></span></span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680323692"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span></span><span>
-</span><span id="line-107"></span></pre></body></html>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325086"><span id="local-6989586621680325088"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680325083"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ObjectiveStatusCounters.html#ObjectiveStatusCounters"><span class="hs-identifier hs-type">ObjectiveStatusCounters</span></a></span></span><span>
+</span><span id="line-106"></span></pre></body></html>

@@ -28,29 +28,29 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | A data volume used in a job\'s container properties.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newVolume' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679265374"><span id="local-6989586621679265375"></span></span><span class="hs-keyword">data</span><span> </span><span id="Volume"><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-var">Volume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Volume%27"><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-var">Volume'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679265666"><span id="local-6989586621679265667"></span></span><span class="hs-keyword">data</span><span> </span><span id="Volume"><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-var">Volume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Volume%27"><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-var">Volume'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the volume. Up to 255 letters (uppercase and lowercase),</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- numbers, hyphens, and underscores are allowed. This name is referenced</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- in the @sourceVolume@ parameter of container definition @mountPoints@.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aname%3AVolume%27"><span class="annot"><span class="annottext">Volume -&gt; Maybe Text
 </span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3Aname%3AVolume%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The contents of the @host@ parameter determine whether your data volume</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- persists on the host container instance and where it is stored. If the</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- host parameter is empty, then the Docker daemon assigns a host path for</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- your data volume. However, the data isn\'t guaranteed to persist after</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- the containers associated with it stop running.</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- This parameter isn\'t applicable to jobs that are running on Fargate</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- resources and shouldn\'t be provided.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3Ahost%3AVolume%27"><span class="annot"><span class="annottext">Volume -&gt; Maybe Host
-</span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3Ahost%3AVolume%27"><span class="hs-identifier hs-var hs-var">host</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | This parameter is specified when you are using an Amazon Elastic File</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- System file system for job storage. Jobs that are running on Fargate</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- resources must specify a @platformVersion@ of at least @1.4.0@.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AefsVolumeConfiguration%3AVolume%27"><span class="annot"><span class="annottext">Volume -&gt; Maybe EFSVolumeConfiguration
-</span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3AefsVolumeConfiguration%3AVolume%27"><span class="hs-identifier hs-var hs-var">efsVolumeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | This parameter is specified when you are using an Amazon Elastic File</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- System file system for job storage. Jobs that are running on Fargate</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- resources must specify a @platformVersion@ of at least @1.4.0@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AefsVolumeConfiguration%3AVolume%27"><span class="annot"><span class="annottext">Volume -&gt; Maybe EFSVolumeConfiguration
+</span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3AefsVolumeConfiguration%3AVolume%27"><span class="hs-identifier hs-var hs-var">efsVolumeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The contents of the @host@ parameter determine whether your data volume</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- persists on the host container instance and where it is stored. If the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- host parameter is empty, then the Docker daemon assigns a host path for</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- your data volume. However, the data isn\'t guaranteed to persist after</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the containers associated with it stop running.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- This parameter isn\'t applicable to jobs that are running on Fargate</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- resources and shouldn\'t be provided.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Ahost%3AVolume%27"><span class="annot"><span class="annottext">Volume -&gt; Maybe Host
+</span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3Ahost%3AVolume%27"><span class="hs-identifier hs-var hs-var">host</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265366"><span id="local-6989586621679265368"><span class="annot"><span class="annottext">Volume -&gt; Volume -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265658"><span id="local-6989586621679265660"><span class="annot"><span class="annottext">Volume -&gt; Volume -&gt; Bool
 (Volume -&gt; Volume -&gt; Bool)
 -&gt; (Volume -&gt; Volume -&gt; Bool) -&gt; Eq Volume
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Volume -&gt; Volume -&gt; Bool
 == :: Volume -&gt; Volume -&gt; Bool
 $c== :: Volume -&gt; Volume -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265357"><span id="local-6989586621679265359"><span id="local-6989586621679265361"><span id="local-6989586621679265363"><span class="annot"><span class="annottext">ReadPrec [Volume]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265649"><span id="local-6989586621679265651"><span id="local-6989586621679265653"><span id="local-6989586621679265655"><span class="annot"><span class="annottext">ReadPrec [Volume]
 ReadPrec Volume
 Int -&gt; ReadS Volume
 ReadS [Volume]
@@ -78,7 +78,7 @@ readList :: ReadS [Volume]
 $creadList :: ReadS [Volume]
 readsPrec :: Int -&gt; ReadS Volume
 $creadsPrec :: Int -&gt; ReadS Volume
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265350"><span id="local-6989586621679265352"><span id="local-6989586621679265354"><span class="annot"><span class="annottext">Int -&gt; Volume -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265642"><span id="local-6989586621679265644"><span id="local-6989586621679265646"><span class="annot"><span class="annottext">Int -&gt; Volume -&gt; ShowS
 [Volume] -&gt; ShowS
 Volume -&gt; String
 (Int -&gt; Volume -&gt; ShowS)
@@ -113,34 +113,34 @@ $cfrom :: forall x. Volume -&gt; Rep Volume x
 </span><span id="line-61"></span><span class="hs-comment">-- numbers, hyphens, and underscores are allowed. This name is referenced</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- in the @sourceVolume@ parameter of container definition @mountPoints@.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'host', 'volume_host' - The contents of the @host@ parameter determine whether your data volume</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- persists on the host container instance and where it is stored. If the</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- host parameter is empty, then the Docker daemon assigns a host path for</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- your data volume. However, the data isn\'t guaranteed to persist after</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- the containers associated with it stop running.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- This parameter isn\'t applicable to jobs that are running on Fargate</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- resources and shouldn\'t be provided.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'efsVolumeConfiguration', 'volume_efsVolumeConfiguration' - This parameter is specified when you are using an Amazon Elastic File</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- System file system for job storage. Jobs that are running on Fargate</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- resources must specify a @platformVersion@ of at least @1.4.0@.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'efsVolumeConfiguration', 'volume_efsVolumeConfiguration' - This parameter is specified when you are using an Amazon Elastic File</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- System file system for job storage. Jobs that are running on Fargate</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- resources must specify a @platformVersion@ of at least @1.4.0@.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'host', 'volume_host' - The contents of the @host@ parameter determine whether your data volume</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- persists on the host container instance and where it is stored. If the</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- host parameter is empty, then the Docker daemon assigns a host path for</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- your data volume. However, the data isn\'t guaranteed to persist after</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the containers associated with it stop running.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- This parameter isn\'t applicable to jobs that are running on Fargate</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- resources and shouldn\'t be provided.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#newVolume"><span class="hs-identifier hs-type">newVolume</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span>
 </span><span id="line-78"></span><span id="newVolume"><span class="annot"><span class="annottext">newVolume :: Volume
 </span><a href="Network.AWS.Batch.Types.Volume.html#newVolume"><span class="hs-identifier hs-var hs-var">newVolume</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">Volume' :: Maybe Text -&gt; Maybe Host -&gt; Maybe EFSVolumeConfiguration -&gt; Volume
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">Volume' :: Maybe Text -&gt; Maybe EFSVolumeConfiguration -&gt; Maybe Host -&gt; Volume
 </span><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:Volume' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3Aname%3AVolume%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:host:Volume' :: Maybe Host
-</span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3Ahost%3AVolume%27"><span class="hs-identifier hs-var">host</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Host
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:efsVolumeConfiguration:Volume' :: Maybe EFSVolumeConfiguration
+</span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3AefsVolumeConfiguration%3AVolume%27"><span class="hs-identifier hs-var">efsVolumeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:efsVolumeConfiguration:Volume' :: Maybe EFSVolumeConfiguration
-</span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3AefsVolumeConfiguration%3AVolume%27"><span class="hs-identifier hs-var">efsVolumeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:host:Volume' :: Maybe Host
+</span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3Ahost%3AVolume%27"><span class="hs-identifier hs-var">host</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Host
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
@@ -154,47 +154,22 @@ forall a. Maybe a
 -&gt; (Volume -&gt; Maybe Text -&gt; Volume)
 -&gt; Lens Volume Volume (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265341"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265633"><span class="annot"><span class="annottext">Maybe Text
 name :: Maybe Text
 $sel:name:Volume' :: Volume -&gt; Maybe Text
-</span><a href="#local-6989586621679265341"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265341"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265340"><span class="annot"><span class="annottext">s :: Volume
-</span><a href="#local-6989586621679265340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265339"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
-</span><a href="#local-6989586621679265340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Volume' :: Maybe Text
+</span><a href="#local-6989586621679265633"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265633"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265632"><span class="annot"><span class="annottext">s :: Volume
+</span><a href="#local-6989586621679265632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265631"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679265631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
+</span><a href="#local-6989586621679265632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Volume' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3Aname%3AVolume%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The contents of the @host@ parameter determine whether your data volume</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- persists on the host container instance and where it is stored. If the</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- host parameter is empty, then the Docker daemon assigns a host path for</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- your data volume. However, the data isn\'t guaranteed to persist after</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- the containers associated with it stop running.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- This parameter isn\'t applicable to jobs that are running on Fargate</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- resources and shouldn\'t be provided.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#volume_host"><span class="hs-identifier hs-type">volume_host</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="volume_host"><span class="annot"><span class="annottext">volume_host :: (Maybe Host -&gt; f (Maybe Host)) -&gt; Volume -&gt; f Volume
-</span><a href="Network.AWS.Batch.Types.Volume.html#volume_host"><span class="hs-identifier hs-var hs-var">volume_host</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Volume -&gt; Maybe Host)
--&gt; (Volume -&gt; Maybe Host -&gt; Volume)
--&gt; Lens Volume Volume (Maybe Host) (Maybe Host)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265337"><span class="annot"><span class="annottext">Maybe Host
-host :: Maybe Host
-$sel:host:Volume' :: Volume -&gt; Maybe Host
-</span><a href="#local-6989586621679265337"><span class="hs-identifier hs-var hs-var">host</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Host
-</span><a href="#local-6989586621679265337"><span class="hs-identifier hs-var">host</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265336"><span class="annot"><span class="annottext">s :: Volume
-</span><a href="#local-6989586621679265336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265335"><span class="annot"><span class="annottext">Maybe Host
-</span><a href="#local-6989586621679265335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
-</span><a href="#local-6989586621679265336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:host:Volume' :: Maybe Host
-</span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3Ahost%3AVolume%27"><span class="hs-identifier hs-var">host</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Host
-</span><a href="#local-6989586621679265335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | This parameter is specified when you are using an Amazon Elastic File</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- System file system for job storage. Jobs that are running on Fargate</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- resources must specify a @platformVersion@ of at least @1.4.0@.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#volume_efsVolumeConfiguration"><span class="hs-identifier hs-type">volume_efsVolumeConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="volume_efsVolumeConfiguration"><span class="annot"><span class="annottext">volume_efsVolumeConfiguration :: (Maybe EFSVolumeConfiguration -&gt; f (Maybe EFSVolumeConfiguration))
+</span><span id="line-91"></span><span class="hs-comment">-- | This parameter is specified when you are using an Amazon Elastic File</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- System file system for job storage. Jobs that are running on Fargate</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- resources must specify a @platformVersion@ of at least @1.4.0@.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#volume_efsVolumeConfiguration"><span class="hs-identifier hs-type">volume_efsVolumeConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.EFSVolumeConfiguration.html#EFSVolumeConfiguration"><span class="hs-identifier hs-type">EFSVolumeConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="volume_efsVolumeConfiguration"><span class="annot"><span class="annottext">volume_efsVolumeConfiguration :: (Maybe EFSVolumeConfiguration -&gt; f (Maybe EFSVolumeConfiguration))
 -&gt; Volume -&gt; f Volume
 </span><a href="Network.AWS.Batch.Types.Volume.html#volume_efsVolumeConfiguration"><span class="hs-identifier hs-var hs-var">volume_efsVolumeConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Volume -&gt; Maybe EFSVolumeConfiguration)
 -&gt; (Volume -&gt; Maybe EFSVolumeConfiguration -&gt; Volume)
@@ -204,74 +179,99 @@ $sel:host:Volume' :: Volume -&gt; Maybe Host
      (Maybe EFSVolumeConfiguration)
      (Maybe EFSVolumeConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265333"><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265629"><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
 efsVolumeConfiguration :: Maybe EFSVolumeConfiguration
 $sel:efsVolumeConfiguration:Volume' :: Volume -&gt; Maybe EFSVolumeConfiguration
-</span><a href="#local-6989586621679265333"><span class="hs-identifier hs-var hs-var">efsVolumeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
-</span><a href="#local-6989586621679265333"><span class="hs-identifier hs-var">efsVolumeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265332"><span class="annot"><span class="annottext">s :: Volume
-</span><a href="#local-6989586621679265332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265331"><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
-</span><a href="#local-6989586621679265331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
-</span><a href="#local-6989586621679265332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:efsVolumeConfiguration:Volume' :: Maybe EFSVolumeConfiguration
+</span><a href="#local-6989586621679265629"><span class="hs-identifier hs-var hs-var">efsVolumeConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
+</span><a href="#local-6989586621679265629"><span class="hs-identifier hs-var">efsVolumeConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265628"><span class="annot"><span class="annottext">s :: Volume
+</span><a href="#local-6989586621679265628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265627"><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
+</span><a href="#local-6989586621679265627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
+</span><a href="#local-6989586621679265628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:efsVolumeConfiguration:Volume' :: Maybe EFSVolumeConfiguration
 </span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3AefsVolumeConfiguration%3AVolume%27"><span class="hs-identifier hs-var">efsVolumeConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
-</span><a href="#local-6989586621679265331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679265627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The contents of the @host@ parameter determine whether your data volume</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- persists on the host container instance and where it is stored. If the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- host parameter is empty, then the Docker daemon assigns a host path for</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- your data volume. However, the data isn\'t guaranteed to persist after</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- the containers associated with it stop running.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- This parameter isn\'t applicable to jobs that are running on Fargate</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- resources and shouldn\'t be provided.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#volume_host"><span class="hs-identifier hs-type">volume_host</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Host.html#Host"><span class="hs-identifier hs-type">Host</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="volume_host"><span class="annot"><span class="annottext">volume_host :: (Maybe Host -&gt; f (Maybe Host)) -&gt; Volume -&gt; f Volume
+</span><a href="Network.AWS.Batch.Types.Volume.html#volume_host"><span class="hs-identifier hs-var hs-var">volume_host</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Volume -&gt; Maybe Host)
+-&gt; (Volume -&gt; Maybe Host -&gt; Volume)
+-&gt; Lens Volume Volume (Maybe Host) (Maybe Host)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265625"><span class="annot"><span class="annottext">Maybe Host
+host :: Maybe Host
+$sel:host:Volume' :: Volume -&gt; Maybe Host
+</span><a href="#local-6989586621679265625"><span class="hs-identifier hs-var hs-var">host</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Host
+</span><a href="#local-6989586621679265625"><span class="hs-identifier hs-var">host</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265624"><span class="annot"><span class="annottext">s :: Volume
+</span><a href="#local-6989586621679265624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265623"><span class="annot"><span class="annottext">Maybe Host
+</span><a href="#local-6989586621679265623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Volume
+</span><a href="#local-6989586621679265624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:host:Volume' :: Maybe Host
+</span><a href="Network.AWS.Batch.Types.Volume.html#%24sel%3Ahost%3AVolume%27"><span class="hs-identifier hs-var">host</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Host
+</span><a href="#local-6989586621679265623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265328"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679265326"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Volume
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265620"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679265618"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Volume
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Volume) -&gt; Value -&gt; Parser Volume
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Volume&quot;</span></span><span>
-</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265323"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265323"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Host -&gt; Maybe EFSVolumeConfiguration -&gt; Volume
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265615"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe EFSVolumeConfiguration -&gt; Maybe Host -&gt; Volume
 </span><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-var">Volume'</span></a></span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Host -&gt; Maybe EFSVolumeConfiguration -&gt; Volume)
+ -&gt; Maybe EFSVolumeConfiguration -&gt; Maybe Host -&gt; Volume)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Host -&gt; Maybe EFSVolumeConfiguration -&gt; Volume)
+-&gt; Parser (Maybe EFSVolumeConfiguration -&gt; Maybe Host -&gt; Volume)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679265615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Host -&gt; Maybe EFSVolumeConfiguration -&gt; Volume)
--&gt; Parser (Maybe Host)
--&gt; Parser (Maybe EFSVolumeConfiguration -&gt; Volume)
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EFSVolumeConfiguration -&gt; Maybe Host -&gt; Volume)
+-&gt; Parser (Maybe EFSVolumeConfiguration)
+-&gt; Parser (Maybe Host -&gt; Volume)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Host)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;host&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EFSVolumeConfiguration -&gt; Volume)
--&gt; Parser (Maybe EFSVolumeConfiguration) -&gt; Parser Volume
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679265323"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EFSVolumeConfiguration)
+</span><a href="#local-6989586621679265615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EFSVolumeConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;efsVolumeConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Host -&gt; Volume)
+-&gt; Parser (Maybe Host) -&gt; Parser Volume
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Host)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;host&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265317"><span id="local-6989586621679265319"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265609"><span id="local-6989586621679265611"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265314"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265606"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265306"><span id="local-6989586621679265308"><span id="local-6989586621679265310"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679265304"><span class="annot"><span class="annottext">toJSON :: Volume -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265300"><span id="local-6989586621679265301"><span id="local-6989586621679265302"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265598"><span id="local-6989586621679265600"><span id="local-6989586621679265602"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume"><span class="hs-identifier hs-type">Volume</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679265596"><span class="annot"><span class="annottext">toJSON :: Volume -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.Volume.html#Volume%27"><span class="hs-identifier hs-type">Volume'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265592"><span id="local-6989586621679265593"><span id="local-6989586621679265594"><span class="annot"><span class="annottext">Maybe Text
 Maybe EFSVolumeConfiguration
 Maybe Host
-efsVolumeConfiguration :: Maybe EFSVolumeConfiguration
 host :: Maybe Host
+efsVolumeConfiguration :: Maybe EFSVolumeConfiguration
 name :: Maybe Text
-$sel:efsVolumeConfiguration:Volume' :: Volume -&gt; Maybe EFSVolumeConfiguration
 $sel:host:Volume' :: Volume -&gt; Maybe Host
+$sel:efsVolumeConfiguration:Volume' :: Volume -&gt; Maybe EFSVolumeConfiguration
 $sel:name:Volume' :: Volume -&gt; Maybe Text
-</span><a href="#local-6989586621679265300"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679265592"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -283,23 +283,23 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679265302"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679265594"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-128"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;efsVolumeConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EFSVolumeConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">(EFSVolumeConfiguration -&gt; Pair)
+-&gt; Maybe EFSVolumeConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
+</span><a href="#local-6989586621679265593"><span class="hs-identifier hs-var">efsVolumeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;host&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Host -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Host -&gt; Pair) -&gt; Maybe Host -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Host
-</span><a href="#local-6989586621679265301"><span class="hs-identifier hs-var">host</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;efsVolumeConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; EFSVolumeConfiguration -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">(EFSVolumeConfiguration -&gt; Pair)
--&gt; Maybe EFSVolumeConfiguration -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EFSVolumeConfiguration
-</span><a href="#local-6989586621679265300"><span class="hs-identifier hs-var">efsVolumeConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679265592"><span class="hs-identifier hs-var">host</span></a></span><span>
 </span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span></pre></body></html>

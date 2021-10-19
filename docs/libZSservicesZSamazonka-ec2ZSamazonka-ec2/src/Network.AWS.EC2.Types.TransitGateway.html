@@ -30,33 +30,33 @@
 </span><span id="line-30"></span><span class="hs-comment">-- | Describes a transit gateway.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newTransitGateway' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621681154752"><span id="local-6989586621681154753"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGateway"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-var">TransitGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGateway%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-var">TransitGateway'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681189946"><span id="local-6989586621681189947"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransitGateway"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-var">TransitGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGateway%27"><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-var">TransitGateway'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The creation time.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AcreationTime%3ATransitGateway%27"><span class="annot"><span class="annottext">TransitGateway -&gt; Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AcreationTime%3ATransitGateway%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the transit gateway.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AownerId%3ATransitGateway%27"><span class="annot"><span class="annottext">TransitGateway -&gt; Maybe Text
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The state of the transit gateway.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astate%3ATransitGateway%27"><span class="annot"><span class="annottext">TransitGateway -&gt; Maybe TransitGatewayState
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Astate%3ATransitGateway%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayState.html#TransitGatewayState"><span class="hs-identifier hs-type">TransitGatewayState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the transit gateway.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AownerId%3ATransitGateway%27"><span class="annot"><span class="annottext">TransitGateway -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AownerId%3ATransitGateway%27"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The transit gateway options.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aoptions%3ATransitGateway%27"><span class="annot"><span class="annottext">TransitGateway -&gt; Maybe TransitGatewayOptions
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Aoptions%3ATransitGateway%27"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayOptions.html#TransitGatewayOptions"><span class="hs-identifier hs-type">TransitGatewayOptions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the transit gateway.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AtransitGatewayArn%3ATransitGateway%27"><span class="annot"><span class="annottext">TransitGateway -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AtransitGatewayArn%3ATransitGateway%27"><span class="hs-identifier hs-var hs-var">transitGatewayArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The state of the transit gateway.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Astate%3ATransitGateway%27"><span class="annot"><span class="annottext">TransitGateway -&gt; Maybe TransitGatewayState
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Astate%3ATransitGateway%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayState.html#TransitGatewayState"><span class="hs-identifier hs-type">TransitGatewayState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The tags for the transit gateway.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atags%3ATransitGateway%27"><span class="annot"><span class="annottext">TransitGateway -&gt; Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Atags%3ATransitGateway%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AtransitGatewayId%3ATransitGateway%27"><span class="annot"><span class="annottext">TransitGateway -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AtransitGatewayId%3ATransitGateway%27"><span class="hs-identifier hs-var hs-var">transitGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The transit gateway options.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aoptions%3ATransitGateway%27"><span class="annot"><span class="annottext">TransitGateway -&gt; Maybe TransitGatewayOptions
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Aoptions%3ATransitGateway%27"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayOptions.html#TransitGatewayOptions"><span class="hs-identifier hs-type">TransitGatewayOptions</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The description of the transit gateway.</span><span>
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3Adescription%3ATransitGateway%27"><span class="annot"><span class="annottext">TransitGateway -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Adescription%3ATransitGateway%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The ID of the transit gateway.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AtransitGatewayId%3ATransitGateway%27"><span class="annot"><span class="annottext">TransitGateway -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AtransitGatewayId%3ATransitGateway%27"><span class="hs-identifier hs-var hs-var">transitGatewayId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The tags for the transit gateway.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Atags%3ATransitGateway%27"><span class="annot"><span class="annottext">TransitGateway -&gt; Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Atags%3ATransitGateway%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681154739"><span id="local-6989586621681154741"><span class="annot"><span class="annottext">TransitGateway -&gt; TransitGateway -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681189933"><span id="local-6989586621681189935"><span class="annot"><span class="annottext">TransitGateway -&gt; TransitGateway -&gt; Bool
 (TransitGateway -&gt; TransitGateway -&gt; Bool)
 -&gt; (TransitGateway -&gt; TransitGateway -&gt; Bool) -&gt; Eq TransitGateway
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TransitGateway -&gt; TransitGateway -&gt; Bool
 == :: TransitGateway -&gt; TransitGateway -&gt; Bool
 $c== :: TransitGateway -&gt; TransitGateway -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681154730"><span id="local-6989586621681154732"><span id="local-6989586621681154734"><span id="local-6989586621681154736"><span class="annot"><span class="annottext">ReadPrec [TransitGateway]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681189924"><span id="local-6989586621681189926"><span id="local-6989586621681189928"><span id="local-6989586621681189930"><span class="annot"><span class="annottext">ReadPrec [TransitGateway]
 ReadPrec TransitGateway
 Int -&gt; ReadS TransitGateway
 ReadS [TransitGateway]
@@ -84,7 +84,7 @@ readList :: ReadS [TransitGateway]
 $creadList :: ReadS [TransitGateway]
 readsPrec :: Int -&gt; ReadS TransitGateway
 $creadsPrec :: Int -&gt; ReadS TransitGateway
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681154723"><span id="local-6989586621681154725"><span id="local-6989586621681154727"><span class="annot"><span class="annottext">Int -&gt; TransitGateway -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681189917"><span id="local-6989586621681189919"><span id="local-6989586621681189921"><span class="annot"><span class="annottext">Int -&gt; TransitGateway -&gt; ShowS
 [TransitGateway] -&gt; ShowS
 TransitGateway -&gt; String
 (Int -&gt; TransitGateway -&gt; ShowS)
@@ -120,63 +120,63 @@ $cfrom :: forall x. TransitGateway -&gt; Rep TransitGateway x
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'creationTime', 'transitGateway_creationTime' - The creation time.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'ownerId', 'transitGateway_ownerId' - The ID of the Amazon Web Services account that owns the transit gateway.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'state', 'transitGateway_state' - The state of the transit gateway.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'options', 'transitGateway_options' - The transit gateway options.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'ownerId', 'transitGateway_ownerId' - The ID of the Amazon Web Services account that owns the transit gateway.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- 'transitGatewayArn', 'transitGateway_transitGatewayArn' - The Amazon Resource Name (ARN) of the transit gateway.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'state', 'transitGateway_state' - The state of the transit gateway.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'transitGatewayId', 'transitGateway_transitGatewayId' - The ID of the transit gateway.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'tags', 'transitGateway_tags' - The tags for the transit gateway.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'options', 'transitGateway_options' - The transit gateway options.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- 'description', 'transitGateway_description' - The description of the transit gateway.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'transitGatewayId', 'transitGateway_transitGatewayId' - The ID of the transit gateway.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'tags', 'transitGateway_tags' - The tags for the transit gateway.</span><span>
 </span><span id="line-76"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#newTransitGateway"><span class="hs-identifier hs-type">newTransitGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span>
 </span><span id="line-78"></span><span id="newTransitGateway"><span class="annot"><span class="annottext">newTransitGateway :: TransitGateway
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#newTransitGateway"><span class="hs-identifier hs-var hs-var">newTransitGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">TransitGateway' :: Maybe ISO8601
+-&gt; Maybe TransitGatewayState
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe TransitGatewayOptions
 -&gt; Maybe Text
--&gt; Maybe TransitGatewayState
 -&gt; Maybe [Tag]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; TransitGateway
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:TransitGateway' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AcreationTime%3ATransitGateway%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:TransitGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AownerId%3ATransitGateway%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:TransitGateway' :: Maybe TransitGatewayState
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Astate%3ATransitGateway%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:options:TransitGateway' :: Maybe TransitGatewayOptions
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Aoptions%3ATransitGateway%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayOptions
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerId:TransitGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AownerId%3ATransitGateway%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayArn:TransitGateway' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AtransitGatewayArn%3ATransitGateway%27"><span class="hs-identifier hs-var">transitGatewayArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:TransitGateway' :: Maybe TransitGatewayState
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Astate%3ATransitGateway%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayState
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayId:TransitGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AtransitGatewayId%3ATransitGateway%27"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TransitGateway' :: Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Atags%3ATransitGateway%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:options:TransitGateway' :: Maybe TransitGatewayOptions
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Aoptions%3ATransitGateway%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayOptions
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:TransitGateway' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Adescription%3ATransitGateway%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:transitGatewayId:TransitGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AtransitGatewayId%3ATransitGateway%27"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TransitGateway' :: Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Atags%3ATransitGateway%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
@@ -190,16 +190,16 @@ forall a. Maybe a
 -&gt; Lens
      TransitGateway TransitGateway (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154714"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189908"><span class="annot"><span class="annottext">Maybe ISO8601
 creationTime :: Maybe ISO8601
 $sel:creationTime:TransitGateway' :: TransitGateway -&gt; Maybe ISO8601
-</span><a href="#local-6989586621681154714"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681154714"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681154713"><span class="annot"><span class="annottext">s :: TransitGateway
-</span><a href="#local-6989586621681154713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681154712"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681154712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
-</span><a href="#local-6989586621681154713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:TransitGateway' :: Maybe ISO8601
+</span><a href="#local-6989586621681189908"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681189908"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189907"><span class="annot"><span class="annottext">s :: TransitGateway
+</span><a href="#local-6989586621681189907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189906"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681189906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
+</span><a href="#local-6989586621681189907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:TransitGateway' :: Maybe ISO8601
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AcreationTime%3ATransitGateway%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621681154712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621681189906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; TransitGateway -&gt; f TransitGateway)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -217,28 +217,89 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the transit gateway.</span><span>
-</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_ownerId"><span class="hs-identifier hs-type">transitGateway_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span id="transitGateway_ownerId"><span class="annot"><span class="annottext">transitGateway_ownerId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-94"></span><span class="hs-comment">-- | The state of the transit gateway.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_state"><span class="hs-identifier hs-type">transitGateway_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayState.html#TransitGatewayState"><span class="hs-identifier hs-type">TransitGatewayState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="transitGateway_state"><span class="annot"><span class="annottext">transitGateway_state :: (Maybe TransitGatewayState -&gt; f (Maybe TransitGatewayState))
+-&gt; TransitGateway -&gt; f TransitGateway
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_state"><span class="hs-identifier hs-var hs-var">transitGateway_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGateway -&gt; Maybe TransitGatewayState)
+-&gt; (TransitGateway -&gt; Maybe TransitGatewayState -&gt; TransitGateway)
+-&gt; Lens
+     TransitGateway
+     TransitGateway
+     (Maybe TransitGatewayState)
+     (Maybe TransitGatewayState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189901"><span class="annot"><span class="annottext">Maybe TransitGatewayState
+state :: Maybe TransitGatewayState
+$sel:state:TransitGateway' :: TransitGateway -&gt; Maybe TransitGatewayState
+</span><a href="#local-6989586621681189901"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayState
+</span><a href="#local-6989586621681189901"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189900"><span class="annot"><span class="annottext">s :: TransitGateway
+</span><a href="#local-6989586621681189900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189899"><span class="annot"><span class="annottext">Maybe TransitGatewayState
+</span><a href="#local-6989586621681189899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
+</span><a href="#local-6989586621681189900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:TransitGateway' :: Maybe TransitGatewayState
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Astate%3ATransitGateway%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayState
+</span><a href="#local-6989586621681189899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that owns the transit gateway.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_ownerId"><span class="hs-identifier hs-type">transitGateway_ownerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="transitGateway_ownerId"><span class="annot"><span class="annottext">transitGateway_ownerId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; TransitGateway -&gt; f TransitGateway
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_ownerId"><span class="hs-identifier hs-var hs-var">transitGateway_ownerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGateway -&gt; Maybe Text)
 -&gt; (TransitGateway -&gt; Maybe Text -&gt; TransitGateway)
 -&gt; Lens TransitGateway TransitGateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154707"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189897"><span class="annot"><span class="annottext">Maybe Text
 ownerId :: Maybe Text
 $sel:ownerId:TransitGateway' :: TransitGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681154707"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681154707"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681154706"><span class="annot"><span class="annottext">s :: TransitGateway
-</span><a href="#local-6989586621681154706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681154705"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681154705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
-</span><a href="#local-6989586621681154706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:TransitGateway' :: Maybe Text
+</span><a href="#local-6989586621681189897"><span class="hs-identifier hs-var hs-var">ownerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189897"><span class="hs-identifier hs-var">ownerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189896"><span class="annot"><span class="annottext">s :: TransitGateway
+</span><a href="#local-6989586621681189896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
+</span><a href="#local-6989586621681189896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerId:TransitGateway' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AownerId%3ATransitGateway%27"><span class="hs-identifier hs-var">ownerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681154705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- | The transit gateway options.</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_options"><span class="hs-identifier hs-type">transitGateway_options</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayOptions.html#TransitGatewayOptions"><span class="hs-identifier hs-type">TransitGatewayOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="transitGateway_options"><span class="annot"><span class="annottext">transitGateway_options :: (Maybe TransitGatewayOptions -&gt; f (Maybe TransitGatewayOptions))
+</span><a href="#local-6989586621681189895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the transit gateway.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_transitGatewayArn"><span class="hs-identifier hs-type">transitGateway_transitGatewayArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="transitGateway_transitGatewayArn"><span class="annot"><span class="annottext">transitGateway_transitGatewayArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransitGateway -&gt; f TransitGateway
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_transitGatewayArn"><span class="hs-identifier hs-var hs-var">transitGateway_transitGatewayArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGateway -&gt; Maybe Text)
+-&gt; (TransitGateway -&gt; Maybe Text -&gt; TransitGateway)
+-&gt; Lens TransitGateway TransitGateway (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189893"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayArn :: Maybe Text
+$sel:transitGatewayArn:TransitGateway' :: TransitGateway -&gt; Maybe Text
+</span><a href="#local-6989586621681189893"><span class="hs-identifier hs-var hs-var">transitGatewayArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189893"><span class="hs-identifier hs-var">transitGatewayArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189892"><span class="annot"><span class="annottext">s :: TransitGateway
+</span><a href="#local-6989586621681189892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189891"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
+</span><a href="#local-6989586621681189892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayArn:TransitGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AtransitGatewayArn%3ATransitGateway%27"><span class="hs-identifier hs-var">transitGatewayArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ID of the transit gateway.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_transitGatewayId"><span class="hs-identifier hs-type">transitGateway_transitGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="transitGateway_transitGatewayId"><span class="annot"><span class="annottext">transitGateway_transitGatewayId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransitGateway -&gt; f TransitGateway
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_transitGatewayId"><span class="hs-identifier hs-var hs-var">transitGateway_transitGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGateway -&gt; Maybe Text)
+-&gt; (TransitGateway -&gt; Maybe Text -&gt; TransitGateway)
+-&gt; Lens TransitGateway TransitGateway (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189889"><span class="annot"><span class="annottext">Maybe Text
+transitGatewayId :: Maybe Text
+$sel:transitGatewayId:TransitGateway' :: TransitGateway -&gt; Maybe Text
+</span><a href="#local-6989586621681189889"><span class="hs-identifier hs-var hs-var">transitGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189889"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189888"><span class="annot"><span class="annottext">s :: TransitGateway
+</span><a href="#local-6989586621681189888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189887"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
+</span><a href="#local-6989586621681189888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayId:TransitGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AtransitGatewayId%3ATransitGateway%27"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The transit gateway options.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_options"><span class="hs-identifier hs-type">transitGateway_options</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayOptions.html#TransitGatewayOptions"><span class="hs-identifier hs-type">TransitGatewayOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="transitGateway_options"><span class="annot"><span class="annottext">transitGateway_options :: (Maybe TransitGatewayOptions -&gt; f (Maybe TransitGatewayOptions))
 -&gt; TransitGateway -&gt; f TransitGateway
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_options"><span class="hs-identifier hs-var hs-var">transitGateway_options</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGateway -&gt; Maybe TransitGatewayOptions)
 -&gt; (TransitGateway
@@ -249,77 +310,54 @@ $sel:ownerId:TransitGateway' :: TransitGateway -&gt; Maybe Text
      (Maybe TransitGatewayOptions)
      (Maybe TransitGatewayOptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154703"><span class="annot"><span class="annottext">Maybe TransitGatewayOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189885"><span class="annot"><span class="annottext">Maybe TransitGatewayOptions
 options :: Maybe TransitGatewayOptions
 $sel:options:TransitGateway' :: TransitGateway -&gt; Maybe TransitGatewayOptions
-</span><a href="#local-6989586621681154703"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayOptions
-</span><a href="#local-6989586621681154703"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681154702"><span class="annot"><span class="annottext">s :: TransitGateway
-</span><a href="#local-6989586621681154702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681154701"><span class="annot"><span class="annottext">Maybe TransitGatewayOptions
-</span><a href="#local-6989586621681154701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
-</span><a href="#local-6989586621681154702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:TransitGateway' :: Maybe TransitGatewayOptions
+</span><a href="#local-6989586621681189885"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayOptions
+</span><a href="#local-6989586621681189885"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189884"><span class="annot"><span class="annottext">s :: TransitGateway
+</span><a href="#local-6989586621681189884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189883"><span class="annot"><span class="annottext">Maybe TransitGatewayOptions
+</span><a href="#local-6989586621681189883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
+</span><a href="#local-6989586621681189884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:TransitGateway' :: Maybe TransitGatewayOptions
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Aoptions%3ATransitGateway%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayOptions
-</span><a href="#local-6989586621681154701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the transit gateway.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_transitGatewayArn"><span class="hs-identifier hs-type">transitGateway_transitGatewayArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="transitGateway_transitGatewayArn"><span class="annot"><span class="annottext">transitGateway_transitGatewayArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621681189883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The description of the transit gateway.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_description"><span class="hs-identifier hs-type">transitGateway_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="transitGateway_description"><span class="annot"><span class="annottext">transitGateway_description :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; TransitGateway -&gt; f TransitGateway
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_transitGatewayArn"><span class="hs-identifier hs-var hs-var">transitGateway_transitGatewayArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGateway -&gt; Maybe Text)
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_description"><span class="hs-identifier hs-var hs-var">transitGateway_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGateway -&gt; Maybe Text)
 -&gt; (TransitGateway -&gt; Maybe Text -&gt; TransitGateway)
 -&gt; Lens TransitGateway TransitGateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154699"><span class="annot"><span class="annottext">Maybe Text
-transitGatewayArn :: Maybe Text
-$sel:transitGatewayArn:TransitGateway' :: TransitGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681154699"><span class="hs-identifier hs-var hs-var">transitGatewayArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681154699"><span class="hs-identifier hs-var">transitGatewayArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681154698"><span class="annot"><span class="annottext">s :: TransitGateway
-</span><a href="#local-6989586621681154698"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681154697"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681154697"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
-</span><a href="#local-6989586621681154698"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayArn:TransitGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AtransitGatewayArn%3ATransitGateway%27"><span class="hs-identifier hs-var">transitGatewayArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681154697"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The state of the transit gateway.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_state"><span class="hs-identifier hs-type">transitGateway_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGatewayState.html#TransitGatewayState"><span class="hs-identifier hs-type">TransitGatewayState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="transitGateway_state"><span class="annot"><span class="annottext">transitGateway_state :: (Maybe TransitGatewayState -&gt; f (Maybe TransitGatewayState))
--&gt; TransitGateway -&gt; f TransitGateway
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_state"><span class="hs-identifier hs-var hs-var">transitGateway_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGateway -&gt; Maybe TransitGatewayState)
--&gt; (TransitGateway -&gt; Maybe TransitGatewayState -&gt; TransitGateway)
--&gt; Lens
-     TransitGateway
-     TransitGateway
-     (Maybe TransitGatewayState)
-     (Maybe TransitGatewayState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154695"><span class="annot"><span class="annottext">Maybe TransitGatewayState
-state :: Maybe TransitGatewayState
-$sel:state:TransitGateway' :: TransitGateway -&gt; Maybe TransitGatewayState
-</span><a href="#local-6989586621681154695"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayState
-</span><a href="#local-6989586621681154695"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681154694"><span class="annot"><span class="annottext">s :: TransitGateway
-</span><a href="#local-6989586621681154694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681154693"><span class="annot"><span class="annottext">Maybe TransitGatewayState
-</span><a href="#local-6989586621681154693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
-</span><a href="#local-6989586621681154694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:TransitGateway' :: Maybe TransitGatewayState
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Astate%3ATransitGateway%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TransitGatewayState
-</span><a href="#local-6989586621681154693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The tags for the transit gateway.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_tags"><span class="hs-identifier hs-type">transitGateway_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="transitGateway_tags"><span class="annot"><span class="annottext">transitGateway_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189881"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:TransitGateway' :: TransitGateway -&gt; Maybe Text
+</span><a href="#local-6989586621681189881"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189881"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189880"><span class="annot"><span class="annottext">s :: TransitGateway
+</span><a href="#local-6989586621681189880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189879"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
+</span><a href="#local-6989586621681189880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:TransitGateway' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Adescription%3ATransitGateway%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681189879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The tags for the transit gateway.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_tags"><span class="hs-identifier hs-type">transitGateway_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="transitGateway_tags"><span class="annot"><span class="annottext">transitGateway_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; TransitGateway -&gt; f TransitGateway
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_tags"><span class="hs-identifier hs-var hs-var">transitGateway_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGateway -&gt; Maybe [Tag])
 -&gt; (TransitGateway -&gt; Maybe [Tag] -&gt; TransitGateway)
 -&gt; Lens TransitGateway TransitGateway (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154691"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681189877"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:TransitGateway' :: TransitGateway -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681154691"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681154691"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681154690"><span class="annot"><span class="annottext">s :: TransitGateway
-</span><a href="#local-6989586621681154690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681154689"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681154689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
-</span><a href="#local-6989586621681154690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TransitGateway' :: Maybe [Tag]
+</span><a href="#local-6989586621681189877"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681189877"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681189876"><span class="annot"><span class="annottext">s :: TransitGateway
+</span><a href="#local-6989586621681189876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681189875"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681189875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
+</span><a href="#local-6989586621681189876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TransitGateway' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Atags%3ATransitGateway%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681154689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681189875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; TransitGateway -&gt; f TransitGateway)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -333,176 +371,165 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The description of the transit gateway.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_description"><span class="hs-identifier hs-type">transitGateway_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="transitGateway_description"><span class="annot"><span class="annottext">transitGateway_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TransitGateway -&gt; f TransitGateway
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_description"><span class="hs-identifier hs-var hs-var">transitGateway_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGateway -&gt; Maybe Text)
--&gt; (TransitGateway -&gt; Maybe Text -&gt; TransitGateway)
--&gt; Lens TransitGateway TransitGateway (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154686"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:TransitGateway' :: TransitGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681154686"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681154686"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681154685"><span class="annot"><span class="annottext">s :: TransitGateway
-</span><a href="#local-6989586621681154685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681154684"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681154684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
-</span><a href="#local-6989586621681154685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:TransitGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3Adescription%3ATransitGateway%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681154684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The ID of the transit gateway.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_transitGatewayId"><span class="hs-identifier hs-type">transitGateway_transitGatewayId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="transitGateway_transitGatewayId"><span class="annot"><span class="annottext">transitGateway_transitGatewayId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; TransitGateway -&gt; f TransitGateway
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#transitGateway_transitGatewayId"><span class="hs-identifier hs-var hs-var">transitGateway_transitGatewayId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransitGateway -&gt; Maybe Text)
--&gt; (TransitGateway -&gt; Maybe Text -&gt; TransitGateway)
--&gt; Lens TransitGateway TransitGateway (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681154682"><span class="annot"><span class="annottext">Maybe Text
-transitGatewayId :: Maybe Text
-$sel:transitGatewayId:TransitGateway' :: TransitGateway -&gt; Maybe Text
-</span><a href="#local-6989586621681154682"><span class="hs-identifier hs-var hs-var">transitGatewayId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681154682"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681154681"><span class="annot"><span class="annottext">s :: TransitGateway
-</span><a href="#local-6989586621681154681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-type">TransitGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681154680"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681154680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitGateway
-</span><a href="#local-6989586621681154681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transitGatewayId:TransitGateway' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.TransitGateway.html#%24sel%3AtransitGatewayId%3ATransitGateway%27"><span class="hs-identifier hs-var">transitGatewayId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681154680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621681154677"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TransitGateway
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681154675"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681154675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621681189871"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String TransitGateway
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681189869"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681189869"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
+-&gt; Maybe TransitGatewayState
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe TransitGatewayOptions
 -&gt; Maybe Text
--&gt; Maybe TransitGatewayState
 -&gt; Maybe [Tag]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; TransitGateway
 </span><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway%27"><span class="hs-identifier hs-var">TransitGateway'</span></a></span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
+ -&gt; Maybe TransitGatewayState
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe TransitGatewayOptions
  -&gt; Maybe Text
- -&gt; Maybe TransitGatewayState
  -&gt; Maybe [Tag]
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; TransitGateway)
 -&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe TransitGatewayState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe TransitGatewayOptions
       -&gt; Maybe Text
-      -&gt; Maybe TransitGatewayState
       -&gt; Maybe [Tag]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; TransitGateway)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681154675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621681189869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
+  (Maybe TransitGatewayState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe TransitGatewayOptions
    -&gt; Maybe Text
-   -&gt; Maybe TransitGatewayState
    -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; TransitGateway)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe TransitGatewayOptions
-      -&gt; Maybe Text
-      -&gt; Maybe TransitGatewayState
-      -&gt; Maybe [Tag]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; TransitGateway)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681154675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe TransitGatewayOptions
-   -&gt; Maybe Text
-   -&gt; Maybe TransitGatewayState
-   -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; TransitGateway)
--&gt; Either String (Maybe TransitGatewayOptions)
+-&gt; Either String (Maybe TransitGatewayState)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe TransitGatewayState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TransitGatewayOptions
+      -&gt; Maybe Text
       -&gt; Maybe [Tag]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; TransitGateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681154675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TransitGatewayOptions)
+</span><a href="#local-6989586621681189869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TransitGatewayState)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;options&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe TransitGatewayState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TransitGatewayOptions
+   -&gt; Maybe Text
    -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; TransitGateway)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe TransitGatewayState
-      -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Maybe Text -&gt; TransitGateway)
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe TransitGatewayOptions
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; TransitGateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681154675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681189869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ownerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe TransitGatewayOptions
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; TransitGateway)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe TransitGatewayOptions
+      -&gt; Maybe Text
+      -&gt; Maybe [Tag]
+      -&gt; TransitGateway)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681189869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;transitGatewayArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe TransitGatewayState
-   -&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Maybe Text -&gt; TransitGateway)
--&gt; Either String (Maybe TransitGatewayState)
+  (Maybe Text
+   -&gt; Maybe TransitGatewayOptions
+   -&gt; Maybe Text
+   -&gt; Maybe [Tag]
+   -&gt; TransitGateway)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe [Tag] -&gt; Maybe Text -&gt; Maybe Text -&gt; TransitGateway)
+     String
+     (Maybe TransitGatewayOptions
+      -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; TransitGateway)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681154675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TransitGatewayState)
+</span><a href="#local-6989586621681189869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;transitGatewayId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe [Tag] -&gt; Maybe Text -&gt; Maybe Text -&gt; TransitGateway)
--&gt; Either String (Maybe [Tag])
--&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; TransitGateway)
+  String
+  (Maybe TransitGatewayOptions
+   -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; TransitGateway)
+-&gt; Either String (Maybe TransitGatewayOptions)
+-&gt; Either String (Maybe Text -&gt; Maybe [Tag] -&gt; TransitGateway)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681189869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TransitGatewayOptions)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;options&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Tag] -&gt; TransitGateway)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Tag] -&gt; TransitGateway)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681189869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; TransitGateway)
+-&gt; Either String (Maybe [Tag]) -&gt; Either String TransitGateway
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681154675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681189869"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -510,7 +537,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-131"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-133"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -523,26 +550,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; TransitGateway)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Text -&gt; TransitGateway)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681154675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; TransitGateway)
--&gt; Either String (Maybe Text) -&gt; Either String TransitGateway
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681154675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;transitGatewayId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681154666"><span id="local-6989586621681154668"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681189860"><span id="local-6989586621681189862"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span></span></span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681154663"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681189857"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.TransitGateway.html#TransitGateway"><span class="hs-identifier hs-type">TransitGateway</span></a></span></span><span>
 </span><span id="line-139"></span></pre></body></html>

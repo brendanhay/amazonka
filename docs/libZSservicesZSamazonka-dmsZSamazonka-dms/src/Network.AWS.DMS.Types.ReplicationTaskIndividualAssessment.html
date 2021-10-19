@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- premigration assessment run.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newReplicationTaskIndividualAssessment' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679437334"><span id="local-6989586621679437335"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationTaskIndividualAssessment"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-var">ReplicationTaskIndividualAssessment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationTaskIndividualAssessment%27"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">ReplicationTaskIndividualAssessment'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679437613"><span id="local-6989586621679437614"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationTaskIndividualAssessment"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-var">ReplicationTaskIndividualAssessment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationTaskIndividualAssessment%27"><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">ReplicationTaskIndividualAssessment'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Individual assessment status.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- This status can have one of the following values:</span><span>
@@ -45,22 +45,22 @@
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   @\&quot;running\&quot;@</span><span>
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3Astatus%3AReplicationTaskIndividualAssessment%27"><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment -&gt; Maybe Text
 </span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3Astatus%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | ARN of the premigration assessment run that is created to run this</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- individual assessment.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AreplicationTaskAssessmentRunArn%3AReplicationTaskIndividualAssessment%27"><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment -&gt; Maybe Text
-</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskAssessmentRunArn%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRunArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Date when this individual assessment was started as part of running the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- @StartReplicationTaskAssessmentRun@ operation.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AreplicationTaskIndividualAssessmentStartDate%3AReplicationTaskIndividualAssessment%27"><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment -&gt; Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskIndividualAssessmentStartDate%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessmentStartDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Name of this individual assessment.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AindividualAssessmentName%3AReplicationTaskIndividualAssessment%27"><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment -&gt; Maybe Text
 </span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AindividualAssessmentName%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var hs-var">individualAssessmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Date when this individual assessment was started as part of running the</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @StartReplicationTaskAssessmentRun@ operation.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AreplicationTaskIndividualAssessmentStartDate%3AReplicationTaskIndividualAssessment%27"><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment -&gt; Maybe POSIX
-</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskIndividualAssessmentStartDate%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessmentStartDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Amazon Resource Name (ARN) of this individual assessment.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AreplicationTaskIndividualAssessmentArn%3AReplicationTaskIndividualAssessment%27"><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment -&gt; Maybe Text
-</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskIndividualAssessmentArn%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessmentArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Amazon Resource Name (ARN) of this individual assessment.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AreplicationTaskIndividualAssessmentArn%3AReplicationTaskIndividualAssessment%27"><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskIndividualAssessmentArn%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessmentArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | ARN of the premigration assessment run that is created to run this</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- individual assessment.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AreplicationTaskAssessmentRunArn%3AReplicationTaskIndividualAssessment%27"><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment -&gt; Maybe Text
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskAssessmentRunArn%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRunArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679437324"><span id="local-6989586621679437326"><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679437603"><span id="local-6989586621679437605"><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment
 -&gt; ReplicationTaskIndividualAssessment -&gt; Bool
 (ReplicationTaskIndividualAssessment
  -&gt; ReplicationTaskIndividualAssessment -&gt; Bool)
@@ -76,7 +76,7 @@ $c/= :: ReplicationTaskIndividualAssessment
 -&gt; ReplicationTaskIndividualAssessment -&gt; Bool
 $c== :: ReplicationTaskIndividualAssessment
 -&gt; ReplicationTaskIndividualAssessment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437315"><span id="local-6989586621679437317"><span id="local-6989586621679437319"><span id="local-6989586621679437321"><span class="annot"><span class="annottext">ReadPrec [ReplicationTaskIndividualAssessment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437594"><span id="local-6989586621679437596"><span id="local-6989586621679437598"><span id="local-6989586621679437600"><span class="annot"><span class="annottext">ReadPrec [ReplicationTaskIndividualAssessment]
 ReadPrec ReplicationTaskIndividualAssessment
 Int -&gt; ReadS ReplicationTaskIndividualAssessment
 ReadS [ReplicationTaskIndividualAssessment]
@@ -96,7 +96,7 @@ readList :: ReadS [ReplicationTaskIndividualAssessment]
 $creadList :: ReadS [ReplicationTaskIndividualAssessment]
 readsPrec :: Int -&gt; ReadS ReplicationTaskIndividualAssessment
 $creadsPrec :: Int -&gt; ReadS ReplicationTaskIndividualAssessment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437308"><span id="local-6989586621679437310"><span id="local-6989586621679437312"><span class="annot"><span class="annottext">Int -&gt; ReplicationTaskIndividualAssessment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679437587"><span id="local-6989586621679437589"><span id="local-6989586621679437591"><span class="annot"><span class="annottext">Int -&gt; ReplicationTaskIndividualAssessment -&gt; ShowS
 [ReplicationTaskIndividualAssessment] -&gt; ShowS
 ReplicationTaskIndividualAssessment -&gt; String
 (Int -&gt; ReplicationTaskIndividualAssessment -&gt; ShowS)
@@ -158,23 +158,23 @@ ReplicationTaskIndividualAssessment
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- -   @\&quot;running\&quot;@</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'replicationTaskAssessmentRunArn', 'replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn' - ARN of the premigration assessment run that is created to run this</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- individual assessment.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'replicationTaskIndividualAssessmentStartDate', 'replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate' - Date when this individual assessment was started as part of running the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- @StartReplicationTaskAssessmentRun@ operation.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- 'individualAssessmentName', 'replicationTaskIndividualAssessment_individualAssessmentName' - Name of this individual assessment.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'replicationTaskIndividualAssessmentStartDate', 'replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate' - Date when this individual assessment was started as part of running the</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- @StartReplicationTaskAssessmentRun@ operation.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'replicationTaskIndividualAssessmentArn', 'replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn' - Amazon Resource Name (ARN) of this individual assessment.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'replicationTaskIndividualAssessmentArn', 'replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn' - Amazon Resource Name (ARN) of this individual assessment.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'replicationTaskAssessmentRunArn', 'replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn' - ARN of the premigration assessment run that is created to run this</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- individual assessment.</span><span>
 </span><span id="line-93"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#newReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">newReplicationTaskIndividualAssessment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span>
 </span><span id="line-95"></span><span id="newReplicationTaskIndividualAssessment"><span class="annot"><span class="annottext">newReplicationTaskIndividualAssessment :: ReplicationTaskIndividualAssessment
 </span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#newReplicationTaskIndividualAssessment"><span class="hs-identifier hs-var hs-var">newReplicationTaskIndividualAssessment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; ReplicationTaskIndividualAssessment
 </span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span>
@@ -183,9 +183,9 @@ ReplicationTaskIndividualAssessment
 </span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationTaskAssessmentRunArn:ReplicationTaskIndividualAssessment' :: Maybe Text
-</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskAssessmentRunArn%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">replicationTaskAssessmentRunArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationTaskIndividualAssessmentStartDate:ReplicationTaskIndividualAssessment' :: Maybe POSIX
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskIndividualAssessmentStartDate%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">replicationTaskIndividualAssessmentStartDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:individualAssessmentName:ReplicationTaskIndividualAssessment' :: Maybe Text
@@ -193,13 +193,13 @@ forall a. Maybe a
 </span><span id="line-102"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationTaskIndividualAssessmentStartDate:ReplicationTaskIndividualAssessment' :: Maybe POSIX
-</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskIndividualAssessmentStartDate%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">replicationTaskIndividualAssessmentStartDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationTaskIndividualAssessmentArn:ReplicationTaskIndividualAssessment' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskIndividualAssessmentArn%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">replicationTaskIndividualAssessmentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationTaskIndividualAssessmentArn:ReplicationTaskIndividualAssessment' :: Maybe Text
-</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskIndividualAssessmentArn%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">replicationTaskIndividualAssessmentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:replicationTaskAssessmentRunArn:ReplicationTaskIndividualAssessment' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskAssessmentRunArn%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">replicationTaskAssessmentRunArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
@@ -233,72 +233,21 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437299"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437578"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:ReplicationTaskIndividualAssessment' :: ReplicationTaskIndividualAssessment -&gt; Maybe Text
-</span><a href="#local-6989586621679437299"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437299"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437298"><span class="annot"><span class="annottext">s :: ReplicationTaskIndividualAssessment
-</span><a href="#local-6989586621679437298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437297"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment
-</span><a href="#local-6989586621679437298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReplicationTaskIndividualAssessment' :: Maybe Text
+</span><a href="#local-6989586621679437578"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437578"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437577"><span class="annot"><span class="annottext">s :: ReplicationTaskIndividualAssessment
+</span><a href="#local-6989586621679437577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437576"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment
+</span><a href="#local-6989586621679437577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ReplicationTaskIndividualAssessment' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3Astatus%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679437576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | ARN of the premigration assessment run that is created to run this</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- individual assessment.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn"><span class="hs-identifier hs-type">replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn"><span class="annot"><span class="annottext">replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReplicationTaskIndividualAssessment
--&gt; f ReplicationTaskIndividualAssessment
-</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskIndividualAssessment -&gt; Maybe Text)
--&gt; (ReplicationTaskIndividualAssessment
-    -&gt; Maybe Text -&gt; ReplicationTaskIndividualAssessment)
--&gt; Lens
-     ReplicationTaskIndividualAssessment
-     ReplicationTaskIndividualAssessment
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437295"><span class="annot"><span class="annottext">Maybe Text
-replicationTaskAssessmentRunArn :: Maybe Text
-$sel:replicationTaskAssessmentRunArn:ReplicationTaskIndividualAssessment' :: ReplicationTaskIndividualAssessment -&gt; Maybe Text
-</span><a href="#local-6989586621679437295"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRunArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437295"><span class="hs-identifier hs-var">replicationTaskAssessmentRunArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437294"><span class="annot"><span class="annottext">s :: ReplicationTaskIndividualAssessment
-</span><a href="#local-6989586621679437294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437293"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment
-</span><a href="#local-6989586621679437294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskAssessmentRunArn:ReplicationTaskIndividualAssessment' :: Maybe Text
-</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskAssessmentRunArn%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">replicationTaskAssessmentRunArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | Name of this individual assessment.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_individualAssessmentName"><span class="hs-identifier hs-type">replicationTaskIndividualAssessment_individualAssessmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="replicationTaskIndividualAssessment_individualAssessmentName"><span class="annot"><span class="annottext">replicationTaskIndividualAssessment_individualAssessmentName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReplicationTaskIndividualAssessment
--&gt; f ReplicationTaskIndividualAssessment
-</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_individualAssessmentName"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessment_individualAssessmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskIndividualAssessment -&gt; Maybe Text)
--&gt; (ReplicationTaskIndividualAssessment
-    -&gt; Maybe Text -&gt; ReplicationTaskIndividualAssessment)
--&gt; Lens
-     ReplicationTaskIndividualAssessment
-     ReplicationTaskIndividualAssessment
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437291"><span class="annot"><span class="annottext">Maybe Text
-individualAssessmentName :: Maybe Text
-$sel:individualAssessmentName:ReplicationTaskIndividualAssessment' :: ReplicationTaskIndividualAssessment -&gt; Maybe Text
-</span><a href="#local-6989586621679437291"><span class="hs-identifier hs-var hs-var">individualAssessmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437291"><span class="hs-identifier hs-var">individualAssessmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437290"><span class="annot"><span class="annottext">s :: ReplicationTaskIndividualAssessment
-</span><a href="#local-6989586621679437290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437289"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment
-</span><a href="#local-6989586621679437290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:individualAssessmentName:ReplicationTaskIndividualAssessment' :: Maybe Text
-</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AindividualAssessmentName%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">individualAssessmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | Date when this individual assessment was started as part of running the</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- @StartReplicationTaskAssessmentRun@ operation.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate"><span class="hs-identifier hs-type">replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate"><span class="annot"><span class="annottext">replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-127"></span><span class="hs-comment">-- | Date when this individual assessment was started as part of running the</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- @StartReplicationTaskAssessmentRun@ operation.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate"><span class="hs-identifier hs-type">replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate"><span class="annot"><span class="annottext">replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ReplicationTaskIndividualAssessment
 -&gt; f ReplicationTaskIndividualAssessment
 </span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentStartDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskIndividualAssessment -&gt; Maybe POSIX)
@@ -310,16 +259,16 @@ $sel:individualAssessmentName:ReplicationTaskIndividualAssessment' :: Replicatio
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437287"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437574"><span class="annot"><span class="annottext">Maybe POSIX
 replicationTaskIndividualAssessmentStartDate :: Maybe POSIX
 $sel:replicationTaskIndividualAssessmentStartDate:ReplicationTaskIndividualAssessment' :: ReplicationTaskIndividualAssessment -&gt; Maybe POSIX
-</span><a href="#local-6989586621679437287"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessmentStartDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679437287"><span class="hs-identifier hs-var">replicationTaskIndividualAssessmentStartDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437286"><span class="annot"><span class="annottext">s :: ReplicationTaskIndividualAssessment
-</span><a href="#local-6989586621679437286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437285"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679437285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment
-</span><a href="#local-6989586621679437286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskIndividualAssessmentStartDate:ReplicationTaskIndividualAssessment' :: Maybe POSIX
+</span><a href="#local-6989586621679437574"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessmentStartDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437574"><span class="hs-identifier hs-var">replicationTaskIndividualAssessmentStartDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437573"><span class="annot"><span class="annottext">s :: ReplicationTaskIndividualAssessment
+</span><a href="#local-6989586621679437573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437572"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679437572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment
+</span><a href="#local-6989586621679437573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskIndividualAssessmentStartDate:ReplicationTaskIndividualAssessment' :: Maybe POSIX
 </span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskIndividualAssessmentStartDate%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">replicationTaskIndividualAssessmentStartDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679437285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679437572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; ReplicationTaskIndividualAssessment
  -&gt; f ReplicationTaskIndividualAssessment)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -336,10 +285,35 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of this individual assessment.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn"><span class="hs-identifier hs-type">replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn"><span class="annot"><span class="annottext">replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Name of this individual assessment.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_individualAssessmentName"><span class="hs-identifier hs-type">replicationTaskIndividualAssessment_individualAssessmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="replicationTaskIndividualAssessment_individualAssessmentName"><span class="annot"><span class="annottext">replicationTaskIndividualAssessment_individualAssessmentName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationTaskIndividualAssessment
+-&gt; f ReplicationTaskIndividualAssessment
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_individualAssessmentName"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessment_individualAssessmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskIndividualAssessment -&gt; Maybe Text)
+-&gt; (ReplicationTaskIndividualAssessment
+    -&gt; Maybe Text -&gt; ReplicationTaskIndividualAssessment)
+-&gt; Lens
+     ReplicationTaskIndividualAssessment
+     ReplicationTaskIndividualAssessment
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437567"><span class="annot"><span class="annottext">Maybe Text
+individualAssessmentName :: Maybe Text
+$sel:individualAssessmentName:ReplicationTaskIndividualAssessment' :: ReplicationTaskIndividualAssessment -&gt; Maybe Text
+</span><a href="#local-6989586621679437567"><span class="hs-identifier hs-var hs-var">individualAssessmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437567"><span class="hs-identifier hs-var">individualAssessmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437566"><span class="annot"><span class="annottext">s :: ReplicationTaskIndividualAssessment
+</span><a href="#local-6989586621679437566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437565"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment
+</span><a href="#local-6989586621679437566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:individualAssessmentName:ReplicationTaskIndividualAssessment' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AindividualAssessmentName%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">individualAssessmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Amazon Resource Name (ARN) of this individual assessment.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn"><span class="hs-identifier hs-type">replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn"><span class="annot"><span class="annottext">replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReplicationTaskIndividualAssessment
 -&gt; f ReplicationTaskIndividualAssessment
 </span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessment_replicationTaskIndividualAssessmentArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskIndividualAssessment -&gt; Maybe Text)
@@ -351,22 +325,48 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437280"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437563"><span class="annot"><span class="annottext">Maybe Text
 replicationTaskIndividualAssessmentArn :: Maybe Text
 $sel:replicationTaskIndividualAssessmentArn:ReplicationTaskIndividualAssessment' :: ReplicationTaskIndividualAssessment -&gt; Maybe Text
-</span><a href="#local-6989586621679437280"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessmentArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437280"><span class="hs-identifier hs-var">replicationTaskIndividualAssessmentArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437279"><span class="annot"><span class="annottext">s :: ReplicationTaskIndividualAssessment
-</span><a href="#local-6989586621679437279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437278"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment
-</span><a href="#local-6989586621679437279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskIndividualAssessmentArn:ReplicationTaskIndividualAssessment' :: Maybe Text
+</span><a href="#local-6989586621679437563"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessmentArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437563"><span class="hs-identifier hs-var">replicationTaskIndividualAssessmentArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437562"><span class="annot"><span class="annottext">s :: ReplicationTaskIndividualAssessment
+</span><a href="#local-6989586621679437562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437561"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment
+</span><a href="#local-6989586621679437562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskIndividualAssessmentArn:ReplicationTaskIndividualAssessment' :: Maybe Text
 </span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskIndividualAssessmentArn%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">replicationTaskIndividualAssessmentArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679437278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679437561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | ARN of the premigration assessment run that is created to run this</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- individual assessment.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn"><span class="hs-identifier hs-type">replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn"><span class="annot"><span class="annottext">replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationTaskIndividualAssessment
+-&gt; f ReplicationTaskIndividualAssessment
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn"><span class="hs-identifier hs-var hs-var">replicationTaskIndividualAssessment_replicationTaskAssessmentRunArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationTaskIndividualAssessment -&gt; Maybe Text)
+-&gt; (ReplicationTaskIndividualAssessment
+    -&gt; Maybe Text -&gt; ReplicationTaskIndividualAssessment)
+-&gt; Lens
+     ReplicationTaskIndividualAssessment
+     ReplicationTaskIndividualAssessment
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679437559"><span class="annot"><span class="annottext">Maybe Text
+replicationTaskAssessmentRunArn :: Maybe Text
+$sel:replicationTaskAssessmentRunArn:ReplicationTaskIndividualAssessment' :: ReplicationTaskIndividualAssessment -&gt; Maybe Text
+</span><a href="#local-6989586621679437559"><span class="hs-identifier hs-var hs-var">replicationTaskAssessmentRunArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437559"><span class="hs-identifier hs-var">replicationTaskAssessmentRunArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679437558"><span class="annot"><span class="annottext">s :: ReplicationTaskIndividualAssessment
+</span><a href="#local-6989586621679437558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679437557"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationTaskIndividualAssessment
+</span><a href="#local-6989586621679437558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskAssessmentRunArn:ReplicationTaskIndividualAssessment' :: Maybe Text
+</span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#%24sel%3AreplicationTaskAssessmentRunArn%3AReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">replicationTaskAssessmentRunArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679437557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679437275"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679437554"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679437273"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicationTaskIndividualAssessment
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679437552"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicationTaskIndividualAssessment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReplicationTaskIndividualAssessment)
@@ -376,96 +376,90 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReplicationTaskIndividualAssessment&quot;</span></span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679437270"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679437549"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437549"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; ReplicationTaskIndividualAssessment
 </span><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment%27"><span class="hs-identifier hs-var">ReplicationTaskIndividualAssessment'</span></a></span><span>
 </span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; ReplicationTaskIndividualAssessment)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text
+     (Maybe POSIX
       -&gt; Maybe Text
-      -&gt; Maybe POSIX
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; ReplicationTaskIndividualAssessment)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679437549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe POSIX
    -&gt; Maybe Text
-   -&gt; Maybe POSIX
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; ReplicationTaskIndividualAssessment)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; ReplicationTaskIndividualAssessment)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicationTaskAssessmentRunArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; ReplicationTaskIndividualAssessment)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe POSIX -&gt; Maybe Text -&gt; ReplicationTaskIndividualAssessment)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IndividualAssessmentName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX -&gt; Maybe Text -&gt; ReplicationTaskIndividualAssessment)
--&gt; Parser (Maybe POSIX)
--&gt; Parser (Maybe Text -&gt; ReplicationTaskIndividualAssessment)
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; ReplicationTaskIndividualAssessment)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437270"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-158"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679437549"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-156"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ReplicationTaskIndividualAssessmentStartDate&quot;</span></span><span>
-</span><span id="line-159"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; ReplicationTaskIndividualAssessment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; ReplicationTaskIndividualAssessment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndividualAssessmentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; ReplicationTaskIndividualAssessment)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; ReplicationTaskIndividualAssessment)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationTaskIndividualAssessmentArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ReplicationTaskIndividualAssessment)
 -&gt; Parser (Maybe Text)
 -&gt; Parser ReplicationTaskIndividualAssessment
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679437270"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-161"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679437549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplicationTaskIndividualAssessmentArn&quot;</span></span><span>
-</span><span id="line-162"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679437264"><span id="local-6989586621679437266"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span></span></span><span>
-</span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679437261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span></span><span>
-</span><span id="line-172"></span></pre></body></html>
+</span><span class="hs-string">&quot;ReplicationTaskAssessmentRunArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679437543"><span id="local-6989586621679437545"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span></span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679437540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.DMS.Types.ReplicationTaskIndividualAssessment.html#ReplicationTaskIndividualAssessment"><span class="hs-identifier hs-type">ReplicationTaskIndividualAssessment</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

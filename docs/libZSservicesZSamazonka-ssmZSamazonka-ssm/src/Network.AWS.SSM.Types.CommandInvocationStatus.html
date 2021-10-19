@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679788473"><span id="local-6989586621679788474"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CommandInvocationStatus"><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocationStatus.html#CommandInvocationStatus"><span class="hs-identifier hs-var">CommandInvocationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommandInvocationStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocationStatus.html#CommandInvocationStatus%27"><span class="hs-identifier hs-var">CommandInvocationStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679790094"><span id="local-6989586621679790095"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CommandInvocationStatus"><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocationStatus.html#CommandInvocationStatus"><span class="hs-identifier hs-var">CommandInvocationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommandInvocationStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.CommandInvocationStatus.html#CommandInvocationStatus%27"><span class="hs-identifier hs-var">CommandInvocationStatus'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCommandInvocationStatus"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; Text
 </span><a href="Network.AWS.SSM.Types.CommandInvocationStatus.html#fromCommandInvocationStatus"><span class="hs-identifier hs-var hs-var">fromCommandInvocationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679788465"><span id="local-6989586621679788467"><span id="local-6989586621679788469"><span class="annot"><span class="annottext">Int -&gt; CommandInvocationStatus -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790086"><span id="local-6989586621679790088"><span id="local-6989586621679790090"><span class="annot"><span class="annottext">Int -&gt; CommandInvocationStatus -&gt; ShowS
 [CommandInvocationStatus] -&gt; ShowS
 CommandInvocationStatus -&gt; String
 (Int -&gt; CommandInvocationStatus -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: CommandInvocationStatus -&gt; String
 showsPrec :: Int -&gt; CommandInvocationStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; CommandInvocationStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679788456"><span id="local-6989586621679788458"><span id="local-6989586621679788460"><span id="local-6989586621679788462"><span class="annot"><span class="annottext">ReadPrec [CommandInvocationStatus]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679790077"><span id="local-6989586621679790079"><span id="local-6989586621679790081"><span id="local-6989586621679790083"><span class="annot"><span class="annottext">ReadPrec [CommandInvocationStatus]
 ReadPrec CommandInvocationStatus
 Int -&gt; ReadS CommandInvocationStatus
 ReadS [CommandInvocationStatus]
@@ -78,7 +78,7 @@ $creadList :: ReadS [CommandInvocationStatus]
 readsPrec :: Int -&gt; ReadS CommandInvocationStatus
 $creadsPrec :: Int -&gt; ReadS CommandInvocationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679788451"><span id="local-6989586621679788453"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; CommandInvocationStatus -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679790072"><span id="local-6989586621679790074"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; CommandInvocationStatus -&gt; Bool
 (CommandInvocationStatus -&gt; CommandInvocationStatus -&gt; Bool)
 -&gt; (CommandInvocationStatus -&gt; CommandInvocationStatus -&gt; Bool)
 -&gt; Eq CommandInvocationStatus
@@ -88,7 +88,7 @@ $c/= :: CommandInvocationStatus -&gt; CommandInvocationStatus -&gt; Bool
 == :: CommandInvocationStatus -&gt; CommandInvocationStatus -&gt; Bool
 $c== :: CommandInvocationStatus -&gt; CommandInvocationStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679788435"><span id="local-6989586621679788437"><span id="local-6989586621679788439"><span id="local-6989586621679788441"><span id="local-6989586621679788443"><span id="local-6989586621679788445"><span id="local-6989586621679788447"><span class="annot"><span class="annottext">Eq CommandInvocationStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679790056"><span id="local-6989586621679790058"><span id="local-6989586621679790060"><span id="local-6989586621679790062"><span id="local-6989586621679790064"><span id="local-6989586621679790066"><span id="local-6989586621679790068"><span class="annot"><span class="annottext">Eq CommandInvocationStatus
 Eq CommandInvocationStatus
 -&gt; (CommandInvocationStatus -&gt; CommandInvocationStatus -&gt; Ordering)
 -&gt; (CommandInvocationStatus -&gt; CommandInvocationStatus -&gt; Bool)
@@ -148,7 +148,7 @@ $cfrom :: forall x. CommandInvocationStatus -&gt; Rep CommandInvocationStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679788427"><span id="local-6989586621679788429"><span class="annot"><span class="annottext">Int -&gt; CommandInvocationStatus -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679790048"><span id="local-6989586621679790050"><span class="annot"><span class="annottext">Int -&gt; CommandInvocationStatus -&gt; Int
 CommandInvocationStatus -&gt; Int
 (Int -&gt; CommandInvocationStatus -&gt; Int)
 -&gt; (CommandInvocationStatus -&gt; Int)
@@ -159,54 +159,54 @@ $chash :: CommandInvocationStatus -&gt; Int
 hashWithSalt :: Int -&gt; CommandInvocationStatus -&gt; Int
 $chashWithSalt :: Int -&gt; CommandInvocationStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679788424"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679790045"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; ()
 (CommandInvocationStatus -&gt; ()) -&gt; NFData CommandInvocationStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CommandInvocationStatus -&gt; ()
 $crnf :: CommandInvocationStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679788421"><span class="annot"><span class="annottext">Text -&gt; Either String CommandInvocationStatus
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679790042"><span class="annot"><span class="annottext">Text -&gt; Either String CommandInvocationStatus
 (Text -&gt; Either String CommandInvocationStatus)
 -&gt; FromText CommandInvocationStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CommandInvocationStatus
 $cfromText :: Text -&gt; Either String CommandInvocationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679788418"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679790039"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; Text
 (CommandInvocationStatus -&gt; Text) -&gt; ToText CommandInvocationStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CommandInvocationStatus -&gt; Text
 $ctoText :: CommandInvocationStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679788415"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679790036"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; ByteString
 (CommandInvocationStatus -&gt; ByteString)
 -&gt; ToByteString CommandInvocationStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CommandInvocationStatus -&gt; ByteString
 $ctoBS :: CommandInvocationStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679788412"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679790033"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; ByteStringBuilder
 (CommandInvocationStatus -&gt; ByteStringBuilder)
 -&gt; ToLog CommandInvocationStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CommandInvocationStatus -&gt; ByteStringBuilder
 $cbuild :: CommandInvocationStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679788409"><span class="annot"><span class="annottext">HeaderName -&gt; CommandInvocationStatus -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679790030"><span class="annot"><span class="annottext">HeaderName -&gt; CommandInvocationStatus -&gt; [Header]
 (HeaderName -&gt; CommandInvocationStatus -&gt; [Header])
 -&gt; ToHeader CommandInvocationStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CommandInvocationStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CommandInvocationStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679788406"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679790027"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; QueryString
 (CommandInvocationStatus -&gt; QueryString)
 -&gt; ToQuery CommandInvocationStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CommandInvocationStatus -&gt; QueryString
 $ctoQuery :: CommandInvocationStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679788401"><span id="local-6989586621679788403"><span class="annot"><span class="annottext">Value -&gt; Parser [CommandInvocationStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679790022"><span id="local-6989586621679790024"><span class="annot"><span class="annottext">Value -&gt; Parser [CommandInvocationStatus]
 Value -&gt; Parser CommandInvocationStatus
 (Value -&gt; Parser CommandInvocationStatus)
 -&gt; (Value -&gt; Parser [CommandInvocationStatus])
@@ -218,7 +218,7 @@ $cparseJSONList :: Value -&gt; Parser [CommandInvocationStatus]
 parseJSON :: Value -&gt; Parser CommandInvocationStatus
 $cparseJSON :: Value -&gt; Parser CommandInvocationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679788396"><span id="local-6989586621679788398"><span class="annot"><span class="annottext">FromJSONKeyFunction [CommandInvocationStatus]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679790017"><span id="local-6989586621679790019"><span class="annot"><span class="annottext">FromJSONKeyFunction [CommandInvocationStatus]
 FromJSONKeyFunction CommandInvocationStatus
 FromJSONKeyFunction CommandInvocationStatus
 -&gt; FromJSONKeyFunction [CommandInvocationStatus]
@@ -230,7 +230,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CommandInvocationStatus]
 fromJSONKey :: FromJSONKeyFunction CommandInvocationStatus
 $cfromJSONKey :: FromJSONKeyFunction CommandInvocationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679788387"><span id="local-6989586621679788389"><span id="local-6989586621679788391"><span id="local-6989586621679788393"><span class="annot"><span class="annottext">[CommandInvocationStatus] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679790008"><span id="local-6989586621679790010"><span id="local-6989586621679790012"><span id="local-6989586621679790014"><span class="annot"><span class="annottext">[CommandInvocationStatus] -&gt; Encoding
 [CommandInvocationStatus] -&gt; Value
 CommandInvocationStatus -&gt; Encoding
 CommandInvocationStatus -&gt; Value
@@ -254,7 +254,7 @@ $ctoEncoding :: CommandInvocationStatus -&gt; Encoding
 toJSON :: CommandInvocationStatus -&gt; Value
 $ctoJSON :: CommandInvocationStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679788382"><span id="local-6989586621679788384"><span class="annot"><span class="annottext">ToJSONKeyFunction [CommandInvocationStatus]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679790003"><span id="local-6989586621679790005"><span class="annot"><span class="annottext">ToJSONKeyFunction [CommandInvocationStatus]
 ToJSONKeyFunction CommandInvocationStatus
 ToJSONKeyFunction CommandInvocationStatus
 -&gt; ToJSONKeyFunction [CommandInvocationStatus]
@@ -266,14 +266,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CommandInvocationStatus]
 toJSONKey :: ToJSONKeyFunction CommandInvocationStatus
 $ctoJSONKey :: ToJSONKeyFunction CommandInvocationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679788379"><span class="annot"><span class="annottext">[Node] -&gt; Either String CommandInvocationStatus
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679790000"><span class="annot"><span class="annottext">[Node] -&gt; Either String CommandInvocationStatus
 ([Node] -&gt; Either String CommandInvocationStatus)
 -&gt; FromXML CommandInvocationStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CommandInvocationStatus
 $cparseXML :: [Node] -&gt; Either String CommandInvocationStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679788376"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679789997"><span class="annot"><span class="annottext">CommandInvocationStatus -&gt; XML
 (CommandInvocationStatus -&gt; XML) -&gt; ToXML CommandInvocationStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CommandInvocationStatus -&gt; XML

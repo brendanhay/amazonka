@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- which you want CloudFront to get your media files for distribution.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newS3Origin' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679401365"><span id="local-6989586621679401366"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Origin"><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin"><span class="hs-identifier hs-var">S3Origin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Origin%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-var">S3Origin'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679401627"><span id="local-6989586621679401628"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3Origin"><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin"><span class="hs-identifier hs-var">S3Origin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3Origin%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-var">S3Origin'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The DNS name of the Amazon S3 origin.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AdomainName%3AS3Origin%27"><span class="annot"><span class="annottext">S3Origin -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.S3Origin.html#%24sel%3AdomainName%3AS3Origin%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -53,7 +53,7 @@
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AoriginAccessIdentity%3AS3Origin%27"><span class="annot"><span class="annottext">S3Origin -&gt; Text
 </span><a href="Network.AWS.CloudFront.Types.S3Origin.html#%24sel%3AoriginAccessIdentity%3AS3Origin%27"><span class="hs-identifier hs-var hs-var">originAccessIdentity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401358"><span id="local-6989586621679401360"><span class="annot"><span class="annottext">S3Origin -&gt; S3Origin -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401620"><span id="local-6989586621679401622"><span class="annot"><span class="annottext">S3Origin -&gt; S3Origin -&gt; Bool
 (S3Origin -&gt; S3Origin -&gt; Bool)
 -&gt; (S3Origin -&gt; S3Origin -&gt; Bool) -&gt; Eq S3Origin
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3Origin -&gt; S3Origin -&gt; Bool
 == :: S3Origin -&gt; S3Origin -&gt; Bool
 $c== :: S3Origin -&gt; S3Origin -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401349"><span id="local-6989586621679401351"><span id="local-6989586621679401353"><span id="local-6989586621679401355"><span class="annot"><span class="annottext">ReadPrec [S3Origin]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401611"><span id="local-6989586621679401613"><span id="local-6989586621679401615"><span id="local-6989586621679401617"><span class="annot"><span class="annottext">ReadPrec [S3Origin]
 ReadPrec S3Origin
 Int -&gt; ReadS S3Origin
 ReadS [S3Origin]
@@ -81,7 +81,7 @@ readList :: ReadS [S3Origin]
 $creadList :: ReadS [S3Origin]
 readsPrec :: Int -&gt; ReadS S3Origin
 $creadsPrec :: Int -&gt; ReadS S3Origin
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401342"><span id="local-6989586621679401344"><span id="local-6989586621679401346"><span class="annot"><span class="annottext">Int -&gt; S3Origin -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401604"><span id="local-6989586621679401606"><span id="local-6989586621679401608"><span class="annot"><span class="annottext">Int -&gt; S3Origin -&gt; ShowS
 [S3Origin] -&gt; ShowS
 S3Origin -&gt; String
 (Int -&gt; S3Origin -&gt; ShowS)
@@ -140,17 +140,17 @@ $cfrom :: forall x. S3Origin -&gt; Rep S3Origin x
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin"><span class="hs-identifier hs-type">S3Origin</span></a></span><span>
 </span><span id="line-91"></span><span id="newS3Origin"><span class="annot"><span class="annottext">newS3Origin :: Text -&gt; Text -&gt; S3Origin
-</span><a href="Network.AWS.CloudFront.Types.S3Origin.html#newS3Origin"><span class="hs-identifier hs-var hs-var">newS3Origin</span></a></span></span><span> </span><span id="local-6989586621679401336"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401336"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679401335"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401335"><span class="hs-identifier hs-var">pOriginAccessIdentity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.S3Origin.html#newS3Origin"><span class="hs-identifier hs-var hs-var">newS3Origin</span></a></span></span><span> </span><span id="local-6989586621679401598"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679401598"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679401597"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679401597"><span class="hs-identifier hs-var">pOriginAccessIdentity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">S3Origin' :: Text -&gt; Text -&gt; S3Origin
 </span><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-type">S3Origin'</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:S3Origin' :: Text
 </span><a href="Network.AWS.CloudFront.Types.S3Origin.html#%24sel%3AdomainName%3AS3Origin%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401336"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679401598"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:originAccessIdentity:S3Origin' :: Text
 </span><a href="Network.AWS.CloudFront.Types.S3Origin.html#%24sel%3AoriginAccessIdentity%3AS3Origin%27"><span class="hs-identifier hs-var">originAccessIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401335"><span class="hs-identifier hs-var">pOriginAccessIdentity_</span></a></span><span>
+</span><a href="#local-6989586621679401597"><span class="hs-identifier hs-var">pOriginAccessIdentity_</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The DNS name of the Amazon S3 origin.</span><span>
@@ -160,16 +160,16 @@ $cfrom :: forall x. S3Origin -&gt; Rep S3Origin x
 -&gt; (S3Origin -&gt; Text -&gt; S3Origin)
 -&gt; Lens S3Origin S3Origin Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-type">S3Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401331"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-type">S3Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401593"><span class="annot"><span class="annottext">Text
 domainName :: Text
 $sel:domainName:S3Origin' :: S3Origin -&gt; Text
-</span><a href="#local-6989586621679401331"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401331"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401330"><span class="annot"><span class="annottext">s :: S3Origin
-</span><a href="#local-6989586621679401330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-type">S3Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401329"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Origin
-</span><a href="#local-6989586621679401330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:S3Origin' :: Text
+</span><a href="#local-6989586621679401593"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679401593"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401592"><span class="annot"><span class="annottext">s :: S3Origin
+</span><a href="#local-6989586621679401592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-type">S3Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679401591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Origin
+</span><a href="#local-6989586621679401592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:S3Origin' :: Text
 </span><a href="Network.AWS.CloudFront.Types.S3Origin.html#%24sel%3AdomainName%3AS3Origin%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin"><span class="hs-identifier hs-type">S3Origin</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin"><span class="hs-identifier hs-type">S3Origin</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The CloudFront origin access identity to associate with the</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- distribution. Use an origin access identity to configure the</span><span>
@@ -196,28 +196,28 @@ $sel:domainName:S3Origin' :: S3Origin -&gt; Text
 -&gt; (S3Origin -&gt; Text -&gt; S3Origin)
 -&gt; Lens S3Origin S3Origin Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-type">S3Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401327"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-type">S3Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401589"><span class="annot"><span class="annottext">Text
 originAccessIdentity :: Text
 $sel:originAccessIdentity:S3Origin' :: S3Origin -&gt; Text
-</span><a href="#local-6989586621679401327"><span class="hs-identifier hs-var hs-var">originAccessIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401327"><span class="hs-identifier hs-var">originAccessIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401326"><span class="annot"><span class="annottext">s :: S3Origin
-</span><a href="#local-6989586621679401326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-type">S3Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401325"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Origin
-</span><a href="#local-6989586621679401326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originAccessIdentity:S3Origin' :: Text
+</span><a href="#local-6989586621679401589"><span class="hs-identifier hs-var hs-var">originAccessIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679401589"><span class="hs-identifier hs-var">originAccessIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401588"><span class="annot"><span class="annottext">s :: S3Origin
+</span><a href="#local-6989586621679401588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-type">S3Origin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401587"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679401587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3Origin
+</span><a href="#local-6989586621679401588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originAccessIdentity:S3Origin' :: Text
 </span><a href="Network.AWS.CloudFront.Types.S3Origin.html#%24sel%3AoriginAccessIdentity%3AS3Origin%27"><span class="hs-identifier hs-var">originAccessIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin"><span class="hs-identifier hs-type">S3Origin</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin"><span class="hs-identifier hs-type">S3Origin</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin"><span class="hs-identifier hs-type">S3Origin</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679401322"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String S3Origin
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679401320"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401320"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679401584"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String S3Origin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679401582"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401582"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; S3Origin
 </span><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-var">S3Origin'</span></a></span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; S3Origin)
 -&gt; Either String Text -&gt; Either String (Text -&gt; S3Origin)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679401582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span class="hs-special">)</span><span>
@@ -225,23 +225,23 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String S3Origin
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401320"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679401582"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OriginAccessIdentity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401314"><span id="local-6989586621679401316"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin"><span class="hs-identifier hs-type">S3Origin</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401576"><span id="local-6989586621679401578"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin"><span class="hs-identifier hs-type">S3Origin</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin"><span class="hs-identifier hs-type">S3Origin</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401573"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin"><span class="hs-identifier hs-type">S3Origin</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin"><span class="hs-identifier hs-type">S3Origin</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679401307"><span class="annot"><span class="annottext">toXML :: S3Origin -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-type">S3Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401304"><span id="local-6989586621679401305"><span class="annot"><span class="annottext">Text
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679401569"><span class="annot"><span class="annottext">toXML :: S3Origin -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.S3Origin.html#S3Origin%27"><span class="hs-identifier hs-type">S3Origin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401566"><span id="local-6989586621679401567"><span class="annot"><span class="annottext">Text
 originAccessIdentity :: Text
 domainName :: Text
 $sel:originAccessIdentity:S3Origin' :: S3Origin -&gt; Text
 $sel:domainName:S3Origin' :: S3Origin -&gt; Text
-</span><a href="#local-6989586621679401304"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679401566"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -249,11 +249,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401305"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679401567"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;OriginAccessIdentity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679401304"><span class="hs-identifier hs-var">originAccessIdentity</span></a></span><span>
+</span><a href="#local-6989586621679401566"><span class="hs-identifier hs-var">originAccessIdentity</span></a></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span></pre></body></html>

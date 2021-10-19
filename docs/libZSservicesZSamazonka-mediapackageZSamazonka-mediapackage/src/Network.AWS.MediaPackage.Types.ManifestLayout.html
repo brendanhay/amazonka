@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679235830"><span id="local-6989586621679235831"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ManifestLayout"><span class="annot"><a href="Network.AWS.MediaPackage.Types.ManifestLayout.html#ManifestLayout"><span class="hs-identifier hs-var">ManifestLayout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ManifestLayout%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.ManifestLayout.html#ManifestLayout%27"><span class="hs-identifier hs-var">ManifestLayout'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679235956"><span id="local-6989586621679235957"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ManifestLayout"><span class="annot"><a href="Network.AWS.MediaPackage.Types.ManifestLayout.html#ManifestLayout"><span class="hs-identifier hs-var">ManifestLayout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ManifestLayout%27"><span class="annot"><a href="Network.AWS.MediaPackage.Types.ManifestLayout.html#ManifestLayout%27"><span class="hs-identifier hs-var">ManifestLayout'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromManifestLayout"><span class="annot"><span class="annottext">ManifestLayout -&gt; Text
 </span><a href="Network.AWS.MediaPackage.Types.ManifestLayout.html#fromManifestLayout"><span class="hs-identifier hs-var hs-var">fromManifestLayout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235822"><span id="local-6989586621679235824"><span id="local-6989586621679235826"><span class="annot"><span class="annottext">Int -&gt; ManifestLayout -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235948"><span id="local-6989586621679235950"><span id="local-6989586621679235952"><span class="annot"><span class="annottext">Int -&gt; ManifestLayout -&gt; ShowS
 [ManifestLayout] -&gt; ShowS
 ManifestLayout -&gt; String
 (Int -&gt; ManifestLayout -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ManifestLayout -&gt; String
 showsPrec :: Int -&gt; ManifestLayout -&gt; ShowS
 $cshowsPrec :: Int -&gt; ManifestLayout -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679235813"><span id="local-6989586621679235815"><span id="local-6989586621679235817"><span id="local-6989586621679235819"><span class="annot"><span class="annottext">ReadPrec [ManifestLayout]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679235939"><span id="local-6989586621679235941"><span id="local-6989586621679235943"><span id="local-6989586621679235945"><span class="annot"><span class="annottext">ReadPrec [ManifestLayout]
 ReadPrec ManifestLayout
 Int -&gt; ReadS ManifestLayout
 ReadS [ManifestLayout]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ManifestLayout]
 readsPrec :: Int -&gt; ReadS ManifestLayout
 $creadsPrec :: Int -&gt; ReadS ManifestLayout
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679235808"><span id="local-6989586621679235810"><span class="annot"><span class="annottext">ManifestLayout -&gt; ManifestLayout -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679235934"><span id="local-6989586621679235936"><span class="annot"><span class="annottext">ManifestLayout -&gt; ManifestLayout -&gt; Bool
 (ManifestLayout -&gt; ManifestLayout -&gt; Bool)
 -&gt; (ManifestLayout -&gt; ManifestLayout -&gt; Bool) -&gt; Eq ManifestLayout
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ManifestLayout -&gt; ManifestLayout -&gt; Bool
 == :: ManifestLayout -&gt; ManifestLayout -&gt; Bool
 $c== :: ManifestLayout -&gt; ManifestLayout -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679235792"><span id="local-6989586621679235794"><span id="local-6989586621679235796"><span id="local-6989586621679235798"><span id="local-6989586621679235800"><span id="local-6989586621679235802"><span id="local-6989586621679235804"><span class="annot"><span class="annottext">Eq ManifestLayout
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679235918"><span id="local-6989586621679235920"><span id="local-6989586621679235922"><span id="local-6989586621679235924"><span id="local-6989586621679235926"><span id="local-6989586621679235928"><span id="local-6989586621679235930"><span class="annot"><span class="annottext">Eq ManifestLayout
 Eq ManifestLayout
 -&gt; (ManifestLayout -&gt; ManifestLayout -&gt; Ordering)
 -&gt; (ManifestLayout -&gt; ManifestLayout -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ManifestLayout -&gt; Rep ManifestLayout x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235784"><span id="local-6989586621679235786"><span class="annot"><span class="annottext">Int -&gt; ManifestLayout -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679235910"><span id="local-6989586621679235912"><span class="annot"><span class="annottext">Int -&gt; ManifestLayout -&gt; Int
 ManifestLayout -&gt; Int
 (Int -&gt; ManifestLayout -&gt; Int)
 -&gt; (ManifestLayout -&gt; Int) -&gt; Hashable ManifestLayout
@@ -142,50 +142,50 @@ $chash :: ManifestLayout -&gt; Int
 hashWithSalt :: Int -&gt; ManifestLayout -&gt; Int
 $chashWithSalt :: Int -&gt; ManifestLayout -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679235781"><span class="annot"><span class="annottext">ManifestLayout -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679235907"><span class="annot"><span class="annottext">ManifestLayout -&gt; ()
 (ManifestLayout -&gt; ()) -&gt; NFData ManifestLayout
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ManifestLayout -&gt; ()
 $crnf :: ManifestLayout -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679235778"><span class="annot"><span class="annottext">Text -&gt; Either String ManifestLayout
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679235904"><span class="annot"><span class="annottext">Text -&gt; Either String ManifestLayout
 (Text -&gt; Either String ManifestLayout) -&gt; FromText ManifestLayout
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ManifestLayout
 $cfromText :: Text -&gt; Either String ManifestLayout
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679235775"><span class="annot"><span class="annottext">ManifestLayout -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679235901"><span class="annot"><span class="annottext">ManifestLayout -&gt; Text
 (ManifestLayout -&gt; Text) -&gt; ToText ManifestLayout
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ManifestLayout -&gt; Text
 $ctoText :: ManifestLayout -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679235772"><span class="annot"><span class="annottext">ManifestLayout -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679235898"><span class="annot"><span class="annottext">ManifestLayout -&gt; ByteString
 (ManifestLayout -&gt; ByteString) -&gt; ToByteString ManifestLayout
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ManifestLayout -&gt; ByteString
 $ctoBS :: ManifestLayout -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679235769"><span class="annot"><span class="annottext">ManifestLayout -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679235895"><span class="annot"><span class="annottext">ManifestLayout -&gt; ByteStringBuilder
 (ManifestLayout -&gt; ByteStringBuilder) -&gt; ToLog ManifestLayout
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ManifestLayout -&gt; ByteStringBuilder
 $cbuild :: ManifestLayout -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679235766"><span class="annot"><span class="annottext">HeaderName -&gt; ManifestLayout -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679235892"><span class="annot"><span class="annottext">HeaderName -&gt; ManifestLayout -&gt; [Header]
 (HeaderName -&gt; ManifestLayout -&gt; [Header])
 -&gt; ToHeader ManifestLayout
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ManifestLayout -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ManifestLayout -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679235763"><span class="annot"><span class="annottext">ManifestLayout -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679235889"><span class="annot"><span class="annottext">ManifestLayout -&gt; QueryString
 (ManifestLayout -&gt; QueryString) -&gt; ToQuery ManifestLayout
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ManifestLayout -&gt; QueryString
 $ctoQuery :: ManifestLayout -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679235758"><span id="local-6989586621679235760"><span class="annot"><span class="annottext">Value -&gt; Parser [ManifestLayout]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679235884"><span id="local-6989586621679235886"><span class="annot"><span class="annottext">Value -&gt; Parser [ManifestLayout]
 Value -&gt; Parser ManifestLayout
 (Value -&gt; Parser ManifestLayout)
 -&gt; (Value -&gt; Parser [ManifestLayout]) -&gt; FromJSON ManifestLayout
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [ManifestLayout]
 parseJSON :: Value -&gt; Parser ManifestLayout
 $cparseJSON :: Value -&gt; Parser ManifestLayout
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679235753"><span id="local-6989586621679235755"><span class="annot"><span class="annottext">FromJSONKeyFunction [ManifestLayout]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679235879"><span id="local-6989586621679235881"><span class="annot"><span class="annottext">FromJSONKeyFunction [ManifestLayout]
 FromJSONKeyFunction ManifestLayout
 FromJSONKeyFunction ManifestLayout
 -&gt; FromJSONKeyFunction [ManifestLayout]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ManifestLayout]
 fromJSONKey :: FromJSONKeyFunction ManifestLayout
 $cfromJSONKey :: FromJSONKeyFunction ManifestLayout
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679235744"><span id="local-6989586621679235746"><span id="local-6989586621679235748"><span id="local-6989586621679235750"><span class="annot"><span class="annottext">[ManifestLayout] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679235870"><span id="local-6989586621679235872"><span id="local-6989586621679235874"><span id="local-6989586621679235876"><span class="annot"><span class="annottext">[ManifestLayout] -&gt; Encoding
 [ManifestLayout] -&gt; Value
 ManifestLayout -&gt; Encoding
 ManifestLayout -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: ManifestLayout -&gt; Encoding
 toJSON :: ManifestLayout -&gt; Value
 $ctoJSON :: ManifestLayout -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679235739"><span id="local-6989586621679235741"><span class="annot"><span class="annottext">ToJSONKeyFunction [ManifestLayout]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679235865"><span id="local-6989586621679235867"><span class="annot"><span class="annottext">ToJSONKeyFunction [ManifestLayout]
 ToJSONKeyFunction ManifestLayout
 ToJSONKeyFunction ManifestLayout
 -&gt; ToJSONKeyFunction [ManifestLayout] -&gt; ToJSONKey ManifestLayout
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ManifestLayout]
 toJSONKey :: ToJSONKeyFunction ManifestLayout
 $ctoJSONKey :: ToJSONKeyFunction ManifestLayout
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679235736"><span class="annot"><span class="annottext">[Node] -&gt; Either String ManifestLayout
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679235862"><span class="annot"><span class="annottext">[Node] -&gt; Either String ManifestLayout
 ([Node] -&gt; Either String ManifestLayout) -&gt; FromXML ManifestLayout
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ManifestLayout
 $cparseXML :: [Node] -&gt; Either String ManifestLayout
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679235733"><span class="annot"><span class="annottext">ManifestLayout -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679235859"><span class="annot"><span class="annottext">ManifestLayout -&gt; XML
 (ManifestLayout -&gt; XML) -&gt; ToXML ManifestLayout
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ManifestLayout -&gt; XML

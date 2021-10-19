@@ -31,32 +31,32 @@
 </span><span id="line-31"></span><span class="hs-comment">-- to filter for.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newRule' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679276045"><span id="local-6989586621679276046"></span></span><span class="hs-keyword">data</span><span> </span><span id="Rule"><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-var">Rule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Rule%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A condition that is applied to a particular customer sentiment.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsentimentFilter%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe SentimentFilter
-</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AsentimentFilter%3ARule%27"><span class="hs-identifier hs-var hs-var">sentimentFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A condition for a time period when either the customer or agent was</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- interrupting the other person.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AinterruptionFilter%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe InterruptionFilter
-</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AinterruptionFilter%3ARule%27"><span class="hs-identifier hs-var hs-var">interruptionFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A condition that catches particular words or phrases based on a exact</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- match. For example, if you set the phrase \&quot;I want to speak to the</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- manager\&quot;, only that exact phrase will be returned.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AtranscriptFilter%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe TranscriptFilter
+</span><span id="line-34"></span><span id="local-6989586621679276214"><span id="local-6989586621679276215"></span></span><span class="hs-keyword">data</span><span> </span><span id="Rule"><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-var">Rule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Rule%27"><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A condition for a time period when neither the customer nor the agent</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- was talking.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnonTalkTimeFilter%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe NonTalkTimeFilter
+</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AnonTalkTimeFilter%3ARule%27"><span class="hs-identifier hs-var hs-var">nonTalkTimeFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A condition that catches particular words or phrases based on a exact</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- match. For example, if you set the phrase \&quot;I want to speak to the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- manager\&quot;, only that exact phrase will be returned.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtranscriptFilter%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe TranscriptFilter
 </span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AtranscriptFilter%3ARule%27"><span class="hs-identifier hs-var hs-var">transcriptFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | A condition for a time period when neither the customer nor the agent</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- was talking.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AnonTalkTimeFilter%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe NonTalkTimeFilter
-</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AnonTalkTimeFilter%3ARule%27"><span class="hs-identifier hs-var hs-var">nonTalkTimeFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A condition that is applied to a particular customer sentiment.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AsentimentFilter%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe SentimentFilter
+</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AsentimentFilter%3ARule%27"><span class="hs-identifier hs-var hs-var">sentimentFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | A condition for a time period when either the customer or agent was</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- interrupting the other person.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AinterruptionFilter%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe InterruptionFilter
+</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AinterruptionFilter%3ARule%27"><span class="hs-identifier hs-var hs-var">interruptionFilter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276036"><span id="local-6989586621679276038"><span class="annot"><span class="annottext">Rule -&gt; Rule -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276205"><span id="local-6989586621679276207"><span class="annot"><span class="annottext">Rule -&gt; Rule -&gt; Bool
 (Rule -&gt; Rule -&gt; Bool) -&gt; (Rule -&gt; Rule -&gt; Bool) -&gt; Eq Rule
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Rule -&gt; Rule -&gt; Bool
 $c/= :: Rule -&gt; Rule -&gt; Bool
 == :: Rule -&gt; Rule -&gt; Bool
 $c== :: Rule -&gt; Rule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276027"><span id="local-6989586621679276029"><span id="local-6989586621679276031"><span id="local-6989586621679276033"><span class="annot"><span class="annottext">ReadPrec [Rule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276196"><span id="local-6989586621679276198"><span id="local-6989586621679276200"><span id="local-6989586621679276202"><span class="annot"><span class="annottext">ReadPrec [Rule]
 ReadPrec Rule
 Int -&gt; ReadS Rule
 ReadS [Rule]
@@ -73,7 +73,7 @@ readList :: ReadS [Rule]
 $creadList :: ReadS [Rule]
 readsPrec :: Int -&gt; ReadS Rule
 $creadsPrec :: Int -&gt; ReadS Rule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276020"><span id="local-6989586621679276022"><span id="local-6989586621679276024"><span class="annot"><span class="annottext">Int -&gt; Rule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276189"><span id="local-6989586621679276191"><span id="local-6989586621679276193"><span class="annot"><span class="annottext">Int -&gt; Rule -&gt; ShowS
 [Rule] -&gt; ShowS
 Rule -&gt; String
 (Int -&gt; Rule -&gt; ShowS)
@@ -104,247 +104,247 @@ $cfrom :: forall x. Rule -&gt; Rep Rule x
 </span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'sentimentFilter', 'rule_sentimentFilter' - A condition that is applied to a particular customer sentiment.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'interruptionFilter', 'rule_interruptionFilter' - A condition for a time period when either the customer or agent was</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- interrupting the other person.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'transcriptFilter', 'rule_transcriptFilter' - A condition that catches particular words or phrases based on a exact</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- match. For example, if you set the phrase \&quot;I want to speak to the</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- manager\&quot;, only that exact phrase will be returned.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'nonTalkTimeFilter', 'rule_nonTalkTimeFilter' - A condition for a time period when neither the customer nor the agent</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- was talking.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'transcriptFilter', 'rule_transcriptFilter' - A condition that catches particular words or phrases based on a exact</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- match. For example, if you set the phrase \&quot;I want to speak to the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- manager\&quot;, only that exact phrase will be returned.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'sentimentFilter', 'rule_sentimentFilter' - A condition that is applied to a particular customer sentiment.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'nonTalkTimeFilter', 'rule_nonTalkTimeFilter' - A condition for a time period when neither the customer nor the agent</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- was talking.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'interruptionFilter', 'rule_interruptionFilter' - A condition for a time period when either the customer or agent was</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- interrupting the other person.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#newRule"><span class="hs-identifier hs-type">newRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span>
 </span><span id="line-71"></span><span id="newRule"><span class="annot"><span class="annottext">newRule :: Rule
 </span><a href="Network.AWS.Transcribe.Types.Rule.html#newRule"><span class="hs-identifier hs-var hs-var">newRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">Rule' :: Maybe SentimentFilter
--&gt; Maybe InterruptionFilter
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">Rule' :: Maybe NonTalkTimeFilter
 -&gt; Maybe TranscriptFilter
--&gt; Maybe NonTalkTimeFilter
+-&gt; Maybe SentimentFilter
+-&gt; Maybe InterruptionFilter
 -&gt; Rule
 </span><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sentimentFilter:Rule' :: Maybe SentimentFilter
-</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AsentimentFilter%3ARule%27"><span class="hs-identifier hs-var">sentimentFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SentimentFilter
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nonTalkTimeFilter:Rule' :: Maybe NonTalkTimeFilter
+</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AnonTalkTimeFilter%3ARule%27"><span class="hs-identifier hs-var">nonTalkTimeFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NonTalkTimeFilter
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:interruptionFilter:Rule' :: Maybe InterruptionFilter
-</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AinterruptionFilter%3ARule%27"><span class="hs-identifier hs-var">interruptionFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InterruptionFilter
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:transcriptFilter:Rule' :: Maybe TranscriptFilter
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:transcriptFilter:Rule' :: Maybe TranscriptFilter
 </span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AtranscriptFilter%3ARule%27"><span class="hs-identifier hs-var">transcriptFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptFilter
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:nonTalkTimeFilter:Rule' :: Maybe NonTalkTimeFilter
-</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AnonTalkTimeFilter%3ARule%27"><span class="hs-identifier hs-var">nonTalkTimeFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NonTalkTimeFilter
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:sentimentFilter:Rule' :: Maybe SentimentFilter
+</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AsentimentFilter%3ARule%27"><span class="hs-identifier hs-var">sentimentFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SentimentFilter
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:interruptionFilter:Rule' :: Maybe InterruptionFilter
+</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AinterruptionFilter%3ARule%27"><span class="hs-identifier hs-var">interruptionFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InterruptionFilter
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- | A condition that is applied to a particular customer sentiment.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#rule_sentimentFilter"><span class="hs-identifier hs-type">rule_sentimentFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="rule_sentimentFilter"><span class="annot"><span class="annottext">rule_sentimentFilter :: (Maybe SentimentFilter -&gt; f (Maybe SentimentFilter))
--&gt; Rule -&gt; f Rule
-</span><a href="Network.AWS.Transcribe.Types.Rule.html#rule_sentimentFilter"><span class="hs-identifier hs-var hs-var">rule_sentimentFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe SentimentFilter)
--&gt; (Rule -&gt; Maybe SentimentFilter -&gt; Rule)
--&gt; Lens Rule Rule (Maybe SentimentFilter) (Maybe SentimentFilter)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276011"><span class="annot"><span class="annottext">Maybe SentimentFilter
-sentimentFilter :: Maybe SentimentFilter
-$sel:sentimentFilter:Rule' :: Rule -&gt; Maybe SentimentFilter
-</span><a href="#local-6989586621679276011"><span class="hs-identifier hs-var hs-var">sentimentFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SentimentFilter
-</span><a href="#local-6989586621679276011"><span class="hs-identifier hs-var">sentimentFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276010"><span class="annot"><span class="annottext">s :: Rule
-</span><a href="#local-6989586621679276010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276009"><span class="annot"><span class="annottext">Maybe SentimentFilter
-</span><a href="#local-6989586621679276009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
-</span><a href="#local-6989586621679276010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sentimentFilter:Rule' :: Maybe SentimentFilter
-</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AsentimentFilter%3ARule%27"><span class="hs-identifier hs-var">sentimentFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SentimentFilter
-</span><a href="#local-6989586621679276009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | A condition for a time period when either the customer or agent was</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- interrupting the other person.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#rule_interruptionFilter"><span class="hs-identifier hs-type">rule_interruptionFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="rule_interruptionFilter"><span class="annot"><span class="annottext">rule_interruptionFilter :: (Maybe InterruptionFilter -&gt; f (Maybe InterruptionFilter))
--&gt; Rule -&gt; f Rule
-</span><a href="Network.AWS.Transcribe.Types.Rule.html#rule_interruptionFilter"><span class="hs-identifier hs-var hs-var">rule_interruptionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe InterruptionFilter)
--&gt; (Rule -&gt; Maybe InterruptionFilter -&gt; Rule)
--&gt; Lens
-     Rule Rule (Maybe InterruptionFilter) (Maybe InterruptionFilter)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276007"><span class="annot"><span class="annottext">Maybe InterruptionFilter
-interruptionFilter :: Maybe InterruptionFilter
-$sel:interruptionFilter:Rule' :: Rule -&gt; Maybe InterruptionFilter
-</span><a href="#local-6989586621679276007"><span class="hs-identifier hs-var hs-var">interruptionFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InterruptionFilter
-</span><a href="#local-6989586621679276007"><span class="hs-identifier hs-var">interruptionFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276006"><span class="annot"><span class="annottext">s :: Rule
-</span><a href="#local-6989586621679276006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276005"><span class="annot"><span class="annottext">Maybe InterruptionFilter
-</span><a href="#local-6989586621679276005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
-</span><a href="#local-6989586621679276006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interruptionFilter:Rule' :: Maybe InterruptionFilter
-</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AinterruptionFilter%3ARule%27"><span class="hs-identifier hs-var">interruptionFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InterruptionFilter
-</span><a href="#local-6989586621679276005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- | A condition that catches particular words or phrases based on a exact</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- match. For example, if you set the phrase \&quot;I want to speak to the</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- manager\&quot;, only that exact phrase will be returned.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#rule_transcriptFilter"><span class="hs-identifier hs-type">rule_transcriptFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="rule_transcriptFilter"><span class="annot"><span class="annottext">rule_transcriptFilter :: (Maybe TranscriptFilter -&gt; f (Maybe TranscriptFilter))
--&gt; Rule -&gt; f Rule
-</span><a href="Network.AWS.Transcribe.Types.Rule.html#rule_transcriptFilter"><span class="hs-identifier hs-var hs-var">rule_transcriptFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe TranscriptFilter)
--&gt; (Rule -&gt; Maybe TranscriptFilter -&gt; Rule)
--&gt; Lens Rule Rule (Maybe TranscriptFilter) (Maybe TranscriptFilter)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276003"><span class="annot"><span class="annottext">Maybe TranscriptFilter
-transcriptFilter :: Maybe TranscriptFilter
-$sel:transcriptFilter:Rule' :: Rule -&gt; Maybe TranscriptFilter
-</span><a href="#local-6989586621679276003"><span class="hs-identifier hs-var hs-var">transcriptFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptFilter
-</span><a href="#local-6989586621679276003"><span class="hs-identifier hs-var">transcriptFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276002"><span class="annot"><span class="annottext">s :: Rule
-</span><a href="#local-6989586621679276002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276001"><span class="annot"><span class="annottext">Maybe TranscriptFilter
-</span><a href="#local-6989586621679276001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
-</span><a href="#local-6989586621679276002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transcriptFilter:Rule' :: Maybe TranscriptFilter
-</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AtranscriptFilter%3ARule%27"><span class="hs-identifier hs-var">transcriptFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptFilter
-</span><a href="#local-6989586621679276001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | A condition for a time period when neither the customer nor the agent</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- was talking.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#rule_nonTalkTimeFilter"><span class="hs-identifier hs-type">rule_nonTalkTimeFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="rule_nonTalkTimeFilter"><span class="annot"><span class="annottext">rule_nonTalkTimeFilter :: (Maybe NonTalkTimeFilter -&gt; f (Maybe NonTalkTimeFilter))
+</span><span id="line-79"></span><span class="hs-comment">-- | A condition for a time period when neither the customer nor the agent</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- was talking.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#rule_nonTalkTimeFilter"><span class="hs-identifier hs-type">rule_nonTalkTimeFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.NonTalkTimeFilter.html#NonTalkTimeFilter"><span class="hs-identifier hs-type">NonTalkTimeFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="rule_nonTalkTimeFilter"><span class="annot"><span class="annottext">rule_nonTalkTimeFilter :: (Maybe NonTalkTimeFilter -&gt; f (Maybe NonTalkTimeFilter))
 -&gt; Rule -&gt; f Rule
 </span><a href="Network.AWS.Transcribe.Types.Rule.html#rule_nonTalkTimeFilter"><span class="hs-identifier hs-var hs-var">rule_nonTalkTimeFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe NonTalkTimeFilter)
 -&gt; (Rule -&gt; Maybe NonTalkTimeFilter -&gt; Rule)
 -&gt; Lens
      Rule Rule (Maybe NonTalkTimeFilter) (Maybe NonTalkTimeFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275999"><span class="annot"><span class="annottext">Maybe NonTalkTimeFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276180"><span class="annot"><span class="annottext">Maybe NonTalkTimeFilter
 nonTalkTimeFilter :: Maybe NonTalkTimeFilter
 $sel:nonTalkTimeFilter:Rule' :: Rule -&gt; Maybe NonTalkTimeFilter
-</span><a href="#local-6989586621679275999"><span class="hs-identifier hs-var hs-var">nonTalkTimeFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NonTalkTimeFilter
-</span><a href="#local-6989586621679275999"><span class="hs-identifier hs-var">nonTalkTimeFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275998"><span class="annot"><span class="annottext">s :: Rule
-</span><a href="#local-6989586621679275998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275997"><span class="annot"><span class="annottext">Maybe NonTalkTimeFilter
-</span><a href="#local-6989586621679275997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
-</span><a href="#local-6989586621679275998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonTalkTimeFilter:Rule' :: Maybe NonTalkTimeFilter
+</span><a href="#local-6989586621679276180"><span class="hs-identifier hs-var hs-var">nonTalkTimeFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NonTalkTimeFilter
+</span><a href="#local-6989586621679276180"><span class="hs-identifier hs-var">nonTalkTimeFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276179"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679276179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276178"><span class="annot"><span class="annottext">Maybe NonTalkTimeFilter
+</span><a href="#local-6989586621679276178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679276179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nonTalkTimeFilter:Rule' :: Maybe NonTalkTimeFilter
 </span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AnonTalkTimeFilter%3ARule%27"><span class="hs-identifier hs-var">nonTalkTimeFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NonTalkTimeFilter
-</span><a href="#local-6989586621679275997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679276178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | A condition that catches particular words or phrases based on a exact</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- match. For example, if you set the phrase \&quot;I want to speak to the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- manager\&quot;, only that exact phrase will be returned.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#rule_transcriptFilter"><span class="hs-identifier hs-type">rule_transcriptFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.TranscriptFilter.html#TranscriptFilter"><span class="hs-identifier hs-type">TranscriptFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="rule_transcriptFilter"><span class="annot"><span class="annottext">rule_transcriptFilter :: (Maybe TranscriptFilter -&gt; f (Maybe TranscriptFilter))
+-&gt; Rule -&gt; f Rule
+</span><a href="Network.AWS.Transcribe.Types.Rule.html#rule_transcriptFilter"><span class="hs-identifier hs-var hs-var">rule_transcriptFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe TranscriptFilter)
+-&gt; (Rule -&gt; Maybe TranscriptFilter -&gt; Rule)
+-&gt; Lens Rule Rule (Maybe TranscriptFilter) (Maybe TranscriptFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276176"><span class="annot"><span class="annottext">Maybe TranscriptFilter
+transcriptFilter :: Maybe TranscriptFilter
+$sel:transcriptFilter:Rule' :: Rule -&gt; Maybe TranscriptFilter
+</span><a href="#local-6989586621679276176"><span class="hs-identifier hs-var hs-var">transcriptFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptFilter
+</span><a href="#local-6989586621679276176"><span class="hs-identifier hs-var">transcriptFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276175"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679276175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276174"><span class="annot"><span class="annottext">Maybe TranscriptFilter
+</span><a href="#local-6989586621679276174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679276175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transcriptFilter:Rule' :: Maybe TranscriptFilter
+</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AtranscriptFilter%3ARule%27"><span class="hs-identifier hs-var">transcriptFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptFilter
+</span><a href="#local-6989586621679276174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | A condition that is applied to a particular customer sentiment.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#rule_sentimentFilter"><span class="hs-identifier hs-type">rule_sentimentFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.SentimentFilter.html#SentimentFilter"><span class="hs-identifier hs-type">SentimentFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="rule_sentimentFilter"><span class="annot"><span class="annottext">rule_sentimentFilter :: (Maybe SentimentFilter -&gt; f (Maybe SentimentFilter))
+-&gt; Rule -&gt; f Rule
+</span><a href="Network.AWS.Transcribe.Types.Rule.html#rule_sentimentFilter"><span class="hs-identifier hs-var hs-var">rule_sentimentFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe SentimentFilter)
+-&gt; (Rule -&gt; Maybe SentimentFilter -&gt; Rule)
+-&gt; Lens Rule Rule (Maybe SentimentFilter) (Maybe SentimentFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276172"><span class="annot"><span class="annottext">Maybe SentimentFilter
+sentimentFilter :: Maybe SentimentFilter
+$sel:sentimentFilter:Rule' :: Rule -&gt; Maybe SentimentFilter
+</span><a href="#local-6989586621679276172"><span class="hs-identifier hs-var hs-var">sentimentFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SentimentFilter
+</span><a href="#local-6989586621679276172"><span class="hs-identifier hs-var">sentimentFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276171"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679276171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276170"><span class="annot"><span class="annottext">Maybe SentimentFilter
+</span><a href="#local-6989586621679276170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679276171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sentimentFilter:Rule' :: Maybe SentimentFilter
+</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AsentimentFilter%3ARule%27"><span class="hs-identifier hs-var">sentimentFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SentimentFilter
+</span><a href="#local-6989586621679276170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | A condition for a time period when either the customer or agent was</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- interrupting the other person.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#rule_interruptionFilter"><span class="hs-identifier hs-type">rule_interruptionFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.InterruptionFilter.html#InterruptionFilter"><span class="hs-identifier hs-type">InterruptionFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="rule_interruptionFilter"><span class="annot"><span class="annottext">rule_interruptionFilter :: (Maybe InterruptionFilter -&gt; f (Maybe InterruptionFilter))
+-&gt; Rule -&gt; f Rule
+</span><a href="Network.AWS.Transcribe.Types.Rule.html#rule_interruptionFilter"><span class="hs-identifier hs-var hs-var">rule_interruptionFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe InterruptionFilter)
+-&gt; (Rule -&gt; Maybe InterruptionFilter -&gt; Rule)
+-&gt; Lens
+     Rule Rule (Maybe InterruptionFilter) (Maybe InterruptionFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276168"><span class="annot"><span class="annottext">Maybe InterruptionFilter
+interruptionFilter :: Maybe InterruptionFilter
+$sel:interruptionFilter:Rule' :: Rule -&gt; Maybe InterruptionFilter
+</span><a href="#local-6989586621679276168"><span class="hs-identifier hs-var hs-var">interruptionFilter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InterruptionFilter
+</span><a href="#local-6989586621679276168"><span class="hs-identifier hs-var">interruptionFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276167"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679276167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276166"><span class="annot"><span class="annottext">Maybe InterruptionFilter
+</span><a href="#local-6989586621679276166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679276167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interruptionFilter:Rule' :: Maybe InterruptionFilter
+</span><a href="Network.AWS.Transcribe.Types.Rule.html#%24sel%3AinterruptionFilter%3ARule%27"><span class="hs-identifier hs-var">interruptionFilter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InterruptionFilter
+</span><a href="#local-6989586621679276166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275994"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679275992"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Rule
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276163"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679276161"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Rule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Rule) -&gt; Value -&gt; Parser Rule
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Rule&quot;</span></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275989"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275989"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe SentimentFilter
--&gt; Maybe InterruptionFilter
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679276158"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276158"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe NonTalkTimeFilter
 -&gt; Maybe TranscriptFilter
--&gt; Maybe NonTalkTimeFilter
+-&gt; Maybe SentimentFilter
+-&gt; Maybe InterruptionFilter
 -&gt; Rule
 </span><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span><span>
-</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SentimentFilter
- -&gt; Maybe InterruptionFilter
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NonTalkTimeFilter
  -&gt; Maybe TranscriptFilter
- -&gt; Maybe NonTalkTimeFilter
+ -&gt; Maybe SentimentFilter
+ -&gt; Maybe InterruptionFilter
  -&gt; Rule)
--&gt; Parser (Maybe SentimentFilter)
+-&gt; Parser (Maybe NonTalkTimeFilter)
 -&gt; Parser
-     (Maybe InterruptionFilter
-      -&gt; Maybe TranscriptFilter -&gt; Maybe NonTalkTimeFilter -&gt; Rule)
+     (Maybe TranscriptFilter
+      -&gt; Maybe SentimentFilter -&gt; Maybe InterruptionFilter -&gt; Rule)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SentimentFilter)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SentimentFilter&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe InterruptionFilter
-   -&gt; Maybe TranscriptFilter -&gt; Maybe NonTalkTimeFilter -&gt; Rule)
--&gt; Parser (Maybe InterruptionFilter)
--&gt; Parser
-     (Maybe TranscriptFilter -&gt; Maybe NonTalkTimeFilter -&gt; Rule)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InterruptionFilter)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InterruptionFilter&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TranscriptFilter -&gt; Maybe NonTalkTimeFilter -&gt; Rule)
--&gt; Parser (Maybe TranscriptFilter)
--&gt; Parser (Maybe NonTalkTimeFilter -&gt; Rule)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TranscriptFilter)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TranscriptFilter&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe NonTalkTimeFilter -&gt; Rule)
--&gt; Parser (Maybe NonTalkTimeFilter) -&gt; Parser Rule
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679275989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NonTalkTimeFilter)
+</span><a href="#local-6989586621679276158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NonTalkTimeFilter)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NonTalkTimeFilter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe TranscriptFilter
+   -&gt; Maybe SentimentFilter -&gt; Maybe InterruptionFilter -&gt; Rule)
+-&gt; Parser (Maybe TranscriptFilter)
+-&gt; Parser
+     (Maybe SentimentFilter -&gt; Maybe InterruptionFilter -&gt; Rule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TranscriptFilter)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TranscriptFilter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe SentimentFilter -&gt; Maybe InterruptionFilter -&gt; Rule)
+-&gt; Parser (Maybe SentimentFilter)
+-&gt; Parser (Maybe InterruptionFilter -&gt; Rule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SentimentFilter)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SentimentFilter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe InterruptionFilter -&gt; Rule)
+-&gt; Parser (Maybe InterruptionFilter) -&gt; Parser Rule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679276158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InterruptionFilter)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InterruptionFilter&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275983"><span id="local-6989586621679275985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276152"><span id="local-6989586621679276154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275972"><span id="local-6989586621679275974"><span id="local-6989586621679275976"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679275970"><span class="annot"><span class="annottext">toJSON :: Rule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275965"><span id="local-6989586621679275966"><span id="local-6989586621679275967"><span id="local-6989586621679275968"><span class="annot"><span class="annottext">Maybe NonTalkTimeFilter
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679276141"><span id="local-6989586621679276143"><span id="local-6989586621679276145"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679276139"><span class="annot"><span class="annottext">toJSON :: Rule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276134"><span id="local-6989586621679276135"><span id="local-6989586621679276136"><span id="local-6989586621679276137"><span class="annot"><span class="annottext">Maybe NonTalkTimeFilter
 Maybe InterruptionFilter
 Maybe SentimentFilter
 Maybe TranscriptFilter
-nonTalkTimeFilter :: Maybe NonTalkTimeFilter
-transcriptFilter :: Maybe TranscriptFilter
 interruptionFilter :: Maybe InterruptionFilter
 sentimentFilter :: Maybe SentimentFilter
-$sel:nonTalkTimeFilter:Rule' :: Rule -&gt; Maybe NonTalkTimeFilter
-$sel:transcriptFilter:Rule' :: Rule -&gt; Maybe TranscriptFilter
+transcriptFilter :: Maybe TranscriptFilter
+nonTalkTimeFilter :: Maybe NonTalkTimeFilter
 $sel:interruptionFilter:Rule' :: Rule -&gt; Maybe InterruptionFilter
 $sel:sentimentFilter:Rule' :: Rule -&gt; Maybe SentimentFilter
-</span><a href="#local-6989586621679275965"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:transcriptFilter:Rule' :: Rule -&gt; Maybe TranscriptFilter
+$sel:nonTalkTimeFilter:Rule' :: Rule -&gt; Maybe NonTalkTimeFilter
+</span><a href="#local-6989586621679276134"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SentimentFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SentimentFilter -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">(SentimentFilter -&gt; Pair) -&gt; Maybe SentimentFilter -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SentimentFilter
-</span><a href="#local-6989586621679275968"><span class="hs-identifier hs-var">sentimentFilter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;InterruptionFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InterruptionFilter -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">(InterruptionFilter -&gt; Pair)
--&gt; Maybe InterruptionFilter -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InterruptionFilter
-</span><a href="#local-6989586621679275967"><span class="hs-identifier hs-var">interruptionFilter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TranscriptFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TranscriptFilter -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">(TranscriptFilter -&gt; Pair) -&gt; Maybe TranscriptFilter -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptFilter
-</span><a href="#local-6989586621679275966"><span class="hs-identifier hs-var">transcriptFilter</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NonTalkTimeFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonTalkTimeFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">(NonTalkTimeFilter -&gt; Pair)
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">(NonTalkTimeFilter -&gt; Pair)
 -&gt; Maybe NonTalkTimeFilter -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NonTalkTimeFilter
-</span><a href="#local-6989586621679275965"><span class="hs-identifier hs-var">nonTalkTimeFilter</span></a></span><span>
+</span><a href="#local-6989586621679276137"><span class="hs-identifier hs-var">nonTalkTimeFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TranscriptFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TranscriptFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">(TranscriptFilter -&gt; Pair) -&gt; Maybe TranscriptFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TranscriptFilter
+</span><a href="#local-6989586621679276136"><span class="hs-identifier hs-var">transcriptFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SentimentFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SentimentFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">(SentimentFilter -&gt; Pair) -&gt; Maybe SentimentFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SentimentFilter
+</span><a href="#local-6989586621679276135"><span class="hs-identifier hs-var">sentimentFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InterruptionFilter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InterruptionFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">(InterruptionFilter -&gt; Pair)
+-&gt; Maybe InterruptionFilter -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InterruptionFilter
+</span><a href="#local-6989586621679276134"><span class="hs-identifier hs-var">interruptionFilter</span></a></span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span></pre></body></html>

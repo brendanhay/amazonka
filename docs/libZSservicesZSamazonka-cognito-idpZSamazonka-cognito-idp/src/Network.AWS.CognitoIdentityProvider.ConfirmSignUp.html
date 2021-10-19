@@ -29,10 +29,10 @@
 </span><span id="line-29"></span><span>
 </span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_clientMetadata"><span class="hs-identifier">confirmSignUp_clientMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_userContextData"><span class="hs-identifier">confirmSignUp_userContextData</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_forceAliasCreation"><span class="hs-identifier">confirmSignUp_forceAliasCreation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_secretHash"><span class="hs-identifier">confirmSignUp_secretHash</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_analyticsMetadata"><span class="hs-identifier">confirmSignUp_analyticsMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_forceAliasCreation"><span class="hs-identifier">confirmSignUp_forceAliasCreation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_analyticsMetadata"><span class="hs-identifier">confirmSignUp_analyticsMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_userContextData"><span class="hs-identifier">confirmSignUp_userContextData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_secretHash"><span class="hs-identifier">confirmSignUp_secretHash</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_clientId"><span class="hs-identifier">confirmSignUp_clientId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_username"><span class="hs-identifier">confirmSignUp_username</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_confirmationCode"><span class="hs-identifier">confirmSignUp_confirmationCode</span></a></span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-comment">-- | Represents the request to confirm registration of a user.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- /See:/ 'newConfirmSignUp' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679452460"><span id="local-6989586621679452461"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmSignUp"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-var">ConfirmSignUp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmSignUp%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-var">ConfirmSignUp'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679452969"><span id="local-6989586621679452970"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmSignUp"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-var">ConfirmSignUp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmSignUp%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-var">ConfirmSignUp'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map of custom key-value pairs that you can provide as input for any</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- custom workflows that this action triggers.</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -89,28 +89,28 @@
 </span><span id="line-89"></span><span>    </span><span class="hs-comment">--     don\'t use it to provide sensitive information.</span><span>
 </span><span id="line-90"></span><span>    </span><span id="%24sel%3AclientMetadata%3AConfirmSignUp%27"><span class="annot"><span class="annottext">ConfirmSignUp -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AclientMetadata%3AConfirmSignUp%27"><span class="hs-identifier hs-var hs-var">clientMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- Cognito advanced security.</span><span>
-</span><span id="line-94"></span><span>    </span><span id="%24sel%3AuserContextData%3AConfirmSignUp%27"><span class="annot"><span class="annottext">ConfirmSignUp -&gt; Maybe UserContextDataType
-</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AuserContextData%3AConfirmSignUp%27"><span class="hs-identifier hs-var hs-var">userContextData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | Boolean to be specified to force user confirmation irrespective of</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- existing alias. By default set to @False@. If this parameter is set to</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- @True@ and the phone number\/email used for sign up confirmation already</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- exists as an alias with a different user, the API call will migrate the</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- alias from the previous user to the newly created user being confirmed.</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- If set to @False@, the API will throw an __AliasExistsException__ error.</span><span>
-</span><span id="line-101"></span><span>    </span><span id="%24sel%3AforceAliasCreation%3AConfirmSignUp%27"><span class="annot"><span class="annottext">ConfirmSignUp -&gt; Maybe Bool
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | Boolean to be specified to force user confirmation irrespective of</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- existing alias. By default set to @False@. If this parameter is set to</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- @True@ and the phone number\/email used for sign up confirmation already</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- exists as an alias with a different user, the API call will migrate the</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- alias from the previous user to the newly created user being confirmed.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- If set to @False@, the API will throw an __AliasExistsException__ error.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AforceAliasCreation%3AConfirmSignUp%27"><span class="annot"><span class="annottext">ConfirmSignUp -&gt; Maybe Bool
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AforceAliasCreation%3AConfirmSignUp%27"><span class="hs-identifier hs-var hs-var">forceAliasCreation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | A keyed-hash message authentication code (HMAC) calculated using the</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- message.</span><span>
-</span><span id="line-105"></span><span>    </span><span id="%24sel%3AsecretHash%3AConfirmSignUp%27"><span class="annot"><span class="annottext">ConfirmSignUp -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AsecretHash%3AConfirmSignUp%27"><span class="hs-identifier hs-var hs-var">secretHash</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- @ConfirmSignUp@ calls.</span><span>
-</span><span id="line-108"></span><span>    </span><span id="%24sel%3AanalyticsMetadata%3AConfirmSignUp%27"><span class="annot"><span class="annottext">ConfirmSignUp -&gt; Maybe AnalyticsMetadataType
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- @ConfirmSignUp@ calls.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AanalyticsMetadata%3AConfirmSignUp%27"><span class="annot"><span class="annottext">ConfirmSignUp -&gt; Maybe AnalyticsMetadataType
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AanalyticsMetadata%3AConfirmSignUp%27"><span class="hs-identifier hs-var hs-var">analyticsMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AnalyticsMetadataType.html#AnalyticsMetadataType"><span class="hs-identifier hs-type">AnalyticsMetadataType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- Cognito advanced security.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AuserContextData%3AConfirmSignUp%27"><span class="annot"><span class="annottext">ConfirmSignUp -&gt; Maybe UserContextDataType
+</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AuserContextData%3AConfirmSignUp%27"><span class="hs-identifier hs-var hs-var">userContextData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | A keyed-hash message authentication code (HMAC) calculated using the</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AsecretHash%3AConfirmSignUp%27"><span class="annot"><span class="annottext">ConfirmSignUp -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AsecretHash%3AConfirmSignUp%27"><span class="hs-identifier hs-var hs-var">secretHash</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The ID of the app client associated with the user pool.</span><span>
 </span><span id="line-110"></span><span>    </span><span id="%24sel%3AclientId%3AConfirmSignUp%27"><span class="annot"><span class="annottext">ConfirmSignUp -&gt; Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AclientId%3AConfirmSignUp%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -121,7 +121,7 @@
 </span><span id="line-114"></span><span>    </span><span id="%24sel%3AconfirmationCode%3AConfirmSignUp%27"><span class="annot"><span class="annottext">ConfirmSignUp -&gt; Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AconfirmationCode%3AConfirmSignUp%27"><span class="hs-identifier hs-var hs-var">confirmationCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452447"><span id="local-6989586621679452449"><span class="annot"><span class="annottext">ConfirmSignUp -&gt; ConfirmSignUp -&gt; Bool
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452956"><span id="local-6989586621679452958"><span class="annot"><span class="annottext">ConfirmSignUp -&gt; ConfirmSignUp -&gt; Bool
 (ConfirmSignUp -&gt; ConfirmSignUp -&gt; Bool)
 -&gt; (ConfirmSignUp -&gt; ConfirmSignUp -&gt; Bool) -&gt; Eq ConfirmSignUp
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -129,7 +129,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConfirmSignUp -&gt; ConfirmSignUp -&gt; Bool
 == :: ConfirmSignUp -&gt; ConfirmSignUp -&gt; Bool
 $c== :: ConfirmSignUp -&gt; ConfirmSignUp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452440"><span id="local-6989586621679452442"><span id="local-6989586621679452444"><span class="annot"><span class="annottext">Int -&gt; ConfirmSignUp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452949"><span id="local-6989586621679452951"><span id="local-6989586621679452953"><span class="annot"><span class="annottext">Int -&gt; ConfirmSignUp -&gt; ShowS
 [ConfirmSignUp] -&gt; ShowS
 ConfirmSignUp -&gt; String
 (Int -&gt; ConfirmSignUp -&gt; ShowS)
@@ -194,23 +194,23 @@ $cfrom :: forall x. ConfirmSignUp -&gt; Rep ConfirmSignUp x
 </span><span id="line-154"></span><span class="hs-comment">-- -   Amazon Cognito does not encrypt the the ClientMetadata value, so</span><span>
 </span><span id="line-155"></span><span class="hs-comment">--     don\'t use it to provide sensitive information.</span><span>
 </span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- 'userContextData', 'confirmSignUp_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- Cognito advanced security.</span><span>
-</span><span id="line-160"></span><span class="hs-comment">--</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- 'forceAliasCreation', 'confirmSignUp_forceAliasCreation' - Boolean to be specified to force user confirmation irrespective of</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- existing alias. By default set to @False@. If this parameter is set to</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- @True@ and the phone number\/email used for sign up confirmation already</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- exists as an alias with a different user, the API call will migrate the</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- alias from the previous user to the newly created user being confirmed.</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- If set to @False@, the API will throw an __AliasExistsException__ error.</span><span>
-</span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- 'secretHash', 'confirmSignUp_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- message.</span><span>
-</span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- 'analyticsMetadata', 'confirmSignUp_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- @ConfirmSignUp@ calls.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'forceAliasCreation', 'confirmSignUp_forceAliasCreation' - Boolean to be specified to force user confirmation irrespective of</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- existing alias. By default set to @False@. If this parameter is set to</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- @True@ and the phone number\/email used for sign up confirmation already</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- exists as an alias with a different user, the API call will migrate the</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- alias from the previous user to the newly created user being confirmed.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- If set to @False@, the API will throw an __AliasExistsException__ error.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'analyticsMetadata', 'confirmSignUp_analyticsMetadata' - The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- @ConfirmSignUp@ calls.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'userContextData', 'confirmSignUp_userContextData' - Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Cognito advanced security.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'secretHash', 'confirmSignUp_secretHash' - A keyed-hash message authentication code (HMAC) calculated using the</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- message.</span><span>
 </span><span id="line-174"></span><span class="hs-comment">--</span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- 'clientId', 'confirmSignUp_clientId' - The ID of the app client associated with the user pool.</span><span>
 </span><span id="line-176"></span><span class="hs-comment">--</span><span>
@@ -227,17 +227,17 @@ $cfrom :: forall x. ConfirmSignUp -&gt; Rep ConfirmSignUp x
 </span><span id="line-187"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span>
 </span><span id="line-188"></span><span id="newConfirmSignUp"><span class="annot"><span class="annottext">newConfirmSignUp :: Text -&gt; Text -&gt; Text -&gt; ConfirmSignUp
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#newConfirmSignUp"><span class="hs-identifier hs-var hs-var">newConfirmSignUp</span></a></span></span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679452435"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452435"><span class="hs-identifier hs-var">pClientId_</span></a></span></span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679452434"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452434"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679452433"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452433"><span class="hs-identifier hs-var">pConfirmationCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679452944"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452944"><span class="hs-identifier hs-var">pClientId_</span></a></span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679452943"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452943"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679452942"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452942"><span class="hs-identifier hs-var">pConfirmationCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">ConfirmSignUp' :: Maybe (HashMap Text Text)
--&gt; Maybe UserContextDataType
 -&gt; Maybe Bool
--&gt; Maybe (Sensitive Text)
 -&gt; Maybe AnalyticsMetadataType
+-&gt; Maybe UserContextDataType
+-&gt; Maybe (Sensitive Text)
 -&gt; Sensitive Text
 -&gt; Sensitive Text
 -&gt; Text
@@ -247,20 +247,20 @@ $cfrom :: forall x. ConfirmSignUp -&gt; Rep ConfirmSignUp x
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AclientMetadata%3AConfirmSignUp%27"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">$sel:userContextData:ConfirmSignUp' :: Maybe UserContextDataType
-</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AuserContextData%3AConfirmSignUp%27"><span class="hs-identifier hs-var">userContextData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">$sel:forceAliasCreation:ConfirmSignUp' :: Maybe Bool
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">$sel:forceAliasCreation:ConfirmSignUp' :: Maybe Bool
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AforceAliasCreation%3AConfirmSignUp%27"><span class="hs-identifier hs-var">forceAliasCreation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">$sel:secretHash:ConfirmSignUp' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AsecretHash%3AConfirmSignUp%27"><span class="hs-identifier hs-var">secretHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">$sel:analyticsMetadata:ConfirmSignUp' :: Maybe AnalyticsMetadataType
+</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AanalyticsMetadata%3AConfirmSignUp%27"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">$sel:analyticsMetadata:ConfirmSignUp' :: Maybe AnalyticsMetadataType
-</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AanalyticsMetadata%3AConfirmSignUp%27"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">$sel:userContextData:ConfirmSignUp' :: Maybe UserContextDataType
+</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AuserContextData%3AConfirmSignUp%27"><span class="hs-identifier hs-var">userContextData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">$sel:secretHash:ConfirmSignUp' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AsecretHash%3AConfirmSignUp%27"><span class="hs-identifier hs-var">secretHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientId:ConfirmSignUp' :: Sensitive Text
@@ -272,7 +272,7 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452435"><span class="hs-identifier hs-var">pClientId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679452944"><span class="hs-identifier hs-var">pClientId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">$sel:username:ConfirmSignUp' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3Ausername%3AConfirmSignUp%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
 -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
@@ -282,10 +282,10 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452434"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679452943"><span class="hs-identifier hs-var">pUsername_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">$sel:confirmationCode:ConfirmSignUp' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AconfirmationCode%3AConfirmSignUp%27"><span class="hs-identifier hs-var">confirmationCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452433"><span class="hs-identifier hs-var">pConfirmationCode_</span></a></span><span>
+</span><a href="#local-6989586621679452942"><span class="hs-identifier hs-var">pConfirmationCode_</span></a></span><span>
 </span><span id="line-201"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | A map of custom key-value pairs that you can provide as input for any</span><span>
@@ -329,16 +329,16 @@ forall t b. AReview t b -&gt; b -&gt; t
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452428"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452937"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 clientMetadata :: Maybe (HashMap Text Text)
 $sel:clientMetadata:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679452428"><span class="hs-identifier hs-var hs-var">clientMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679452428"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452427"><span class="annot"><span class="annottext">s :: ConfirmSignUp
-</span><a href="#local-6989586621679452427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452426"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679452426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
-</span><a href="#local-6989586621679452427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientMetadata:ConfirmSignUp' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679452937"><span class="hs-identifier hs-var hs-var">clientMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679452937"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452936"><span class="annot"><span class="annottext">s :: ConfirmSignUp
+</span><a href="#local-6989586621679452936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452935"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679452935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
+</span><a href="#local-6989586621679452936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientMetadata:ConfirmSignUp' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AclientMetadata%3AConfirmSignUp%27"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679452426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679452935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; ConfirmSignUp -&gt; f ConfirmSignUp)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -364,14 +364,61 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- | Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- Cognito advanced security.</span><span>
-</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_userContextData"><span class="hs-identifier hs-type">confirmSignUp_userContextData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-240"></span><span id="confirmSignUp_userContextData"><span class="annot"><span class="annottext">confirmSignUp_userContextData :: (Maybe UserContextDataType -&gt; f (Maybe UserContextDataType))
+</span><span id="line-236"></span><span class="hs-comment">-- | Boolean to be specified to force user confirmation irrespective of</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- existing alias. By default set to @False@. If this parameter is set to</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- @True@ and the phone number\/email used for sign up confirmation already</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- exists as an alias with a different user, the API call will migrate the</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- alias from the previous user to the newly created user being confirmed.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- If set to @False@, the API will throw an __AliasExistsException__ error.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_forceAliasCreation"><span class="hs-identifier hs-type">confirmSignUp_forceAliasCreation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="confirmSignUp_forceAliasCreation"><span class="annot"><span class="annottext">confirmSignUp_forceAliasCreation :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ConfirmSignUp -&gt; f ConfirmSignUp
+</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_forceAliasCreation"><span class="hs-identifier hs-var hs-var">confirmSignUp_forceAliasCreation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfirmSignUp -&gt; Maybe Bool)
+-&gt; (ConfirmSignUp -&gt; Maybe Bool -&gt; ConfirmSignUp)
+-&gt; Lens ConfirmSignUp ConfirmSignUp (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452931"><span class="annot"><span class="annottext">Maybe Bool
+forceAliasCreation :: Maybe Bool
+$sel:forceAliasCreation:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe Bool
+</span><a href="#local-6989586621679452931"><span class="hs-identifier hs-var hs-var">forceAliasCreation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679452931"><span class="hs-identifier hs-var">forceAliasCreation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452930"><span class="annot"><span class="annottext">s :: ConfirmSignUp
+</span><a href="#local-6989586621679452930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452929"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679452929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
+</span><a href="#local-6989586621679452930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceAliasCreation:ConfirmSignUp' :: Maybe Bool
+</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AforceAliasCreation%3AConfirmSignUp%27"><span class="hs-identifier hs-var">forceAliasCreation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679452929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- @ConfirmSignUp@ calls.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_analyticsMetadata"><span class="hs-identifier hs-type">confirmSignUp_analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AnalyticsMetadataType.html#AnalyticsMetadataType"><span class="hs-identifier hs-type">AnalyticsMetadataType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="confirmSignUp_analyticsMetadata"><span class="annot"><span class="annottext">confirmSignUp_analyticsMetadata :: (Maybe AnalyticsMetadataType -&gt; f (Maybe AnalyticsMetadataType))
+-&gt; ConfirmSignUp -&gt; f ConfirmSignUp
+</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_analyticsMetadata"><span class="hs-identifier hs-var hs-var">confirmSignUp_analyticsMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfirmSignUp -&gt; Maybe AnalyticsMetadataType)
+-&gt; (ConfirmSignUp -&gt; Maybe AnalyticsMetadataType -&gt; ConfirmSignUp)
+-&gt; Lens
+     ConfirmSignUp
+     ConfirmSignUp
+     (Maybe AnalyticsMetadataType)
+     (Maybe AnalyticsMetadataType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452928"><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+analyticsMetadata :: Maybe AnalyticsMetadataType
+$sel:analyticsMetadata:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679452928"><span class="hs-identifier hs-var hs-var">analyticsMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679452928"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452927"><span class="annot"><span class="annottext">s :: ConfirmSignUp
+</span><a href="#local-6989586621679452927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452926"><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679452926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
+</span><a href="#local-6989586621679452927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyticsMetadata:ConfirmSignUp' :: Maybe AnalyticsMetadataType
+</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AanalyticsMetadata%3AConfirmSignUp%27"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679452926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | Contextual data such as the user\'s device fingerprint, IP address, or</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- location used for evaluating the risk of an unexpected event by Amazon</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- Cognito advanced security.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_userContextData"><span class="hs-identifier hs-type">confirmSignUp_userContextData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.UserContextDataType.html#UserContextDataType"><span class="hs-identifier hs-type">UserContextDataType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="confirmSignUp_userContextData"><span class="annot"><span class="annottext">confirmSignUp_userContextData :: (Maybe UserContextDataType -&gt; f (Maybe UserContextDataType))
 -&gt; ConfirmSignUp -&gt; f ConfirmSignUp
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_userContextData"><span class="hs-identifier hs-var hs-var">confirmSignUp_userContextData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfirmSignUp -&gt; Maybe UserContextDataType)
 -&gt; (ConfirmSignUp -&gt; Maybe UserContextDataType -&gt; ConfirmSignUp)
@@ -381,45 +428,22 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe UserContextDataType)
      (Maybe UserContextDataType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452422"><span class="annot"><span class="annottext">Maybe UserContextDataType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452925"><span class="annot"><span class="annottext">Maybe UserContextDataType
 userContextData :: Maybe UserContextDataType
 $sel:userContextData:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe UserContextDataType
-</span><a href="#local-6989586621679452422"><span class="hs-identifier hs-var hs-var">userContextData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
-</span><a href="#local-6989586621679452422"><span class="hs-identifier hs-var">userContextData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452421"><span class="annot"><span class="annottext">s :: ConfirmSignUp
-</span><a href="#local-6989586621679452421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452420"><span class="annot"><span class="annottext">Maybe UserContextDataType
-</span><a href="#local-6989586621679452420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
-</span><a href="#local-6989586621679452421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userContextData:ConfirmSignUp' :: Maybe UserContextDataType
+</span><a href="#local-6989586621679452925"><span class="hs-identifier hs-var hs-var">userContextData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
+</span><a href="#local-6989586621679452925"><span class="hs-identifier hs-var">userContextData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452924"><span class="annot"><span class="annottext">s :: ConfirmSignUp
+</span><a href="#local-6989586621679452924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452923"><span class="annot"><span class="annottext">Maybe UserContextDataType
+</span><a href="#local-6989586621679452923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
+</span><a href="#local-6989586621679452924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userContextData:ConfirmSignUp' :: Maybe UserContextDataType
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AuserContextData%3AConfirmSignUp%27"><span class="hs-identifier hs-var">userContextData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
-</span><a href="#local-6989586621679452420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- | Boolean to be specified to force user confirmation irrespective of</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- existing alias. By default set to @False@. If this parameter is set to</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- @True@ and the phone number\/email used for sign up confirmation already</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- exists as an alias with a different user, the API call will migrate the</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- alias from the previous user to the newly created user being confirmed.</span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- If set to @False@, the API will throw an __AliasExistsException__ error.</span><span>
-</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_forceAliasCreation"><span class="hs-identifier hs-type">confirmSignUp_forceAliasCreation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-249"></span><span id="confirmSignUp_forceAliasCreation"><span class="annot"><span class="annottext">confirmSignUp_forceAliasCreation :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ConfirmSignUp -&gt; f ConfirmSignUp
-</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_forceAliasCreation"><span class="hs-identifier hs-var hs-var">confirmSignUp_forceAliasCreation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfirmSignUp -&gt; Maybe Bool)
--&gt; (ConfirmSignUp -&gt; Maybe Bool -&gt; ConfirmSignUp)
--&gt; Lens ConfirmSignUp ConfirmSignUp (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452419"><span class="annot"><span class="annottext">Maybe Bool
-forceAliasCreation :: Maybe Bool
-$sel:forceAliasCreation:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe Bool
-</span><a href="#local-6989586621679452419"><span class="hs-identifier hs-var hs-var">forceAliasCreation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679452419"><span class="hs-identifier hs-var">forceAliasCreation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452418"><span class="annot"><span class="annottext">s :: ConfirmSignUp
-</span><a href="#local-6989586621679452418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452417"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679452417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
-</span><a href="#local-6989586621679452418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:forceAliasCreation:ConfirmSignUp' :: Maybe Bool
-</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AforceAliasCreation%3AConfirmSignUp%27"><span class="hs-identifier hs-var">forceAliasCreation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679452417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-250"></span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- | A keyed-hash message authentication code (HMAC) calculated using the</span><span>
-</span><span id="line-252"></span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- message.</span><span>
-</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_secretHash"><span class="hs-identifier hs-type">confirmSignUp_secretHash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span id="confirmSignUp_secretHash"><span class="annot"><span class="annottext">confirmSignUp_secretHash :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ConfirmSignUp -&gt; f ConfirmSignUp
+</span><a href="#local-6989586621679452923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | A keyed-hash message authentication code (HMAC) calculated using the</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- secret key of a user pool client and username plus the client ID in the</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- message.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_secretHash"><span class="hs-identifier hs-type">confirmSignUp_secretHash</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span id="confirmSignUp_secretHash"><span class="annot"><span class="annottext">confirmSignUp_secretHash :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ConfirmSignUp -&gt; f ConfirmSignUp
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_secretHash"><span class="hs-identifier hs-var hs-var">confirmSignUp_secretHash</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfirmSignUp -&gt; Maybe (Sensitive Text))
 -&gt; (ConfirmSignUp -&gt; Maybe (Sensitive Text) -&gt; ConfirmSignUp)
 -&gt; Lens
@@ -428,16 +452,16 @@ $sel:forceAliasCreation:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe Bool
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452416"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452922"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 secretHash :: Maybe (Sensitive Text)
 $sel:secretHash:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679452416"><span class="hs-identifier hs-var hs-var">secretHash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679452416"><span class="hs-identifier hs-var">secretHash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452415"><span class="annot"><span class="annottext">s :: ConfirmSignUp
-</span><a href="#local-6989586621679452415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452414"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679452414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
-</span><a href="#local-6989586621679452415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretHash:ConfirmSignUp' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679452922"><span class="hs-identifier hs-var hs-var">secretHash</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679452922"><span class="hs-identifier hs-var">secretHash</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452921"><span class="annot"><span class="annottext">s :: ConfirmSignUp
+</span><a href="#local-6989586621679452921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452920"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679452920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
+</span><a href="#local-6989586621679452921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretHash:ConfirmSignUp' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AsecretHash%3AConfirmSignUp%27"><span class="hs-identifier hs-var">secretHash</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679452414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679452920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; ConfirmSignUp -&gt; f ConfirmSignUp)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -457,30 +481,6 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- | The Amazon Pinpoint analytics metadata for collecting metrics for</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- @ConfirmSignUp@ calls.</span><span>
-</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_analyticsMetadata"><span class="hs-identifier hs-type">confirmSignUp_analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.Types.AnalyticsMetadataType.html#AnalyticsMetadataType"><span class="hs-identifier hs-type">AnalyticsMetadataType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-260"></span><span id="confirmSignUp_analyticsMetadata"><span class="annot"><span class="annottext">confirmSignUp_analyticsMetadata :: (Maybe AnalyticsMetadataType -&gt; f (Maybe AnalyticsMetadataType))
--&gt; ConfirmSignUp -&gt; f ConfirmSignUp
-</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_analyticsMetadata"><span class="hs-identifier hs-var hs-var">confirmSignUp_analyticsMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfirmSignUp -&gt; Maybe AnalyticsMetadataType)
--&gt; (ConfirmSignUp -&gt; Maybe AnalyticsMetadataType -&gt; ConfirmSignUp)
--&gt; Lens
-     ConfirmSignUp
-     ConfirmSignUp
-     (Maybe AnalyticsMetadataType)
-     (Maybe AnalyticsMetadataType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452413"><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
-analyticsMetadata :: Maybe AnalyticsMetadataType
-$sel:analyticsMetadata:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe AnalyticsMetadataType
-</span><a href="#local-6989586621679452413"><span class="hs-identifier hs-var hs-var">analyticsMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
-</span><a href="#local-6989586621679452413"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452412"><span class="annot"><span class="annottext">s :: ConfirmSignUp
-</span><a href="#local-6989586621679452412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452411"><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
-</span><a href="#local-6989586621679452411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
-</span><a href="#local-6989586621679452412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyticsMetadata:ConfirmSignUp' :: Maybe AnalyticsMetadataType
-</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AanalyticsMetadata%3AConfirmSignUp%27"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
-</span><a href="#local-6989586621679452411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-261"></span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- | The ID of the app client associated with the user pool.</span><span>
 </span><span id="line-263"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUp_clientId"><span class="hs-identifier hs-type">confirmSignUp_clientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -490,16 +490,16 @@ $sel:analyticsMetadata:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe AnalyticsMeta
 -&gt; Lens
      ConfirmSignUp ConfirmSignUp (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452410"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452919"><span class="annot"><span class="annottext">Sensitive Text
 clientId :: Sensitive Text
 $sel:clientId:ConfirmSignUp' :: ConfirmSignUp -&gt; Sensitive Text
-</span><a href="#local-6989586621679452410"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679452410"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452409"><span class="annot"><span class="annottext">s :: ConfirmSignUp
-</span><a href="#local-6989586621679452409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452408"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679452408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
-</span><a href="#local-6989586621679452409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:ConfirmSignUp' :: Sensitive Text
+</span><a href="#local-6989586621679452919"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679452919"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452918"><span class="annot"><span class="annottext">s :: ConfirmSignUp
+</span><a href="#local-6989586621679452918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452917"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679452917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
+</span><a href="#local-6989586621679452918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:ConfirmSignUp' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AclientId%3AConfirmSignUp%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679452408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679452917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; ConfirmSignUp -&gt; f ConfirmSignUp)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -518,16 +518,16 @@ forall a. Iso' (Sensitive a) a
 -&gt; Lens
      ConfirmSignUp ConfirmSignUp (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452407"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452916"><span class="annot"><span class="annottext">Sensitive Text
 username :: Sensitive Text
 $sel:username:ConfirmSignUp' :: ConfirmSignUp -&gt; Sensitive Text
-</span><a href="#local-6989586621679452407"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679452407"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452406"><span class="annot"><span class="annottext">s :: ConfirmSignUp
-</span><a href="#local-6989586621679452406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452405"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679452405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
-</span><a href="#local-6989586621679452406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:ConfirmSignUp' :: Sensitive Text
+</span><a href="#local-6989586621679452916"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679452916"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452915"><span class="annot"><span class="annottext">s :: ConfirmSignUp
+</span><a href="#local-6989586621679452915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452914"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679452914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
+</span><a href="#local-6989586621679452915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:ConfirmSignUp' :: Sensitive Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3Ausername%3AConfirmSignUp%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679452405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679452914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; ConfirmSignUp -&gt; f ConfirmSignUp)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -545,27 +545,27 @@ forall a. Iso' (Sensitive a) a
 -&gt; (ConfirmSignUp -&gt; Text -&gt; ConfirmSignUp)
 -&gt; Lens ConfirmSignUp ConfirmSignUp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452404"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452913"><span class="annot"><span class="annottext">Text
 confirmationCode :: Text
 $sel:confirmationCode:ConfirmSignUp' :: ConfirmSignUp -&gt; Text
-</span><a href="#local-6989586621679452404"><span class="hs-identifier hs-var hs-var">confirmationCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452404"><span class="hs-identifier hs-var">confirmationCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452403"><span class="annot"><span class="annottext">s :: ConfirmSignUp
-</span><a href="#local-6989586621679452403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452402"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
-</span><a href="#local-6989586621679452403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confirmationCode:ConfirmSignUp' :: Text
+</span><a href="#local-6989586621679452913"><span class="hs-identifier hs-var hs-var">confirmationCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452913"><span class="hs-identifier hs-var">confirmationCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452912"><span class="annot"><span class="annottext">s :: ConfirmSignUp
+</span><a href="#local-6989586621679452912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452911"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679452911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUp
+</span><a href="#local-6989586621679452912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confirmationCode:ConfirmSignUp' :: Text
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AconfirmationCode%3AConfirmSignUp%27"><span class="hs-identifier hs-var">confirmationCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-275"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-276"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-277"></span><span>      </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse"><span class="hs-identifier hs-type">ConfirmSignUpResponse</span></a></span><span>
-</span><span id="line-278"></span><span>  </span><span id="local-6989586621679452398"><span class="annot"><span class="annottext">request :: ConfirmSignUp -&gt; Request ConfirmSignUp
+</span><span id="line-278"></span><span>  </span><span id="local-6989586621679452907"><span class="annot"><span class="annottext">request :: ConfirmSignUp -&gt; Request ConfirmSignUp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ConfirmSignUp -&gt; Request ConfirmSignUp
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-279"></span><span>  </span><span id="local-6989586621679452394"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-279"></span><span>  </span><span id="local-6989586621679452903"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ConfirmSignUp
 -&gt; ClientResponse ClientBody
@@ -589,10 +589,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-281"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452391"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679452391"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679452390"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679452390"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679452389"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679452389"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-281"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452900"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452900"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679452899"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679452899"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679452898"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679452898"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-282"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ConfirmSignUpResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse%27"><span class="hs-identifier hs-var">ConfirmSignUpResponse'</span></a></span><span>
 </span><span id="line-283"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ConfirmSignUpResponse)
@@ -603,15 +603,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679452391"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452900"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-285"></span><span>
-</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452382"><span id="local-6989586621679452384"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span></span></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452891"><span id="local-6989586621679452893"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span></span></span><span>
 </span><span id="line-287"></span><span>
-</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452379"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452888"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span></span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-291"></span><span>  </span><span id="local-6989586621679452375"><span class="annot"><span class="annottext">toHeaders :: ConfirmSignUp -&gt; ResponseHeaders
+</span><span id="line-291"></span><span>  </span><span id="local-6989586621679452884"><span class="annot"><span class="annottext">toHeaders :: ConfirmSignUp -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-292"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ConfirmSignUp -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -638,9 +638,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-302"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-303"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-304"></span><span>
-</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452365"><span id="local-6989586621679452367"><span id="local-6989586621679452369"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-306"></span><span>  </span><span id="local-6989586621679452363"><span class="annot"><span class="annottext">toJSON :: ConfirmSignUp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452354"><span id="local-6989586621679452355"><span id="local-6989586621679452356"><span id="local-6989586621679452357"><span id="local-6989586621679452358"><span id="local-6989586621679452359"><span id="local-6989586621679452360"><span id="local-6989586621679452361"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452874"><span id="local-6989586621679452876"><span id="local-6989586621679452878"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621679452872"><span class="annot"><span class="annottext">toJSON :: ConfirmSignUp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp%27"><span class="hs-identifier hs-type">ConfirmSignUp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452863"><span id="local-6989586621679452864"><span id="local-6989586621679452865"><span id="local-6989586621679452866"><span id="local-6989586621679452867"><span id="local-6989586621679452868"><span id="local-6989586621679452869"><span id="local-6989586621679452870"><span class="annot"><span class="annottext">Maybe Bool
 Maybe (HashMap Text Text)
 Maybe (Sensitive Text)
 Maybe AnalyticsMetadataType
@@ -650,20 +650,20 @@ Sensitive Text
 confirmationCode :: Text
 username :: Sensitive Text
 clientId :: Sensitive Text
-analyticsMetadata :: Maybe AnalyticsMetadataType
 secretHash :: Maybe (Sensitive Text)
-forceAliasCreation :: Maybe Bool
 userContextData :: Maybe UserContextDataType
+analyticsMetadata :: Maybe AnalyticsMetadataType
+forceAliasCreation :: Maybe Bool
 clientMetadata :: Maybe (HashMap Text Text)
 $sel:confirmationCode:ConfirmSignUp' :: ConfirmSignUp -&gt; Text
 $sel:username:ConfirmSignUp' :: ConfirmSignUp -&gt; Sensitive Text
 $sel:clientId:ConfirmSignUp' :: ConfirmSignUp -&gt; Sensitive Text
-$sel:analyticsMetadata:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe AnalyticsMetadataType
 $sel:secretHash:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe (Sensitive Text)
-$sel:forceAliasCreation:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe Bool
 $sel:userContextData:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe UserContextDataType
+$sel:analyticsMetadata:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe AnalyticsMetadataType
+$sel:forceAliasCreation:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe Bool
 $sel:clientMetadata:ConfirmSignUp' :: ConfirmSignUp -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679452354"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679452863"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-307"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-308"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -677,54 +677,54 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679452361"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679452870"><span class="hs-identifier hs-var">clientMetadata</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-311"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UserContextData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UserContextDataType -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-312"></span><span>              </span><span class="annot"><span class="annottext">(UserContextDataType -&gt; Pair)
--&gt; Maybe UserContextDataType -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
-</span><a href="#local-6989586621679452360"><span class="hs-identifier hs-var">userContextData</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-313"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ForceAliasCreation&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-314"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+</span><span id="line-312"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679452359"><span class="hs-identifier hs-var">forceAliasCreation</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679452869"><span class="hs-identifier hs-var">forceAliasCreation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnalyticsMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AnalyticsMetadataType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>              </span><span class="annot"><span class="annottext">(AnalyticsMetadataType -&gt; Pair)
+-&gt; Maybe AnalyticsMetadataType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
+</span><a href="#local-6989586621679452868"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-315"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserContextData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UserContextDataType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>              </span><span class="annot"><span class="annottext">(UserContextDataType -&gt; Pair)
+-&gt; Maybe UserContextDataType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UserContextDataType
+</span><a href="#local-6989586621679452867"><span class="hs-identifier hs-var">userContextData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SecretHash&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679452358"><span class="hs-identifier hs-var">secretHash</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-316"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AnalyticsMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AnalyticsMetadataType -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-317"></span><span>              </span><span class="annot"><span class="annottext">(AnalyticsMetadataType -&gt; Pair)
--&gt; Maybe AnalyticsMetadataType -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AnalyticsMetadataType
-</span><a href="#local-6989586621679452357"><span class="hs-identifier hs-var">analyticsMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679452866"><span class="hs-identifier hs-var">secretHash</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-318"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ClientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679452356"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679452865"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-319"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679452355"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679452864"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-320"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -732,19 +732,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ConfirmationCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679452354"><span class="hs-identifier hs-var">confirmationCode</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452863"><span class="hs-identifier hs-var">confirmationCode</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-322"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-323"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-324"></span><span>
 </span><span id="line-325"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-326"></span><span>  </span><span id="local-6989586621679452348"><span class="annot"><span class="annottext">toPath :: ConfirmSignUp -&gt; ByteString
+</span><span id="line-326"></span><span>  </span><span id="local-6989586621679452857"><span class="annot"><span class="annottext">toPath :: ConfirmSignUp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ConfirmSignUp -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-327"></span><span>
 </span><span id="line-328"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUp"><span class="hs-identifier hs-type">ConfirmSignUp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-329"></span><span>  </span><span id="local-6989586621679452344"><span class="annot"><span class="annottext">toQuery :: ConfirmSignUp -&gt; QueryString
+</span><span id="line-329"></span><span>  </span><span id="local-6989586621679452853"><span class="annot"><span class="annottext">toQuery :: ConfirmSignUp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ConfirmSignUp -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -755,12 +755,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-332"></span><span class="hs-comment">-- confirmation.</span><span>
 </span><span id="line-333"></span><span class="hs-comment">--</span><span>
 </span><span id="line-334"></span><span class="hs-comment">-- /See:/ 'newConfirmSignUpResponse' smart constructor.</span><span>
-</span><span id="line-335"></span><span id="local-6989586621679452341"><span id="local-6989586621679452342"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmSignUpResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse"><span class="hs-identifier hs-var">ConfirmSignUpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmSignUpResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse%27"><span class="hs-identifier hs-var">ConfirmSignUpResponse'</span></a></span></span><span>
+</span><span id="line-335"></span><span id="local-6989586621679452850"><span id="local-6989586621679452851"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfirmSignUpResponse"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse"><span class="hs-identifier hs-var">ConfirmSignUpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfirmSignUpResponse%27"><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse%27"><span class="hs-identifier hs-var">ConfirmSignUpResponse'</span></a></span></span><span>
 </span><span id="line-336"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-337"></span><span>    </span><span id="%24sel%3AhttpStatus%3AConfirmSignUpResponse%27"><span class="annot"><span class="annottext">ConfirmSignUpResponse -&gt; Int
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AhttpStatus%3AConfirmSignUpResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-338"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-339"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452336"><span id="local-6989586621679452338"><span class="annot"><span class="annottext">ConfirmSignUpResponse -&gt; ConfirmSignUpResponse -&gt; Bool
+</span><span id="line-339"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452845"><span id="local-6989586621679452847"><span class="annot"><span class="annottext">ConfirmSignUpResponse -&gt; ConfirmSignUpResponse -&gt; Bool
 (ConfirmSignUpResponse -&gt; ConfirmSignUpResponse -&gt; Bool)
 -&gt; (ConfirmSignUpResponse -&gt; ConfirmSignUpResponse -&gt; Bool)
 -&gt; Eq ConfirmSignUpResponse
@@ -769,7 +769,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConfirmSignUpResponse -&gt; ConfirmSignUpResponse -&gt; Bool
 == :: ConfirmSignUpResponse -&gt; ConfirmSignUpResponse -&gt; Bool
 $c== :: ConfirmSignUpResponse -&gt; ConfirmSignUpResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452328"><span id="local-6989586621679452330"><span id="local-6989586621679452332"><span id="local-6989586621679452334"><span class="annot"><span class="annottext">ReadPrec [ConfirmSignUpResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452837"><span id="local-6989586621679452839"><span id="local-6989586621679452841"><span id="local-6989586621679452843"><span class="annot"><span class="annottext">ReadPrec [ConfirmSignUpResponse]
 ReadPrec ConfirmSignUpResponse
 Int -&gt; ReadS ConfirmSignUpResponse
 ReadS [ConfirmSignUpResponse]
@@ -789,7 +789,7 @@ readList :: ReadS [ConfirmSignUpResponse]
 $creadList :: ReadS [ConfirmSignUpResponse]
 readsPrec :: Int -&gt; ReadS ConfirmSignUpResponse
 $creadsPrec :: Int -&gt; ReadS ConfirmSignUpResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452321"><span id="local-6989586621679452323"><span id="local-6989586621679452325"><span class="annot"><span class="annottext">Int -&gt; ConfirmSignUpResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452830"><span id="local-6989586621679452832"><span id="local-6989586621679452834"><span class="annot"><span class="annottext">Int -&gt; ConfirmSignUpResponse -&gt; ShowS
 [ConfirmSignUpResponse] -&gt; ShowS
 ConfirmSignUpResponse -&gt; String
 (Int -&gt; ConfirmSignUpResponse -&gt; ShowS)
@@ -829,12 +829,12 @@ $cfrom :: forall x. ConfirmSignUpResponse -&gt; Rep ConfirmSignUpResponse x
 </span><span id="line-352"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-353"></span><span>  </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse"><span class="hs-identifier hs-type">ConfirmSignUpResponse</span></a></span><span>
 </span><span id="line-354"></span><span id="newConfirmSignUpResponse"><span class="annot"><span class="annottext">newConfirmSignUpResponse :: Int -&gt; ConfirmSignUpResponse
-</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#newConfirmSignUpResponse"><span class="hs-identifier hs-var hs-var">newConfirmSignUpResponse</span></a></span></span><span> </span><span id="local-6989586621679452318"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679452318"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#newConfirmSignUpResponse"><span class="hs-identifier hs-var hs-var">newConfirmSignUpResponse</span></a></span></span><span> </span><span id="local-6989586621679452827"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452827"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-355"></span><span>  </span><span class="annot"><span class="annottext">ConfirmSignUpResponse' :: Int -&gt; ConfirmSignUpResponse
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse%27"><span class="hs-identifier hs-type">ConfirmSignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ConfirmSignUpResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AhttpStatus%3AConfirmSignUpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679452318"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679452827"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-356"></span><span>
 </span><span id="line-357"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-358"></span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#confirmSignUpResponse_httpStatus"><span class="hs-identifier hs-type">confirmSignUpResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse"><span class="hs-identifier hs-type">ConfirmSignUpResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -843,16 +843,16 @@ $cfrom :: forall x. ConfirmSignUpResponse -&gt; Rep ConfirmSignUpResponse x
 -&gt; (ConfirmSignUpResponse -&gt; Int -&gt; ConfirmSignUpResponse)
 -&gt; Lens ConfirmSignUpResponse ConfirmSignUpResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse%27"><span class="hs-identifier hs-type">ConfirmSignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452317"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse%27"><span class="hs-identifier hs-type">ConfirmSignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452826"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ConfirmSignUpResponse' :: ConfirmSignUpResponse -&gt; Int
-</span><a href="#local-6989586621679452317"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679452317"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452316"><span class="annot"><span class="annottext">s :: ConfirmSignUpResponse
-</span><a href="#local-6989586621679452316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse%27"><span class="hs-identifier hs-type">ConfirmSignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452315"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679452315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUpResponse
-</span><a href="#local-6989586621679452316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ConfirmSignUpResponse' :: Int
+</span><a href="#local-6989586621679452826"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452826"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452825"><span class="annot"><span class="annottext">s :: ConfirmSignUpResponse
+</span><a href="#local-6989586621679452825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse%27"><span class="hs-identifier hs-type">ConfirmSignUpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452824"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679452824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfirmSignUpResponse
+</span><a href="#local-6989586621679452825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ConfirmSignUpResponse' :: Int
 </span><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#%24sel%3AhttpStatus%3AConfirmSignUpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679452315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse"><span class="hs-identifier hs-type">ConfirmSignUpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse"><span class="hs-identifier hs-type">ConfirmSignUpResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-360"></span><span>
-</span><span id="line-361"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452313"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse"><span class="hs-identifier hs-type">ConfirmSignUpResponse</span></a></span></span><span>
+</span><span id="line-361"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CognitoIdentityProvider.ConfirmSignUp.html#ConfirmSignUpResponse"><span class="hs-identifier hs-type">ConfirmSignUpResponse</span></a></span></span><span>
 </span><span id="line-362"></span></pre></body></html>

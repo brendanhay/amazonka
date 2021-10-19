@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Input for GetSubscriptionAttributes.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newGetSubscriptionAttributes' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679197270"><span id="local-6989586621679197271"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSubscriptionAttributes"><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-var">GetSubscriptionAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSubscriptionAttributes%27"><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-var">GetSubscriptionAttributes'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679197420"><span id="local-6989586621679197421"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSubscriptionAttributes"><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-var">GetSubscriptionAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSubscriptionAttributes%27"><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-var">GetSubscriptionAttributes'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the subscription whose properties you want to get.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AsubscriptionArn%3AGetSubscriptionAttributes%27"><span class="annot"><span class="annottext">GetSubscriptionAttributes -&gt; Text
 </span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#%24sel%3AsubscriptionArn%3AGetSubscriptionAttributes%27"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197264"><span id="local-6989586621679197266"><span class="annot"><span class="annottext">GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197414"><span id="local-6989586621679197416"><span class="annot"><span class="annottext">GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool
 (GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool)
 -&gt; (GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool)
 -&gt; Eq GetSubscriptionAttributes
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool
 == :: GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool
 $c== :: GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197255"><span id="local-6989586621679197257"><span id="local-6989586621679197259"><span id="local-6989586621679197261"><span class="annot"><span class="annottext">ReadPrec [GetSubscriptionAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197405"><span id="local-6989586621679197407"><span id="local-6989586621679197409"><span id="local-6989586621679197411"><span class="annot"><span class="annottext">ReadPrec [GetSubscriptionAttributes]
 ReadPrec GetSubscriptionAttributes
 Int -&gt; ReadS GetSubscriptionAttributes
 ReadS [GetSubscriptionAttributes]
@@ -83,7 +83,7 @@ readList :: ReadS [GetSubscriptionAttributes]
 $creadList :: ReadS [GetSubscriptionAttributes]
 readsPrec :: Int -&gt; ReadS GetSubscriptionAttributes
 $creadsPrec :: Int -&gt; ReadS GetSubscriptionAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197248"><span id="local-6989586621679197250"><span id="local-6989586621679197252"><span class="annot"><span class="annottext">Int -&gt; GetSubscriptionAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197398"><span id="local-6989586621679197400"><span id="local-6989586621679197402"><span class="annot"><span class="annottext">Int -&gt; GetSubscriptionAttributes -&gt; ShowS
 [GetSubscriptionAttributes] -&gt; ShowS
 GetSubscriptionAttributes -&gt; String
 (Int -&gt; GetSubscriptionAttributes -&gt; ShowS)
@@ -129,14 +129,14 @@ GetSubscriptionAttributes -&gt; Rep GetSubscriptionAttributes x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetSubscriptionAttributes"><span class="annot"><span class="annottext">newGetSubscriptionAttributes :: Text -&gt; GetSubscriptionAttributes
-</span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#newGetSubscriptionAttributes"><span class="hs-identifier hs-var hs-var">newGetSubscriptionAttributes</span></a></span></span><span> </span><span id="local-6989586621679197243"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197243"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#newGetSubscriptionAttributes"><span class="hs-identifier hs-var hs-var">newGetSubscriptionAttributes</span></a></span></span><span> </span><span id="local-6989586621679197393"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197393"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">GetSubscriptionAttributes' :: Text -&gt; GetSubscriptionAttributes
 </span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-type">GetSubscriptionAttributes'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subscriptionArn:GetSubscriptionAttributes' :: Text
 </span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#%24sel%3AsubscriptionArn%3AGetSubscriptionAttributes%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197243"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span><span>
+</span><a href="#local-6989586621679197393"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The ARN of the subscription whose properties you want to get.</span><span>
@@ -148,28 +148,28 @@ GetSubscriptionAttributes -&gt; Rep GetSubscriptionAttributes x
 -&gt; Lens
      GetSubscriptionAttributes GetSubscriptionAttributes Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-type">GetSubscriptionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197240"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-type">GetSubscriptionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197390"><span class="annot"><span class="annottext">Text
 subscriptionArn :: Text
 $sel:subscriptionArn:GetSubscriptionAttributes' :: GetSubscriptionAttributes -&gt; Text
-</span><a href="#local-6989586621679197240"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197240"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197239"><span class="annot"><span class="annottext">s :: GetSubscriptionAttributes
-</span><a href="#local-6989586621679197239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-type">GetSubscriptionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197238"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionAttributes
-</span><a href="#local-6989586621679197239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:GetSubscriptionAttributes' :: Text
+</span><a href="#local-6989586621679197390"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197390"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197389"><span class="annot"><span class="annottext">s :: GetSubscriptionAttributes
+</span><a href="#local-6989586621679197389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-type">GetSubscriptionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197388"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionAttributes
+</span><a href="#local-6989586621679197389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:GetSubscriptionAttributes' :: Text
 </span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#%24sel%3AsubscriptionArn%3AGetSubscriptionAttributes%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679197234"><span class="annot"><span class="annottext">request :: GetSubscriptionAttributes -&gt; Request GetSubscriptionAttributes
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679197384"><span class="annot"><span class="annottext">request :: GetSubscriptionAttributes -&gt; Request GetSubscriptionAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetSubscriptionAttributes -&gt; Request GetSubscriptionAttributes
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679197230"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679197380"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetSubscriptionAttributes
 -&gt; ClientResponse ClientBody
@@ -200,10 +200,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GetSubscriptionAttributesResult&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197227"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197227"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197226"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679197226"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197225"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679197225"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197377"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197377"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197376"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679197376"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197375"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679197375"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 -&gt; Int -&gt; GetSubscriptionAttributesResponse
 </span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var">GetSubscriptionAttributesResponse'</span></a></span><span>
@@ -213,7 +213,7 @@ Text
 -&gt; Either String (Int -&gt; GetSubscriptionAttributesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679197225"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679197375"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -248,15 +248,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197227"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197377"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197214"><span id="local-6989586621679197216"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197364"><span id="local-6989586621679197366"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197211"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197361"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679197207"><span class="annot"><span class="annottext">toHeaders :: GetSubscriptionAttributes -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679197357"><span class="annot"><span class="annottext">toHeaders :: GetSubscriptionAttributes -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSubscriptionAttributes -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -264,18 +264,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679197202"><span class="annot"><span class="annottext">toPath :: GetSubscriptionAttributes -&gt; ByteString
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679197352"><span class="annot"><span class="annottext">toPath :: GetSubscriptionAttributes -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetSubscriptionAttributes -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679197198"><span class="annot"><span class="annottext">toQuery :: GetSubscriptionAttributes -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-type">GetSubscriptionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197196"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679197348"><span class="annot"><span class="annottext">toQuery :: GetSubscriptionAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-type">GetSubscriptionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197346"><span class="annot"><span class="annottext">Text
 subscriptionArn :: Text
 $sel:subscriptionArn:GetSubscriptionAttributes' :: GetSubscriptionAttributes -&gt; Text
-</span><a href="#local-6989586621679197196"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679197346"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -295,13 +295,13 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;SubscriptionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679197196"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span>
+</span><a href="#local-6989586621679197346"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | Response for GetSubscriptionAttributes action.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- /See:/ 'newGetSubscriptionAttributesResponse' smart constructor.</span><span>
-</span><span id="line-120"></span><span id="local-6989586621679197193"><span id="local-6989586621679197194"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSubscriptionAttributesResponse"><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-var">GetSubscriptionAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSubscriptionAttributesResponse%27"><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var">GetSubscriptionAttributesResponse'</span></a></span></span><span>
+</span><span id="line-120"></span><span id="local-6989586621679197343"><span id="local-6989586621679197344"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSubscriptionAttributesResponse"><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-var">GetSubscriptionAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSubscriptionAttributesResponse%27"><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var">GetSubscriptionAttributesResponse'</span></a></span></span><span>
 </span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map of the subscription\'s attributes. Attributes in this map include</span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-comment">-- the following:</span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -362,7 +362,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-177"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSubscriptionAttributesResponse%27"><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse -&gt; Int
 </span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#%24sel%3AhttpStatus%3AGetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-178"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-179"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197187"><span id="local-6989586621679197189"><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse
+</span><span id="line-179"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197337"><span id="local-6989586621679197339"><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse
 -&gt; GetSubscriptionAttributesResponse -&gt; Bool
 (GetSubscriptionAttributesResponse
  -&gt; GetSubscriptionAttributesResponse -&gt; Bool)
@@ -378,7 +378,7 @@ $c/= :: GetSubscriptionAttributesResponse
 -&gt; GetSubscriptionAttributesResponse -&gt; Bool
 $c== :: GetSubscriptionAttributesResponse
 -&gt; GetSubscriptionAttributesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197179"><span id="local-6989586621679197181"><span id="local-6989586621679197183"><span id="local-6989586621679197185"><span class="annot"><span class="annottext">ReadPrec [GetSubscriptionAttributesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197329"><span id="local-6989586621679197331"><span id="local-6989586621679197333"><span id="local-6989586621679197335"><span class="annot"><span class="annottext">ReadPrec [GetSubscriptionAttributesResponse]
 ReadPrec GetSubscriptionAttributesResponse
 Int -&gt; ReadS GetSubscriptionAttributesResponse
 ReadS [GetSubscriptionAttributesResponse]
@@ -398,7 +398,7 @@ readList :: ReadS [GetSubscriptionAttributesResponse]
 $creadList :: ReadS [GetSubscriptionAttributesResponse]
 readsPrec :: Int -&gt; ReadS GetSubscriptionAttributesResponse
 $creadsPrec :: Int -&gt; ReadS GetSubscriptionAttributesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197173"><span id="local-6989586621679197175"><span id="local-6989586621679197177"><span class="annot"><span class="annottext">Int -&gt; GetSubscriptionAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197323"><span id="local-6989586621679197325"><span id="local-6989586621679197327"><span class="annot"><span class="annottext">Int -&gt; GetSubscriptionAttributesResponse -&gt; ShowS
 [GetSubscriptionAttributesResponse] -&gt; ShowS
 GetSubscriptionAttributesResponse -&gt; String
 (Int -&gt; GetSubscriptionAttributesResponse -&gt; ShowS)
@@ -505,8 +505,8 @@ GetSubscriptionAttributesResponse
 </span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-248"></span><span>  </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span><span>
 </span><span id="line-249"></span><span id="newGetSubscriptionAttributesResponse"><span class="annot"><span class="annottext">newGetSubscriptionAttributesResponse :: Int -&gt; GetSubscriptionAttributesResponse
-</span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#newGetSubscriptionAttributesResponse"><span class="hs-identifier hs-var hs-var">newGetSubscriptionAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679197170"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197170"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#newGetSubscriptionAttributesResponse"><span class="hs-identifier hs-var hs-var">newGetSubscriptionAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679197320"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197320"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse' :: Maybe (HashMap Text Text)
 -&gt; Int -&gt; GetSubscriptionAttributesResponse
 </span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span>
@@ -517,7 +517,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSubscriptionAttributesResponse' :: Int
 </span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#%24sel%3AhttpStatus%3AGetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197170"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679197320"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-254"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | A map of the subscription\'s attributes. Attributes in this map include</span><span>
@@ -587,16 +587,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197169"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197319"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 attributes :: Maybe (HashMap Text Text)
 $sel:attributes:GetSubscriptionAttributesResponse' :: GetSubscriptionAttributesResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197169"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197169"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197168"><span class="annot"><span class="annottext">s :: GetSubscriptionAttributesResponse
-</span><a href="#local-6989586621679197168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197167"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse
-</span><a href="#local-6989586621679197168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:GetSubscriptionAttributesResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679197319"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679197319"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197318"><span class="annot"><span class="annottext">s :: GetSubscriptionAttributesResponse
+</span><a href="#local-6989586621679197318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197317"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679197317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse
+</span><a href="#local-6989586621679197318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:GetSubscriptionAttributesResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#%24sel%3Aattributes%3AGetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679197167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679197317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; GetSubscriptionAttributesResponse
  -&gt; f GetSubscriptionAttributesResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -623,8 +623,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-312"></span><span>
 </span><span id="line-313"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-314"></span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#getSubscriptionAttributesResponse_httpStatus"><span class="hs-identifier hs-type">getSubscriptionAttributesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -640,18 +640,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197163"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197313"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetSubscriptionAttributesResponse' :: GetSubscriptionAttributesResponse -&gt; Int
-</span><a href="#local-6989586621679197163"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197163"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197162"><span class="annot"><span class="annottext">s :: GetSubscriptionAttributesResponse
-</span><a href="#local-6989586621679197162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197161"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse
-</span><a href="#local-6989586621679197162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSubscriptionAttributesResponse' :: Int
+</span><a href="#local-6989586621679197313"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197313"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197312"><span class="annot"><span class="annottext">s :: GetSubscriptionAttributesResponse
+</span><a href="#local-6989586621679197312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197311"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse
+</span><a href="#local-6989586621679197312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSubscriptionAttributesResponse' :: Int
 </span><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#%24sel%3AhttpStatus%3AGetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679197161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679197311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-316"></span><span>
 </span><span id="line-317"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-318"></span><span>  </span><span id="local-6989586621679197159"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621679197309"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-319"></span><span>    </span><span class="annot"><a href="Network.AWS.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span></span><span>
 </span><span id="line-320"></span></pre></body></html>

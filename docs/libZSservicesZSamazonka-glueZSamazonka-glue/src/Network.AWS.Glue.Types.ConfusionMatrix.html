@@ -31,25 +31,25 @@
 </span><span id="line-31"></span><span class="hs-comment">-- Wikipedia.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newConfusionMatrix' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679680045"><span id="local-6989586621679680046"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfusionMatrix"><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-var">ConfusionMatrix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfusionMatrix%27"><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-var">ConfusionMatrix'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of nonmatches in the data that the transform incorrectly</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- classified as a match, in the confusion matrix for your transform.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnumFalsePositives%3AConfusionMatrix%27"><span class="annot"><span class="annottext">ConfusionMatrix -&gt; Maybe Integer
-</span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumFalsePositives%3AConfusionMatrix%27"><span class="hs-identifier hs-var hs-var">numFalsePositives</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of nonmatches in the data that the transform correctly</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- rejected, in the confusion matrix for your transform.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AnumTrueNegatives%3AConfusionMatrix%27"><span class="annot"><span class="annottext">ConfusionMatrix -&gt; Maybe Integer
+</span><span id="line-34"></span><span id="local-6989586621679681690"><span id="local-6989586621679681691"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfusionMatrix"><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-var">ConfusionMatrix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfusionMatrix%27"><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-var">ConfusionMatrix'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of nonmatches in the data that the transform correctly</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- rejected, in the confusion matrix for your transform.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AnumTrueNegatives%3AConfusionMatrix%27"><span class="annot"><span class="annottext">ConfusionMatrix -&gt; Maybe Integer
 </span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumTrueNegatives%3AConfusionMatrix%27"><span class="hs-identifier hs-var hs-var">numTrueNegatives</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The number of matches in the data that the transform didn\'t find, in</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the confusion matrix for your transform.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AnumFalseNegatives%3AConfusionMatrix%27"><span class="annot"><span class="annottext">ConfusionMatrix -&gt; Maybe Integer
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of matches in the data that the transform didn\'t find, in</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the confusion matrix for your transform.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AnumFalseNegatives%3AConfusionMatrix%27"><span class="annot"><span class="annottext">ConfusionMatrix -&gt; Maybe Integer
 </span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumFalseNegatives%3AConfusionMatrix%27"><span class="hs-identifier hs-var hs-var">numFalseNegatives</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The number of matches in the data that the transform correctly found, in</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- the confusion matrix for your transform.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AnumTruePositives%3AConfusionMatrix%27"><span class="annot"><span class="annottext">ConfusionMatrix -&gt; Maybe Integer
-</span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumTruePositives%3AConfusionMatrix%27"><span class="hs-identifier hs-var hs-var">numTruePositives</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The number of matches in the data that the transform correctly found, in</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- the confusion matrix for your transform.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AnumTruePositives%3AConfusionMatrix%27"><span class="annot"><span class="annottext">ConfusionMatrix -&gt; Maybe Integer
+</span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumTruePositives%3AConfusionMatrix%27"><span class="hs-identifier hs-var hs-var">numTruePositives</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The number of nonmatches in the data that the transform incorrectly</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- classified as a match, in the confusion matrix for your transform.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AnumFalsePositives%3AConfusionMatrix%27"><span class="annot"><span class="annottext">ConfusionMatrix -&gt; Maybe Integer
+</span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumFalsePositives%3AConfusionMatrix%27"><span class="hs-identifier hs-var hs-var">numFalsePositives</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679680036"><span id="local-6989586621679680038"><span class="annot"><span class="annottext">ConfusionMatrix -&gt; ConfusionMatrix -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679681681"><span id="local-6989586621679681683"><span class="annot"><span class="annottext">ConfusionMatrix -&gt; ConfusionMatrix -&gt; Bool
 (ConfusionMatrix -&gt; ConfusionMatrix -&gt; Bool)
 -&gt; (ConfusionMatrix -&gt; ConfusionMatrix -&gt; Bool)
 -&gt; Eq ConfusionMatrix
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ConfusionMatrix -&gt; ConfusionMatrix -&gt; Bool
 == :: ConfusionMatrix -&gt; ConfusionMatrix -&gt; Bool
 $c== :: ConfusionMatrix -&gt; ConfusionMatrix -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679680027"><span id="local-6989586621679680029"><span id="local-6989586621679680031"><span id="local-6989586621679680033"><span class="annot"><span class="annottext">ReadPrec [ConfusionMatrix]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679681672"><span id="local-6989586621679681674"><span id="local-6989586621679681676"><span id="local-6989586621679681678"><span class="annot"><span class="annottext">ReadPrec [ConfusionMatrix]
 ReadPrec ConfusionMatrix
 Int -&gt; ReadS ConfusionMatrix
 ReadS [ConfusionMatrix]
@@ -78,7 +78,7 @@ readList :: ReadS [ConfusionMatrix]
 $creadList :: ReadS [ConfusionMatrix]
 readsPrec :: Int -&gt; ReadS ConfusionMatrix
 $creadsPrec :: Int -&gt; ReadS ConfusionMatrix
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679680020"><span id="local-6989586621679680022"><span id="local-6989586621679680024"><span class="annot"><span class="annottext">Int -&gt; ConfusionMatrix -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679681665"><span id="local-6989586621679681667"><span id="local-6989586621679681669"><span class="annot"><span class="annottext">Int -&gt; ConfusionMatrix -&gt; ShowS
 [ConfusionMatrix] -&gt; ShowS
 ConfusionMatrix -&gt; String
 (Int -&gt; ConfusionMatrix -&gt; ShowS)
@@ -112,17 +112,17 @@ $cfrom :: forall x. ConfusionMatrix -&gt; Rep ConfusionMatrix x
 </span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'numFalsePositives', 'confusionMatrix_numFalsePositives' - The number of nonmatches in the data that the transform incorrectly</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- classified as a match, in the confusion matrix for your transform.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'numTrueNegatives', 'confusionMatrix_numTrueNegatives' - The number of nonmatches in the data that the transform correctly</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- rejected, in the confusion matrix for your transform.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'numTrueNegatives', 'confusionMatrix_numTrueNegatives' - The number of nonmatches in the data that the transform correctly</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- rejected, in the confusion matrix for your transform.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'numFalseNegatives', 'confusionMatrix_numFalseNegatives' - The number of matches in the data that the transform didn\'t find, in</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- the confusion matrix for your transform.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'numFalseNegatives', 'confusionMatrix_numFalseNegatives' - The number of matches in the data that the transform didn\'t find, in</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'numTruePositives', 'confusionMatrix_numTruePositives' - The number of matches in the data that the transform correctly found, in</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- the confusion matrix for your transform.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'numTruePositives', 'confusionMatrix_numTruePositives' - The number of matches in the data that the transform correctly found, in</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- the confusion matrix for your transform.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'numFalsePositives', 'confusionMatrix_numFalsePositives' - The number of nonmatches in the data that the transform incorrectly</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- classified as a match, in the confusion matrix for your transform.</span><span>
 </span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#newConfusionMatrix"><span class="hs-identifier hs-type">newConfusionMatrix</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span>
 </span><span id="line-71"></span><span id="newConfusionMatrix"><span class="annot"><span class="annottext">newConfusionMatrix :: ConfusionMatrix
@@ -133,111 +133,111 @@ $cfrom :: forall x. ConfusionMatrix -&gt; Rep ConfusionMatrix x
 -&gt; Maybe Integer
 -&gt; ConfusionMatrix
 </span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:numFalsePositives:ConfusionMatrix' :: Maybe Integer
-</span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumFalsePositives%3AConfusionMatrix%27"><span class="hs-identifier hs-var">numFalsePositives</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:numTrueNegatives:ConfusionMatrix' :: Maybe Integer
+</span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumTrueNegatives%3AConfusionMatrix%27"><span class="hs-identifier hs-var">numTrueNegatives</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:numTrueNegatives:ConfusionMatrix' :: Maybe Integer
-</span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumTrueNegatives%3AConfusionMatrix%27"><span class="hs-identifier hs-var">numTrueNegatives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:numFalseNegatives:ConfusionMatrix' :: Maybe Integer
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:numFalseNegatives:ConfusionMatrix' :: Maybe Integer
 </span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumFalseNegatives%3AConfusionMatrix%27"><span class="hs-identifier hs-var">numFalseNegatives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:numTruePositives:ConfusionMatrix' :: Maybe Integer
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:numTruePositives:ConfusionMatrix' :: Maybe Integer
 </span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumTruePositives%3AConfusionMatrix%27"><span class="hs-identifier hs-var">numTruePositives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:numFalsePositives:ConfusionMatrix' :: Maybe Integer
+</span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumFalsePositives%3AConfusionMatrix%27"><span class="hs-identifier hs-var">numFalsePositives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The number of nonmatches in the data that the transform incorrectly</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- classified as a match, in the confusion matrix for your transform.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#confusionMatrix_numFalsePositives"><span class="hs-identifier hs-type">confusionMatrix_numFalsePositives</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="confusionMatrix_numFalsePositives"><span class="annot"><span class="annottext">confusionMatrix_numFalsePositives :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; ConfusionMatrix -&gt; f ConfusionMatrix
-</span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#confusionMatrix_numFalsePositives"><span class="hs-identifier hs-var hs-var">confusionMatrix_numFalsePositives</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfusionMatrix -&gt; Maybe Integer)
--&gt; (ConfusionMatrix -&gt; Maybe Integer -&gt; ConfusionMatrix)
--&gt; Lens
-     ConfusionMatrix ConfusionMatrix (Maybe Integer) (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680011"><span class="annot"><span class="annottext">Maybe Integer
-numFalsePositives :: Maybe Integer
-$sel:numFalsePositives:ConfusionMatrix' :: ConfusionMatrix -&gt; Maybe Integer
-</span><a href="#local-6989586621679680011"><span class="hs-identifier hs-var hs-var">numFalsePositives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679680011"><span class="hs-identifier hs-var">numFalsePositives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680010"><span class="annot"><span class="annottext">s :: ConfusionMatrix
-</span><a href="#local-6989586621679680010"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680009"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679680009"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfusionMatrix
-</span><a href="#local-6989586621679680010"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numFalsePositives:ConfusionMatrix' :: Maybe Integer
-</span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumFalsePositives%3AConfusionMatrix%27"><span class="hs-identifier hs-var">numFalsePositives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679680009"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | The number of nonmatches in the data that the transform correctly</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- rejected, in the confusion matrix for your transform.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#confusionMatrix_numTrueNegatives"><span class="hs-identifier hs-type">confusionMatrix_numTrueNegatives</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="confusionMatrix_numTrueNegatives"><span class="annot"><span class="annottext">confusionMatrix_numTrueNegatives :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><span id="line-80"></span><span class="hs-comment">-- | The number of nonmatches in the data that the transform correctly</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- rejected, in the confusion matrix for your transform.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#confusionMatrix_numTrueNegatives"><span class="hs-identifier hs-type">confusionMatrix_numTrueNegatives</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="confusionMatrix_numTrueNegatives"><span class="annot"><span class="annottext">confusionMatrix_numTrueNegatives :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; ConfusionMatrix -&gt; f ConfusionMatrix
 </span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#confusionMatrix_numTrueNegatives"><span class="hs-identifier hs-var hs-var">confusionMatrix_numTrueNegatives</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfusionMatrix -&gt; Maybe Integer)
 -&gt; (ConfusionMatrix -&gt; Maybe Integer -&gt; ConfusionMatrix)
 -&gt; Lens
      ConfusionMatrix ConfusionMatrix (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680007"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679681656"><span class="annot"><span class="annottext">Maybe Integer
 numTrueNegatives :: Maybe Integer
 $sel:numTrueNegatives:ConfusionMatrix' :: ConfusionMatrix -&gt; Maybe Integer
-</span><a href="#local-6989586621679680007"><span class="hs-identifier hs-var hs-var">numTrueNegatives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679680007"><span class="hs-identifier hs-var">numTrueNegatives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680006"><span class="annot"><span class="annottext">s :: ConfusionMatrix
-</span><a href="#local-6989586621679680006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680005"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679680005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfusionMatrix
-</span><a href="#local-6989586621679680006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numTrueNegatives:ConfusionMatrix' :: Maybe Integer
+</span><a href="#local-6989586621679681656"><span class="hs-identifier hs-var hs-var">numTrueNegatives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679681656"><span class="hs-identifier hs-var">numTrueNegatives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679681655"><span class="annot"><span class="annottext">s :: ConfusionMatrix
+</span><a href="#local-6989586621679681655"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679681654"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679681654"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfusionMatrix
+</span><a href="#local-6989586621679681655"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numTrueNegatives:ConfusionMatrix' :: Maybe Integer
 </span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumTrueNegatives%3AConfusionMatrix%27"><span class="hs-identifier hs-var">numTrueNegatives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679680005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The number of matches in the data that the transform didn\'t find, in</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- the confusion matrix for your transform.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#confusionMatrix_numFalseNegatives"><span class="hs-identifier hs-type">confusionMatrix_numFalseNegatives</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="confusionMatrix_numFalseNegatives"><span class="annot"><span class="annottext">confusionMatrix_numFalseNegatives :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><a href="#local-6989586621679681654"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The number of matches in the data that the transform didn\'t find, in</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the confusion matrix for your transform.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#confusionMatrix_numFalseNegatives"><span class="hs-identifier hs-type">confusionMatrix_numFalseNegatives</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="confusionMatrix_numFalseNegatives"><span class="annot"><span class="annottext">confusionMatrix_numFalseNegatives :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; ConfusionMatrix -&gt; f ConfusionMatrix
 </span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#confusionMatrix_numFalseNegatives"><span class="hs-identifier hs-var hs-var">confusionMatrix_numFalseNegatives</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfusionMatrix -&gt; Maybe Integer)
 -&gt; (ConfusionMatrix -&gt; Maybe Integer -&gt; ConfusionMatrix)
 -&gt; Lens
      ConfusionMatrix ConfusionMatrix (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680003"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679681652"><span class="annot"><span class="annottext">Maybe Integer
 numFalseNegatives :: Maybe Integer
 $sel:numFalseNegatives:ConfusionMatrix' :: ConfusionMatrix -&gt; Maybe Integer
-</span><a href="#local-6989586621679680003"><span class="hs-identifier hs-var hs-var">numFalseNegatives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679680003"><span class="hs-identifier hs-var">numFalseNegatives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680002"><span class="annot"><span class="annottext">s :: ConfusionMatrix
-</span><a href="#local-6989586621679680002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680001"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679680001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfusionMatrix
-</span><a href="#local-6989586621679680002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numFalseNegatives:ConfusionMatrix' :: Maybe Integer
+</span><a href="#local-6989586621679681652"><span class="hs-identifier hs-var hs-var">numFalseNegatives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679681652"><span class="hs-identifier hs-var">numFalseNegatives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679681651"><span class="annot"><span class="annottext">s :: ConfusionMatrix
+</span><a href="#local-6989586621679681651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679681650"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679681650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfusionMatrix
+</span><a href="#local-6989586621679681651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numFalseNegatives:ConfusionMatrix' :: Maybe Integer
 </span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumFalseNegatives%3AConfusionMatrix%27"><span class="hs-identifier hs-var">numFalseNegatives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679680001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The number of matches in the data that the transform correctly found, in</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- the confusion matrix for your transform.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#confusionMatrix_numTruePositives"><span class="hs-identifier hs-type">confusionMatrix_numTruePositives</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="confusionMatrix_numTruePositives"><span class="annot"><span class="annottext">confusionMatrix_numTruePositives :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><a href="#local-6989586621679681650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The number of matches in the data that the transform correctly found, in</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- the confusion matrix for your transform.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#confusionMatrix_numTruePositives"><span class="hs-identifier hs-type">confusionMatrix_numTruePositives</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="confusionMatrix_numTruePositives"><span class="annot"><span class="annottext">confusionMatrix_numTruePositives :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; ConfusionMatrix -&gt; f ConfusionMatrix
 </span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#confusionMatrix_numTruePositives"><span class="hs-identifier hs-var hs-var">confusionMatrix_numTruePositives</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfusionMatrix -&gt; Maybe Integer)
 -&gt; (ConfusionMatrix -&gt; Maybe Integer -&gt; ConfusionMatrix)
 -&gt; Lens
      ConfusionMatrix ConfusionMatrix (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679999"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679681648"><span class="annot"><span class="annottext">Maybe Integer
 numTruePositives :: Maybe Integer
 $sel:numTruePositives:ConfusionMatrix' :: ConfusionMatrix -&gt; Maybe Integer
-</span><a href="#local-6989586621679679999"><span class="hs-identifier hs-var hs-var">numTruePositives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679679999"><span class="hs-identifier hs-var">numTruePositives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679998"><span class="annot"><span class="annottext">s :: ConfusionMatrix
-</span><a href="#local-6989586621679679998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679997"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679679997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfusionMatrix
-</span><a href="#local-6989586621679679998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numTruePositives:ConfusionMatrix' :: Maybe Integer
+</span><a href="#local-6989586621679681648"><span class="hs-identifier hs-var hs-var">numTruePositives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679681648"><span class="hs-identifier hs-var">numTruePositives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679681647"><span class="annot"><span class="annottext">s :: ConfusionMatrix
+</span><a href="#local-6989586621679681647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679681646"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679681646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfusionMatrix
+</span><a href="#local-6989586621679681647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numTruePositives:ConfusionMatrix' :: Maybe Integer
 </span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumTruePositives%3AConfusionMatrix%27"><span class="hs-identifier hs-var">numTruePositives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679679997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679681646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The number of nonmatches in the data that the transform incorrectly</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- classified as a match, in the confusion matrix for your transform.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#confusionMatrix_numFalsePositives"><span class="hs-identifier hs-type">confusionMatrix_numFalsePositives</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="confusionMatrix_numFalsePositives"><span class="annot"><span class="annottext">confusionMatrix_numFalsePositives :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; ConfusionMatrix -&gt; f ConfusionMatrix
+</span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#confusionMatrix_numFalsePositives"><span class="hs-identifier hs-var hs-var">confusionMatrix_numFalsePositives</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfusionMatrix -&gt; Maybe Integer)
+-&gt; (ConfusionMatrix -&gt; Maybe Integer -&gt; ConfusionMatrix)
+-&gt; Lens
+     ConfusionMatrix ConfusionMatrix (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679681644"><span class="annot"><span class="annottext">Maybe Integer
+numFalsePositives :: Maybe Integer
+$sel:numFalsePositives:ConfusionMatrix' :: ConfusionMatrix -&gt; Maybe Integer
+</span><a href="#local-6989586621679681644"><span class="hs-identifier hs-var hs-var">numFalsePositives</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679681644"><span class="hs-identifier hs-var">numFalsePositives</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679681643"><span class="annot"><span class="annottext">s :: ConfusionMatrix
+</span><a href="#local-6989586621679681643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix%27"><span class="hs-identifier hs-type">ConfusionMatrix'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679681642"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679681642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfusionMatrix
+</span><a href="#local-6989586621679681643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numFalsePositives:ConfusionMatrix' :: Maybe Integer
+</span><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#%24sel%3AnumFalsePositives%3AConfusionMatrix%27"><span class="hs-identifier hs-var">numFalsePositives</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679681642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679994"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679679992"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConfusionMatrix
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679681639"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679681637"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ConfusionMatrix
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ConfusionMatrix)
@@ -247,8 +247,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ConfusionMatrix&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679679989"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679989"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679681634"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679681634"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
 -&gt; Maybe Integer
 -&gt; Maybe Integer
@@ -266,10 +266,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Integer -&gt; Maybe Integer -&gt; ConfusionMatrix)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679681634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NumFalsePositives&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;NumTrueNegatives&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Integer
    -&gt; Maybe Integer -&gt; Maybe Integer -&gt; ConfusionMatrix)
@@ -277,30 +277,30 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer -&gt; Maybe Integer -&gt; ConfusionMatrix)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679681634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NumTrueNegatives&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;NumFalseNegatives&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; Maybe Integer -&gt; ConfusionMatrix)
 -&gt; Parser (Maybe Integer)
 -&gt; Parser (Maybe Integer -&gt; ConfusionMatrix)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679681634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NumFalseNegatives&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;NumTruePositives&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; ConfusionMatrix)
 -&gt; Parser (Maybe Integer) -&gt; Parser ConfusionMatrix
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679681634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NumTruePositives&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;NumFalsePositives&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679983"><span id="local-6989586621679679985"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679681628"><span id="local-6989586621679681630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679980"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679681625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.ConfusionMatrix.html#ConfusionMatrix"><span class="hs-identifier hs-type">ConfusionMatrix</span></a></span></span><span>
 </span><span id="line-115"></span></pre></body></html>

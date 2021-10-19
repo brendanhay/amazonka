@@ -44,7 +44,7 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newDeleteGroup' smart constructor.</span><span>
-</span><span id="line-47"></span><span id="local-6989586621679456415"><span id="local-6989586621679456416"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroup"><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-var">DeleteGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroup%27"><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-var">DeleteGroup'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679457042"><span id="local-6989586621679457043"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroup"><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-var">DeleteGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroup%27"><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-var">DeleteGroup'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the IAM group to delete.</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AgroupName%3ADeleteGroup%27"><span class="annot"><span class="annottext">DeleteGroup -&gt; Text
 </span><a href="Network.AWS.IAM.DeleteGroup.html#%24sel%3AgroupName%3ADeleteGroup%27"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456409"><span id="local-6989586621679456411"><span class="annot"><span class="annottext">DeleteGroup -&gt; DeleteGroup -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679457036"><span id="local-6989586621679457038"><span class="annot"><span class="annottext">DeleteGroup -&gt; DeleteGroup -&gt; Bool
 (DeleteGroup -&gt; DeleteGroup -&gt; Bool)
 -&gt; (DeleteGroup -&gt; DeleteGroup -&gt; Bool) -&gt; Eq DeleteGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
 == :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
 $c== :: DeleteGroup -&gt; DeleteGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456400"><span id="local-6989586621679456402"><span id="local-6989586621679456404"><span id="local-6989586621679456406"><span class="annot"><span class="annottext">ReadPrec [DeleteGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457027"><span id="local-6989586621679457029"><span id="local-6989586621679457031"><span id="local-6989586621679457033"><span class="annot"><span class="annottext">ReadPrec [DeleteGroup]
 ReadPrec DeleteGroup
 Int -&gt; ReadS DeleteGroup
 ReadS [DeleteGroup]
@@ -82,7 +82,7 @@ readList :: ReadS [DeleteGroup]
 $creadList :: ReadS [DeleteGroup]
 readsPrec :: Int -&gt; ReadS DeleteGroup
 $creadsPrec :: Int -&gt; ReadS DeleteGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456393"><span id="local-6989586621679456395"><span id="local-6989586621679456397"><span class="annot"><span class="annottext">Int -&gt; DeleteGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679457020"><span id="local-6989586621679457022"><span id="local-6989586621679457024"><span class="annot"><span class="annottext">Int -&gt; DeleteGroup -&gt; ShowS
 [DeleteGroup] -&gt; ShowS
 DeleteGroup -&gt; String
 (Int -&gt; DeleteGroup -&gt; ShowS)
@@ -127,12 +127,12 @@ $cfrom :: forall x. DeleteGroup -&gt; Rep DeleteGroup x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span>
 </span><span id="line-76"></span><span id="newDeleteGroup"><span class="annot"><span class="annottext">newDeleteGroup :: Text -&gt; DeleteGroup
-</span><a href="Network.AWS.IAM.DeleteGroup.html#newDeleteGroup"><span class="hs-identifier hs-var hs-var">newDeleteGroup</span></a></span></span><span> </span><span id="local-6989586621679456388"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456388"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IAM.DeleteGroup.html#newDeleteGroup"><span class="hs-identifier hs-var hs-var">newDeleteGroup</span></a></span></span><span> </span><span id="local-6989586621679457015"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457015"><span class="hs-identifier hs-var">pGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">DeleteGroup' :: Text -&gt; DeleteGroup
 </span><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:DeleteGroup' :: Text
 </span><a href="Network.AWS.IAM.DeleteGroup.html#%24sel%3AgroupName%3ADeleteGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456388"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679457015"><span class="hs-identifier hs-var">pGroupName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The name of the IAM group to delete.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
@@ -146,25 +146,25 @@ $cfrom :: forall x. DeleteGroup -&gt; Rep DeleteGroup x
 -&gt; (DeleteGroup -&gt; Text -&gt; DeleteGroup)
 -&gt; Lens DeleteGroup DeleteGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456385"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679457012"><span class="annot"><span class="annottext">Text
 groupName :: Text
 $sel:groupName:DeleteGroup' :: DeleteGroup -&gt; Text
-</span><a href="#local-6989586621679456385"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456385"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456384"><span class="annot"><span class="annottext">s :: DeleteGroup
-</span><a href="#local-6989586621679456384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456383"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroup
-</span><a href="#local-6989586621679456384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:DeleteGroup' :: Text
+</span><a href="#local-6989586621679457012"><span class="hs-identifier hs-var hs-var">groupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457012"><span class="hs-identifier hs-var">groupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679457011"><span class="annot"><span class="annottext">s :: DeleteGroup
+</span><a href="#local-6989586621679457011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679457010"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679457010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteGroup
+</span><a href="#local-6989586621679457011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groupName:DeleteGroup' :: Text
 </span><a href="Network.AWS.IAM.DeleteGroup.html#%24sel%3AgroupName%3ADeleteGroup%27"><span class="hs-identifier hs-var">groupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679457010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679456379"><span class="annot"><span class="annottext">request :: DeleteGroup -&gt; Request DeleteGroup
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679457006"><span class="annot"><span class="annottext">request :: DeleteGroup -&gt; Request DeleteGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteGroup -&gt; Request DeleteGroup
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679456375"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679457002"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteGroup
 -&gt; ClientResponse ClientBody
@@ -187,12 +187,12 @@ AWSResponse a
 DeleteGroupResponse
 </span><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-var">DeleteGroupResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456368"><span id="local-6989586621679456370"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456995"><span id="local-6989586621679456997"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456365"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456992"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679456361"><span class="annot"><span class="annottext">toHeaders :: DeleteGroup -&gt; [Header]
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679456988"><span class="annot"><span class="annottext">toHeaders :: DeleteGroup -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteGroup -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -200,18 +200,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679456356"><span class="annot"><span class="annottext">toPath :: DeleteGroup -&gt; ByteString
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679456983"><span class="annot"><span class="annottext">toPath :: DeleteGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup"><span class="hs-identifier hs-type">DeleteGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679456352"><span class="annot"><span class="annottext">toQuery :: DeleteGroup -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456350"><span class="annot"><span class="annottext">Text
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679456979"><span class="annot"><span class="annottext">toQuery :: DeleteGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroup%27"><span class="hs-identifier hs-type">DeleteGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456977"><span class="annot"><span class="annottext">Text
 groupName :: Text
 $sel:groupName:DeleteGroup' :: DeleteGroup -&gt; Text
-</span><a href="#local-6989586621679456350"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679456977"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -231,14 +231,14 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;GroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679456350"><span class="hs-identifier hs-var">groupName</span></a></span><span>
+</span><a href="#local-6989586621679456977"><span class="hs-identifier hs-var">groupName</span></a></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | /See:/ 'newDeleteGroupResponse' smart constructor.</span><span>
-</span><span id="line-114"></span><span id="local-6989586621679456347"><span id="local-6989586621679456348"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroupResponse"><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-var">DeleteGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroupResponse%27"><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-var">DeleteGroupResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span id="local-6989586621679456974"><span id="local-6989586621679456975"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteGroupResponse"><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-var">DeleteGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteGroupResponse%27"><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-var">DeleteGroupResponse'</span></a></span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456343"><span id="local-6989586621679456345"><span class="annot"><span class="annottext">DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456970"><span id="local-6989586621679456972"><span class="annot"><span class="annottext">DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
 (DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool)
 -&gt; (DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool)
 -&gt; Eq DeleteGroupResponse
@@ -247,7 +247,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
 == :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
 $c== :: DeleteGroupResponse -&gt; DeleteGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456335"><span id="local-6989586621679456337"><span id="local-6989586621679456339"><span id="local-6989586621679456341"><span class="annot"><span class="annottext">ReadPrec [DeleteGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456962"><span id="local-6989586621679456964"><span id="local-6989586621679456966"><span id="local-6989586621679456968"><span class="annot"><span class="annottext">ReadPrec [DeleteGroupResponse]
 ReadPrec DeleteGroupResponse
 Int -&gt; ReadS DeleteGroupResponse
 ReadS [DeleteGroupResponse]
@@ -267,7 +267,7 @@ readList :: ReadS [DeleteGroupResponse]
 $creadList :: ReadS [DeleteGroupResponse]
 readsPrec :: Int -&gt; ReadS DeleteGroupResponse
 $creadsPrec :: Int -&gt; ReadS DeleteGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456329"><span id="local-6989586621679456331"><span id="local-6989586621679456333"><span class="annot"><span class="annottext">Int -&gt; DeleteGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456956"><span id="local-6989586621679456958"><span id="local-6989586621679456960"><span class="annot"><span class="annottext">Int -&gt; DeleteGroupResponse -&gt; ShowS
 [DeleteGroupResponse] -&gt; ShowS
 DeleteGroupResponse -&gt; String
 (Int -&gt; DeleteGroupResponse -&gt; ShowS)
@@ -303,5 +303,5 @@ $cfrom :: forall x. DeleteGroupResponse -&gt; Rep DeleteGroupResponse x
 </span><a href="Network.AWS.IAM.DeleteGroup.html#newDeleteGroupResponse"><span class="hs-identifier hs-var hs-var">newDeleteGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteGroupResponse
 </span><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroupResponse%27"><span class="hs-identifier hs-var">DeleteGroupResponse'</span></a></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456325"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.DeleteGroup.html#DeleteGroupResponse"><span class="hs-identifier hs-type">DeleteGroupResponse</span></a></span></span><span>
 </span><span id="line-128"></span></pre></body></html>

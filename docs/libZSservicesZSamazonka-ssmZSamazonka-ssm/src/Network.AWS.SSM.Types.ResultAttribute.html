@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The inventory item result attribute.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newResultAttribute' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679811872"><span id="local-6989586621679811873"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResultAttribute"><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-var">ResultAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResultAttribute%27"><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-var">ResultAttribute'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679813569"><span id="local-6989586621679813570"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResultAttribute"><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-var">ResultAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResultAttribute%27"><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-var">ResultAttribute'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Name of the inventory item type. Valid value: @AWS:InstanceInformation@.</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Default Value: @AWS:InstanceInformation@.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AtypeName%3AResultAttribute%27"><span class="annot"><span class="annottext">ResultAttribute -&gt; Text
 </span><a href="Network.AWS.SSM.Types.ResultAttribute.html#%24sel%3AtypeName%3AResultAttribute%27"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679811866"><span id="local-6989586621679811868"><span class="annot"><span class="annottext">ResultAttribute -&gt; ResultAttribute -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679813563"><span id="local-6989586621679813565"><span class="annot"><span class="annottext">ResultAttribute -&gt; ResultAttribute -&gt; Bool
 (ResultAttribute -&gt; ResultAttribute -&gt; Bool)
 -&gt; (ResultAttribute -&gt; ResultAttribute -&gt; Bool)
 -&gt; Eq ResultAttribute
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResultAttribute -&gt; ResultAttribute -&gt; Bool
 == :: ResultAttribute -&gt; ResultAttribute -&gt; Bool
 $c== :: ResultAttribute -&gt; ResultAttribute -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679811857"><span id="local-6989586621679811859"><span id="local-6989586621679811861"><span id="local-6989586621679811863"><span class="annot"><span class="annottext">ReadPrec [ResultAttribute]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813554"><span id="local-6989586621679813556"><span id="local-6989586621679813558"><span id="local-6989586621679813560"><span class="annot"><span class="annottext">ReadPrec [ResultAttribute]
 ReadPrec ResultAttribute
 Int -&gt; ReadS ResultAttribute
 ReadS [ResultAttribute]
@@ -61,7 +61,7 @@ readList :: ReadS [ResultAttribute]
 $creadList :: ReadS [ResultAttribute]
 readsPrec :: Int -&gt; ReadS ResultAttribute
 $creadsPrec :: Int -&gt; ReadS ResultAttribute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679811850"><span id="local-6989586621679811852"><span id="local-6989586621679811854"><span class="annot"><span class="annottext">Int -&gt; ResultAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813547"><span id="local-6989586621679813549"><span id="local-6989586621679813551"><span class="annot"><span class="annottext">Int -&gt; ResultAttribute -&gt; ShowS
 [ResultAttribute] -&gt; ShowS
 ResultAttribute -&gt; String
 (Int -&gt; ResultAttribute -&gt; ShowS)
@@ -102,12 +102,12 @@ $cfrom :: forall x. ResultAttribute -&gt; Rep ResultAttribute x
 </span><span id="line-48"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span><span>
 </span><span id="line-50"></span><span id="newResultAttribute"><span class="annot"><span class="annottext">newResultAttribute :: Text -&gt; ResultAttribute
-</span><a href="Network.AWS.SSM.Types.ResultAttribute.html#newResultAttribute"><span class="hs-identifier hs-var hs-var">newResultAttribute</span></a></span></span><span> </span><span id="local-6989586621679811844"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679811844"><span class="hs-identifier hs-var">pTypeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.Types.ResultAttribute.html#newResultAttribute"><span class="hs-identifier hs-var hs-var">newResultAttribute</span></a></span></span><span> </span><span id="local-6989586621679813541"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679813541"><span class="hs-identifier hs-var">pTypeName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ResultAttribute' :: Text -&gt; ResultAttribute
 </span><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-type">ResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:ResultAttribute' :: Text
 </span><a href="Network.AWS.SSM.Types.ResultAttribute.html#%24sel%3AtypeName%3AResultAttribute%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679811844"><span class="hs-identifier hs-var">pTypeName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679813541"><span class="hs-identifier hs-var">pTypeName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | Name of the inventory item type. Valid value: @AWS:InstanceInformation@.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- Default Value: @AWS:InstanceInformation@.</span><span>
@@ -117,27 +117,27 @@ $cfrom :: forall x. ResultAttribute -&gt; Rep ResultAttribute x
 -&gt; (ResultAttribute -&gt; Text -&gt; ResultAttribute)
 -&gt; Lens ResultAttribute ResultAttribute Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-type">ResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811840"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-type">ResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813537"><span class="annot"><span class="annottext">Text
 typeName :: Text
 $sel:typeName:ResultAttribute' :: ResultAttribute -&gt; Text
-</span><a href="#local-6989586621679811840"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679811840"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811839"><span class="annot"><span class="annottext">s :: ResultAttribute
-</span><a href="#local-6989586621679811839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-type">ResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811838"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679811838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultAttribute
-</span><a href="#local-6989586621679811839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:ResultAttribute' :: Text
+</span><a href="#local-6989586621679813537"><span class="hs-identifier hs-var hs-var">typeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679813537"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813536"><span class="annot"><span class="annottext">s :: ResultAttribute
+</span><a href="#local-6989586621679813536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-type">ResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813535"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679813535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResultAttribute
+</span><a href="#local-6989586621679813536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:typeName:ResultAttribute' :: Text
 </span><a href="Network.AWS.SSM.Types.ResultAttribute.html#%24sel%3AtypeName%3AResultAttribute%27"><span class="hs-identifier hs-var">typeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679811838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679813535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811834"><span id="local-6989586621679811836"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span></span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813531"><span id="local-6989586621679813533"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span></span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813528"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811823"><span id="local-6989586621679811825"><span id="local-6989586621679811827"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679811821"><span class="annot"><span class="annottext">toJSON :: ResultAttribute -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-type">ResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811819"><span class="annot"><span class="annottext">Text
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813520"><span id="local-6989586621679813522"><span id="local-6989586621679813524"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute"><span class="hs-identifier hs-type">ResultAttribute</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679813518"><span class="annot"><span class="annottext">toJSON :: ResultAttribute -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResultAttribute.html#ResultAttribute%27"><span class="hs-identifier hs-type">ResultAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813516"><span class="annot"><span class="annottext">Text
 typeName :: Text
 $sel:typeName:ResultAttribute' :: ResultAttribute -&gt; Text
-</span><a href="#local-6989586621679811819"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679813516"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -149,6 +149,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679811819"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679813516"><span class="hs-identifier hs-var">typeName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span></pre></body></html>

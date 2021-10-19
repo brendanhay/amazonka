@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679300556"><span id="local-6989586621679300557"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectionOAuthHttpMethod"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod.html#ConnectionOAuthHttpMethod"><span class="hs-identifier hs-var">ConnectionOAuthHttpMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionOAuthHttpMethod%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod.html#ConnectionOAuthHttpMethod%27"><span class="hs-identifier hs-var">ConnectionOAuthHttpMethod'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679300735"><span id="local-6989586621679300736"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectionOAuthHttpMethod"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod.html#ConnectionOAuthHttpMethod"><span class="hs-identifier hs-var">ConnectionOAuthHttpMethod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionOAuthHttpMethod%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod.html#ConnectionOAuthHttpMethod%27"><span class="hs-identifier hs-var">ConnectionOAuthHttpMethod'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConnectionOAuthHttpMethod"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; Text
 </span><a href="Network.AWS.CloudWatchEvents.Types.ConnectionOAuthHttpMethod.html#fromConnectionOAuthHttpMethod"><span class="hs-identifier hs-var hs-var">fromConnectionOAuthHttpMethod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300548"><span id="local-6989586621679300550"><span id="local-6989586621679300552"><span class="annot"><span class="annottext">Int -&gt; ConnectionOAuthHttpMethod -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300727"><span id="local-6989586621679300729"><span id="local-6989586621679300731"><span class="annot"><span class="annottext">Int -&gt; ConnectionOAuthHttpMethod -&gt; ShowS
 [ConnectionOAuthHttpMethod] -&gt; ShowS
 ConnectionOAuthHttpMethod -&gt; String
 (Int -&gt; ConnectionOAuthHttpMethod -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ConnectionOAuthHttpMethod -&gt; String
 showsPrec :: Int -&gt; ConnectionOAuthHttpMethod -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConnectionOAuthHttpMethod -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679300539"><span id="local-6989586621679300541"><span id="local-6989586621679300543"><span id="local-6989586621679300545"><span class="annot"><span class="annottext">ReadPrec [ConnectionOAuthHttpMethod]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679300718"><span id="local-6989586621679300720"><span id="local-6989586621679300722"><span id="local-6989586621679300724"><span class="annot"><span class="annottext">ReadPrec [ConnectionOAuthHttpMethod]
 ReadPrec ConnectionOAuthHttpMethod
 Int -&gt; ReadS ConnectionOAuthHttpMethod
 ReadS [ConnectionOAuthHttpMethod]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ConnectionOAuthHttpMethod]
 readsPrec :: Int -&gt; ReadS ConnectionOAuthHttpMethod
 $creadsPrec :: Int -&gt; ReadS ConnectionOAuthHttpMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679300534"><span id="local-6989586621679300536"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; ConnectionOAuthHttpMethod -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679300713"><span id="local-6989586621679300715"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; ConnectionOAuthHttpMethod -&gt; Bool
 (ConnectionOAuthHttpMethod -&gt; ConnectionOAuthHttpMethod -&gt; Bool)
 -&gt; (ConnectionOAuthHttpMethod -&gt; ConnectionOAuthHttpMethod -&gt; Bool)
 -&gt; Eq ConnectionOAuthHttpMethod
@@ -83,7 +83,7 @@ $c/= :: ConnectionOAuthHttpMethod -&gt; ConnectionOAuthHttpMethod -&gt; Bool
 == :: ConnectionOAuthHttpMethod -&gt; ConnectionOAuthHttpMethod -&gt; Bool
 $c== :: ConnectionOAuthHttpMethod -&gt; ConnectionOAuthHttpMethod -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679300518"><span id="local-6989586621679300520"><span id="local-6989586621679300522"><span id="local-6989586621679300524"><span id="local-6989586621679300526"><span id="local-6989586621679300528"><span id="local-6989586621679300530"><span class="annot"><span class="annottext">Eq ConnectionOAuthHttpMethod
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679300697"><span id="local-6989586621679300699"><span id="local-6989586621679300701"><span id="local-6989586621679300703"><span id="local-6989586621679300705"><span id="local-6989586621679300707"><span id="local-6989586621679300709"><span class="annot"><span class="annottext">Eq ConnectionOAuthHttpMethod
 Eq ConnectionOAuthHttpMethod
 -&gt; (ConnectionOAuthHttpMethod
     -&gt; ConnectionOAuthHttpMethod -&gt; Ordering)
@@ -148,7 +148,7 @@ ConnectionOAuthHttpMethod -&gt; Rep ConnectionOAuthHttpMethod x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300510"><span id="local-6989586621679300512"><span class="annot"><span class="annottext">Int -&gt; ConnectionOAuthHttpMethod -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679300689"><span id="local-6989586621679300691"><span class="annot"><span class="annottext">Int -&gt; ConnectionOAuthHttpMethod -&gt; Int
 ConnectionOAuthHttpMethod -&gt; Int
 (Int -&gt; ConnectionOAuthHttpMethod -&gt; Int)
 -&gt; (ConnectionOAuthHttpMethod -&gt; Int)
@@ -159,56 +159,56 @@ $chash :: ConnectionOAuthHttpMethod -&gt; Int
 hashWithSalt :: Int -&gt; ConnectionOAuthHttpMethod -&gt; Int
 $chashWithSalt :: Int -&gt; ConnectionOAuthHttpMethod -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679300507"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679300686"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; ()
 (ConnectionOAuthHttpMethod -&gt; ())
 -&gt; NFData ConnectionOAuthHttpMethod
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConnectionOAuthHttpMethod -&gt; ()
 $crnf :: ConnectionOAuthHttpMethod -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679300504"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectionOAuthHttpMethod
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679300683"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectionOAuthHttpMethod
 (Text -&gt; Either String ConnectionOAuthHttpMethod)
 -&gt; FromText ConnectionOAuthHttpMethod
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConnectionOAuthHttpMethod
 $cfromText :: Text -&gt; Either String ConnectionOAuthHttpMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679300501"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679300680"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; Text
 (ConnectionOAuthHttpMethod -&gt; Text)
 -&gt; ToText ConnectionOAuthHttpMethod
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConnectionOAuthHttpMethod -&gt; Text
 $ctoText :: ConnectionOAuthHttpMethod -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679300498"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679300677"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; ByteString
 (ConnectionOAuthHttpMethod -&gt; ByteString)
 -&gt; ToByteString ConnectionOAuthHttpMethod
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConnectionOAuthHttpMethod -&gt; ByteString
 $ctoBS :: ConnectionOAuthHttpMethod -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679300495"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679300674"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; ByteStringBuilder
 (ConnectionOAuthHttpMethod -&gt; ByteStringBuilder)
 -&gt; ToLog ConnectionOAuthHttpMethod
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConnectionOAuthHttpMethod -&gt; ByteStringBuilder
 $cbuild :: ConnectionOAuthHttpMethod -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679300492"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectionOAuthHttpMethod -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679300671"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectionOAuthHttpMethod -&gt; [Header]
 (HeaderName -&gt; ConnectionOAuthHttpMethod -&gt; [Header])
 -&gt; ToHeader ConnectionOAuthHttpMethod
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConnectionOAuthHttpMethod -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConnectionOAuthHttpMethod -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679300489"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679300668"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; QueryString
 (ConnectionOAuthHttpMethod -&gt; QueryString)
 -&gt; ToQuery ConnectionOAuthHttpMethod
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConnectionOAuthHttpMethod -&gt; QueryString
 $ctoQuery :: ConnectionOAuthHttpMethod -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679300484"><span id="local-6989586621679300486"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectionOAuthHttpMethod]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679300663"><span id="local-6989586621679300665"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectionOAuthHttpMethod]
 Value -&gt; Parser ConnectionOAuthHttpMethod
 (Value -&gt; Parser ConnectionOAuthHttpMethod)
 -&gt; (Value -&gt; Parser [ConnectionOAuthHttpMethod])
@@ -220,7 +220,7 @@ $cparseJSONList :: Value -&gt; Parser [ConnectionOAuthHttpMethod]
 parseJSON :: Value -&gt; Parser ConnectionOAuthHttpMethod
 $cparseJSON :: Value -&gt; Parser ConnectionOAuthHttpMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679300479"><span id="local-6989586621679300481"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectionOAuthHttpMethod]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679300658"><span id="local-6989586621679300660"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectionOAuthHttpMethod]
 FromJSONKeyFunction ConnectionOAuthHttpMethod
 FromJSONKeyFunction ConnectionOAuthHttpMethod
 -&gt; FromJSONKeyFunction [ConnectionOAuthHttpMethod]
@@ -232,7 +232,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConnectionOAuthHttpMethod]
 fromJSONKey :: FromJSONKeyFunction ConnectionOAuthHttpMethod
 $cfromJSONKey :: FromJSONKeyFunction ConnectionOAuthHttpMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679300470"><span id="local-6989586621679300472"><span id="local-6989586621679300474"><span id="local-6989586621679300476"><span class="annot"><span class="annottext">[ConnectionOAuthHttpMethod] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679300649"><span id="local-6989586621679300651"><span id="local-6989586621679300653"><span id="local-6989586621679300655"><span class="annot"><span class="annottext">[ConnectionOAuthHttpMethod] -&gt; Encoding
 [ConnectionOAuthHttpMethod] -&gt; Value
 ConnectionOAuthHttpMethod -&gt; Encoding
 ConnectionOAuthHttpMethod -&gt; Value
@@ -256,7 +256,7 @@ $ctoEncoding :: ConnectionOAuthHttpMethod -&gt; Encoding
 toJSON :: ConnectionOAuthHttpMethod -&gt; Value
 $ctoJSON :: ConnectionOAuthHttpMethod -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679300465"><span id="local-6989586621679300467"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectionOAuthHttpMethod]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679300644"><span id="local-6989586621679300646"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectionOAuthHttpMethod]
 ToJSONKeyFunction ConnectionOAuthHttpMethod
 ToJSONKeyFunction ConnectionOAuthHttpMethod
 -&gt; ToJSONKeyFunction [ConnectionOAuthHttpMethod]
@@ -268,14 +268,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConnectionOAuthHttpMethod]
 toJSONKey :: ToJSONKeyFunction ConnectionOAuthHttpMethod
 $ctoJSONKey :: ToJSONKeyFunction ConnectionOAuthHttpMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679300462"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectionOAuthHttpMethod
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679300641"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectionOAuthHttpMethod
 ([Node] -&gt; Either String ConnectionOAuthHttpMethod)
 -&gt; FromXML ConnectionOAuthHttpMethod
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConnectionOAuthHttpMethod
 $cparseXML :: [Node] -&gt; Either String ConnectionOAuthHttpMethod
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679300459"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679300638"><span class="annot"><span class="annottext">ConnectionOAuthHttpMethod -&gt; XML
 (ConnectionOAuthHttpMethod -&gt; XML)
 -&gt; ToXML ConnectionOAuthHttpMethod
 forall a. (a -&gt; XML) -&gt; ToXML a

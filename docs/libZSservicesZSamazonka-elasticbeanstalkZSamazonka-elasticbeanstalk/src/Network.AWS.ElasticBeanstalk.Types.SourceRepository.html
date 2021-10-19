@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679306726"><span id="local-6989586621679306727"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SourceRepository"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository"><span class="hs-identifier hs-var">SourceRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceRepository%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository%27"><span class="hs-identifier hs-var">SourceRepository'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679307019"><span id="local-6989586621679307020"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SourceRepository"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository"><span class="hs-identifier hs-var">SourceRepository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceRepository%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#SourceRepository%27"><span class="hs-identifier hs-var">SourceRepository'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSourceRepository"><span class="annot"><span class="annottext">SourceRepository -&gt; Text
 </span><a href="Network.AWS.ElasticBeanstalk.Types.SourceRepository.html#fromSourceRepository"><span class="hs-identifier hs-var hs-var">fromSourceRepository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306718"><span id="local-6989586621679306720"><span id="local-6989586621679306722"><span class="annot"><span class="annottext">Int -&gt; SourceRepository -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679307011"><span id="local-6989586621679307013"><span id="local-6989586621679307015"><span class="annot"><span class="annottext">Int -&gt; SourceRepository -&gt; ShowS
 [SourceRepository] -&gt; ShowS
 SourceRepository -&gt; String
 (Int -&gt; SourceRepository -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: SourceRepository -&gt; String
 showsPrec :: Int -&gt; SourceRepository -&gt; ShowS
 $cshowsPrec :: Int -&gt; SourceRepository -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679306709"><span id="local-6989586621679306711"><span id="local-6989586621679306713"><span id="local-6989586621679306715"><span class="annot"><span class="annottext">ReadPrec [SourceRepository]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679307002"><span id="local-6989586621679307004"><span id="local-6989586621679307006"><span id="local-6989586621679307008"><span class="annot"><span class="annottext">ReadPrec [SourceRepository]
 ReadPrec SourceRepository
 Int -&gt; ReadS SourceRepository
 ReadS [SourceRepository]
@@ -72,7 +72,7 @@ $creadList :: ReadS [SourceRepository]
 readsPrec :: Int -&gt; ReadS SourceRepository
 $creadsPrec :: Int -&gt; ReadS SourceRepository
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679306704"><span id="local-6989586621679306706"><span class="annot"><span class="annottext">SourceRepository -&gt; SourceRepository -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679306997"><span id="local-6989586621679306999"><span class="annot"><span class="annottext">SourceRepository -&gt; SourceRepository -&gt; Bool
 (SourceRepository -&gt; SourceRepository -&gt; Bool)
 -&gt; (SourceRepository -&gt; SourceRepository -&gt; Bool)
 -&gt; Eq SourceRepository
@@ -82,7 +82,7 @@ $c/= :: SourceRepository -&gt; SourceRepository -&gt; Bool
 == :: SourceRepository -&gt; SourceRepository -&gt; Bool
 $c== :: SourceRepository -&gt; SourceRepository -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679306688"><span id="local-6989586621679306690"><span id="local-6989586621679306692"><span id="local-6989586621679306694"><span id="local-6989586621679306696"><span id="local-6989586621679306698"><span id="local-6989586621679306700"><span class="annot"><span class="annottext">Eq SourceRepository
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679306981"><span id="local-6989586621679306983"><span id="local-6989586621679306985"><span id="local-6989586621679306987"><span id="local-6989586621679306989"><span id="local-6989586621679306991"><span id="local-6989586621679306993"><span class="annot"><span class="annottext">Eq SourceRepository
 Eq SourceRepository
 -&gt; (SourceRepository -&gt; SourceRepository -&gt; Ordering)
 -&gt; (SourceRepository -&gt; SourceRepository -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. SourceRepository -&gt; Rep SourceRepository x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306680"><span id="local-6989586621679306682"><span class="annot"><span class="annottext">Int -&gt; SourceRepository -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306973"><span id="local-6989586621679306975"><span class="annot"><span class="annottext">Int -&gt; SourceRepository -&gt; Int
 SourceRepository -&gt; Int
 (Int -&gt; SourceRepository -&gt; Int)
 -&gt; (SourceRepository -&gt; Int) -&gt; Hashable SourceRepository
@@ -143,51 +143,51 @@ $chash :: SourceRepository -&gt; Int
 hashWithSalt :: Int -&gt; SourceRepository -&gt; Int
 $chashWithSalt :: Int -&gt; SourceRepository -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679306677"><span class="annot"><span class="annottext">SourceRepository -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679306970"><span class="annot"><span class="annottext">SourceRepository -&gt; ()
 (SourceRepository -&gt; ()) -&gt; NFData SourceRepository
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SourceRepository -&gt; ()
 $crnf :: SourceRepository -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679306674"><span class="annot"><span class="annottext">Text -&gt; Either String SourceRepository
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679306967"><span class="annot"><span class="annottext">Text -&gt; Either String SourceRepository
 (Text -&gt; Either String SourceRepository)
 -&gt; FromText SourceRepository
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SourceRepository
 $cfromText :: Text -&gt; Either String SourceRepository
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679306671"><span class="annot"><span class="annottext">SourceRepository -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679306964"><span class="annot"><span class="annottext">SourceRepository -&gt; Text
 (SourceRepository -&gt; Text) -&gt; ToText SourceRepository
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SourceRepository -&gt; Text
 $ctoText :: SourceRepository -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679306668"><span class="annot"><span class="annottext">SourceRepository -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679306961"><span class="annot"><span class="annottext">SourceRepository -&gt; ByteString
 (SourceRepository -&gt; ByteString) -&gt; ToByteString SourceRepository
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SourceRepository -&gt; ByteString
 $ctoBS :: SourceRepository -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679306665"><span class="annot"><span class="annottext">SourceRepository -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679306958"><span class="annot"><span class="annottext">SourceRepository -&gt; ByteStringBuilder
 (SourceRepository -&gt; ByteStringBuilder) -&gt; ToLog SourceRepository
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SourceRepository -&gt; ByteStringBuilder
 $cbuild :: SourceRepository -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679306662"><span class="annot"><span class="annottext">HeaderName -&gt; SourceRepository -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679306955"><span class="annot"><span class="annottext">HeaderName -&gt; SourceRepository -&gt; [Header]
 (HeaderName -&gt; SourceRepository -&gt; [Header])
 -&gt; ToHeader SourceRepository
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SourceRepository -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SourceRepository -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306659"><span class="annot"><span class="annottext">SourceRepository -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679306952"><span class="annot"><span class="annottext">SourceRepository -&gt; QueryString
 (SourceRepository -&gt; QueryString) -&gt; ToQuery SourceRepository
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SourceRepository -&gt; QueryString
 $ctoQuery :: SourceRepository -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306654"><span id="local-6989586621679306656"><span class="annot"><span class="annottext">Value -&gt; Parser [SourceRepository]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679306947"><span id="local-6989586621679306949"><span class="annot"><span class="annottext">Value -&gt; Parser [SourceRepository]
 Value -&gt; Parser SourceRepository
 (Value -&gt; Parser SourceRepository)
 -&gt; (Value -&gt; Parser [SourceRepository])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [SourceRepository]
 parseJSON :: Value -&gt; Parser SourceRepository
 $cparseJSON :: Value -&gt; Parser SourceRepository
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306649"><span id="local-6989586621679306651"><span class="annot"><span class="annottext">FromJSONKeyFunction [SourceRepository]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679306942"><span id="local-6989586621679306944"><span class="annot"><span class="annottext">FromJSONKeyFunction [SourceRepository]
 FromJSONKeyFunction SourceRepository
 FromJSONKeyFunction SourceRepository
 -&gt; FromJSONKeyFunction [SourceRepository]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SourceRepository]
 fromJSONKey :: FromJSONKeyFunction SourceRepository
 $cfromJSONKey :: FromJSONKeyFunction SourceRepository
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306640"><span id="local-6989586621679306642"><span id="local-6989586621679306644"><span id="local-6989586621679306646"><span class="annot"><span class="annottext">[SourceRepository] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679306933"><span id="local-6989586621679306935"><span id="local-6989586621679306937"><span id="local-6989586621679306939"><span class="annot"><span class="annottext">[SourceRepository] -&gt; Encoding
 [SourceRepository] -&gt; Value
 SourceRepository -&gt; Encoding
 SourceRepository -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: SourceRepository -&gt; Encoding
 toJSON :: SourceRepository -&gt; Value
 $ctoJSON :: SourceRepository -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306635"><span id="local-6989586621679306637"><span class="annot"><span class="annottext">ToJSONKeyFunction [SourceRepository]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679306928"><span id="local-6989586621679306930"><span class="annot"><span class="annottext">ToJSONKeyFunction [SourceRepository]
 ToJSONKeyFunction SourceRepository
 ToJSONKeyFunction SourceRepository
 -&gt; ToJSONKeyFunction [SourceRepository]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SourceRepository]
 toJSONKey :: ToJSONKeyFunction SourceRepository
 $ctoJSONKey :: ToJSONKeyFunction SourceRepository
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306632"><span class="annot"><span class="annottext">[Node] -&gt; Either String SourceRepository
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679306925"><span class="annot"><span class="annottext">[Node] -&gt; Either String SourceRepository
 ([Node] -&gt; Either String SourceRepository)
 -&gt; FromXML SourceRepository
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SourceRepository
 $cparseXML :: [Node] -&gt; Either String SourceRepository
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306629"><span class="annot"><span class="annottext">SourceRepository -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679306922"><span class="annot"><span class="annottext">SourceRepository -&gt; XML
 (SourceRepository -&gt; XML) -&gt; ToXML SourceRepository
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SourceRepository -&gt; XML

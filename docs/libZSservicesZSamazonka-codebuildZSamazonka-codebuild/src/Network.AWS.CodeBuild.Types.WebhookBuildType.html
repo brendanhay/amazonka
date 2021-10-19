@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679379162"><span id="local-6989586621679379163"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WebhookBuildType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookBuildType.html#WebhookBuildType"><span class="hs-identifier hs-var">WebhookBuildType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebhookBuildType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookBuildType.html#WebhookBuildType%27"><span class="hs-identifier hs-var">WebhookBuildType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679381061"><span id="local-6989586621679381062"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WebhookBuildType"><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookBuildType.html#WebhookBuildType"><span class="hs-identifier hs-var">WebhookBuildType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebhookBuildType%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.WebhookBuildType.html#WebhookBuildType%27"><span class="hs-identifier hs-var">WebhookBuildType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWebhookBuildType"><span class="annot"><span class="annottext">WebhookBuildType -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.WebhookBuildType.html#fromWebhookBuildType"><span class="hs-identifier hs-var hs-var">fromWebhookBuildType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379154"><span id="local-6989586621679379156"><span id="local-6989586621679379158"><span class="annot"><span class="annottext">Int -&gt; WebhookBuildType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679381053"><span id="local-6989586621679381055"><span id="local-6989586621679381057"><span class="annot"><span class="annottext">Int -&gt; WebhookBuildType -&gt; ShowS
 [WebhookBuildType] -&gt; ShowS
 WebhookBuildType -&gt; String
 (Int -&gt; WebhookBuildType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: WebhookBuildType -&gt; String
 showsPrec :: Int -&gt; WebhookBuildType -&gt; ShowS
 $cshowsPrec :: Int -&gt; WebhookBuildType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679379145"><span id="local-6989586621679379147"><span id="local-6989586621679379149"><span id="local-6989586621679379151"><span class="annot"><span class="annottext">ReadPrec [WebhookBuildType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679381044"><span id="local-6989586621679381046"><span id="local-6989586621679381048"><span id="local-6989586621679381050"><span class="annot"><span class="annottext">ReadPrec [WebhookBuildType]
 ReadPrec WebhookBuildType
 Int -&gt; ReadS WebhookBuildType
 ReadS [WebhookBuildType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [WebhookBuildType]
 readsPrec :: Int -&gt; ReadS WebhookBuildType
 $creadsPrec :: Int -&gt; ReadS WebhookBuildType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679379140"><span id="local-6989586621679379142"><span class="annot"><span class="annottext">WebhookBuildType -&gt; WebhookBuildType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679381039"><span id="local-6989586621679381041"><span class="annot"><span class="annottext">WebhookBuildType -&gt; WebhookBuildType -&gt; Bool
 (WebhookBuildType -&gt; WebhookBuildType -&gt; Bool)
 -&gt; (WebhookBuildType -&gt; WebhookBuildType -&gt; Bool)
 -&gt; Eq WebhookBuildType
@@ -82,7 +82,7 @@ $c/= :: WebhookBuildType -&gt; WebhookBuildType -&gt; Bool
 == :: WebhookBuildType -&gt; WebhookBuildType -&gt; Bool
 $c== :: WebhookBuildType -&gt; WebhookBuildType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679379124"><span id="local-6989586621679379126"><span id="local-6989586621679379128"><span id="local-6989586621679379130"><span id="local-6989586621679379132"><span id="local-6989586621679379134"><span id="local-6989586621679379136"><span class="annot"><span class="annottext">Eq WebhookBuildType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679381023"><span id="local-6989586621679381025"><span id="local-6989586621679381027"><span id="local-6989586621679381029"><span id="local-6989586621679381031"><span id="local-6989586621679381033"><span id="local-6989586621679381035"><span class="annot"><span class="annottext">Eq WebhookBuildType
 Eq WebhookBuildType
 -&gt; (WebhookBuildType -&gt; WebhookBuildType -&gt; Ordering)
 -&gt; (WebhookBuildType -&gt; WebhookBuildType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. WebhookBuildType -&gt; Rep WebhookBuildType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679379116"><span id="local-6989586621679379118"><span class="annot"><span class="annottext">Int -&gt; WebhookBuildType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679381015"><span id="local-6989586621679381017"><span class="annot"><span class="annottext">Int -&gt; WebhookBuildType -&gt; Int
 WebhookBuildType -&gt; Int
 (Int -&gt; WebhookBuildType -&gt; Int)
 -&gt; (WebhookBuildType -&gt; Int) -&gt; Hashable WebhookBuildType
@@ -143,51 +143,51 @@ $chash :: WebhookBuildType -&gt; Int
 hashWithSalt :: Int -&gt; WebhookBuildType -&gt; Int
 $chashWithSalt :: Int -&gt; WebhookBuildType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679379113"><span class="annot"><span class="annottext">WebhookBuildType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679381012"><span class="annot"><span class="annottext">WebhookBuildType -&gt; ()
 (WebhookBuildType -&gt; ()) -&gt; NFData WebhookBuildType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WebhookBuildType -&gt; ()
 $crnf :: WebhookBuildType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679379110"><span class="annot"><span class="annottext">Text -&gt; Either String WebhookBuildType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679381009"><span class="annot"><span class="annottext">Text -&gt; Either String WebhookBuildType
 (Text -&gt; Either String WebhookBuildType)
 -&gt; FromText WebhookBuildType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WebhookBuildType
 $cfromText :: Text -&gt; Either String WebhookBuildType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679379107"><span class="annot"><span class="annottext">WebhookBuildType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679381006"><span class="annot"><span class="annottext">WebhookBuildType -&gt; Text
 (WebhookBuildType -&gt; Text) -&gt; ToText WebhookBuildType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WebhookBuildType -&gt; Text
 $ctoText :: WebhookBuildType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679379104"><span class="annot"><span class="annottext">WebhookBuildType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679381003"><span class="annot"><span class="annottext">WebhookBuildType -&gt; ByteString
 (WebhookBuildType -&gt; ByteString) -&gt; ToByteString WebhookBuildType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WebhookBuildType -&gt; ByteString
 $ctoBS :: WebhookBuildType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679379101"><span class="annot"><span class="annottext">WebhookBuildType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679381000"><span class="annot"><span class="annottext">WebhookBuildType -&gt; ByteStringBuilder
 (WebhookBuildType -&gt; ByteStringBuilder) -&gt; ToLog WebhookBuildType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WebhookBuildType -&gt; ByteStringBuilder
 $cbuild :: WebhookBuildType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679379098"><span class="annot"><span class="annottext">HeaderName -&gt; WebhookBuildType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679380997"><span class="annot"><span class="annottext">HeaderName -&gt; WebhookBuildType -&gt; [Header]
 (HeaderName -&gt; WebhookBuildType -&gt; [Header])
 -&gt; ToHeader WebhookBuildType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WebhookBuildType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WebhookBuildType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679379095"><span class="annot"><span class="annottext">WebhookBuildType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679380994"><span class="annot"><span class="annottext">WebhookBuildType -&gt; QueryString
 (WebhookBuildType -&gt; QueryString) -&gt; ToQuery WebhookBuildType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WebhookBuildType -&gt; QueryString
 $ctoQuery :: WebhookBuildType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679379090"><span id="local-6989586621679379092"><span class="annot"><span class="annottext">Value -&gt; Parser [WebhookBuildType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679380989"><span id="local-6989586621679380991"><span class="annot"><span class="annottext">Value -&gt; Parser [WebhookBuildType]
 Value -&gt; Parser WebhookBuildType
 (Value -&gt; Parser WebhookBuildType)
 -&gt; (Value -&gt; Parser [WebhookBuildType])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [WebhookBuildType]
 parseJSON :: Value -&gt; Parser WebhookBuildType
 $cparseJSON :: Value -&gt; Parser WebhookBuildType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679379085"><span id="local-6989586621679379087"><span class="annot"><span class="annottext">FromJSONKeyFunction [WebhookBuildType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679380984"><span id="local-6989586621679380986"><span class="annot"><span class="annottext">FromJSONKeyFunction [WebhookBuildType]
 FromJSONKeyFunction WebhookBuildType
 FromJSONKeyFunction WebhookBuildType
 -&gt; FromJSONKeyFunction [WebhookBuildType]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WebhookBuildType]
 fromJSONKey :: FromJSONKeyFunction WebhookBuildType
 $cfromJSONKey :: FromJSONKeyFunction WebhookBuildType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679379076"><span id="local-6989586621679379078"><span id="local-6989586621679379080"><span id="local-6989586621679379082"><span class="annot"><span class="annottext">[WebhookBuildType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679380975"><span id="local-6989586621679380977"><span id="local-6989586621679380979"><span id="local-6989586621679380981"><span class="annot"><span class="annottext">[WebhookBuildType] -&gt; Encoding
 [WebhookBuildType] -&gt; Value
 WebhookBuildType -&gt; Encoding
 WebhookBuildType -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: WebhookBuildType -&gt; Encoding
 toJSON :: WebhookBuildType -&gt; Value
 $ctoJSON :: WebhookBuildType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679379071"><span id="local-6989586621679379073"><span class="annot"><span class="annottext">ToJSONKeyFunction [WebhookBuildType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679380970"><span id="local-6989586621679380972"><span class="annot"><span class="annottext">ToJSONKeyFunction [WebhookBuildType]
 ToJSONKeyFunction WebhookBuildType
 ToJSONKeyFunction WebhookBuildType
 -&gt; ToJSONKeyFunction [WebhookBuildType]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WebhookBuildType]
 toJSONKey :: ToJSONKeyFunction WebhookBuildType
 $ctoJSONKey :: ToJSONKeyFunction WebhookBuildType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679379068"><span class="annot"><span class="annottext">[Node] -&gt; Either String WebhookBuildType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679380967"><span class="annot"><span class="annottext">[Node] -&gt; Either String WebhookBuildType
 ([Node] -&gt; Either String WebhookBuildType)
 -&gt; FromXML WebhookBuildType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WebhookBuildType
 $cparseXML :: [Node] -&gt; Either String WebhookBuildType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679379065"><span class="annot"><span class="annottext">WebhookBuildType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679380964"><span class="annot"><span class="annottext">WebhookBuildType -&gt; XML
 (WebhookBuildType -&gt; XML) -&gt; ToXML WebhookBuildType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: WebhookBuildType -&gt; XML

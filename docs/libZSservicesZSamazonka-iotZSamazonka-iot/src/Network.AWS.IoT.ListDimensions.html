@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListDimensions' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679824748"><span id="local-6989586621679824749"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDimensions"><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-var">ListDimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDimensions%27"><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions%27"><span class="hs-identifier hs-var">ListDimensions'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679825696"><span id="local-6989586621679825697"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDimensions"><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-var">ListDimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDimensions%27"><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions%27"><span class="hs-identifier hs-var">ListDimensions'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListDimensions%27"><span class="annot"><span class="annottext">ListDimensions -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.ListDimensions.html#%24sel%3AnextToken%3AListDimensions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -64,7 +64,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3AListDimensions%27"><span class="annot"><span class="annottext">ListDimensions -&gt; Maybe Natural
 </span><a href="Network.AWS.IoT.ListDimensions.html#%24sel%3AmaxResults%3AListDimensions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824741"><span id="local-6989586621679824743"><span class="annot"><span class="annottext">ListDimensions -&gt; ListDimensions -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679825689"><span id="local-6989586621679825691"><span class="annot"><span class="annottext">ListDimensions -&gt; ListDimensions -&gt; Bool
 (ListDimensions -&gt; ListDimensions -&gt; Bool)
 -&gt; (ListDimensions -&gt; ListDimensions -&gt; Bool) -&gt; Eq ListDimensions
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -72,7 +72,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDimensions -&gt; ListDimensions -&gt; Bool
 == :: ListDimensions -&gt; ListDimensions -&gt; Bool
 $c== :: ListDimensions -&gt; ListDimensions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824732"><span id="local-6989586621679824734"><span id="local-6989586621679824736"><span id="local-6989586621679824738"><span class="annot"><span class="annottext">ReadPrec [ListDimensions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825680"><span id="local-6989586621679825682"><span id="local-6989586621679825684"><span id="local-6989586621679825686"><span class="annot"><span class="annottext">ReadPrec [ListDimensions]
 ReadPrec ListDimensions
 Int -&gt; ReadS ListDimensions
 ReadS [ListDimensions]
@@ -92,7 +92,7 @@ readList :: ReadS [ListDimensions]
 $creadList :: ReadS [ListDimensions]
 readsPrec :: Int -&gt; ReadS ListDimensions
 $creadsPrec :: Int -&gt; ReadS ListDimensions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824725"><span id="local-6989586621679824727"><span id="local-6989586621679824729"><span class="annot"><span class="annottext">Int -&gt; ListDimensions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825673"><span id="local-6989586621679825675"><span id="local-6989586621679825677"><span class="annot"><span class="annottext">Int -&gt; ListDimensions -&gt; ShowS
 [ListDimensions] -&gt; ShowS
 ListDimensions -&gt; String
 (Int -&gt; ListDimensions -&gt; ShowS)
@@ -153,16 +153,16 @@ forall a. Maybe a
 -&gt; (ListDimensions -&gt; Maybe Text -&gt; ListDimensions)
 -&gt; Lens ListDimensions ListDimensions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions%27"><span class="hs-identifier hs-type">ListDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824719"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions%27"><span class="hs-identifier hs-type">ListDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825667"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDimensions' :: ListDimensions -&gt; Maybe Text
-</span><a href="#local-6989586621679824719"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824719"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824718"><span class="annot"><span class="annottext">s :: ListDimensions
-</span><a href="#local-6989586621679824718"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions%27"><span class="hs-identifier hs-type">ListDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824717"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824717"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDimensions
-</span><a href="#local-6989586621679824718"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDimensions' :: Maybe Text
+</span><a href="#local-6989586621679825667"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679825667"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825666"><span class="annot"><span class="annottext">s :: ListDimensions
+</span><a href="#local-6989586621679825666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions%27"><span class="hs-identifier hs-type">ListDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825665"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679825665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDimensions
+</span><a href="#local-6989586621679825666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDimensions' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListDimensions.html#%24sel%3AnextToken%3AListDimensions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824717"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679825665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The maximum number of results to retrieve at one time.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#listDimensions_maxResults"><span class="hs-identifier hs-type">listDimensions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -173,29 +173,29 @@ $sel:nextToken:ListDimensions' :: ListDimensions -&gt; Maybe Text
 -&gt; Lens
      ListDimensions ListDimensions (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions%27"><span class="hs-identifier hs-type">ListDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824716"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions%27"><span class="hs-identifier hs-type">ListDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825664"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListDimensions' :: ListDimensions -&gt; Maybe Natural
-</span><a href="#local-6989586621679824716"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679824716"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824715"><span class="annot"><span class="annottext">s :: ListDimensions
-</span><a href="#local-6989586621679824715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions%27"><span class="hs-identifier hs-type">ListDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824714"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679824714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDimensions
-</span><a href="#local-6989586621679824715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDimensions' :: Maybe Natural
+</span><a href="#local-6989586621679825664"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679825664"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825663"><span class="annot"><span class="annottext">s :: ListDimensions
+</span><a href="#local-6989586621679825663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions%27"><span class="hs-identifier hs-type">ListDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825662"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679825662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDimensions
+</span><a href="#local-6989586621679825663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListDimensions' :: Maybe Natural
 </span><a href="Network.AWS.IoT.ListDimensions.html#%24sel%3AmaxResults%3AListDimensions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679824714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679825662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679824710"><span class="annot"><span class="annottext">page :: ListDimensions
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679825658"><span class="annot"><span class="annottext">page :: ListDimensions
 -&gt; AWSResponse ListDimensions -&gt; Maybe ListDimensions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679824708"><span class="annot"><span class="annottext">ListDimensions
-</span><a href="#local-6989586621679824708"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679824707"><span class="annot"><span class="annottext">AWSResponse ListDimensions
-</span><a href="#local-6989586621679824707"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679825656"><span class="annot"><span class="annottext">ListDimensions
+</span><a href="#local-6989586621679825656"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679825655"><span class="annot"><span class="annottext">AWSResponse ListDimensions
+</span><a href="#local-6989586621679825655"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-97"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDimensions
 ListDimensionsResponse
-</span><a href="#local-6989586621679824707"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679825655"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">ListDimensionsResponse
 -&gt; Getting (First Text) ListDimensionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -224,7 +224,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-103"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDimensions
 ListDimensionsResponse
-</span><a href="#local-6989586621679824707"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679825655"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">ListDimensionsResponse
 -&gt; Getting (First [Text]) ListDimensionsResponse [Text]
 -&gt; Maybe [Text]
@@ -258,7 +258,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">ListDimensions
-</span><a href="#local-6989586621679824708"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679825656"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">ListDimensions
 -&gt; (ListDimensions -&gt; ListDimensions) -&gt; ListDimensions
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -272,7 +272,7 @@ Lens ListDimensions ListDimensions (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListDimensions
 ListDimensionsResponse
-</span><a href="#local-6989586621679824707"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679825655"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">ListDimensionsResponse
 -&gt; Getting (First Text) ListDimensionsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -296,12 +296,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse"><span class="hs-identifier hs-type">ListDimensionsResponse</span></a></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679824697"><span class="annot"><span class="annottext">request :: ListDimensions -&gt; Request ListDimensions
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679825645"><span class="annot"><span class="annottext">request :: ListDimensions -&gt; Request ListDimensions
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDimensions -&gt; Request ListDimensions
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679824693"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679825641"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListDimensions
 -&gt; ClientResponse ClientBody
@@ -325,10 +325,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679824690"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824690"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679824689"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679824689"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679824688"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679824688"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679825638"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679825638"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679825637"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679825637"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679825636"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679825636"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListDimensionsResponse
 </span><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-var">ListDimensionsResponse'</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListDimensionsResponse)
@@ -336,7 +336,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe [Text] -&gt; Int -&gt; ListDimensionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679824688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679825636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -345,7 +345,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; ListDimensionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679824688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679825636"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;dimensionNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -362,15 +362,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824690"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679825638"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824679"><span id="local-6989586621679824681"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679825627"><span id="local-6989586621679825629"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824676"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679825624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679824672"><span class="annot"><span class="annottext">toHeaders :: ListDimensions -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679825620"><span class="annot"><span class="annottext">toHeaders :: ListDimensions -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDimensions -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -378,21 +378,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679824667"><span class="annot"><span class="annottext">toPath :: ListDimensions -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679825615"><span class="annot"><span class="annottext">toPath :: ListDimensions -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDimensions -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/dimensions&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions"><span class="hs-identifier hs-type">ListDimensions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679824663"><span class="annot"><span class="annottext">toQuery :: ListDimensions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions%27"><span class="hs-identifier hs-type">ListDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824660"><span id="local-6989586621679824661"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679825611"><span class="annot"><span class="annottext">toQuery :: ListDimensions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensions%27"><span class="hs-identifier hs-type">ListDimensions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825608"><span id="local-6989586621679825609"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListDimensions' :: ListDimensions -&gt; Maybe Natural
 $sel:nextToken:ListDimensions' :: ListDimensions -&gt; Maybe Text
-</span><a href="#local-6989586621679824660"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679825608"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -400,16 +400,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824661"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679825609"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679824660"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679825608"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | /See:/ 'newListDimensionsResponse' smart constructor.</span><span>
-</span><span id="line-147"></span><span id="local-6989586621679824657"><span id="local-6989586621679824658"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDimensionsResponse"><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse"><span class="hs-identifier hs-var">ListDimensionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDimensionsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-var">ListDimensionsResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span id="local-6989586621679825605"><span id="local-6989586621679825606"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDimensionsResponse"><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse"><span class="hs-identifier hs-var">ListDimensionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDimensionsResponse%27"><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-var">ListDimensionsResponse'</span></a></span></span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token that can be used to retrieve the next set of results, or @null@</span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-comment">-- if there are no additional results.</span><span>
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AnextToken%3AListDimensionsResponse%27"><span class="annot"><span class="annottext">ListDimensionsResponse -&gt; Maybe Text
@@ -422,7 +422,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDimensionsResponse%27"><span class="annot"><span class="annottext">ListDimensionsResponse -&gt; Int
 </span><a href="Network.AWS.IoT.ListDimensions.html#%24sel%3AhttpStatus%3AListDimensionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679824650"><span id="local-6989586621679824652"><span class="annot"><span class="annottext">ListDimensionsResponse -&gt; ListDimensionsResponse -&gt; Bool
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679825598"><span id="local-6989586621679825600"><span class="annot"><span class="annottext">ListDimensionsResponse -&gt; ListDimensionsResponse -&gt; Bool
 (ListDimensionsResponse -&gt; ListDimensionsResponse -&gt; Bool)
 -&gt; (ListDimensionsResponse -&gt; ListDimensionsResponse -&gt; Bool)
 -&gt; Eq ListDimensionsResponse
@@ -431,7 +431,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListDimensionsResponse -&gt; ListDimensionsResponse -&gt; Bool
 == :: ListDimensionsResponse -&gt; ListDimensionsResponse -&gt; Bool
 $c== :: ListDimensionsResponse -&gt; ListDimensionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824642"><span id="local-6989586621679824644"><span id="local-6989586621679824646"><span id="local-6989586621679824648"><span class="annot"><span class="annottext">ReadPrec [ListDimensionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825590"><span id="local-6989586621679825592"><span id="local-6989586621679825594"><span id="local-6989586621679825596"><span class="annot"><span class="annottext">ReadPrec [ListDimensionsResponse]
 ReadPrec ListDimensionsResponse
 Int -&gt; ReadS ListDimensionsResponse
 ReadS [ListDimensionsResponse]
@@ -451,7 +451,7 @@ readList :: ReadS [ListDimensionsResponse]
 $creadList :: ReadS [ListDimensionsResponse]
 readsPrec :: Int -&gt; ReadS ListDimensionsResponse
 $creadsPrec :: Int -&gt; ReadS ListDimensionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679824636"><span id="local-6989586621679824638"><span id="local-6989586621679824640"><span class="annot"><span class="annottext">Int -&gt; ListDimensionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679825584"><span id="local-6989586621679825586"><span id="local-6989586621679825588"><span class="annot"><span class="annottext">Int -&gt; ListDimensionsResponse -&gt; ShowS
 [ListDimensionsResponse] -&gt; ShowS
 ListDimensionsResponse -&gt; String
 (Int -&gt; ListDimensionsResponse -&gt; ShowS)
@@ -498,8 +498,8 @@ $cfrom :: forall x. ListDimensionsResponse -&gt; Rep ListDimensionsResponse x
 </span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-177"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse"><span class="hs-identifier hs-type">ListDimensionsResponse</span></a></span><span>
 </span><span id="line-178"></span><span id="newListDimensionsResponse"><span class="annot"><span class="annottext">newListDimensionsResponse :: Int -&gt; ListDimensionsResponse
-</span><a href="Network.AWS.IoT.ListDimensions.html#newListDimensionsResponse"><span class="hs-identifier hs-var hs-var">newListDimensionsResponse</span></a></span></span><span> </span><span id="local-6989586621679824633"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824633"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.ListDimensions.html#newListDimensionsResponse"><span class="hs-identifier hs-var hs-var">newListDimensionsResponse</span></a></span></span><span> </span><span id="local-6989586621679825581"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679825581"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">ListDimensionsResponse' :: Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListDimensionsResponse
 </span><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-type">ListDimensionsResponse'</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDimensionsResponse' :: Maybe Text
@@ -513,7 +513,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDimensionsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListDimensions.html#%24sel%3AhttpStatus%3AListDimensionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824633"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679825581"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-184"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- | A token that can be used to retrieve the next set of results, or @null@</span><span>
@@ -525,16 +525,16 @@ forall a. Maybe a
 -&gt; (ListDimensionsResponse -&gt; Maybe Text -&gt; ListDimensionsResponse)
 -&gt; Lens' ListDimensionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-type">ListDimensionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824632"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-type">ListDimensionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825580"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListDimensionsResponse' :: ListDimensionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679824632"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824632"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824631"><span class="annot"><span class="annottext">s :: ListDimensionsResponse
-</span><a href="#local-6989586621679824631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-type">ListDimensionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824630"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDimensionsResponse
-</span><a href="#local-6989586621679824631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDimensionsResponse' :: Maybe Text
+</span><a href="#local-6989586621679825580"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679825580"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825579"><span class="annot"><span class="annottext">s :: ListDimensionsResponse
+</span><a href="#local-6989586621679825579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-type">ListDimensionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825578"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679825578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDimensionsResponse
+</span><a href="#local-6989586621679825579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDimensionsResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.ListDimensions.html#%24sel%3AnextToken%3AListDimensionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679824630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse"><span class="hs-identifier hs-type">ListDimensionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679825578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse"><span class="hs-identifier hs-type">ListDimensionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | A list of the names of the defined dimensions. Use @DescribeDimension@</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- to get details for a dimension.</span><span>
@@ -546,16 +546,16 @@ $sel:nextToken:ListDimensionsResponse' :: ListDimensionsResponse -&gt; Maybe Tex
     -&gt; Maybe [Text] -&gt; ListDimensionsResponse)
 -&gt; Lens' ListDimensionsResponse (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-type">ListDimensionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824629"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-type">ListDimensionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825577"><span class="annot"><span class="annottext">Maybe [Text]
 dimensionNames :: Maybe [Text]
 $sel:dimensionNames:ListDimensionsResponse' :: ListDimensionsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679824629"><span class="hs-identifier hs-var hs-var">dimensionNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679824629"><span class="hs-identifier hs-var">dimensionNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824628"><span class="annot"><span class="annottext">s :: ListDimensionsResponse
-</span><a href="#local-6989586621679824628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-type">ListDimensionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824627"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679824627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDimensionsResponse
-</span><a href="#local-6989586621679824628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionNames:ListDimensionsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679825577"><span class="hs-identifier hs-var hs-var">dimensionNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679825577"><span class="hs-identifier hs-var">dimensionNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825576"><span class="annot"><span class="annottext">s :: ListDimensionsResponse
+</span><a href="#local-6989586621679825576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-type">ListDimensionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825575"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679825575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDimensionsResponse
+</span><a href="#local-6989586621679825576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensionNames:ListDimensionsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.IoT.ListDimensions.html#%24sel%3AdimensionNames%3AListDimensionsResponse%27"><span class="hs-identifier hs-var">dimensionNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679824627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse"><span class="hs-identifier hs-type">ListDimensionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679825575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse"><span class="hs-identifier hs-type">ListDimensionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListDimensionsResponse -&gt; f ListDimensionsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -569,8 +569,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-197"></span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#listDimensionsResponse_httpStatus"><span class="hs-identifier hs-type">listDimensionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse"><span class="hs-identifier hs-type">ListDimensionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -580,16 +580,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListDimensionsResponse -&gt; Int -&gt; ListDimensionsResponse)
 -&gt; Lens ListDimensionsResponse ListDimensionsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-type">ListDimensionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679824624"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-type">ListDimensionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679825572"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListDimensionsResponse' :: ListDimensionsResponse -&gt; Int
-</span><a href="#local-6989586621679824624"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824624"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679824623"><span class="annot"><span class="annottext">s :: ListDimensionsResponse
-</span><a href="#local-6989586621679824623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-type">ListDimensionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679824622"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDimensionsResponse
-</span><a href="#local-6989586621679824623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDimensionsResponse' :: Int
+</span><a href="#local-6989586621679825572"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679825572"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679825571"><span class="annot"><span class="annottext">s :: ListDimensionsResponse
+</span><a href="#local-6989586621679825571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse%27"><span class="hs-identifier hs-type">ListDimensionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679825570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679825570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDimensionsResponse
+</span><a href="#local-6989586621679825571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDimensionsResponse' :: Int
 </span><a href="Network.AWS.IoT.ListDimensions.html#%24sel%3AhttpStatus%3AListDimensionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679824622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse"><span class="hs-identifier hs-type">ListDimensionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679825570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse"><span class="hs-identifier hs-type">ListDimensionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679824620"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse"><span class="hs-identifier hs-type">ListDimensionsResponse</span></a></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679825568"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.ListDimensions.html#ListDimensionsResponse"><span class="hs-identifier hs-type">ListDimensionsResponse</span></a></span></span><span>
 </span><span id="line-201"></span></pre></body></html>

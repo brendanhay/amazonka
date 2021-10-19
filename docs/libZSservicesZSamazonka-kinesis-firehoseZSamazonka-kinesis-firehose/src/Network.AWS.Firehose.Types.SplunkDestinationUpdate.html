@@ -32,51 +32,51 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Describes an update for a destination in Splunk.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newSplunkDestinationUpdate' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679264963"><span id="local-6989586621679264964"></span></span><span class="hs-keyword">data</span><span> </span><span id="SplunkDestinationUpdate"><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-var">SplunkDestinationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SplunkDestinationUpdate%27"><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-var">SplunkDestinationUpdate'</span></a></span></span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Your update to the configuration of the backup Amazon S3 location.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3As3Update%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe S3DestinationUpdate
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3As3Update%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">s3Update</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationUpdate.html#S3DestinationUpdate"><span class="hs-identifier hs-type">S3DestinationUpdate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The amount of time that Kinesis Data Firehose waits to receive an</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- acknowledgment from Splunk after it sends data. At the end of the</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- timeout period, Kinesis Data Firehose either tries to send the data</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- again or considers it an error, based on your retry settings.</span><span>
-</span><span id="line-42"></span><span>    </span><span id="%24sel%3AhECAcknowledgmentTimeoutInSeconds%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe Natural
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECAcknowledgmentTimeoutInSeconds%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">hECAcknowledgmentTimeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The data processing configuration.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AprocessingConfiguration%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe ProcessingConfiguration
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AprocessingConfiguration%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The Amazon CloudWatch logging options for your delivery stream.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcloudWatchLoggingOptions%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe CloudWatchLoggingOptions
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AcloudWatchLoggingOptions%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | This type can be either \&quot;Raw\&quot; or \&quot;Event.\&quot;</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AhECEndpointType%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe HECEndpointType
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECEndpointType%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">hECEndpointType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HECEndpointType.html#HECEndpointType"><span class="hs-identifier hs-type">HECEndpointType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The retry behavior in case Kinesis Data Firehose is unable to deliver</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- data to Splunk or if it doesn\'t receive an acknowledgment of receipt</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- from Splunk.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AretryOptions%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe SplunkRetryOptions
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AretryOptions%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkRetryOptions.html#SplunkRetryOptions"><span class="hs-identifier hs-type">SplunkRetryOptions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Specifies how you want Kinesis Data Firehose to back up documents to</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Amazon S3. When set to @FailedDocumentsOnly@, Kinesis Data Firehose</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- writes any data that could not be indexed to the configured Amazon S3</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- destination. When set to @AllEvents@, Kinesis Data Firehose delivers all</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- incoming records to Amazon S3, and also writes failed documents to</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Amazon S3. The default value is @FailedEventsOnly@.</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- You can update this backup mode from @FailedEventsOnly@ to @AllEvents@.</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- You can\'t update it from @AllEvents@ to @FailedEventsOnly@.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3As3BackupMode%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe SplunkS3BackupMode
+</span><span id="line-35"></span><span id="local-6989586621679279362"><span id="local-6989586621679279363"></span></span><span class="hs-keyword">data</span><span> </span><span id="SplunkDestinationUpdate"><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-var">SplunkDestinationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SplunkDestinationUpdate%27"><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-var">SplunkDestinationUpdate'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies how you want Kinesis Data Firehose to back up documents to</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Amazon S3. When set to @FailedDocumentsOnly@, Kinesis Data Firehose</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- writes any data that could not be indexed to the configured Amazon S3</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- destination. When set to @AllEvents@, Kinesis Data Firehose delivers all</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- incoming records to Amazon S3, and also writes failed documents to</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Amazon S3. The default value is @FailedEventsOnly@.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- You can update this backup mode from @FailedEventsOnly@ to @AllEvents@.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- You can\'t update it from @AllEvents@ to @FailedEventsOnly@.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3As3BackupMode%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe SplunkS3BackupMode
 </span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3As3BackupMode%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkS3BackupMode.html#SplunkS3BackupMode"><span class="hs-identifier hs-type">SplunkS3BackupMode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- sends your data.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AhECEndpoint%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe Text
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | A GUID that you obtain from your Splunk cluster when you create a new</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- HEC endpoint.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AhECToken%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe Text
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECToken%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">hECToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | This type can be either \&quot;Raw\&quot; or \&quot;Event.\&quot;</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AhECEndpointType%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe HECEndpointType
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECEndpointType%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">hECEndpointType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HECEndpointType.html#HECEndpointType"><span class="hs-identifier hs-type">HECEndpointType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The Amazon CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcloudWatchLoggingOptions%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AcloudWatchLoggingOptions%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The amount of time that Kinesis Data Firehose waits to receive an</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- acknowledgment from Splunk after it sends data. At the end of the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- timeout period, Kinesis Data Firehose either tries to send the data</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- again or considers it an error, based on your retry settings.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AhECAcknowledgmentTimeoutInSeconds%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe Natural
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECAcknowledgmentTimeoutInSeconds%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">hECAcknowledgmentTimeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Your update to the configuration of the backup Amazon S3 location.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3As3Update%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe S3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3As3Update%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">s3Update</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationUpdate.html#S3DestinationUpdate"><span class="hs-identifier hs-type">S3DestinationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- sends your data.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AhECEndpoint%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe Text
 </span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECEndpoint%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">hECEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | A GUID that you obtain from your Splunk cluster when you create a new</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- HEC endpoint.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AhECToken%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe Text
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECToken%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">hECToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The retry behavior in case Kinesis Data Firehose is unable to deliver</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- data to Splunk or if it doesn\'t receive an acknowledgment of receipt</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- from Splunk.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AretryOptions%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe SplunkRetryOptions
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AretryOptions%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkRetryOptions.html#SplunkRetryOptions"><span class="hs-identifier hs-type">SplunkRetryOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The data processing configuration.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AprocessingConfiguration%3ASplunkDestinationUpdate%27"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; Maybe ProcessingConfiguration
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AprocessingConfiguration%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679264949"><span id="local-6989586621679264951"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; SplunkDestinationUpdate -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279348"><span id="local-6989586621679279350"><span class="annot"><span class="annottext">SplunkDestinationUpdate -&gt; SplunkDestinationUpdate -&gt; Bool
 (SplunkDestinationUpdate -&gt; SplunkDestinationUpdate -&gt; Bool)
 -&gt; (SplunkDestinationUpdate -&gt; SplunkDestinationUpdate -&gt; Bool)
 -&gt; Eq SplunkDestinationUpdate
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SplunkDestinationUpdate -&gt; SplunkDestinationUpdate -&gt; Bool
 == :: SplunkDestinationUpdate -&gt; SplunkDestinationUpdate -&gt; Bool
 $c== :: SplunkDestinationUpdate -&gt; SplunkDestinationUpdate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264940"><span id="local-6989586621679264942"><span id="local-6989586621679264944"><span id="local-6989586621679264946"><span class="annot"><span class="annottext">ReadPrec [SplunkDestinationUpdate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279339"><span id="local-6989586621679279341"><span id="local-6989586621679279343"><span id="local-6989586621679279345"><span class="annot"><span class="annottext">ReadPrec [SplunkDestinationUpdate]
 ReadPrec SplunkDestinationUpdate
 Int -&gt; ReadS SplunkDestinationUpdate
 ReadS [SplunkDestinationUpdate]
@@ -105,7 +105,7 @@ readList :: ReadS [SplunkDestinationUpdate]
 $creadList :: ReadS [SplunkDestinationUpdate]
 readsPrec :: Int -&gt; ReadS SplunkDestinationUpdate
 $creadsPrec :: Int -&gt; ReadS SplunkDestinationUpdate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679264933"><span id="local-6989586621679264935"><span id="local-6989586621679264937"><span class="annot"><span class="annottext">Int -&gt; SplunkDestinationUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279332"><span id="local-6989586621679279334"><span id="local-6989586621679279336"><span class="annot"><span class="annottext">Int -&gt; SplunkDestinationUpdate -&gt; ShowS
 [SplunkDestinationUpdate] -&gt; ShowS
 SplunkDestinationUpdate -&gt; String
 (Int -&gt; SplunkDestinationUpdate -&gt; ShowS)
@@ -141,172 +141,177 @@ $cfrom :: forall x. SplunkDestinationUpdate -&gt; Rep SplunkDestinationUpdate x
 </span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 's3Update', 'splunkDestinationUpdate_s3Update' - Your update to the configuration of the backup Amazon S3 location.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'hECAcknowledgmentTimeoutInSeconds', 'splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds' - The amount of time that Kinesis Data Firehose waits to receive an</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- acknowledgment from Splunk after it sends data. At the end of the</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- timeout period, Kinesis Data Firehose either tries to send the data</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- again or considers it an error, based on your retry settings.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 's3BackupMode', 'splunkDestinationUpdate_s3BackupMode' - Specifies how you want Kinesis Data Firehose to back up documents to</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Amazon S3. When set to @FailedDocumentsOnly@, Kinesis Data Firehose</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- writes any data that could not be indexed to the configured Amazon S3</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- destination. When set to @AllEvents@, Kinesis Data Firehose delivers all</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- incoming records to Amazon S3, and also writes failed documents to</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Amazon S3. The default value is @FailedEventsOnly@.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'processingConfiguration', 'splunkDestinationUpdate_processingConfiguration' - The data processing configuration.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'cloudWatchLoggingOptions', 'splunkDestinationUpdate_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'hECEndpointType', 'splunkDestinationUpdate_hECEndpointType' - This type can be either \&quot;Raw\&quot; or \&quot;Event.\&quot;</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- You can update this backup mode from @FailedEventsOnly@ to @AllEvents@.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- You can\'t update it from @AllEvents@ to @FailedEventsOnly@.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'hECToken', 'splunkDestinationUpdate_hECToken' - A GUID that you obtain from your Splunk cluster when you create a new</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- HEC endpoint.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'retryOptions', 'splunkDestinationUpdate_retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- data to Splunk or if it doesn\'t receive an acknowledgment of receipt</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- from Splunk.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'hECEndpointType', 'splunkDestinationUpdate_hECEndpointType' - This type can be either \&quot;Raw\&quot; or \&quot;Event.\&quot;</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'cloudWatchLoggingOptions', 'splunkDestinationUpdate_cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 's3BackupMode', 'splunkDestinationUpdate_s3BackupMode' - Specifies how you want Kinesis Data Firehose to back up documents to</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- Amazon S3. When set to @FailedDocumentsOnly@, Kinesis Data Firehose</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- writes any data that could not be indexed to the configured Amazon S3</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- destination. When set to @AllEvents@, Kinesis Data Firehose delivers all</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- incoming records to Amazon S3, and also writes failed documents to</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- Amazon S3. The default value is @FailedEventsOnly@.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'hECAcknowledgmentTimeoutInSeconds', 'splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds' - The amount of time that Kinesis Data Firehose waits to receive an</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- acknowledgment from Splunk after it sends data. At the end of the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- timeout period, Kinesis Data Firehose either tries to send the data</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- again or considers it an error, based on your retry settings.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 's3Update', 'splunkDestinationUpdate_s3Update' - Your update to the configuration of the backup Amazon S3 location.</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- You can update this backup mode from @FailedEventsOnly@ to @AllEvents@.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- You can\'t update it from @AllEvents@ to @FailedEventsOnly@.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'hECEndpoint', 'splunkDestinationUpdate_hECEndpoint' - The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- sends your data.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'hECEndpoint', 'splunkDestinationUpdate_hECEndpoint' - The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- sends your data.</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- 'hECToken', 'splunkDestinationUpdate_hECToken' - A GUID that you obtain from your Splunk cluster when you create a new</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- HEC endpoint.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'retryOptions', 'splunkDestinationUpdate_retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- data to Splunk or if it doesn\'t receive an acknowledgment of receipt</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- from Splunk.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'processingConfiguration', 'splunkDestinationUpdate_processingConfiguration' - The data processing configuration.</span><span>
 </span><span id="line-112"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#newSplunkDestinationUpdate"><span class="hs-identifier hs-type">newSplunkDestinationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-113"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span>
 </span><span id="line-114"></span><span id="newSplunkDestinationUpdate"><span class="annot"><span class="annottext">newSplunkDestinationUpdate :: SplunkDestinationUpdate
 </span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#newSplunkDestinationUpdate"><span class="hs-identifier hs-var hs-var">newSplunkDestinationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">SplunkDestinationUpdate' :: Maybe S3DestinationUpdate
--&gt; Maybe Natural
--&gt; Maybe ProcessingConfiguration
--&gt; Maybe CloudWatchLoggingOptions
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="annottext">SplunkDestinationUpdate' :: Maybe SplunkS3BackupMode
+-&gt; Maybe Text
 -&gt; Maybe HECEndpointType
+-&gt; Maybe CloudWatchLoggingOptions
+-&gt; Maybe Natural
+-&gt; Maybe S3DestinationUpdate
+-&gt; Maybe Text
 -&gt; Maybe SplunkRetryOptions
--&gt; Maybe SplunkS3BackupMode
--&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe ProcessingConfiguration
 -&gt; SplunkDestinationUpdate
 </span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Update:SplunkDestinationUpdate' :: Maybe S3DestinationUpdate
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3As3Update%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">s3Update</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+</span><span id="line-116"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3BackupMode:SplunkDestinationUpdate' :: Maybe SplunkS3BackupMode
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3As3BackupMode%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">Maybe SplunkS3BackupMode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:hECAcknowledgmentTimeoutInSeconds:SplunkDestinationUpdate' :: Maybe Natural
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECAcknowledgmentTimeoutInSeconds%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">hECAcknowledgmentTimeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:hECToken:SplunkDestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECToken%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">hECToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:processingConfiguration:SplunkDestinationUpdate' :: Maybe ProcessingConfiguration
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AprocessingConfiguration%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:SplunkDestinationUpdate' :: Maybe CloudWatchLoggingOptions
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AcloudWatchLoggingOptions%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:hECEndpointType:SplunkDestinationUpdate' :: Maybe HECEndpointType
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:hECEndpointType:SplunkDestinationUpdate' :: Maybe HECEndpointType
 </span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECEndpointType%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">hECEndpointType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HECEndpointType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:retryOptions:SplunkDestinationUpdate' :: Maybe SplunkRetryOptions
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AretryOptions%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkRetryOptions
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:SplunkDestinationUpdate' :: Maybe CloudWatchLoggingOptions
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AcloudWatchLoggingOptions%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BackupMode:SplunkDestinationUpdate' :: Maybe SplunkS3BackupMode
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3As3BackupMode%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkS3BackupMode
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:hECAcknowledgmentTimeoutInSeconds:SplunkDestinationUpdate' :: Maybe Natural
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECAcknowledgmentTimeoutInSeconds%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">hECAcknowledgmentTimeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:hECEndpoint:SplunkDestinationUpdate' :: Maybe Text
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Update:SplunkDestinationUpdate' :: Maybe S3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3As3Update%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">s3Update</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:hECEndpoint:SplunkDestinationUpdate' :: Maybe Text
 </span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECEndpoint%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">hECEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:hECToken:SplunkDestinationUpdate' :: Maybe Text
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECToken%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">hECToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:retryOptions:SplunkDestinationUpdate' :: Maybe SplunkRetryOptions
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AretryOptions%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkRetryOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:processingConfiguration:SplunkDestinationUpdate' :: Maybe ProcessingConfiguration
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AprocessingConfiguration%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | Your update to the configuration of the backup Amazon S3 location.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_s3Update"><span class="hs-identifier hs-type">splunkDestinationUpdate_s3Update</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationUpdate.html#S3DestinationUpdate"><span class="hs-identifier hs-type">S3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="splunkDestinationUpdate_s3Update"><span class="annot"><span class="annottext">splunkDestinationUpdate_s3Update :: (Maybe S3DestinationUpdate -&gt; f (Maybe S3DestinationUpdate))
+</span><span id="line-129"></span><span class="hs-comment">-- | Specifies how you want Kinesis Data Firehose to back up documents to</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Amazon S3. When set to @FailedDocumentsOnly@, Kinesis Data Firehose</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- writes any data that could not be indexed to the configured Amazon S3</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- destination. When set to @AllEvents@, Kinesis Data Firehose delivers all</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- incoming records to Amazon S3, and also writes failed documents to</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Amazon S3. The default value is @FailedEventsOnly@.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- You can update this backup mode from @FailedEventsOnly@ to @AllEvents@.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- You can\'t update it from @AllEvents@ to @FailedEventsOnly@.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_s3BackupMode"><span class="hs-identifier hs-type">splunkDestinationUpdate_s3BackupMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkS3BackupMode.html#SplunkS3BackupMode"><span class="hs-identifier hs-type">SplunkS3BackupMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="splunkDestinationUpdate_s3BackupMode"><span class="annot"><span class="annottext">splunkDestinationUpdate_s3BackupMode :: (Maybe SplunkS3BackupMode -&gt; f (Maybe SplunkS3BackupMode))
 -&gt; SplunkDestinationUpdate -&gt; f SplunkDestinationUpdate
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_s3Update"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_s3Update</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe S3DestinationUpdate)
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_s3BackupMode"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_s3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe SplunkS3BackupMode)
 -&gt; (SplunkDestinationUpdate
-    -&gt; Maybe S3DestinationUpdate -&gt; SplunkDestinationUpdate)
+    -&gt; Maybe SplunkS3BackupMode -&gt; SplunkDestinationUpdate)
 -&gt; Lens
      SplunkDestinationUpdate
      SplunkDestinationUpdate
-     (Maybe S3DestinationUpdate)
-     (Maybe S3DestinationUpdate)
+     (Maybe SplunkS3BackupMode)
+     (Maybe SplunkS3BackupMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264924"><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
-s3Update :: Maybe S3DestinationUpdate
-$sel:s3Update:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe S3DestinationUpdate
-</span><a href="#local-6989586621679264924"><span class="hs-identifier hs-var hs-var">s3Update</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
-</span><a href="#local-6989586621679264924"><span class="hs-identifier hs-var">s3Update</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264923"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
-</span><a href="#local-6989586621679264923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264922"><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
-</span><a href="#local-6989586621679264922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
-</span><a href="#local-6989586621679264923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Update:SplunkDestinationUpdate' :: Maybe S3DestinationUpdate
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3As3Update%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">s3Update</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
-</span><a href="#local-6989586621679264922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | The amount of time that Kinesis Data Firehose waits to receive an</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- acknowledgment from Splunk after it sends data. At the end of the</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- timeout period, Kinesis Data Firehose either tries to send the data</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- again or considers it an error, based on your retry settings.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds"><span class="hs-identifier hs-type">splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds"><span class="annot"><span class="annottext">splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279323"><span class="annot"><span class="annottext">Maybe SplunkS3BackupMode
+s3BackupMode :: Maybe SplunkS3BackupMode
+$sel:s3BackupMode:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe SplunkS3BackupMode
+</span><a href="#local-6989586621679279323"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkS3BackupMode
+</span><a href="#local-6989586621679279323"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279322"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
+</span><a href="#local-6989586621679279322"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279321"><span class="annot"><span class="annottext">Maybe SplunkS3BackupMode
+</span><a href="#local-6989586621679279321"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
+</span><a href="#local-6989586621679279322"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BackupMode:SplunkDestinationUpdate' :: Maybe SplunkS3BackupMode
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3As3BackupMode%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkS3BackupMode
+</span><a href="#local-6989586621679279321"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | A GUID that you obtain from your Splunk cluster when you create a new</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- HEC endpoint.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECToken"><span class="hs-identifier hs-type">splunkDestinationUpdate_hECToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="splunkDestinationUpdate_hECToken"><span class="annot"><span class="annottext">splunkDestinationUpdate_hECToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; SplunkDestinationUpdate -&gt; f SplunkDestinationUpdate
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe Natural)
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECToken"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_hECToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe Text)
 -&gt; (SplunkDestinationUpdate
-    -&gt; Maybe Natural -&gt; SplunkDestinationUpdate)
+    -&gt; Maybe Text -&gt; SplunkDestinationUpdate)
 -&gt; Lens
      SplunkDestinationUpdate
      SplunkDestinationUpdate
-     (Maybe Natural)
-     (Maybe Natural)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264920"><span class="annot"><span class="annottext">Maybe Natural
-hECAcknowledgmentTimeoutInSeconds :: Maybe Natural
-$sel:hECAcknowledgmentTimeoutInSeconds:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe Natural
-</span><a href="#local-6989586621679264920"><span class="hs-identifier hs-var hs-var">hECAcknowledgmentTimeoutInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264920"><span class="hs-identifier hs-var">hECAcknowledgmentTimeoutInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264919"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
-</span><a href="#local-6989586621679264919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264918"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
-</span><a href="#local-6989586621679264919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hECAcknowledgmentTimeoutInSeconds:SplunkDestinationUpdate' :: Maybe Natural
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECAcknowledgmentTimeoutInSeconds%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">hECAcknowledgmentTimeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | The data processing configuration.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_processingConfiguration"><span class="hs-identifier hs-type">splunkDestinationUpdate_processingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="splunkDestinationUpdate_processingConfiguration"><span class="annot"><span class="annottext">splunkDestinationUpdate_processingConfiguration :: (Maybe ProcessingConfiguration
- -&gt; f (Maybe ProcessingConfiguration))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279319"><span class="annot"><span class="annottext">Maybe Text
+hECToken :: Maybe Text
+$sel:hECToken:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679279319"><span class="hs-identifier hs-var hs-var">hECToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279319"><span class="hs-identifier hs-var">hECToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279318"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
+</span><a href="#local-6989586621679279318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279317"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
+</span><a href="#local-6989586621679279318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hECToken:SplunkDestinationUpdate' :: Maybe Text
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECToken%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">hECToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | This type can be either \&quot;Raw\&quot; or \&quot;Event.\&quot;</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECEndpointType"><span class="hs-identifier hs-type">splunkDestinationUpdate_hECEndpointType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HECEndpointType.html#HECEndpointType"><span class="hs-identifier hs-type">HECEndpointType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="splunkDestinationUpdate_hECEndpointType"><span class="annot"><span class="annottext">splunkDestinationUpdate_hECEndpointType :: (Maybe HECEndpointType -&gt; f (Maybe HECEndpointType))
 -&gt; SplunkDestinationUpdate -&gt; f SplunkDestinationUpdate
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_processingConfiguration"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe ProcessingConfiguration)
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECEndpointType"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_hECEndpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe HECEndpointType)
 -&gt; (SplunkDestinationUpdate
-    -&gt; Maybe ProcessingConfiguration -&gt; SplunkDestinationUpdate)
+    -&gt; Maybe HECEndpointType -&gt; SplunkDestinationUpdate)
 -&gt; Lens
      SplunkDestinationUpdate
      SplunkDestinationUpdate
-     (Maybe ProcessingConfiguration)
-     (Maybe ProcessingConfiguration)
+     (Maybe HECEndpointType)
+     (Maybe HECEndpointType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264916"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
-processingConfiguration :: Maybe ProcessingConfiguration
-$sel:processingConfiguration:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe ProcessingConfiguration
-</span><a href="#local-6989586621679264916"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
-</span><a href="#local-6989586621679264916"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264915"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
-</span><a href="#local-6989586621679264915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264914"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
-</span><a href="#local-6989586621679264914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
-</span><a href="#local-6989586621679264915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingConfiguration:SplunkDestinationUpdate' :: Maybe ProcessingConfiguration
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AprocessingConfiguration%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
-</span><a href="#local-6989586621679264914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The Amazon CloudWatch logging options for your delivery stream.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_cloudWatchLoggingOptions"><span class="hs-identifier hs-type">splunkDestinationUpdate_cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="splunkDestinationUpdate_cloudWatchLoggingOptions"><span class="annot"><span class="annottext">splunkDestinationUpdate_cloudWatchLoggingOptions :: (Maybe CloudWatchLoggingOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279315"><span class="annot"><span class="annottext">Maybe HECEndpointType
+hECEndpointType :: Maybe HECEndpointType
+$sel:hECEndpointType:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe HECEndpointType
+</span><a href="#local-6989586621679279315"><span class="hs-identifier hs-var hs-var">hECEndpointType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HECEndpointType
+</span><a href="#local-6989586621679279315"><span class="hs-identifier hs-var">hECEndpointType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279314"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
+</span><a href="#local-6989586621679279314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279313"><span class="annot"><span class="annottext">Maybe HECEndpointType
+</span><a href="#local-6989586621679279313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
+</span><a href="#local-6989586621679279314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hECEndpointType:SplunkDestinationUpdate' :: Maybe HECEndpointType
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECEndpointType%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">hECEndpointType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HECEndpointType
+</span><a href="#local-6989586621679279313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The Amazon CloudWatch logging options for your delivery stream.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_cloudWatchLoggingOptions"><span class="hs-identifier hs-type">splunkDestinationUpdate_cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.CloudWatchLoggingOptions.html#CloudWatchLoggingOptions"><span class="hs-identifier hs-type">CloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="splunkDestinationUpdate_cloudWatchLoggingOptions"><span class="annot"><span class="annottext">splunkDestinationUpdate_cloudWatchLoggingOptions :: (Maybe CloudWatchLoggingOptions
  -&gt; f (Maybe CloudWatchLoggingOptions))
 -&gt; SplunkDestinationUpdate -&gt; f SplunkDestinationUpdate
 </span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_cloudWatchLoggingOptions"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_cloudWatchLoggingOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe CloudWatchLoggingOptions)
@@ -318,103 +323,72 @@ $sel:processingConfiguration:SplunkDestinationUpdate' :: SplunkDestinationUpdate
      (Maybe CloudWatchLoggingOptions)
      (Maybe CloudWatchLoggingOptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264912"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279311"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
 cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
 $sel:cloudWatchLoggingOptions:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe CloudWatchLoggingOptions
-</span><a href="#local-6989586621679264912"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
-</span><a href="#local-6989586621679264912"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264911"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
-</span><a href="#local-6989586621679264911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264910"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
-</span><a href="#local-6989586621679264910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
-</span><a href="#local-6989586621679264911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:SplunkDestinationUpdate' :: Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679279311"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679279311"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279310"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
+</span><a href="#local-6989586621679279310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279309"><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679279309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
+</span><a href="#local-6989586621679279310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptions:SplunkDestinationUpdate' :: Maybe CloudWatchLoggingOptions
 </span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AcloudWatchLoggingOptions%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
-</span><a href="#local-6989586621679264910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | This type can be either \&quot;Raw\&quot; or \&quot;Event.\&quot;</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECEndpointType"><span class="hs-identifier hs-type">splunkDestinationUpdate_hECEndpointType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.HECEndpointType.html#HECEndpointType"><span class="hs-identifier hs-type">HECEndpointType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="splunkDestinationUpdate_hECEndpointType"><span class="annot"><span class="annottext">splunkDestinationUpdate_hECEndpointType :: (Maybe HECEndpointType -&gt; f (Maybe HECEndpointType))
+</span><a href="#local-6989586621679279309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The amount of time that Kinesis Data Firehose waits to receive an</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- acknowledgment from Splunk after it sends data. At the end of the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- timeout period, Kinesis Data Firehose either tries to send the data</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- again or considers it an error, based on your retry settings.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds"><span class="hs-identifier hs-type">splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds"><span class="annot"><span class="annottext">splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; SplunkDestinationUpdate -&gt; f SplunkDestinationUpdate
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECEndpointType"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_hECEndpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe HECEndpointType)
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_hECAcknowledgmentTimeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe Natural)
 -&gt; (SplunkDestinationUpdate
-    -&gt; Maybe HECEndpointType -&gt; SplunkDestinationUpdate)
+    -&gt; Maybe Natural -&gt; SplunkDestinationUpdate)
 -&gt; Lens
      SplunkDestinationUpdate
      SplunkDestinationUpdate
-     (Maybe HECEndpointType)
-     (Maybe HECEndpointType)
+     (Maybe Natural)
+     (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264908"><span class="annot"><span class="annottext">Maybe HECEndpointType
-hECEndpointType :: Maybe HECEndpointType
-$sel:hECEndpointType:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe HECEndpointType
-</span><a href="#local-6989586621679264908"><span class="hs-identifier hs-var hs-var">hECEndpointType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HECEndpointType
-</span><a href="#local-6989586621679264908"><span class="hs-identifier hs-var">hECEndpointType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264907"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
-</span><a href="#local-6989586621679264907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264906"><span class="annot"><span class="annottext">Maybe HECEndpointType
-</span><a href="#local-6989586621679264906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
-</span><a href="#local-6989586621679264907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hECEndpointType:SplunkDestinationUpdate' :: Maybe HECEndpointType
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECEndpointType%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">hECEndpointType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HECEndpointType
-</span><a href="#local-6989586621679264906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | The retry behavior in case Kinesis Data Firehose is unable to deliver</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- data to Splunk or if it doesn\'t receive an acknowledgment of receipt</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- from Splunk.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_retryOptions"><span class="hs-identifier hs-type">splunkDestinationUpdate_retryOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkRetryOptions.html#SplunkRetryOptions"><span class="hs-identifier hs-type">SplunkRetryOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="splunkDestinationUpdate_retryOptions"><span class="annot"><span class="annottext">splunkDestinationUpdate_retryOptions :: (Maybe SplunkRetryOptions -&gt; f (Maybe SplunkRetryOptions))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279307"><span class="annot"><span class="annottext">Maybe Natural
+hECAcknowledgmentTimeoutInSeconds :: Maybe Natural
+$sel:hECAcknowledgmentTimeoutInSeconds:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe Natural
+</span><a href="#local-6989586621679279307"><span class="hs-identifier hs-var hs-var">hECAcknowledgmentTimeoutInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679279307"><span class="hs-identifier hs-var">hECAcknowledgmentTimeoutInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279306"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
+</span><a href="#local-6989586621679279306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279305"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679279305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
+</span><a href="#local-6989586621679279306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hECAcknowledgmentTimeoutInSeconds:SplunkDestinationUpdate' :: Maybe Natural
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECAcknowledgmentTimeoutInSeconds%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">hECAcknowledgmentTimeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679279305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Your update to the configuration of the backup Amazon S3 location.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_s3Update"><span class="hs-identifier hs-type">splunkDestinationUpdate_s3Update</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.S3DestinationUpdate.html#S3DestinationUpdate"><span class="hs-identifier hs-type">S3DestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="splunkDestinationUpdate_s3Update"><span class="annot"><span class="annottext">splunkDestinationUpdate_s3Update :: (Maybe S3DestinationUpdate -&gt; f (Maybe S3DestinationUpdate))
 -&gt; SplunkDestinationUpdate -&gt; f SplunkDestinationUpdate
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_retryOptions"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_retryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe SplunkRetryOptions)
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_s3Update"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_s3Update</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe S3DestinationUpdate)
 -&gt; (SplunkDestinationUpdate
-    -&gt; Maybe SplunkRetryOptions -&gt; SplunkDestinationUpdate)
+    -&gt; Maybe S3DestinationUpdate -&gt; SplunkDestinationUpdate)
 -&gt; Lens
      SplunkDestinationUpdate
      SplunkDestinationUpdate
-     (Maybe SplunkRetryOptions)
-     (Maybe SplunkRetryOptions)
+     (Maybe S3DestinationUpdate)
+     (Maybe S3DestinationUpdate)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264904"><span class="annot"><span class="annottext">Maybe SplunkRetryOptions
-retryOptions :: Maybe SplunkRetryOptions
-$sel:retryOptions:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe SplunkRetryOptions
-</span><a href="#local-6989586621679264904"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkRetryOptions
-</span><a href="#local-6989586621679264904"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264903"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
-</span><a href="#local-6989586621679264903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264902"><span class="annot"><span class="annottext">Maybe SplunkRetryOptions
-</span><a href="#local-6989586621679264902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
-</span><a href="#local-6989586621679264903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryOptions:SplunkDestinationUpdate' :: Maybe SplunkRetryOptions
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AretryOptions%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkRetryOptions
-</span><a href="#local-6989586621679264902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- | Specifies how you want Kinesis Data Firehose to back up documents to</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- Amazon S3. When set to @FailedDocumentsOnly@, Kinesis Data Firehose</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- writes any data that could not be indexed to the configured Amazon S3</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- destination. When set to @AllEvents@, Kinesis Data Firehose delivers all</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- incoming records to Amazon S3, and also writes failed documents to</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- Amazon S3. The default value is @FailedEventsOnly@.</span><span>
-</span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- You can update this backup mode from @FailedEventsOnly@ to @AllEvents@.</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- You can\'t update it from @AllEvents@ to @FailedEventsOnly@.</span><span>
-</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_s3BackupMode"><span class="hs-identifier hs-type">splunkDestinationUpdate_s3BackupMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkS3BackupMode.html#SplunkS3BackupMode"><span class="hs-identifier hs-type">SplunkS3BackupMode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span id="splunkDestinationUpdate_s3BackupMode"><span class="annot"><span class="annottext">splunkDestinationUpdate_s3BackupMode :: (Maybe SplunkS3BackupMode -&gt; f (Maybe SplunkS3BackupMode))
--&gt; SplunkDestinationUpdate -&gt; f SplunkDestinationUpdate
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_s3BackupMode"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_s3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe SplunkS3BackupMode)
--&gt; (SplunkDestinationUpdate
-    -&gt; Maybe SplunkS3BackupMode -&gt; SplunkDestinationUpdate)
--&gt; Lens
-     SplunkDestinationUpdate
-     SplunkDestinationUpdate
-     (Maybe SplunkS3BackupMode)
-     (Maybe SplunkS3BackupMode)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264900"><span class="annot"><span class="annottext">Maybe SplunkS3BackupMode
-s3BackupMode :: Maybe SplunkS3BackupMode
-$sel:s3BackupMode:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe SplunkS3BackupMode
-</span><a href="#local-6989586621679264900"><span class="hs-identifier hs-var hs-var">s3BackupMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkS3BackupMode
-</span><a href="#local-6989586621679264900"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264899"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
-</span><a href="#local-6989586621679264899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264898"><span class="annot"><span class="annottext">Maybe SplunkS3BackupMode
-</span><a href="#local-6989586621679264898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
-</span><a href="#local-6989586621679264899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BackupMode:SplunkDestinationUpdate' :: Maybe SplunkS3BackupMode
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3As3BackupMode%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkS3BackupMode
-</span><a href="#local-6989586621679264898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- | The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- sends your data.</span><span>
-</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECEndpoint"><span class="hs-identifier hs-type">splunkDestinationUpdate_hECEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span id="splunkDestinationUpdate_hECEndpoint"><span class="annot"><span class="annottext">splunkDestinationUpdate_hECEndpoint :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279303"><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+s3Update :: Maybe S3DestinationUpdate
+$sel:s3Update:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679279303"><span class="hs-identifier hs-var hs-var">s3Update</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679279303"><span class="hs-identifier hs-var">s3Update</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279302"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
+</span><a href="#local-6989586621679279302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279301"><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679279301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
+</span><a href="#local-6989586621679279302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Update:SplunkDestinationUpdate' :: Maybe S3DestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3As3Update%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">s3Update</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679279301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- sends your data.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECEndpoint"><span class="hs-identifier hs-type">splunkDestinationUpdate_hECEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="splunkDestinationUpdate_hECEndpoint"><span class="annot"><span class="annottext">splunkDestinationUpdate_hECEndpoint :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; SplunkDestinationUpdate -&gt; f SplunkDestinationUpdate
 </span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECEndpoint"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_hECEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe Text)
 -&gt; (SplunkDestinationUpdate
@@ -425,49 +399,75 @@ $sel:s3BackupMode:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Mayb
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264896"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279299"><span class="annot"><span class="annottext">Maybe Text
 hECEndpoint :: Maybe Text
 $sel:hECEndpoint:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe Text
-</span><a href="#local-6989586621679264896"><span class="hs-identifier hs-var hs-var">hECEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264896"><span class="hs-identifier hs-var">hECEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264895"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
-</span><a href="#local-6989586621679264895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264894"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
-</span><a href="#local-6989586621679264895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hECEndpoint:SplunkDestinationUpdate' :: Maybe Text
+</span><a href="#local-6989586621679279299"><span class="hs-identifier hs-var hs-var">hECEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279299"><span class="hs-identifier hs-var">hECEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279298"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
+</span><a href="#local-6989586621679279298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279297"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
+</span><a href="#local-6989586621679279298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hECEndpoint:SplunkDestinationUpdate' :: Maybe Text
 </span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECEndpoint%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">hECEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- | A GUID that you obtain from your Splunk cluster when you create a new</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- HEC endpoint.</span><span>
-</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECToken"><span class="hs-identifier hs-type">splunkDestinationUpdate_hECToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span id="splunkDestinationUpdate_hECToken"><span class="annot"><span class="annottext">splunkDestinationUpdate_hECToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679279297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The retry behavior in case Kinesis Data Firehose is unable to deliver</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- data to Splunk or if it doesn\'t receive an acknowledgment of receipt</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- from Splunk.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_retryOptions"><span class="hs-identifier hs-type">splunkDestinationUpdate_retryOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkRetryOptions.html#SplunkRetryOptions"><span class="hs-identifier hs-type">SplunkRetryOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="splunkDestinationUpdate_retryOptions"><span class="annot"><span class="annottext">splunkDestinationUpdate_retryOptions :: (Maybe SplunkRetryOptions -&gt; f (Maybe SplunkRetryOptions))
 -&gt; SplunkDestinationUpdate -&gt; f SplunkDestinationUpdate
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_hECToken"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_hECToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe Text)
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_retryOptions"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_retryOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe SplunkRetryOptions)
 -&gt; (SplunkDestinationUpdate
-    -&gt; Maybe Text -&gt; SplunkDestinationUpdate)
+    -&gt; Maybe SplunkRetryOptions -&gt; SplunkDestinationUpdate)
 -&gt; Lens
      SplunkDestinationUpdate
      SplunkDestinationUpdate
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe SplunkRetryOptions)
+     (Maybe SplunkRetryOptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264892"><span class="annot"><span class="annottext">Maybe Text
-hECToken :: Maybe Text
-$sel:hECToken:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe Text
-</span><a href="#local-6989586621679264892"><span class="hs-identifier hs-var hs-var">hECToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264892"><span class="hs-identifier hs-var">hECToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679264891"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
-</span><a href="#local-6989586621679264891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679264890"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
-</span><a href="#local-6989586621679264891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hECToken:SplunkDestinationUpdate' :: Maybe Text
-</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AhECToken%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">hECToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279295"><span class="annot"><span class="annottext">Maybe SplunkRetryOptions
+retryOptions :: Maybe SplunkRetryOptions
+$sel:retryOptions:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe SplunkRetryOptions
+</span><a href="#local-6989586621679279295"><span class="hs-identifier hs-var hs-var">retryOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkRetryOptions
+</span><a href="#local-6989586621679279295"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279294"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
+</span><a href="#local-6989586621679279294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279293"><span class="annot"><span class="annottext">Maybe SplunkRetryOptions
+</span><a href="#local-6989586621679279293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
+</span><a href="#local-6989586621679279294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retryOptions:SplunkDestinationUpdate' :: Maybe SplunkRetryOptions
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AretryOptions%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">retryOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SplunkRetryOptions
+</span><a href="#local-6989586621679279293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The data processing configuration.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_processingConfiguration"><span class="hs-identifier hs-type">splunkDestinationUpdate_processingConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.ProcessingConfiguration.html#ProcessingConfiguration"><span class="hs-identifier hs-type">ProcessingConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="splunkDestinationUpdate_processingConfiguration"><span class="annot"><span class="annottext">splunkDestinationUpdate_processingConfiguration :: (Maybe ProcessingConfiguration
+ -&gt; f (Maybe ProcessingConfiguration))
+-&gt; SplunkDestinationUpdate -&gt; f SplunkDestinationUpdate
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#splunkDestinationUpdate_processingConfiguration"><span class="hs-identifier hs-var hs-var">splunkDestinationUpdate_processingConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SplunkDestinationUpdate -&gt; Maybe ProcessingConfiguration)
+-&gt; (SplunkDestinationUpdate
+    -&gt; Maybe ProcessingConfiguration -&gt; SplunkDestinationUpdate)
+-&gt; Lens
+     SplunkDestinationUpdate
+     SplunkDestinationUpdate
+     (Maybe ProcessingConfiguration)
+     (Maybe ProcessingConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279291"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+processingConfiguration :: Maybe ProcessingConfiguration
+$sel:processingConfiguration:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679279291"><span class="hs-identifier hs-var hs-var">processingConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679279291"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279290"><span class="annot"><span class="annottext">s :: SplunkDestinationUpdate
+</span><a href="#local-6989586621679279290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279289"><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679279289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SplunkDestinationUpdate
+</span><a href="#local-6989586621679279290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processingConfiguration:SplunkDestinationUpdate' :: Maybe ProcessingConfiguration
+</span><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#%24sel%3AprocessingConfiguration%3ASplunkDestinationUpdate%27"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679279289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264886"><span id="local-6989586621679264888"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span></span></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279285"><span id="local-6989586621679279287"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span></span></span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264883"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279282"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span></span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679264875"><span id="local-6989586621679264877"><span id="local-6989586621679264879"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679264873"><span class="annot"><span class="annottext">toJSON :: SplunkDestinationUpdate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679264863"><span id="local-6989586621679264864"><span id="local-6989586621679264865"><span id="local-6989586621679264866"><span id="local-6989586621679264867"><span id="local-6989586621679264868"><span id="local-6989586621679264869"><span id="local-6989586621679264870"><span id="local-6989586621679264871"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279274"><span id="local-6989586621679279276"><span id="local-6989586621679279278"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate"><span class="hs-identifier hs-type">SplunkDestinationUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679279272"><span class="annot"><span class="annottext">toJSON :: SplunkDestinationUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.Types.SplunkDestinationUpdate.html#SplunkDestinationUpdate%27"><span class="hs-identifier hs-type">SplunkDestinationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279262"><span id="local-6989586621679279263"><span id="local-6989586621679279264"><span id="local-6989586621679279265"><span id="local-6989586621679279266"><span id="local-6989586621679279267"><span id="local-6989586621679279268"><span id="local-6989586621679279269"><span id="local-6989586621679279270"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe CloudWatchLoggingOptions
 Maybe HECEndpointType
@@ -475,102 +475,102 @@ Maybe ProcessingConfiguration
 Maybe S3DestinationUpdate
 Maybe SplunkRetryOptions
 Maybe SplunkS3BackupMode
-hECToken :: Maybe Text
-hECEndpoint :: Maybe Text
-s3BackupMode :: Maybe SplunkS3BackupMode
-retryOptions :: Maybe SplunkRetryOptions
-hECEndpointType :: Maybe HECEndpointType
-cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
 processingConfiguration :: Maybe ProcessingConfiguration
-hECAcknowledgmentTimeoutInSeconds :: Maybe Natural
+retryOptions :: Maybe SplunkRetryOptions
+hECEndpoint :: Maybe Text
 s3Update :: Maybe S3DestinationUpdate
-$sel:hECToken:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe Text
-$sel:hECEndpoint:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe Text
-$sel:s3BackupMode:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe SplunkS3BackupMode
-$sel:retryOptions:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe SplunkRetryOptions
-$sel:hECEndpointType:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe HECEndpointType
-$sel:cloudWatchLoggingOptions:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe CloudWatchLoggingOptions
+hECAcknowledgmentTimeoutInSeconds :: Maybe Natural
+cloudWatchLoggingOptions :: Maybe CloudWatchLoggingOptions
+hECEndpointType :: Maybe HECEndpointType
+hECToken :: Maybe Text
+s3BackupMode :: Maybe SplunkS3BackupMode
 $sel:processingConfiguration:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe ProcessingConfiguration
-$sel:hECAcknowledgmentTimeoutInSeconds:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe Natural
+$sel:retryOptions:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe SplunkRetryOptions
+$sel:hECEndpoint:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe Text
 $sel:s3Update:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe S3DestinationUpdate
-</span><a href="#local-6989586621679264863"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:hECAcknowledgmentTimeoutInSeconds:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe Natural
+$sel:cloudWatchLoggingOptions:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe CloudWatchLoggingOptions
+$sel:hECEndpointType:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe HECEndpointType
+$sel:hECToken:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe Text
+$sel:s3BackupMode:SplunkDestinationUpdate' :: SplunkDestinationUpdate -&gt; Maybe SplunkS3BackupMode
+</span><a href="#local-6989586621679279262"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-188"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;S3Update&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DestinationUpdate -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3DestinationUpdate -&gt; Pair)
--&gt; Maybe S3DestinationUpdate -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
-</span><a href="#local-6989586621679264871"><span class="hs-identifier hs-var">s3Update</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HECAcknowledgmentTimeoutInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679264870"><span class="hs-identifier hs-var">hECAcknowledgmentTimeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ProcessingConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProcessingConfiguration -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>              </span><span class="annot"><span class="annottext">(ProcessingConfiguration -&gt; Pair)
--&gt; Maybe ProcessingConfiguration -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
-</span><a href="#local-6989586621679264869"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CloudWatchLoggingOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudWatchLoggingOptions -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>              </span><span class="annot"><span class="annottext">(CloudWatchLoggingOptions -&gt; Pair)
--&gt; Maybe CloudWatchLoggingOptions -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
-</span><a href="#local-6989586621679264868"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HECEndpointType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HECEndpointType -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">(HECEndpointType -&gt; Pair) -&gt; Maybe HECEndpointType -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HECEndpointType
-</span><a href="#local-6989586621679264867"><span class="hs-identifier hs-var">hECEndpointType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RetryOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SplunkRetryOptions -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SplunkRetryOptions -&gt; Pair)
--&gt; Maybe SplunkRetryOptions -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SplunkRetryOptions
-</span><a href="#local-6989586621679264866"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3BackupMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SplunkS3BackupMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SplunkS3BackupMode -&gt; Pair)
 -&gt; Maybe SplunkS3BackupMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SplunkS3BackupMode
-</span><a href="#local-6989586621679264865"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HECEndpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264864"><span class="hs-identifier hs-var">hECEndpoint</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679279270"><span class="hs-identifier hs-var">s3BackupMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HECToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679264863"><span class="hs-identifier hs-var">hECToken</span></a></span><span>
+</span><a href="#local-6989586621679279269"><span class="hs-identifier hs-var">hECToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HECEndpointType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HECEndpointType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>              </span><span class="annot"><span class="annottext">(HECEndpointType -&gt; Pair) -&gt; Maybe HECEndpointType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HECEndpointType
+</span><a href="#local-6989586621679279268"><span class="hs-identifier hs-var">hECEndpointType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchLoggingOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudWatchLoggingOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">(CloudWatchLoggingOptions -&gt; Pair)
+-&gt; Maybe CloudWatchLoggingOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLoggingOptions
+</span><a href="#local-6989586621679279267"><span class="hs-identifier hs-var">cloudWatchLoggingOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HECAcknowledgmentTimeoutInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679279266"><span class="hs-identifier hs-var">hECAcknowledgmentTimeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Update&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3DestinationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(S3DestinationUpdate -&gt; Pair)
+-&gt; Maybe S3DestinationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3DestinationUpdate
+</span><a href="#local-6989586621679279265"><span class="hs-identifier hs-var">s3Update</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HECEndpoint&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279264"><span class="hs-identifier hs-var">hECEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetryOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SplunkRetryOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SplunkRetryOptions -&gt; Pair)
+-&gt; Maybe SplunkRetryOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SplunkRetryOptions
+</span><a href="#local-6989586621679279263"><span class="hs-identifier hs-var">retryOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProcessingConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ProcessingConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(ProcessingConfiguration -&gt; Pair)
+-&gt; Maybe ProcessingConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ProcessingConfiguration
+</span><a href="#local-6989586621679279262"><span class="hs-identifier hs-var">processingConfiguration</span></a></span><span>
 </span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span></pre></body></html>

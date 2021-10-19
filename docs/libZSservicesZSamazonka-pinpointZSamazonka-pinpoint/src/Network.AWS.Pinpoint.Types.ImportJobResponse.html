@@ -31,36 +31,36 @@
 </span><span id="line-31"></span><span class="hs-comment">-- from a computer by using the Amazon Pinpoint console.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newImportJobResponse' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679600751"><span id="local-6989586621679600752"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportJobResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-var">ImportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportJobResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-var">ImportJobResponse'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of endpoint definitions that weren\'t processed</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- successfully (failed) by the import job, typically because an error,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- such as a syntax error, occurred.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AtotalFailures%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe Int
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalFailures%3AImportJobResponse%27"><span class="hs-identifier hs-var hs-var">totalFailures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | An array of entries, one for each of the first 100 entries that weren\'t</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- processed successfully (failed) by the import job, if any.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Afailures%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe [Text]
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3Afailures%3AImportJobResponse%27"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The total number of endpoint definitions that were processed by the</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- import job.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AtotalProcessed%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe Int
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalProcessed%3AImportJobResponse%27"><span class="hs-identifier hs-var hs-var">totalProcessed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The number of pieces that weren\'t processed successfully (failed) by</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- the import job, as of the time of the request.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AfailedPieces%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe Int
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AfailedPieces%3AImportJobResponse%27"><span class="hs-identifier hs-var hs-var">failedPieces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The number of pieces that were processed successfully (completed) by the</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- import job, as of the time of the request.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AcompletedPieces%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe Int
+</span><span id="line-34"></span><span id="local-6989586621679601206"><span id="local-6989586621679601207"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportJobResponse"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-var">ImportJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportJobResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-var">ImportJobResponse'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of pieces that were processed successfully (completed) by the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- import job, as of the time of the request.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcompletedPieces%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe Int
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AcompletedPieces%3AImportJobResponse%27"><span class="hs-identifier hs-var hs-var">completedPieces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The total number of pieces that must be processed to complete the import</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- job. Each piece consists of an approximately equal portion of the</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- endpoint definitions that are part of the import job.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AtotalPieces%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe Int
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of pieces that weren\'t processed successfully (failed) by</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the import job, as of the time of the request.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AfailedPieces%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AfailedPieces%3AImportJobResponse%27"><span class="hs-identifier hs-var hs-var">failedPieces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The total number of endpoint definitions that were processed by the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- import job.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AtotalProcessed%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalProcessed%3AImportJobResponse%27"><span class="hs-identifier hs-var hs-var">totalProcessed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | An array of entries, one for each of the first 100 entries that weren\'t</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- processed successfully (failed) by the import job, if any.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Afailures%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3Afailures%3AImportJobResponse%27"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The total number of pieces that must be processed to complete the import</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- job. Each piece consists of an approximately equal portion of the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- endpoint definitions that are part of the import job.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AtotalPieces%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe Int
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalPieces%3AImportJobResponse%27"><span class="hs-identifier hs-var hs-var">totalPieces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The date, in ISO 8601 format, when the import job was completed.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AcompletionDate%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe Text
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The date, in ISO 8601 format, when the import job was completed.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AcompletionDate%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AcompletionDate%3AImportJobResponse%27"><span class="hs-identifier hs-var hs-var">completionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The total number of endpoint definitions that weren\'t processed</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- successfully (failed) by the import job, typically because an error,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- such as a syntax error, occurred.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AtotalFailures%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalFailures%3AImportJobResponse%27"><span class="hs-identifier hs-var hs-var">totalFailures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The status of the import job. The job status is FAILED if Amazon</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Pinpoint wasn\'t able to process one or more pieces in the job.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AjobStatus%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; JobStatus
@@ -82,7 +82,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AapplicationId%3AImportJobResponse%27"><span class="annot"><span class="annottext">ImportJobResponse -&gt; Text
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AapplicationId%3AImportJobResponse%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679600733"><span id="local-6989586621679600735"><span class="annot"><span class="annottext">ImportJobResponse -&gt; ImportJobResponse -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679601188"><span id="local-6989586621679601190"><span class="annot"><span class="annottext">ImportJobResponse -&gt; ImportJobResponse -&gt; Bool
 (ImportJobResponse -&gt; ImportJobResponse -&gt; Bool)
 -&gt; (ImportJobResponse -&gt; ImportJobResponse -&gt; Bool)
 -&gt; Eq ImportJobResponse
@@ -91,7 +91,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportJobResponse -&gt; ImportJobResponse -&gt; Bool
 == :: ImportJobResponse -&gt; ImportJobResponse -&gt; Bool
 $c== :: ImportJobResponse -&gt; ImportJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679600724"><span id="local-6989586621679600726"><span id="local-6989586621679600728"><span id="local-6989586621679600730"><span class="annot"><span class="annottext">ReadPrec [ImportJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601179"><span id="local-6989586621679601181"><span id="local-6989586621679601183"><span id="local-6989586621679601185"><span class="annot"><span class="annottext">ReadPrec [ImportJobResponse]
 ReadPrec ImportJobResponse
 Int -&gt; ReadS ImportJobResponse
 ReadS [ImportJobResponse]
@@ -111,7 +111,7 @@ readList :: ReadS [ImportJobResponse]
 $creadList :: ReadS [ImportJobResponse]
 readsPrec :: Int -&gt; ReadS ImportJobResponse
 $creadsPrec :: Int -&gt; ReadS ImportJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679600717"><span id="local-6989586621679600719"><span id="local-6989586621679600721"><span class="annot"><span class="annottext">Int -&gt; ImportJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601172"><span id="local-6989586621679601174"><span id="local-6989586621679601176"><span class="annot"><span class="annottext">Int -&gt; ImportJobResponse -&gt; ShowS
 [ImportJobResponse] -&gt; ShowS
 ImportJobResponse -&gt; String
 (Int -&gt; ImportJobResponse -&gt; ShowS)
@@ -145,27 +145,27 @@ $cfrom :: forall x. ImportJobResponse -&gt; Rep ImportJobResponse x
 </span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'totalFailures', 'importJobResponse_totalFailures' - The total number of endpoint definitions that weren\'t processed</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- successfully (failed) by the import job, typically because an error,</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- such as a syntax error, occurred.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'failures', 'importJobResponse_failures' - An array of entries, one for each of the first 100 entries that weren\'t</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- processed successfully (failed) by the import job, if any.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'totalProcessed', 'importJobResponse_totalProcessed' - The total number of endpoint definitions that were processed by the</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- import job.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'failedPieces', 'importJobResponse_failedPieces' - The number of pieces that weren\'t processed successfully (failed) by</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- the import job, as of the time of the request.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'completedPieces', 'importJobResponse_completedPieces' - The number of pieces that were processed successfully (completed) by the</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- import job, as of the time of the request.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'completedPieces', 'importJobResponse_completedPieces' - The number of pieces that were processed successfully (completed) by the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- import job, as of the time of the request.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'failedPieces', 'importJobResponse_failedPieces' - The number of pieces that weren\'t processed successfully (failed) by</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- the import job, as of the time of the request.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'totalProcessed', 'importJobResponse_totalProcessed' - The total number of endpoint definitions that were processed by the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- import job.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'failures', 'importJobResponse_failures' - An array of entries, one for each of the first 100 entries that weren\'t</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- processed successfully (failed) by the import job, if any.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'totalPieces', 'importJobResponse_totalPieces' - The total number of pieces that must be processed to complete the import</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- job. Each piece consists of an approximately equal portion of the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- endpoint definitions that are part of the import job.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'totalPieces', 'importJobResponse_totalPieces' - The total number of pieces that must be processed to complete the import</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- job. Each piece consists of an approximately equal portion of the</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- endpoint definitions that are part of the import job.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'completionDate', 'importJobResponse_completionDate' - The date, in ISO 8601 format, when the import job was completed.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'completionDate', 'importJobResponse_completionDate' - The date, in ISO 8601 format, when the import job was completed.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'totalFailures', 'importJobResponse_totalFailures' - The total number of endpoint definitions that weren\'t processed</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- successfully (failed) by the import job, typically because an error,</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- such as a syntax error, occurred.</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- 'jobStatus', 'importJobResponse_jobStatus' - The status of the import job. The job status is FAILED if Amazon</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- Pinpoint wasn\'t able to process one or more pieces in the job.</span><span>
@@ -202,25 +202,25 @@ $cfrom :: forall x. ImportJobResponse -&gt; Rep ImportJobResponse x
 -&gt; Text
 -&gt; ImportJobResponse
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#newImportJobResponse"><span class="hs-identifier hs-var hs-var">newImportJobResponse</span></a></span></span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679600711"><span class="annot"><span class="annottext">JobStatus
-</span><a href="#local-6989586621679600711"><span class="hs-identifier hs-var">pJobStatus_</span></a></span></span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679600710"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600710"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679600709"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600709"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679600708"><span class="annot"><span class="annottext">ImportJobResource
-</span><a href="#local-6989586621679600708"><span class="hs-identifier hs-var">pDefinition_</span></a></span></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679600707"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600707"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679600706"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600706"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679601166"><span class="annot"><span class="annottext">JobStatus
+</span><a href="#local-6989586621679601166"><span class="hs-identifier hs-var">pJobStatus_</span></a></span></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679601165"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601165"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679601164"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601164"><span class="hs-identifier hs-var">pType_</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679601163"><span class="annot"><span class="annottext">ImportJobResource
+</span><a href="#local-6989586621679601163"><span class="hs-identifier hs-var">pDefinition_</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679601162"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601162"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679601161"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601161"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ImportJobResponse' :: Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
 -&gt; Maybe [Text]
 -&gt; Maybe Int
--&gt; Maybe Int
--&gt; Maybe Int
--&gt; Maybe Int
 -&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; JobStatus
 -&gt; Text
 -&gt; Text
@@ -229,24 +229,21 @@ $cfrom :: forall x. ImportJobResponse -&gt; Rep ImportJobResponse x
 -&gt; Text
 -&gt; ImportJobResponse
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:totalFailures:ImportJobResponse' :: Maybe Int
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalFailures%3AImportJobResponse%27"><span class="hs-identifier hs-var">totalFailures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-139"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:completedPieces:ImportJobResponse' :: Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AcompletedPieces%3AImportJobResponse%27"><span class="hs-identifier hs-var">completedPieces</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:failures:ImportJobResponse' :: Maybe [Text]
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3Afailures%3AImportJobResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:totalProcessed:ImportJobResponse' :: Maybe Int
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalProcessed%3AImportJobResponse%27"><span class="hs-identifier hs-var">totalProcessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:failedPieces:ImportJobResponse' :: Maybe Int
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:failedPieces:ImportJobResponse' :: Maybe Int
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AfailedPieces%3AImportJobResponse%27"><span class="hs-identifier hs-var">failedPieces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:completedPieces:ImportJobResponse' :: Maybe Int
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AcompletedPieces%3AImportJobResponse%27"><span class="hs-identifier hs-var">completedPieces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:totalProcessed:ImportJobResponse' :: Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalProcessed%3AImportJobResponse%27"><span class="hs-identifier hs-var">totalProcessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:failures:ImportJobResponse' :: Maybe [Text]
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3Afailures%3AImportJobResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:totalPieces:ImportJobResponse' :: Maybe Int
@@ -257,67 +254,110 @@ forall a. Maybe a
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AcompletionDate%3AImportJobResponse%27"><span class="hs-identifier hs-var">completionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobStatus:ImportJobResponse' :: JobStatus
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:totalFailures:ImportJobResponse' :: Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalFailures%3AImportJobResponse%27"><span class="hs-identifier hs-var">totalFailures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobStatus:ImportJobResponse' :: JobStatus
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AjobStatus%3AImportJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JobStatus
-</span><a href="#local-6989586621679600711"><span class="hs-identifier hs-var">pJobStatus_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationDate:ImportJobResponse' :: Text
+</span><a href="#local-6989586621679601166"><span class="hs-identifier hs-var">pJobStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationDate:ImportJobResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AcreationDate%3AImportJobResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600710"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':ImportJobResponse' :: Text
+</span><a href="#local-6989586621679601165"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:type':ImportJobResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3Atype%27%3AImportJobResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600709"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:definition:ImportJobResponse' :: ImportJobResource
+</span><a href="#local-6989586621679601164"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:definition:ImportJobResponse' :: ImportJobResource
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3Adefinition%3AImportJobResponse%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImportJobResource
-</span><a href="#local-6989586621679600708"><span class="hs-identifier hs-var">pDefinition_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:ImportJobResponse' :: Text
+</span><a href="#local-6989586621679601163"><span class="hs-identifier hs-var">pDefinition_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:ImportJobResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3Aid%3AImportJobResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600707"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationId:ImportJobResponse' :: Text
+</span><a href="#local-6989586621679601162"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationId:ImportJobResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AapplicationId%3AImportJobResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600706"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- | The total number of endpoint definitions that weren\'t processed</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- successfully (failed) by the import job, typically because an error,</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- such as a syntax error, occurred.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_totalFailures"><span class="hs-identifier hs-type">importJobResponse_totalFailures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span id="importJobResponse_totalFailures"><span class="annot"><span class="annottext">importJobResponse_totalFailures :: (Maybe Int -&gt; f (Maybe Int))
+</span><a href="#local-6989586621679601161"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The number of pieces that were processed successfully (completed) by the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- import job, as of the time of the request.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_completedPieces"><span class="hs-identifier hs-type">importJobResponse_completedPieces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="importJobResponse_completedPieces"><span class="annot"><span class="annottext">importJobResponse_completedPieces :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; ImportJobResponse -&gt; f ImportJobResponse
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_totalFailures"><span class="hs-identifier hs-var hs-var">importJobResponse_totalFailures</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Maybe Int)
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_completedPieces"><span class="hs-identifier hs-var hs-var">importJobResponse_completedPieces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Maybe Int)
 -&gt; (ImportJobResponse -&gt; Maybe Int -&gt; ImportJobResponse)
 -&gt; Lens ImportJobResponse ImportJobResponse (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600702"><span class="annot"><span class="annottext">Maybe Int
-totalFailures :: Maybe Int
-$sel:totalFailures:ImportJobResponse' :: ImportJobResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679600702"><span class="hs-identifier hs-var hs-var">totalFailures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600702"><span class="hs-identifier hs-var">totalFailures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600701"><span class="annot"><span class="annottext">s :: ImportJobResponse
-</span><a href="#local-6989586621679600701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600700"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
-</span><a href="#local-6989586621679600701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalFailures:ImportJobResponse' :: Maybe Int
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalFailures%3AImportJobResponse%27"><span class="hs-identifier hs-var">totalFailures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601157"><span class="annot"><span class="annottext">Maybe Int
+completedPieces :: Maybe Int
+$sel:completedPieces:ImportJobResponse' :: ImportJobResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679601157"><span class="hs-identifier hs-var hs-var">completedPieces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601157"><span class="hs-identifier hs-var">completedPieces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601156"><span class="annot"><span class="annottext">s :: ImportJobResponse
+</span><a href="#local-6989586621679601156"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601155"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601155"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
+</span><a href="#local-6989586621679601156"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completedPieces:ImportJobResponse' :: Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AcompletedPieces%3AImportJobResponse%27"><span class="hs-identifier hs-var">completedPieces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601155"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | An array of entries, one for each of the first 100 entries that weren\'t</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- processed successfully (failed) by the import job, if any.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_failures"><span class="hs-identifier hs-type">importJobResponse_failures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span id="importJobResponse_failures"><span class="annot"><span class="annottext">importJobResponse_failures :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-160"></span><span class="hs-comment">-- | The number of pieces that weren\'t processed successfully (failed) by</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- the import job, as of the time of the request.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_failedPieces"><span class="hs-identifier hs-type">importJobResponse_failedPieces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="importJobResponse_failedPieces"><span class="annot"><span class="annottext">importJobResponse_failedPieces :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ImportJobResponse -&gt; f ImportJobResponse
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_failedPieces"><span class="hs-identifier hs-var hs-var">importJobResponse_failedPieces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Maybe Int)
+-&gt; (ImportJobResponse -&gt; Maybe Int -&gt; ImportJobResponse)
+-&gt; Lens ImportJobResponse ImportJobResponse (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601153"><span class="annot"><span class="annottext">Maybe Int
+failedPieces :: Maybe Int
+$sel:failedPieces:ImportJobResponse' :: ImportJobResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679601153"><span class="hs-identifier hs-var hs-var">failedPieces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601153"><span class="hs-identifier hs-var">failedPieces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601152"><span class="annot"><span class="annottext">s :: ImportJobResponse
+</span><a href="#local-6989586621679601152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601151"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
+</span><a href="#local-6989586621679601152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedPieces:ImportJobResponse' :: Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AfailedPieces%3AImportJobResponse%27"><span class="hs-identifier hs-var">failedPieces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The total number of endpoint definitions that were processed by the</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- import job.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_totalProcessed"><span class="hs-identifier hs-type">importJobResponse_totalProcessed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="importJobResponse_totalProcessed"><span class="annot"><span class="annottext">importJobResponse_totalProcessed :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ImportJobResponse -&gt; f ImportJobResponse
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_totalProcessed"><span class="hs-identifier hs-var hs-var">importJobResponse_totalProcessed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Maybe Int)
+-&gt; (ImportJobResponse -&gt; Maybe Int -&gt; ImportJobResponse)
+-&gt; Lens ImportJobResponse ImportJobResponse (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601149"><span class="annot"><span class="annottext">Maybe Int
+totalProcessed :: Maybe Int
+$sel:totalProcessed:ImportJobResponse' :: ImportJobResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679601149"><span class="hs-identifier hs-var hs-var">totalProcessed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601149"><span class="hs-identifier hs-var">totalProcessed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601148"><span class="annot"><span class="annottext">s :: ImportJobResponse
+</span><a href="#local-6989586621679601148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601147"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
+</span><a href="#local-6989586621679601148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalProcessed:ImportJobResponse' :: Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalProcessed%3AImportJobResponse%27"><span class="hs-identifier hs-var">totalProcessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | An array of entries, one for each of the first 100 entries that weren\'t</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- processed successfully (failed) by the import job, if any.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_failures"><span class="hs-identifier hs-type">importJobResponse_failures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="importJobResponse_failures"><span class="annot"><span class="annottext">importJobResponse_failures :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ImportJobResponse -&gt; f ImportJobResponse
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_failures"><span class="hs-identifier hs-var hs-var">importJobResponse_failures</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Maybe [Text])
 -&gt; (ImportJobResponse -&gt; Maybe [Text] -&gt; ImportJobResponse)
 -&gt; Lens
      ImportJobResponse ImportJobResponse (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600698"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601145"><span class="annot"><span class="annottext">Maybe [Text]
 failures :: Maybe [Text]
 $sel:failures:ImportJobResponse' :: ImportJobResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679600698"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679600698"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600697"><span class="annot"><span class="annottext">s :: ImportJobResponse
-</span><a href="#local-6989586621679600697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600696"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679600696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
-</span><a href="#local-6989586621679600697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:ImportJobResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679601145"><span class="hs-identifier hs-var hs-var">failures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679601145"><span class="hs-identifier hs-var">failures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601144"><span class="annot"><span class="annottext">s :: ImportJobResponse
+</span><a href="#local-6989586621679601144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601143"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679601143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
+</span><a href="#local-6989586621679601144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failures:ImportJobResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3Afailures%3AImportJobResponse%27"><span class="hs-identifier hs-var">failures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679600696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679601143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ImportJobResponse -&gt; f ImportJobResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -331,169 +371,130 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- | The total number of endpoint definitions that were processed by the</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- import job.</span><span>
-</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_totalProcessed"><span class="hs-identifier hs-type">importJobResponse_totalProcessed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span id="importJobResponse_totalProcessed"><span class="annot"><span class="annottext">importJobResponse_totalProcessed :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ImportJobResponse -&gt; f ImportJobResponse
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_totalProcessed"><span class="hs-identifier hs-var hs-var">importJobResponse_totalProcessed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Maybe Int)
--&gt; (ImportJobResponse -&gt; Maybe Int -&gt; ImportJobResponse)
--&gt; Lens ImportJobResponse ImportJobResponse (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600691"><span class="annot"><span class="annottext">Maybe Int
-totalProcessed :: Maybe Int
-$sel:totalProcessed:ImportJobResponse' :: ImportJobResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679600691"><span class="hs-identifier hs-var hs-var">totalProcessed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600691"><span class="hs-identifier hs-var">totalProcessed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600690"><span class="annot"><span class="annottext">s :: ImportJobResponse
-</span><a href="#local-6989586621679600690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600689"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
-</span><a href="#local-6989586621679600690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalProcessed:ImportJobResponse' :: Maybe Int
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalProcessed%3AImportJobResponse%27"><span class="hs-identifier hs-var">totalProcessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- | The number of pieces that weren\'t processed successfully (failed) by</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- the import job, as of the time of the request.</span><span>
-</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_failedPieces"><span class="hs-identifier hs-type">importJobResponse_failedPieces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span id="importJobResponse_failedPieces"><span class="annot"><span class="annottext">importJobResponse_failedPieces :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ImportJobResponse -&gt; f ImportJobResponse
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_failedPieces"><span class="hs-identifier hs-var hs-var">importJobResponse_failedPieces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Maybe Int)
--&gt; (ImportJobResponse -&gt; Maybe Int -&gt; ImportJobResponse)
--&gt; Lens ImportJobResponse ImportJobResponse (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600687"><span class="annot"><span class="annottext">Maybe Int
-failedPieces :: Maybe Int
-$sel:failedPieces:ImportJobResponse' :: ImportJobResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679600687"><span class="hs-identifier hs-var hs-var">failedPieces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600687"><span class="hs-identifier hs-var">failedPieces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600686"><span class="annot"><span class="annottext">s :: ImportJobResponse
-</span><a href="#local-6989586621679600686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600685"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
-</span><a href="#local-6989586621679600686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedPieces:ImportJobResponse' :: Maybe Int
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AfailedPieces%3AImportJobResponse%27"><span class="hs-identifier hs-var">failedPieces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- | The number of pieces that were processed successfully (completed) by the</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- import job, as of the time of the request.</span><span>
-</span><span id="line-177"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_completedPieces"><span class="hs-identifier hs-type">importJobResponse_completedPieces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-178"></span><span id="importJobResponse_completedPieces"><span class="annot"><span class="annottext">importJobResponse_completedPieces :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ImportJobResponse -&gt; f ImportJobResponse
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_completedPieces"><span class="hs-identifier hs-var hs-var">importJobResponse_completedPieces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Maybe Int)
--&gt; (ImportJobResponse -&gt; Maybe Int -&gt; ImportJobResponse)
--&gt; Lens ImportJobResponse ImportJobResponse (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600683"><span class="annot"><span class="annottext">Maybe Int
-completedPieces :: Maybe Int
-$sel:completedPieces:ImportJobResponse' :: ImportJobResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679600683"><span class="hs-identifier hs-var hs-var">completedPieces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600683"><span class="hs-identifier hs-var">completedPieces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600682"><span class="annot"><span class="annottext">s :: ImportJobResponse
-</span><a href="#local-6989586621679600682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600681"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
-</span><a href="#local-6989586621679600682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completedPieces:ImportJobResponse' :: Maybe Int
-</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AcompletedPieces%3AImportJobResponse%27"><span class="hs-identifier hs-var">completedPieces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- | The total number of pieces that must be processed to complete the import</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- job. Each piece consists of an approximately equal portion of the</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- endpoint definitions that are part of the import job.</span><span>
-</span><span id="line-183"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_totalPieces"><span class="hs-identifier hs-type">importJobResponse_totalPieces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span id="importJobResponse_totalPieces"><span class="annot"><span class="annottext">importJobResponse_totalPieces :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-175"></span><span class="hs-comment">-- | The total number of pieces that must be processed to complete the import</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- job. Each piece consists of an approximately equal portion of the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- endpoint definitions that are part of the import job.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_totalPieces"><span class="hs-identifier hs-type">importJobResponse_totalPieces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="importJobResponse_totalPieces"><span class="annot"><span class="annottext">importJobResponse_totalPieces :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; ImportJobResponse -&gt; f ImportJobResponse
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_totalPieces"><span class="hs-identifier hs-var hs-var">importJobResponse_totalPieces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Maybe Int)
 -&gt; (ImportJobResponse -&gt; Maybe Int -&gt; ImportJobResponse)
 -&gt; Lens ImportJobResponse ImportJobResponse (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600679"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601138"><span class="annot"><span class="annottext">Maybe Int
 totalPieces :: Maybe Int
 $sel:totalPieces:ImportJobResponse' :: ImportJobResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679600679"><span class="hs-identifier hs-var hs-var">totalPieces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600679"><span class="hs-identifier hs-var">totalPieces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600678"><span class="annot"><span class="annottext">s :: ImportJobResponse
-</span><a href="#local-6989586621679600678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600677"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
-</span><a href="#local-6989586621679600678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalPieces:ImportJobResponse' :: Maybe Int
+</span><a href="#local-6989586621679601138"><span class="hs-identifier hs-var hs-var">totalPieces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601138"><span class="hs-identifier hs-var">totalPieces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601137"><span class="annot"><span class="annottext">s :: ImportJobResponse
+</span><a href="#local-6989586621679601137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601136"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
+</span><a href="#local-6989586621679601137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalPieces:ImportJobResponse' :: Maybe Int
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalPieces%3AImportJobResponse%27"><span class="hs-identifier hs-var">totalPieces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679600677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- | The date, in ISO 8601 format, when the import job was completed.</span><span>
-</span><span id="line-187"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_completionDate"><span class="hs-identifier hs-type">importJobResponse_completionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span id="importJobResponse_completionDate"><span class="annot"><span class="annottext">importJobResponse_completionDate :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679601136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The date, in ISO 8601 format, when the import job was completed.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_completionDate"><span class="hs-identifier hs-type">importJobResponse_completionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="importJobResponse_completionDate"><span class="annot"><span class="annottext">importJobResponse_completionDate :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ImportJobResponse -&gt; f ImportJobResponse
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_completionDate"><span class="hs-identifier hs-var hs-var">importJobResponse_completionDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Maybe Text)
 -&gt; (ImportJobResponse -&gt; Maybe Text -&gt; ImportJobResponse)
 -&gt; Lens
      ImportJobResponse ImportJobResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600675"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601134"><span class="annot"><span class="annottext">Maybe Text
 completionDate :: Maybe Text
 $sel:completionDate:ImportJobResponse' :: ImportJobResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679600675"><span class="hs-identifier hs-var hs-var">completionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679600675"><span class="hs-identifier hs-var">completionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600674"><span class="annot"><span class="annottext">s :: ImportJobResponse
-</span><a href="#local-6989586621679600674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600673"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679600673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
-</span><a href="#local-6989586621679600674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completionDate:ImportJobResponse' :: Maybe Text
+</span><a href="#local-6989586621679601134"><span class="hs-identifier hs-var hs-var">completionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601134"><span class="hs-identifier hs-var">completionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601133"><span class="annot"><span class="annottext">s :: ImportJobResponse
+</span><a href="#local-6989586621679601133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601132"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
+</span><a href="#local-6989586621679601133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completionDate:ImportJobResponse' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AcompletionDate%3AImportJobResponse%27"><span class="hs-identifier hs-var">completionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679600673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- | The status of the import job. The job status is FAILED if Amazon</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- Pinpoint wasn\'t able to process one or more pieces in the job.</span><span>
-</span><span id="line-192"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_jobStatus"><span class="hs-identifier hs-type">importJobResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span>
-</span><span id="line-193"></span><span id="importJobResponse_jobStatus"><span class="annot"><span class="annottext">importJobResponse_jobStatus :: (JobStatus -&gt; f JobStatus)
+</span><a href="#local-6989586621679601132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The total number of endpoint definitions that weren\'t processed</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- successfully (failed) by the import job, typically because an error,</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- such as a syntax error, occurred.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_totalFailures"><span class="hs-identifier hs-type">importJobResponse_totalFailures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="importJobResponse_totalFailures"><span class="annot"><span class="annottext">importJobResponse_totalFailures :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ImportJobResponse -&gt; f ImportJobResponse
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_totalFailures"><span class="hs-identifier hs-var hs-var">importJobResponse_totalFailures</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Maybe Int)
+-&gt; (ImportJobResponse -&gt; Maybe Int -&gt; ImportJobResponse)
+-&gt; Lens ImportJobResponse ImportJobResponse (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601130"><span class="annot"><span class="annottext">Maybe Int
+totalFailures :: Maybe Int
+$sel:totalFailures:ImportJobResponse' :: ImportJobResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679601130"><span class="hs-identifier hs-var hs-var">totalFailures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601130"><span class="hs-identifier hs-var">totalFailures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601129"><span class="annot"><span class="annottext">s :: ImportJobResponse
+</span><a href="#local-6989586621679601129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601128"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
+</span><a href="#local-6989586621679601129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalFailures:ImportJobResponse' :: Maybe Int
+</span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AtotalFailures%3AImportJobResponse%27"><span class="hs-identifier hs-var">totalFailures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679601128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The status of the import job. The job status is FAILED if Amazon</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Pinpoint wasn\'t able to process one or more pieces in the job.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_jobStatus"><span class="hs-identifier hs-type">importJobResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JobStatus.html#JobStatus"><span class="hs-identifier hs-type">JobStatus</span></a></span><span>
+</span><span id="line-194"></span><span id="importJobResponse_jobStatus"><span class="annot"><span class="annottext">importJobResponse_jobStatus :: (JobStatus -&gt; f JobStatus)
 -&gt; ImportJobResponse -&gt; f ImportJobResponse
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_jobStatus"><span class="hs-identifier hs-var hs-var">importJobResponse_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; JobStatus)
 -&gt; (ImportJobResponse -&gt; JobStatus -&gt; ImportJobResponse)
 -&gt; Lens ImportJobResponse ImportJobResponse JobStatus JobStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600671"><span class="annot"><span class="annottext">JobStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601126"><span class="annot"><span class="annottext">JobStatus
 jobStatus :: JobStatus
 $sel:jobStatus:ImportJobResponse' :: ImportJobResponse -&gt; JobStatus
-</span><a href="#local-6989586621679600671"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobStatus
-</span><a href="#local-6989586621679600671"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600670"><span class="annot"><span class="annottext">s :: ImportJobResponse
-</span><a href="#local-6989586621679600670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600669"><span class="annot"><span class="annottext">JobStatus
-</span><a href="#local-6989586621679600669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
-</span><a href="#local-6989586621679600670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:ImportJobResponse' :: JobStatus
+</span><a href="#local-6989586621679601126"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JobStatus
+</span><a href="#local-6989586621679601126"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601125"><span class="annot"><span class="annottext">s :: ImportJobResponse
+</span><a href="#local-6989586621679601125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601124"><span class="annot"><span class="annottext">JobStatus
+</span><a href="#local-6989586621679601124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
+</span><a href="#local-6989586621679601125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:ImportJobResponse' :: JobStatus
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AjobStatus%3AImportJobResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JobStatus
-</span><a href="#local-6989586621679600669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- | The date, in ISO 8601 format, when the import job was created.</span><span>
-</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_creationDate"><span class="hs-identifier hs-type">importJobResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-197"></span><span id="importJobResponse_creationDate"><span class="annot"><span class="annottext">importJobResponse_creationDate :: (Text -&gt; f Text) -&gt; ImportJobResponse -&gt; f ImportJobResponse
+</span><a href="#local-6989586621679601124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The date, in ISO 8601 format, when the import job was created.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_creationDate"><span class="hs-identifier hs-type">importJobResponse_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-198"></span><span id="importJobResponse_creationDate"><span class="annot"><span class="annottext">importJobResponse_creationDate :: (Text -&gt; f Text) -&gt; ImportJobResponse -&gt; f ImportJobResponse
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_creationDate"><span class="hs-identifier hs-var hs-var">importJobResponse_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Text)
 -&gt; (ImportJobResponse -&gt; Text -&gt; ImportJobResponse)
 -&gt; Lens ImportJobResponse ImportJobResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600667"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601122"><span class="annot"><span class="annottext">Text
 creationDate :: Text
 $sel:creationDate:ImportJobResponse' :: ImportJobResponse -&gt; Text
-</span><a href="#local-6989586621679600667"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600667"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600666"><span class="annot"><span class="annottext">s :: ImportJobResponse
-</span><a href="#local-6989586621679600666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600665"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
-</span><a href="#local-6989586621679600666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ImportJobResponse' :: Text
+</span><a href="#local-6989586621679601122"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601122"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601121"><span class="annot"><span class="annottext">s :: ImportJobResponse
+</span><a href="#local-6989586621679601121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601120"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
+</span><a href="#local-6989586621679601121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ImportJobResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AcreationDate%3AImportJobResponse%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- | The job type. This value is IMPORT for import jobs.</span><span>
-</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_type"><span class="hs-identifier hs-type">importJobResponse_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-201"></span><span id="importJobResponse_type"><span class="annot"><span class="annottext">importJobResponse_type :: (Text -&gt; f Text) -&gt; ImportJobResponse -&gt; f ImportJobResponse
+</span><a href="#local-6989586621679601120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The job type. This value is IMPORT for import jobs.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_type"><span class="hs-identifier hs-type">importJobResponse_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-202"></span><span id="importJobResponse_type"><span class="annot"><span class="annottext">importJobResponse_type :: (Text -&gt; f Text) -&gt; ImportJobResponse -&gt; f ImportJobResponse
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_type"><span class="hs-identifier hs-var hs-var">importJobResponse_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Text)
 -&gt; (ImportJobResponse -&gt; Text -&gt; ImportJobResponse)
 -&gt; Lens ImportJobResponse ImportJobResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600663"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601118"><span class="annot"><span class="annottext">Text
 type' :: Text
 $sel:type':ImportJobResponse' :: ImportJobResponse -&gt; Text
-</span><a href="#local-6989586621679600663"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600663"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600662"><span class="annot"><span class="annottext">s :: ImportJobResponse
-</span><a href="#local-6989586621679600662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600661"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
-</span><a href="#local-6989586621679600662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ImportJobResponse' :: Text
+</span><a href="#local-6989586621679601118"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601118"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601117"><span class="annot"><span class="annottext">s :: ImportJobResponse
+</span><a href="#local-6989586621679601117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601116"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
+</span><a href="#local-6989586621679601117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ImportJobResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3Atype%27%3AImportJobResponse%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- | The resource settings that apply to the import job.</span><span>
-</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_definition"><span class="hs-identifier hs-type">importJobResponse_definition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResource.html#ImportJobResource"><span class="hs-identifier hs-type">ImportJobResource</span></a></span><span>
-</span><span id="line-205"></span><span id="importJobResponse_definition"><span class="annot"><span class="annottext">importJobResponse_definition :: (ImportJobResource -&gt; f ImportJobResource)
+</span><a href="#local-6989586621679601116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The resource settings that apply to the import job.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_definition"><span class="hs-identifier hs-type">importJobResponse_definition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResource.html#ImportJobResource"><span class="hs-identifier hs-type">ImportJobResource</span></a></span><span>
+</span><span id="line-206"></span><span id="importJobResponse_definition"><span class="annot"><span class="annottext">importJobResponse_definition :: (ImportJobResource -&gt; f ImportJobResource)
 -&gt; ImportJobResponse -&gt; f ImportJobResponse
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_definition"><span class="hs-identifier hs-var hs-var">importJobResponse_definition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; ImportJobResource)
 -&gt; (ImportJobResponse -&gt; ImportJobResource -&gt; ImportJobResponse)
@@ -503,74 +504,74 @@ $sel:type':ImportJobResponse' :: ImportJobResponse -&gt; Text
      ImportJobResource
      ImportJobResource
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600659"><span class="annot"><span class="annottext">ImportJobResource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601114"><span class="annot"><span class="annottext">ImportJobResource
 definition :: ImportJobResource
 $sel:definition:ImportJobResponse' :: ImportJobResponse -&gt; ImportJobResource
-</span><a href="#local-6989586621679600659"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResource
-</span><a href="#local-6989586621679600659"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600658"><span class="annot"><span class="annottext">s :: ImportJobResponse
-</span><a href="#local-6989586621679600658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600657"><span class="annot"><span class="annottext">ImportJobResource
-</span><a href="#local-6989586621679600657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
-</span><a href="#local-6989586621679600658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:definition:ImportJobResponse' :: ImportJobResource
+</span><a href="#local-6989586621679601114"><span class="hs-identifier hs-var hs-var">definition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResource
+</span><a href="#local-6989586621679601114"><span class="hs-identifier hs-var">definition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601113"><span class="annot"><span class="annottext">s :: ImportJobResponse
+</span><a href="#local-6989586621679601113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601112"><span class="annot"><span class="annottext">ImportJobResource
+</span><a href="#local-6989586621679601112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
+</span><a href="#local-6989586621679601113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:definition:ImportJobResponse' :: ImportJobResource
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3Adefinition%3AImportJobResponse%27"><span class="hs-identifier hs-var">definition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ImportJobResource
-</span><a href="#local-6989586621679600657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | The unique identifier for the import job.</span><span>
-</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_id"><span class="hs-identifier hs-type">importJobResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-209"></span><span id="importJobResponse_id"><span class="annot"><span class="annottext">importJobResponse_id :: (Text -&gt; f Text) -&gt; ImportJobResponse -&gt; f ImportJobResponse
+</span><a href="#local-6989586621679601112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The unique identifier for the import job.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_id"><span class="hs-identifier hs-type">importJobResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-210"></span><span id="importJobResponse_id"><span class="annot"><span class="annottext">importJobResponse_id :: (Text -&gt; f Text) -&gt; ImportJobResponse -&gt; f ImportJobResponse
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_id"><span class="hs-identifier hs-var hs-var">importJobResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Text)
 -&gt; (ImportJobResponse -&gt; Text -&gt; ImportJobResponse)
 -&gt; Lens ImportJobResponse ImportJobResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600655"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601110"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:ImportJobResponse' :: ImportJobResponse -&gt; Text
-</span><a href="#local-6989586621679600655"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600655"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600654"><span class="annot"><span class="annottext">s :: ImportJobResponse
-</span><a href="#local-6989586621679600654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600653"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
-</span><a href="#local-6989586621679600654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ImportJobResponse' :: Text
+</span><a href="#local-6989586621679601110"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601110"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601109"><span class="annot"><span class="annottext">s :: ImportJobResponse
+</span><a href="#local-6989586621679601109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
+</span><a href="#local-6989586621679601109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:ImportJobResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3Aid%3AImportJobResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- | The unique identifier for the application that\'s associated with the</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- import job.</span><span>
-</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_applicationId"><span class="hs-identifier hs-type">importJobResponse_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-214"></span><span id="importJobResponse_applicationId"><span class="annot"><span class="annottext">importJobResponse_applicationId :: (Text -&gt; f Text) -&gt; ImportJobResponse -&gt; f ImportJobResponse
+</span><a href="#local-6989586621679601108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The unique identifier for the application that\'s associated with the</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- import job.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_applicationId"><span class="hs-identifier hs-type">importJobResponse_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-215"></span><span id="importJobResponse_applicationId"><span class="annot"><span class="annottext">importJobResponse_applicationId :: (Text -&gt; f Text) -&gt; ImportJobResponse -&gt; f ImportJobResponse
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#importJobResponse_applicationId"><span class="hs-identifier hs-var hs-var">importJobResponse_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImportJobResponse -&gt; Text)
 -&gt; (ImportJobResponse -&gt; Text -&gt; ImportJobResponse)
 -&gt; Lens ImportJobResponse ImportJobResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679600651"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601106"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:ImportJobResponse' :: ImportJobResponse -&gt; Text
-</span><a href="#local-6989586621679600651"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600651"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679600650"><span class="annot"><span class="annottext">s :: ImportJobResponse
-</span><a href="#local-6989586621679600650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679600649"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
-</span><a href="#local-6989586621679600650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:ImportJobResponse' :: Text
+</span><a href="#local-6989586621679601106"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601106"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601105"><span class="annot"><span class="annottext">s :: ImportJobResponse
+</span><a href="#local-6989586621679601105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-type">ImportJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601104"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679601104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportJobResponse
+</span><a href="#local-6989586621679601105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:ImportJobResponse' :: Text
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#%24sel%3AapplicationId%3AImportJobResponse%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679600649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679600646"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679600644"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImportJobResponse
+</span><a href="#local-6989586621679601104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601101"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679601099"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImportJobResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ImportJobResponse)
 -&gt; Value
 -&gt; Parser ImportJobResponse
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ImportJobResponse&quot;</span></span><span>
-</span><span id="line-220"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679600641"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-221"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679601096"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Int
 -&gt; Maybe [Text]
 -&gt; Maybe Int
--&gt; Maybe Int
--&gt; Maybe Int
--&gt; Maybe Int
 -&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; JobStatus
 -&gt; Text
 -&gt; Text
@@ -579,13 +580,13 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Text
 -&gt; ImportJobResponse
 </span><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse%27"><span class="hs-identifier hs-var">ImportJobResponse'</span></a></span><span>
-</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Int
  -&gt; Maybe [Text]
  -&gt; Maybe Int
- -&gt; Maybe Int
- -&gt; Maybe Int
- -&gt; Maybe Int
  -&gt; Maybe Text
+ -&gt; Maybe Int
  -&gt; JobStatus
  -&gt; Text
  -&gt; Text
@@ -595,12 +596,12 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
  -&gt; ImportJobResponse)
 -&gt; Parser (Maybe Int)
 -&gt; Parser
-     (Maybe [Text]
+     (Maybe Int
       -&gt; Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Int
+      -&gt; Maybe [Text]
       -&gt; Maybe Int
       -&gt; Maybe Text
+      -&gt; Maybe Int
       -&gt; JobStatus
       -&gt; Text
       -&gt; Text
@@ -610,17 +611,81 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ImportJobResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TotalFailures&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Text]
+</span><span class="hs-string">&quot;CompletedPieces&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
    -&gt; Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Int
+   -&gt; Maybe [Text]
    -&gt; Maybe Int
    -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; JobStatus
+   -&gt; Text
+   -&gt; Text
+   -&gt; ImportJobResource
+   -&gt; Text
+   -&gt; Text
+   -&gt; ImportJobResponse)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe [Text]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; JobStatus
+      -&gt; Text
+      -&gt; Text
+      -&gt; ImportJobResource
+      -&gt; Text
+      -&gt; Text
+      -&gt; ImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailedPieces&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe [Text]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; JobStatus
+   -&gt; Text
+   -&gt; Text
+   -&gt; ImportJobResource
+   -&gt; Text
+   -&gt; Text
+   -&gt; ImportJobResponse)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; JobStatus
+      -&gt; Text
+      -&gt; Text
+      -&gt; ImportJobResource
+      -&gt; Text
+      -&gt; Text
+      -&gt; ImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TotalProcessed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Int
    -&gt; JobStatus
    -&gt; Text
    -&gt; Text
@@ -631,10 +696,8 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Text])
 -&gt; Parser
      (Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Int
       -&gt; Maybe Text
+      -&gt; Maybe Int
       -&gt; JobStatus
       -&gt; Text
       -&gt; Text
@@ -644,7 +707,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ImportJobResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Failures&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -653,99 +716,10 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; JobStatus
-   -&gt; Text
-   -&gt; Text
-   -&gt; ImportJobResource
-   -&gt; Text
-   -&gt; Text
-   -&gt; ImportJobResponse)
--&gt; Parser (Maybe Int)
--&gt; Parser
-     (Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; JobStatus
-      -&gt; Text
-      -&gt; Text
-      -&gt; ImportJobResource
-      -&gt; Text
-      -&gt; Text
-      -&gt; ImportJobResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TotalProcessed&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; JobStatus
-   -&gt; Text
-   -&gt; Text
-   -&gt; ImportJobResource
-   -&gt; Text
-   -&gt; Text
-   -&gt; ImportJobResponse)
--&gt; Parser (Maybe Int)
--&gt; Parser
-     (Maybe Int
-      -&gt; Maybe Int
-      -&gt; Maybe Text
-      -&gt; JobStatus
-      -&gt; Text
-      -&gt; Text
-      -&gt; ImportJobResource
-      -&gt; Text
-      -&gt; Text
-      -&gt; ImportJobResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FailedPieces&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Int
-   -&gt; Maybe Int
-   -&gt; Maybe Text
-   -&gt; JobStatus
-   -&gt; Text
-   -&gt; Text
-   -&gt; ImportJobResource
-   -&gt; Text
-   -&gt; Text
-   -&gt; ImportJobResponse)
--&gt; Parser (Maybe Int)
--&gt; Parser
-     (Maybe Int
-      -&gt; Maybe Text
-      -&gt; JobStatus
-      -&gt; Text
-      -&gt; Text
-      -&gt; ImportJobResource
-      -&gt; Text
-      -&gt; Text
-      -&gt; ImportJobResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CompletedPieces&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Int
    -&gt; Maybe Text
+   -&gt; Maybe Int
    -&gt; JobStatus
    -&gt; Text
    -&gt; Text
@@ -756,6 +730,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int)
 -&gt; Parser
      (Maybe Text
+      -&gt; Maybe Int
       -&gt; JobStatus
       -&gt; Text
       -&gt; Text
@@ -765,12 +740,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ImportJobResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TotalPieces&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
+   -&gt; Maybe Int
    -&gt; JobStatus
    -&gt; Text
    -&gt; Text
@@ -779,6 +755,31 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
    -&gt; Text
    -&gt; ImportJobResponse)
 -&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; JobStatus
+      -&gt; Text
+      -&gt; Text
+      -&gt; ImportJobResource
+      -&gt; Text
+      -&gt; Text
+      -&gt; ImportJobResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CompletionDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; JobStatus
+   -&gt; Text
+   -&gt; Text
+   -&gt; ImportJobResource
+   -&gt; Text
+   -&gt; Text
+   -&gt; ImportJobResponse)
+-&gt; Parser (Maybe Int)
 -&gt; Parser
      (JobStatus
       -&gt; Text
@@ -789,11 +790,11 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; ImportJobResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CompletionDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;TotalFailures&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (JobStatus
    -&gt; Text
    -&gt; Text
@@ -807,11 +808,11 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Text -&gt; ImportJobResource -&gt; Text -&gt; Text -&gt; ImportJobResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser JobStatus
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser JobStatus
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-230"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Text
    -&gt; Text -&gt; ImportJobResource -&gt; Text -&gt; Text -&gt; ImportJobResponse)
 -&gt; Parser Text
@@ -819,48 +820,48 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
      (Text -&gt; ImportJobResource -&gt; Text -&gt; Text -&gt; ImportJobResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Text -&gt; ImportJobResource -&gt; Text -&gt; Text -&gt; ImportJobResponse)
 -&gt; Parser Text
 -&gt; Parser (ImportJobResource -&gt; Text -&gt; Text -&gt; ImportJobResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser (ImportJobResource -&gt; Text -&gt; Text -&gt; ImportJobResponse)
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser (ImportJobResource -&gt; Text -&gt; Text -&gt; ImportJobResponse)
 -&gt; Parser ImportJobResource
 -&gt; Parser (Text -&gt; Text -&gt; ImportJobResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ImportJobResource
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser ImportJobResource
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Definition&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; ImportJobResponse)
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; ImportJobResponse)
 -&gt; Parser Text -&gt; Parser (Text -&gt; ImportJobResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ImportJobResponse)
+</span><span id="line-235"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ImportJobResponse)
 -&gt; Parser Text -&gt; Parser ImportJobResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679600641"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679601096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ApplicationId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679600633"><span id="local-6989586621679600635"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span></span></span><span>
-</span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679600630"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span></span><span>
-</span><span id="line-240"></span></pre></body></html>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601088"><span id="local-6989586621679601090"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span></span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601085"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.ImportJobResponse.html#ImportJobResponse"><span class="hs-identifier hs-type">ImportJobResponse</span></a></span></span><span>
+</span><span id="line-241"></span></pre></body></html>

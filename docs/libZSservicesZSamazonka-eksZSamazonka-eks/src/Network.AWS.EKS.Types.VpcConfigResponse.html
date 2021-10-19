@@ -26,53 +26,53 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An object representing an Amazon EKS cluster VPC configuration response.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newVpcConfigResponse' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679270675"><span id="local-6989586621679270676"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcConfigResponse"><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-var">VpcConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcConfigResponse%27"><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-var">VpcConfigResponse'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679270947"><span id="local-6989586621679270948"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpcConfigResponse"><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-var">VpcConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpcConfigResponse%27"><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-var">VpcConfigResponse'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The security groups associated with the cross-account elastic network</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- interfaces that are used to allow communication between your nodes and</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the Kubernetes control plane.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AsecurityGroupIds%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AsecurityGroupIds%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | This parameter indicates whether the Amazon EKS public API server</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- endpoint is enabled. If the Amazon EKS public API server endpoint is</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- disabled, your cluster\'s Kubernetes API server can only receive</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- requests that originate from within the cluster VPC.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AendpointPublicAccess%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe Bool
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AendpointPublicAccess%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">endpointPublicAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The subnets associated with your cluster.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AsubnetIds%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe [Text]
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AsubnetIds%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The cluster security group that was created by Amazon EKS for the</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- cluster. Managed node groups use this security group for</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- control-plane-to-data-plane communication.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AclusterSecurityGroupId%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe Text
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AclusterSecurityGroupId%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">clusterSecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The VPC associated with your cluster.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AvpcId%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe Text
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AvpcId%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | This parameter indicates whether the Amazon EKS private API server</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- endpoint is enabled. If the Amazon EKS private API server endpoint is</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- enabled, Kubernetes API requests that originate from within your</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- cluster\'s VPC use the private VPC endpoint instead of traversing the</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- internet. If this value is disabled and you have nodes or Fargate pods</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- in the cluster, then ensure that @publicAccessCidrs@ includes the</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- necessary CIDR blocks for communication with the nodes or Fargate pods.</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control&gt;</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- in the //Amazon EKS User Guide// .</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AendpointPrivateAccess%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe Bool
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | This parameter indicates whether the Amazon EKS private API server</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- endpoint is enabled. If the Amazon EKS private API server endpoint is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- enabled, Kubernetes API requests that originate from within your</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- cluster\'s VPC use the private VPC endpoint instead of traversing the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- internet. If this value is disabled and you have nodes or Fargate pods</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- in the cluster, then ensure that @publicAccessCidrs@ includes the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- necessary CIDR blocks for communication with the nodes or Fargate pods.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control&gt;</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- in the //Amazon EKS User Guide// .</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AendpointPrivateAccess%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe Bool
 </span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AendpointPrivateAccess%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">endpointPrivateAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The CIDR blocks that are allowed access to your cluster\'s public</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Kubernetes API server endpoint. Communication to the endpoint from</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- addresses outside of the listed CIDR blocks is denied. The default value</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- is @0.0.0.0\/0@. If you\'ve disabled private endpoint access and you</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- have nodes or Fargate pods in the cluster, then ensure that the</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- necessary CIDR blocks are listed. For more information, see</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control&gt;</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- in the //Amazon EKS User Guide// .</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3ApublicAccessCidrs%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe [Text]
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3ApublicAccessCidrs%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">publicAccessCidrs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The CIDR blocks that are allowed access to your cluster\'s public</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Kubernetes API server endpoint. Communication to the endpoint from</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- addresses outside of the listed CIDR blocks is denied. The default value</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- is @0.0.0.0\/0@. If you\'ve disabled private endpoint access and you</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- have nodes or Fargate pods in the cluster, then ensure that the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- necessary CIDR blocks are listed. For more information, see</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control&gt;</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- in the //Amazon EKS User Guide// .</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ApublicAccessCidrs%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3ApublicAccessCidrs%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">publicAccessCidrs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The subnets associated with your cluster.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AsubnetIds%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe [Text]
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AsubnetIds%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The VPC associated with your cluster.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AvpcId%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AvpcId%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The cluster security group that was created by Amazon EKS for the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- cluster. Managed node groups use this security group for</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- control-plane-to-data-plane communication.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AclusterSecurityGroupId%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe Text
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AclusterSecurityGroupId%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">clusterSecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | This parameter indicates whether the Amazon EKS public API server</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- endpoint is enabled. If the Amazon EKS public API server endpoint is</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- disabled, your cluster\'s Kubernetes API server can only receive</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- requests that originate from within the cluster VPC.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AendpointPublicAccess%3AVpcConfigResponse%27"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AendpointPublicAccess%3AVpcConfigResponse%27"><span class="hs-identifier hs-var hs-var">endpointPublicAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270663"><span id="local-6989586621679270665"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270935"><span id="local-6989586621679270937"><span class="annot"><span class="annottext">VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool
 (VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool)
 -&gt; (VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool)
 -&gt; Eq VpcConfigResponse
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool
 == :: VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool
 $c== :: VpcConfigResponse -&gt; VpcConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270654"><span id="local-6989586621679270656"><span id="local-6989586621679270658"><span id="local-6989586621679270660"><span class="annot"><span class="annottext">ReadPrec [VpcConfigResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270926"><span id="local-6989586621679270928"><span id="local-6989586621679270930"><span id="local-6989586621679270932"><span class="annot"><span class="annottext">ReadPrec [VpcConfigResponse]
 ReadPrec VpcConfigResponse
 Int -&gt; ReadS VpcConfigResponse
 ReadS [VpcConfigResponse]
@@ -101,7 +101,7 @@ readList :: ReadS [VpcConfigResponse]
 $creadList :: ReadS [VpcConfigResponse]
 readsPrec :: Int -&gt; ReadS VpcConfigResponse
 $creadsPrec :: Int -&gt; ReadS VpcConfigResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270647"><span id="local-6989586621679270649"><span id="local-6989586621679270651"><span class="annot"><span class="annottext">Int -&gt; VpcConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270919"><span id="local-6989586621679270921"><span id="local-6989586621679270923"><span class="annot"><span class="annottext">Int -&gt; VpcConfigResponse -&gt; ShowS
 [VpcConfigResponse] -&gt; ShowS
 VpcConfigResponse -&gt; String
 (Int -&gt; VpcConfigResponse -&gt; ShowS)
@@ -139,38 +139,38 @@ $cfrom :: forall x. VpcConfigResponse -&gt; Rep VpcConfigResponse x
 </span><span id="line-79"></span><span class="hs-comment">-- interfaces that are used to allow communication between your nodes and</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- the Kubernetes control plane.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'endpointPublicAccess', 'vpcConfigResponse_endpointPublicAccess' - This parameter indicates whether the Amazon EKS public API server</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- endpoint is enabled. If the Amazon EKS public API server endpoint is</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- disabled, your cluster\'s Kubernetes API server can only receive</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- requests that originate from within the cluster VPC.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'subnetIds', 'vpcConfigResponse_subnetIds' - The subnets associated with your cluster.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'clusterSecurityGroupId', 'vpcConfigResponse_clusterSecurityGroupId' - The cluster security group that was created by Amazon EKS for the</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- cluster. Managed node groups use this security group for</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- control-plane-to-data-plane communication.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'endpointPrivateAccess', 'vpcConfigResponse_endpointPrivateAccess' - This parameter indicates whether the Amazon EKS private API server</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- endpoint is enabled. If the Amazon EKS private API server endpoint is</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- enabled, Kubernetes API requests that originate from within your</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- cluster\'s VPC use the private VPC endpoint instead of traversing the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- internet. If this value is disabled and you have nodes or Fargate pods</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- in the cluster, then ensure that @publicAccessCidrs@ includes the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- necessary CIDR blocks for communication with the nodes or Fargate pods.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control&gt;</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- in the //Amazon EKS User Guide// .</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'vpcId', 'vpcConfigResponse_vpcId' - The VPC associated with your cluster.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'endpointPrivateAccess', 'vpcConfigResponse_endpointPrivateAccess' - This parameter indicates whether the Amazon EKS private API server</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- endpoint is enabled. If the Amazon EKS private API server endpoint is</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- enabled, Kubernetes API requests that originate from within your</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- cluster\'s VPC use the private VPC endpoint instead of traversing the</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- internet. If this value is disabled and you have nodes or Fargate pods</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- in the cluster, then ensure that @publicAccessCidrs@ includes the</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- necessary CIDR blocks for communication with the nodes or Fargate pods.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control&gt;</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- in the //Amazon EKS User Guide// .</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'publicAccessCidrs', 'vpcConfigResponse_publicAccessCidrs' - The CIDR blocks that are allowed access to your cluster\'s public</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Kubernetes API server endpoint. Communication to the endpoint from</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- addresses outside of the listed CIDR blocks is denied. The default value</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- is @0.0.0.0\/0@. If you\'ve disabled private endpoint access and you</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- have nodes or Fargate pods in the cluster, then ensure that the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- necessary CIDR blocks are listed. For more information, see</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control&gt;</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- in the //Amazon EKS User Guide// .</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'subnetIds', 'vpcConfigResponse_subnetIds' - The subnets associated with your cluster.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'vpcId', 'vpcConfigResponse_vpcId' - The VPC associated with your cluster.</span><span>
 </span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- 'publicAccessCidrs', 'vpcConfigResponse_publicAccessCidrs' - The CIDR blocks that are allowed access to your cluster\'s public</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- Kubernetes API server endpoint. Communication to the endpoint from</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- addresses outside of the listed CIDR blocks is denied. The default value</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- is @0.0.0.0\/0@. If you\'ve disabled private endpoint access and you</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- have nodes or Fargate pods in the cluster, then ensure that the</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- necessary CIDR blocks are listed. For more information, see</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control&gt;</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- in the //Amazon EKS User Guide// .</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'clusterSecurityGroupId', 'vpcConfigResponse_clusterSecurityGroupId' - The cluster security group that was created by Amazon EKS for the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- cluster. Managed node groups use this security group for</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- control-plane-to-data-plane communication.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'endpointPublicAccess', 'vpcConfigResponse_endpointPublicAccess' - This parameter indicates whether the Amazon EKS public API server</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- endpoint is enabled. If the Amazon EKS public API server endpoint is</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- disabled, your cluster\'s Kubernetes API server can only receive</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- requests that originate from within the cluster VPC.</span><span>
 </span><span id="line-114"></span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#newVpcConfigResponse"><span class="hs-identifier hs-type">newVpcConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-115"></span><span>  </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span>
 </span><span id="line-116"></span><span id="newVpcConfigResponse"><span class="annot"><span class="annottext">newVpcConfigResponse :: VpcConfigResponse
@@ -178,10 +178,10 @@ $cfrom :: forall x. VpcConfigResponse -&gt; Rep VpcConfigResponse x
 </span><span id="line-117"></span><span>  </span><span class="annot"><span class="annottext">VpcConfigResponse' :: Maybe [Text]
 -&gt; Maybe Bool
 -&gt; Maybe [Text]
+-&gt; Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Bool
--&gt; Maybe [Text]
 -&gt; VpcConfigResponse
 </span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:securityGroupIds:VpcConfigResponse' :: Maybe [Text]
@@ -189,28 +189,28 @@ $cfrom :: forall x. VpcConfigResponse -&gt; Rep VpcConfigResponse x
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointPublicAccess:VpcConfigResponse' :: Maybe Bool
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AendpointPublicAccess%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">endpointPublicAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointPrivateAccess:VpcConfigResponse' :: Maybe Bool
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AendpointPrivateAccess%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">endpointPrivateAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetIds:VpcConfigResponse' :: Maybe [Text]
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicAccessCidrs:VpcConfigResponse' :: Maybe [Text]
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3ApublicAccessCidrs%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">publicAccessCidrs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetIds:VpcConfigResponse' :: Maybe [Text]
 </span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AsubnetIds%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterSecurityGroupId:VpcConfigResponse' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AclusterSecurityGroupId%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">clusterSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:VpcConfigResponse' :: Maybe Text
 </span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AvpcId%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointPrivateAccess:VpcConfigResponse' :: Maybe Bool
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AendpointPrivateAccess%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">endpointPrivateAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterSecurityGroupId:VpcConfigResponse' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AclusterSecurityGroupId%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">clusterSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicAccessCidrs:VpcConfigResponse' :: Maybe [Text]
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3ApublicAccessCidrs%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">publicAccessCidrs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointPublicAccess:VpcConfigResponse' :: Maybe Bool
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AendpointPublicAccess%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">endpointPublicAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
@@ -226,16 +226,16 @@ forall a. Maybe a
 -&gt; Lens
      VpcConfigResponse VpcConfigResponse (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270638"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270910"><span class="annot"><span class="annottext">Maybe [Text]
 securityGroupIds :: Maybe [Text]
 $sel:securityGroupIds:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679270638"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679270638"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270637"><span class="annot"><span class="annottext">s :: VpcConfigResponse
-</span><a href="#local-6989586621679270637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270636"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679270636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
-</span><a href="#local-6989586621679270637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:VpcConfigResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679270910"><span class="hs-identifier hs-var hs-var">securityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679270910"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270909"><span class="annot"><span class="annottext">s :: VpcConfigResponse
+</span><a href="#local-6989586621679270909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270908"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679270908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
+</span><a href="#local-6989586621679270909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityGroupIds:VpcConfigResponse' :: Maybe [Text]
 </span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AsecurityGroupIds%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">securityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679270636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679270908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; VpcConfigResponse -&gt; f VpcConfigResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -249,164 +249,64 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | This parameter indicates whether the Amazon EKS public API server</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- endpoint is enabled. If the Amazon EKS public API server endpoint is</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- disabled, your cluster\'s Kubernetes API server can only receive</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- requests that originate from within the cluster VPC.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_endpointPublicAccess"><span class="hs-identifier hs-type">vpcConfigResponse_endpointPublicAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="vpcConfigResponse_endpointPublicAccess"><span class="annot"><span class="annottext">vpcConfigResponse_endpointPublicAccess :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; VpcConfigResponse -&gt; f VpcConfigResponse
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_endpointPublicAccess"><span class="hs-identifier hs-var hs-var">vpcConfigResponse_endpointPublicAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigResponse -&gt; Maybe Bool)
--&gt; (VpcConfigResponse -&gt; Maybe Bool -&gt; VpcConfigResponse)
--&gt; Lens
-     VpcConfigResponse VpcConfigResponse (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270631"><span class="annot"><span class="annottext">Maybe Bool
-endpointPublicAccess :: Maybe Bool
-$sel:endpointPublicAccess:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679270631"><span class="hs-identifier hs-var hs-var">endpointPublicAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679270631"><span class="hs-identifier hs-var">endpointPublicAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270630"><span class="annot"><span class="annottext">s :: VpcConfigResponse
-</span><a href="#local-6989586621679270630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270629"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679270629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
-</span><a href="#local-6989586621679270630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointPublicAccess:VpcConfigResponse' :: Maybe Bool
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AendpointPublicAccess%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">endpointPublicAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679270629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The subnets associated with your cluster.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_subnetIds"><span class="hs-identifier hs-type">vpcConfigResponse_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="vpcConfigResponse_subnetIds"><span class="annot"><span class="annottext">vpcConfigResponse_subnetIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; VpcConfigResponse -&gt; f VpcConfigResponse
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_subnetIds"><span class="hs-identifier hs-var hs-var">vpcConfigResponse_subnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigResponse -&gt; Maybe [Text])
--&gt; (VpcConfigResponse -&gt; Maybe [Text] -&gt; VpcConfigResponse)
--&gt; Lens
-     VpcConfigResponse VpcConfigResponse (Maybe [Text]) (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270627"><span class="annot"><span class="annottext">Maybe [Text]
-subnetIds :: Maybe [Text]
-$sel:subnetIds:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679270627"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679270627"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270626"><span class="annot"><span class="annottext">s :: VpcConfigResponse
-</span><a href="#local-6989586621679270626"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270625"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679270625"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
-</span><a href="#local-6989586621679270626"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:VpcConfigResponse' :: Maybe [Text]
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AsubnetIds%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679270625"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; VpcConfigResponse -&gt; f VpcConfigResponse)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; VpcConfigResponse
--&gt; f VpcConfigResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | The cluster security group that was created by Amazon EKS for the</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- cluster. Managed node groups use this security group for</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- control-plane-to-data-plane communication.</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_clusterSecurityGroupId"><span class="hs-identifier hs-type">vpcConfigResponse_clusterSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="vpcConfigResponse_clusterSecurityGroupId"><span class="annot"><span class="annottext">vpcConfigResponse_clusterSecurityGroupId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; VpcConfigResponse -&gt; f VpcConfigResponse
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_clusterSecurityGroupId"><span class="hs-identifier hs-var hs-var">vpcConfigResponse_clusterSecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigResponse -&gt; Maybe Text)
--&gt; (VpcConfigResponse -&gt; Maybe Text -&gt; VpcConfigResponse)
--&gt; Lens
-     VpcConfigResponse VpcConfigResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270623"><span class="annot"><span class="annottext">Maybe Text
-clusterSecurityGroupId :: Maybe Text
-$sel:clusterSecurityGroupId:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679270623"><span class="hs-identifier hs-var hs-var">clusterSecurityGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270623"><span class="hs-identifier hs-var">clusterSecurityGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270622"><span class="annot"><span class="annottext">s :: VpcConfigResponse
-</span><a href="#local-6989586621679270622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270621"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
-</span><a href="#local-6989586621679270622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterSecurityGroupId:VpcConfigResponse' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AclusterSecurityGroupId%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">clusterSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- | The VPC associated with your cluster.</span><span>
-</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_vpcId"><span class="hs-identifier hs-type">vpcConfigResponse_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span id="vpcConfigResponse_vpcId"><span class="annot"><span class="annottext">vpcConfigResponse_vpcId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; VpcConfigResponse -&gt; f VpcConfigResponse
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_vpcId"><span class="hs-identifier hs-var hs-var">vpcConfigResponse_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigResponse -&gt; Maybe Text)
--&gt; (VpcConfigResponse -&gt; Maybe Text -&gt; VpcConfigResponse)
--&gt; Lens
-     VpcConfigResponse VpcConfigResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270619"><span class="annot"><span class="annottext">Maybe Text
-vpcId :: Maybe Text
-$sel:vpcId:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679270619"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270619"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270618"><span class="annot"><span class="annottext">s :: VpcConfigResponse
-</span><a href="#local-6989586621679270618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270617"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
-</span><a href="#local-6989586621679270618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:VpcConfigResponse' :: Maybe Text
-</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AvpcId%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- | This parameter indicates whether the Amazon EKS private API server</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- endpoint is enabled. If the Amazon EKS private API server endpoint is</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- enabled, Kubernetes API requests that originate from within your</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- cluster\'s VPC use the private VPC endpoint instead of traversing the</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- internet. If this value is disabled and you have nodes or Fargate pods</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- in the cluster, then ensure that @publicAccessCidrs@ includes the</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- necessary CIDR blocks for communication with the nodes or Fargate pods.</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control&gt;</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- in the //Amazon EKS User Guide// .</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_endpointPrivateAccess"><span class="hs-identifier hs-type">vpcConfigResponse_endpointPrivateAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="vpcConfigResponse_endpointPrivateAccess"><span class="annot"><span class="annottext">vpcConfigResponse_endpointPrivateAccess :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-134"></span><span class="hs-comment">-- | This parameter indicates whether the Amazon EKS private API server</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- endpoint is enabled. If the Amazon EKS private API server endpoint is</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- enabled, Kubernetes API requests that originate from within your</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- cluster\'s VPC use the private VPC endpoint instead of traversing the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- internet. If this value is disabled and you have nodes or Fargate pods</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- in the cluster, then ensure that @publicAccessCidrs@ includes the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- necessary CIDR blocks for communication with the nodes or Fargate pods.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control&gt;</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- in the //Amazon EKS User Guide// .</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_endpointPrivateAccess"><span class="hs-identifier hs-type">vpcConfigResponse_endpointPrivateAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="vpcConfigResponse_endpointPrivateAccess"><span class="annot"><span class="annottext">vpcConfigResponse_endpointPrivateAccess :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; VpcConfigResponse -&gt; f VpcConfigResponse
 </span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_endpointPrivateAccess"><span class="hs-identifier hs-var hs-var">vpcConfigResponse_endpointPrivateAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigResponse -&gt; Maybe Bool)
 -&gt; (VpcConfigResponse -&gt; Maybe Bool -&gt; VpcConfigResponse)
 -&gt; Lens
      VpcConfigResponse VpcConfigResponse (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270615"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270903"><span class="annot"><span class="annottext">Maybe Bool
 endpointPrivateAccess :: Maybe Bool
 $sel:endpointPrivateAccess:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679270615"><span class="hs-identifier hs-var hs-var">endpointPrivateAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679270615"><span class="hs-identifier hs-var">endpointPrivateAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270614"><span class="annot"><span class="annottext">s :: VpcConfigResponse
-</span><a href="#local-6989586621679270614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270613"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679270613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
-</span><a href="#local-6989586621679270614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointPrivateAccess:VpcConfigResponse' :: Maybe Bool
+</span><a href="#local-6989586621679270903"><span class="hs-identifier hs-var hs-var">endpointPrivateAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679270903"><span class="hs-identifier hs-var">endpointPrivateAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270902"><span class="annot"><span class="annottext">s :: VpcConfigResponse
+</span><a href="#local-6989586621679270902"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270901"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679270901"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
+</span><a href="#local-6989586621679270902"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointPrivateAccess:VpcConfigResponse' :: Maybe Bool
 </span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AendpointPrivateAccess%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">endpointPrivateAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679270613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | The CIDR blocks that are allowed access to your cluster\'s public</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- Kubernetes API server endpoint. Communication to the endpoint from</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- addresses outside of the listed CIDR blocks is denied. The default value</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- is @0.0.0.0\/0@. If you\'ve disabled private endpoint access and you</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- have nodes or Fargate pods in the cluster, then ensure that the</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- necessary CIDR blocks are listed. For more information, see</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control&gt;</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- in the //Amazon EKS User Guide// .</span><span>
-</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_publicAccessCidrs"><span class="hs-identifier hs-type">vpcConfigResponse_publicAccessCidrs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span id="vpcConfigResponse_publicAccessCidrs"><span class="annot"><span class="annottext">vpcConfigResponse_publicAccessCidrs :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679270901"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The CIDR blocks that are allowed access to your cluster\'s public</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Kubernetes API server endpoint. Communication to the endpoint from</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- addresses outside of the listed CIDR blocks is denied. The default value</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- is @0.0.0.0\/0@. If you\'ve disabled private endpoint access and you</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- have nodes or Fargate pods in the cluster, then ensure that the</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- necessary CIDR blocks are listed. For more information, see</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html Amazon EKS cluster endpoint access control&gt;</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- in the //Amazon EKS User Guide// .</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_publicAccessCidrs"><span class="hs-identifier hs-type">vpcConfigResponse_publicAccessCidrs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="vpcConfigResponse_publicAccessCidrs"><span class="annot"><span class="annottext">vpcConfigResponse_publicAccessCidrs :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; VpcConfigResponse -&gt; f VpcConfigResponse
 </span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_publicAccessCidrs"><span class="hs-identifier hs-var hs-var">vpcConfigResponse_publicAccessCidrs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigResponse -&gt; Maybe [Text])
 -&gt; (VpcConfigResponse -&gt; Maybe [Text] -&gt; VpcConfigResponse)
 -&gt; Lens
      VpcConfigResponse VpcConfigResponse (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270611"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270899"><span class="annot"><span class="annottext">Maybe [Text]
 publicAccessCidrs :: Maybe [Text]
 $sel:publicAccessCidrs:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679270611"><span class="hs-identifier hs-var hs-var">publicAccessCidrs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679270611"><span class="hs-identifier hs-var">publicAccessCidrs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270610"><span class="annot"><span class="annottext">s :: VpcConfigResponse
-</span><a href="#local-6989586621679270610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270609"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679270609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
-</span><a href="#local-6989586621679270610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicAccessCidrs:VpcConfigResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679270899"><span class="hs-identifier hs-var hs-var">publicAccessCidrs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679270899"><span class="hs-identifier hs-var">publicAccessCidrs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270898"><span class="annot"><span class="annottext">s :: VpcConfigResponse
+</span><a href="#local-6989586621679270898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270897"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679270897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
+</span><a href="#local-6989586621679270898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicAccessCidrs:VpcConfigResponse' :: Maybe [Text]
 </span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3ApublicAccessCidrs%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">publicAccessCidrs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679270609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679270897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; VpcConfigResponse -&gt; f VpcConfigResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -420,11 +320,111 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The subnets associated with your cluster.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_subnetIds"><span class="hs-identifier hs-type">vpcConfigResponse_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span id="vpcConfigResponse_subnetIds"><span class="annot"><span class="annottext">vpcConfigResponse_subnetIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; VpcConfigResponse -&gt; f VpcConfigResponse
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_subnetIds"><span class="hs-identifier hs-var hs-var">vpcConfigResponse_subnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigResponse -&gt; Maybe [Text])
+-&gt; (VpcConfigResponse -&gt; Maybe [Text] -&gt; VpcConfigResponse)
+-&gt; Lens
+     VpcConfigResponse VpcConfigResponse (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270895"><span class="annot"><span class="annottext">Maybe [Text]
+subnetIds :: Maybe [Text]
+$sel:subnetIds:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679270895"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679270895"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270894"><span class="annot"><span class="annottext">s :: VpcConfigResponse
+</span><a href="#local-6989586621679270894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270893"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679270893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
+</span><a href="#local-6989586621679270894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:VpcConfigResponse' :: Maybe [Text]
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AsubnetIds%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679270893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; VpcConfigResponse -&gt; f VpcConfigResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; VpcConfigResponse
+-&gt; f VpcConfigResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | The VPC associated with your cluster.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_vpcId"><span class="hs-identifier hs-type">vpcConfigResponse_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="vpcConfigResponse_vpcId"><span class="annot"><span class="annottext">vpcConfigResponse_vpcId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; VpcConfigResponse -&gt; f VpcConfigResponse
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_vpcId"><span class="hs-identifier hs-var hs-var">vpcConfigResponse_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigResponse -&gt; Maybe Text)
+-&gt; (VpcConfigResponse -&gt; Maybe Text -&gt; VpcConfigResponse)
+-&gt; Lens
+     VpcConfigResponse VpcConfigResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270891"><span class="annot"><span class="annottext">Maybe Text
+vpcId :: Maybe Text
+$sel:vpcId:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679270891"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270891"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270890"><span class="annot"><span class="annottext">s :: VpcConfigResponse
+</span><a href="#local-6989586621679270890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270889"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
+</span><a href="#local-6989586621679270890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:VpcConfigResponse' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AvpcId%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The cluster security group that was created by Amazon EKS for the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- cluster. Managed node groups use this security group for</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- control-plane-to-data-plane communication.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_clusterSecurityGroupId"><span class="hs-identifier hs-type">vpcConfigResponse_clusterSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="vpcConfigResponse_clusterSecurityGroupId"><span class="annot"><span class="annottext">vpcConfigResponse_clusterSecurityGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; VpcConfigResponse -&gt; f VpcConfigResponse
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_clusterSecurityGroupId"><span class="hs-identifier hs-var hs-var">vpcConfigResponse_clusterSecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigResponse -&gt; Maybe Text)
+-&gt; (VpcConfigResponse -&gt; Maybe Text -&gt; VpcConfigResponse)
+-&gt; Lens
+     VpcConfigResponse VpcConfigResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270887"><span class="annot"><span class="annottext">Maybe Text
+clusterSecurityGroupId :: Maybe Text
+$sel:clusterSecurityGroupId:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679270887"><span class="hs-identifier hs-var hs-var">clusterSecurityGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270887"><span class="hs-identifier hs-var">clusterSecurityGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270886"><span class="annot"><span class="annottext">s :: VpcConfigResponse
+</span><a href="#local-6989586621679270886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270885"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
+</span><a href="#local-6989586621679270886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterSecurityGroupId:VpcConfigResponse' :: Maybe Text
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AclusterSecurityGroupId%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">clusterSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | This parameter indicates whether the Amazon EKS public API server</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- endpoint is enabled. If the Amazon EKS public API server endpoint is</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- disabled, your cluster\'s Kubernetes API server can only receive</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- requests that originate from within the cluster VPC.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_endpointPublicAccess"><span class="hs-identifier hs-type">vpcConfigResponse_endpointPublicAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="vpcConfigResponse_endpointPublicAccess"><span class="annot"><span class="annottext">vpcConfigResponse_endpointPublicAccess :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; VpcConfigResponse -&gt; f VpcConfigResponse
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#vpcConfigResponse_endpointPublicAccess"><span class="hs-identifier hs-var hs-var">vpcConfigResponse_endpointPublicAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpcConfigResponse -&gt; Maybe Bool)
+-&gt; (VpcConfigResponse -&gt; Maybe Bool -&gt; VpcConfigResponse)
+-&gt; Lens
+     VpcConfigResponse VpcConfigResponse (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270883"><span class="annot"><span class="annottext">Maybe Bool
+endpointPublicAccess :: Maybe Bool
+$sel:endpointPublicAccess:VpcConfigResponse' :: VpcConfigResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679270883"><span class="hs-identifier hs-var hs-var">endpointPublicAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679270883"><span class="hs-identifier hs-var">endpointPublicAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270882"><span class="annot"><span class="annottext">s :: VpcConfigResponse
+</span><a href="#local-6989586621679270882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-type">VpcConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270881"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679270881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpcConfigResponse
+</span><a href="#local-6989586621679270882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointPublicAccess:VpcConfigResponse' :: Maybe Bool
+</span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#%24sel%3AendpointPublicAccess%3AVpcConfigResponse%27"><span class="hs-identifier hs-var">endpointPublicAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679270881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270606"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679270604"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VpcConfigResponse
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270878"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679270876"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VpcConfigResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser VpcConfigResponse)
@@ -434,37 +434,37 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;VpcConfigResponse&quot;</span></span><span>
-</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270601"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270601"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270873"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270873"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe Bool
 -&gt; Maybe [Text]
+-&gt; Maybe [Text]
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Bool
--&gt; Maybe [Text]
 -&gt; VpcConfigResponse
 </span><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse%27"><span class="hs-identifier hs-var">VpcConfigResponse'</span></a></span><span>
 </span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
  -&gt; Maybe Bool
  -&gt; Maybe [Text]
+ -&gt; Maybe [Text]
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Bool
- -&gt; Maybe [Text]
  -&gt; VpcConfigResponse)
 -&gt; Parser (Maybe [Text])
 -&gt; Parser
      (Maybe Bool
       -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Bool
-      -&gt; Maybe [Text]
       -&gt; VpcConfigResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679270873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;securityGroupIds&quot;</span></span><span>
@@ -478,39 +478,58 @@ forall a. Monoid a =&gt; a
 </span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Bool
    -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Bool
-   -&gt; Maybe [Text]
    -&gt; VpcConfigResponse)
 -&gt; Parser (Maybe Bool)
 -&gt; Parser
      (Maybe [Text]
+      -&gt; Maybe [Text]
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Bool
-      -&gt; Maybe [Text]
       -&gt; VpcConfigResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679270873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;endpointPublicAccess&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;endpointPrivateAccess&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe [Text]
+   -&gt; Maybe [Text]
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Bool
-   -&gt; Maybe [Text]
    -&gt; VpcConfigResponse)
 -&gt; Parser (Maybe [Text])
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe [Text] -&gt; VpcConfigResponse)
+     (Maybe [Text]
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; VpcConfigResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publicAccessCidrs&quot;</span></span><span>
+</span><span id="line-190"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-191"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; VpcConfigResponse)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; VpcConfigResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679270873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subnetIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -519,55 +538,35 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe [Text] -&gt; VpcConfigResponse)
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; VpcConfigResponse)
 -&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text -&gt; Maybe Bool -&gt; Maybe [Text] -&gt; VpcConfigResponse)
+-&gt; Parser (Maybe Text -&gt; Maybe Bool -&gt; VpcConfigResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;clusterSecurityGroupId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe Bool -&gt; Maybe [Text] -&gt; VpcConfigResponse)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Bool -&gt; Maybe [Text] -&gt; VpcConfigResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679270873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vpcId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Maybe [Text] -&gt; VpcConfigResponse)
--&gt; Parser (Maybe Bool)
--&gt; Parser (Maybe [Text] -&gt; VpcConfigResponse)
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Bool -&gt; VpcConfigResponse)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Bool -&gt; VpcConfigResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679270873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;endpointPrivateAccess&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; VpcConfigResponse)
--&gt; Parser (Maybe [Text]) -&gt; Parser VpcConfigResponse
+</span><span class="hs-string">&quot;clusterSecurityGroupId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; VpcConfigResponse)
+-&gt; Parser (Maybe Bool) -&gt; Parser VpcConfigResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679270601"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;publicAccessCidrs&quot;</span></span><span>
-</span><span id="line-194"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
--&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-195"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;endpointPublicAccess&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270594"><span id="local-6989586621679270596"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span></span></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270866"><span id="local-6989586621679270868"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span></span></span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270591"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.VpcConfigResponse.html#VpcConfigResponse"><span class="hs-identifier hs-type">VpcConfigResponse</span></a></span></span><span>
 </span><span id="line-201"></span></pre></body></html>

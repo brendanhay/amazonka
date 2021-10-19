@@ -28,18 +28,18 @@
 </span><span id="line-28"></span><span class="hs-comment">-- @SuggestResponse@.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSuggestModel' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679153433"><span id="local-6989586621679153434"></span></span><span class="hs-keyword">data</span><span> </span><span id="SuggestModel"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-var">SuggestModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SuggestModel%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-var">SuggestModel'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The documents that match the query string.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Asuggestions%3ASuggestModel%27"><span class="annot"><span class="annottext">SuggestModel -&gt; Maybe [SuggestionMatch]
-</span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#%24sel%3Asuggestions%3ASuggestModel%27"><span class="hs-identifier hs-var hs-var">suggestions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestionMatch.html#SuggestionMatch"><span class="hs-identifier hs-type">SuggestionMatch</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The number of documents that were found to match the query string.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Afound%3ASuggestModel%27"><span class="annot"><span class="annottext">SuggestModel -&gt; Maybe Integer
+</span><span id="line-31"></span><span id="local-6989586621679153480"><span id="local-6989586621679153481"></span></span><span class="hs-keyword">data</span><span> </span><span id="SuggestModel"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-var">SuggestModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SuggestModel%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-var">SuggestModel'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of documents that were found to match the query string.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Afound%3ASuggestModel%27"><span class="annot"><span class="annottext">SuggestModel -&gt; Maybe Integer
 </span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#%24sel%3Afound%3ASuggestModel%27"><span class="hs-identifier hs-var hs-var">found</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The documents that match the query string.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Asuggestions%3ASuggestModel%27"><span class="annot"><span class="annottext">SuggestModel -&gt; Maybe [SuggestionMatch]
+</span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#%24sel%3Asuggestions%3ASuggestModel%27"><span class="hs-identifier hs-var hs-var">suggestions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestionMatch.html#SuggestionMatch"><span class="hs-identifier hs-type">SuggestionMatch</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The query string specified in the suggest request.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aquery%3ASuggestModel%27"><span class="annot"><span class="annottext">SuggestModel -&gt; Maybe Text
 </span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#%24sel%3Aquery%3ASuggestModel%27"><span class="hs-identifier hs-var hs-var">query</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679153425"><span id="local-6989586621679153427"><span class="annot"><span class="annottext">SuggestModel -&gt; SuggestModel -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679153472"><span id="local-6989586621679153474"><span class="annot"><span class="annottext">SuggestModel -&gt; SuggestModel -&gt; Bool
 (SuggestModel -&gt; SuggestModel -&gt; Bool)
 -&gt; (SuggestModel -&gt; SuggestModel -&gt; Bool) -&gt; Eq SuggestModel
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SuggestModel -&gt; SuggestModel -&gt; Bool
 == :: SuggestModel -&gt; SuggestModel -&gt; Bool
 $c== :: SuggestModel -&gt; SuggestModel -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153416"><span id="local-6989586621679153418"><span id="local-6989586621679153420"><span id="local-6989586621679153422"><span class="annot"><span class="annottext">ReadPrec [SuggestModel]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153463"><span id="local-6989586621679153465"><span id="local-6989586621679153467"><span id="local-6989586621679153469"><span class="annot"><span class="annottext">ReadPrec [SuggestModel]
 ReadPrec SuggestModel
 Int -&gt; ReadS SuggestModel
 ReadS [SuggestModel]
@@ -67,7 +67,7 @@ readList :: ReadS [SuggestModel]
 $creadList :: ReadS [SuggestModel]
 readsPrec :: Int -&gt; ReadS SuggestModel
 $creadsPrec :: Int -&gt; ReadS SuggestModel
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153409"><span id="local-6989586621679153411"><span id="local-6989586621679153413"><span class="annot"><span class="annottext">Int -&gt; SuggestModel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679153456"><span id="local-6989586621679153458"><span id="local-6989586621679153460"><span class="annot"><span class="annottext">Int -&gt; SuggestModel -&gt; ShowS
 [SuggestModel] -&gt; ShowS
 SuggestModel -&gt; String
 (Int -&gt; SuggestModel -&gt; ShowS)
@@ -101,24 +101,24 @@ $cfrom :: forall x. SuggestModel -&gt; Rep SuggestModel x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'suggestions', 'suggestModel_suggestions' - The documents that match the query string.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'found', 'suggestModel_found' - The number of documents that were found to match the query string.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'found', 'suggestModel_found' - The number of documents that were found to match the query string.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'suggestions', 'suggestModel_suggestions' - The documents that match the query string.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- 'query', 'suggestModel_query' - The query string specified in the suggest request.</span><span>
 </span><span id="line-54"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#newSuggestModel"><span class="hs-identifier hs-type">newSuggestModel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span><span>
 </span><span id="line-56"></span><span id="newSuggestModel"><span class="annot"><span class="annottext">newSuggestModel :: SuggestModel
 </span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#newSuggestModel"><span class="hs-identifier hs-var hs-var">newSuggestModel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">SuggestModel' :: Maybe [SuggestionMatch]
--&gt; Maybe Integer -&gt; Maybe Text -&gt; SuggestModel
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">SuggestModel' :: Maybe Integer
+-&gt; Maybe [SuggestionMatch] -&gt; Maybe Text -&gt; SuggestModel
 </span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-type">SuggestModel'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:suggestions:SuggestModel' :: Maybe [SuggestionMatch]
-</span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#%24sel%3Asuggestions%3ASuggestModel%27"><span class="hs-identifier hs-var">suggestions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SuggestionMatch]
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:found:SuggestModel' :: Maybe Integer
+</span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#%24sel%3Afound%3ASuggestModel%27"><span class="hs-identifier hs-var">found</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:found:SuggestModel' :: Maybe Integer
-</span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#%24sel%3Afound%3ASuggestModel%27"><span class="hs-identifier hs-var">found</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:suggestions:SuggestModel' :: Maybe [SuggestionMatch]
+</span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#%24sel%3Asuggestions%3ASuggestModel%27"><span class="hs-identifier hs-var">suggestions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SuggestionMatch]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:query:SuggestModel' :: Maybe Text
@@ -127,9 +127,28 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The documents that match the query string.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#suggestModel_suggestions"><span class="hs-identifier hs-type">suggestModel_suggestions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestionMatch.html#SuggestionMatch"><span class="hs-identifier hs-type">SuggestionMatch</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="suggestModel_suggestions"><span class="annot"><span class="annottext">suggestModel_suggestions :: (Maybe [SuggestionMatch] -&gt; f (Maybe [SuggestionMatch]))
+</span><span id="line-63"></span><span class="hs-comment">-- | The number of documents that were found to match the query string.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#suggestModel_found"><span class="hs-identifier hs-type">suggestModel_found</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="suggestModel_found"><span class="annot"><span class="annottext">suggestModel_found :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; SuggestModel -&gt; f SuggestModel
+</span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#suggestModel_found"><span class="hs-identifier hs-var hs-var">suggestModel_found</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SuggestModel -&gt; Maybe Integer)
+-&gt; (SuggestModel -&gt; Maybe Integer -&gt; SuggestModel)
+-&gt; Lens SuggestModel SuggestModel (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-type">SuggestModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153447"><span class="annot"><span class="annottext">Maybe Integer
+found :: Maybe Integer
+$sel:found:SuggestModel' :: SuggestModel -&gt; Maybe Integer
+</span><a href="#local-6989586621679153447"><span class="hs-identifier hs-var hs-var">found</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679153447"><span class="hs-identifier hs-var">found</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153446"><span class="annot"><span class="annottext">s :: SuggestModel
+</span><a href="#local-6989586621679153446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-type">SuggestModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153445"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679153445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuggestModel
+</span><a href="#local-6989586621679153446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:found:SuggestModel' :: Maybe Integer
+</span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#%24sel%3Afound%3ASuggestModel%27"><span class="hs-identifier hs-var">found</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679153445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The documents that match the query string.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#suggestModel_suggestions"><span class="hs-identifier hs-type">suggestModel_suggestions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestionMatch.html#SuggestionMatch"><span class="hs-identifier hs-type">SuggestionMatch</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="suggestModel_suggestions"><span class="annot"><span class="annottext">suggestModel_suggestions :: (Maybe [SuggestionMatch] -&gt; f (Maybe [SuggestionMatch]))
 -&gt; SuggestModel -&gt; f SuggestModel
 </span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#suggestModel_suggestions"><span class="hs-identifier hs-var hs-var">suggestModel_suggestions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SuggestModel -&gt; Maybe [SuggestionMatch])
 -&gt; (SuggestModel -&gt; Maybe [SuggestionMatch] -&gt; SuggestModel)
@@ -139,16 +158,16 @@ forall a. Maybe a
      (Maybe [SuggestionMatch])
      (Maybe [SuggestionMatch])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-type">SuggestModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153400"><span class="annot"><span class="annottext">Maybe [SuggestionMatch]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-type">SuggestModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153443"><span class="annot"><span class="annottext">Maybe [SuggestionMatch]
 suggestions :: Maybe [SuggestionMatch]
 $sel:suggestions:SuggestModel' :: SuggestModel -&gt; Maybe [SuggestionMatch]
-</span><a href="#local-6989586621679153400"><span class="hs-identifier hs-var hs-var">suggestions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuggestionMatch]
-</span><a href="#local-6989586621679153400"><span class="hs-identifier hs-var">suggestions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153399"><span class="annot"><span class="annottext">s :: SuggestModel
-</span><a href="#local-6989586621679153399"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-type">SuggestModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153398"><span class="annot"><span class="annottext">Maybe [SuggestionMatch]
-</span><a href="#local-6989586621679153398"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuggestModel
-</span><a href="#local-6989586621679153399"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suggestions:SuggestModel' :: Maybe [SuggestionMatch]
+</span><a href="#local-6989586621679153443"><span class="hs-identifier hs-var hs-var">suggestions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SuggestionMatch]
+</span><a href="#local-6989586621679153443"><span class="hs-identifier hs-var">suggestions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153442"><span class="annot"><span class="annottext">s :: SuggestModel
+</span><a href="#local-6989586621679153442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-type">SuggestModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153441"><span class="annot"><span class="annottext">Maybe [SuggestionMatch]
+</span><a href="#local-6989586621679153441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuggestModel
+</span><a href="#local-6989586621679153442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suggestions:SuggestModel' :: Maybe [SuggestionMatch]
 </span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#%24sel%3Asuggestions%3ASuggestModel%27"><span class="hs-identifier hs-var">suggestions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SuggestionMatch]
-</span><a href="#local-6989586621679153398"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuggestionMatch] -&gt; f (Maybe [SuggestionMatch]))
+</span><a href="#local-6989586621679153441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SuggestionMatch] -&gt; f (Maybe [SuggestionMatch]))
  -&gt; SuggestModel -&gt; f SuggestModel)
 -&gt; ((Maybe [SuggestionMatch] -&gt; f (Maybe [SuggestionMatch]))
     -&gt; Maybe [SuggestionMatch] -&gt; f (Maybe [SuggestionMatch]))
@@ -174,27 +193,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [SuggestionMatch]
   [SuggestionMatch]
   [SuggestionMatch]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The number of documents that were found to match the query string.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#suggestModel_found"><span class="hs-identifier hs-type">suggestModel_found</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="suggestModel_found"><span class="annot"><span class="annottext">suggestModel_found :: (Maybe Integer -&gt; f (Maybe Integer))
--&gt; SuggestModel -&gt; f SuggestModel
-</span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#suggestModel_found"><span class="hs-identifier hs-var hs-var">suggestModel_found</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SuggestModel -&gt; Maybe Integer)
--&gt; (SuggestModel -&gt; Maybe Integer -&gt; SuggestModel)
--&gt; Lens SuggestModel SuggestModel (Maybe Integer) (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-type">SuggestModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153393"><span class="annot"><span class="annottext">Maybe Integer
-found :: Maybe Integer
-$sel:found:SuggestModel' :: SuggestModel -&gt; Maybe Integer
-</span><a href="#local-6989586621679153393"><span class="hs-identifier hs-var hs-var">found</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679153393"><span class="hs-identifier hs-var">found</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153392"><span class="annot"><span class="annottext">s :: SuggestModel
-</span><a href="#local-6989586621679153392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-type">SuggestModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153391"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679153391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuggestModel
-</span><a href="#local-6989586621679153392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:found:SuggestModel' :: Maybe Integer
-</span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#%24sel%3Afound%3ASuggestModel%27"><span class="hs-identifier hs-var">found</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679153391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The query string specified in the suggest request.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#suggestModel_query"><span class="hs-identifier hs-type">suggestModel_query</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -203,19 +203,19 @@ $sel:found:SuggestModel' :: SuggestModel -&gt; Maybe Integer
 -&gt; (SuggestModel -&gt; Maybe Text -&gt; SuggestModel)
 -&gt; Lens SuggestModel SuggestModel (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-type">SuggestModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153389"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-type">SuggestModel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679153436"><span class="annot"><span class="annottext">Maybe Text
 query :: Maybe Text
 $sel:query:SuggestModel' :: SuggestModel -&gt; Maybe Text
-</span><a href="#local-6989586621679153389"><span class="hs-identifier hs-var hs-var">query</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153389"><span class="hs-identifier hs-var">query</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153388"><span class="annot"><span class="annottext">s :: SuggestModel
-</span><a href="#local-6989586621679153388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-type">SuggestModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153387"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuggestModel
-</span><a href="#local-6989586621679153388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:query:SuggestModel' :: Maybe Text
+</span><a href="#local-6989586621679153436"><span class="hs-identifier hs-var hs-var">query</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153436"><span class="hs-identifier hs-var">query</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679153435"><span class="annot"><span class="annottext">s :: SuggestModel
+</span><a href="#local-6989586621679153435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-type">SuggestModel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679153434"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679153434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SuggestModel
+</span><a href="#local-6989586621679153435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:query:SuggestModel' :: Maybe Text
 </span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#%24sel%3Aquery%3ASuggestModel%27"><span class="hs-identifier hs-var">query</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679153387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679153434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153384"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679153382"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SuggestModel
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153431"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679153429"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SuggestModel
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SuggestModel) -&gt; Value -&gt; Parser SuggestModel
@@ -223,18 +223,27 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SuggestModel&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679153379"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679153379"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SuggestionMatch]
--&gt; Maybe Integer -&gt; Maybe Text -&gt; SuggestModel
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679153426"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679153426"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe [SuggestionMatch] -&gt; Maybe Text -&gt; SuggestModel
 </span><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel%27"><span class="hs-identifier hs-var">SuggestModel'</span></a></span><span>
-</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SuggestionMatch]
- -&gt; Maybe Integer -&gt; Maybe Text -&gt; SuggestModel)
--&gt; Parser (Maybe [SuggestionMatch])
--&gt; Parser (Maybe Integer -&gt; Maybe Text -&gt; SuggestModel)
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe [SuggestionMatch] -&gt; Maybe Text -&gt; SuggestModel)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Maybe [SuggestionMatch] -&gt; Maybe Text -&gt; SuggestModel)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679153379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SuggestionMatch]))
+</span><a href="#local-6989586621679153426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;found&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [SuggestionMatch] -&gt; Maybe Text -&gt; SuggestModel)
+-&gt; Parser (Maybe [SuggestionMatch])
+-&gt; Parser (Maybe Text -&gt; SuggestModel)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679153426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SuggestionMatch]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;suggestions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SuggestionMatch]))
@@ -243,25 +252,17 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SuggestionMatch]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; Maybe Text -&gt; SuggestModel)
--&gt; Parser (Maybe Integer) -&gt; Parser (Maybe Text -&gt; SuggestModel)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679153379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;found&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SuggestModel)
 -&gt; Parser (Maybe Text) -&gt; Parser SuggestModel
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679153379"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679153426"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;query&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153372"><span id="local-6989586621679153374"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153419"><span id="local-6989586621679153421"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153369"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679153416"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.SuggestModel.html#SuggestModel"><span class="hs-identifier hs-type">SuggestModel</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

@@ -43,7 +43,7 @@
 </span><span id="line-43"></span><span class="hs-comment">-- support drift detection.</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- /See:/ 'newStackResourceDrift' smart constructor.</span><span>
-</span><span id="line-46"></span><span id="local-6989586621679423570"><span id="local-6989586621679423571"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackResourceDrift"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-var">StackResourceDrift</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackResourceDrift%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-var">StackResourceDrift'</span></a></span></span><span>
+</span><span id="line-46"></span><span id="local-6989586621679423979"><span id="local-6989586621679423980"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackResourceDrift"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-var">StackResourceDrift</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackResourceDrift%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-var">StackResourceDrift'</span></a></span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A JSON structure containing the actual property values of the stack</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- resource.</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -51,35 +51,35 @@
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- structure will not be present.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AactualProperties%3AStackResourceDrift%27"><span class="annot"><span class="annottext">StackResourceDrift -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AactualProperties%3AStackResourceDrift%27"><span class="hs-identifier hs-var hs-var">actualProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Context information that enables CloudFormation to uniquely identify a</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- resource. CloudFormation uses context key-value pairs in cases where a</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- resource\'s logical and physical IDs are not enough to uniquely identify</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- that resource. Each context key-value pair specifies a unique resource</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- that contains the targeted resource.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AphysicalResourceIdContext%3AStackResourceDrift%27"><span class="annot"><span class="annottext">StackResourceDrift -&gt; Maybe [PhysicalResourceIdContextKeyValuePair]
-</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AphysicalResourceIdContext%3AStackResourceDrift%27"><span class="hs-identifier hs-var hs-var">physicalResourceIdContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair.html#PhysicalResourceIdContextKeyValuePair"><span class="hs-identifier hs-type">PhysicalResourceIdContextKeyValuePair</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name or unique identifier that corresponds to a physical instance ID</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AphysicalResourceId%3AStackResourceDrift%27"><span class="annot"><span class="annottext">StackResourceDrift -&gt; Maybe Text
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The name or unique identifier that corresponds to a physical instance ID</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AphysicalResourceId%3AStackResourceDrift%27"><span class="annot"><span class="annottext">StackResourceDrift -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AphysicalResourceId%3AStackResourceDrift%27"><span class="hs-identifier hs-var hs-var">physicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A JSON structure containing the expected property values of the stack</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- resource, as defined in the stack template and any values specified as</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- template parameters.</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- For resources whose @StackResourceDriftStatus@ is @DELETED@, this</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- structure will not be present.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AexpectedProperties%3AStackResourceDrift%27"><span class="annot"><span class="annottext">StackResourceDrift -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AexpectedProperties%3AStackResourceDrift%27"><span class="hs-identifier hs-var hs-var">expectedProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Contains information about the module from which the resource was</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- created, if the resource was created from a module included in the stack</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- template.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmoduleInfo%3AStackResourceDrift%27"><span class="annot"><span class="annottext">StackResourceDrift -&gt; Maybe ModuleInfo
-</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AmoduleInfo%3AStackResourceDrift%27"><span class="hs-identifier hs-var hs-var">moduleInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A collection of the resource properties whose actual values differ from</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- their expected values. These will be present only for resources whose</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @StackResourceDriftStatus@ is @MODIFIED@.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3ApropertyDifferences%3AStackResourceDrift%27"><span class="annot"><span class="annottext">StackResourceDrift -&gt; Maybe [PropertyDifference]
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Context information that enables CloudFormation to uniquely identify a</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- resource. CloudFormation uses context key-value pairs in cases where a</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- resource\'s logical and physical IDs are not enough to uniquely identify</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- that resource. Each context key-value pair specifies a unique resource</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- that contains the targeted resource.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AphysicalResourceIdContext%3AStackResourceDrift%27"><span class="annot"><span class="annottext">StackResourceDrift -&gt; Maybe [PhysicalResourceIdContextKeyValuePair]
+</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AphysicalResourceIdContext%3AStackResourceDrift%27"><span class="hs-identifier hs-var hs-var">physicalResourceIdContext</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair.html#PhysicalResourceIdContextKeyValuePair"><span class="hs-identifier hs-type">PhysicalResourceIdContextKeyValuePair</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A collection of the resource properties whose actual values differ from</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- their expected values. These will be present only for resources whose</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @StackResourceDriftStatus@ is @MODIFIED@.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3ApropertyDifferences%3AStackResourceDrift%27"><span class="annot"><span class="annottext">StackResourceDrift -&gt; Maybe [PropertyDifference]
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3ApropertyDifferences%3AStackResourceDrift%27"><span class="hs-identifier hs-var hs-var">propertyDifferences</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.PropertyDifference.html#PropertyDifference"><span class="hs-identifier hs-type">PropertyDifference</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Contains information about the module from which the resource was</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- created, if the resource was created from a module included in the stack</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmoduleInfo%3AStackResourceDrift%27"><span class="annot"><span class="annottext">StackResourceDrift -&gt; Maybe ModuleInfo
+</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AmoduleInfo%3AStackResourceDrift%27"><span class="hs-identifier hs-var hs-var">moduleInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A JSON structure containing the expected property values of the stack</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- resource, as defined in the stack template and any values specified as</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- template parameters.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- For resources whose @StackResourceDriftStatus@ is @DELETED@, this</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- structure will not be present.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AexpectedProperties%3AStackResourceDrift%27"><span class="annot"><span class="annottext">StackResourceDrift -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AexpectedProperties%3AStackResourceDrift%27"><span class="hs-identifier hs-var hs-var">expectedProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The ID of the stack.</span><span>
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AstackId%3AStackResourceDrift%27"><span class="annot"><span class="annottext">StackResourceDrift -&gt; Text
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AstackId%3AStackResourceDrift%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -110,7 +110,7 @@
 </span><span id="line-100"></span><span>    </span><span id="%24sel%3Atimestamp%3AStackResourceDrift%27"><span class="annot"><span class="annottext">StackResourceDrift -&gt; ISO8601
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3Atimestamp%3AStackResourceDrift%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423554"><span id="local-6989586621679423556"><span class="annot"><span class="annottext">StackResourceDrift -&gt; StackResourceDrift -&gt; Bool
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423963"><span id="local-6989586621679423965"><span class="annot"><span class="annottext">StackResourceDrift -&gt; StackResourceDrift -&gt; Bool
 (StackResourceDrift -&gt; StackResourceDrift -&gt; Bool)
 -&gt; (StackResourceDrift -&gt; StackResourceDrift -&gt; Bool)
 -&gt; Eq StackResourceDrift
@@ -119,7 +119,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StackResourceDrift -&gt; StackResourceDrift -&gt; Bool
 == :: StackResourceDrift -&gt; StackResourceDrift -&gt; Bool
 $c== :: StackResourceDrift -&gt; StackResourceDrift -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423545"><span id="local-6989586621679423547"><span id="local-6989586621679423549"><span id="local-6989586621679423551"><span class="annot"><span class="annottext">ReadPrec [StackResourceDrift]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423954"><span id="local-6989586621679423956"><span id="local-6989586621679423958"><span id="local-6989586621679423960"><span class="annot"><span class="annottext">ReadPrec [StackResourceDrift]
 ReadPrec StackResourceDrift
 Int -&gt; ReadS StackResourceDrift
 ReadS [StackResourceDrift]
@@ -139,7 +139,7 @@ readList :: ReadS [StackResourceDrift]
 $creadList :: ReadS [StackResourceDrift]
 readsPrec :: Int -&gt; ReadS StackResourceDrift
 $creadsPrec :: Int -&gt; ReadS StackResourceDrift
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423538"><span id="local-6989586621679423540"><span id="local-6989586621679423542"><span class="annot"><span class="annottext">Int -&gt; StackResourceDrift -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423947"><span id="local-6989586621679423949"><span id="local-6989586621679423951"><span class="annot"><span class="annottext">Int -&gt; StackResourceDrift -&gt; ShowS
 [StackResourceDrift] -&gt; ShowS
 StackResourceDrift -&gt; String
 (Int -&gt; StackResourceDrift -&gt; ShowS)
@@ -179,29 +179,29 @@ $cfrom :: forall x. StackResourceDrift -&gt; Rep StackResourceDrift x
 </span><span id="line-115"></span><span class="hs-comment">-- For resources whose @StackResourceDriftStatus@ is @DELETED@, this</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- structure will not be present.</span><span>
 </span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- 'physicalResourceIdContext', 'stackResourceDrift_physicalResourceIdContext' - Context information that enables CloudFormation to uniquely identify a</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- resource. CloudFormation uses context key-value pairs in cases where a</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- resource\'s logical and physical IDs are not enough to uniquely identify</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- that resource. Each context key-value pair specifies a unique resource</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- that contains the targeted resource.</span><span>
-</span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- 'physicalResourceId', 'stackResourceDrift_physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'physicalResourceId', 'stackResourceDrift_physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'physicalResourceIdContext', 'stackResourceDrift_physicalResourceIdContext' - Context information that enables CloudFormation to uniquely identify a</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- resource. CloudFormation uses context key-value pairs in cases where a</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- resource\'s logical and physical IDs are not enough to uniquely identify</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- that resource. Each context key-value pair specifies a unique resource</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- that contains the targeted resource.</span><span>
 </span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- 'expectedProperties', 'stackResourceDrift_expectedProperties' - A JSON structure containing the expected property values of the stack</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- resource, as defined in the stack template and any values specified as</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- template parameters.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'propertyDifferences', 'stackResourceDrift_propertyDifferences' - A collection of the resource properties whose actual values differ from</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- their expected values. These will be present only for resources whose</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- @StackResourceDriftStatus@ is @MODIFIED@.</span><span>
 </span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- For resources whose @StackResourceDriftStatus@ is @DELETED@, this</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- structure will not be present.</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- 'moduleInfo', 'stackResourceDrift_moduleInfo' - Contains information about the module from which the resource was</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- created, if the resource was created from a module included in the stack</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- template.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- 'propertyDifferences', 'stackResourceDrift_propertyDifferences' - A collection of the resource properties whose actual values differ from</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- their expected values. These will be present only for resources whose</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- @StackResourceDriftStatus@ is @MODIFIED@.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'moduleInfo', 'stackResourceDrift_moduleInfo' - Contains information about the module from which the resource was</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- created, if the resource was created from a module included in the stack</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'expectedProperties', 'stackResourceDrift_expectedProperties' - A JSON structure containing the expected property values of the stack</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- resource, as defined in the stack template and any values specified as</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- template parameters.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- For resources whose @StackResourceDriftStatus@ is @DELETED@, this</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- structure will not be present.</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- 'stackId', 'stackResourceDrift_stackId' - The ID of the stack.</span><span>
 </span><span id="line-143"></span><span class="hs-comment">--</span><span>
@@ -245,22 +245,22 @@ $cfrom :: forall x. StackResourceDrift -&gt; Rep StackResourceDrift x
 -&gt; UTCTime
 -&gt; StackResourceDrift
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#newStackResourceDrift"><span class="hs-identifier hs-var hs-var">newStackResourceDrift</span></a></span></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679423532"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423532"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679423531"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423531"><span class="hs-identifier hs-var">pLogicalResourceId_</span></a></span></span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679423530"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423530"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679423529"><span class="annot"><span class="annottext">StackResourceDriftStatus
-</span><a href="#local-6989586621679423529"><span class="hs-identifier hs-var">pStackResourceDriftStatus_</span></a></span></span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679423528"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679423528"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679423941"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423941"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679423940"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423940"><span class="hs-identifier hs-var">pLogicalResourceId_</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679423939"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423939"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679423938"><span class="annot"><span class="annottext">StackResourceDriftStatus
+</span><a href="#local-6989586621679423938"><span class="hs-identifier hs-var">pStackResourceDriftStatus_</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679423937"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679423937"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">StackResourceDrift' :: Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [PhysicalResourceIdContextKeyValuePair]
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe ModuleInfo
 -&gt; Maybe [PropertyDifference]
+-&gt; Maybe ModuleInfo
+-&gt; Maybe Text
 -&gt; Text
 -&gt; Text
 -&gt; Text
@@ -273,39 +273,39 @@ $cfrom :: forall x. StackResourceDrift -&gt; Rep StackResourceDrift x
 </span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">$sel:physicalResourceIdContext:StackResourceDrift' :: Maybe [PhysicalResourceIdContextKeyValuePair]
-</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AphysicalResourceIdContext%3AStackResourceDrift%27"><span class="hs-identifier hs-var">physicalResourceIdContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhysicalResourceIdContextKeyValuePair]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:physicalResourceId:StackResourceDrift' :: Maybe Text
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">$sel:physicalResourceId:StackResourceDrift' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AphysicalResourceId%3AStackResourceDrift%27"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:expectedProperties:StackResourceDrift' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AexpectedProperties%3AStackResourceDrift%27"><span class="hs-identifier hs-var">expectedProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:physicalResourceIdContext:StackResourceDrift' :: Maybe [PhysicalResourceIdContextKeyValuePair]
+</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AphysicalResourceIdContext%3AStackResourceDrift%27"><span class="hs-identifier hs-var">physicalResourceIdContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhysicalResourceIdContextKeyValuePair]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:propertyDifferences:StackResourceDrift' :: Maybe [PropertyDifference]
+</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3ApropertyDifferences%3AStackResourceDrift%27"><span class="hs-identifier hs-var">propertyDifferences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PropertyDifference]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:moduleInfo:StackResourceDrift' :: Maybe ModuleInfo
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AmoduleInfo%3AStackResourceDrift%27"><span class="hs-identifier hs-var">moduleInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModuleInfo
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:propertyDifferences:StackResourceDrift' :: Maybe [PropertyDifference]
-</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3ApropertyDifferences%3AStackResourceDrift%27"><span class="hs-identifier hs-var">propertyDifferences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PropertyDifference]
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:expectedProperties:StackResourceDrift' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AexpectedProperties%3AStackResourceDrift%27"><span class="hs-identifier hs-var">expectedProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackId:StackResourceDrift' :: Text
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AstackId%3AStackResourceDrift%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423532"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679423941"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">$sel:logicalResourceId:StackResourceDrift' :: Text
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AlogicalResourceId%3AStackResourceDrift%27"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423531"><span class="hs-identifier hs-var">pLogicalResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679423940"><span class="hs-identifier hs-var">pLogicalResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:StackResourceDrift' :: Text
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AresourceType%3AStackResourceDrift%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423530"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679423939"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackResourceDriftStatus:StackResourceDrift' :: StackResourceDriftStatus
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AstackResourceDriftStatus%3AStackResourceDrift%27"><span class="hs-identifier hs-var">stackResourceDriftStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">StackResourceDriftStatus
-</span><a href="#local-6989586621679423529"><span class="hs-identifier hs-var">pStackResourceDriftStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679423938"><span class="hs-identifier hs-var">pStackResourceDriftStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">$sel:timestamp:StackResourceDrift' :: ISO8601
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3Atimestamp%3AStackResourceDrift%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
 -&gt; Tagged ISO8601 (Identity ISO8601)
@@ -315,7 +315,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679423528"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span>
+</span><a href="#local-6989586621679423937"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-198"></span><span>
 </span><span id="line-199"></span><span class="hs-comment">-- | A JSON structure containing the actual property values of the stack</span><span>
@@ -331,24 +331,45 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      StackResourceDrift StackResourceDrift (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423522"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423931"><span class="annot"><span class="annottext">Maybe Text
 actualProperties :: Maybe Text
 $sel:actualProperties:StackResourceDrift' :: StackResourceDrift -&gt; Maybe Text
-</span><a href="#local-6989586621679423522"><span class="hs-identifier hs-var hs-var">actualProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423522"><span class="hs-identifier hs-var">actualProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423521"><span class="annot"><span class="annottext">s :: StackResourceDrift
-</span><a href="#local-6989586621679423521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423520"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
-</span><a href="#local-6989586621679423521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actualProperties:StackResourceDrift' :: Maybe Text
+</span><a href="#local-6989586621679423931"><span class="hs-identifier hs-var hs-var">actualProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423931"><span class="hs-identifier hs-var">actualProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423930"><span class="annot"><span class="annottext">s :: StackResourceDrift
+</span><a href="#local-6989586621679423930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423929"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
+</span><a href="#local-6989586621679423930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actualProperties:StackResourceDrift' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AactualProperties%3AStackResourceDrift%27"><span class="hs-identifier hs-var">actualProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | Context information that enables CloudFormation to uniquely identify a</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- resource. CloudFormation uses context key-value pairs in cases where a</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- resource\'s logical and physical IDs are not enough to uniquely identify</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- that resource. Each context key-value pair specifies a unique resource</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- that contains the targeted resource.</span><span>
-</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_physicalResourceIdContext"><span class="hs-identifier hs-type">stackResourceDrift_physicalResourceIdContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair.html#PhysicalResourceIdContextKeyValuePair"><span class="hs-identifier hs-type">PhysicalResourceIdContextKeyValuePair</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span id="stackResourceDrift_physicalResourceIdContext"><span class="annot"><span class="annottext">stackResourceDrift_physicalResourceIdContext :: (Maybe [PhysicalResourceIdContextKeyValuePair]
+</span><span id="line-207"></span><span class="hs-comment">-- | The name or unique identifier that corresponds to a physical instance ID</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_physicalResourceId"><span class="hs-identifier hs-type">stackResourceDrift_physicalResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="stackResourceDrift_physicalResourceId"><span class="annot"><span class="annottext">stackResourceDrift_physicalResourceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StackResourceDrift -&gt; f StackResourceDrift
+</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_physicalResourceId"><span class="hs-identifier hs-var hs-var">stackResourceDrift_physicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDrift -&gt; Maybe Text)
+-&gt; (StackResourceDrift -&gt; Maybe Text -&gt; StackResourceDrift)
+-&gt; Lens
+     StackResourceDrift StackResourceDrift (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423927"><span class="annot"><span class="annottext">Maybe Text
+physicalResourceId :: Maybe Text
+$sel:physicalResourceId:StackResourceDrift' :: StackResourceDrift -&gt; Maybe Text
+</span><a href="#local-6989586621679423927"><span class="hs-identifier hs-var hs-var">physicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423927"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423926"><span class="annot"><span class="annottext">s :: StackResourceDrift
+</span><a href="#local-6989586621679423926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423925"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
+</span><a href="#local-6989586621679423926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:physicalResourceId:StackResourceDrift' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AphysicalResourceId%3AStackResourceDrift%27"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | Context information that enables CloudFormation to uniquely identify a</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- resource. CloudFormation uses context key-value pairs in cases where a</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- resource\'s logical and physical IDs are not enough to uniquely identify</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- that resource. Each context key-value pair specifies a unique resource</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- that contains the targeted resource.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_physicalResourceIdContext"><span class="hs-identifier hs-type">stackResourceDrift_physicalResourceIdContext</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.PhysicalResourceIdContextKeyValuePair.html#PhysicalResourceIdContextKeyValuePair"><span class="hs-identifier hs-type">PhysicalResourceIdContextKeyValuePair</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="stackResourceDrift_physicalResourceIdContext"><span class="annot"><span class="annottext">stackResourceDrift_physicalResourceIdContext :: (Maybe [PhysicalResourceIdContextKeyValuePair]
  -&gt; f (Maybe [PhysicalResourceIdContextKeyValuePair]))
 -&gt; StackResourceDrift -&gt; f StackResourceDrift
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_physicalResourceIdContext"><span class="hs-identifier hs-var hs-var">stackResourceDrift_physicalResourceIdContext</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDrift
@@ -362,16 +383,16 @@ $sel:actualProperties:StackResourceDrift' :: StackResourceDrift -&gt; Maybe Text
      (Maybe [PhysicalResourceIdContextKeyValuePair])
      (Maybe [PhysicalResourceIdContextKeyValuePair])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423518"><span class="annot"><span class="annottext">Maybe [PhysicalResourceIdContextKeyValuePair]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423923"><span class="annot"><span class="annottext">Maybe [PhysicalResourceIdContextKeyValuePair]
 physicalResourceIdContext :: Maybe [PhysicalResourceIdContextKeyValuePair]
 $sel:physicalResourceIdContext:StackResourceDrift' :: StackResourceDrift -&gt; Maybe [PhysicalResourceIdContextKeyValuePair]
-</span><a href="#local-6989586621679423518"><span class="hs-identifier hs-var hs-var">physicalResourceIdContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PhysicalResourceIdContextKeyValuePair]
-</span><a href="#local-6989586621679423518"><span class="hs-identifier hs-var">physicalResourceIdContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423517"><span class="annot"><span class="annottext">s :: StackResourceDrift
-</span><a href="#local-6989586621679423517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423516"><span class="annot"><span class="annottext">Maybe [PhysicalResourceIdContextKeyValuePair]
-</span><a href="#local-6989586621679423516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
-</span><a href="#local-6989586621679423517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:physicalResourceIdContext:StackResourceDrift' :: Maybe [PhysicalResourceIdContextKeyValuePair]
+</span><a href="#local-6989586621679423923"><span class="hs-identifier hs-var hs-var">physicalResourceIdContext</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PhysicalResourceIdContextKeyValuePair]
+</span><a href="#local-6989586621679423923"><span class="hs-identifier hs-var">physicalResourceIdContext</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423922"><span class="annot"><span class="annottext">s :: StackResourceDrift
+</span><a href="#local-6989586621679423922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423921"><span class="annot"><span class="annottext">Maybe [PhysicalResourceIdContextKeyValuePair]
+</span><a href="#local-6989586621679423921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
+</span><a href="#local-6989586621679423922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:physicalResourceIdContext:StackResourceDrift' :: Maybe [PhysicalResourceIdContextKeyValuePair]
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AphysicalResourceIdContext%3AStackResourceDrift%27"><span class="hs-identifier hs-var">physicalResourceIdContext</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhysicalResourceIdContextKeyValuePair]
-</span><a href="#local-6989586621679423516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PhysicalResourceIdContextKeyValuePair]
+</span><a href="#local-6989586621679423921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PhysicalResourceIdContextKeyValuePair]
   -&gt; f (Maybe [PhysicalResourceIdContextKeyValuePair]))
  -&gt; StackResourceDrift -&gt; f StackResourceDrift)
 -&gt; ((Maybe [PhysicalResourceIdContextKeyValuePair]
@@ -401,85 +422,14 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PhysicalResourceIdContextKeyValuePair]
   [PhysicalResourceIdContextKeyValuePair]
   [PhysicalResourceIdContextKeyValuePair]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- | The name or unique identifier that corresponds to a physical instance ID</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
-</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_physicalResourceId"><span class="hs-identifier hs-type">stackResourceDrift_physicalResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-218"></span><span id="stackResourceDrift_physicalResourceId"><span class="annot"><span class="annottext">stackResourceDrift_physicalResourceId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StackResourceDrift -&gt; f StackResourceDrift
-</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_physicalResourceId"><span class="hs-identifier hs-var hs-var">stackResourceDrift_physicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDrift -&gt; Maybe Text)
--&gt; (StackResourceDrift -&gt; Maybe Text -&gt; StackResourceDrift)
--&gt; Lens
-     StackResourceDrift StackResourceDrift (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423511"><span class="annot"><span class="annottext">Maybe Text
-physicalResourceId :: Maybe Text
-$sel:physicalResourceId:StackResourceDrift' :: StackResourceDrift -&gt; Maybe Text
-</span><a href="#local-6989586621679423511"><span class="hs-identifier hs-var hs-var">physicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423511"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423510"><span class="annot"><span class="annottext">s :: StackResourceDrift
-</span><a href="#local-6989586621679423510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423509"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
-</span><a href="#local-6989586621679423510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:physicalResourceId:StackResourceDrift' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AphysicalResourceId%3AStackResourceDrift%27"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- | A JSON structure containing the expected property values of the stack</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- resource, as defined in the stack template and any values specified as</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- template parameters.</span><span>
-</span><span id="line-223"></span><span class="hs-comment">--</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- For resources whose @StackResourceDriftStatus@ is @DELETED@, this</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- structure will not be present.</span><span>
-</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_expectedProperties"><span class="hs-identifier hs-type">stackResourceDrift_expectedProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span id="stackResourceDrift_expectedProperties"><span class="annot"><span class="annottext">stackResourceDrift_expectedProperties :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StackResourceDrift -&gt; f StackResourceDrift
-</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_expectedProperties"><span class="hs-identifier hs-var hs-var">stackResourceDrift_expectedProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDrift -&gt; Maybe Text)
--&gt; (StackResourceDrift -&gt; Maybe Text -&gt; StackResourceDrift)
--&gt; Lens
-     StackResourceDrift StackResourceDrift (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423507"><span class="annot"><span class="annottext">Maybe Text
-expectedProperties :: Maybe Text
-$sel:expectedProperties:StackResourceDrift' :: StackResourceDrift -&gt; Maybe Text
-</span><a href="#local-6989586621679423507"><span class="hs-identifier hs-var hs-var">expectedProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423507"><span class="hs-identifier hs-var">expectedProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423506"><span class="annot"><span class="annottext">s :: StackResourceDrift
-</span><a href="#local-6989586621679423506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423505"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
-</span><a href="#local-6989586621679423506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedProperties:StackResourceDrift' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AexpectedProperties%3AStackResourceDrift%27"><span class="hs-identifier hs-var">expectedProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- | Contains information about the module from which the resource was</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- created, if the resource was created from a module included in the stack</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- template.</span><span>
-</span><span id="line-232"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_moduleInfo"><span class="hs-identifier hs-type">stackResourceDrift_moduleInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-233"></span><span id="stackResourceDrift_moduleInfo"><span class="annot"><span class="annottext">stackResourceDrift_moduleInfo :: (Maybe ModuleInfo -&gt; f (Maybe ModuleInfo))
--&gt; StackResourceDrift -&gt; f StackResourceDrift
-</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_moduleInfo"><span class="hs-identifier hs-var hs-var">stackResourceDrift_moduleInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDrift -&gt; Maybe ModuleInfo)
--&gt; (StackResourceDrift -&gt; Maybe ModuleInfo -&gt; StackResourceDrift)
--&gt; Lens
-     StackResourceDrift
-     StackResourceDrift
-     (Maybe ModuleInfo)
-     (Maybe ModuleInfo)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423503"><span class="annot"><span class="annottext">Maybe ModuleInfo
-moduleInfo :: Maybe ModuleInfo
-$sel:moduleInfo:StackResourceDrift' :: StackResourceDrift -&gt; Maybe ModuleInfo
-</span><a href="#local-6989586621679423503"><span class="hs-identifier hs-var hs-var">moduleInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModuleInfo
-</span><a href="#local-6989586621679423503"><span class="hs-identifier hs-var">moduleInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423502"><span class="annot"><span class="annottext">s :: StackResourceDrift
-</span><a href="#local-6989586621679423502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423501"><span class="annot"><span class="annottext">Maybe ModuleInfo
-</span><a href="#local-6989586621679423501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
-</span><a href="#local-6989586621679423502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:moduleInfo:StackResourceDrift' :: Maybe ModuleInfo
-</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AmoduleInfo%3AStackResourceDrift%27"><span class="hs-identifier hs-var">moduleInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModuleInfo
-</span><a href="#local-6989586621679423501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- | A collection of the resource properties whose actual values differ from</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- their expected values. These will be present only for resources whose</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- @StackResourceDriftStatus@ is @MODIFIED@.</span><span>
-</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_propertyDifferences"><span class="hs-identifier hs-type">stackResourceDrift_propertyDifferences</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.PropertyDifference.html#PropertyDifference"><span class="hs-identifier hs-type">PropertyDifference</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-239"></span><span id="stackResourceDrift_propertyDifferences"><span class="annot"><span class="annottext">stackResourceDrift_propertyDifferences :: (Maybe [PropertyDifference] -&gt; f (Maybe [PropertyDifference]))
+</span><span id="line-220"></span><span class="hs-comment">-- | A collection of the resource properties whose actual values differ from</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- their expected values. These will be present only for resources whose</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- @StackResourceDriftStatus@ is @MODIFIED@.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_propertyDifferences"><span class="hs-identifier hs-type">stackResourceDrift_propertyDifferences</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.PropertyDifference.html#PropertyDifference"><span class="hs-identifier hs-type">PropertyDifference</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="stackResourceDrift_propertyDifferences"><span class="annot"><span class="annottext">stackResourceDrift_propertyDifferences :: (Maybe [PropertyDifference] -&gt; f (Maybe [PropertyDifference]))
 -&gt; StackResourceDrift -&gt; f StackResourceDrift
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_propertyDifferences"><span class="hs-identifier hs-var hs-var">stackResourceDrift_propertyDifferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDrift -&gt; Maybe [PropertyDifference])
 -&gt; (StackResourceDrift
@@ -490,16 +440,16 @@ $sel:moduleInfo:StackResourceDrift' :: StackResourceDrift -&gt; Maybe ModuleInfo
      (Maybe [PropertyDifference])
      (Maybe [PropertyDifference])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423499"><span class="annot"><span class="annottext">Maybe [PropertyDifference]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423916"><span class="annot"><span class="annottext">Maybe [PropertyDifference]
 propertyDifferences :: Maybe [PropertyDifference]
 $sel:propertyDifferences:StackResourceDrift' :: StackResourceDrift -&gt; Maybe [PropertyDifference]
-</span><a href="#local-6989586621679423499"><span class="hs-identifier hs-var hs-var">propertyDifferences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PropertyDifference]
-</span><a href="#local-6989586621679423499"><span class="hs-identifier hs-var">propertyDifferences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423498"><span class="annot"><span class="annottext">s :: StackResourceDrift
-</span><a href="#local-6989586621679423498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423497"><span class="annot"><span class="annottext">Maybe [PropertyDifference]
-</span><a href="#local-6989586621679423497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
-</span><a href="#local-6989586621679423498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyDifferences:StackResourceDrift' :: Maybe [PropertyDifference]
+</span><a href="#local-6989586621679423916"><span class="hs-identifier hs-var hs-var">propertyDifferences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PropertyDifference]
+</span><a href="#local-6989586621679423916"><span class="hs-identifier hs-var">propertyDifferences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423915"><span class="annot"><span class="annottext">s :: StackResourceDrift
+</span><a href="#local-6989586621679423915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423914"><span class="annot"><span class="annottext">Maybe [PropertyDifference]
+</span><a href="#local-6989586621679423914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
+</span><a href="#local-6989586621679423915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:propertyDifferences:StackResourceDrift' :: Maybe [PropertyDifference]
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3ApropertyDifferences%3AStackResourceDrift%27"><span class="hs-identifier hs-var">propertyDifferences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PropertyDifference]
-</span><a href="#local-6989586621679423497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PropertyDifference] -&gt; f (Maybe [PropertyDifference]))
+</span><a href="#local-6989586621679423914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PropertyDifference] -&gt; f (Maybe [PropertyDifference]))
  -&gt; StackResourceDrift -&gt; f StackResourceDrift)
 -&gt; ((Maybe [PropertyDifference] -&gt; f (Maybe [PropertyDifference]))
     -&gt; Maybe [PropertyDifference] -&gt; f (Maybe [PropertyDifference]))
@@ -525,8 +475,58 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PropertyDifference]
   [PropertyDifference]
   [PropertyDifference]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | Contains information about the module from which the resource was</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- created, if the resource was created from a module included in the stack</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_moduleInfo"><span class="hs-identifier hs-type">stackResourceDrift_moduleInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="stackResourceDrift_moduleInfo"><span class="annot"><span class="annottext">stackResourceDrift_moduleInfo :: (Maybe ModuleInfo -&gt; f (Maybe ModuleInfo))
+-&gt; StackResourceDrift -&gt; f StackResourceDrift
+</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_moduleInfo"><span class="hs-identifier hs-var hs-var">stackResourceDrift_moduleInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDrift -&gt; Maybe ModuleInfo)
+-&gt; (StackResourceDrift -&gt; Maybe ModuleInfo -&gt; StackResourceDrift)
+-&gt; Lens
+     StackResourceDrift
+     StackResourceDrift
+     (Maybe ModuleInfo)
+     (Maybe ModuleInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423912"><span class="annot"><span class="annottext">Maybe ModuleInfo
+moduleInfo :: Maybe ModuleInfo
+$sel:moduleInfo:StackResourceDrift' :: StackResourceDrift -&gt; Maybe ModuleInfo
+</span><a href="#local-6989586621679423912"><span class="hs-identifier hs-var hs-var">moduleInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModuleInfo
+</span><a href="#local-6989586621679423912"><span class="hs-identifier hs-var">moduleInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423911"><span class="annot"><span class="annottext">s :: StackResourceDrift
+</span><a href="#local-6989586621679423911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423910"><span class="annot"><span class="annottext">Maybe ModuleInfo
+</span><a href="#local-6989586621679423910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
+</span><a href="#local-6989586621679423911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:moduleInfo:StackResourceDrift' :: Maybe ModuleInfo
+</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AmoduleInfo%3AStackResourceDrift%27"><span class="hs-identifier hs-var">moduleInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModuleInfo
+</span><a href="#local-6989586621679423910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | A JSON structure containing the expected property values of the stack</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- resource, as defined in the stack template and any values specified as</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- template parameters.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- For resources whose @StackResourceDriftStatus@ is @DELETED@, this</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- structure will not be present.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_expectedProperties"><span class="hs-identifier hs-type">stackResourceDrift_expectedProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="stackResourceDrift_expectedProperties"><span class="annot"><span class="annottext">stackResourceDrift_expectedProperties :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StackResourceDrift -&gt; f StackResourceDrift
+</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_expectedProperties"><span class="hs-identifier hs-var hs-var">stackResourceDrift_expectedProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDrift -&gt; Maybe Text)
+-&gt; (StackResourceDrift -&gt; Maybe Text -&gt; StackResourceDrift)
+-&gt; Lens
+     StackResourceDrift StackResourceDrift (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423908"><span class="annot"><span class="annottext">Maybe Text
+expectedProperties :: Maybe Text
+$sel:expectedProperties:StackResourceDrift' :: StackResourceDrift -&gt; Maybe Text
+</span><a href="#local-6989586621679423908"><span class="hs-identifier hs-var hs-var">expectedProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423908"><span class="hs-identifier hs-var">expectedProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423907"><span class="annot"><span class="annottext">s :: StackResourceDrift
+</span><a href="#local-6989586621679423907"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423906"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423906"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
+</span><a href="#local-6989586621679423907"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedProperties:StackResourceDrift' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AexpectedProperties%3AStackResourceDrift%27"><span class="hs-identifier hs-var">expectedProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423906"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-240"></span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- | The ID of the stack.</span><span>
 </span><span id="line-242"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_stackId"><span class="hs-identifier hs-type">stackResourceDrift_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -535,16 +535,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (StackResourceDrift -&gt; Text -&gt; StackResourceDrift)
 -&gt; Lens StackResourceDrift StackResourceDrift Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423495"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423904"><span class="annot"><span class="annottext">Text
 stackId :: Text
 $sel:stackId:StackResourceDrift' :: StackResourceDrift -&gt; Text
-</span><a href="#local-6989586621679423495"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423495"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423494"><span class="annot"><span class="annottext">s :: StackResourceDrift
-</span><a href="#local-6989586621679423494"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423493"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423493"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
-</span><a href="#local-6989586621679423494"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:StackResourceDrift' :: Text
+</span><a href="#local-6989586621679423904"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423904"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423903"><span class="annot"><span class="annottext">s :: StackResourceDrift
+</span><a href="#local-6989586621679423903"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423902"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423902"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
+</span><a href="#local-6989586621679423903"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:StackResourceDrift' :: Text
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AstackId%3AStackResourceDrift%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423493"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423902"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | The logical name of the resource specified in the template.</span><span>
 </span><span id="line-246"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_logicalResourceId"><span class="hs-identifier hs-type">stackResourceDrift_logicalResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -553,16 +553,16 @@ $sel:stackId:StackResourceDrift' :: StackResourceDrift -&gt; Text
 -&gt; (StackResourceDrift -&gt; Text -&gt; StackResourceDrift)
 -&gt; Lens StackResourceDrift StackResourceDrift Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423491"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423900"><span class="annot"><span class="annottext">Text
 logicalResourceId :: Text
 $sel:logicalResourceId:StackResourceDrift' :: StackResourceDrift -&gt; Text
-</span><a href="#local-6989586621679423491"><span class="hs-identifier hs-var hs-var">logicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423491"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423490"><span class="annot"><span class="annottext">s :: StackResourceDrift
-</span><a href="#local-6989586621679423490"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423489"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423489"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
-</span><a href="#local-6989586621679423490"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logicalResourceId:StackResourceDrift' :: Text
+</span><a href="#local-6989586621679423900"><span class="hs-identifier hs-var hs-var">logicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423900"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423899"><span class="annot"><span class="annottext">s :: StackResourceDrift
+</span><a href="#local-6989586621679423899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423898"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
+</span><a href="#local-6989586621679423899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logicalResourceId:StackResourceDrift' :: Text
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AlogicalResourceId%3AStackResourceDrift%27"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423489"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-comment">-- | The type of the resource.</span><span>
 </span><span id="line-250"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#stackResourceDrift_resourceType"><span class="hs-identifier hs-type">stackResourceDrift_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -571,16 +571,16 @@ $sel:logicalResourceId:StackResourceDrift' :: StackResourceDrift -&gt; Text
 -&gt; (StackResourceDrift -&gt; Text -&gt; StackResourceDrift)
 -&gt; Lens StackResourceDrift StackResourceDrift Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423487"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423896"><span class="annot"><span class="annottext">Text
 resourceType :: Text
 $sel:resourceType:StackResourceDrift' :: StackResourceDrift -&gt; Text
-</span><a href="#local-6989586621679423487"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423487"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423486"><span class="annot"><span class="annottext">s :: StackResourceDrift
-</span><a href="#local-6989586621679423486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423485"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
-</span><a href="#local-6989586621679423486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:StackResourceDrift' :: Text
+</span><a href="#local-6989586621679423896"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423896"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423895"><span class="annot"><span class="annottext">s :: StackResourceDrift
+</span><a href="#local-6989586621679423895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423894"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
+</span><a href="#local-6989586621679423895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:StackResourceDrift' :: Text
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AresourceType%3AStackResourceDrift%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679423485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | Status of the resource\'s actual configuration compared to its expected</span><span>
 </span><span id="line-254"></span><span class="hs-comment">-- configuration</span><span>
@@ -608,16 +608,16 @@ $sel:resourceType:StackResourceDrift' :: StackResourceDrift -&gt; Text
      StackResourceDriftStatus
      StackResourceDriftStatus
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423483"><span class="annot"><span class="annottext">StackResourceDriftStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423892"><span class="annot"><span class="annottext">StackResourceDriftStatus
 stackResourceDriftStatus :: StackResourceDriftStatus
 $sel:stackResourceDriftStatus:StackResourceDrift' :: StackResourceDrift -&gt; StackResourceDriftStatus
-</span><a href="#local-6989586621679423483"><span class="hs-identifier hs-var hs-var">stackResourceDriftStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDriftStatus
-</span><a href="#local-6989586621679423483"><span class="hs-identifier hs-var">stackResourceDriftStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423482"><span class="annot"><span class="annottext">s :: StackResourceDrift
-</span><a href="#local-6989586621679423482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423481"><span class="annot"><span class="annottext">StackResourceDriftStatus
-</span><a href="#local-6989586621679423481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
-</span><a href="#local-6989586621679423482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackResourceDriftStatus:StackResourceDrift' :: StackResourceDriftStatus
+</span><a href="#local-6989586621679423892"><span class="hs-identifier hs-var hs-var">stackResourceDriftStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDriftStatus
+</span><a href="#local-6989586621679423892"><span class="hs-identifier hs-var">stackResourceDriftStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423891"><span class="annot"><span class="annottext">s :: StackResourceDrift
+</span><a href="#local-6989586621679423891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423890"><span class="annot"><span class="annottext">StackResourceDriftStatus
+</span><a href="#local-6989586621679423890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
+</span><a href="#local-6989586621679423891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackResourceDriftStatus:StackResourceDrift' :: StackResourceDriftStatus
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3AstackResourceDriftStatus%3AStackResourceDrift%27"><span class="hs-identifier hs-var">stackResourceDriftStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StackResourceDriftStatus
-</span><a href="#local-6989586621679423481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679423890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | Time at which CloudFormation performed drift detection on the stack</span><span>
 </span><span id="line-271"></span><span class="hs-comment">-- resource.</span><span>
@@ -628,16 +628,16 @@ $sel:stackResourceDriftStatus:StackResourceDrift' :: StackResourceDrift -&gt; St
 -&gt; (StackResourceDrift -&gt; ISO8601 -&gt; StackResourceDrift)
 -&gt; Lens StackResourceDrift StackResourceDrift ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423479"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423888"><span class="annot"><span class="annottext">ISO8601
 timestamp :: ISO8601
 $sel:timestamp:StackResourceDrift' :: StackResourceDrift -&gt; ISO8601
-</span><a href="#local-6989586621679423479"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679423479"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423478"><span class="annot"><span class="annottext">s :: StackResourceDrift
-</span><a href="#local-6989586621679423478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423477"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679423477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
-</span><a href="#local-6989586621679423478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:StackResourceDrift' :: ISO8601
+</span><a href="#local-6989586621679423888"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679423888"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423887"><span class="annot"><span class="annottext">s :: StackResourceDrift
+</span><a href="#local-6989586621679423887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-type">StackResourceDrift'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423886"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679423886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDrift
+</span><a href="#local-6989586621679423887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:StackResourceDrift' :: ISO8601
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#%24sel%3Atimestamp%3AStackResourceDrift%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679423477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601)
+</span><a href="#local-6989586621679423886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601)
  -&gt; StackResourceDrift -&gt; f StackResourceDrift)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
@@ -649,15 +649,15 @@ forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-274"></span><span>
 </span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-276"></span><span>  </span><span id="local-6989586621679423474"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StackResourceDrift
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679423472"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-276"></span><span>  </span><span id="local-6989586621679423883"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StackResourceDrift
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679423881"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-277"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [PhysicalResourceIdContextKeyValuePair]
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe ModuleInfo
 -&gt; Maybe [PropertyDifference]
+-&gt; Maybe ModuleInfo
+-&gt; Maybe Text
 -&gt; Text
 -&gt; Text
 -&gt; Text
@@ -666,11 +666,11 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; StackResourceDrift
 </span><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift%27"><span class="hs-identifier hs-var">StackResourceDrift'</span></a></span><span>
 </span><span id="line-278"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe [PhysicalResourceIdContextKeyValuePair]
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe ModuleInfo
  -&gt; Maybe [PropertyDifference]
+ -&gt; Maybe ModuleInfo
+ -&gt; Maybe Text
  -&gt; Text
  -&gt; Text
  -&gt; Text
@@ -680,11 +680,11 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe [PhysicalResourceIdContextKeyValuePair]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe ModuleInfo
+     (Maybe Text
+      -&gt; Maybe [PhysicalResourceIdContextKeyValuePair]
       -&gt; Maybe [PropertyDifference]
+      -&gt; Maybe ModuleInfo
+      -&gt; Maybe Text
       -&gt; Text
       -&gt; Text
       -&gt; Text
@@ -693,17 +693,48 @@ forall (a :: Format). Iso' (Time a) UTCTime
       -&gt; StackResourceDrift)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActualProperties&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [PhysicalResourceIdContextKeyValuePair]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ModuleInfo
+  (Maybe Text
+   -&gt; Maybe [PhysicalResourceIdContextKeyValuePair]
    -&gt; Maybe [PropertyDifference]
+   -&gt; Maybe ModuleInfo
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; StackResourceDriftStatus
+   -&gt; ISO8601
+   -&gt; StackResourceDrift)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [PhysicalResourceIdContextKeyValuePair]
+      -&gt; Maybe [PropertyDifference]
+      -&gt; Maybe ModuleInfo
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; StackResourceDriftStatus
+      -&gt; ISO8601
+      -&gt; StackResourceDrift)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PhysicalResourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [PhysicalResourceIdContextKeyValuePair]
+   -&gt; Maybe [PropertyDifference]
+   -&gt; Maybe ModuleInfo
+   -&gt; Maybe Text
    -&gt; Text
    -&gt; Text
    -&gt; Text
@@ -713,10 +744,9 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [PhysicalResourceIdContextKeyValuePair])
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe Text
+     (Maybe [PropertyDifference]
       -&gt; Maybe ModuleInfo
-      -&gt; Maybe [PropertyDifference]
+      -&gt; Maybe Text
       -&gt; Text
       -&gt; Text
       -&gt; Text
@@ -725,16 +755,16 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; StackResourceDrift)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PhysicalResourceIdContext&quot;</span></span><span>
-</span><span id="line-280"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-281"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-281"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-282"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node]
     -&gt; Either String (Maybe [PhysicalResourceIdContextKeyValuePair]))
 -&gt; Either String (Maybe [PhysicalResourceIdContextKeyValuePair])
@@ -750,94 +780,12 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-282"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-283"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe ModuleInfo
-   -&gt; Maybe [PropertyDifference]
-   -&gt; Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; StackResourceDriftStatus
-   -&gt; ISO8601
-   -&gt; StackResourceDrift)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe ModuleInfo
-      -&gt; Maybe [PropertyDifference]
-      -&gt; Text
-      -&gt; Text
-      -&gt; Text
-      -&gt; StackResourceDriftStatus
-      -&gt; ISO8601
-      -&gt; StackResourceDrift)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PhysicalResourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe ModuleInfo
-   -&gt; Maybe [PropertyDifference]
-   -&gt; Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; StackResourceDriftStatus
-   -&gt; ISO8601
-   -&gt; StackResourceDrift)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe ModuleInfo
-      -&gt; Maybe [PropertyDifference]
-      -&gt; Text
-      -&gt; Text
-      -&gt; Text
-      -&gt; StackResourceDriftStatus
-      -&gt; ISO8601
-      -&gt; StackResourceDrift)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ExpectedProperties&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ModuleInfo
-   -&gt; Maybe [PropertyDifference]
-   -&gt; Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; StackResourceDriftStatus
-   -&gt; ISO8601
-   -&gt; StackResourceDrift)
--&gt; Either String (Maybe ModuleInfo)
--&gt; Either
-     String
-     (Maybe [PropertyDifference]
-      -&gt; Text
-      -&gt; Text
-      -&gt; Text
-      -&gt; StackResourceDriftStatus
-      -&gt; ISO8601
-      -&gt; StackResourceDrift)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ModuleInfo)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ModuleInfo&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
   (Maybe [PropertyDifference]
+   -&gt; Maybe ModuleInfo
+   -&gt; Maybe Text
    -&gt; Text
    -&gt; Text
    -&gt; Text
@@ -847,7 +795,9 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [PropertyDifference])
 -&gt; Either
      String
-     (Text
+     (Maybe ModuleInfo
+      -&gt; Maybe Text
+      -&gt; Text
       -&gt; Text
       -&gt; Text
       -&gt; StackResourceDriftStatus
@@ -855,16 +805,16 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
       -&gt; StackResourceDrift)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PropertyDifferences&quot;</span></span><span>
-</span><span id="line-287"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-285"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-288"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-286"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [PropertyDifference]))
 -&gt; Either String (Maybe [PropertyDifference])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -877,7 +827,57 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-289"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ModuleInfo
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; StackResourceDriftStatus
+   -&gt; ISO8601
+   -&gt; StackResourceDrift)
+-&gt; Either String (Maybe ModuleInfo)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; StackResourceDriftStatus
+      -&gt; ISO8601
+      -&gt; StackResourceDrift)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ModuleInfo)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModuleInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; StackResourceDriftStatus
+   -&gt; ISO8601
+   -&gt; StackResourceDrift)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; StackResourceDriftStatus
+      -&gt; ISO8601
+      -&gt; StackResourceDrift)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExpectedProperties&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-290"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Text
@@ -896,7 +896,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
       -&gt; StackResourceDrift)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackId&quot;</span></span><span class="hs-special">)</span><span>
@@ -913,7 +913,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
      (Text -&gt; StackResourceDriftStatus -&gt; ISO8601 -&gt; StackResourceDrift)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LogicalResourceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -925,7 +925,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
      String (StackResourceDriftStatus -&gt; ISO8601 -&gt; StackResourceDrift)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -935,7 +935,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (ISO8601 -&gt; StackResourceDrift)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StackResourceDriftStatus
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StackResourceDriftStatus
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackResourceDriftStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -943,12 +943,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String ISO8601 -&gt; Either String StackResourceDrift
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679423472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+</span><a href="#local-6989586621679423881"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Timestamp&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-295"></span><span>
-</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423462"><span id="local-6989586621679423464"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span></span></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423871"><span id="local-6989586621679423873"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span></span></span><span>
 </span><span id="line-297"></span><span>
-</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423459"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423868"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackResourceDrift.html#StackResourceDrift"><span class="hs-identifier hs-type">StackResourceDrift</span></a></span></span><span>
 </span><span id="line-299"></span></pre></body></html>

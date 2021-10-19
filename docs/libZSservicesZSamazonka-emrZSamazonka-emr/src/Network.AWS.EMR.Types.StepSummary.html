@@ -29,26 +29,26 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | The summary of the cluster step.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newStepSummary' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679377569"><span id="local-6989586621679377570"></span></span><span class="hs-keyword">data</span><span> </span><span id="StepSummary"><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-var">StepSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepSummary%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-var">StepSummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679377925"><span id="local-6989586621679377926"></span></span><span class="hs-keyword">data</span><span> </span><span id="StepSummary"><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-var">StepSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepSummary%27"><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-var">StepSummary'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current execution status details of the cluster step.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AStepSummary%27"><span class="annot"><span class="annottext">StepSummary -&gt; Maybe StepStatus
 </span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Astatus%3AStepSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepStatus.html#StepStatus"><span class="hs-identifier hs-type">StepStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The identifier of the cluster step.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aid%3AStepSummary%27"><span class="annot"><span class="annottext">StepSummary -&gt; Maybe Text
-</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Aid%3AStepSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Hadoop job configuration of the cluster step.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aconfig%3AStepSummary%27"><span class="annot"><span class="annottext">StepSummary -&gt; Maybe HadoopStepConfig
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The action to take when the cluster step fails. Possible values are</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- available for backward compatibility.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AactionOnFailure%3AStepSummary%27"><span class="annot"><span class="annottext">StepSummary -&gt; Maybe ActionOnFailure
+</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3AactionOnFailure%3AStepSummary%27"><span class="hs-identifier hs-var hs-var">actionOnFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ActionOnFailure.html#ActionOnFailure"><span class="hs-identifier hs-type">ActionOnFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Hadoop job configuration of the cluster step.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aconfig%3AStepSummary%27"><span class="annot"><span class="annottext">StepSummary -&gt; Maybe HadoopStepConfig
 </span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Aconfig%3AStepSummary%27"><span class="hs-identifier hs-var hs-var">config</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name of the cluster step.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aname%3AStepSummary%27"><span class="annot"><span class="annottext">StepSummary -&gt; Maybe Text
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The name of the cluster step.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aname%3AStepSummary%27"><span class="annot"><span class="annottext">StepSummary -&gt; Maybe Text
 </span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Aname%3AStepSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The action to take when the cluster step fails. Possible values are</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- available for backward compatibility.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AactionOnFailure%3AStepSummary%27"><span class="annot"><span class="annottext">StepSummary -&gt; Maybe ActionOnFailure
-</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3AactionOnFailure%3AStepSummary%27"><span class="hs-identifier hs-var hs-var">actionOnFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ActionOnFailure.html#ActionOnFailure"><span class="hs-identifier hs-type">ActionOnFailure</span></a></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The identifier of the cluster step.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aid%3AStepSummary%27"><span class="annot"><span class="annottext">StepSummary -&gt; Maybe Text
+</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Aid%3AStepSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377559"><span id="local-6989586621679377561"><span class="annot"><span class="annottext">StepSummary -&gt; StepSummary -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377915"><span id="local-6989586621679377917"><span class="annot"><span class="annottext">StepSummary -&gt; StepSummary -&gt; Bool
 (StepSummary -&gt; StepSummary -&gt; Bool)
 -&gt; (StepSummary -&gt; StepSummary -&gt; Bool) -&gt; Eq StepSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -56,7 +56,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StepSummary -&gt; StepSummary -&gt; Bool
 == :: StepSummary -&gt; StepSummary -&gt; Bool
 $c== :: StepSummary -&gt; StepSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377550"><span id="local-6989586621679377552"><span id="local-6989586621679377554"><span id="local-6989586621679377556"><span class="annot"><span class="annottext">ReadPrec [StepSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377906"><span id="local-6989586621679377908"><span id="local-6989586621679377910"><span id="local-6989586621679377912"><span class="annot"><span class="annottext">ReadPrec [StepSummary]
 ReadPrec StepSummary
 Int -&gt; ReadS StepSummary
 ReadS [StepSummary]
@@ -76,7 +76,7 @@ readList :: ReadS [StepSummary]
 $creadList :: ReadS [StepSummary]
 readsPrec :: Int -&gt; ReadS StepSummary
 $creadsPrec :: Int -&gt; ReadS StepSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377543"><span id="local-6989586621679377545"><span id="local-6989586621679377547"><span class="annot"><span class="annottext">Int -&gt; StepSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377899"><span id="local-6989586621679377901"><span id="local-6989586621679377903"><span class="annot"><span class="annottext">Int -&gt; StepSummary -&gt; ShowS
 [StepSummary] -&gt; ShowS
 StepSummary -&gt; String
 (Int -&gt; StepSummary -&gt; ShowS)
@@ -112,32 +112,32 @@ $cfrom :: forall x. StepSummary -&gt; Rep StepSummary x
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- 'status', 'stepSummary_status' - The current execution status details of the cluster step.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'id', 'stepSummary_id' - The identifier of the cluster step.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'config', 'stepSummary_config' - The Hadoop job configuration of the cluster step.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'actionOnFailure', 'stepSummary_actionOnFailure' - The action to take when the cluster step fails. Possible values are</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- available for backward compatibility.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'name', 'stepSummary_name' - The name of the cluster step.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'config', 'stepSummary_config' - The Hadoop job configuration of the cluster step.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'actionOnFailure', 'stepSummary_actionOnFailure' - The action to take when the cluster step fails. Possible values are</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- available for backward compatibility.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'name', 'stepSummary_name' - The name of the cluster step.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'id', 'stepSummary_id' - The identifier of the cluster step.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#newStepSummary"><span class="hs-identifier hs-type">newStepSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span>
 </span><span id="line-69"></span><span id="newStepSummary"><span class="annot"><span class="annottext">newStepSummary :: StepSummary
 </span><a href="Network.AWS.EMR.Types.StepSummary.html#newStepSummary"><span class="hs-identifier hs-var hs-var">newStepSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">StepSummary' :: Maybe StepStatus
--&gt; Maybe Text
+-&gt; Maybe ActionOnFailure
 -&gt; Maybe HadoopStepConfig
 -&gt; Maybe Text
--&gt; Maybe ActionOnFailure
+-&gt; Maybe Text
 -&gt; StepSummary
 </span><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:StepSummary' :: Maybe StepStatus
 </span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Astatus%3AStepSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StepStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:StepSummary' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Aid%3AStepSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionOnFailure:StepSummary' :: Maybe ActionOnFailure
+</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3AactionOnFailure%3AStepSummary%27"><span class="hs-identifier hs-var">actionOnFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionOnFailure
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:config:StepSummary' :: Maybe HadoopStepConfig
@@ -148,8 +148,8 @@ forall a. Maybe a
 </span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Aname%3AStepSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:actionOnFailure:StepSummary' :: Maybe ActionOnFailure
-</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3AactionOnFailure%3AStepSummary%27"><span class="hs-identifier hs-var">actionOnFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionOnFailure
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:StepSummary' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Aid%3AStepSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
@@ -163,81 +163,22 @@ forall a. Maybe a
 -&gt; Lens
      StepSummary StepSummary (Maybe StepStatus) (Maybe StepStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377534"><span class="annot"><span class="annottext">Maybe StepStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377890"><span class="annot"><span class="annottext">Maybe StepStatus
 status :: Maybe StepStatus
 $sel:status:StepSummary' :: StepSummary -&gt; Maybe StepStatus
-</span><a href="#local-6989586621679377534"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StepStatus
-</span><a href="#local-6989586621679377534"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377533"><span class="annot"><span class="annottext">s :: StepSummary
-</span><a href="#local-6989586621679377533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377532"><span class="annot"><span class="annottext">Maybe StepStatus
-</span><a href="#local-6989586621679377532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepSummary
-</span><a href="#local-6989586621679377533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StepSummary' :: Maybe StepStatus
+</span><a href="#local-6989586621679377890"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StepStatus
+</span><a href="#local-6989586621679377890"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377889"><span class="annot"><span class="annottext">s :: StepSummary
+</span><a href="#local-6989586621679377889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377888"><span class="annot"><span class="annottext">Maybe StepStatus
+</span><a href="#local-6989586621679377888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepSummary
+</span><a href="#local-6989586621679377889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StepSummary' :: Maybe StepStatus
 </span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Astatus%3AStepSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StepStatus
-</span><a href="#local-6989586621679377532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The identifier of the cluster step.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_id"><span class="hs-identifier hs-type">stepSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="stepSummary_id"><span class="annot"><span class="annottext">stepSummary_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StepSummary -&gt; f StepSummary
-</span><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_id"><span class="hs-identifier hs-var hs-var">stepSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepSummary -&gt; Maybe Text)
--&gt; (StepSummary -&gt; Maybe Text -&gt; StepSummary)
--&gt; Lens StepSummary StepSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377530"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:StepSummary' :: StepSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679377530"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377530"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377529"><span class="annot"><span class="annottext">s :: StepSummary
-</span><a href="#local-6989586621679377529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377528"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepSummary
-</span><a href="#local-6989586621679377529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:StepSummary' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Aid%3AStepSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The Hadoop job configuration of the cluster step.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_config"><span class="hs-identifier hs-type">stepSummary_config</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="stepSummary_config"><span class="annot"><span class="annottext">stepSummary_config :: (Maybe HadoopStepConfig -&gt; f (Maybe HadoopStepConfig))
--&gt; StepSummary -&gt; f StepSummary
-</span><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_config"><span class="hs-identifier hs-var hs-var">stepSummary_config</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepSummary -&gt; Maybe HadoopStepConfig)
--&gt; (StepSummary -&gt; Maybe HadoopStepConfig -&gt; StepSummary)
--&gt; Lens
-     StepSummary
-     StepSummary
-     (Maybe HadoopStepConfig)
-     (Maybe HadoopStepConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377526"><span class="annot"><span class="annottext">Maybe HadoopStepConfig
-config :: Maybe HadoopStepConfig
-$sel:config:StepSummary' :: StepSummary -&gt; Maybe HadoopStepConfig
-</span><a href="#local-6989586621679377526"><span class="hs-identifier hs-var hs-var">config</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HadoopStepConfig
-</span><a href="#local-6989586621679377526"><span class="hs-identifier hs-var">config</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377525"><span class="annot"><span class="annottext">s :: StepSummary
-</span><a href="#local-6989586621679377525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377524"><span class="annot"><span class="annottext">Maybe HadoopStepConfig
-</span><a href="#local-6989586621679377524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepSummary
-</span><a href="#local-6989586621679377525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:config:StepSummary' :: Maybe HadoopStepConfig
-</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Aconfig%3AStepSummary%27"><span class="hs-identifier hs-var">config</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HadoopStepConfig
-</span><a href="#local-6989586621679377524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The name of the cluster step.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_name"><span class="hs-identifier hs-type">stepSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="stepSummary_name"><span class="annot"><span class="annottext">stepSummary_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StepSummary -&gt; f StepSummary
-</span><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_name"><span class="hs-identifier hs-var hs-var">stepSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepSummary -&gt; Maybe Text)
--&gt; (StepSummary -&gt; Maybe Text -&gt; StepSummary)
--&gt; Lens StepSummary StepSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377522"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:StepSummary' :: StepSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679377522"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377522"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377521"><span class="annot"><span class="annottext">s :: StepSummary
-</span><a href="#local-6989586621679377521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377520"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepSummary
-</span><a href="#local-6989586621679377521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StepSummary' :: Maybe Text
-</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Aname%3AStepSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679377520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The action to take when the cluster step fails. Possible values are</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- available for backward compatibility.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_actionOnFailure"><span class="hs-identifier hs-type">stepSummary_actionOnFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ActionOnFailure.html#ActionOnFailure"><span class="hs-identifier hs-type">ActionOnFailure</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="stepSummary_actionOnFailure"><span class="annot"><span class="annottext">stepSummary_actionOnFailure :: (Maybe ActionOnFailure -&gt; f (Maybe ActionOnFailure))
+</span><span id="line-82"></span><span class="hs-comment">-- | The action to take when the cluster step fails. Possible values are</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- available for backward compatibility.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_actionOnFailure"><span class="hs-identifier hs-type">stepSummary_actionOnFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.ActionOnFailure.html#ActionOnFailure"><span class="hs-identifier hs-type">ActionOnFailure</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="stepSummary_actionOnFailure"><span class="annot"><span class="annottext">stepSummary_actionOnFailure :: (Maybe ActionOnFailure -&gt; f (Maybe ActionOnFailure))
 -&gt; StepSummary -&gt; f StepSummary
 </span><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_actionOnFailure"><span class="hs-identifier hs-var hs-var">stepSummary_actionOnFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepSummary -&gt; Maybe ActionOnFailure)
 -&gt; (StepSummary -&gt; Maybe ActionOnFailure -&gt; StepSummary)
@@ -247,19 +188,78 @@ $sel:name:StepSummary' :: StepSummary -&gt; Maybe Text
      (Maybe ActionOnFailure)
      (Maybe ActionOnFailure)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377518"><span class="annot"><span class="annottext">Maybe ActionOnFailure
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377886"><span class="annot"><span class="annottext">Maybe ActionOnFailure
 actionOnFailure :: Maybe ActionOnFailure
 $sel:actionOnFailure:StepSummary' :: StepSummary -&gt; Maybe ActionOnFailure
-</span><a href="#local-6989586621679377518"><span class="hs-identifier hs-var hs-var">actionOnFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionOnFailure
-</span><a href="#local-6989586621679377518"><span class="hs-identifier hs-var">actionOnFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377517"><span class="annot"><span class="annottext">s :: StepSummary
-</span><a href="#local-6989586621679377517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377516"><span class="annot"><span class="annottext">Maybe ActionOnFailure
-</span><a href="#local-6989586621679377516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepSummary
-</span><a href="#local-6989586621679377517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionOnFailure:StepSummary' :: Maybe ActionOnFailure
+</span><a href="#local-6989586621679377886"><span class="hs-identifier hs-var hs-var">actionOnFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActionOnFailure
+</span><a href="#local-6989586621679377886"><span class="hs-identifier hs-var">actionOnFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377885"><span class="annot"><span class="annottext">s :: StepSummary
+</span><a href="#local-6989586621679377885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377884"><span class="annot"><span class="annottext">Maybe ActionOnFailure
+</span><a href="#local-6989586621679377884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepSummary
+</span><a href="#local-6989586621679377885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:actionOnFailure:StepSummary' :: Maybe ActionOnFailure
 </span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3AactionOnFailure%3AStepSummary%27"><span class="hs-identifier hs-var">actionOnFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActionOnFailure
-</span><a href="#local-6989586621679377516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679377884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The Hadoop job configuration of the cluster step.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_config"><span class="hs-identifier hs-type">stepSummary_config</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.HadoopStepConfig.html#HadoopStepConfig"><span class="hs-identifier hs-type">HadoopStepConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="stepSummary_config"><span class="annot"><span class="annottext">stepSummary_config :: (Maybe HadoopStepConfig -&gt; f (Maybe HadoopStepConfig))
+-&gt; StepSummary -&gt; f StepSummary
+</span><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_config"><span class="hs-identifier hs-var hs-var">stepSummary_config</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepSummary -&gt; Maybe HadoopStepConfig)
+-&gt; (StepSummary -&gt; Maybe HadoopStepConfig -&gt; StepSummary)
+-&gt; Lens
+     StepSummary
+     StepSummary
+     (Maybe HadoopStepConfig)
+     (Maybe HadoopStepConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377882"><span class="annot"><span class="annottext">Maybe HadoopStepConfig
+config :: Maybe HadoopStepConfig
+$sel:config:StepSummary' :: StepSummary -&gt; Maybe HadoopStepConfig
+</span><a href="#local-6989586621679377882"><span class="hs-identifier hs-var hs-var">config</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HadoopStepConfig
+</span><a href="#local-6989586621679377882"><span class="hs-identifier hs-var">config</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377881"><span class="annot"><span class="annottext">s :: StepSummary
+</span><a href="#local-6989586621679377881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377880"><span class="annot"><span class="annottext">Maybe HadoopStepConfig
+</span><a href="#local-6989586621679377880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepSummary
+</span><a href="#local-6989586621679377881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:config:StepSummary' :: Maybe HadoopStepConfig
+</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Aconfig%3AStepSummary%27"><span class="hs-identifier hs-var">config</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HadoopStepConfig
+</span><a href="#local-6989586621679377880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The name of the cluster step.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_name"><span class="hs-identifier hs-type">stepSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="stepSummary_name"><span class="annot"><span class="annottext">stepSummary_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StepSummary -&gt; f StepSummary
+</span><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_name"><span class="hs-identifier hs-var hs-var">stepSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepSummary -&gt; Maybe Text)
+-&gt; (StepSummary -&gt; Maybe Text -&gt; StepSummary)
+-&gt; Lens StepSummary StepSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377878"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:StepSummary' :: StepSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679377878"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377878"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377877"><span class="annot"><span class="annottext">s :: StepSummary
+</span><a href="#local-6989586621679377877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377876"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepSummary
+</span><a href="#local-6989586621679377877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StepSummary' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Aname%3AStepSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The identifier of the cluster step.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_id"><span class="hs-identifier hs-type">stepSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="stepSummary_id"><span class="annot"><span class="annottext">stepSummary_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StepSummary -&gt; f StepSummary
+</span><a href="Network.AWS.EMR.Types.StepSummary.html#stepSummary_id"><span class="hs-identifier hs-var hs-var">stepSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepSummary -&gt; Maybe Text)
+-&gt; (StepSummary -&gt; Maybe Text -&gt; StepSummary)
+-&gt; Lens StepSummary StepSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377874"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:StepSummary' :: StepSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679377874"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377874"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377873"><span class="annot"><span class="annottext">s :: StepSummary
+</span><a href="#local-6989586621679377873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-type">StepSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377872"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepSummary
+</span><a href="#local-6989586621679377873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:StepSummary' :: Maybe Text
+</span><a href="Network.AWS.EMR.Types.StepSummary.html#%24sel%3Aid%3AStepSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377513"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679377511"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StepSummary
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377869"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679377867"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StepSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StepSummary) -&gt; Value -&gt; Parser StepSummary
@@ -267,81 +267,78 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StepSummary&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377508"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377508"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377864"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377864"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe StepStatus
--&gt; Maybe Text
+-&gt; Maybe ActionOnFailure
 -&gt; Maybe HadoopStepConfig
 -&gt; Maybe Text
--&gt; Maybe ActionOnFailure
+-&gt; Maybe Text
 -&gt; StepSummary
 </span><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary%27"><span class="hs-identifier hs-var">StepSummary'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StepStatus
- -&gt; Maybe Text
+ -&gt; Maybe ActionOnFailure
  -&gt; Maybe HadoopStepConfig
  -&gt; Maybe Text
- -&gt; Maybe ActionOnFailure
+ -&gt; Maybe Text
  -&gt; StepSummary)
 -&gt; Parser (Maybe StepStatus)
 -&gt; Parser
-     (Maybe Text
+     (Maybe ActionOnFailure
       -&gt; Maybe HadoopStepConfig
       -&gt; Maybe Text
-      -&gt; Maybe ActionOnFailure
+      -&gt; Maybe Text
       -&gt; StepSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StepStatus)
+</span><a href="#local-6989586621679377864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StepStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
+  (Maybe ActionOnFailure
    -&gt; Maybe HadoopStepConfig
    -&gt; Maybe Text
-   -&gt; Maybe ActionOnFailure
+   -&gt; Maybe Text
    -&gt; StepSummary)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ActionOnFailure)
 -&gt; Parser
-     (Maybe HadoopStepConfig
-      -&gt; Maybe Text -&gt; Maybe ActionOnFailure -&gt; StepSummary)
+     (Maybe HadoopStepConfig -&gt; Maybe Text -&gt; Maybe Text -&gt; StepSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe HadoopStepConfig
-   -&gt; Maybe Text -&gt; Maybe ActionOnFailure -&gt; StepSummary)
--&gt; Parser (Maybe HadoopStepConfig)
--&gt; Parser (Maybe Text -&gt; Maybe ActionOnFailure -&gt; StepSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HadoopStepConfig)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Config&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe ActionOnFailure -&gt; StepSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe ActionOnFailure -&gt; StepSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ActionOnFailure -&gt; StepSummary)
--&gt; Parser (Maybe ActionOnFailure) -&gt; Parser StepSummary
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679377508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionOnFailure)
+</span><a href="#local-6989586621679377864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ActionOnFailure)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActionOnFailure&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe HadoopStepConfig -&gt; Maybe Text -&gt; Maybe Text -&gt; StepSummary)
+-&gt; Parser (Maybe HadoopStepConfig)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; StepSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HadoopStepConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Config&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; StepSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; StepSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; StepSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser StepSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377502"><span id="local-6989586621679377504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377858"><span id="local-6989586621679377860"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377855"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EMR.Types.StepSummary.html#StepSummary"><span class="hs-identifier hs-type">StepSummary</span></a></span></span><span>
 </span><span id="line-116"></span></pre></body></html>

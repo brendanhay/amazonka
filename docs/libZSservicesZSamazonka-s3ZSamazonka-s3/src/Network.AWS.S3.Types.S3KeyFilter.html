@@ -28,11 +28,11 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | A container for object key name prefix and suffix filtering rules.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newS3KeyFilter' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679550923"><span id="local-6989586621679550924"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3KeyFilter"><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter"><span class="hs-identifier hs-var">S3KeyFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3KeyFilter%27"><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter%27"><span class="hs-identifier hs-var">S3KeyFilter'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679551556"><span id="local-6989586621679551557"></span></span><span class="hs-keyword">data</span><span> </span><span id="S3KeyFilter"><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter"><span class="hs-identifier hs-var">S3KeyFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="S3KeyFilter%27"><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter%27"><span class="hs-identifier hs-var">S3KeyFilter'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AfilterRules%3AS3KeyFilter%27"><span class="annot"><span class="annottext">S3KeyFilter -&gt; Maybe [FilterRule]
 </span><a href="Network.AWS.S3.Types.S3KeyFilter.html#%24sel%3AfilterRules%3AS3KeyFilter%27"><span class="hs-identifier hs-var hs-var">filterRules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.FilterRule.html#FilterRule"><span class="hs-identifier hs-type">FilterRule</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679550917"><span id="local-6989586621679550919"><span class="annot"><span class="annottext">S3KeyFilter -&gt; S3KeyFilter -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679551550"><span id="local-6989586621679551552"><span class="annot"><span class="annottext">S3KeyFilter -&gt; S3KeyFilter -&gt; Bool
 (S3KeyFilter -&gt; S3KeyFilter -&gt; Bool)
 -&gt; (S3KeyFilter -&gt; S3KeyFilter -&gt; Bool) -&gt; Eq S3KeyFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: S3KeyFilter -&gt; S3KeyFilter -&gt; Bool
 == :: S3KeyFilter -&gt; S3KeyFilter -&gt; Bool
 $c== :: S3KeyFilter -&gt; S3KeyFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679550908"><span id="local-6989586621679550910"><span id="local-6989586621679550912"><span id="local-6989586621679550914"><span class="annot"><span class="annottext">ReadPrec [S3KeyFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551541"><span id="local-6989586621679551543"><span id="local-6989586621679551545"><span id="local-6989586621679551547"><span class="annot"><span class="annottext">ReadPrec [S3KeyFilter]
 ReadPrec S3KeyFilter
 Int -&gt; ReadS S3KeyFilter
 ReadS [S3KeyFilter]
@@ -60,7 +60,7 @@ readList :: ReadS [S3KeyFilter]
 $creadList :: ReadS [S3KeyFilter]
 readsPrec :: Int -&gt; ReadS S3KeyFilter
 $creadsPrec :: Int -&gt; ReadS S3KeyFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679550901"><span id="local-6989586621679550903"><span id="local-6989586621679550905"><span class="annot"><span class="annottext">Int -&gt; S3KeyFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551534"><span id="local-6989586621679551536"><span id="local-6989586621679551538"><span class="annot"><span class="annottext">Int -&gt; S3KeyFilter -&gt; ShowS
 [S3KeyFilter] -&gt; ShowS
 S3KeyFilter -&gt; String
 (Int -&gt; S3KeyFilter -&gt; ShowS)
@@ -114,16 +114,16 @@ forall a. Maybe a
 -&gt; Lens
      S3KeyFilter S3KeyFilter (Maybe [FilterRule]) (Maybe [FilterRule])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter%27"><span class="hs-identifier hs-type">S3KeyFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550892"><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter%27"><span class="hs-identifier hs-type">S3KeyFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551525"><span class="annot"><span class="annottext">Maybe [FilterRule]
 filterRules :: Maybe [FilterRule]
 $sel:filterRules:S3KeyFilter' :: S3KeyFilter -&gt; Maybe [FilterRule]
-</span><a href="#local-6989586621679550892"><span class="hs-identifier hs-var hs-var">filterRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
-</span><a href="#local-6989586621679550892"><span class="hs-identifier hs-var">filterRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679550891"><span class="annot"><span class="annottext">s :: S3KeyFilter
-</span><a href="#local-6989586621679550891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter%27"><span class="hs-identifier hs-type">S3KeyFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679550890"><span class="annot"><span class="annottext">Maybe [FilterRule]
-</span><a href="#local-6989586621679550890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3KeyFilter
-</span><a href="#local-6989586621679550891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterRules:S3KeyFilter' :: Maybe [FilterRule]
+</span><a href="#local-6989586621679551525"><span class="hs-identifier hs-var hs-var">filterRules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679551525"><span class="hs-identifier hs-var">filterRules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551524"><span class="annot"><span class="annottext">s :: S3KeyFilter
+</span><a href="#local-6989586621679551524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter%27"><span class="hs-identifier hs-type">S3KeyFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551523"><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679551523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">S3KeyFilter
+</span><a href="#local-6989586621679551524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterRules:S3KeyFilter' :: Maybe [FilterRule]
 </span><a href="Network.AWS.S3.Types.S3KeyFilter.html#%24sel%3AfilterRules%3AS3KeyFilter%27"><span class="hs-identifier hs-var">filterRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
-</span><a href="#local-6989586621679550890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter"><span class="hs-identifier hs-type">S3KeyFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+</span><a href="#local-6989586621679551523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter"><span class="hs-identifier hs-type">S3KeyFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
  -&gt; S3KeyFilter -&gt; f S3KeyFilter)
 -&gt; ((Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
     -&gt; Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
@@ -141,13 +141,13 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FilterRule] [FilterRule] [FilterRule] [FilterRule]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter"><span class="hs-identifier hs-type">S3KeyFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679550884"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String S3KeyFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679550882"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679550882"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679551517"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String S3KeyFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679551515"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679551515"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">Maybe [FilterRule] -&gt; S3KeyFilter
 </span><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter%27"><span class="hs-identifier hs-var">S3KeyFilter'</span></a></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [FilterRule] -&gt; S3KeyFilter)
@@ -162,18 +162,18 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FilterRule&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679550882"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679551515"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679550875"><span id="local-6989586621679550877"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter"><span class="hs-identifier hs-type">S3KeyFilter</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551508"><span id="local-6989586621679551510"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter"><span class="hs-identifier hs-type">S3KeyFilter</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679550872"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter"><span class="hs-identifier hs-type">S3KeyFilter</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551505"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter"><span class="hs-identifier hs-type">S3KeyFilter</span></a></span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter"><span class="hs-identifier hs-type">S3KeyFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679550868"><span class="annot"><span class="annottext">toXML :: S3KeyFilter -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter%27"><span class="hs-identifier hs-type">S3KeyFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679550866"><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679551501"><span class="annot"><span class="annottext">toXML :: S3KeyFilter -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.S3KeyFilter.html#S3KeyFilter%27"><span class="hs-identifier hs-type">S3KeyFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551499"><span class="annot"><span class="annottext">Maybe [FilterRule]
 filterRules :: Maybe [FilterRule]
 $sel:filterRules:S3KeyFilter' :: S3KeyFilter -&gt; Maybe [FilterRule]
-</span><a href="#local-6989586621679550866"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679551499"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -187,7 +187,7 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span id="line-68"></span><span>              </span><span class="annot"><span class="annottext">([FilterRule] -&gt; XML) -&gt; Maybe [FilterRule] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
-</span><a href="#local-6989586621679550866"><span class="hs-identifier hs-var">filterRules</span></a></span><span>
+</span><a href="#local-6989586621679551499"><span class="hs-identifier hs-var">filterRules</span></a></span><span>
 </span><span id="line-69"></span><span>          </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span></pre></body></html>

@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#newUpdateGraphqlApi"><span class="hs-identifier">newUpdateGraphqlApi</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_openIDConnectConfig"><span class="hs-identifier">updateGraphqlApi_openIDConnectConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_userPoolConfig"><span class="hs-identifier">updateGraphqlApi_userPoolConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_xrayEnabled"><span class="hs-identifier">updateGraphqlApi_xrayEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_xrayEnabled"><span class="hs-identifier">updateGraphqlApi_xrayEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_openIDConnectConfig"><span class="hs-identifier">updateGraphqlApi_openIDConnectConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_additionalAuthenticationProviders"><span class="hs-identifier">updateGraphqlApi_additionalAuthenticationProviders</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_lambdaAuthorizerConfig"><span class="hs-identifier">updateGraphqlApi_lambdaAuthorizerConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_logConfig"><span class="hs-identifier">updateGraphqlApi_logConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_additionalAuthenticationProviders"><span class="hs-identifier">updateGraphqlApi_additionalAuthenticationProviders</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_authenticationType"><span class="hs-identifier">updateGraphqlApi_authenticationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_userPoolConfig"><span class="hs-identifier">updateGraphqlApi_userPoolConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_authenticationType"><span class="hs-identifier">updateGraphqlApi_authenticationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_logConfig"><span class="hs-identifier">updateGraphqlApi_logConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_apiId"><span class="hs-identifier">updateGraphqlApi_apiId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_name"><span class="hs-identifier">updateGraphqlApi_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
@@ -55,29 +55,29 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newUpdateGraphqlApi' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679262302"><span id="local-6989586621679262303"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGraphqlApi"><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-var">UpdateGraphqlApi</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGraphqlApi%27"><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-var">UpdateGraphqlApi'</span></a></span></span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The OpenID Connect configuration for the @GraphqlApi@ object.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AopenIDConnectConfig%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe OpenIDConnectConfig
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AopenIDConnectConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var hs-var">openIDConnectConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The new Amazon Cognito user pool configuration for the @GraphqlApi@</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- object.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AuserPoolConfig%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe UserPoolConfig
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AuserPoolConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var hs-var">userPoolConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AxrayEnabled%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe Bool
+</span><span id="line-58"></span><span id="local-6989586621679262393"><span id="local-6989586621679262394"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGraphqlApi"><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-var">UpdateGraphqlApi</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGraphqlApi%27"><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-var">UpdateGraphqlApi'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AxrayEnabled%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe Bool
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AxrayEnabled%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var hs-var">xrayEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Configuration for Amazon Web Services Lambda function authorization.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AlambdaAuthorizerConfig%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe LambdaAuthorizerConfig
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AlambdaAuthorizerConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var hs-var">lambdaAuthorizerConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaAuthorizerConfig.html#LambdaAuthorizerConfig"><span class="hs-identifier hs-type">LambdaAuthorizerConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AlogConfig%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe LogConfig
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AlogConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var hs-var">logConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A list of additional authentication providers for the @GraphqlApi@ API.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3AadditionalAuthenticationProviders%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe [AdditionalAuthenticationProvider]
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The OpenID Connect configuration for the @GraphqlApi@ object.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AopenIDConnectConfig%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe OpenIDConnectConfig
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AopenIDConnectConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var hs-var">openIDConnectConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | A list of additional authentication providers for the @GraphqlApi@ API.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AadditionalAuthenticationProviders%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe [AdditionalAuthenticationProvider]
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AadditionalAuthenticationProviders%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var hs-var">additionalAuthenticationProviders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The new authentication type for the @GraphqlApi@ object.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AauthenticationType%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe AuthenticationType
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Configuration for Amazon Web Services Lambda function authorization.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AlambdaAuthorizerConfig%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe LambdaAuthorizerConfig
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AlambdaAuthorizerConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var hs-var">lambdaAuthorizerConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaAuthorizerConfig.html#LambdaAuthorizerConfig"><span class="hs-identifier hs-type">LambdaAuthorizerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The new Amazon Cognito user pool configuration for the @GraphqlApi@</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- object.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AuserPoolConfig%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe UserPoolConfig
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AuserPoolConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var hs-var">userPoolConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The new authentication type for the @GraphqlApi@ object.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AauthenticationType%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe AuthenticationType
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AauthenticationType%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AlogConfig%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Maybe LogConfig
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AlogConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var hs-var">logConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The API ID.</span><span>
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AapiId%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Text
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AapiId%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3Aname%3AUpdateGraphqlApi%27"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; Text
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3Aname%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262288"><span id="local-6989586621679262290"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; UpdateGraphqlApi -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262379"><span id="local-6989586621679262381"><span class="annot"><span class="annottext">UpdateGraphqlApi -&gt; UpdateGraphqlApi -&gt; Bool
 (UpdateGraphqlApi -&gt; UpdateGraphqlApi -&gt; Bool)
 -&gt; (UpdateGraphqlApi -&gt; UpdateGraphqlApi -&gt; Bool)
 -&gt; Eq UpdateGraphqlApi
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateGraphqlApi -&gt; UpdateGraphqlApi -&gt; Bool
 == :: UpdateGraphqlApi -&gt; UpdateGraphqlApi -&gt; Bool
 $c== :: UpdateGraphqlApi -&gt; UpdateGraphqlApi -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262279"><span id="local-6989586621679262281"><span id="local-6989586621679262283"><span id="local-6989586621679262285"><span class="annot"><span class="annottext">ReadPrec [UpdateGraphqlApi]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262370"><span id="local-6989586621679262372"><span id="local-6989586621679262374"><span id="local-6989586621679262376"><span class="annot"><span class="annottext">ReadPrec [UpdateGraphqlApi]
 ReadPrec UpdateGraphqlApi
 Int -&gt; ReadS UpdateGraphqlApi
 ReadS [UpdateGraphqlApi]
@@ -114,7 +114,7 @@ readList :: ReadS [UpdateGraphqlApi]
 $creadList :: ReadS [UpdateGraphqlApi]
 readsPrec :: Int -&gt; ReadS UpdateGraphqlApi
 $creadsPrec :: Int -&gt; ReadS UpdateGraphqlApi
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262272"><span id="local-6989586621679262274"><span id="local-6989586621679262276"><span class="annot"><span class="annottext">Int -&gt; UpdateGraphqlApi -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262363"><span id="local-6989586621679262365"><span id="local-6989586621679262367"><span class="annot"><span class="annottext">Int -&gt; UpdateGraphqlApi -&gt; ShowS
 [UpdateGraphqlApi] -&gt; ShowS
 UpdateGraphqlApi -&gt; String
 (Int -&gt; UpdateGraphqlApi -&gt; ShowS)
@@ -148,20 +148,20 @@ $cfrom :: forall x. UpdateGraphqlApi -&gt; Rep UpdateGraphqlApi x
 </span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'openIDConnectConfig', 'updateGraphqlApi_openIDConnectConfig' - The OpenID Connect configuration for the @GraphqlApi@ object.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'xrayEnabled', 'updateGraphqlApi_xrayEnabled' - A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'userPoolConfig', 'updateGraphqlApi_userPoolConfig' - The new Amazon Cognito user pool configuration for the @GraphqlApi@</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- object.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'xrayEnabled', 'updateGraphqlApi_xrayEnabled' - A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'lambdaAuthorizerConfig', 'updateGraphqlApi_lambdaAuthorizerConfig' - Configuration for Amazon Web Services Lambda function authorization.</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- 'logConfig', 'updateGraphqlApi_logConfig' - The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'openIDConnectConfig', 'updateGraphqlApi_openIDConnectConfig' - The OpenID Connect configuration for the @GraphqlApi@ object.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'additionalAuthenticationProviders', 'updateGraphqlApi_additionalAuthenticationProviders' - A list of additional authentication providers for the @GraphqlApi@ API.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'lambdaAuthorizerConfig', 'updateGraphqlApi_lambdaAuthorizerConfig' - Configuration for Amazon Web Services Lambda function authorization.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'userPoolConfig', 'updateGraphqlApi_userPoolConfig' - The new Amazon Cognito user pool configuration for the @GraphqlApi@</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- object.</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'additionalAuthenticationProviders', 'updateGraphqlApi_additionalAuthenticationProviders' - A list of additional authentication providers for the @GraphqlApi@ API.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'authenticationType', 'updateGraphqlApi_authenticationType' - The new authentication type for the @GraphqlApi@ object.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'authenticationType', 'updateGraphqlApi_authenticationType' - The new authentication type for the @GraphqlApi@ object.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'logConfig', 'updateGraphqlApi_logConfig' - The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- 'apiId', 'updateGraphqlApi_apiId' - The API ID.</span><span>
 </span><span id="line-105"></span><span class="hs-comment">--</span><span>
@@ -173,60 +173,78 @@ $cfrom :: forall x. UpdateGraphqlApi -&gt; Rep UpdateGraphqlApi x
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span>
 </span><span id="line-113"></span><span id="newUpdateGraphqlApi"><span class="annot"><span class="annottext">newUpdateGraphqlApi :: Text -&gt; Text -&gt; UpdateGraphqlApi
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#newUpdateGraphqlApi"><span class="hs-identifier hs-var hs-var">newUpdateGraphqlApi</span></a></span></span><span> </span><span id="local-6989586621679262267"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262267"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span> </span><span id="local-6989586621679262266"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262266"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">UpdateGraphqlApi' :: Maybe OpenIDConnectConfig
--&gt; Maybe UserPoolConfig
--&gt; Maybe Bool
--&gt; Maybe LambdaAuthorizerConfig
--&gt; Maybe LogConfig
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#newUpdateGraphqlApi"><span class="hs-identifier hs-var hs-var">newUpdateGraphqlApi</span></a></span></span><span> </span><span id="local-6989586621679262358"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262358"><span class="hs-identifier hs-var">pApiId_</span></a></span></span><span> </span><span id="local-6989586621679262357"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262357"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">UpdateGraphqlApi' :: Maybe Bool
+-&gt; Maybe OpenIDConnectConfig
 -&gt; Maybe [AdditionalAuthenticationProvider]
+-&gt; Maybe LambdaAuthorizerConfig
+-&gt; Maybe UserPoolConfig
 -&gt; Maybe AuthenticationType
+-&gt; Maybe LogConfig
 -&gt; Text
 -&gt; Text
 -&gt; UpdateGraphqlApi
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:openIDConnectConfig:UpdateGraphqlApi' :: Maybe OpenIDConnectConfig
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AopenIDConnectConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">openIDConnectConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolConfig:UpdateGraphqlApi' :: Maybe UserPoolConfig
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AuserPoolConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolConfig
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:xrayEnabled:UpdateGraphqlApi' :: Maybe Bool
+</span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:xrayEnabled:UpdateGraphqlApi' :: Maybe Bool
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AxrayEnabled%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">xrayEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambdaAuthorizerConfig:UpdateGraphqlApi' :: Maybe LambdaAuthorizerConfig
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AlambdaAuthorizerConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:openIDConnectConfig:UpdateGraphqlApi' :: Maybe OpenIDConnectConfig
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AopenIDConnectConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">openIDConnectConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:logConfig:UpdateGraphqlApi' :: Maybe LogConfig
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AlogConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">logConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfig
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:additionalAuthenticationProviders:UpdateGraphqlApi' :: Maybe [AdditionalAuthenticationProvider]
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:additionalAuthenticationProviders:UpdateGraphqlApi' :: Maybe [AdditionalAuthenticationProvider]
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AadditionalAuthenticationProviders%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">additionalAuthenticationProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AdditionalAuthenticationProvider]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:authenticationType:UpdateGraphqlApi' :: Maybe AuthenticationType
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:lambdaAuthorizerConfig:UpdateGraphqlApi' :: Maybe LambdaAuthorizerConfig
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AlambdaAuthorizerConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolConfig:UpdateGraphqlApi' :: Maybe UserPoolConfig
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AuserPoolConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:authenticationType:UpdateGraphqlApi' :: Maybe AuthenticationType
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AauthenticationType%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">authenticationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiId:UpdateGraphqlApi' :: Text
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:logConfig:UpdateGraphqlApi' :: Maybe LogConfig
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AlogConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">logConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">$sel:apiId:UpdateGraphqlApi' :: Text
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AapiId%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262267"><span class="hs-identifier hs-var">pApiId_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateGraphqlApi' :: Text
+</span><a href="#local-6989586621679262358"><span class="hs-identifier hs-var">pApiId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateGraphqlApi' :: Text
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3Aname%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262266"><span class="hs-identifier hs-var">pName_</span></a></span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | The OpenID Connect configuration for the @GraphqlApi@ object.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_openIDConnectConfig"><span class="hs-identifier hs-type">updateGraphqlApi_openIDConnectConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="updateGraphqlApi_openIDConnectConfig"><span class="annot"><span class="annottext">updateGraphqlApi_openIDConnectConfig :: (Maybe OpenIDConnectConfig -&gt; f (Maybe OpenIDConnectConfig))
+</span><a href="#local-6989586621679262357"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_xrayEnabled"><span class="hs-identifier hs-type">updateGraphqlApi_xrayEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="updateGraphqlApi_xrayEnabled"><span class="annot"><span class="annottext">updateGraphqlApi_xrayEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_xrayEnabled"><span class="hs-identifier hs-var hs-var">updateGraphqlApi_xrayEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApi -&gt; Maybe Bool)
+-&gt; (UpdateGraphqlApi -&gt; Maybe Bool -&gt; UpdateGraphqlApi)
+-&gt; Lens UpdateGraphqlApi UpdateGraphqlApi (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262354"><span class="annot"><span class="annottext">Maybe Bool
+xrayEnabled :: Maybe Bool
+$sel:xrayEnabled:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe Bool
+</span><a href="#local-6989586621679262354"><span class="hs-identifier hs-var hs-var">xrayEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679262354"><span class="hs-identifier hs-var">xrayEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262353"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
+</span><a href="#local-6989586621679262353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262352"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679262352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
+</span><a href="#local-6989586621679262353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:xrayEnabled:UpdateGraphqlApi' :: Maybe Bool
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AxrayEnabled%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">xrayEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679262352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The OpenID Connect configuration for the @GraphqlApi@ object.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_openIDConnectConfig"><span class="hs-identifier hs-type">updateGraphqlApi_openIDConnectConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.OpenIDConnectConfig.html#OpenIDConnectConfig"><span class="hs-identifier hs-type">OpenIDConnectConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="updateGraphqlApi_openIDConnectConfig"><span class="annot"><span class="annottext">updateGraphqlApi_openIDConnectConfig :: (Maybe OpenIDConnectConfig -&gt; f (Maybe OpenIDConnectConfig))
 -&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_openIDConnectConfig"><span class="hs-identifier hs-var hs-var">updateGraphqlApi_openIDConnectConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApi -&gt; Maybe OpenIDConnectConfig)
 -&gt; (UpdateGraphqlApi
@@ -237,110 +255,20 @@ forall a. Maybe a
      (Maybe OpenIDConnectConfig)
      (Maybe OpenIDConnectConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262263"><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262351"><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
 openIDConnectConfig :: Maybe OpenIDConnectConfig
 $sel:openIDConnectConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe OpenIDConnectConfig
-</span><a href="#local-6989586621679262263"><span class="hs-identifier hs-var hs-var">openIDConnectConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
-</span><a href="#local-6989586621679262263"><span class="hs-identifier hs-var">openIDConnectConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262262"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
-</span><a href="#local-6989586621679262262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262261"><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
-</span><a href="#local-6989586621679262261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
-</span><a href="#local-6989586621679262262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:openIDConnectConfig:UpdateGraphqlApi' :: Maybe OpenIDConnectConfig
+</span><a href="#local-6989586621679262351"><span class="hs-identifier hs-var hs-var">openIDConnectConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
+</span><a href="#local-6989586621679262351"><span class="hs-identifier hs-var">openIDConnectConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262350"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
+</span><a href="#local-6989586621679262350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262349"><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
+</span><a href="#local-6989586621679262349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
+</span><a href="#local-6989586621679262350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:openIDConnectConfig:UpdateGraphqlApi' :: Maybe OpenIDConnectConfig
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AopenIDConnectConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">openIDConnectConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
-</span><a href="#local-6989586621679262261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- | The new Amazon Cognito user pool configuration for the @GraphqlApi@</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- object.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_userPoolConfig"><span class="hs-identifier hs-type">updateGraphqlApi_userPoolConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="updateGraphqlApi_userPoolConfig"><span class="annot"><span class="annottext">updateGraphqlApi_userPoolConfig :: (Maybe UserPoolConfig -&gt; f (Maybe UserPoolConfig))
--&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_userPoolConfig"><span class="hs-identifier hs-var hs-var">updateGraphqlApi_userPoolConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApi -&gt; Maybe UserPoolConfig)
--&gt; (UpdateGraphqlApi -&gt; Maybe UserPoolConfig -&gt; UpdateGraphqlApi)
--&gt; Lens
-     UpdateGraphqlApi
-     UpdateGraphqlApi
-     (Maybe UserPoolConfig)
-     (Maybe UserPoolConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262260"><span class="annot"><span class="annottext">Maybe UserPoolConfig
-userPoolConfig :: Maybe UserPoolConfig
-$sel:userPoolConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe UserPoolConfig
-</span><a href="#local-6989586621679262260"><span class="hs-identifier hs-var hs-var">userPoolConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolConfig
-</span><a href="#local-6989586621679262260"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262259"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
-</span><a href="#local-6989586621679262259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262258"><span class="annot"><span class="annottext">Maybe UserPoolConfig
-</span><a href="#local-6989586621679262258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
-</span><a href="#local-6989586621679262259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolConfig:UpdateGraphqlApi' :: Maybe UserPoolConfig
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AuserPoolConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolConfig
-</span><a href="#local-6989586621679262258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | A flag indicating whether to enable X-Ray tracing for the @GraphqlApi@.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_xrayEnabled"><span class="hs-identifier hs-type">updateGraphqlApi_xrayEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="updateGraphqlApi_xrayEnabled"><span class="annot"><span class="annottext">updateGraphqlApi_xrayEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_xrayEnabled"><span class="hs-identifier hs-var hs-var">updateGraphqlApi_xrayEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApi -&gt; Maybe Bool)
--&gt; (UpdateGraphqlApi -&gt; Maybe Bool -&gt; UpdateGraphqlApi)
--&gt; Lens UpdateGraphqlApi UpdateGraphqlApi (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262257"><span class="annot"><span class="annottext">Maybe Bool
-xrayEnabled :: Maybe Bool
-$sel:xrayEnabled:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe Bool
-</span><a href="#local-6989586621679262257"><span class="hs-identifier hs-var hs-var">xrayEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679262257"><span class="hs-identifier hs-var">xrayEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262256"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
-</span><a href="#local-6989586621679262256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262255"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679262255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
-</span><a href="#local-6989586621679262256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:xrayEnabled:UpdateGraphqlApi' :: Maybe Bool
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AxrayEnabled%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">xrayEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679262255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | Configuration for Amazon Web Services Lambda function authorization.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_lambdaAuthorizerConfig"><span class="hs-identifier hs-type">updateGraphqlApi_lambdaAuthorizerConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaAuthorizerConfig.html#LambdaAuthorizerConfig"><span class="hs-identifier hs-type">LambdaAuthorizerConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="updateGraphqlApi_lambdaAuthorizerConfig"><span class="annot"><span class="annottext">updateGraphqlApi_lambdaAuthorizerConfig :: (Maybe LambdaAuthorizerConfig -&gt; f (Maybe LambdaAuthorizerConfig))
--&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_lambdaAuthorizerConfig"><span class="hs-identifier hs-var hs-var">updateGraphqlApi_lambdaAuthorizerConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApi -&gt; Maybe LambdaAuthorizerConfig)
--&gt; (UpdateGraphqlApi
-    -&gt; Maybe LambdaAuthorizerConfig -&gt; UpdateGraphqlApi)
--&gt; Lens
-     UpdateGraphqlApi
-     UpdateGraphqlApi
-     (Maybe LambdaAuthorizerConfig)
-     (Maybe LambdaAuthorizerConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262254"><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
-lambdaAuthorizerConfig :: Maybe LambdaAuthorizerConfig
-$sel:lambdaAuthorizerConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe LambdaAuthorizerConfig
-</span><a href="#local-6989586621679262254"><span class="hs-identifier hs-var hs-var">lambdaAuthorizerConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
-</span><a href="#local-6989586621679262254"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262253"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
-</span><a href="#local-6989586621679262253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262252"><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
-</span><a href="#local-6989586621679262252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
-</span><a href="#local-6989586621679262253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaAuthorizerConfig:UpdateGraphqlApi' :: Maybe LambdaAuthorizerConfig
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AlambdaAuthorizerConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
-</span><a href="#local-6989586621679262252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_logConfig"><span class="hs-identifier hs-type">updateGraphqlApi_logConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="updateGraphqlApi_logConfig"><span class="annot"><span class="annottext">updateGraphqlApi_logConfig :: (Maybe LogConfig -&gt; f (Maybe LogConfig))
--&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_logConfig"><span class="hs-identifier hs-var hs-var">updateGraphqlApi_logConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApi -&gt; Maybe LogConfig)
--&gt; (UpdateGraphqlApi -&gt; Maybe LogConfig -&gt; UpdateGraphqlApi)
--&gt; Lens
-     UpdateGraphqlApi
-     UpdateGraphqlApi
-     (Maybe LogConfig)
-     (Maybe LogConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262251"><span class="annot"><span class="annottext">Maybe LogConfig
-logConfig :: Maybe LogConfig
-$sel:logConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe LogConfig
-</span><a href="#local-6989586621679262251"><span class="hs-identifier hs-var hs-var">logConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfig
-</span><a href="#local-6989586621679262251"><span class="hs-identifier hs-var">logConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262250"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
-</span><a href="#local-6989586621679262250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262249"><span class="annot"><span class="annottext">Maybe LogConfig
-</span><a href="#local-6989586621679262249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
-</span><a href="#local-6989586621679262250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logConfig:UpdateGraphqlApi' :: Maybe LogConfig
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AlogConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">logConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfig
-</span><a href="#local-6989586621679262249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | A list of additional authentication providers for the @GraphqlApi@ API.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_additionalAuthenticationProviders"><span class="hs-identifier hs-type">updateGraphqlApi_additionalAuthenticationProviders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="updateGraphqlApi_additionalAuthenticationProviders"><span class="annot"><span class="annottext">updateGraphqlApi_additionalAuthenticationProviders :: (Maybe [AdditionalAuthenticationProvider]
+</span><a href="#local-6989586621679262349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | A list of additional authentication providers for the @GraphqlApi@ API.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_additionalAuthenticationProviders"><span class="hs-identifier hs-type">updateGraphqlApi_additionalAuthenticationProviders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AppSync.Types.AdditionalAuthenticationProvider.html#AdditionalAuthenticationProvider"><span class="hs-identifier hs-type">AdditionalAuthenticationProvider</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="updateGraphqlApi_additionalAuthenticationProviders"><span class="annot"><span class="annottext">updateGraphqlApi_additionalAuthenticationProviders :: (Maybe [AdditionalAuthenticationProvider]
  -&gt; f (Maybe [AdditionalAuthenticationProvider]))
 -&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_additionalAuthenticationProviders"><span class="hs-identifier hs-var hs-var">updateGraphqlApi_additionalAuthenticationProviders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApi -&gt; Maybe [AdditionalAuthenticationProvider])
@@ -352,16 +280,16 @@ $sel:logConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe LogConfig
      (Maybe [AdditionalAuthenticationProvider])
      (Maybe [AdditionalAuthenticationProvider])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262248"><span class="annot"><span class="annottext">Maybe [AdditionalAuthenticationProvider]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262348"><span class="annot"><span class="annottext">Maybe [AdditionalAuthenticationProvider]
 additionalAuthenticationProviders :: Maybe [AdditionalAuthenticationProvider]
 $sel:additionalAuthenticationProviders:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe [AdditionalAuthenticationProvider]
-</span><a href="#local-6989586621679262248"><span class="hs-identifier hs-var hs-var">additionalAuthenticationProviders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AdditionalAuthenticationProvider]
-</span><a href="#local-6989586621679262248"><span class="hs-identifier hs-var">additionalAuthenticationProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262247"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
-</span><a href="#local-6989586621679262247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262246"><span class="annot"><span class="annottext">Maybe [AdditionalAuthenticationProvider]
-</span><a href="#local-6989586621679262246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
-</span><a href="#local-6989586621679262247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalAuthenticationProviders:UpdateGraphqlApi' :: Maybe [AdditionalAuthenticationProvider]
+</span><a href="#local-6989586621679262348"><span class="hs-identifier hs-var hs-var">additionalAuthenticationProviders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AdditionalAuthenticationProvider]
+</span><a href="#local-6989586621679262348"><span class="hs-identifier hs-var">additionalAuthenticationProviders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262347"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
+</span><a href="#local-6989586621679262347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262346"><span class="annot"><span class="annottext">Maybe [AdditionalAuthenticationProvider]
+</span><a href="#local-6989586621679262346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
+</span><a href="#local-6989586621679262347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalAuthenticationProviders:UpdateGraphqlApi' :: Maybe [AdditionalAuthenticationProvider]
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AadditionalAuthenticationProviders%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">additionalAuthenticationProviders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AdditionalAuthenticationProvider]
-</span><a href="#local-6989586621679262246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AdditionalAuthenticationProvider]
+</span><a href="#local-6989586621679262346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AdditionalAuthenticationProvider]
   -&gt; f (Maybe [AdditionalAuthenticationProvider]))
  -&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi)
 -&gt; ((Maybe [AdditionalAuthenticationProvider]
@@ -391,12 +319,60 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AdditionalAuthenticationProvider]
   [AdditionalAuthenticationProvider]
   [AdditionalAuthenticationProvider]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | The new authentication type for the @GraphqlApi@ object.</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_authenticationType"><span class="hs-identifier hs-type">updateGraphqlApi_authenticationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="updateGraphqlApi_authenticationType"><span class="annot"><span class="annottext">updateGraphqlApi_authenticationType :: (Maybe AuthenticationType -&gt; f (Maybe AuthenticationType))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Configuration for Amazon Web Services Lambda function authorization.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_lambdaAuthorizerConfig"><span class="hs-identifier hs-type">updateGraphqlApi_lambdaAuthorizerConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LambdaAuthorizerConfig.html#LambdaAuthorizerConfig"><span class="hs-identifier hs-type">LambdaAuthorizerConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="updateGraphqlApi_lambdaAuthorizerConfig"><span class="annot"><span class="annottext">updateGraphqlApi_lambdaAuthorizerConfig :: (Maybe LambdaAuthorizerConfig -&gt; f (Maybe LambdaAuthorizerConfig))
+-&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_lambdaAuthorizerConfig"><span class="hs-identifier hs-var hs-var">updateGraphqlApi_lambdaAuthorizerConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApi -&gt; Maybe LambdaAuthorizerConfig)
+-&gt; (UpdateGraphqlApi
+    -&gt; Maybe LambdaAuthorizerConfig -&gt; UpdateGraphqlApi)
+-&gt; Lens
+     UpdateGraphqlApi
+     UpdateGraphqlApi
+     (Maybe LambdaAuthorizerConfig)
+     (Maybe LambdaAuthorizerConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262342"><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
+lambdaAuthorizerConfig :: Maybe LambdaAuthorizerConfig
+$sel:lambdaAuthorizerConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe LambdaAuthorizerConfig
+</span><a href="#local-6989586621679262342"><span class="hs-identifier hs-var hs-var">lambdaAuthorizerConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
+</span><a href="#local-6989586621679262342"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262341"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
+</span><a href="#local-6989586621679262341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262340"><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
+</span><a href="#local-6989586621679262340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
+</span><a href="#local-6989586621679262341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lambdaAuthorizerConfig:UpdateGraphqlApi' :: Maybe LambdaAuthorizerConfig
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AlambdaAuthorizerConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
+</span><a href="#local-6989586621679262340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The new Amazon Cognito user pool configuration for the @GraphqlApi@</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- object.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_userPoolConfig"><span class="hs-identifier hs-type">updateGraphqlApi_userPoolConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.UserPoolConfig.html#UserPoolConfig"><span class="hs-identifier hs-type">UserPoolConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="updateGraphqlApi_userPoolConfig"><span class="annot"><span class="annottext">updateGraphqlApi_userPoolConfig :: (Maybe UserPoolConfig -&gt; f (Maybe UserPoolConfig))
+-&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_userPoolConfig"><span class="hs-identifier hs-var hs-var">updateGraphqlApi_userPoolConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApi -&gt; Maybe UserPoolConfig)
+-&gt; (UpdateGraphqlApi -&gt; Maybe UserPoolConfig -&gt; UpdateGraphqlApi)
+-&gt; Lens
+     UpdateGraphqlApi
+     UpdateGraphqlApi
+     (Maybe UserPoolConfig)
+     (Maybe UserPoolConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262339"><span class="annot"><span class="annottext">Maybe UserPoolConfig
+userPoolConfig :: Maybe UserPoolConfig
+$sel:userPoolConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe UserPoolConfig
+</span><a href="#local-6989586621679262339"><span class="hs-identifier hs-var hs-var">userPoolConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolConfig
+</span><a href="#local-6989586621679262339"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262338"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
+</span><a href="#local-6989586621679262338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262337"><span class="annot"><span class="annottext">Maybe UserPoolConfig
+</span><a href="#local-6989586621679262337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
+</span><a href="#local-6989586621679262338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolConfig:UpdateGraphqlApi' :: Maybe UserPoolConfig
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AuserPoolConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolConfig
+</span><a href="#local-6989586621679262337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The new authentication type for the @GraphqlApi@ object.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_authenticationType"><span class="hs-identifier hs-type">updateGraphqlApi_authenticationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.AuthenticationType.html#AuthenticationType"><span class="hs-identifier hs-type">AuthenticationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="updateGraphqlApi_authenticationType"><span class="annot"><span class="annottext">updateGraphqlApi_authenticationType :: (Maybe AuthenticationType -&gt; f (Maybe AuthenticationType))
 -&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_authenticationType"><span class="hs-identifier hs-var hs-var">updateGraphqlApi_authenticationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApi -&gt; Maybe AuthenticationType)
 -&gt; (UpdateGraphqlApi
@@ -407,69 +383,92 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe AuthenticationType)
      (Maybe AuthenticationType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262242"><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262336"><span class="annot"><span class="annottext">Maybe AuthenticationType
 authenticationType :: Maybe AuthenticationType
 $sel:authenticationType:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe AuthenticationType
-</span><a href="#local-6989586621679262242"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
-</span><a href="#local-6989586621679262242"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262241"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
-</span><a href="#local-6989586621679262241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262240"><span class="annot"><span class="annottext">Maybe AuthenticationType
-</span><a href="#local-6989586621679262240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
-</span><a href="#local-6989586621679262241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationType:UpdateGraphqlApi' :: Maybe AuthenticationType
+</span><a href="#local-6989586621679262336"><span class="hs-identifier hs-var hs-var">authenticationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><a href="#local-6989586621679262336"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262335"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
+</span><a href="#local-6989586621679262335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262334"><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><a href="#local-6989586621679262334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
+</span><a href="#local-6989586621679262335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationType:UpdateGraphqlApi' :: Maybe AuthenticationType
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AauthenticationType%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">authenticationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
-</span><a href="#local-6989586621679262240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- | The API ID.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_apiId"><span class="hs-identifier hs-type">updateGraphqlApi_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-158"></span><span id="updateGraphqlApi_apiId"><span class="annot"><span class="annottext">updateGraphqlApi_apiId :: (Text -&gt; f Text) -&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
+</span><a href="#local-6989586621679262334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The Amazon CloudWatch Logs configuration for the @GraphqlApi@ object.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_logConfig"><span class="hs-identifier hs-type">updateGraphqlApi_logConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.LogConfig.html#LogConfig"><span class="hs-identifier hs-type">LogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="updateGraphqlApi_logConfig"><span class="annot"><span class="annottext">updateGraphqlApi_logConfig :: (Maybe LogConfig -&gt; f (Maybe LogConfig))
+-&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_logConfig"><span class="hs-identifier hs-var hs-var">updateGraphqlApi_logConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApi -&gt; Maybe LogConfig)
+-&gt; (UpdateGraphqlApi -&gt; Maybe LogConfig -&gt; UpdateGraphqlApi)
+-&gt; Lens
+     UpdateGraphqlApi
+     UpdateGraphqlApi
+     (Maybe LogConfig)
+     (Maybe LogConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262333"><span class="annot"><span class="annottext">Maybe LogConfig
+logConfig :: Maybe LogConfig
+$sel:logConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe LogConfig
+</span><a href="#local-6989586621679262333"><span class="hs-identifier hs-var hs-var">logConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfig
+</span><a href="#local-6989586621679262333"><span class="hs-identifier hs-var">logConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262332"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
+</span><a href="#local-6989586621679262332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262331"><span class="annot"><span class="annottext">Maybe LogConfig
+</span><a href="#local-6989586621679262331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
+</span><a href="#local-6989586621679262332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logConfig:UpdateGraphqlApi' :: Maybe LogConfig
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AlogConfig%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">logConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LogConfig
+</span><a href="#local-6989586621679262331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The API ID.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_apiId"><span class="hs-identifier hs-type">updateGraphqlApi_apiId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-157"></span><span id="updateGraphqlApi_apiId"><span class="annot"><span class="annottext">updateGraphqlApi_apiId :: (Text -&gt; f Text) -&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_apiId"><span class="hs-identifier hs-var hs-var">updateGraphqlApi_apiId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApi -&gt; Text)
 -&gt; (UpdateGraphqlApi -&gt; Text -&gt; UpdateGraphqlApi)
 -&gt; Lens UpdateGraphqlApi UpdateGraphqlApi Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262239"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262330"><span class="annot"><span class="annottext">Text
 apiId :: Text
 $sel:apiId:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Text
-</span><a href="#local-6989586621679262239"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262239"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262238"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
-</span><a href="#local-6989586621679262238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262237"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
-</span><a href="#local-6989586621679262238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:UpdateGraphqlApi' :: Text
+</span><a href="#local-6989586621679262330"><span class="hs-identifier hs-var hs-var">apiId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262330"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262329"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
+</span><a href="#local-6989586621679262329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262328"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
+</span><a href="#local-6989586621679262329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:apiId:UpdateGraphqlApi' :: Text
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AapiId%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">apiId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | The new name for the @GraphqlApi@ object.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_name"><span class="hs-identifier hs-type">updateGraphqlApi_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-162"></span><span id="updateGraphqlApi_name"><span class="annot"><span class="annottext">updateGraphqlApi_name :: (Text -&gt; f Text) -&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
+</span><a href="#local-6989586621679262328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The new name for the @GraphqlApi@ object.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_name"><span class="hs-identifier hs-type">updateGraphqlApi_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-161"></span><span id="updateGraphqlApi_name"><span class="annot"><span class="annottext">updateGraphqlApi_name :: (Text -&gt; f Text) -&gt; UpdateGraphqlApi -&gt; f UpdateGraphqlApi
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApi_name"><span class="hs-identifier hs-var hs-var">updateGraphqlApi_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApi -&gt; Text)
 -&gt; (UpdateGraphqlApi -&gt; Text -&gt; UpdateGraphqlApi)
 -&gt; Lens UpdateGraphqlApi UpdateGraphqlApi Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262236"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262327"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Text
-</span><a href="#local-6989586621679262236"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262236"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262235"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
-</span><a href="#local-6989586621679262235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262234"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
-</span><a href="#local-6989586621679262235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateGraphqlApi' :: Text
+</span><a href="#local-6989586621679262327"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262327"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262326"><span class="annot"><span class="annottext">s :: UpdateGraphqlApi
+</span><a href="#local-6989586621679262326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262325"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApi
+</span><a href="#local-6989586621679262326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateGraphqlApi' :: Text
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3Aname%3AUpdateGraphqlApi%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-166"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-167"></span><span>      </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679262230"><span class="annot"><span class="annottext">request :: UpdateGraphqlApi -&gt; Request UpdateGraphqlApi
+</span><a href="#local-6989586621679262325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-165"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679262321"><span class="annot"><span class="annottext">request :: UpdateGraphqlApi -&gt; Request UpdateGraphqlApi
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateGraphqlApi -&gt; Request UpdateGraphqlApi
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679262226"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679262317"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateGraphqlApi
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse UpdateGraphqlApi)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; Object
  -&gt; Either String (AWSResponse UpdateGraphqlApi))
@@ -487,22 +486,22 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262223"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262223"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679262222"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679262222"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679262221"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262221"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Maybe GraphqlApi -&gt; Int -&gt; UpdateGraphqlApiResponse
+</span><span id="line-170"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262314"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262314"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679262313"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679262313"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679262312"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe GraphqlApi -&gt; Int -&gt; UpdateGraphqlApiResponse
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse%27"><span class="hs-identifier hs-var">UpdateGraphqlApiResponse'</span></a></span><span>
-</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GraphqlApi -&gt; Int -&gt; UpdateGraphqlApiResponse)
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GraphqlApi -&gt; Int -&gt; UpdateGraphqlApiResponse)
 -&gt; Either String (Maybe GraphqlApi)
 -&gt; Either String (Int -&gt; UpdateGraphqlApiResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262221"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GraphqlApi)
+</span><a href="#local-6989586621679262312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GraphqlApi)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;graphqlApi&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateGraphqlApiResponse)
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateGraphqlApiResponse)
 -&gt; Either String Int -&gt; Either String UpdateGraphqlApiResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -510,36 +509,36 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262223"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262213"><span id="local-6989586621679262215"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span></span></span><span>
-</span><span id="line-178"></span><span>
-</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262210"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span></span><span>
-</span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679262206"><span class="annot"><span class="annottext">toHeaders :: UpdateGraphqlApi -&gt; ResponseHeaders
+</span><a href="#local-6989586621679262314"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262304"><span id="local-6989586621679262306"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span></span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679262297"><span class="annot"><span class="annottext">toHeaders :: UpdateGraphqlApi -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateGraphqlApi -&gt; ResponseHeaders
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateGraphqlApi -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
-</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-185"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-184"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
-</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-187"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-188"></span><span>                      </span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-190"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span>
-</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262196"><span id="local-6989586621679262198"><span id="local-6989586621679262200"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679262194"><span class="annot"><span class="annottext">toJSON :: UpdateGraphqlApi -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262184"><span id="local-6989586621679262185"><span id="local-6989586621679262186"><span id="local-6989586621679262187"><span id="local-6989586621679262188"><span id="local-6989586621679262189"><span id="local-6989586621679262190"><span id="local-6989586621679262191"><span id="local-6989586621679262192"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-186"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-187"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262287"><span id="local-6989586621679262289"><span id="local-6989586621679262291"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679262285"><span class="annot"><span class="annottext">toJSON :: UpdateGraphqlApi -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262275"><span id="local-6989586621679262276"><span id="local-6989586621679262277"><span id="local-6989586621679262278"><span id="local-6989586621679262279"><span id="local-6989586621679262280"><span id="local-6989586621679262281"><span id="local-6989586621679262282"><span id="local-6989586621679262283"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [AdditionalAuthenticationProvider]
 Maybe AuthenticationType
 Maybe LambdaAuthorizerConfig
@@ -549,29 +548,36 @@ Maybe UserPoolConfig
 Text
 name :: Text
 apiId :: Text
-authenticationType :: Maybe AuthenticationType
-additionalAuthenticationProviders :: Maybe [AdditionalAuthenticationProvider]
 logConfig :: Maybe LogConfig
-lambdaAuthorizerConfig :: Maybe LambdaAuthorizerConfig
-xrayEnabled :: Maybe Bool
+authenticationType :: Maybe AuthenticationType
 userPoolConfig :: Maybe UserPoolConfig
+lambdaAuthorizerConfig :: Maybe LambdaAuthorizerConfig
+additionalAuthenticationProviders :: Maybe [AdditionalAuthenticationProvider]
 openIDConnectConfig :: Maybe OpenIDConnectConfig
+xrayEnabled :: Maybe Bool
 $sel:name:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Text
 $sel:apiId:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Text
-$sel:authenticationType:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe AuthenticationType
-$sel:additionalAuthenticationProviders:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe [AdditionalAuthenticationProvider]
 $sel:logConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe LogConfig
-$sel:lambdaAuthorizerConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe LambdaAuthorizerConfig
-$sel:xrayEnabled:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe Bool
+$sel:authenticationType:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe AuthenticationType
 $sel:userPoolConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe UserPoolConfig
+$sel:lambdaAuthorizerConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe LambdaAuthorizerConfig
+$sel:additionalAuthenticationProviders:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe [AdditionalAuthenticationProvider]
 $sel:openIDConnectConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe OpenIDConnectConfig
-</span><a href="#local-6989586621679262184"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:xrayEnabled:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe Bool
+</span><a href="#local-6989586621679262275"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-196"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-195"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;xrayEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679262283"><span class="hs-identifier hs-var">xrayEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;openIDConnectConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OpenIDConnectConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
@@ -579,69 +585,62 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe OpenIDConnectConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OpenIDConnectConfig
-</span><a href="#local-6989586621679262192"><span class="hs-identifier hs-var">openIDConnectConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262282"><span class="hs-identifier hs-var">openIDConnectConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;userPoolConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UserPoolConfig -&gt; Pair
+</span><span class="hs-string">&quot;additionalAuthenticationProviders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AdditionalAuthenticationProvider] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">(UserPoolConfig -&gt; Pair) -&gt; Maybe UserPoolConfig -&gt; Maybe Pair
+</span><span id="line-199"></span><span>              </span><span class="annot"><span class="annottext">([AdditionalAuthenticationProvider] -&gt; Pair)
+-&gt; Maybe [AdditionalAuthenticationProvider] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolConfig
-</span><a href="#local-6989586621679262191"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AdditionalAuthenticationProvider]
+</span><a href="#local-6989586621679262281"><span class="hs-identifier hs-var">additionalAuthenticationProviders</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;xrayEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679262190"><span class="hs-identifier hs-var">xrayEnabled</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lambdaAuthorizerConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LambdaAuthorizerConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(LambdaAuthorizerConfig -&gt; Pair)
+</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">(LambdaAuthorizerConfig -&gt; Pair)
 -&gt; Maybe LambdaAuthorizerConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LambdaAuthorizerConfig
-</span><a href="#local-6989586621679262189"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262280"><span class="hs-identifier hs-var">lambdaAuthorizerConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userPoolConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UserPoolConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">(UserPoolConfig -&gt; Pair) -&gt; Maybe UserPoolConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UserPoolConfig
+</span><a href="#local-6989586621679262279"><span class="hs-identifier hs-var">userPoolConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authenticationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AuthenticationType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(AuthenticationType -&gt; Pair)
+-&gt; Maybe AuthenticationType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
+</span><a href="#local-6989586621679262278"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;logConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogConfig -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(LogConfig -&gt; Pair) -&gt; Maybe LogConfig -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LogConfig
-</span><a href="#local-6989586621679262188"><span class="hs-identifier hs-var">logConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;additionalAuthenticationProviders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AdditionalAuthenticationProvider] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">([AdditionalAuthenticationProvider] -&gt; Pair)
--&gt; Maybe [AdditionalAuthenticationProvider] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AdditionalAuthenticationProvider]
-</span><a href="#local-6989586621679262187"><span class="hs-identifier hs-var">additionalAuthenticationProviders</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;authenticationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AuthenticationType -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">(AuthenticationType -&gt; Pair)
--&gt; Maybe AuthenticationType -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationType
-</span><a href="#local-6989586621679262186"><span class="hs-identifier hs-var">authenticationType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679262277"><span class="hs-identifier hs-var">logConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262184"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span>
-</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679262178"><span class="annot"><span class="annottext">toPath :: UpdateGraphqlApi -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262168"><span id="local-6989586621679262169"><span id="local-6989586621679262170"><span id="local-6989586621679262171"><span id="local-6989586621679262172"><span id="local-6989586621679262173"><span id="local-6989586621679262174"><span id="local-6989586621679262175"><span id="local-6989586621679262176"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679262275"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-209"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679262269"><span class="annot"><span class="annottext">toPath :: UpdateGraphqlApi -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi%27"><span class="hs-identifier hs-type">UpdateGraphqlApi'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262259"><span id="local-6989586621679262260"><span id="local-6989586621679262261"><span id="local-6989586621679262262"><span id="local-6989586621679262263"><span id="local-6989586621679262264"><span id="local-6989586621679262265"><span id="local-6989586621679262266"><span id="local-6989586621679262267"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [AdditionalAuthenticationProvider]
 Maybe AuthenticationType
 Maybe LambdaAuthorizerConfig
@@ -651,49 +650,49 @@ Maybe UserPoolConfig
 Text
 name :: Text
 apiId :: Text
-authenticationType :: Maybe AuthenticationType
-additionalAuthenticationProviders :: Maybe [AdditionalAuthenticationProvider]
 logConfig :: Maybe LogConfig
-lambdaAuthorizerConfig :: Maybe LambdaAuthorizerConfig
-xrayEnabled :: Maybe Bool
+authenticationType :: Maybe AuthenticationType
 userPoolConfig :: Maybe UserPoolConfig
+lambdaAuthorizerConfig :: Maybe LambdaAuthorizerConfig
+additionalAuthenticationProviders :: Maybe [AdditionalAuthenticationProvider]
 openIDConnectConfig :: Maybe OpenIDConnectConfig
+xrayEnabled :: Maybe Bool
 $sel:name:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Text
 $sel:apiId:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Text
-$sel:authenticationType:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe AuthenticationType
-$sel:additionalAuthenticationProviders:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe [AdditionalAuthenticationProvider]
 $sel:logConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe LogConfig
-$sel:lambdaAuthorizerConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe LambdaAuthorizerConfig
-$sel:xrayEnabled:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe Bool
+$sel:authenticationType:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe AuthenticationType
 $sel:userPoolConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe UserPoolConfig
+$sel:lambdaAuthorizerConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe LambdaAuthorizerConfig
+$sel:additionalAuthenticationProviders:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe [AdditionalAuthenticationProvider]
 $sel:openIDConnectConfig:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe OpenIDConnectConfig
-</span><a href="#local-6989586621679262168"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-214"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+$sel:xrayEnabled:UpdateGraphqlApi' :: UpdateGraphqlApi -&gt; Maybe Bool
+</span><a href="#local-6989586621679262259"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/v1/apis/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679262169"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679262164"><span class="annot"><span class="annottext">toQuery :: UpdateGraphqlApi -&gt; QueryString
+</span><a href="#local-6989586621679262260"><span class="hs-identifier hs-var">apiId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApi"><span class="hs-identifier hs-type">UpdateGraphqlApi</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679262255"><span class="annot"><span class="annottext">toQuery :: UpdateGraphqlApi -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateGraphqlApi -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- | /See:/ 'newUpdateGraphqlApiResponse' smart constructor.</span><span>
-</span><span id="line-220"></span><span id="local-6989586621679262161"><span id="local-6989586621679262162"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGraphqlApiResponse"><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-var">UpdateGraphqlApiResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGraphqlApiResponse%27"><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse%27"><span class="hs-identifier hs-var">UpdateGraphqlApiResponse'</span></a></span></span><span>
-</span><span id="line-221"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated @GraphqlApi@ object.</span><span>
-</span><span id="line-222"></span><span>    </span><span id="%24sel%3AgraphqlApi%3AUpdateGraphqlApiResponse%27"><span class="annot"><span class="annottext">UpdateGraphqlApiResponse -&gt; Maybe GraphqlApi
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | /See:/ 'newUpdateGraphqlApiResponse' smart constructor.</span><span>
+</span><span id="line-219"></span><span id="local-6989586621679262252"><span id="local-6989586621679262253"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGraphqlApiResponse"><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-var">UpdateGraphqlApiResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGraphqlApiResponse%27"><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse%27"><span class="hs-identifier hs-var">UpdateGraphqlApiResponse'</span></a></span></span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated @GraphqlApi@ object.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3AgraphqlApi%3AUpdateGraphqlApiResponse%27"><span class="annot"><span class="annottext">UpdateGraphqlApiResponse -&gt; Maybe GraphqlApi
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AgraphqlApi%3AUpdateGraphqlApiResponse%27"><span class="hs-identifier hs-var hs-var">graphqlApi</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#GraphqlApi"><span class="hs-identifier hs-type">GraphqlApi</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-224"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateGraphqlApiResponse%27"><span class="annot"><span class="annottext">UpdateGraphqlApiResponse -&gt; Int
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-223"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateGraphqlApiResponse%27"><span class="annot"><span class="annottext">UpdateGraphqlApiResponse -&gt; Int
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AhttpStatus%3AUpdateGraphqlApiResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-225"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-226"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262155"><span id="local-6989586621679262157"><span class="annot"><span class="annottext">UpdateGraphqlApiResponse -&gt; UpdateGraphqlApiResponse -&gt; Bool
+</span><span id="line-224"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262246"><span id="local-6989586621679262248"><span class="annot"><span class="annottext">UpdateGraphqlApiResponse -&gt; UpdateGraphqlApiResponse -&gt; Bool
 (UpdateGraphqlApiResponse -&gt; UpdateGraphqlApiResponse -&gt; Bool)
 -&gt; (UpdateGraphqlApiResponse -&gt; UpdateGraphqlApiResponse -&gt; Bool)
 -&gt; Eq UpdateGraphqlApiResponse
@@ -702,7 +701,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateGraphqlApiResponse -&gt; UpdateGraphqlApiResponse -&gt; Bool
 == :: UpdateGraphqlApiResponse -&gt; UpdateGraphqlApiResponse -&gt; Bool
 $c== :: UpdateGraphqlApiResponse -&gt; UpdateGraphqlApiResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262147"><span id="local-6989586621679262149"><span id="local-6989586621679262151"><span id="local-6989586621679262153"><span class="annot"><span class="annottext">ReadPrec [UpdateGraphqlApiResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262238"><span id="local-6989586621679262240"><span id="local-6989586621679262242"><span id="local-6989586621679262244"><span class="annot"><span class="annottext">ReadPrec [UpdateGraphqlApiResponse]
 ReadPrec UpdateGraphqlApiResponse
 Int -&gt; ReadS UpdateGraphqlApiResponse
 ReadS [UpdateGraphqlApiResponse]
@@ -722,7 +721,7 @@ readList :: ReadS [UpdateGraphqlApiResponse]
 $creadList :: ReadS [UpdateGraphqlApiResponse]
 readsPrec :: Int -&gt; ReadS UpdateGraphqlApiResponse
 $creadsPrec :: Int -&gt; ReadS UpdateGraphqlApiResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262141"><span id="local-6989586621679262143"><span id="local-6989586621679262145"><span class="annot"><span class="annottext">Int -&gt; UpdateGraphqlApiResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262232"><span id="local-6989586621679262234"><span id="local-6989586621679262236"><span class="annot"><span class="annottext">Int -&gt; UpdateGraphqlApiResponse -&gt; ShowS
 [UpdateGraphqlApiResponse] -&gt; ShowS
 UpdateGraphqlApiResponse -&gt; String
 (Int -&gt; UpdateGraphqlApiResponse -&gt; ShowS)
@@ -753,40 +752,40 @@ Rep UpdateGraphqlApiResponse x -&gt; UpdateGraphqlApiResponse
 $cfrom :: forall x.
 UpdateGraphqlApiResponse -&gt; Rep UpdateGraphqlApiResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- Create a value of 'UpdateGraphqlApiResponse' with all optional fields omitted.</span><span>
-</span><span id="line-230"></span><span class="hs-comment">--</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-232"></span><span class="hs-comment">--</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-235"></span><span class="hs-comment">--</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- 'graphqlApi', 'updateGraphqlApiResponse_graphqlApi' - The updated @GraphqlApi@ object.</span><span>
-</span><span id="line-237"></span><span class="hs-comment">--</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- 'httpStatus', 'updateGraphqlApiResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#newUpdateGraphqlApiResponse"><span class="hs-identifier hs-type">newUpdateGraphqlApiResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-240"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-241"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-242"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span><span>
-</span><span id="line-243"></span><span id="newUpdateGraphqlApiResponse"><span class="annot"><span class="annottext">newUpdateGraphqlApiResponse :: Int -&gt; UpdateGraphqlApiResponse
-</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#newUpdateGraphqlApiResponse"><span class="hs-identifier hs-var hs-var">newUpdateGraphqlApiResponse</span></a></span></span><span> </span><span id="local-6989586621679262138"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262138"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-244"></span><span>  </span><span class="annot"><span class="annottext">UpdateGraphqlApiResponse' :: Maybe GraphqlApi -&gt; Int -&gt; UpdateGraphqlApiResponse
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Create a value of 'UpdateGraphqlApiResponse' with all optional fields omitted.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'graphqlApi', 'updateGraphqlApiResponse_graphqlApi' - The updated @GraphqlApi@ object.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- 'httpStatus', 'updateGraphqlApiResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#newUpdateGraphqlApiResponse"><span class="hs-identifier hs-type">newUpdateGraphqlApiResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-240"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span><span>
+</span><span id="line-242"></span><span id="newUpdateGraphqlApiResponse"><span class="annot"><span class="annottext">newUpdateGraphqlApiResponse :: Int -&gt; UpdateGraphqlApiResponse
+</span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#newUpdateGraphqlApiResponse"><span class="hs-identifier hs-var hs-var">newUpdateGraphqlApiResponse</span></a></span></span><span> </span><span id="local-6989586621679262229"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262229"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><span class="annottext">UpdateGraphqlApiResponse' :: Maybe GraphqlApi -&gt; Int -&gt; UpdateGraphqlApiResponse
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse%27"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse'</span></a></span><span>
-</span><span id="line-245"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:graphqlApi:UpdateGraphqlApiResponse' :: Maybe GraphqlApi
+</span><span id="line-244"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:graphqlApi:UpdateGraphqlApiResponse' :: Maybe GraphqlApi
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AgraphqlApi%3AUpdateGraphqlApiResponse%27"><span class="hs-identifier hs-var">graphqlApi</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">Maybe GraphqlApi
+</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">Maybe GraphqlApi
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGraphqlApiResponse' :: Int
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGraphqlApiResponse' :: Int
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AhttpStatus%3AUpdateGraphqlApiResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262138"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-248"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-249"></span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- | The updated @GraphqlApi@ object.</span><span>
-</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApiResponse_graphqlApi"><span class="hs-identifier hs-type">updateGraphqlApiResponse_graphqlApi</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#GraphqlApi"><span class="hs-identifier hs-type">GraphqlApi</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span id="updateGraphqlApiResponse_graphqlApi"><span class="annot"><span class="annottext">updateGraphqlApiResponse_graphqlApi :: (Maybe GraphqlApi -&gt; f (Maybe GraphqlApi))
+</span><a href="#local-6989586621679262229"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The updated @GraphqlApi@ object.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApiResponse_graphqlApi"><span class="hs-identifier hs-type">updateGraphqlApiResponse_graphqlApi</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.GraphqlApi.html#GraphqlApi"><span class="hs-identifier hs-type">GraphqlApi</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="updateGraphqlApiResponse_graphqlApi"><span class="annot"><span class="annottext">updateGraphqlApiResponse_graphqlApi :: (Maybe GraphqlApi -&gt; f (Maybe GraphqlApi))
 -&gt; UpdateGraphqlApiResponse -&gt; f UpdateGraphqlApiResponse
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApiResponse_graphqlApi"><span class="hs-identifier hs-var hs-var">updateGraphqlApiResponse_graphqlApi</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApiResponse -&gt; Maybe GraphqlApi)
 -&gt; (UpdateGraphqlApiResponse
@@ -797,35 +796,35 @@ forall a. Maybe a
      (Maybe GraphqlApi)
      (Maybe GraphqlApi)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse%27"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262137"><span class="annot"><span class="annottext">Maybe GraphqlApi
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse%27"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262228"><span class="annot"><span class="annottext">Maybe GraphqlApi
 graphqlApi :: Maybe GraphqlApi
 $sel:graphqlApi:UpdateGraphqlApiResponse' :: UpdateGraphqlApiResponse -&gt; Maybe GraphqlApi
-</span><a href="#local-6989586621679262137"><span class="hs-identifier hs-var hs-var">graphqlApi</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GraphqlApi
-</span><a href="#local-6989586621679262137"><span class="hs-identifier hs-var">graphqlApi</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262136"><span class="annot"><span class="annottext">s :: UpdateGraphqlApiResponse
-</span><a href="#local-6989586621679262136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse%27"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262135"><span class="annot"><span class="annottext">Maybe GraphqlApi
-</span><a href="#local-6989586621679262135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApiResponse
-</span><a href="#local-6989586621679262136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:graphqlApi:UpdateGraphqlApiResponse' :: Maybe GraphqlApi
+</span><a href="#local-6989586621679262228"><span class="hs-identifier hs-var hs-var">graphqlApi</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GraphqlApi
+</span><a href="#local-6989586621679262228"><span class="hs-identifier hs-var">graphqlApi</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262227"><span class="annot"><span class="annottext">s :: UpdateGraphqlApiResponse
+</span><a href="#local-6989586621679262227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse%27"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262226"><span class="annot"><span class="annottext">Maybe GraphqlApi
+</span><a href="#local-6989586621679262226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApiResponse
+</span><a href="#local-6989586621679262227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:graphqlApi:UpdateGraphqlApiResponse' :: Maybe GraphqlApi
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AgraphqlApi%3AUpdateGraphqlApiResponse%27"><span class="hs-identifier hs-var">graphqlApi</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GraphqlApi
-</span><a href="#local-6989586621679262135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApiResponse_httpStatus"><span class="hs-identifier hs-type">updateGraphqlApiResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-256"></span><span id="updateGraphqlApiResponse_httpStatus"><span class="annot"><span class="annottext">updateGraphqlApiResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679262226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApiResponse_httpStatus"><span class="hs-identifier hs-type">updateGraphqlApiResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-255"></span><span id="updateGraphqlApiResponse_httpStatus"><span class="annot"><span class="annottext">updateGraphqlApiResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; UpdateGraphqlApiResponse -&gt; f UpdateGraphqlApiResponse
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#updateGraphqlApiResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateGraphqlApiResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGraphqlApiResponse -&gt; Int)
 -&gt; (UpdateGraphqlApiResponse -&gt; Int -&gt; UpdateGraphqlApiResponse)
 -&gt; Lens UpdateGraphqlApiResponse UpdateGraphqlApiResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse%27"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262134"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse%27"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262225"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateGraphqlApiResponse' :: UpdateGraphqlApiResponse -&gt; Int
-</span><a href="#local-6989586621679262134"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262134"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262133"><span class="annot"><span class="annottext">s :: UpdateGraphqlApiResponse
-</span><a href="#local-6989586621679262133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse%27"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262132"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApiResponse
-</span><a href="#local-6989586621679262133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGraphqlApiResponse' :: Int
+</span><a href="#local-6989586621679262225"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262225"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262224"><span class="annot"><span class="annottext">s :: UpdateGraphqlApiResponse
+</span><a href="#local-6989586621679262224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse%27"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262223"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGraphqlApiResponse
+</span><a href="#local-6989586621679262224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGraphqlApiResponse' :: Int
 </span><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#%24sel%3AhttpStatus%3AUpdateGraphqlApiResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262130"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span></span><span>
-</span><span id="line-259"></span></pre></body></html>
+</span><a href="#local-6989586621679262223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.UpdateGraphqlApi.html#UpdateGraphqlApiResponse"><span class="hs-identifier hs-type">UpdateGraphqlApiResponse</span></a></span></span><span>
+</span><span id="line-258"></span></pre></body></html>

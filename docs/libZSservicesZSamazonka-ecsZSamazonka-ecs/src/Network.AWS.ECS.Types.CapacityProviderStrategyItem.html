@@ -47,40 +47,40 @@
 </span><span id="line-47"></span><span class="hs-comment">-- providers.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newCapacityProviderStrategyItem' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679447947"><span id="local-6989586621679447948"></span></span><span class="hs-keyword">data</span><span> </span><span id="CapacityProviderStrategyItem"><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-var">CapacityProviderStrategyItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityProviderStrategyItem%27"><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">CapacityProviderStrategyItem'</span></a></span></span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The /weight/ value designates the relative percentage of the total</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- number of tasks launched that should use the specified capacity</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- provider. The @weight@ value is taken into consideration after the</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @base@ value, if defined, is satisfied.</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- If no @weight@ value is specified, the default value of @0@ is used.</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- When multiple capacity providers are specified within a capacity</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- provider strategy, at least one of the capacity providers must have a</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- weight value greater than zero and any capacity providers with a weight</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- of @0@ will not be used to place tasks. If you specify multiple capacity</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- providers in a strategy that all have a weight of @0@, any @RunTask@ or</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @CreateService@ actions using the capacity provider strategy will fail.</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- An example scenario for using weights is defining a strategy that</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- contains two capacity providers and both have a weight of @1@, then when</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- the @base@ is satisfied, the tasks will be split evenly across the two</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- capacity providers. Using that same logic, if you specify a weight of</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @1@ for /capacityProviderA/ and a weight of @4@ for /capacityProviderB/,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- then for every one task that is run using /capacityProviderA/, four</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- tasks would use /capacityProviderB/.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3Aweight%3ACapacityProviderStrategyItem%27"><span class="annot"><span class="annottext">CapacityProviderStrategyItem -&gt; Maybe Natural
-</span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#%24sel%3Aweight%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var hs-var">weight</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The /base/ value designates how many tasks, at a minimum, to run on the</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- specified capacity provider. Only one capacity provider in a capacity</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- provider strategy can have a /base/ defined. If no value is specified,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- the default value of @0@ is used.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3Abase%3ACapacityProviderStrategyItem%27"><span class="annot"><span class="annottext">CapacityProviderStrategyItem -&gt; Maybe Natural
+</span><span id="line-50"></span><span id="local-6989586621679448658"><span id="local-6989586621679448659"></span></span><span class="hs-keyword">data</span><span> </span><span id="CapacityProviderStrategyItem"><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-var">CapacityProviderStrategyItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CapacityProviderStrategyItem%27"><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">CapacityProviderStrategyItem'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The /base/ value designates how many tasks, at a minimum, to run on the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- specified capacity provider. Only one capacity provider in a capacity</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- provider strategy can have a /base/ defined. If no value is specified,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- the default value of @0@ is used.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Abase%3ACapacityProviderStrategyItem%27"><span class="annot"><span class="annottext">CapacityProviderStrategyItem -&gt; Maybe Natural
 </span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#%24sel%3Abase%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var hs-var">base</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The /weight/ value designates the relative percentage of the total</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- number of tasks launched that should use the specified capacity</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- provider. The @weight@ value is taken into consideration after the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @base@ value, if defined, is satisfied.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- If no @weight@ value is specified, the default value of @0@ is used.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- When multiple capacity providers are specified within a capacity</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- provider strategy, at least one of the capacity providers must have a</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- weight value greater than zero and any capacity providers with a weight</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- of @0@ will not be used to place tasks. If you specify multiple capacity</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- providers in a strategy that all have a weight of @0@, any @RunTask@ or</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @CreateService@ actions using the capacity provider strategy will fail.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- An example scenario for using weights is defining a strategy that</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- contains two capacity providers and both have a weight of @1@, then when</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- the @base@ is satisfied, the tasks will be split evenly across the two</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- capacity providers. Using that same logic, if you specify a weight of</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @1@ for /capacityProviderA/ and a weight of @4@ for /capacityProviderB/,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- then for every one task that is run using /capacityProviderA/, four</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- tasks would use /capacityProviderB/.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Aweight%3ACapacityProviderStrategyItem%27"><span class="annot"><span class="annottext">CapacityProviderStrategyItem -&gt; Maybe Natural
+</span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#%24sel%3Aweight%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var hs-var">weight</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The short name of the capacity provider.</span><span>
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AcapacityProvider%3ACapacityProviderStrategyItem%27"><span class="annot"><span class="annottext">CapacityProviderStrategyItem -&gt; Text
 </span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#%24sel%3AcapacityProvider%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var hs-var">capacityProvider</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679447939"><span id="local-6989586621679447941"><span class="annot"><span class="annottext">CapacityProviderStrategyItem
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679448650"><span id="local-6989586621679448652"><span class="annot"><span class="annottext">CapacityProviderStrategyItem
 -&gt; CapacityProviderStrategyItem -&gt; Bool
 (CapacityProviderStrategyItem
  -&gt; CapacityProviderStrategyItem -&gt; Bool)
@@ -96,7 +96,7 @@ $c/= :: CapacityProviderStrategyItem
 -&gt; CapacityProviderStrategyItem -&gt; Bool
 $c== :: CapacityProviderStrategyItem
 -&gt; CapacityProviderStrategyItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447930"><span id="local-6989586621679447932"><span id="local-6989586621679447934"><span id="local-6989586621679447936"><span class="annot"><span class="annottext">ReadPrec [CapacityProviderStrategyItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448641"><span id="local-6989586621679448643"><span id="local-6989586621679448645"><span id="local-6989586621679448647"><span class="annot"><span class="annottext">ReadPrec [CapacityProviderStrategyItem]
 ReadPrec CapacityProviderStrategyItem
 Int -&gt; ReadS CapacityProviderStrategyItem
 ReadS [CapacityProviderStrategyItem]
@@ -116,7 +116,7 @@ readList :: ReadS [CapacityProviderStrategyItem]
 $creadList :: ReadS [CapacityProviderStrategyItem]
 readsPrec :: Int -&gt; ReadS CapacityProviderStrategyItem
 $creadsPrec :: Int -&gt; ReadS CapacityProviderStrategyItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679447923"><span id="local-6989586621679447925"><span id="local-6989586621679447927"><span class="annot"><span class="annottext">Int -&gt; CapacityProviderStrategyItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679448634"><span id="local-6989586621679448636"><span id="local-6989586621679448638"><span class="annot"><span class="annottext">Int -&gt; CapacityProviderStrategyItem -&gt; ShowS
 [CapacityProviderStrategyItem] -&gt; ShowS
 CapacityProviderStrategyItem -&gt; String
 (Int -&gt; CapacityProviderStrategyItem -&gt; ShowS)
@@ -156,31 +156,31 @@ CapacityProviderStrategyItem -&gt; Rep CapacityProviderStrategyItem x
 </span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'weight', 'capacityProviderStrategyItem_weight' - The /weight/ value designates the relative percentage of the total</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- number of tasks launched that should use the specified capacity</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- provider. The @weight@ value is taken into consideration after the</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- @base@ value, if defined, is satisfied.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'base', 'capacityProviderStrategyItem_base' - The /base/ value designates how many tasks, at a minimum, to run on the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- specified capacity provider. Only one capacity provider in a capacity</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- provider strategy can have a /base/ defined. If no value is specified,</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- the default value of @0@ is used.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- If no @weight@ value is specified, the default value of @0@ is used.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- When multiple capacity providers are specified within a capacity</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- provider strategy, at least one of the capacity providers must have a</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- weight value greater than zero and any capacity providers with a weight</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- of @0@ will not be used to place tasks. If you specify multiple capacity</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- providers in a strategy that all have a weight of @0@, any @RunTask@ or</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- @CreateService@ actions using the capacity provider strategy will fail.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- An example scenario for using weights is defining a strategy that</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- contains two capacity providers and both have a weight of @1@, then when</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- the @base@ is satisfied, the tasks will be split evenly across the two</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- capacity providers. Using that same logic, if you specify a weight of</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- @1@ for /capacityProviderA/ and a weight of @4@ for /capacityProviderB/,</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- then for every one task that is run using /capacityProviderA/, four</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- tasks would use /capacityProviderB/.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'base', 'capacityProviderStrategyItem_base' - The /base/ value designates how many tasks, at a minimum, to run on the</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- specified capacity provider. Only one capacity provider in a capacity</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- provider strategy can have a /base/ defined. If no value is specified,</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- the default value of @0@ is used.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'weight', 'capacityProviderStrategyItem_weight' - The /weight/ value designates the relative percentage of the total</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- number of tasks launched that should use the specified capacity</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- provider. The @weight@ value is taken into consideration after the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @base@ value, if defined, is satisfied.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- If no @weight@ value is specified, the default value of @0@ is used.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- When multiple capacity providers are specified within a capacity</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- provider strategy, at least one of the capacity providers must have a</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- weight value greater than zero and any capacity providers with a weight</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- of @0@ will not be used to place tasks. If you specify multiple capacity</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- providers in a strategy that all have a weight of @0@, any @RunTask@ or</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- @CreateService@ actions using the capacity provider strategy will fail.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- An example scenario for using weights is defining a strategy that</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- contains two capacity providers and both have a weight of @1@, then when</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- the @base@ is satisfied, the tasks will be split evenly across the two</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- capacity providers. Using that same logic, if you specify a weight of</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- @1@ for /capacityProviderA/ and a weight of @4@ for /capacityProviderB/,</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- then for every one task that is run using /capacityProviderA/, four</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- tasks would use /capacityProviderB/.</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- 'capacityProvider', 'capacityProviderStrategyItem_capacityProvider' - The short name of the capacity provider.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#newCapacityProviderStrategyItem"><span class="hs-identifier hs-type">newCapacityProviderStrategyItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -188,74 +188,31 @@ CapacityProviderStrategyItem -&gt; Rep CapacityProviderStrategyItem x
 </span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span>
 </span><span id="line-121"></span><span id="newCapacityProviderStrategyItem"><span class="annot"><span class="annottext">newCapacityProviderStrategyItem :: Text -&gt; CapacityProviderStrategyItem
-</span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#newCapacityProviderStrategyItem"><span class="hs-identifier hs-var hs-var">newCapacityProviderStrategyItem</span></a></span></span><span> </span><span id="local-6989586621679447917"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447917"><span class="hs-identifier hs-var">pCapacityProvider_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#newCapacityProviderStrategyItem"><span class="hs-identifier hs-var hs-var">newCapacityProviderStrategyItem</span></a></span></span><span> </span><span id="local-6989586621679448628"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679448628"><span class="hs-identifier hs-var">pCapacityProvider_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem' :: Maybe Natural
 -&gt; Maybe Natural -&gt; Text -&gt; CapacityProviderStrategyItem
 </span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span>
-</span><span id="line-123"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:weight:CapacityProviderStrategyItem' :: Maybe Natural
-</span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#%24sel%3Aweight%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">weight</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:base:CapacityProviderStrategyItem' :: Maybe Natural
+</span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#%24sel%3Abase%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">base</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:base:CapacityProviderStrategyItem' :: Maybe Natural
-</span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#%24sel%3Abase%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">base</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:weight:CapacityProviderStrategyItem' :: Maybe Natural
+</span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#%24sel%3Aweight%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">weight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:capacityProvider:CapacityProviderStrategyItem' :: Text
 </span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#%24sel%3AcapacityProvider%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447917"><span class="hs-identifier hs-var">pCapacityProvider_</span></a></span><span>
+</span><a href="#local-6989586621679448628"><span class="hs-identifier hs-var">pCapacityProvider_</span></a></span><span>
 </span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The /weight/ value designates the relative percentage of the total</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- number of tasks launched that should use the specified capacity</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- provider. The @weight@ value is taken into consideration after the</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- @base@ value, if defined, is satisfied.</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- If no @weight@ value is specified, the default value of @0@ is used.</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- When multiple capacity providers are specified within a capacity</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- provider strategy, at least one of the capacity providers must have a</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- weight value greater than zero and any capacity providers with a weight</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- of @0@ will not be used to place tasks. If you specify multiple capacity</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- providers in a strategy that all have a weight of @0@, any @RunTask@ or</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- @CreateService@ actions using the capacity provider strategy will fail.</span><span>
-</span><span id="line-141"></span><span class="hs-comment">--</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- An example scenario for using weights is defining a strategy that</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- contains two capacity providers and both have a weight of @1@, then when</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- the @base@ is satisfied, the tasks will be split evenly across the two</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- capacity providers. Using that same logic, if you specify a weight of</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- @1@ for /capacityProviderA/ and a weight of @4@ for /capacityProviderB/,</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- then for every one task that is run using /capacityProviderA/, four</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- tasks would use /capacityProviderB/.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#capacityProviderStrategyItem_weight"><span class="hs-identifier hs-type">capacityProviderStrategyItem_weight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="capacityProviderStrategyItem_weight"><span class="annot"><span class="annottext">capacityProviderStrategyItem_weight :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; CapacityProviderStrategyItem -&gt; f CapacityProviderStrategyItem
-</span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#capacityProviderStrategyItem_weight"><span class="hs-identifier hs-var hs-var">capacityProviderStrategyItem_weight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CapacityProviderStrategyItem -&gt; Maybe Natural)
--&gt; (CapacityProviderStrategyItem
-    -&gt; Maybe Natural -&gt; CapacityProviderStrategyItem)
--&gt; Lens
-     CapacityProviderStrategyItem
-     CapacityProviderStrategyItem
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447913"><span class="annot"><span class="annottext">Maybe Natural
-weight :: Maybe Natural
-$sel:weight:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Maybe Natural
-</span><a href="#local-6989586621679447913"><span class="hs-identifier hs-var hs-var">weight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679447913"><span class="hs-identifier hs-var">weight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447912"><span class="annot"><span class="annottext">s :: CapacityProviderStrategyItem
-</span><a href="#local-6989586621679447912"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447911"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679447911"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem
-</span><a href="#local-6989586621679447912"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:weight:CapacityProviderStrategyItem' :: Maybe Natural
-</span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#%24sel%3Aweight%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">weight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679447911"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | The /base/ value designates how many tasks, at a minimum, to run on the</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- specified capacity provider. Only one capacity provider in a capacity</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- provider strategy can have a /base/ defined. If no value is specified,</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- the default value of @0@ is used.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#capacityProviderStrategyItem_base"><span class="hs-identifier hs-type">capacityProviderStrategyItem_base</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="capacityProviderStrategyItem_base"><span class="annot"><span class="annottext">capacityProviderStrategyItem_base :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-129"></span><span class="hs-comment">-- | The /base/ value designates how many tasks, at a minimum, to run on the</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- specified capacity provider. Only one capacity provider in a capacity</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- provider strategy can have a /base/ defined. If no value is specified,</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- the default value of @0@ is used.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#capacityProviderStrategyItem_base"><span class="hs-identifier hs-type">capacityProviderStrategyItem_base</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="capacityProviderStrategyItem_base"><span class="annot"><span class="annottext">capacityProviderStrategyItem_base :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; CapacityProviderStrategyItem -&gt; f CapacityProviderStrategyItem
 </span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#capacityProviderStrategyItem_base"><span class="hs-identifier hs-var hs-var">capacityProviderStrategyItem_base</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CapacityProviderStrategyItem -&gt; Maybe Natural)
 -&gt; (CapacityProviderStrategyItem
@@ -266,16 +223,59 @@ $sel:weight:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; 
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447909"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448624"><span class="annot"><span class="annottext">Maybe Natural
 base :: Maybe Natural
 $sel:base:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Maybe Natural
-</span><a href="#local-6989586621679447909"><span class="hs-identifier hs-var hs-var">base</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679447909"><span class="hs-identifier hs-var">base</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447908"><span class="annot"><span class="annottext">s :: CapacityProviderStrategyItem
-</span><a href="#local-6989586621679447908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447907"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679447907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem
-</span><a href="#local-6989586621679447908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:base:CapacityProviderStrategyItem' :: Maybe Natural
+</span><a href="#local-6989586621679448624"><span class="hs-identifier hs-var hs-var">base</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679448624"><span class="hs-identifier hs-var">base</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448623"><span class="annot"><span class="annottext">s :: CapacityProviderStrategyItem
+</span><a href="#local-6989586621679448623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448622"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679448622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem
+</span><a href="#local-6989586621679448623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:base:CapacityProviderStrategyItem' :: Maybe Natural
 </span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#%24sel%3Abase%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">base</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679447907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The /weight/ value designates the relative percentage of the total</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- number of tasks launched that should use the specified capacity</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- provider. The @weight@ value is taken into consideration after the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- @base@ value, if defined, is satisfied.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- If no @weight@ value is specified, the default value of @0@ is used.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- When multiple capacity providers are specified within a capacity</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- provider strategy, at least one of the capacity providers must have a</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- weight value greater than zero and any capacity providers with a weight</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- of @0@ will not be used to place tasks. If you specify multiple capacity</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- providers in a strategy that all have a weight of @0@, any @RunTask@ or</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- @CreateService@ actions using the capacity provider strategy will fail.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- An example scenario for using weights is defining a strategy that</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- contains two capacity providers and both have a weight of @1@, then when</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- the @base@ is satisfied, the tasks will be split evenly across the two</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- capacity providers. Using that same logic, if you specify a weight of</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- @1@ for /capacityProviderA/ and a weight of @4@ for /capacityProviderB/,</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- then for every one task that is run using /capacityProviderA/, four</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- tasks would use /capacityProviderB/.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#capacityProviderStrategyItem_weight"><span class="hs-identifier hs-type">capacityProviderStrategyItem_weight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="capacityProviderStrategyItem_weight"><span class="annot"><span class="annottext">capacityProviderStrategyItem_weight :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CapacityProviderStrategyItem -&gt; f CapacityProviderStrategyItem
+</span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#capacityProviderStrategyItem_weight"><span class="hs-identifier hs-var hs-var">capacityProviderStrategyItem_weight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CapacityProviderStrategyItem -&gt; Maybe Natural)
+-&gt; (CapacityProviderStrategyItem
+    -&gt; Maybe Natural -&gt; CapacityProviderStrategyItem)
+-&gt; Lens
+     CapacityProviderStrategyItem
+     CapacityProviderStrategyItem
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448620"><span class="annot"><span class="annottext">Maybe Natural
+weight :: Maybe Natural
+$sel:weight:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Maybe Natural
+</span><a href="#local-6989586621679448620"><span class="hs-identifier hs-var hs-var">weight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679448620"><span class="hs-identifier hs-var">weight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448619"><span class="annot"><span class="annottext">s :: CapacityProviderStrategyItem
+</span><a href="#local-6989586621679448619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448618"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679448618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem
+</span><a href="#local-6989586621679448619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:weight:CapacityProviderStrategyItem' :: Maybe Natural
+</span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#%24sel%3Aweight%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">weight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679448618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The short name of the capacity provider.</span><span>
 </span><span id="line-160"></span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#capacityProviderStrategyItem_capacityProvider"><span class="hs-identifier hs-type">capacityProviderStrategyItem_capacityProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -287,19 +287,19 @@ $sel:base:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Ma
 -&gt; Lens
      CapacityProviderStrategyItem CapacityProviderStrategyItem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447905"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448616"><span class="annot"><span class="annottext">Text
 capacityProvider :: Text
 $sel:capacityProvider:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Text
-</span><a href="#local-6989586621679447905"><span class="hs-identifier hs-var hs-var">capacityProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447905"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679447904"><span class="annot"><span class="annottext">s :: CapacityProviderStrategyItem
-</span><a href="#local-6989586621679447904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679447903"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem
-</span><a href="#local-6989586621679447904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProvider:CapacityProviderStrategyItem' :: Text
+</span><a href="#local-6989586621679448616"><span class="hs-identifier hs-var hs-var">capacityProvider</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679448616"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679448615"><span class="annot"><span class="annottext">s :: CapacityProviderStrategyItem
+</span><a href="#local-6989586621679448615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679448614"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679448614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CapacityProviderStrategyItem
+</span><a href="#local-6989586621679448615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityProvider:CapacityProviderStrategyItem' :: Text
 </span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#%24sel%3AcapacityProvider%3ACapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447900"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679447898"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CapacityProviderStrategyItem
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448611"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679448609"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CapacityProviderStrategyItem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CapacityProviderStrategyItem)
@@ -309,8 +309,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CapacityProviderStrategyItem&quot;</span></span><span>
-</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679447895"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679447895"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679448606"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679448606"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural -&gt; Text -&gt; CapacityProviderStrategyItem
 </span><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-var">CapacityProviderStrategyItem'</span></a></span><span>
@@ -320,65 +320,65 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Natural -&gt; Text -&gt; CapacityProviderStrategyItem)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679447895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679448606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;weight&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;base&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Text -&gt; CapacityProviderStrategyItem)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser (Text -&gt; CapacityProviderStrategyItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679447895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679448606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;base&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;weight&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; CapacityProviderStrategyItem)
 -&gt; Parser Text -&gt; Parser CapacityProviderStrategyItem
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679447895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679448606"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;capacityProvider&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679447888"><span id="local-6989586621679447890"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679448599"><span id="local-6989586621679448601"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448596"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679447877"><span id="local-6989586621679447879"><span id="local-6989586621679447881"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679447875"><span class="annot"><span class="annottext">toJSON :: CapacityProviderStrategyItem -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679447871"><span id="local-6989586621679447872"><span id="local-6989586621679447873"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679448588"><span id="local-6989586621679448590"><span id="local-6989586621679448592"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem"><span class="hs-identifier hs-type">CapacityProviderStrategyItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679448586"><span class="annot"><span class="annottext">toJSON :: CapacityProviderStrategyItem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.CapacityProviderStrategyItem.html#CapacityProviderStrategyItem%27"><span class="hs-identifier hs-type">CapacityProviderStrategyItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679448582"><span id="local-6989586621679448583"><span id="local-6989586621679448584"><span class="annot"><span class="annottext">Maybe Natural
 Text
 capacityProvider :: Text
-base :: Maybe Natural
 weight :: Maybe Natural
+base :: Maybe Natural
 $sel:capacityProvider:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Text
-$sel:base:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Maybe Natural
 $sel:weight:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Maybe Natural
-</span><a href="#local-6989586621679447871"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:base:CapacityProviderStrategyItem' :: CapacityProviderStrategyItem -&gt; Maybe Natural
+</span><a href="#local-6989586621679448582"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;weight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679447873"><span class="hs-identifier hs-var">weight</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;base&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679447872"><span class="hs-identifier hs-var">base</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679448584"><span class="hs-identifier hs-var">base</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;weight&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679448583"><span class="hs-identifier hs-var">weight</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -386,7 +386,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;capacityProvider&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679447871"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679448582"><span class="hs-identifier hs-var">capacityProvider</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span></pre></body></html>

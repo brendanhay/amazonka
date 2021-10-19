@@ -44,13 +44,13 @@
 </span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-46"></span><span>
-</span><span id="line-47"></span><span id="local-6989586621679188225"><span id="local-6989586621679188226"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FailureReason"><span class="annot"><a href="Network.AWS.CertificateManager.Types.FailureReason.html#FailureReason"><span class="hs-identifier hs-var">FailureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailureReason%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.FailureReason.html#FailureReason%27"><span class="hs-identifier hs-var">FailureReason'</span></a></span></span><span>
+</span><span id="line-47"></span><span id="local-6989586621679188308"><span id="local-6989586621679188309"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FailureReason"><span class="annot"><a href="Network.AWS.CertificateManager.Types.FailureReason.html#FailureReason"><span class="hs-identifier hs-var">FailureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FailureReason%27"><span class="annot"><a href="Network.AWS.CertificateManager.Types.FailureReason.html#FailureReason%27"><span class="hs-identifier hs-var">FailureReason'</span></a></span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFailureReason"><span class="annot"><span class="annottext">FailureReason -&gt; Text
 </span><a href="Network.AWS.CertificateManager.Types.FailureReason.html#fromFailureReason"><span class="hs-identifier hs-var hs-var">fromFailureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679188217"><span id="local-6989586621679188219"><span id="local-6989586621679188221"><span class="annot"><span class="annottext">Int -&gt; FailureReason -&gt; ShowS
+</span><span id="line-52"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679188300"><span id="local-6989586621679188302"><span id="local-6989586621679188304"><span class="annot"><span class="annottext">Int -&gt; FailureReason -&gt; ShowS
 [FailureReason] -&gt; ShowS
 FailureReason -&gt; String
 (Int -&gt; FailureReason -&gt; ShowS)
@@ -66,7 +66,7 @@ $cshow :: FailureReason -&gt; String
 showsPrec :: Int -&gt; FailureReason -&gt; ShowS
 $cshowsPrec :: Int -&gt; FailureReason -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679188208"><span id="local-6989586621679188210"><span id="local-6989586621679188212"><span id="local-6989586621679188214"><span class="annot"><span class="annottext">ReadPrec [FailureReason]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679188291"><span id="local-6989586621679188293"><span id="local-6989586621679188295"><span id="local-6989586621679188297"><span class="annot"><span class="annottext">ReadPrec [FailureReason]
 ReadPrec FailureReason
 Int -&gt; ReadS FailureReason
 ReadS [FailureReason]
@@ -87,7 +87,7 @@ $creadList :: ReadS [FailureReason]
 readsPrec :: Int -&gt; ReadS FailureReason
 $creadsPrec :: Int -&gt; ReadS FailureReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679188203"><span id="local-6989586621679188205"><span class="annot"><span class="annottext">FailureReason -&gt; FailureReason -&gt; Bool
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679188286"><span id="local-6989586621679188288"><span class="annot"><span class="annottext">FailureReason -&gt; FailureReason -&gt; Bool
 (FailureReason -&gt; FailureReason -&gt; Bool)
 -&gt; (FailureReason -&gt; FailureReason -&gt; Bool) -&gt; Eq FailureReason
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -96,7 +96,7 @@ $c/= :: FailureReason -&gt; FailureReason -&gt; Bool
 == :: FailureReason -&gt; FailureReason -&gt; Bool
 $c== :: FailureReason -&gt; FailureReason -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679188187"><span id="local-6989586621679188189"><span id="local-6989586621679188191"><span id="local-6989586621679188193"><span id="local-6989586621679188195"><span id="local-6989586621679188197"><span id="local-6989586621679188199"><span class="annot"><span class="annottext">Eq FailureReason
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679188270"><span id="local-6989586621679188272"><span id="local-6989586621679188274"><span id="local-6989586621679188276"><span id="local-6989586621679188278"><span id="local-6989586621679188280"><span id="local-6989586621679188282"><span class="annot"><span class="annottext">Eq FailureReason
 Eq FailureReason
 -&gt; (FailureReason -&gt; FailureReason -&gt; Ordering)
 -&gt; (FailureReason -&gt; FailureReason -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. FailureReason -&gt; Rep FailureReason x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679188179"><span id="local-6989586621679188181"><span class="annot"><span class="annottext">Int -&gt; FailureReason -&gt; Int
+</span><span id="line-59"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679188262"><span id="local-6989586621679188264"><span class="annot"><span class="annottext">Int -&gt; FailureReason -&gt; Int
 FailureReason -&gt; Int
 (Int -&gt; FailureReason -&gt; Int)
 -&gt; (FailureReason -&gt; Int) -&gt; Hashable FailureReason
@@ -157,49 +157,49 @@ $chash :: FailureReason -&gt; Int
 hashWithSalt :: Int -&gt; FailureReason -&gt; Int
 $chashWithSalt :: Int -&gt; FailureReason -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679188176"><span class="annot"><span class="annottext">FailureReason -&gt; ()
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679188259"><span class="annot"><span class="annottext">FailureReason -&gt; ()
 (FailureReason -&gt; ()) -&gt; NFData FailureReason
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FailureReason -&gt; ()
 $crnf :: FailureReason -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679188173"><span class="annot"><span class="annottext">Text -&gt; Either String FailureReason
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679188256"><span class="annot"><span class="annottext">Text -&gt; Either String FailureReason
 (Text -&gt; Either String FailureReason) -&gt; FromText FailureReason
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FailureReason
 $cfromText :: Text -&gt; Either String FailureReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679188170"><span class="annot"><span class="annottext">FailureReason -&gt; Text
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679188253"><span class="annot"><span class="annottext">FailureReason -&gt; Text
 (FailureReason -&gt; Text) -&gt; ToText FailureReason
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FailureReason -&gt; Text
 $ctoText :: FailureReason -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679188167"><span class="annot"><span class="annottext">FailureReason -&gt; ByteString
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679188250"><span class="annot"><span class="annottext">FailureReason -&gt; ByteString
 (FailureReason -&gt; ByteString) -&gt; ToByteString FailureReason
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FailureReason -&gt; ByteString
 $ctoBS :: FailureReason -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679188164"><span class="annot"><span class="annottext">FailureReason -&gt; ByteStringBuilder
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679188247"><span class="annot"><span class="annottext">FailureReason -&gt; ByteStringBuilder
 (FailureReason -&gt; ByteStringBuilder) -&gt; ToLog FailureReason
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FailureReason -&gt; ByteStringBuilder
 $cbuild :: FailureReason -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679188161"><span class="annot"><span class="annottext">HeaderName -&gt; FailureReason -&gt; [Header]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679188244"><span class="annot"><span class="annottext">HeaderName -&gt; FailureReason -&gt; [Header]
 (HeaderName -&gt; FailureReason -&gt; [Header]) -&gt; ToHeader FailureReason
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FailureReason -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FailureReason -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679188158"><span class="annot"><span class="annottext">FailureReason -&gt; QueryString
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679188241"><span class="annot"><span class="annottext">FailureReason -&gt; QueryString
 (FailureReason -&gt; QueryString) -&gt; ToQuery FailureReason
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FailureReason -&gt; QueryString
 $ctoQuery :: FailureReason -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679188153"><span id="local-6989586621679188155"><span class="annot"><span class="annottext">Value -&gt; Parser [FailureReason]
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679188236"><span id="local-6989586621679188238"><span class="annot"><span class="annottext">Value -&gt; Parser [FailureReason]
 Value -&gt; Parser FailureReason
 (Value -&gt; Parser FailureReason)
 -&gt; (Value -&gt; Parser [FailureReason]) -&gt; FromJSON FailureReason
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [FailureReason]
 parseJSON :: Value -&gt; Parser FailureReason
 $cparseJSON :: Value -&gt; Parser FailureReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679188148"><span id="local-6989586621679188150"><span class="annot"><span class="annottext">FromJSONKeyFunction [FailureReason]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679188231"><span id="local-6989586621679188233"><span class="annot"><span class="annottext">FromJSONKeyFunction [FailureReason]
 FromJSONKeyFunction FailureReason
 FromJSONKeyFunction FailureReason
 -&gt; FromJSONKeyFunction [FailureReason] -&gt; FromJSONKey FailureReason
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FailureReason]
 fromJSONKey :: FromJSONKeyFunction FailureReason
 $cfromJSONKey :: FromJSONKeyFunction FailureReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679188139"><span id="local-6989586621679188141"><span id="local-6989586621679188143"><span id="local-6989586621679188145"><span class="annot"><span class="annottext">[FailureReason] -&gt; Encoding
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679188222"><span id="local-6989586621679188224"><span id="local-6989586621679188226"><span id="local-6989586621679188228"><span class="annot"><span class="annottext">[FailureReason] -&gt; Encoding
 [FailureReason] -&gt; Value
 FailureReason -&gt; Encoding
 FailureReason -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: FailureReason -&gt; Encoding
 toJSON :: FailureReason -&gt; Value
 $ctoJSON :: FailureReason -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679188134"><span id="local-6989586621679188136"><span class="annot"><span class="annottext">ToJSONKeyFunction [FailureReason]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679188217"><span id="local-6989586621679188219"><span class="annot"><span class="annottext">ToJSONKeyFunction [FailureReason]
 ToJSONKeyFunction FailureReason
 ToJSONKeyFunction FailureReason
 -&gt; ToJSONKeyFunction [FailureReason] -&gt; ToJSONKey FailureReason
@@ -256,13 +256,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FailureReason]
 toJSONKey :: ToJSONKeyFunction FailureReason
 $ctoJSONKey :: ToJSONKeyFunction FailureReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679188131"><span class="annot"><span class="annottext">[Node] -&gt; Either String FailureReason
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679188214"><span class="annot"><span class="annottext">[Node] -&gt; Either String FailureReason
 ([Node] -&gt; Either String FailureReason) -&gt; FromXML FailureReason
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FailureReason
 $cparseXML :: [Node] -&gt; Either String FailureReason
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679188128"><span class="annot"><span class="annottext">FailureReason -&gt; XML
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679188211"><span class="annot"><span class="annottext">FailureReason -&gt; XML
 (FailureReason -&gt; XML) -&gt; ToXML FailureReason
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FailureReason -&gt; XML

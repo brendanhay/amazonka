@@ -42,8 +42,8 @@
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_metadataProperties"><span class="hs-identifier">createTrial_metadataProperties</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_tags"><span class="hs-identifier">createTrial_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_displayName"><span class="hs-identifier">createTrial_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_displayName"><span class="hs-identifier">createTrial_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_tags"><span class="hs-identifier">createTrial_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_trialName"><span class="hs-identifier">createTrial_trialName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_experimentName"><span class="hs-identifier">createTrial_experimentName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>
@@ -65,17 +65,17 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newCreateTrial' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621680411610"><span id="local-6989586621680411611"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTrial"><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-var">CreateTrial</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTrial%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-var">CreateTrial'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621680413240"><span id="local-6989586621680413241"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTrial"><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-var">CreateTrial</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTrial%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-var">CreateTrial'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AmetadataProperties%3ACreateTrial%27"><span class="annot"><span class="annottext">CreateTrial -&gt; Maybe MetadataProperties
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AmetadataProperties%3ACreateTrial%27"><span class="hs-identifier hs-var hs-var">metadataProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetadataProperties.html#MetadataProperties"><span class="hs-identifier hs-type">MetadataProperties</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A list of tags to associate with the trial. You can use Search API to</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- search on the tags.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3Atags%3ACreateTrial%27"><span class="annot"><span class="annottext">CreateTrial -&gt; Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3Atags%3ACreateTrial%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The name of the trial as displayed. The name doesn\'t need to be unique.</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.</span><span>
-</span><span id="line-75"></span><span>    </span><span id="%24sel%3AdisplayName%3ACreateTrial%27"><span class="annot"><span class="annottext">CreateTrial -&gt; Maybe Text
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The name of the trial as displayed. The name doesn\'t need to be unique.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AdisplayName%3ACreateTrial%27"><span class="annot"><span class="annottext">CreateTrial -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AdisplayName%3ACreateTrial%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A list of tags to associate with the trial. You can use Search API to</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- search on the tags.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Atags%3ACreateTrial%27"><span class="annot"><span class="annottext">CreateTrial -&gt; Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3Atags%3ACreateTrial%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name of the trial. The name must be unique in your Amazon Web</span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Services account and is not case-sensitive.</span><span>
 </span><span id="line-78"></span><span>    </span><span id="%24sel%3AtrialName%3ACreateTrial%27"><span class="annot"><span class="annottext">CreateTrial -&gt; Text
@@ -84,7 +84,7 @@
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AexperimentName%3ACreateTrial%27"><span class="annot"><span class="annottext">CreateTrial -&gt; Text
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AexperimentName%3ACreateTrial%27"><span class="hs-identifier hs-var hs-var">experimentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680411600"><span id="local-6989586621680411602"><span class="annot"><span class="annottext">CreateTrial -&gt; CreateTrial -&gt; Bool
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680413230"><span id="local-6989586621680413232"><span class="annot"><span class="annottext">CreateTrial -&gt; CreateTrial -&gt; Bool
 (CreateTrial -&gt; CreateTrial -&gt; Bool)
 -&gt; (CreateTrial -&gt; CreateTrial -&gt; Bool) -&gt; Eq CreateTrial
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTrial -&gt; CreateTrial -&gt; Bool
 == :: CreateTrial -&gt; CreateTrial -&gt; Bool
 $c== :: CreateTrial -&gt; CreateTrial -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680411591"><span id="local-6989586621680411593"><span id="local-6989586621680411595"><span id="local-6989586621680411597"><span class="annot"><span class="annottext">ReadPrec [CreateTrial]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680413221"><span id="local-6989586621680413223"><span id="local-6989586621680413225"><span id="local-6989586621680413227"><span class="annot"><span class="annottext">ReadPrec [CreateTrial]
 ReadPrec CreateTrial
 Int -&gt; ReadS CreateTrial
 ReadS [CreateTrial]
@@ -112,7 +112,7 @@ readList :: ReadS [CreateTrial]
 $creadList :: ReadS [CreateTrial]
 readsPrec :: Int -&gt; ReadS CreateTrial
 $creadsPrec :: Int -&gt; ReadS CreateTrial
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680411584"><span id="local-6989586621680411586"><span id="local-6989586621680411588"><span class="annot"><span class="annottext">Int -&gt; CreateTrial -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680413214"><span id="local-6989586621680413216"><span id="local-6989586621680413218"><span class="annot"><span class="annottext">Int -&gt; CreateTrial -&gt; ShowS
 [CreateTrial] -&gt; ShowS
 CreateTrial -&gt; String
 (Int -&gt; CreateTrial -&gt; ShowS)
@@ -148,11 +148,11 @@ $cfrom :: forall x. CreateTrial -&gt; Rep CreateTrial x
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- 'metadataProperties', 'createTrial_metadataProperties' - Undocumented member.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'tags', 'createTrial_tags' - A list of tags to associate with the trial. You can use Search API to</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- search on the tags.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'displayName', 'createTrial_displayName' - The name of the trial as displayed. The name doesn\'t need to be unique.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'displayName', 'createTrial_displayName' - The name of the trial as displayed. The name doesn\'t need to be unique.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'tags', 'createTrial_tags' - A list of tags to associate with the trial. You can use Search API to</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- search on the tags.</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- 'trialName', 'createTrial_trialName' - The name of the trial. The name must be unique in your Amazon Web</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- Services account and is not case-sensitive.</span><span>
@@ -165,30 +165,30 @@ $cfrom :: forall x. CreateTrial -&gt; Rep CreateTrial x
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-109"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span>
 </span><span id="line-110"></span><span id="newCreateTrial"><span class="annot"><span class="annottext">newCreateTrial :: Text -&gt; Text -&gt; CreateTrial
-</span><a href="Network.AWS.SageMaker.CreateTrial.html#newCreateTrial"><span class="hs-identifier hs-var hs-var">newCreateTrial</span></a></span></span><span> </span><span id="local-6989586621680411579"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680411579"><span class="hs-identifier hs-var">pTrialName_</span></a></span></span><span> </span><span id="local-6989586621680411578"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680411578"><span class="hs-identifier hs-var">pExperimentName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.CreateTrial.html#newCreateTrial"><span class="hs-identifier hs-var hs-var">newCreateTrial</span></a></span></span><span> </span><span id="local-6989586621680413209"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413209"><span class="hs-identifier hs-var">pTrialName_</span></a></span></span><span> </span><span id="local-6989586621680413208"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413208"><span class="hs-identifier hs-var">pExperimentName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="annottext">CreateTrial' :: Maybe MetadataProperties
--&gt; Maybe [Tag] -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; CreateTrial
+-&gt; Maybe Text -&gt; Maybe [Tag] -&gt; Text -&gt; Text -&gt; CreateTrial
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metadataProperties:CreateTrial' :: Maybe MetadataProperties
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AmetadataProperties%3ACreateTrial%27"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetadataProperties
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateTrial' :: Maybe [Tag]
-</span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3Atags%3ACreateTrial%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:CreateTrial' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AdisplayName%3ACreateTrial%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:CreateTrial' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AdisplayName%3ACreateTrial%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateTrial' :: Maybe [Tag]
+</span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3Atags%3ACreateTrial%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:trialName:CreateTrial' :: Text
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AtrialName%3ACreateTrial%27"><span class="hs-identifier hs-var">trialName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680411579"><span class="hs-identifier hs-var">pTrialName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680413209"><span class="hs-identifier hs-var">pTrialName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:experimentName:CreateTrial' :: Text
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AexperimentName%3ACreateTrial%27"><span class="hs-identifier hs-var">experimentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680411578"><span class="hs-identifier hs-var">pExperimentName_</span></a></span><span>
+</span><a href="#local-6989586621680413208"><span class="hs-identifier hs-var">pExperimentName_</span></a></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -203,35 +203,54 @@ forall a. Maybe a
      (Maybe MetadataProperties)
      (Maybe MetadataProperties)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411575"><span class="annot"><span class="annottext">Maybe MetadataProperties
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413205"><span class="annot"><span class="annottext">Maybe MetadataProperties
 metadataProperties :: Maybe MetadataProperties
 $sel:metadataProperties:CreateTrial' :: CreateTrial -&gt; Maybe MetadataProperties
-</span><a href="#local-6989586621680411575"><span class="hs-identifier hs-var hs-var">metadataProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetadataProperties
-</span><a href="#local-6989586621680411575"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411574"><span class="annot"><span class="annottext">s :: CreateTrial
-</span><a href="#local-6989586621680411574"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411573"><span class="annot"><span class="annottext">Maybe MetadataProperties
-</span><a href="#local-6989586621680411573"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrial
-</span><a href="#local-6989586621680411574"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadataProperties:CreateTrial' :: Maybe MetadataProperties
+</span><a href="#local-6989586621680413205"><span class="hs-identifier hs-var hs-var">metadataProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetadataProperties
+</span><a href="#local-6989586621680413205"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413204"><span class="annot"><span class="annottext">s :: CreateTrial
+</span><a href="#local-6989586621680413204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413203"><span class="annot"><span class="annottext">Maybe MetadataProperties
+</span><a href="#local-6989586621680413203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrial
+</span><a href="#local-6989586621680413204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadataProperties:CreateTrial' :: Maybe MetadataProperties
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AmetadataProperties%3ACreateTrial%27"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetadataProperties
-</span><a href="#local-6989586621680411573"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680413203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | A list of tags to associate with the trial. You can use Search API to</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- search on the tags.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_tags"><span class="hs-identifier hs-type">createTrial_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="createTrial_tags"><span class="annot"><span class="annottext">createTrial_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateTrial -&gt; f CreateTrial
+</span><span id="line-123"></span><span class="hs-comment">-- | The name of the trial as displayed. The name doesn\'t need to be unique.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_displayName"><span class="hs-identifier hs-type">createTrial_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="createTrial_displayName"><span class="annot"><span class="annottext">createTrial_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateTrial -&gt; f CreateTrial
+</span><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_displayName"><span class="hs-identifier hs-var hs-var">createTrial_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrial -&gt; Maybe Text)
+-&gt; (CreateTrial -&gt; Maybe Text -&gt; CreateTrial)
+-&gt; Lens CreateTrial CreateTrial (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413202"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:CreateTrial' :: CreateTrial -&gt; Maybe Text
+</span><a href="#local-6989586621680413202"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680413202"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413201"><span class="annot"><span class="annottext">s :: CreateTrial
+</span><a href="#local-6989586621680413201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413200"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680413200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrial
+</span><a href="#local-6989586621680413201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:CreateTrial' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AdisplayName%3ACreateTrial%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680413200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | A list of tags to associate with the trial. You can use Search API to</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- search on the tags.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_tags"><span class="hs-identifier hs-type">createTrial_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="createTrial_tags"><span class="annot"><span class="annottext">createTrial_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateTrial -&gt; f CreateTrial
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_tags"><span class="hs-identifier hs-var hs-var">createTrial_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrial -&gt; Maybe [Tag])
 -&gt; (CreateTrial -&gt; Maybe [Tag] -&gt; CreateTrial)
 -&gt; Lens CreateTrial CreateTrial (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411572"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413199"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:CreateTrial' :: CreateTrial -&gt; Maybe [Tag]
-</span><a href="#local-6989586621680411572"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680411572"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411571"><span class="annot"><span class="annottext">s :: CreateTrial
-</span><a href="#local-6989586621680411571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411570"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680411570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrial
-</span><a href="#local-6989586621680411571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateTrial' :: Maybe [Tag]
+</span><a href="#local-6989586621680413199"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680413199"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413198"><span class="annot"><span class="annottext">s :: CreateTrial
+</span><a href="#local-6989586621680413198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413197"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680413197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrial
+</span><a href="#local-6989586621680413198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateTrial' :: Maybe [Tag]
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3Atags%3ACreateTrial%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680411570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateTrial -&gt; f CreateTrial)
+</span><a href="#local-6989586621680413197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; CreateTrial -&gt; f CreateTrial)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -244,27 +263,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The name of the trial as displayed. The name doesn\'t need to be unique.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- If @DisplayName@ isn\'t specified, @TrialName@ is displayed.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_displayName"><span class="hs-identifier hs-type">createTrial_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="createTrial_displayName"><span class="annot"><span class="annottext">createTrial_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateTrial -&gt; f CreateTrial
-</span><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_displayName"><span class="hs-identifier hs-var hs-var">createTrial_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrial -&gt; Maybe Text)
--&gt; (CreateTrial -&gt; Maybe Text -&gt; CreateTrial)
--&gt; Lens CreateTrial CreateTrial (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411566"><span class="annot"><span class="annottext">Maybe Text
-displayName :: Maybe Text
-$sel:displayName:CreateTrial' :: CreateTrial -&gt; Maybe Text
-</span><a href="#local-6989586621680411566"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680411566"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411565"><span class="annot"><span class="annottext">s :: CreateTrial
-</span><a href="#local-6989586621680411565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411564"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680411564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrial
-</span><a href="#local-6989586621680411565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:CreateTrial' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AdisplayName%3ACreateTrial%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680411564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The name of the trial. The name must be unique in your Amazon Web</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- Services account and is not case-sensitive.</span><span>
@@ -274,16 +274,16 @@ $sel:displayName:CreateTrial' :: CreateTrial -&gt; Maybe Text
 -&gt; (CreateTrial -&gt; Text -&gt; CreateTrial)
 -&gt; Lens CreateTrial CreateTrial Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411563"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413193"><span class="annot"><span class="annottext">Text
 trialName :: Text
 $sel:trialName:CreateTrial' :: CreateTrial -&gt; Text
-</span><a href="#local-6989586621680411563"><span class="hs-identifier hs-var hs-var">trialName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680411563"><span class="hs-identifier hs-var">trialName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411562"><span class="annot"><span class="annottext">s :: CreateTrial
-</span><a href="#local-6989586621680411562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411561"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680411561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrial
-</span><a href="#local-6989586621680411562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialName:CreateTrial' :: Text
+</span><a href="#local-6989586621680413193"><span class="hs-identifier hs-var hs-var">trialName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413193"><span class="hs-identifier hs-var">trialName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413192"><span class="annot"><span class="annottext">s :: CreateTrial
+</span><a href="#local-6989586621680413192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413191"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrial
+</span><a href="#local-6989586621680413192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialName:CreateTrial' :: Text
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AtrialName%3ACreateTrial%27"><span class="hs-identifier hs-var">trialName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680411561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680413191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- | The name of the experiment to associate the trial with.</span><span>
 </span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#createTrial_experimentName"><span class="hs-identifier hs-type">createTrial_experimentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -292,25 +292,25 @@ $sel:trialName:CreateTrial' :: CreateTrial -&gt; Text
 -&gt; (CreateTrial -&gt; Text -&gt; CreateTrial)
 -&gt; Lens CreateTrial CreateTrial Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411560"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413190"><span class="annot"><span class="annottext">Text
 experimentName :: Text
 $sel:experimentName:CreateTrial' :: CreateTrial -&gt; Text
-</span><a href="#local-6989586621680411560"><span class="hs-identifier hs-var hs-var">experimentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680411560"><span class="hs-identifier hs-var">experimentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411559"><span class="annot"><span class="annottext">s :: CreateTrial
-</span><a href="#local-6989586621680411559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411558"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680411558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrial
-</span><a href="#local-6989586621680411559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experimentName:CreateTrial' :: Text
+</span><a href="#local-6989586621680413190"><span class="hs-identifier hs-var hs-var">experimentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413190"><span class="hs-identifier hs-var">experimentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413189"><span class="annot"><span class="annottext">s :: CreateTrial
+</span><a href="#local-6989586621680413189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413188"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680413188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrial
+</span><a href="#local-6989586621680413189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:experimentName:CreateTrial' :: Text
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AexperimentName%3ACreateTrial%27"><span class="hs-identifier hs-var">experimentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680411558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680413188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse"><span class="hs-identifier hs-type">CreateTrialResponse</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621680411554"><span class="annot"><span class="annottext">request :: CreateTrial -&gt; Request CreateTrial
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621680413184"><span class="annot"><span class="annottext">request :: CreateTrial -&gt; Request CreateTrial
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateTrial -&gt; Request CreateTrial
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621680411550"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621680413180"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateTrial
 -&gt; ClientResponse ClientBody
@@ -334,10 +334,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680411547"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680411547"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680411546"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680411546"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680411545"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680411545"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680413177"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680413177"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680413176"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680413176"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680413175"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680413175"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateTrialResponse
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse%27"><span class="hs-identifier hs-var">CreateTrialResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateTrialResponse)
@@ -345,7 +345,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateTrialResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680411545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680413175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrialArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -357,15 +357,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680411547"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680413177"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680411537"><span id="local-6989586621680411539"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680413167"><span id="local-6989586621680413169"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680411534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680413164"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621680411530"><span class="annot"><span class="annottext">toHeaders :: CreateTrial -&gt; ResponseHeaders
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621680413160"><span class="annot"><span class="annottext">toHeaders :: CreateTrial -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateTrial -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -390,23 +390,23 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680411520"><span id="local-6989586621680411522"><span id="local-6989586621680411524"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621680411518"><span class="annot"><span class="annottext">toJSON :: CreateTrial -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411512"><span id="local-6989586621680411513"><span id="local-6989586621680411514"><span id="local-6989586621680411515"><span id="local-6989586621680411516"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680413150"><span id="local-6989586621680413152"><span id="local-6989586621680413154"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621680413148"><span class="annot"><span class="annottext">toJSON :: CreateTrial -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial%27"><span class="hs-identifier hs-type">CreateTrial'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413142"><span id="local-6989586621680413143"><span id="local-6989586621680413144"><span id="local-6989586621680413145"><span id="local-6989586621680413146"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 Maybe MetadataProperties
 Text
 experimentName :: Text
 trialName :: Text
-displayName :: Maybe Text
 tags :: Maybe [Tag]
+displayName :: Maybe Text
 metadataProperties :: Maybe MetadataProperties
 $sel:experimentName:CreateTrial' :: CreateTrial -&gt; Text
 $sel:trialName:CreateTrial' :: CreateTrial -&gt; Text
-$sel:displayName:CreateTrial' :: CreateTrial -&gt; Maybe Text
 $sel:tags:CreateTrial' :: CreateTrial -&gt; Maybe [Tag]
+$sel:displayName:CreateTrial' :: CreateTrial -&gt; Maybe Text
 $sel:metadataProperties:CreateTrial' :: CreateTrial -&gt; Maybe MetadataProperties
-</span><a href="#local-6989586621680411512"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680413142"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -420,28 +420,28 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MetadataProperties -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MetadataProperties
-</span><a href="#local-6989586621680411516"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680413146"><span class="hs-identifier hs-var">metadataProperties</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680411515"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680411514"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680413145"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680413144"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrialName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680411513"><span class="hs-identifier hs-var">trialName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680413143"><span class="hs-identifier hs-var">trialName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -449,19 +449,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ExperimentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680411512"><span class="hs-identifier hs-var">experimentName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680413142"><span class="hs-identifier hs-var">experimentName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621680411506"><span class="annot"><span class="annottext">toPath :: CreateTrial -&gt; ByteString
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621680413136"><span class="annot"><span class="annottext">toPath :: CreateTrial -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateTrial -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrial"><span class="hs-identifier hs-type">CreateTrial</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621680411502"><span class="annot"><span class="annottext">toQuery :: CreateTrial -&gt; QueryString
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621680413132"><span class="annot"><span class="annottext">toQuery :: CreateTrial -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateTrial -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -469,7 +469,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newCreateTrialResponse' smart constructor.</span><span>
-</span><span id="line-191"></span><span id="local-6989586621680411499"><span id="local-6989586621680411500"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTrialResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse"><span class="hs-identifier hs-var">CreateTrialResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTrialResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse%27"><span class="hs-identifier hs-var">CreateTrialResponse'</span></a></span></span><span>
+</span><span id="line-191"></span><span id="local-6989586621680413129"><span id="local-6989586621680413130"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTrialResponse"><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse"><span class="hs-identifier hs-var">CreateTrialResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTrialResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse%27"><span class="hs-identifier hs-var">CreateTrialResponse'</span></a></span></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the trial.</span><span>
 </span><span id="line-193"></span><span>    </span><span id="%24sel%3AtrialArn%3ACreateTrialResponse%27"><span class="annot"><span class="annottext">CreateTrialResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AtrialArn%3ACreateTrialResponse%27"><span class="hs-identifier hs-var hs-var">trialArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -477,7 +477,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateTrialResponse%27"><span class="annot"><span class="annottext">CreateTrialResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AhttpStatus%3ACreateTrialResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680411493"><span id="local-6989586621680411495"><span class="annot"><span class="annottext">CreateTrialResponse -&gt; CreateTrialResponse -&gt; Bool
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680413123"><span id="local-6989586621680413125"><span class="annot"><span class="annottext">CreateTrialResponse -&gt; CreateTrialResponse -&gt; Bool
 (CreateTrialResponse -&gt; CreateTrialResponse -&gt; Bool)
 -&gt; (CreateTrialResponse -&gt; CreateTrialResponse -&gt; Bool)
 -&gt; Eq CreateTrialResponse
@@ -486,7 +486,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateTrialResponse -&gt; CreateTrialResponse -&gt; Bool
 == :: CreateTrialResponse -&gt; CreateTrialResponse -&gt; Bool
 $c== :: CreateTrialResponse -&gt; CreateTrialResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680411485"><span id="local-6989586621680411487"><span id="local-6989586621680411489"><span id="local-6989586621680411491"><span class="annot"><span class="annottext">ReadPrec [CreateTrialResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680413115"><span id="local-6989586621680413117"><span id="local-6989586621680413119"><span id="local-6989586621680413121"><span class="annot"><span class="annottext">ReadPrec [CreateTrialResponse]
 ReadPrec CreateTrialResponse
 Int -&gt; ReadS CreateTrialResponse
 ReadS [CreateTrialResponse]
@@ -506,7 +506,7 @@ readList :: ReadS [CreateTrialResponse]
 $creadList :: ReadS [CreateTrialResponse]
 readsPrec :: Int -&gt; ReadS CreateTrialResponse
 $creadsPrec :: Int -&gt; ReadS CreateTrialResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680411479"><span id="local-6989586621680411481"><span id="local-6989586621680411483"><span class="annot"><span class="annottext">Int -&gt; CreateTrialResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680413109"><span id="local-6989586621680413111"><span id="local-6989586621680413113"><span class="annot"><span class="annottext">Int -&gt; CreateTrialResponse -&gt; ShowS
 [CreateTrialResponse] -&gt; ShowS
 CreateTrialResponse -&gt; String
 (Int -&gt; CreateTrialResponse -&gt; ShowS)
@@ -548,8 +548,8 @@ $cfrom :: forall x. CreateTrialResponse -&gt; Rep CreateTrialResponse x
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse"><span class="hs-identifier hs-type">CreateTrialResponse</span></a></span><span>
 </span><span id="line-214"></span><span id="newCreateTrialResponse"><span class="annot"><span class="annottext">newCreateTrialResponse :: Int -&gt; CreateTrialResponse
-</span><a href="Network.AWS.SageMaker.CreateTrial.html#newCreateTrialResponse"><span class="hs-identifier hs-var hs-var">newCreateTrialResponse</span></a></span></span><span> </span><span id="local-6989586621680411476"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680411476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.CreateTrial.html#newCreateTrialResponse"><span class="hs-identifier hs-var hs-var">newCreateTrialResponse</span></a></span></span><span> </span><span id="local-6989586621680413106"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680413106"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">CreateTrialResponse' :: Maybe Text -&gt; Int -&gt; CreateTrialResponse
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse%27"><span class="hs-identifier hs-type">CreateTrialResponse'</span></a></span><span>
 </span><span id="line-216"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trialArn:CreateTrialResponse' :: Maybe Text
@@ -558,7 +558,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTrialResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AhttpStatus%3ACreateTrialResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680411476"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680413106"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the trial.</span><span>
@@ -570,16 +570,16 @@ forall a. Maybe a
 -&gt; Lens
      CreateTrialResponse CreateTrialResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse%27"><span class="hs-identifier hs-type">CreateTrialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411475"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse%27"><span class="hs-identifier hs-type">CreateTrialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413105"><span class="annot"><span class="annottext">Maybe Text
 trialArn :: Maybe Text
 $sel:trialArn:CreateTrialResponse' :: CreateTrialResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680411475"><span class="hs-identifier hs-var hs-var">trialArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680411475"><span class="hs-identifier hs-var">trialArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411474"><span class="annot"><span class="annottext">s :: CreateTrialResponse
-</span><a href="#local-6989586621680411474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse%27"><span class="hs-identifier hs-type">CreateTrialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411473"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680411473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrialResponse
-</span><a href="#local-6989586621680411474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialArn:CreateTrialResponse' :: Maybe Text
+</span><a href="#local-6989586621680413105"><span class="hs-identifier hs-var hs-var">trialArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680413105"><span class="hs-identifier hs-var">trialArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413104"><span class="annot"><span class="annottext">s :: CreateTrialResponse
+</span><a href="#local-6989586621680413104"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse%27"><span class="hs-identifier hs-type">CreateTrialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413103"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680413103"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrialResponse
+</span><a href="#local-6989586621680413104"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trialArn:CreateTrialResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AtrialArn%3ACreateTrialResponse%27"><span class="hs-identifier hs-var">trialArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680411473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse"><span class="hs-identifier hs-type">CreateTrialResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680413103"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse"><span class="hs-identifier hs-type">CreateTrialResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-225"></span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#createTrialResponse_httpStatus"><span class="hs-identifier hs-type">createTrialResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse"><span class="hs-identifier hs-type">CreateTrialResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -588,16 +588,16 @@ $sel:trialArn:CreateTrialResponse' :: CreateTrialResponse -&gt; Maybe Text
 -&gt; (CreateTrialResponse -&gt; Int -&gt; CreateTrialResponse)
 -&gt; Lens CreateTrialResponse CreateTrialResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse%27"><span class="hs-identifier hs-type">CreateTrialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411472"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse%27"><span class="hs-identifier hs-type">CreateTrialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680413102"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateTrialResponse' :: CreateTrialResponse -&gt; Int
-</span><a href="#local-6989586621680411472"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680411472"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411471"><span class="annot"><span class="annottext">s :: CreateTrialResponse
-</span><a href="#local-6989586621680411471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse%27"><span class="hs-identifier hs-type">CreateTrialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411470"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680411470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrialResponse
-</span><a href="#local-6989586621680411471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTrialResponse' :: Int
+</span><a href="#local-6989586621680413102"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680413102"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680413101"><span class="annot"><span class="annottext">s :: CreateTrialResponse
+</span><a href="#local-6989586621680413101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse%27"><span class="hs-identifier hs-type">CreateTrialResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680413100"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680413100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrialResponse
+</span><a href="#local-6989586621680413101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTrialResponse' :: Int
 </span><a href="Network.AWS.SageMaker.CreateTrial.html#%24sel%3AhttpStatus%3ACreateTrialResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680411470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse"><span class="hs-identifier hs-type">CreateTrialResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680413100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse"><span class="hs-identifier hs-type">CreateTrialResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680411468"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse"><span class="hs-identifier hs-type">CreateTrialResponse</span></a></span></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680413098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.CreateTrial.html#CreateTrialResponse"><span class="hs-identifier hs-type">CreateTrialResponse</span></a></span></span><span>
 </span><span id="line-229"></span></pre></body></html>

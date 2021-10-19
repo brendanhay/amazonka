@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The start time or end time for an hours of operation.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHoursOfOperationTimeSlice' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679397522"><span id="local-6989586621679397523"></span></span><span class="hs-keyword">data</span><span> </span><span id="HoursOfOperationTimeSlice"><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-var">HoursOfOperationTimeSlice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HoursOfOperationTimeSlice%27"><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-var">HoursOfOperationTimeSlice'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679397803"><span id="local-6989586621679397804"></span></span><span class="hs-keyword">data</span><span> </span><span id="HoursOfOperationTimeSlice"><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-var">HoursOfOperationTimeSlice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HoursOfOperationTimeSlice%27"><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-var">HoursOfOperationTimeSlice'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The hours.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Ahours%3AHoursOfOperationTimeSlice%27"><span class="annot"><span class="annottext">HoursOfOperationTimeSlice -&gt; Natural
 </span><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#%24sel%3Ahours%3AHoursOfOperationTimeSlice%27"><span class="hs-identifier hs-var hs-var">hours</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
@@ -34,7 +34,7 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aminutes%3AHoursOfOperationTimeSlice%27"><span class="annot"><span class="annottext">HoursOfOperationTimeSlice -&gt; Natural
 </span><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#%24sel%3Aminutes%3AHoursOfOperationTimeSlice%27"><span class="hs-identifier hs-var hs-var">minutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397515"><span id="local-6989586621679397517"><span class="annot"><span class="annottext">HoursOfOperationTimeSlice -&gt; HoursOfOperationTimeSlice -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397796"><span id="local-6989586621679397798"><span class="annot"><span class="annottext">HoursOfOperationTimeSlice -&gt; HoursOfOperationTimeSlice -&gt; Bool
 (HoursOfOperationTimeSlice -&gt; HoursOfOperationTimeSlice -&gt; Bool)
 -&gt; (HoursOfOperationTimeSlice -&gt; HoursOfOperationTimeSlice -&gt; Bool)
 -&gt; Eq HoursOfOperationTimeSlice
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HoursOfOperationTimeSlice -&gt; HoursOfOperationTimeSlice -&gt; Bool
 == :: HoursOfOperationTimeSlice -&gt; HoursOfOperationTimeSlice -&gt; Bool
 $c== :: HoursOfOperationTimeSlice -&gt; HoursOfOperationTimeSlice -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397506"><span id="local-6989586621679397508"><span id="local-6989586621679397510"><span id="local-6989586621679397512"><span class="annot"><span class="annottext">ReadPrec [HoursOfOperationTimeSlice]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397787"><span id="local-6989586621679397789"><span id="local-6989586621679397791"><span id="local-6989586621679397793"><span class="annot"><span class="annottext">ReadPrec [HoursOfOperationTimeSlice]
 ReadPrec HoursOfOperationTimeSlice
 Int -&gt; ReadS HoursOfOperationTimeSlice
 ReadS [HoursOfOperationTimeSlice]
@@ -63,7 +63,7 @@ readList :: ReadS [HoursOfOperationTimeSlice]
 $creadList :: ReadS [HoursOfOperationTimeSlice]
 readsPrec :: Int -&gt; ReadS HoursOfOperationTimeSlice
 $creadsPrec :: Int -&gt; ReadS HoursOfOperationTimeSlice
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397499"><span id="local-6989586621679397501"><span id="local-6989586621679397503"><span class="annot"><span class="annottext">Int -&gt; HoursOfOperationTimeSlice -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397780"><span id="local-6989586621679397782"><span id="local-6989586621679397784"><span class="annot"><span class="annottext">Int -&gt; HoursOfOperationTimeSlice -&gt; ShowS
 [HoursOfOperationTimeSlice] -&gt; ShowS
 HoursOfOperationTimeSlice -&gt; String
 (Int -&gt; HoursOfOperationTimeSlice -&gt; ShowS)
@@ -113,17 +113,17 @@ HoursOfOperationTimeSlice -&gt; Rep HoursOfOperationTimeSlice x
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span><span>
 </span><span id="line-54"></span><span id="newHoursOfOperationTimeSlice"><span class="annot"><span class="annottext">newHoursOfOperationTimeSlice :: Natural -&gt; Natural -&gt; HoursOfOperationTimeSlice
-</span><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#newHoursOfOperationTimeSlice"><span class="hs-identifier hs-var hs-var">newHoursOfOperationTimeSlice</span></a></span></span><span> </span><span id="local-6989586621679397493"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679397493"><span class="hs-identifier hs-var">pHours_</span></a></span></span><span> </span><span id="local-6989586621679397492"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679397492"><span class="hs-identifier hs-var">pMinutes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#newHoursOfOperationTimeSlice"><span class="hs-identifier hs-var hs-var">newHoursOfOperationTimeSlice</span></a></span></span><span> </span><span id="local-6989586621679397774"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679397774"><span class="hs-identifier hs-var">pHours_</span></a></span></span><span> </span><span id="local-6989586621679397773"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679397773"><span class="hs-identifier hs-var">pMinutes_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">HoursOfOperationTimeSlice' :: Natural -&gt; Natural -&gt; HoursOfOperationTimeSlice
 </span><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice'</span></a></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hours:HoursOfOperationTimeSlice' :: Natural
 </span><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#%24sel%3Ahours%3AHoursOfOperationTimeSlice%27"><span class="hs-identifier hs-var">hours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679397493"><span class="hs-identifier hs-var">pHours_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397774"><span class="hs-identifier hs-var">pHours_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:minutes:HoursOfOperationTimeSlice' :: Natural
 </span><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#%24sel%3Aminutes%3AHoursOfOperationTimeSlice%27"><span class="hs-identifier hs-var">minutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679397492"><span class="hs-identifier hs-var">pMinutes_</span></a></span><span>
+</span><a href="#local-6989586621679397773"><span class="hs-identifier hs-var">pMinutes_</span></a></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | The hours.</span><span>
@@ -136,16 +136,16 @@ HoursOfOperationTimeSlice -&gt; Rep HoursOfOperationTimeSlice x
 -&gt; Lens
      HoursOfOperationTimeSlice HoursOfOperationTimeSlice Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397488"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397769"><span class="annot"><span class="annottext">Natural
 hours :: Natural
 $sel:hours:HoursOfOperationTimeSlice' :: HoursOfOperationTimeSlice -&gt; Natural
-</span><a href="#local-6989586621679397488"><span class="hs-identifier hs-var hs-var">hours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679397488"><span class="hs-identifier hs-var">hours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397487"><span class="annot"><span class="annottext">s :: HoursOfOperationTimeSlice
-</span><a href="#local-6989586621679397487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397486"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679397486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HoursOfOperationTimeSlice
-</span><a href="#local-6989586621679397487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hours:HoursOfOperationTimeSlice' :: Natural
+</span><a href="#local-6989586621679397769"><span class="hs-identifier hs-var hs-var">hours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679397769"><span class="hs-identifier hs-var">hours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397768"><span class="annot"><span class="annottext">s :: HoursOfOperationTimeSlice
+</span><a href="#local-6989586621679397768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397767"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679397767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HoursOfOperationTimeSlice
+</span><a href="#local-6989586621679397768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hours:HoursOfOperationTimeSlice' :: Natural
 </span><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#%24sel%3Ahours%3AHoursOfOperationTimeSlice%27"><span class="hs-identifier hs-var">hours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679397486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The minutes.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#hoursOfOperationTimeSlice_minutes"><span class="hs-identifier hs-type">hoursOfOperationTimeSlice_minutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -157,19 +157,19 @@ $sel:hours:HoursOfOperationTimeSlice' :: HoursOfOperationTimeSlice -&gt; Natural
 -&gt; Lens
      HoursOfOperationTimeSlice HoursOfOperationTimeSlice Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397484"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397765"><span class="annot"><span class="annottext">Natural
 minutes :: Natural
 $sel:minutes:HoursOfOperationTimeSlice' :: HoursOfOperationTimeSlice -&gt; Natural
-</span><a href="#local-6989586621679397484"><span class="hs-identifier hs-var hs-var">minutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679397484"><span class="hs-identifier hs-var">minutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397483"><span class="annot"><span class="annottext">s :: HoursOfOperationTimeSlice
-</span><a href="#local-6989586621679397483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397482"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679397482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HoursOfOperationTimeSlice
-</span><a href="#local-6989586621679397483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minutes:HoursOfOperationTimeSlice' :: Natural
+</span><a href="#local-6989586621679397765"><span class="hs-identifier hs-var hs-var">minutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679397765"><span class="hs-identifier hs-var">minutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397764"><span class="annot"><span class="annottext">s :: HoursOfOperationTimeSlice
+</span><a href="#local-6989586621679397764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397763"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679397763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HoursOfOperationTimeSlice
+</span><a href="#local-6989586621679397764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minutes:HoursOfOperationTimeSlice' :: Natural
 </span><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#%24sel%3Aminutes%3AHoursOfOperationTimeSlice%27"><span class="hs-identifier hs-var">minutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679397482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397479"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679397477"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HoursOfOperationTimeSlice
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397760"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679397758"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HoursOfOperationTimeSlice
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HoursOfOperationTimeSlice)
@@ -179,15 +179,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HoursOfOperationTimeSlice&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679397474"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397474"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679397755"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679397755"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Natural -&gt; Natural -&gt; HoursOfOperationTimeSlice
 </span><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-var">HoursOfOperationTimeSlice'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Natural -&gt; Natural -&gt; HoursOfOperationTimeSlice)
 -&gt; Parser Natural -&gt; Parser (Natural -&gt; HoursOfOperationTimeSlice)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679397755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Hours&quot;</span></span><span class="hs-special">)</span><span>
@@ -195,24 +195,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser HoursOfOperationTimeSlice
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679397474"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679397755"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Minutes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397468"><span id="local-6989586621679397470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397749"><span id="local-6989586621679397751"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397746"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397457"><span id="local-6989586621679397459"><span id="local-6989586621679397461"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679397455"><span class="annot"><span class="annottext">toJSON :: HoursOfOperationTimeSlice -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397452"><span id="local-6989586621679397453"><span class="annot"><span class="annottext">Natural
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397738"><span id="local-6989586621679397740"><span id="local-6989586621679397742"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679397736"><span class="annot"><span class="annottext">toJSON :: HoursOfOperationTimeSlice -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.HoursOfOperationTimeSlice.html#HoursOfOperationTimeSlice%27"><span class="hs-identifier hs-type">HoursOfOperationTimeSlice'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397733"><span id="local-6989586621679397734"><span class="annot"><span class="annottext">Natural
 minutes :: Natural
 hours :: Natural
 $sel:minutes:HoursOfOperationTimeSlice' :: HoursOfOperationTimeSlice -&gt; Natural
 $sel:hours:HoursOfOperationTimeSlice' :: HoursOfOperationTimeSlice -&gt; Natural
-</span><a href="#local-6989586621679397452"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679397733"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -224,14 +224,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Hours&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679397453"><span class="hs-identifier hs-var">hours</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397734"><span class="hs-identifier hs-var">hours</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Minutes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679397452"><span class="hs-identifier hs-var">minutes</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397733"><span class="hs-identifier hs-var">minutes</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span></pre></body></html>

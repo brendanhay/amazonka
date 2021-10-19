@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An invalidation.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInvalidation' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679397262"><span id="local-6989586621679397263"></span></span><span class="hs-keyword">data</span><span> </span><span id="Invalidation"><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-var">Invalidation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Invalidation%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-var">Invalidation'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679397514"><span id="local-6989586621679397515"></span></span><span class="hs-keyword">data</span><span> </span><span id="Invalidation"><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-var">Invalidation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Invalidation%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-var">Invalidation'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier for the invalidation request. For example:</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @IDFDVBD632BHDS5@.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aid%3AInvalidation%27"><span class="annot"><span class="annottext">Invalidation -&gt; Text
@@ -43,7 +43,7 @@
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3AinvalidationBatch%3AInvalidation%27"><span class="annot"><span class="annottext">Invalidation -&gt; InvalidationBatch
 </span><a href="Network.AWS.CloudFront.Types.Invalidation.html#%24sel%3AinvalidationBatch%3AInvalidation%27"><span class="hs-identifier hs-var hs-var">invalidationBatch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.InvalidationBatch.html#InvalidationBatch"><span class="hs-identifier hs-type">InvalidationBatch</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397253"><span id="local-6989586621679397255"><span class="annot"><span class="annottext">Invalidation -&gt; Invalidation -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397505"><span id="local-6989586621679397507"><span class="annot"><span class="annottext">Invalidation -&gt; Invalidation -&gt; Bool
 (Invalidation -&gt; Invalidation -&gt; Bool)
 -&gt; (Invalidation -&gt; Invalidation -&gt; Bool) -&gt; Eq Invalidation
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -51,7 +51,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Invalidation -&gt; Invalidation -&gt; Bool
 == :: Invalidation -&gt; Invalidation -&gt; Bool
 $c== :: Invalidation -&gt; Invalidation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397244"><span id="local-6989586621679397246"><span id="local-6989586621679397248"><span id="local-6989586621679397250"><span class="annot"><span class="annottext">ReadPrec [Invalidation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397496"><span id="local-6989586621679397498"><span id="local-6989586621679397500"><span id="local-6989586621679397502"><span class="annot"><span class="annottext">ReadPrec [Invalidation]
 ReadPrec Invalidation
 Int -&gt; ReadS Invalidation
 ReadS [Invalidation]
@@ -71,7 +71,7 @@ readList :: ReadS [Invalidation]
 $creadList :: ReadS [Invalidation]
 readsPrec :: Int -&gt; ReadS Invalidation
 $creadsPrec :: Int -&gt; ReadS Invalidation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397237"><span id="local-6989586621679397239"><span id="local-6989586621679397241"><span class="annot"><span class="annottext">Int -&gt; Invalidation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397489"><span id="local-6989586621679397491"><span id="local-6989586621679397493"><span class="annot"><span class="annottext">Int -&gt; Invalidation -&gt; ShowS
 [Invalidation] -&gt; ShowS
 Invalidation -&gt; String
 (Int -&gt; Invalidation -&gt; ShowS)
@@ -126,22 +126,22 @@ $cfrom :: forall x. Invalidation -&gt; Rep Invalidation x
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span><span>
 </span><span id="line-71"></span><span id="newInvalidation"><span class="annot"><span class="annottext">newInvalidation :: Text -&gt; Text -&gt; UTCTime -&gt; InvalidationBatch -&gt; Invalidation
 </span><a href="Network.AWS.CloudFront.Types.Invalidation.html#newInvalidation"><span class="hs-identifier hs-var hs-var">newInvalidation</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679397231"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397231"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679397230"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397230"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679397229"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679397229"><span class="hs-identifier hs-var">pCreateTime_</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679397228"><span class="annot"><span class="annottext">InvalidationBatch
-</span><a href="#local-6989586621679397228"><span class="hs-identifier hs-var">pInvalidationBatch_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679397483"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397483"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679397482"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397482"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679397481"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679397481"><span class="hs-identifier hs-var">pCreateTime_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679397480"><span class="annot"><span class="annottext">InvalidationBatch
+</span><a href="#local-6989586621679397480"><span class="hs-identifier hs-var">pInvalidationBatch_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Invalidation' :: Text -&gt; Text -&gt; ISO8601 -&gt; InvalidationBatch -&gt; Invalidation
 </span><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:Invalidation' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Invalidation.html#%24sel%3Aid%3AInvalidation%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397231"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397483"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:Invalidation' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Invalidation.html#%24sel%3Astatus%3AInvalidation%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397230"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397482"><span class="hs-identifier hs-var">pStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">$sel:createTime:Invalidation' :: ISO8601
 </span><a href="Network.AWS.CloudFront.Types.Invalidation.html#%24sel%3AcreateTime%3AInvalidation%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
 -&gt; Tagged ISO8601 (Identity ISO8601)
@@ -151,10 +151,10 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; ISO8601
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679397229"><span class="hs-identifier hs-var">pCreateTime_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679397481"><span class="hs-identifier hs-var">pCreateTime_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">$sel:invalidationBatch:Invalidation' :: InvalidationBatch
 </span><a href="Network.AWS.CloudFront.Types.Invalidation.html#%24sel%3AinvalidationBatch%3AInvalidation%27"><span class="hs-identifier hs-var">invalidationBatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InvalidationBatch
-</span><a href="#local-6989586621679397228"><span class="hs-identifier hs-var">pInvalidationBatch_</span></a></span><span>
+</span><a href="#local-6989586621679397480"><span class="hs-identifier hs-var">pInvalidationBatch_</span></a></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The identifier for the invalidation request. For example:</span><span>
@@ -165,16 +165,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (Invalidation -&gt; Text -&gt; Invalidation)
 -&gt; Lens Invalidation Invalidation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397222"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397474"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:Invalidation' :: Invalidation -&gt; Text
-</span><a href="#local-6989586621679397222"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397222"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397221"><span class="annot"><span class="annottext">s :: Invalidation
-</span><a href="#local-6989586621679397221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397220"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Invalidation
-</span><a href="#local-6989586621679397221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Invalidation' :: Text
+</span><a href="#local-6989586621679397474"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397474"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397473"><span class="annot"><span class="annottext">s :: Invalidation
+</span><a href="#local-6989586621679397473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397472"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Invalidation
+</span><a href="#local-6989586621679397473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Invalidation' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Invalidation.html#%24sel%3Aid%3AInvalidation%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The status of the invalidation request. When the invalidation batch is</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- finished, the status is @Completed@.</span><span>
@@ -184,16 +184,16 @@ $sel:id:Invalidation' :: Invalidation -&gt; Text
 -&gt; (Invalidation -&gt; Text -&gt; Invalidation)
 -&gt; Lens Invalidation Invalidation Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397218"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397470"><span class="annot"><span class="annottext">Text
 status :: Text
 $sel:status:Invalidation' :: Invalidation -&gt; Text
-</span><a href="#local-6989586621679397218"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397218"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397217"><span class="annot"><span class="annottext">s :: Invalidation
-</span><a href="#local-6989586621679397217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397216"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Invalidation
-</span><a href="#local-6989586621679397217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Invalidation' :: Text
+</span><a href="#local-6989586621679397470"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397470"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397469"><span class="annot"><span class="annottext">s :: Invalidation
+</span><a href="#local-6989586621679397469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397468"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679397468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Invalidation
+</span><a href="#local-6989586621679397469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Invalidation' :: Text
 </span><a href="Network.AWS.CloudFront.Types.Invalidation.html#%24sel%3Astatus%3AInvalidation%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679397216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The date and time the invalidation request was first made.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#invalidation_createTime"><span class="hs-identifier hs-type">invalidation_createTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -202,16 +202,16 @@ $sel:status:Invalidation' :: Invalidation -&gt; Text
 -&gt; (Invalidation -&gt; ISO8601 -&gt; Invalidation)
 -&gt; Lens Invalidation Invalidation ISO8601 ISO8601
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397214"><span class="annot"><span class="annottext">ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397466"><span class="annot"><span class="annottext">ISO8601
 createTime :: ISO8601
 $sel:createTime:Invalidation' :: Invalidation -&gt; ISO8601
-</span><a href="#local-6989586621679397214"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679397214"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397213"><span class="annot"><span class="annottext">s :: Invalidation
-</span><a href="#local-6989586621679397213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397212"><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679397212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Invalidation
-</span><a href="#local-6989586621679397213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:Invalidation' :: ISO8601
+</span><a href="#local-6989586621679397466"><span class="hs-identifier hs-var hs-var">createTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679397466"><span class="hs-identifier hs-var">createTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397465"><span class="annot"><span class="annottext">s :: Invalidation
+</span><a href="#local-6989586621679397465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397464"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679397464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Invalidation
+</span><a href="#local-6989586621679397465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createTime:Invalidation' :: ISO8601
 </span><a href="Network.AWS.CloudFront.Types.Invalidation.html#%24sel%3AcreateTime%3AInvalidation%27"><span class="hs-identifier hs-var">createTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
-</span><a href="#local-6989586621679397212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; Invalidation -&gt; f Invalidation)
+</span><a href="#local-6989586621679397464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601) -&gt; Invalidation -&gt; f Invalidation)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; Invalidation
@@ -230,21 +230,21 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      Invalidation Invalidation InvalidationBatch InvalidationBatch
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397209"><span class="annot"><span class="annottext">InvalidationBatch
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397461"><span class="annot"><span class="annottext">InvalidationBatch
 invalidationBatch :: InvalidationBatch
 $sel:invalidationBatch:Invalidation' :: Invalidation -&gt; InvalidationBatch
-</span><a href="#local-6989586621679397209"><span class="hs-identifier hs-var hs-var">invalidationBatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationBatch
-</span><a href="#local-6989586621679397209"><span class="hs-identifier hs-var">invalidationBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397208"><span class="annot"><span class="annottext">s :: Invalidation
-</span><a href="#local-6989586621679397208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397207"><span class="annot"><span class="annottext">InvalidationBatch
-</span><a href="#local-6989586621679397207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Invalidation
-</span><a href="#local-6989586621679397208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invalidationBatch:Invalidation' :: InvalidationBatch
+</span><a href="#local-6989586621679397461"><span class="hs-identifier hs-var hs-var">invalidationBatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InvalidationBatch
+</span><a href="#local-6989586621679397461"><span class="hs-identifier hs-var">invalidationBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397460"><span class="annot"><span class="annottext">s :: Invalidation
+</span><a href="#local-6989586621679397460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-type">Invalidation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397459"><span class="annot"><span class="annottext">InvalidationBatch
+</span><a href="#local-6989586621679397459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Invalidation
+</span><a href="#local-6989586621679397460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invalidationBatch:Invalidation' :: InvalidationBatch
 </span><a href="Network.AWS.CloudFront.Types.Invalidation.html#%24sel%3AinvalidationBatch%3AInvalidation%27"><span class="hs-identifier hs-var">invalidationBatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InvalidationBatch
-</span><a href="#local-6989586621679397207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679397204"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Invalidation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397202"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397202"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679397456"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Invalidation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679397454"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679397454"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; ISO8601 -&gt; InvalidationBatch -&gt; Invalidation
 </span><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation%27"><span class="hs-identifier hs-var">Invalidation'</span></a></span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; ISO8601 -&gt; InvalidationBatch -&gt; Invalidation)
@@ -253,7 +253,7 @@ $sel:invalidationBatch:Invalidation' :: Invalidation -&gt; InvalidationBatch
      String (Text -&gt; ISO8601 -&gt; InvalidationBatch -&gt; Invalidation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679397454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
@@ -263,7 +263,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (ISO8601 -&gt; InvalidationBatch -&gt; Invalidation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679397454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -272,7 +272,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (InvalidationBatch -&gt; Invalidation)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+</span><a href="#local-6989586621679397454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreateTime&quot;</span></span><span class="hs-special">)</span><span>
@@ -280,12 +280,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String InvalidationBatch -&gt; Either String Invalidation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679397202"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InvalidationBatch
+</span><a href="#local-6989586621679397454"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String InvalidationBatch
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InvalidationBatch&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397196"><span id="local-6989586621679397198"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397448"><span id="local-6989586621679397450"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397193"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397445"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Invalidation.html#Invalidation"><span class="hs-identifier hs-type">Invalidation</span></a></span></span><span>
 </span><span id="line-112"></span></pre></body></html>

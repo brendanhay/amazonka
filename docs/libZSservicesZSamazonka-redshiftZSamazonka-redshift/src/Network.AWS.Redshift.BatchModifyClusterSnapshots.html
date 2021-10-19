@@ -27,8 +27,8 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#newBatchModifyClusterSnapshots"><span class="hs-identifier">newBatchModifyClusterSnapshots</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_force"><span class="hs-identifier">batchModifyClusterSnapshots_force</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_manualSnapshotRetentionPeriod"><span class="hs-identifier">batchModifyClusterSnapshots_manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_manualSnapshotRetentionPeriod"><span class="hs-identifier">batchModifyClusterSnapshots_manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_force"><span class="hs-identifier">batchModifyClusterSnapshots_force</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_snapshotIdentifierList"><span class="hs-identifier">batchModifyClusterSnapshots_snapshotIdentifierList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -50,27 +50,27 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newBatchModifyClusterSnapshots' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679527988"><span id="local-6989586621679527989"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchModifyClusterSnapshots"><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-var">BatchModifyClusterSnapshots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchModifyClusterSnapshots%27"><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var">BatchModifyClusterSnapshots'</span></a></span></span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A boolean value indicating whether to override an exception if the</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- retention period has passed.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3Aforce%3ABatchModifyClusterSnapshots%27"><span class="annot"><span class="annottext">BatchModifyClusterSnapshots -&gt; Maybe Bool
-</span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3Aforce%3ABatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The number of days that a manual snapshot is retained. If you specify</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the value -1, the manual snapshot is retained indefinitely.</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- The number must be either -1 or an integer between 1 and 3,653.</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- If you decrease the manual snapshot retention period from its current</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- value, existing manual snapshots that fall outside of the new retention</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- period will return an error. If you want to suppress the errors and</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- delete the snapshots, use the force option.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmanualSnapshotRetentionPeriod%3ABatchModifyClusterSnapshots%27"><span class="annot"><span class="annottext">BatchModifyClusterSnapshots -&gt; Maybe Int
+</span><span id="line-53"></span><span id="local-6989586621679528737"><span id="local-6989586621679528738"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchModifyClusterSnapshots"><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-var">BatchModifyClusterSnapshots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchModifyClusterSnapshots%27"><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var">BatchModifyClusterSnapshots'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of days that a manual snapshot is retained. If you specify</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- the value -1, the manual snapshot is retained indefinitely.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- The number must be either -1 or an integer between 1 and 3,653.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- If you decrease the manual snapshot retention period from its current</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- value, existing manual snapshots that fall outside of the new retention</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- period will return an error. If you want to suppress the errors and</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- delete the snapshots, use the force option.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmanualSnapshotRetentionPeriod%3ABatchModifyClusterSnapshots%27"><span class="annot"><span class="annottext">BatchModifyClusterSnapshots -&gt; Maybe Int
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3AmanualSnapshotRetentionPeriod%3ABatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var hs-var">manualSnapshotRetentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A boolean value indicating whether to override an exception if the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- retention period has passed.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aforce%3ABatchModifyClusterSnapshots%27"><span class="annot"><span class="annottext">BatchModifyClusterSnapshots -&gt; Maybe Bool
+</span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3Aforce%3ABatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | A list of snapshot identifiers you want to modify.</span><span>
 </span><span id="line-68"></span><span>    </span><span id="%24sel%3AsnapshotIdentifierList%3ABatchModifyClusterSnapshots%27"><span class="annot"><span class="annottext">BatchModifyClusterSnapshots -&gt; [Text]
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3AsnapshotIdentifierList%3ABatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var hs-var">snapshotIdentifierList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679527980"><span id="local-6989586621679527982"><span class="annot"><span class="annottext">BatchModifyClusterSnapshots -&gt; BatchModifyClusterSnapshots -&gt; Bool
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679528729"><span id="local-6989586621679528731"><span class="annot"><span class="annottext">BatchModifyClusterSnapshots -&gt; BatchModifyClusterSnapshots -&gt; Bool
 (BatchModifyClusterSnapshots
  -&gt; BatchModifyClusterSnapshots -&gt; Bool)
 -&gt; (BatchModifyClusterSnapshots
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchModifyClusterSnapshots -&gt; BatchModifyClusterSnapshots -&gt; Bool
 == :: BatchModifyClusterSnapshots -&gt; BatchModifyClusterSnapshots -&gt; Bool
 $c== :: BatchModifyClusterSnapshots -&gt; BatchModifyClusterSnapshots -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527971"><span id="local-6989586621679527973"><span id="local-6989586621679527975"><span id="local-6989586621679527977"><span class="annot"><span class="annottext">ReadPrec [BatchModifyClusterSnapshots]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528720"><span id="local-6989586621679528722"><span id="local-6989586621679528724"><span id="local-6989586621679528726"><span class="annot"><span class="annottext">ReadPrec [BatchModifyClusterSnapshots]
 ReadPrec BatchModifyClusterSnapshots
 Int -&gt; ReadS BatchModifyClusterSnapshots
 ReadS [BatchModifyClusterSnapshots]
@@ -101,7 +101,7 @@ readList :: ReadS [BatchModifyClusterSnapshots]
 $creadList :: ReadS [BatchModifyClusterSnapshots]
 readsPrec :: Int -&gt; ReadS BatchModifyClusterSnapshots
 $creadsPrec :: Int -&gt; ReadS BatchModifyClusterSnapshots
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527964"><span id="local-6989586621679527966"><span id="local-6989586621679527968"><span class="annot"><span class="annottext">Int -&gt; BatchModifyClusterSnapshots -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528713"><span id="local-6989586621679528715"><span id="local-6989586621679528717"><span class="annot"><span class="annottext">Int -&gt; BatchModifyClusterSnapshots -&gt; ShowS
 [BatchModifyClusterSnapshots] -&gt; ShowS
 BatchModifyClusterSnapshots -&gt; String
 (Int -&gt; BatchModifyClusterSnapshots -&gt; ShowS)
@@ -141,78 +141,52 @@ BatchModifyClusterSnapshots -&gt; Rep BatchModifyClusterSnapshots x
 </span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'force', 'batchModifyClusterSnapshots_force' - A boolean value indicating whether to override an exception if the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- retention period has passed.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'manualSnapshotRetentionPeriod', 'batchModifyClusterSnapshots_manualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If you specify</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- the value -1, the manual snapshot is retained indefinitely.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'manualSnapshotRetentionPeriod', 'batchModifyClusterSnapshots_manualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If you specify</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- the value -1, the manual snapshot is retained indefinitely.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- The number must be either -1 or an integer between 1 and 3,653.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- If you decrease the manual snapshot retention period from its current</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- value, existing manual snapshots that fall outside of the new retention</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- period will return an error. If you want to suppress the errors and</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- delete the snapshots, use the force option.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The number must be either -1 or an integer between 1 and 3,653.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- If you decrease the manual snapshot retention period from its current</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- value, existing manual snapshots that fall outside of the new retention</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- period will return an error. If you want to suppress the errors and</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- delete the snapshots, use the force option.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'force', 'batchModifyClusterSnapshots_force' - A boolean value indicating whether to override an exception if the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- retention period has passed.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- 'snapshotIdentifierList', 'batchModifyClusterSnapshots_snapshotIdentifierList' - A list of snapshot identifiers you want to modify.</span><span>
 </span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#newBatchModifyClusterSnapshots"><span class="hs-identifier hs-type">newBatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-95"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span>
 </span><span id="line-96"></span><span id="newBatchModifyClusterSnapshots"><span class="annot"><span class="annottext">newBatchModifyClusterSnapshots :: BatchModifyClusterSnapshots
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#newBatchModifyClusterSnapshots"><span class="hs-identifier hs-var hs-var">newBatchModifyClusterSnapshots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshots' :: Maybe Bool -&gt; Maybe Int -&gt; [Text] -&gt; BatchModifyClusterSnapshots
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshots' :: Maybe Int -&gt; Maybe Bool -&gt; [Text] -&gt; BatchModifyClusterSnapshots
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:force:BatchModifyClusterSnapshots' :: Maybe Bool
-</span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3Aforce%3ABatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:manualSnapshotRetentionPeriod:BatchModifyClusterSnapshots' :: Maybe Int
+</span><span id="line-98"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:manualSnapshotRetentionPeriod:BatchModifyClusterSnapshots' :: Maybe Int
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3AmanualSnapshotRetentionPeriod%3ABatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotIdentifierList:BatchModifyClusterSnapshots' :: [Text]
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:force:BatchModifyClusterSnapshots' :: Maybe Bool
+</span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3Aforce%3ABatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotIdentifierList:BatchModifyClusterSnapshots' :: [Text]
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3AsnapshotIdentifierList%3ABatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var">snapshotIdentifierList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | A boolean value indicating whether to override an exception if the</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- retention period has passed.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_force"><span class="hs-identifier hs-type">batchModifyClusterSnapshots_force</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="batchModifyClusterSnapshots_force"><span class="annot"><span class="annottext">batchModifyClusterSnapshots_force :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; BatchModifyClusterSnapshots -&gt; f BatchModifyClusterSnapshots
-</span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_force"><span class="hs-identifier hs-var hs-var">batchModifyClusterSnapshots_force</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchModifyClusterSnapshots -&gt; Maybe Bool)
--&gt; (BatchModifyClusterSnapshots
-    -&gt; Maybe Bool -&gt; BatchModifyClusterSnapshots)
--&gt; Lens
-     BatchModifyClusterSnapshots
-     BatchModifyClusterSnapshots
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527957"><span class="annot"><span class="annottext">Maybe Bool
-force :: Maybe Bool
-$sel:force:BatchModifyClusterSnapshots' :: BatchModifyClusterSnapshots -&gt; Maybe Bool
-</span><a href="#local-6989586621679527957"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679527957"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527956"><span class="annot"><span class="annottext">s :: BatchModifyClusterSnapshots
-</span><a href="#local-6989586621679527956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527955"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679527955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshots
-</span><a href="#local-6989586621679527956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:BatchModifyClusterSnapshots' :: Maybe Bool
-</span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3Aforce%3ABatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679527955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The number of days that a manual snapshot is retained. If you specify</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- the value -1, the manual snapshot is retained indefinitely.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- The number must be either -1 or an integer between 1 and 3,653.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- If you decrease the manual snapshot retention period from its current</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- value, existing manual snapshots that fall outside of the new retention</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- period will return an error. If you want to suppress the errors and</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- delete the snapshots, use the force option.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_manualSnapshotRetentionPeriod"><span class="hs-identifier hs-type">batchModifyClusterSnapshots_manualSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="batchModifyClusterSnapshots_manualSnapshotRetentionPeriod"><span class="annot"><span class="annottext">batchModifyClusterSnapshots_manualSnapshotRetentionPeriod :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The number of days that a manual snapshot is retained. If you specify</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- the value -1, the manual snapshot is retained indefinitely.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The number must be either -1 or an integer between 1 and 3,653.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- If you decrease the manual snapshot retention period from its current</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- value, existing manual snapshots that fall outside of the new retention</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- period will return an error. If you want to suppress the errors and</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- delete the snapshots, use the force option.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_manualSnapshotRetentionPeriod"><span class="hs-identifier hs-type">batchModifyClusterSnapshots_manualSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="batchModifyClusterSnapshots_manualSnapshotRetentionPeriod"><span class="annot"><span class="annottext">batchModifyClusterSnapshots_manualSnapshotRetentionPeriod :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; BatchModifyClusterSnapshots -&gt; f BatchModifyClusterSnapshots
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_manualSnapshotRetentionPeriod"><span class="hs-identifier hs-var hs-var">batchModifyClusterSnapshots_manualSnapshotRetentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchModifyClusterSnapshots -&gt; Maybe Int)
 -&gt; (BatchModifyClusterSnapshots
@@ -223,20 +197,45 @@ $sel:force:BatchModifyClusterSnapshots' :: BatchModifyClusterSnapshots -&gt; May
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527954"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528706"><span class="annot"><span class="annottext">Maybe Int
 manualSnapshotRetentionPeriod :: Maybe Int
 $sel:manualSnapshotRetentionPeriod:BatchModifyClusterSnapshots' :: BatchModifyClusterSnapshots -&gt; Maybe Int
-</span><a href="#local-6989586621679527954"><span class="hs-identifier hs-var hs-var">manualSnapshotRetentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679527954"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527953"><span class="annot"><span class="annottext">s :: BatchModifyClusterSnapshots
-</span><a href="#local-6989586621679527953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527952"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679527952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshots
-</span><a href="#local-6989586621679527953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manualSnapshotRetentionPeriod:BatchModifyClusterSnapshots' :: Maybe Int
+</span><a href="#local-6989586621679528706"><span class="hs-identifier hs-var hs-var">manualSnapshotRetentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679528706"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528705"><span class="annot"><span class="annottext">s :: BatchModifyClusterSnapshots
+</span><a href="#local-6989586621679528705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528704"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679528704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshots
+</span><a href="#local-6989586621679528705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manualSnapshotRetentionPeriod:BatchModifyClusterSnapshots' :: Maybe Int
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3AmanualSnapshotRetentionPeriod%3ABatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679527952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | A list of snapshot identifiers you want to modify.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_snapshotIdentifierList"><span class="hs-identifier hs-type">batchModifyClusterSnapshots_snapshotIdentifierList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
-</span><span id="line-124"></span><span id="batchModifyClusterSnapshots_snapshotIdentifierList"><span class="annot"><span class="annottext">batchModifyClusterSnapshots_snapshotIdentifierList :: ([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679528704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | A boolean value indicating whether to override an exception if the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- retention period has passed.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_force"><span class="hs-identifier hs-type">batchModifyClusterSnapshots_force</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="batchModifyClusterSnapshots_force"><span class="annot"><span class="annottext">batchModifyClusterSnapshots_force :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; BatchModifyClusterSnapshots -&gt; f BatchModifyClusterSnapshots
+</span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_force"><span class="hs-identifier hs-var hs-var">batchModifyClusterSnapshots_force</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchModifyClusterSnapshots -&gt; Maybe Bool)
+-&gt; (BatchModifyClusterSnapshots
+    -&gt; Maybe Bool -&gt; BatchModifyClusterSnapshots)
+-&gt; Lens
+     BatchModifyClusterSnapshots
+     BatchModifyClusterSnapshots
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528703"><span class="annot"><span class="annottext">Maybe Bool
+force :: Maybe Bool
+$sel:force:BatchModifyClusterSnapshots' :: BatchModifyClusterSnapshots -&gt; Maybe Bool
+</span><a href="#local-6989586621679528703"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679528703"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528702"><span class="annot"><span class="annottext">s :: BatchModifyClusterSnapshots
+</span><a href="#local-6989586621679528702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528701"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679528701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshots
+</span><a href="#local-6989586621679528702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:BatchModifyClusterSnapshots' :: Maybe Bool
+</span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3Aforce%3ABatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679528701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | A list of snapshot identifiers you want to modify.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_snapshotIdentifierList"><span class="hs-identifier hs-type">batchModifyClusterSnapshots_snapshotIdentifierList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span id="batchModifyClusterSnapshots_snapshotIdentifierList"><span class="annot"><span class="annottext">batchModifyClusterSnapshots_snapshotIdentifierList :: ([Text] -&gt; f [Text])
 -&gt; BatchModifyClusterSnapshots -&gt; f BatchModifyClusterSnapshots
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshots_snapshotIdentifierList"><span class="hs-identifier hs-var hs-var">batchModifyClusterSnapshots_snapshotIdentifierList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchModifyClusterSnapshots -&gt; [Text])
 -&gt; (BatchModifyClusterSnapshots
@@ -247,16 +246,16 @@ $sel:manualSnapshotRetentionPeriod:BatchModifyClusterSnapshots' :: BatchModifyCl
      [Text]
      [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527951"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528700"><span class="annot"><span class="annottext">[Text]
 snapshotIdentifierList :: [Text]
 $sel:snapshotIdentifierList:BatchModifyClusterSnapshots' :: BatchModifyClusterSnapshots -&gt; [Text]
-</span><a href="#local-6989586621679527951"><span class="hs-identifier hs-var hs-var">snapshotIdentifierList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679527951"><span class="hs-identifier hs-var">snapshotIdentifierList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527950"><span class="annot"><span class="annottext">s :: BatchModifyClusterSnapshots
-</span><a href="#local-6989586621679527950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527949"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679527949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshots
-</span><a href="#local-6989586621679527950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotIdentifierList:BatchModifyClusterSnapshots' :: [Text]
+</span><a href="#local-6989586621679528700"><span class="hs-identifier hs-var hs-var">snapshotIdentifierList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679528700"><span class="hs-identifier hs-var">snapshotIdentifierList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528699"><span class="annot"><span class="annottext">s :: BatchModifyClusterSnapshots
+</span><a href="#local-6989586621679528699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528698"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679528698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshots
+</span><a href="#local-6989586621679528699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotIdentifierList:BatchModifyClusterSnapshots' :: [Text]
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3AsnapshotIdentifierList%3ABatchModifyClusterSnapshots%27"><span class="hs-identifier hs-var">snapshotIdentifierList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679527949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679528698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; BatchModifyClusterSnapshots -&gt; f BatchModifyClusterSnapshots)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -264,28 +263,28 @@ $sel:snapshotIdentifierList:BatchModifyClusterSnapshots' :: BatchModifyClusterSn
 -&gt; f BatchModifyClusterSnapshots
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679527943"><span class="annot"><span class="annottext">request :: BatchModifyClusterSnapshots -&gt; Request BatchModifyClusterSnapshots
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679528692"><span class="annot"><span class="annottext">request :: BatchModifyClusterSnapshots -&gt; Request BatchModifyClusterSnapshots
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; BatchModifyClusterSnapshots
 -&gt; Request BatchModifyClusterSnapshots
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679527939"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679528688"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy BatchModifyClusterSnapshots
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse BatchModifyClusterSnapshots)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">Text
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">Text
 -&gt; (Int
     -&gt; ResponseHeaders
     -&gt; [Node]
@@ -307,18 +306,18 @@ Text
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
-</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BatchModifyClusterSnapshotsResult&quot;</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679527936"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679527936"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679527935"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679527935"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679527934"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679527934"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679528685"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528685"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679528684"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679528684"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679528683"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679528683"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 -&gt; Maybe [SnapshotErrorMessage]
 -&gt; Int
 -&gt; BatchModifyClusterSnapshotsResponse
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">BatchModifyClusterSnapshotsResponse'</span></a></span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
  -&gt; Maybe [SnapshotErrorMessage]
  -&gt; Int
  -&gt; BatchModifyClusterSnapshotsResponse)
@@ -329,7 +328,7 @@ Text
       -&gt; Int -&gt; BatchModifyClusterSnapshotsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679527934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679528683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Resources&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -337,7 +336,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-137"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-136"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Text]))
 -&gt; Either String (Maybe [Text])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -350,8 +349,8 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;String&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either
+</span><span id="line-137"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe [SnapshotErrorMessage]
    -&gt; Int -&gt; BatchModifyClusterSnapshotsResponse)
@@ -359,7 +358,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; BatchModifyClusterSnapshotsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679527934"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679528683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Errors&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -367,7 +366,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-140"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-139"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [SnapshotErrorMessage]))
 -&gt; Either String (Maybe [SnapshotErrorMessage])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -380,8 +379,8 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SnapshotErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchModifyClusterSnapshotsResponse)
+</span><span id="line-140"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchModifyClusterSnapshotsResponse)
 -&gt; Either String Int
 -&gt; Either String BatchModifyClusterSnapshotsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -390,71 +389,71 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679527936"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679527923"><span id="local-6989586621679527925"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span></span></span><span>
-</span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679527920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span></span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679527916"><span class="annot"><span class="annottext">toHeaders :: BatchModifyClusterSnapshots -&gt; ResponseHeaders
+</span><a href="#local-6989586621679528685"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679528672"><span id="local-6989586621679528674"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679528669"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679528665"><span class="annot"><span class="annottext">toHeaders :: BatchModifyClusterSnapshots -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchModifyClusterSnapshots -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679527911"><span class="annot"><span class="annottext">toPath :: BatchModifyClusterSnapshots -&gt; ByteString
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679528660"><span class="annot"><span class="annottext">toPath :: BatchModifyClusterSnapshots -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchModifyClusterSnapshots -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679527907"><span class="annot"><span class="annottext">toQuery :: BatchModifyClusterSnapshots -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527903"><span id="local-6989586621679527904"><span id="local-6989586621679527905"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679528656"><span class="annot"><span class="annottext">toQuery :: BatchModifyClusterSnapshots -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshots%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshots'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528652"><span id="local-6989586621679528653"><span id="local-6989586621679528654"><span class="annot"><span class="annottext">[Text]
 Maybe Bool
 Maybe Int
 snapshotIdentifierList :: [Text]
-manualSnapshotRetentionPeriod :: Maybe Int
 force :: Maybe Bool
+manualSnapshotRetentionPeriod :: Maybe Int
 $sel:snapshotIdentifierList:BatchModifyClusterSnapshots' :: BatchModifyClusterSnapshots -&gt; [Text]
-$sel:manualSnapshotRetentionPeriod:BatchModifyClusterSnapshots' :: BatchModifyClusterSnapshots -&gt; Maybe Int
 $sel:force:BatchModifyClusterSnapshots' :: BatchModifyClusterSnapshots -&gt; Maybe Bool
-</span><a href="#local-6989586621679527903"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+$sel:manualSnapshotRetentionPeriod:BatchModifyClusterSnapshots' :: BatchModifyClusterSnapshots -&gt; Maybe Int
+</span><a href="#local-6989586621679528652"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-158"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-157"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Action&quot;</span></span><span>
-</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;BatchModifyClusterSnapshots&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-160"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-161"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-159"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-160"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Version&quot;</span></span><span>
-</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2012-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ManualSnapshotRetentionPeriod&quot;</span></span><span>
+</span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679528654"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Force&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679527905"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;ManualSnapshotRetentionPeriod&quot;</span></span><span>
-</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679527904"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679528653"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SnapshotIdentifierList&quot;</span></span><span>
-</span><span id="line-168"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
 forall a.
@@ -462,22 +461,22 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;String&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679527903"><span class="hs-identifier hs-var">snapshotIdentifierList</span></a></span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- | /See:/ 'newBatchModifyClusterSnapshotsResponse' smart constructor.</span><span>
-</span><span id="line-172"></span><span id="local-6989586621679527899"><span id="local-6989586621679527900"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchModifyClusterSnapshotsResponse"><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-var">BatchModifyClusterSnapshotsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchModifyClusterSnapshotsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">BatchModifyClusterSnapshotsResponse'</span></a></span></span><span>
-</span><span id="line-173"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the snapshots that were modified.</span><span>
-</span><span id="line-174"></span><span>    </span><span id="%24sel%3Aresources%3ABatchModifyClusterSnapshotsResponse%27"><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679528652"><span class="hs-identifier hs-var">snapshotIdentifierList</span></a></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | /See:/ 'newBatchModifyClusterSnapshotsResponse' smart constructor.</span><span>
+</span><span id="line-171"></span><span id="local-6989586621679528648"><span id="local-6989586621679528649"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchModifyClusterSnapshotsResponse"><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-var">BatchModifyClusterSnapshotsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchModifyClusterSnapshotsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">BatchModifyClusterSnapshotsResponse'</span></a></span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of the snapshots that were modified.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3Aresources%3ABatchModifyClusterSnapshotsResponse%27"><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3Aresources%3ABatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | A list of any errors returned.</span><span>
-</span><span id="line-176"></span><span>    </span><span id="%24sel%3Aerrors%3ABatchModifyClusterSnapshotsResponse%27"><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse -&gt; Maybe [SnapshotErrorMessage]
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | A list of any errors returned.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3Aerrors%3ABatchModifyClusterSnapshotsResponse%27"><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse -&gt; Maybe [SnapshotErrorMessage]
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3Aerrors%3ABatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotErrorMessage.html#SnapshotErrorMessage"><span class="hs-identifier hs-type">SnapshotErrorMessage</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-178"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchModifyClusterSnapshotsResponse%27"><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse -&gt; Int
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchModifyClusterSnapshotsResponse%27"><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3AhttpStatus%3ABatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-179"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-180"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679527892"><span id="local-6989586621679527894"><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse
+</span><span id="line-178"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679528641"><span id="local-6989586621679528643"><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse
 -&gt; BatchModifyClusterSnapshotsResponse -&gt; Bool
 (BatchModifyClusterSnapshotsResponse
  -&gt; BatchModifyClusterSnapshotsResponse -&gt; Bool)
@@ -493,7 +492,7 @@ $c/= :: BatchModifyClusterSnapshotsResponse
 -&gt; BatchModifyClusterSnapshotsResponse -&gt; Bool
 $c== :: BatchModifyClusterSnapshotsResponse
 -&gt; BatchModifyClusterSnapshotsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527884"><span id="local-6989586621679527886"><span id="local-6989586621679527888"><span id="local-6989586621679527890"><span class="annot"><span class="annottext">ReadPrec [BatchModifyClusterSnapshotsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528633"><span id="local-6989586621679528635"><span id="local-6989586621679528637"><span id="local-6989586621679528639"><span class="annot"><span class="annottext">ReadPrec [BatchModifyClusterSnapshotsResponse]
 ReadPrec BatchModifyClusterSnapshotsResponse
 Int -&gt; ReadS BatchModifyClusterSnapshotsResponse
 ReadS [BatchModifyClusterSnapshotsResponse]
@@ -513,7 +512,7 @@ readList :: ReadS [BatchModifyClusterSnapshotsResponse]
 $creadList :: ReadS [BatchModifyClusterSnapshotsResponse]
 readsPrec :: Int -&gt; ReadS BatchModifyClusterSnapshotsResponse
 $creadsPrec :: Int -&gt; ReadS BatchModifyClusterSnapshotsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679527878"><span id="local-6989586621679527880"><span id="local-6989586621679527882"><span class="annot"><span class="annottext">Int -&gt; BatchModifyClusterSnapshotsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679528627"><span id="local-6989586621679528629"><span id="local-6989586621679528631"><span class="annot"><span class="annottext">Int -&gt; BatchModifyClusterSnapshotsResponse -&gt; ShowS
 [BatchModifyClusterSnapshotsResponse] -&gt; ShowS
 BatchModifyClusterSnapshotsResponse -&gt; String
 (Int -&gt; BatchModifyClusterSnapshotsResponse -&gt; ShowS)
@@ -550,49 +549,49 @@ $cfrom :: forall x.
 BatchModifyClusterSnapshotsResponse
 -&gt; Rep BatchModifyClusterSnapshotsResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- Create a value of 'BatchModifyClusterSnapshotsResponse' with all optional fields omitted.</span><span>
-</span><span id="line-184"></span><span class="hs-comment">--</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-189"></span><span class="hs-comment">--</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- 'resources', 'batchModifyClusterSnapshotsResponse_resources' - A list of the snapshots that were modified.</span><span>
-</span><span id="line-191"></span><span class="hs-comment">--</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- 'errors', 'batchModifyClusterSnapshotsResponse_errors' - A list of any errors returned.</span><span>
-</span><span id="line-193"></span><span class="hs-comment">--</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- 'httpStatus', 'batchModifyClusterSnapshotsResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#newBatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">newBatchModifyClusterSnapshotsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span>
-</span><span id="line-199"></span><span id="newBatchModifyClusterSnapshotsResponse"><span class="annot"><span class="annottext">newBatchModifyClusterSnapshotsResponse :: Int -&gt; BatchModifyClusterSnapshotsResponse
-</span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#newBatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-var hs-var">newBatchModifyClusterSnapshotsResponse</span></a></span></span><span> </span><span id="local-6989586621679527875"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679527875"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse' :: Maybe [Text]
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Create a value of 'BatchModifyClusterSnapshotsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'resources', 'batchModifyClusterSnapshotsResponse_resources' - A list of the snapshots that were modified.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'errors', 'batchModifyClusterSnapshotsResponse_errors' - A list of any errors returned.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'batchModifyClusterSnapshotsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#newBatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">newBatchModifyClusterSnapshotsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newBatchModifyClusterSnapshotsResponse"><span class="annot"><span class="annottext">newBatchModifyClusterSnapshotsResponse :: Int -&gt; BatchModifyClusterSnapshotsResponse
+</span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#newBatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-var hs-var">newBatchModifyClusterSnapshotsResponse</span></a></span></span><span> </span><span id="local-6989586621679528624"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse' :: Maybe [Text]
 -&gt; Maybe [SnapshotErrorMessage]
 -&gt; Int
 -&gt; BatchModifyClusterSnapshotsResponse
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse'</span></a></span><span>
-</span><span id="line-201"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resources:BatchModifyClusterSnapshotsResponse' :: Maybe [Text]
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resources:BatchModifyClusterSnapshotsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3Aresources%3ABatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:errors:BatchModifyClusterSnapshotsResponse' :: Maybe [SnapshotErrorMessage]
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:errors:BatchModifyClusterSnapshotsResponse' :: Maybe [SnapshotErrorMessage]
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3Aerrors%3ABatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchModifyClusterSnapshotsResponse' :: Int
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchModifyClusterSnapshotsResponse' :: Int
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3AhttpStatus%3ABatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679527875"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | A list of the snapshots that were modified.</span><span>
-</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshotsResponse_resources"><span class="hs-identifier hs-type">batchModifyClusterSnapshotsResponse_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span id="batchModifyClusterSnapshotsResponse_resources"><span class="annot"><span class="annottext">batchModifyClusterSnapshotsResponse_resources :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679528624"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | A list of the snapshots that were modified.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshotsResponse_resources"><span class="hs-identifier hs-type">batchModifyClusterSnapshotsResponse_resources</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="batchModifyClusterSnapshotsResponse_resources"><span class="annot"><span class="annottext">batchModifyClusterSnapshotsResponse_resources :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; BatchModifyClusterSnapshotsResponse
 -&gt; f BatchModifyClusterSnapshotsResponse
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshotsResponse_resources"><span class="hs-identifier hs-var hs-var">batchModifyClusterSnapshotsResponse_resources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchModifyClusterSnapshotsResponse -&gt; Maybe [Text])
@@ -604,16 +603,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527874"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528623"><span class="annot"><span class="annottext">Maybe [Text]
 resources :: Maybe [Text]
 $sel:resources:BatchModifyClusterSnapshotsResponse' :: BatchModifyClusterSnapshotsResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679527874"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679527874"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527873"><span class="annot"><span class="annottext">s :: BatchModifyClusterSnapshotsResponse
-</span><a href="#local-6989586621679527873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527872"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679527872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse
-</span><a href="#local-6989586621679527873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:BatchModifyClusterSnapshotsResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679528623"><span class="hs-identifier hs-var hs-var">resources</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679528623"><span class="hs-identifier hs-var">resources</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528622"><span class="annot"><span class="annottext">s :: BatchModifyClusterSnapshotsResponse
+</span><a href="#local-6989586621679528622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528621"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679528621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse
+</span><a href="#local-6989586621679528622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resources:BatchModifyClusterSnapshotsResponse' :: Maybe [Text]
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3Aresources%3ABatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">resources</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679527872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679528621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; BatchModifyClusterSnapshotsResponse
  -&gt; f BatchModifyClusterSnapshotsResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -628,12 +627,12 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- | A list of any errors returned.</span><span>
-</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshotsResponse_errors"><span class="hs-identifier hs-type">batchModifyClusterSnapshotsResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotErrorMessage.html#SnapshotErrorMessage"><span class="hs-identifier hs-type">SnapshotErrorMessage</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span id="batchModifyClusterSnapshotsResponse_errors"><span class="annot"><span class="annottext">batchModifyClusterSnapshotsResponse_errors :: (Maybe [SnapshotErrorMessage] -&gt; f (Maybe [SnapshotErrorMessage]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | A list of any errors returned.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshotsResponse_errors"><span class="hs-identifier hs-type">batchModifyClusterSnapshotsResponse_errors</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotErrorMessage.html#SnapshotErrorMessage"><span class="hs-identifier hs-type">SnapshotErrorMessage</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="batchModifyClusterSnapshotsResponse_errors"><span class="annot"><span class="annottext">batchModifyClusterSnapshotsResponse_errors :: (Maybe [SnapshotErrorMessage] -&gt; f (Maybe [SnapshotErrorMessage]))
 -&gt; BatchModifyClusterSnapshotsResponse
 -&gt; f BatchModifyClusterSnapshotsResponse
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshotsResponse_errors"><span class="hs-identifier hs-var hs-var">batchModifyClusterSnapshotsResponse_errors</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchModifyClusterSnapshotsResponse
@@ -647,16 +646,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [SnapshotErrorMessage])
      (Maybe [SnapshotErrorMessage])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527870"><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528619"><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
 errors :: Maybe [SnapshotErrorMessage]
 $sel:errors:BatchModifyClusterSnapshotsResponse' :: BatchModifyClusterSnapshotsResponse -&gt; Maybe [SnapshotErrorMessage]
-</span><a href="#local-6989586621679527870"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
-</span><a href="#local-6989586621679527870"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527869"><span class="annot"><span class="annottext">s :: BatchModifyClusterSnapshotsResponse
-</span><a href="#local-6989586621679527869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527868"><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
-</span><a href="#local-6989586621679527868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse
-</span><a href="#local-6989586621679527869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchModifyClusterSnapshotsResponse' :: Maybe [SnapshotErrorMessage]
+</span><a href="#local-6989586621679528619"><span class="hs-identifier hs-var hs-var">errors</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
+</span><a href="#local-6989586621679528619"><span class="hs-identifier hs-var">errors</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528618"><span class="annot"><span class="annottext">s :: BatchModifyClusterSnapshotsResponse
+</span><a href="#local-6989586621679528618"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528617"><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
+</span><a href="#local-6989586621679528617"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse
+</span><a href="#local-6989586621679528618"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errors:BatchModifyClusterSnapshotsResponse' :: Maybe [SnapshotErrorMessage]
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3Aerrors%3ABatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">errors</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SnapshotErrorMessage]
-</span><a href="#local-6989586621679527868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SnapshotErrorMessage] -&gt; f (Maybe [SnapshotErrorMessage]))
+</span><a href="#local-6989586621679528617"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SnapshotErrorMessage] -&gt; f (Maybe [SnapshotErrorMessage]))
  -&gt; BatchModifyClusterSnapshotsResponse
  -&gt; f BatchModifyClusterSnapshotsResponse)
 -&gt; ((Maybe [SnapshotErrorMessage]
@@ -686,12 +685,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [SnapshotErrorMessage]
   [SnapshotErrorMessage]
   [SnapshotErrorMessage]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshotsResponse_httpStatus"><span class="hs-identifier hs-type">batchModifyClusterSnapshotsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-217"></span><span id="batchModifyClusterSnapshotsResponse_httpStatus"><span class="annot"><span class="annottext">batchModifyClusterSnapshotsResponse_httpStatus :: (Int -&gt; f Int)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshotsResponse_httpStatus"><span class="hs-identifier hs-type">batchModifyClusterSnapshotsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-216"></span><span id="batchModifyClusterSnapshotsResponse_httpStatus"><span class="annot"><span class="annottext">batchModifyClusterSnapshotsResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; BatchModifyClusterSnapshotsResponse
 -&gt; f BatchModifyClusterSnapshotsResponse
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#batchModifyClusterSnapshotsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchModifyClusterSnapshotsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchModifyClusterSnapshotsResponse -&gt; Int)
@@ -703,18 +702,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679527867"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679528616"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:BatchModifyClusterSnapshotsResponse' :: BatchModifyClusterSnapshotsResponse -&gt; Int
-</span><a href="#local-6989586621679527867"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679527867"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679527866"><span class="annot"><span class="annottext">s :: BatchModifyClusterSnapshotsResponse
-</span><a href="#local-6989586621679527866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679527865"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679527865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse
-</span><a href="#local-6989586621679527866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchModifyClusterSnapshotsResponse' :: Int
+</span><a href="#local-6989586621679528616"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528616"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679528615"><span class="annot"><span class="annottext">s :: BatchModifyClusterSnapshotsResponse
+</span><a href="#local-6989586621679528615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679528614"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679528614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchModifyClusterSnapshotsResponse
+</span><a href="#local-6989586621679528615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchModifyClusterSnapshotsResponse' :: Int
 </span><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#%24sel%3AhttpStatus%3ABatchModifyClusterSnapshotsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679527865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621679527863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span></span><span>
-</span><span id="line-222"></span></pre></body></html>
+</span><a href="#local-6989586621679528614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679528612"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.BatchModifyClusterSnapshots.html#BatchModifyClusterSnapshotsResponse"><span class="hs-identifier hs-type">BatchModifyClusterSnapshotsResponse</span></a></span></span><span>
+</span><span id="line-221"></span></pre></body></html>

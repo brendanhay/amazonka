@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679266809"><span id="local-6989586621679266810"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Application"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Application.html#Application"><span class="hs-identifier hs-var">Application</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Application%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Application.html#Application%27"><span class="hs-identifier hs-var">Application'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679269539"><span id="local-6989586621679269540"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Application"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Application.html#Application"><span class="hs-identifier hs-var">Application</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Application%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.Application.html#Application%27"><span class="hs-identifier hs-var">Application'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromApplication"><span class="annot"><span class="annottext">Application -&gt; Text
 </span><a href="Network.AWS.WorkSpaces.Types.Application.html#fromApplication"><span class="hs-identifier hs-var hs-var">fromApplication</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679266801"><span id="local-6989586621679266803"><span id="local-6989586621679266805"><span class="annot"><span class="annottext">Int -&gt; Application -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269531"><span id="local-6989586621679269533"><span id="local-6989586621679269535"><span class="annot"><span class="annottext">Int -&gt; Application -&gt; ShowS
 [Application] -&gt; ShowS
 Application -&gt; String
 (Int -&gt; Application -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: Application -&gt; String
 showsPrec :: Int -&gt; Application -&gt; ShowS
 $cshowsPrec :: Int -&gt; Application -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679266792"><span id="local-6989586621679266794"><span id="local-6989586621679266796"><span id="local-6989586621679266798"><span class="annot"><span class="annottext">ReadPrec [Application]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679269522"><span id="local-6989586621679269524"><span id="local-6989586621679269526"><span id="local-6989586621679269528"><span class="annot"><span class="annottext">ReadPrec [Application]
 ReadPrec Application
 Int -&gt; ReadS Application
 ReadS [Application]
@@ -72,7 +72,7 @@ $creadList :: ReadS [Application]
 readsPrec :: Int -&gt; ReadS Application
 $creadsPrec :: Int -&gt; ReadS Application
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679266787"><span id="local-6989586621679266789"><span class="annot"><span class="annottext">Application -&gt; Application -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679269517"><span id="local-6989586621679269519"><span class="annot"><span class="annottext">Application -&gt; Application -&gt; Bool
 (Application -&gt; Application -&gt; Bool)
 -&gt; (Application -&gt; Application -&gt; Bool) -&gt; Eq Application
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: Application -&gt; Application -&gt; Bool
 == :: Application -&gt; Application -&gt; Bool
 $c== :: Application -&gt; Application -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679266771"><span id="local-6989586621679266773"><span id="local-6989586621679266775"><span id="local-6989586621679266777"><span id="local-6989586621679266779"><span id="local-6989586621679266781"><span id="local-6989586621679266783"><span class="annot"><span class="annottext">Eq Application
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679269501"><span id="local-6989586621679269503"><span id="local-6989586621679269505"><span id="local-6989586621679269507"><span id="local-6989586621679269509"><span id="local-6989586621679269511"><span id="local-6989586621679269513"><span class="annot"><span class="annottext">Eq Application
 Eq Application
 -&gt; (Application -&gt; Application -&gt; Ordering)
 -&gt; (Application -&gt; Application -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. Application -&gt; Rep Application x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679266763"><span id="local-6989586621679266765"><span class="annot"><span class="annottext">Int -&gt; Application -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679269493"><span id="local-6989586621679269495"><span class="annot"><span class="annottext">Int -&gt; Application -&gt; Int
 Application -&gt; Int
 (Int -&gt; Application -&gt; Int)
 -&gt; (Application -&gt; Int) -&gt; Hashable Application
@@ -142,49 +142,49 @@ $chash :: Application -&gt; Int
 hashWithSalt :: Int -&gt; Application -&gt; Int
 $chashWithSalt :: Int -&gt; Application -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679266760"><span class="annot"><span class="annottext">Application -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679269490"><span class="annot"><span class="annottext">Application -&gt; ()
 (Application -&gt; ()) -&gt; NFData Application
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Application -&gt; ()
 $crnf :: Application -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679266757"><span class="annot"><span class="annottext">Text -&gt; Either String Application
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679269487"><span class="annot"><span class="annottext">Text -&gt; Either String Application
 (Text -&gt; Either String Application) -&gt; FromText Application
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Application
 $cfromText :: Text -&gt; Either String Application
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679266754"><span class="annot"><span class="annottext">Application -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679269484"><span class="annot"><span class="annottext">Application -&gt; Text
 (Application -&gt; Text) -&gt; ToText Application
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Application -&gt; Text
 $ctoText :: Application -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679266751"><span class="annot"><span class="annottext">Application -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679269481"><span class="annot"><span class="annottext">Application -&gt; ByteString
 (Application -&gt; ByteString) -&gt; ToByteString Application
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Application -&gt; ByteString
 $ctoBS :: Application -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679266748"><span class="annot"><span class="annottext">Application -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679269478"><span class="annot"><span class="annottext">Application -&gt; ByteStringBuilder
 (Application -&gt; ByteStringBuilder) -&gt; ToLog Application
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Application -&gt; ByteStringBuilder
 $cbuild :: Application -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679266745"><span class="annot"><span class="annottext">HeaderName -&gt; Application -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679269475"><span class="annot"><span class="annottext">HeaderName -&gt; Application -&gt; [Header]
 (HeaderName -&gt; Application -&gt; [Header]) -&gt; ToHeader Application
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Application -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Application -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679266742"><span class="annot"><span class="annottext">Application -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679269472"><span class="annot"><span class="annottext">Application -&gt; QueryString
 (Application -&gt; QueryString) -&gt; ToQuery Application
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Application -&gt; QueryString
 $ctoQuery :: Application -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679266737"><span id="local-6989586621679266739"><span class="annot"><span class="annottext">Value -&gt; Parser [Application]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679269467"><span id="local-6989586621679269469"><span class="annot"><span class="annottext">Value -&gt; Parser [Application]
 Value -&gt; Parser Application
 (Value -&gt; Parser Application)
 -&gt; (Value -&gt; Parser [Application]) -&gt; FromJSON Application
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [Application]
 parseJSON :: Value -&gt; Parser Application
 $cparseJSON :: Value -&gt; Parser Application
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679266732"><span id="local-6989586621679266734"><span class="annot"><span class="annottext">FromJSONKeyFunction [Application]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679269462"><span id="local-6989586621679269464"><span class="annot"><span class="annottext">FromJSONKeyFunction [Application]
 FromJSONKeyFunction Application
 FromJSONKeyFunction Application
 -&gt; FromJSONKeyFunction [Application] -&gt; FromJSONKey Application
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Application]
 fromJSONKey :: FromJSONKeyFunction Application
 $cfromJSONKey :: FromJSONKeyFunction Application
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679266723"><span id="local-6989586621679266725"><span id="local-6989586621679266727"><span id="local-6989586621679266729"><span class="annot"><span class="annottext">[Application] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679269453"><span id="local-6989586621679269455"><span id="local-6989586621679269457"><span id="local-6989586621679269459"><span class="annot"><span class="annottext">[Application] -&gt; Encoding
 [Application] -&gt; Value
 Application -&gt; Encoding
 Application -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: Application -&gt; Encoding
 toJSON :: Application -&gt; Value
 $ctoJSON :: Application -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679266718"><span id="local-6989586621679266720"><span class="annot"><span class="annottext">ToJSONKeyFunction [Application]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679269448"><span id="local-6989586621679269450"><span class="annot"><span class="annottext">ToJSONKeyFunction [Application]
 ToJSONKeyFunction Application
 ToJSONKeyFunction Application
 -&gt; ToJSONKeyFunction [Application] -&gt; ToJSONKey Application
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Application]
 toJSONKey :: ToJSONKeyFunction Application
 $ctoJSONKey :: ToJSONKeyFunction Application
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679266715"><span class="annot"><span class="annottext">[Node] -&gt; Either String Application
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679269445"><span class="annot"><span class="annottext">[Node] -&gt; Either String Application
 ([Node] -&gt; Either String Application) -&gt; FromXML Application
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Application
 $cparseXML :: [Node] -&gt; Either String Application
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679266712"><span class="annot"><span class="annottext">Application -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679269442"><span class="annot"><span class="annottext">Application -&gt; XML
 (Application -&gt; XML) -&gt; ToXML Application
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Application -&gt; XML

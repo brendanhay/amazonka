@@ -29,44 +29,44 @@
 </span><span id="line-29"></span><span class="hs-comment">-- specify a different error code to return.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newRedirect' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679548898"><span id="local-6989586621679548899"></span></span><span class="hs-keyword">data</span><span> </span><span id="Redirect"><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-var">Redirect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Redirect%27"><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-var">Redirect'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679549531"><span id="local-6989586621679549532"></span></span><span class="hs-keyword">data</span><span> </span><span id="Redirect"><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-var">Redirect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Redirect%27"><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-var">Redirect'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The host name to use in the redirect request.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AhostName%3ARedirect%27"><span class="annot"><span class="annottext">Redirect -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AhostName%3ARedirect%27"><span class="hs-identifier hs-var hs-var">hostName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The HTTP redirect code to use on the response. Not required if one of</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the siblings is present.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AhttpRedirectCode%3ARedirect%27"><span class="annot"><span class="annottext">Redirect -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Protocol to use when redirecting requests. The default is the protocol</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- that is used in the original request.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aprotocol%3ARedirect%27"><span class="annot"><span class="annottext">Redirect -&gt; Maybe Protocol
+</span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3Aprotocol%3ARedirect%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The HTTP redirect code to use on the response. Not required if one of</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the siblings is present.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AhttpRedirectCode%3ARedirect%27"><span class="annot"><span class="annottext">Redirect -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AhttpRedirectCode%3ARedirect%27"><span class="hs-identifier hs-var hs-var">httpRedirectCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The specific object key to use in the redirect request. For example,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- redirect request to @error.html@. Not required if one of the siblings is</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AreplaceKeyWith%3ARedirect%27"><span class="annot"><span class="annottext">Redirect -&gt; Maybe Text
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The specific object key to use in the redirect request. For example,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- redirect request to @error.html@. Not required if one of the siblings is</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AreplaceKeyWith%3ARedirect%27"><span class="annot"><span class="annottext">Redirect -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AreplaceKeyWith%3ARedirect%27"><span class="hs-identifier hs-var hs-var">replaceKeyWith</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The object key prefix to use in the redirect request. For example, to</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- redirect requests for all pages with prefix @docs\/@ (objects in the</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @docs\/@ folder) to @documents\/@, you can set a condition block with</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- @KeyPrefixEquals@ set to @docs\/@ and in the Redirect set</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @ReplaceKeyPrefixWith@ to @\/documents@. Not required if one of the</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- siblings is present. Can be present only if @ReplaceKeyWith@ is not</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- provided.</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AreplaceKeyPrefixWith%3ARedirect%27"><span class="annot"><span class="annottext">Redirect -&gt; Maybe Text
-</span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AreplaceKeyPrefixWith%3ARedirect%27"><span class="hs-identifier hs-var hs-var">replaceKeyPrefixWith</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Protocol to use when redirecting requests. The default is the protocol</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- that is used in the original request.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aprotocol%3ARedirect%27"><span class="annot"><span class="annottext">Redirect -&gt; Maybe Protocol
-</span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3Aprotocol%3ARedirect%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The object key prefix to use in the redirect request. For example, to</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- redirect requests for all pages with prefix @docs\/@ (objects in the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @docs\/@ folder) to @documents\/@, you can set a condition block with</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- @KeyPrefixEquals@ set to @docs\/@ and in the Redirect set</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- @ReplaceKeyPrefixWith@ to @\/documents@. Not required if one of the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- siblings is present. Can be present only if @ReplaceKeyWith@ is not</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- provided.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AreplaceKeyPrefixWith%3ARedirect%27"><span class="annot"><span class="annottext">Redirect -&gt; Maybe Text
+</span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AreplaceKeyPrefixWith%3ARedirect%27"><span class="hs-identifier hs-var hs-var">replaceKeyPrefixWith</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679548888"><span id="local-6989586621679548890"><span class="annot"><span class="annottext">Redirect -&gt; Redirect -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679549521"><span id="local-6989586621679549523"><span class="annot"><span class="annottext">Redirect -&gt; Redirect -&gt; Bool
 (Redirect -&gt; Redirect -&gt; Bool)
 -&gt; (Redirect -&gt; Redirect -&gt; Bool) -&gt; Eq Redirect
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Redirect -&gt; Redirect -&gt; Bool
 == :: Redirect -&gt; Redirect -&gt; Bool
 $c== :: Redirect -&gt; Redirect -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548879"><span id="local-6989586621679548881"><span id="local-6989586621679548883"><span id="local-6989586621679548885"><span class="annot"><span class="annottext">ReadPrec [Redirect]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549512"><span id="local-6989586621679549514"><span id="local-6989586621679549516"><span id="local-6989586621679549518"><span class="annot"><span class="annottext">ReadPrec [Redirect]
 ReadPrec Redirect
 Int -&gt; ReadS Redirect
 ReadS [Redirect]
@@ -94,7 +94,7 @@ readList :: ReadS [Redirect]
 $creadList :: ReadS [Redirect]
 readsPrec :: Int -&gt; ReadS Redirect
 $creadsPrec :: Int -&gt; ReadS Redirect
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548872"><span id="local-6989586621679548874"><span id="local-6989586621679548876"><span class="annot"><span class="annottext">Int -&gt; Redirect -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679549505"><span id="local-6989586621679549507"><span id="local-6989586621679549509"><span class="annot"><span class="annottext">Int -&gt; Redirect -&gt; ShowS
 [Redirect] -&gt; ShowS
 Redirect -&gt; String
 (Int -&gt; Redirect -&gt; ShowS)
@@ -127,62 +127,62 @@ $cfrom :: forall x. Redirect -&gt; Rep Redirect x
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- 'hostName', 'redirect_hostName' - The host name to use in the redirect request.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'httpRedirectCode', 'redirect_httpRedirectCode' - The HTTP redirect code to use on the response. Not required if one of</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- the siblings is present.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'protocol', 'redirect_protocol' - Protocol to use when redirecting requests. The default is the protocol</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- that is used in the original request.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'replaceKeyWith', 'redirect_replaceKeyWith' - The specific object key to use in the redirect request. For example,</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- redirect request to @error.html@. Not required if one of the siblings is</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.</span><span>
-</span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'replaceKeyPrefixWith', 'redirect_replaceKeyPrefixWith' - The object key prefix to use in the redirect request. For example, to</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- redirect requests for all pages with prefix @docs\/@ (objects in the</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- @docs\/@ folder) to @documents\/@, you can set a condition block with</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- @KeyPrefixEquals@ set to @docs\/@ and in the Redirect set</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- @ReplaceKeyPrefixWith@ to @\/documents@. Not required if one of the</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- siblings is present. Can be present only if @ReplaceKeyWith@ is not</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- provided.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'protocol', 'redirect_protocol' - Protocol to use when redirecting requests. The default is the protocol</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- that is used in the original request.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'httpRedirectCode', 'redirect_httpRedirectCode' - The HTTP redirect code to use on the response. Not required if one of</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- the siblings is present.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'replaceKeyWith', 'redirect_replaceKeyWith' - The specific object key to use in the redirect request. For example,</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- redirect request to @error.html@. Not required if one of the siblings is</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'replaceKeyPrefixWith', 'redirect_replaceKeyPrefixWith' - The object key prefix to use in the redirect request. For example, to</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- redirect requests for all pages with prefix @docs\/@ (objects in the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- @docs\/@ folder) to @documents\/@, you can set a condition block with</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- @KeyPrefixEquals@ set to @docs\/@ and in the Redirect set</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- @ReplaceKeyPrefixWith@ to @\/documents@. Not required if one of the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- siblings is present. Can be present only if @ReplaceKeyWith@ is not</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- provided.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
 </span><span id="line-103"></span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#newRedirect"><span class="hs-identifier hs-type">newRedirect</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-104"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span>
 </span><span id="line-105"></span><span id="newRedirect"><span class="annot"><span class="annottext">newRedirect :: Redirect
 </span><a href="Network.AWS.S3.Types.Redirect.html#newRedirect"><span class="hs-identifier hs-var hs-var">newRedirect</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">Redirect' :: Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Protocol
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Redirect
 </span><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span>
 </span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hostName:Redirect' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AhostName%3ARedirect%27"><span class="hs-identifier hs-var">hostName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpRedirectCode:Redirect' :: Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:Redirect' :: Maybe Protocol
+</span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3Aprotocol%3ARedirect%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpRedirectCode:Redirect' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AhttpRedirectCode%3ARedirect%27"><span class="hs-identifier hs-var">httpRedirectCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:replaceKeyWith:Redirect' :: Maybe Text
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:replaceKeyWith:Redirect' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AreplaceKeyWith%3ARedirect%27"><span class="hs-identifier hs-var">replaceKeyWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:replaceKeyPrefixWith:Redirect' :: Maybe Text
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:replaceKeyPrefixWith:Redirect' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AreplaceKeyPrefixWith%3ARedirect%27"><span class="hs-identifier hs-var">replaceKeyPrefixWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:Redirect' :: Maybe Protocol
-</span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3Aprotocol%3ARedirect%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
@@ -194,197 +194,196 @@ forall a. Maybe a
 -&gt; (Redirect -&gt; Maybe Text -&gt; Redirect)
 -&gt; Lens Redirect Redirect (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548863"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549496"><span class="annot"><span class="annottext">Maybe Text
 hostName :: Maybe Text
 $sel:hostName:Redirect' :: Redirect -&gt; Maybe Text
-</span><a href="#local-6989586621679548863"><span class="hs-identifier hs-var hs-var">hostName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548863"><span class="hs-identifier hs-var">hostName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548862"><span class="annot"><span class="annottext">s :: Redirect
-</span><a href="#local-6989586621679548862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548861"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Redirect
-</span><a href="#local-6989586621679548862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostName:Redirect' :: Maybe Text
+</span><a href="#local-6989586621679549496"><span class="hs-identifier hs-var hs-var">hostName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549496"><span class="hs-identifier hs-var">hostName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679549495"><span class="annot"><span class="annottext">s :: Redirect
+</span><a href="#local-6989586621679549495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679549494"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Redirect
+</span><a href="#local-6989586621679549495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostName:Redirect' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AhostName%3ARedirect%27"><span class="hs-identifier hs-var">hostName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679549494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The HTTP redirect code to use on the response. Not required if one of</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- the siblings is present.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#redirect_httpRedirectCode"><span class="hs-identifier hs-type">redirect_httpRedirectCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="redirect_httpRedirectCode"><span class="annot"><span class="annottext">redirect_httpRedirectCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Redirect -&gt; f Redirect
-</span><a href="Network.AWS.S3.Types.Redirect.html#redirect_httpRedirectCode"><span class="hs-identifier hs-var hs-var">redirect_httpRedirectCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Redirect -&gt; Maybe Text)
--&gt; (Redirect -&gt; Maybe Text -&gt; Redirect)
--&gt; Lens Redirect Redirect (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548859"><span class="annot"><span class="annottext">Maybe Text
-httpRedirectCode :: Maybe Text
-$sel:httpRedirectCode:Redirect' :: Redirect -&gt; Maybe Text
-</span><a href="#local-6989586621679548859"><span class="hs-identifier hs-var hs-var">httpRedirectCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548859"><span class="hs-identifier hs-var">httpRedirectCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548858"><span class="annot"><span class="annottext">s :: Redirect
-</span><a href="#local-6989586621679548858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548857"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Redirect
-</span><a href="#local-6989586621679548858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpRedirectCode:Redirect' :: Maybe Text
-</span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AhttpRedirectCode%3ARedirect%27"><span class="hs-identifier hs-var">httpRedirectCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The specific object key to use in the redirect request. For example,</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- redirect request to @error.html@. Not required if one of the siblings is</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#redirect_replaceKeyWith"><span class="hs-identifier hs-type">redirect_replaceKeyWith</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="redirect_replaceKeyWith"><span class="annot"><span class="annottext">redirect_replaceKeyWith :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Redirect -&gt; f Redirect
-</span><a href="Network.AWS.S3.Types.Redirect.html#redirect_replaceKeyWith"><span class="hs-identifier hs-var hs-var">redirect_replaceKeyWith</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Redirect -&gt; Maybe Text)
--&gt; (Redirect -&gt; Maybe Text -&gt; Redirect)
--&gt; Lens Redirect Redirect (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548855"><span class="annot"><span class="annottext">Maybe Text
-replaceKeyWith :: Maybe Text
-$sel:replaceKeyWith:Redirect' :: Redirect -&gt; Maybe Text
-</span><a href="#local-6989586621679548855"><span class="hs-identifier hs-var hs-var">replaceKeyWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548855"><span class="hs-identifier hs-var">replaceKeyWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548854"><span class="annot"><span class="annottext">s :: Redirect
-</span><a href="#local-6989586621679548854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548853"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Redirect
-</span><a href="#local-6989586621679548854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replaceKeyWith:Redirect' :: Maybe Text
-</span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AreplaceKeyWith%3ARedirect%27"><span class="hs-identifier hs-var">replaceKeyWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The object key prefix to use in the redirect request. For example, to</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- redirect requests for all pages with prefix @docs\/@ (objects in the</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- @docs\/@ folder) to @documents\/@, you can set a condition block with</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- @KeyPrefixEquals@ set to @docs\/@ and in the Redirect set</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- @ReplaceKeyPrefixWith@ to @\/documents@. Not required if one of the</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- siblings is present. Can be present only if @ReplaceKeyWith@ is not</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- provided.</span><span>
-</span><span id="line-141"></span><span class="hs-comment">--</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#redirect_replaceKeyPrefixWith"><span class="hs-identifier hs-type">redirect_replaceKeyPrefixWith</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span id="redirect_replaceKeyPrefixWith"><span class="annot"><span class="annottext">redirect_replaceKeyPrefixWith :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Redirect -&gt; f Redirect
-</span><a href="Network.AWS.S3.Types.Redirect.html#redirect_replaceKeyPrefixWith"><span class="hs-identifier hs-var hs-var">redirect_replaceKeyPrefixWith</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Redirect -&gt; Maybe Text)
--&gt; (Redirect -&gt; Maybe Text -&gt; Redirect)
--&gt; Lens Redirect Redirect (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548851"><span class="annot"><span class="annottext">Maybe Text
-replaceKeyPrefixWith :: Maybe Text
-$sel:replaceKeyPrefixWith:Redirect' :: Redirect -&gt; Maybe Text
-</span><a href="#local-6989586621679548851"><span class="hs-identifier hs-var hs-var">replaceKeyPrefixWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548851"><span class="hs-identifier hs-var">replaceKeyPrefixWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548850"><span class="annot"><span class="annottext">s :: Redirect
-</span><a href="#local-6989586621679548850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548849"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Redirect
-</span><a href="#local-6989586621679548850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replaceKeyPrefixWith:Redirect' :: Maybe Text
-</span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AreplaceKeyPrefixWith%3ARedirect%27"><span class="hs-identifier hs-var">replaceKeyPrefixWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- | Protocol to use when redirecting requests. The default is the protocol</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- that is used in the original request.</span><span>
-</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#redirect_protocol"><span class="hs-identifier hs-type">redirect_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span id="redirect_protocol"><span class="annot"><span class="annottext">redirect_protocol :: (Maybe Protocol -&gt; f (Maybe Protocol)) -&gt; Redirect -&gt; f Redirect
+</span><span id="line-118"></span><span class="hs-comment">-- | Protocol to use when redirecting requests. The default is the protocol</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- that is used in the original request.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#redirect_protocol"><span class="hs-identifier hs-type">redirect_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="redirect_protocol"><span class="annot"><span class="annottext">redirect_protocol :: (Maybe Protocol -&gt; f (Maybe Protocol)) -&gt; Redirect -&gt; f Redirect
 </span><a href="Network.AWS.S3.Types.Redirect.html#redirect_protocol"><span class="hs-identifier hs-var hs-var">redirect_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Redirect -&gt; Maybe Protocol)
 -&gt; (Redirect -&gt; Maybe Protocol -&gt; Redirect)
 -&gt; Lens Redirect Redirect (Maybe Protocol) (Maybe Protocol)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548847"><span class="annot"><span class="annottext">Maybe Protocol
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549492"><span class="annot"><span class="annottext">Maybe Protocol
 protocol :: Maybe Protocol
 $sel:protocol:Redirect' :: Redirect -&gt; Maybe Protocol
-</span><a href="#local-6989586621679548847"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
-</span><a href="#local-6989586621679548847"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548846"><span class="annot"><span class="annottext">s :: Redirect
-</span><a href="#local-6989586621679548846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548845"><span class="annot"><span class="annottext">Maybe Protocol
-</span><a href="#local-6989586621679548845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Redirect
-</span><a href="#local-6989586621679548846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:Redirect' :: Maybe Protocol
+</span><a href="#local-6989586621679549492"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
+</span><a href="#local-6989586621679549492"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679549491"><span class="annot"><span class="annottext">s :: Redirect
+</span><a href="#local-6989586621679549491"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679549490"><span class="annot"><span class="annottext">Maybe Protocol
+</span><a href="#local-6989586621679549490"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Redirect
+</span><a href="#local-6989586621679549491"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:Redirect' :: Maybe Protocol
 </span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3Aprotocol%3ARedirect%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
-</span><a href="#local-6989586621679548845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679549490"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The HTTP redirect code to use on the response. Not required if one of</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the siblings is present.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#redirect_httpRedirectCode"><span class="hs-identifier hs-type">redirect_httpRedirectCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="redirect_httpRedirectCode"><span class="annot"><span class="annottext">redirect_httpRedirectCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Redirect -&gt; f Redirect
+</span><a href="Network.AWS.S3.Types.Redirect.html#redirect_httpRedirectCode"><span class="hs-identifier hs-var hs-var">redirect_httpRedirectCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Redirect -&gt; Maybe Text)
+-&gt; (Redirect -&gt; Maybe Text -&gt; Redirect)
+-&gt; Lens Redirect Redirect (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549488"><span class="annot"><span class="annottext">Maybe Text
+httpRedirectCode :: Maybe Text
+$sel:httpRedirectCode:Redirect' :: Redirect -&gt; Maybe Text
+</span><a href="#local-6989586621679549488"><span class="hs-identifier hs-var hs-var">httpRedirectCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549488"><span class="hs-identifier hs-var">httpRedirectCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679549487"><span class="annot"><span class="annottext">s :: Redirect
+</span><a href="#local-6989586621679549487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679549486"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Redirect
+</span><a href="#local-6989586621679549487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpRedirectCode:Redirect' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AhttpRedirectCode%3ARedirect%27"><span class="hs-identifier hs-var">httpRedirectCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The specific object key to use in the redirect request. For example,</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- redirect request to @error.html@. Not required if one of the siblings is</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- present. Can be present only if @ReplaceKeyPrefixWith@ is not provided.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#redirect_replaceKeyWith"><span class="hs-identifier hs-type">redirect_replaceKeyWith</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="redirect_replaceKeyWith"><span class="annot"><span class="annottext">redirect_replaceKeyWith :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Redirect -&gt; f Redirect
+</span><a href="Network.AWS.S3.Types.Redirect.html#redirect_replaceKeyWith"><span class="hs-identifier hs-var hs-var">redirect_replaceKeyWith</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Redirect -&gt; Maybe Text)
+-&gt; (Redirect -&gt; Maybe Text -&gt; Redirect)
+-&gt; Lens Redirect Redirect (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549484"><span class="annot"><span class="annottext">Maybe Text
+replaceKeyWith :: Maybe Text
+$sel:replaceKeyWith:Redirect' :: Redirect -&gt; Maybe Text
+</span><a href="#local-6989586621679549484"><span class="hs-identifier hs-var hs-var">replaceKeyWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549484"><span class="hs-identifier hs-var">replaceKeyWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679549483"><span class="annot"><span class="annottext">s :: Redirect
+</span><a href="#local-6989586621679549483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679549482"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Redirect
+</span><a href="#local-6989586621679549483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replaceKeyWith:Redirect' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AreplaceKeyWith%3ARedirect%27"><span class="hs-identifier hs-var">replaceKeyWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The object key prefix to use in the redirect request. For example, to</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- redirect requests for all pages with prefix @docs\/@ (objects in the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- @docs\/@ folder) to @documents\/@, you can set a condition block with</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- @KeyPrefixEquals@ set to @docs\/@ and in the Redirect set</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @ReplaceKeyPrefixWith@ to @\/documents@. Not required if one of the</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- siblings is present. Can be present only if @ReplaceKeyWith@ is not</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- provided.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#redirect_replaceKeyPrefixWith"><span class="hs-identifier hs-type">redirect_replaceKeyPrefixWith</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="redirect_replaceKeyPrefixWith"><span class="annot"><span class="annottext">redirect_replaceKeyPrefixWith :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Redirect -&gt; f Redirect
+</span><a href="Network.AWS.S3.Types.Redirect.html#redirect_replaceKeyPrefixWith"><span class="hs-identifier hs-var hs-var">redirect_replaceKeyPrefixWith</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Redirect -&gt; Maybe Text)
+-&gt; (Redirect -&gt; Maybe Text -&gt; Redirect)
+-&gt; Lens Redirect Redirect (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549480"><span class="annot"><span class="annottext">Maybe Text
+replaceKeyPrefixWith :: Maybe Text
+$sel:replaceKeyPrefixWith:Redirect' :: Redirect -&gt; Maybe Text
+</span><a href="#local-6989586621679549480"><span class="hs-identifier hs-var hs-var">replaceKeyPrefixWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549480"><span class="hs-identifier hs-var">replaceKeyPrefixWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679549479"><span class="annot"><span class="annottext">s :: Redirect
+</span><a href="#local-6989586621679549479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679549478"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Redirect
+</span><a href="#local-6989586621679549479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replaceKeyPrefixWith:Redirect' :: Maybe Text
+</span><a href="Network.AWS.S3.Types.Redirect.html#%24sel%3AreplaceKeyPrefixWith%3ARedirect%27"><span class="hs-identifier hs-var">replaceKeyPrefixWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-155"></span><span>  </span><span id="local-6989586621679548842"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Redirect
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679548840"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679548840"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679549475"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Redirect
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679549473"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679549473"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Protocol
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Redirect
 </span><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-var">Redirect'</span></a></span><span>
 </span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe Protocol
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Redirect)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Protocol -&gt; Redirect)
+     (Maybe Protocol
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Redirect)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679548840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679549473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HostName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Protocol -&gt; Redirect)
--&gt; Either String (Maybe Text)
+  (Maybe Protocol
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Redirect)
+-&gt; Either String (Maybe Protocol)
 -&gt; Either
-     String (Maybe Text -&gt; Maybe Text -&gt; Maybe Protocol -&gt; Redirect)
+     String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Redirect)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679548840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;HttpRedirectCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Maybe Text -&gt; Maybe Protocol -&gt; Redirect)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Text -&gt; Maybe Protocol -&gt; Redirect)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679548840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplaceKeyWith&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Protocol -&gt; Redirect)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Protocol -&gt; Redirect)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679548840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReplaceKeyPrefixWith&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Protocol -&gt; Redirect)
--&gt; Either String (Maybe Protocol) -&gt; Either String Redirect
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679548840"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Protocol)
+</span><a href="#local-6989586621679549473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Protocol)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Protocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Redirect)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; Redirect)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679549473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HttpRedirectCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; Redirect)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Text -&gt; Redirect)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679549473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplaceKeyWith&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Redirect)
+-&gt; Either String (Maybe Text) -&gt; Either String Redirect
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679549473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplaceKeyPrefixWith&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679548834"><span id="local-6989586621679548836"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span></span></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549467"><span id="local-6989586621679549469"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span></span></span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679548831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679549464"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect"><span class="hs-identifier hs-type">Redirect</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679548827"><span class="annot"><span class="annottext">toXML :: Redirect -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548821"><span id="local-6989586621679548822"><span id="local-6989586621679548823"><span id="local-6989586621679548824"><span id="local-6989586621679548825"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679549460"><span class="annot"><span class="annottext">toXML :: Redirect -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Redirect.html#Redirect%27"><span class="hs-identifier hs-type">Redirect'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679549454"><span id="local-6989586621679549455"><span id="local-6989586621679549456"><span id="local-6989586621679549457"><span id="local-6989586621679549458"><span class="annot"><span class="annottext">Maybe Text
 Maybe Protocol
-protocol :: Maybe Protocol
 replaceKeyPrefixWith :: Maybe Text
 replaceKeyWith :: Maybe Text
 httpRedirectCode :: Maybe Text
+protocol :: Maybe Protocol
 hostName :: Maybe Text
-$sel:protocol:Redirect' :: Redirect -&gt; Maybe Protocol
 $sel:replaceKeyPrefixWith:Redirect' :: Redirect -&gt; Maybe Text
 $sel:replaceKeyWith:Redirect' :: Redirect -&gt; Maybe Text
 $sel:httpRedirectCode:Redirect' :: Redirect -&gt; Maybe Text
+$sel:protocol:Redirect' :: Redirect -&gt; Maybe Protocol
 $sel:hostName:Redirect' :: Redirect -&gt; Maybe Text
-</span><a href="#local-6989586621679548821"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679549454"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -392,26 +391,26 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;HostName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548825"><span class="hs-identifier hs-var">hostName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679549458"><span class="hs-identifier hs-var">hostName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;HttpRedirectCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548824"><span class="hs-identifier hs-var">httpRedirectCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;ReplaceKeyWith&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548823"><span class="hs-identifier hs-var">replaceKeyWith</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;ReplaceKeyPrefixWith&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679548822"><span class="hs-identifier hs-var">replaceKeyPrefixWith</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Protocol -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
-</span><a href="#local-6989586621679548821"><span class="hs-identifier hs-var">protocol</span></a></span><span>
+</span><a href="#local-6989586621679549457"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;HttpRedirectCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549456"><span class="hs-identifier hs-var">httpRedirectCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;ReplaceKeyWith&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549455"><span class="hs-identifier hs-var">replaceKeyWith</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;ReplaceKeyPrefixWith&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679549454"><span class="hs-identifier hs-var">replaceKeyPrefixWith</span></a></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-176"></span></pre></body></html>

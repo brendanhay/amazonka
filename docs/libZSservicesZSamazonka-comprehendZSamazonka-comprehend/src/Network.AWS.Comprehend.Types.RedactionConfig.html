@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Provides configuration parameters for PII entity redaction.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newRedactionConfig' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679347452"><span id="local-6989586621679347453"></span></span><span class="hs-keyword">data</span><span> </span><span id="RedactionConfig"><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-var">RedactionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedactionConfig%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-var">RedactionConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679347721"><span id="local-6989586621679347722"></span></span><span class="hs-keyword">data</span><span> </span><span id="RedactionConfig"><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-var">RedactionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RedactionConfig%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-var">RedactionConfig'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A character that replaces each character in the redacted PII entity.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AmaskCharacter%3ARedactionConfig%27"><span class="annot"><span class="annottext">RedactionConfig -&gt; Maybe Text
 </span><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#%24sel%3AmaskCharacter%3ARedactionConfig%27"><span class="hs-identifier hs-var hs-var">maskCharacter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -41,7 +41,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3ApiiEntityTypes%3ARedactionConfig%27"><span class="annot"><span class="annottext">RedactionConfig -&gt; Maybe [PiiEntityType]
 </span><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#%24sel%3ApiiEntityTypes%3ARedactionConfig%27"><span class="hs-identifier hs-var hs-var">piiEntityTypes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Comprehend.Types.PiiEntityType.html#PiiEntityType"><span class="hs-identifier hs-type">PiiEntityType</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347444"><span id="local-6989586621679347446"><span class="annot"><span class="annottext">RedactionConfig -&gt; RedactionConfig -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347713"><span id="local-6989586621679347715"><span class="annot"><span class="annottext">RedactionConfig -&gt; RedactionConfig -&gt; Bool
 (RedactionConfig -&gt; RedactionConfig -&gt; Bool)
 -&gt; (RedactionConfig -&gt; RedactionConfig -&gt; Bool)
 -&gt; Eq RedactionConfig
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RedactionConfig -&gt; RedactionConfig -&gt; Bool
 == :: RedactionConfig -&gt; RedactionConfig -&gt; Bool
 $c== :: RedactionConfig -&gt; RedactionConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347435"><span id="local-6989586621679347437"><span id="local-6989586621679347439"><span id="local-6989586621679347441"><span class="annot"><span class="annottext">ReadPrec [RedactionConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347704"><span id="local-6989586621679347706"><span id="local-6989586621679347708"><span id="local-6989586621679347710"><span class="annot"><span class="annottext">ReadPrec [RedactionConfig]
 ReadPrec RedactionConfig
 Int -&gt; ReadS RedactionConfig
 ReadS [RedactionConfig]
@@ -70,7 +70,7 @@ readList :: ReadS [RedactionConfig]
 $creadList :: ReadS [RedactionConfig]
 readsPrec :: Int -&gt; ReadS RedactionConfig
 $creadsPrec :: Int -&gt; ReadS RedactionConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347428"><span id="local-6989586621679347430"><span id="local-6989586621679347432"><span class="annot"><span class="annottext">Int -&gt; RedactionConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347697"><span id="local-6989586621679347699"><span id="local-6989586621679347701"><span class="annot"><span class="annottext">Int -&gt; RedactionConfig -&gt; ShowS
 [RedactionConfig] -&gt; ShowS
 RedactionConfig -&gt; String
 (Int -&gt; RedactionConfig -&gt; ShowS)
@@ -142,16 +142,16 @@ forall a. Maybe a
 -&gt; (RedactionConfig -&gt; Maybe Text -&gt; RedactionConfig)
 -&gt; Lens RedactionConfig RedactionConfig (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347419"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347688"><span class="annot"><span class="annottext">Maybe Text
 maskCharacter :: Maybe Text
 $sel:maskCharacter:RedactionConfig' :: RedactionConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679347419"><span class="hs-identifier hs-var hs-var">maskCharacter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347419"><span class="hs-identifier hs-var">maskCharacter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347418"><span class="annot"><span class="annottext">s :: RedactionConfig
-</span><a href="#local-6989586621679347418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347417"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactionConfig
-</span><a href="#local-6989586621679347418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maskCharacter:RedactionConfig' :: Maybe Text
+</span><a href="#local-6989586621679347688"><span class="hs-identifier hs-var hs-var">maskCharacter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347688"><span class="hs-identifier hs-var">maskCharacter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347687"><span class="annot"><span class="annottext">s :: RedactionConfig
+</span><a href="#local-6989586621679347687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347686"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679347686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactionConfig
+</span><a href="#local-6989586621679347687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maskCharacter:RedactionConfig' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#%24sel%3AmaskCharacter%3ARedactionConfig%27"><span class="hs-identifier hs-var">maskCharacter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | Specifies whether the PII entity is redacted with the mask character or</span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- the entity type.</span><span>
@@ -168,16 +168,16 @@ $sel:maskCharacter:RedactionConfig' :: RedactionConfig -&gt; Maybe Text
      (Maybe PiiEntitiesDetectionMaskMode)
      (Maybe PiiEntitiesDetectionMaskMode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347415"><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionMaskMode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347684"><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionMaskMode
 maskMode :: Maybe PiiEntitiesDetectionMaskMode
 $sel:maskMode:RedactionConfig' :: RedactionConfig -&gt; Maybe PiiEntitiesDetectionMaskMode
-</span><a href="#local-6989586621679347415"><span class="hs-identifier hs-var hs-var">maskMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionMaskMode
-</span><a href="#local-6989586621679347415"><span class="hs-identifier hs-var">maskMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347414"><span class="annot"><span class="annottext">s :: RedactionConfig
-</span><a href="#local-6989586621679347414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347413"><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionMaskMode
-</span><a href="#local-6989586621679347413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactionConfig
-</span><a href="#local-6989586621679347414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maskMode:RedactionConfig' :: Maybe PiiEntitiesDetectionMaskMode
+</span><a href="#local-6989586621679347684"><span class="hs-identifier hs-var hs-var">maskMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionMaskMode
+</span><a href="#local-6989586621679347684"><span class="hs-identifier hs-var">maskMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347683"><span class="annot"><span class="annottext">s :: RedactionConfig
+</span><a href="#local-6989586621679347683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347682"><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionMaskMode
+</span><a href="#local-6989586621679347682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactionConfig
+</span><a href="#local-6989586621679347683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maskMode:RedactionConfig' :: Maybe PiiEntitiesDetectionMaskMode
 </span><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#%24sel%3AmaskMode%3ARedactionConfig%27"><span class="hs-identifier hs-var">maskMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionMaskMode
-</span><a href="#local-6989586621679347413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679347682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | An array of the types of PII entities that Amazon Comprehend detects in</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- the input text for your request.</span><span>
@@ -192,16 +192,16 @@ $sel:maskMode:RedactionConfig' :: RedactionConfig -&gt; Maybe PiiEntitiesDetecti
      (Maybe [PiiEntityType])
      (Maybe [PiiEntityType])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347411"><span class="annot"><span class="annottext">Maybe [PiiEntityType]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347680"><span class="annot"><span class="annottext">Maybe [PiiEntityType]
 piiEntityTypes :: Maybe [PiiEntityType]
 $sel:piiEntityTypes:RedactionConfig' :: RedactionConfig -&gt; Maybe [PiiEntityType]
-</span><a href="#local-6989586621679347411"><span class="hs-identifier hs-var hs-var">piiEntityTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PiiEntityType]
-</span><a href="#local-6989586621679347411"><span class="hs-identifier hs-var">piiEntityTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347410"><span class="annot"><span class="annottext">s :: RedactionConfig
-</span><a href="#local-6989586621679347410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347409"><span class="annot"><span class="annottext">Maybe [PiiEntityType]
-</span><a href="#local-6989586621679347409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactionConfig
-</span><a href="#local-6989586621679347410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:piiEntityTypes:RedactionConfig' :: Maybe [PiiEntityType]
+</span><a href="#local-6989586621679347680"><span class="hs-identifier hs-var hs-var">piiEntityTypes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PiiEntityType]
+</span><a href="#local-6989586621679347680"><span class="hs-identifier hs-var">piiEntityTypes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679347679"><span class="annot"><span class="annottext">s :: RedactionConfig
+</span><a href="#local-6989586621679347679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679347678"><span class="annot"><span class="annottext">Maybe [PiiEntityType]
+</span><a href="#local-6989586621679347678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RedactionConfig
+</span><a href="#local-6989586621679347679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:piiEntityTypes:RedactionConfig' :: Maybe [PiiEntityType]
 </span><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#%24sel%3ApiiEntityTypes%3ARedactionConfig%27"><span class="hs-identifier hs-var">piiEntityTypes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PiiEntityType]
-</span><a href="#local-6989586621679347409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PiiEntityType] -&gt; f (Maybe [PiiEntityType]))
+</span><a href="#local-6989586621679347678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PiiEntityType] -&gt; f (Maybe [PiiEntityType]))
  -&gt; RedactionConfig -&gt; f RedactionConfig)
 -&gt; ((Maybe [PiiEntityType] -&gt; f (Maybe [PiiEntityType]))
     -&gt; Maybe [PiiEntityType] -&gt; f (Maybe [PiiEntityType]))
@@ -221,11 +221,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [PiiEntityType] [PiiEntityType] [PiiEntityType] [PiiEntityType]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347403"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679347401"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RedactionConfig
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347672"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679347670"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RedactionConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RedactionConfig)
@@ -235,8 +235,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RedactionConfig&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347398"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347398"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679347667"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679347667"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe PiiEntitiesDetectionMaskMode
 -&gt; Maybe [PiiEntityType]
@@ -252,7 +252,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe [PiiEntityType] -&gt; RedactionConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679347667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaskCharacter&quot;</span></span><span class="hs-special">)</span><span>
@@ -263,7 +263,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [PiiEntityType] -&gt; RedactionConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PiiEntitiesDetectionMaskMode)
+</span><a href="#local-6989586621679347667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PiiEntitiesDetectionMaskMode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaskMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -271,7 +271,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [PiiEntityType]) -&gt; Parser RedactionConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679347398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PiiEntityType]))
+</span><a href="#local-6989586621679347667"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [PiiEntityType]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PiiEntityTypes&quot;</span></span><span>
@@ -284,13 +284,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-91"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347391"><span id="local-6989586621679347393"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347660"><span id="local-6989586621679347662"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347388"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347657"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347380"><span id="local-6989586621679347382"><span id="local-6989586621679347384"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679347378"><span class="annot"><span class="annottext">toJSON :: RedactionConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347374"><span id="local-6989586621679347375"><span id="local-6989586621679347376"><span class="annot"><span class="annottext">Maybe [PiiEntityType]
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679347649"><span id="local-6989586621679347651"><span id="local-6989586621679347653"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig"><span class="hs-identifier hs-type">RedactionConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679347647"><span class="annot"><span class="annottext">toJSON :: RedactionConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.RedactionConfig.html#RedactionConfig%27"><span class="hs-identifier hs-type">RedactionConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679347643"><span id="local-6989586621679347644"><span id="local-6989586621679347645"><span class="annot"><span class="annottext">Maybe [PiiEntityType]
 Maybe Text
 Maybe PiiEntitiesDetectionMaskMode
 piiEntityTypes :: Maybe [PiiEntityType]
@@ -299,7 +299,7 @@ maskCharacter :: Maybe Text
 $sel:piiEntityTypes:RedactionConfig' :: RedactionConfig -&gt; Maybe [PiiEntityType]
 $sel:maskMode:RedactionConfig' :: RedactionConfig -&gt; Maybe PiiEntitiesDetectionMaskMode
 $sel:maskCharacter:RedactionConfig' :: RedactionConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679347374"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679347643"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -311,7 +311,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679347376"><span class="hs-identifier hs-var">maskCharacter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347645"><span class="hs-identifier hs-var">maskCharacter</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaskMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PiiEntitiesDetectionMaskMode -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -319,7 +319,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe PiiEntitiesDetectionMaskMode -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionMaskMode
-</span><a href="#local-6989586621679347375"><span class="hs-identifier hs-var">maskMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679347644"><span class="hs-identifier hs-var">maskMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PiiEntityTypes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PiiEntityType] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -327,7 +327,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">([PiiEntityType] -&gt; Pair) -&gt; Maybe [PiiEntityType] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PiiEntityType]
-</span><a href="#local-6989586621679347374"><span class="hs-identifier hs-var">piiEntityTypes</span></a></span><span>
+</span><a href="#local-6989586621679347643"><span class="hs-identifier hs-var">piiEntityTypes</span></a></span><span>
 </span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span></pre></body></html>

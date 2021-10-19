@@ -27,18 +27,18 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Defines a property predicate.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPropertyPredicate' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679692988"><span id="local-6989586621679692989"></span></span><span class="hs-keyword">data</span><span> </span><span id="PropertyPredicate"><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-var">PropertyPredicate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PropertyPredicate%27"><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-var">PropertyPredicate'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The key of the property.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Akey%3APropertyPredicate%27"><span class="annot"><span class="annottext">PropertyPredicate -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#%24sel%3Akey%3APropertyPredicate%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The value of the property.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Avalue%3APropertyPredicate%27"><span class="annot"><span class="annottext">PropertyPredicate -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679694661"><span id="local-6989586621679694662"></span></span><span class="hs-keyword">data</span><span> </span><span id="PropertyPredicate"><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-var">PropertyPredicate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PropertyPredicate%27"><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-var">PropertyPredicate'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the property.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3APropertyPredicate%27"><span class="annot"><span class="annottext">PropertyPredicate -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#%24sel%3Avalue%3APropertyPredicate%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The key of the property.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Akey%3APropertyPredicate%27"><span class="annot"><span class="annottext">PropertyPredicate -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#%24sel%3Akey%3APropertyPredicate%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The comparator used to compare this property to others.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Acomparator%3APropertyPredicate%27"><span class="annot"><span class="annottext">PropertyPredicate -&gt; Maybe Comparator
 </span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#%24sel%3Acomparator%3APropertyPredicate%27"><span class="hs-identifier hs-var hs-var">comparator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Comparator.html#Comparator"><span class="hs-identifier hs-type">Comparator</span></a></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679692980"><span id="local-6989586621679692982"><span class="annot"><span class="annottext">PropertyPredicate -&gt; PropertyPredicate -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679694653"><span id="local-6989586621679694655"><span class="annot"><span class="annottext">PropertyPredicate -&gt; PropertyPredicate -&gt; Bool
 (PropertyPredicate -&gt; PropertyPredicate -&gt; Bool)
 -&gt; (PropertyPredicate -&gt; PropertyPredicate -&gt; Bool)
 -&gt; Eq PropertyPredicate
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PropertyPredicate -&gt; PropertyPredicate -&gt; Bool
 == :: PropertyPredicate -&gt; PropertyPredicate -&gt; Bool
 $c== :: PropertyPredicate -&gt; PropertyPredicate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692971"><span id="local-6989586621679692973"><span id="local-6989586621679692975"><span id="local-6989586621679692977"><span class="annot"><span class="annottext">ReadPrec [PropertyPredicate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694644"><span id="local-6989586621679694646"><span id="local-6989586621679694648"><span id="local-6989586621679694650"><span class="annot"><span class="annottext">ReadPrec [PropertyPredicate]
 ReadPrec PropertyPredicate
 Int -&gt; ReadS PropertyPredicate
 ReadS [PropertyPredicate]
@@ -67,7 +67,7 @@ readList :: ReadS [PropertyPredicate]
 $creadList :: ReadS [PropertyPredicate]
 readsPrec :: Int -&gt; ReadS PropertyPredicate
 $creadsPrec :: Int -&gt; ReadS PropertyPredicate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679692964"><span id="local-6989586621679692966"><span id="local-6989586621679692968"><span class="annot"><span class="annottext">Int -&gt; PropertyPredicate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679694637"><span id="local-6989586621679694639"><span id="local-6989586621679694641"><span class="annot"><span class="annottext">Int -&gt; PropertyPredicate -&gt; ShowS
 [PropertyPredicate] -&gt; ShowS
 PropertyPredicate -&gt; String
 (Int -&gt; PropertyPredicate -&gt; ShowS)
@@ -101,9 +101,9 @@ $cfrom :: forall x. PropertyPredicate -&gt; Rep PropertyPredicate x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'key', 'propertyPredicate_key' - The key of the property.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'value', 'propertyPredicate_value' - The value of the property.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'value', 'propertyPredicate_value' - The value of the property.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'key', 'propertyPredicate_key' - The key of the property.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- 'comparator', 'propertyPredicate_comparator' - The comparator used to compare this property to others.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#newPropertyPredicate"><span class="hs-identifier hs-type">newPropertyPredicate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -112,12 +112,12 @@ $cfrom :: forall x. PropertyPredicate -&gt; Rep PropertyPredicate x
 </span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#newPropertyPredicate"><span class="hs-identifier hs-var hs-var">newPropertyPredicate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">PropertyPredicate' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Comparator -&gt; PropertyPredicate
 </span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:key:PropertyPredicate' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#%24sel%3Akey%3APropertyPredicate%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:PropertyPredicate' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#%24sel%3Avalue%3APropertyPredicate%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:PropertyPredicate' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#%24sel%3Avalue%3APropertyPredicate%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:PropertyPredicate' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#%24sel%3Akey%3APropertyPredicate%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:comparator:PropertyPredicate' :: Maybe Comparator
@@ -126,45 +126,45 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The key of the property.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#propertyPredicate_key"><span class="hs-identifier hs-type">propertyPredicate_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="propertyPredicate_key"><span class="annot"><span class="annottext">propertyPredicate_key :: (Maybe Text -&gt; f (Maybe Text))
--&gt; PropertyPredicate -&gt; f PropertyPredicate
-</span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#propertyPredicate_key"><span class="hs-identifier hs-var hs-var">propertyPredicate_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PropertyPredicate -&gt; Maybe Text)
--&gt; (PropertyPredicate -&gt; Maybe Text -&gt; PropertyPredicate)
--&gt; Lens
-     PropertyPredicate PropertyPredicate (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692955"><span class="annot"><span class="annottext">Maybe Text
-key :: Maybe Text
-$sel:key:PropertyPredicate' :: PropertyPredicate -&gt; Maybe Text
-</span><a href="#local-6989586621679692955"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692955"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692954"><span class="annot"><span class="annottext">s :: PropertyPredicate
-</span><a href="#local-6989586621679692954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692953"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyPredicate
-</span><a href="#local-6989586621679692954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:PropertyPredicate' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#%24sel%3Akey%3APropertyPredicate%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The value of the property.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#propertyPredicate_value"><span class="hs-identifier hs-type">propertyPredicate_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="propertyPredicate_value"><span class="annot"><span class="annottext">propertyPredicate_value :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-62"></span><span class="hs-comment">-- | The value of the property.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#propertyPredicate_value"><span class="hs-identifier hs-type">propertyPredicate_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="propertyPredicate_value"><span class="annot"><span class="annottext">propertyPredicate_value :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; PropertyPredicate -&gt; f PropertyPredicate
 </span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#propertyPredicate_value"><span class="hs-identifier hs-var hs-var">propertyPredicate_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PropertyPredicate -&gt; Maybe Text)
 -&gt; (PropertyPredicate -&gt; Maybe Text -&gt; PropertyPredicate)
 -&gt; Lens
      PropertyPredicate PropertyPredicate (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692951"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694628"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:PropertyPredicate' :: PropertyPredicate -&gt; Maybe Text
-</span><a href="#local-6989586621679692951"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692951"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692950"><span class="annot"><span class="annottext">s :: PropertyPredicate
-</span><a href="#local-6989586621679692950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692949"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyPredicate
-</span><a href="#local-6989586621679692950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:PropertyPredicate' :: Maybe Text
+</span><a href="#local-6989586621679694628"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694628"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694627"><span class="annot"><span class="annottext">s :: PropertyPredicate
+</span><a href="#local-6989586621679694627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694626"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyPredicate
+</span><a href="#local-6989586621679694627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:PropertyPredicate' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#%24sel%3Avalue%3APropertyPredicate%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679694626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The key of the property.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#propertyPredicate_key"><span class="hs-identifier hs-type">propertyPredicate_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="propertyPredicate_key"><span class="annot"><span class="annottext">propertyPredicate_key :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; PropertyPredicate -&gt; f PropertyPredicate
+</span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#propertyPredicate_key"><span class="hs-identifier hs-var hs-var">propertyPredicate_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PropertyPredicate -&gt; Maybe Text)
+-&gt; (PropertyPredicate -&gt; Maybe Text -&gt; PropertyPredicate)
+-&gt; Lens
+     PropertyPredicate PropertyPredicate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694624"><span class="annot"><span class="annottext">Maybe Text
+key :: Maybe Text
+$sel:key:PropertyPredicate' :: PropertyPredicate -&gt; Maybe Text
+</span><a href="#local-6989586621679694624"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694624"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694623"><span class="annot"><span class="annottext">s :: PropertyPredicate
+</span><a href="#local-6989586621679694623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694622"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyPredicate
+</span><a href="#local-6989586621679694623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:PropertyPredicate' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#%24sel%3Akey%3APropertyPredicate%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | The comparator used to compare this property to others.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#propertyPredicate_comparator"><span class="hs-identifier hs-type">propertyPredicate_comparator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Comparator.html#Comparator"><span class="hs-identifier hs-type">Comparator</span></a></span><span class="hs-special">)</span><span>
@@ -178,58 +178,58 @@ $sel:value:PropertyPredicate' :: PropertyPredicate -&gt; Maybe Text
      (Maybe Comparator)
      (Maybe Comparator)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692947"><span class="annot"><span class="annottext">Maybe Comparator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694620"><span class="annot"><span class="annottext">Maybe Comparator
 comparator :: Maybe Comparator
 $sel:comparator:PropertyPredicate' :: PropertyPredicate -&gt; Maybe Comparator
-</span><a href="#local-6989586621679692947"><span class="hs-identifier hs-var hs-var">comparator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Comparator
-</span><a href="#local-6989586621679692947"><span class="hs-identifier hs-var">comparator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679692946"><span class="annot"><span class="annottext">s :: PropertyPredicate
-</span><a href="#local-6989586621679692946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679692945"><span class="annot"><span class="annottext">Maybe Comparator
-</span><a href="#local-6989586621679692945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyPredicate
-</span><a href="#local-6989586621679692946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comparator:PropertyPredicate' :: Maybe Comparator
+</span><a href="#local-6989586621679694620"><span class="hs-identifier hs-var hs-var">comparator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Comparator
+</span><a href="#local-6989586621679694620"><span class="hs-identifier hs-var">comparator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679694619"><span class="annot"><span class="annottext">s :: PropertyPredicate
+</span><a href="#local-6989586621679694619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679694618"><span class="annot"><span class="annottext">Maybe Comparator
+</span><a href="#local-6989586621679694618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PropertyPredicate
+</span><a href="#local-6989586621679694619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comparator:PropertyPredicate' :: Maybe Comparator
 </span><a href="Network.AWS.Glue.Types.PropertyPredicate.html#%24sel%3Acomparator%3APropertyPredicate%27"><span class="hs-identifier hs-var">comparator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Comparator
-</span><a href="#local-6989586621679692945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679694618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692941"><span id="local-6989586621679692943"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694614"><span id="local-6989586621679694616"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692938"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679692930"><span id="local-6989586621679692932"><span id="local-6989586621679692934"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679692928"><span class="annot"><span class="annottext">toJSON :: PropertyPredicate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679692924"><span id="local-6989586621679692925"><span id="local-6989586621679692926"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679694603"><span id="local-6989586621679694605"><span id="local-6989586621679694607"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate"><span class="hs-identifier hs-type">PropertyPredicate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679694601"><span class="annot"><span class="annottext">toJSON :: PropertyPredicate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.PropertyPredicate.html#PropertyPredicate%27"><span class="hs-identifier hs-type">PropertyPredicate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679694597"><span id="local-6989586621679694598"><span id="local-6989586621679694599"><span class="annot"><span class="annottext">Maybe Text
 Maybe Comparator
 comparator :: Maybe Comparator
-value :: Maybe Text
 key :: Maybe Text
+value :: Maybe Text
 $sel:comparator:PropertyPredicate' :: PropertyPredicate -&gt; Maybe Comparator
-$sel:value:PropertyPredicate' :: PropertyPredicate -&gt; Maybe Text
 $sel:key:PropertyPredicate' :: PropertyPredicate -&gt; Maybe Text
-</span><a href="#local-6989586621679692924"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:value:PropertyPredicate' :: PropertyPredicate -&gt; Maybe Text
+</span><a href="#local-6989586621679694597"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692926"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679692925"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679694599"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679694598"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Comparator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Comparator -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Comparator -&gt; Pair) -&gt; Maybe Comparator -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Comparator
-</span><a href="#local-6989586621679692924"><span class="hs-identifier hs-var">comparator</span></a></span><span>
+</span><a href="#local-6989586621679694597"><span class="hs-identifier hs-var">comparator</span></a></span><span>
 </span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span></pre></body></html>

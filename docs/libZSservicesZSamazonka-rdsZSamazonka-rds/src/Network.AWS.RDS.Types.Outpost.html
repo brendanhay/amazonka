@@ -30,12 +30,12 @@
 </span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon RDS User Guide./</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newOutpost' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679762612"><span id="local-6989586621679762613"></span></span><span class="hs-keyword">data</span><span> </span><span id="Outpost"><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost"><span class="hs-identifier hs-var">Outpost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Outpost%27"><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost%27"><span class="hs-identifier hs-var">Outpost'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679763666"><span id="local-6989586621679763667"></span></span><span class="hs-keyword">data</span><span> </span><span id="Outpost"><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost"><span class="hs-identifier hs-var">Outpost</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Outpost%27"><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost%27"><span class="hs-identifier hs-var">Outpost'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Outpost.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aarn%3AOutpost%27"><span class="annot"><span class="annottext">Outpost -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.Types.Outpost.html#%24sel%3Aarn%3AOutpost%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679762606"><span id="local-6989586621679762608"><span class="annot"><span class="annottext">Outpost -&gt; Outpost -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679763660"><span id="local-6989586621679763662"><span class="annot"><span class="annottext">Outpost -&gt; Outpost -&gt; Bool
 (Outpost -&gt; Outpost -&gt; Bool)
 -&gt; (Outpost -&gt; Outpost -&gt; Bool) -&gt; Eq Outpost
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Outpost -&gt; Outpost -&gt; Bool
 == :: Outpost -&gt; Outpost -&gt; Bool
 $c== :: Outpost -&gt; Outpost -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679762597"><span id="local-6989586621679762599"><span id="local-6989586621679762601"><span id="local-6989586621679762603"><span class="annot"><span class="annottext">ReadPrec [Outpost]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679763651"><span id="local-6989586621679763653"><span id="local-6989586621679763655"><span id="local-6989586621679763657"><span class="annot"><span class="annottext">ReadPrec [Outpost]
 ReadPrec Outpost
 Int -&gt; ReadS Outpost
 ReadS [Outpost]
@@ -63,7 +63,7 @@ readList :: ReadS [Outpost]
 $creadList :: ReadS [Outpost]
 readsPrec :: Int -&gt; ReadS Outpost
 $creadsPrec :: Int -&gt; ReadS Outpost
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679762590"><span id="local-6989586621679762592"><span id="local-6989586621679762594"><span class="annot"><span class="annottext">Int -&gt; Outpost -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679763644"><span id="local-6989586621679763646"><span id="local-6989586621679763648"><span class="annot"><span class="annottext">Int -&gt; Outpost -&gt; ShowS
 [Outpost] -&gt; ShowS
 Outpost -&gt; String
 (Int -&gt; Outpost -&gt; ShowS)
@@ -111,31 +111,31 @@ forall a. Maybe a
 -&gt; (Outpost -&gt; Maybe Text -&gt; Outpost)
 -&gt; Lens Outpost Outpost (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost%27"><span class="hs-identifier hs-type">Outpost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679762581"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost%27"><span class="hs-identifier hs-type">Outpost'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679763635"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:Outpost' :: Outpost -&gt; Maybe Text
-</span><a href="#local-6989586621679762581"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679762581"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679762580"><span class="annot"><span class="annottext">s :: Outpost
-</span><a href="#local-6989586621679762580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost%27"><span class="hs-identifier hs-type">Outpost'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679762579"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679762579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Outpost
-</span><a href="#local-6989586621679762580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Outpost' :: Maybe Text
+</span><a href="#local-6989586621679763635"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679763635"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679763634"><span class="annot"><span class="annottext">s :: Outpost
+</span><a href="#local-6989586621679763634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost%27"><span class="hs-identifier hs-type">Outpost'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679763633"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679763633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Outpost
+</span><a href="#local-6989586621679763634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Outpost' :: Maybe Text
 </span><a href="Network.AWS.RDS.Types.Outpost.html#%24sel%3Aarn%3AOutpost%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679762579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost"><span class="hs-identifier hs-type">Outpost</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679763633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost"><span class="hs-identifier hs-type">Outpost</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost"><span class="hs-identifier hs-type">Outpost</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679762576"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Outpost
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679762574"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679762574"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Outpost
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679763630"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Outpost
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679763628"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679763628"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Outpost
 </span><a href="Network.AWS.RDS.Types.Outpost.html#Outpost%27"><span class="hs-identifier hs-var">Outpost'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Outpost)
 -&gt; Either String (Maybe Text) -&gt; Either String Outpost
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679762574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679763628"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679762568"><span id="local-6989586621679762570"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost"><span class="hs-identifier hs-type">Outpost</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679763622"><span id="local-6989586621679763624"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost"><span class="hs-identifier hs-type">Outpost</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679762565"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost"><span class="hs-identifier hs-type">Outpost</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679763619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.Outpost.html#Outpost"><span class="hs-identifier hs-type">Outpost</span></a></span></span><span>
 </span><span id="line-62"></span></pre></body></html>

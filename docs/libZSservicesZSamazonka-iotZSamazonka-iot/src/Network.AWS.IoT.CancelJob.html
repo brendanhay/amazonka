@@ -31,9 +31,9 @@
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#newCancelJob"><span class="hs-identifier">newCancelJob</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_reasonCode"><span class="hs-identifier">cancelJob_reasonCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_comment"><span class="hs-identifier">cancelJob_comment</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_force"><span class="hs-identifier">cancelJob_force</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_force"><span class="hs-identifier">cancelJob_force</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_reasonCode"><span class="hs-identifier">cancelJob_reasonCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_comment"><span class="hs-identifier">cancelJob_comment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_jobId"><span class="hs-identifier">cancelJob_jobId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -41,9 +41,9 @@
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#newCancelJobResponse"><span class="hs-identifier">newCancelJobResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_jobArn"><span class="hs-identifier">cancelJobResponse_jobArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_description"><span class="hs-identifier">cancelJobResponse_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_jobId"><span class="hs-identifier">cancelJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_jobId"><span class="hs-identifier">cancelJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_jobArn"><span class="hs-identifier">cancelJobResponse_jobArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_description"><span class="hs-identifier">cancelJobResponse_description</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_httpStatus"><span class="hs-identifier">cancelJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,28 +56,28 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCancelJob' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679854211"><span id="local-6989586621679854212"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelJob"><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-var">CancelJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelJob%27"><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-var">CancelJob'</span></a></span></span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional)A reason code string that explains why the job was canceled.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AreasonCode%3ACancelJob%27"><span class="annot"><span class="annottext">CancelJob -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AreasonCode%3ACancelJob%27"><span class="hs-identifier hs-var hs-var">reasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | An optional comment string describing why the job was canceled.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3Acomment%3ACancelJob%27"><span class="annot"><span class="annottext">CancelJob -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Acomment%3ACancelJob%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | (Optional) If @true@ job executions with status \&quot;IN_PROGRESS\&quot; and</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- \&quot;QUEUED\&quot; are canceled, otherwise only job executions with status</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- \&quot;QUEUED\&quot; are canceled. The default is @false@.</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Canceling a job which is \&quot;IN_PROGRESS\&quot;, will cause a device which is</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- executing the job to be unable to update the job execution status. Use</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- caution and ensure that each device executing a job which is canceled is</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- able to recover to a valid state.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3Aforce%3ACancelJob%27"><span class="annot"><span class="annottext">CancelJob -&gt; Maybe Bool
+</span><span id="line-59"></span><span id="local-6989586621679855219"><span id="local-6989586621679855220"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelJob"><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-var">CancelJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelJob%27"><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-var">CancelJob'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | (Optional) If @true@ job executions with status \&quot;IN_PROGRESS\&quot; and</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- \&quot;QUEUED\&quot; are canceled, otherwise only job executions with status</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- \&quot;QUEUED\&quot; are canceled. The default is @false@.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Canceling a job which is \&quot;IN_PROGRESS\&quot;, will cause a device which is</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- executing the job to be unable to update the job execution status. Use</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- caution and ensure that each device executing a job which is canceled is</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- able to recover to a valid state.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aforce%3ACancelJob%27"><span class="annot"><span class="annottext">CancelJob -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Aforce%3ACancelJob%27"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | (Optional)A reason code string that explains why the job was canceled.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AreasonCode%3ACancelJob%27"><span class="annot"><span class="annottext">CancelJob -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AreasonCode%3ACancelJob%27"><span class="hs-identifier hs-var hs-var">reasonCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | An optional comment string describing why the job was canceled.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Acomment%3ACancelJob%27"><span class="annot"><span class="annottext">CancelJob -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Acomment%3ACancelJob%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The unique identifier you assigned to this job when it was created.</span><span>
 </span><span id="line-74"></span><span>    </span><span id="%24sel%3AjobId%3ACancelJob%27"><span class="annot"><span class="annottext">CancelJob -&gt; Text
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AjobId%3ACancelJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679854202"><span id="local-6989586621679854204"><span class="annot"><span class="annottext">CancelJob -&gt; CancelJob -&gt; Bool
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679855210"><span id="local-6989586621679855212"><span class="annot"><span class="annottext">CancelJob -&gt; CancelJob -&gt; Bool
 (CancelJob -&gt; CancelJob -&gt; Bool)
 -&gt; (CancelJob -&gt; CancelJob -&gt; Bool) -&gt; Eq CancelJob
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CancelJob -&gt; CancelJob -&gt; Bool
 == :: CancelJob -&gt; CancelJob -&gt; Bool
 $c== :: CancelJob -&gt; CancelJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679854193"><span id="local-6989586621679854195"><span id="local-6989586621679854197"><span id="local-6989586621679854199"><span class="annot"><span class="annottext">ReadPrec [CancelJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855201"><span id="local-6989586621679855203"><span id="local-6989586621679855205"><span id="local-6989586621679855207"><span class="annot"><span class="annottext">ReadPrec [CancelJob]
 ReadPrec CancelJob
 Int -&gt; ReadS CancelJob
 ReadS [CancelJob]
@@ -105,7 +105,7 @@ readList :: ReadS [CancelJob]
 $creadList :: ReadS [CancelJob]
 readsPrec :: Int -&gt; ReadS CancelJob
 $creadsPrec :: Int -&gt; ReadS CancelJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679854186"><span id="local-6989586621679854188"><span id="local-6989586621679854190"><span class="annot"><span class="annottext">Int -&gt; CancelJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855194"><span id="local-6989586621679855196"><span id="local-6989586621679855198"><span class="annot"><span class="annottext">Int -&gt; CancelJob -&gt; ShowS
 [CancelJob] -&gt; ShowS
 CancelJob -&gt; String
 (Int -&gt; CancelJob -&gt; ShowS)
@@ -138,18 +138,18 @@ $cfrom :: forall x. CancelJob -&gt; Rep CancelJob x
 </span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'reasonCode', 'cancelJob_reasonCode' - (Optional)A reason code string that explains why the job was canceled.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'comment', 'cancelJob_comment' - An optional comment string describing why the job was canceled.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'force', 'cancelJob_force' - (Optional) If @true@ job executions with status \&quot;IN_PROGRESS\&quot; and</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- \&quot;QUEUED\&quot; are canceled, otherwise only job executions with status</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- \&quot;QUEUED\&quot; are canceled. The default is @false@.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'force', 'cancelJob_force' - (Optional) If @true@ job executions with status \&quot;IN_PROGRESS\&quot; and</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- \&quot;QUEUED\&quot; are canceled, otherwise only job executions with status</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- \&quot;QUEUED\&quot; are canceled. The default is @false@.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- Canceling a job which is \&quot;IN_PROGRESS\&quot;, will cause a device which is</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- executing the job to be unable to update the job execution status. Use</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- caution and ensure that each device executing a job which is canceled is</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- able to recover to a valid state.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Canceling a job which is \&quot;IN_PROGRESS\&quot;, will cause a device which is</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- executing the job to be unable to update the job execution status. Use</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- caution and ensure that each device executing a job which is canceled is</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- able to recover to a valid state.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'reasonCode', 'cancelJob_reasonCode' - (Optional)A reason code string that explains why the job was canceled.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'comment', 'cancelJob_comment' - An optional comment string describing why the job was canceled.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- 'jobId', 'cancelJob_jobId' - The unique identifier you assigned to this job when it was created.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#newCancelJob"><span class="hs-identifier hs-type">newCancelJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -157,87 +157,87 @@ $cfrom :: forall x. CancelJob -&gt; Rep CancelJob x
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span>
 </span><span id="line-104"></span><span id="newCancelJob"><span class="annot"><span class="annottext">newCancelJob :: Text -&gt; CancelJob
-</span><a href="Network.AWS.IoT.CancelJob.html#newCancelJob"><span class="hs-identifier hs-var hs-var">newCancelJob</span></a></span></span><span> </span><span id="local-6989586621679854181"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679854181"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">CancelJob' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; CancelJob
+</span><a href="Network.AWS.IoT.CancelJob.html#newCancelJob"><span class="hs-identifier hs-var hs-var">newCancelJob</span></a></span></span><span> </span><span id="local-6989586621679855189"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679855189"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">CancelJob' :: Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; CancelJob
 </span><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reasonCode:CancelJob' :: Maybe Text
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:force:CancelJob' :: Maybe Bool
+</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Aforce%3ACancelJob%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:reasonCode:CancelJob' :: Maybe Text
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AreasonCode%3ACancelJob%27"><span class="hs-identifier hs-var">reasonCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:comment:CancelJob' :: Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:comment:CancelJob' :: Maybe Text
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Acomment%3ACancelJob%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:force:CancelJob' :: Maybe Bool
-</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Aforce%3ACancelJob%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:CancelJob' :: Text
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AjobId%3ACancelJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679854181"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><a href="#local-6989586621679855189"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | (Optional)A reason code string that explains why the job was canceled.</span><span>
-</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_reasonCode"><span class="hs-identifier hs-type">cancelJob_reasonCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span id="cancelJob_reasonCode"><span class="annot"><span class="annottext">cancelJob_reasonCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CancelJob -&gt; f CancelJob
-</span><a href="Network.AWS.IoT.CancelJob.html#cancelJob_reasonCode"><span class="hs-identifier hs-var hs-var">cancelJob_reasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelJob -&gt; Maybe Text)
--&gt; (CancelJob -&gt; Maybe Text -&gt; CancelJob)
--&gt; Lens CancelJob CancelJob (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854178"><span class="annot"><span class="annottext">Maybe Text
-reasonCode :: Maybe Text
-$sel:reasonCode:CancelJob' :: CancelJob -&gt; Maybe Text
-</span><a href="#local-6989586621679854178"><span class="hs-identifier hs-var hs-var">reasonCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854178"><span class="hs-identifier hs-var">reasonCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854177"><span class="annot"><span class="annottext">s :: CancelJob
-</span><a href="#local-6989586621679854177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854176"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJob
-</span><a href="#local-6989586621679854177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reasonCode:CancelJob' :: Maybe Text
-</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AreasonCode%3ACancelJob%27"><span class="hs-identifier hs-var">reasonCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- | An optional comment string describing why the job was canceled.</span><span>
-</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_comment"><span class="hs-identifier hs-type">cancelJob_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span id="cancelJob_comment"><span class="annot"><span class="annottext">cancelJob_comment :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CancelJob -&gt; f CancelJob
-</span><a href="Network.AWS.IoT.CancelJob.html#cancelJob_comment"><span class="hs-identifier hs-var hs-var">cancelJob_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelJob -&gt; Maybe Text)
--&gt; (CancelJob -&gt; Maybe Text -&gt; CancelJob)
--&gt; Lens CancelJob CancelJob (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854175"><span class="annot"><span class="annottext">Maybe Text
-comment :: Maybe Text
-$sel:comment:CancelJob' :: CancelJob -&gt; Maybe Text
-</span><a href="#local-6989586621679854175"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854175"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854174"><span class="annot"><span class="annottext">s :: CancelJob
-</span><a href="#local-6989586621679854174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854173"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJob
-</span><a href="#local-6989586621679854174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:CancelJob' :: Maybe Text
-</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Acomment%3ACancelJob%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | (Optional) If @true@ job executions with status \&quot;IN_PROGRESS\&quot; and</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- \&quot;QUEUED\&quot; are canceled, otherwise only job executions with status</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- \&quot;QUEUED\&quot; are canceled. The default is @false@.</span><span>
-</span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- Canceling a job which is \&quot;IN_PROGRESS\&quot;, will cause a device which is</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- executing the job to be unable to update the job execution status. Use</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- caution and ensure that each device executing a job which is canceled is</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- able to recover to a valid state.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_force"><span class="hs-identifier hs-type">cancelJob_force</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span id="cancelJob_force"><span class="annot"><span class="annottext">cancelJob_force :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CancelJob -&gt; f CancelJob
+</span><span id="line-112"></span><span class="hs-comment">-- | (Optional) If @true@ job executions with status \&quot;IN_PROGRESS\&quot; and</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- \&quot;QUEUED\&quot; are canceled, otherwise only job executions with status</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- \&quot;QUEUED\&quot; are canceled. The default is @false@.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Canceling a job which is \&quot;IN_PROGRESS\&quot;, will cause a device which is</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- executing the job to be unable to update the job execution status. Use</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- caution and ensure that each device executing a job which is canceled is</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- able to recover to a valid state.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_force"><span class="hs-identifier hs-type">cancelJob_force</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="cancelJob_force"><span class="annot"><span class="annottext">cancelJob_force :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; CancelJob -&gt; f CancelJob
 </span><a href="Network.AWS.IoT.CancelJob.html#cancelJob_force"><span class="hs-identifier hs-var hs-var">cancelJob_force</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelJob -&gt; Maybe Bool)
 -&gt; (CancelJob -&gt; Maybe Bool -&gt; CancelJob)
 -&gt; Lens CancelJob CancelJob (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854172"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855186"><span class="annot"><span class="annottext">Maybe Bool
 force :: Maybe Bool
 $sel:force:CancelJob' :: CancelJob -&gt; Maybe Bool
-</span><a href="#local-6989586621679854172"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679854172"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854171"><span class="annot"><span class="annottext">s :: CancelJob
-</span><a href="#local-6989586621679854171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854170"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679854170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJob
-</span><a href="#local-6989586621679854171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:CancelJob' :: Maybe Bool
+</span><a href="#local-6989586621679855186"><span class="hs-identifier hs-var hs-var">force</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679855186"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855185"><span class="annot"><span class="annottext">s :: CancelJob
+</span><a href="#local-6989586621679855185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855184"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679855184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJob
+</span><a href="#local-6989586621679855185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:force:CancelJob' :: Maybe Bool
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Aforce%3ACancelJob%27"><span class="hs-identifier hs-var">force</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679854170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679855184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | (Optional)A reason code string that explains why the job was canceled.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_reasonCode"><span class="hs-identifier hs-type">cancelJob_reasonCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="cancelJob_reasonCode"><span class="annot"><span class="annottext">cancelJob_reasonCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CancelJob -&gt; f CancelJob
+</span><a href="Network.AWS.IoT.CancelJob.html#cancelJob_reasonCode"><span class="hs-identifier hs-var hs-var">cancelJob_reasonCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelJob -&gt; Maybe Text)
+-&gt; (CancelJob -&gt; Maybe Text -&gt; CancelJob)
+-&gt; Lens CancelJob CancelJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855183"><span class="annot"><span class="annottext">Maybe Text
+reasonCode :: Maybe Text
+$sel:reasonCode:CancelJob' :: CancelJob -&gt; Maybe Text
+</span><a href="#local-6989586621679855183"><span class="hs-identifier hs-var hs-var">reasonCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855183"><span class="hs-identifier hs-var">reasonCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855182"><span class="annot"><span class="annottext">s :: CancelJob
+</span><a href="#local-6989586621679855182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855181"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJob
+</span><a href="#local-6989586621679855182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reasonCode:CancelJob' :: Maybe Text
+</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AreasonCode%3ACancelJob%27"><span class="hs-identifier hs-var">reasonCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | An optional comment string describing why the job was canceled.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_comment"><span class="hs-identifier hs-type">cancelJob_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="cancelJob_comment"><span class="annot"><span class="annottext">cancelJob_comment :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CancelJob -&gt; f CancelJob
+</span><a href="Network.AWS.IoT.CancelJob.html#cancelJob_comment"><span class="hs-identifier hs-var hs-var">cancelJob_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelJob -&gt; Maybe Text)
+-&gt; (CancelJob -&gt; Maybe Text -&gt; CancelJob)
+-&gt; Lens CancelJob CancelJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855180"><span class="annot"><span class="annottext">Maybe Text
+comment :: Maybe Text
+$sel:comment:CancelJob' :: CancelJob -&gt; Maybe Text
+</span><a href="#local-6989586621679855180"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855180"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855179"><span class="annot"><span class="annottext">s :: CancelJob
+</span><a href="#local-6989586621679855179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855178"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJob
+</span><a href="#local-6989586621679855179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:CancelJob' :: Maybe Text
+</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Acomment%3ACancelJob%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The unique identifier you assigned to this job when it was created.</span><span>
 </span><span id="line-132"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJob_jobId"><span class="hs-identifier hs-type">cancelJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -246,25 +246,25 @@ $sel:force:CancelJob' :: CancelJob -&gt; Maybe Bool
 -&gt; (CancelJob -&gt; Text -&gt; CancelJob)
 -&gt; Lens CancelJob CancelJob Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854169"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855177"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:CancelJob' :: CancelJob -&gt; Text
-</span><a href="#local-6989586621679854169"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679854169"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854168"><span class="annot"><span class="annottext">s :: CancelJob
-</span><a href="#local-6989586621679854168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854167"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679854167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJob
-</span><a href="#local-6989586621679854168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:CancelJob' :: Text
+</span><a href="#local-6989586621679855177"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679855177"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855176"><span class="annot"><span class="annottext">s :: CancelJob
+</span><a href="#local-6989586621679855176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855175"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679855175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJob
+</span><a href="#local-6989586621679855176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:CancelJob' :: Text
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AjobId%3ACancelJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679854167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679855175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679854163"><span class="annot"><span class="annottext">request :: CancelJob -&gt; Request CancelJob
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679855171"><span class="annot"><span class="annottext">request :: CancelJob -&gt; Request CancelJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CancelJob -&gt; Request CancelJob
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679854159"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679855167"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CancelJob
 -&gt; ClientResponse ClientBody
@@ -288,10 +288,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679854156"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679854156"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679854155"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679854155"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679854154"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679854154"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679855164"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679855164"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679855163"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679855163"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679855162"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679855162"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelJobResponse
 </span><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-var">CancelJobResponse'</span></a></span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -301,29 +301,29 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelJobResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679854154"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679855162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;jobArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;jobId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelJobResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; CancelJobResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679854154"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679855162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;jobArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; CancelJobResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; CancelJobResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679854154"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679855162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;jobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CancelJobResponse)
 -&gt; Either String Int -&gt; Either String CancelJobResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -332,35 +332,35 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679854156"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679855164"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679854146"><span id="local-6989586621679854148"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span></span></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855154"><span id="local-6989586621679855156"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span></span></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679854143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855151"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span></span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679854139"><span class="annot"><span class="annottext">toHeaders :: CancelJob -&gt; ResponseHeaders
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679855147"><span class="annot"><span class="annottext">toHeaders :: CancelJob -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CancelJob -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679854130"><span id="local-6989586621679854132"><span id="local-6989586621679854134"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679854128"><span class="annot"><span class="annottext">toJSON :: CancelJob -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854123"><span id="local-6989586621679854124"><span id="local-6989586621679854125"><span id="local-6989586621679854126"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855138"><span id="local-6989586621679855140"><span id="local-6989586621679855142"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679855136"><span class="annot"><span class="annottext">toJSON :: CancelJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855131"><span id="local-6989586621679855132"><span id="local-6989586621679855133"><span id="local-6989586621679855134"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 jobId :: Text
-force :: Maybe Bool
 comment :: Maybe Text
 reasonCode :: Maybe Text
+force :: Maybe Bool
 $sel:jobId:CancelJob' :: CancelJob -&gt; Text
-$sel:force:CancelJob' :: CancelJob -&gt; Maybe Bool
 $sel:comment:CancelJob' :: CancelJob -&gt; Maybe Text
 $sel:reasonCode:CancelJob' :: CancelJob -&gt; Maybe Text
-</span><a href="#local-6989586621679854123"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:force:CancelJob' :: CancelJob -&gt; Maybe Bool
+</span><a href="#local-6989586621679855131"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -372,31 +372,31 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854126"><span class="hs-identifier hs-var">reasonCode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679855133"><span class="hs-identifier hs-var">reasonCode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;comment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854125"><span class="hs-identifier hs-var">comment</span></a></span><span>
+</span><a href="#local-6989586621679855132"><span class="hs-identifier hs-var">comment</span></a></span><span>
 </span><span id="line-161"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621679854117"><span class="annot"><span class="annottext">toPath :: CancelJob -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854112"><span id="local-6989586621679854113"><span id="local-6989586621679854114"><span id="local-6989586621679854115"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679855125"><span class="annot"><span class="annottext">toPath :: CancelJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855120"><span id="local-6989586621679855121"><span id="local-6989586621679855122"><span id="local-6989586621679855123"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 jobId :: Text
-force :: Maybe Bool
 comment :: Maybe Text
 reasonCode :: Maybe Text
+force :: Maybe Bool
 $sel:jobId:CancelJob' :: CancelJob -&gt; Text
-$sel:force:CancelJob' :: CancelJob -&gt; Maybe Bool
 $sel:comment:CancelJob' :: CancelJob -&gt; Maybe Text
 $sel:reasonCode:CancelJob' :: CancelJob -&gt; Maybe Text
-</span><a href="#local-6989586621679854112"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:force:CancelJob' :: CancelJob -&gt; Maybe Bool
+</span><a href="#local-6989586621679855120"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -404,47 +404,47 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/jobs/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679854112"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679855120"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/cancel&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob"><span class="hs-identifier hs-type">CancelJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679854108"><span class="annot"><span class="annottext">toQuery :: CancelJob -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854103"><span id="local-6989586621679854104"><span id="local-6989586621679854105"><span id="local-6989586621679854106"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679855116"><span class="annot"><span class="annottext">toQuery :: CancelJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJob%27"><span class="hs-identifier hs-type">CancelJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855111"><span id="local-6989586621679855112"><span id="local-6989586621679855113"><span id="local-6989586621679855114"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 jobId :: Text
-force :: Maybe Bool
 comment :: Maybe Text
 reasonCode :: Maybe Text
+force :: Maybe Bool
 $sel:jobId:CancelJob' :: CancelJob -&gt; Text
-$sel:force:CancelJob' :: CancelJob -&gt; Maybe Bool
 $sel:comment:CancelJob' :: CancelJob -&gt; Maybe Text
 $sel:reasonCode:CancelJob' :: CancelJob -&gt; Maybe Text
-</span><a href="#local-6989586621679854103"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:force:CancelJob' :: CancelJob -&gt; Maybe Bool
+</span><a href="#local-6989586621679855111"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;force&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679854104"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679855114"><span class="hs-identifier hs-var">force</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | /See:/ 'newCancelJobResponse' smart constructor.</span><span>
-</span><span id="line-174"></span><span id="local-6989586621679854100"><span id="local-6989586621679854101"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelJobResponse"><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-var">CancelJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelJobResponse%27"><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-var">CancelJobResponse'</span></a></span></span><span>
-</span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The job ARN.</span><span>
-</span><span id="line-176"></span><span>    </span><span id="%24sel%3AjobArn%3ACancelJobResponse%27"><span class="annot"><span class="annottext">CancelJobResponse -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AjobArn%3ACancelJobResponse%27"><span class="hs-identifier hs-var hs-var">jobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | A short text description of the job.</span><span>
-</span><span id="line-178"></span><span>    </span><span id="%24sel%3Adescription%3ACancelJobResponse%27"><span class="annot"><span class="annottext">CancelJobResponse -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Adescription%3ACancelJobResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The unique identifier you assigned to this job when it was created.</span><span>
-</span><span id="line-180"></span><span>    </span><span id="%24sel%3AjobId%3ACancelJobResponse%27"><span class="annot"><span class="annottext">CancelJobResponse -&gt; Maybe Text
+</span><span id="line-174"></span><span id="local-6989586621679855108"><span id="local-6989586621679855109"></span></span><span class="hs-keyword">data</span><span> </span><span id="CancelJobResponse"><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-var">CancelJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CancelJobResponse%27"><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-var">CancelJobResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier you assigned to this job when it was created.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AjobId%3ACancelJobResponse%27"><span class="annot"><span class="annottext">CancelJobResponse -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AjobId%3ACancelJobResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The job ARN.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3AjobArn%3ACancelJobResponse%27"><span class="annot"><span class="annottext">CancelJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AjobArn%3ACancelJobResponse%27"><span class="hs-identifier hs-var hs-var">jobArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | A short text description of the job.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3Adescription%3ACancelJobResponse%27"><span class="annot"><span class="annottext">CancelJobResponse -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Adescription%3ACancelJobResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-182"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACancelJobResponse%27"><span class="annot"><span class="annottext">CancelJobResponse -&gt; Int
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AhttpStatus%3ACancelJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679854092"><span id="local-6989586621679854094"><span class="annot"><span class="annottext">CancelJobResponse -&gt; CancelJobResponse -&gt; Bool
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679855100"><span id="local-6989586621679855102"><span class="annot"><span class="annottext">CancelJobResponse -&gt; CancelJobResponse -&gt; Bool
 (CancelJobResponse -&gt; CancelJobResponse -&gt; Bool)
 -&gt; (CancelJobResponse -&gt; CancelJobResponse -&gt; Bool)
 -&gt; Eq CancelJobResponse
@@ -453,7 +453,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CancelJobResponse -&gt; CancelJobResponse -&gt; Bool
 == :: CancelJobResponse -&gt; CancelJobResponse -&gt; Bool
 $c== :: CancelJobResponse -&gt; CancelJobResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679854084"><span id="local-6989586621679854086"><span id="local-6989586621679854088"><span id="local-6989586621679854090"><span class="annot"><span class="annottext">ReadPrec [CancelJobResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855092"><span id="local-6989586621679855094"><span id="local-6989586621679855096"><span id="local-6989586621679855098"><span class="annot"><span class="annottext">ReadPrec [CancelJobResponse]
 ReadPrec CancelJobResponse
 Int -&gt; ReadS CancelJobResponse
 ReadS [CancelJobResponse]
@@ -473,7 +473,7 @@ readList :: ReadS [CancelJobResponse]
 $creadList :: ReadS [CancelJobResponse]
 readsPrec :: Int -&gt; ReadS CancelJobResponse
 $creadsPrec :: Int -&gt; ReadS CancelJobResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679854078"><span id="local-6989586621679854080"><span id="local-6989586621679854082"><span class="annot"><span class="annottext">Int -&gt; CancelJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679855086"><span id="local-6989586621679855088"><span id="local-6989586621679855090"><span class="annot"><span class="annottext">Int -&gt; CancelJobResponse -&gt; ShowS
 [CancelJobResponse] -&gt; ShowS
 CancelJobResponse -&gt; String
 (Int -&gt; CancelJobResponse -&gt; ShowS)
@@ -507,11 +507,11 @@ $cfrom :: forall x. CancelJobResponse -&gt; Rep CancelJobResponse x
 </span><span id="line-191"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-193"></span><span class="hs-comment">--</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- 'jobArn', 'cancelJobResponse_jobArn' - The job ARN.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'jobId', 'cancelJobResponse_jobId' - The unique identifier you assigned to this job when it was created.</span><span>
 </span><span id="line-195"></span><span class="hs-comment">--</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- 'description', 'cancelJobResponse_description' - A short text description of the job.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'jobArn', 'cancelJobResponse_jobArn' - The job ARN.</span><span>
 </span><span id="line-197"></span><span class="hs-comment">--</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- 'jobId', 'cancelJobResponse_jobId' - The unique identifier you assigned to this job when it was created.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'description', 'cancelJobResponse_description' - A short text description of the job.</span><span>
 </span><span id="line-199"></span><span class="hs-comment">--</span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- 'httpStatus', 'cancelJobResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-201"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#newCancelJobResponse"><span class="hs-identifier hs-type">newCancelJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -519,86 +519,86 @@ $cfrom :: forall x. CancelJobResponse -&gt; Rep CancelJobResponse x
 </span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-204"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span>
 </span><span id="line-205"></span><span id="newCancelJobResponse"><span class="annot"><span class="annottext">newCancelJobResponse :: Int -&gt; CancelJobResponse
-</span><a href="Network.AWS.IoT.CancelJob.html#newCancelJobResponse"><span class="hs-identifier hs-var hs-var">newCancelJobResponse</span></a></span></span><span> </span><span id="local-6989586621679854075"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679854075"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.CancelJob.html#newCancelJobResponse"><span class="hs-identifier hs-var hs-var">newCancelJobResponse</span></a></span></span><span> </span><span id="local-6989586621679855083"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679855083"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">CancelJobResponse' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; CancelJobResponse
 </span><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span>
-</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobArn:CancelJobResponse' :: Maybe Text
+</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:CancelJobResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AjobId%3ACancelJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobArn:CancelJobResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AjobArn%3ACancelJobResponse%27"><span class="hs-identifier hs-var">jobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CancelJobResponse' :: Maybe Text
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CancelJobResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Adescription%3ACancelJobResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:CancelJobResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AjobId%3ACancelJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CancelJobResponse' :: Int
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AhttpStatus%3ACancelJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679854075"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679855083"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- | The job ARN.</span><span>
-</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_jobArn"><span class="hs-identifier hs-type">cancelJobResponse_jobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-215"></span><span id="cancelJobResponse_jobArn"><span class="annot"><span class="annottext">cancelJobResponse_jobArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CancelJobResponse -&gt; f CancelJobResponse
-</span><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_jobArn"><span class="hs-identifier hs-var hs-var">cancelJobResponse_jobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelJobResponse -&gt; Maybe Text)
--&gt; (CancelJobResponse -&gt; Maybe Text -&gt; CancelJobResponse)
--&gt; Lens
-     CancelJobResponse CancelJobResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854074"><span class="annot"><span class="annottext">Maybe Text
-jobArn :: Maybe Text
-$sel:jobArn:CancelJobResponse' :: CancelJobResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679854074"><span class="hs-identifier hs-var hs-var">jobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854074"><span class="hs-identifier hs-var">jobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854073"><span class="annot"><span class="annottext">s :: CancelJobResponse
-</span><a href="#local-6989586621679854073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854072"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJobResponse
-</span><a href="#local-6989586621679854073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobArn:CancelJobResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AjobArn%3ACancelJobResponse%27"><span class="hs-identifier hs-var">jobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-216"></span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- | A short text description of the job.</span><span>
-</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_description"><span class="hs-identifier hs-type">cancelJobResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-219"></span><span id="cancelJobResponse_description"><span class="annot"><span class="annottext">cancelJobResponse_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CancelJobResponse -&gt; f CancelJobResponse
-</span><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_description"><span class="hs-identifier hs-var hs-var">cancelJobResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelJobResponse -&gt; Maybe Text)
--&gt; (CancelJobResponse -&gt; Maybe Text -&gt; CancelJobResponse)
--&gt; Lens
-     CancelJobResponse CancelJobResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854071"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:CancelJobResponse' :: CancelJobResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679854071"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854071"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854070"><span class="annot"><span class="annottext">s :: CancelJobResponse
-</span><a href="#local-6989586621679854070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854069"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJobResponse
-</span><a href="#local-6989586621679854070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CancelJobResponse' :: Maybe Text
-</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Adescription%3ACancelJobResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- | The unique identifier you assigned to this job when it was created.</span><span>
-</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_jobId"><span class="hs-identifier hs-type">cancelJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-223"></span><span id="cancelJobResponse_jobId"><span class="annot"><span class="annottext">cancelJobResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-213"></span><span class="hs-comment">-- | The unique identifier you assigned to this job when it was created.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_jobId"><span class="hs-identifier hs-type">cancelJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="cancelJobResponse_jobId"><span class="annot"><span class="annottext">cancelJobResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CancelJobResponse -&gt; f CancelJobResponse
 </span><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_jobId"><span class="hs-identifier hs-var hs-var">cancelJobResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelJobResponse -&gt; Maybe Text)
 -&gt; (CancelJobResponse -&gt; Maybe Text -&gt; CancelJobResponse)
 -&gt; Lens
      CancelJobResponse CancelJobResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854068"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855082"><span class="annot"><span class="annottext">Maybe Text
 jobId :: Maybe Text
 $sel:jobId:CancelJobResponse' :: CancelJobResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679854068"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854068"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854067"><span class="annot"><span class="annottext">s :: CancelJobResponse
-</span><a href="#local-6989586621679854067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854066"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJobResponse
-</span><a href="#local-6989586621679854067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:CancelJobResponse' :: Maybe Text
+</span><a href="#local-6989586621679855082"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855082"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855081"><span class="annot"><span class="annottext">s :: CancelJobResponse
+</span><a href="#local-6989586621679855081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855080"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJobResponse
+</span><a href="#local-6989586621679855081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:CancelJobResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AjobId%3ACancelJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679854066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679855080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The job ARN.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_jobArn"><span class="hs-identifier hs-type">cancelJobResponse_jobArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="cancelJobResponse_jobArn"><span class="annot"><span class="annottext">cancelJobResponse_jobArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CancelJobResponse -&gt; f CancelJobResponse
+</span><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_jobArn"><span class="hs-identifier hs-var hs-var">cancelJobResponse_jobArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelJobResponse -&gt; Maybe Text)
+-&gt; (CancelJobResponse -&gt; Maybe Text -&gt; CancelJobResponse)
+-&gt; Lens
+     CancelJobResponse CancelJobResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855079"><span class="annot"><span class="annottext">Maybe Text
+jobArn :: Maybe Text
+$sel:jobArn:CancelJobResponse' :: CancelJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679855079"><span class="hs-identifier hs-var hs-var">jobArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855079"><span class="hs-identifier hs-var">jobArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855078"><span class="annot"><span class="annottext">s :: CancelJobResponse
+</span><a href="#local-6989586621679855078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855077"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJobResponse
+</span><a href="#local-6989586621679855078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobArn:CancelJobResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AjobArn%3ACancelJobResponse%27"><span class="hs-identifier hs-var">jobArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | A short text description of the job.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_description"><span class="hs-identifier hs-type">cancelJobResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="cancelJobResponse_description"><span class="annot"><span class="annottext">cancelJobResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CancelJobResponse -&gt; f CancelJobResponse
+</span><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_description"><span class="hs-identifier hs-var hs-var">cancelJobResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CancelJobResponse -&gt; Maybe Text)
+-&gt; (CancelJobResponse -&gt; Maybe Text -&gt; CancelJobResponse)
+-&gt; Lens
+     CancelJobResponse CancelJobResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855076"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CancelJobResponse' :: CancelJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679855076"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855076"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855075"><span class="annot"><span class="annottext">s :: CancelJobResponse
+</span><a href="#local-6989586621679855075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855074"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJobResponse
+</span><a href="#local-6989586621679855075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CancelJobResponse' :: Maybe Text
+</span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3Adescription%3ACancelJobResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679855074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-226"></span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#cancelJobResponse_httpStatus"><span class="hs-identifier hs-type">cancelJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -607,16 +607,16 @@ $sel:jobId:CancelJobResponse' :: CancelJobResponse -&gt; Maybe Text
 -&gt; (CancelJobResponse -&gt; Int -&gt; CancelJobResponse)
 -&gt; Lens CancelJobResponse CancelJobResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679854065"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679855073"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CancelJobResponse' :: CancelJobResponse -&gt; Int
-</span><a href="#local-6989586621679854065"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679854065"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679854064"><span class="annot"><span class="annottext">s :: CancelJobResponse
-</span><a href="#local-6989586621679854064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679854063"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679854063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJobResponse
-</span><a href="#local-6989586621679854064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelJobResponse' :: Int
+</span><a href="#local-6989586621679855073"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679855073"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679855072"><span class="annot"><span class="annottext">s :: CancelJobResponse
+</span><a href="#local-6989586621679855072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse%27"><span class="hs-identifier hs-type">CancelJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679855071"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679855071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CancelJobResponse
+</span><a href="#local-6989586621679855072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CancelJobResponse' :: Int
 </span><a href="Network.AWS.IoT.CancelJob.html#%24sel%3AhttpStatus%3ACancelJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679854063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679855071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
-</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679854061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679855069"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.CancelJob.html#CancelJobResponse"><span class="hs-identifier hs-type">CancelJobResponse</span></a></span></span><span>
 </span><span id="line-230"></span></pre></body></html>

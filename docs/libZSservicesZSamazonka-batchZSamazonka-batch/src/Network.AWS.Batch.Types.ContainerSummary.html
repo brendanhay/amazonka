@@ -26,16 +26,16 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | An object representing summary details of a container within a job.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newContainerSummary' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679259006"><span id="local-6989586621679259007"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerSummary"><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-var">ContainerSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerSummary%27"><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary%27"><span class="hs-identifier hs-var">ContainerSummary'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The exit code to return upon completion.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AexitCode%3AContainerSummary%27"><span class="annot"><span class="annottext">ContainerSummary -&gt; Maybe Int
-</span><a href="Network.AWS.Batch.Types.ContainerSummary.html#%24sel%3AexitCode%3AContainerSummary%27"><span class="hs-identifier hs-var hs-var">exitCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | A short (255 max characters) human-readable string to provide additional</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- details about a running or stopped container.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Areason%3AContainerSummary%27"><span class="annot"><span class="annottext">ContainerSummary -&gt; Maybe Text
-</span><a href="Network.AWS.Batch.Types.ContainerSummary.html#%24sel%3Areason%3AContainerSummary%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679259286"><span id="local-6989586621679259287"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContainerSummary"><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-var">ContainerSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContainerSummary%27"><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary%27"><span class="hs-identifier hs-var">ContainerSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A short (255 max characters) human-readable string to provide additional</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- details about a running or stopped container.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Areason%3AContainerSummary%27"><span class="annot"><span class="annottext">ContainerSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Batch.Types.ContainerSummary.html#%24sel%3Areason%3AContainerSummary%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The exit code to return upon completion.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AexitCode%3AContainerSummary%27"><span class="annot"><span class="annottext">ContainerSummary -&gt; Maybe Int
+</span><a href="Network.AWS.Batch.Types.ContainerSummary.html#%24sel%3AexitCode%3AContainerSummary%27"><span class="hs-identifier hs-var hs-var">exitCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258999"><span id="local-6989586621679259001"><span class="annot"><span class="annottext">ContainerSummary -&gt; ContainerSummary -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259279"><span id="local-6989586621679259281"><span class="annot"><span class="annottext">ContainerSummary -&gt; ContainerSummary -&gt; Bool
 (ContainerSummary -&gt; ContainerSummary -&gt; Bool)
 -&gt; (ContainerSummary -&gt; ContainerSummary -&gt; Bool)
 -&gt; Eq ContainerSummary
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ContainerSummary -&gt; ContainerSummary -&gt; Bool
 == :: ContainerSummary -&gt; ContainerSummary -&gt; Bool
 $c== :: ContainerSummary -&gt; ContainerSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258990"><span id="local-6989586621679258992"><span id="local-6989586621679258994"><span id="local-6989586621679258996"><span class="annot"><span class="annottext">ReadPrec [ContainerSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259270"><span id="local-6989586621679259272"><span id="local-6989586621679259274"><span id="local-6989586621679259276"><span class="annot"><span class="annottext">ReadPrec [ContainerSummary]
 ReadPrec ContainerSummary
 Int -&gt; ReadS ContainerSummary
 ReadS [ContainerSummary]
@@ -64,7 +64,7 @@ readList :: ReadS [ContainerSummary]
 $creadList :: ReadS [ContainerSummary]
 readsPrec :: Int -&gt; ReadS ContainerSummary
 $creadsPrec :: Int -&gt; ReadS ContainerSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258983"><span id="local-6989586621679258985"><span id="local-6989586621679258987"><span class="annot"><span class="annottext">Int -&gt; ContainerSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259263"><span id="local-6989586621679259265"><span id="local-6989586621679259267"><span class="annot"><span class="annottext">Int -&gt; ContainerSummary -&gt; ShowS
 [ContainerSummary] -&gt; ShowS
 ContainerSummary -&gt; String
 (Int -&gt; ContainerSummary -&gt; ShowS)
@@ -98,67 +98,67 @@ $cfrom :: forall x. ContainerSummary -&gt; Rep ContainerSummary x
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'exitCode', 'containerSummary_exitCode' - The exit code to return upon completion.</span><span>
-</span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'reason', 'containerSummary_reason' - A short (255 max characters) human-readable string to provide additional</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- details about a running or stopped container.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'reason', 'containerSummary_reason' - A short (255 max characters) human-readable string to provide additional</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- details about a running or stopped container.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'exitCode', 'containerSummary_exitCode' - The exit code to return upon completion.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#newContainerSummary"><span class="hs-identifier hs-type">newContainerSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span><span>
 </span><span id="line-52"></span><span id="newContainerSummary"><span class="annot"><span class="annottext">newContainerSummary :: ContainerSummary
 </span><a href="Network.AWS.Batch.Types.ContainerSummary.html#newContainerSummary"><span class="hs-identifier hs-var hs-var">newContainerSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">ContainerSummary' :: Maybe Int -&gt; Maybe Text -&gt; ContainerSummary
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">ContainerSummary' :: Maybe Text -&gt; Maybe Int -&gt; ContainerSummary
 </span><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary%27"><span class="hs-identifier hs-type">ContainerSummary'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:exitCode:ContainerSummary' :: Maybe Int
-</span><a href="Network.AWS.Batch.Types.ContainerSummary.html#%24sel%3AexitCode%3AContainerSummary%27"><span class="hs-identifier hs-var">exitCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reason:ContainerSummary' :: Maybe Text
+</span><a href="Network.AWS.Batch.Types.ContainerSummary.html#%24sel%3Areason%3AContainerSummary%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:reason:ContainerSummary' :: Maybe Text
-</span><a href="Network.AWS.Batch.Types.ContainerSummary.html#%24sel%3Areason%3AContainerSummary%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:exitCode:ContainerSummary' :: Maybe Int
+</span><a href="Network.AWS.Batch.Types.ContainerSummary.html#%24sel%3AexitCode%3AContainerSummary%27"><span class="hs-identifier hs-var">exitCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The exit code to return upon completion.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#containerSummary_exitCode"><span class="hs-identifier hs-type">containerSummary_exitCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="containerSummary_exitCode"><span class="annot"><span class="annottext">containerSummary_exitCode :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ContainerSummary -&gt; f ContainerSummary
-</span><a href="Network.AWS.Batch.Types.ContainerSummary.html#containerSummary_exitCode"><span class="hs-identifier hs-var hs-var">containerSummary_exitCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerSummary -&gt; Maybe Int)
--&gt; (ContainerSummary -&gt; Maybe Int -&gt; ContainerSummary)
--&gt; Lens ContainerSummary ContainerSummary (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary%27"><span class="hs-identifier hs-type">ContainerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258974"><span class="annot"><span class="annottext">Maybe Int
-exitCode :: Maybe Int
-$sel:exitCode:ContainerSummary' :: ContainerSummary -&gt; Maybe Int
-</span><a href="#local-6989586621679258974"><span class="hs-identifier hs-var hs-var">exitCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679258974"><span class="hs-identifier hs-var">exitCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258973"><span class="annot"><span class="annottext">s :: ContainerSummary
-</span><a href="#local-6989586621679258973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary%27"><span class="hs-identifier hs-type">ContainerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258972"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679258972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerSummary
-</span><a href="#local-6989586621679258973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exitCode:ContainerSummary' :: Maybe Int
-</span><a href="Network.AWS.Batch.Types.ContainerSummary.html#%24sel%3AexitCode%3AContainerSummary%27"><span class="hs-identifier hs-var">exitCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679258972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | A short (255 max characters) human-readable string to provide additional</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- details about a running or stopped container.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#containerSummary_reason"><span class="hs-identifier hs-type">containerSummary_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="containerSummary_reason"><span class="annot"><span class="annottext">containerSummary_reason :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-58"></span><span class="hs-comment">-- | A short (255 max characters) human-readable string to provide additional</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- details about a running or stopped container.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#containerSummary_reason"><span class="hs-identifier hs-type">containerSummary_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span id="containerSummary_reason"><span class="annot"><span class="annottext">containerSummary_reason :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ContainerSummary -&gt; f ContainerSummary
 </span><a href="Network.AWS.Batch.Types.ContainerSummary.html#containerSummary_reason"><span class="hs-identifier hs-var hs-var">containerSummary_reason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerSummary -&gt; Maybe Text)
 -&gt; (ContainerSummary -&gt; Maybe Text -&gt; ContainerSummary)
 -&gt; Lens ContainerSummary ContainerSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary%27"><span class="hs-identifier hs-type">ContainerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258970"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary%27"><span class="hs-identifier hs-type">ContainerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259254"><span class="annot"><span class="annottext">Maybe Text
 reason :: Maybe Text
 $sel:reason:ContainerSummary' :: ContainerSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679258970"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258970"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258969"><span class="annot"><span class="annottext">s :: ContainerSummary
-</span><a href="#local-6989586621679258969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary%27"><span class="hs-identifier hs-type">ContainerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258968"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerSummary
-</span><a href="#local-6989586621679258969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:ContainerSummary' :: Maybe Text
+</span><a href="#local-6989586621679259254"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259254"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259253"><span class="annot"><span class="annottext">s :: ContainerSummary
+</span><a href="#local-6989586621679259253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary%27"><span class="hs-identifier hs-type">ContainerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259252"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerSummary
+</span><a href="#local-6989586621679259253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:ContainerSummary' :: Maybe Text
 </span><a href="Network.AWS.Batch.Types.ContainerSummary.html#%24sel%3Areason%3AContainerSummary%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679258968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The exit code to return upon completion.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#containerSummary_exitCode"><span class="hs-identifier hs-type">containerSummary_exitCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="containerSummary_exitCode"><span class="annot"><span class="annottext">containerSummary_exitCode :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ContainerSummary -&gt; f ContainerSummary
+</span><a href="Network.AWS.Batch.Types.ContainerSummary.html#containerSummary_exitCode"><span class="hs-identifier hs-var hs-var">containerSummary_exitCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContainerSummary -&gt; Maybe Int)
+-&gt; (ContainerSummary -&gt; Maybe Int -&gt; ContainerSummary)
+-&gt; Lens ContainerSummary ContainerSummary (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary%27"><span class="hs-identifier hs-type">ContainerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259250"><span class="annot"><span class="annottext">Maybe Int
+exitCode :: Maybe Int
+$sel:exitCode:ContainerSummary' :: ContainerSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679259250"><span class="hs-identifier hs-var hs-var">exitCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679259250"><span class="hs-identifier hs-var">exitCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259249"><span class="annot"><span class="annottext">s :: ContainerSummary
+</span><a href="#local-6989586621679259249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary%27"><span class="hs-identifier hs-type">ContainerSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259248"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679259248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerSummary
+</span><a href="#local-6989586621679259249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exitCode:ContainerSummary' :: Maybe Int
+</span><a href="Network.AWS.Batch.Types.ContainerSummary.html#%24sel%3AexitCode%3AContainerSummary%27"><span class="hs-identifier hs-var">exitCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679259248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258965"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679258963"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerSummary
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259245"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679259243"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContainerSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ContainerSummary)
@@ -168,29 +168,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ContainerSummary&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258960"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Text -&gt; ContainerSummary
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259240"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259240"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Int -&gt; ContainerSummary
 </span><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary%27"><span class="hs-identifier hs-var">ContainerSummary'</span></a></span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Text -&gt; ContainerSummary)
--&gt; Parser (Maybe Int) -&gt; Parser (Maybe Text -&gt; ContainerSummary)
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Int -&gt; ContainerSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Int -&gt; ContainerSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;exitCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ContainerSummary)
--&gt; Parser (Maybe Text) -&gt; Parser ContainerSummary
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679258960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679259240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;reason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; ContainerSummary)
+-&gt; Parser (Maybe Int) -&gt; Parser ContainerSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259240"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;exitCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258954"><span id="local-6989586621679258956"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259234"><span id="local-6989586621679259236"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258951"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259231"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Batch.Types.ContainerSummary.html#ContainerSummary"><span class="hs-identifier hs-type">ContainerSummary</span></a></span></span><span>
 </span><span id="line-80"></span></pre></body></html>

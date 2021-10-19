@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681056178"><span id="local-6989586621681056179"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BootModeType"><span class="annot"><a href="Network.AWS.EC2.Types.BootModeType.html#BootModeType"><span class="hs-identifier hs-var">BootModeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BootModeType%27"><span class="annot"><a href="Network.AWS.EC2.Types.BootModeType.html#BootModeType%27"><span class="hs-identifier hs-var">BootModeType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681089377"><span id="local-6989586621681089378"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BootModeType"><span class="annot"><a href="Network.AWS.EC2.Types.BootModeType.html#BootModeType"><span class="hs-identifier hs-var">BootModeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BootModeType%27"><span class="annot"><a href="Network.AWS.EC2.Types.BootModeType.html#BootModeType%27"><span class="hs-identifier hs-var">BootModeType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBootModeType"><span class="annot"><span class="annottext">BootModeType -&gt; Text
 </span><a href="Network.AWS.EC2.Types.BootModeType.html#fromBootModeType"><span class="hs-identifier hs-var hs-var">fromBootModeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681056170"><span id="local-6989586621681056172"><span id="local-6989586621681056174"><span class="annot"><span class="annottext">Int -&gt; BootModeType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089369"><span id="local-6989586621681089371"><span id="local-6989586621681089373"><span class="annot"><span class="annottext">Int -&gt; BootModeType -&gt; ShowS
 [BootModeType] -&gt; ShowS
 BootModeType -&gt; String
 (Int -&gt; BootModeType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: BootModeType -&gt; String
 showsPrec :: Int -&gt; BootModeType -&gt; ShowS
 $cshowsPrec :: Int -&gt; BootModeType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681056161"><span id="local-6989586621681056163"><span id="local-6989586621681056165"><span id="local-6989586621681056167"><span class="annot"><span class="annottext">ReadPrec [BootModeType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681089360"><span id="local-6989586621681089362"><span id="local-6989586621681089364"><span id="local-6989586621681089366"><span class="annot"><span class="annottext">ReadPrec [BootModeType]
 ReadPrec BootModeType
 Int -&gt; ReadS BootModeType
 ReadS [BootModeType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [BootModeType]
 readsPrec :: Int -&gt; ReadS BootModeType
 $creadsPrec :: Int -&gt; ReadS BootModeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681056156"><span id="local-6989586621681056158"><span class="annot"><span class="annottext">BootModeType -&gt; BootModeType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681089355"><span id="local-6989586621681089357"><span class="annot"><span class="annottext">BootModeType -&gt; BootModeType -&gt; Bool
 (BootModeType -&gt; BootModeType -&gt; Bool)
 -&gt; (BootModeType -&gt; BootModeType -&gt; Bool) -&gt; Eq BootModeType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: BootModeType -&gt; BootModeType -&gt; Bool
 == :: BootModeType -&gt; BootModeType -&gt; Bool
 $c== :: BootModeType -&gt; BootModeType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681056140"><span id="local-6989586621681056142"><span id="local-6989586621681056144"><span id="local-6989586621681056146"><span id="local-6989586621681056148"><span id="local-6989586621681056150"><span id="local-6989586621681056152"><span class="annot"><span class="annottext">Eq BootModeType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681089339"><span id="local-6989586621681089341"><span id="local-6989586621681089343"><span id="local-6989586621681089345"><span id="local-6989586621681089347"><span id="local-6989586621681089349"><span id="local-6989586621681089351"><span class="annot"><span class="annottext">Eq BootModeType
 Eq BootModeType
 -&gt; (BootModeType -&gt; BootModeType -&gt; Ordering)
 -&gt; (BootModeType -&gt; BootModeType -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. BootModeType -&gt; Rep BootModeType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681056132"><span id="local-6989586621681056134"><span class="annot"><span class="annottext">Int -&gt; BootModeType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681089331"><span id="local-6989586621681089333"><span class="annot"><span class="annottext">Int -&gt; BootModeType -&gt; Int
 BootModeType -&gt; Int
 (Int -&gt; BootModeType -&gt; Int)
 -&gt; (BootModeType -&gt; Int) -&gt; Hashable BootModeType
@@ -143,49 +143,49 @@ $chash :: BootModeType -&gt; Int
 hashWithSalt :: Int -&gt; BootModeType -&gt; Int
 $chashWithSalt :: Int -&gt; BootModeType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681056129"><span class="annot"><span class="annottext">BootModeType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681089328"><span class="annot"><span class="annottext">BootModeType -&gt; ()
 (BootModeType -&gt; ()) -&gt; NFData BootModeType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BootModeType -&gt; ()
 $crnf :: BootModeType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681056126"><span class="annot"><span class="annottext">Text -&gt; Either String BootModeType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681089325"><span class="annot"><span class="annottext">Text -&gt; Either String BootModeType
 (Text -&gt; Either String BootModeType) -&gt; FromText BootModeType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BootModeType
 $cfromText :: Text -&gt; Either String BootModeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681056123"><span class="annot"><span class="annottext">BootModeType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681089322"><span class="annot"><span class="annottext">BootModeType -&gt; Text
 (BootModeType -&gt; Text) -&gt; ToText BootModeType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BootModeType -&gt; Text
 $ctoText :: BootModeType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681056120"><span class="annot"><span class="annottext">BootModeType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681089319"><span class="annot"><span class="annottext">BootModeType -&gt; ByteString
 (BootModeType -&gt; ByteString) -&gt; ToByteString BootModeType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BootModeType -&gt; ByteString
 $ctoBS :: BootModeType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681056117"><span class="annot"><span class="annottext">BootModeType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681089316"><span class="annot"><span class="annottext">BootModeType -&gt; ByteStringBuilder
 (BootModeType -&gt; ByteStringBuilder) -&gt; ToLog BootModeType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BootModeType -&gt; ByteStringBuilder
 $cbuild :: BootModeType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681056114"><span class="annot"><span class="annottext">HeaderName -&gt; BootModeType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681089313"><span class="annot"><span class="annottext">HeaderName -&gt; BootModeType -&gt; [Header]
 (HeaderName -&gt; BootModeType -&gt; [Header]) -&gt; ToHeader BootModeType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BootModeType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BootModeType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681056111"><span class="annot"><span class="annottext">BootModeType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681089310"><span class="annot"><span class="annottext">BootModeType -&gt; QueryString
 (BootModeType -&gt; QueryString) -&gt; ToQuery BootModeType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BootModeType -&gt; QueryString
 $ctoQuery :: BootModeType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681056106"><span id="local-6989586621681056108"><span class="annot"><span class="annottext">Value -&gt; Parser [BootModeType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681089305"><span id="local-6989586621681089307"><span class="annot"><span class="annottext">Value -&gt; Parser [BootModeType]
 Value -&gt; Parser BootModeType
 (Value -&gt; Parser BootModeType)
 -&gt; (Value -&gt; Parser [BootModeType]) -&gt; FromJSON BootModeType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [BootModeType]
 parseJSON :: Value -&gt; Parser BootModeType
 $cparseJSON :: Value -&gt; Parser BootModeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681056101"><span id="local-6989586621681056103"><span class="annot"><span class="annottext">FromJSONKeyFunction [BootModeType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681089300"><span id="local-6989586621681089302"><span class="annot"><span class="annottext">FromJSONKeyFunction [BootModeType]
 FromJSONKeyFunction BootModeType
 FromJSONKeyFunction BootModeType
 -&gt; FromJSONKeyFunction [BootModeType] -&gt; FromJSONKey BootModeType
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BootModeType]
 fromJSONKey :: FromJSONKeyFunction BootModeType
 $cfromJSONKey :: FromJSONKeyFunction BootModeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681056092"><span id="local-6989586621681056094"><span id="local-6989586621681056096"><span id="local-6989586621681056098"><span class="annot"><span class="annottext">[BootModeType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681089291"><span id="local-6989586621681089293"><span id="local-6989586621681089295"><span id="local-6989586621681089297"><span class="annot"><span class="annottext">[BootModeType] -&gt; Encoding
 [BootModeType] -&gt; Value
 BootModeType -&gt; Encoding
 BootModeType -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: BootModeType -&gt; Encoding
 toJSON :: BootModeType -&gt; Value
 $ctoJSON :: BootModeType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681056087"><span id="local-6989586621681056089"><span class="annot"><span class="annottext">ToJSONKeyFunction [BootModeType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681089286"><span id="local-6989586621681089288"><span class="annot"><span class="annottext">ToJSONKeyFunction [BootModeType]
 ToJSONKeyFunction BootModeType
 ToJSONKeyFunction BootModeType
 -&gt; ToJSONKeyFunction [BootModeType] -&gt; ToJSONKey BootModeType
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BootModeType]
 toJSONKey :: ToJSONKeyFunction BootModeType
 $ctoJSONKey :: ToJSONKeyFunction BootModeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681056084"><span class="annot"><span class="annottext">[Node] -&gt; Either String BootModeType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681089283"><span class="annot"><span class="annottext">[Node] -&gt; Either String BootModeType
 ([Node] -&gt; Either String BootModeType) -&gt; FromXML BootModeType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BootModeType
 $cparseXML :: [Node] -&gt; Either String BootModeType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681056081"><span class="annot"><span class="annottext">BootModeType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681089280"><span class="annot"><span class="annottext">BootModeType -&gt; XML
 (BootModeType -&gt; XML) -&gt; ToXML BootModeType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BootModeType -&gt; XML

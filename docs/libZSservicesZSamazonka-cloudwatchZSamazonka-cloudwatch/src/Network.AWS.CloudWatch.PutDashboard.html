@@ -67,7 +67,7 @@
 </span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newPutDashboard' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679260626"><span id="local-6989586621679260627"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDashboard"><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-var">PutDashboard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDashboard%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard%27"><span class="hs-identifier hs-var">PutDashboard'</span></a></span></span><span>
+</span><span id="line-70"></span><span id="local-6989586621679260976"><span id="local-6989586621679260977"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDashboard"><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-var">PutDashboard</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDashboard%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard%27"><span class="hs-identifier hs-var">PutDashboard'</span></a></span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the dashboard. If a dashboard with this name already exists,</span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-comment">-- this call modifies that dashboard, replacing its current contents.</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Otherwise, a new dashboard is created. The maximum length is 255, and</span><span>
@@ -84,7 +84,7 @@
 </span><span id="line-83"></span><span>    </span><span id="%24sel%3AdashboardBody%3APutDashboard%27"><span class="annot"><span class="annottext">PutDashboard -&gt; Text
 </span><a href="Network.AWS.CloudWatch.PutDashboard.html#%24sel%3AdashboardBody%3APutDashboard%27"><span class="hs-identifier hs-var hs-var">dashboardBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260619"><span id="local-6989586621679260621"><span class="annot"><span class="annottext">PutDashboard -&gt; PutDashboard -&gt; Bool
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260969"><span id="local-6989586621679260971"><span class="annot"><span class="annottext">PutDashboard -&gt; PutDashboard -&gt; Bool
 (PutDashboard -&gt; PutDashboard -&gt; Bool)
 -&gt; (PutDashboard -&gt; PutDashboard -&gt; Bool) -&gt; Eq PutDashboard
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutDashboard -&gt; PutDashboard -&gt; Bool
 == :: PutDashboard -&gt; PutDashboard -&gt; Bool
 $c== :: PutDashboard -&gt; PutDashboard -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260610"><span id="local-6989586621679260612"><span id="local-6989586621679260614"><span id="local-6989586621679260616"><span class="annot"><span class="annottext">ReadPrec [PutDashboard]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260960"><span id="local-6989586621679260962"><span id="local-6989586621679260964"><span id="local-6989586621679260966"><span class="annot"><span class="annottext">ReadPrec [PutDashboard]
 ReadPrec PutDashboard
 Int -&gt; ReadS PutDashboard
 ReadS [PutDashboard]
@@ -112,7 +112,7 @@ readList :: ReadS [PutDashboard]
 $creadList :: ReadS [PutDashboard]
 readsPrec :: Int -&gt; ReadS PutDashboard
 $creadsPrec :: Int -&gt; ReadS PutDashboard
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260603"><span id="local-6989586621679260605"><span id="local-6989586621679260607"><span class="annot"><span class="annottext">Int -&gt; PutDashboard -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260953"><span id="local-6989586621679260955"><span id="local-6989586621679260957"><span class="annot"><span class="annottext">Int -&gt; PutDashboard -&gt; ShowS
 [PutDashboard] -&gt; ShowS
 PutDashboard -&gt; String
 (Int -&gt; PutDashboard -&gt; ShowS)
@@ -165,17 +165,17 @@ $cfrom :: forall x. PutDashboard -&gt; Rep PutDashboard x
 </span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span><span>
 </span><span id="line-113"></span><span id="newPutDashboard"><span class="annot"><span class="annottext">newPutDashboard :: Text -&gt; Text -&gt; PutDashboard
-</span><a href="Network.AWS.CloudWatch.PutDashboard.html#newPutDashboard"><span class="hs-identifier hs-var hs-var">newPutDashboard</span></a></span></span><span> </span><span id="local-6989586621679260598"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260598"><span class="hs-identifier hs-var">pDashboardName_</span></a></span></span><span> </span><span id="local-6989586621679260597"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260597"><span class="hs-identifier hs-var">pDashboardBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.PutDashboard.html#newPutDashboard"><span class="hs-identifier hs-var hs-var">newPutDashboard</span></a></span></span><span> </span><span id="local-6989586621679260948"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260948"><span class="hs-identifier hs-var">pDashboardName_</span></a></span></span><span> </span><span id="local-6989586621679260947"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260947"><span class="hs-identifier hs-var">pDashboardBody_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>  </span><span class="annot"><span class="annottext">PutDashboard' :: Text -&gt; Text -&gt; PutDashboard
 </span><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard%27"><span class="hs-identifier hs-type">PutDashboard'</span></a></span><span>
 </span><span id="line-115"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dashboardName:PutDashboard' :: Text
 </span><a href="Network.AWS.CloudWatch.PutDashboard.html#%24sel%3AdashboardName%3APutDashboard%27"><span class="hs-identifier hs-var">dashboardName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260598"><span class="hs-identifier hs-var">pDashboardName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260948"><span class="hs-identifier hs-var">pDashboardName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:dashboardBody:PutDashboard' :: Text
 </span><a href="Network.AWS.CloudWatch.PutDashboard.html#%24sel%3AdashboardBody%3APutDashboard%27"><span class="hs-identifier hs-var">dashboardBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260597"><span class="hs-identifier hs-var">pDashboardBody_</span></a></span><span>
+</span><a href="#local-6989586621679260947"><span class="hs-identifier hs-var">pDashboardBody_</span></a></span><span>
 </span><span id="line-117"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- | The name of the dashboard. If a dashboard with this name already exists,</span><span>
@@ -189,16 +189,16 @@ $cfrom :: forall x. PutDashboard -&gt; Rep PutDashboard x
 -&gt; (PutDashboard -&gt; Text -&gt; PutDashboard)
 -&gt; Lens PutDashboard PutDashboard Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard%27"><span class="hs-identifier hs-type">PutDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260594"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard%27"><span class="hs-identifier hs-type">PutDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260944"><span class="annot"><span class="annottext">Text
 dashboardName :: Text
 $sel:dashboardName:PutDashboard' :: PutDashboard -&gt; Text
-</span><a href="#local-6989586621679260594"><span class="hs-identifier hs-var hs-var">dashboardName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260594"><span class="hs-identifier hs-var">dashboardName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260593"><span class="annot"><span class="annottext">s :: PutDashboard
-</span><a href="#local-6989586621679260593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard%27"><span class="hs-identifier hs-type">PutDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260592"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDashboard
-</span><a href="#local-6989586621679260593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardName:PutDashboard' :: Text
+</span><a href="#local-6989586621679260944"><span class="hs-identifier hs-var hs-var">dashboardName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260944"><span class="hs-identifier hs-var">dashboardName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260943"><span class="annot"><span class="annottext">s :: PutDashboard
+</span><a href="#local-6989586621679260943"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard%27"><span class="hs-identifier hs-type">PutDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260942"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260942"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDashboard
+</span><a href="#local-6989586621679260943"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardName:PutDashboard' :: Text
 </span><a href="Network.AWS.CloudWatch.PutDashboard.html#%24sel%3AdashboardName%3APutDashboard%27"><span class="hs-identifier hs-var">dashboardName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260942"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The detailed information about the dashboard in JSON format, including</span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- the widgets to include and their location on the dashboard. This</span><span>
@@ -212,25 +212,25 @@ $sel:dashboardName:PutDashboard' :: PutDashboard -&gt; Text
 -&gt; (PutDashboard -&gt; Text -&gt; PutDashboard)
 -&gt; Lens PutDashboard PutDashboard Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard%27"><span class="hs-identifier hs-type">PutDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260591"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard%27"><span class="hs-identifier hs-type">PutDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260941"><span class="annot"><span class="annottext">Text
 dashboardBody :: Text
 $sel:dashboardBody:PutDashboard' :: PutDashboard -&gt; Text
-</span><a href="#local-6989586621679260591"><span class="hs-identifier hs-var hs-var">dashboardBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260591"><span class="hs-identifier hs-var">dashboardBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260590"><span class="annot"><span class="annottext">s :: PutDashboard
-</span><a href="#local-6989586621679260590"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard%27"><span class="hs-identifier hs-type">PutDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260589"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260589"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDashboard
-</span><a href="#local-6989586621679260590"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardBody:PutDashboard' :: Text
+</span><a href="#local-6989586621679260941"><span class="hs-identifier hs-var hs-var">dashboardBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260941"><span class="hs-identifier hs-var">dashboardBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260940"><span class="annot"><span class="annottext">s :: PutDashboard
+</span><a href="#local-6989586621679260940"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard%27"><span class="hs-identifier hs-type">PutDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260939"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260939"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDashboard
+</span><a href="#local-6989586621679260940"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardBody:PutDashboard' :: Text
 </span><a href="Network.AWS.CloudWatch.PutDashboard.html#%24sel%3AdashboardBody%3APutDashboard%27"><span class="hs-identifier hs-var">dashboardBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260589"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260939"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse"><span class="hs-identifier hs-type">PutDashboardResponse</span></a></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679260585"><span class="annot"><span class="annottext">request :: PutDashboard -&gt; Request PutDashboard
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679260935"><span class="annot"><span class="annottext">request :: PutDashboard -&gt; Request PutDashboard
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutDashboard -&gt; Request PutDashboard
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudWatch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679260581"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679260931"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutDashboard
 -&gt; ClientResponse ClientBody
@@ -259,10 +259,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PutDashboardResult&quot;</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260578"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260578"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679260577"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679260577"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679260576"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679260576"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260928"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260928"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679260927"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679260927"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679260926"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679260926"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe [DashboardValidationMessage] -&gt; Int -&gt; PutDashboardResponse
 </span><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse%27"><span class="hs-identifier hs-var">PutDashboardResponse'</span></a></span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [DashboardValidationMessage] -&gt; Int -&gt; PutDashboardResponse)
@@ -270,7 +270,7 @@ Text
 -&gt; Either String (Int -&gt; PutDashboardResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679260576"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679260926"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DashboardValidationMessages&quot;</span></span><span>
@@ -301,15 +301,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260578"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260928"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260565"><span id="local-6989586621679260567"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span></span></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260915"><span id="local-6989586621679260917"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span></span></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260562"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260912"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span></span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679260558"><span class="annot"><span class="annottext">toHeaders :: PutDashboard -&gt; ResponseHeaders
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679260908"><span class="annot"><span class="annottext">toHeaders :: PutDashboard -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutDashboard -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -317,20 +317,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679260553"><span class="annot"><span class="annottext">toPath :: PutDashboard -&gt; ByteString
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679260903"><span class="annot"><span class="annottext">toPath :: PutDashboard -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutDashboard -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard"><span class="hs-identifier hs-type">PutDashboard</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679260549"><span class="annot"><span class="annottext">toQuery :: PutDashboard -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard%27"><span class="hs-identifier hs-type">PutDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260546"><span id="local-6989586621679260547"><span class="annot"><span class="annottext">Text
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679260899"><span class="annot"><span class="annottext">toQuery :: PutDashboard -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboard%27"><span class="hs-identifier hs-type">PutDashboard'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260896"><span id="local-6989586621679260897"><span class="annot"><span class="annottext">Text
 dashboardBody :: Text
 dashboardName :: Text
 $sel:dashboardBody:PutDashboard' :: PutDashboard -&gt; Text
 $sel:dashboardName:PutDashboard' :: PutDashboard -&gt; Text
-</span><a href="#local-6989586621679260546"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679260896"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -350,16 +350,16 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DashboardName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260547"><span class="hs-identifier hs-var">dashboardName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260897"><span class="hs-identifier hs-var">dashboardName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DashboardBody&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679260546"><span class="hs-identifier hs-var">dashboardBody</span></a></span><span>
+</span><a href="#local-6989586621679260896"><span class="hs-identifier hs-var">dashboardBody</span></a></span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newPutDashboardResponse' smart constructor.</span><span>
-</span><span id="line-173"></span><span id="local-6989586621679260543"><span id="local-6989586621679260544"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDashboardResponse"><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse"><span class="hs-identifier hs-var">PutDashboardResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDashboardResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse%27"><span class="hs-identifier hs-var">PutDashboardResponse'</span></a></span></span><span>
+</span><span id="line-173"></span><span id="local-6989586621679260893"><span id="local-6989586621679260894"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutDashboardResponse"><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse"><span class="hs-identifier hs-var">PutDashboardResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutDashboardResponse%27"><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse%27"><span class="hs-identifier hs-var">PutDashboardResponse'</span></a></span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the input for @PutDashboard@ was correct and the dashboard was</span><span>
 </span><span id="line-175"></span><span>    </span><span class="hs-comment">-- successfully created or modified, this result is empty.</span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -375,7 +375,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-185"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutDashboardResponse%27"><span class="annot"><span class="annottext">PutDashboardResponse -&gt; Int
 </span><a href="Network.AWS.CloudWatch.PutDashboard.html#%24sel%3AhttpStatus%3APutDashboardResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260537"><span id="local-6989586621679260539"><span class="annot"><span class="annottext">PutDashboardResponse -&gt; PutDashboardResponse -&gt; Bool
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260887"><span id="local-6989586621679260889"><span class="annot"><span class="annottext">PutDashboardResponse -&gt; PutDashboardResponse -&gt; Bool
 (PutDashboardResponse -&gt; PutDashboardResponse -&gt; Bool)
 -&gt; (PutDashboardResponse -&gt; PutDashboardResponse -&gt; Bool)
 -&gt; Eq PutDashboardResponse
@@ -384,7 +384,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutDashboardResponse -&gt; PutDashboardResponse -&gt; Bool
 == :: PutDashboardResponse -&gt; PutDashboardResponse -&gt; Bool
 $c== :: PutDashboardResponse -&gt; PutDashboardResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260529"><span id="local-6989586621679260531"><span id="local-6989586621679260533"><span id="local-6989586621679260535"><span class="annot"><span class="annottext">ReadPrec [PutDashboardResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260879"><span id="local-6989586621679260881"><span id="local-6989586621679260883"><span id="local-6989586621679260885"><span class="annot"><span class="annottext">ReadPrec [PutDashboardResponse]
 ReadPrec PutDashboardResponse
 Int -&gt; ReadS PutDashboardResponse
 ReadS [PutDashboardResponse]
@@ -404,7 +404,7 @@ readList :: ReadS [PutDashboardResponse]
 $creadList :: ReadS [PutDashboardResponse]
 readsPrec :: Int -&gt; ReadS PutDashboardResponse
 $creadsPrec :: Int -&gt; ReadS PutDashboardResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260523"><span id="local-6989586621679260525"><span id="local-6989586621679260527"><span class="annot"><span class="annottext">Int -&gt; PutDashboardResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260873"><span id="local-6989586621679260875"><span id="local-6989586621679260877"><span class="annot"><span class="annottext">Int -&gt; PutDashboardResponse -&gt; ShowS
 [PutDashboardResponse] -&gt; ShowS
 PutDashboardResponse -&gt; String
 (Int -&gt; PutDashboardResponse -&gt; ShowS)
@@ -454,8 +454,8 @@ $cfrom :: forall x. PutDashboardResponse -&gt; Rep PutDashboardResponse x
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse"><span class="hs-identifier hs-type">PutDashboardResponse</span></a></span><span>
 </span><span id="line-212"></span><span id="newPutDashboardResponse"><span class="annot"><span class="annottext">newPutDashboardResponse :: Int -&gt; PutDashboardResponse
-</span><a href="Network.AWS.CloudWatch.PutDashboard.html#newPutDashboardResponse"><span class="hs-identifier hs-var hs-var">newPutDashboardResponse</span></a></span></span><span> </span><span id="local-6989586621679260520"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260520"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.PutDashboard.html#newPutDashboardResponse"><span class="hs-identifier hs-var hs-var">newPutDashboardResponse</span></a></span></span><span> </span><span id="local-6989586621679260870"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260870"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">PutDashboardResponse' :: Maybe [DashboardValidationMessage] -&gt; Int -&gt; PutDashboardResponse
 </span><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse%27"><span class="hs-identifier hs-type">PutDashboardResponse'</span></a></span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dashboardValidationMessages:PutDashboardResponse' :: Maybe [DashboardValidationMessage]
@@ -465,7 +465,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutDashboardResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.PutDashboard.html#%24sel%3AhttpStatus%3APutDashboardResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260520"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679260870"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-217"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-218"></span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- | If the input for @PutDashboard@ was correct and the dashboard was</span><span>
@@ -490,16 +490,16 @@ forall a. Maybe a
      (Maybe [DashboardValidationMessage])
      (Maybe [DashboardValidationMessage])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse%27"><span class="hs-identifier hs-type">PutDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260519"><span class="annot"><span class="annottext">Maybe [DashboardValidationMessage]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse%27"><span class="hs-identifier hs-type">PutDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260869"><span class="annot"><span class="annottext">Maybe [DashboardValidationMessage]
 dashboardValidationMessages :: Maybe [DashboardValidationMessage]
 $sel:dashboardValidationMessages:PutDashboardResponse' :: PutDashboardResponse -&gt; Maybe [DashboardValidationMessage]
-</span><a href="#local-6989586621679260519"><span class="hs-identifier hs-var hs-var">dashboardValidationMessages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardValidationMessage]
-</span><a href="#local-6989586621679260519"><span class="hs-identifier hs-var">dashboardValidationMessages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260518"><span class="annot"><span class="annottext">s :: PutDashboardResponse
-</span><a href="#local-6989586621679260518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse%27"><span class="hs-identifier hs-type">PutDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260517"><span class="annot"><span class="annottext">Maybe [DashboardValidationMessage]
-</span><a href="#local-6989586621679260517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDashboardResponse
-</span><a href="#local-6989586621679260518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardValidationMessages:PutDashboardResponse' :: Maybe [DashboardValidationMessage]
+</span><a href="#local-6989586621679260869"><span class="hs-identifier hs-var hs-var">dashboardValidationMessages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardValidationMessage]
+</span><a href="#local-6989586621679260869"><span class="hs-identifier hs-var">dashboardValidationMessages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260868"><span class="annot"><span class="annottext">s :: PutDashboardResponse
+</span><a href="#local-6989586621679260868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse%27"><span class="hs-identifier hs-type">PutDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260867"><span class="annot"><span class="annottext">Maybe [DashboardValidationMessage]
+</span><a href="#local-6989586621679260867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDashboardResponse
+</span><a href="#local-6989586621679260868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashboardValidationMessages:PutDashboardResponse' :: Maybe [DashboardValidationMessage]
 </span><a href="Network.AWS.CloudWatch.PutDashboard.html#%24sel%3AdashboardValidationMessages%3APutDashboardResponse%27"><span class="hs-identifier hs-var">dashboardValidationMessages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [DashboardValidationMessage]
-</span><a href="#local-6989586621679260517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse"><span class="hs-identifier hs-type">PutDashboardResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DashboardValidationMessage]
+</span><a href="#local-6989586621679260867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse"><span class="hs-identifier hs-type">PutDashboardResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [DashboardValidationMessage]
   -&gt; f (Maybe [DashboardValidationMessage]))
  -&gt; PutDashboardResponse -&gt; f PutDashboardResponse)
 -&gt; ((Maybe [DashboardValidationMessage]
@@ -529,8 +529,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [DashboardValidationMessage]
   [DashboardValidationMessage]
   [DashboardValidationMessage]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-232"></span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#putDashboardResponse_httpStatus"><span class="hs-identifier hs-type">putDashboardResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse"><span class="hs-identifier hs-type">PutDashboardResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -539,16 +539,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (PutDashboardResponse -&gt; Int -&gt; PutDashboardResponse)
 -&gt; Lens PutDashboardResponse PutDashboardResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse%27"><span class="hs-identifier hs-type">PutDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260513"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse%27"><span class="hs-identifier hs-type">PutDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260863"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutDashboardResponse' :: PutDashboardResponse -&gt; Int
-</span><a href="#local-6989586621679260513"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260513"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260512"><span class="annot"><span class="annottext">s :: PutDashboardResponse
-</span><a href="#local-6989586621679260512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse%27"><span class="hs-identifier hs-type">PutDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260511"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDashboardResponse
-</span><a href="#local-6989586621679260512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutDashboardResponse' :: Int
+</span><a href="#local-6989586621679260863"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260863"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260862"><span class="annot"><span class="annottext">s :: PutDashboardResponse
+</span><a href="#local-6989586621679260862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse%27"><span class="hs-identifier hs-type">PutDashboardResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260861"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutDashboardResponse
+</span><a href="#local-6989586621679260862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutDashboardResponse' :: Int
 </span><a href="Network.AWS.CloudWatch.PutDashboard.html#%24sel%3AhttpStatus%3APutDashboardResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679260511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse"><span class="hs-identifier hs-type">PutDashboardResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse"><span class="hs-identifier hs-type">PutDashboardResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260509"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse"><span class="hs-identifier hs-type">PutDashboardResponse</span></a></span></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260859"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.PutDashboard.html#PutDashboardResponse"><span class="hs-identifier hs-type">PutDashboardResponse</span></a></span></span><span>
 </span><span id="line-236"></span></pre></body></html>

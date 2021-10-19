@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- in the @IDs@ array.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newRelationship' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679177114"><span id="local-6989586621679177115"></span></span><span class="hs-keyword">data</span><span> </span><span id="Relationship"><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-var">Relationship</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Relationship%27"><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-var">Relationship'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679177201"><span id="local-6989586621679177202"></span></span><span class="hs-keyword">data</span><span> </span><span id="Relationship"><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-var">Relationship</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Relationship%27"><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-var">Relationship'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of IDs for related blocks. You can get the type of the</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- relationship from the @Type@ element.</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aids%3ARelationship%27"><span class="annot"><span class="annottext">Relationship -&gt; Maybe [Text]
@@ -47,7 +47,7 @@
 </span><span id="line-46"></span><span>    </span><span id="%24sel%3Atype%27%3ARelationship%27"><span class="annot"><span class="annottext">Relationship -&gt; Maybe RelationshipType
 </span><a href="Network.AWS.Textract.Types.Relationship.html#%24sel%3Atype%27%3ARelationship%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.RelationshipType.html#RelationshipType"><span class="hs-identifier hs-type">RelationshipType</span></a></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177107"><span id="local-6989586621679177109"><span class="annot"><span class="annottext">Relationship -&gt; Relationship -&gt; Bool
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177194"><span id="local-6989586621679177196"><span class="annot"><span class="annottext">Relationship -&gt; Relationship -&gt; Bool
 (Relationship -&gt; Relationship -&gt; Bool)
 -&gt; (Relationship -&gt; Relationship -&gt; Bool) -&gt; Eq Relationship
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Relationship -&gt; Relationship -&gt; Bool
 == :: Relationship -&gt; Relationship -&gt; Bool
 $c== :: Relationship -&gt; Relationship -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177098"><span id="local-6989586621679177100"><span id="local-6989586621679177102"><span id="local-6989586621679177104"><span class="annot"><span class="annottext">ReadPrec [Relationship]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177185"><span id="local-6989586621679177187"><span id="local-6989586621679177189"><span id="local-6989586621679177191"><span class="annot"><span class="annottext">ReadPrec [Relationship]
 ReadPrec Relationship
 Int -&gt; ReadS Relationship
 ReadS [Relationship]
@@ -75,7 +75,7 @@ readList :: ReadS [Relationship]
 $creadList :: ReadS [Relationship]
 readsPrec :: Int -&gt; ReadS Relationship
 $creadsPrec :: Int -&gt; ReadS Relationship
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177091"><span id="local-6989586621679177093"><span id="local-6989586621679177095"><span class="annot"><span class="annottext">Int -&gt; Relationship -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177178"><span id="local-6989586621679177180"><span id="local-6989586621679177182"><span class="annot"><span class="annottext">Int -&gt; Relationship -&gt; ShowS
 [Relationship] -&gt; ShowS
 Relationship -&gt; String
 (Int -&gt; Relationship -&gt; ShowS)
@@ -144,16 +144,16 @@ forall a. Maybe a
 -&gt; (Relationship -&gt; Maybe [Text] -&gt; Relationship)
 -&gt; Lens Relationship Relationship (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-type">Relationship'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177082"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-type">Relationship'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177169"><span class="annot"><span class="annottext">Maybe [Text]
 ids :: Maybe [Text]
 $sel:ids:Relationship' :: Relationship -&gt; Maybe [Text]
-</span><a href="#local-6989586621679177082"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679177082"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177081"><span class="annot"><span class="annottext">s :: Relationship
-</span><a href="#local-6989586621679177081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-type">Relationship'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177080"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679177080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Relationship
-</span><a href="#local-6989586621679177081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:Relationship' :: Maybe [Text]
+</span><a href="#local-6989586621679177169"><span class="hs-identifier hs-var hs-var">ids</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679177169"><span class="hs-identifier hs-var">ids</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177168"><span class="annot"><span class="annottext">s :: Relationship
+</span><a href="#local-6989586621679177168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-type">Relationship'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177167"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679177167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Relationship
+</span><a href="#local-6989586621679177168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ids:Relationship' :: Maybe [Text]
 </span><a href="Network.AWS.Textract.Types.Relationship.html#%24sel%3Aids%3ARelationship%27"><span class="hs-identifier hs-var">ids</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679177080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679177167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; Relationship -&gt; f Relationship)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -167,8 +167,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The type of relationship that the blocks in the IDs array have with the</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- current block. The relationship can be @VALUE@ or @CHILD@. A</span><span>
@@ -188,19 +188,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe RelationshipType)
      (Maybe RelationshipType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-type">Relationship'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177075"><span class="annot"><span class="annottext">Maybe RelationshipType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-type">Relationship'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177162"><span class="annot"><span class="annottext">Maybe RelationshipType
 type' :: Maybe RelationshipType
 $sel:type':Relationship' :: Relationship -&gt; Maybe RelationshipType
-</span><a href="#local-6989586621679177075"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelationshipType
-</span><a href="#local-6989586621679177075"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177074"><span class="annot"><span class="annottext">s :: Relationship
-</span><a href="#local-6989586621679177074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-type">Relationship'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177073"><span class="annot"><span class="annottext">Maybe RelationshipType
-</span><a href="#local-6989586621679177073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Relationship
-</span><a href="#local-6989586621679177074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Relationship' :: Maybe RelationshipType
+</span><a href="#local-6989586621679177162"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RelationshipType
+</span><a href="#local-6989586621679177162"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177161"><span class="annot"><span class="annottext">s :: Relationship
+</span><a href="#local-6989586621679177161"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-type">Relationship'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177160"><span class="annot"><span class="annottext">Maybe RelationshipType
+</span><a href="#local-6989586621679177160"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Relationship
+</span><a href="#local-6989586621679177161"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Relationship' :: Maybe RelationshipType
 </span><a href="Network.AWS.Textract.Types.Relationship.html#%24sel%3Atype%27%3ARelationship%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RelationshipType
-</span><a href="#local-6989586621679177073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679177160"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177070"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679177068"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Relationship
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177157"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679177155"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Relationship
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Relationship) -&gt; Value -&gt; Parser Relationship
@@ -208,8 +208,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Relationship&quot;</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177065"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177065"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177152"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177152"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe RelationshipType -&gt; Relationship
 </span><a href="Network.AWS.Textract.Types.Relationship.html#Relationship%27"><span class="hs-identifier hs-var">Relationship'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe RelationshipType -&gt; Relationship)
@@ -217,7 +217,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe RelationshipType -&gt; Relationship)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177065"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679177152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Ids&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -230,13 +230,13 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe RelationshipType) -&gt; Parser Relationship
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679177065"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelationshipType)
+</span><a href="#local-6989586621679177152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RelationshipType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177058"><span id="local-6989586621679177060"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177145"><span id="local-6989586621679177147"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177055"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177142"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.Relationship.html#Relationship"><span class="hs-identifier hs-type">Relationship</span></a></span></span><span>
 </span><span id="line-104"></span></pre></body></html>

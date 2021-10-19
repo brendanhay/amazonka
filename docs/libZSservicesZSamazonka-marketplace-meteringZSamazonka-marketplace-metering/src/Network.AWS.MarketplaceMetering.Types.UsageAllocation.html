@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- tags.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newUsageAllocation' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679145287"><span id="local-6989586621679145288"></span></span><span class="hs-keyword">data</span><span> </span><span id="UsageAllocation"><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-var">UsageAllocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageAllocation%27"><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-var">UsageAllocation'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679145312"><span id="local-6989586621679145313"></span></span><span class="hs-keyword">data</span><span> </span><span id="UsageAllocation"><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-var">UsageAllocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageAllocation%27"><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-var">UsageAllocation'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The set of tags that define the bucket of usage. For the bucket of items</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- with no tags, this parameter can be left out.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3Atags%3AUsageAllocation%27"><span class="annot"><span class="annottext">UsageAllocation -&gt; Maybe (NonEmpty Tag)
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AallocatedUsageQuantity%3AUsageAllocation%27"><span class="annot"><span class="annottext">UsageAllocation -&gt; Natural
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#%24sel%3AallocatedUsageQuantity%3AUsageAllocation%27"><span class="hs-identifier hs-var hs-var">allocatedUsageQuantity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679145280"><span id="local-6989586621679145282"><span class="annot"><span class="annottext">UsageAllocation -&gt; UsageAllocation -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679145305"><span id="local-6989586621679145307"><span class="annot"><span class="annottext">UsageAllocation -&gt; UsageAllocation -&gt; Bool
 (UsageAllocation -&gt; UsageAllocation -&gt; Bool)
 -&gt; (UsageAllocation -&gt; UsageAllocation -&gt; Bool)
 -&gt; Eq UsageAllocation
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UsageAllocation -&gt; UsageAllocation -&gt; Bool
 == :: UsageAllocation -&gt; UsageAllocation -&gt; Bool
 $c== :: UsageAllocation -&gt; UsageAllocation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679145271"><span id="local-6989586621679145273"><span id="local-6989586621679145275"><span id="local-6989586621679145277"><span class="annot"><span class="annottext">ReadPrec [UsageAllocation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679145296"><span id="local-6989586621679145298"><span id="local-6989586621679145300"><span id="local-6989586621679145302"><span class="annot"><span class="annottext">ReadPrec [UsageAllocation]
 ReadPrec UsageAllocation
 Int -&gt; ReadS UsageAllocation
 ReadS [UsageAllocation]
@@ -68,7 +68,7 @@ readList :: ReadS [UsageAllocation]
 $creadList :: ReadS [UsageAllocation]
 readsPrec :: Int -&gt; ReadS UsageAllocation
 $creadsPrec :: Int -&gt; ReadS UsageAllocation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679145264"><span id="local-6989586621679145266"><span id="local-6989586621679145268"><span class="annot"><span class="annottext">Int -&gt; UsageAllocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679145289"><span id="local-6989586621679145291"><span id="local-6989586621679145293"><span class="annot"><span class="annottext">Int -&gt; UsageAllocation -&gt; ShowS
 [UsageAllocation] -&gt; ShowS
 UsageAllocation -&gt; String
 (Int -&gt; UsageAllocation -&gt; ShowS)
@@ -111,8 +111,8 @@ $cfrom :: forall x. UsageAllocation -&gt; Rep UsageAllocation x
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span><span>
 </span><span id="line-58"></span><span id="newUsageAllocation"><span class="annot"><span class="annottext">newUsageAllocation :: Natural -&gt; UsageAllocation
-</span><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#newUsageAllocation"><span class="hs-identifier hs-var hs-var">newUsageAllocation</span></a></span></span><span> </span><span id="local-6989586621679145258"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679145258"><span class="hs-identifier hs-var">pAllocatedUsageQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#newUsageAllocation"><span class="hs-identifier hs-var hs-var">newUsageAllocation</span></a></span></span><span> </span><span id="local-6989586621679145283"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679145283"><span class="hs-identifier hs-var">pAllocatedUsageQuantity_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">UsageAllocation' :: Maybe (NonEmpty Tag) -&gt; Natural -&gt; UsageAllocation
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-type">UsageAllocation'</span></a></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:UsageAllocation' :: Maybe (NonEmpty Tag)
@@ -121,7 +121,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:allocatedUsageQuantity:UsageAllocation' :: Natural
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#%24sel%3AallocatedUsageQuantity%3AUsageAllocation%27"><span class="hs-identifier hs-var">allocatedUsageQuantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679145258"><span class="hs-identifier hs-var">pAllocatedUsageQuantity_</span></a></span><span>
+</span><a href="#local-6989586621679145283"><span class="hs-identifier hs-var">pAllocatedUsageQuantity_</span></a></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | The set of tags that define the bucket of usage. For the bucket of items</span><span>
@@ -137,16 +137,16 @@ forall a. Maybe a
      (Maybe (NonEmpty Tag))
      (Maybe (NonEmpty Tag))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-type">UsageAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145254"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-type">UsageAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145279"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 tags :: Maybe (NonEmpty Tag)
 $sel:tags:UsageAllocation' :: UsageAllocation -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679145254"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679145254"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145253"><span class="annot"><span class="annottext">s :: UsageAllocation
-</span><a href="#local-6989586621679145253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-type">UsageAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145252"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679145252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageAllocation
-</span><a href="#local-6989586621679145253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UsageAllocation' :: Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679145279"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679145279"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145278"><span class="annot"><span class="annottext">s :: UsageAllocation
+</span><a href="#local-6989586621679145278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-type">UsageAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145277"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679145277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageAllocation
+</span><a href="#local-6989586621679145278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UsageAllocation' :: Maybe (NonEmpty Tag)
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#%24sel%3Atags%3AUsageAllocation%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679145252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+</span><a href="#local-6989586621679145277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
  -&gt; UsageAllocation -&gt; f UsageAllocation)
 -&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
     -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
@@ -164,8 +164,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The total quantity allocated to this bucket of usage.</span><span>
 </span><span id="line-70"></span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#usageAllocation_allocatedUsageQuantity"><span class="hs-identifier hs-type">usageAllocation_allocatedUsageQuantity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
@@ -174,19 +174,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (UsageAllocation -&gt; Natural -&gt; UsageAllocation)
 -&gt; Lens UsageAllocation UsageAllocation Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-type">UsageAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145247"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-type">UsageAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145272"><span class="annot"><span class="annottext">Natural
 allocatedUsageQuantity :: Natural
 $sel:allocatedUsageQuantity:UsageAllocation' :: UsageAllocation -&gt; Natural
-</span><a href="#local-6989586621679145247"><span class="hs-identifier hs-var hs-var">allocatedUsageQuantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679145247"><span class="hs-identifier hs-var">allocatedUsageQuantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145246"><span class="annot"><span class="annottext">s :: UsageAllocation
-</span><a href="#local-6989586621679145246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-type">UsageAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145245"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679145245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageAllocation
-</span><a href="#local-6989586621679145246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocatedUsageQuantity:UsageAllocation' :: Natural
+</span><a href="#local-6989586621679145272"><span class="hs-identifier hs-var hs-var">allocatedUsageQuantity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679145272"><span class="hs-identifier hs-var">allocatedUsageQuantity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679145271"><span class="annot"><span class="annottext">s :: UsageAllocation
+</span><a href="#local-6989586621679145271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-type">UsageAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679145270"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679145270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageAllocation
+</span><a href="#local-6989586621679145271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allocatedUsageQuantity:UsageAllocation' :: Natural
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#%24sel%3AallocatedUsageQuantity%3AUsageAllocation%27"><span class="hs-identifier hs-var">allocatedUsageQuantity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679145245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679145270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145242"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679145240"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UsageAllocation
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145267"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679145265"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UsageAllocation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UsageAllocation)
@@ -196,8 +196,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UsageAllocation&quot;</span></span><span>
-</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679145237"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679145237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679145262"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679145262"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag) -&gt; Natural -&gt; UsageAllocation
 </span><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-var">UsageAllocation'</span></a></span><span>
 </span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (NonEmpty Tag) -&gt; Natural -&gt; UsageAllocation)
@@ -205,7 +205,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Natural -&gt; UsageAllocation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679145237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Tag))
+</span><a href="#local-6989586621679145262"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Tag))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span class="hs-special">)</span><span>
@@ -213,25 +213,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Natural -&gt; Parser UsageAllocation
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679145237"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679145262"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllocatedUsageQuantity&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145230"><span id="local-6989586621679145232"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145255"><span id="local-6989586621679145257"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145227"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145252"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145219"><span id="local-6989586621679145221"><span id="local-6989586621679145223"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679145217"><span class="annot"><span class="annottext">toJSON :: UsageAllocation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-type">UsageAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145214"><span id="local-6989586621679145215"><span class="annot"><span class="annottext">Natural
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679145244"><span id="local-6989586621679145246"><span id="local-6989586621679145248"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation"><span class="hs-identifier hs-type">UsageAllocation</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679145242"><span class="annot"><span class="annottext">toJSON :: UsageAllocation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MarketplaceMetering.Types.UsageAllocation.html#UsageAllocation%27"><span class="hs-identifier hs-type">UsageAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679145239"><span id="local-6989586621679145240"><span class="annot"><span class="annottext">Natural
 Maybe (NonEmpty Tag)
 allocatedUsageQuantity :: Natural
 tags :: Maybe (NonEmpty Tag)
 $sel:allocatedUsageQuantity:UsageAllocation' :: UsageAllocation -&gt; Natural
 $sel:tags:UsageAllocation' :: UsageAllocation -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679145214"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679145239"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -243,7 +243,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679145215"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679145240"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -252,7 +252,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-94"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679145214"><span class="hs-identifier hs-var">allocatedUsageQuantity</span></a></span><span>
+</span><a href="#local-6989586621679145239"><span class="hs-identifier hs-var">allocatedUsageQuantity</span></a></span><span>
 </span><span id="line-95"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>

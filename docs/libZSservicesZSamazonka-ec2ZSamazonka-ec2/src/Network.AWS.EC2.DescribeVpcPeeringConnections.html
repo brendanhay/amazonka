@@ -29,11 +29,11 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#newDescribeVpcPeeringConnections"><span class="hs-identifier">newDescribeVpcPeeringConnections</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_vpcPeeringConnectionIds"><span class="hs-identifier">describeVpcPeeringConnections_vpcPeeringConnectionIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_filters"><span class="hs-identifier">describeVpcPeeringConnections_filters</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_nextToken"><span class="hs-identifier">describeVpcPeeringConnections_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_maxResults"><span class="hs-identifier">describeVpcPeeringConnections_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_vpcPeeringConnectionIds"><span class="hs-identifier">describeVpcPeeringConnections_vpcPeeringConnectionIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_dryRun"><span class="hs-identifier">describeVpcPeeringConnections_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_filters"><span class="hs-identifier">describeVpcPeeringConnections_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_maxResults"><span class="hs-identifier">describeVpcPeeringConnections_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier">DescribeVpcPeeringConnectionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -54,69 +54,69 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newDescribeVpcPeeringConnections' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621681203754"><span id="local-6989586621681203755"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVpcPeeringConnections"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-var">DescribeVpcPeeringConnections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVpcPeeringConnections%27"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">DescribeVpcPeeringConnections'</span></a></span></span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more VPC peering connection IDs.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621681239417"><span id="local-6989586621681239418"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVpcPeeringConnections"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-var">DescribeVpcPeeringConnections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVpcPeeringConnections%27"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">DescribeVpcPeeringConnections'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more filters.</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Default: Describes all your VPC peering connections.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AvpcPeeringConnectionIds%3ADescribeVpcPeeringConnections%27"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections -&gt; Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AvpcPeeringConnectionIds%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var hs-var">vpcPeeringConnectionIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeVpcPeeringConnections%27"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AnextToken%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeVpcPeeringConnections%27"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections -&gt; Maybe Natural
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AmaxResults%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeVpcPeeringConnections%27"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AdryRun%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | One or more filters.</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   @accepter-vpc-info.cidr-block@ - The IPv4 CIDR block of the accepter</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     VPC.</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- -   @accepter-vpc-info.owner-id@ - The ID of the Amazon Web Services</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     account that owns the accepter VPC.</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   @accepter-vpc-info.vpc-id@ - The ID of the accepter VPC.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- -   @accepter-vpc-info.cidr-block@ - The IPv4 CIDR block of the accepter</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     VPC.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @accepter-vpc-info.owner-id@ - The ID of the Amazon Web Services</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     account that owns the accepter VPC.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @accepter-vpc-info.vpc-id@ - The ID of the accepter VPC.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @expiration-time@ - The expiration date and time for the VPC peering</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     connection.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @requester-vpc-info.cidr-block@ - The IPv4 CIDR block of the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     requester\'s VPC.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @requester-vpc-info.owner-id@ - The ID of the Amazon Web Services</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     account that owns the requester VPC.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @requester-vpc-info.vpc-id@ - The ID of the requester VPC.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   @status-code@ - The status of the VPC peering connection</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     (@pending-acceptance@ | @failed@ | @expired@ | @provisioning@ |</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     @active@ | @deleting@ | @deleted@ | @rejected@).</span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   @expiration-time@ - The expiration date and time for the VPC peering</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     connection.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   @status-message@ - A message that provides more information about</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     the status of the VPC peering connection, if applicable.</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   @requester-vpc-info.cidr-block@ - The IPv4 CIDR block of the</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     requester\'s VPC.</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   @requester-vpc-info.owner-id@ - The ID of the Amazon Web Services</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     account that owns the requester VPC.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   @requester-vpc-info.vpc-id@ - The ID of the requester VPC.</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- -   @status-code@ - The status of the VPC peering connection</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     (@pending-acceptance@ | @failed@ | @expired@ | @provisioning@ |</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     @active@ | @deleting@ | @deleted@ | @rejected@).</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- -   @status-message@ - A message that provides more information about</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     the status of the VPC peering connection, if applicable.</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">--     regardless of the tag value.</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   @vpc-peering-connection-id@ - The ID of the VPC peering connection.</span><span>
-</span><span id="line-112"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeVpcPeeringConnections%27"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections -&gt; Maybe [Filter]
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3Afilters%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     regardless of the tag value.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   @vpc-peering-connection-id@ - The ID of the VPC peering connection.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeVpcPeeringConnections%27"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections -&gt; Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3Afilters%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeVpcPeeringConnections%27"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AnextToken%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | One or more VPC peering connection IDs.</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- Default: Describes all your VPC peering connections.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AvpcPeeringConnectionIds%3ADescribeVpcPeeringConnections%27"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AvpcPeeringConnectionIds%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var hs-var">vpcPeeringConnectionIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeVpcPeeringConnections%27"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AdryRun%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeVpcPeeringConnections%27"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections -&gt; Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AmaxResults%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681203744"><span id="local-6989586621681203746"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681239407"><span id="local-6989586621681239409"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
 -&gt; DescribeVpcPeeringConnections -&gt; Bool
 (DescribeVpcPeeringConnections
  -&gt; DescribeVpcPeeringConnections -&gt; Bool)
@@ -132,7 +132,7 @@ $c/= :: DescribeVpcPeeringConnections
 -&gt; DescribeVpcPeeringConnections -&gt; Bool
 $c== :: DescribeVpcPeeringConnections
 -&gt; DescribeVpcPeeringConnections -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681203735"><span id="local-6989586621681203737"><span id="local-6989586621681203739"><span id="local-6989586621681203741"><span class="annot"><span class="annottext">ReadPrec [DescribeVpcPeeringConnections]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681239398"><span id="local-6989586621681239400"><span id="local-6989586621681239402"><span id="local-6989586621681239404"><span class="annot"><span class="annottext">ReadPrec [DescribeVpcPeeringConnections]
 ReadPrec DescribeVpcPeeringConnections
 Int -&gt; ReadS DescribeVpcPeeringConnections
 ReadS [DescribeVpcPeeringConnections]
@@ -152,7 +152,7 @@ readList :: ReadS [DescribeVpcPeeringConnections]
 $creadList :: ReadS [DescribeVpcPeeringConnections]
 readsPrec :: Int -&gt; ReadS DescribeVpcPeeringConnections
 $creadsPrec :: Int -&gt; ReadS DescribeVpcPeeringConnections
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681203728"><span id="local-6989586621681203730"><span id="local-6989586621681203732"><span class="annot"><span class="annottext">Int -&gt; DescribeVpcPeeringConnections -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681239391"><span id="local-6989586621681239393"><span id="local-6989586621681239395"><span class="annot"><span class="annottext">Int -&gt; DescribeVpcPeeringConnections -&gt; ShowS
 [DescribeVpcPeeringConnections] -&gt; ShowS
 DescribeVpcPeeringConnections -&gt; String
 (Int -&gt; DescribeVpcPeeringConnections -&gt; ShowS)
@@ -198,254 +198,135 @@ DescribeVpcPeeringConnections
 </span><span id="line-121"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- 'vpcPeeringConnectionIds', 'describeVpcPeeringConnections_vpcPeeringConnectionIds' - One or more VPC peering connection IDs.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'filters', 'describeVpcPeeringConnections_filters' - One or more filters.</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- Default: Describes all your VPC peering connections.</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- 'nextToken', 'describeVpcPeeringConnections_nextToken' - The token for the next page of results.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- 'maxResults', 'describeVpcPeeringConnections_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   @accepter-vpc-info.cidr-block@ - The IPv4 CIDR block of the accepter</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     VPC.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   @accepter-vpc-info.owner-id@ - The ID of the Amazon Web Services</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     account that owns the accepter VPC.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   @accepter-vpc-info.vpc-id@ - The ID of the accepter VPC.</span><span>
 </span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- 'dryRun', 'describeVpcPeeringConnections_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-138"></span><span class="hs-comment">--</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- 'filters', 'describeVpcPeeringConnections_filters' - One or more filters.</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- -   @accepter-vpc-info.cidr-block@ - The IPv4 CIDR block of the accepter</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--     VPC.</span><span>
-</span><span id="line-143"></span><span class="hs-comment">--</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- -   @accepter-vpc-info.owner-id@ - The ID of the Amazon Web Services</span><span>
-</span><span id="line-145"></span><span class="hs-comment">--     account that owns the accepter VPC.</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- -   @accepter-vpc-info.vpc-id@ - The ID of the accepter VPC.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   @expiration-time@ - The expiration date and time for the VPC peering</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     connection.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   @requester-vpc-info.cidr-block@ - The IPv4 CIDR block of the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--     requester\'s VPC.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   @requester-vpc-info.owner-id@ - The ID of the Amazon Web Services</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     account that owns the requester VPC.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   @requester-vpc-info.vpc-id@ - The ID of the requester VPC.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- -   @status-code@ - The status of the VPC peering connection</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     (@pending-acceptance@ | @failed@ | @expired@ | @provisioning@ |</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     @active@ | @deleting@ | @deleted@ | @rejected@).</span><span>
 </span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- -   @expiration-time@ - The expiration date and time for the VPC peering</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--     connection.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   @status-message@ - A message that provides more information about</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--     the status of the VPC peering connection, if applicable.</span><span>
 </span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- -   @requester-vpc-info.cidr-block@ - The IPv4 CIDR block of the</span><span>
-</span><span id="line-153"></span><span class="hs-comment">--     requester\'s VPC.</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- -   @requester-vpc-info.owner-id@ - The ID of the Amazon Web Services</span><span>
-</span><span id="line-156"></span><span class="hs-comment">--     account that owns the requester VPC.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
 </span><span id="line-157"></span><span class="hs-comment">--</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- -   @requester-vpc-info.vpc-id@ - The ID of the requester VPC.</span><span>
-</span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- -   @status-code@ - The status of the VPC peering connection</span><span>
-</span><span id="line-161"></span><span class="hs-comment">--     (@pending-acceptance@ | @failed@ | @expired@ | @provisioning@ |</span><span>
-</span><span id="line-162"></span><span class="hs-comment">--     @active@ | @deleting@ | @deleted@ | @rejected@).</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     regardless of the tag value.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   @vpc-peering-connection-id@ - The ID of the VPC peering connection.</span><span>
 </span><span id="line-163"></span><span class="hs-comment">--</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- -   @status-message@ - A message that provides more information about</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--     the status of the VPC peering connection, if applicable.</span><span>
-</span><span id="line-166"></span><span class="hs-comment">--</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
-</span><span id="line-170"></span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
-</span><span id="line-171"></span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
-</span><span id="line-172"></span><span class="hs-comment">--</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
-</span><span id="line-174"></span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--     regardless of the tag value.</span><span>
-</span><span id="line-176"></span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- -   @vpc-peering-connection-id@ - The ID of the VPC peering connection.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'nextToken', 'describeVpcPeeringConnections_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'vpcPeeringConnectionIds', 'describeVpcPeeringConnections_vpcPeeringConnectionIds' - One or more VPC peering connection IDs.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Default: Describes all your VPC peering connections.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'dryRun', 'describeVpcPeeringConnections_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'maxResults', 'describeVpcPeeringConnections_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- value.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#newDescribeVpcPeeringConnections"><span class="hs-identifier hs-type">newDescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-179"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span>
 </span><span id="line-180"></span><span id="newDescribeVpcPeeringConnections"><span class="annot"><span class="annottext">newDescribeVpcPeeringConnections :: DescribeVpcPeeringConnections
 </span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#newDescribeVpcPeeringConnections"><span class="hs-identifier hs-var hs-var">newDescribeVpcPeeringConnections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections' :: Maybe [Text]
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections' :: Maybe [Filter]
 -&gt; Maybe Text
--&gt; Maybe Natural
+-&gt; Maybe [Text]
 -&gt; Maybe Bool
--&gt; Maybe [Filter]
+-&gt; Maybe Natural
 -&gt; DescribeVpcPeeringConnections
 </span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span>
-</span><span id="line-182"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:vpcPeeringConnectionIds:DescribeVpcPeeringConnections' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AvpcPeeringConnectionIds%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">vpcPeeringConnectionIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-182"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeVpcPeeringConnections' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3Afilters%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Filter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVpcPeeringConnections' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AnextToken%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeVpcPeeringConnections' :: Maybe Natural
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AmaxResults%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcPeeringConnectionIds:DescribeVpcPeeringConnections' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AvpcPeeringConnectionIds%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">vpcPeeringConnectionIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeVpcPeeringConnections' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AdryRun%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeVpcPeeringConnections' :: Maybe [Filter]
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3Afilters%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeVpcPeeringConnections' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AmaxResults%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- | One or more VPC peering connection IDs.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | One or more filters.</span><span>
 </span><span id="line-191"></span><span class="hs-comment">--</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- Default: Describes all your VPC peering connections.</span><span>
-</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_vpcPeeringConnectionIds"><span class="hs-identifier hs-type">describeVpcPeeringConnections_vpcPeeringConnectionIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-194"></span><span id="describeVpcPeeringConnections_vpcPeeringConnectionIds"><span class="annot"><span class="annottext">describeVpcPeeringConnections_vpcPeeringConnectionIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeVpcPeeringConnections -&gt; f DescribeVpcPeeringConnections
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_vpcPeeringConnectionIds"><span class="hs-identifier hs-var hs-var">describeVpcPeeringConnections_vpcPeeringConnectionIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVpcPeeringConnections -&gt; Maybe [Text])
--&gt; (DescribeVpcPeeringConnections
-    -&gt; Maybe [Text] -&gt; DescribeVpcPeeringConnections)
--&gt; Lens
-     DescribeVpcPeeringConnections
-     DescribeVpcPeeringConnections
-     (Maybe [Text])
-     (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203722"><span class="annot"><span class="annottext">Maybe [Text]
-vpcPeeringConnectionIds :: Maybe [Text]
-$sel:vpcPeeringConnectionIds:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe [Text]
-</span><a href="#local-6989586621681203722"><span class="hs-identifier hs-var hs-var">vpcPeeringConnectionIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681203722"><span class="hs-identifier hs-var">vpcPeeringConnectionIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203721"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnections
-</span><a href="#local-6989586621681203721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203720"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681203720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
-</span><a href="#local-6989586621681203721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcPeeringConnectionIds:DescribeVpcPeeringConnections' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AvpcPeeringConnectionIds%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">vpcPeeringConnectionIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681203720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; DescribeVpcPeeringConnections
- -&gt; f DescribeVpcPeeringConnections)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeVpcPeeringConnections
--&gt; f DescribeVpcPeeringConnections
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
-</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_nextToken"><span class="hs-identifier hs-type">describeVpcPeeringConnections_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-198"></span><span id="describeVpcPeeringConnections_nextToken"><span class="annot"><span class="annottext">describeVpcPeeringConnections_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeVpcPeeringConnections -&gt; f DescribeVpcPeeringConnections
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_nextToken"><span class="hs-identifier hs-var hs-var">describeVpcPeeringConnections_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVpcPeeringConnections -&gt; Maybe Text)
--&gt; (DescribeVpcPeeringConnections
-    -&gt; Maybe Text -&gt; DescribeVpcPeeringConnections)
--&gt; Lens
-     DescribeVpcPeeringConnections
-     DescribeVpcPeeringConnections
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203716"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe Text
-</span><a href="#local-6989586621681203716"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681203716"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203715"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnections
-</span><a href="#local-6989586621681203715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203714"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681203714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
-</span><a href="#local-6989586621681203715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVpcPeeringConnections' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AnextToken%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681203714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- value.</span><span>
-</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_maxResults"><span class="hs-identifier hs-type">describeVpcPeeringConnections_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-204"></span><span id="describeVpcPeeringConnections_maxResults"><span class="annot"><span class="annottext">describeVpcPeeringConnections_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeVpcPeeringConnections -&gt; f DescribeVpcPeeringConnections
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_maxResults"><span class="hs-identifier hs-var hs-var">describeVpcPeeringConnections_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVpcPeeringConnections -&gt; Maybe Natural)
--&gt; (DescribeVpcPeeringConnections
-    -&gt; Maybe Natural -&gt; DescribeVpcPeeringConnections)
--&gt; Lens
-     DescribeVpcPeeringConnections
-     DescribeVpcPeeringConnections
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203713"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe Natural
-</span><a href="#local-6989586621681203713"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681203713"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203712"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnections
-</span><a href="#local-6989586621681203712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203711"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681203711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
-</span><a href="#local-6989586621681203712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeVpcPeeringConnections' :: Maybe Natural
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AmaxResults%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681203711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_dryRun"><span class="hs-identifier hs-type">describeVpcPeeringConnections_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span id="describeVpcPeeringConnections_dryRun"><span class="annot"><span class="annottext">describeVpcPeeringConnections_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; DescribeVpcPeeringConnections -&gt; f DescribeVpcPeeringConnections
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_dryRun"><span class="hs-identifier hs-var hs-var">describeVpcPeeringConnections_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVpcPeeringConnections -&gt; Maybe Bool)
--&gt; (DescribeVpcPeeringConnections
-    -&gt; Maybe Bool -&gt; DescribeVpcPeeringConnections)
--&gt; Lens
-     DescribeVpcPeeringConnections
-     DescribeVpcPeeringConnections
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203710"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe Bool
-</span><a href="#local-6989586621681203710"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681203710"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203709"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnections
-</span><a href="#local-6989586621681203709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203708"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681203708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
-</span><a href="#local-6989586621681203709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeVpcPeeringConnections' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AdryRun%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681203708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- | One or more filters.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   @accepter-vpc-info.cidr-block@ - The IPv4 CIDR block of the accepter</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     VPC.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- -   @accepter-vpc-info.owner-id@ - The ID of the Amazon Web Services</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     account that owns the accepter VPC.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- -   @accepter-vpc-info.vpc-id@ - The ID of the accepter VPC.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- -   @expiration-time@ - The expiration date and time for the VPC peering</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     connection.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- -   @requester-vpc-info.cidr-block@ - The IPv4 CIDR block of the</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--     requester\'s VPC.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- -   @requester-vpc-info.owner-id@ - The ID of the Amazon Web Services</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--     account that owns the requester VPC.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- -   @requester-vpc-info.vpc-id@ - The ID of the requester VPC.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- -   @status-code@ - The status of the VPC peering connection</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--     (@pending-acceptance@ | @failed@ | @expired@ | @provisioning@ |</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--     @active@ | @deleting@ | @deleted@ | @rejected@).</span><span>
 </span><span id="line-214"></span><span class="hs-comment">--</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- -   @accepter-vpc-info.cidr-block@ - The IPv4 CIDR block of the accepter</span><span>
-</span><span id="line-216"></span><span class="hs-comment">--     VPC.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- -   @status-message@ - A message that provides more information about</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--     the status of the VPC peering connection, if applicable.</span><span>
 </span><span id="line-217"></span><span class="hs-comment">--</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- -   @accepter-vpc-info.owner-id@ - The ID of the Amazon Web Services</span><span>
-</span><span id="line-219"></span><span class="hs-comment">--     account that owns the accepter VPC.</span><span>
-</span><span id="line-220"></span><span class="hs-comment">--</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- -   @accepter-vpc-info.vpc-id@ - The ID of the accepter VPC.</span><span>
-</span><span id="line-222"></span><span class="hs-comment">--</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- -   @expiration-time@ - The expiration date and time for the VPC peering</span><span>
-</span><span id="line-224"></span><span class="hs-comment">--     connection.</span><span>
-</span><span id="line-225"></span><span class="hs-comment">--</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- -   @requester-vpc-info.cidr-block@ - The IPv4 CIDR block of the</span><span>
-</span><span id="line-227"></span><span class="hs-comment">--     requester\'s VPC.</span><span>
-</span><span id="line-228"></span><span class="hs-comment">--</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- -   @requester-vpc-info.owner-id@ - The ID of the Amazon Web Services</span><span>
-</span><span id="line-230"></span><span class="hs-comment">--     account that owns the requester VPC.</span><span>
-</span><span id="line-231"></span><span class="hs-comment">--</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- -   @requester-vpc-info.vpc-id@ - The ID of the requester VPC.</span><span>
-</span><span id="line-233"></span><span class="hs-comment">--</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- -   @status-code@ - The status of the VPC peering connection</span><span>
-</span><span id="line-235"></span><span class="hs-comment">--     (@pending-acceptance@ | @failed@ | @expired@ | @provisioning@ |</span><span>
-</span><span id="line-236"></span><span class="hs-comment">--     @active@ | @deleting@ | @deleted@ | @rejected@).</span><span>
-</span><span id="line-237"></span><span class="hs-comment">--</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- -   @status-message@ - A message that provides more information about</span><span>
-</span><span id="line-239"></span><span class="hs-comment">--     the status of the VPC peering connection, if applicable.</span><span>
-</span><span id="line-240"></span><span class="hs-comment">--</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
-</span><span id="line-242"></span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
-</span><span id="line-243"></span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
-</span><span id="line-244"></span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
-</span><span id="line-245"></span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
-</span><span id="line-246"></span><span class="hs-comment">--</span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
-</span><span id="line-248"></span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
-</span><span id="line-249"></span><span class="hs-comment">--     regardless of the tag value.</span><span>
-</span><span id="line-250"></span><span class="hs-comment">--</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- -   @vpc-peering-connection-id@ - The ID of the VPC peering connection.</span><span>
-</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_filters"><span class="hs-identifier hs-type">describeVpcPeeringConnections_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-253"></span><span id="describeVpcPeeringConnections_filters"><span class="annot"><span class="annottext">describeVpcPeeringConnections_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><span id="line-218"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--     regardless of the tag value.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- -   @vpc-peering-connection-id@ - The ID of the VPC peering connection.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_filters"><span class="hs-identifier hs-type">describeVpcPeeringConnections_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="describeVpcPeeringConnections_filters"><span class="annot"><span class="annottext">describeVpcPeeringConnections_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
 -&gt; DescribeVpcPeeringConnections -&gt; f DescribeVpcPeeringConnections
 </span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_filters"><span class="hs-identifier hs-var hs-var">describeVpcPeeringConnections_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVpcPeeringConnections -&gt; Maybe [Filter])
 -&gt; (DescribeVpcPeeringConnections
@@ -456,16 +337,16 @@ $sel:dryRun:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203707"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681239385"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681203707"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681203707"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203706"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnections
-</span><a href="#local-6989586621681203706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203705"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681203705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
-</span><a href="#local-6989586621681203706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeVpcPeeringConnections' :: Maybe [Filter]
+</span><a href="#local-6989586621681239385"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681239385"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681239384"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnections
+</span><a href="#local-6989586621681239384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681239383"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681239383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
+</span><a href="#local-6989586621681239384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeVpcPeeringConnections' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3Afilters%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681203705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681239383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeVpcPeeringConnections
  -&gt; f DescribeVpcPeeringConnections)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -481,22 +362,141 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_nextToken"><span class="hs-identifier hs-type">describeVpcPeeringConnections_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="describeVpcPeeringConnections_nextToken"><span class="annot"><span class="annottext">describeVpcPeeringConnections_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeVpcPeeringConnections -&gt; f DescribeVpcPeeringConnections
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_nextToken"><span class="hs-identifier hs-var hs-var">describeVpcPeeringConnections_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVpcPeeringConnections -&gt; Maybe Text)
+-&gt; (DescribeVpcPeeringConnections
+    -&gt; Maybe Text -&gt; DescribeVpcPeeringConnections)
+-&gt; Lens
+     DescribeVpcPeeringConnections
+     DescribeVpcPeeringConnections
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681239379"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe Text
+</span><a href="#local-6989586621681239379"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681239379"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681239378"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnections
+</span><a href="#local-6989586621681239378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681239377"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681239377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
+</span><a href="#local-6989586621681239378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVpcPeeringConnections' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AnextToken%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681239377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | One or more VPC peering connection IDs.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- Default: Describes all your VPC peering connections.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_vpcPeeringConnectionIds"><span class="hs-identifier hs-type">describeVpcPeeringConnections_vpcPeeringConnectionIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="describeVpcPeeringConnections_vpcPeeringConnectionIds"><span class="annot"><span class="annottext">describeVpcPeeringConnections_vpcPeeringConnectionIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeVpcPeeringConnections -&gt; f DescribeVpcPeeringConnections
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_vpcPeeringConnectionIds"><span class="hs-identifier hs-var hs-var">describeVpcPeeringConnections_vpcPeeringConnectionIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVpcPeeringConnections -&gt; Maybe [Text])
+-&gt; (DescribeVpcPeeringConnections
+    -&gt; Maybe [Text] -&gt; DescribeVpcPeeringConnections)
+-&gt; Lens
+     DescribeVpcPeeringConnections
+     DescribeVpcPeeringConnections
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681239376"><span class="annot"><span class="annottext">Maybe [Text]
+vpcPeeringConnectionIds :: Maybe [Text]
+$sel:vpcPeeringConnectionIds:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe [Text]
+</span><a href="#local-6989586621681239376"><span class="hs-identifier hs-var hs-var">vpcPeeringConnectionIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681239376"><span class="hs-identifier hs-var">vpcPeeringConnectionIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681239375"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnections
+</span><a href="#local-6989586621681239375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681239374"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681239374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
+</span><a href="#local-6989586621681239375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcPeeringConnectionIds:DescribeVpcPeeringConnections' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AvpcPeeringConnectionIds%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">vpcPeeringConnectionIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681239374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeVpcPeeringConnections
+ -&gt; f DescribeVpcPeeringConnections)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeVpcPeeringConnections
+-&gt; f DescribeVpcPeeringConnections
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_dryRun"><span class="hs-identifier hs-type">describeVpcPeeringConnections_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="describeVpcPeeringConnections_dryRun"><span class="annot"><span class="annottext">describeVpcPeeringConnections_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeVpcPeeringConnections -&gt; f DescribeVpcPeeringConnections
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_dryRun"><span class="hs-identifier hs-var hs-var">describeVpcPeeringConnections_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVpcPeeringConnections -&gt; Maybe Bool)
+-&gt; (DescribeVpcPeeringConnections
+    -&gt; Maybe Bool -&gt; DescribeVpcPeeringConnections)
+-&gt; Lens
+     DescribeVpcPeeringConnections
+     DescribeVpcPeeringConnections
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681239373"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe Bool
+</span><a href="#local-6989586621681239373"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681239373"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681239372"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnections
+</span><a href="#local-6989586621681239372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681239371"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681239371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
+</span><a href="#local-6989586621681239372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeVpcPeeringConnections' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AdryRun%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681239371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_maxResults"><span class="hs-identifier hs-type">describeVpcPeeringConnections_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="describeVpcPeeringConnections_maxResults"><span class="annot"><span class="annottext">describeVpcPeeringConnections_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeVpcPeeringConnections -&gt; f DescribeVpcPeeringConnections
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnections_maxResults"><span class="hs-identifier hs-var hs-var">describeVpcPeeringConnections_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVpcPeeringConnections -&gt; Maybe Natural)
+-&gt; (DescribeVpcPeeringConnections
+    -&gt; Maybe Natural -&gt; DescribeVpcPeeringConnections)
+-&gt; Lens
+     DescribeVpcPeeringConnections
+     DescribeVpcPeeringConnections
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681239370"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe Natural
+</span><a href="#local-6989586621681239370"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681239370"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681239369"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnections
+</span><a href="#local-6989586621681239369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681239368"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681239368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
+</span><a href="#local-6989586621681239369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeVpcPeeringConnections' :: Maybe Natural
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AmaxResults%3ADescribeVpcPeeringConnections%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681239368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621681203701"><span class="annot"><span class="annottext">page :: DescribeVpcPeeringConnections
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621681239364"><span class="annot"><span class="annottext">page :: DescribeVpcPeeringConnections
 -&gt; AWSResponse DescribeVpcPeeringConnections
 -&gt; Maybe DescribeVpcPeeringConnections
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681203699"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
-</span><a href="#local-6989586621681203699"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681203698"><span class="annot"><span class="annottext">AWSResponse DescribeVpcPeeringConnections
-</span><a href="#local-6989586621681203698"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681239362"><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
+</span><a href="#local-6989586621681239362"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681239361"><span class="annot"><span class="annottext">AWSResponse DescribeVpcPeeringConnections
+</span><a href="#local-6989586621681239361"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-257"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-258"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeVpcPeeringConnections
 DescribeVpcPeeringConnectionsResponse
-</span><a href="#local-6989586621681203698"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681239361"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse
 -&gt; Getting (First Text) DescribeVpcPeeringConnectionsResponse Text
 -&gt; Maybe Text
@@ -526,7 +526,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-264"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeVpcPeeringConnections
 DescribeVpcPeeringConnectionsResponse
-</span><a href="#local-6989586621681203698"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681239361"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse
 -&gt; Getting
      (First [VpcPeeringConnection])
@@ -585,7 +585,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
-</span><a href="#local-6989586621681203699"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681239362"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-272"></span><span>          </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnections
 -&gt; (DescribeVpcPeeringConnections -&gt; DescribeVpcPeeringConnections)
 -&gt; DescribeVpcPeeringConnections
@@ -608,7 +608,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeVpcPeeringConnections
 DescribeVpcPeeringConnectionsResponse
-</span><a href="#local-6989586621681203698"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681239361"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-274"></span><span>          </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse
 -&gt; Getting (First Text) DescribeVpcPeeringConnectionsResponse Text
 -&gt; Maybe Text
@@ -637,7 +637,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-281"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-282"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-283"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse</span></a></span><span>
-</span><span id="line-284"></span><span>  </span><span id="local-6989586621681203689"><span class="annot"><span class="annottext">request :: DescribeVpcPeeringConnections
+</span><span id="line-284"></span><span>  </span><span id="local-6989586621681239352"><span class="annot"><span class="annottext">request :: DescribeVpcPeeringConnections
 -&gt; Request DescribeVpcPeeringConnections
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeVpcPeeringConnections
@@ -645,7 +645,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-285"></span><span>  </span><span id="local-6989586621681203685"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-285"></span><span>  </span><span id="local-6989586621681239348"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeVpcPeeringConnections
 -&gt; ClientResponse ClientBody
@@ -671,10 +671,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-287"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681203682"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203682"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681203681"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681203681"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681203680"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681203680"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-287"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681239345"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681239345"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681239344"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681239344"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681239343"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681239343"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-288"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [VpcPeeringConnection]
 -&gt; Int
@@ -691,7 +691,7 @@ MonadResource m =&gt;
       -&gt; Int -&gt; DescribeVpcPeeringConnectionsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681203680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681239343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -703,7 +703,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeVpcPeeringConnectionsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681203680"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681239343"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;vpcPeeringConnectionSet&quot;</span></span><span>
@@ -735,17 +735,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203682"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681239345"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-295"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-296"></span><span>
 </span><span id="line-297"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-298"></span><span>  </span><span id="local-6989586621681203669"><span id="local-6989586621681203671"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-298"></span><span>  </span><span id="local-6989586621681239332"><span id="local-6989586621681239334"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-299"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span></span></span><span>
 </span><span id="line-300"></span><span>
-</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681203666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681239329"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span></span><span>
 </span><span id="line-302"></span><span>
 </span><span id="line-303"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-304"></span><span>  </span><span id="local-6989586621681203662"><span class="annot"><span class="annottext">toHeaders :: DescribeVpcPeeringConnections -&gt; ResponseHeaders
+</span><span id="line-304"></span><span>  </span><span id="local-6989586621681239325"><span class="annot"><span class="annottext">toHeaders :: DescribeVpcPeeringConnections -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeVpcPeeringConnections -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -753,30 +753,30 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-305"></span><span>
 </span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-307"></span><span>  </span><span id="local-6989586621681203657"><span class="annot"><span class="annottext">toPath :: DescribeVpcPeeringConnections -&gt; ByteString
+</span><span id="line-307"></span><span>  </span><span id="local-6989586621681239320"><span class="annot"><span class="annottext">toPath :: DescribeVpcPeeringConnections -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeVpcPeeringConnections -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-308"></span><span>
 </span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-310"></span><span>  </span><span id="local-6989586621681203653"><span class="annot"><span class="annottext">toQuery :: DescribeVpcPeeringConnections -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203647"><span id="local-6989586621681203648"><span id="local-6989586621681203649"><span id="local-6989586621681203650"><span id="local-6989586621681203651"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-310"></span><span>  </span><span id="local-6989586621681239316"><span class="annot"><span class="annottext">toQuery :: DescribeVpcPeeringConnections -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnections%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681239310"><span id="local-6989586621681239311"><span id="local-6989586621681239312"><span id="local-6989586621681239313"><span id="local-6989586621681239314"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe [Text]
 Maybe [Filter]
 Maybe Text
-filters :: Maybe [Filter]
-dryRun :: Maybe Bool
 maxResults :: Maybe Natural
-nextToken :: Maybe Text
+dryRun :: Maybe Bool
 vpcPeeringConnectionIds :: Maybe [Text]
-$sel:filters:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe [Filter]
-$sel:dryRun:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe Bool
+nextToken :: Maybe Text
+filters :: Maybe [Filter]
 $sel:maxResults:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe Natural
-$sel:nextToken:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe Text
+$sel:dryRun:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe Bool
 $sel:vpcPeeringConnectionIds:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe [Text]
-</span><a href="#local-6989586621681203647"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:nextToken:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe Text
+$sel:filters:DescribeVpcPeeringConnections' :: DescribeVpcPeeringConnections -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681239310"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-311"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -797,36 +797,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-318"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-319"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
-forall a.
-(IsList a, ToQuery (Item a)) =&gt;
-ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;VpcPeeringConnectionId&quot;</span></span><span>
-</span><span id="line-320"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681203651"><span class="hs-identifier hs-var">vpcPeeringConnectionIds</span></a></span><span>
-</span><span id="line-321"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-322"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681203650"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-323"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681203649"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-324"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681203648"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-325"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
-forall a. ToQuery a =&gt; a -&gt; QueryString
-</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-326"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+</span><span id="line-319"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
@@ -834,11 +805,40 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681203647"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681239314"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681239313"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-322"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VpcPeeringConnectionId&quot;</span></span><span>
+</span><span id="line-323"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681239312"><span class="hs-identifier hs-var">vpcPeeringConnectionIds</span></a></span><span>
+</span><span id="line-324"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681239311"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681239310"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-327"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-328"></span><span>
 </span><span id="line-329"></span><span class="hs-comment">-- | /See:/ 'newDescribeVpcPeeringConnectionsResponse' smart constructor.</span><span>
-</span><span id="line-330"></span><span id="local-6989586621681203643"><span id="local-6989586621681203644"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVpcPeeringConnectionsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-var">DescribeVpcPeeringConnectionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVpcPeeringConnectionsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-var">DescribeVpcPeeringConnectionsResponse'</span></a></span></span><span>
+</span><span id="line-330"></span><span id="local-6989586621681239306"><span id="local-6989586621681239307"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVpcPeeringConnectionsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-var">DescribeVpcPeeringConnectionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVpcPeeringConnectionsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-var">DescribeVpcPeeringConnectionsResponse'</span></a></span></span><span>
 </span><span id="line-331"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
 </span><span id="line-332"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
 </span><span id="line-333"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeVpcPeeringConnectionsResponse%27"><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse -&gt; Maybe Text
@@ -851,7 +851,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-337"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeVpcPeeringConnectionsResponse%27"><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AhttpStatus%3ADescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-338"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-339"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681203636"><span id="local-6989586621681203638"><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse
+</span><span id="line-339"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681239299"><span id="local-6989586621681239301"><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse
 -&gt; DescribeVpcPeeringConnectionsResponse -&gt; Bool
 (DescribeVpcPeeringConnectionsResponse
  -&gt; DescribeVpcPeeringConnectionsResponse -&gt; Bool)
@@ -867,7 +867,7 @@ $c/= :: DescribeVpcPeeringConnectionsResponse
 -&gt; DescribeVpcPeeringConnectionsResponse -&gt; Bool
 $c== :: DescribeVpcPeeringConnectionsResponse
 -&gt; DescribeVpcPeeringConnectionsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681203628"><span id="local-6989586621681203630"><span id="local-6989586621681203632"><span id="local-6989586621681203634"><span class="annot"><span class="annottext">ReadPrec [DescribeVpcPeeringConnectionsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681239291"><span id="local-6989586621681239293"><span id="local-6989586621681239295"><span id="local-6989586621681239297"><span class="annot"><span class="annottext">ReadPrec [DescribeVpcPeeringConnectionsResponse]
 ReadPrec DescribeVpcPeeringConnectionsResponse
 Int -&gt; ReadS DescribeVpcPeeringConnectionsResponse
 ReadS [DescribeVpcPeeringConnectionsResponse]
@@ -887,7 +887,7 @@ readList :: ReadS [DescribeVpcPeeringConnectionsResponse]
 $creadList :: ReadS [DescribeVpcPeeringConnectionsResponse]
 readsPrec :: Int -&gt; ReadS DescribeVpcPeeringConnectionsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeVpcPeeringConnectionsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681203622"><span id="local-6989586621681203624"><span id="local-6989586621681203626"><span class="annot"><span class="annottext">Int -&gt; DescribeVpcPeeringConnectionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681239285"><span id="local-6989586621681239287"><span id="local-6989586621681239289"><span class="annot"><span class="annottext">Int -&gt; DescribeVpcPeeringConnectionsResponse -&gt; ShowS
 [DescribeVpcPeeringConnectionsResponse] -&gt; ShowS
 DescribeVpcPeeringConnectionsResponse -&gt; String
 (Int -&gt; DescribeVpcPeeringConnectionsResponse -&gt; ShowS)
@@ -944,8 +944,8 @@ DescribeVpcPeeringConnectionsResponse
 </span><span id="line-357"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-358"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse</span></a></span><span>
 </span><span id="line-359"></span><span id="newDescribeVpcPeeringConnectionsResponse"><span class="annot"><span class="annottext">newDescribeVpcPeeringConnectionsResponse :: Int -&gt; DescribeVpcPeeringConnectionsResponse
-</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#newDescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeVpcPeeringConnectionsResponse</span></a></span></span><span> </span><span id="local-6989586621681203619"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203619"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#newDescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeVpcPeeringConnectionsResponse</span></a></span></span><span> </span><span id="local-6989586621681239282"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681239282"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-360"></span><span>  </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse' :: Maybe Text
 -&gt; Maybe [VpcPeeringConnection]
 -&gt; Int
@@ -963,7 +963,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-365"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVpcPeeringConnectionsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AhttpStatus%3ADescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203619"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681239282"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-366"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-367"></span><span>
 </span><span id="line-368"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
@@ -977,16 +977,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeVpcPeeringConnectionsResponse)
 -&gt; Lens' DescribeVpcPeeringConnectionsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203618"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681239281"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeVpcPeeringConnectionsResponse' :: DescribeVpcPeeringConnectionsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681203618"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681203618"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203617"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnectionsResponse
-</span><a href="#local-6989586621681203617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203616"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681203616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse
-</span><a href="#local-6989586621681203617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVpcPeeringConnectionsResponse' :: Maybe Text
+</span><a href="#local-6989586621681239281"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681239281"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681239280"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnectionsResponse
+</span><a href="#local-6989586621681239280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681239279"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681239279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse
+</span><a href="#local-6989586621681239280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVpcPeeringConnectionsResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AnextToken%3ADescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681203616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681239279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-372"></span><span>
 </span><span id="line-373"></span><span class="hs-comment">-- | Information about the VPC peering connections.</span><span>
 </span><span id="line-374"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnectionsResponse_vpcPeeringConnections"><span class="hs-identifier hs-type">describeVpcPeeringConnectionsResponse_vpcPeeringConnections</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.VpcPeeringConnection.html#VpcPeeringConnection"><span class="hs-identifier hs-type">VpcPeeringConnection</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -1002,17 +1002,17 @@ $sel:nextToken:DescribeVpcPeeringConnectionsResponse' :: DescribeVpcPeeringConne
      DescribeVpcPeeringConnectionsResponse
      (Maybe [VpcPeeringConnection])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203615"><span class="annot"><span class="annottext">Maybe [VpcPeeringConnection]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681239278"><span class="annot"><span class="annottext">Maybe [VpcPeeringConnection]
 vpcPeeringConnections :: Maybe [VpcPeeringConnection]
 $sel:vpcPeeringConnections:DescribeVpcPeeringConnectionsResponse' :: DescribeVpcPeeringConnectionsResponse
 -&gt; Maybe [VpcPeeringConnection]
-</span><a href="#local-6989586621681203615"><span class="hs-identifier hs-var hs-var">vpcPeeringConnections</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcPeeringConnection]
-</span><a href="#local-6989586621681203615"><span class="hs-identifier hs-var">vpcPeeringConnections</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203614"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnectionsResponse
-</span><a href="#local-6989586621681203614"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203613"><span class="annot"><span class="annottext">Maybe [VpcPeeringConnection]
-</span><a href="#local-6989586621681203613"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse
-</span><a href="#local-6989586621681203614"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcPeeringConnections:DescribeVpcPeeringConnectionsResponse' :: Maybe [VpcPeeringConnection]
+</span><a href="#local-6989586621681239278"><span class="hs-identifier hs-var hs-var">vpcPeeringConnections</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcPeeringConnection]
+</span><a href="#local-6989586621681239278"><span class="hs-identifier hs-var">vpcPeeringConnections</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681239277"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnectionsResponse
+</span><a href="#local-6989586621681239277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681239276"><span class="annot"><span class="annottext">Maybe [VpcPeeringConnection]
+</span><a href="#local-6989586621681239276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse
+</span><a href="#local-6989586621681239277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcPeeringConnections:DescribeVpcPeeringConnectionsResponse' :: Maybe [VpcPeeringConnection]
 </span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AvpcPeeringConnections%3ADescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-var">vpcPeeringConnections</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VpcPeeringConnection]
-</span><a href="#local-6989586621681203613"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VpcPeeringConnection] -&gt; f (Maybe [VpcPeeringConnection]))
+</span><a href="#local-6989586621681239276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VpcPeeringConnection] -&gt; f (Maybe [VpcPeeringConnection]))
  -&gt; DescribeVpcPeeringConnectionsResponse
  -&gt; f DescribeVpcPeeringConnectionsResponse)
 -&gt; ((Maybe [VpcPeeringConnection]
@@ -1042,8 +1042,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [VpcPeeringConnection]
   [VpcPeeringConnection]
   [VpcPeeringConnection]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-376"></span><span>
 </span><span id="line-377"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-378"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#describeVpcPeeringConnectionsResponse_httpStatus"><span class="hs-identifier hs-type">describeVpcPeeringConnectionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1059,18 +1059,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681203612"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681239275"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeVpcPeeringConnectionsResponse' :: DescribeVpcPeeringConnectionsResponse -&gt; Int
-</span><a href="#local-6989586621681203612"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203612"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681203611"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnectionsResponse
-</span><a href="#local-6989586621681203611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681203610"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse
-</span><a href="#local-6989586621681203611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVpcPeeringConnectionsResponse' :: Int
+</span><a href="#local-6989586621681239275"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681239275"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681239274"><span class="annot"><span class="annottext">s :: DescribeVpcPeeringConnectionsResponse
+</span><a href="#local-6989586621681239274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681239273"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681239273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVpcPeeringConnectionsResponse
+</span><a href="#local-6989586621681239274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVpcPeeringConnectionsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#%24sel%3AhttpStatus%3ADescribeVpcPeeringConnectionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681203610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681239273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-380"></span><span>
 </span><span id="line-381"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-382"></span><span>  </span><span id="local-6989586621681203608"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-382"></span><span>  </span><span id="local-6989586621681239271"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-383"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVpcPeeringConnections.html#DescribeVpcPeeringConnectionsResponse"><span class="hs-identifier hs-type">DescribeVpcPeeringConnectionsResponse</span></a></span></span><span>
 </span><span id="line-384"></span></pre></body></html>

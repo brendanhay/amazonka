@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | The preferred time zone for logs streamed to CloudWatch Logs. Valid</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- values are @LOCAL@ and @UTC@, for Coordinated Universal Time.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679372947"><span id="local-6989586621679372948"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudWatchLogsTimeZone"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsTimeZone.html#CloudWatchLogsTimeZone"><span class="hs-identifier hs-var">CloudWatchLogsTimeZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchLogsTimeZone%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsTimeZone.html#CloudWatchLogsTimeZone%27"><span class="hs-identifier hs-var">CloudWatchLogsTimeZone'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679373339"><span id="local-6989586621679373340"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloudWatchLogsTimeZone"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsTimeZone.html#CloudWatchLogsTimeZone"><span class="hs-identifier hs-var">CloudWatchLogsTimeZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloudWatchLogsTimeZone%27"><span class="annot"><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsTimeZone.html#CloudWatchLogsTimeZone%27"><span class="hs-identifier hs-var">CloudWatchLogsTimeZone'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCloudWatchLogsTimeZone"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; Text
 </span><a href="Network.AWS.OpsWorks.Types.CloudWatchLogsTimeZone.html#fromCloudWatchLogsTimeZone"><span class="hs-identifier hs-var hs-var">fromCloudWatchLogsTimeZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372939"><span id="local-6989586621679372941"><span id="local-6989586621679372943"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsTimeZone -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373331"><span id="local-6989586621679373333"><span id="local-6989586621679373335"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsTimeZone -&gt; ShowS
 [CloudWatchLogsTimeZone] -&gt; ShowS
 CloudWatchLogsTimeZone -&gt; String
 (Int -&gt; CloudWatchLogsTimeZone -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: CloudWatchLogsTimeZone -&gt; String
 showsPrec :: Int -&gt; CloudWatchLogsTimeZone -&gt; ShowS
 $cshowsPrec :: Int -&gt; CloudWatchLogsTimeZone -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679372930"><span id="local-6989586621679372932"><span id="local-6989586621679372934"><span id="local-6989586621679372936"><span class="annot"><span class="annottext">ReadPrec [CloudWatchLogsTimeZone]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679373322"><span id="local-6989586621679373324"><span id="local-6989586621679373326"><span id="local-6989586621679373328"><span class="annot"><span class="annottext">ReadPrec [CloudWatchLogsTimeZone]
 ReadPrec CloudWatchLogsTimeZone
 Int -&gt; ReadS CloudWatchLogsTimeZone
 ReadS [CloudWatchLogsTimeZone]
@@ -74,7 +74,7 @@ $creadList :: ReadS [CloudWatchLogsTimeZone]
 readsPrec :: Int -&gt; ReadS CloudWatchLogsTimeZone
 $creadsPrec :: Int -&gt; ReadS CloudWatchLogsTimeZone
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679372925"><span id="local-6989586621679372927"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; CloudWatchLogsTimeZone -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679373317"><span id="local-6989586621679373319"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; CloudWatchLogsTimeZone -&gt; Bool
 (CloudWatchLogsTimeZone -&gt; CloudWatchLogsTimeZone -&gt; Bool)
 -&gt; (CloudWatchLogsTimeZone -&gt; CloudWatchLogsTimeZone -&gt; Bool)
 -&gt; Eq CloudWatchLogsTimeZone
@@ -84,7 +84,7 @@ $c/= :: CloudWatchLogsTimeZone -&gt; CloudWatchLogsTimeZone -&gt; Bool
 == :: CloudWatchLogsTimeZone -&gt; CloudWatchLogsTimeZone -&gt; Bool
 $c== :: CloudWatchLogsTimeZone -&gt; CloudWatchLogsTimeZone -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679372909"><span id="local-6989586621679372911"><span id="local-6989586621679372913"><span id="local-6989586621679372915"><span id="local-6989586621679372917"><span id="local-6989586621679372919"><span id="local-6989586621679372921"><span class="annot"><span class="annottext">Eq CloudWatchLogsTimeZone
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679373301"><span id="local-6989586621679373303"><span id="local-6989586621679373305"><span id="local-6989586621679373307"><span id="local-6989586621679373309"><span id="local-6989586621679373311"><span id="local-6989586621679373313"><span class="annot"><span class="annottext">Eq CloudWatchLogsTimeZone
 Eq CloudWatchLogsTimeZone
 -&gt; (CloudWatchLogsTimeZone -&gt; CloudWatchLogsTimeZone -&gt; Ordering)
 -&gt; (CloudWatchLogsTimeZone -&gt; CloudWatchLogsTimeZone -&gt; Bool)
@@ -143,7 +143,7 @@ $cfrom :: forall x. CloudWatchLogsTimeZone -&gt; Rep CloudWatchLogsTimeZone x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372901"><span id="local-6989586621679372903"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsTimeZone -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679373293"><span id="local-6989586621679373295"><span class="annot"><span class="annottext">Int -&gt; CloudWatchLogsTimeZone -&gt; Int
 CloudWatchLogsTimeZone -&gt; Int
 (Int -&gt; CloudWatchLogsTimeZone -&gt; Int)
 -&gt; (CloudWatchLogsTimeZone -&gt; Int)
@@ -154,54 +154,54 @@ $chash :: CloudWatchLogsTimeZone -&gt; Int
 hashWithSalt :: Int -&gt; CloudWatchLogsTimeZone -&gt; Int
 $chashWithSalt :: Int -&gt; CloudWatchLogsTimeZone -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679372898"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679373290"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; ()
 (CloudWatchLogsTimeZone -&gt; ()) -&gt; NFData CloudWatchLogsTimeZone
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: CloudWatchLogsTimeZone -&gt; ()
 $crnf :: CloudWatchLogsTimeZone -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372895"><span class="annot"><span class="annottext">Text -&gt; Either String CloudWatchLogsTimeZone
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679373287"><span class="annot"><span class="annottext">Text -&gt; Either String CloudWatchLogsTimeZone
 (Text -&gt; Either String CloudWatchLogsTimeZone)
 -&gt; FromText CloudWatchLogsTimeZone
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String CloudWatchLogsTimeZone
 $cfromText :: Text -&gt; Either String CloudWatchLogsTimeZone
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679372892"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679373284"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; Text
 (CloudWatchLogsTimeZone -&gt; Text) -&gt; ToText CloudWatchLogsTimeZone
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: CloudWatchLogsTimeZone -&gt; Text
 $ctoText :: CloudWatchLogsTimeZone -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679372889"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679373281"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; ByteString
 (CloudWatchLogsTimeZone -&gt; ByteString)
 -&gt; ToByteString CloudWatchLogsTimeZone
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: CloudWatchLogsTimeZone -&gt; ByteString
 $ctoBS :: CloudWatchLogsTimeZone -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679372886"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679373278"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; ByteStringBuilder
 (CloudWatchLogsTimeZone -&gt; ByteStringBuilder)
 -&gt; ToLog CloudWatchLogsTimeZone
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: CloudWatchLogsTimeZone -&gt; ByteStringBuilder
 $cbuild :: CloudWatchLogsTimeZone -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372883"><span class="annot"><span class="annottext">HeaderName -&gt; CloudWatchLogsTimeZone -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679373275"><span class="annot"><span class="annottext">HeaderName -&gt; CloudWatchLogsTimeZone -&gt; [Header]
 (HeaderName -&gt; CloudWatchLogsTimeZone -&gt; [Header])
 -&gt; ToHeader CloudWatchLogsTimeZone
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; CloudWatchLogsTimeZone -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; CloudWatchLogsTimeZone -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372880"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679373272"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; QueryString
 (CloudWatchLogsTimeZone -&gt; QueryString)
 -&gt; ToQuery CloudWatchLogsTimeZone
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: CloudWatchLogsTimeZone -&gt; QueryString
 $ctoQuery :: CloudWatchLogsTimeZone -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372875"><span id="local-6989586621679372877"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudWatchLogsTimeZone]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679373267"><span id="local-6989586621679373269"><span class="annot"><span class="annottext">Value -&gt; Parser [CloudWatchLogsTimeZone]
 Value -&gt; Parser CloudWatchLogsTimeZone
 (Value -&gt; Parser CloudWatchLogsTimeZone)
 -&gt; (Value -&gt; Parser [CloudWatchLogsTimeZone])
@@ -213,7 +213,7 @@ $cparseJSONList :: Value -&gt; Parser [CloudWatchLogsTimeZone]
 parseJSON :: Value -&gt; Parser CloudWatchLogsTimeZone
 $cparseJSON :: Value -&gt; Parser CloudWatchLogsTimeZone
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372870"><span id="local-6989586621679372872"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudWatchLogsTimeZone]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679373262"><span id="local-6989586621679373264"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloudWatchLogsTimeZone]
 FromJSONKeyFunction CloudWatchLogsTimeZone
 FromJSONKeyFunction CloudWatchLogsTimeZone
 -&gt; FromJSONKeyFunction [CloudWatchLogsTimeZone]
@@ -225,7 +225,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [CloudWatchLogsTimeZone]
 fromJSONKey :: FromJSONKeyFunction CloudWatchLogsTimeZone
 $cfromJSONKey :: FromJSONKeyFunction CloudWatchLogsTimeZone
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372861"><span id="local-6989586621679372863"><span id="local-6989586621679372865"><span id="local-6989586621679372867"><span class="annot"><span class="annottext">[CloudWatchLogsTimeZone] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679373253"><span id="local-6989586621679373255"><span id="local-6989586621679373257"><span id="local-6989586621679373259"><span class="annot"><span class="annottext">[CloudWatchLogsTimeZone] -&gt; Encoding
 [CloudWatchLogsTimeZone] -&gt; Value
 CloudWatchLogsTimeZone -&gt; Encoding
 CloudWatchLogsTimeZone -&gt; Value
@@ -249,7 +249,7 @@ $ctoEncoding :: CloudWatchLogsTimeZone -&gt; Encoding
 toJSON :: CloudWatchLogsTimeZone -&gt; Value
 $ctoJSON :: CloudWatchLogsTimeZone -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372856"><span id="local-6989586621679372858"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudWatchLogsTimeZone]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679373248"><span id="local-6989586621679373250"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloudWatchLogsTimeZone]
 ToJSONKeyFunction CloudWatchLogsTimeZone
 ToJSONKeyFunction CloudWatchLogsTimeZone
 -&gt; ToJSONKeyFunction [CloudWatchLogsTimeZone]
@@ -261,14 +261,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [CloudWatchLogsTimeZone]
 toJSONKey :: ToJSONKeyFunction CloudWatchLogsTimeZone
 $ctoJSONKey :: ToJSONKeyFunction CloudWatchLogsTimeZone
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679372853"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudWatchLogsTimeZone
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679373245"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloudWatchLogsTimeZone
 ([Node] -&gt; Either String CloudWatchLogsTimeZone)
 -&gt; FromXML CloudWatchLogsTimeZone
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String CloudWatchLogsTimeZone
 $cparseXML :: [Node] -&gt; Either String CloudWatchLogsTimeZone
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679372850"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679373242"><span class="annot"><span class="annottext">CloudWatchLogsTimeZone -&gt; XML
 (CloudWatchLogsTimeZone -&gt; XML) -&gt; ToXML CloudWatchLogsTimeZone
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: CloudWatchLogsTimeZone -&gt; XML

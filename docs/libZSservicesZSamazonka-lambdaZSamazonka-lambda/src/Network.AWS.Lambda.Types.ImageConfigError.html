@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Error response to GetFunctionConfiguration.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newImageConfigError' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679291224"><span id="local-6989586621679291225"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageConfigError"><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-var">ImageConfigError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageConfigError%27"><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError%27"><span class="hs-identifier hs-var">ImageConfigError'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Error message.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Amessage%3AImageConfigError%27"><span class="annot"><span class="annottext">ImageConfigError -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#%24sel%3Amessage%3AImageConfigError%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Error code.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AerrorCode%3AImageConfigError%27"><span class="annot"><span class="annottext">ImageConfigError -&gt; Maybe Text
-</span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#%24sel%3AerrorCode%3AImageConfigError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679296067"><span id="local-6989586621679296068"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImageConfigError"><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-var">ImageConfigError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageConfigError%27"><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError%27"><span class="hs-identifier hs-var">ImageConfigError'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Error code.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AerrorCode%3AImageConfigError%27"><span class="annot"><span class="annottext">ImageConfigError -&gt; Maybe Text
+</span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#%24sel%3AerrorCode%3AImageConfigError%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Error message.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Amessage%3AImageConfigError%27"><span class="annot"><span class="annottext">ImageConfigError -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#%24sel%3Amessage%3AImageConfigError%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679291217"><span id="local-6989586621679291219"><span class="annot"><span class="annottext">ImageConfigError -&gt; ImageConfigError -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296060"><span id="local-6989586621679296062"><span class="annot"><span class="annottext">ImageConfigError -&gt; ImageConfigError -&gt; Bool
 (ImageConfigError -&gt; ImageConfigError -&gt; Bool)
 -&gt; (ImageConfigError -&gt; ImageConfigError -&gt; Bool)
 -&gt; Eq ImageConfigError
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImageConfigError -&gt; ImageConfigError -&gt; Bool
 == :: ImageConfigError -&gt; ImageConfigError -&gt; Bool
 $c== :: ImageConfigError -&gt; ImageConfigError -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679291210"><span id="local-6989586621679291212"><span id="local-6989586621679291214"><span class="annot"><span class="annottext">Int -&gt; ImageConfigError -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296053"><span id="local-6989586621679296055"><span id="local-6989586621679296057"><span class="annot"><span class="annottext">Int -&gt; ImageConfigError -&gt; ShowS
 [ImageConfigError] -&gt; ShowS
 ImageConfigError -&gt; String
 (Int -&gt; ImageConfigError -&gt; ShowS)
@@ -77,28 +77,47 @@ $cfrom :: forall x. ImageConfigError -&gt; Rep ImageConfigError x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'message', 'imageConfigError_message' - Error message.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'errorCode', 'imageConfigError_errorCode' - Error code.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'errorCode', 'imageConfigError_errorCode' - Error code.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'message', 'imageConfigError_message' - Error message.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#newImageConfigError"><span class="hs-identifier hs-type">newImageConfigError</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span><span>
 </span><span id="line-50"></span><span id="newImageConfigError"><span class="annot"><span class="annottext">newImageConfigError :: ImageConfigError
 </span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#newImageConfigError"><span class="hs-identifier hs-var hs-var">newImageConfigError</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ImageConfigError' :: Maybe (Sensitive Text) -&gt; Maybe Text -&gt; ImageConfigError
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ImageConfigError' :: Maybe Text -&gt; Maybe (Sensitive Text) -&gt; ImageConfigError
 </span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError%27"><span class="hs-identifier hs-type">ImageConfigError'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:ImageConfigError' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#%24sel%3Amessage%3AImageConfigError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:errorCode:ImageConfigError' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#%24sel%3AerrorCode%3AImageConfigError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:ImageConfigError' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#%24sel%3AerrorCode%3AImageConfigError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:ImageConfigError' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#%24sel%3Amessage%3AImageConfigError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | Error message.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#imageConfigError_message"><span class="hs-identifier hs-type">imageConfigError_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="imageConfigError_message"><span class="annot"><span class="annottext">imageConfigError_message :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-56"></span><span class="hs-comment">-- | Error code.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#imageConfigError_errorCode"><span class="hs-identifier hs-type">imageConfigError_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="imageConfigError_errorCode"><span class="annot"><span class="annottext">imageConfigError_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ImageConfigError -&gt; f ImageConfigError
+</span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#imageConfigError_errorCode"><span class="hs-identifier hs-var hs-var">imageConfigError_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageConfigError -&gt; Maybe Text)
+-&gt; (ImageConfigError -&gt; Maybe Text -&gt; ImageConfigError)
+-&gt; Lens ImageConfigError ImageConfigError (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError%27"><span class="hs-identifier hs-type">ImageConfigError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296044"><span class="annot"><span class="annottext">Maybe Text
+errorCode :: Maybe Text
+$sel:errorCode:ImageConfigError' :: ImageConfigError -&gt; Maybe Text
+</span><a href="#local-6989586621679296044"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296044"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296043"><span class="annot"><span class="annottext">s :: ImageConfigError
+</span><a href="#local-6989586621679296043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError%27"><span class="hs-identifier hs-type">ImageConfigError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296042"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageConfigError
+</span><a href="#local-6989586621679296043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:ImageConfigError' :: Maybe Text
+</span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#%24sel%3AerrorCode%3AImageConfigError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | Error message.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#imageConfigError_message"><span class="hs-identifier hs-type">imageConfigError_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="imageConfigError_message"><span class="annot"><span class="annottext">imageConfigError_message :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ImageConfigError -&gt; f ImageConfigError
 </span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#imageConfigError_message"><span class="hs-identifier hs-var hs-var">imageConfigError_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageConfigError -&gt; Maybe (Sensitive Text))
 -&gt; (ImageConfigError -&gt; Maybe (Sensitive Text) -&gt; ImageConfigError)
@@ -108,16 +127,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError%27"><span class="hs-identifier hs-type">ImageConfigError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291201"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError%27"><span class="hs-identifier hs-type">ImageConfigError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296040"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 message :: Maybe (Sensitive Text)
 $sel:message:ImageConfigError' :: ImageConfigError -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679291201"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679291201"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291200"><span class="annot"><span class="annottext">s :: ImageConfigError
-</span><a href="#local-6989586621679291200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError%27"><span class="hs-identifier hs-type">ImageConfigError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291199"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679291199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageConfigError
-</span><a href="#local-6989586621679291200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ImageConfigError' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296040"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296040"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296039"><span class="annot"><span class="annottext">s :: ImageConfigError
+</span><a href="#local-6989586621679296039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError%27"><span class="hs-identifier hs-type">ImageConfigError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296038"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679296038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageConfigError
+</span><a href="#local-6989586621679296039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ImageConfigError' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#%24sel%3Amessage%3AImageConfigError%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679291199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679296038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; ImageConfigError -&gt; f ImageConfigError)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -137,28 +156,9 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | Error code.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#imageConfigError_errorCode"><span class="hs-identifier hs-type">imageConfigError_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="imageConfigError_errorCode"><span class="annot"><span class="annottext">imageConfigError_errorCode :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ImageConfigError -&gt; f ImageConfigError
-</span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#imageConfigError_errorCode"><span class="hs-identifier hs-var hs-var">imageConfigError_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ImageConfigError -&gt; Maybe Text)
--&gt; (ImageConfigError -&gt; Maybe Text -&gt; ImageConfigError)
--&gt; Lens ImageConfigError ImageConfigError (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError%27"><span class="hs-identifier hs-type">ImageConfigError'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679291194"><span class="annot"><span class="annottext">Maybe Text
-errorCode :: Maybe Text
-$sel:errorCode:ImageConfigError' :: ImageConfigError -&gt; Maybe Text
-</span><a href="#local-6989586621679291194"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679291194"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679291193"><span class="annot"><span class="annottext">s :: ImageConfigError
-</span><a href="#local-6989586621679291193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError%27"><span class="hs-identifier hs-type">ImageConfigError'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679291192"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679291192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImageConfigError
-</span><a href="#local-6989586621679291193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:ImageConfigError' :: Maybe Text
-</span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#%24sel%3AerrorCode%3AImageConfigError%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679291192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291189"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679291187"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImageConfigError
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296032"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679296030"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImageConfigError
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ImageConfigError)
@@ -168,30 +168,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ImageConfigError&quot;</span></span><span>
-</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679291184"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291184"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text) -&gt; Maybe Text -&gt; ImageConfigError
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679296027"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679296027"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe (Sensitive Text) -&gt; ImageConfigError
 </span><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError%27"><span class="hs-identifier hs-var">ImageConfigError'</span></a></span><span>
-</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text) -&gt; Maybe Text -&gt; ImageConfigError)
--&gt; Parser (Maybe (Sensitive Text))
--&gt; Parser (Maybe Text -&gt; ImageConfigError)
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe (Sensitive Text) -&gt; ImageConfigError)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (Sensitive Text) -&gt; ImageConfigError)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ImageConfigError)
--&gt; Parser (Maybe Text) -&gt; Parser ImageConfigError
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679291184"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679296027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive Text) -&gt; ImageConfigError)
+-&gt; Parser (Maybe (Sensitive Text)) -&gt; Parser ImageConfigError
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679296027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291178"><span id="local-6989586621679291180"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296021"><span id="local-6989586621679296023"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679291175"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296018"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.Types.ImageConfigError.html#ImageConfigError"><span class="hs-identifier hs-type">ImageConfigError</span></a></span></span><span>
 </span><span id="line-77"></span></pre></body></html>

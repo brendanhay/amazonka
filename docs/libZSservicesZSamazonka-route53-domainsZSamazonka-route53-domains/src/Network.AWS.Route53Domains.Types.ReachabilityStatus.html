@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679210465"><span id="local-6989586621679210466"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReachabilityStatus"><span class="annot"><a href="Network.AWS.Route53Domains.Types.ReachabilityStatus.html#ReachabilityStatus"><span class="hs-identifier hs-var">ReachabilityStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReachabilityStatus%27"><span class="annot"><a href="Network.AWS.Route53Domains.Types.ReachabilityStatus.html#ReachabilityStatus%27"><span class="hs-identifier hs-var">ReachabilityStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679210519"><span id="local-6989586621679210520"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReachabilityStatus"><span class="annot"><a href="Network.AWS.Route53Domains.Types.ReachabilityStatus.html#ReachabilityStatus"><span class="hs-identifier hs-var">ReachabilityStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReachabilityStatus%27"><span class="annot"><a href="Network.AWS.Route53Domains.Types.ReachabilityStatus.html#ReachabilityStatus%27"><span class="hs-identifier hs-var">ReachabilityStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReachabilityStatus"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; Text
 </span><a href="Network.AWS.Route53Domains.Types.ReachabilityStatus.html#fromReachabilityStatus"><span class="hs-identifier hs-var hs-var">fromReachabilityStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210457"><span id="local-6989586621679210459"><span id="local-6989586621679210461"><span class="annot"><span class="annottext">Int -&gt; ReachabilityStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210511"><span id="local-6989586621679210513"><span id="local-6989586621679210515"><span class="annot"><span class="annottext">Int -&gt; ReachabilityStatus -&gt; ShowS
 [ReachabilityStatus] -&gt; ShowS
 ReachabilityStatus -&gt; String
 (Int -&gt; ReachabilityStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ReachabilityStatus -&gt; String
 showsPrec :: Int -&gt; ReachabilityStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ReachabilityStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679210448"><span id="local-6989586621679210450"><span id="local-6989586621679210452"><span id="local-6989586621679210454"><span class="annot"><span class="annottext">ReadPrec [ReachabilityStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679210502"><span id="local-6989586621679210504"><span id="local-6989586621679210506"><span id="local-6989586621679210508"><span class="annot"><span class="annottext">ReadPrec [ReachabilityStatus]
 ReadPrec ReachabilityStatus
 Int -&gt; ReadS ReachabilityStatus
 ReadS [ReachabilityStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ReachabilityStatus]
 readsPrec :: Int -&gt; ReadS ReachabilityStatus
 $creadsPrec :: Int -&gt; ReadS ReachabilityStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679210443"><span id="local-6989586621679210445"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; ReachabilityStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679210497"><span id="local-6989586621679210499"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; ReachabilityStatus -&gt; Bool
 (ReachabilityStatus -&gt; ReachabilityStatus -&gt; Bool)
 -&gt; (ReachabilityStatus -&gt; ReachabilityStatus -&gt; Bool)
 -&gt; Eq ReachabilityStatus
@@ -83,7 +83,7 @@ $c/= :: ReachabilityStatus -&gt; ReachabilityStatus -&gt; Bool
 == :: ReachabilityStatus -&gt; ReachabilityStatus -&gt; Bool
 $c== :: ReachabilityStatus -&gt; ReachabilityStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679210427"><span id="local-6989586621679210429"><span id="local-6989586621679210431"><span id="local-6989586621679210433"><span id="local-6989586621679210435"><span id="local-6989586621679210437"><span id="local-6989586621679210439"><span class="annot"><span class="annottext">Eq ReachabilityStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679210481"><span id="local-6989586621679210483"><span id="local-6989586621679210485"><span id="local-6989586621679210487"><span id="local-6989586621679210489"><span id="local-6989586621679210491"><span id="local-6989586621679210493"><span class="annot"><span class="annottext">Eq ReachabilityStatus
 Eq ReachabilityStatus
 -&gt; (ReachabilityStatus -&gt; ReachabilityStatus -&gt; Ordering)
 -&gt; (ReachabilityStatus -&gt; ReachabilityStatus -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. ReachabilityStatus -&gt; Rep ReachabilityStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210419"><span id="local-6989586621679210421"><span class="annot"><span class="annottext">Int -&gt; ReachabilityStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679210473"><span id="local-6989586621679210475"><span class="annot"><span class="annottext">Int -&gt; ReachabilityStatus -&gt; Int
 ReachabilityStatus -&gt; Int
 (Int -&gt; ReachabilityStatus -&gt; Int)
 -&gt; (ReachabilityStatus -&gt; Int) -&gt; Hashable ReachabilityStatus
@@ -144,53 +144,53 @@ $chash :: ReachabilityStatus -&gt; Int
 hashWithSalt :: Int -&gt; ReachabilityStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ReachabilityStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679210416"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679210470"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; ()
 (ReachabilityStatus -&gt; ()) -&gt; NFData ReachabilityStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ReachabilityStatus -&gt; ()
 $crnf :: ReachabilityStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679210413"><span class="annot"><span class="annottext">Text -&gt; Either String ReachabilityStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679210467"><span class="annot"><span class="annottext">Text -&gt; Either String ReachabilityStatus
 (Text -&gt; Either String ReachabilityStatus)
 -&gt; FromText ReachabilityStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ReachabilityStatus
 $cfromText :: Text -&gt; Either String ReachabilityStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679210410"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679210464"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; Text
 (ReachabilityStatus -&gt; Text) -&gt; ToText ReachabilityStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ReachabilityStatus -&gt; Text
 $ctoText :: ReachabilityStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679210407"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679210461"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; ByteString
 (ReachabilityStatus -&gt; ByteString)
 -&gt; ToByteString ReachabilityStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ReachabilityStatus -&gt; ByteString
 $ctoBS :: ReachabilityStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679210404"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679210458"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; ByteStringBuilder
 (ReachabilityStatus -&gt; ByteStringBuilder)
 -&gt; ToLog ReachabilityStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ReachabilityStatus -&gt; ByteStringBuilder
 $cbuild :: ReachabilityStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679210401"><span class="annot"><span class="annottext">HeaderName -&gt; ReachabilityStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679210455"><span class="annot"><span class="annottext">HeaderName -&gt; ReachabilityStatus -&gt; [Header]
 (HeaderName -&gt; ReachabilityStatus -&gt; [Header])
 -&gt; ToHeader ReachabilityStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ReachabilityStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ReachabilityStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679210398"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679210452"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; QueryString
 (ReachabilityStatus -&gt; QueryString) -&gt; ToQuery ReachabilityStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ReachabilityStatus -&gt; QueryString
 $ctoQuery :: ReachabilityStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679210393"><span id="local-6989586621679210395"><span class="annot"><span class="annottext">Value -&gt; Parser [ReachabilityStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679210447"><span id="local-6989586621679210449"><span class="annot"><span class="annottext">Value -&gt; Parser [ReachabilityStatus]
 Value -&gt; Parser ReachabilityStatus
 (Value -&gt; Parser ReachabilityStatus)
 -&gt; (Value -&gt; Parser [ReachabilityStatus])
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [ReachabilityStatus]
 parseJSON :: Value -&gt; Parser ReachabilityStatus
 $cparseJSON :: Value -&gt; Parser ReachabilityStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679210388"><span id="local-6989586621679210390"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReachabilityStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679210442"><span id="local-6989586621679210444"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReachabilityStatus]
 FromJSONKeyFunction ReachabilityStatus
 FromJSONKeyFunction ReachabilityStatus
 -&gt; FromJSONKeyFunction [ReachabilityStatus]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ReachabilityStatus]
 fromJSONKey :: FromJSONKeyFunction ReachabilityStatus
 $cfromJSONKey :: FromJSONKeyFunction ReachabilityStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679210379"><span id="local-6989586621679210381"><span id="local-6989586621679210383"><span id="local-6989586621679210385"><span class="annot"><span class="annottext">[ReachabilityStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679210433"><span id="local-6989586621679210435"><span id="local-6989586621679210437"><span id="local-6989586621679210439"><span class="annot"><span class="annottext">[ReachabilityStatus] -&gt; Encoding
 [ReachabilityStatus] -&gt; Value
 ReachabilityStatus -&gt; Encoding
 ReachabilityStatus -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: ReachabilityStatus -&gt; Encoding
 toJSON :: ReachabilityStatus -&gt; Value
 $ctoJSON :: ReachabilityStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679210374"><span id="local-6989586621679210376"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReachabilityStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679210428"><span id="local-6989586621679210430"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReachabilityStatus]
 ToJSONKeyFunction ReachabilityStatus
 ToJSONKeyFunction ReachabilityStatus
 -&gt; ToJSONKeyFunction [ReachabilityStatus]
@@ -250,14 +250,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ReachabilityStatus]
 toJSONKey :: ToJSONKeyFunction ReachabilityStatus
 $ctoJSONKey :: ToJSONKeyFunction ReachabilityStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679210371"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReachabilityStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679210425"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReachabilityStatus
 ([Node] -&gt; Either String ReachabilityStatus)
 -&gt; FromXML ReachabilityStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ReachabilityStatus
 $cparseXML :: [Node] -&gt; Either String ReachabilityStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679210368"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679210422"><span class="annot"><span class="annottext">ReachabilityStatus -&gt; XML
 (ReachabilityStatus -&gt; XML) -&gt; ToXML ReachabilityStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ReachabilityStatus -&gt; XML

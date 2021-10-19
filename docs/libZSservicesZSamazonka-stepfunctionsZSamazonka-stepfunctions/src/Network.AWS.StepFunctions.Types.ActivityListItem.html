@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains details about an activity.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newActivityListItem' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679222844"><span id="local-6989586621679222845"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivityListItem"><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-var">ActivityListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityListItem%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-var">ActivityListItem'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679222888"><span id="local-6989586621679222889"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivityListItem"><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-var">ActivityListItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivityListItem%27"><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-var">ActivityListItem'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the activity.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AactivityArn%3AActivityListItem%27"><span class="annot"><span class="annottext">ActivityListItem -&gt; Text
 </span><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#%24sel%3AactivityArn%3AActivityListItem%27"><span class="hs-identifier hs-var hs-var">activityArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AcreationDate%3AActivityListItem%27"><span class="annot"><span class="annottext">ActivityListItem -&gt; POSIX
 </span><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#%24sel%3AcreationDate%3AActivityListItem%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222836"><span id="local-6989586621679222838"><span class="annot"><span class="annottext">ActivityListItem -&gt; ActivityListItem -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222880"><span id="local-6989586621679222882"><span class="annot"><span class="annottext">ActivityListItem -&gt; ActivityListItem -&gt; Bool
 (ActivityListItem -&gt; ActivityListItem -&gt; Bool)
 -&gt; (ActivityListItem -&gt; ActivityListItem -&gt; Bool)
 -&gt; Eq ActivityListItem
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActivityListItem -&gt; ActivityListItem -&gt; Bool
 == :: ActivityListItem -&gt; ActivityListItem -&gt; Bool
 $c== :: ActivityListItem -&gt; ActivityListItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222827"><span id="local-6989586621679222829"><span id="local-6989586621679222831"><span id="local-6989586621679222833"><span class="annot"><span class="annottext">ReadPrec [ActivityListItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222871"><span id="local-6989586621679222873"><span id="local-6989586621679222875"><span id="local-6989586621679222877"><span class="annot"><span class="annottext">ReadPrec [ActivityListItem]
 ReadPrec ActivityListItem
 Int -&gt; ReadS ActivityListItem
 ReadS [ActivityListItem]
@@ -81,7 +81,7 @@ readList :: ReadS [ActivityListItem]
 $creadList :: ReadS [ActivityListItem]
 readsPrec :: Int -&gt; ReadS ActivityListItem
 $creadsPrec :: Int -&gt; ReadS ActivityListItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222820"><span id="local-6989586621679222822"><span id="local-6989586621679222824"><span class="annot"><span class="annottext">Int -&gt; ActivityListItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222864"><span id="local-6989586621679222866"><span id="local-6989586621679222868"><span class="annot"><span class="annottext">Int -&gt; ActivityListItem -&gt; ShowS
 [ActivityListItem] -&gt; ShowS
 ActivityListItem -&gt; String
 (Int -&gt; ActivityListItem -&gt; ShowS)
@@ -145,20 +145,20 @@ $cfrom :: forall x. ActivityListItem -&gt; Rep ActivityListItem x
 </span><span id="line-89"></span><span>  </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span><span>
 </span><span id="line-90"></span><span id="newActivityListItem"><span class="annot"><span class="annottext">newActivityListItem :: Text -&gt; Text -&gt; UTCTime -&gt; ActivityListItem
 </span><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#newActivityListItem"><span class="hs-identifier hs-var hs-var">newActivityListItem</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679222814"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222814"><span class="hs-identifier hs-var">pActivityArn_</span></a></span></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679222813"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222813"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679222812"><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679222812"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679222858"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222858"><span class="hs-identifier hs-var">pActivityArn_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679222857"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222857"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679222856"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679222856"><span class="hs-identifier hs-var">pCreationDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ActivityListItem' :: Text -&gt; Text -&gt; POSIX -&gt; ActivityListItem
 </span><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-type">ActivityListItem'</span></a></span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:activityArn:ActivityListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#%24sel%3AactivityArn%3AActivityListItem%27"><span class="hs-identifier hs-var">activityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222814"><span class="hs-identifier hs-var">pActivityArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222858"><span class="hs-identifier hs-var">pActivityArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:ActivityListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#%24sel%3Aname%3AActivityListItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222813"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222857"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:creationDate:ActivityListItem' :: POSIX
 </span><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#%24sel%3AcreationDate%3AActivityListItem%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
 forall (a :: Format). Iso' (Time a) UTCTime
@@ -167,7 +167,7 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; UTCTime -&gt; POSIX
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
-</span><a href="#local-6989586621679222812"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span>
+</span><a href="#local-6989586621679222856"><span class="hs-identifier hs-var">pCreationDate_</span></a></span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that identifies the activity.</span><span>
@@ -177,16 +177,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (ActivityListItem -&gt; Text -&gt; ActivityListItem)
 -&gt; Lens ActivityListItem ActivityListItem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-type">ActivityListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222806"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-type">ActivityListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222850"><span class="annot"><span class="annottext">Text
 activityArn :: Text
 $sel:activityArn:ActivityListItem' :: ActivityListItem -&gt; Text
-</span><a href="#local-6989586621679222806"><span class="hs-identifier hs-var hs-var">activityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222806"><span class="hs-identifier hs-var">activityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222805"><span class="annot"><span class="annottext">s :: ActivityListItem
-</span><a href="#local-6989586621679222805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-type">ActivityListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222804"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityListItem
-</span><a href="#local-6989586621679222805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activityArn:ActivityListItem' :: Text
+</span><a href="#local-6989586621679222850"><span class="hs-identifier hs-var hs-var">activityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222850"><span class="hs-identifier hs-var">activityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222849"><span class="annot"><span class="annottext">s :: ActivityListItem
+</span><a href="#local-6989586621679222849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-type">ActivityListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222848"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityListItem
+</span><a href="#local-6989586621679222849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activityArn:ActivityListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#%24sel%3AactivityArn%3AActivityListItem%27"><span class="hs-identifier hs-var">activityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The name of the activity.</span><span>
 </span><span id="line-105"></span><span class="hs-comment">--</span><span>
@@ -210,16 +210,16 @@ $sel:activityArn:ActivityListItem' :: ActivityListItem -&gt; Text
 -&gt; (ActivityListItem -&gt; Text -&gt; ActivityListItem)
 -&gt; Lens ActivityListItem ActivityListItem Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-type">ActivityListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222802"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-type">ActivityListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222846"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:ActivityListItem' :: ActivityListItem -&gt; Text
-</span><a href="#local-6989586621679222802"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222802"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222801"><span class="annot"><span class="annottext">s :: ActivityListItem
-</span><a href="#local-6989586621679222801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-type">ActivityListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222800"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityListItem
-</span><a href="#local-6989586621679222801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ActivityListItem' :: Text
+</span><a href="#local-6989586621679222846"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222846"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222845"><span class="annot"><span class="annottext">s :: ActivityListItem
+</span><a href="#local-6989586621679222845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-type">ActivityListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222844"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityListItem
+</span><a href="#local-6989586621679222845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ActivityListItem' :: Text
 </span><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#%24sel%3Aname%3AActivityListItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | The date the activity is created.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#activityListItem_creationDate"><span class="hs-identifier hs-type">activityListItem_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
@@ -228,16 +228,16 @@ $sel:name:ActivityListItem' :: ActivityListItem -&gt; Text
 -&gt; (ActivityListItem -&gt; POSIX -&gt; ActivityListItem)
 -&gt; Lens ActivityListItem ActivityListItem POSIX POSIX
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-type">ActivityListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222798"><span class="annot"><span class="annottext">POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-type">ActivityListItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222842"><span class="annot"><span class="annottext">POSIX
 creationDate :: POSIX
 $sel:creationDate:ActivityListItem' :: ActivityListItem -&gt; POSIX
-</span><a href="#local-6989586621679222798"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679222798"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222797"><span class="annot"><span class="annottext">s :: ActivityListItem
-</span><a href="#local-6989586621679222797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-type">ActivityListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222796"><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679222796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityListItem
-</span><a href="#local-6989586621679222797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ActivityListItem' :: POSIX
+</span><a href="#local-6989586621679222842"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679222842"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222841"><span class="annot"><span class="annottext">s :: ActivityListItem
+</span><a href="#local-6989586621679222841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-type">ActivityListItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222840"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679222840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivityListItem
+</span><a href="#local-6989586621679222841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:ActivityListItem' :: POSIX
 </span><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#%24sel%3AcreationDate%3AActivityListItem%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
-</span><a href="#local-6989586621679222796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ActivityListItem -&gt; f ActivityListItem)
+</span><a href="#local-6989586621679222840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX) -&gt; ActivityListItem -&gt; f ActivityListItem)
 -&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
 -&gt; (UTCTime -&gt; f UTCTime)
 -&gt; ActivityListItem
@@ -247,8 +247,8 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222792"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679222790"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActivityListItem
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222836"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679222834"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ActivityListItem
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ActivityListItem)
@@ -258,15 +258,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ActivityListItem&quot;</span></span><span>
-</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222787"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222787"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222831"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679222831"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; POSIX -&gt; ActivityListItem
 </span><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem%27"><span class="hs-identifier hs-var">ActivityListItem'</span></a></span><span>
 </span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; POSIX -&gt; ActivityListItem)
 -&gt; Parser Text -&gt; Parser (Text -&gt; POSIX -&gt; ActivityListItem)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679222831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;activityArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -274,7 +274,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (POSIX -&gt; ActivityListItem)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679222831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -282,13 +282,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser POSIX -&gt; Parser ActivityListItem
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679222787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
+</span><a href="#local-6989586621679222831"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser POSIX
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222781"><span id="local-6989586621679222783"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span></span></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222825"><span id="local-6989586621679222827"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span></span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StepFunctions.Types.ActivityListItem.html#ActivityListItem"><span class="hs-identifier hs-type">ActivityListItem</span></a></span></span><span>
 </span><span id="line-141"></span></pre></body></html>

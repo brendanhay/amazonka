@@ -45,7 +45,7 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newRegisterDevices' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621680369549"><span id="local-6989586621680369550"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterDevices"><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-var">RegisterDevices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterDevices%27"><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-var">RegisterDevices'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621680371026"><span id="local-6989586621680371027"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterDevices"><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-var">RegisterDevices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterDevices%27"><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-var">RegisterDevices'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags associated with devices.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3Atags%3ARegisterDevices%27"><span class="annot"><span class="annottext">RegisterDevices -&gt; Maybe [Tag]
 </span><a href="Network.AWS.SageMaker.RegisterDevices.html#%24sel%3Atags%3ARegisterDevices%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Adevices%3ARegisterDevices%27"><span class="annot"><span class="annottext">RegisterDevices -&gt; [Device]
 </span><a href="Network.AWS.SageMaker.RegisterDevices.html#%24sel%3Adevices%3ARegisterDevices%27"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680369541"><span id="local-6989586621680369543"><span class="annot"><span class="annottext">RegisterDevices -&gt; RegisterDevices -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680371018"><span id="local-6989586621680371020"><span class="annot"><span class="annottext">RegisterDevices -&gt; RegisterDevices -&gt; Bool
 (RegisterDevices -&gt; RegisterDevices -&gt; Bool)
 -&gt; (RegisterDevices -&gt; RegisterDevices -&gt; Bool)
 -&gt; Eq RegisterDevices
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterDevices -&gt; RegisterDevices -&gt; Bool
 == :: RegisterDevices -&gt; RegisterDevices -&gt; Bool
 $c== :: RegisterDevices -&gt; RegisterDevices -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680369532"><span id="local-6989586621680369534"><span id="local-6989586621680369536"><span id="local-6989586621680369538"><span class="annot"><span class="annottext">ReadPrec [RegisterDevices]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680371009"><span id="local-6989586621680371011"><span id="local-6989586621680371013"><span id="local-6989586621680371015"><span class="annot"><span class="annottext">ReadPrec [RegisterDevices]
 ReadPrec RegisterDevices
 Int -&gt; ReadS RegisterDevices
 ReadS [RegisterDevices]
@@ -85,7 +85,7 @@ readList :: ReadS [RegisterDevices]
 $creadList :: ReadS [RegisterDevices]
 readsPrec :: Int -&gt; ReadS RegisterDevices
 $creadsPrec :: Int -&gt; ReadS RegisterDevices
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680369525"><span id="local-6989586621680369527"><span id="local-6989586621680369529"><span class="annot"><span class="annottext">Int -&gt; RegisterDevices -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680371002"><span id="local-6989586621680371004"><span id="local-6989586621680371006"><span class="annot"><span class="annottext">Int -&gt; RegisterDevices -&gt; ShowS
 [RegisterDevices] -&gt; ShowS
 RegisterDevices -&gt; String
 (Int -&gt; RegisterDevices -&gt; ShowS)
@@ -129,8 +129,8 @@ $cfrom :: forall x. RegisterDevices -&gt; Rep RegisterDevices x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span>
 </span><span id="line-75"></span><span id="newRegisterDevices"><span class="annot"><span class="annottext">newRegisterDevices :: Text -&gt; RegisterDevices
-</span><a href="Network.AWS.SageMaker.RegisterDevices.html#newRegisterDevices"><span class="hs-identifier hs-var hs-var">newRegisterDevices</span></a></span></span><span> </span><span id="local-6989586621680369520"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680369520"><span class="hs-identifier hs-var">pDeviceFleetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.RegisterDevices.html#newRegisterDevices"><span class="hs-identifier hs-var hs-var">newRegisterDevices</span></a></span></span><span> </span><span id="local-6989586621680370997"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680370997"><span class="hs-identifier hs-var">pDeviceFleetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">RegisterDevices' :: Maybe [Tag] -&gt; Text -&gt; [Device] -&gt; RegisterDevices
 </span><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:RegisterDevices' :: Maybe [Tag]
@@ -139,7 +139,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceFleetName:RegisterDevices' :: Text
 </span><a href="Network.AWS.SageMaker.RegisterDevices.html#%24sel%3AdeviceFleetName%3ARegisterDevices%27"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680369520"><span class="hs-identifier hs-var">pDeviceFleetName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680370997"><span class="hs-identifier hs-var">pDeviceFleetName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:devices:RegisterDevices' :: [Device]
 </span><a href="Network.AWS.SageMaker.RegisterDevices.html#%24sel%3Adevices%3ARegisterDevices%27"><span class="hs-identifier hs-var">devices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Device]
 forall a. Monoid a =&gt; a
@@ -154,16 +154,16 @@ forall a. Monoid a =&gt; a
 -&gt; (RegisterDevices -&gt; Maybe [Tag] -&gt; RegisterDevices)
 -&gt; Lens RegisterDevices RegisterDevices (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680369517"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370994"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:RegisterDevices' :: RegisterDevices -&gt; Maybe [Tag]
-</span><a href="#local-6989586621680369517"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680369517"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680369516"><span class="annot"><span class="annottext">s :: RegisterDevices
-</span><a href="#local-6989586621680369516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680369515"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680369515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterDevices
-</span><a href="#local-6989586621680369516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RegisterDevices' :: Maybe [Tag]
+</span><a href="#local-6989586621680370994"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680370994"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370993"><span class="annot"><span class="annottext">s :: RegisterDevices
+</span><a href="#local-6989586621680370993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370992"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680370992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterDevices
+</span><a href="#local-6989586621680370993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RegisterDevices' :: Maybe [Tag]
 </span><a href="Network.AWS.SageMaker.RegisterDevices.html#%24sel%3Atags%3ARegisterDevices%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680369515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621680370992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; RegisterDevices -&gt; f RegisterDevices)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -177,8 +177,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The name of the fleet.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#registerDevices_deviceFleetName"><span class="hs-identifier hs-type">registerDevices_deviceFleetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -187,16 +187,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (RegisterDevices -&gt; Text -&gt; RegisterDevices)
 -&gt; Lens RegisterDevices RegisterDevices Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680369511"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370988"><span class="annot"><span class="annottext">Text
 deviceFleetName :: Text
 $sel:deviceFleetName:RegisterDevices' :: RegisterDevices -&gt; Text
-</span><a href="#local-6989586621680369511"><span class="hs-identifier hs-var hs-var">deviceFleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680369511"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680369510"><span class="annot"><span class="annottext">s :: RegisterDevices
-</span><a href="#local-6989586621680369510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680369509"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680369509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterDevices
-</span><a href="#local-6989586621680369510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceFleetName:RegisterDevices' :: Text
+</span><a href="#local-6989586621680370988"><span class="hs-identifier hs-var hs-var">deviceFleetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680370988"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370987"><span class="annot"><span class="annottext">s :: RegisterDevices
+</span><a href="#local-6989586621680370987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370986"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680370986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterDevices
+</span><a href="#local-6989586621680370987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceFleetName:RegisterDevices' :: Text
 </span><a href="Network.AWS.SageMaker.RegisterDevices.html#%24sel%3AdeviceFleetName%3ARegisterDevices%27"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680369509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680370986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | A list of devices to register with SageMaker Edge Manager.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#registerDevices_devices"><span class="hs-identifier hs-type">registerDevices_devices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SageMaker.Types.Device.html#Device"><span class="hs-identifier hs-type">Device</span></a></span><span class="hs-special">]</span><span>
@@ -205,35 +205,35 @@ $sel:deviceFleetName:RegisterDevices' :: RegisterDevices -&gt; Text
 -&gt; (RegisterDevices -&gt; [Device] -&gt; RegisterDevices)
 -&gt; Lens RegisterDevices RegisterDevices [Device] [Device]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680369508"><span class="annot"><span class="annottext">[Device]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370985"><span class="annot"><span class="annottext">[Device]
 devices :: [Device]
 $sel:devices:RegisterDevices' :: RegisterDevices -&gt; [Device]
-</span><a href="#local-6989586621680369508"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Device]
-</span><a href="#local-6989586621680369508"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680369507"><span class="annot"><span class="annottext">s :: RegisterDevices
-</span><a href="#local-6989586621680369507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680369506"><span class="annot"><span class="annottext">[Device]
-</span><a href="#local-6989586621680369506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterDevices
-</span><a href="#local-6989586621680369507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devices:RegisterDevices' :: [Device]
+</span><a href="#local-6989586621680370985"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Device]
+</span><a href="#local-6989586621680370985"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680370984"><span class="annot"><span class="annottext">s :: RegisterDevices
+</span><a href="#local-6989586621680370984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680370983"><span class="annot"><span class="annottext">[Device]
+</span><a href="#local-6989586621680370983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterDevices
+</span><a href="#local-6989586621680370984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devices:RegisterDevices' :: [Device]
 </span><a href="Network.AWS.SageMaker.RegisterDevices.html#%24sel%3Adevices%3ARegisterDevices%27"><span class="hs-identifier hs-var">devices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Device]
-</span><a href="#local-6989586621680369506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Device] -&gt; f [Device]) -&gt; RegisterDevices -&gt; f RegisterDevices)
+</span><a href="#local-6989586621680370983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Device] -&gt; f [Device]) -&gt; RegisterDevices -&gt; f RegisterDevices)
 -&gt; (([Device] -&gt; f [Device]) -&gt; [Device] -&gt; f [Device])
 -&gt; ([Device] -&gt; f [Device])
 -&gt; RegisterDevices
 -&gt; f RegisterDevices
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Device] -&gt; f [Device]) -&gt; [Device] -&gt; f [Device]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevicesResponse"><span class="hs-identifier hs-type">RegisterDevicesResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621680369502"><span class="annot"><span class="annottext">request :: RegisterDevices -&gt; Request RegisterDevices
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621680370979"><span class="annot"><span class="annottext">request :: RegisterDevices -&gt; Request RegisterDevices
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterDevices -&gt; Request RegisterDevices
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621680369498"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621680370975"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RegisterDevices
 -&gt; ClientResponse ClientBody
@@ -257,12 +257,12 @@ AWSResponse a
 RegisterDevicesResponse
 </span><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevicesResponse%27"><span class="hs-identifier hs-var">RegisterDevicesResponse'</span></a></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680369491"><span id="local-6989586621680369493"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370968"><span id="local-6989586621680370970"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680369488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370965"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621680369484"><span class="annot"><span class="annottext">toHeaders :: RegisterDevices -&gt; [Header]
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621680370961"><span class="annot"><span class="annottext">toHeaders :: RegisterDevices -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; RegisterDevices -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -287,9 +287,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680369474"><span id="local-6989586621680369476"><span id="local-6989586621680369478"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621680369472"><span class="annot"><span class="annottext">toJSON :: RegisterDevices -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680369468"><span id="local-6989586621680369469"><span id="local-6989586621680369470"><span class="annot"><span class="annottext">[Device]
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370951"><span id="local-6989586621680370953"><span id="local-6989586621680370955"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621680370949"><span class="annot"><span class="annottext">toJSON :: RegisterDevices -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices%27"><span class="hs-identifier hs-type">RegisterDevices'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680370945"><span id="local-6989586621680370946"><span id="local-6989586621680370947"><span class="annot"><span class="annottext">[Device]
 Maybe [Tag]
 Text
 devices :: [Device]
@@ -298,7 +298,7 @@ tags :: Maybe [Tag]
 $sel:devices:RegisterDevices' :: RegisterDevices -&gt; [Device]
 $sel:deviceFleetName:RegisterDevices' :: RegisterDevices -&gt; Text
 $sel:tags:RegisterDevices' :: RegisterDevices -&gt; Maybe [Tag]
-</span><a href="#local-6989586621680369468"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680370945"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -310,7 +310,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621680369470"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680370947"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -318,26 +318,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DeviceFleetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680369469"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680370946"><span class="hs-identifier hs-var">deviceFleetName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Devices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Device] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Device]
-</span><a href="#local-6989586621680369468"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680370945"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621680369461"><span class="annot"><span class="annottext">toPath :: RegisterDevices -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621680370938"><span class="annot"><span class="annottext">toPath :: RegisterDevices -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterDevices -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevices"><span class="hs-identifier hs-type">RegisterDevices</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621680369457"><span class="annot"><span class="annottext">toQuery :: RegisterDevices -&gt; QueryString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621680370934"><span class="annot"><span class="annottext">toQuery :: RegisterDevices -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterDevices -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -345,10 +345,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newRegisterDevicesResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621680369454"><span id="local-6989586621680369455"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterDevicesResponse"><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevicesResponse"><span class="hs-identifier hs-var">RegisterDevicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterDevicesResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevicesResponse%27"><span class="hs-identifier hs-var">RegisterDevicesResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621680370931"><span id="local-6989586621680370932"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterDevicesResponse"><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevicesResponse"><span class="hs-identifier hs-var">RegisterDevicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterDevicesResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevicesResponse%27"><span class="hs-identifier hs-var">RegisterDevicesResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680369450"><span id="local-6989586621680369452"><span class="annot"><span class="annottext">RegisterDevicesResponse -&gt; RegisterDevicesResponse -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680370927"><span id="local-6989586621680370929"><span class="annot"><span class="annottext">RegisterDevicesResponse -&gt; RegisterDevicesResponse -&gt; Bool
 (RegisterDevicesResponse -&gt; RegisterDevicesResponse -&gt; Bool)
 -&gt; (RegisterDevicesResponse -&gt; RegisterDevicesResponse -&gt; Bool)
 -&gt; Eq RegisterDevicesResponse
@@ -357,7 +357,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterDevicesResponse -&gt; RegisterDevicesResponse -&gt; Bool
 == :: RegisterDevicesResponse -&gt; RegisterDevicesResponse -&gt; Bool
 $c== :: RegisterDevicesResponse -&gt; RegisterDevicesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680369442"><span id="local-6989586621680369444"><span id="local-6989586621680369446"><span id="local-6989586621680369448"><span class="annot"><span class="annottext">ReadPrec [RegisterDevicesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370919"><span id="local-6989586621680370921"><span id="local-6989586621680370923"><span id="local-6989586621680370925"><span class="annot"><span class="annottext">ReadPrec [RegisterDevicesResponse]
 ReadPrec RegisterDevicesResponse
 Int -&gt; ReadS RegisterDevicesResponse
 ReadS [RegisterDevicesResponse]
@@ -377,7 +377,7 @@ readList :: ReadS [RegisterDevicesResponse]
 $creadList :: ReadS [RegisterDevicesResponse]
 readsPrec :: Int -&gt; ReadS RegisterDevicesResponse
 $creadsPrec :: Int -&gt; ReadS RegisterDevicesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680369436"><span id="local-6989586621680369438"><span id="local-6989586621680369440"><span class="annot"><span class="annottext">Int -&gt; RegisterDevicesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680370913"><span id="local-6989586621680370915"><span id="local-6989586621680370917"><span class="annot"><span class="annottext">Int -&gt; RegisterDevicesResponse -&gt; ShowS
 [RegisterDevicesResponse] -&gt; ShowS
 RegisterDevicesResponse -&gt; String
 (Int -&gt; RegisterDevicesResponse -&gt; ShowS)
@@ -415,5 +415,5 @@ $cfrom :: forall x. RegisterDevicesResponse -&gt; Rep RegisterDevicesResponse x
 </span><a href="Network.AWS.SageMaker.RegisterDevices.html#newRegisterDevicesResponse"><span class="hs-identifier hs-var hs-var">newRegisterDevicesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegisterDevicesResponse
 </span><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevicesResponse%27"><span class="hs-identifier hs-var">RegisterDevicesResponse'</span></a></span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680369432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevicesResponse"><span class="hs-identifier hs-type">RegisterDevicesResponse</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680370909"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.RegisterDevices.html#RegisterDevicesResponse"><span class="hs-identifier hs-type">RegisterDevicesResponse</span></a></span></span><span>
 </span><span id="line-151"></span></pre></body></html>

@@ -48,13 +48,13 @@
 </span><span id="line-48"></span><span class="hs-comment">-- | Represents the input of a @DeleteDeploymentConfig@ operation.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newDeleteDeploymentConfig' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679323996"><span id="local-6989586621679323997"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeploymentConfig"><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-var">DeleteDeploymentConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeploymentConfig%27"><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-var">DeleteDeploymentConfig'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679324316"><span id="local-6989586621679324317"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeploymentConfig"><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-var">DeleteDeploymentConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeploymentConfig%27"><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-var">DeleteDeploymentConfig'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a deployment configuration associated with the IAM user or</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- AWS account.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AdeploymentConfigName%3ADeleteDeploymentConfig%27"><span class="annot"><span class="annottext">DeleteDeploymentConfig -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#%24sel%3AdeploymentConfigName%3ADeleteDeploymentConfig%27"><span class="hs-identifier hs-var hs-var">deploymentConfigName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323990"><span id="local-6989586621679323992"><span class="annot"><span class="annottext">DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324310"><span id="local-6989586621679324312"><span class="annot"><span class="annottext">DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool
 (DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool)
 -&gt; (DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool)
 -&gt; Eq DeleteDeploymentConfig
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool
 == :: DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool
 $c== :: DeleteDeploymentConfig -&gt; DeleteDeploymentConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323981"><span id="local-6989586621679323983"><span id="local-6989586621679323985"><span id="local-6989586621679323987"><span class="annot"><span class="annottext">ReadPrec [DeleteDeploymentConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324301"><span id="local-6989586621679324303"><span id="local-6989586621679324305"><span id="local-6989586621679324307"><span class="annot"><span class="annottext">ReadPrec [DeleteDeploymentConfig]
 ReadPrec DeleteDeploymentConfig
 Int -&gt; ReadS DeleteDeploymentConfig
 ReadS [DeleteDeploymentConfig]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteDeploymentConfig]
 $creadList :: ReadS [DeleteDeploymentConfig]
 readsPrec :: Int -&gt; ReadS DeleteDeploymentConfig
 $creadsPrec :: Int -&gt; ReadS DeleteDeploymentConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323974"><span id="local-6989586621679323976"><span id="local-6989586621679323978"><span class="annot"><span class="annottext">Int -&gt; DeleteDeploymentConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324294"><span id="local-6989586621679324296"><span id="local-6989586621679324298"><span class="annot"><span class="annottext">Int -&gt; DeleteDeploymentConfig -&gt; ShowS
 [DeleteDeploymentConfig] -&gt; ShowS
 DeleteDeploymentConfig -&gt; String
 (Int -&gt; DeleteDeploymentConfig -&gt; ShowS)
@@ -125,14 +125,14 @@ $cfrom :: forall x. DeleteDeploymentConfig -&gt; Rep DeleteDeploymentConfig x
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span>
 </span><span id="line-72"></span><span id="newDeleteDeploymentConfig"><span class="annot"><span class="annottext">newDeleteDeploymentConfig :: Text -&gt; DeleteDeploymentConfig
-</span><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#newDeleteDeploymentConfig"><span class="hs-identifier hs-var hs-var">newDeleteDeploymentConfig</span></a></span></span><span> </span><span id="local-6989586621679323969"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323969"><span class="hs-identifier hs-var">pDeploymentConfigName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#newDeleteDeploymentConfig"><span class="hs-identifier hs-var hs-var">newDeleteDeploymentConfig</span></a></span></span><span> </span><span id="local-6989586621679324289"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324289"><span class="hs-identifier hs-var">pDeploymentConfigName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteDeploymentConfig' :: Text -&gt; DeleteDeploymentConfig
 </span><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-type">DeleteDeploymentConfig'</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deploymentConfigName:DeleteDeploymentConfig' :: Text
 </span><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#%24sel%3AdeploymentConfigName%3ADeleteDeploymentConfig%27"><span class="hs-identifier hs-var">deploymentConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323969"><span class="hs-identifier hs-var">pDeploymentConfigName_</span></a></span><span>
+</span><a href="#local-6989586621679324289"><span class="hs-identifier hs-var">pDeploymentConfigName_</span></a></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- | The name of a deployment configuration associated with the IAM user or</span><span>
@@ -144,27 +144,27 @@ $cfrom :: forall x. DeleteDeploymentConfig -&gt; Rep DeleteDeploymentConfig x
 -&gt; (DeleteDeploymentConfig -&gt; Text -&gt; DeleteDeploymentConfig)
 -&gt; Lens DeleteDeploymentConfig DeleteDeploymentConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-type">DeleteDeploymentConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323966"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-type">DeleteDeploymentConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324286"><span class="annot"><span class="annottext">Text
 deploymentConfigName :: Text
 $sel:deploymentConfigName:DeleteDeploymentConfig' :: DeleteDeploymentConfig -&gt; Text
-</span><a href="#local-6989586621679323966"><span class="hs-identifier hs-var hs-var">deploymentConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323966"><span class="hs-identifier hs-var">deploymentConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323965"><span class="annot"><span class="annottext">s :: DeleteDeploymentConfig
-</span><a href="#local-6989586621679323965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-type">DeleteDeploymentConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323964"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeploymentConfig
-</span><a href="#local-6989586621679323965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentConfigName:DeleteDeploymentConfig' :: Text
+</span><a href="#local-6989586621679324286"><span class="hs-identifier hs-var hs-var">deploymentConfigName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324286"><span class="hs-identifier hs-var">deploymentConfigName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679324285"><span class="annot"><span class="annottext">s :: DeleteDeploymentConfig
+</span><a href="#local-6989586621679324285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-type">DeleteDeploymentConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679324284"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679324284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeploymentConfig
+</span><a href="#local-6989586621679324285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentConfigName:DeleteDeploymentConfig' :: Text
 </span><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#%24sel%3AdeploymentConfigName%3ADeleteDeploymentConfig%27"><span class="hs-identifier hs-var">deploymentConfigName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679324284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse"><span class="hs-identifier hs-type">DeleteDeploymentConfigResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679323960"><span class="annot"><span class="annottext">request :: DeleteDeploymentConfig -&gt; Request DeleteDeploymentConfig
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679324280"><span class="annot"><span class="annottext">request :: DeleteDeploymentConfig -&gt; Request DeleteDeploymentConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDeploymentConfig -&gt; Request DeleteDeploymentConfig
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeDeploy.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679323956"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679324276"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDeploymentConfig
 -&gt; ClientResponse ClientBody
@@ -191,12 +191,12 @@ AWSResponse a
 DeleteDeploymentConfigResponse
 </span><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse%27"><span class="hs-identifier hs-var">DeleteDeploymentConfigResponse'</span></a></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323949"><span id="local-6989586621679323951"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324269"><span id="local-6989586621679324271"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323946"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679323942"><span class="annot"><span class="annottext">toHeaders :: DeleteDeploymentConfig -&gt; [Header]
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679324262"><span class="annot"><span class="annottext">toHeaders :: DeleteDeploymentConfig -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteDeploymentConfig -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -223,12 +223,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323932"><span id="local-6989586621679323934"><span id="local-6989586621679323936"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679323930"><span class="annot"><span class="annottext">toJSON :: DeleteDeploymentConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-type">DeleteDeploymentConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323928"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679324252"><span id="local-6989586621679324254"><span id="local-6989586621679324256"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679324250"><span class="annot"><span class="annottext">toJSON :: DeleteDeploymentConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig%27"><span class="hs-identifier hs-type">DeleteDeploymentConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679324248"><span class="annot"><span class="annottext">Text
 deploymentConfigName :: Text
 $sel:deploymentConfigName:DeleteDeploymentConfig' :: DeleteDeploymentConfig -&gt; Text
-</span><a href="#local-6989586621679323928"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679324248"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -242,20 +242,20 @@ forall a. a -&gt; Maybe a
 </span><span id="line-117"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679323928"><span class="hs-identifier hs-var">deploymentConfigName</span></a></span><span>
+</span><a href="#local-6989586621679324248"><span class="hs-identifier hs-var">deploymentConfigName</span></a></span><span>
 </span><span id="line-118"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679323922"><span class="annot"><span class="annottext">toPath :: DeleteDeploymentConfig -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679324242"><span class="annot"><span class="annottext">toPath :: DeleteDeploymentConfig -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDeploymentConfig -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfig"><span class="hs-identifier hs-type">DeleteDeploymentConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679323918"><span class="annot"><span class="annottext">toQuery :: DeleteDeploymentConfig -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679324238"><span class="annot"><span class="annottext">toQuery :: DeleteDeploymentConfig -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDeploymentConfig -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -263,10 +263,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newDeleteDeploymentConfigResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679323915"><span id="local-6989586621679323916"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeploymentConfigResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse"><span class="hs-identifier hs-var">DeleteDeploymentConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeploymentConfigResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse%27"><span class="hs-identifier hs-var">DeleteDeploymentConfigResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679324235"><span id="local-6989586621679324236"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeploymentConfigResponse"><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse"><span class="hs-identifier hs-var">DeleteDeploymentConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeploymentConfigResponse%27"><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse%27"><span class="hs-identifier hs-var">DeleteDeploymentConfigResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323911"><span id="local-6989586621679323913"><span class="annot"><span class="annottext">DeleteDeploymentConfigResponse
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679324231"><span id="local-6989586621679324233"><span class="annot"><span class="annottext">DeleteDeploymentConfigResponse
 -&gt; DeleteDeploymentConfigResponse -&gt; Bool
 (DeleteDeploymentConfigResponse
  -&gt; DeleteDeploymentConfigResponse -&gt; Bool)
@@ -282,7 +282,7 @@ $c/= :: DeleteDeploymentConfigResponse
 -&gt; DeleteDeploymentConfigResponse -&gt; Bool
 $c== :: DeleteDeploymentConfigResponse
 -&gt; DeleteDeploymentConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323903"><span id="local-6989586621679323905"><span id="local-6989586621679323907"><span id="local-6989586621679323909"><span class="annot"><span class="annottext">ReadPrec [DeleteDeploymentConfigResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324223"><span id="local-6989586621679324225"><span id="local-6989586621679324227"><span id="local-6989586621679324229"><span class="annot"><span class="annottext">ReadPrec [DeleteDeploymentConfigResponse]
 ReadPrec DeleteDeploymentConfigResponse
 Int -&gt; ReadS DeleteDeploymentConfigResponse
 ReadS [DeleteDeploymentConfigResponse]
@@ -302,7 +302,7 @@ readList :: ReadS [DeleteDeploymentConfigResponse]
 $creadList :: ReadS [DeleteDeploymentConfigResponse]
 readsPrec :: Int -&gt; ReadS DeleteDeploymentConfigResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDeploymentConfigResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323897"><span id="local-6989586621679323899"><span id="local-6989586621679323901"><span class="annot"><span class="annottext">Int -&gt; DeleteDeploymentConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679324217"><span id="local-6989586621679324219"><span id="local-6989586621679324221"><span class="annot"><span class="annottext">Int -&gt; DeleteDeploymentConfigResponse -&gt; ShowS
 [DeleteDeploymentConfigResponse] -&gt; ShowS
 DeleteDeploymentConfigResponse -&gt; String
 (Int -&gt; DeleteDeploymentConfigResponse -&gt; ShowS)
@@ -352,6 +352,6 @@ DeleteDeploymentConfigResponse
 </span><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse%27"><span class="hs-identifier hs-var">DeleteDeploymentConfigResponse'</span></a></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679323893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679324213"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.DeleteDeploymentConfig.html#DeleteDeploymentConfigResponse"><span class="hs-identifier hs-type">DeleteDeploymentConfigResponse</span></a></span></span><span>
 </span><span id="line-146"></span></pre></body></html>

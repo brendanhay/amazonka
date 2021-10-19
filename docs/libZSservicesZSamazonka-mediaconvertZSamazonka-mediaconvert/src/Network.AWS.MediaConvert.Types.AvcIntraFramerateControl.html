@@ -42,13 +42,13 @@
 </span><span id="line-42"></span><span class="hs-comment">-- from the input. Choose SPECIFIED if you want the service to use the</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- frame rate you specify in the settings FramerateNumerator and</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- FramerateDenominator.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621679938744"><span id="local-6989586621679938745"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvcIntraFramerateControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraFramerateControl.html#AvcIntraFramerateControl"><span class="hs-identifier hs-var">AvcIntraFramerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraFramerateControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraFramerateControl.html#AvcIntraFramerateControl%27"><span class="hs-identifier hs-var">AvcIntraFramerateControl'</span></a></span></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679943366"><span id="local-6989586621679943367"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AvcIntraFramerateControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraFramerateControl.html#AvcIntraFramerateControl"><span class="hs-identifier hs-var">AvcIntraFramerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvcIntraFramerateControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AvcIntraFramerateControl.html#AvcIntraFramerateControl%27"><span class="hs-identifier hs-var">AvcIntraFramerateControl'</span></a></span></span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAvcIntraFramerateControl"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AvcIntraFramerateControl.html#fromAvcIntraFramerateControl"><span class="hs-identifier hs-var hs-var">fromAvcIntraFramerateControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-47"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938736"><span id="local-6989586621679938738"><span id="local-6989586621679938740"><span class="annot"><span class="annottext">Int -&gt; AvcIntraFramerateControl -&gt; ShowS
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943358"><span id="local-6989586621679943360"><span id="local-6989586621679943362"><span class="annot"><span class="annottext">Int -&gt; AvcIntraFramerateControl -&gt; ShowS
 [AvcIntraFramerateControl] -&gt; ShowS
 AvcIntraFramerateControl -&gt; String
 (Int -&gt; AvcIntraFramerateControl -&gt; ShowS)
@@ -64,7 +64,7 @@ $cshow :: AvcIntraFramerateControl -&gt; String
 showsPrec :: Int -&gt; AvcIntraFramerateControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; AvcIntraFramerateControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679938727"><span id="local-6989586621679938729"><span id="local-6989586621679938731"><span id="local-6989586621679938733"><span class="annot"><span class="annottext">ReadPrec [AvcIntraFramerateControl]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679943349"><span id="local-6989586621679943351"><span id="local-6989586621679943353"><span id="local-6989586621679943355"><span class="annot"><span class="annottext">ReadPrec [AvcIntraFramerateControl]
 ReadPrec AvcIntraFramerateControl
 Int -&gt; ReadS AvcIntraFramerateControl
 ReadS [AvcIntraFramerateControl]
@@ -85,7 +85,7 @@ $creadList :: ReadS [AvcIntraFramerateControl]
 readsPrec :: Int -&gt; ReadS AvcIntraFramerateControl
 $creadsPrec :: Int -&gt; ReadS AvcIntraFramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679938722"><span id="local-6989586621679938724"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; AvcIntraFramerateControl -&gt; Bool
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679943344"><span id="local-6989586621679943346"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; AvcIntraFramerateControl -&gt; Bool
 (AvcIntraFramerateControl -&gt; AvcIntraFramerateControl -&gt; Bool)
 -&gt; (AvcIntraFramerateControl -&gt; AvcIntraFramerateControl -&gt; Bool)
 -&gt; Eq AvcIntraFramerateControl
@@ -95,7 +95,7 @@ $c/= :: AvcIntraFramerateControl -&gt; AvcIntraFramerateControl -&gt; Bool
 == :: AvcIntraFramerateControl -&gt; AvcIntraFramerateControl -&gt; Bool
 $c== :: AvcIntraFramerateControl -&gt; AvcIntraFramerateControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679938706"><span id="local-6989586621679938708"><span id="local-6989586621679938710"><span id="local-6989586621679938712"><span id="local-6989586621679938714"><span id="local-6989586621679938716"><span id="local-6989586621679938718"><span class="annot"><span class="annottext">Eq AvcIntraFramerateControl
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679943328"><span id="local-6989586621679943330"><span id="local-6989586621679943332"><span id="local-6989586621679943334"><span id="local-6989586621679943336"><span id="local-6989586621679943338"><span id="local-6989586621679943340"><span class="annot"><span class="annottext">Eq AvcIntraFramerateControl
 Eq AvcIntraFramerateControl
 -&gt; (AvcIntraFramerateControl
     -&gt; AvcIntraFramerateControl -&gt; Ordering)
@@ -160,7 +160,7 @@ AvcIntraFramerateControl -&gt; Rep AvcIntraFramerateControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679938698"><span id="local-6989586621679938700"><span class="annot"><span class="annottext">Int -&gt; AvcIntraFramerateControl -&gt; Int
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679943320"><span id="local-6989586621679943322"><span class="annot"><span class="annottext">Int -&gt; AvcIntraFramerateControl -&gt; Int
 AvcIntraFramerateControl -&gt; Int
 (Int -&gt; AvcIntraFramerateControl -&gt; Int)
 -&gt; (AvcIntraFramerateControl -&gt; Int)
@@ -171,55 +171,55 @@ $chash :: AvcIntraFramerateControl -&gt; Int
 hashWithSalt :: Int -&gt; AvcIntraFramerateControl -&gt; Int
 $chashWithSalt :: Int -&gt; AvcIntraFramerateControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679938695"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; ()
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679943317"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; ()
 (AvcIntraFramerateControl -&gt; ()) -&gt; NFData AvcIntraFramerateControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AvcIntraFramerateControl -&gt; ()
 $crnf :: AvcIntraFramerateControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679938692"><span class="annot"><span class="annottext">Text -&gt; Either String AvcIntraFramerateControl
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679943314"><span class="annot"><span class="annottext">Text -&gt; Either String AvcIntraFramerateControl
 (Text -&gt; Either String AvcIntraFramerateControl)
 -&gt; FromText AvcIntraFramerateControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AvcIntraFramerateControl
 $cfromText :: Text -&gt; Either String AvcIntraFramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679938689"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; Text
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679943311"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; Text
 (AvcIntraFramerateControl -&gt; Text)
 -&gt; ToText AvcIntraFramerateControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AvcIntraFramerateControl -&gt; Text
 $ctoText :: AvcIntraFramerateControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679938686"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; ByteString
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679943308"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; ByteString
 (AvcIntraFramerateControl -&gt; ByteString)
 -&gt; ToByteString AvcIntraFramerateControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AvcIntraFramerateControl -&gt; ByteString
 $ctoBS :: AvcIntraFramerateControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679938683"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; ByteStringBuilder
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679943305"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; ByteStringBuilder
 (AvcIntraFramerateControl -&gt; ByteStringBuilder)
 -&gt; ToLog AvcIntraFramerateControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AvcIntraFramerateControl -&gt; ByteStringBuilder
 $cbuild :: AvcIntraFramerateControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679938680"><span class="annot"><span class="annottext">HeaderName -&gt; AvcIntraFramerateControl -&gt; [Header]
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679943302"><span class="annot"><span class="annottext">HeaderName -&gt; AvcIntraFramerateControl -&gt; [Header]
 (HeaderName -&gt; AvcIntraFramerateControl -&gt; [Header])
 -&gt; ToHeader AvcIntraFramerateControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AvcIntraFramerateControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AvcIntraFramerateControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679938677"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; QueryString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679943299"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; QueryString
 (AvcIntraFramerateControl -&gt; QueryString)
 -&gt; ToQuery AvcIntraFramerateControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AvcIntraFramerateControl -&gt; QueryString
 $ctoQuery :: AvcIntraFramerateControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679938672"><span id="local-6989586621679938674"><span class="annot"><span class="annottext">Value -&gt; Parser [AvcIntraFramerateControl]
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679943294"><span id="local-6989586621679943296"><span class="annot"><span class="annottext">Value -&gt; Parser [AvcIntraFramerateControl]
 Value -&gt; Parser AvcIntraFramerateControl
 (Value -&gt; Parser AvcIntraFramerateControl)
 -&gt; (Value -&gt; Parser [AvcIntraFramerateControl])
@@ -231,7 +231,7 @@ $cparseJSONList :: Value -&gt; Parser [AvcIntraFramerateControl]
 parseJSON :: Value -&gt; Parser AvcIntraFramerateControl
 $cparseJSON :: Value -&gt; Parser AvcIntraFramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679938667"><span id="local-6989586621679938669"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvcIntraFramerateControl]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679943289"><span id="local-6989586621679943291"><span class="annot"><span class="annottext">FromJSONKeyFunction [AvcIntraFramerateControl]
 FromJSONKeyFunction AvcIntraFramerateControl
 FromJSONKeyFunction AvcIntraFramerateControl
 -&gt; FromJSONKeyFunction [AvcIntraFramerateControl]
@@ -243,7 +243,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AvcIntraFramerateControl]
 fromJSONKey :: FromJSONKeyFunction AvcIntraFramerateControl
 $cfromJSONKey :: FromJSONKeyFunction AvcIntraFramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679938658"><span id="local-6989586621679938660"><span id="local-6989586621679938662"><span id="local-6989586621679938664"><span class="annot"><span class="annottext">[AvcIntraFramerateControl] -&gt; Encoding
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679943280"><span id="local-6989586621679943282"><span id="local-6989586621679943284"><span id="local-6989586621679943286"><span class="annot"><span class="annottext">[AvcIntraFramerateControl] -&gt; Encoding
 [AvcIntraFramerateControl] -&gt; Value
 AvcIntraFramerateControl -&gt; Encoding
 AvcIntraFramerateControl -&gt; Value
@@ -267,7 +267,7 @@ $ctoEncoding :: AvcIntraFramerateControl -&gt; Encoding
 toJSON :: AvcIntraFramerateControl -&gt; Value
 $ctoJSON :: AvcIntraFramerateControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679938653"><span id="local-6989586621679938655"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvcIntraFramerateControl]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679943275"><span id="local-6989586621679943277"><span class="annot"><span class="annottext">ToJSONKeyFunction [AvcIntraFramerateControl]
 ToJSONKeyFunction AvcIntraFramerateControl
 ToJSONKeyFunction AvcIntraFramerateControl
 -&gt; ToJSONKeyFunction [AvcIntraFramerateControl]
@@ -279,14 +279,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AvcIntraFramerateControl]
 toJSONKey :: ToJSONKeyFunction AvcIntraFramerateControl
 $ctoJSONKey :: ToJSONKeyFunction AvcIntraFramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679938650"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvcIntraFramerateControl
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679943272"><span class="annot"><span class="annottext">[Node] -&gt; Either String AvcIntraFramerateControl
 ([Node] -&gt; Either String AvcIntraFramerateControl)
 -&gt; FromXML AvcIntraFramerateControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AvcIntraFramerateControl
 $cparseXML :: [Node] -&gt; Either String AvcIntraFramerateControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679938647"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; XML
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679943269"><span class="annot"><span class="annottext">AvcIntraFramerateControl -&gt; XML
 (AvcIntraFramerateControl -&gt; XML) -&gt; ToXML AvcIntraFramerateControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AvcIntraFramerateControl -&gt; XML

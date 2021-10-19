@@ -54,7 +54,7 @@
 </span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newSetPermission' smart constructor.</span><span>
-</span><span id="line-57"></span><span id="local-6989586621679382733"><span id="local-6989586621679382734"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetPermission"><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-var">SetPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetPermission%27"><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-var">SetPermission'</span></a></span></span><span>
+</span><span id="line-57"></span><span id="local-6989586621679383138"><span id="local-6989586621679383139"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetPermission"><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-var">SetPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetPermission%27"><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-var">SetPermission'</span></a></span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user is allowed to use __sudo__ to elevate privileges.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AallowSudo%3ASetPermission%27"><span class="annot"><span class="annottext">SetPermission -&gt; Maybe Bool
 </span><a href="Network.AWS.OpsWorks.SetPermission.html#%24sel%3AallowSudo%3ASetPermission%27"><span class="hs-identifier hs-var hs-var">allowSudo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -86,7 +86,7 @@
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AiamUserArn%3ASetPermission%27"><span class="annot"><span class="annottext">SetPermission -&gt; Text
 </span><a href="Network.AWS.OpsWorks.SetPermission.html#%24sel%3AiamUserArn%3ASetPermission%27"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382723"><span id="local-6989586621679382725"><span class="annot"><span class="annottext">SetPermission -&gt; SetPermission -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383128"><span id="local-6989586621679383130"><span class="annot"><span class="annottext">SetPermission -&gt; SetPermission -&gt; Bool
 (SetPermission -&gt; SetPermission -&gt; Bool)
 -&gt; (SetPermission -&gt; SetPermission -&gt; Bool) -&gt; Eq SetPermission
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetPermission -&gt; SetPermission -&gt; Bool
 == :: SetPermission -&gt; SetPermission -&gt; Bool
 $c== :: SetPermission -&gt; SetPermission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382714"><span id="local-6989586621679382716"><span id="local-6989586621679382718"><span id="local-6989586621679382720"><span class="annot"><span class="annottext">ReadPrec [SetPermission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383119"><span id="local-6989586621679383121"><span id="local-6989586621679383123"><span id="local-6989586621679383125"><span class="annot"><span class="annottext">ReadPrec [SetPermission]
 ReadPrec SetPermission
 Int -&gt; ReadS SetPermission
 ReadS [SetPermission]
@@ -114,7 +114,7 @@ readList :: ReadS [SetPermission]
 $creadList :: ReadS [SetPermission]
 readsPrec :: Int -&gt; ReadS SetPermission
 $creadsPrec :: Int -&gt; ReadS SetPermission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382707"><span id="local-6989586621679382709"><span id="local-6989586621679382711"><span class="annot"><span class="annottext">Int -&gt; SetPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383112"><span id="local-6989586621679383114"><span id="local-6989586621679383116"><span class="annot"><span class="annottext">Int -&gt; SetPermission -&gt; ShowS
 [SetPermission] -&gt; ShowS
 SetPermission -&gt; String
 (Int -&gt; SetPermission -&gt; ShowS)
@@ -179,9 +179,9 @@ $cfrom :: forall x. SetPermission -&gt; Rep SetPermission x
 </span><span id="line-122"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span>
 </span><span id="line-124"></span><span id="newSetPermission"><span class="annot"><span class="annottext">newSetPermission :: Text -&gt; Text -&gt; SetPermission
-</span><a href="Network.AWS.OpsWorks.SetPermission.html#newSetPermission"><span class="hs-identifier hs-var hs-var">newSetPermission</span></a></span></span><span> </span><span id="local-6989586621679382702"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382702"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span id="local-6989586621679382701"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382701"><span class="hs-identifier hs-var">pIamUserArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.SetPermission.html#newSetPermission"><span class="hs-identifier hs-var hs-var">newSetPermission</span></a></span></span><span> </span><span id="local-6989586621679383107"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383107"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span id="local-6989586621679383106"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383106"><span class="hs-identifier hs-var">pIamUserArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="annottext">SetPermission' :: Maybe Bool
 -&gt; Maybe Text -&gt; Maybe Bool -&gt; Text -&gt; Text -&gt; SetPermission
 </span><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span>
@@ -199,10 +199,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:stackId:SetPermission' :: Text
 </span><a href="Network.AWS.OpsWorks.SetPermission.html#%24sel%3AstackId%3ASetPermission%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382702"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383107"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamUserArn:SetPermission' :: Text
 </span><a href="Network.AWS.OpsWorks.SetPermission.html#%24sel%3AiamUserArn%3ASetPermission%27"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382701"><span class="hs-identifier hs-var">pIamUserArn_</span></a></span><span>
+</span><a href="#local-6989586621679383106"><span class="hs-identifier hs-var">pIamUserArn_</span></a></span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | The user is allowed to use __sudo__ to elevate privileges.</span><span>
@@ -212,16 +212,16 @@ forall a. Maybe a
 -&gt; (SetPermission -&gt; Maybe Bool -&gt; SetPermission)
 -&gt; Lens SetPermission SetPermission (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382698"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383103"><span class="annot"><span class="annottext">Maybe Bool
 allowSudo :: Maybe Bool
 $sel:allowSudo:SetPermission' :: SetPermission -&gt; Maybe Bool
-</span><a href="#local-6989586621679382698"><span class="hs-identifier hs-var hs-var">allowSudo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679382698"><span class="hs-identifier hs-var">allowSudo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382697"><span class="annot"><span class="annottext">s :: SetPermission
-</span><a href="#local-6989586621679382697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382696"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679382696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
-</span><a href="#local-6989586621679382697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowSudo:SetPermission' :: Maybe Bool
+</span><a href="#local-6989586621679383103"><span class="hs-identifier hs-var hs-var">allowSudo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679383103"><span class="hs-identifier hs-var">allowSudo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383102"><span class="annot"><span class="annottext">s :: SetPermission
+</span><a href="#local-6989586621679383102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383101"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679383101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
+</span><a href="#local-6989586621679383102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowSudo:SetPermission' :: Maybe Bool
 </span><a href="Network.AWS.OpsWorks.SetPermission.html#%24sel%3AallowSudo%3ASetPermission%27"><span class="hs-identifier hs-var">allowSudo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679382696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The user\'s permission level, which must be set to one of the following</span><span>
 </span><span id="line-138"></span><span class="hs-comment">-- strings. You cannot set your own permissions level.</span><span>
@@ -245,16 +245,16 @@ $sel:allowSudo:SetPermission' :: SetPermission -&gt; Maybe Bool
 -&gt; (SetPermission -&gt; Maybe Text -&gt; SetPermission)
 -&gt; Lens SetPermission SetPermission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382695"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383100"><span class="annot"><span class="annottext">Maybe Text
 level :: Maybe Text
 $sel:level:SetPermission' :: SetPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679382695"><span class="hs-identifier hs-var hs-var">level</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679382695"><span class="hs-identifier hs-var">level</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382694"><span class="annot"><span class="annottext">s :: SetPermission
-</span><a href="#local-6989586621679382694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382693"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679382693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
-</span><a href="#local-6989586621679382694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:level:SetPermission' :: Maybe Text
+</span><a href="#local-6989586621679383100"><span class="hs-identifier hs-var hs-var">level</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383100"><span class="hs-identifier hs-var">level</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383099"><span class="annot"><span class="annottext">s :: SetPermission
+</span><a href="#local-6989586621679383099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383098"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
+</span><a href="#local-6989586621679383099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:level:SetPermission' :: Maybe Text
 </span><a href="Network.AWS.OpsWorks.SetPermission.html#%24sel%3Alevel%3ASetPermission%27"><span class="hs-identifier hs-var">level</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679382693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The user is allowed to use SSH to communicate with the instance.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#setPermission_allowSsh"><span class="hs-identifier hs-type">setPermission_allowSsh</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -263,16 +263,16 @@ $sel:level:SetPermission' :: SetPermission -&gt; Maybe Text
 -&gt; (SetPermission -&gt; Maybe Bool -&gt; SetPermission)
 -&gt; Lens SetPermission SetPermission (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382692"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383097"><span class="annot"><span class="annottext">Maybe Bool
 allowSsh :: Maybe Bool
 $sel:allowSsh:SetPermission' :: SetPermission -&gt; Maybe Bool
-</span><a href="#local-6989586621679382692"><span class="hs-identifier hs-var hs-var">allowSsh</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679382692"><span class="hs-identifier hs-var">allowSsh</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382691"><span class="annot"><span class="annottext">s :: SetPermission
-</span><a href="#local-6989586621679382691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382690"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679382690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
-</span><a href="#local-6989586621679382691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowSsh:SetPermission' :: Maybe Bool
+</span><a href="#local-6989586621679383097"><span class="hs-identifier hs-var hs-var">allowSsh</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679383097"><span class="hs-identifier hs-var">allowSsh</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383096"><span class="annot"><span class="annottext">s :: SetPermission
+</span><a href="#local-6989586621679383096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383095"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679383095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
+</span><a href="#local-6989586621679383096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowSsh:SetPermission' :: Maybe Bool
 </span><a href="Network.AWS.OpsWorks.SetPermission.html#%24sel%3AallowSsh%3ASetPermission%27"><span class="hs-identifier hs-var">allowSsh</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679382690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The stack ID.</span><span>
 </span><span id="line-161"></span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#setPermission_stackId"><span class="hs-identifier hs-type">setPermission_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -281,16 +281,16 @@ $sel:allowSsh:SetPermission' :: SetPermission -&gt; Maybe Bool
 -&gt; (SetPermission -&gt; Text -&gt; SetPermission)
 -&gt; Lens SetPermission SetPermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382689"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383094"><span class="annot"><span class="annottext">Text
 stackId :: Text
 $sel:stackId:SetPermission' :: SetPermission -&gt; Text
-</span><a href="#local-6989586621679382689"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382689"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382688"><span class="annot"><span class="annottext">s :: SetPermission
-</span><a href="#local-6989586621679382688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382687"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
-</span><a href="#local-6989586621679382688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:SetPermission' :: Text
+</span><a href="#local-6989586621679383094"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383094"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383093"><span class="annot"><span class="annottext">s :: SetPermission
+</span><a href="#local-6989586621679383093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383092"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
+</span><a href="#local-6989586621679383093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:SetPermission' :: Text
 </span><a href="Network.AWS.OpsWorks.SetPermission.html#%24sel%3AstackId%3ASetPermission%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The user\'s IAM ARN. This can also be a federated user\'s ARN.</span><span>
 </span><span id="line-165"></span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#setPermission_iamUserArn"><span class="hs-identifier hs-type">setPermission_iamUserArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -299,27 +299,27 @@ $sel:stackId:SetPermission' :: SetPermission -&gt; Text
 -&gt; (SetPermission -&gt; Text -&gt; SetPermission)
 -&gt; Lens SetPermission SetPermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382686"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383091"><span class="annot"><span class="annottext">Text
 iamUserArn :: Text
 $sel:iamUserArn:SetPermission' :: SetPermission -&gt; Text
-</span><a href="#local-6989586621679382686"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382686"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382685"><span class="annot"><span class="annottext">s :: SetPermission
-</span><a href="#local-6989586621679382685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382684"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
-</span><a href="#local-6989586621679382685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamUserArn:SetPermission' :: Text
+</span><a href="#local-6989586621679383091"><span class="hs-identifier hs-var hs-var">iamUserArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383091"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383090"><span class="annot"><span class="annottext">s :: SetPermission
+</span><a href="#local-6989586621679383090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383089"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SetPermission
+</span><a href="#local-6989586621679383090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamUserArn:SetPermission' :: Text
 </span><a href="Network.AWS.OpsWorks.SetPermission.html#%24sel%3AiamUserArn%3ASetPermission%27"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-169"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-170"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>      </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermissionResponse"><span class="hs-identifier hs-type">SetPermissionResponse</span></a></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679382680"><span class="annot"><span class="annottext">request :: SetPermission -&gt; Request SetPermission
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679383085"><span class="annot"><span class="annottext">request :: SetPermission -&gt; Request SetPermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SetPermission -&gt; Request SetPermission
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679382676"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679383081"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy SetPermission
 -&gt; ClientResponse ClientBody
@@ -343,12 +343,12 @@ AWSResponse a
 SetPermissionResponse
 </span><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermissionResponse%27"><span class="hs-identifier hs-var">SetPermissionResponse'</span></a></span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382669"><span id="local-6989586621679382671"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383074"><span id="local-6989586621679383076"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383071"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679382662"><span class="annot"><span class="annottext">toHeaders :: SetPermission -&gt; [Header]
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679383067"><span class="annot"><span class="annottext">toHeaders :: SetPermission -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; SetPermission -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -375,9 +375,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382652"><span id="local-6989586621679382654"><span id="local-6989586621679382656"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679382650"><span class="annot"><span class="annottext">toJSON :: SetPermission -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382644"><span id="local-6989586621679382645"><span id="local-6989586621679382646"><span id="local-6989586621679382647"><span id="local-6989586621679382648"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383057"><span id="local-6989586621679383059"><span id="local-6989586621679383061"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679383055"><span class="annot"><span class="annottext">toJSON :: SetPermission -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission%27"><span class="hs-identifier hs-type">SetPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383049"><span id="local-6989586621679383050"><span id="local-6989586621679383051"><span id="local-6989586621679383052"><span id="local-6989586621679383053"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 iamUserArn :: Text
@@ -390,7 +390,7 @@ $sel:stackId:SetPermission' :: SetPermission -&gt; Text
 $sel:allowSsh:SetPermission' :: SetPermission -&gt; Maybe Bool
 $sel:level:SetPermission' :: SetPermission -&gt; Maybe Text
 $sel:allowSudo:SetPermission' :: SetPermission -&gt; Maybe Bool
-</span><a href="#local-6989586621679382644"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679383049"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -402,47 +402,47 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679382648"><span class="hs-identifier hs-var">allowSudo</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383053"><span class="hs-identifier hs-var">allowSudo</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Level&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679382647"><span class="hs-identifier hs-var">level</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383052"><span class="hs-identifier hs-var">level</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AllowSsh&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679382646"><span class="hs-identifier hs-var">allowSsh</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383051"><span class="hs-identifier hs-var">allowSsh</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382645"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679383050"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IamUserArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382644"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679383049"><span class="hs-identifier hs-var">iamUserArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679382637"><span class="annot"><span class="annottext">toPath :: SetPermission -&gt; ByteString
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679383042"><span class="annot"><span class="annottext">toPath :: SetPermission -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SetPermission -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermission"><span class="hs-identifier hs-type">SetPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679382633"><span class="annot"><span class="annottext">toQuery :: SetPermission -&gt; QueryString
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679383038"><span class="annot"><span class="annottext">toQuery :: SetPermission -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SetPermission -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -450,10 +450,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | /See:/ 'newSetPermissionResponse' smart constructor.</span><span>
-</span><span id="line-214"></span><span id="local-6989586621679382630"><span id="local-6989586621679382631"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetPermissionResponse"><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermissionResponse"><span class="hs-identifier hs-var">SetPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetPermissionResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermissionResponse%27"><span class="hs-identifier hs-var">SetPermissionResponse'</span></a></span></span><span>
+</span><span id="line-214"></span><span id="local-6989586621679383035"><span id="local-6989586621679383036"></span></span><span class="hs-keyword">data</span><span> </span><span id="SetPermissionResponse"><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermissionResponse"><span class="hs-identifier hs-var">SetPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SetPermissionResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermissionResponse%27"><span class="hs-identifier hs-var">SetPermissionResponse'</span></a></span></span><span>
 </span><span id="line-215"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-216"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382626"><span id="local-6989586621679382628"><span class="annot"><span class="annottext">SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool
+</span><span id="line-217"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383031"><span id="local-6989586621679383033"><span class="annot"><span class="annottext">SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool
 (SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool)
 -&gt; (SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool)
 -&gt; Eq SetPermissionResponse
@@ -462,7 +462,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool
 == :: SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool
 $c== :: SetPermissionResponse -&gt; SetPermissionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382618"><span id="local-6989586621679382620"><span id="local-6989586621679382622"><span id="local-6989586621679382624"><span class="annot"><span class="annottext">ReadPrec [SetPermissionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383023"><span id="local-6989586621679383025"><span id="local-6989586621679383027"><span id="local-6989586621679383029"><span class="annot"><span class="annottext">ReadPrec [SetPermissionResponse]
 ReadPrec SetPermissionResponse
 Int -&gt; ReadS SetPermissionResponse
 ReadS [SetPermissionResponse]
@@ -482,7 +482,7 @@ readList :: ReadS [SetPermissionResponse]
 $creadList :: ReadS [SetPermissionResponse]
 readsPrec :: Int -&gt; ReadS SetPermissionResponse
 $creadsPrec :: Int -&gt; ReadS SetPermissionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382612"><span id="local-6989586621679382614"><span id="local-6989586621679382616"><span class="annot"><span class="annottext">Int -&gt; SetPermissionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383017"><span id="local-6989586621679383019"><span id="local-6989586621679383021"><span class="annot"><span class="annottext">Int -&gt; SetPermissionResponse -&gt; ShowS
 [SetPermissionResponse] -&gt; ShowS
 SetPermissionResponse -&gt; String
 (Int -&gt; SetPermissionResponse -&gt; ShowS)
@@ -518,5 +518,5 @@ $cfrom :: forall x. SetPermissionResponse -&gt; Rep SetPermissionResponse x
 </span><a href="Network.AWS.OpsWorks.SetPermission.html#newSetPermissionResponse"><span class="hs-identifier hs-var hs-var">newSetPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SetPermissionResponse
 </span><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermissionResponse%27"><span class="hs-identifier hs-var">SetPermissionResponse'</span></a></span><span>
 </span><span id="line-226"></span><span>
-</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382608"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermissionResponse"><span class="hs-identifier hs-type">SetPermissionResponse</span></a></span></span><span>
+</span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383013"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.SetPermission.html#SetPermissionResponse"><span class="hs-identifier hs-type">SetPermissionResponse</span></a></span></span><span>
 </span><span id="line-228"></span></pre></body></html>

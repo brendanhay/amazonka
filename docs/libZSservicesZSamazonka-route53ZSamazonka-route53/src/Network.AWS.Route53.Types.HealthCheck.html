@@ -31,16 +31,16 @@
 </span><span id="line-31"></span><span class="hs-comment">-- associated with the current Amazon Web Services account.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newHealthCheck' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679297719"><span id="local-6989586621679297720"></span></span><span class="hs-keyword">data</span><span> </span><span id="HealthCheck"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-var">HealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheck%27"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-var">HealthCheck'</span></a></span></span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex type that contains information about the CloudWatch alarm that</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Amazon Route 53 is monitoring for this health check.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcloudWatchAlarmConfiguration%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Maybe CloudWatchAlarmConfiguration
-</span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AcloudWatchAlarmConfiguration%3AHealthCheck%27"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.CloudWatchAlarmConfiguration.html#CloudWatchAlarmConfiguration"><span class="hs-identifier hs-type">CloudWatchAlarmConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | If the health check was created by another service, the service that</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- created the health check. When a health check is created by another</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- service, you can\'t edit or delete it using Amazon Route 53.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlinkedService%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Maybe LinkedService
+</span><span id="line-34"></span><span id="local-6989586621679297871"><span id="local-6989586621679297872"></span></span><span class="hs-keyword">data</span><span> </span><span id="HealthCheck"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-var">HealthCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheck%27"><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-var">HealthCheck'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the health check was created by another service, the service that</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- created the health check. When a health check is created by another</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- service, you can\'t edit or delete it using Amazon Route 53.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlinkedService%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Maybe LinkedService
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AlinkedService%3AHealthCheck%27"><span class="hs-identifier hs-var hs-var">linkedService</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A complex type that contains information about the CloudWatch alarm that</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Amazon Route 53 is monitoring for this health check.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcloudWatchAlarmConfiguration%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Maybe CloudWatchAlarmConfiguration
+</span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AcloudWatchAlarmConfiguration%3AHealthCheck%27"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.CloudWatchAlarmConfiguration.html#CloudWatchAlarmConfiguration"><span class="hs-identifier hs-type">CloudWatchAlarmConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The identifier that Amazon Route 53 assigned to the health check when</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">-- you created it. When you add or update a resource record set, you use</span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-comment">-- this value to specify which health check to use. The value can be up to</span><span>
@@ -60,7 +60,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AhealthCheckVersion%3AHealthCheck%27"><span class="annot"><span class="annottext">HealthCheck -&gt; Natural
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AhealthCheckVersion%3AHealthCheck%27"><span class="hs-identifier hs-var hs-var">healthCheckVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297708"><span id="local-6989586621679297710"><span class="annot"><span class="annottext">HealthCheck -&gt; HealthCheck -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297860"><span id="local-6989586621679297862"><span class="annot"><span class="annottext">HealthCheck -&gt; HealthCheck -&gt; Bool
 (HealthCheck -&gt; HealthCheck -&gt; Bool)
 -&gt; (HealthCheck -&gt; HealthCheck -&gt; Bool) -&gt; Eq HealthCheck
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HealthCheck -&gt; HealthCheck -&gt; Bool
 == :: HealthCheck -&gt; HealthCheck -&gt; Bool
 $c== :: HealthCheck -&gt; HealthCheck -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297699"><span id="local-6989586621679297701"><span id="local-6989586621679297703"><span id="local-6989586621679297705"><span class="annot"><span class="annottext">ReadPrec [HealthCheck]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297851"><span id="local-6989586621679297853"><span id="local-6989586621679297855"><span id="local-6989586621679297857"><span class="annot"><span class="annottext">ReadPrec [HealthCheck]
 ReadPrec HealthCheck
 Int -&gt; ReadS HealthCheck
 ReadS [HealthCheck]
@@ -88,7 +88,7 @@ readList :: ReadS [HealthCheck]
 $creadList :: ReadS [HealthCheck]
 readsPrec :: Int -&gt; ReadS HealthCheck
 $creadsPrec :: Int -&gt; ReadS HealthCheck
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297692"><span id="local-6989586621679297694"><span id="local-6989586621679297696"><span class="annot"><span class="annottext">Int -&gt; HealthCheck -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297844"><span id="local-6989586621679297846"><span id="local-6989586621679297848"><span class="annot"><span class="annottext">Int -&gt; HealthCheck -&gt; ShowS
 [HealthCheck] -&gt; ShowS
 HealthCheck -&gt; String
 (Int -&gt; HealthCheck -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. HealthCheck -&gt; Rep HealthCheck x
 </span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'cloudWatchAlarmConfiguration', 'healthCheck_cloudWatchAlarmConfiguration' - A complex type that contains information about the CloudWatch alarm that</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- Amazon Route 53 is monitoring for this health check.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'linkedService', 'healthCheck_linkedService' - If the health check was created by another service, the service that</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- created the health check. When a health check is created by another</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- service, you can\'t edit or delete it using Amazon Route 53.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'linkedService', 'healthCheck_linkedService' - If the health check was created by another service, the service that</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- created the health check. When a health check is created by another</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- service, you can\'t edit or delete it using Amazon Route 53.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'cloudWatchAlarmConfiguration', 'healthCheck_cloudWatchAlarmConfiguration' - A complex type that contains information about the CloudWatch alarm that</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Amazon Route 53 is monitoring for this health check.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- 'id', 'healthCheck_id' - The identifier that Amazon Route 53 assigned to the health check when</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- you created it. When you add or update a resource record set, you use</span><span>
@@ -154,49 +154,70 @@ $cfrom :: forall x. HealthCheck -&gt; Rep HealthCheck x
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span>
 </span><span id="line-97"></span><span id="newHealthCheck"><span class="annot"><span class="annottext">newHealthCheck :: Text -&gt; Text -&gt; HealthCheckConfig -&gt; Natural -&gt; HealthCheck
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#newHealthCheck"><span class="hs-identifier hs-var hs-var">newHealthCheck</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679297686"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297686"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679297685"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297685"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679297684"><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679297684"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679297683"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679297683"><span class="hs-identifier hs-var">pHealthCheckVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">HealthCheck' :: Maybe CloudWatchAlarmConfiguration
--&gt; Maybe LinkedService
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679297838"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297838"><span class="hs-identifier hs-var">pId_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679297837"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297837"><span class="hs-identifier hs-var">pCallerReference_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679297836"><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679297836"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679297835"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679297835"><span class="hs-identifier hs-var">pHealthCheckVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">HealthCheck' :: Maybe LinkedService
+-&gt; Maybe CloudWatchAlarmConfiguration
 -&gt; Text
 -&gt; Text
 -&gt; HealthCheckConfig
 -&gt; Natural
 -&gt; HealthCheck
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span>
-</span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cloudWatchAlarmConfiguration:HealthCheck' :: Maybe CloudWatchAlarmConfiguration
-</span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AcloudWatchAlarmConfiguration%3AHealthCheck%27"><span class="hs-identifier hs-var">cloudWatchAlarmConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:linkedService:HealthCheck' :: Maybe LinkedService
+</span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:linkedService:HealthCheck' :: Maybe LinkedService
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AlinkedService%3AHealthCheck%27"><span class="hs-identifier hs-var">linkedService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LinkedService
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:HealthCheck' :: Text
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:cloudWatchAlarmConfiguration:HealthCheck' :: Maybe CloudWatchAlarmConfiguration
+</span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AcloudWatchAlarmConfiguration%3AHealthCheck%27"><span class="hs-identifier hs-var">cloudWatchAlarmConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:id:HealthCheck' :: Text
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3Aid%3AHealthCheck%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297686"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:callerReference:HealthCheck' :: Text
+</span><a href="#local-6989586621679297838"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:callerReference:HealthCheck' :: Text
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AcallerReference%3AHealthCheck%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297685"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:healthCheckConfig:HealthCheck' :: HealthCheckConfig
+</span><a href="#local-6989586621679297837"><span class="hs-identifier hs-var">pCallerReference_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:healthCheckConfig:HealthCheck' :: HealthCheckConfig
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AhealthCheckConfig%3AHealthCheck%27"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679297684"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:healthCheckVersion:HealthCheck' :: Natural
+</span><a href="#local-6989586621679297836"><span class="hs-identifier hs-var">pHealthCheckConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:healthCheckVersion:HealthCheck' :: Natural
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AhealthCheckVersion%3AHealthCheck%27"><span class="hs-identifier hs-var">healthCheckVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679297683"><span class="hs-identifier hs-var">pHealthCheckVersion_</span></a></span><span>
-</span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | A complex type that contains information about the CloudWatch alarm that</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- Amazon Route 53 is monitoring for this health check.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_cloudWatchAlarmConfiguration"><span class="hs-identifier hs-type">healthCheck_cloudWatchAlarmConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.CloudWatchAlarmConfiguration.html#CloudWatchAlarmConfiguration"><span class="hs-identifier hs-type">CloudWatchAlarmConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="healthCheck_cloudWatchAlarmConfiguration"><span class="annot"><span class="annottext">healthCheck_cloudWatchAlarmConfiguration :: (Maybe CloudWatchAlarmConfiguration
+</span><a href="#local-6989586621679297835"><span class="hs-identifier hs-var">pHealthCheckVersion_</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | If the health check was created by another service, the service that</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- created the health check. When a health check is created by another</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- service, you can\'t edit or delete it using Amazon Route 53.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_linkedService"><span class="hs-identifier hs-type">healthCheck_linkedService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="healthCheck_linkedService"><span class="annot"><span class="annottext">healthCheck_linkedService :: (Maybe LinkedService -&gt; f (Maybe LinkedService))
+-&gt; HealthCheck -&gt; f HealthCheck
+</span><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_linkedService"><span class="hs-identifier hs-var hs-var">healthCheck_linkedService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheck -&gt; Maybe LinkedService)
+-&gt; (HealthCheck -&gt; Maybe LinkedService -&gt; HealthCheck)
+-&gt; Lens
+     HealthCheck HealthCheck (Maybe LinkedService) (Maybe LinkedService)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297831"><span class="annot"><span class="annottext">Maybe LinkedService
+linkedService :: Maybe LinkedService
+$sel:linkedService:HealthCheck' :: HealthCheck -&gt; Maybe LinkedService
+</span><a href="#local-6989586621679297831"><span class="hs-identifier hs-var hs-var">linkedService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LinkedService
+</span><a href="#local-6989586621679297831"><span class="hs-identifier hs-var">linkedService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297830"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679297830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297829"><span class="annot"><span class="annottext">Maybe LinkedService
+</span><a href="#local-6989586621679297829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679297830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkedService:HealthCheck' :: Maybe LinkedService
+</span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AlinkedService%3AHealthCheck%27"><span class="hs-identifier hs-var">linkedService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LinkedService
+</span><a href="#local-6989586621679297829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | A complex type that contains information about the CloudWatch alarm that</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Amazon Route 53 is monitoring for this health check.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_cloudWatchAlarmConfiguration"><span class="hs-identifier hs-type">healthCheck_cloudWatchAlarmConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.CloudWatchAlarmConfiguration.html#CloudWatchAlarmConfiguration"><span class="hs-identifier hs-type">CloudWatchAlarmConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="healthCheck_cloudWatchAlarmConfiguration"><span class="annot"><span class="annottext">healthCheck_cloudWatchAlarmConfiguration :: (Maybe CloudWatchAlarmConfiguration
  -&gt; f (Maybe CloudWatchAlarmConfiguration))
 -&gt; HealthCheck -&gt; f HealthCheck
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_cloudWatchAlarmConfiguration"><span class="hs-identifier hs-var hs-var">healthCheck_cloudWatchAlarmConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheck -&gt; Maybe CloudWatchAlarmConfiguration)
@@ -208,164 +229,142 @@ forall a. Maybe a
      (Maybe CloudWatchAlarmConfiguration)
      (Maybe CloudWatchAlarmConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297679"><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297827"><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
 cloudWatchAlarmConfiguration :: Maybe CloudWatchAlarmConfiguration
 $sel:cloudWatchAlarmConfiguration:HealthCheck' :: HealthCheck -&gt; Maybe CloudWatchAlarmConfiguration
-</span><a href="#local-6989586621679297679"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
-</span><a href="#local-6989586621679297679"><span class="hs-identifier hs-var">cloudWatchAlarmConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297678"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679297678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297677"><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
-</span><a href="#local-6989586621679297677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679297678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchAlarmConfiguration:HealthCheck' :: Maybe CloudWatchAlarmConfiguration
+</span><a href="#local-6989586621679297827"><span class="hs-identifier hs-var hs-var">cloudWatchAlarmConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
+</span><a href="#local-6989586621679297827"><span class="hs-identifier hs-var">cloudWatchAlarmConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297826"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679297826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297825"><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
+</span><a href="#local-6989586621679297825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679297826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchAlarmConfiguration:HealthCheck' :: Maybe CloudWatchAlarmConfiguration
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AcloudWatchAlarmConfiguration%3AHealthCheck%27"><span class="hs-identifier hs-var">cloudWatchAlarmConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
-</span><a href="#local-6989586621679297677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | If the health check was created by another service, the service that</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- created the health check. When a health check is created by another</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- service, you can\'t edit or delete it using Amazon Route 53.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_linkedService"><span class="hs-identifier hs-type">healthCheck_linkedService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.LinkedService.html#LinkedService"><span class="hs-identifier hs-type">LinkedService</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="healthCheck_linkedService"><span class="annot"><span class="annottext">healthCheck_linkedService :: (Maybe LinkedService -&gt; f (Maybe LinkedService))
--&gt; HealthCheck -&gt; f HealthCheck
-</span><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_linkedService"><span class="hs-identifier hs-var hs-var">healthCheck_linkedService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheck -&gt; Maybe LinkedService)
--&gt; (HealthCheck -&gt; Maybe LinkedService -&gt; HealthCheck)
--&gt; Lens
-     HealthCheck HealthCheck (Maybe LinkedService) (Maybe LinkedService)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297675"><span class="annot"><span class="annottext">Maybe LinkedService
-linkedService :: Maybe LinkedService
-$sel:linkedService:HealthCheck' :: HealthCheck -&gt; Maybe LinkedService
-</span><a href="#local-6989586621679297675"><span class="hs-identifier hs-var hs-var">linkedService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LinkedService
-</span><a href="#local-6989586621679297675"><span class="hs-identifier hs-var">linkedService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297674"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679297674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297673"><span class="annot"><span class="annottext">Maybe LinkedService
-</span><a href="#local-6989586621679297673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679297674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkedService:HealthCheck' :: Maybe LinkedService
-</span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AlinkedService%3AHealthCheck%27"><span class="hs-identifier hs-var">linkedService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LinkedService
-</span><a href="#local-6989586621679297673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The identifier that Amazon Route 53 assigned to the health check when</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- you created it. When you add or update a resource record set, you use</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- this value to specify which health check to use. The value can be up to</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- 64 characters long.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_id"><span class="hs-identifier hs-type">healthCheck_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-128"></span><span id="healthCheck_id"><span class="annot"><span class="annottext">healthCheck_id :: (Text -&gt; f Text) -&gt; HealthCheck -&gt; f HealthCheck
+</span><a href="#local-6989586621679297825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The identifier that Amazon Route 53 assigned to the health check when</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- you created it. When you add or update a resource record set, you use</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- this value to specify which health check to use. The value can be up to</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 64 characters long.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_id"><span class="hs-identifier hs-type">healthCheck_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="healthCheck_id"><span class="annot"><span class="annottext">healthCheck_id :: (Text -&gt; f Text) -&gt; HealthCheck -&gt; f HealthCheck
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_id"><span class="hs-identifier hs-var hs-var">healthCheck_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheck -&gt; Text)
 -&gt; (HealthCheck -&gt; Text -&gt; HealthCheck)
 -&gt; Lens HealthCheck HealthCheck Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297671"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297823"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:HealthCheck' :: HealthCheck -&gt; Text
-</span><a href="#local-6989586621679297671"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297671"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297670"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679297670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297669"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679297670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:HealthCheck' :: Text
+</span><a href="#local-6989586621679297823"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297823"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297822"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679297822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297821"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679297822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:HealthCheck' :: Text
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3Aid%3AHealthCheck%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | A unique string that you specified when you created the health check.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_callerReference"><span class="hs-identifier hs-type">healthCheck_callerReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-132"></span><span id="healthCheck_callerReference"><span class="annot"><span class="annottext">healthCheck_callerReference :: (Text -&gt; f Text) -&gt; HealthCheck -&gt; f HealthCheck
+</span><a href="#local-6989586621679297821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | A unique string that you specified when you created the health check.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_callerReference"><span class="hs-identifier hs-type">healthCheck_callerReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="healthCheck_callerReference"><span class="annot"><span class="annottext">healthCheck_callerReference :: (Text -&gt; f Text) -&gt; HealthCheck -&gt; f HealthCheck
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_callerReference"><span class="hs-identifier hs-var hs-var">healthCheck_callerReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheck -&gt; Text)
 -&gt; (HealthCheck -&gt; Text -&gt; HealthCheck)
 -&gt; Lens HealthCheck HealthCheck Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297667"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297819"><span class="annot"><span class="annottext">Text
 callerReference :: Text
 $sel:callerReference:HealthCheck' :: HealthCheck -&gt; Text
-</span><a href="#local-6989586621679297667"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297667"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297666"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679297666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297665"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679297666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:HealthCheck' :: Text
+</span><a href="#local-6989586621679297819"><span class="hs-identifier hs-var hs-var">callerReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297819"><span class="hs-identifier hs-var">callerReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297818"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679297818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297817"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679297818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callerReference:HealthCheck' :: Text
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AcallerReference%3AHealthCheck%27"><span class="hs-identifier hs-var">callerReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | A complex type that contains detailed information about one health</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- check.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_healthCheckConfig"><span class="hs-identifier hs-type">healthCheck_healthCheckConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span>
-</span><span id="line-137"></span><span id="healthCheck_healthCheckConfig"><span class="annot"><span class="annottext">healthCheck_healthCheckConfig :: (HealthCheckConfig -&gt; f HealthCheckConfig)
+</span><a href="#local-6989586621679297817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | A complex type that contains detailed information about one health</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- check.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_healthCheckConfig"><span class="hs-identifier hs-type">healthCheck_healthCheckConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheckConfig.html#HealthCheckConfig"><span class="hs-identifier hs-type">HealthCheckConfig</span></a></span><span>
+</span><span id="line-136"></span><span id="healthCheck_healthCheckConfig"><span class="annot"><span class="annottext">healthCheck_healthCheckConfig :: (HealthCheckConfig -&gt; f HealthCheckConfig)
 -&gt; HealthCheck -&gt; f HealthCheck
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_healthCheckConfig"><span class="hs-identifier hs-var hs-var">healthCheck_healthCheckConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheck -&gt; HealthCheckConfig)
 -&gt; (HealthCheck -&gt; HealthCheckConfig -&gt; HealthCheck)
 -&gt; Lens HealthCheck HealthCheck HealthCheckConfig HealthCheckConfig
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297663"><span class="annot"><span class="annottext">HealthCheckConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297815"><span class="annot"><span class="annottext">HealthCheckConfig
 healthCheckConfig :: HealthCheckConfig
 $sel:healthCheckConfig:HealthCheck' :: HealthCheck -&gt; HealthCheckConfig
-</span><a href="#local-6989586621679297663"><span class="hs-identifier hs-var hs-var">healthCheckConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679297663"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297662"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679297662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297661"><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679297661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679297662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckConfig:HealthCheck' :: HealthCheckConfig
+</span><a href="#local-6989586621679297815"><span class="hs-identifier hs-var hs-var">healthCheckConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679297815"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297814"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679297814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297813"><span class="annot"><span class="annottext">HealthCheckConfig
+</span><a href="#local-6989586621679297813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679297814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckConfig:HealthCheck' :: HealthCheckConfig
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AhealthCheckConfig%3AHealthCheck%27"><span class="hs-identifier hs-var">healthCheckConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HealthCheckConfig
-</span><a href="#local-6989586621679297661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | The version of the health check. You can optionally pass this value in a</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- call to @UpdateHealthCheck@ to prevent overwriting another change to the</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- health check.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_healthCheckVersion"><span class="hs-identifier hs-type">healthCheck_healthCheckVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
-</span><span id="line-143"></span><span id="healthCheck_healthCheckVersion"><span class="annot"><span class="annottext">healthCheck_healthCheckVersion :: (Natural -&gt; f Natural) -&gt; HealthCheck -&gt; f HealthCheck
+</span><a href="#local-6989586621679297813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The version of the health check. You can optionally pass this value in a</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- call to @UpdateHealthCheck@ to prevent overwriting another change to the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- health check.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_healthCheckVersion"><span class="hs-identifier hs-type">healthCheck_healthCheckVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-142"></span><span id="healthCheck_healthCheckVersion"><span class="annot"><span class="annottext">healthCheck_healthCheckVersion :: (Natural -&gt; f Natural) -&gt; HealthCheck -&gt; f HealthCheck
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#healthCheck_healthCheckVersion"><span class="hs-identifier hs-var hs-var">healthCheck_healthCheckVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HealthCheck -&gt; Natural)
 -&gt; (HealthCheck -&gt; Natural -&gt; HealthCheck)
 -&gt; Lens HealthCheck HealthCheck Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297659"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297811"><span class="annot"><span class="annottext">Natural
 healthCheckVersion :: Natural
 $sel:healthCheckVersion:HealthCheck' :: HealthCheck -&gt; Natural
-</span><a href="#local-6989586621679297659"><span class="hs-identifier hs-var hs-var">healthCheckVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679297659"><span class="hs-identifier hs-var">healthCheckVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297658"><span class="annot"><span class="annottext">s :: HealthCheck
-</span><a href="#local-6989586621679297658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297657"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679297657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
-</span><a href="#local-6989586621679297658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckVersion:HealthCheck' :: Natural
+</span><a href="#local-6989586621679297811"><span class="hs-identifier hs-var hs-var">healthCheckVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679297811"><span class="hs-identifier hs-var">healthCheckVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297810"><span class="annot"><span class="annottext">s :: HealthCheck
+</span><a href="#local-6989586621679297810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-type">HealthCheck'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297809"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679297809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HealthCheck
+</span><a href="#local-6989586621679297810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckVersion:HealthCheck' :: Natural
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#%24sel%3AhealthCheckVersion%3AHealthCheck%27"><span class="hs-identifier hs-var">healthCheckVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679297657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679297654"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HealthCheck
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679297652"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297652"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">Maybe CloudWatchAlarmConfiguration
--&gt; Maybe LinkedService
+</span><a href="#local-6989586621679297809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679297806"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String HealthCheck
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679297804"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679297804"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">Maybe LinkedService
+-&gt; Maybe CloudWatchAlarmConfiguration
 -&gt; Text
 -&gt; Text
 -&gt; HealthCheckConfig
 -&gt; Natural
 -&gt; HealthCheck
 </span><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck%27"><span class="hs-identifier hs-var">HealthCheck'</span></a></span><span>
-</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">(Maybe CloudWatchAlarmConfiguration
- -&gt; Maybe LinkedService
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">(Maybe LinkedService
+ -&gt; Maybe CloudWatchAlarmConfiguration
  -&gt; Text
  -&gt; Text
  -&gt; HealthCheckConfig
  -&gt; Natural
  -&gt; HealthCheck)
--&gt; Either String (Maybe CloudWatchAlarmConfiguration)
+-&gt; Either String (Maybe LinkedService)
 -&gt; Either
      String
-     (Maybe LinkedService
+     (Maybe CloudWatchAlarmConfiguration
       -&gt; Text -&gt; Text -&gt; HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
--&gt; Text -&gt; Either String (Maybe CloudWatchAlarmConfiguration)
+</span><a href="#local-6989586621679297804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LinkedService)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CloudWatchAlarmConfiguration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;LinkedService&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe LinkedService
+  (Maybe CloudWatchAlarmConfiguration
    -&gt; Text -&gt; Text -&gt; HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
--&gt; Either String (Maybe LinkedService)
+-&gt; Either String (Maybe CloudWatchAlarmConfiguration)
 -&gt; Either
      String
      (Text -&gt; Text -&gt; HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe LinkedService)
+</span><a href="#local-6989586621679297804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe CloudWatchAlarmConfiguration)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LinkedService&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span class="hs-string">&quot;CloudWatchAlarmConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Text -&gt; Text -&gt; HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
 -&gt; Either String Text
@@ -373,38 +372,38 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Text -&gt; HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679297804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
 -&gt; Either String Text
 -&gt; Either String (HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679297804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CallerReference&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Either String (HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">Either String (HealthCheckConfig -&gt; Natural -&gt; HealthCheck)
 -&gt; Either String HealthCheckConfig
 -&gt; Either String (Natural -&gt; HealthCheck)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HealthCheckConfig
+</span><a href="#local-6989586621679297804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String HealthCheckConfig
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HealthCheckConfig&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">Either String (Natural -&gt; HealthCheck)
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">Either String (Natural -&gt; HealthCheck)
 -&gt; Either String Natural -&gt; Either String HealthCheck
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679297652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
+</span><a href="#local-6989586621679297804"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HealthCheckVersion&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297645"><span id="local-6989586621679297647"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span></span><span>
-</span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297642"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span><span>
-</span><span id="line-158"></span></pre></body></html>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297797"><span id="local-6989586621679297799"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297794"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.HealthCheck.html#HealthCheck"><span class="hs-identifier hs-type">HealthCheck</span></a></span></span><span>
+</span><span id="line-157"></span></pre></body></html>

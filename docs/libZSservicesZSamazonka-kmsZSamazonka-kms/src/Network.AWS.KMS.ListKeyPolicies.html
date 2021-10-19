@@ -45,8 +45,8 @@
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#newListKeyPolicies"><span class="hs-identifier">newListKeyPolicies</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPolicies_limit"><span class="hs-identifier">listKeyPolicies_limit</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPolicies_marker"><span class="hs-identifier">listKeyPolicies_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPolicies_marker"><span class="hs-identifier">listKeyPolicies_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPolicies_limit"><span class="hs-identifier">listKeyPolicies_limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPolicies_keyId"><span class="hs-identifier">listKeyPolicies_keyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -54,9 +54,9 @@
 </span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#newListKeyPoliciesResponse"><span class="hs-identifier">newListKeyPoliciesResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_nextMarker"><span class="hs-identifier">listKeyPoliciesResponse_nextMarker</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_policyNames"><span class="hs-identifier">listKeyPoliciesResponse_policyNames</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_truncated"><span class="hs-identifier">listKeyPoliciesResponse_truncated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_policyNames"><span class="hs-identifier">listKeyPoliciesResponse_policyNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_truncated"><span class="hs-identifier">listKeyPoliciesResponse_truncated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_nextMarker"><span class="hs-identifier">listKeyPoliciesResponse_nextMarker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_httpStatus"><span class="hs-identifier">listKeyPoliciesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span class="hs-keyword">where</span><span>
@@ -69,22 +69,22 @@
 </span><span id="line-69"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | /See:/ 'newListKeyPolicies' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621679253710"><span id="local-6989586621679253711"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListKeyPolicies"><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-var">ListKeyPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListKeyPolicies%27"><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-var">ListKeyPolicies'</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this parameter to specify the maximum number of items to return.</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- When this value is present, KMS does not return more than the specified</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- number of items, but it might return fewer.</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- This value is optional. If you include a value, it must be between 1 and</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- 1000, inclusive. If you do not include a value, it defaults to 100.</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Only one policy can be attached to a key.</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3Alimit%3AListKeyPolicies%27"><span class="annot"><span class="annottext">ListKeyPolicies -&gt; Maybe Natural
-</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3Alimit%3AListKeyPolicies%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Use this parameter in a subsequent request after you receive a response</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- with truncated results. Set it to the value of @NextMarker@ from the</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- truncated response you just received.</span><span>
-</span><span id="line-85"></span><span>    </span><span id="%24sel%3Amarker%3AListKeyPolicies%27"><span class="annot"><span class="annottext">ListKeyPolicies -&gt; Maybe Text
+</span><span id="line-72"></span><span id="local-6989586621679253923"><span id="local-6989586621679253924"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListKeyPolicies"><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-var">ListKeyPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListKeyPolicies%27"><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-var">ListKeyPolicies'</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this parameter in a subsequent request after you receive a response</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- with truncated results. Set it to the value of @NextMarker@ from the</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- truncated response you just received.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Amarker%3AListKeyPolicies%27"><span class="annot"><span class="annottext">ListKeyPolicies -&gt; Maybe Text
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3Amarker%3AListKeyPolicies%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Use this parameter to specify the maximum number of items to return.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- When this value is present, KMS does not return more than the specified</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- number of items, but it might return fewer.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- This value is optional. If you include a value, it must be between 1 and</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- 1000, inclusive. If you do not include a value, it defaults to 100.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Only one policy can be attached to a key.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3Alimit%3AListKeyPolicies%27"><span class="annot"><span class="annottext">ListKeyPolicies -&gt; Maybe Natural
+</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3Alimit%3AListKeyPolicies%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | Gets the names of key policies for the specified KMS key.</span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-comment">-- Specify the key ID or key ARN of the KMS key.</span><span>
@@ -101,7 +101,7 @@
 </span><span id="line-99"></span><span>    </span><span id="%24sel%3AkeyId%3AListKeyPolicies%27"><span class="annot"><span class="annottext">ListKeyPolicies -&gt; Text
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3AkeyId%3AListKeyPolicies%27"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253702"><span id="local-6989586621679253704"><span class="annot"><span class="annottext">ListKeyPolicies -&gt; ListKeyPolicies -&gt; Bool
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253915"><span id="local-6989586621679253917"><span class="annot"><span class="annottext">ListKeyPolicies -&gt; ListKeyPolicies -&gt; Bool
 (ListKeyPolicies -&gt; ListKeyPolicies -&gt; Bool)
 -&gt; (ListKeyPolicies -&gt; ListKeyPolicies -&gt; Bool)
 -&gt; Eq ListKeyPolicies
@@ -110,7 +110,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListKeyPolicies -&gt; ListKeyPolicies -&gt; Bool
 == :: ListKeyPolicies -&gt; ListKeyPolicies -&gt; Bool
 $c== :: ListKeyPolicies -&gt; ListKeyPolicies -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253693"><span id="local-6989586621679253695"><span id="local-6989586621679253697"><span id="local-6989586621679253699"><span class="annot"><span class="annottext">ReadPrec [ListKeyPolicies]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253906"><span id="local-6989586621679253908"><span id="local-6989586621679253910"><span id="local-6989586621679253912"><span class="annot"><span class="annottext">ReadPrec [ListKeyPolicies]
 ReadPrec ListKeyPolicies
 Int -&gt; ReadS ListKeyPolicies
 ReadS [ListKeyPolicies]
@@ -130,7 +130,7 @@ readList :: ReadS [ListKeyPolicies]
 $creadList :: ReadS [ListKeyPolicies]
 readsPrec :: Int -&gt; ReadS ListKeyPolicies
 $creadsPrec :: Int -&gt; ReadS ListKeyPolicies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253686"><span id="local-6989586621679253688"><span id="local-6989586621679253690"><span class="annot"><span class="annottext">Int -&gt; ListKeyPolicies -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253899"><span id="local-6989586621679253901"><span id="local-6989586621679253903"><span class="annot"><span class="annottext">Int -&gt; ListKeyPolicies -&gt; ShowS
 [ListKeyPolicies] -&gt; ShowS
 ListKeyPolicies -&gt; String
 (Int -&gt; ListKeyPolicies -&gt; ShowS)
@@ -164,18 +164,18 @@ $cfrom :: forall x. ListKeyPolicies -&gt; Rep ListKeyPolicies x
 </span><span id="line-108"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'limit', 'listKeyPolicies_limit' - Use this parameter to specify the maximum number of items to return.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- When this value is present, KMS does not return more than the specified</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- number of items, but it might return fewer.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'marker', 'listKeyPolicies_marker' - Use this parameter in a subsequent request after you receive a response</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- with truncated results. Set it to the value of @NextMarker@ from the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- truncated response you just received.</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- This value is optional. If you include a value, it must be between 1 and</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- 1000, inclusive. If you do not include a value, it defaults to 100.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- Only one policy can be attached to a key.</span><span>
-</span><span id="line-119"></span><span class="hs-comment">--</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- 'marker', 'listKeyPolicies_marker' - Use this parameter in a subsequent request after you receive a response</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- with truncated results. Set it to the value of @NextMarker@ from the</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- truncated response you just received.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'limit', 'listKeyPolicies_limit' - Use this parameter to specify the maximum number of items to return.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- When this value is present, KMS does not return more than the specified</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- number of items, but it might return fewer.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- This value is optional. If you include a value, it must be between 1 and</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 1000, inclusive. If you do not include a value, it defaults to 100.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Only one policy can be attached to a key.</span><span>
 </span><span id="line-123"></span><span class="hs-comment">--</span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- 'keyId', 'listKeyPolicies_keyId' - Gets the names of key policies for the specified KMS key.</span><span>
 </span><span id="line-125"></span><span class="hs-comment">--</span><span>
@@ -195,70 +195,70 @@ $cfrom :: forall x. ListKeyPolicies -&gt; Rep ListKeyPolicies x
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span>
 </span><span id="line-141"></span><span id="newListKeyPolicies"><span class="annot"><span class="annottext">newListKeyPolicies :: Text -&gt; ListKeyPolicies
-</span><a href="Network.AWS.KMS.ListKeyPolicies.html#newListKeyPolicies"><span class="hs-identifier hs-var hs-var">newListKeyPolicies</span></a></span></span><span> </span><span id="local-6989586621679253681"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253681"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">ListKeyPolicies' :: Maybe Natural -&gt; Maybe Text -&gt; Text -&gt; ListKeyPolicies
+</span><a href="Network.AWS.KMS.ListKeyPolicies.html#newListKeyPolicies"><span class="hs-identifier hs-var hs-var">newListKeyPolicies</span></a></span></span><span> </span><span id="local-6989586621679253894"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253894"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">ListKeyPolicies' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListKeyPolicies
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span>
-</span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:limit:ListKeyPolicies' :: Maybe Natural
-</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3Alimit%3AListKeyPolicies%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListKeyPolicies' :: Maybe Text
+</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3Amarker%3AListKeyPolicies%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:ListKeyPolicies' :: Maybe Text
-</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3Amarker%3AListKeyPolicies%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:ListKeyPolicies' :: Maybe Natural
+</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3Alimit%3AListKeyPolicies%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:keyId:ListKeyPolicies' :: Text
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3AkeyId%3AListKeyPolicies%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253681"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span>
+</span><a href="#local-6989586621679253894"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | Use this parameter to specify the maximum number of items to return.</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- When this value is present, KMS does not return more than the specified</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- number of items, but it might return fewer.</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- This value is optional. If you include a value, it must be between 1 and</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- 1000, inclusive. If you do not include a value, it defaults to 100.</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- Only one policy can be attached to a key.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPolicies_limit"><span class="hs-identifier hs-type">listKeyPolicies_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="listKeyPolicies_limit"><span class="annot"><span class="annottext">listKeyPolicies_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-148"></span><span class="hs-comment">-- | Use this parameter in a subsequent request after you receive a response</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- with truncated results. Set it to the value of @NextMarker@ from the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- truncated response you just received.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPolicies_marker"><span class="hs-identifier hs-type">listKeyPolicies_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="listKeyPolicies_marker"><span class="annot"><span class="annottext">listKeyPolicies_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListKeyPolicies -&gt; f ListKeyPolicies
+</span><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPolicies_marker"><span class="hs-identifier hs-var hs-var">listKeyPolicies_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListKeyPolicies -&gt; Maybe Text)
+-&gt; (ListKeyPolicies -&gt; Maybe Text -&gt; ListKeyPolicies)
+-&gt; Lens ListKeyPolicies ListKeyPolicies (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253892"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:ListKeyPolicies' :: ListKeyPolicies -&gt; Maybe Text
+</span><a href="#local-6989586621679253892"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253892"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253891"><span class="annot"><span class="annottext">s :: ListKeyPolicies
+</span><a href="#local-6989586621679253891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253890"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPolicies
+</span><a href="#local-6989586621679253891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListKeyPolicies' :: Maybe Text
+</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3Amarker%3AListKeyPolicies%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Use this parameter to specify the maximum number of items to return.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- When this value is present, KMS does not return more than the specified</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- number of items, but it might return fewer.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- This value is optional. If you include a value, it must be between 1 and</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 1000, inclusive. If you do not include a value, it defaults to 100.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Only one policy can be attached to a key.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPolicies_limit"><span class="hs-identifier hs-type">listKeyPolicies_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="listKeyPolicies_limit"><span class="annot"><span class="annottext">listKeyPolicies_limit :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ListKeyPolicies -&gt; f ListKeyPolicies
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPolicies_limit"><span class="hs-identifier hs-var hs-var">listKeyPolicies_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListKeyPolicies -&gt; Maybe Natural)
 -&gt; (ListKeyPolicies -&gt; Maybe Natural -&gt; ListKeyPolicies)
 -&gt; Lens
      ListKeyPolicies ListKeyPolicies (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253679"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253889"><span class="annot"><span class="annottext">Maybe Natural
 limit :: Maybe Natural
 $sel:limit:ListKeyPolicies' :: ListKeyPolicies -&gt; Maybe Natural
-</span><a href="#local-6989586621679253679"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679253679"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253678"><span class="annot"><span class="annottext">s :: ListKeyPolicies
-</span><a href="#local-6989586621679253678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253677"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679253677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPolicies
-</span><a href="#local-6989586621679253678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListKeyPolicies' :: Maybe Natural
+</span><a href="#local-6989586621679253889"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679253889"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253888"><span class="annot"><span class="annottext">s :: ListKeyPolicies
+</span><a href="#local-6989586621679253888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253887"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679253887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPolicies
+</span><a href="#local-6989586621679253888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:ListKeyPolicies' :: Maybe Natural
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3Alimit%3AListKeyPolicies%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679253677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | Use this parameter in a subsequent request after you receive a response</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- with truncated results. Set it to the value of @NextMarker@ from the</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- truncated response you just received.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPolicies_marker"><span class="hs-identifier hs-type">listKeyPolicies_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span id="listKeyPolicies_marker"><span class="annot"><span class="annottext">listKeyPolicies_marker :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListKeyPolicies -&gt; f ListKeyPolicies
-</span><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPolicies_marker"><span class="hs-identifier hs-var hs-var">listKeyPolicies_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListKeyPolicies -&gt; Maybe Text)
--&gt; (ListKeyPolicies -&gt; Maybe Text -&gt; ListKeyPolicies)
--&gt; Lens ListKeyPolicies ListKeyPolicies (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253676"><span class="annot"><span class="annottext">Maybe Text
-marker :: Maybe Text
-$sel:marker:ListKeyPolicies' :: ListKeyPolicies -&gt; Maybe Text
-</span><a href="#local-6989586621679253676"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253676"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253675"><span class="annot"><span class="annottext">s :: ListKeyPolicies
-</span><a href="#local-6989586621679253675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253674"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPolicies
-</span><a href="#local-6989586621679253675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListKeyPolicies' :: Maybe Text
-</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3Amarker%3AListKeyPolicies%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | Gets the names of key policies for the specified KMS key.</span><span>
 </span><span id="line-166"></span><span class="hs-comment">--</span><span>
@@ -279,29 +279,29 @@ $sel:marker:ListKeyPolicies' :: ListKeyPolicies -&gt; Maybe Text
 -&gt; (ListKeyPolicies -&gt; Text -&gt; ListKeyPolicies)
 -&gt; Lens ListKeyPolicies ListKeyPolicies Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253673"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253886"><span class="annot"><span class="annottext">Text
 keyId :: Text
 $sel:keyId:ListKeyPolicies' :: ListKeyPolicies -&gt; Text
-</span><a href="#local-6989586621679253673"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253673"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253672"><span class="annot"><span class="annottext">s :: ListKeyPolicies
-</span><a href="#local-6989586621679253672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253671"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPolicies
-</span><a href="#local-6989586621679253672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:ListKeyPolicies' :: Text
+</span><a href="#local-6989586621679253886"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253886"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253885"><span class="annot"><span class="annottext">s :: ListKeyPolicies
+</span><a href="#local-6989586621679253885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253884"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679253884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPolicies
+</span><a href="#local-6989586621679253885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:ListKeyPolicies' :: Text
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3AkeyId%3AListKeyPolicies%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679253667"><span class="annot"><span class="annottext">page :: ListKeyPolicies
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679253880"><span class="annot"><span class="annottext">page :: ListKeyPolicies
 -&gt; AWSResponse ListKeyPolicies -&gt; Maybe ListKeyPolicies
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679253665"><span class="annot"><span class="annottext">ListKeyPolicies
-</span><a href="#local-6989586621679253665"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679253664"><span class="annot"><span class="annottext">AWSResponse ListKeyPolicies
-</span><a href="#local-6989586621679253664"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679253878"><span class="annot"><span class="annottext">ListKeyPolicies
+</span><a href="#local-6989586621679253878"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679253877"><span class="annot"><span class="annottext">AWSResponse ListKeyPolicies
+</span><a href="#local-6989586621679253877"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-183"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-184"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListKeyPolicies
 ListKeyPoliciesResponse
-</span><a href="#local-6989586621679253664"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679253877"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">ListKeyPoliciesResponse
 -&gt; Getting (First Bool) ListKeyPoliciesResponse Bool -&gt; Maybe Bool
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -330,7 +330,7 @@ forall a. Maybe a -&gt; Bool
 </span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
 </span><span id="line-190"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListKeyPolicies
 ListKeyPoliciesResponse
-</span><a href="#local-6989586621679253664"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679253877"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">ListKeyPoliciesResponse
 -&gt; Getting (First Text) ListKeyPoliciesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -363,7 +363,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">ListKeyPolicies
-</span><a href="#local-6989586621679253665"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679253878"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">ListKeyPolicies
 -&gt; (ListKeyPolicies -&gt; ListKeyPolicies) -&gt; ListKeyPolicies
 forall a b. a -&gt; (a -&gt; b) -&gt; b
@@ -377,7 +377,7 @@ Lens ListKeyPolicies ListKeyPolicies (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListKeyPolicies
 ListKeyPoliciesResponse
-</span><a href="#local-6989586621679253664"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679253877"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">ListKeyPoliciesResponse
 -&gt; Getting (First Text) ListKeyPoliciesResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -402,12 +402,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-204"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-205"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-206"></span><span>      </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679253653"><span class="annot"><span class="annottext">request :: ListKeyPolicies -&gt; Request ListKeyPolicies
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679253866"><span class="annot"><span class="annottext">request :: ListKeyPolicies -&gt; Request ListKeyPolicies
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListKeyPolicies -&gt; Request ListKeyPolicies
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679253649"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679253862"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListKeyPolicies
 -&gt; ClientResponse ClientBody
@@ -431,33 +431,21 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253646"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253646"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253645"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679253645"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253644"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253644"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [Text] -&gt; Maybe Bool -&gt; Int -&gt; ListKeyPoliciesResponse
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253859"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253859"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253858"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679253858"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253857"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253857"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe Bool -&gt; Maybe Text -&gt; Int -&gt; ListKeyPoliciesResponse
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">ListKeyPoliciesResponse'</span></a></span><span>
-</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [Text] -&gt; Maybe Bool -&gt; Int -&gt; ListKeyPoliciesResponse)
--&gt; Either String (Maybe Text)
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe Bool -&gt; Maybe Text -&gt; Int -&gt; ListKeyPoliciesResponse)
+-&gt; Either String (Maybe [Text])
 -&gt; Either
-     String
-     (Maybe [Text] -&gt; Maybe Bool -&gt; Int -&gt; ListKeyPoliciesResponse)
+     String (Maybe Bool -&gt; Maybe Text -&gt; Int -&gt; ListKeyPoliciesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [Text] -&gt; Maybe Bool -&gt; Int -&gt; ListKeyPoliciesResponse)
--&gt; Either String (Maybe [Text])
--&gt; Either String (Maybe Bool -&gt; Int -&gt; ListKeyPoliciesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679253857"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
@@ -466,15 +454,25 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Int -&gt; ListKeyPoliciesResponse)
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Bool -&gt; Maybe Text -&gt; Int -&gt; ListKeyPoliciesResponse)
 -&gt; Either String (Maybe Bool)
--&gt; Either String (Int -&gt; ListKeyPoliciesResponse)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListKeyPoliciesResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679253644"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679253857"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Truncated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListKeyPoliciesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListKeyPoliciesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253857"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextMarker&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListKeyPoliciesResponse)
 -&gt; Either String Int -&gt; Either String ListKeyPoliciesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -483,15 +481,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253646"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253859"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253635"><span id="local-6989586621679253637"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span></span></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253848"><span id="local-6989586621679253850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span></span></span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253632"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span></span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-223"></span><span>  </span><span id="local-6989586621679253628"><span class="annot"><span class="annottext">toHeaders :: ListKeyPolicies -&gt; ResponseHeaders
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679253841"><span class="annot"><span class="annottext">toHeaders :: ListKeyPolicies -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-224"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListKeyPolicies -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -518,56 +516,56 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-234"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-235"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
-</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253618"><span id="local-6989586621679253620"><span id="local-6989586621679253622"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-238"></span><span>  </span><span id="local-6989586621679253616"><span class="annot"><span class="annottext">toJSON :: ListKeyPolicies -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253612"><span id="local-6989586621679253613"><span id="local-6989586621679253614"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253831"><span id="local-6989586621679253833"><span id="local-6989586621679253835"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679253829"><span class="annot"><span class="annottext">toJSON :: ListKeyPolicies -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies%27"><span class="hs-identifier hs-type">ListKeyPolicies'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253825"><span id="local-6989586621679253826"><span id="local-6989586621679253827"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 keyId :: Text
-marker :: Maybe Text
 limit :: Maybe Natural
+marker :: Maybe Text
 $sel:keyId:ListKeyPolicies' :: ListKeyPolicies -&gt; Text
-$sel:marker:ListKeyPolicies' :: ListKeyPolicies -&gt; Maybe Text
 $sel:limit:ListKeyPolicies' :: ListKeyPolicies -&gt; Maybe Natural
-</span><a href="#local-6989586621679253612"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:marker:ListKeyPolicies' :: ListKeyPolicies -&gt; Maybe Text
+</span><a href="#local-6989586621679253825"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-240"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-241"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679253614"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-242"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253613"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679253827"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679253826"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679253612"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253825"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-246"></span><span>
 </span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-248"></span><span>  </span><span id="local-6989586621679253606"><span class="annot"><span class="annottext">toPath :: ListKeyPolicies -&gt; ByteString
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679253819"><span class="annot"><span class="annottext">toPath :: ListKeyPolicies -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListKeyPolicies -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPolicies"><span class="hs-identifier hs-type">ListKeyPolicies</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-251"></span><span>  </span><span id="local-6989586621679253602"><span class="annot"><span class="annottext">toQuery :: ListKeyPolicies -&gt; QueryString
+</span><span id="line-251"></span><span>  </span><span id="local-6989586621679253815"><span class="annot"><span class="annottext">toQuery :: ListKeyPolicies -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListKeyPolicies -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -575,25 +573,25 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | /See:/ 'newListKeyPoliciesResponse' smart constructor.</span><span>
-</span><span id="line-254"></span><span id="local-6989586621679253599"><span id="local-6989586621679253600"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListKeyPoliciesResponse"><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-var">ListKeyPoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListKeyPoliciesResponse%27"><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">ListKeyPoliciesResponse'</span></a></span></span><span>
-</span><span id="line-255"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When @Truncated@ is true, this element is present and contains the value</span><span>
-</span><span id="line-256"></span><span>    </span><span class="hs-comment">-- to use for the @Marker@ parameter in a subsequent request.</span><span>
-</span><span id="line-257"></span><span>    </span><span id="%24sel%3AnextMarker%3AListKeyPoliciesResponse%27"><span class="annot"><span class="annottext">ListKeyPoliciesResponse -&gt; Maybe Text
-</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3AnextMarker%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-258"></span><span>    </span><span class="hs-comment">-- | A list of key policy names. The only valid value is @default@.</span><span>
-</span><span id="line-259"></span><span>    </span><span id="%24sel%3ApolicyNames%3AListKeyPoliciesResponse%27"><span class="annot"><span class="annottext">ListKeyPoliciesResponse -&gt; Maybe [Text]
+</span><span id="line-254"></span><span id="local-6989586621679253812"><span id="local-6989586621679253813"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListKeyPoliciesResponse"><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-var">ListKeyPoliciesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListKeyPoliciesResponse%27"><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">ListKeyPoliciesResponse'</span></a></span></span><span>
+</span><span id="line-255"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of key policy names. The only valid value is @default@.</span><span>
+</span><span id="line-256"></span><span>    </span><span id="%24sel%3ApolicyNames%3AListKeyPoliciesResponse%27"><span class="annot"><span class="annottext">ListKeyPoliciesResponse -&gt; Maybe [Text]
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3ApolicyNames%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var hs-var">policyNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-260"></span><span>    </span><span class="hs-comment">-- | A flag that indicates whether there are more items in the list. When</span><span>
-</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- this value is true, the list in this response is truncated. To get more</span><span>
-</span><span id="line-262"></span><span>    </span><span class="hs-comment">-- items, pass the value of the @NextMarker@ element in thisresponse to the</span><span>
-</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- @Marker@ parameter in a subsequent request.</span><span>
-</span><span id="line-264"></span><span>    </span><span id="%24sel%3Atruncated%3AListKeyPoliciesResponse%27"><span class="annot"><span class="annottext">ListKeyPoliciesResponse -&gt; Maybe Bool
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">-- | A flag that indicates whether there are more items in the list. When</span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-comment">-- this value is true, the list in this response is truncated. To get more</span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-comment">-- items, pass the value of the @NextMarker@ element in thisresponse to the</span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-comment">-- @Marker@ parameter in a subsequent request.</span><span>
+</span><span id="line-261"></span><span>    </span><span id="%24sel%3Atruncated%3AListKeyPoliciesResponse%27"><span class="annot"><span class="annottext">ListKeyPoliciesResponse -&gt; Maybe Bool
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3Atruncated%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-comment">-- | When @Truncated@ is true, this element is present and contains the value</span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- to use for the @Marker@ parameter in a subsequent request.</span><span>
+</span><span id="line-264"></span><span>    </span><span id="%24sel%3AnextMarker%3AListKeyPoliciesResponse%27"><span class="annot"><span class="annottext">ListKeyPoliciesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3AnextMarker%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-266"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListKeyPoliciesResponse%27"><span class="annot"><span class="annottext">ListKeyPoliciesResponse -&gt; Int
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3AhttpStatus%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-267"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-268"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253591"><span id="local-6989586621679253593"><span class="annot"><span class="annottext">ListKeyPoliciesResponse -&gt; ListKeyPoliciesResponse -&gt; Bool
+</span><span id="line-268"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253804"><span id="local-6989586621679253806"><span class="annot"><span class="annottext">ListKeyPoliciesResponse -&gt; ListKeyPoliciesResponse -&gt; Bool
 (ListKeyPoliciesResponse -&gt; ListKeyPoliciesResponse -&gt; Bool)
 -&gt; (ListKeyPoliciesResponse -&gt; ListKeyPoliciesResponse -&gt; Bool)
 -&gt; Eq ListKeyPoliciesResponse
@@ -602,7 +600,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListKeyPoliciesResponse -&gt; ListKeyPoliciesResponse -&gt; Bool
 == :: ListKeyPoliciesResponse -&gt; ListKeyPoliciesResponse -&gt; Bool
 $c== :: ListKeyPoliciesResponse -&gt; ListKeyPoliciesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253583"><span id="local-6989586621679253585"><span id="local-6989586621679253587"><span id="local-6989586621679253589"><span class="annot"><span class="annottext">ReadPrec [ListKeyPoliciesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253796"><span id="local-6989586621679253798"><span id="local-6989586621679253800"><span id="local-6989586621679253802"><span class="annot"><span class="annottext">ReadPrec [ListKeyPoliciesResponse]
 ReadPrec ListKeyPoliciesResponse
 Int -&gt; ReadS ListKeyPoliciesResponse
 ReadS [ListKeyPoliciesResponse]
@@ -622,7 +620,7 @@ readList :: ReadS [ListKeyPoliciesResponse]
 $creadList :: ReadS [ListKeyPoliciesResponse]
 readsPrec :: Int -&gt; ReadS ListKeyPoliciesResponse
 $creadsPrec :: Int -&gt; ReadS ListKeyPoliciesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253577"><span id="local-6989586621679253579"><span id="local-6989586621679253581"><span class="annot"><span class="annottext">Int -&gt; ListKeyPoliciesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253790"><span id="local-6989586621679253792"><span id="local-6989586621679253794"><span class="annot"><span class="annottext">Int -&gt; ListKeyPoliciesResponse -&gt; ShowS
 [ListKeyPoliciesResponse] -&gt; ShowS
 ListKeyPoliciesResponse -&gt; String
 (Int -&gt; ListKeyPoliciesResponse -&gt; ShowS)
@@ -658,15 +656,15 @@ $cfrom :: forall x. ListKeyPoliciesResponse -&gt; Rep ListKeyPoliciesResponse x
 </span><span id="line-275"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-277"></span><span class="hs-comment">--</span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- 'nextMarker', 'listKeyPoliciesResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value</span><span>
-</span><span id="line-279"></span><span class="hs-comment">-- to use for the @Marker@ parameter in a subsequent request.</span><span>
-</span><span id="line-280"></span><span class="hs-comment">--</span><span>
-</span><span id="line-281"></span><span class="hs-comment">-- 'policyNames', 'listKeyPoliciesResponse_policyNames' - A list of key policy names. The only valid value is @default@.</span><span>
-</span><span id="line-282"></span><span class="hs-comment">--</span><span>
-</span><span id="line-283"></span><span class="hs-comment">-- 'truncated', 'listKeyPoliciesResponse_truncated' - A flag that indicates whether there are more items in the list. When</span><span>
-</span><span id="line-284"></span><span class="hs-comment">-- this value is true, the list in this response is truncated. To get more</span><span>
-</span><span id="line-285"></span><span class="hs-comment">-- items, pass the value of the @NextMarker@ element in thisresponse to the</span><span>
-</span><span id="line-286"></span><span class="hs-comment">-- @Marker@ parameter in a subsequent request.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- 'policyNames', 'listKeyPoliciesResponse_policyNames' - A list of key policy names. The only valid value is @default@.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- 'truncated', 'listKeyPoliciesResponse_truncated' - A flag that indicates whether there are more items in the list. When</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- this value is true, the list in this response is truncated. To get more</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- items, pass the value of the @NextMarker@ element in thisresponse to the</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- @Marker@ parameter in a subsequent request.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- 'nextMarker', 'listKeyPoliciesResponse_nextMarker' - When @Truncated@ is true, this element is present and contains the value</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- to use for the @Marker@ parameter in a subsequent request.</span><span>
 </span><span id="line-287"></span><span class="hs-comment">--</span><span>
 </span><span id="line-288"></span><span class="hs-comment">-- 'httpStatus', 'listKeyPoliciesResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-289"></span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#newListKeyPoliciesResponse"><span class="hs-identifier hs-type">newListKeyPoliciesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -674,53 +672,32 @@ $cfrom :: forall x. ListKeyPoliciesResponse -&gt; Rep ListKeyPoliciesResponse x
 </span><span id="line-291"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-292"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span>
 </span><span id="line-293"></span><span id="newListKeyPoliciesResponse"><span class="annot"><span class="annottext">newListKeyPoliciesResponse :: Int -&gt; ListKeyPoliciesResponse
-</span><a href="Network.AWS.KMS.ListKeyPolicies.html#newListKeyPoliciesResponse"><span class="hs-identifier hs-var hs-var">newListKeyPoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679253574"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-294"></span><span>  </span><span class="annot"><span class="annottext">ListKeyPoliciesResponse' :: Maybe Text
--&gt; Maybe [Text] -&gt; Maybe Bool -&gt; Int -&gt; ListKeyPoliciesResponse
+</span><a href="Network.AWS.KMS.ListKeyPolicies.html#newListKeyPoliciesResponse"><span class="hs-identifier hs-var hs-var">newListKeyPoliciesResponse</span></a></span></span><span> </span><span id="local-6989586621679253787"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253787"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-294"></span><span>  </span><span class="annot"><span class="annottext">ListKeyPoliciesResponse' :: Maybe [Text]
+-&gt; Maybe Bool -&gt; Maybe Text -&gt; Int -&gt; ListKeyPoliciesResponse
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span>
-</span><span id="line-295"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextMarker:ListKeyPoliciesResponse' :: Maybe Text
-</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3AnextMarker%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-295"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyNames:ListKeyPoliciesResponse' :: Maybe [Text]
+</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3ApolicyNames%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">policyNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyNames:ListKeyPoliciesResponse' :: Maybe [Text]
-</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3ApolicyNames%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">policyNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">$sel:truncated:ListKeyPoliciesResponse' :: Maybe Bool
+</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">$sel:truncated:ListKeyPoliciesResponse' :: Maybe Bool
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3Atruncated%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextMarker:ListKeyPoliciesResponse' :: Maybe Text
+</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3AnextMarker%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListKeyPoliciesResponse' :: Int
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3AhttpStatus%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253574"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679253787"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-300"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-301"></span><span>
-</span><span id="line-302"></span><span class="hs-comment">-- | When @Truncated@ is true, this element is present and contains the value</span><span>
-</span><span id="line-303"></span><span class="hs-comment">-- to use for the @Marker@ parameter in a subsequent request.</span><span>
-</span><span id="line-304"></span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_nextMarker"><span class="hs-identifier hs-type">listKeyPoliciesResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-305"></span><span id="listKeyPoliciesResponse_nextMarker"><span class="annot"><span class="annottext">listKeyPoliciesResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListKeyPoliciesResponse -&gt; f ListKeyPoliciesResponse
-</span><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_nextMarker"><span class="hs-identifier hs-var hs-var">listKeyPoliciesResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListKeyPoliciesResponse -&gt; Maybe Text)
--&gt; (ListKeyPoliciesResponse
-    -&gt; Maybe Text -&gt; ListKeyPoliciesResponse)
--&gt; Lens' ListKeyPoliciesResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253573"><span class="annot"><span class="annottext">Maybe Text
-nextMarker :: Maybe Text
-$sel:nextMarker:ListKeyPoliciesResponse' :: ListKeyPoliciesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679253573"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253573"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253572"><span class="annot"><span class="annottext">s :: ListKeyPoliciesResponse
-</span><a href="#local-6989586621679253572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253571"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPoliciesResponse
-</span><a href="#local-6989586621679253572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListKeyPoliciesResponse' :: Maybe Text
-</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3AnextMarker%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679253571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-306"></span><span>
-</span><span id="line-307"></span><span class="hs-comment">-- | A list of key policy names. The only valid value is @default@.</span><span>
-</span><span id="line-308"></span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_policyNames"><span class="hs-identifier hs-type">listKeyPoliciesResponse_policyNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-309"></span><span id="listKeyPoliciesResponse_policyNames"><span class="annot"><span class="annottext">listKeyPoliciesResponse_policyNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-302"></span><span class="hs-comment">-- | A list of key policy names. The only valid value is @default@.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_policyNames"><span class="hs-identifier hs-type">listKeyPoliciesResponse_policyNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="listKeyPoliciesResponse_policyNames"><span class="annot"><span class="annottext">listKeyPoliciesResponse_policyNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ListKeyPoliciesResponse -&gt; f ListKeyPoliciesResponse
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_policyNames"><span class="hs-identifier hs-var hs-var">listKeyPoliciesResponse_policyNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListKeyPoliciesResponse -&gt; Maybe [Text])
 -&gt; (ListKeyPoliciesResponse
@@ -731,16 +708,16 @@ $sel:nextMarker:ListKeyPoliciesResponse' :: ListKeyPoliciesResponse -&gt; Maybe 
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253570"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253786"><span class="annot"><span class="annottext">Maybe [Text]
 policyNames :: Maybe [Text]
 $sel:policyNames:ListKeyPoliciesResponse' :: ListKeyPoliciesResponse -&gt; Maybe [Text]
-</span><a href="#local-6989586621679253570"><span class="hs-identifier hs-var hs-var">policyNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679253570"><span class="hs-identifier hs-var">policyNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253569"><span class="annot"><span class="annottext">s :: ListKeyPoliciesResponse
-</span><a href="#local-6989586621679253569"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253568"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679253568"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPoliciesResponse
-</span><a href="#local-6989586621679253569"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyNames:ListKeyPoliciesResponse' :: Maybe [Text]
+</span><a href="#local-6989586621679253786"><span class="hs-identifier hs-var hs-var">policyNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679253786"><span class="hs-identifier hs-var">policyNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253785"><span class="annot"><span class="annottext">s :: ListKeyPoliciesResponse
+</span><a href="#local-6989586621679253785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253784"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679253784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPoliciesResponse
+</span><a href="#local-6989586621679253785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyNames:ListKeyPoliciesResponse' :: Maybe [Text]
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3ApolicyNames%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">policyNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679253568"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679253784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ListKeyPoliciesResponse -&gt; f ListKeyPoliciesResponse)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -754,31 +731,52 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-310"></span><span>
-</span><span id="line-311"></span><span class="hs-comment">-- | A flag that indicates whether there are more items in the list. When</span><span>
-</span><span id="line-312"></span><span class="hs-comment">-- this value is true, the list in this response is truncated. To get more</span><span>
-</span><span id="line-313"></span><span class="hs-comment">-- items, pass the value of the @NextMarker@ element in thisresponse to the</span><span>
-</span><span id="line-314"></span><span class="hs-comment">-- @Marker@ parameter in a subsequent request.</span><span>
-</span><span id="line-315"></span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_truncated"><span class="hs-identifier hs-type">listKeyPoliciesResponse_truncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-316"></span><span id="listKeyPoliciesResponse_truncated"><span class="annot"><span class="annottext">listKeyPoliciesResponse_truncated :: (Maybe Bool -&gt; f (Maybe Bool))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | A flag that indicates whether there are more items in the list. When</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- this value is true, the list in this response is truncated. To get more</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- items, pass the value of the @NextMarker@ element in thisresponse to the</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- @Marker@ parameter in a subsequent request.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_truncated"><span class="hs-identifier hs-type">listKeyPoliciesResponse_truncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="listKeyPoliciesResponse_truncated"><span class="annot"><span class="annottext">listKeyPoliciesResponse_truncated :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; ListKeyPoliciesResponse -&gt; f ListKeyPoliciesResponse
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_truncated"><span class="hs-identifier hs-var hs-var">listKeyPoliciesResponse_truncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListKeyPoliciesResponse -&gt; Maybe Bool)
 -&gt; (ListKeyPoliciesResponse
     -&gt; Maybe Bool -&gt; ListKeyPoliciesResponse)
 -&gt; Lens' ListKeyPoliciesResponse (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253565"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253781"><span class="annot"><span class="annottext">Maybe Bool
 truncated :: Maybe Bool
 $sel:truncated:ListKeyPoliciesResponse' :: ListKeyPoliciesResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679253565"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679253565"><span class="hs-identifier hs-var">truncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253564"><span class="annot"><span class="annottext">s :: ListKeyPoliciesResponse
-</span><a href="#local-6989586621679253564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253563"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679253563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPoliciesResponse
-</span><a href="#local-6989586621679253564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truncated:ListKeyPoliciesResponse' :: Maybe Bool
+</span><a href="#local-6989586621679253781"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253781"><span class="hs-identifier hs-var">truncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253780"><span class="annot"><span class="annottext">s :: ListKeyPoliciesResponse
+</span><a href="#local-6989586621679253780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253779"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679253779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPoliciesResponse
+</span><a href="#local-6989586621679253780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truncated:ListKeyPoliciesResponse' :: Maybe Bool
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3Atruncated%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679253563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | When @Truncated@ is true, this element is present and contains the value</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- to use for the @Marker@ parameter in a subsequent request.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_nextMarker"><span class="hs-identifier hs-type">listKeyPoliciesResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span id="listKeyPoliciesResponse_nextMarker"><span class="annot"><span class="annottext">listKeyPoliciesResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListKeyPoliciesResponse -&gt; f ListKeyPoliciesResponse
+</span><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_nextMarker"><span class="hs-identifier hs-var hs-var">listKeyPoliciesResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListKeyPoliciesResponse -&gt; Maybe Text)
+-&gt; (ListKeyPoliciesResponse
+    -&gt; Maybe Text -&gt; ListKeyPoliciesResponse)
+-&gt; Lens' ListKeyPoliciesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253778"><span class="annot"><span class="annottext">Maybe Text
+nextMarker :: Maybe Text
+$sel:nextMarker:ListKeyPoliciesResponse' :: ListKeyPoliciesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679253778"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253778"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253777"><span class="annot"><span class="annottext">s :: ListKeyPoliciesResponse
+</span><a href="#local-6989586621679253777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253776"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPoliciesResponse
+</span><a href="#local-6989586621679253777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListKeyPoliciesResponse' :: Maybe Text
+</span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3AnextMarker%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-317"></span><span>
 </span><span id="line-318"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-319"></span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#listKeyPoliciesResponse_httpStatus"><span class="hs-identifier hs-type">listKeyPoliciesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -788,16 +786,16 @@ $sel:truncated:ListKeyPoliciesResponse' :: ListKeyPoliciesResponse -&gt; Maybe B
 -&gt; (ListKeyPoliciesResponse -&gt; Int -&gt; ListKeyPoliciesResponse)
 -&gt; Lens ListKeyPoliciesResponse ListKeyPoliciesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253562"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253775"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListKeyPoliciesResponse' :: ListKeyPoliciesResponse -&gt; Int
-</span><a href="#local-6989586621679253562"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253562"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253561"><span class="annot"><span class="annottext">s :: ListKeyPoliciesResponse
-</span><a href="#local-6989586621679253561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253560"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPoliciesResponse
-</span><a href="#local-6989586621679253561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListKeyPoliciesResponse' :: Int
+</span><a href="#local-6989586621679253775"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253775"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253774"><span class="annot"><span class="annottext">s :: ListKeyPoliciesResponse
+</span><a href="#local-6989586621679253774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse%27"><span class="hs-identifier hs-type">ListKeyPoliciesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253773"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListKeyPoliciesResponse
+</span><a href="#local-6989586621679253774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListKeyPoliciesResponse' :: Int
 </span><a href="Network.AWS.KMS.ListKeyPolicies.html#%24sel%3AhttpStatus%3AListKeyPoliciesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679253560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679253773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-321"></span><span>
-</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253771"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.ListKeyPolicies.html#ListKeyPoliciesResponse"><span class="hs-identifier hs-type">ListKeyPoliciesResponse</span></a></span></span><span>
 </span><span id="line-323"></span></pre></body></html>

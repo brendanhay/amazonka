@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteJourney' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679636287"><span id="local-6989586621679636288"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJourney"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-var">DeleteJourney</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJourney%27"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney%27"><span class="hs-identifier hs-var">DeleteJourney'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679636816"><span id="local-6989586621679636817"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJourney"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-var">DeleteJourney</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJourney%27"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney%27"><span class="hs-identifier hs-var">DeleteJourney'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the journey.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AjourneyId%3ADeleteJourney%27"><span class="annot"><span class="annottext">DeleteJourney -&gt; Text
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#%24sel%3AjourneyId%3ADeleteJourney%27"><span class="hs-identifier hs-var hs-var">journeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AapplicationId%3ADeleteJourney%27"><span class="annot"><span class="annottext">DeleteJourney -&gt; Text
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#%24sel%3AapplicationId%3ADeleteJourney%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679636280"><span id="local-6989586621679636282"><span class="annot"><span class="annottext">DeleteJourney -&gt; DeleteJourney -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679636809"><span id="local-6989586621679636811"><span class="annot"><span class="annottext">DeleteJourney -&gt; DeleteJourney -&gt; Bool
 (DeleteJourney -&gt; DeleteJourney -&gt; Bool)
 -&gt; (DeleteJourney -&gt; DeleteJourney -&gt; Bool) -&gt; Eq DeleteJourney
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteJourney -&gt; DeleteJourney -&gt; Bool
 == :: DeleteJourney -&gt; DeleteJourney -&gt; Bool
 $c== :: DeleteJourney -&gt; DeleteJourney -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679636271"><span id="local-6989586621679636273"><span id="local-6989586621679636275"><span id="local-6989586621679636277"><span class="annot"><span class="annottext">ReadPrec [DeleteJourney]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679636800"><span id="local-6989586621679636802"><span id="local-6989586621679636804"><span id="local-6989586621679636806"><span class="annot"><span class="annottext">ReadPrec [DeleteJourney]
 ReadPrec DeleteJourney
 Int -&gt; ReadS DeleteJourney
 ReadS [DeleteJourney]
@@ -85,7 +85,7 @@ readList :: ReadS [DeleteJourney]
 $creadList :: ReadS [DeleteJourney]
 readsPrec :: Int -&gt; ReadS DeleteJourney
 $creadsPrec :: Int -&gt; ReadS DeleteJourney
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679636264"><span id="local-6989586621679636266"><span id="local-6989586621679636268"><span class="annot"><span class="annottext">Int -&gt; DeleteJourney -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679636793"><span id="local-6989586621679636795"><span id="local-6989586621679636797"><span class="annot"><span class="annottext">Int -&gt; DeleteJourney -&gt; ShowS
 [DeleteJourney] -&gt; ShowS
 DeleteJourney -&gt; String
 (Int -&gt; DeleteJourney -&gt; ShowS)
@@ -130,17 +130,17 @@ $cfrom :: forall x. DeleteJourney -&gt; Rep DeleteJourney x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span><span>
 </span><span id="line-78"></span><span id="newDeleteJourney"><span class="annot"><span class="annottext">newDeleteJourney :: Text -&gt; Text -&gt; DeleteJourney
-</span><a href="Network.AWS.Pinpoint.DeleteJourney.html#newDeleteJourney"><span class="hs-identifier hs-var hs-var">newDeleteJourney</span></a></span></span><span> </span><span id="local-6989586621679636259"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636259"><span class="hs-identifier hs-var">pJourneyId_</span></a></span></span><span> </span><span id="local-6989586621679636258"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636258"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Pinpoint.DeleteJourney.html#newDeleteJourney"><span class="hs-identifier hs-var hs-var">newDeleteJourney</span></a></span></span><span> </span><span id="local-6989586621679636788"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679636788"><span class="hs-identifier hs-var">pJourneyId_</span></a></span></span><span> </span><span id="local-6989586621679636787"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679636787"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DeleteJourney' :: Text -&gt; Text -&gt; DeleteJourney
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney%27"><span class="hs-identifier hs-type">DeleteJourney'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:journeyId:DeleteJourney' :: Text
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#%24sel%3AjourneyId%3ADeleteJourney%27"><span class="hs-identifier hs-var">journeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636259"><span class="hs-identifier hs-var">pJourneyId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679636788"><span class="hs-identifier hs-var">pJourneyId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationId:DeleteJourney' :: Text
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#%24sel%3AapplicationId%3ADeleteJourney%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636258"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
+</span><a href="#local-6989586621679636787"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The unique identifier for the journey.</span><span>
@@ -150,16 +150,16 @@ $cfrom :: forall x. DeleteJourney -&gt; Rep DeleteJourney x
 -&gt; (DeleteJourney -&gt; Text -&gt; DeleteJourney)
 -&gt; Lens DeleteJourney DeleteJourney Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney%27"><span class="hs-identifier hs-type">DeleteJourney'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636255"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney%27"><span class="hs-identifier hs-type">DeleteJourney'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636784"><span class="annot"><span class="annottext">Text
 journeyId :: Text
 $sel:journeyId:DeleteJourney' :: DeleteJourney -&gt; Text
-</span><a href="#local-6989586621679636255"><span class="hs-identifier hs-var hs-var">journeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636255"><span class="hs-identifier hs-var">journeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679636254"><span class="annot"><span class="annottext">s :: DeleteJourney
-</span><a href="#local-6989586621679636254"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney%27"><span class="hs-identifier hs-type">DeleteJourney'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679636253"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636253"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJourney
-</span><a href="#local-6989586621679636254"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyId:DeleteJourney' :: Text
+</span><a href="#local-6989586621679636784"><span class="hs-identifier hs-var hs-var">journeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679636784"><span class="hs-identifier hs-var">journeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679636783"><span class="annot"><span class="annottext">s :: DeleteJourney
+</span><a href="#local-6989586621679636783"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney%27"><span class="hs-identifier hs-type">DeleteJourney'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679636782"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679636782"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJourney
+</span><a href="#local-6989586621679636783"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyId:DeleteJourney' :: Text
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#%24sel%3AjourneyId%3ADeleteJourney%27"><span class="hs-identifier hs-var">journeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636253"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679636782"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
@@ -169,27 +169,27 @@ $sel:journeyId:DeleteJourney' :: DeleteJourney -&gt; Text
 -&gt; (DeleteJourney -&gt; Text -&gt; DeleteJourney)
 -&gt; Lens DeleteJourney DeleteJourney Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney%27"><span class="hs-identifier hs-type">DeleteJourney'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636252"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney%27"><span class="hs-identifier hs-type">DeleteJourney'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636781"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 $sel:applicationId:DeleteJourney' :: DeleteJourney -&gt; Text
-</span><a href="#local-6989586621679636252"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636252"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679636251"><span class="annot"><span class="annottext">s :: DeleteJourney
-</span><a href="#local-6989586621679636251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney%27"><span class="hs-identifier hs-type">DeleteJourney'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679636250"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJourney
-</span><a href="#local-6989586621679636251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:DeleteJourney' :: Text
+</span><a href="#local-6989586621679636781"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679636781"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679636780"><span class="annot"><span class="annottext">s :: DeleteJourney
+</span><a href="#local-6989586621679636780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney%27"><span class="hs-identifier hs-type">DeleteJourney'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679636779"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679636779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJourney
+</span><a href="#local-6989586621679636780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:DeleteJourney' :: Text
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#%24sel%3AapplicationId%3ADeleteJourney%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679636779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-95"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>      </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse"><span class="hs-identifier hs-type">DeleteJourneyResponse</span></a></span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679636246"><span class="annot"><span class="annottext">request :: DeleteJourney -&gt; Request DeleteJourney
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679636775"><span class="annot"><span class="annottext">request :: DeleteJourney -&gt; Request DeleteJourney
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteJourney -&gt; Request DeleteJourney
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679636242"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679636771"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteJourney
 -&gt; ClientResponse ClientBody
@@ -213,10 +213,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679636239"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636239"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679636238"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679636238"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679636237"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679636237"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679636768"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679636768"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679636767"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679636767"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679636766"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679636766"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; JourneyResponse -&gt; DeleteJourneyResponse
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse%27"><span class="hs-identifier hs-var">DeleteJourneyResponse'</span></a></span><span>
 </span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; JourneyResponse -&gt; DeleteJourneyResponse)
@@ -228,7 +228,7 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636239"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679636768"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either String (JourneyResponse -&gt; DeleteJourneyResponse)
 -&gt; Either String JourneyResponse
 -&gt; Either String DeleteJourneyResponse
@@ -236,15 +236,15 @@ forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String JourneyResponse
 forall a. FromJSON a =&gt; Object -&gt; Either String a
 </span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679636237"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679636766"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679636229"><span id="local-6989586621679636231"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679636758"><span id="local-6989586621679636760"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679636226"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679636755"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679636222"><span class="annot"><span class="annottext">toHeaders :: DeleteJourney -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679636751"><span class="annot"><span class="annottext">toHeaders :: DeleteJourney -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteJourney -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -264,13 +264,13 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679636216"><span class="annot"><span class="annottext">toPath :: DeleteJourney -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney%27"><span class="hs-identifier hs-type">DeleteJourney'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636213"><span id="local-6989586621679636214"><span class="annot"><span class="annottext">Text
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679636745"><span class="annot"><span class="annottext">toPath :: DeleteJourney -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney%27"><span class="hs-identifier hs-type">DeleteJourney'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636742"><span id="local-6989586621679636743"><span class="annot"><span class="annottext">Text
 applicationId :: Text
 journeyId :: Text
 $sel:applicationId:DeleteJourney' :: DeleteJourney -&gt; Text
 $sel:journeyId:DeleteJourney' :: DeleteJourney -&gt; Text
-</span><a href="#local-6989586621679636213"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679636742"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -279,17 +279,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636213"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679636742"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/journeys/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679636214"><span class="hs-identifier hs-var">journeyId</span></a></span><span>
+</span><a href="#local-6989586621679636743"><span class="hs-identifier hs-var">journeyId</span></a></span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourney"><span class="hs-identifier hs-type">DeleteJourney</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679636209"><span class="annot"><span class="annottext">toQuery :: DeleteJourney -&gt; QueryString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679636738"><span class="annot"><span class="annottext">toQuery :: DeleteJourney -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteJourney -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -297,14 +297,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newDeleteJourneyResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679636206"><span id="local-6989586621679636207"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJourneyResponse"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse"><span class="hs-identifier hs-var">DeleteJourneyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJourneyResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse%27"><span class="hs-identifier hs-var">DeleteJourneyResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679636735"><span id="local-6989586621679636736"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteJourneyResponse"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse"><span class="hs-identifier hs-var">DeleteJourneyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteJourneyResponse%27"><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse%27"><span class="hs-identifier hs-var">DeleteJourneyResponse'</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteJourneyResponse%27"><span class="annot"><span class="annottext">DeleteJourneyResponse -&gt; Int
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#%24sel%3AhttpStatus%3ADeleteJourneyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>    </span><span id="%24sel%3AjourneyResponse%3ADeleteJourneyResponse%27"><span class="annot"><span class="annottext">DeleteJourneyResponse -&gt; JourneyResponse
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#%24sel%3AjourneyResponse%3ADeleteJourneyResponse%27"><span class="hs-identifier hs-var hs-var">journeyResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyResponse.html#JourneyResponse"><span class="hs-identifier hs-type">JourneyResponse</span></a></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679636200"><span id="local-6989586621679636202"><span class="annot"><span class="annottext">DeleteJourneyResponse -&gt; DeleteJourneyResponse -&gt; Bool
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679636729"><span id="local-6989586621679636731"><span class="annot"><span class="annottext">DeleteJourneyResponse -&gt; DeleteJourneyResponse -&gt; Bool
 (DeleteJourneyResponse -&gt; DeleteJourneyResponse -&gt; Bool)
 -&gt; (DeleteJourneyResponse -&gt; DeleteJourneyResponse -&gt; Bool)
 -&gt; Eq DeleteJourneyResponse
@@ -313,7 +313,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteJourneyResponse -&gt; DeleteJourneyResponse -&gt; Bool
 == :: DeleteJourneyResponse -&gt; DeleteJourneyResponse -&gt; Bool
 $c== :: DeleteJourneyResponse -&gt; DeleteJourneyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679636192"><span id="local-6989586621679636194"><span id="local-6989586621679636196"><span id="local-6989586621679636198"><span class="annot"><span class="annottext">ReadPrec [DeleteJourneyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679636721"><span id="local-6989586621679636723"><span id="local-6989586621679636725"><span id="local-6989586621679636727"><span class="annot"><span class="annottext">ReadPrec [DeleteJourneyResponse]
 ReadPrec DeleteJourneyResponse
 Int -&gt; ReadS DeleteJourneyResponse
 ReadS [DeleteJourneyResponse]
@@ -333,7 +333,7 @@ readList :: ReadS [DeleteJourneyResponse]
 $creadList :: ReadS [DeleteJourneyResponse]
 readsPrec :: Int -&gt; ReadS DeleteJourneyResponse
 $creadsPrec :: Int -&gt; ReadS DeleteJourneyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679636186"><span id="local-6989586621679636188"><span id="local-6989586621679636190"><span class="annot"><span class="annottext">Int -&gt; DeleteJourneyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679636715"><span id="local-6989586621679636717"><span id="local-6989586621679636719"><span class="annot"><span class="annottext">Int -&gt; DeleteJourneyResponse -&gt; ShowS
 [DeleteJourneyResponse] -&gt; ShowS
 DeleteJourneyResponse -&gt; String
 (Int -&gt; DeleteJourneyResponse -&gt; ShowS)
@@ -378,18 +378,18 @@ $cfrom :: forall x. DeleteJourneyResponse -&gt; Rep DeleteJourneyResponse x
 </span><span id="line-157"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse"><span class="hs-identifier hs-type">DeleteJourneyResponse</span></a></span><span>
 </span><span id="line-158"></span><span id="newDeleteJourneyResponse"><span class="annot"><span class="annottext">newDeleteJourneyResponse :: Int -&gt; JourneyResponse -&gt; DeleteJourneyResponse
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#newDeleteJourneyResponse"><span class="hs-identifier hs-var hs-var">newDeleteJourneyResponse</span></a></span></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679636183"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636183"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679636182"><span class="annot"><span class="annottext">JourneyResponse
-</span><a href="#local-6989586621679636182"><span class="hs-identifier hs-var">pJourneyResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679636712"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679636712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679636711"><span class="annot"><span class="annottext">JourneyResponse
+</span><a href="#local-6989586621679636711"><span class="hs-identifier hs-var">pJourneyResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">DeleteJourneyResponse' :: Int -&gt; JourneyResponse -&gt; DeleteJourneyResponse
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse%27"><span class="hs-identifier hs-type">DeleteJourneyResponse'</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteJourneyResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#%24sel%3AhttpStatus%3ADeleteJourneyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636183"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679636712"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:journeyResponse:DeleteJourneyResponse' :: JourneyResponse
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#%24sel%3AjourneyResponse%3ADeleteJourneyResponse%27"><span class="hs-identifier hs-var">journeyResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JourneyResponse
-</span><a href="#local-6989586621679636182"><span class="hs-identifier hs-var">pJourneyResponse_</span></a></span><span>
+</span><a href="#local-6989586621679636711"><span class="hs-identifier hs-var">pJourneyResponse_</span></a></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -399,16 +399,16 @@ $cfrom :: forall x. DeleteJourneyResponse -&gt; Rep DeleteJourneyResponse x
 -&gt; (DeleteJourneyResponse -&gt; Int -&gt; DeleteJourneyResponse)
 -&gt; Lens DeleteJourneyResponse DeleteJourneyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse%27"><span class="hs-identifier hs-type">DeleteJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636181"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse%27"><span class="hs-identifier hs-type">DeleteJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636710"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteJourneyResponse' :: DeleteJourneyResponse -&gt; Int
-</span><a href="#local-6989586621679636181"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636181"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679636180"><span class="annot"><span class="annottext">s :: DeleteJourneyResponse
-</span><a href="#local-6989586621679636180"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse%27"><span class="hs-identifier hs-type">DeleteJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679636179"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636179"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJourneyResponse
-</span><a href="#local-6989586621679636180"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteJourneyResponse' :: Int
+</span><a href="#local-6989586621679636710"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679636710"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679636709"><span class="annot"><span class="annottext">s :: DeleteJourneyResponse
+</span><a href="#local-6989586621679636709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse%27"><span class="hs-identifier hs-type">DeleteJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679636708"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679636708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJourneyResponse
+</span><a href="#local-6989586621679636709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteJourneyResponse' :: Int
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#%24sel%3AhttpStatus%3ADeleteJourneyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679636179"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse"><span class="hs-identifier hs-type">DeleteJourneyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679636708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse"><span class="hs-identifier hs-type">DeleteJourneyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-171"></span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#deleteJourneyResponse_journeyResponse"><span class="hs-identifier hs-type">deleteJourneyResponse_journeyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse"><span class="hs-identifier hs-type">DeleteJourneyResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyResponse.html#JourneyResponse"><span class="hs-identifier hs-type">JourneyResponse</span></a></span><span>
@@ -423,16 +423,16 @@ $sel:httpStatus:DeleteJourneyResponse' :: DeleteJourneyResponse -&gt; Int
      JourneyResponse
      JourneyResponse
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse%27"><span class="hs-identifier hs-type">DeleteJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636178"><span class="annot"><span class="annottext">JourneyResponse
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse%27"><span class="hs-identifier hs-type">DeleteJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679636707"><span class="annot"><span class="annottext">JourneyResponse
 journeyResponse :: JourneyResponse
 $sel:journeyResponse:DeleteJourneyResponse' :: DeleteJourneyResponse -&gt; JourneyResponse
-</span><a href="#local-6989586621679636178"><span class="hs-identifier hs-var hs-var">journeyResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyResponse
-</span><a href="#local-6989586621679636178"><span class="hs-identifier hs-var">journeyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679636177"><span class="annot"><span class="annottext">s :: DeleteJourneyResponse
-</span><a href="#local-6989586621679636177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse%27"><span class="hs-identifier hs-type">DeleteJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679636176"><span class="annot"><span class="annottext">JourneyResponse
-</span><a href="#local-6989586621679636176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJourneyResponse
-</span><a href="#local-6989586621679636177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyResponse:DeleteJourneyResponse' :: JourneyResponse
+</span><a href="#local-6989586621679636707"><span class="hs-identifier hs-var hs-var">journeyResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyResponse
+</span><a href="#local-6989586621679636707"><span class="hs-identifier hs-var">journeyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679636706"><span class="annot"><span class="annottext">s :: DeleteJourneyResponse
+</span><a href="#local-6989586621679636706"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse%27"><span class="hs-identifier hs-type">DeleteJourneyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679636705"><span class="annot"><span class="annottext">JourneyResponse
+</span><a href="#local-6989586621679636705"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteJourneyResponse
+</span><a href="#local-6989586621679636706"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyResponse:DeleteJourneyResponse' :: JourneyResponse
 </span><a href="Network.AWS.Pinpoint.DeleteJourney.html#%24sel%3AjourneyResponse%3ADeleteJourneyResponse%27"><span class="hs-identifier hs-var">journeyResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JourneyResponse
-</span><a href="#local-6989586621679636176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse"><span class="hs-identifier hs-type">DeleteJourneyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679636705"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse"><span class="hs-identifier hs-type">DeleteJourneyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679636174"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse"><span class="hs-identifier hs-type">DeleteJourneyResponse</span></a></span></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679636703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.DeleteJourney.html#DeleteJourneyResponse"><span class="hs-identifier hs-type">DeleteJourneyResponse</span></a></span></span><span>
 </span><span id="line-175"></span></pre></body></html>

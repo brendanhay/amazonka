@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- axis.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newHistogramEntry' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679251282"><span id="local-6989586621679251283"></span></span><span class="hs-keyword">data</span><span> </span><span id="HistogramEntry"><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-var">HistogramEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HistogramEntry%27"><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry%27"><span class="hs-identifier hs-var">HistogramEntry'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value of the entry.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalue%3AHistogramEntry%27"><span class="annot"><span class="annottext">HistogramEntry -&gt; Maybe Double
-</span><a href="Network.AWS.XRay.Types.HistogramEntry.html#%24sel%3Avalue%3AHistogramEntry%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The prevalence of the entry.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Acount%3AHistogramEntry%27"><span class="annot"><span class="annottext">HistogramEntry -&gt; Maybe Int
-</span><a href="Network.AWS.XRay.Types.HistogramEntry.html#%24sel%3Acount%3AHistogramEntry%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679251551"><span id="local-6989586621679251552"></span></span><span class="hs-keyword">data</span><span> </span><span id="HistogramEntry"><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-var">HistogramEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HistogramEntry%27"><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry%27"><span class="hs-identifier hs-var">HistogramEntry'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The prevalence of the entry.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Acount%3AHistogramEntry%27"><span class="annot"><span class="annottext">HistogramEntry -&gt; Maybe Int
+</span><a href="Network.AWS.XRay.Types.HistogramEntry.html#%24sel%3Acount%3AHistogramEntry%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The value of the entry.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Avalue%3AHistogramEntry%27"><span class="annot"><span class="annottext">HistogramEntry -&gt; Maybe Double
+</span><a href="Network.AWS.XRay.Types.HistogramEntry.html#%24sel%3Avalue%3AHistogramEntry%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251275"><span id="local-6989586621679251277"><span class="annot"><span class="annottext">HistogramEntry -&gt; HistogramEntry -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251544"><span id="local-6989586621679251546"><span class="annot"><span class="annottext">HistogramEntry -&gt; HistogramEntry -&gt; Bool
 (HistogramEntry -&gt; HistogramEntry -&gt; Bool)
 -&gt; (HistogramEntry -&gt; HistogramEntry -&gt; Bool) -&gt; Eq HistogramEntry
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HistogramEntry -&gt; HistogramEntry -&gt; Bool
 == :: HistogramEntry -&gt; HistogramEntry -&gt; Bool
 $c== :: HistogramEntry -&gt; HistogramEntry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251266"><span id="local-6989586621679251268"><span id="local-6989586621679251270"><span id="local-6989586621679251272"><span class="annot"><span class="annottext">ReadPrec [HistogramEntry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251535"><span id="local-6989586621679251537"><span id="local-6989586621679251539"><span id="local-6989586621679251541"><span class="annot"><span class="annottext">ReadPrec [HistogramEntry]
 ReadPrec HistogramEntry
 Int -&gt; ReadS HistogramEntry
 ReadS [HistogramEntry]
@@ -64,7 +64,7 @@ readList :: ReadS [HistogramEntry]
 $creadList :: ReadS [HistogramEntry]
 readsPrec :: Int -&gt; ReadS HistogramEntry
 $creadsPrec :: Int -&gt; ReadS HistogramEntry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251259"><span id="local-6989586621679251261"><span id="local-6989586621679251263"><span class="annot"><span class="annottext">Int -&gt; HistogramEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251528"><span id="local-6989586621679251530"><span id="local-6989586621679251532"><span class="annot"><span class="annottext">Int -&gt; HistogramEntry -&gt; ShowS
 [HistogramEntry] -&gt; ShowS
 HistogramEntry -&gt; String
 (Int -&gt; HistogramEntry -&gt; ShowS)
@@ -98,64 +98,64 @@ $cfrom :: forall x. HistogramEntry -&gt; Rep HistogramEntry x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'value', 'histogramEntry_value' - The value of the entry.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'count', 'histogramEntry_count' - The prevalence of the entry.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'count', 'histogramEntry_count' - The prevalence of the entry.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'value', 'histogramEntry_value' - The value of the entry.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#newHistogramEntry"><span class="hs-identifier hs-type">newHistogramEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span><span>
 </span><span id="line-52"></span><span id="newHistogramEntry"><span class="annot"><span class="annottext">newHistogramEntry :: HistogramEntry
 </span><a href="Network.AWS.XRay.Types.HistogramEntry.html#newHistogramEntry"><span class="hs-identifier hs-var hs-var">newHistogramEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">HistogramEntry' :: Maybe Double -&gt; Maybe Int -&gt; HistogramEntry
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">HistogramEntry' :: Maybe Int -&gt; Maybe Double -&gt; HistogramEntry
 </span><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry%27"><span class="hs-identifier hs-type">HistogramEntry'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:HistogramEntry' :: Maybe Double
-</span><a href="Network.AWS.XRay.Types.HistogramEntry.html#%24sel%3Avalue%3AHistogramEntry%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:count:HistogramEntry' :: Maybe Int
+</span><a href="Network.AWS.XRay.Types.HistogramEntry.html#%24sel%3Acount%3AHistogramEntry%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:count:HistogramEntry' :: Maybe Int
-</span><a href="Network.AWS.XRay.Types.HistogramEntry.html#%24sel%3Acount%3AHistogramEntry%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:HistogramEntry' :: Maybe Double
+</span><a href="Network.AWS.XRay.Types.HistogramEntry.html#%24sel%3Avalue%3AHistogramEntry%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The value of the entry.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#histogramEntry_value"><span class="hs-identifier hs-type">histogramEntry_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="histogramEntry_value"><span class="annot"><span class="annottext">histogramEntry_value :: (Maybe Double -&gt; f (Maybe Double))
+</span><span id="line-58"></span><span class="hs-comment">-- | The prevalence of the entry.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#histogramEntry_count"><span class="hs-identifier hs-type">histogramEntry_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="histogramEntry_count"><span class="annot"><span class="annottext">histogramEntry_count :: (Maybe Int -&gt; f (Maybe Int)) -&gt; HistogramEntry -&gt; f HistogramEntry
+</span><a href="Network.AWS.XRay.Types.HistogramEntry.html#histogramEntry_count"><span class="hs-identifier hs-var hs-var">histogramEntry_count</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HistogramEntry -&gt; Maybe Int)
+-&gt; (HistogramEntry -&gt; Maybe Int -&gt; HistogramEntry)
+-&gt; Lens HistogramEntry HistogramEntry (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry%27"><span class="hs-identifier hs-type">HistogramEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251519"><span class="annot"><span class="annottext">Maybe Int
+count :: Maybe Int
+$sel:count:HistogramEntry' :: HistogramEntry -&gt; Maybe Int
+</span><a href="#local-6989586621679251519"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679251519"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251518"><span class="annot"><span class="annottext">s :: HistogramEntry
+</span><a href="#local-6989586621679251518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry%27"><span class="hs-identifier hs-type">HistogramEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251517"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679251517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistogramEntry
+</span><a href="#local-6989586621679251518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:HistogramEntry' :: Maybe Int
+</span><a href="Network.AWS.XRay.Types.HistogramEntry.html#%24sel%3Acount%3AHistogramEntry%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679251517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The value of the entry.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#histogramEntry_value"><span class="hs-identifier hs-type">histogramEntry_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="histogramEntry_value"><span class="annot"><span class="annottext">histogramEntry_value :: (Maybe Double -&gt; f (Maybe Double))
 -&gt; HistogramEntry -&gt; f HistogramEntry
 </span><a href="Network.AWS.XRay.Types.HistogramEntry.html#histogramEntry_value"><span class="hs-identifier hs-var hs-var">histogramEntry_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HistogramEntry -&gt; Maybe Double)
 -&gt; (HistogramEntry -&gt; Maybe Double -&gt; HistogramEntry)
 -&gt; Lens HistogramEntry HistogramEntry (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry%27"><span class="hs-identifier hs-type">HistogramEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251250"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry%27"><span class="hs-identifier hs-type">HistogramEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251515"><span class="annot"><span class="annottext">Maybe Double
 value :: Maybe Double
 $sel:value:HistogramEntry' :: HistogramEntry -&gt; Maybe Double
-</span><a href="#local-6989586621679251250"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679251250"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251249"><span class="annot"><span class="annottext">s :: HistogramEntry
-</span><a href="#local-6989586621679251249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry%27"><span class="hs-identifier hs-type">HistogramEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251248"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679251248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistogramEntry
-</span><a href="#local-6989586621679251249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:HistogramEntry' :: Maybe Double
+</span><a href="#local-6989586621679251515"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679251515"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251514"><span class="annot"><span class="annottext">s :: HistogramEntry
+</span><a href="#local-6989586621679251514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry%27"><span class="hs-identifier hs-type">HistogramEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251513"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679251513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistogramEntry
+</span><a href="#local-6989586621679251514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:HistogramEntry' :: Maybe Double
 </span><a href="Network.AWS.XRay.Types.HistogramEntry.html#%24sel%3Avalue%3AHistogramEntry%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679251248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The prevalence of the entry.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#histogramEntry_count"><span class="hs-identifier hs-type">histogramEntry_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="histogramEntry_count"><span class="annot"><span class="annottext">histogramEntry_count :: (Maybe Int -&gt; f (Maybe Int)) -&gt; HistogramEntry -&gt; f HistogramEntry
-</span><a href="Network.AWS.XRay.Types.HistogramEntry.html#histogramEntry_count"><span class="hs-identifier hs-var hs-var">histogramEntry_count</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HistogramEntry -&gt; Maybe Int)
--&gt; (HistogramEntry -&gt; Maybe Int -&gt; HistogramEntry)
--&gt; Lens HistogramEntry HistogramEntry (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry%27"><span class="hs-identifier hs-type">HistogramEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251246"><span class="annot"><span class="annottext">Maybe Int
-count :: Maybe Int
-$sel:count:HistogramEntry' :: HistogramEntry -&gt; Maybe Int
-</span><a href="#local-6989586621679251246"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679251246"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251245"><span class="annot"><span class="annottext">s :: HistogramEntry
-</span><a href="#local-6989586621679251245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry%27"><span class="hs-identifier hs-type">HistogramEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251244"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679251244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HistogramEntry
-</span><a href="#local-6989586621679251245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:HistogramEntry' :: Maybe Int
-</span><a href="Network.AWS.XRay.Types.HistogramEntry.html#%24sel%3Acount%3AHistogramEntry%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679251244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679251513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251241"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679251239"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HistogramEntry
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251510"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679251508"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HistogramEntry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HistogramEntry)
@@ -165,29 +165,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HistogramEntry&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251236"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251236"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Int -&gt; HistogramEntry
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251505"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251505"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Double -&gt; HistogramEntry
 </span><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry%27"><span class="hs-identifier hs-var">HistogramEntry'</span></a></span><span>
-</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Int -&gt; HistogramEntry)
--&gt; Parser (Maybe Double) -&gt; Parser (Maybe Int -&gt; HistogramEntry)
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Double -&gt; HistogramEntry)
+-&gt; Parser (Maybe Int) -&gt; Parser (Maybe Double -&gt; HistogramEntry)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251236"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; HistogramEntry)
--&gt; Parser (Maybe Int) -&gt; Parser HistogramEntry
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251236"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679251505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Count&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; HistogramEntry)
+-&gt; Parser (Maybe Double) -&gt; Parser HistogramEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251230"><span id="local-6989586621679251232"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251499"><span id="local-6989586621679251501"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251227"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.HistogramEntry.html#HistogramEntry"><span class="hs-identifier hs-type">HistogramEntry</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

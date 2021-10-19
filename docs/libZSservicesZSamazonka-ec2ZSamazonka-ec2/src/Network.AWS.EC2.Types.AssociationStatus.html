@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes the state of a target network association.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAssociationStatus' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681054154"><span id="local-6989586621681054155"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociationStatus"><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-var">AssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus%27"><span class="hs-identifier hs-var">AssociationStatus'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A message about the status of the target network association, if</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- applicable.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Amessage%3AAssociationStatus%27"><span class="annot"><span class="annottext">AssociationStatus -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.AssociationStatus.html#%24sel%3Amessage%3AAssociationStatus%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The state of the target network association.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Acode%3AAssociationStatus%27"><span class="annot"><span class="annottext">AssociationStatus -&gt; Maybe AssociationStatusCode
-</span><a href="Network.AWS.EC2.Types.AssociationStatus.html#%24sel%3Acode%3AAssociationStatus%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatusCode.html#AssociationStatusCode"><span class="hs-identifier hs-type">AssociationStatusCode</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681087352"><span id="local-6989586621681087353"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociationStatus"><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-var">AssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociationStatus%27"><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus%27"><span class="hs-identifier hs-var">AssociationStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the target network association.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Acode%3AAssociationStatus%27"><span class="annot"><span class="annottext">AssociationStatus -&gt; Maybe AssociationStatusCode
+</span><a href="Network.AWS.EC2.Types.AssociationStatus.html#%24sel%3Acode%3AAssociationStatus%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatusCode.html#AssociationStatusCode"><span class="hs-identifier hs-type">AssociationStatusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A message about the status of the target network association, if</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- applicable.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Amessage%3AAssociationStatus%27"><span class="annot"><span class="annottext">AssociationStatus -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.AssociationStatus.html#%24sel%3Amessage%3AAssociationStatus%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681054147"><span id="local-6989586621681054149"><span class="annot"><span class="annottext">AssociationStatus -&gt; AssociationStatus -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681087345"><span id="local-6989586621681087347"><span class="annot"><span class="annottext">AssociationStatus -&gt; AssociationStatus -&gt; Bool
 (AssociationStatus -&gt; AssociationStatus -&gt; Bool)
 -&gt; (AssociationStatus -&gt; AssociationStatus -&gt; Bool)
 -&gt; Eq AssociationStatus
@@ -46,7 +46,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociationStatus -&gt; AssociationStatus -&gt; Bool
 == :: AssociationStatus -&gt; AssociationStatus -&gt; Bool
 $c== :: AssociationStatus -&gt; AssociationStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681054138"><span id="local-6989586621681054140"><span id="local-6989586621681054142"><span id="local-6989586621681054144"><span class="annot"><span class="annottext">ReadPrec [AssociationStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681087336"><span id="local-6989586621681087338"><span id="local-6989586621681087340"><span id="local-6989586621681087342"><span class="annot"><span class="annottext">ReadPrec [AssociationStatus]
 ReadPrec AssociationStatus
 Int -&gt; ReadS AssociationStatus
 ReadS [AssociationStatus]
@@ -66,7 +66,7 @@ readList :: ReadS [AssociationStatus]
 $creadList :: ReadS [AssociationStatus]
 readsPrec :: Int -&gt; ReadS AssociationStatus
 $creadsPrec :: Int -&gt; ReadS AssociationStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681054131"><span id="local-6989586621681054133"><span id="local-6989586621681054135"><span class="annot"><span class="annottext">Int -&gt; AssociationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681087329"><span id="local-6989586621681087331"><span id="local-6989586621681087333"><span class="annot"><span class="annottext">Int -&gt; AssociationStatus -&gt; ShowS
 [AssociationStatus] -&gt; ShowS
 AssociationStatus -&gt; String
 (Int -&gt; AssociationStatus -&gt; ShowS)
@@ -100,50 +100,29 @@ $cfrom :: forall x. AssociationStatus -&gt; Rep AssociationStatus x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'message', 'associationStatus_message' - A message about the status of the target network association, if</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- applicable.</span><span>
-</span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'code', 'associationStatus_code' - The state of the target network association.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'code', 'associationStatus_code' - The state of the target network association.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'message', 'associationStatus_message' - A message about the status of the target network association, if</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- applicable.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#newAssociationStatus"><span class="hs-identifier hs-type">newAssociationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span>
 </span><span id="line-54"></span><span id="newAssociationStatus"><span class="annot"><span class="annottext">newAssociationStatus :: AssociationStatus
 </span><a href="Network.AWS.EC2.Types.AssociationStatus.html#newAssociationStatus"><span class="hs-identifier hs-var hs-var">newAssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">AssociationStatus' :: Maybe Text -&gt; Maybe AssociationStatusCode -&gt; AssociationStatus
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">AssociationStatus' :: Maybe AssociationStatusCode -&gt; Maybe Text -&gt; AssociationStatus
 </span><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus%27"><span class="hs-identifier hs-type">AssociationStatus'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:AssociationStatus' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AssociationStatus.html#%24sel%3Amessage%3AAssociationStatus%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:code:AssociationStatus' :: Maybe AssociationStatusCode
+</span><a href="Network.AWS.EC2.Types.AssociationStatus.html#%24sel%3Acode%3AAssociationStatus%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationStatusCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:AssociationStatus' :: Maybe AssociationStatusCode
-</span><a href="Network.AWS.EC2.Types.AssociationStatus.html#%24sel%3Acode%3AAssociationStatus%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationStatusCode
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:AssociationStatus' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AssociationStatus.html#%24sel%3Amessage%3AAssociationStatus%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | A message about the status of the target network association, if</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- applicable.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#associationStatus_message"><span class="hs-identifier hs-type">associationStatus_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="associationStatus_message"><span class="annot"><span class="annottext">associationStatus_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AssociationStatus -&gt; f AssociationStatus
-</span><a href="Network.AWS.EC2.Types.AssociationStatus.html#associationStatus_message"><span class="hs-identifier hs-var hs-var">associationStatus_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationStatus -&gt; Maybe Text)
--&gt; (AssociationStatus -&gt; Maybe Text -&gt; AssociationStatus)
--&gt; Lens
-     AssociationStatus AssociationStatus (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus%27"><span class="hs-identifier hs-type">AssociationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681054122"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:AssociationStatus' :: AssociationStatus -&gt; Maybe Text
-</span><a href="#local-6989586621681054122"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681054122"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681054121"><span class="annot"><span class="annottext">s :: AssociationStatus
-</span><a href="#local-6989586621681054121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus%27"><span class="hs-identifier hs-type">AssociationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681054120"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681054120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationStatus
-</span><a href="#local-6989586621681054121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:AssociationStatus' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.AssociationStatus.html#%24sel%3Amessage%3AAssociationStatus%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681054120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | The state of the target network association.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#associationStatus_code"><span class="hs-identifier hs-type">associationStatus_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatusCode.html#AssociationStatusCode"><span class="hs-identifier hs-type">AssociationStatusCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="associationStatus_code"><span class="annot"><span class="annottext">associationStatus_code :: (Maybe AssociationStatusCode -&gt; f (Maybe AssociationStatusCode))
+</span><span id="line-60"></span><span class="hs-comment">-- | The state of the target network association.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#associationStatus_code"><span class="hs-identifier hs-type">associationStatus_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatusCode.html#AssociationStatusCode"><span class="hs-identifier hs-type">AssociationStatusCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="associationStatus_code"><span class="annot"><span class="annottext">associationStatus_code :: (Maybe AssociationStatusCode -&gt; f (Maybe AssociationStatusCode))
 -&gt; AssociationStatus -&gt; f AssociationStatus
 </span><a href="Network.AWS.EC2.Types.AssociationStatus.html#associationStatus_code"><span class="hs-identifier hs-var hs-var">associationStatus_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationStatus -&gt; Maybe AssociationStatusCode)
 -&gt; (AssociationStatus
@@ -154,43 +133,63 @@ $sel:message:AssociationStatus' :: AssociationStatus -&gt; Maybe Text
      (Maybe AssociationStatusCode)
      (Maybe AssociationStatusCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus%27"><span class="hs-identifier hs-type">AssociationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681054118"><span class="annot"><span class="annottext">Maybe AssociationStatusCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus%27"><span class="hs-identifier hs-type">AssociationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681087320"><span class="annot"><span class="annottext">Maybe AssociationStatusCode
 code :: Maybe AssociationStatusCode
 $sel:code:AssociationStatus' :: AssociationStatus -&gt; Maybe AssociationStatusCode
-</span><a href="#local-6989586621681054118"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationStatusCode
-</span><a href="#local-6989586621681054118"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681054117"><span class="annot"><span class="annottext">s :: AssociationStatus
-</span><a href="#local-6989586621681054117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus%27"><span class="hs-identifier hs-type">AssociationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681054116"><span class="annot"><span class="annottext">Maybe AssociationStatusCode
-</span><a href="#local-6989586621681054116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationStatus
-</span><a href="#local-6989586621681054117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:AssociationStatus' :: Maybe AssociationStatusCode
+</span><a href="#local-6989586621681087320"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationStatusCode
+</span><a href="#local-6989586621681087320"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681087319"><span class="annot"><span class="annottext">s :: AssociationStatus
+</span><a href="#local-6989586621681087319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus%27"><span class="hs-identifier hs-type">AssociationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681087318"><span class="annot"><span class="annottext">Maybe AssociationStatusCode
+</span><a href="#local-6989586621681087318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationStatus
+</span><a href="#local-6989586621681087319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:AssociationStatus' :: Maybe AssociationStatusCode
 </span><a href="Network.AWS.EC2.Types.AssociationStatus.html#%24sel%3Acode%3AAssociationStatus%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssociationStatusCode
-</span><a href="#local-6989586621681054116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681087318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | A message about the status of the target network association, if</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- applicable.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#associationStatus_message"><span class="hs-identifier hs-type">associationStatus_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="associationStatus_message"><span class="annot"><span class="annottext">associationStatus_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociationStatus -&gt; f AssociationStatus
+</span><a href="Network.AWS.EC2.Types.AssociationStatus.html#associationStatus_message"><span class="hs-identifier hs-var hs-var">associationStatus_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociationStatus -&gt; Maybe Text)
+-&gt; (AssociationStatus -&gt; Maybe Text -&gt; AssociationStatus)
+-&gt; Lens
+     AssociationStatus AssociationStatus (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus%27"><span class="hs-identifier hs-type">AssociationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681087316"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:AssociationStatus' :: AssociationStatus -&gt; Maybe Text
+</span><a href="#local-6989586621681087316"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681087316"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681087315"><span class="annot"><span class="annottext">s :: AssociationStatus
+</span><a href="#local-6989586621681087315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus%27"><span class="hs-identifier hs-type">AssociationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681087314"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681087314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociationStatus
+</span><a href="#local-6989586621681087315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:AssociationStatus' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.AssociationStatus.html#%24sel%3Amessage%3AAssociationStatus%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681087314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621681054113"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AssociationStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681054111"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681054111"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe AssociationStatusCode -&gt; AssociationStatus
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621681087311"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AssociationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681087309"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681087309"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">Maybe AssociationStatusCode -&gt; Maybe Text -&gt; AssociationStatus
 </span><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus%27"><span class="hs-identifier hs-var">AssociationStatus'</span></a></span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe AssociationStatusCode -&gt; AssociationStatus)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe AssociationStatusCode -&gt; AssociationStatus)
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">(Maybe AssociationStatusCode -&gt; Maybe Text -&gt; AssociationStatus)
+-&gt; Either String (Maybe AssociationStatusCode)
+-&gt; Either String (Maybe Text -&gt; AssociationStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681054111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe AssociationStatusCode -&gt; AssociationStatus)
--&gt; Either String (Maybe AssociationStatusCode)
--&gt; Either String AssociationStatus
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681054111"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AssociationStatusCode)
+</span><a href="#local-6989586621681087309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AssociationStatusCode)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; AssociationStatus)
+-&gt; Either String (Maybe Text) -&gt; Either String AssociationStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681087309"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681054105"><span id="local-6989586621681054107"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681087303"><span id="local-6989586621681087305"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681054102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681087300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AssociationStatus.html#AssociationStatus"><span class="hs-identifier hs-type">AssociationStatus</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

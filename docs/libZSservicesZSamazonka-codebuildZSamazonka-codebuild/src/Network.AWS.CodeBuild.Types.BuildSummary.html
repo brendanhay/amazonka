@@ -28,44 +28,44 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Contains summary information about a batch build group.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBuildSummary' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679376857"><span id="local-6989586621679376858"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuildSummary"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-var">BuildSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildSummary%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-var">BuildSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679378740"><span id="local-6989586621679378741"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuildSummary"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-var">BuildSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuildSummary%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-var">BuildSummary'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of @ResolvedArtifact@ objects that represents the secondary</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- build artifacts for the build group.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AsecondaryArtifacts%3ABuildSummary%27"><span class="annot"><span class="annottext">BuildSummary -&gt; Maybe [ResolvedArtifact]
 </span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3AsecondaryArtifacts%3ABuildSummary%27"><span class="hs-identifier hs-var hs-var">secondaryArtifacts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ResolvedArtifact.html#ResolvedArtifact"><span class="hs-identifier hs-type">ResolvedArtifact</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | When the build was started, expressed in Unix time format.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3ArequestedOn%3ABuildSummary%27"><span class="annot"><span class="annottext">BuildSummary -&gt; Maybe POSIX
-</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3ArequestedOn%3ABuildSummary%27"><span class="hs-identifier hs-var hs-var">requestedOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The batch build ARN.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aarn%3ABuildSummary%27"><span class="annot"><span class="annottext">BuildSummary -&gt; Maybe Text
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | A @ResolvedArtifact@ object that represents the primary build artifacts</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- for the build group.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AprimaryArtifact%3ABuildSummary%27"><span class="annot"><span class="annottext">BuildSummary -&gt; Maybe ResolvedArtifact
+</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3AprimaryArtifact%3ABuildSummary%27"><span class="hs-identifier hs-var hs-var">primaryArtifact</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ResolvedArtifact.html#ResolvedArtifact"><span class="hs-identifier hs-type">ResolvedArtifact</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The batch build ARN.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aarn%3ABuildSummary%27"><span class="annot"><span class="annottext">BuildSummary -&gt; Maybe Text
 </span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3Aarn%3ABuildSummary%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The status of the build group.</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- [FAILED]</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     The build group failed.</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- [FAULT]</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     The build group faulted.</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- [IN_PROGRESS]</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     The build group is still in progress.</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- [STOPPED]</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     The build group stopped.</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- [SUCCEEDED]</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     The build group succeeded.</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- [TIMED_OUT]</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     The build group timed out.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3AbuildStatus%3ABuildSummary%27"><span class="annot"><span class="annottext">BuildSummary -&gt; Maybe StatusType
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The status of the build group.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- [FAILED]</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     The build group failed.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- [FAULT]</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     The build group faulted.</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- [IN_PROGRESS]</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     The build group is still in progress.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- [STOPPED]</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     The build group stopped.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- [SUCCEEDED]</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     The build group succeeded.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- [TIMED_OUT]</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     The build group timed out.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AbuildStatus%3ABuildSummary%27"><span class="annot"><span class="annottext">BuildSummary -&gt; Maybe StatusType
 </span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3AbuildStatus%3ABuildSummary%27"><span class="hs-identifier hs-var hs-var">buildStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.StatusType.html#StatusType"><span class="hs-identifier hs-type">StatusType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A @ResolvedArtifact@ object that represents the primary build artifacts</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- for the build group.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3AprimaryArtifact%3ABuildSummary%27"><span class="annot"><span class="annottext">BuildSummary -&gt; Maybe ResolvedArtifact
-</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3AprimaryArtifact%3ABuildSummary%27"><span class="hs-identifier hs-var hs-var">primaryArtifact</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ResolvedArtifact.html#ResolvedArtifact"><span class="hs-identifier hs-type">ResolvedArtifact</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | When the build was started, expressed in Unix time format.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3ArequestedOn%3ABuildSummary%27"><span class="annot"><span class="annottext">BuildSummary -&gt; Maybe POSIX
+</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3ArequestedOn%3ABuildSummary%27"><span class="hs-identifier hs-var hs-var">requestedOn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376847"><span id="local-6989586621679376849"><span class="annot"><span class="annottext">BuildSummary -&gt; BuildSummary -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378730"><span id="local-6989586621679378732"><span class="annot"><span class="annottext">BuildSummary -&gt; BuildSummary -&gt; Bool
 (BuildSummary -&gt; BuildSummary -&gt; Bool)
 -&gt; (BuildSummary -&gt; BuildSummary -&gt; Bool) -&gt; Eq BuildSummary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BuildSummary -&gt; BuildSummary -&gt; Bool
 == :: BuildSummary -&gt; BuildSummary -&gt; Bool
 $c== :: BuildSummary -&gt; BuildSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376838"><span id="local-6989586621679376840"><span id="local-6989586621679376842"><span id="local-6989586621679376844"><span class="annot"><span class="annottext">ReadPrec [BuildSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378721"><span id="local-6989586621679378723"><span id="local-6989586621679378725"><span id="local-6989586621679378727"><span class="annot"><span class="annottext">ReadPrec [BuildSummary]
 ReadPrec BuildSummary
 Int -&gt; ReadS BuildSummary
 ReadS [BuildSummary]
@@ -93,7 +93,7 @@ readList :: ReadS [BuildSummary]
 $creadList :: ReadS [BuildSummary]
 readsPrec :: Int -&gt; ReadS BuildSummary
 $creadsPrec :: Int -&gt; ReadS BuildSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376831"><span id="local-6989586621679376833"><span id="local-6989586621679376835"><span class="annot"><span class="annottext">Int -&gt; BuildSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378714"><span id="local-6989586621679378716"><span id="local-6989586621679378718"><span class="annot"><span class="annottext">Int -&gt; BuildSummary -&gt; ShowS
 [BuildSummary] -&gt; ShowS
 BuildSummary -&gt; String
 (Int -&gt; BuildSummary -&gt; ShowS)
@@ -130,49 +130,49 @@ $cfrom :: forall x. BuildSummary -&gt; Rep BuildSummary x
 </span><span id="line-73"></span><span class="hs-comment">-- 'secondaryArtifacts', 'buildSummary_secondaryArtifacts' - An array of @ResolvedArtifact@ objects that represents the secondary</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- build artifacts for the build group.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'requestedOn', 'buildSummary_requestedOn' - When the build was started, expressed in Unix time format.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'arn', 'buildSummary_arn' - The batch build ARN.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'buildStatus', 'buildSummary_buildStatus' - The status of the build group.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- [FAILED]</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--     The build group failed.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- [FAULT]</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--     The build group faulted.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- [IN_PROGRESS]</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--     The build group is still in progress.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- [STOPPED]</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--     The build group stopped.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- [SUCCEEDED]</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--     The build group succeeded.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- [TIMED_OUT]</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--     The build group timed out.</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'primaryArtifact', 'buildSummary_primaryArtifact' - A @ResolvedArtifact@ object that represents the primary build artifacts</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- for the build group.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'primaryArtifact', 'buildSummary_primaryArtifact' - A @ResolvedArtifact@ object that represents the primary build artifacts</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for the build group.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'arn', 'buildSummary_arn' - The batch build ARN.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'buildStatus', 'buildSummary_buildStatus' - The status of the build group.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- [FAILED]</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--     The build group failed.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- [FAULT]</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     The build group faulted.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- [IN_PROGRESS]</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--     The build group is still in progress.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- [STOPPED]</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--     The build group stopped.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- [SUCCEEDED]</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     The build group succeeded.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- [TIMED_OUT]</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     The build group timed out.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'requestedOn', 'buildSummary_requestedOn' - When the build was started, expressed in Unix time format.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#newBuildSummary"><span class="hs-identifier hs-type">newBuildSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span>
 </span><span id="line-104"></span><span id="newBuildSummary"><span class="annot"><span class="annottext">newBuildSummary :: BuildSummary
 </span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#newBuildSummary"><span class="hs-identifier hs-var hs-var">newBuildSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">BuildSummary' :: Maybe [ResolvedArtifact]
--&gt; Maybe POSIX
+-&gt; Maybe ResolvedArtifact
 -&gt; Maybe Text
 -&gt; Maybe StatusType
--&gt; Maybe ResolvedArtifact
+-&gt; Maybe POSIX
 -&gt; BuildSummary
 </span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:secondaryArtifacts:BuildSummary' :: Maybe [ResolvedArtifact]
 </span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3AsecondaryArtifacts%3ABuildSummary%27"><span class="hs-identifier hs-var">secondaryArtifacts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResolvedArtifact]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestedOn:BuildSummary' :: Maybe POSIX
-</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3ArequestedOn%3ABuildSummary%27"><span class="hs-identifier hs-var">requestedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:primaryArtifact:BuildSummary' :: Maybe ResolvedArtifact
+</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3AprimaryArtifact%3ABuildSummary%27"><span class="hs-identifier hs-var">primaryArtifact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResolvedArtifact
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:BuildSummary' :: Maybe Text
@@ -183,8 +183,8 @@ forall a. Maybe a
 </span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3AbuildStatus%3ABuildSummary%27"><span class="hs-identifier hs-var">buildStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:primaryArtifact:BuildSummary' :: Maybe ResolvedArtifact
-</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3AprimaryArtifact%3ABuildSummary%27"><span class="hs-identifier hs-var">primaryArtifact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResolvedArtifact
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestedOn:BuildSummary' :: Maybe POSIX
+</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3ArequestedOn%3ABuildSummary%27"><span class="hs-identifier hs-var">requestedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
@@ -202,16 +202,16 @@ forall a. Maybe a
      (Maybe [ResolvedArtifact])
      (Maybe [ResolvedArtifact])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376822"><span class="annot"><span class="annottext">Maybe [ResolvedArtifact]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378705"><span class="annot"><span class="annottext">Maybe [ResolvedArtifact]
 secondaryArtifacts :: Maybe [ResolvedArtifact]
 $sel:secondaryArtifacts:BuildSummary' :: BuildSummary -&gt; Maybe [ResolvedArtifact]
-</span><a href="#local-6989586621679376822"><span class="hs-identifier hs-var hs-var">secondaryArtifacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResolvedArtifact]
-</span><a href="#local-6989586621679376822"><span class="hs-identifier hs-var">secondaryArtifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376821"><span class="annot"><span class="annottext">s :: BuildSummary
-</span><a href="#local-6989586621679376821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376820"><span class="annot"><span class="annottext">Maybe [ResolvedArtifact]
-</span><a href="#local-6989586621679376820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildSummary
-</span><a href="#local-6989586621679376821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secondaryArtifacts:BuildSummary' :: Maybe [ResolvedArtifact]
+</span><a href="#local-6989586621679378705"><span class="hs-identifier hs-var hs-var">secondaryArtifacts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResolvedArtifact]
+</span><a href="#local-6989586621679378705"><span class="hs-identifier hs-var">secondaryArtifacts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378704"><span class="annot"><span class="annottext">s :: BuildSummary
+</span><a href="#local-6989586621679378704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378703"><span class="annot"><span class="annottext">Maybe [ResolvedArtifact]
+</span><a href="#local-6989586621679378703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildSummary
+</span><a href="#local-6989586621679378704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secondaryArtifacts:BuildSummary' :: Maybe [ResolvedArtifact]
 </span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3AsecondaryArtifacts%3ABuildSummary%27"><span class="hs-identifier hs-var">secondaryArtifacts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResolvedArtifact]
-</span><a href="#local-6989586621679376820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResolvedArtifact] -&gt; f (Maybe [ResolvedArtifact]))
+</span><a href="#local-6989586621679378703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResolvedArtifact] -&gt; f (Maybe [ResolvedArtifact]))
  -&gt; BuildSummary -&gt; f BuildSummary)
 -&gt; ((Maybe [ResolvedArtifact] -&gt; f (Maybe [ResolvedArtifact]))
     -&gt; Maybe [ResolvedArtifact] -&gt; f (Maybe [ResolvedArtifact]))
@@ -237,27 +237,107 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ResolvedArtifact]
   [ResolvedArtifact]
   [ResolvedArtifact]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | When the build was started, expressed in Unix time format.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_requestedOn"><span class="hs-identifier hs-type">buildSummary_requestedOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="buildSummary_requestedOn"><span class="annot"><span class="annottext">buildSummary_requestedOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-118"></span><span class="hs-comment">-- | A @ResolvedArtifact@ object that represents the primary build artifacts</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- for the build group.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_primaryArtifact"><span class="hs-identifier hs-type">buildSummary_primaryArtifact</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ResolvedArtifact.html#ResolvedArtifact"><span class="hs-identifier hs-type">ResolvedArtifact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="buildSummary_primaryArtifact"><span class="annot"><span class="annottext">buildSummary_primaryArtifact :: (Maybe ResolvedArtifact -&gt; f (Maybe ResolvedArtifact))
+-&gt; BuildSummary -&gt; f BuildSummary
+</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_primaryArtifact"><span class="hs-identifier hs-var hs-var">buildSummary_primaryArtifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildSummary -&gt; Maybe ResolvedArtifact)
+-&gt; (BuildSummary -&gt; Maybe ResolvedArtifact -&gt; BuildSummary)
+-&gt; Lens
+     BuildSummary
+     BuildSummary
+     (Maybe ResolvedArtifact)
+     (Maybe ResolvedArtifact)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378698"><span class="annot"><span class="annottext">Maybe ResolvedArtifact
+primaryArtifact :: Maybe ResolvedArtifact
+$sel:primaryArtifact:BuildSummary' :: BuildSummary -&gt; Maybe ResolvedArtifact
+</span><a href="#local-6989586621679378698"><span class="hs-identifier hs-var hs-var">primaryArtifact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResolvedArtifact
+</span><a href="#local-6989586621679378698"><span class="hs-identifier hs-var">primaryArtifact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378697"><span class="annot"><span class="annottext">s :: BuildSummary
+</span><a href="#local-6989586621679378697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378696"><span class="annot"><span class="annottext">Maybe ResolvedArtifact
+</span><a href="#local-6989586621679378696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildSummary
+</span><a href="#local-6989586621679378697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryArtifact:BuildSummary' :: Maybe ResolvedArtifact
+</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3AprimaryArtifact%3ABuildSummary%27"><span class="hs-identifier hs-var">primaryArtifact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResolvedArtifact
+</span><a href="#local-6989586621679378696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The batch build ARN.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_arn"><span class="hs-identifier hs-type">buildSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="buildSummary_arn"><span class="annot"><span class="annottext">buildSummary_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BuildSummary -&gt; f BuildSummary
+</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_arn"><span class="hs-identifier hs-var hs-var">buildSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildSummary -&gt; Maybe Text)
+-&gt; (BuildSummary -&gt; Maybe Text -&gt; BuildSummary)
+-&gt; Lens BuildSummary BuildSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378694"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:BuildSummary' :: BuildSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679378694"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378694"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378693"><span class="annot"><span class="annottext">s :: BuildSummary
+</span><a href="#local-6989586621679378693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378692"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildSummary
+</span><a href="#local-6989586621679378693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:BuildSummary' :: Maybe Text
+</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3Aarn%3ABuildSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The status of the build group.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- [FAILED]</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     The build group failed.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- [FAULT]</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--     The build group faulted.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- [IN_PROGRESS]</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--     The build group is still in progress.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- [STOPPED]</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     The build group stopped.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- [SUCCEEDED]</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     The build group succeeded.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- [TIMED_OUT]</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     The build group timed out.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_buildStatus"><span class="hs-identifier hs-type">buildSummary_buildStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.StatusType.html#StatusType"><span class="hs-identifier hs-type">StatusType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="buildSummary_buildStatus"><span class="annot"><span class="annottext">buildSummary_buildStatus :: (Maybe StatusType -&gt; f (Maybe StatusType))
+-&gt; BuildSummary -&gt; f BuildSummary
+</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_buildStatus"><span class="hs-identifier hs-var hs-var">buildSummary_buildStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildSummary -&gt; Maybe StatusType)
+-&gt; (BuildSummary -&gt; Maybe StatusType -&gt; BuildSummary)
+-&gt; Lens
+     BuildSummary BuildSummary (Maybe StatusType) (Maybe StatusType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378690"><span class="annot"><span class="annottext">Maybe StatusType
+buildStatus :: Maybe StatusType
+$sel:buildStatus:BuildSummary' :: BuildSummary -&gt; Maybe StatusType
+</span><a href="#local-6989586621679378690"><span class="hs-identifier hs-var hs-var">buildStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatusType
+</span><a href="#local-6989586621679378690"><span class="hs-identifier hs-var">buildStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378689"><span class="annot"><span class="annottext">s :: BuildSummary
+</span><a href="#local-6989586621679378689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378688"><span class="annot"><span class="annottext">Maybe StatusType
+</span><a href="#local-6989586621679378688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildSummary
+</span><a href="#local-6989586621679378689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildStatus:BuildSummary' :: Maybe StatusType
+</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3AbuildStatus%3ABuildSummary%27"><span class="hs-identifier hs-var">buildStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusType
+</span><a href="#local-6989586621679378688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | When the build was started, expressed in Unix time format.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_requestedOn"><span class="hs-identifier hs-type">buildSummary_requestedOn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="buildSummary_requestedOn"><span class="annot"><span class="annottext">buildSummary_requestedOn :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; BuildSummary -&gt; f BuildSummary
 </span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_requestedOn"><span class="hs-identifier hs-var hs-var">buildSummary_requestedOn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildSummary -&gt; Maybe POSIX)
 -&gt; (BuildSummary -&gt; Maybe POSIX -&gt; BuildSummary)
 -&gt; Lens BuildSummary BuildSummary (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376815"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378686"><span class="annot"><span class="annottext">Maybe POSIX
 requestedOn :: Maybe POSIX
 $sel:requestedOn:BuildSummary' :: BuildSummary -&gt; Maybe POSIX
-</span><a href="#local-6989586621679376815"><span class="hs-identifier hs-var hs-var">requestedOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679376815"><span class="hs-identifier hs-var">requestedOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376814"><span class="annot"><span class="annottext">s :: BuildSummary
-</span><a href="#local-6989586621679376814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376813"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679376813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildSummary
-</span><a href="#local-6989586621679376814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestedOn:BuildSummary' :: Maybe POSIX
+</span><a href="#local-6989586621679378686"><span class="hs-identifier hs-var hs-var">requestedOn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378686"><span class="hs-identifier hs-var">requestedOn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378685"><span class="annot"><span class="annottext">s :: BuildSummary
+</span><a href="#local-6989586621679378685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378684"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679378684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildSummary
+</span><a href="#local-6989586621679378685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestedOn:BuildSummary' :: Maybe POSIX
 </span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3ArequestedOn%3ABuildSummary%27"><span class="hs-identifier hs-var">requestedOn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679376813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679378684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; BuildSummary -&gt; f BuildSummary)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -273,89 +353,9 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The batch build ARN.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_arn"><span class="hs-identifier hs-type">buildSummary_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="buildSummary_arn"><span class="annot"><span class="annottext">buildSummary_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; BuildSummary -&gt; f BuildSummary
-</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_arn"><span class="hs-identifier hs-var hs-var">buildSummary_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildSummary -&gt; Maybe Text)
--&gt; (BuildSummary -&gt; Maybe Text -&gt; BuildSummary)
--&gt; Lens BuildSummary BuildSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376810"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:BuildSummary' :: BuildSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679376810"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376810"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376809"><span class="annot"><span class="annottext">s :: BuildSummary
-</span><a href="#local-6989586621679376809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376808"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildSummary
-</span><a href="#local-6989586621679376809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:BuildSummary' :: Maybe Text
-</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3Aarn%3ABuildSummary%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679376808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The status of the build group.</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- [FAILED]</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--     The build group failed.</span><span>
-</span><span id="line-130"></span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- [FAULT]</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--     The build group faulted.</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- [IN_PROGRESS]</span><span>
-</span><span id="line-135"></span><span class="hs-comment">--     The build group is still in progress.</span><span>
-</span><span id="line-136"></span><span class="hs-comment">--</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- [STOPPED]</span><span>
-</span><span id="line-138"></span><span class="hs-comment">--     The build group stopped.</span><span>
-</span><span id="line-139"></span><span class="hs-comment">--</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- [SUCCEEDED]</span><span>
-</span><span id="line-141"></span><span class="hs-comment">--     The build group succeeded.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- [TIMED_OUT]</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--     The build group timed out.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_buildStatus"><span class="hs-identifier hs-type">buildSummary_buildStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.StatusType.html#StatusType"><span class="hs-identifier hs-type">StatusType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="buildSummary_buildStatus"><span class="annot"><span class="annottext">buildSummary_buildStatus :: (Maybe StatusType -&gt; f (Maybe StatusType))
--&gt; BuildSummary -&gt; f BuildSummary
-</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_buildStatus"><span class="hs-identifier hs-var hs-var">buildSummary_buildStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildSummary -&gt; Maybe StatusType)
--&gt; (BuildSummary -&gt; Maybe StatusType -&gt; BuildSummary)
--&gt; Lens
-     BuildSummary BuildSummary (Maybe StatusType) (Maybe StatusType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376806"><span class="annot"><span class="annottext">Maybe StatusType
-buildStatus :: Maybe StatusType
-$sel:buildStatus:BuildSummary' :: BuildSummary -&gt; Maybe StatusType
-</span><a href="#local-6989586621679376806"><span class="hs-identifier hs-var hs-var">buildStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatusType
-</span><a href="#local-6989586621679376806"><span class="hs-identifier hs-var">buildStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376805"><span class="annot"><span class="annottext">s :: BuildSummary
-</span><a href="#local-6989586621679376805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376804"><span class="annot"><span class="annottext">Maybe StatusType
-</span><a href="#local-6989586621679376804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildSummary
-</span><a href="#local-6989586621679376805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildStatus:BuildSummary' :: Maybe StatusType
-</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3AbuildStatus%3ABuildSummary%27"><span class="hs-identifier hs-var">buildStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusType
-</span><a href="#local-6989586621679376804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | A @ResolvedArtifact@ object that represents the primary build artifacts</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- for the build group.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_primaryArtifact"><span class="hs-identifier hs-type">buildSummary_primaryArtifact</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ResolvedArtifact.html#ResolvedArtifact"><span class="hs-identifier hs-type">ResolvedArtifact</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="buildSummary_primaryArtifact"><span class="annot"><span class="annottext">buildSummary_primaryArtifact :: (Maybe ResolvedArtifact -&gt; f (Maybe ResolvedArtifact))
--&gt; BuildSummary -&gt; f BuildSummary
-</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#buildSummary_primaryArtifact"><span class="hs-identifier hs-var hs-var">buildSummary_primaryArtifact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BuildSummary -&gt; Maybe ResolvedArtifact)
--&gt; (BuildSummary -&gt; Maybe ResolvedArtifact -&gt; BuildSummary)
--&gt; Lens
-     BuildSummary
-     BuildSummary
-     (Maybe ResolvedArtifact)
-     (Maybe ResolvedArtifact)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376802"><span class="annot"><span class="annottext">Maybe ResolvedArtifact
-primaryArtifact :: Maybe ResolvedArtifact
-$sel:primaryArtifact:BuildSummary' :: BuildSummary -&gt; Maybe ResolvedArtifact
-</span><a href="#local-6989586621679376802"><span class="hs-identifier hs-var hs-var">primaryArtifact</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResolvedArtifact
-</span><a href="#local-6989586621679376802"><span class="hs-identifier hs-var">primaryArtifact</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376801"><span class="annot"><span class="annottext">s :: BuildSummary
-</span><a href="#local-6989586621679376801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-type">BuildSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376800"><span class="annot"><span class="annottext">Maybe ResolvedArtifact
-</span><a href="#local-6989586621679376800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuildSummary
-</span><a href="#local-6989586621679376801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:primaryArtifact:BuildSummary' :: Maybe ResolvedArtifact
-</span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#%24sel%3AprimaryArtifact%3ABuildSummary%27"><span class="hs-identifier hs-var">primaryArtifact</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResolvedArtifact
-</span><a href="#local-6989586621679376800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376797"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679376795"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuildSummary
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378680"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679378678"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuildSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BuildSummary) -&gt; Value -&gt; Parser BuildSummary
@@ -363,31 +363,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BuildSummary&quot;</span></span><span>
-</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376792"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376792"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378675"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ResolvedArtifact]
--&gt; Maybe POSIX
+-&gt; Maybe ResolvedArtifact
 -&gt; Maybe Text
 -&gt; Maybe StatusType
--&gt; Maybe ResolvedArtifact
+-&gt; Maybe POSIX
 -&gt; BuildSummary
 </span><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary%27"><span class="hs-identifier hs-var">BuildSummary'</span></a></span><span>
 </span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ResolvedArtifact]
- -&gt; Maybe POSIX
+ -&gt; Maybe ResolvedArtifact
  -&gt; Maybe Text
  -&gt; Maybe StatusType
- -&gt; Maybe ResolvedArtifact
+ -&gt; Maybe POSIX
  -&gt; BuildSummary)
 -&gt; Parser (Maybe [ResolvedArtifact])
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe StatusType
-      -&gt; Maybe ResolvedArtifact
-      -&gt; BuildSummary)
+     (Maybe ResolvedArtifact
+      -&gt; Maybe Text -&gt; Maybe StatusType -&gt; Maybe POSIX -&gt; BuildSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResolvedArtifact]))
+</span><a href="#local-6989586621679378675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [ResolvedArtifact]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;secondaryArtifacts&quot;</span></span><span>
@@ -399,53 +396,47 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-161"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe StatusType
-   -&gt; Maybe ResolvedArtifact
-   -&gt; BuildSummary)
--&gt; Parser (Maybe POSIX)
+  (Maybe ResolvedArtifact
+   -&gt; Maybe Text -&gt; Maybe StatusType -&gt; Maybe POSIX -&gt; BuildSummary)
+-&gt; Parser (Maybe ResolvedArtifact)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe StatusType -&gt; Maybe ResolvedArtifact -&gt; BuildSummary)
+     (Maybe Text -&gt; Maybe StatusType -&gt; Maybe POSIX -&gt; BuildSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;requestedOn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe StatusType -&gt; Maybe ResolvedArtifact -&gt; BuildSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe StatusType -&gt; Maybe ResolvedArtifact -&gt; BuildSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe StatusType -&gt; Maybe ResolvedArtifact -&gt; BuildSummary)
--&gt; Parser (Maybe StatusType)
--&gt; Parser (Maybe ResolvedArtifact -&gt; BuildSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StatusType)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;buildStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ResolvedArtifact -&gt; BuildSummary)
--&gt; Parser (Maybe ResolvedArtifact) -&gt; Parser BuildSummary
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679376792"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResolvedArtifact)
+</span><a href="#local-6989586621679378675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResolvedArtifact)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;primaryArtifact&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe StatusType -&gt; Maybe POSIX -&gt; BuildSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe StatusType -&gt; Maybe POSIX -&gt; BuildSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe StatusType -&gt; Maybe POSIX -&gt; BuildSummary)
+-&gt; Parser (Maybe StatusType)
+-&gt; Parser (Maybe POSIX -&gt; BuildSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StatusType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;buildStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; BuildSummary)
+-&gt; Parser (Maybe POSIX) -&gt; Parser BuildSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;requestedOn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376785"><span id="local-6989586621679376787"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span></span></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378668"><span id="local-6989586621679378670"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span></span></span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679376782"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.BuildSummary.html#BuildSummary"><span class="hs-identifier hs-type">BuildSummary</span></a></span></span><span>
 </span><span id="line-171"></span></pre></body></html>

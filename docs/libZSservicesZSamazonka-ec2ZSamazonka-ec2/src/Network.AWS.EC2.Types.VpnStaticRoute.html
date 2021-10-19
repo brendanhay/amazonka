@@ -29,19 +29,19 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes a static route for a VPN connection.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newVpnStaticRoute' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681155938"><span id="local-6989586621681155939"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpnStaticRoute"><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-var">VpnStaticRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpnStaticRoute%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-var">VpnStaticRoute'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates how the routes were provided.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Asource%3AVpnStaticRoute%27"><span class="annot"><span class="annottext">VpnStaticRoute -&gt; Maybe VpnStaticRouteSource
-</span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#%24sel%3Asource%3AVpnStaticRoute%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRouteSource.html#VpnStaticRouteSource"><span class="hs-identifier hs-type">VpnStaticRouteSource</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The current state of the static route.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astate%3AVpnStaticRoute%27"><span class="annot"><span class="annottext">VpnStaticRoute -&gt; Maybe VpnState
+</span><span id="line-32"></span><span id="local-6989586621681191137"><span id="local-6989586621681191138"></span></span><span class="hs-keyword">data</span><span> </span><span id="VpnStaticRoute"><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-var">VpnStaticRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VpnStaticRoute%27"><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-var">VpnStaticRoute'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of the static route.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astate%3AVpnStaticRoute%27"><span class="annot"><span class="annottext">VpnStaticRoute -&gt; Maybe VpnState
 </span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#%24sel%3Astate%3AVpnStaticRoute%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnState.html#VpnState"><span class="hs-identifier hs-type">VpnState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Indicates how the routes were provided.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Asource%3AVpnStaticRoute%27"><span class="annot"><span class="annottext">VpnStaticRoute -&gt; Maybe VpnStaticRouteSource
+</span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#%24sel%3Asource%3AVpnStaticRoute%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRouteSource.html#VpnStaticRouteSource"><span class="hs-identifier hs-type">VpnStaticRouteSource</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The CIDR block associated with the local subnet of the customer data</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- center.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AdestinationCidrBlock%3AVpnStaticRoute%27"><span class="annot"><span class="annottext">VpnStaticRoute -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#%24sel%3AdestinationCidrBlock%3AVpnStaticRoute%27"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681155930"><span id="local-6989586621681155932"><span class="annot"><span class="annottext">VpnStaticRoute -&gt; VpnStaticRoute -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681191129"><span id="local-6989586621681191131"><span class="annot"><span class="annottext">VpnStaticRoute -&gt; VpnStaticRoute -&gt; Bool
 (VpnStaticRoute -&gt; VpnStaticRoute -&gt; Bool)
 -&gt; (VpnStaticRoute -&gt; VpnStaticRoute -&gt; Bool) -&gt; Eq VpnStaticRoute
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VpnStaticRoute -&gt; VpnStaticRoute -&gt; Bool
 == :: VpnStaticRoute -&gt; VpnStaticRoute -&gt; Bool
 $c== :: VpnStaticRoute -&gt; VpnStaticRoute -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681155921"><span id="local-6989586621681155923"><span id="local-6989586621681155925"><span id="local-6989586621681155927"><span class="annot"><span class="annottext">ReadPrec [VpnStaticRoute]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681191120"><span id="local-6989586621681191122"><span id="local-6989586621681191124"><span id="local-6989586621681191126"><span class="annot"><span class="annottext">ReadPrec [VpnStaticRoute]
 ReadPrec VpnStaticRoute
 Int -&gt; ReadS VpnStaticRoute
 ReadS [VpnStaticRoute]
@@ -69,7 +69,7 @@ readList :: ReadS [VpnStaticRoute]
 $creadList :: ReadS [VpnStaticRoute]
 readsPrec :: Int -&gt; ReadS VpnStaticRoute
 $creadsPrec :: Int -&gt; ReadS VpnStaticRoute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681155914"><span id="local-6989586621681155916"><span id="local-6989586621681155918"><span class="annot"><span class="annottext">Int -&gt; VpnStaticRoute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681191113"><span id="local-6989586621681191115"><span id="local-6989586621681191117"><span class="annot"><span class="annottext">Int -&gt; VpnStaticRoute -&gt; ShowS
 [VpnStaticRoute] -&gt; ShowS
 VpnStaticRoute -&gt; String
 (Int -&gt; VpnStaticRoute -&gt; ShowS)
@@ -103,9 +103,9 @@ $cfrom :: forall x. VpnStaticRoute -&gt; Rep VpnStaticRoute x
 </span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'source', 'vpnStaticRoute_source' - Indicates how the routes were provided.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'state', 'vpnStaticRoute_state' - The current state of the static route.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'state', 'vpnStaticRoute_state' - The current state of the static route.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'source', 'vpnStaticRoute_source' - Indicates how the routes were provided.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- 'destinationCidrBlock', 'vpnStaticRoute_destinationCidrBlock' - The CIDR block associated with the local subnet of the customer data</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- center.</span><span>
@@ -113,15 +113,15 @@ $cfrom :: forall x. VpnStaticRoute -&gt; Rep VpnStaticRoute x
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span><span>
 </span><span id="line-59"></span><span id="newVpnStaticRoute"><span class="annot"><span class="annottext">newVpnStaticRoute :: VpnStaticRoute
 </span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#newVpnStaticRoute"><span class="hs-identifier hs-var hs-var">newVpnStaticRoute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">VpnStaticRoute' :: Maybe VpnStaticRouteSource
--&gt; Maybe VpnState -&gt; Maybe Text -&gt; VpnStaticRoute
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">VpnStaticRoute' :: Maybe VpnState
+-&gt; Maybe VpnStaticRouteSource -&gt; Maybe Text -&gt; VpnStaticRoute
 </span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-type">VpnStaticRoute'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:source:VpnStaticRoute' :: Maybe VpnStaticRouteSource
-</span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#%24sel%3Asource%3AVpnStaticRoute%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpnStaticRouteSource
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:VpnStaticRoute' :: Maybe VpnState
+</span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#%24sel%3Astate%3AVpnStaticRoute%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpnState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:VpnStaticRoute' :: Maybe VpnState
-</span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#%24sel%3Astate%3AVpnStaticRoute%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpnState
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:VpnStaticRoute' :: Maybe VpnStaticRouteSource
+</span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#%24sel%3Asource%3AVpnStaticRoute%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpnStaticRouteSource
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:VpnStaticRoute' :: Maybe Text
@@ -130,9 +130,29 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | Indicates how the routes were provided.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#vpnStaticRoute_source"><span class="hs-identifier hs-type">vpnStaticRoute_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRouteSource.html#VpnStaticRouteSource"><span class="hs-identifier hs-type">VpnStaticRouteSource</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="vpnStaticRoute_source"><span class="annot"><span class="annottext">vpnStaticRoute_source :: (Maybe VpnStaticRouteSource -&gt; f (Maybe VpnStaticRouteSource))
+</span><span id="line-66"></span><span class="hs-comment">-- | The current state of the static route.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#vpnStaticRoute_state"><span class="hs-identifier hs-type">vpnStaticRoute_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnState.html#VpnState"><span class="hs-identifier hs-type">VpnState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="vpnStaticRoute_state"><span class="annot"><span class="annottext">vpnStaticRoute_state :: (Maybe VpnState -&gt; f (Maybe VpnState))
+-&gt; VpnStaticRoute -&gt; f VpnStaticRoute
+</span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#vpnStaticRoute_state"><span class="hs-identifier hs-var hs-var">vpnStaticRoute_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpnStaticRoute -&gt; Maybe VpnState)
+-&gt; (VpnStaticRoute -&gt; Maybe VpnState -&gt; VpnStaticRoute)
+-&gt; Lens
+     VpnStaticRoute VpnStaticRoute (Maybe VpnState) (Maybe VpnState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-type">VpnStaticRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681191104"><span class="annot"><span class="annottext">Maybe VpnState
+state :: Maybe VpnState
+$sel:state:VpnStaticRoute' :: VpnStaticRoute -&gt; Maybe VpnState
+</span><a href="#local-6989586621681191104"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpnState
+</span><a href="#local-6989586621681191104"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681191103"><span class="annot"><span class="annottext">s :: VpnStaticRoute
+</span><a href="#local-6989586621681191103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-type">VpnStaticRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681191102"><span class="annot"><span class="annottext">Maybe VpnState
+</span><a href="#local-6989586621681191102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpnStaticRoute
+</span><a href="#local-6989586621681191103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:VpnStaticRoute' :: Maybe VpnState
+</span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#%24sel%3Astate%3AVpnStaticRoute%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpnState
+</span><a href="#local-6989586621681191102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | Indicates how the routes were provided.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#vpnStaticRoute_source"><span class="hs-identifier hs-type">vpnStaticRoute_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRouteSource.html#VpnStaticRouteSource"><span class="hs-identifier hs-type">VpnStaticRouteSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="vpnStaticRoute_source"><span class="annot"><span class="annottext">vpnStaticRoute_source :: (Maybe VpnStaticRouteSource -&gt; f (Maybe VpnStaticRouteSource))
 -&gt; VpnStaticRoute -&gt; f VpnStaticRoute
 </span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#vpnStaticRoute_source"><span class="hs-identifier hs-var hs-var">vpnStaticRoute_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpnStaticRoute -&gt; Maybe VpnStaticRouteSource)
 -&gt; (VpnStaticRoute -&gt; Maybe VpnStaticRouteSource -&gt; VpnStaticRoute)
@@ -142,36 +162,16 @@ forall a. Maybe a
      (Maybe VpnStaticRouteSource)
      (Maybe VpnStaticRouteSource)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-type">VpnStaticRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681155905"><span class="annot"><span class="annottext">Maybe VpnStaticRouteSource
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-type">VpnStaticRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681191100"><span class="annot"><span class="annottext">Maybe VpnStaticRouteSource
 source :: Maybe VpnStaticRouteSource
 $sel:source:VpnStaticRoute' :: VpnStaticRoute -&gt; Maybe VpnStaticRouteSource
-</span><a href="#local-6989586621681155905"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpnStaticRouteSource
-</span><a href="#local-6989586621681155905"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681155904"><span class="annot"><span class="annottext">s :: VpnStaticRoute
-</span><a href="#local-6989586621681155904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-type">VpnStaticRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681155903"><span class="annot"><span class="annottext">Maybe VpnStaticRouteSource
-</span><a href="#local-6989586621681155903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpnStaticRoute
-</span><a href="#local-6989586621681155904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:VpnStaticRoute' :: Maybe VpnStaticRouteSource
+</span><a href="#local-6989586621681191100"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpnStaticRouteSource
+</span><a href="#local-6989586621681191100"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681191099"><span class="annot"><span class="annottext">s :: VpnStaticRoute
+</span><a href="#local-6989586621681191099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-type">VpnStaticRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681191098"><span class="annot"><span class="annottext">Maybe VpnStaticRouteSource
+</span><a href="#local-6989586621681191098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpnStaticRoute
+</span><a href="#local-6989586621681191099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:VpnStaticRoute' :: Maybe VpnStaticRouteSource
 </span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#%24sel%3Asource%3AVpnStaticRoute%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpnStaticRouteSource
-</span><a href="#local-6989586621681155903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The current state of the static route.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#vpnStaticRoute_state"><span class="hs-identifier hs-type">vpnStaticRoute_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnState.html#VpnState"><span class="hs-identifier hs-type">VpnState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="vpnStaticRoute_state"><span class="annot"><span class="annottext">vpnStaticRoute_state :: (Maybe VpnState -&gt; f (Maybe VpnState))
--&gt; VpnStaticRoute -&gt; f VpnStaticRoute
-</span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#vpnStaticRoute_state"><span class="hs-identifier hs-var hs-var">vpnStaticRoute_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VpnStaticRoute -&gt; Maybe VpnState)
--&gt; (VpnStaticRoute -&gt; Maybe VpnState -&gt; VpnStaticRoute)
--&gt; Lens
-     VpnStaticRoute VpnStaticRoute (Maybe VpnState) (Maybe VpnState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-type">VpnStaticRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681155901"><span class="annot"><span class="annottext">Maybe VpnState
-state :: Maybe VpnState
-$sel:state:VpnStaticRoute' :: VpnStaticRoute -&gt; Maybe VpnState
-</span><a href="#local-6989586621681155901"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpnState
-</span><a href="#local-6989586621681155901"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681155900"><span class="annot"><span class="annottext">s :: VpnStaticRoute
-</span><a href="#local-6989586621681155900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-type">VpnStaticRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681155899"><span class="annot"><span class="annottext">Maybe VpnState
-</span><a href="#local-6989586621681155899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpnStaticRoute
-</span><a href="#local-6989586621681155900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:VpnStaticRoute' :: Maybe VpnState
-</span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#%24sel%3Astate%3AVpnStaticRoute%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpnState
-</span><a href="#local-6989586621681155899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681191098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The CIDR block associated with the local subnet of the customer data</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- center.</span><span>
@@ -182,53 +182,55 @@ $sel:state:VpnStaticRoute' :: VpnStaticRoute -&gt; Maybe VpnState
 -&gt; (VpnStaticRoute -&gt; Maybe Text -&gt; VpnStaticRoute)
 -&gt; Lens VpnStaticRoute VpnStaticRoute (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-type">VpnStaticRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681155897"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-type">VpnStaticRoute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681191096"><span class="annot"><span class="annottext">Maybe Text
 destinationCidrBlock :: Maybe Text
 $sel:destinationCidrBlock:VpnStaticRoute' :: VpnStaticRoute -&gt; Maybe Text
-</span><a href="#local-6989586621681155897"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681155897"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681155896"><span class="annot"><span class="annottext">s :: VpnStaticRoute
-</span><a href="#local-6989586621681155896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-type">VpnStaticRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681155895"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681155895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpnStaticRoute
-</span><a href="#local-6989586621681155896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:VpnStaticRoute' :: Maybe Text
+</span><a href="#local-6989586621681191096"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681191096"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681191095"><span class="annot"><span class="annottext">s :: VpnStaticRoute
+</span><a href="#local-6989586621681191095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-type">VpnStaticRoute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681191094"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681191094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VpnStaticRoute
+</span><a href="#local-6989586621681191095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:VpnStaticRoute' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#%24sel%3AdestinationCidrBlock%3AVpnStaticRoute%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681155895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681191094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621681155892"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VpnStaticRoute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681155890"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681155890"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">Maybe VpnStaticRouteSource
--&gt; Maybe VpnState -&gt; Maybe Text -&gt; VpnStaticRoute
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621681191091"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String VpnStaticRoute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681191089"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681191089"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">Maybe VpnState
+-&gt; Maybe VpnStaticRouteSource -&gt; Maybe Text -&gt; VpnStaticRoute
 </span><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute%27"><span class="hs-identifier hs-var">VpnStaticRoute'</span></a></span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">(Maybe VpnStaticRouteSource
- -&gt; Maybe VpnState -&gt; Maybe Text -&gt; VpnStaticRoute)
--&gt; Either String (Maybe VpnStaticRouteSource)
--&gt; Either String (Maybe VpnState -&gt; Maybe Text -&gt; VpnStaticRoute)
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">(Maybe VpnState
+ -&gt; Maybe VpnStaticRouteSource -&gt; Maybe Text -&gt; VpnStaticRoute)
+-&gt; Either String (Maybe VpnState)
+-&gt; Either
+     String (Maybe VpnStaticRouteSource -&gt; Maybe Text -&gt; VpnStaticRoute)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681155890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpnStaticRouteSource)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;source&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe VpnState -&gt; Maybe Text -&gt; VpnStaticRoute)
--&gt; Either String (Maybe VpnState)
--&gt; Either String (Maybe Text -&gt; VpnStaticRoute)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681155890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpnState)
+</span><a href="#local-6989586621681191089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpnState)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe VpnStaticRouteSource -&gt; Maybe Text -&gt; VpnStaticRoute)
+-&gt; Either String (Maybe VpnStaticRouteSource)
+-&gt; Either String (Maybe Text -&gt; VpnStaticRoute)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681191089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe VpnStaticRouteSource)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;source&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; VpnStaticRoute)
 -&gt; Either String (Maybe Text) -&gt; Either String VpnStaticRoute
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681155890"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681191089"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;destinationCidrBlock&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681155884"><span id="local-6989586621681155886"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681191083"><span id="local-6989586621681191085"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681155881"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681191080"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.VpnStaticRoute.html#VpnStaticRoute"><span class="hs-identifier hs-type">VpnStaticRoute</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

@@ -28,40 +28,40 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | The target registered with the maintenance window.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newMaintenanceWindowTarget' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679816714"><span id="local-6989586621679816715"></span></span><span class="hs-keyword">data</span><span> </span><span id="MaintenanceWindowTarget"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-var">MaintenanceWindowTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaintenanceWindowTarget%27"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-var">MaintenanceWindowTarget'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the target.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AwindowTargetId%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AwindowTargetId%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var hs-var">windowTargetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The type of target that is being registered with the maintenance window.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AresourceType%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe MaintenanceWindowResourceType
+</span><span id="line-31"></span><span id="local-6989586621679818425"><span id="local-6989586621679818426"></span></span><span class="hs-keyword">data</span><span> </span><span id="MaintenanceWindowTarget"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-var">MaintenanceWindowTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaintenanceWindowTarget%27"><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-var">MaintenanceWindowTarget'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of target that is being registered with the maintenance window.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AresourceType%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe MaintenanceWindowResourceType
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AresourceType%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowResourceType.html#MaintenanceWindowResourceType"><span class="hs-identifier hs-type">MaintenanceWindowResourceType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The targets, either instances or tags.</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Specify instances using the following format:</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @Key=instanceids,Values=\&lt;instanceid1&gt;,\&lt;instanceid2&gt;@</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Tags are specified using the following format:</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @Key=\&lt;tag name&gt;,Values=\&lt;tag value&gt;@.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Atargets%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe [Target]
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3Atargets%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name for the maintenance window target.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aname%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe Text
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A user-provided value that will be included in any Amazon CloudWatch</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Events events that are raised while running tasks for these targets in</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- this maintenance window.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AownerInformation%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AownerInformation%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var hs-var">ownerInformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the target.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AwindowTargetId%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AwindowTargetId%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var hs-var">windowTargetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name for the maintenance window target.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aname%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3Aname%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The ID of the maintenance window to register the target with.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AwindowId%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AwindowId%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var hs-var">windowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | A description for the target.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3Adescription%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe (Sensitive Text)
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The targets, either instances or tags.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Specify instances using the following format:</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- @Key=instanceids,Values=\&lt;instanceid1&gt;,\&lt;instanceid2&gt;@</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- Tags are specified using the following format:</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- @Key=\&lt;tag name&gt;,Values=\&lt;tag value&gt;@.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Atargets%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe [Target]
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3Atargets%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A description for the target.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Adescription%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe (Sensitive Text)
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3Adescription%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A user-provided value that will be included in any Amazon CloudWatch</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Events events that are raised while running tasks for these targets in</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- this maintenance window.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AownerInformation%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AownerInformation%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var hs-var">ownerInformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The ID of the maintenance window to register the target with.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AwindowId%3AMaintenanceWindowTarget%27"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AwindowId%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var hs-var">windowId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679816702"><span id="local-6989586621679816704"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; MaintenanceWindowTarget -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679818413"><span id="local-6989586621679818415"><span class="annot"><span class="annottext">MaintenanceWindowTarget -&gt; MaintenanceWindowTarget -&gt; Bool
 (MaintenanceWindowTarget -&gt; MaintenanceWindowTarget -&gt; Bool)
 -&gt; (MaintenanceWindowTarget -&gt; MaintenanceWindowTarget -&gt; Bool)
 -&gt; Eq MaintenanceWindowTarget
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MaintenanceWindowTarget -&gt; MaintenanceWindowTarget -&gt; Bool
 == :: MaintenanceWindowTarget -&gt; MaintenanceWindowTarget -&gt; Bool
 $c== :: MaintenanceWindowTarget -&gt; MaintenanceWindowTarget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679816695"><span id="local-6989586621679816697"><span id="local-6989586621679816699"><span class="annot"><span class="annottext">Int -&gt; MaintenanceWindowTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679818406"><span id="local-6989586621679818408"><span id="local-6989586621679818410"><span class="annot"><span class="annottext">Int -&gt; MaintenanceWindowTarget -&gt; ShowS
 [MaintenanceWindowTarget] -&gt; ShowS
 MaintenanceWindowTarget -&gt; String
 (Int -&gt; MaintenanceWindowTarget -&gt; ShowS)
@@ -106,100 +106,76 @@ $cfrom :: forall x. MaintenanceWindowTarget -&gt; Rep MaintenanceWindowTarget x
 </span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'windowTargetId', 'maintenanceWindowTarget_windowTargetId' - The ID of the target.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'resourceType', 'maintenanceWindowTarget_resourceType' - The type of target that is being registered with the maintenance window.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'resourceType', 'maintenanceWindowTarget_resourceType' - The type of target that is being registered with the maintenance window.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'targets', 'maintenanceWindowTarget_targets' - The targets, either instances or tags.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'ownerInformation', 'maintenanceWindowTarget_ownerInformation' - A user-provided value that will be included in any Amazon CloudWatch</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Events events that are raised while running tasks for these targets in</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- this maintenance window.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- Specify instances using the following format:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'windowTargetId', 'maintenanceWindowTarget_windowTargetId' - The ID of the target.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- @Key=instanceids,Values=\&lt;instanceid1&gt;,\&lt;instanceid2&gt;@</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'name', 'maintenanceWindowTarget_name' - The name for the maintenance window target.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- Tags are specified using the following format:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'targets', 'maintenanceWindowTarget_targets' - The targets, either instances or tags.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- @Key=\&lt;tag name&gt;,Values=\&lt;tag value&gt;@.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Specify instances using the following format:</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'name', 'maintenanceWindowTarget_name' - The name for the maintenance window target.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- @Key=instanceids,Values=\&lt;instanceid1&gt;,\&lt;instanceid2&gt;@</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'windowId', 'maintenanceWindowTarget_windowId' - The ID of the maintenance window to register the target with.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Tags are specified using the following format:</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'description', 'maintenanceWindowTarget_description' - A description for the target.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- @Key=\&lt;tag name&gt;,Values=\&lt;tag value&gt;@.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'ownerInformation', 'maintenanceWindowTarget_ownerInformation' - A user-provided value that will be included in any Amazon CloudWatch</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- Events events that are raised while running tasks for these targets in</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- this maintenance window.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'description', 'maintenanceWindowTarget_description' - A description for the target.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'windowId', 'maintenanceWindowTarget_windowId' - The ID of the maintenance window to register the target with.</span><span>
 </span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#newMaintenanceWindowTarget"><span class="hs-identifier hs-type">newMaintenanceWindowTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span>
 </span><span id="line-92"></span><span id="newMaintenanceWindowTarget"><span class="annot"><span class="annottext">newMaintenanceWindowTarget :: MaintenanceWindowTarget
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#newMaintenanceWindowTarget"><span class="hs-identifier hs-var hs-var">newMaintenanceWindowTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">MaintenanceWindowTarget' :: Maybe Text
--&gt; Maybe MaintenanceWindowResourceType
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">MaintenanceWindowTarget' :: Maybe MaintenanceWindowResourceType
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [Target]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe (Sensitive Text)
--&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
 -&gt; MaintenanceWindowTarget
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:windowTargetId:MaintenanceWindowTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AwindowTargetId%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">windowTargetId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceType:MaintenanceWindowTarget' :: Maybe MaintenanceWindowResourceType
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AresourceType%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowResourceType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceType:MaintenanceWindowTarget' :: Maybe MaintenanceWindowResourceType
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AresourceType%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowResourceType
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerInformation:MaintenanceWindowTarget' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AownerInformation%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">ownerInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:targets:MaintenanceWindowTarget' :: Maybe [Target]
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3Atargets%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:windowTargetId:MaintenanceWindowTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AwindowTargetId%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">windowTargetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:MaintenanceWindowTarget' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3Aname%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:windowId:MaintenanceWindowTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AwindowId%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">windowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:targets:MaintenanceWindowTarget' :: Maybe [Target]
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3Atargets%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:MaintenanceWindowTarget' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3Adescription%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerInformation:MaintenanceWindowTarget' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AownerInformation%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">ownerInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:windowId:MaintenanceWindowTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AwindowId%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">windowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-102"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- | The ID of the target.</span><span>
-</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_windowTargetId"><span class="hs-identifier hs-type">maintenanceWindowTarget_windowTargetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-106"></span><span id="maintenanceWindowTarget_windowTargetId"><span class="annot"><span class="annottext">maintenanceWindowTarget_windowTargetId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_windowTargetId"><span class="hs-identifier hs-var hs-var">maintenanceWindowTarget_windowTargetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTarget -&gt; Maybe Text)
--&gt; (MaintenanceWindowTarget
-    -&gt; Maybe Text -&gt; MaintenanceWindowTarget)
--&gt; Lens
-     MaintenanceWindowTarget
-     MaintenanceWindowTarget
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816686"><span class="annot"><span class="annottext">Maybe Text
-windowTargetId :: Maybe Text
-$sel:windowTargetId:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679816686"><span class="hs-identifier hs-var hs-var">windowTargetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816686"><span class="hs-identifier hs-var">windowTargetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816685"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
-</span><a href="#local-6989586621679816685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816684"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
-</span><a href="#local-6989586621679816685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowTargetId:MaintenanceWindowTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AwindowTargetId%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">windowTargetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- | The type of target that is being registered with the maintenance window.</span><span>
-</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_resourceType"><span class="hs-identifier hs-type">maintenanceWindowTarget_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowResourceType.html#MaintenanceWindowResourceType"><span class="hs-identifier hs-type">MaintenanceWindowResourceType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span id="maintenanceWindowTarget_resourceType"><span class="annot"><span class="annottext">maintenanceWindowTarget_resourceType :: (Maybe MaintenanceWindowResourceType
+</span><span id="line-104"></span><span class="hs-comment">-- | The type of target that is being registered with the maintenance window.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_resourceType"><span class="hs-identifier hs-type">maintenanceWindowTarget_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowResourceType.html#MaintenanceWindowResourceType"><span class="hs-identifier hs-type">MaintenanceWindowResourceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="maintenanceWindowTarget_resourceType"><span class="annot"><span class="annottext">maintenanceWindowTarget_resourceType :: (Maybe MaintenanceWindowResourceType
  -&gt; f (Maybe MaintenanceWindowResourceType))
 -&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_resourceType"><span class="hs-identifier hs-var hs-var">maintenanceWindowTarget_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTarget -&gt; Maybe MaintenanceWindowResourceType)
@@ -211,28 +187,121 @@ $sel:windowTargetId:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Ma
      (Maybe MaintenanceWindowResourceType)
      (Maybe MaintenanceWindowResourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816682"><span class="annot"><span class="annottext">Maybe MaintenanceWindowResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818397"><span class="annot"><span class="annottext">Maybe MaintenanceWindowResourceType
 resourceType :: Maybe MaintenanceWindowResourceType
 $sel:resourceType:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Maybe MaintenanceWindowResourceType
-</span><a href="#local-6989586621679816682"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowResourceType
-</span><a href="#local-6989586621679816682"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816681"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
-</span><a href="#local-6989586621679816681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816680"><span class="annot"><span class="annottext">Maybe MaintenanceWindowResourceType
-</span><a href="#local-6989586621679816680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
-</span><a href="#local-6989586621679816681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:MaintenanceWindowTarget' :: Maybe MaintenanceWindowResourceType
+</span><a href="#local-6989586621679818397"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowResourceType
+</span><a href="#local-6989586621679818397"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818396"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
+</span><a href="#local-6989586621679818396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818395"><span class="annot"><span class="annottext">Maybe MaintenanceWindowResourceType
+</span><a href="#local-6989586621679818395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
+</span><a href="#local-6989586621679818396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:MaintenanceWindowTarget' :: Maybe MaintenanceWindowResourceType
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AresourceType%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowResourceType
-</span><a href="#local-6989586621679816680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- | The targets, either instances or tags.</span><span>
-</span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- Specify instances using the following format:</span><span>
-</span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- @Key=instanceids,Values=\&lt;instanceid1&gt;,\&lt;instanceid2&gt;@</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- Tags are specified using the following format:</span><span>
-</span><span id="line-119"></span><span class="hs-comment">--</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- @Key=\&lt;tag name&gt;,Values=\&lt;tag value&gt;@.</span><span>
-</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_targets"><span class="hs-identifier hs-type">maintenanceWindowTarget_targets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span id="maintenanceWindowTarget_targets"><span class="annot"><span class="annottext">maintenanceWindowTarget_targets :: (Maybe [Target] -&gt; f (Maybe [Target]))
+</span><a href="#local-6989586621679818395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | A user-provided value that will be included in any Amazon CloudWatch</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Events events that are raised while running tasks for these targets in</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- this maintenance window.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_ownerInformation"><span class="hs-identifier hs-type">maintenanceWindowTarget_ownerInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="maintenanceWindowTarget_ownerInformation"><span class="annot"><span class="annottext">maintenanceWindowTarget_ownerInformation :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_ownerInformation"><span class="hs-identifier hs-var hs-var">maintenanceWindowTarget_ownerInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTarget -&gt; Maybe (Sensitive Text))
+-&gt; (MaintenanceWindowTarget
+    -&gt; Maybe (Sensitive Text) -&gt; MaintenanceWindowTarget)
+-&gt; Lens
+     MaintenanceWindowTarget
+     MaintenanceWindowTarget
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818393"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+ownerInformation :: Maybe (Sensitive Text)
+$sel:ownerInformation:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679818393"><span class="hs-identifier hs-var hs-var">ownerInformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679818393"><span class="hs-identifier hs-var">ownerInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818392"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
+</span><a href="#local-6989586621679818392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818391"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679818391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
+</span><a href="#local-6989586621679818392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerInformation:MaintenanceWindowTarget' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AownerInformation%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">ownerInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679818391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowTarget
+-&gt; f MaintenanceWindowTarget
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The ID of the target.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_windowTargetId"><span class="hs-identifier hs-type">maintenanceWindowTarget_windowTargetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="maintenanceWindowTarget_windowTargetId"><span class="annot"><span class="annottext">maintenanceWindowTarget_windowTargetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_windowTargetId"><span class="hs-identifier hs-var hs-var">maintenanceWindowTarget_windowTargetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTarget -&gt; Maybe Text)
+-&gt; (MaintenanceWindowTarget
+    -&gt; Maybe Text -&gt; MaintenanceWindowTarget)
+-&gt; Lens
+     MaintenanceWindowTarget
+     MaintenanceWindowTarget
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818386"><span class="annot"><span class="annottext">Maybe Text
+windowTargetId :: Maybe Text
+$sel:windowTargetId:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679818386"><span class="hs-identifier hs-var hs-var">windowTargetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818386"><span class="hs-identifier hs-var">windowTargetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818385"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
+</span><a href="#local-6989586621679818385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818384"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
+</span><a href="#local-6989586621679818385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowTargetId:MaintenanceWindowTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AwindowTargetId%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">windowTargetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The name for the maintenance window target.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_name"><span class="hs-identifier hs-type">maintenanceWindowTarget_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="maintenanceWindowTarget_name"><span class="annot"><span class="annottext">maintenanceWindowTarget_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_name"><span class="hs-identifier hs-var hs-var">maintenanceWindowTarget_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTarget -&gt; Maybe Text)
+-&gt; (MaintenanceWindowTarget
+    -&gt; Maybe Text -&gt; MaintenanceWindowTarget)
+-&gt; Lens
+     MaintenanceWindowTarget
+     MaintenanceWindowTarget
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818382"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679818382"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818382"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818381"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
+</span><a href="#local-6989586621679818381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818380"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
+</span><a href="#local-6989586621679818381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MaintenanceWindowTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3Aname%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The targets, either instances or tags.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Specify instances using the following format:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @Key=instanceids,Values=\&lt;instanceid1&gt;,\&lt;instanceid2&gt;@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Tags are specified using the following format:</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- @Key=\&lt;tag name&gt;,Values=\&lt;tag value&gt;@.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_targets"><span class="hs-identifier hs-type">maintenanceWindowTarget_targets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.Target.html#Target"><span class="hs-identifier hs-type">Target</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="maintenanceWindowTarget_targets"><span class="annot"><span class="annottext">maintenanceWindowTarget_targets :: (Maybe [Target] -&gt; f (Maybe [Target]))
 -&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_targets"><span class="hs-identifier hs-var hs-var">maintenanceWindowTarget_targets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTarget -&gt; Maybe [Target])
 -&gt; (MaintenanceWindowTarget
@@ -243,16 +312,16 @@ $sel:resourceType:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Mayb
      (Maybe [Target])
      (Maybe [Target])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816678"><span class="annot"><span class="annottext">Maybe [Target]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818378"><span class="annot"><span class="annottext">Maybe [Target]
 targets :: Maybe [Target]
 $sel:targets:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Maybe [Target]
-</span><a href="#local-6989586621679816678"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
-</span><a href="#local-6989586621679816678"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816677"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
-</span><a href="#local-6989586621679816677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816676"><span class="annot"><span class="annottext">Maybe [Target]
-</span><a href="#local-6989586621679816676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
-</span><a href="#local-6989586621679816677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:MaintenanceWindowTarget' :: Maybe [Target]
+</span><a href="#local-6989586621679818378"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
+</span><a href="#local-6989586621679818378"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818377"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
+</span><a href="#local-6989586621679818377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818376"><span class="annot"><span class="annottext">Maybe [Target]
+</span><a href="#local-6989586621679818376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
+</span><a href="#local-6989586621679818377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:MaintenanceWindowTarget' :: Maybe [Target]
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3Atargets%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
-</span><a href="#local-6989586621679816676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Target] -&gt; f (Maybe [Target]))
+</span><a href="#local-6989586621679818376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Target] -&gt; f (Maybe [Target]))
  -&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget)
 -&gt; ((Maybe [Target] -&gt; f (Maybe [Target]))
     -&gt; Maybe [Target] -&gt; f (Maybe [Target]))
@@ -267,60 +336,12 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Target] [Target] [Target] [Target]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | The name for the maintenance window target.</span><span>
-</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_name"><span class="hs-identifier hs-type">maintenanceWindowTarget_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span id="maintenanceWindowTarget_name"><span class="annot"><span class="annottext">maintenanceWindowTarget_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_name"><span class="hs-identifier hs-var hs-var">maintenanceWindowTarget_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTarget -&gt; Maybe Text)
--&gt; (MaintenanceWindowTarget
-    -&gt; Maybe Text -&gt; MaintenanceWindowTarget)
--&gt; Lens
-     MaintenanceWindowTarget
-     MaintenanceWindowTarget
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816671"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679816671"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816671"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816670"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
-</span><a href="#local-6989586621679816670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816669"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
-</span><a href="#local-6989586621679816670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MaintenanceWindowTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3Aname%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The ID of the maintenance window to register the target with.</span><span>
-</span><span id="line-129"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_windowId"><span class="hs-identifier hs-type">maintenanceWindowTarget_windowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-130"></span><span id="maintenanceWindowTarget_windowId"><span class="annot"><span class="annottext">maintenanceWindowTarget_windowId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_windowId"><span class="hs-identifier hs-var hs-var">maintenanceWindowTarget_windowId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTarget -&gt; Maybe Text)
--&gt; (MaintenanceWindowTarget
-    -&gt; Maybe Text -&gt; MaintenanceWindowTarget)
--&gt; Lens
-     MaintenanceWindowTarget
-     MaintenanceWindowTarget
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816667"><span class="annot"><span class="annottext">Maybe Text
-windowId :: Maybe Text
-$sel:windowId:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679816667"><span class="hs-identifier hs-var hs-var">windowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816667"><span class="hs-identifier hs-var">windowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816666"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
-</span><a href="#local-6989586621679816666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816665"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
-</span><a href="#local-6989586621679816666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowId:MaintenanceWindowTarget' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AwindowId%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">windowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679816665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- | A description for the target.</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_description"><span class="hs-identifier hs-type">maintenanceWindowTarget_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="maintenanceWindowTarget_description"><span class="annot"><span class="annottext">maintenanceWindowTarget_description :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | A description for the target.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_description"><span class="hs-identifier hs-type">maintenanceWindowTarget_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="maintenanceWindowTarget_description"><span class="annot"><span class="annottext">maintenanceWindowTarget_description :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_description"><span class="hs-identifier hs-var hs-var">maintenanceWindowTarget_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTarget -&gt; Maybe (Sensitive Text))
 -&gt; (MaintenanceWindowTarget
@@ -331,16 +352,16 @@ $sel:windowId:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Maybe Te
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816663"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818373"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 description :: Maybe (Sensitive Text)
 $sel:description:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679816663"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679816663"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816662"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
-</span><a href="#local-6989586621679816662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816661"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679816661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
-</span><a href="#local-6989586621679816662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:MaintenanceWindowTarget' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679818373"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679818373"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818372"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
+</span><a href="#local-6989586621679818372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818371"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679818371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
+</span><a href="#local-6989586621679818372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:MaintenanceWindowTarget' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3Adescription%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679816661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679818371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -360,54 +381,33 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | A user-provided value that will be included in any Amazon CloudWatch</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- Events events that are raised while running tasks for these targets in</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- this maintenance window.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_ownerInformation"><span class="hs-identifier hs-type">maintenanceWindowTarget_ownerInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="maintenanceWindowTarget_ownerInformation"><span class="annot"><span class="annottext">maintenanceWindowTarget_ownerInformation :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The ID of the maintenance window to register the target with.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_windowId"><span class="hs-identifier hs-type">maintenanceWindowTarget_windowId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="maintenanceWindowTarget_windowId"><span class="annot"><span class="annottext">maintenanceWindowTarget_windowId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_ownerInformation"><span class="hs-identifier hs-var hs-var">maintenanceWindowTarget_ownerInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTarget -&gt; Maybe (Sensitive Text))
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#maintenanceWindowTarget_windowId"><span class="hs-identifier hs-var hs-var">maintenanceWindowTarget_windowId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MaintenanceWindowTarget -&gt; Maybe Text)
 -&gt; (MaintenanceWindowTarget
-    -&gt; Maybe (Sensitive Text) -&gt; MaintenanceWindowTarget)
+    -&gt; Maybe Text -&gt; MaintenanceWindowTarget)
 -&gt; Lens
      MaintenanceWindowTarget
      MaintenanceWindowTarget
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679816658"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-ownerInformation :: Maybe (Sensitive Text)
-$sel:ownerInformation:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679816658"><span class="hs-identifier hs-var hs-var">ownerInformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679816658"><span class="hs-identifier hs-var">ownerInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679816657"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
-</span><a href="#local-6989586621679816657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679816656"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679816656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
-</span><a href="#local-6989586621679816657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerInformation:MaintenanceWindowTarget' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AownerInformation%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">ownerInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679816656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
- -&gt; MaintenanceWindowTarget -&gt; f MaintenanceWindowTarget)
--&gt; ((Maybe Text -&gt; f (Maybe Text))
-    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
--&gt; (Maybe Text -&gt; f (Maybe Text))
--&gt; MaintenanceWindowTarget
--&gt; f MaintenanceWindowTarget
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
--&gt; Iso
-     (Maybe (Sensitive Text))
-     (Maybe (Sensitive Text))
-     (Maybe Text)
-     (Maybe Text)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
-forall a. Iso' (Sensitive a) a
-</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679818369"><span class="annot"><span class="annottext">Maybe Text
+windowId :: Maybe Text
+$sel:windowId:MaintenanceWindowTarget' :: MaintenanceWindowTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679818369"><span class="hs-identifier hs-var hs-var">windowId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818369"><span class="hs-identifier hs-var">windowId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679818368"><span class="annot"><span class="annottext">s :: MaintenanceWindowTarget
+</span><a href="#local-6989586621679818368"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-type">MaintenanceWindowTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679818367"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818367"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MaintenanceWindowTarget
+</span><a href="#local-6989586621679818368"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:windowId:MaintenanceWindowTarget' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#%24sel%3AwindowId%3AMaintenanceWindowTarget%27"><span class="hs-identifier hs-var">windowId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679818367"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816653"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679816651"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MaintenanceWindowTarget
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679818364"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679818362"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MaintenanceWindowTarget
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MaintenanceWindowTarget)
@@ -417,79 +417,107 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MaintenanceWindowTarget&quot;</span></span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679816648"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816648"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe MaintenanceWindowResourceType
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679818359"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818359"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe MaintenanceWindowResourceType
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe [Target]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe (Sensitive Text)
--&gt; Maybe (Sensitive Text)
+-&gt; Maybe Text
 -&gt; MaintenanceWindowTarget
 </span><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget%27"><span class="hs-identifier hs-var">MaintenanceWindowTarget'</span></a></span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe MaintenanceWindowResourceType
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MaintenanceWindowResourceType
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe [Target]
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe (Sensitive Text)
- -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe Text
  -&gt; MaintenanceWindowTarget)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe MaintenanceWindowResourceType)
 -&gt; Parser
-     (Maybe MaintenanceWindowResourceType
+     (Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [Target]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
       -&gt; MaintenanceWindowTarget)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;WindowTargetId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe MaintenanceWindowResourceType
-   -&gt; Maybe [Target]
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe (Sensitive Text)
-   -&gt; MaintenanceWindowTarget)
--&gt; Parser (Maybe MaintenanceWindowResourceType)
--&gt; Parser
-     (Maybe [Target]
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe (Sensitive Text)
-      -&gt; MaintenanceWindowTarget)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MaintenanceWindowResourceType)
+</span><a href="#local-6989586621679818359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MaintenanceWindowResourceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Target]
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
    -&gt; Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe [Target]
    -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
    -&gt; MaintenanceWindowTarget)
--&gt; Parser (Maybe [Target])
+-&gt; Parser (Maybe (Sensitive Text))
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe [Target]
       -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
       -&gt; MaintenanceWindowTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Target]))
+</span><a href="#local-6989586621679818359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OwnerInformation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowTarget)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Target]
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe Text
+      -&gt; MaintenanceWindowTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WindowTargetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Target]
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe Text
+   -&gt; MaintenanceWindowTarget)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Target]
+      -&gt; Maybe (Sensitive Text) -&gt; Maybe Text -&gt; MaintenanceWindowTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Target]
+   -&gt; Maybe (Sensitive Text) -&gt; Maybe Text -&gt; MaintenanceWindowTarget)
+-&gt; Parser (Maybe [Target])
+-&gt; Parser
+     (Maybe (Sensitive Text) -&gt; Maybe Text -&gt; MaintenanceWindowTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679818359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Target]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Target]))
@@ -498,62 +526,27 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Target]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe (Sensitive Text)
-   -&gt; MaintenanceWindowTarget)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe (Sensitive Text)
-      -&gt; Maybe (Sensitive Text)
-      -&gt; MaintenanceWindowTarget)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe (Sensitive Text)
-   -&gt; Maybe (Sensitive Text)
-   -&gt; MaintenanceWindowTarget)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe (Sensitive Text)
-      -&gt; Maybe (Sensitive Text) -&gt; MaintenanceWindowTarget)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;WindowId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (Sensitive Text)
-   -&gt; Maybe (Sensitive Text) -&gt; MaintenanceWindowTarget)
+  (Maybe (Sensitive Text) -&gt; Maybe Text -&gt; MaintenanceWindowTarget)
 -&gt; Parser (Maybe (Sensitive Text))
--&gt; Parser (Maybe (Sensitive Text) -&gt; MaintenanceWindowTarget)
+-&gt; Parser (Maybe Text -&gt; MaintenanceWindowTarget)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679818359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive Text) -&gt; MaintenanceWindowTarget)
--&gt; Parser (Maybe (Sensitive Text))
--&gt; Parser MaintenanceWindowTarget
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MaintenanceWindowTarget)
+-&gt; Parser (Maybe Text) -&gt; Parser MaintenanceWindowTarget
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679816648"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679818359"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OwnerInformation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;WindowId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816641"><span id="local-6989586621679816643"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679818352"><span id="local-6989586621679818354"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span></span></span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679816638"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679818349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.MaintenanceWindowTarget.html#MaintenanceWindowTarget"><span class="hs-identifier hs-type">MaintenanceWindowTarget</span></a></span></span><span>
 </span><span id="line-160"></span></pre></body></html>

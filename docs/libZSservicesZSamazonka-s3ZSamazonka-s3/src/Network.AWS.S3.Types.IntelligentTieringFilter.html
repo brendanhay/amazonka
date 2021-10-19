@@ -30,26 +30,26 @@
 </span><span id="line-30"></span><span class="hs-comment">-- configuration applies to.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newIntelligentTieringFilter' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679555795"><span id="local-6989586621679555796"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntelligentTieringFilter"><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-var">IntelligentTieringFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntelligentTieringFilter%27"><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-var">IntelligentTieringFilter'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object key name prefix that identifies the subset of objects to which</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the rule applies.</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aprefix%3AIntelligentTieringFilter%27"><span class="annot"><span class="annottext">IntelligentTieringFilter -&gt; Maybe Text
+</span><span id="line-33"></span><span id="local-6989586621679556442"><span id="local-6989586621679556443"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntelligentTieringFilter"><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-var">IntelligentTieringFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntelligentTieringFilter%27"><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-var">IntelligentTieringFilter'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Atag%3AIntelligentTieringFilter%27"><span class="annot"><span class="annottext">IntelligentTieringFilter -&gt; Maybe Tag
+</span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#%24sel%3Atag%3AIntelligentTieringFilter%27"><span class="hs-identifier hs-var hs-var">tag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | An object key name prefix that identifies the subset of objects to which</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- the rule applies.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aprefix%3AIntelligentTieringFilter%27"><span class="annot"><span class="annottext">IntelligentTieringFilter -&gt; Maybe Text
 </span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#%24sel%3Aprefix%3AIntelligentTieringFilter%27"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | A conjunction (logical AND) of predicates, which is used in evaluating a</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- metrics filter. The operator must have at least two predicates, and an</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- object must match all of the predicates in order for the filter to</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- apply.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aand%3AIntelligentTieringFilter%27"><span class="annot"><span class="annottext">IntelligentTieringFilter -&gt; Maybe IntelligentTieringAndOperator
-</span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#%24sel%3Aand%3AIntelligentTieringFilter%27"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringAndOperator.html#IntelligentTieringAndOperator"><span class="hs-identifier hs-type">IntelligentTieringAndOperator</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Atag%3AIntelligentTieringFilter%27"><span class="annot"><span class="annottext">IntelligentTieringFilter -&gt; Maybe Tag
-</span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#%24sel%3Atag%3AIntelligentTieringFilter%27"><span class="hs-identifier hs-var hs-var">tag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A conjunction (logical AND) of predicates, which is used in evaluating a</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- metrics filter. The operator must have at least two predicates, and an</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- object must match all of the predicates in order for the filter to</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- apply.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aand%3AIntelligentTieringFilter%27"><span class="annot"><span class="annottext">IntelligentTieringFilter -&gt; Maybe IntelligentTieringAndOperator
+</span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#%24sel%3Aand%3AIntelligentTieringFilter%27"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringAndOperator.html#IntelligentTieringAndOperator"><span class="hs-identifier hs-type">IntelligentTieringAndOperator</span></a></span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679555787"><span id="local-6989586621679555789"><span class="annot"><span class="annottext">IntelligentTieringFilter -&gt; IntelligentTieringFilter -&gt; Bool
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679556434"><span id="local-6989586621679556436"><span class="annot"><span class="annottext">IntelligentTieringFilter -&gt; IntelligentTieringFilter -&gt; Bool
 (IntelligentTieringFilter -&gt; IntelligentTieringFilter -&gt; Bool)
 -&gt; (IntelligentTieringFilter -&gt; IntelligentTieringFilter -&gt; Bool)
 -&gt; Eq IntelligentTieringFilter
@@ -58,7 +58,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IntelligentTieringFilter -&gt; IntelligentTieringFilter -&gt; Bool
 == :: IntelligentTieringFilter -&gt; IntelligentTieringFilter -&gt; Bool
 $c== :: IntelligentTieringFilter -&gt; IntelligentTieringFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555778"><span id="local-6989586621679555780"><span id="local-6989586621679555782"><span id="local-6989586621679555784"><span class="annot"><span class="annottext">ReadPrec [IntelligentTieringFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679556425"><span id="local-6989586621679556427"><span id="local-6989586621679556429"><span id="local-6989586621679556431"><span class="annot"><span class="annottext">ReadPrec [IntelligentTieringFilter]
 ReadPrec IntelligentTieringFilter
 Int -&gt; ReadS IntelligentTieringFilter
 ReadS [IntelligentTieringFilter]
@@ -78,7 +78,7 @@ readList :: ReadS [IntelligentTieringFilter]
 $creadList :: ReadS [IntelligentTieringFilter]
 readsPrec :: Int -&gt; ReadS IntelligentTieringFilter
 $creadsPrec :: Int -&gt; ReadS IntelligentTieringFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679555771"><span id="local-6989586621679555773"><span id="local-6989586621679555775"><span class="annot"><span class="annottext">Int -&gt; IntelligentTieringFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679556418"><span id="local-6989586621679556420"><span id="local-6989586621679556422"><span class="annot"><span class="annottext">Int -&gt; IntelligentTieringFilter -&gt; ShowS
 [IntelligentTieringFilter] -&gt; ShowS
 IntelligentTieringFilter -&gt; String
 (Int -&gt; IntelligentTieringFilter -&gt; ShowS)
@@ -118,52 +118,76 @@ IntelligentTieringFilter -&gt; Rep IntelligentTieringFilter x
 </span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'prefix', 'intelligentTieringFilter_prefix' - An object key name prefix that identifies the subset of objects to which</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- the rule applies.</span><span>
-</span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'and', 'intelligentTieringFilter_and' - A conjunction (logical AND) of predicates, which is used in evaluating a</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- metrics filter. The operator must have at least two predicates, and an</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- object must match all of the predicates in order for the filter to</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- apply.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'tag', 'intelligentTieringFilter_tag' - Undocumented member.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'tag', 'intelligentTieringFilter_tag' - Undocumented member.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'prefix', 'intelligentTieringFilter_prefix' - An object key name prefix that identifies the subset of objects to which</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- the rule applies.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'and', 'intelligentTieringFilter_and' - A conjunction (logical AND) of predicates, which is used in evaluating a</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- metrics filter. The operator must have at least two predicates, and an</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- object must match all of the predicates in order for the filter to</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- apply.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#newIntelligentTieringFilter"><span class="hs-identifier hs-type">newIntelligentTieringFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span>
 </span><span id="line-75"></span><span id="newIntelligentTieringFilter"><span class="annot"><span class="annottext">newIntelligentTieringFilter :: IntelligentTieringFilter
 </span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#newIntelligentTieringFilter"><span class="hs-identifier hs-var hs-var">newIntelligentTieringFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">IntelligentTieringFilter' :: Maybe Text
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">IntelligentTieringFilter' :: Maybe Tag
+-&gt; Maybe Text
 -&gt; Maybe IntelligentTieringAndOperator
--&gt; Maybe Tag
 -&gt; IntelligentTieringFilter
 </span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:prefix:IntelligentTieringFilter' :: Maybe Text
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tag:IntelligentTieringFilter' :: Maybe Tag
+</span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#%24sel%3Atag%3AIntelligentTieringFilter%27"><span class="hs-identifier hs-var">tag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tag
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefix:IntelligentTieringFilter' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#%24sel%3Aprefix%3AIntelligentTieringFilter%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:and:IntelligentTieringFilter' :: Maybe IntelligentTieringAndOperator
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:and:IntelligentTieringFilter' :: Maybe IntelligentTieringAndOperator
 </span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#%24sel%3Aand%3AIntelligentTieringFilter%27"><span class="hs-identifier hs-var">and</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IntelligentTieringAndOperator
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:tag:IntelligentTieringFilter' :: Maybe Tag
-</span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#%24sel%3Atag%3AIntelligentTieringFilter%27"><span class="hs-identifier hs-var">tag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tag
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | An object key name prefix that identifies the subset of objects to which</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- the rule applies.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#intelligentTieringFilter_prefix"><span class="hs-identifier hs-type">intelligentTieringFilter_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="intelligentTieringFilter_prefix"><span class="annot"><span class="annottext">intelligentTieringFilter_prefix :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-82"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#intelligentTieringFilter_tag"><span class="hs-identifier hs-type">intelligentTieringFilter_tag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="intelligentTieringFilter_tag"><span class="annot"><span class="annottext">intelligentTieringFilter_tag :: (Maybe Tag -&gt; f (Maybe Tag))
+-&gt; IntelligentTieringFilter -&gt; f IntelligentTieringFilter
+</span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#intelligentTieringFilter_tag"><span class="hs-identifier hs-var hs-var">intelligentTieringFilter_tag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntelligentTieringFilter -&gt; Maybe Tag)
+-&gt; (IntelligentTieringFilter
+    -&gt; Maybe Tag -&gt; IntelligentTieringFilter)
+-&gt; Lens
+     IntelligentTieringFilter
+     IntelligentTieringFilter
+     (Maybe Tag)
+     (Maybe Tag)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556409"><span class="annot"><span class="annottext">Maybe Tag
+tag :: Maybe Tag
+$sel:tag:IntelligentTieringFilter' :: IntelligentTieringFilter -&gt; Maybe Tag
+</span><a href="#local-6989586621679556409"><span class="hs-identifier hs-var hs-var">tag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tag
+</span><a href="#local-6989586621679556409"><span class="hs-identifier hs-var">tag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556408"><span class="annot"><span class="annottext">s :: IntelligentTieringFilter
+</span><a href="#local-6989586621679556408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556407"><span class="annot"><span class="annottext">Maybe Tag
+</span><a href="#local-6989586621679556407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringFilter
+</span><a href="#local-6989586621679556408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tag:IntelligentTieringFilter' :: Maybe Tag
+</span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#%24sel%3Atag%3AIntelligentTieringFilter%27"><span class="hs-identifier hs-var">tag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tag
+</span><a href="#local-6989586621679556407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | An object key name prefix that identifies the subset of objects to which</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- the rule applies.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- (such as carriage returns) when using XML requests. For more</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints XML related object key constraints&gt;.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#intelligentTieringFilter_prefix"><span class="hs-identifier hs-type">intelligentTieringFilter_prefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="intelligentTieringFilter_prefix"><span class="annot"><span class="annottext">intelligentTieringFilter_prefix :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; IntelligentTieringFilter -&gt; f IntelligentTieringFilter
 </span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#intelligentTieringFilter_prefix"><span class="hs-identifier hs-var hs-var">intelligentTieringFilter_prefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntelligentTieringFilter -&gt; Maybe Text)
 -&gt; (IntelligentTieringFilter
@@ -174,23 +198,23 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555762"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556405"><span class="annot"><span class="annottext">Maybe Text
 prefix :: Maybe Text
 $sel:prefix:IntelligentTieringFilter' :: IntelligentTieringFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679555762"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555762"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555761"><span class="annot"><span class="annottext">s :: IntelligentTieringFilter
-</span><a href="#local-6989586621679555761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555760"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringFilter
-</span><a href="#local-6989586621679555761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:IntelligentTieringFilter' :: Maybe Text
+</span><a href="#local-6989586621679556405"><span class="hs-identifier hs-var hs-var">prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679556405"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556404"><span class="annot"><span class="annottext">s :: IntelligentTieringFilter
+</span><a href="#local-6989586621679556404"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556403"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679556403"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringFilter
+</span><a href="#local-6989586621679556404"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefix:IntelligentTieringFilter' :: Maybe Text
 </span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#%24sel%3Aprefix%3AIntelligentTieringFilter%27"><span class="hs-identifier hs-var">prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | A conjunction (logical AND) of predicates, which is used in evaluating a</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- metrics filter. The operator must have at least two predicates, and an</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- object must match all of the predicates in order for the filter to</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- apply.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#intelligentTieringFilter_and"><span class="hs-identifier hs-type">intelligentTieringFilter_and</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringAndOperator.html#IntelligentTieringAndOperator"><span class="hs-identifier hs-type">IntelligentTieringAndOperator</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="intelligentTieringFilter_and"><span class="annot"><span class="annottext">intelligentTieringFilter_and :: (Maybe IntelligentTieringAndOperator
+</span><a href="#local-6989586621679556403"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | A conjunction (logical AND) of predicates, which is used in evaluating a</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- metrics filter. The operator must have at least two predicates, and an</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- object must match all of the predicates in order for the filter to</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- apply.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#intelligentTieringFilter_and"><span class="hs-identifier hs-type">intelligentTieringFilter_and</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringAndOperator.html#IntelligentTieringAndOperator"><span class="hs-identifier hs-type">IntelligentTieringAndOperator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="intelligentTieringFilter_and"><span class="annot"><span class="annottext">intelligentTieringFilter_and :: (Maybe IntelligentTieringAndOperator
  -&gt; f (Maybe IntelligentTieringAndOperator))
 -&gt; IntelligentTieringFilter -&gt; f IntelligentTieringFilter
 </span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#intelligentTieringFilter_and"><span class="hs-identifier hs-var hs-var">intelligentTieringFilter_and</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntelligentTieringFilter -&gt; Maybe IntelligentTieringAndOperator)
@@ -202,121 +226,101 @@ $sel:prefix:IntelligentTieringFilter' :: IntelligentTieringFilter -&gt; Maybe Te
      (Maybe IntelligentTieringAndOperator)
      (Maybe IntelligentTieringAndOperator)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555758"><span class="annot"><span class="annottext">Maybe IntelligentTieringAndOperator
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556401"><span class="annot"><span class="annottext">Maybe IntelligentTieringAndOperator
 and :: Maybe IntelligentTieringAndOperator
 $sel:and:IntelligentTieringFilter' :: IntelligentTieringFilter -&gt; Maybe IntelligentTieringAndOperator
-</span><a href="#local-6989586621679555758"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IntelligentTieringAndOperator
-</span><a href="#local-6989586621679555758"><span class="hs-identifier hs-var">and</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555757"><span class="annot"><span class="annottext">s :: IntelligentTieringFilter
-</span><a href="#local-6989586621679555757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555756"><span class="annot"><span class="annottext">Maybe IntelligentTieringAndOperator
-</span><a href="#local-6989586621679555756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringFilter
-</span><a href="#local-6989586621679555757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:and:IntelligentTieringFilter' :: Maybe IntelligentTieringAndOperator
+</span><a href="#local-6989586621679556401"><span class="hs-identifier hs-var hs-var">and</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IntelligentTieringAndOperator
+</span><a href="#local-6989586621679556401"><span class="hs-identifier hs-var">and</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679556400"><span class="annot"><span class="annottext">s :: IntelligentTieringFilter
+</span><a href="#local-6989586621679556400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679556399"><span class="annot"><span class="annottext">Maybe IntelligentTieringAndOperator
+</span><a href="#local-6989586621679556399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringFilter
+</span><a href="#local-6989586621679556400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:and:IntelligentTieringFilter' :: Maybe IntelligentTieringAndOperator
 </span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#%24sel%3Aand%3AIntelligentTieringFilter%27"><span class="hs-identifier hs-var">and</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IntelligentTieringAndOperator
-</span><a href="#local-6989586621679555756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#intelligentTieringFilter_tag"><span class="hs-identifier hs-type">intelligentTieringFilter_tag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="intelligentTieringFilter_tag"><span class="annot"><span class="annottext">intelligentTieringFilter_tag :: (Maybe Tag -&gt; f (Maybe Tag))
--&gt; IntelligentTieringFilter -&gt; f IntelligentTieringFilter
-</span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#intelligentTieringFilter_tag"><span class="hs-identifier hs-var hs-var">intelligentTieringFilter_tag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntelligentTieringFilter -&gt; Maybe Tag)
--&gt; (IntelligentTieringFilter
-    -&gt; Maybe Tag -&gt; IntelligentTieringFilter)
--&gt; Lens
-     IntelligentTieringFilter
-     IntelligentTieringFilter
-     (Maybe Tag)
-     (Maybe Tag)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555754"><span class="annot"><span class="annottext">Maybe Tag
-tag :: Maybe Tag
-$sel:tag:IntelligentTieringFilter' :: IntelligentTieringFilter -&gt; Maybe Tag
-</span><a href="#local-6989586621679555754"><span class="hs-identifier hs-var hs-var">tag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Tag
-</span><a href="#local-6989586621679555754"><span class="hs-identifier hs-var">tag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679555753"><span class="annot"><span class="annottext">s :: IntelligentTieringFilter
-</span><a href="#local-6989586621679555753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679555752"><span class="annot"><span class="annottext">Maybe Tag
-</span><a href="#local-6989586621679555752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntelligentTieringFilter
-</span><a href="#local-6989586621679555753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tag:IntelligentTieringFilter' :: Maybe Tag
-</span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#%24sel%3Atag%3AIntelligentTieringFilter%27"><span class="hs-identifier hs-var">tag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Tag
-</span><a href="#local-6989586621679555752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679556399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679555749"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IntelligentTieringFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679555747"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679555747"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679556396"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IntelligentTieringFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679556394"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679556394"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">Maybe Tag
+-&gt; Maybe Text
 -&gt; Maybe IntelligentTieringAndOperator
--&gt; Maybe Tag
 -&gt; IntelligentTieringFilter
 </span><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-var">IntelligentTieringFilter'</span></a></span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Tag
+ -&gt; Maybe Text
  -&gt; Maybe IntelligentTieringAndOperator
- -&gt; Maybe Tag
  -&gt; IntelligentTieringFilter)
+-&gt; Either String (Maybe Tag)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe IntelligentTieringAndOperator -&gt; IntelligentTieringFilter)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679556394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Tag)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe IntelligentTieringAndOperator -&gt; IntelligentTieringFilter)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe IntelligentTieringAndOperator
-      -&gt; Maybe Tag -&gt; IntelligentTieringFilter)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679555747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+     (Maybe IntelligentTieringAndOperator -&gt; IntelligentTieringFilter)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679556394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Prefix&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe IntelligentTieringAndOperator
-   -&gt; Maybe Tag -&gt; IntelligentTieringFilter)
+  (Maybe IntelligentTieringAndOperator -&gt; IntelligentTieringFilter)
 -&gt; Either String (Maybe IntelligentTieringAndOperator)
--&gt; Either String (Maybe Tag -&gt; IntelligentTieringFilter)
+-&gt; Either String IntelligentTieringFilter
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679555747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679556394"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe IntelligentTieringAndOperator)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;And&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Tag -&gt; IntelligentTieringFilter)
--&gt; Either String (Maybe Tag)
--&gt; Either String IntelligentTieringFilter
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679555747"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Tag)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555741"><span id="local-6989586621679555743"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556388"><span id="local-6989586621679556390"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span></span></span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679555738"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679556385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter"><span class="hs-identifier hs-type">IntelligentTieringFilter</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679555734"><span class="annot"><span class="annottext">toXML :: IntelligentTieringFilter -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679555730"><span id="local-6989586621679555731"><span id="local-6989586621679555732"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679556381"><span class="annot"><span class="annottext">toXML :: IntelligentTieringFilter -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.IntelligentTieringFilter.html#IntelligentTieringFilter%27"><span class="hs-identifier hs-type">IntelligentTieringFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679556377"><span id="local-6989586621679556378"><span id="local-6989586621679556379"><span class="annot"><span class="annottext">Maybe Text
 Maybe Tag
 Maybe IntelligentTieringAndOperator
-tag :: Maybe Tag
 and :: Maybe IntelligentTieringAndOperator
 prefix :: Maybe Text
-$sel:tag:IntelligentTieringFilter' :: IntelligentTieringFilter -&gt; Maybe Tag
+tag :: Maybe Tag
 $sel:and:IntelligentTieringFilter' :: IntelligentTieringFilter -&gt; Maybe IntelligentTieringAndOperator
 $sel:prefix:IntelligentTieringFilter' :: IntelligentTieringFilter -&gt; Maybe Text
-</span><a href="#local-6989586621679555730"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:tag:IntelligentTieringFilter' :: IntelligentTieringFilter -&gt; Maybe Tag
+</span><a href="#local-6989586621679556377"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679555732"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;And&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe IntelligentTieringAndOperator -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe IntelligentTieringAndOperator
-</span><a href="#local-6989586621679555731"><span class="hs-identifier hs-var">and</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Tag -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Tag
-</span><a href="#local-6989586621679555730"><span class="hs-identifier hs-var">tag</span></a></span><span>
+</span><a href="#local-6989586621679556379"><span class="hs-identifier hs-var">tag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679556378"><span class="hs-identifier hs-var">prefix</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;And&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe IntelligentTieringAndOperator -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe IntelligentTieringAndOperator
+</span><a href="#local-6989586621679556377"><span class="hs-identifier hs-var">and</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span></pre></body></html>

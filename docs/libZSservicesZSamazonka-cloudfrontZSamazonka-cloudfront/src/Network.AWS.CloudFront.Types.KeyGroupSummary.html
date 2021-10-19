@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a key group.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newKeyGroupSummary' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679393592"><span id="local-6989586621679393593"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyGroupSummary"><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-var">KeyGroupSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyGroupSummary%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary%27"><span class="hs-identifier hs-var">KeyGroupSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679393832"><span id="local-6989586621679393833"></span></span><span class="hs-keyword">data</span><span> </span><span id="KeyGroupSummary"><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-var">KeyGroupSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KeyGroupSummary%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary%27"><span class="hs-identifier hs-var">KeyGroupSummary'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A key group.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AkeyGroup%3AKeyGroupSummary%27"><span class="annot"><span class="annottext">KeyGroupSummary -&gt; KeyGroup
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#%24sel%3AkeyGroup%3AKeyGroupSummary%27"><span class="hs-identifier hs-var hs-var">keyGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroup.html#KeyGroup"><span class="hs-identifier hs-type">KeyGroup</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393586"><span id="local-6989586621679393588"><span class="annot"><span class="annottext">KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679393826"><span id="local-6989586621679393828"><span class="annot"><span class="annottext">KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool
 (KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool)
 -&gt; (KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool)
 -&gt; Eq KeyGroupSummary
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool
 == :: KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool
 $c== :: KeyGroupSummary -&gt; KeyGroupSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393577"><span id="local-6989586621679393579"><span id="local-6989586621679393581"><span id="local-6989586621679393583"><span class="annot"><span class="annottext">ReadPrec [KeyGroupSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393817"><span id="local-6989586621679393819"><span id="local-6989586621679393821"><span id="local-6989586621679393823"><span class="annot"><span class="annottext">ReadPrec [KeyGroupSummary]
 ReadPrec KeyGroupSummary
 Int -&gt; ReadS KeyGroupSummary
 ReadS [KeyGroupSummary]
@@ -61,7 +61,7 @@ readList :: ReadS [KeyGroupSummary]
 $creadList :: ReadS [KeyGroupSummary]
 readsPrec :: Int -&gt; ReadS KeyGroupSummary
 $creadsPrec :: Int -&gt; ReadS KeyGroupSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393570"><span id="local-6989586621679393572"><span id="local-6989586621679393574"><span class="annot"><span class="annottext">Int -&gt; KeyGroupSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679393810"><span id="local-6989586621679393812"><span id="local-6989586621679393814"><span class="annot"><span class="annottext">Int -&gt; KeyGroupSummary -&gt; ShowS
 [KeyGroupSummary] -&gt; ShowS
 KeyGroupSummary -&gt; String
 (Int -&gt; KeyGroupSummary -&gt; ShowS)
@@ -101,12 +101,12 @@ $cfrom :: forall x. KeyGroupSummary -&gt; Rep KeyGroupSummary x
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroup.html#KeyGroup"><span class="hs-identifier hs-type">KeyGroup</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span><span>
 </span><span id="line-49"></span><span id="newKeyGroupSummary"><span class="annot"><span class="annottext">newKeyGroupSummary :: KeyGroup -&gt; KeyGroupSummary
-</span><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#newKeyGroupSummary"><span class="hs-identifier hs-var hs-var">newKeyGroupSummary</span></a></span></span><span> </span><span id="local-6989586621679393564"><span class="annot"><span class="annottext">KeyGroup
-</span><a href="#local-6989586621679393564"><span class="hs-identifier hs-var">pKeyGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#newKeyGroupSummary"><span class="hs-identifier hs-var hs-var">newKeyGroupSummary</span></a></span></span><span> </span><span id="local-6989586621679393804"><span class="annot"><span class="annottext">KeyGroup
+</span><a href="#local-6989586621679393804"><span class="hs-identifier hs-var">pKeyGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">KeyGroupSummary' :: KeyGroup -&gt; KeyGroupSummary
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary%27"><span class="hs-identifier hs-type">KeyGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroup:KeyGroupSummary' :: KeyGroup
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#%24sel%3AkeyGroup%3AKeyGroupSummary%27"><span class="hs-identifier hs-var">keyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyGroup
-</span><a href="#local-6989586621679393564"><span class="hs-identifier hs-var">pKeyGroup_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679393804"><span class="hs-identifier hs-var">pKeyGroup_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | A key group.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#keyGroupSummary_keyGroup"><span class="hs-identifier hs-type">keyGroupSummary_keyGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroup.html#KeyGroup"><span class="hs-identifier hs-type">KeyGroup</span></a></span><span>
@@ -115,32 +115,32 @@ $cfrom :: forall x. KeyGroupSummary -&gt; Rep KeyGroupSummary x
 -&gt; (KeyGroupSummary -&gt; KeyGroup -&gt; KeyGroupSummary)
 -&gt; Lens KeyGroupSummary KeyGroupSummary KeyGroup KeyGroup
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary%27"><span class="hs-identifier hs-type">KeyGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393560"><span class="annot"><span class="annottext">KeyGroup
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary%27"><span class="hs-identifier hs-type">KeyGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679393800"><span class="annot"><span class="annottext">KeyGroup
 keyGroup :: KeyGroup
 $sel:keyGroup:KeyGroupSummary' :: KeyGroupSummary -&gt; KeyGroup
-</span><a href="#local-6989586621679393560"><span class="hs-identifier hs-var hs-var">keyGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroup
-</span><a href="#local-6989586621679393560"><span class="hs-identifier hs-var">keyGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393559"><span class="annot"><span class="annottext">s :: KeyGroupSummary
-</span><a href="#local-6989586621679393559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary%27"><span class="hs-identifier hs-type">KeyGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393558"><span class="annot"><span class="annottext">KeyGroup
-</span><a href="#local-6989586621679393558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupSummary
-</span><a href="#local-6989586621679393559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroup:KeyGroupSummary' :: KeyGroup
+</span><a href="#local-6989586621679393800"><span class="hs-identifier hs-var hs-var">keyGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroup
+</span><a href="#local-6989586621679393800"><span class="hs-identifier hs-var">keyGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679393799"><span class="annot"><span class="annottext">s :: KeyGroupSummary
+</span><a href="#local-6989586621679393799"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary%27"><span class="hs-identifier hs-type">KeyGroupSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679393798"><span class="annot"><span class="annottext">KeyGroup
+</span><a href="#local-6989586621679393798"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KeyGroupSummary
+</span><a href="#local-6989586621679393799"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyGroup:KeyGroupSummary' :: KeyGroup
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#%24sel%3AkeyGroup%3AKeyGroupSummary%27"><span class="hs-identifier hs-var">keyGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">KeyGroup
-</span><a href="#local-6989586621679393558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679393798"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
 </span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679393555"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String KeyGroupSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679393553"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393553"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679393795"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String KeyGroupSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679393793"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679393793"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">KeyGroup -&gt; KeyGroupSummary
 </span><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary%27"><span class="hs-identifier hs-var">KeyGroupSummary'</span></a></span><span> </span><span class="annot"><span class="annottext">(KeyGroup -&gt; KeyGroupSummary)
 -&gt; Either String KeyGroup -&gt; Either String KeyGroupSummary
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679393553"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String KeyGroup
+</span><a href="#local-6989586621679393793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String KeyGroup
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyGroup&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393547"><span id="local-6989586621679393549"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393787"><span id="local-6989586621679393789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393544"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679393784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyGroupSummary.html#KeyGroupSummary"><span class="hs-identifier hs-type">KeyGroupSummary</span></a></span></span><span>
 </span><span id="line-63"></span></pre></body></html>

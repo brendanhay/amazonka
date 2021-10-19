@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679275962"><span id="local-6989586621679275963"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArtifactLocationType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactLocationType.html#ArtifactLocationType"><span class="hs-identifier hs-var">ArtifactLocationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactLocationType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactLocationType.html#ArtifactLocationType%27"><span class="hs-identifier hs-var">ArtifactLocationType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679276162"><span id="local-6989586621679276163"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ArtifactLocationType"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactLocationType.html#ArtifactLocationType"><span class="hs-identifier hs-var">ArtifactLocationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArtifactLocationType%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ArtifactLocationType.html#ArtifactLocationType%27"><span class="hs-identifier hs-var">ArtifactLocationType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromArtifactLocationType"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.ArtifactLocationType.html#fromArtifactLocationType"><span class="hs-identifier hs-var hs-var">fromArtifactLocationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275954"><span id="local-6989586621679275956"><span id="local-6989586621679275958"><span class="annot"><span class="annottext">Int -&gt; ArtifactLocationType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276154"><span id="local-6989586621679276156"><span id="local-6989586621679276158"><span class="annot"><span class="annottext">Int -&gt; ArtifactLocationType -&gt; ShowS
 [ArtifactLocationType] -&gt; ShowS
 ArtifactLocationType -&gt; String
 (Int -&gt; ArtifactLocationType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: ArtifactLocationType -&gt; String
 showsPrec :: Int -&gt; ArtifactLocationType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ArtifactLocationType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679275945"><span id="local-6989586621679275947"><span id="local-6989586621679275949"><span id="local-6989586621679275951"><span class="annot"><span class="annottext">ReadPrec [ArtifactLocationType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679276145"><span id="local-6989586621679276147"><span id="local-6989586621679276149"><span id="local-6989586621679276151"><span class="annot"><span class="annottext">ReadPrec [ArtifactLocationType]
 ReadPrec ArtifactLocationType
 Int -&gt; ReadS ArtifactLocationType
 ReadS [ArtifactLocationType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [ArtifactLocationType]
 readsPrec :: Int -&gt; ReadS ArtifactLocationType
 $creadsPrec :: Int -&gt; ReadS ArtifactLocationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679275940"><span id="local-6989586621679275942"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; ArtifactLocationType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679276140"><span id="local-6989586621679276142"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; ArtifactLocationType -&gt; Bool
 (ArtifactLocationType -&gt; ArtifactLocationType -&gt; Bool)
 -&gt; (ArtifactLocationType -&gt; ArtifactLocationType -&gt; Bool)
 -&gt; Eq ArtifactLocationType
@@ -81,7 +81,7 @@ $c/= :: ArtifactLocationType -&gt; ArtifactLocationType -&gt; Bool
 == :: ArtifactLocationType -&gt; ArtifactLocationType -&gt; Bool
 $c== :: ArtifactLocationType -&gt; ArtifactLocationType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679275924"><span id="local-6989586621679275926"><span id="local-6989586621679275928"><span id="local-6989586621679275930"><span id="local-6989586621679275932"><span id="local-6989586621679275934"><span id="local-6989586621679275936"><span class="annot"><span class="annottext">Eq ArtifactLocationType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679276124"><span id="local-6989586621679276126"><span id="local-6989586621679276128"><span id="local-6989586621679276130"><span id="local-6989586621679276132"><span id="local-6989586621679276134"><span id="local-6989586621679276136"><span class="annot"><span class="annottext">Eq ArtifactLocationType
 Eq ArtifactLocationType
 -&gt; (ArtifactLocationType -&gt; ArtifactLocationType -&gt; Ordering)
 -&gt; (ArtifactLocationType -&gt; ArtifactLocationType -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. ArtifactLocationType -&gt; Rep ArtifactLocationType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679275916"><span id="local-6989586621679275918"><span class="annot"><span class="annottext">Int -&gt; ArtifactLocationType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276116"><span id="local-6989586621679276118"><span class="annot"><span class="annottext">Int -&gt; ArtifactLocationType -&gt; Int
 ArtifactLocationType -&gt; Int
 (Int -&gt; ArtifactLocationType -&gt; Int)
 -&gt; (ArtifactLocationType -&gt; Int) -&gt; Hashable ArtifactLocationType
@@ -149,54 +149,54 @@ $chash :: ArtifactLocationType -&gt; Int
 hashWithSalt :: Int -&gt; ArtifactLocationType -&gt; Int
 $chashWithSalt :: Int -&gt; ArtifactLocationType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679275913"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679276113"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; ()
 (ArtifactLocationType -&gt; ()) -&gt; NFData ArtifactLocationType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ArtifactLocationType -&gt; ()
 $crnf :: ArtifactLocationType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679275910"><span class="annot"><span class="annottext">Text -&gt; Either String ArtifactLocationType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679276110"><span class="annot"><span class="annottext">Text -&gt; Either String ArtifactLocationType
 (Text -&gt; Either String ArtifactLocationType)
 -&gt; FromText ArtifactLocationType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ArtifactLocationType
 $cfromText :: Text -&gt; Either String ArtifactLocationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679275907"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679276107"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; Text
 (ArtifactLocationType -&gt; Text) -&gt; ToText ArtifactLocationType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ArtifactLocationType -&gt; Text
 $ctoText :: ArtifactLocationType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679275904"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679276104"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; ByteString
 (ArtifactLocationType -&gt; ByteString)
 -&gt; ToByteString ArtifactLocationType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ArtifactLocationType -&gt; ByteString
 $ctoBS :: ArtifactLocationType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679275901"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679276101"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; ByteStringBuilder
 (ArtifactLocationType -&gt; ByteStringBuilder)
 -&gt; ToLog ArtifactLocationType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ArtifactLocationType -&gt; ByteStringBuilder
 $cbuild :: ArtifactLocationType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679275898"><span class="annot"><span class="annottext">HeaderName -&gt; ArtifactLocationType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679276098"><span class="annot"><span class="annottext">HeaderName -&gt; ArtifactLocationType -&gt; [Header]
 (HeaderName -&gt; ArtifactLocationType -&gt; [Header])
 -&gt; ToHeader ArtifactLocationType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ArtifactLocationType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ArtifactLocationType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679275895"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679276095"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; QueryString
 (ArtifactLocationType -&gt; QueryString)
 -&gt; ToQuery ArtifactLocationType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ArtifactLocationType -&gt; QueryString
 $ctoQuery :: ArtifactLocationType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679275890"><span id="local-6989586621679275892"><span class="annot"><span class="annottext">Value -&gt; Parser [ArtifactLocationType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679276090"><span id="local-6989586621679276092"><span class="annot"><span class="annottext">Value -&gt; Parser [ArtifactLocationType]
 Value -&gt; Parser ArtifactLocationType
 (Value -&gt; Parser ArtifactLocationType)
 -&gt; (Value -&gt; Parser [ArtifactLocationType])
@@ -208,7 +208,7 @@ $cparseJSONList :: Value -&gt; Parser [ArtifactLocationType]
 parseJSON :: Value -&gt; Parser ArtifactLocationType
 $cparseJSON :: Value -&gt; Parser ArtifactLocationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679275885"><span id="local-6989586621679275887"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArtifactLocationType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679276085"><span id="local-6989586621679276087"><span class="annot"><span class="annottext">FromJSONKeyFunction [ArtifactLocationType]
 FromJSONKeyFunction ArtifactLocationType
 FromJSONKeyFunction ArtifactLocationType
 -&gt; FromJSONKeyFunction [ArtifactLocationType]
@@ -220,7 +220,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ArtifactLocationType]
 fromJSONKey :: FromJSONKeyFunction ArtifactLocationType
 $cfromJSONKey :: FromJSONKeyFunction ArtifactLocationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679275876"><span id="local-6989586621679275878"><span id="local-6989586621679275880"><span id="local-6989586621679275882"><span class="annot"><span class="annottext">[ArtifactLocationType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679276076"><span id="local-6989586621679276078"><span id="local-6989586621679276080"><span id="local-6989586621679276082"><span class="annot"><span class="annottext">[ArtifactLocationType] -&gt; Encoding
 [ArtifactLocationType] -&gt; Value
 ArtifactLocationType -&gt; Encoding
 ArtifactLocationType -&gt; Value
@@ -244,7 +244,7 @@ $ctoEncoding :: ArtifactLocationType -&gt; Encoding
 toJSON :: ArtifactLocationType -&gt; Value
 $ctoJSON :: ArtifactLocationType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679275871"><span id="local-6989586621679275873"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArtifactLocationType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679276071"><span id="local-6989586621679276073"><span class="annot"><span class="annottext">ToJSONKeyFunction [ArtifactLocationType]
 ToJSONKeyFunction ArtifactLocationType
 ToJSONKeyFunction ArtifactLocationType
 -&gt; ToJSONKeyFunction [ArtifactLocationType]
@@ -256,14 +256,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ArtifactLocationType]
 toJSONKey :: ToJSONKeyFunction ArtifactLocationType
 $ctoJSONKey :: ToJSONKeyFunction ArtifactLocationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679275868"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArtifactLocationType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679276068"><span class="annot"><span class="annottext">[Node] -&gt; Either String ArtifactLocationType
 ([Node] -&gt; Either String ArtifactLocationType)
 -&gt; FromXML ArtifactLocationType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ArtifactLocationType
 $cparseXML :: [Node] -&gt; Either String ArtifactLocationType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679275865"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679276065"><span class="annot"><span class="annottext">ArtifactLocationType -&gt; XML
 (ArtifactLocationType -&gt; XML) -&gt; ToXML ArtifactLocationType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ArtifactLocationType -&gt; XML

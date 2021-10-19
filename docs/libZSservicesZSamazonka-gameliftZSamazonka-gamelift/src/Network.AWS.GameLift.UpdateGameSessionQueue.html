@@ -40,13 +40,13 @@
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#newUpdateGameSessionQueue"><span class="hs-identifier">newUpdateGameSessionQueue</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_customEventData"><span class="hs-identifier">updateGameSessionQueue_customEventData</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_playerLatencyPolicies"><span class="hs-identifier">updateGameSessionQueue_playerLatencyPolicies</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_priorityConfiguration"><span class="hs-identifier">updateGameSessionQueue_priorityConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_destinations"><span class="hs-identifier">updateGameSessionQueue_destinations</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_timeoutInSeconds"><span class="hs-identifier">updateGameSessionQueue_timeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_notificationTarget"><span class="hs-identifier">updateGameSessionQueue_notificationTarget</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_filterConfiguration"><span class="hs-identifier">updateGameSessionQueue_filterConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_playerLatencyPolicies"><span class="hs-identifier">updateGameSessionQueue_playerLatencyPolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_filterConfiguration"><span class="hs-identifier">updateGameSessionQueue_filterConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_notificationTarget"><span class="hs-identifier">updateGameSessionQueue_notificationTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_timeoutInSeconds"><span class="hs-identifier">updateGameSessionQueue_timeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_destinations"><span class="hs-identifier">updateGameSessionQueue_destinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_customEventData"><span class="hs-identifier">updateGameSessionQueue_customEventData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_priorityConfiguration"><span class="hs-identifier">updateGameSessionQueue_priorityConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_name"><span class="hs-identifier">updateGameSessionQueue_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -69,58 +69,58 @@
 </span><span id="line-69"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- /See:/ 'newUpdateGameSessionQueue' smart constructor.</span><span>
-</span><span id="line-72"></span><span id="local-6989586621679465367"><span id="local-6989586621679465368"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGameSessionQueue"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-var">UpdateGameSessionQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGameSessionQueue%27"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-var">UpdateGameSessionQueue'</span></a></span></span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information to be added to all events that are related to this game</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- session queue.</span><span>
-</span><span id="line-75"></span><span>    </span><span id="%24sel%3AcustomEventData%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AcustomEventData%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">customEventData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | A set of policies that act as a sliding cap on player latency. FleetIQ</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- works to deliver low latency for most players in a game session. These</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- policies ensure that no individual player can be placed into a game with</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- unreasonably high latency. Use multiple policies to gradually relax</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- latency requirements a step at a time. Multiple policies are applied</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- based on their maximum allowed latency, starting with the lowest value.</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- When updating policies, provide a complete collection of policies.</span><span>
-</span><span id="line-83"></span><span>    </span><span id="%24sel%3AplayerLatencyPolicies%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe [PlayerLatencyPolicy]
+</span><span id="line-72"></span><span id="local-6989586621679465894"><span id="local-6989586621679465895"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGameSessionQueue"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-var">UpdateGameSessionQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGameSessionQueue%27"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-var">UpdateGameSessionQueue'</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of policies that act as a sliding cap on player latency. FleetIQ</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- works to deliver low latency for most players in a game session. These</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- policies ensure that no individual player can be placed into a game with</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- unreasonably high latency. Use multiple policies to gradually relax</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- latency requirements a step at a time. Multiple policies are applied</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- based on their maximum allowed latency, starting with the lowest value.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- When updating policies, provide a complete collection of policies.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AplayerLatencyPolicies%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe [PlayerLatencyPolicy]
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AplayerLatencyPolicies%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">playerLatencyPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Custom settings to use when prioritizing destinations and locations for</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- game session placements. This configuration replaces the FleetIQ default</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- prioritization process. Priority types that are not explicitly named</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- will be automatically applied at the end of the prioritization process.</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- To remove an existing priority configuration, pass in an empty set.</span><span>
-</span><span id="line-89"></span><span>    </span><span id="%24sel%3ApriorityConfiguration%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe PriorityConfiguration
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3ApriorityConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">priorityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | A list of fleets and\/or fleet aliases that can be used to fulfill game</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- session placement requests in the queue. Destinations are identified by</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- either a fleet ARN or a fleet alias ARN, and are listed in order of</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- placement preference. When updating this list, provide a complete list</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- of destinations.</span><span>
-</span><span id="line-95"></span><span>    </span><span id="%24sel%3Adestinations%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe [GameSessionQueueDestination]
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3Adestinations%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionQueueDestination.html#GameSessionQueueDestination"><span class="hs-identifier hs-type">GameSessionQueueDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The maximum time, in seconds, that a new game session placement request</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- remains in the queue. When a request exceeds this time, the game session</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- placement changes to a @TIMED_OUT@ status.</span><span>
-</span><span id="line-99"></span><span>    </span><span id="%24sel%3AtimeoutInSeconds%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe Natural
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AtimeoutInSeconds%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">timeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | An SNS topic ARN that is set up to receive game session placement</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- notifications. See</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement&gt;.</span><span>
-</span><span id="line-103"></span><span>    </span><span id="%24sel%3AnotificationTarget%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AnotificationTarget%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">notificationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | A list of locations where a queue is allowed to place new game sessions.</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- Locations are specified in the form of AWS Region codes, such as</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- @us-west-2@. If this parameter is not set, game sessions can be placed</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- in any queue location. To remove an existing filter configuration, pass</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- in an empty set.</span><span>
-</span><span id="line-109"></span><span>    </span><span id="%24sel%3AfilterConfiguration%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe FilterConfiguration
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | A list of locations where a queue is allowed to place new game sessions.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- Locations are specified in the form of AWS Region codes, such as</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @us-west-2@. If this parameter is not set, game sessions can be placed</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- in any queue location. To remove an existing filter configuration, pass</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- in an empty set.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AfilterConfiguration%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe FilterConfiguration
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AfilterConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">filterConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | An SNS topic ARN that is set up to receive game session placement</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- notifications. See</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement&gt;.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AnotificationTarget%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AnotificationTarget%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">notificationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The maximum time, in seconds, that a new game session placement request</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- remains in the queue. When a request exceeds this time, the game session</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- placement changes to a @TIMED_OUT@ status.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AtimeoutInSeconds%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AtimeoutInSeconds%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">timeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | A list of fleets and\/or fleet aliases that can be used to fulfill game</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- session placement requests in the queue. Destinations are identified by</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- either a fleet ARN or a fleet alias ARN, and are listed in order of</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- placement preference. When updating this list, provide a complete list</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- of destinations.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3Adestinations%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe [GameSessionQueueDestination]
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3Adestinations%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionQueueDestination.html#GameSessionQueueDestination"><span class="hs-identifier hs-type">GameSessionQueueDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | Information to be added to all events that are related to this game</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- session queue.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AcustomEventData%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AcustomEventData%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">customEventData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | Custom settings to use when prioritizing destinations and locations for</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- game session placements. This configuration replaces the FleetIQ default</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- prioritization process. Priority types that are not explicitly named</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- will be automatically applied at the end of the prioritization process.</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- To remove an existing priority configuration, pass in an empty set.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3ApriorityConfiguration%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe PriorityConfiguration
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3ApriorityConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">priorityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | A descriptive label that is associated with game session queue. Queue</span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-comment">-- names must be unique within each Region. You can use either the queue ID</span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-comment">-- or ARN value.</span><span>
 </span><span id="line-113"></span><span>    </span><span id="%24sel%3Aname%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Text
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3Aname%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465354"><span id="local-6989586621679465356"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465881"><span id="local-6989586621679465883"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool
 (UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool)
 -&gt; (UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool)
 -&gt; Eq UpdateGameSessionQueue
@@ -129,7 +129,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool
 == :: UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool
 $c== :: UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465345"><span id="local-6989586621679465347"><span id="local-6989586621679465349"><span id="local-6989586621679465351"><span class="annot"><span class="annottext">ReadPrec [UpdateGameSessionQueue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465872"><span id="local-6989586621679465874"><span id="local-6989586621679465876"><span id="local-6989586621679465878"><span class="annot"><span class="annottext">ReadPrec [UpdateGameSessionQueue]
 ReadPrec UpdateGameSessionQueue
 Int -&gt; ReadS UpdateGameSessionQueue
 ReadS [UpdateGameSessionQueue]
@@ -149,7 +149,7 @@ readList :: ReadS [UpdateGameSessionQueue]
 $creadList :: ReadS [UpdateGameSessionQueue]
 readsPrec :: Int -&gt; ReadS UpdateGameSessionQueue
 $creadsPrec :: Int -&gt; ReadS UpdateGameSessionQueue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465338"><span id="local-6989586621679465340"><span id="local-6989586621679465342"><span class="annot"><span class="annottext">Int -&gt; UpdateGameSessionQueue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465865"><span id="local-6989586621679465867"><span id="local-6989586621679465869"><span class="annot"><span class="annottext">Int -&gt; UpdateGameSessionQueue -&gt; ShowS
 [UpdateGameSessionQueue] -&gt; ShowS
 UpdateGameSessionQueue -&gt; String
 (Int -&gt; UpdateGameSessionQueue -&gt; ShowS)
@@ -184,42 +184,42 @@ $cfrom :: forall x. UpdateGameSessionQueue -&gt; Rep UpdateGameSessionQueue x
 </span><span id="line-122"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-124"></span><span class="hs-comment">--</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- 'customEventData', 'updateGameSessionQueue_customEventData' - Information to be added to all events that are related to this game</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- session queue.</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- 'playerLatencyPolicies', 'updateGameSessionQueue_playerLatencyPolicies' - A set of policies that act as a sliding cap on player latency. FleetIQ</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- works to deliver low latency for most players in a game session. These</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- policies ensure that no individual player can be placed into a game with</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- unreasonably high latency. Use multiple policies to gradually relax</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- latency requirements a step at a time. Multiple policies are applied</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- based on their maximum allowed latency, starting with the lowest value.</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- When updating policies, provide a complete collection of policies.</span><span>
-</span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- 'priorityConfiguration', 'updateGameSessionQueue_priorityConfiguration' - Custom settings to use when prioritizing destinations and locations for</span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- game session placements. This configuration replaces the FleetIQ default</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- prioritization process. Priority types that are not explicitly named</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- will be automatically applied at the end of the prioritization process.</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- To remove an existing priority configuration, pass in an empty set.</span><span>
-</span><span id="line-141"></span><span class="hs-comment">--</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- 'destinations', 'updateGameSessionQueue_destinations' - A list of fleets and\/or fleet aliases that can be used to fulfill game</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- session placement requests in the queue. Destinations are identified by</span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- either a fleet ARN or a fleet alias ARN, and are listed in order of</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- placement preference. When updating this list, provide a complete list</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- of destinations.</span><span>
-</span><span id="line-147"></span><span class="hs-comment">--</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- 'timeoutInSeconds', 'updateGameSessionQueue_timeoutInSeconds' - The maximum time, in seconds, that a new game session placement request</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- remains in the queue. When a request exceeds this time, the game session</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- placement changes to a @TIMED_OUT@ status.</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- 'notificationTarget', 'updateGameSessionQueue_notificationTarget' - An SNS topic ARN that is set up to receive game session placement</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- notifications. See</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement&gt;.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'playerLatencyPolicies', 'updateGameSessionQueue_playerLatencyPolicies' - A set of policies that act as a sliding cap on player latency. FleetIQ</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- works to deliver low latency for most players in a game session. These</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- policies ensure that no individual player can be placed into a game with</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- unreasonably high latency. Use multiple policies to gradually relax</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- latency requirements a step at a time. Multiple policies are applied</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- based on their maximum allowed latency, starting with the lowest value.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- When updating policies, provide a complete collection of policies.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'filterConfiguration', 'updateGameSessionQueue_filterConfiguration' - A list of locations where a queue is allowed to place new game sessions.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Locations are specified in the form of AWS Region codes, such as</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @us-west-2@. If this parameter is not set, game sessions can be placed</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- in any queue location. To remove an existing filter configuration, pass</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- in an empty set.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'notificationTarget', 'updateGameSessionQueue_notificationTarget' - An SNS topic ARN that is set up to receive game session placement</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- notifications. See</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement&gt;.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'timeoutInSeconds', 'updateGameSessionQueue_timeoutInSeconds' - The maximum time, in seconds, that a new game session placement request</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- remains in the queue. When a request exceeds this time, the game session</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- placement changes to a @TIMED_OUT@ status.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'destinations', 'updateGameSessionQueue_destinations' - A list of fleets and\/or fleet aliases that can be used to fulfill game</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- session placement requests in the queue. Destinations are identified by</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- either a fleet ARN or a fleet alias ARN, and are listed in order of</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- placement preference. When updating this list, provide a complete list</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- of destinations.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'customEventData', 'updateGameSessionQueue_customEventData' - Information to be added to all events that are related to this game</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- session queue.</span><span>
 </span><span id="line-155"></span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- 'filterConfiguration', 'updateGameSessionQueue_filterConfiguration' - A list of locations where a queue is allowed to place new game sessions.</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- Locations are specified in the form of AWS Region codes, such as</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- @us-west-2@. If this parameter is not set, game sessions can be placed</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- in any queue location. To remove an existing filter configuration, pass</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- in an empty set.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'priorityConfiguration', 'updateGameSessionQueue_priorityConfiguration' - Custom settings to use when prioritizing destinations and locations for</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- game session placements. This configuration replaces the FleetIQ default</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- prioritization process. Priority types that are not explicitly named</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- will be automatically applied at the end of the prioritization process.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- To remove an existing priority configuration, pass in an empty set.</span><span>
 </span><span id="line-161"></span><span class="hs-comment">--</span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- 'name', 'updateGameSessionQueue_name' - A descriptive label that is associated with game session queue. Queue</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- names must be unique within each Region. You can use either the queue ID</span><span>
@@ -229,85 +229,61 @@ $cfrom :: forall x. UpdateGameSessionQueue -&gt; Rep UpdateGameSessionQueue x
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span>
 </span><span id="line-169"></span><span id="newUpdateGameSessionQueue"><span class="annot"><span class="annottext">newUpdateGameSessionQueue :: Text -&gt; UpdateGameSessionQueue
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#newUpdateGameSessionQueue"><span class="hs-identifier hs-var hs-var">newUpdateGameSessionQueue</span></a></span></span><span> </span><span id="local-6989586621679465333"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465333"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">UpdateGameSessionQueue' :: Maybe Text
--&gt; Maybe [PlayerLatencyPolicy]
--&gt; Maybe PriorityConfiguration
--&gt; Maybe [GameSessionQueueDestination]
--&gt; Maybe Natural
--&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#newUpdateGameSessionQueue"><span class="hs-identifier hs-var hs-var">newUpdateGameSessionQueue</span></a></span></span><span> </span><span id="local-6989586621679465860"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465860"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">UpdateGameSessionQueue' :: Maybe [PlayerLatencyPolicy]
 -&gt; Maybe FilterConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe [GameSessionQueueDestination]
+-&gt; Maybe Text
+-&gt; Maybe PriorityConfiguration
 -&gt; Text
 -&gt; UpdateGameSessionQueue
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span>
-</span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customEventData:UpdateGameSessionQueue' :: Maybe Text
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AcustomEventData%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">customEventData</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:playerLatencyPolicies:UpdateGameSessionQueue' :: Maybe [PlayerLatencyPolicy]
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AplayerLatencyPolicies%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">playerLatencyPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:playerLatencyPolicies:UpdateGameSessionQueue' :: Maybe [PlayerLatencyPolicy]
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AplayerLatencyPolicies%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">playerLatencyPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterConfiguration:UpdateGameSessionQueue' :: Maybe FilterConfiguration
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AfilterConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">filterConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:priorityConfiguration:UpdateGameSessionQueue' :: Maybe PriorityConfiguration
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3ApriorityConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">priorityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PriorityConfiguration
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinations:UpdateGameSessionQueue' :: Maybe [GameSessionQueueDestination]
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3Adestinations%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeoutInSeconds:UpdateGameSessionQueue' :: Maybe Natural
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AtimeoutInSeconds%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:notificationTarget:UpdateGameSessionQueue' :: Maybe Text
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:notificationTarget:UpdateGameSessionQueue' :: Maybe Text
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AnotificationTarget%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">notificationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterConfiguration:UpdateGameSessionQueue' :: Maybe FilterConfiguration
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AfilterConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">filterConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterConfiguration
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeoutInSeconds:UpdateGameSessionQueue' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AtimeoutInSeconds%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinations:UpdateGameSessionQueue' :: Maybe [GameSessionQueueDestination]
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3Adestinations%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:customEventData:UpdateGameSessionQueue' :: Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AcustomEventData%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">customEventData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:priorityConfiguration:UpdateGameSessionQueue' :: Maybe PriorityConfiguration
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3ApriorityConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">priorityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PriorityConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateGameSessionQueue' :: Text
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3Aname%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465333"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679465860"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- | Information to be added to all events that are related to this game</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- session queue.</span><span>
-</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_customEventData"><span class="hs-identifier hs-type">updateGameSessionQueue_customEventData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span id="updateGameSessionQueue_customEventData"><span class="annot"><span class="annottext">updateGameSessionQueue_customEventData :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_customEventData"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_customEventData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe Text)
--&gt; (UpdateGameSessionQueue -&gt; Maybe Text -&gt; UpdateGameSessionQueue)
--&gt; Lens
-     UpdateGameSessionQueue
-     UpdateGameSessionQueue
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465330"><span class="annot"><span class="annottext">Maybe Text
-customEventData :: Maybe Text
-$sel:customEventData:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Text
-</span><a href="#local-6989586621679465330"><span class="hs-identifier hs-var hs-var">customEventData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465330"><span class="hs-identifier hs-var">customEventData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465329"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
-</span><a href="#local-6989586621679465329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465328"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
-</span><a href="#local-6989586621679465329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customEventData:UpdateGameSessionQueue' :: Maybe Text
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AcustomEventData%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">customEventData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- | A set of policies that act as a sliding cap on player latency. FleetIQ</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- works to deliver low latency for most players in a game session. These</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- policies ensure that no individual player can be placed into a game with</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- unreasonably high latency. Use multiple policies to gradually relax</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- latency requirements a step at a time. Multiple policies are applied</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- based on their maximum allowed latency, starting with the lowest value.</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- When updating policies, provide a complete collection of policies.</span><span>
-</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_playerLatencyPolicies"><span class="hs-identifier hs-type">updateGameSessionQueue_playerLatencyPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span id="updateGameSessionQueue_playerLatencyPolicies"><span class="annot"><span class="annottext">updateGameSessionQueue_playerLatencyPolicies :: (Maybe [PlayerLatencyPolicy] -&gt; f (Maybe [PlayerLatencyPolicy]))
+</span><span id="line-182"></span><span class="hs-comment">-- | A set of policies that act as a sliding cap on player latency. FleetIQ</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- works to deliver low latency for most players in a game session. These</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- policies ensure that no individual player can be placed into a game with</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- unreasonably high latency. Use multiple policies to gradually relax</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- latency requirements a step at a time. Multiple policies are applied</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- based on their maximum allowed latency, starting with the lowest value.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- When updating policies, provide a complete collection of policies.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_playerLatencyPolicies"><span class="hs-identifier hs-type">updateGameSessionQueue_playerLatencyPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="updateGameSessionQueue_playerLatencyPolicies"><span class="annot"><span class="annottext">updateGameSessionQueue_playerLatencyPolicies :: (Maybe [PlayerLatencyPolicy] -&gt; f (Maybe [PlayerLatencyPolicy]))
 -&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_playerLatencyPolicies"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_playerLatencyPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe [PlayerLatencyPolicy])
 -&gt; (UpdateGameSessionQueue
@@ -318,16 +294,16 @@ $sel:customEventData:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; May
      (Maybe [PlayerLatencyPolicy])
      (Maybe [PlayerLatencyPolicy])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465327"><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465857"><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
 playerLatencyPolicies :: Maybe [PlayerLatencyPolicy]
 $sel:playerLatencyPolicies:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe [PlayerLatencyPolicy]
-</span><a href="#local-6989586621679465327"><span class="hs-identifier hs-var hs-var">playerLatencyPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
-</span><a href="#local-6989586621679465327"><span class="hs-identifier hs-var">playerLatencyPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465326"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
-</span><a href="#local-6989586621679465326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465325"><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
-</span><a href="#local-6989586621679465325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
-</span><a href="#local-6989586621679465326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerLatencyPolicies:UpdateGameSessionQueue' :: Maybe [PlayerLatencyPolicy]
+</span><a href="#local-6989586621679465857"><span class="hs-identifier hs-var hs-var">playerLatencyPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
+</span><a href="#local-6989586621679465857"><span class="hs-identifier hs-var">playerLatencyPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465856"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465855"><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
+</span><a href="#local-6989586621679465855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerLatencyPolicies:UpdateGameSessionQueue' :: Maybe [PlayerLatencyPolicy]
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AplayerLatencyPolicies%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">playerLatencyPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
-</span><a href="#local-6989586621679465325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlayerLatencyPolicy] -&gt; f (Maybe [PlayerLatencyPolicy]))
+</span><a href="#local-6989586621679465855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlayerLatencyPolicy] -&gt; f (Maybe [PlayerLatencyPolicy]))
  -&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue)
 -&gt; ((Maybe [PlayerLatencyPolicy]
      -&gt; f (Maybe [PlayerLatencyPolicy]))
@@ -354,44 +330,95 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [PlayerLatencyPolicy]
   [PlayerLatencyPolicy]
   [PlayerLatencyPolicy]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- | Custom settings to use when prioritizing destinations and locations for</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- game session placements. This configuration replaces the FleetIQ default</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- prioritization process. Priority types that are not explicitly named</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- will be automatically applied at the end of the prioritization process.</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- To remove an existing priority configuration, pass in an empty set.</span><span>
-</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_priorityConfiguration"><span class="hs-identifier hs-type">updateGameSessionQueue_priorityConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span id="updateGameSessionQueue_priorityConfiguration"><span class="annot"><span class="annottext">updateGameSessionQueue_priorityConfiguration :: (Maybe PriorityConfiguration -&gt; f (Maybe PriorityConfiguration))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | A list of locations where a queue is allowed to place new game sessions.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Locations are specified in the form of AWS Region codes, such as</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- @us-west-2@. If this parameter is not set, game sessions can be placed</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- in any queue location. To remove an existing filter configuration, pass</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- in an empty set.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_filterConfiguration"><span class="hs-identifier hs-type">updateGameSessionQueue_filterConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="updateGameSessionQueue_filterConfiguration"><span class="annot"><span class="annottext">updateGameSessionQueue_filterConfiguration :: (Maybe FilterConfiguration -&gt; f (Maybe FilterConfiguration))
 -&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_priorityConfiguration"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_priorityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe PriorityConfiguration)
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_filterConfiguration"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_filterConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe FilterConfiguration)
 -&gt; (UpdateGameSessionQueue
-    -&gt; Maybe PriorityConfiguration -&gt; UpdateGameSessionQueue)
+    -&gt; Maybe FilterConfiguration -&gt; UpdateGameSessionQueue)
 -&gt; Lens
      UpdateGameSessionQueue
      UpdateGameSessionQueue
-     (Maybe PriorityConfiguration)
-     (Maybe PriorityConfiguration)
+     (Maybe FilterConfiguration)
+     (Maybe FilterConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465321"><span class="annot"><span class="annottext">Maybe PriorityConfiguration
-priorityConfiguration :: Maybe PriorityConfiguration
-$sel:priorityConfiguration:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe PriorityConfiguration
-</span><a href="#local-6989586621679465321"><span class="hs-identifier hs-var hs-var">priorityConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PriorityConfiguration
-</span><a href="#local-6989586621679465321"><span class="hs-identifier hs-var">priorityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465320"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
-</span><a href="#local-6989586621679465320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465319"><span class="annot"><span class="annottext">Maybe PriorityConfiguration
-</span><a href="#local-6989586621679465319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
-</span><a href="#local-6989586621679465320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priorityConfiguration:UpdateGameSessionQueue' :: Maybe PriorityConfiguration
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3ApriorityConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">priorityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PriorityConfiguration
-</span><a href="#local-6989586621679465319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- | A list of fleets and\/or fleet aliases that can be used to fulfill game</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- session placement requests in the queue. Destinations are identified by</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- either a fleet ARN or a fleet alias ARN, and are listed in order of</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- placement preference. When updating this list, provide a complete list</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- of destinations.</span><span>
-</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_destinations"><span class="hs-identifier hs-type">updateGameSessionQueue_destinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionQueueDestination.html#GameSessionQueueDestination"><span class="hs-identifier hs-type">GameSessionQueueDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-211"></span><span id="updateGameSessionQueue_destinations"><span class="annot"><span class="annottext">updateGameSessionQueue_destinations :: (Maybe [GameSessionQueueDestination]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465851"><span class="annot"><span class="annottext">Maybe FilterConfiguration
+filterConfiguration :: Maybe FilterConfiguration
+$sel:filterConfiguration:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe FilterConfiguration
+</span><a href="#local-6989586621679465851"><span class="hs-identifier hs-var hs-var">filterConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilterConfiguration
+</span><a href="#local-6989586621679465851"><span class="hs-identifier hs-var">filterConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465850"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465850"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465849"><span class="annot"><span class="annottext">Maybe FilterConfiguration
+</span><a href="#local-6989586621679465849"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465850"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterConfiguration:UpdateGameSessionQueue' :: Maybe FilterConfiguration
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AfilterConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">filterConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterConfiguration
+</span><a href="#local-6989586621679465849"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | An SNS topic ARN that is set up to receive game session placement</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- notifications. See</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement&gt;.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_notificationTarget"><span class="hs-identifier hs-type">updateGameSessionQueue_notificationTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="updateGameSessionQueue_notificationTarget"><span class="annot"><span class="annottext">updateGameSessionQueue_notificationTarget :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_notificationTarget"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_notificationTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe Text)
+-&gt; (UpdateGameSessionQueue -&gt; Maybe Text -&gt; UpdateGameSessionQueue)
+-&gt; Lens
+     UpdateGameSessionQueue
+     UpdateGameSessionQueue
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465848"><span class="annot"><span class="annottext">Maybe Text
+notificationTarget :: Maybe Text
+$sel:notificationTarget:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Text
+</span><a href="#local-6989586621679465848"><span class="hs-identifier hs-var hs-var">notificationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465848"><span class="hs-identifier hs-var">notificationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465847"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465846"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationTarget:UpdateGameSessionQueue' :: Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AnotificationTarget%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">notificationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The maximum time, in seconds, that a new game session placement request</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- remains in the queue. When a request exceeds this time, the game session</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- placement changes to a @TIMED_OUT@ status.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_timeoutInSeconds"><span class="hs-identifier hs-type">updateGameSessionQueue_timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="updateGameSessionQueue_timeoutInSeconds"><span class="annot"><span class="annottext">updateGameSessionQueue_timeoutInSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_timeoutInSeconds"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_timeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe Natural)
+-&gt; (UpdateGameSessionQueue
+    -&gt; Maybe Natural -&gt; UpdateGameSessionQueue)
+-&gt; Lens
+     UpdateGameSessionQueue
+     UpdateGameSessionQueue
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465845"><span class="annot"><span class="annottext">Maybe Natural
+timeoutInSeconds :: Maybe Natural
+$sel:timeoutInSeconds:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Natural
+</span><a href="#local-6989586621679465845"><span class="hs-identifier hs-var hs-var">timeoutInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679465845"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465844"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465843"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679465843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutInSeconds:UpdateGameSessionQueue' :: Maybe Natural
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AtimeoutInSeconds%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679465843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | A list of fleets and\/or fleet aliases that can be used to fulfill game</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- session placement requests in the queue. Destinations are identified by</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- either a fleet ARN or a fleet alias ARN, and are listed in order of</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- placement preference. When updating this list, provide a complete list</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- of destinations.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_destinations"><span class="hs-identifier hs-type">updateGameSessionQueue_destinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionQueueDestination.html#GameSessionQueueDestination"><span class="hs-identifier hs-type">GameSessionQueueDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="updateGameSessionQueue_destinations"><span class="annot"><span class="annottext">updateGameSessionQueue_destinations :: (Maybe [GameSessionQueueDestination]
  -&gt; f (Maybe [GameSessionQueueDestination]))
 -&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_destinations"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_destinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe [GameSessionQueueDestination])
@@ -403,16 +430,16 @@ $sel:priorityConfiguration:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&g
      (Maybe [GameSessionQueueDestination])
      (Maybe [GameSessionQueueDestination])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465318"><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465842"><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
 destinations :: Maybe [GameSessionQueueDestination]
 $sel:destinations:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe [GameSessionQueueDestination]
-</span><a href="#local-6989586621679465318"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
-</span><a href="#local-6989586621679465318"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465317"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
-</span><a href="#local-6989586621679465317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465316"><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
-</span><a href="#local-6989586621679465316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
-</span><a href="#local-6989586621679465317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinations:UpdateGameSessionQueue' :: Maybe [GameSessionQueueDestination]
+</span><a href="#local-6989586621679465842"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
+</span><a href="#local-6989586621679465842"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465841"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465840"><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
+</span><a href="#local-6989586621679465840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinations:UpdateGameSessionQueue' :: Maybe [GameSessionQueueDestination]
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3Adestinations%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
-</span><a href="#local-6989586621679465316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GameSessionQueueDestination]
+</span><a href="#local-6989586621679465840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GameSessionQueueDestination]
   -&gt; f (Maybe [GameSessionQueueDestination]))
  -&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue)
 -&gt; ((Maybe [GameSessionQueueDestination]
@@ -442,42 +469,15 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [GameSessionQueueDestination]
   [GameSessionQueueDestination]
   [GameSessionQueueDestination]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- | The maximum time, in seconds, that a new game session placement request</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- remains in the queue. When a request exceeds this time, the game session</span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- placement changes to a @TIMED_OUT@ status.</span><span>
-</span><span id="line-216"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_timeoutInSeconds"><span class="hs-identifier hs-type">updateGameSessionQueue_timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-217"></span><span id="updateGameSessionQueue_timeoutInSeconds"><span class="annot"><span class="annottext">updateGameSessionQueue_timeoutInSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | Information to be added to all events that are related to this game</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- session queue.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_customEventData"><span class="hs-identifier hs-type">updateGameSessionQueue_customEventData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="updateGameSessionQueue_customEventData"><span class="annot"><span class="annottext">updateGameSessionQueue_customEventData :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_timeoutInSeconds"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_timeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe Natural)
--&gt; (UpdateGameSessionQueue
-    -&gt; Maybe Natural -&gt; UpdateGameSessionQueue)
--&gt; Lens
-     UpdateGameSessionQueue
-     UpdateGameSessionQueue
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465315"><span class="annot"><span class="annottext">Maybe Natural
-timeoutInSeconds :: Maybe Natural
-$sel:timeoutInSeconds:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Natural
-</span><a href="#local-6989586621679465315"><span class="hs-identifier hs-var hs-var">timeoutInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679465315"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465314"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
-</span><a href="#local-6989586621679465314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465313"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679465313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
-</span><a href="#local-6989586621679465314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutInSeconds:UpdateGameSessionQueue' :: Maybe Natural
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AtimeoutInSeconds%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679465313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-218"></span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- | An SNS topic ARN that is set up to receive game session placement</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- notifications. See</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement&gt;.</span><span>
-</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_notificationTarget"><span class="hs-identifier hs-type">updateGameSessionQueue_notificationTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-223"></span><span id="updateGameSessionQueue_notificationTarget"><span class="annot"><span class="annottext">updateGameSessionQueue_notificationTarget :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_notificationTarget"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_notificationTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe Text)
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_customEventData"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_customEventData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe Text)
 -&gt; (UpdateGameSessionQueue -&gt; Maybe Text -&gt; UpdateGameSessionQueue)
 -&gt; Lens
      UpdateGameSessionQueue
@@ -485,44 +485,44 @@ $sel:timeoutInSeconds:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Ma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465312"><span class="annot"><span class="annottext">Maybe Text
-notificationTarget :: Maybe Text
-$sel:notificationTarget:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Text
-</span><a href="#local-6989586621679465312"><span class="hs-identifier hs-var hs-var">notificationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465312"><span class="hs-identifier hs-var">notificationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465311"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
-</span><a href="#local-6989586621679465311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465310"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
-</span><a href="#local-6989586621679465311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationTarget:UpdateGameSessionQueue' :: Maybe Text
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AnotificationTarget%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">notificationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465839"><span class="annot"><span class="annottext">Maybe Text
+customEventData :: Maybe Text
+$sel:customEventData:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Text
+</span><a href="#local-6989586621679465839"><span class="hs-identifier hs-var hs-var">customEventData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465839"><span class="hs-identifier hs-var">customEventData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465838"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465837"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customEventData:UpdateGameSessionQueue' :: Maybe Text
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AcustomEventData%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">customEventData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- | A list of locations where a queue is allowed to place new game sessions.</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- Locations are specified in the form of AWS Region codes, such as</span><span>
-</span><span id="line-227"></span><span class="hs-comment">-- @us-west-2@. If this parameter is not set, game sessions can be placed</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- in any queue location. To remove an existing filter configuration, pass</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- in an empty set.</span><span>
-</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_filterConfiguration"><span class="hs-identifier hs-type">updateGameSessionQueue_filterConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-231"></span><span id="updateGameSessionQueue_filterConfiguration"><span class="annot"><span class="annottext">updateGameSessionQueue_filterConfiguration :: (Maybe FilterConfiguration -&gt; f (Maybe FilterConfiguration))
+</span><span id="line-225"></span><span class="hs-comment">-- | Custom settings to use when prioritizing destinations and locations for</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- game session placements. This configuration replaces the FleetIQ default</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- prioritization process. Priority types that are not explicitly named</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- will be automatically applied at the end of the prioritization process.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- To remove an existing priority configuration, pass in an empty set.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_priorityConfiguration"><span class="hs-identifier hs-type">updateGameSessionQueue_priorityConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="updateGameSessionQueue_priorityConfiguration"><span class="annot"><span class="annottext">updateGameSessionQueue_priorityConfiguration :: (Maybe PriorityConfiguration -&gt; f (Maybe PriorityConfiguration))
 -&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_filterConfiguration"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_filterConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe FilterConfiguration)
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_priorityConfiguration"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_priorityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe PriorityConfiguration)
 -&gt; (UpdateGameSessionQueue
-    -&gt; Maybe FilterConfiguration -&gt; UpdateGameSessionQueue)
+    -&gt; Maybe PriorityConfiguration -&gt; UpdateGameSessionQueue)
 -&gt; Lens
      UpdateGameSessionQueue
      UpdateGameSessionQueue
-     (Maybe FilterConfiguration)
-     (Maybe FilterConfiguration)
+     (Maybe PriorityConfiguration)
+     (Maybe PriorityConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465309"><span class="annot"><span class="annottext">Maybe FilterConfiguration
-filterConfiguration :: Maybe FilterConfiguration
-$sel:filterConfiguration:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe FilterConfiguration
-</span><a href="#local-6989586621679465309"><span class="hs-identifier hs-var hs-var">filterConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilterConfiguration
-</span><a href="#local-6989586621679465309"><span class="hs-identifier hs-var">filterConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465308"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
-</span><a href="#local-6989586621679465308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465307"><span class="annot"><span class="annottext">Maybe FilterConfiguration
-</span><a href="#local-6989586621679465307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
-</span><a href="#local-6989586621679465308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterConfiguration:UpdateGameSessionQueue' :: Maybe FilterConfiguration
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AfilterConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">filterConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterConfiguration
-</span><a href="#local-6989586621679465307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465836"><span class="annot"><span class="annottext">Maybe PriorityConfiguration
+priorityConfiguration :: Maybe PriorityConfiguration
+$sel:priorityConfiguration:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe PriorityConfiguration
+</span><a href="#local-6989586621679465836"><span class="hs-identifier hs-var hs-var">priorityConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PriorityConfiguration
+</span><a href="#local-6989586621679465836"><span class="hs-identifier hs-var">priorityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465835"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465834"><span class="annot"><span class="annottext">Maybe PriorityConfiguration
+</span><a href="#local-6989586621679465834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priorityConfiguration:UpdateGameSessionQueue' :: Maybe PriorityConfiguration
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3ApriorityConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">priorityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PriorityConfiguration
+</span><a href="#local-6989586621679465834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- | A descriptive label that is associated with game session queue. Queue</span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- names must be unique within each Region. You can use either the queue ID</span><span>
@@ -534,27 +534,27 @@ $sel:filterConfiguration:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt;
 -&gt; (UpdateGameSessionQueue -&gt; Text -&gt; UpdateGameSessionQueue)
 -&gt; Lens UpdateGameSessionQueue UpdateGameSessionQueue Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465306"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465833"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Text
-</span><a href="#local-6989586621679465306"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465306"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465305"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
-</span><a href="#local-6989586621679465305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465304"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
-</span><a href="#local-6989586621679465305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateGameSessionQueue' :: Text
+</span><a href="#local-6989586621679465833"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465833"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465832"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465831"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateGameSessionQueue' :: Text
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3Aname%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-240"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-241"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-242"></span><span>      </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span><span>
-</span><span id="line-243"></span><span>  </span><span id="local-6989586621679465300"><span class="annot"><span class="annottext">request :: UpdateGameSessionQueue -&gt; Request UpdateGameSessionQueue
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679465827"><span class="annot"><span class="annottext">request :: UpdateGameSessionQueue -&gt; Request UpdateGameSessionQueue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateGameSessionQueue -&gt; Request UpdateGameSessionQueue
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679465296"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679465823"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateGameSessionQueue
 -&gt; ClientResponse ClientBody
@@ -580,10 +580,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679465293"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465293"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679465292"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679465292"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679465291"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679465291"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679465820"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465820"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679465819"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679465819"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679465818"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679465818"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">Maybe GameSessionQueue -&gt; Int -&gt; UpdateGameSessionQueueResponse
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var">UpdateGameSessionQueueResponse'</span></a></span><span>
 </span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GameSessionQueue -&gt; Int -&gt; UpdateGameSessionQueueResponse)
@@ -591,7 +591,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; UpdateGameSessionQueueResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679465291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameSessionQueue)
+</span><a href="#local-6989586621679465818"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameSessionQueue)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GameSessionQueue&quot;</span></span><span class="hs-special">)</span><span>
@@ -604,15 +604,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465293"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465820"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-251"></span><span>
-</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465283"><span id="local-6989586621679465285"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span></span></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465810"><span id="local-6989586621679465812"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span></span></span><span>
 </span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465280"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span></span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-257"></span><span>  </span><span id="local-6989586621679465276"><span class="annot"><span class="annottext">toHeaders :: UpdateGameSessionQueue -&gt; ResponseHeaders
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679465803"><span class="annot"><span class="annottext">toHeaders :: UpdateGameSessionQueue -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-258"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateGameSessionQueue -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -639,9 +639,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-268"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-269"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
-</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465266"><span id="local-6989586621679465268"><span id="local-6989586621679465270"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-272"></span><span>  </span><span id="local-6989586621679465264"><span class="annot"><span class="annottext">toJSON :: UpdateGameSessionQueue -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465255"><span id="local-6989586621679465256"><span id="local-6989586621679465257"><span id="local-6989586621679465258"><span id="local-6989586621679465259"><span id="local-6989586621679465260"><span id="local-6989586621679465261"><span id="local-6989586621679465262"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465793"><span id="local-6989586621679465795"><span id="local-6989586621679465797"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679465791"><span class="annot"><span class="annottext">toJSON :: UpdateGameSessionQueue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465782"><span id="local-6989586621679465783"><span id="local-6989586621679465784"><span id="local-6989586621679465785"><span id="local-6989586621679465786"><span id="local-6989586621679465787"><span id="local-6989586621679465788"><span id="local-6989586621679465789"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [GameSessionQueueDestination]
 Maybe [PlayerLatencyPolicy]
 Maybe Text
@@ -649,105 +649,105 @@ Maybe FilterConfiguration
 Maybe PriorityConfiguration
 Text
 name :: Text
-filterConfiguration :: Maybe FilterConfiguration
-notificationTarget :: Maybe Text
-timeoutInSeconds :: Maybe Natural
-destinations :: Maybe [GameSessionQueueDestination]
 priorityConfiguration :: Maybe PriorityConfiguration
-playerLatencyPolicies :: Maybe [PlayerLatencyPolicy]
 customEventData :: Maybe Text
+destinations :: Maybe [GameSessionQueueDestination]
+timeoutInSeconds :: Maybe Natural
+notificationTarget :: Maybe Text
+filterConfiguration :: Maybe FilterConfiguration
+playerLatencyPolicies :: Maybe [PlayerLatencyPolicy]
 $sel:name:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Text
-$sel:filterConfiguration:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe FilterConfiguration
-$sel:notificationTarget:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Text
-$sel:timeoutInSeconds:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Natural
-$sel:destinations:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe [GameSessionQueueDestination]
 $sel:priorityConfiguration:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe PriorityConfiguration
-$sel:playerLatencyPolicies:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe [PlayerLatencyPolicy]
 $sel:customEventData:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Text
-</span><a href="#local-6989586621679465255"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:destinations:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe [GameSessionQueueDestination]
+$sel:timeoutInSeconds:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Natural
+$sel:notificationTarget:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Text
+$sel:filterConfiguration:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe FilterConfiguration
+$sel:playerLatencyPolicies:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe [PlayerLatencyPolicy]
+</span><a href="#local-6989586621679465782"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-273"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-274"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-275"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CustomEventData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-276"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465262"><span class="hs-identifier hs-var">customEventData</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-277"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PlayerLatencyPolicies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PlayerLatencyPolicy] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-278"></span><span>              </span><span class="annot"><span class="annottext">([PlayerLatencyPolicy] -&gt; Pair)
+</span><span id="line-276"></span><span>              </span><span class="annot"><span class="annottext">([PlayerLatencyPolicy] -&gt; Pair)
 -&gt; Maybe [PlayerLatencyPolicy] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
-</span><a href="#local-6989586621679465261"><span class="hs-identifier hs-var">playerLatencyPolicies</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-279"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PriorityConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PriorityConfiguration -&gt; Pair
+</span><a href="#local-6989586621679465789"><span class="hs-identifier hs-var">playerLatencyPolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FilterConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FilterConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-280"></span><span>              </span><span class="annot"><span class="annottext">(PriorityConfiguration -&gt; Pair)
--&gt; Maybe PriorityConfiguration -&gt; Maybe Pair
+</span><span id="line-278"></span><span>              </span><span class="annot"><span class="annottext">(FilterConfiguration -&gt; Pair)
+-&gt; Maybe FilterConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PriorityConfiguration
-</span><a href="#local-6989586621679465260"><span class="hs-identifier hs-var">priorityConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FilterConfiguration
+</span><a href="#local-6989586621679465788"><span class="hs-identifier hs-var">filterConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotificationTarget&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465787"><span class="hs-identifier hs-var">notificationTarget</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-281"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TimeoutInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679465786"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Destinations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [GameSessionQueueDestination] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([GameSessionQueueDestination] -&gt; Pair)
 -&gt; Maybe [GameSessionQueueDestination] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
-</span><a href="#local-6989586621679465259"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-282"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TimeoutInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-283"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679465258"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679465785"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-284"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NotificationTarget&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;CustomEventData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
 </span><span id="line-285"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679465257"><span class="hs-identifier hs-var">notificationTarget</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679465784"><span class="hs-identifier hs-var">customEventData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-286"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FilterConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FilterConfiguration -&gt; Pair
+</span><span class="hs-string">&quot;PriorityConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PriorityConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-287"></span><span>              </span><span class="annot"><span class="annottext">(FilterConfiguration -&gt; Pair)
--&gt; Maybe FilterConfiguration -&gt; Maybe Pair
+</span><span id="line-287"></span><span>              </span><span class="annot"><span class="annottext">(PriorityConfiguration -&gt; Pair)
+-&gt; Maybe PriorityConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FilterConfiguration
-</span><a href="#local-6989586621679465256"><span class="hs-identifier hs-var">filterConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PriorityConfiguration
+</span><a href="#local-6989586621679465783"><span class="hs-identifier hs-var">priorityConfiguration</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679465255"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465782"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-289"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-290"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-291"></span><span>
 </span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-293"></span><span>  </span><span id="local-6989586621679465249"><span class="annot"><span class="annottext">toPath :: UpdateGameSessionQueue -&gt; ByteString
+</span><span id="line-293"></span><span>  </span><span id="local-6989586621679465776"><span class="annot"><span class="annottext">toPath :: UpdateGameSessionQueue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateGameSessionQueue -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-294"></span><span>
 </span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-296"></span><span>  </span><span id="local-6989586621679465245"><span class="annot"><span class="annottext">toQuery :: UpdateGameSessionQueue -&gt; QueryString
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621679465772"><span class="annot"><span class="annottext">toQuery :: UpdateGameSessionQueue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateGameSessionQueue -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -757,7 +757,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-298"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
 </span><span id="line-299"></span><span class="hs-comment">--</span><span>
 </span><span id="line-300"></span><span class="hs-comment">-- /See:/ 'newUpdateGameSessionQueueResponse' smart constructor.</span><span>
-</span><span id="line-301"></span><span id="local-6989586621679465242"><span id="local-6989586621679465243"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGameSessionQueueResponse"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-var">UpdateGameSessionQueueResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGameSessionQueueResponse%27"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var">UpdateGameSessionQueueResponse'</span></a></span></span><span>
+</span><span id="line-301"></span><span id="local-6989586621679465769"><span id="local-6989586621679465770"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGameSessionQueueResponse"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-var">UpdateGameSessionQueueResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGameSessionQueueResponse%27"><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var">UpdateGameSessionQueueResponse'</span></a></span></span><span>
 </span><span id="line-302"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that describes the newly updated game session queue.</span><span>
 </span><span id="line-303"></span><span>    </span><span id="%24sel%3AgameSessionQueue%3AUpdateGameSessionQueueResponse%27"><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse -&gt; Maybe GameSessionQueue
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AgameSessionQueue%3AUpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var hs-var">gameSessionQueue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.GameSessionQueue.html#GameSessionQueue"><span class="hs-identifier hs-type">GameSessionQueue</span></a></span><span class="hs-special">,</span><span>
@@ -765,7 +765,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-305"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateGameSessionQueueResponse%27"><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse -&gt; Int
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AhttpStatus%3AUpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-306"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-307"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465236"><span id="local-6989586621679465238"><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse
+</span><span id="line-307"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465763"><span id="local-6989586621679465765"><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse
 -&gt; UpdateGameSessionQueueResponse -&gt; Bool
 (UpdateGameSessionQueueResponse
  -&gt; UpdateGameSessionQueueResponse -&gt; Bool)
@@ -781,7 +781,7 @@ $c/= :: UpdateGameSessionQueueResponse
 -&gt; UpdateGameSessionQueueResponse -&gt; Bool
 $c== :: UpdateGameSessionQueueResponse
 -&gt; UpdateGameSessionQueueResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465228"><span id="local-6989586621679465230"><span id="local-6989586621679465232"><span id="local-6989586621679465234"><span class="annot"><span class="annottext">ReadPrec [UpdateGameSessionQueueResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465755"><span id="local-6989586621679465757"><span id="local-6989586621679465759"><span id="local-6989586621679465761"><span class="annot"><span class="annottext">ReadPrec [UpdateGameSessionQueueResponse]
 ReadPrec UpdateGameSessionQueueResponse
 Int -&gt; ReadS UpdateGameSessionQueueResponse
 ReadS [UpdateGameSessionQueueResponse]
@@ -801,7 +801,7 @@ readList :: ReadS [UpdateGameSessionQueueResponse]
 $creadList :: ReadS [UpdateGameSessionQueueResponse]
 readsPrec :: Int -&gt; ReadS UpdateGameSessionQueueResponse
 $creadsPrec :: Int -&gt; ReadS UpdateGameSessionQueueResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465222"><span id="local-6989586621679465224"><span id="local-6989586621679465226"><span class="annot"><span class="annottext">Int -&gt; UpdateGameSessionQueueResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465749"><span id="local-6989586621679465751"><span id="local-6989586621679465753"><span class="annot"><span class="annottext">Int -&gt; UpdateGameSessionQueueResponse -&gt; ShowS
 [UpdateGameSessionQueueResponse] -&gt; ShowS
 UpdateGameSessionQueueResponse -&gt; String
 (Int -&gt; UpdateGameSessionQueueResponse -&gt; ShowS)
@@ -855,8 +855,8 @@ UpdateGameSessionQueueResponse
 </span><span id="line-322"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-323"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span><span>
 </span><span id="line-324"></span><span id="newUpdateGameSessionQueueResponse"><span class="annot"><span class="annottext">newUpdateGameSessionQueueResponse :: Int -&gt; UpdateGameSessionQueueResponse
-</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#newUpdateGameSessionQueueResponse"><span class="hs-identifier hs-var hs-var">newUpdateGameSessionQueueResponse</span></a></span></span><span> </span><span id="local-6989586621679465219"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465219"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#newUpdateGameSessionQueueResponse"><span class="hs-identifier hs-var hs-var">newUpdateGameSessionQueueResponse</span></a></span></span><span> </span><span id="local-6989586621679465746"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465746"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-325"></span><span>  </span><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse' :: Maybe GameSessionQueue -&gt; Int -&gt; UpdateGameSessionQueueResponse
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span>
 </span><span id="line-326"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameSessionQueue:UpdateGameSessionQueueResponse' :: Maybe GameSessionQueue
@@ -866,7 +866,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-328"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGameSessionQueueResponse' :: Int
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AhttpStatus%3AUpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465219"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679465746"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-329"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-330"></span><span>
 </span><span id="line-331"></span><span class="hs-comment">-- | An object that describes the newly updated game session queue.</span><span>
@@ -883,16 +883,16 @@ forall a. Maybe a
      (Maybe GameSessionQueue)
      (Maybe GameSessionQueue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465218"><span class="annot"><span class="annottext">Maybe GameSessionQueue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465745"><span class="annot"><span class="annottext">Maybe GameSessionQueue
 gameSessionQueue :: Maybe GameSessionQueue
 $sel:gameSessionQueue:UpdateGameSessionQueueResponse' :: UpdateGameSessionQueueResponse -&gt; Maybe GameSessionQueue
-</span><a href="#local-6989586621679465218"><span class="hs-identifier hs-var hs-var">gameSessionQueue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameSessionQueue
-</span><a href="#local-6989586621679465218"><span class="hs-identifier hs-var">gameSessionQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465217"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueueResponse
-</span><a href="#local-6989586621679465217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465216"><span class="annot"><span class="annottext">Maybe GameSessionQueue
-</span><a href="#local-6989586621679465216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse
-</span><a href="#local-6989586621679465217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionQueue:UpdateGameSessionQueueResponse' :: Maybe GameSessionQueue
+</span><a href="#local-6989586621679465745"><span class="hs-identifier hs-var hs-var">gameSessionQueue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameSessionQueue
+</span><a href="#local-6989586621679465745"><span class="hs-identifier hs-var">gameSessionQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465744"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueueResponse
+</span><a href="#local-6989586621679465744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465743"><span class="annot"><span class="annottext">Maybe GameSessionQueue
+</span><a href="#local-6989586621679465743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse
+</span><a href="#local-6989586621679465744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionQueue:UpdateGameSessionQueueResponse' :: Maybe GameSessionQueue
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AgameSessionQueue%3AUpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var">gameSessionQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameSessionQueue
-</span><a href="#local-6989586621679465216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-334"></span><span>
 </span><span id="line-335"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-336"></span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueueResponse_httpStatus"><span class="hs-identifier hs-type">updateGameSessionQueueResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -908,18 +908,18 @@ $sel:gameSessionQueue:UpdateGameSessionQueueResponse' :: UpdateGameSessionQueueR
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465215"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465742"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateGameSessionQueueResponse' :: UpdateGameSessionQueueResponse -&gt; Int
-</span><a href="#local-6989586621679465215"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465215"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465214"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueueResponse
-</span><a href="#local-6989586621679465214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465213"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse
-</span><a href="#local-6989586621679465214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGameSessionQueueResponse' :: Int
+</span><a href="#local-6989586621679465742"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465742"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465741"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueueResponse
+</span><a href="#local-6989586621679465741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465740"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse
+</span><a href="#local-6989586621679465741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGameSessionQueueResponse' :: Int
 </span><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#%24sel%3AhttpStatus%3AUpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679465213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679465740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-338"></span><span>
 </span><span id="line-339"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-340"></span><span>  </span><span id="local-6989586621679465211"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-340"></span><span>  </span><span id="local-6989586621679465738"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-341"></span><span>    </span><span class="annot"><a href="Network.AWS.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span></span><span>
 </span><span id="line-342"></span></pre></body></html>

@@ -34,8 +34,8 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#newDescribeKinesisStreamingDestinationResponse"><span class="hs-identifier">newDescribeKinesisStreamingDestinationResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_tableName"><span class="hs-identifier">describeKinesisStreamingDestinationResponse_tableName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations"><span class="hs-identifier">describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations"><span class="hs-identifier">describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_tableName"><span class="hs-identifier">describeKinesisStreamingDestinationResponse_tableName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_httpStatus"><span class="hs-identifier">describeKinesisStreamingDestinationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-41"></span><span class="hs-keyword">where</span><span>
@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribeKinesisStreamingDestination' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679391517"><span id="local-6989586621679391518"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeKinesisStreamingDestination"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination"><span class="hs-identifier hs-var">DescribeKinesisStreamingDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeKinesisStreamingDestination%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination%27"><span class="hs-identifier hs-var">DescribeKinesisStreamingDestination'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679392243"><span id="local-6989586621679392244"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeKinesisStreamingDestination"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination"><span class="hs-identifier hs-var">DescribeKinesisStreamingDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeKinesisStreamingDestination%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination%27"><span class="hs-identifier hs-var">DescribeKinesisStreamingDestination'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the table being described.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AtableName%3ADescribeKinesisStreamingDestination%27"><span class="annot"><span class="annottext">DescribeKinesisStreamingDestination -&gt; Text
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AtableName%3ADescribeKinesisStreamingDestination%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391511"><span id="local-6989586621679391513"><span class="annot"><span class="annottext">DescribeKinesisStreamingDestination
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392237"><span id="local-6989586621679392239"><span class="annot"><span class="annottext">DescribeKinesisStreamingDestination
 -&gt; DescribeKinesisStreamingDestination -&gt; Bool
 (DescribeKinesisStreamingDestination
  -&gt; DescribeKinesisStreamingDestination -&gt; Bool)
@@ -69,7 +69,7 @@ $c/= :: DescribeKinesisStreamingDestination
 -&gt; DescribeKinesisStreamingDestination -&gt; Bool
 $c== :: DescribeKinesisStreamingDestination
 -&gt; DescribeKinesisStreamingDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391502"><span id="local-6989586621679391504"><span id="local-6989586621679391506"><span id="local-6989586621679391508"><span class="annot"><span class="annottext">ReadPrec [DescribeKinesisStreamingDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392228"><span id="local-6989586621679392230"><span id="local-6989586621679392232"><span id="local-6989586621679392234"><span class="annot"><span class="annottext">ReadPrec [DescribeKinesisStreamingDestination]
 ReadPrec DescribeKinesisStreamingDestination
 Int -&gt; ReadS DescribeKinesisStreamingDestination
 ReadS [DescribeKinesisStreamingDestination]
@@ -89,7 +89,7 @@ readList :: ReadS [DescribeKinesisStreamingDestination]
 $creadList :: ReadS [DescribeKinesisStreamingDestination]
 readsPrec :: Int -&gt; ReadS DescribeKinesisStreamingDestination
 $creadsPrec :: Int -&gt; ReadS DescribeKinesisStreamingDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391495"><span id="local-6989586621679391497"><span id="local-6989586621679391499"><span class="annot"><span class="annottext">Int -&gt; DescribeKinesisStreamingDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392221"><span id="local-6989586621679392223"><span id="local-6989586621679392225"><span class="annot"><span class="annottext">Int -&gt; DescribeKinesisStreamingDestination -&gt; ShowS
 [DescribeKinesisStreamingDestination] -&gt; ShowS
 DescribeKinesisStreamingDestination -&gt; String
 (Int -&gt; DescribeKinesisStreamingDestination -&gt; ShowS)
@@ -141,14 +141,14 @@ DescribeKinesisStreamingDestination
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination</span></a></span><span>
 </span><span id="line-70"></span><span id="newDescribeKinesisStreamingDestination"><span class="annot"><span class="annottext">newDescribeKinesisStreamingDestination :: Text -&gt; DescribeKinesisStreamingDestination
-</span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#newDescribeKinesisStreamingDestination"><span class="hs-identifier hs-var hs-var">newDescribeKinesisStreamingDestination</span></a></span></span><span> </span><span id="local-6989586621679391490"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391490"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#newDescribeKinesisStreamingDestination"><span class="hs-identifier hs-var hs-var">newDescribeKinesisStreamingDestination</span></a></span></span><span> </span><span id="local-6989586621679392216"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392216"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DescribeKinesisStreamingDestination' :: Text -&gt; DescribeKinesisStreamingDestination
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination'</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tableName:DescribeKinesisStreamingDestination' :: Text
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AtableName%3ADescribeKinesisStreamingDestination%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391490"><span class="hs-identifier hs-var">pTableName_</span></a></span><span>
+</span><a href="#local-6989586621679392216"><span class="hs-identifier hs-var">pTableName_</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The name of the table being described.</span><span>
@@ -165,16 +165,16 @@ DescribeKinesisStreamingDestination
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391487"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392213"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:DescribeKinesisStreamingDestination' :: DescribeKinesisStreamingDestination -&gt; Text
-</span><a href="#local-6989586621679391487"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391487"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391486"><span class="annot"><span class="annottext">s :: DescribeKinesisStreamingDestination
-</span><a href="#local-6989586621679391486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391485"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeKinesisStreamingDestination
-</span><a href="#local-6989586621679391486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DescribeKinesisStreamingDestination' :: Text
+</span><a href="#local-6989586621679392213"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392213"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392212"><span class="annot"><span class="annottext">s :: DescribeKinesisStreamingDestination
+</span><a href="#local-6989586621679392212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392211"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679392211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeKinesisStreamingDestination
+</span><a href="#local-6989586621679392212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DescribeKinesisStreamingDestination' :: Text
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AtableName%3ADescribeKinesisStreamingDestination%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -183,7 +183,7 @@ $sel:tableName:DescribeKinesisStreamingDestination' :: DescribeKinesisStreamingD
 </span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679391481"><span class="annot"><span class="annottext">request :: DescribeKinesisStreamingDestination
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679392207"><span class="annot"><span class="annottext">request :: DescribeKinesisStreamingDestination
 -&gt; Request DescribeKinesisStreamingDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeKinesisStreamingDestination
@@ -191,7 +191,7 @@ $sel:tableName:DescribeKinesisStreamingDestination' :: DescribeKinesisStreamingD
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DynamoDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679391477"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679392203"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeKinesisStreamingDestination
 -&gt; ClientResponse ClientBody
@@ -219,53 +219,49 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679391474"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391474"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679391473"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679391473"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679391472"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391472"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [KinesisDataStreamDestination]
--&gt; Int
--&gt; DescribeKinesisStreamingDestinationResponse
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679392200"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392200"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679392199"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679392199"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679392198"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392198"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe [KinesisDataStreamDestination]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeKinesisStreamingDestinationResponse
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var">DescribeKinesisStreamingDestinationResponse'</span></a></span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [KinesisDataStreamDestination]
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [KinesisDataStreamDestination]
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; DescribeKinesisStreamingDestinationResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [KinesisDataStreamDestination]
-      -&gt; Int -&gt; DescribeKinesisStreamingDestinationResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [KinesisDataStreamDestination]
-   -&gt; Int -&gt; DescribeKinesisStreamingDestinationResponse)
 -&gt; Either String (Maybe [KinesisDataStreamDestination])
 -&gt; Either
-     String (Int -&gt; DescribeKinesisStreamingDestinationResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679391472"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+     String
+     (Maybe Text -&gt; Int -&gt; DescribeKinesisStreamingDestinationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [KinesisDataStreamDestination]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KinesisDataStreamDestinations&quot;</span></span><span>
-</span><span id="line-94"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [KinesisDataStreamDestination]))
+</span><span id="line-93"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [KinesisDataStreamDestination]))
 -&gt; Maybe [KinesisDataStreamDestination]
 -&gt; Either String (Maybe [KinesisDataStreamDestination])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [KinesisDataStreamDestination]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-95"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; DescribeKinesisStreamingDestinationResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; DescribeKinesisStreamingDestinationResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679392198"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeKinesisStreamingDestinationResponse)
 -&gt; Either String Int
 -&gt; Either String DescribeKinesisStreamingDestinationResponse
@@ -275,22 +271,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391474"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679392200"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679391463"><span id="local-6989586621679391465"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679392189"><span id="local-6989586621679392191"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679391460"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679392186"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination</span></a></span><span>
 </span><span id="line-110"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679391456"><span class="annot"><span class="annottext">toHeaders :: DescribeKinesisStreamingDestination -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679392182"><span class="annot"><span class="annottext">toHeaders :: DescribeKinesisStreamingDestination -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeKinesisStreamingDestination -&gt; ResponseHeaders
@@ -319,14 +315,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679391446"><span id="local-6989586621679391448"><span id="local-6989586621679391450"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679392172"><span id="local-6989586621679392174"><span id="local-6989586621679392176"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-127"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination</span></a></span></span></span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679391444"><span class="annot"><span class="annottext">toJSON :: DescribeKinesisStreamingDestination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391442"><span class="annot"><span class="annottext">Text
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679392170"><span class="annot"><span class="annottext">toJSON :: DescribeKinesisStreamingDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392168"><span class="annot"><span class="annottext">Text
 tableName :: Text
 $sel:tableName:DescribeKinesisStreamingDestination' :: DescribeKinesisStreamingDestination -&gt; Text
-</span><a href="#local-6989586621679391442"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679392168"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -338,14 +334,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679391442"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679392168"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-137"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination</span></a></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679391436"><span class="annot"><span class="annottext">toPath :: DescribeKinesisStreamingDestination -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679392162"><span class="annot"><span class="annottext">toPath :: DescribeKinesisStreamingDestination -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeKinesisStreamingDestination -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -355,7 +351,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestination"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestination</span></a></span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-145"></span><span>  </span><span id="local-6989586621679391432"><span class="annot"><span class="annottext">toQuery :: DescribeKinesisStreamingDestination -&gt; QueryString
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679392158"><span class="annot"><span class="annottext">toQuery :: DescribeKinesisStreamingDestination -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeKinesisStreamingDestination -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -363,19 +359,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newDescribeKinesisStreamingDestinationResponse' smart constructor.</span><span>
-</span><span id="line-148"></span><span id="local-6989586621679391429"><span id="local-6989586621679391430"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeKinesisStreamingDestinationResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-var">DescribeKinesisStreamingDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeKinesisStreamingDestinationResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var">DescribeKinesisStreamingDestinationResponse'</span></a></span></span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the table being described.</span><span>
-</span><span id="line-150"></span><span>    </span><span id="%24sel%3AtableName%3ADescribeKinesisStreamingDestinationResponse%27"><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AtableName%3ADescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The list of replica structures for the table being described.</span><span>
-</span><span id="line-152"></span><span>    </span><span id="%24sel%3AkinesisDataStreamDestinations%3ADescribeKinesisStreamingDestinationResponse%27"><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse
+</span><span id="line-148"></span><span id="local-6989586621679392155"><span id="local-6989586621679392156"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeKinesisStreamingDestinationResponse"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-var">DescribeKinesisStreamingDestinationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeKinesisStreamingDestinationResponse%27"><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var">DescribeKinesisStreamingDestinationResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of replica structures for the table being described.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AkinesisDataStreamDestinations%3ADescribeKinesisStreamingDestinationResponse%27"><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse
 -&gt; Maybe [KinesisDataStreamDestination]
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AkinesisDataStreamDestinations%3ADescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var hs-var">kinesisDataStreamDestinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KinesisDataStreamDestination.html#KinesisDataStreamDestination"><span class="hs-identifier hs-type">KinesisDataStreamDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- | The name of the table being described.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AtableName%3ADescribeKinesisStreamingDestinationResponse%27"><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AtableName%3ADescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeKinesisStreamingDestinationResponse%27"><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse -&gt; Int
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AhttpStatus%3ADescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679391422"><span id="local-6989586621679391424"><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679392148"><span id="local-6989586621679392150"><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse
 -&gt; DescribeKinesisStreamingDestinationResponse -&gt; Bool
 (DescribeKinesisStreamingDestinationResponse
  -&gt; DescribeKinesisStreamingDestinationResponse -&gt; Bool)
@@ -391,7 +387,7 @@ $c/= :: DescribeKinesisStreamingDestinationResponse
 -&gt; DescribeKinesisStreamingDestinationResponse -&gt; Bool
 $c== :: DescribeKinesisStreamingDestinationResponse
 -&gt; DescribeKinesisStreamingDestinationResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391414"><span id="local-6989586621679391416"><span id="local-6989586621679391418"><span id="local-6989586621679391420"><span class="annot"><span class="annottext">ReadPrec [DescribeKinesisStreamingDestinationResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392140"><span id="local-6989586621679392142"><span id="local-6989586621679392144"><span id="local-6989586621679392146"><span class="annot"><span class="annottext">ReadPrec [DescribeKinesisStreamingDestinationResponse]
 ReadPrec DescribeKinesisStreamingDestinationResponse
 Int -&gt; ReadS DescribeKinesisStreamingDestinationResponse
 ReadS [DescribeKinesisStreamingDestinationResponse]
@@ -411,7 +407,7 @@ readList :: ReadS [DescribeKinesisStreamingDestinationResponse]
 $creadList :: ReadS [DescribeKinesisStreamingDestinationResponse]
 readsPrec :: Int -&gt; ReadS DescribeKinesisStreamingDestinationResponse
 $creadsPrec :: Int -&gt; ReadS DescribeKinesisStreamingDestinationResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679391408"><span id="local-6989586621679391410"><span id="local-6989586621679391412"><span class="annot"><span class="annottext">Int -&gt; DescribeKinesisStreamingDestinationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679392134"><span id="local-6989586621679392136"><span id="local-6989586621679392138"><span class="annot"><span class="annottext">Int -&gt; DescribeKinesisStreamingDestinationResponse -&gt; ShowS
 [DescribeKinesisStreamingDestinationResponse] -&gt; ShowS
 DescribeKinesisStreamingDestinationResponse -&gt; String
 (Int -&gt; DescribeKinesisStreamingDestinationResponse -&gt; ShowS)
@@ -457,9 +453,9 @@ DescribeKinesisStreamingDestinationResponse
 </span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- 'tableName', 'describeKinesisStreamingDestinationResponse_tableName' - The name of the table being described.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'kinesisDataStreamDestinations', 'describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations' - The list of replica structures for the table being described.</span><span>
 </span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- 'kinesisDataStreamDestinations', 'describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations' - The list of replica structures for the table being described.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'tableName', 'describeKinesisStreamingDestinationResponse_tableName' - The name of the table being described.</span><span>
 </span><span id="line-169"></span><span class="hs-comment">--</span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- 'httpStatus', 'describeKinesisStreamingDestinationResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-171"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#newDescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">newDescribeKinesisStreamingDestinationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -468,56 +464,28 @@ DescribeKinesisStreamingDestinationResponse
 </span><span id="line-174"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span>
 </span><span id="line-175"></span><span id="newDescribeKinesisStreamingDestinationResponse"><span class="annot"><span class="annottext">newDescribeKinesisStreamingDestinationResponse :: Int -&gt; DescribeKinesisStreamingDestinationResponse
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#newDescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-var hs-var">newDescribeKinesisStreamingDestinationResponse</span></a></span></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679391405"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391405"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse' :: Maybe Text
--&gt; Maybe [KinesisDataStreamDestination]
--&gt; Int
--&gt; DescribeKinesisStreamingDestinationResponse
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679392131"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392131"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse' :: Maybe [KinesisDataStreamDestination]
+-&gt; Maybe Text -&gt; Int -&gt; DescribeKinesisStreamingDestinationResponse
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse'</span></a></span><span>
-</span><span id="line-178"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tableName:DescribeKinesisStreamingDestinationResponse' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AtableName%3ADescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">$sel:kinesisDataStreamDestinations:DescribeKinesisStreamingDestinationResponse' :: Maybe [KinesisDataStreamDestination]
+</span><span id="line-178"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kinesisDataStreamDestinations:DescribeKinesisStreamingDestinationResponse' :: Maybe [KinesisDataStreamDestination]
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AkinesisDataStreamDestinations%3ADescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var">kinesisDataStreamDestinations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Maybe [KinesisDataStreamDestination]
+</span><span id="line-179"></span><span>          </span><span class="annot"><span class="annottext">Maybe [KinesisDataStreamDestination]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeKinesisStreamingDestinationResponse' :: Int
-</span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AhttpStatus%3ADescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391405"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-183"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- | The name of the table being described.</span><span>
-</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_tableName"><span class="hs-identifier hs-type">describeKinesisStreamingDestinationResponse_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span id="describeKinesisStreamingDestinationResponse_tableName"><span class="annot"><span class="annottext">describeKinesisStreamingDestinationResponse_tableName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeKinesisStreamingDestinationResponse
--&gt; f DescribeKinesisStreamingDestinationResponse
-</span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_tableName"><span class="hs-identifier hs-var hs-var">describeKinesisStreamingDestinationResponse_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeKinesisStreamingDestinationResponse -&gt; Maybe Text)
--&gt; (DescribeKinesisStreamingDestinationResponse
-    -&gt; Maybe Text -&gt; DescribeKinesisStreamingDestinationResponse)
--&gt; Lens
-     DescribeKinesisStreamingDestinationResponse
-     DescribeKinesisStreamingDestinationResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391404"><span class="annot"><span class="annottext">Maybe Text
-tableName :: Maybe Text
-$sel:tableName:DescribeKinesisStreamingDestinationResponse' :: DescribeKinesisStreamingDestinationResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679391404"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391404"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391403"><span class="annot"><span class="annottext">s :: DescribeKinesisStreamingDestinationResponse
-</span><a href="#local-6989586621679391403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391402"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse
-</span><a href="#local-6989586621679391403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DescribeKinesisStreamingDestinationResponse' :: Maybe Text
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableName:DescribeKinesisStreamingDestinationResponse' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AtableName%3ADescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679391402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- | The list of replica structures for the table being described.</span><span>
-</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations"><span class="hs-identifier hs-type">describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KinesisDataStreamDestination.html#KinesisDataStreamDestination"><span class="hs-identifier hs-type">KinesisDataStreamDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span id="describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations"><span class="annot"><span class="annottext">describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations :: (Maybe [KinesisDataStreamDestination]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeKinesisStreamingDestinationResponse' :: Int
+</span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AhttpStatus%3ADescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392131"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The list of replica structures for the table being described.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations"><span class="hs-identifier hs-type">describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.KinesisDataStreamDestination.html#KinesisDataStreamDestination"><span class="hs-identifier hs-type">KinesisDataStreamDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations"><span class="annot"><span class="annottext">describeKinesisStreamingDestinationResponse_kinesisDataStreamDestinations :: (Maybe [KinesisDataStreamDestination]
  -&gt; f (Maybe [KinesisDataStreamDestination]))
 -&gt; DescribeKinesisStreamingDestinationResponse
 -&gt; f DescribeKinesisStreamingDestinationResponse
@@ -532,17 +500,17 @@ $sel:tableName:DescribeKinesisStreamingDestinationResponse' :: DescribeKinesisSt
      (Maybe [KinesisDataStreamDestination])
      (Maybe [KinesisDataStreamDestination])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391401"><span class="annot"><span class="annottext">Maybe [KinesisDataStreamDestination]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392130"><span class="annot"><span class="annottext">Maybe [KinesisDataStreamDestination]
 kinesisDataStreamDestinations :: Maybe [KinesisDataStreamDestination]
 $sel:kinesisDataStreamDestinations:DescribeKinesisStreamingDestinationResponse' :: DescribeKinesisStreamingDestinationResponse
 -&gt; Maybe [KinesisDataStreamDestination]
-</span><a href="#local-6989586621679391401"><span class="hs-identifier hs-var hs-var">kinesisDataStreamDestinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KinesisDataStreamDestination]
-</span><a href="#local-6989586621679391401"><span class="hs-identifier hs-var">kinesisDataStreamDestinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391400"><span class="annot"><span class="annottext">s :: DescribeKinesisStreamingDestinationResponse
-</span><a href="#local-6989586621679391400"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391399"><span class="annot"><span class="annottext">Maybe [KinesisDataStreamDestination]
-</span><a href="#local-6989586621679391399"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse
-</span><a href="#local-6989586621679391400"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisDataStreamDestinations:DescribeKinesisStreamingDestinationResponse' :: Maybe [KinesisDataStreamDestination]
+</span><a href="#local-6989586621679392130"><span class="hs-identifier hs-var hs-var">kinesisDataStreamDestinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [KinesisDataStreamDestination]
+</span><a href="#local-6989586621679392130"><span class="hs-identifier hs-var">kinesisDataStreamDestinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392129"><span class="annot"><span class="annottext">s :: DescribeKinesisStreamingDestinationResponse
+</span><a href="#local-6989586621679392129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392128"><span class="annot"><span class="annottext">Maybe [KinesisDataStreamDestination]
+</span><a href="#local-6989586621679392128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse
+</span><a href="#local-6989586621679392129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisDataStreamDestinations:DescribeKinesisStreamingDestinationResponse' :: Maybe [KinesisDataStreamDestination]
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AkinesisDataStreamDestinations%3ADescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var">kinesisDataStreamDestinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [KinesisDataStreamDestination]
-</span><a href="#local-6989586621679391399"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KinesisDataStreamDestination]
+</span><a href="#local-6989586621679392128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [KinesisDataStreamDestination]
   -&gt; f (Maybe [KinesisDataStreamDestination]))
  -&gt; DescribeKinesisStreamingDestinationResponse
  -&gt; f DescribeKinesisStreamingDestinationResponse)
@@ -573,12 +541,37 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [KinesisDataStreamDestination]
   [KinesisDataStreamDestination]
   [KinesisDataStreamDestination]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_httpStatus"><span class="hs-identifier hs-type">describeKinesisStreamingDestinationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-195"></span><span id="describeKinesisStreamingDestinationResponse_httpStatus"><span class="annot"><span class="annottext">describeKinesisStreamingDestinationResponse_httpStatus :: (Int -&gt; f Int)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The name of the table being described.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_tableName"><span class="hs-identifier hs-type">describeKinesisStreamingDestinationResponse_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="describeKinesisStreamingDestinationResponse_tableName"><span class="annot"><span class="annottext">describeKinesisStreamingDestinationResponse_tableName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeKinesisStreamingDestinationResponse
+-&gt; f DescribeKinesisStreamingDestinationResponse
+</span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_tableName"><span class="hs-identifier hs-var hs-var">describeKinesisStreamingDestinationResponse_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeKinesisStreamingDestinationResponse -&gt; Maybe Text)
+-&gt; (DescribeKinesisStreamingDestinationResponse
+    -&gt; Maybe Text -&gt; DescribeKinesisStreamingDestinationResponse)
+-&gt; Lens
+     DescribeKinesisStreamingDestinationResponse
+     DescribeKinesisStreamingDestinationResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392124"><span class="annot"><span class="annottext">Maybe Text
+tableName :: Maybe Text
+$sel:tableName:DescribeKinesisStreamingDestinationResponse' :: DescribeKinesisStreamingDestinationResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679392124"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392124"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392123"><span class="annot"><span class="annottext">s :: DescribeKinesisStreamingDestinationResponse
+</span><a href="#local-6989586621679392123"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392122"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392122"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse
+</span><a href="#local-6989586621679392123"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:DescribeKinesisStreamingDestinationResponse' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AtableName%3ADescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679392122"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_httpStatus"><span class="hs-identifier hs-type">describeKinesisStreamingDestinationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="describeKinesisStreamingDestinationResponse_httpStatus"><span class="annot"><span class="annottext">describeKinesisStreamingDestinationResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; DescribeKinesisStreamingDestinationResponse
 -&gt; f DescribeKinesisStreamingDestinationResponse
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#describeKinesisStreamingDestinationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeKinesisStreamingDestinationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeKinesisStreamingDestinationResponse -&gt; Int)
@@ -590,18 +583,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679391395"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679392121"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeKinesisStreamingDestinationResponse' :: DescribeKinesisStreamingDestinationResponse -&gt; Int
-</span><a href="#local-6989586621679391395"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391395"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679391394"><span class="annot"><span class="annottext">s :: DescribeKinesisStreamingDestinationResponse
-</span><a href="#local-6989586621679391394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679391393"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse
-</span><a href="#local-6989586621679391394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeKinesisStreamingDestinationResponse' :: Int
+</span><a href="#local-6989586621679392121"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392121"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679392120"><span class="annot"><span class="annottext">s :: DescribeKinesisStreamingDestinationResponse
+</span><a href="#local-6989586621679392120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679392119"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679392119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeKinesisStreamingDestinationResponse
+</span><a href="#local-6989586621679392120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeKinesisStreamingDestinationResponse' :: Int
 </span><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#%24sel%3AhttpStatus%3ADescribeKinesisStreamingDestinationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679391393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>
-</span><span id="line-197"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679391391"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span></span><span>
-</span><span id="line-200"></span></pre></body></html>
+</span><a href="#local-6989586621679392119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679392117"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.DescribeKinesisStreamingDestination.html#DescribeKinesisStreamingDestinationResponse"><span class="hs-identifier hs-type">DescribeKinesisStreamingDestinationResponse</span></a></span></span><span>
+</span><span id="line-199"></span></pre></body></html>

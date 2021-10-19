@@ -45,13 +45,13 @@
 </span><span id="line-45"></span><span class="hs-comment">-- | Deletes an existing VpcLink of a specified identifier.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- /See:/ 'newDeleteVpcLink' smart constructor.</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679386156"><span id="local-6989586621679386157"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVpcLink"><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-var">DeleteVpcLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVpcLink%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink%27"><span class="hs-identifier hs-var">DeleteVpcLink'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679386712"><span id="local-6989586621679386713"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVpcLink"><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-var">DeleteVpcLink</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVpcLink%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink%27"><span class="hs-identifier hs-var">DeleteVpcLink'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | [Required] The identifier of the VpcLink. It is used in an Integration</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- to reference this VpcLink.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AvpcLinkId%3ADeleteVpcLink%27"><span class="annot"><span class="annottext">DeleteVpcLink -&gt; Text
 </span><a href="Network.AWS.APIGateway.DeleteVpcLink.html#%24sel%3AvpcLinkId%3ADeleteVpcLink%27"><span class="hs-identifier hs-var hs-var">vpcLinkId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386150"><span id="local-6989586621679386152"><span class="annot"><span class="annottext">DeleteVpcLink -&gt; DeleteVpcLink -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386706"><span id="local-6989586621679386708"><span class="annot"><span class="annottext">DeleteVpcLink -&gt; DeleteVpcLink -&gt; Bool
 (DeleteVpcLink -&gt; DeleteVpcLink -&gt; Bool)
 -&gt; (DeleteVpcLink -&gt; DeleteVpcLink -&gt; Bool) -&gt; Eq DeleteVpcLink
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -59,7 +59,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteVpcLink -&gt; DeleteVpcLink -&gt; Bool
 == :: DeleteVpcLink -&gt; DeleteVpcLink -&gt; Bool
 $c== :: DeleteVpcLink -&gt; DeleteVpcLink -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386141"><span id="local-6989586621679386143"><span id="local-6989586621679386145"><span id="local-6989586621679386147"><span class="annot"><span class="annottext">ReadPrec [DeleteVpcLink]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386697"><span id="local-6989586621679386699"><span id="local-6989586621679386701"><span id="local-6989586621679386703"><span class="annot"><span class="annottext">ReadPrec [DeleteVpcLink]
 ReadPrec DeleteVpcLink
 Int -&gt; ReadS DeleteVpcLink
 ReadS [DeleteVpcLink]
@@ -79,7 +79,7 @@ readList :: ReadS [DeleteVpcLink]
 $creadList :: ReadS [DeleteVpcLink]
 readsPrec :: Int -&gt; ReadS DeleteVpcLink
 $creadsPrec :: Int -&gt; ReadS DeleteVpcLink
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386134"><span id="local-6989586621679386136"><span id="local-6989586621679386138"><span class="annot"><span class="annottext">Int -&gt; DeleteVpcLink -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386690"><span id="local-6989586621679386692"><span id="local-6989586621679386694"><span class="annot"><span class="annottext">Int -&gt; DeleteVpcLink -&gt; ShowS
 [DeleteVpcLink] -&gt; ShowS
 DeleteVpcLink -&gt; String
 (Int -&gt; DeleteVpcLink -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. DeleteVpcLink -&gt; Rep DeleteVpcLink x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-type">DeleteVpcLink</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteVpcLink"><span class="annot"><span class="annottext">newDeleteVpcLink :: Text -&gt; DeleteVpcLink
-</span><a href="Network.AWS.APIGateway.DeleteVpcLink.html#newDeleteVpcLink"><span class="hs-identifier hs-var hs-var">newDeleteVpcLink</span></a></span></span><span> </span><span id="local-6989586621679386129"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386129"><span class="hs-identifier hs-var">pVpcLinkId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.APIGateway.DeleteVpcLink.html#newDeleteVpcLink"><span class="hs-identifier hs-var hs-var">newDeleteVpcLink</span></a></span></span><span> </span><span id="local-6989586621679386685"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386685"><span class="hs-identifier hs-var">pVpcLinkId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteVpcLink' :: Text -&gt; DeleteVpcLink
 </span><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink%27"><span class="hs-identifier hs-type">DeleteVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcLinkId:DeleteVpcLink' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteVpcLink.html#%24sel%3AvpcLinkId%3ADeleteVpcLink%27"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386129"><span class="hs-identifier hs-var">pVpcLinkId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679386685"><span class="hs-identifier hs-var">pVpcLinkId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | [Required] The identifier of the VpcLink. It is used in an Integration</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- to reference this VpcLink.</span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. DeleteVpcLink -&gt; Rep DeleteVpcLink x
 -&gt; (DeleteVpcLink -&gt; Text -&gt; DeleteVpcLink)
 -&gt; Lens DeleteVpcLink DeleteVpcLink Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink%27"><span class="hs-identifier hs-type">DeleteVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386126"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink%27"><span class="hs-identifier hs-type">DeleteVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386682"><span class="annot"><span class="annottext">Text
 vpcLinkId :: Text
 $sel:vpcLinkId:DeleteVpcLink' :: DeleteVpcLink -&gt; Text
-</span><a href="#local-6989586621679386126"><span class="hs-identifier hs-var hs-var">vpcLinkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386126"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386125"><span class="annot"><span class="annottext">s :: DeleteVpcLink
-</span><a href="#local-6989586621679386125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink%27"><span class="hs-identifier hs-type">DeleteVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386124"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVpcLink
-</span><a href="#local-6989586621679386125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcLinkId:DeleteVpcLink' :: Text
+</span><a href="#local-6989586621679386682"><span class="hs-identifier hs-var hs-var">vpcLinkId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386682"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679386681"><span class="annot"><span class="annottext">s :: DeleteVpcLink
+</span><a href="#local-6989586621679386681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink%27"><span class="hs-identifier hs-type">DeleteVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679386680"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679386680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVpcLink
+</span><a href="#local-6989586621679386681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcLinkId:DeleteVpcLink' :: Text
 </span><a href="Network.AWS.APIGateway.DeleteVpcLink.html#%24sel%3AvpcLinkId%3ADeleteVpcLink%27"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-type">DeleteVpcLink</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679386680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-type">DeleteVpcLink</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-type">DeleteVpcLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-type">DeleteVpcLink</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLinkResponse"><span class="hs-identifier hs-type">DeleteVpcLinkResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679386120"><span class="annot"><span class="annottext">request :: DeleteVpcLink -&gt; Request DeleteVpcLink
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679386676"><span class="annot"><span class="annottext">request :: DeleteVpcLink -&gt; Request DeleteVpcLink
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteVpcLink -&gt; Request DeleteVpcLink
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.APIGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679386116"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679386672"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteVpcLink
 -&gt; ClientResponse ClientBody
@@ -179,12 +179,12 @@ AWSResponse a
 DeleteVpcLinkResponse
 </span><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLinkResponse%27"><span class="hs-identifier hs-var">DeleteVpcLinkResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386109"><span id="local-6989586621679386111"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-type">DeleteVpcLink</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386665"><span id="local-6989586621679386667"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-type">DeleteVpcLink</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386106"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-type">DeleteVpcLink</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386662"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-type">DeleteVpcLink</span></a></span></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-type">DeleteVpcLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679386102"><span class="annot"><span class="annottext">toHeaders :: DeleteVpcLink -&gt; [Header]
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679386658"><span class="annot"><span class="annottext">toHeaders :: DeleteVpcLink -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteVpcLink -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -202,21 +202,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-96"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-type">DeleteVpcLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679386096"><span class="annot"><span class="annottext">toPath :: DeleteVpcLink -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink%27"><span class="hs-identifier hs-type">DeleteVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386094"><span class="annot"><span class="annottext">Text
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679386652"><span class="annot"><span class="annottext">toPath :: DeleteVpcLink -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink%27"><span class="hs-identifier hs-type">DeleteVpcLink'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679386650"><span class="annot"><span class="annottext">Text
 vpcLinkId :: Text
 $sel:vpcLinkId:DeleteVpcLink' :: DeleteVpcLink -&gt; Text
-</span><a href="#local-6989586621679386094"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679386650"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vpclinks/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679386094"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679386650"><span class="hs-identifier hs-var">vpcLinkId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLink"><span class="hs-identifier hs-type">DeleteVpcLink</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679386090"><span class="annot"><span class="annottext">toQuery :: DeleteVpcLink -&gt; QueryString
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679386646"><span class="annot"><span class="annottext">toQuery :: DeleteVpcLink -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteVpcLink -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -224,10 +224,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | /See:/ 'newDeleteVpcLinkResponse' smart constructor.</span><span>
-</span><span id="line-106"></span><span id="local-6989586621679386087"><span id="local-6989586621679386088"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVpcLinkResponse"><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLinkResponse"><span class="hs-identifier hs-var">DeleteVpcLinkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVpcLinkResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLinkResponse%27"><span class="hs-identifier hs-var">DeleteVpcLinkResponse'</span></a></span></span><span>
+</span><span id="line-106"></span><span id="local-6989586621679386643"><span id="local-6989586621679386644"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVpcLinkResponse"><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLinkResponse"><span class="hs-identifier hs-var">DeleteVpcLinkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVpcLinkResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLinkResponse%27"><span class="hs-identifier hs-var">DeleteVpcLinkResponse'</span></a></span></span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386083"><span id="local-6989586621679386085"><span class="annot"><span class="annottext">DeleteVpcLinkResponse -&gt; DeleteVpcLinkResponse -&gt; Bool
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679386639"><span id="local-6989586621679386641"><span class="annot"><span class="annottext">DeleteVpcLinkResponse -&gt; DeleteVpcLinkResponse -&gt; Bool
 (DeleteVpcLinkResponse -&gt; DeleteVpcLinkResponse -&gt; Bool)
 -&gt; (DeleteVpcLinkResponse -&gt; DeleteVpcLinkResponse -&gt; Bool)
 -&gt; Eq DeleteVpcLinkResponse
@@ -236,7 +236,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteVpcLinkResponse -&gt; DeleteVpcLinkResponse -&gt; Bool
 == :: DeleteVpcLinkResponse -&gt; DeleteVpcLinkResponse -&gt; Bool
 $c== :: DeleteVpcLinkResponse -&gt; DeleteVpcLinkResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386075"><span id="local-6989586621679386077"><span id="local-6989586621679386079"><span id="local-6989586621679386081"><span class="annot"><span class="annottext">ReadPrec [DeleteVpcLinkResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386631"><span id="local-6989586621679386633"><span id="local-6989586621679386635"><span id="local-6989586621679386637"><span class="annot"><span class="annottext">ReadPrec [DeleteVpcLinkResponse]
 ReadPrec DeleteVpcLinkResponse
 Int -&gt; ReadS DeleteVpcLinkResponse
 ReadS [DeleteVpcLinkResponse]
@@ -256,7 +256,7 @@ readList :: ReadS [DeleteVpcLinkResponse]
 $creadList :: ReadS [DeleteVpcLinkResponse]
 readsPrec :: Int -&gt; ReadS DeleteVpcLinkResponse
 $creadsPrec :: Int -&gt; ReadS DeleteVpcLinkResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386069"><span id="local-6989586621679386071"><span id="local-6989586621679386073"><span class="annot"><span class="annottext">Int -&gt; DeleteVpcLinkResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679386625"><span id="local-6989586621679386627"><span id="local-6989586621679386629"><span class="annot"><span class="annottext">Int -&gt; DeleteVpcLinkResponse -&gt; ShowS
 [DeleteVpcLinkResponse] -&gt; ShowS
 DeleteVpcLinkResponse -&gt; String
 (Int -&gt; DeleteVpcLinkResponse -&gt; ShowS)
@@ -292,5 +292,5 @@ $cfrom :: forall x. DeleteVpcLinkResponse -&gt; Rep DeleteVpcLinkResponse x
 </span><a href="Network.AWS.APIGateway.DeleteVpcLink.html#newDeleteVpcLinkResponse"><span class="hs-identifier hs-var hs-var">newDeleteVpcLinkResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteVpcLinkResponse
 </span><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLinkResponse%27"><span class="hs-identifier hs-var">DeleteVpcLinkResponse'</span></a></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386065"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLinkResponse"><span class="hs-identifier hs-type">DeleteVpcLinkResponse</span></a></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679386621"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.DeleteVpcLink.html#DeleteVpcLinkResponse"><span class="hs-identifier hs-type">DeleteVpcLinkResponse</span></a></span></span><span>
 </span><span id="line-120"></span></pre></body></html>

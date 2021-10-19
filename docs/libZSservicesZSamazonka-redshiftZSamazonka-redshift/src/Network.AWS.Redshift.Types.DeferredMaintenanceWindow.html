@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a deferred maintenance window</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDeferredMaintenanceWindow' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679491508"><span id="local-6989586621679491509"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeferredMaintenanceWindow"><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-var">DeferredMaintenanceWindow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeferredMaintenanceWindow%27"><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-var">DeferredMaintenanceWindow'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the maintenance window.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdeferMaintenanceIdentifier%3ADeferredMaintenanceWindow%27"><span class="annot"><span class="annottext">DeferredMaintenanceWindow -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceIdentifier%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">deferMaintenanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679492148"><span id="local-6989586621679492149"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeferredMaintenanceWindow"><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-var">DeferredMaintenanceWindow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeferredMaintenanceWindow%27"><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-var">DeferredMaintenanceWindow'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A timestamp for the end of the time period when we defer maintenance.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdeferMaintenanceEndTime%3ADeferredMaintenanceWindow%27"><span class="annot"><span class="annottext">DeferredMaintenanceWindow -&gt; Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceEndTime%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">deferMaintenanceEndTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A timestamp for the beginning of the time period when we defer</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- maintenance.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AdeferMaintenanceStartTime%3ADeferredMaintenanceWindow%27"><span class="annot"><span class="annottext">DeferredMaintenanceWindow -&gt; Maybe ISO8601
 </span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceStartTime%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">deferMaintenanceStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A timestamp for the end of the time period when we defer maintenance.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdeferMaintenanceEndTime%3ADeferredMaintenanceWindow%27"><span class="annot"><span class="annottext">DeferredMaintenanceWindow -&gt; Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceEndTime%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">deferMaintenanceEndTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the maintenance window.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdeferMaintenanceIdentifier%3ADeferredMaintenanceWindow%27"><span class="annot"><span class="annottext">DeferredMaintenanceWindow -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceIdentifier%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var hs-var">deferMaintenanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679491500"><span id="local-6989586621679491502"><span class="annot"><span class="annottext">DeferredMaintenanceWindow -&gt; DeferredMaintenanceWindow -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679492140"><span id="local-6989586621679492142"><span class="annot"><span class="annottext">DeferredMaintenanceWindow -&gt; DeferredMaintenanceWindow -&gt; Bool
 (DeferredMaintenanceWindow -&gt; DeferredMaintenanceWindow -&gt; Bool)
 -&gt; (DeferredMaintenanceWindow -&gt; DeferredMaintenanceWindow -&gt; Bool)
 -&gt; Eq DeferredMaintenanceWindow
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeferredMaintenanceWindow -&gt; DeferredMaintenanceWindow -&gt; Bool
 == :: DeferredMaintenanceWindow -&gt; DeferredMaintenanceWindow -&gt; Bool
 $c== :: DeferredMaintenanceWindow -&gt; DeferredMaintenanceWindow -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679491491"><span id="local-6989586621679491493"><span id="local-6989586621679491495"><span id="local-6989586621679491497"><span class="annot"><span class="annottext">ReadPrec [DeferredMaintenanceWindow]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679492131"><span id="local-6989586621679492133"><span id="local-6989586621679492135"><span id="local-6989586621679492137"><span class="annot"><span class="annottext">ReadPrec [DeferredMaintenanceWindow]
 ReadPrec DeferredMaintenanceWindow
 Int -&gt; ReadS DeferredMaintenanceWindow
 ReadS [DeferredMaintenanceWindow]
@@ -68,7 +68,7 @@ readList :: ReadS [DeferredMaintenanceWindow]
 $creadList :: ReadS [DeferredMaintenanceWindow]
 readsPrec :: Int -&gt; ReadS DeferredMaintenanceWindow
 $creadsPrec :: Int -&gt; ReadS DeferredMaintenanceWindow
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679491484"><span id="local-6989586621679491486"><span id="local-6989586621679491488"><span class="annot"><span class="annottext">Int -&gt; DeferredMaintenanceWindow -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679492124"><span id="local-6989586621679492126"><span id="local-6989586621679492128"><span class="annot"><span class="annottext">Int -&gt; DeferredMaintenanceWindow -&gt; ShowS
 [DeferredMaintenanceWindow] -&gt; ShowS
 DeferredMaintenanceWindow -&gt; String
 (Int -&gt; DeferredMaintenanceWindow -&gt; ShowS)
@@ -108,57 +108,73 @@ DeferredMaintenanceWindow -&gt; Rep DeferredMaintenanceWindow x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'deferMaintenanceIdentifier', 'deferredMaintenanceWindow_deferMaintenanceIdentifier' - A unique identifier for the maintenance window.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'deferMaintenanceEndTime', 'deferredMaintenanceWindow_deferMaintenanceEndTime' - A timestamp for the end of the time period when we defer maintenance.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- 'deferMaintenanceStartTime', 'deferredMaintenanceWindow_deferMaintenanceStartTime' - A timestamp for the beginning of the time period when we defer</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- maintenance.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'deferMaintenanceEndTime', 'deferredMaintenanceWindow_deferMaintenanceEndTime' - A timestamp for the end of the time period when we defer maintenance.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'deferMaintenanceIdentifier', 'deferredMaintenanceWindow_deferMaintenanceIdentifier' - A unique identifier for the maintenance window.</span><span>
 </span><span id="line-55"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#newDeferredMaintenanceWindow"><span class="hs-identifier hs-type">newDeferredMaintenanceWindow</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span><span>
 </span><span id="line-57"></span><span id="newDeferredMaintenanceWindow"><span class="annot"><span class="annottext">newDeferredMaintenanceWindow :: DeferredMaintenanceWindow
 </span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#newDeferredMaintenanceWindow"><span class="hs-identifier hs-var hs-var">newDeferredMaintenanceWindow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">DeferredMaintenanceWindow' :: Maybe Text
--&gt; Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; DeferredMaintenanceWindow
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">DeferredMaintenanceWindow' :: Maybe ISO8601
+-&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; DeferredMaintenanceWindow
 </span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-type">DeferredMaintenanceWindow'</span></a></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deferMaintenanceIdentifier:DeferredMaintenanceWindow' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceIdentifier%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var">deferMaintenanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deferMaintenanceEndTime:DeferredMaintenanceWindow' :: Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceEndTime%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var">deferMaintenanceEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:deferMaintenanceStartTime:DeferredMaintenanceWindow' :: Maybe ISO8601
 </span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceStartTime%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var">deferMaintenanceStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:deferMaintenanceEndTime:DeferredMaintenanceWindow' :: Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceEndTime%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var">deferMaintenanceEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:deferMaintenanceIdentifier:DeferredMaintenanceWindow' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceIdentifier%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var">deferMaintenanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | A unique identifier for the maintenance window.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#deferredMaintenanceWindow_deferMaintenanceIdentifier"><span class="hs-identifier hs-type">deferredMaintenanceWindow_deferMaintenanceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="deferredMaintenanceWindow_deferMaintenanceIdentifier"><span class="annot"><span class="annottext">deferredMaintenanceWindow_deferMaintenanceIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-65"></span><span class="hs-comment">-- | A timestamp for the end of the time period when we defer maintenance.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#deferredMaintenanceWindow_deferMaintenanceEndTime"><span class="hs-identifier hs-type">deferredMaintenanceWindow_deferMaintenanceEndTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="deferredMaintenanceWindow_deferMaintenanceEndTime"><span class="annot"><span class="annottext">deferredMaintenanceWindow_deferMaintenanceEndTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; DeferredMaintenanceWindow -&gt; f DeferredMaintenanceWindow
-</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#deferredMaintenanceWindow_deferMaintenanceIdentifier"><span class="hs-identifier hs-var hs-var">deferredMaintenanceWindow_deferMaintenanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeferredMaintenanceWindow -&gt; Maybe Text)
+</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#deferredMaintenanceWindow_deferMaintenanceEndTime"><span class="hs-identifier hs-var hs-var">deferredMaintenanceWindow_deferMaintenanceEndTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeferredMaintenanceWindow -&gt; Maybe ISO8601)
 -&gt; (DeferredMaintenanceWindow
-    -&gt; Maybe Text -&gt; DeferredMaintenanceWindow)
+    -&gt; Maybe ISO8601 -&gt; DeferredMaintenanceWindow)
 -&gt; Lens
      DeferredMaintenanceWindow
      DeferredMaintenanceWindow
-     (Maybe Text)
-     (Maybe Text)
+     (Maybe ISO8601)
+     (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-type">DeferredMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491475"><span class="annot"><span class="annottext">Maybe Text
-deferMaintenanceIdentifier :: Maybe Text
-$sel:deferMaintenanceIdentifier:DeferredMaintenanceWindow' :: DeferredMaintenanceWindow -&gt; Maybe Text
-</span><a href="#local-6989586621679491475"><span class="hs-identifier hs-var hs-var">deferMaintenanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679491475"><span class="hs-identifier hs-var">deferMaintenanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491474"><span class="annot"><span class="annottext">s :: DeferredMaintenanceWindow
-</span><a href="#local-6989586621679491474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-type">DeferredMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491473"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679491473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeferredMaintenanceWindow
-</span><a href="#local-6989586621679491474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deferMaintenanceIdentifier:DeferredMaintenanceWindow' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceIdentifier%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var">deferMaintenanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679491473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-type">DeferredMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679492115"><span class="annot"><span class="annottext">Maybe ISO8601
+deferMaintenanceEndTime :: Maybe ISO8601
+$sel:deferMaintenanceEndTime:DeferredMaintenanceWindow' :: DeferredMaintenanceWindow -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679492115"><span class="hs-identifier hs-var hs-var">deferMaintenanceEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679492115"><span class="hs-identifier hs-var">deferMaintenanceEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679492114"><span class="annot"><span class="annottext">s :: DeferredMaintenanceWindow
+</span><a href="#local-6989586621679492114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-type">DeferredMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679492113"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679492113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeferredMaintenanceWindow
+</span><a href="#local-6989586621679492114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deferMaintenanceEndTime:DeferredMaintenanceWindow' :: Maybe ISO8601
+</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceEndTime%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var">deferMaintenanceEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679492113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; DeferredMaintenanceWindow -&gt; f DeferredMaintenanceWindow)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DeferredMaintenanceWindow
+-&gt; f DeferredMaintenanceWindow
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | A timestamp for the beginning of the time period when we defer</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- maintenance.</span><span>
@@ -174,16 +190,16 @@ $sel:deferMaintenanceIdentifier:DeferredMaintenanceWindow' :: DeferredMaintenanc
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-type">DeferredMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491471"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-type">DeferredMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679492108"><span class="annot"><span class="annottext">Maybe ISO8601
 deferMaintenanceStartTime :: Maybe ISO8601
 $sel:deferMaintenanceStartTime:DeferredMaintenanceWindow' :: DeferredMaintenanceWindow -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679491471"><span class="hs-identifier hs-var hs-var">deferMaintenanceStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679491471"><span class="hs-identifier hs-var">deferMaintenanceStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491470"><span class="annot"><span class="annottext">s :: DeferredMaintenanceWindow
-</span><a href="#local-6989586621679491470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-type">DeferredMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491469"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679491469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeferredMaintenanceWindow
-</span><a href="#local-6989586621679491470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deferMaintenanceStartTime:DeferredMaintenanceWindow' :: Maybe ISO8601
+</span><a href="#local-6989586621679492108"><span class="hs-identifier hs-var hs-var">deferMaintenanceStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679492108"><span class="hs-identifier hs-var">deferMaintenanceStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679492107"><span class="annot"><span class="annottext">s :: DeferredMaintenanceWindow
+</span><a href="#local-6989586621679492107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-type">DeferredMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679492106"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679492106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeferredMaintenanceWindow
+</span><a href="#local-6989586621679492107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deferMaintenanceStartTime:DeferredMaintenanceWindow' :: Maybe ISO8601
 </span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceStartTime%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var">deferMaintenanceStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679491469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679492106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; DeferredMaintenanceWindow -&gt; f DeferredMaintenanceWindow)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -201,87 +217,69 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | A timestamp for the end of the time period when we defer maintenance.</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#deferredMaintenanceWindow_deferMaintenanceEndTime"><span class="hs-identifier hs-type">deferredMaintenanceWindow_deferMaintenanceEndTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span id="deferredMaintenanceWindow_deferMaintenanceEndTime"><span class="annot"><span class="annottext">deferredMaintenanceWindow_deferMaintenanceEndTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-74"></span><span class="hs-comment">-- | A unique identifier for the maintenance window.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#deferredMaintenanceWindow_deferMaintenanceIdentifier"><span class="hs-identifier hs-type">deferredMaintenanceWindow_deferMaintenanceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="deferredMaintenanceWindow_deferMaintenanceIdentifier"><span class="annot"><span class="annottext">deferredMaintenanceWindow_deferMaintenanceIdentifier :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DeferredMaintenanceWindow -&gt; f DeferredMaintenanceWindow
-</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#deferredMaintenanceWindow_deferMaintenanceEndTime"><span class="hs-identifier hs-var hs-var">deferredMaintenanceWindow_deferMaintenanceEndTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeferredMaintenanceWindow -&gt; Maybe ISO8601)
+</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#deferredMaintenanceWindow_deferMaintenanceIdentifier"><span class="hs-identifier hs-var hs-var">deferredMaintenanceWindow_deferMaintenanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeferredMaintenanceWindow -&gt; Maybe Text)
 -&gt; (DeferredMaintenanceWindow
-    -&gt; Maybe ISO8601 -&gt; DeferredMaintenanceWindow)
+    -&gt; Maybe Text -&gt; DeferredMaintenanceWindow)
 -&gt; Lens
      DeferredMaintenanceWindow
      DeferredMaintenanceWindow
-     (Maybe ISO8601)
-     (Maybe ISO8601)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-type">DeferredMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679491464"><span class="annot"><span class="annottext">Maybe ISO8601
-deferMaintenanceEndTime :: Maybe ISO8601
-$sel:deferMaintenanceEndTime:DeferredMaintenanceWindow' :: DeferredMaintenanceWindow -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679491464"><span class="hs-identifier hs-var hs-var">deferMaintenanceEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679491464"><span class="hs-identifier hs-var">deferMaintenanceEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679491463"><span class="annot"><span class="annottext">s :: DeferredMaintenanceWindow
-</span><a href="#local-6989586621679491463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-type">DeferredMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679491462"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679491462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeferredMaintenanceWindow
-</span><a href="#local-6989586621679491463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deferMaintenanceEndTime:DeferredMaintenanceWindow' :: Maybe ISO8601
-</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceEndTime%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var">deferMaintenanceEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679491462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; DeferredMaintenanceWindow -&gt; f DeferredMaintenanceWindow)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; DeferredMaintenanceWindow
--&gt; f DeferredMaintenanceWindow
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-type">DeferredMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679492104"><span class="annot"><span class="annottext">Maybe Text
+deferMaintenanceIdentifier :: Maybe Text
+$sel:deferMaintenanceIdentifier:DeferredMaintenanceWindow' :: DeferredMaintenanceWindow -&gt; Maybe Text
+</span><a href="#local-6989586621679492104"><span class="hs-identifier hs-var hs-var">deferMaintenanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679492104"><span class="hs-identifier hs-var">deferMaintenanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679492103"><span class="annot"><span class="annottext">s :: DeferredMaintenanceWindow
+</span><a href="#local-6989586621679492103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-type">DeferredMaintenanceWindow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679492102"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679492102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeferredMaintenanceWindow
+</span><a href="#local-6989586621679492103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deferMaintenanceIdentifier:DeferredMaintenanceWindow' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#%24sel%3AdeferMaintenanceIdentifier%3ADeferredMaintenanceWindow%27"><span class="hs-identifier hs-var">deferMaintenanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679492102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679491459"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DeferredMaintenanceWindow
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679491457"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679491457"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; DeferredMaintenanceWindow
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679492099"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DeferredMaintenanceWindow
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679492097"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679492097"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
+-&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; DeferredMaintenanceWindow
 </span><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow%27"><span class="hs-identifier hs-var">DeferredMaintenanceWindow'</span></a></span><span>
-</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; DeferredMaintenanceWindow)
--&gt; Either String (Maybe Text)
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
+ -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; DeferredMaintenanceWindow)
+-&gt; Either String (Maybe ISO8601)
 -&gt; Either
-     String
-     (Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; DeferredMaintenanceWindow)
+     String (Maybe ISO8601 -&gt; Maybe Text -&gt; DeferredMaintenanceWindow)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679491457"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeferMaintenanceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; DeferredMaintenanceWindow)
--&gt; Either String (Maybe ISO8601)
--&gt; Either String (Maybe ISO8601 -&gt; DeferredMaintenanceWindow)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679491457"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DeferMaintenanceStartTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; DeferredMaintenanceWindow)
--&gt; Either String (Maybe ISO8601)
--&gt; Either String DeferredMaintenanceWindow
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679491457"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679492097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeferMaintenanceEndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe ISO8601 -&gt; Maybe Text -&gt; DeferredMaintenanceWindow)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe Text -&gt; DeferredMaintenanceWindow)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679492097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeferMaintenanceStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DeferredMaintenanceWindow)
+-&gt; Either String (Maybe Text)
+-&gt; Either String DeferredMaintenanceWindow
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679492097"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeferMaintenanceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679491451"><span id="local-6989586621679491453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679492091"><span id="local-6989586621679492093"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679491448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679492088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.DeferredMaintenanceWindow.html#DeferredMaintenanceWindow"><span class="hs-identifier hs-type">DeferredMaintenanceWindow</span></a></span></span><span>
 </span><span id="line-88"></span></pre></body></html>

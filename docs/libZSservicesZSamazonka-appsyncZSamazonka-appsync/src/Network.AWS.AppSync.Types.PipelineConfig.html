@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | The pipeline configuration for a resolver of kind @PIPELINE@.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newPipelineConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679250890"><span id="local-6989586621679250891"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-var">PipelineConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig%27"><span class="hs-identifier hs-var">PipelineConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679250966"><span id="local-6989586621679250967"></span></span><span class="hs-keyword">data</span><span> </span><span id="PipelineConfig"><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-var">PipelineConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PipelineConfig%27"><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig%27"><span class="hs-identifier hs-var">PipelineConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of @Function@ objects.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Afunctions%3APipelineConfig%27"><span class="annot"><span class="annottext">PipelineConfig -&gt; Maybe [Text]
 </span><a href="Network.AWS.AppSync.Types.PipelineConfig.html#%24sel%3Afunctions%3APipelineConfig%27"><span class="hs-identifier hs-var hs-var">functions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250884"><span id="local-6989586621679250886"><span class="annot"><span class="annottext">PipelineConfig -&gt; PipelineConfig -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250960"><span id="local-6989586621679250962"><span class="annot"><span class="annottext">PipelineConfig -&gt; PipelineConfig -&gt; Bool
 (PipelineConfig -&gt; PipelineConfig -&gt; Bool)
 -&gt; (PipelineConfig -&gt; PipelineConfig -&gt; Bool) -&gt; Eq PipelineConfig
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PipelineConfig -&gt; PipelineConfig -&gt; Bool
 == :: PipelineConfig -&gt; PipelineConfig -&gt; Bool
 $c== :: PipelineConfig -&gt; PipelineConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250875"><span id="local-6989586621679250877"><span id="local-6989586621679250879"><span id="local-6989586621679250881"><span class="annot"><span class="annottext">ReadPrec [PipelineConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250951"><span id="local-6989586621679250953"><span id="local-6989586621679250955"><span id="local-6989586621679250957"><span class="annot"><span class="annottext">ReadPrec [PipelineConfig]
 ReadPrec PipelineConfig
 Int -&gt; ReadS PipelineConfig
 ReadS [PipelineConfig]
@@ -59,7 +59,7 @@ readList :: ReadS [PipelineConfig]
 $creadList :: ReadS [PipelineConfig]
 readsPrec :: Int -&gt; ReadS PipelineConfig
 $creadsPrec :: Int -&gt; ReadS PipelineConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250868"><span id="local-6989586621679250870"><span id="local-6989586621679250872"><span class="annot"><span class="annottext">Int -&gt; PipelineConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250944"><span id="local-6989586621679250946"><span id="local-6989586621679250948"><span class="annot"><span class="annottext">Int -&gt; PipelineConfig -&gt; ShowS
 [PipelineConfig] -&gt; ShowS
 PipelineConfig -&gt; String
 (Int -&gt; PipelineConfig -&gt; ShowS)
@@ -112,16 +112,16 @@ forall a. Maybe a
 -&gt; (PipelineConfig -&gt; Maybe [Text] -&gt; PipelineConfig)
 -&gt; Lens PipelineConfig PipelineConfig (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig%27"><span class="hs-identifier hs-type">PipelineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250859"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig%27"><span class="hs-identifier hs-type">PipelineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250935"><span class="annot"><span class="annottext">Maybe [Text]
 functions :: Maybe [Text]
 $sel:functions:PipelineConfig' :: PipelineConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679250859"><span class="hs-identifier hs-var hs-var">functions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679250859"><span class="hs-identifier hs-var">functions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250858"><span class="annot"><span class="annottext">s :: PipelineConfig
-</span><a href="#local-6989586621679250858"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig%27"><span class="hs-identifier hs-type">PipelineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250857"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679250857"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineConfig
-</span><a href="#local-6989586621679250858"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functions:PipelineConfig' :: Maybe [Text]
+</span><a href="#local-6989586621679250935"><span class="hs-identifier hs-var hs-var">functions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250935"><span class="hs-identifier hs-var">functions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250934"><span class="annot"><span class="annottext">s :: PipelineConfig
+</span><a href="#local-6989586621679250934"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig%27"><span class="hs-identifier hs-type">PipelineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250933"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250933"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PipelineConfig
+</span><a href="#local-6989586621679250934"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:functions:PipelineConfig' :: Maybe [Text]
 </span><a href="Network.AWS.AppSync.Types.PipelineConfig.html#%24sel%3Afunctions%3APipelineConfig%27"><span class="hs-identifier hs-var">functions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679250857"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-type">PipelineConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679250933"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-type">PipelineConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; PipelineConfig -&gt; f PipelineConfig)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -135,11 +135,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250851"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-type">PipelineConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679250849"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineConfig
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250927"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-type">PipelineConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679250925"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PipelineConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser PipelineConfig)
@@ -149,15 +149,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;PipelineConfig&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250846"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250846"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679250922"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679250922"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; PipelineConfig
 </span><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig%27"><span class="hs-identifier hs-var">PipelineConfig'</span></a></span><span>
 </span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; PipelineConfig)
 -&gt; Parser (Maybe [Text]) -&gt; Parser PipelineConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679250846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679250922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;functions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -168,16 +168,16 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250839"><span id="local-6989586621679250841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-type">PipelineConfig</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250915"><span id="local-6989586621679250917"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-type">PipelineConfig</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-type">PipelineConfig</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250912"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-type">PipelineConfig</span></a></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250828"><span id="local-6989586621679250830"><span id="local-6989586621679250832"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-type">PipelineConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679250826"><span class="annot"><span class="annottext">toJSON :: PipelineConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig%27"><span class="hs-identifier hs-type">PipelineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250824"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250904"><span id="local-6989586621679250906"><span id="local-6989586621679250908"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig"><span class="hs-identifier hs-type">PipelineConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679250902"><span class="annot"><span class="annottext">toJSON :: PipelineConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppSync.Types.PipelineConfig.html#PipelineConfig%27"><span class="hs-identifier hs-type">PipelineConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250900"><span class="annot"><span class="annottext">Maybe [Text]
 functions :: Maybe [Text]
 $sel:functions:PipelineConfig' :: PipelineConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679250824"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679250900"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -189,6 +189,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679250824"><span class="hs-identifier hs-var">functions</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679250900"><span class="hs-identifier hs-var">functions</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span></pre></body></html>

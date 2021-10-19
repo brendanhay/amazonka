@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679251688"><span id="local-6989586621679251689"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InsightCategory"><span class="annot"><a href="Network.AWS.XRay.Types.InsightCategory.html#InsightCategory"><span class="hs-identifier hs-var">InsightCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightCategory%27"><span class="annot"><a href="Network.AWS.XRay.Types.InsightCategory.html#InsightCategory%27"><span class="hs-identifier hs-var">InsightCategory'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679251959"><span id="local-6989586621679251960"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InsightCategory"><span class="annot"><a href="Network.AWS.XRay.Types.InsightCategory.html#InsightCategory"><span class="hs-identifier hs-var">InsightCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightCategory%27"><span class="annot"><a href="Network.AWS.XRay.Types.InsightCategory.html#InsightCategory%27"><span class="hs-identifier hs-var">InsightCategory'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInsightCategory"><span class="annot"><span class="annottext">InsightCategory -&gt; Text
 </span><a href="Network.AWS.XRay.Types.InsightCategory.html#fromInsightCategory"><span class="hs-identifier hs-var hs-var">fromInsightCategory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679251680"><span id="local-6989586621679251682"><span id="local-6989586621679251684"><span class="annot"><span class="annottext">Int -&gt; InsightCategory -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679251951"><span id="local-6989586621679251953"><span id="local-6989586621679251955"><span class="annot"><span class="annottext">Int -&gt; InsightCategory -&gt; ShowS
 [InsightCategory] -&gt; ShowS
 InsightCategory -&gt; String
 (Int -&gt; InsightCategory -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: InsightCategory -&gt; String
 showsPrec :: Int -&gt; InsightCategory -&gt; ShowS
 $cshowsPrec :: Int -&gt; InsightCategory -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679251671"><span id="local-6989586621679251673"><span id="local-6989586621679251675"><span id="local-6989586621679251677"><span class="annot"><span class="annottext">ReadPrec [InsightCategory]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679251942"><span id="local-6989586621679251944"><span id="local-6989586621679251946"><span id="local-6989586621679251948"><span class="annot"><span class="annottext">ReadPrec [InsightCategory]
 ReadPrec InsightCategory
 Int -&gt; ReadS InsightCategory
 ReadS [InsightCategory]
@@ -71,7 +71,7 @@ $creadList :: ReadS [InsightCategory]
 readsPrec :: Int -&gt; ReadS InsightCategory
 $creadsPrec :: Int -&gt; ReadS InsightCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679251666"><span id="local-6989586621679251668"><span class="annot"><span class="annottext">InsightCategory -&gt; InsightCategory -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679251937"><span id="local-6989586621679251939"><span class="annot"><span class="annottext">InsightCategory -&gt; InsightCategory -&gt; Bool
 (InsightCategory -&gt; InsightCategory -&gt; Bool)
 -&gt; (InsightCategory -&gt; InsightCategory -&gt; Bool)
 -&gt; Eq InsightCategory
@@ -81,7 +81,7 @@ $c/= :: InsightCategory -&gt; InsightCategory -&gt; Bool
 == :: InsightCategory -&gt; InsightCategory -&gt; Bool
 $c== :: InsightCategory -&gt; InsightCategory -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679251650"><span id="local-6989586621679251652"><span id="local-6989586621679251654"><span id="local-6989586621679251656"><span id="local-6989586621679251658"><span id="local-6989586621679251660"><span id="local-6989586621679251662"><span class="annot"><span class="annottext">Eq InsightCategory
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679251921"><span id="local-6989586621679251923"><span id="local-6989586621679251925"><span id="local-6989586621679251927"><span id="local-6989586621679251929"><span id="local-6989586621679251931"><span id="local-6989586621679251933"><span class="annot"><span class="annottext">Eq InsightCategory
 Eq InsightCategory
 -&gt; (InsightCategory -&gt; InsightCategory -&gt; Ordering)
 -&gt; (InsightCategory -&gt; InsightCategory -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. InsightCategory -&gt; Rep InsightCategory x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679251642"><span id="local-6989586621679251644"><span class="annot"><span class="annottext">Int -&gt; InsightCategory -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679251913"><span id="local-6989586621679251915"><span class="annot"><span class="annottext">Int -&gt; InsightCategory -&gt; Int
 InsightCategory -&gt; Int
 (Int -&gt; InsightCategory -&gt; Int)
 -&gt; (InsightCategory -&gt; Int) -&gt; Hashable InsightCategory
@@ -142,50 +142,50 @@ $chash :: InsightCategory -&gt; Int
 hashWithSalt :: Int -&gt; InsightCategory -&gt; Int
 $chashWithSalt :: Int -&gt; InsightCategory -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679251639"><span class="annot"><span class="annottext">InsightCategory -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679251910"><span class="annot"><span class="annottext">InsightCategory -&gt; ()
 (InsightCategory -&gt; ()) -&gt; NFData InsightCategory
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InsightCategory -&gt; ()
 $crnf :: InsightCategory -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679251636"><span class="annot"><span class="annottext">Text -&gt; Either String InsightCategory
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679251907"><span class="annot"><span class="annottext">Text -&gt; Either String InsightCategory
 (Text -&gt; Either String InsightCategory) -&gt; FromText InsightCategory
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InsightCategory
 $cfromText :: Text -&gt; Either String InsightCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679251633"><span class="annot"><span class="annottext">InsightCategory -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679251904"><span class="annot"><span class="annottext">InsightCategory -&gt; Text
 (InsightCategory -&gt; Text) -&gt; ToText InsightCategory
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InsightCategory -&gt; Text
 $ctoText :: InsightCategory -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679251630"><span class="annot"><span class="annottext">InsightCategory -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679251901"><span class="annot"><span class="annottext">InsightCategory -&gt; ByteString
 (InsightCategory -&gt; ByteString) -&gt; ToByteString InsightCategory
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InsightCategory -&gt; ByteString
 $ctoBS :: InsightCategory -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679251627"><span class="annot"><span class="annottext">InsightCategory -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679251898"><span class="annot"><span class="annottext">InsightCategory -&gt; ByteStringBuilder
 (InsightCategory -&gt; ByteStringBuilder) -&gt; ToLog InsightCategory
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InsightCategory -&gt; ByteStringBuilder
 $cbuild :: InsightCategory -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679251624"><span class="annot"><span class="annottext">HeaderName -&gt; InsightCategory -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679251895"><span class="annot"><span class="annottext">HeaderName -&gt; InsightCategory -&gt; [Header]
 (HeaderName -&gt; InsightCategory -&gt; [Header])
 -&gt; ToHeader InsightCategory
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InsightCategory -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InsightCategory -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679251621"><span class="annot"><span class="annottext">InsightCategory -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679251892"><span class="annot"><span class="annottext">InsightCategory -&gt; QueryString
 (InsightCategory -&gt; QueryString) -&gt; ToQuery InsightCategory
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InsightCategory -&gt; QueryString
 $ctoQuery :: InsightCategory -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679251616"><span id="local-6989586621679251618"><span class="annot"><span class="annottext">Value -&gt; Parser [InsightCategory]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679251887"><span id="local-6989586621679251889"><span class="annot"><span class="annottext">Value -&gt; Parser [InsightCategory]
 Value -&gt; Parser InsightCategory
 (Value -&gt; Parser InsightCategory)
 -&gt; (Value -&gt; Parser [InsightCategory]) -&gt; FromJSON InsightCategory
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [InsightCategory]
 parseJSON :: Value -&gt; Parser InsightCategory
 $cparseJSON :: Value -&gt; Parser InsightCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679251611"><span id="local-6989586621679251613"><span class="annot"><span class="annottext">FromJSONKeyFunction [InsightCategory]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679251882"><span id="local-6989586621679251884"><span class="annot"><span class="annottext">FromJSONKeyFunction [InsightCategory]
 FromJSONKeyFunction InsightCategory
 FromJSONKeyFunction InsightCategory
 -&gt; FromJSONKeyFunction [InsightCategory]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InsightCategory]
 fromJSONKey :: FromJSONKeyFunction InsightCategory
 $cfromJSONKey :: FromJSONKeyFunction InsightCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679251602"><span id="local-6989586621679251604"><span id="local-6989586621679251606"><span id="local-6989586621679251608"><span class="annot"><span class="annottext">[InsightCategory] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679251873"><span id="local-6989586621679251875"><span id="local-6989586621679251877"><span id="local-6989586621679251879"><span class="annot"><span class="annottext">[InsightCategory] -&gt; Encoding
 [InsightCategory] -&gt; Value
 InsightCategory -&gt; Encoding
 InsightCategory -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: InsightCategory -&gt; Encoding
 toJSON :: InsightCategory -&gt; Value
 $ctoJSON :: InsightCategory -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679251597"><span id="local-6989586621679251599"><span class="annot"><span class="annottext">ToJSONKeyFunction [InsightCategory]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679251868"><span id="local-6989586621679251870"><span class="annot"><span class="annottext">ToJSONKeyFunction [InsightCategory]
 ToJSONKeyFunction InsightCategory
 ToJSONKeyFunction InsightCategory
 -&gt; ToJSONKeyFunction [InsightCategory] -&gt; ToJSONKey InsightCategory
@@ -243,14 +243,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InsightCategory]
 toJSONKey :: ToJSONKeyFunction InsightCategory
 $ctoJSONKey :: ToJSONKeyFunction InsightCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679251594"><span class="annot"><span class="annottext">[Node] -&gt; Either String InsightCategory
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679251865"><span class="annot"><span class="annottext">[Node] -&gt; Either String InsightCategory
 ([Node] -&gt; Either String InsightCategory)
 -&gt; FromXML InsightCategory
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InsightCategory
 $cparseXML :: [Node] -&gt; Either String InsightCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679251591"><span class="annot"><span class="annottext">InsightCategory -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679251862"><span class="annot"><span class="annottext">InsightCategory -&gt; XML
 (InsightCategory -&gt; XML) -&gt; ToXML InsightCategory
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InsightCategory -&gt; XML

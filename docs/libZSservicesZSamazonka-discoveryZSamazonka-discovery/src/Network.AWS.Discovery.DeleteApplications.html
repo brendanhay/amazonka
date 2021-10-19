@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteApplications' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679209667"><span id="local-6989586621679209668"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApplications"><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-var">DeleteApplications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApplications%27"><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications%27"><span class="hs-identifier hs-var">DeleteApplications'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679209887"><span id="local-6989586621679209888"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApplications"><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-var">DeleteApplications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApplications%27"><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications%27"><span class="hs-identifier hs-var">DeleteApplications'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configuration ID of an application to be deleted.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AconfigurationIds%3ADeleteApplications%27"><span class="annot"><span class="annottext">DeleteApplications -&gt; [Text]
 </span><a href="Network.AWS.Discovery.DeleteApplications.html#%24sel%3AconfigurationIds%3ADeleteApplications%27"><span class="hs-identifier hs-var hs-var">configurationIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209661"><span id="local-6989586621679209663"><span class="annot"><span class="annottext">DeleteApplications -&gt; DeleteApplications -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209881"><span id="local-6989586621679209883"><span class="annot"><span class="annottext">DeleteApplications -&gt; DeleteApplications -&gt; Bool
 (DeleteApplications -&gt; DeleteApplications -&gt; Bool)
 -&gt; (DeleteApplications -&gt; DeleteApplications -&gt; Bool)
 -&gt; Eq DeleteApplications
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteApplications -&gt; DeleteApplications -&gt; Bool
 == :: DeleteApplications -&gt; DeleteApplications -&gt; Bool
 $c== :: DeleteApplications -&gt; DeleteApplications -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209652"><span id="local-6989586621679209654"><span id="local-6989586621679209656"><span id="local-6989586621679209658"><span class="annot"><span class="annottext">ReadPrec [DeleteApplications]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209872"><span id="local-6989586621679209874"><span id="local-6989586621679209876"><span id="local-6989586621679209878"><span class="annot"><span class="annottext">ReadPrec [DeleteApplications]
 ReadPrec DeleteApplications
 Int -&gt; ReadS DeleteApplications
 ReadS [DeleteApplications]
@@ -81,7 +81,7 @@ readList :: ReadS [DeleteApplications]
 $creadList :: ReadS [DeleteApplications]
 readsPrec :: Int -&gt; ReadS DeleteApplications
 $creadsPrec :: Int -&gt; ReadS DeleteApplications
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209645"><span id="local-6989586621679209647"><span id="local-6989586621679209649"><span class="annot"><span class="annottext">Int -&gt; DeleteApplications -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209865"><span id="local-6989586621679209867"><span id="local-6989586621679209869"><span class="annot"><span class="annottext">Int -&gt; DeleteApplications -&gt; ShowS
 [DeleteApplications] -&gt; ShowS
 DeleteApplications -&gt; String
 (Int -&gt; DeleteApplications -&gt; ShowS)
@@ -136,16 +136,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DeleteApplications -&gt; [Text] -&gt; DeleteApplications)
 -&gt; Lens DeleteApplications DeleteApplications [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications%27"><span class="hs-identifier hs-type">DeleteApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209638"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications%27"><span class="hs-identifier hs-type">DeleteApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209858"><span class="annot"><span class="annottext">[Text]
 configurationIds :: [Text]
 $sel:configurationIds:DeleteApplications' :: DeleteApplications -&gt; [Text]
-</span><a href="#local-6989586621679209638"><span class="hs-identifier hs-var hs-var">configurationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679209638"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209637"><span class="annot"><span class="annottext">s :: DeleteApplications
-</span><a href="#local-6989586621679209637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications%27"><span class="hs-identifier hs-type">DeleteApplications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209636"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679209636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApplications
-</span><a href="#local-6989586621679209637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationIds:DeleteApplications' :: [Text]
+</span><a href="#local-6989586621679209858"><span class="hs-identifier hs-var hs-var">configurationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679209858"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209857"><span class="annot"><span class="annottext">s :: DeleteApplications
+</span><a href="#local-6989586621679209857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications%27"><span class="hs-identifier hs-type">DeleteApplications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209856"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679209856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApplications
+</span><a href="#local-6989586621679209857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configurationIds:DeleteApplications' :: [Text]
 </span><a href="Network.AWS.Discovery.DeleteApplications.html#%24sel%3AconfigurationIds%3ADeleteApplications%27"><span class="hs-identifier hs-var">configurationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679209636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-type">DeleteApplications</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679209856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-type">DeleteApplications</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; DeleteApplications -&gt; f DeleteApplications)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -153,19 +153,19 @@ $sel:configurationIds:DeleteApplications' :: DeleteApplications -&gt; [Text]
 -&gt; f DeleteApplications
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-type">DeleteApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-type">DeleteApplications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse"><span class="hs-identifier hs-type">DeleteApplicationsResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679209630"><span class="annot"><span class="annottext">request :: DeleteApplications -&gt; Request DeleteApplications
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679209850"><span class="annot"><span class="annottext">request :: DeleteApplications -&gt; Request DeleteApplications
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteApplications -&gt; Request DeleteApplications
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Discovery.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679209626"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679209846"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteApplications
 -&gt; ClientResponse ClientBody
@@ -191,10 +191,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209623"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209623"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679209622"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679209622"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679209621"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679209621"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209843"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209843"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679209842"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679209842"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679209841"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679209841"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteApplicationsResponse
 </span><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse%27"><span class="hs-identifier hs-var">DeleteApplicationsResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteApplicationsResponse)
@@ -205,15 +205,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209623"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209843"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209614"><span id="local-6989586621679209616"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-type">DeleteApplications</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209834"><span id="local-6989586621679209836"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-type">DeleteApplications</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-type">DeleteApplications</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209831"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-type">DeleteApplications</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-type">DeleteApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679209607"><span class="annot"><span class="annottext">toHeaders :: DeleteApplications -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679209827"><span class="annot"><span class="annottext">toHeaders :: DeleteApplications -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteApplications -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -240,12 +240,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209597"><span id="local-6989586621679209599"><span id="local-6989586621679209601"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-type">DeleteApplications</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679209595"><span class="annot"><span class="annottext">toJSON :: DeleteApplications -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications%27"><span class="hs-identifier hs-type">DeleteApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209593"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209817"><span id="local-6989586621679209819"><span id="local-6989586621679209821"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-type">DeleteApplications</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679209815"><span class="annot"><span class="annottext">toJSON :: DeleteApplications -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications%27"><span class="hs-identifier hs-type">DeleteApplications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209813"><span class="annot"><span class="annottext">[Text]
 configurationIds :: [Text]
 $sel:configurationIds:DeleteApplications' :: DeleteApplications -&gt; [Text]
-</span><a href="#local-6989586621679209593"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679209813"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -258,19 +258,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;configurationIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679209593"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209813"><span class="hs-identifier hs-var">configurationIds</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-type">DeleteApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679209587"><span class="annot"><span class="annottext">toPath :: DeleteApplications -&gt; ByteString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679209807"><span class="annot"><span class="annottext">toPath :: DeleteApplications -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteApplications -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplications"><span class="hs-identifier hs-type">DeleteApplications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679209583"><span class="annot"><span class="annottext">toQuery :: DeleteApplications -&gt; QueryString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679209803"><span class="annot"><span class="annottext">toQuery :: DeleteApplications -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteApplications -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -278,12 +278,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-comment">-- | /See:/ 'newDeleteApplicationsResponse' smart constructor.</span><span>
-</span><span id="line-124"></span><span id="local-6989586621679209580"><span id="local-6989586621679209581"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApplicationsResponse"><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse"><span class="hs-identifier hs-var">DeleteApplicationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApplicationsResponse%27"><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse%27"><span class="hs-identifier hs-var">DeleteApplicationsResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span id="local-6989586621679209800"><span id="local-6989586621679209801"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteApplicationsResponse"><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse"><span class="hs-identifier hs-var">DeleteApplicationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteApplicationsResponse%27"><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse%27"><span class="hs-identifier hs-var">DeleteApplicationsResponse'</span></a></span></span><span>
 </span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteApplicationsResponse%27"><span class="annot"><span class="annottext">DeleteApplicationsResponse -&gt; Int
 </span><a href="Network.AWS.Discovery.DeleteApplications.html#%24sel%3AhttpStatus%3ADeleteApplicationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209575"><span id="local-6989586621679209577"><span class="annot"><span class="annottext">DeleteApplicationsResponse -&gt; DeleteApplicationsResponse -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209795"><span id="local-6989586621679209797"><span class="annot"><span class="annottext">DeleteApplicationsResponse -&gt; DeleteApplicationsResponse -&gt; Bool
 (DeleteApplicationsResponse -&gt; DeleteApplicationsResponse -&gt; Bool)
 -&gt; (DeleteApplicationsResponse
     -&gt; DeleteApplicationsResponse -&gt; Bool)
@@ -293,7 +293,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteApplicationsResponse -&gt; DeleteApplicationsResponse -&gt; Bool
 == :: DeleteApplicationsResponse -&gt; DeleteApplicationsResponse -&gt; Bool
 $c== :: DeleteApplicationsResponse -&gt; DeleteApplicationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209567"><span id="local-6989586621679209569"><span id="local-6989586621679209571"><span id="local-6989586621679209573"><span class="annot"><span class="annottext">ReadPrec [DeleteApplicationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209787"><span id="local-6989586621679209789"><span id="local-6989586621679209791"><span id="local-6989586621679209793"><span class="annot"><span class="annottext">ReadPrec [DeleteApplicationsResponse]
 ReadPrec DeleteApplicationsResponse
 Int -&gt; ReadS DeleteApplicationsResponse
 ReadS [DeleteApplicationsResponse]
@@ -313,7 +313,7 @@ readList :: ReadS [DeleteApplicationsResponse]
 $creadList :: ReadS [DeleteApplicationsResponse]
 readsPrec :: Int -&gt; ReadS DeleteApplicationsResponse
 $creadsPrec :: Int -&gt; ReadS DeleteApplicationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209561"><span id="local-6989586621679209563"><span id="local-6989586621679209565"><span class="annot"><span class="annottext">Int -&gt; DeleteApplicationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209781"><span id="local-6989586621679209783"><span id="local-6989586621679209785"><span class="annot"><span class="annottext">Int -&gt; DeleteApplicationsResponse -&gt; ShowS
 [DeleteApplicationsResponse] -&gt; ShowS
 DeleteApplicationsResponse -&gt; String
 (Int -&gt; DeleteApplicationsResponse -&gt; ShowS)
@@ -359,14 +359,14 @@ DeleteApplicationsResponse -&gt; Rep DeleteApplicationsResponse x
 </span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-142"></span><span>  </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse"><span class="hs-identifier hs-type">DeleteApplicationsResponse</span></a></span><span>
 </span><span id="line-143"></span><span id="newDeleteApplicationsResponse"><span class="annot"><span class="annottext">newDeleteApplicationsResponse :: Int -&gt; DeleteApplicationsResponse
-</span><a href="Network.AWS.Discovery.DeleteApplications.html#newDeleteApplicationsResponse"><span class="hs-identifier hs-var hs-var">newDeleteApplicationsResponse</span></a></span></span><span> </span><span id="local-6989586621679209558"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209558"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Discovery.DeleteApplications.html#newDeleteApplicationsResponse"><span class="hs-identifier hs-var hs-var">newDeleteApplicationsResponse</span></a></span></span><span> </span><span id="local-6989586621679209778"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209778"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">DeleteApplicationsResponse' :: Int -&gt; DeleteApplicationsResponse
 </span><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse%27"><span class="hs-identifier hs-type">DeleteApplicationsResponse'</span></a></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteApplicationsResponse' :: Int
 </span><a href="Network.AWS.Discovery.DeleteApplications.html#%24sel%3AhttpStatus%3ADeleteApplicationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209558"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679209778"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -379,16 +379,16 @@ DeleteApplicationsResponse -&gt; Rep DeleteApplicationsResponse x
 -&gt; Lens
      DeleteApplicationsResponse DeleteApplicationsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse%27"><span class="hs-identifier hs-type">DeleteApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209557"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse%27"><span class="hs-identifier hs-type">DeleteApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209777"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteApplicationsResponse' :: DeleteApplicationsResponse -&gt; Int
-</span><a href="#local-6989586621679209557"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209557"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209556"><span class="annot"><span class="annottext">s :: DeleteApplicationsResponse
-</span><a href="#local-6989586621679209556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse%27"><span class="hs-identifier hs-type">DeleteApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209555"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApplicationsResponse
-</span><a href="#local-6989586621679209556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteApplicationsResponse' :: Int
+</span><a href="#local-6989586621679209777"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209777"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209776"><span class="annot"><span class="annottext">s :: DeleteApplicationsResponse
+</span><a href="#local-6989586621679209776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse%27"><span class="hs-identifier hs-type">DeleteApplicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209775"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679209775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteApplicationsResponse
+</span><a href="#local-6989586621679209776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteApplicationsResponse' :: Int
 </span><a href="Network.AWS.Discovery.DeleteApplications.html#%24sel%3AhttpStatus%3ADeleteApplicationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679209555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse"><span class="hs-identifier hs-type">DeleteApplicationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse"><span class="hs-identifier hs-type">DeleteApplicationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse"><span class="hs-identifier hs-type">DeleteApplicationsResponse</span></a></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209773"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Discovery.DeleteApplications.html#DeleteApplicationsResponse"><span class="hs-identifier hs-type">DeleteApplicationsResponse</span></a></span></span><span>
 </span><span id="line-154"></span></pre></body></html>

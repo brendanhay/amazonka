@@ -32,7 +32,7 @@
 </span><span id="line-32"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newPublicAccessBlockConfiguration' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679548315"><span id="local-6989586621679548316"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicAccessBlockConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-var">PublicAccessBlockConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicAccessBlockConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-var">PublicAccessBlockConfiguration'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679548948"><span id="local-6989586621679548949"></span></span><span class="hs-keyword">data</span><span> </span><span id="PublicAccessBlockConfiguration"><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-var">PublicAccessBlockConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PublicAccessBlockConfiguration%27"><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-var">PublicAccessBlockConfiguration'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether Amazon S3 should ignore public ACLs for this bucket</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- and objects in this bucket. Setting this element to @TRUE@ causes Amazon</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- S3 to ignore all public ACLs on this bucket and objects in this bucket.</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AblockPublicPolicy%3APublicAccessBlockConfiguration%27"><span class="annot"><span class="annottext">PublicAccessBlockConfiguration -&gt; Maybe Bool
 </span><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#%24sel%3AblockPublicPolicy%3APublicAccessBlockConfiguration%27"><span class="hs-identifier hs-var hs-var">blockPublicPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679548306"><span id="local-6989586621679548308"><span class="annot"><span class="annottext">PublicAccessBlockConfiguration
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679548939"><span id="local-6989586621679548941"><span class="annot"><span class="annottext">PublicAccessBlockConfiguration
 -&gt; PublicAccessBlockConfiguration -&gt; Bool
 (PublicAccessBlockConfiguration
  -&gt; PublicAccessBlockConfiguration -&gt; Bool)
@@ -91,7 +91,7 @@ $c/= :: PublicAccessBlockConfiguration
 -&gt; PublicAccessBlockConfiguration -&gt; Bool
 $c== :: PublicAccessBlockConfiguration
 -&gt; PublicAccessBlockConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548297"><span id="local-6989586621679548299"><span id="local-6989586621679548301"><span id="local-6989586621679548303"><span class="annot"><span class="annottext">ReadPrec [PublicAccessBlockConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548930"><span id="local-6989586621679548932"><span id="local-6989586621679548934"><span id="local-6989586621679548936"><span class="annot"><span class="annottext">ReadPrec [PublicAccessBlockConfiguration]
 ReadPrec PublicAccessBlockConfiguration
 Int -&gt; ReadS PublicAccessBlockConfiguration
 ReadS [PublicAccessBlockConfiguration]
@@ -111,7 +111,7 @@ readList :: ReadS [PublicAccessBlockConfiguration]
 $creadList :: ReadS [PublicAccessBlockConfiguration]
 readsPrec :: Int -&gt; ReadS PublicAccessBlockConfiguration
 $creadsPrec :: Int -&gt; ReadS PublicAccessBlockConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548290"><span id="local-6989586621679548292"><span id="local-6989586621679548294"><span class="annot"><span class="annottext">Int -&gt; PublicAccessBlockConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679548923"><span id="local-6989586621679548925"><span id="local-6989586621679548927"><span class="annot"><span class="annottext">Int -&gt; PublicAccessBlockConfiguration -&gt; ShowS
 [PublicAccessBlockConfiguration] -&gt; ShowS
 PublicAccessBlockConfiguration -&gt; String
 (Int -&gt; PublicAccessBlockConfiguration -&gt; ShowS)
@@ -241,16 +241,16 @@ forall a. Maybe a
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548281"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548914"><span class="annot"><span class="annottext">Maybe Bool
 ignorePublicAcls :: Maybe Bool
 $sel:ignorePublicAcls:PublicAccessBlockConfiguration' :: PublicAccessBlockConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679548281"><span class="hs-identifier hs-var hs-var">ignorePublicAcls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548281"><span class="hs-identifier hs-var">ignorePublicAcls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548280"><span class="annot"><span class="annottext">s :: PublicAccessBlockConfiguration
-</span><a href="#local-6989586621679548280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548279"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicAccessBlockConfiguration
-</span><a href="#local-6989586621679548280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ignorePublicAcls:PublicAccessBlockConfiguration' :: Maybe Bool
+</span><a href="#local-6989586621679548914"><span class="hs-identifier hs-var hs-var">ignorePublicAcls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679548914"><span class="hs-identifier hs-var">ignorePublicAcls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548913"><span class="annot"><span class="annottext">s :: PublicAccessBlockConfiguration
+</span><a href="#local-6989586621679548913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548912"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679548912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicAccessBlockConfiguration
+</span><a href="#local-6989586621679548913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ignorePublicAcls:PublicAccessBlockConfiguration' :: Maybe Bool
 </span><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#%24sel%3AignorePublicAcls%3APublicAccessBlockConfiguration%27"><span class="hs-identifier hs-var">ignorePublicAcls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679548912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | Specifies whether Amazon S3 should block public access control lists</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- (ACLs) for this bucket and objects in this bucket. Setting this element</span><span>
@@ -277,16 +277,16 @@ $sel:ignorePublicAcls:PublicAccessBlockConfiguration' :: PublicAccessBlockConfig
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548277"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548910"><span class="annot"><span class="annottext">Maybe Bool
 blockPublicAcls :: Maybe Bool
 $sel:blockPublicAcls:PublicAccessBlockConfiguration' :: PublicAccessBlockConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679548277"><span class="hs-identifier hs-var hs-var">blockPublicAcls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548277"><span class="hs-identifier hs-var">blockPublicAcls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548276"><span class="annot"><span class="annottext">s :: PublicAccessBlockConfiguration
-</span><a href="#local-6989586621679548276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548275"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicAccessBlockConfiguration
-</span><a href="#local-6989586621679548276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockPublicAcls:PublicAccessBlockConfiguration' :: Maybe Bool
+</span><a href="#local-6989586621679548910"><span class="hs-identifier hs-var hs-var">blockPublicAcls</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679548910"><span class="hs-identifier hs-var">blockPublicAcls</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548909"><span class="annot"><span class="annottext">s :: PublicAccessBlockConfiguration
+</span><a href="#local-6989586621679548909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548908"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679548908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicAccessBlockConfiguration
+</span><a href="#local-6989586621679548909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockPublicAcls:PublicAccessBlockConfiguration' :: Maybe Bool
 </span><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#%24sel%3AblockPublicAcls%3APublicAccessBlockConfiguration%27"><span class="hs-identifier hs-var">blockPublicAcls</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679548908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-comment">-- | Specifies whether Amazon S3 should restrict public bucket policies for</span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- this bucket. Setting this element to @TRUE@ restricts access to this</span><span>
@@ -310,16 +310,16 @@ $sel:blockPublicAcls:PublicAccessBlockConfiguration' :: PublicAccessBlockConfigu
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548273"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548906"><span class="annot"><span class="annottext">Maybe Bool
 restrictPublicBuckets :: Maybe Bool
 $sel:restrictPublicBuckets:PublicAccessBlockConfiguration' :: PublicAccessBlockConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679548273"><span class="hs-identifier hs-var hs-var">restrictPublicBuckets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548273"><span class="hs-identifier hs-var">restrictPublicBuckets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548272"><span class="annot"><span class="annottext">s :: PublicAccessBlockConfiguration
-</span><a href="#local-6989586621679548272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548271"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicAccessBlockConfiguration
-</span><a href="#local-6989586621679548272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restrictPublicBuckets:PublicAccessBlockConfiguration' :: Maybe Bool
+</span><a href="#local-6989586621679548906"><span class="hs-identifier hs-var hs-var">restrictPublicBuckets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679548906"><span class="hs-identifier hs-var">restrictPublicBuckets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548905"><span class="annot"><span class="annottext">s :: PublicAccessBlockConfiguration
+</span><a href="#local-6989586621679548905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548904"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679548904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicAccessBlockConfiguration
+</span><a href="#local-6989586621679548905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restrictPublicBuckets:PublicAccessBlockConfiguration' :: Maybe Bool
 </span><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#%24sel%3ArestrictPublicBuckets%3APublicAccessBlockConfiguration%27"><span class="hs-identifier hs-var">restrictPublicBuckets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679548904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | Specifies whether Amazon S3 should block public bucket policies for this</span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- bucket. Setting this element to @TRUE@ causes Amazon S3 to reject calls</span><span>
@@ -340,21 +340,21 @@ $sel:restrictPublicBuckets:PublicAccessBlockConfiguration' :: PublicAccessBlockC
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548269"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548902"><span class="annot"><span class="annottext">Maybe Bool
 blockPublicPolicy :: Maybe Bool
 $sel:blockPublicPolicy:PublicAccessBlockConfiguration' :: PublicAccessBlockConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679548269"><span class="hs-identifier hs-var hs-var">blockPublicPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548269"><span class="hs-identifier hs-var">blockPublicPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548268"><span class="annot"><span class="annottext">s :: PublicAccessBlockConfiguration
-</span><a href="#local-6989586621679548268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548267"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicAccessBlockConfiguration
-</span><a href="#local-6989586621679548268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockPublicPolicy:PublicAccessBlockConfiguration' :: Maybe Bool
+</span><a href="#local-6989586621679548902"><span class="hs-identifier hs-var hs-var">blockPublicPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679548902"><span class="hs-identifier hs-var">blockPublicPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679548901"><span class="annot"><span class="annottext">s :: PublicAccessBlockConfiguration
+</span><a href="#local-6989586621679548901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679548900"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679548900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PublicAccessBlockConfiguration
+</span><a href="#local-6989586621679548901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blockPublicPolicy:PublicAccessBlockConfiguration' :: Maybe Bool
 </span><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#%24sel%3AblockPublicPolicy%3APublicAccessBlockConfiguration%27"><span class="hs-identifier hs-var">blockPublicPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679548900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679548264"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PublicAccessBlockConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679548262"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679548262"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679548897"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PublicAccessBlockConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679548895"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679548895"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Bool
 -&gt; Maybe Bool
@@ -373,7 +373,7 @@ $sel:blockPublicPolicy:PublicAccessBlockConfiguration' :: PublicAccessBlockConfi
       -&gt; Maybe Bool -&gt; Maybe Bool -&gt; PublicAccessBlockConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679548262"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679548895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IgnorePublicAcls&quot;</span></span><span class="hs-special">)</span><span>
@@ -386,7 +386,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Bool -&gt; Maybe Bool -&gt; PublicAccessBlockConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679548262"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679548895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlockPublicAcls&quot;</span></span><span class="hs-special">)</span><span>
@@ -396,7 +396,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Bool -&gt; PublicAccessBlockConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679548262"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679548895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RestrictPublicBuckets&quot;</span></span><span class="hs-special">)</span><span>
@@ -405,22 +405,22 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String PublicAccessBlockConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679548262"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679548895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BlockPublicPolicy&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
 </span><span id="line-184"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679548256"><span id="local-6989586621679548258"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679548889"><span id="local-6989586621679548891"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration</span></a></span></span></span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679548253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679548886"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration</span></a></span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679548249"><span class="annot"><span class="annottext">toXML :: PublicAccessBlockConfiguration -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548244"><span id="local-6989586621679548245"><span id="local-6989586621679548246"><span id="local-6989586621679548247"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679548882"><span class="annot"><span class="annottext">toXML :: PublicAccessBlockConfiguration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.PublicAccessBlockConfiguration.html#PublicAccessBlockConfiguration%27"><span class="hs-identifier hs-type">PublicAccessBlockConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679548877"><span id="local-6989586621679548878"><span id="local-6989586621679548879"><span id="local-6989586621679548880"><span class="annot"><span class="annottext">Maybe Bool
 blockPublicPolicy :: Maybe Bool
 restrictPublicBuckets :: Maybe Bool
 blockPublicAcls :: Maybe Bool
@@ -429,7 +429,7 @@ $sel:blockPublicPolicy:PublicAccessBlockConfiguration' :: PublicAccessBlockConfi
 $sel:restrictPublicBuckets:PublicAccessBlockConfiguration' :: PublicAccessBlockConfiguration -&gt; Maybe Bool
 $sel:blockPublicAcls:PublicAccessBlockConfiguration' :: PublicAccessBlockConfiguration -&gt; Maybe Bool
 $sel:ignorePublicAcls:PublicAccessBlockConfiguration' :: PublicAccessBlockConfiguration -&gt; Maybe Bool
-</span><a href="#local-6989586621679548244"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679548877"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -437,22 +437,22 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;IgnorePublicAcls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Bool -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548247"><span class="hs-identifier hs-var">ignorePublicAcls</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679548880"><span class="hs-identifier hs-var">ignorePublicAcls</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;BlockPublicAcls&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Bool -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548246"><span class="hs-identifier hs-var">blockPublicAcls</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679548879"><span class="hs-identifier hs-var">blockPublicAcls</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;RestrictPublicBuckets&quot;</span></span><span>
 </span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe Bool -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548245"><span class="hs-identifier hs-var">restrictPublicBuckets</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679548878"><span class="hs-identifier hs-var">restrictPublicBuckets</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;BlockPublicPolicy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Bool -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679548244"><span class="hs-identifier hs-var">blockPublicPolicy</span></a></span><span>
+</span><a href="#local-6989586621679548877"><span class="hs-identifier hs-var">blockPublicPolicy</span></a></span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-201"></span></pre></body></html>

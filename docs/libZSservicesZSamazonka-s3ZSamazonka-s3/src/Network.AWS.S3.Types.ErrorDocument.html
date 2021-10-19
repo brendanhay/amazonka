@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The error information.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newErrorDocument' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679540107"><span id="local-6989586621679540108"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorDocument"><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-var">ErrorDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorDocument%27"><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument%27"><span class="hs-identifier hs-var">ErrorDocument'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679540736"><span id="local-6989586621679540737"></span></span><span class="hs-keyword">data</span><span> </span><span id="ErrorDocument"><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-var">ErrorDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ErrorDocument%27"><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument%27"><span class="hs-identifier hs-var">ErrorDocument'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The object key name to use when a 4XX class error occurs.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Replacement must be made for object keys containing special characters</span><span>
@@ -37,7 +37,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Akey%3AErrorDocument%27"><span class="annot"><span class="annottext">ErrorDocument -&gt; ObjectKey
 </span><a href="Network.AWS.S3.Types.ErrorDocument.html#%24sel%3Akey%3AErrorDocument%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679540101"><span id="local-6989586621679540103"><span class="annot"><span class="annottext">ErrorDocument -&gt; ErrorDocument -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679540730"><span id="local-6989586621679540732"><span class="annot"><span class="annottext">ErrorDocument -&gt; ErrorDocument -&gt; Bool
 (ErrorDocument -&gt; ErrorDocument -&gt; Bool)
 -&gt; (ErrorDocument -&gt; ErrorDocument -&gt; Bool) -&gt; Eq ErrorDocument
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ErrorDocument -&gt; ErrorDocument -&gt; Bool
 == :: ErrorDocument -&gt; ErrorDocument -&gt; Bool
 $c== :: ErrorDocument -&gt; ErrorDocument -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540092"><span id="local-6989586621679540094"><span id="local-6989586621679540096"><span id="local-6989586621679540098"><span class="annot"><span class="annottext">ReadPrec [ErrorDocument]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540721"><span id="local-6989586621679540723"><span id="local-6989586621679540725"><span id="local-6989586621679540727"><span class="annot"><span class="annottext">ReadPrec [ErrorDocument]
 ReadPrec ErrorDocument
 Int -&gt; ReadS ErrorDocument
 ReadS [ErrorDocument]
@@ -65,7 +65,7 @@ readList :: ReadS [ErrorDocument]
 $creadList :: ReadS [ErrorDocument]
 readsPrec :: Int -&gt; ReadS ErrorDocument
 $creadsPrec :: Int -&gt; ReadS ErrorDocument
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540085"><span id="local-6989586621679540087"><span id="local-6989586621679540089"><span class="annot"><span class="annottext">Int -&gt; ErrorDocument -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679540714"><span id="local-6989586621679540716"><span id="local-6989586621679540718"><span class="annot"><span class="annottext">Int -&gt; ErrorDocument -&gt; ShowS
 [ErrorDocument] -&gt; ShowS
 ErrorDocument -&gt; String
 (Int -&gt; ErrorDocument -&gt; ShowS)
@@ -110,11 +110,11 @@ $cfrom :: forall x. ErrorDocument -&gt; Rep ErrorDocument x
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#ObjectKey"><span class="hs-identifier hs-type">ObjectKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-type">ErrorDocument</span></a></span><span>
 </span><span id="line-59"></span><span id="newErrorDocument"><span class="annot"><span class="annottext">newErrorDocument :: ObjectKey -&gt; ErrorDocument
-</span><a href="Network.AWS.S3.Types.ErrorDocument.html#newErrorDocument"><span class="hs-identifier hs-var hs-var">newErrorDocument</span></a></span></span><span> </span><span id="local-6989586621679540079"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679540079"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ErrorDocument' :: ObjectKey -&gt; ErrorDocument
+</span><a href="Network.AWS.S3.Types.ErrorDocument.html#newErrorDocument"><span class="hs-identifier hs-var hs-var">newErrorDocument</span></a></span></span><span> </span><span id="local-6989586621679540708"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679540708"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ErrorDocument' :: ObjectKey -&gt; ErrorDocument
 </span><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument%27"><span class="hs-identifier hs-type">ErrorDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ErrorDocument' :: ObjectKey
 </span><a href="Network.AWS.S3.Types.ErrorDocument.html#%24sel%3Akey%3AErrorDocument%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679540079"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679540708"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The object key name to use when a 4XX class error occurs.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
@@ -128,46 +128,46 @@ $cfrom :: forall x. ErrorDocument -&gt; Rep ErrorDocument x
 -&gt; (ErrorDocument -&gt; ObjectKey -&gt; ErrorDocument)
 -&gt; Lens ErrorDocument ErrorDocument ObjectKey ObjectKey
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument%27"><span class="hs-identifier hs-type">ErrorDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679540075"><span class="annot"><span class="annottext">ObjectKey
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument%27"><span class="hs-identifier hs-type">ErrorDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679540704"><span class="annot"><span class="annottext">ObjectKey
 key :: ObjectKey
 $sel:key:ErrorDocument' :: ErrorDocument -&gt; ObjectKey
-</span><a href="#local-6989586621679540075"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679540075"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679540074"><span class="annot"><span class="annottext">s :: ErrorDocument
-</span><a href="#local-6989586621679540074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument%27"><span class="hs-identifier hs-type">ErrorDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679540073"><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679540073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDocument
-</span><a href="#local-6989586621679540074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ErrorDocument' :: ObjectKey
+</span><a href="#local-6989586621679540704"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679540704"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679540703"><span class="annot"><span class="annottext">s :: ErrorDocument
+</span><a href="#local-6989586621679540703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument%27"><span class="hs-identifier hs-type">ErrorDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679540702"><span class="annot"><span class="annottext">ObjectKey
+</span><a href="#local-6989586621679540702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ErrorDocument
+</span><a href="#local-6989586621679540703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:ErrorDocument' :: ObjectKey
 </span><a href="Network.AWS.S3.Types.ErrorDocument.html#%24sel%3Akey%3AErrorDocument%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679540073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-type">ErrorDocument</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679540702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-type">ErrorDocument</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-type">ErrorDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679540070"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ErrorDocument
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679540068"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679540068"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679540699"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ErrorDocument
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679540697"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679540697"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">ObjectKey -&gt; ErrorDocument
 </span><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument%27"><span class="hs-identifier hs-var">ErrorDocument'</span></a></span><span> </span><span class="annot"><span class="annottext">(ObjectKey -&gt; ErrorDocument)
 -&gt; Either String ObjectKey -&gt; Either String ErrorDocument
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679540068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ObjectKey
+</span><a href="#local-6989586621679540697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ObjectKey
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679540062"><span id="local-6989586621679540064"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-type">ErrorDocument</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679540691"><span id="local-6989586621679540693"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-type">ErrorDocument</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679540059"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-type">ErrorDocument</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679540688"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-type">ErrorDocument</span></a></span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument"><span class="hs-identifier hs-type">ErrorDocument</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679540055"><span class="annot"><span class="annottext">toXML :: ErrorDocument -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument%27"><span class="hs-identifier hs-type">ErrorDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679540053"><span class="annot"><span class="annottext">ObjectKey
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679540684"><span class="annot"><span class="annottext">toXML :: ErrorDocument -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.ErrorDocument.html#ErrorDocument%27"><span class="hs-identifier hs-type">ErrorDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679540682"><span class="annot"><span class="annottext">ObjectKey
 key :: ObjectKey
 $sel:key:ErrorDocument' :: ErrorDocument -&gt; ObjectKey
-</span><a href="#local-6989586621679540053"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679540682"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; ObjectKey -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">ObjectKey
-</span><a href="#local-6989586621679540053"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679540682"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-81"></span></pre></body></html>

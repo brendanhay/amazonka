@@ -29,23 +29,23 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Information about blue\/green deployment options for a deployment group.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBlueGreenDeploymentConfiguration' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679309261"><span id="local-6989586621679309262"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlueGreenDeploymentConfiguration"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-var">BlueGreenDeploymentConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlueGreenDeploymentConfiguration%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var">BlueGreenDeploymentConfiguration'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about how instances are provisioned for a replacement</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- environment in a blue\/green deployment.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AgreenFleetProvisioningOption%3ABlueGreenDeploymentConfiguration%27"><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration
+</span><span id="line-32"></span><span id="local-6989586621679309547"><span id="local-6989586621679309548"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlueGreenDeploymentConfiguration"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-var">BlueGreenDeploymentConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlueGreenDeploymentConfiguration%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var">BlueGreenDeploymentConfiguration'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the action to take when newly provisioned instances</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- are ready to receive traffic in a blue\/green deployment.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdeploymentReadyOption%3ABlueGreenDeploymentConfiguration%27"><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration -&gt; Maybe DeploymentReadyOption
+</span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#%24sel%3AdeploymentReadyOption%3ABlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var hs-var">deploymentReadyOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Information about how instances are provisioned for a replacement</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- environment in a blue\/green deployment.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AgreenFleetProvisioningOption%3ABlueGreenDeploymentConfiguration%27"><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration
 -&gt; Maybe GreenFleetProvisioningOption
 </span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#%24sel%3AgreenFleetProvisioningOption%3ABlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var hs-var">greenFleetProvisioningOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GreenFleetProvisioningOption.html#GreenFleetProvisioningOption"><span class="hs-identifier hs-type">GreenFleetProvisioningOption</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Information about the action to take when newly provisioned instances</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- are ready to receive traffic in a blue\/green deployment.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdeploymentReadyOption%3ABlueGreenDeploymentConfiguration%27"><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration -&gt; Maybe DeploymentReadyOption
-</span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#%24sel%3AdeploymentReadyOption%3ABlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var hs-var">deploymentReadyOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Information about whether to terminate instances in the original fleet</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- during a blue\/green deployment.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AterminateBlueInstancesOnDeploymentSuccess%3ABlueGreenDeploymentConfiguration%27"><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration
 -&gt; Maybe BlueInstanceTerminationOption
 </span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#%24sel%3AterminateBlueInstancesOnDeploymentSuccess%3ABlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var hs-var">terminateBlueInstancesOnDeploymentSuccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309253"><span id="local-6989586621679309255"><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309539"><span id="local-6989586621679309541"><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration
 -&gt; BlueGreenDeploymentConfiguration -&gt; Bool
 (BlueGreenDeploymentConfiguration
  -&gt; BlueGreenDeploymentConfiguration -&gt; Bool)
@@ -61,7 +61,7 @@ $c/= :: BlueGreenDeploymentConfiguration
 -&gt; BlueGreenDeploymentConfiguration -&gt; Bool
 $c== :: BlueGreenDeploymentConfiguration
 -&gt; BlueGreenDeploymentConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309244"><span id="local-6989586621679309246"><span id="local-6989586621679309248"><span id="local-6989586621679309250"><span class="annot"><span class="annottext">ReadPrec [BlueGreenDeploymentConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309530"><span id="local-6989586621679309532"><span id="local-6989586621679309534"><span id="local-6989586621679309536"><span class="annot"><span class="annottext">ReadPrec [BlueGreenDeploymentConfiguration]
 ReadPrec BlueGreenDeploymentConfiguration
 Int -&gt; ReadS BlueGreenDeploymentConfiguration
 ReadS [BlueGreenDeploymentConfiguration]
@@ -81,7 +81,7 @@ readList :: ReadS [BlueGreenDeploymentConfiguration]
 $creadList :: ReadS [BlueGreenDeploymentConfiguration]
 readsPrec :: Int -&gt; ReadS BlueGreenDeploymentConfiguration
 $creadsPrec :: Int -&gt; ReadS BlueGreenDeploymentConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309237"><span id="local-6989586621679309239"><span id="local-6989586621679309241"><span class="annot"><span class="annottext">Int -&gt; BlueGreenDeploymentConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309523"><span id="local-6989586621679309525"><span id="local-6989586621679309527"><span class="annot"><span class="annottext">Int -&gt; BlueGreenDeploymentConfiguration -&gt; ShowS
 [BlueGreenDeploymentConfiguration] -&gt; ShowS
 BlueGreenDeploymentConfiguration -&gt; String
 (Int -&gt; BlueGreenDeploymentConfiguration -&gt; ShowS)
@@ -127,11 +127,11 @@ BlueGreenDeploymentConfiguration
 </span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'greenFleetProvisioningOption', 'blueGreenDeploymentConfiguration_greenFleetProvisioningOption' - Information about how instances are provisioned for a replacement</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- environment in a blue\/green deployment.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'deploymentReadyOption', 'blueGreenDeploymentConfiguration_deploymentReadyOption' - Information about the action to take when newly provisioned instances</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- are ready to receive traffic in a blue\/green deployment.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'deploymentReadyOption', 'blueGreenDeploymentConfiguration_deploymentReadyOption' - Information about the action to take when newly provisioned instances</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- are ready to receive traffic in a blue\/green deployment.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'greenFleetProvisioningOption', 'blueGreenDeploymentConfiguration_greenFleetProvisioningOption' - Information about how instances are provisioned for a replacement</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- environment in a blue\/green deployment.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'terminateBlueInstancesOnDeploymentSuccess', 'blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess' - Information about whether to terminate instances in the original fleet</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- during a blue\/green deployment.</span><span>
@@ -139,31 +139,58 @@ BlueGreenDeploymentConfiguration
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span><span>
 </span><span id="line-63"></span><span id="newBlueGreenDeploymentConfiguration"><span class="annot"><span class="annottext">newBlueGreenDeploymentConfiguration :: BlueGreenDeploymentConfiguration
 </span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#newBlueGreenDeploymentConfiguration"><span class="hs-identifier hs-var hs-var">newBlueGreenDeploymentConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration' :: Maybe GreenFleetProvisioningOption
--&gt; Maybe DeploymentReadyOption
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration' :: Maybe DeploymentReadyOption
+-&gt; Maybe GreenFleetProvisioningOption
 -&gt; Maybe BlueInstanceTerminationOption
 -&gt; BlueGreenDeploymentConfiguration
 </span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:greenFleetProvisioningOption:BlueGreenDeploymentConfiguration' :: Maybe GreenFleetProvisioningOption
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deploymentReadyOption:BlueGreenDeploymentConfiguration' :: Maybe DeploymentReadyOption
+</span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#%24sel%3AdeploymentReadyOption%3ABlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var">deploymentReadyOption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:greenFleetProvisioningOption:BlueGreenDeploymentConfiguration' :: Maybe GreenFleetProvisioningOption
 </span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#%24sel%3AgreenFleetProvisioningOption%3ABlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var">greenFleetProvisioningOption</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe GreenFleetProvisioningOption
+</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">Maybe GreenFleetProvisioningOption
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:deploymentReadyOption:BlueGreenDeploymentConfiguration' :: Maybe DeploymentReadyOption
-</span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#%24sel%3AdeploymentReadyOption%3ABlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var">deploymentReadyOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:terminateBlueInstancesOnDeploymentSuccess:BlueGreenDeploymentConfiguration' :: Maybe BlueInstanceTerminationOption
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:terminateBlueInstancesOnDeploymentSuccess:BlueGreenDeploymentConfiguration' :: Maybe BlueInstanceTerminationOption
 </span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#%24sel%3AterminateBlueInstancesOnDeploymentSuccess%3ABlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var">terminateBlueInstancesOnDeploymentSuccess</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe BlueInstanceTerminationOption
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe BlueInstanceTerminationOption
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | Information about how instances are provisioned for a replacement</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- environment in a blue\/green deployment.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#blueGreenDeploymentConfiguration_greenFleetProvisioningOption"><span class="hs-identifier hs-type">blueGreenDeploymentConfiguration_greenFleetProvisioningOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GreenFleetProvisioningOption.html#GreenFleetProvisioningOption"><span class="hs-identifier hs-type">GreenFleetProvisioningOption</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="blueGreenDeploymentConfiguration_greenFleetProvisioningOption"><span class="annot"><span class="annottext">blueGreenDeploymentConfiguration_greenFleetProvisioningOption :: (Maybe GreenFleetProvisioningOption
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | Information about the action to take when newly provisioned instances</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- are ready to receive traffic in a blue\/green deployment.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#blueGreenDeploymentConfiguration_deploymentReadyOption"><span class="hs-identifier hs-type">blueGreenDeploymentConfiguration_deploymentReadyOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span id="blueGreenDeploymentConfiguration_deploymentReadyOption"><span class="annot"><span class="annottext">blueGreenDeploymentConfiguration_deploymentReadyOption :: (Maybe DeploymentReadyOption -&gt; f (Maybe DeploymentReadyOption))
+-&gt; BlueGreenDeploymentConfiguration
+-&gt; f BlueGreenDeploymentConfiguration
+</span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#blueGreenDeploymentConfiguration_deploymentReadyOption"><span class="hs-identifier hs-var hs-var">blueGreenDeploymentConfiguration_deploymentReadyOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlueGreenDeploymentConfiguration -&gt; Maybe DeploymentReadyOption)
+-&gt; (BlueGreenDeploymentConfiguration
+    -&gt; Maybe DeploymentReadyOption -&gt; BlueGreenDeploymentConfiguration)
+-&gt; Lens
+     BlueGreenDeploymentConfiguration
+     BlueGreenDeploymentConfiguration
+     (Maybe DeploymentReadyOption)
+     (Maybe DeploymentReadyOption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309514"><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
+deploymentReadyOption :: Maybe DeploymentReadyOption
+$sel:deploymentReadyOption:BlueGreenDeploymentConfiguration' :: BlueGreenDeploymentConfiguration -&gt; Maybe DeploymentReadyOption
+</span><a href="#local-6989586621679309514"><span class="hs-identifier hs-var hs-var">deploymentReadyOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
+</span><a href="#local-6989586621679309514"><span class="hs-identifier hs-var">deploymentReadyOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309513"><span class="annot"><span class="annottext">s :: BlueGreenDeploymentConfiguration
+</span><a href="#local-6989586621679309513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309512"><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
+</span><a href="#local-6989586621679309512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration
+</span><a href="#local-6989586621679309513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentReadyOption:BlueGreenDeploymentConfiguration' :: Maybe DeploymentReadyOption
+</span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#%24sel%3AdeploymentReadyOption%3ABlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var">deploymentReadyOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
+</span><a href="#local-6989586621679309512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Information about how instances are provisioned for a replacement</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- environment in a blue\/green deployment.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#blueGreenDeploymentConfiguration_greenFleetProvisioningOption"><span class="hs-identifier hs-type">blueGreenDeploymentConfiguration_greenFleetProvisioningOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.GreenFleetProvisioningOption.html#GreenFleetProvisioningOption"><span class="hs-identifier hs-type">GreenFleetProvisioningOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="blueGreenDeploymentConfiguration_greenFleetProvisioningOption"><span class="annot"><span class="annottext">blueGreenDeploymentConfiguration_greenFleetProvisioningOption :: (Maybe GreenFleetProvisioningOption
  -&gt; f (Maybe GreenFleetProvisioningOption))
 -&gt; BlueGreenDeploymentConfiguration
 -&gt; f BlueGreenDeploymentConfiguration
@@ -178,48 +205,22 @@ forall a. Maybe a
      (Maybe GreenFleetProvisioningOption)
      (Maybe GreenFleetProvisioningOption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309228"><span class="annot"><span class="annottext">Maybe GreenFleetProvisioningOption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309510"><span class="annot"><span class="annottext">Maybe GreenFleetProvisioningOption
 greenFleetProvisioningOption :: Maybe GreenFleetProvisioningOption
 $sel:greenFleetProvisioningOption:BlueGreenDeploymentConfiguration' :: BlueGreenDeploymentConfiguration
 -&gt; Maybe GreenFleetProvisioningOption
-</span><a href="#local-6989586621679309228"><span class="hs-identifier hs-var hs-var">greenFleetProvisioningOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GreenFleetProvisioningOption
-</span><a href="#local-6989586621679309228"><span class="hs-identifier hs-var">greenFleetProvisioningOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309227"><span class="annot"><span class="annottext">s :: BlueGreenDeploymentConfiguration
-</span><a href="#local-6989586621679309227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309226"><span class="annot"><span class="annottext">Maybe GreenFleetProvisioningOption
-</span><a href="#local-6989586621679309226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration
-</span><a href="#local-6989586621679309227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greenFleetProvisioningOption:BlueGreenDeploymentConfiguration' :: Maybe GreenFleetProvisioningOption
+</span><a href="#local-6989586621679309510"><span class="hs-identifier hs-var hs-var">greenFleetProvisioningOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GreenFleetProvisioningOption
+</span><a href="#local-6989586621679309510"><span class="hs-identifier hs-var">greenFleetProvisioningOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309509"><span class="annot"><span class="annottext">s :: BlueGreenDeploymentConfiguration
+</span><a href="#local-6989586621679309509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309508"><span class="annot"><span class="annottext">Maybe GreenFleetProvisioningOption
+</span><a href="#local-6989586621679309508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration
+</span><a href="#local-6989586621679309509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:greenFleetProvisioningOption:BlueGreenDeploymentConfiguration' :: Maybe GreenFleetProvisioningOption
 </span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#%24sel%3AgreenFleetProvisioningOption%3ABlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var">greenFleetProvisioningOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GreenFleetProvisioningOption
-</span><a href="#local-6989586621679309226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | Information about the action to take when newly provisioned instances</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- are ready to receive traffic in a blue\/green deployment.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#blueGreenDeploymentConfiguration_deploymentReadyOption"><span class="hs-identifier hs-type">blueGreenDeploymentConfiguration_deploymentReadyOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeploymentReadyOption.html#DeploymentReadyOption"><span class="hs-identifier hs-type">DeploymentReadyOption</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="blueGreenDeploymentConfiguration_deploymentReadyOption"><span class="annot"><span class="annottext">blueGreenDeploymentConfiguration_deploymentReadyOption :: (Maybe DeploymentReadyOption -&gt; f (Maybe DeploymentReadyOption))
--&gt; BlueGreenDeploymentConfiguration
--&gt; f BlueGreenDeploymentConfiguration
-</span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#blueGreenDeploymentConfiguration_deploymentReadyOption"><span class="hs-identifier hs-var hs-var">blueGreenDeploymentConfiguration_deploymentReadyOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BlueGreenDeploymentConfiguration -&gt; Maybe DeploymentReadyOption)
--&gt; (BlueGreenDeploymentConfiguration
-    -&gt; Maybe DeploymentReadyOption -&gt; BlueGreenDeploymentConfiguration)
--&gt; Lens
-     BlueGreenDeploymentConfiguration
-     BlueGreenDeploymentConfiguration
-     (Maybe DeploymentReadyOption)
-     (Maybe DeploymentReadyOption)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309224"><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
-deploymentReadyOption :: Maybe DeploymentReadyOption
-$sel:deploymentReadyOption:BlueGreenDeploymentConfiguration' :: BlueGreenDeploymentConfiguration -&gt; Maybe DeploymentReadyOption
-</span><a href="#local-6989586621679309224"><span class="hs-identifier hs-var hs-var">deploymentReadyOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
-</span><a href="#local-6989586621679309224"><span class="hs-identifier hs-var">deploymentReadyOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309223"><span class="annot"><span class="annottext">s :: BlueGreenDeploymentConfiguration
-</span><a href="#local-6989586621679309223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309222"><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
-</span><a href="#local-6989586621679309222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration
-</span><a href="#local-6989586621679309223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentReadyOption:BlueGreenDeploymentConfiguration' :: Maybe DeploymentReadyOption
-</span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#%24sel%3AdeploymentReadyOption%3ABlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var">deploymentReadyOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
-</span><a href="#local-6989586621679309222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | Information about whether to terminate instances in the original fleet</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- during a blue\/green deployment.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess"><span class="hs-identifier hs-type">blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess"><span class="annot"><span class="annottext">blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess :: (Maybe BlueInstanceTerminationOption
+</span><a href="#local-6989586621679309508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | Information about whether to terminate instances in the original fleet</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- during a blue\/green deployment.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess"><span class="hs-identifier hs-type">blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess"><span class="annot"><span class="annottext">blueGreenDeploymentConfiguration_terminateBlueInstancesOnDeploymentSuccess :: (Maybe BlueInstanceTerminationOption
  -&gt; f (Maybe BlueInstanceTerminationOption))
 -&gt; BlueGreenDeploymentConfiguration
 -&gt; f BlueGreenDeploymentConfiguration
@@ -234,137 +235,137 @@ $sel:deploymentReadyOption:BlueGreenDeploymentConfiguration' :: BlueGreenDeploym
      (Maybe BlueInstanceTerminationOption)
      (Maybe BlueInstanceTerminationOption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309220"><span class="annot"><span class="annottext">Maybe BlueInstanceTerminationOption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309506"><span class="annot"><span class="annottext">Maybe BlueInstanceTerminationOption
 terminateBlueInstancesOnDeploymentSuccess :: Maybe BlueInstanceTerminationOption
 $sel:terminateBlueInstancesOnDeploymentSuccess:BlueGreenDeploymentConfiguration' :: BlueGreenDeploymentConfiguration
 -&gt; Maybe BlueInstanceTerminationOption
-</span><a href="#local-6989586621679309220"><span class="hs-identifier hs-var hs-var">terminateBlueInstancesOnDeploymentSuccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BlueInstanceTerminationOption
-</span><a href="#local-6989586621679309220"><span class="hs-identifier hs-var">terminateBlueInstancesOnDeploymentSuccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309219"><span class="annot"><span class="annottext">s :: BlueGreenDeploymentConfiguration
-</span><a href="#local-6989586621679309219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309218"><span class="annot"><span class="annottext">Maybe BlueInstanceTerminationOption
-</span><a href="#local-6989586621679309218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration
-</span><a href="#local-6989586621679309219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:terminateBlueInstancesOnDeploymentSuccess:BlueGreenDeploymentConfiguration' :: Maybe BlueInstanceTerminationOption
+</span><a href="#local-6989586621679309506"><span class="hs-identifier hs-var hs-var">terminateBlueInstancesOnDeploymentSuccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BlueInstanceTerminationOption
+</span><a href="#local-6989586621679309506"><span class="hs-identifier hs-var">terminateBlueInstancesOnDeploymentSuccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309505"><span class="annot"><span class="annottext">s :: BlueGreenDeploymentConfiguration
+</span><a href="#local-6989586621679309505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309504"><span class="annot"><span class="annottext">Maybe BlueInstanceTerminationOption
+</span><a href="#local-6989586621679309504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueGreenDeploymentConfiguration
+</span><a href="#local-6989586621679309505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:terminateBlueInstancesOnDeploymentSuccess:BlueGreenDeploymentConfiguration' :: Maybe BlueInstanceTerminationOption
 </span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#%24sel%3AterminateBlueInstancesOnDeploymentSuccess%3ABlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var">terminateBlueInstancesOnDeploymentSuccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BlueInstanceTerminationOption
-</span><a href="#local-6989586621679309218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679309215"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
-</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span></span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679309213"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BlueGreenDeploymentConfiguration
+</span><a href="#local-6989586621679309504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679309501"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679309499"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BlueGreenDeploymentConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BlueGreenDeploymentConfiguration)
 -&gt; Value
 -&gt; Parser BlueGreenDeploymentConfiguration
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BlueGreenDeploymentConfiguration&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309210"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309210"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe GreenFleetProvisioningOption
--&gt; Maybe DeploymentReadyOption
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309496"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309496"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
+-&gt; Maybe GreenFleetProvisioningOption
 -&gt; Maybe BlueInstanceTerminationOption
 -&gt; BlueGreenDeploymentConfiguration
 </span><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-var">BlueGreenDeploymentConfiguration'</span></a></span><span>
-</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GreenFleetProvisioningOption
- -&gt; Maybe DeploymentReadyOption
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DeploymentReadyOption
+ -&gt; Maybe GreenFleetProvisioningOption
  -&gt; Maybe BlueInstanceTerminationOption
  -&gt; BlueGreenDeploymentConfiguration)
--&gt; Parser (Maybe GreenFleetProvisioningOption)
+-&gt; Parser (Maybe DeploymentReadyOption)
 -&gt; Parser
-     (Maybe DeploymentReadyOption
+     (Maybe GreenFleetProvisioningOption
       -&gt; Maybe BlueInstanceTerminationOption
       -&gt; BlueGreenDeploymentConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GreenFleetProvisioningOption)
+</span><a href="#local-6989586621679309496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeploymentReadyOption)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;greenFleetProvisioningOption&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe DeploymentReadyOption
+</span><span class="hs-string">&quot;deploymentReadyOption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe GreenFleetProvisioningOption
    -&gt; Maybe BlueInstanceTerminationOption
    -&gt; BlueGreenDeploymentConfiguration)
--&gt; Parser (Maybe DeploymentReadyOption)
+-&gt; Parser (Maybe GreenFleetProvisioningOption)
 -&gt; Parser
      (Maybe BlueInstanceTerminationOption
       -&gt; BlueGreenDeploymentConfiguration)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeploymentReadyOption)
+</span><a href="#local-6989586621679309496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GreenFleetProvisioningOption)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;deploymentReadyOption&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;greenFleetProvisioningOption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe BlueInstanceTerminationOption
    -&gt; BlueGreenDeploymentConfiguration)
 -&gt; Parser (Maybe BlueInstanceTerminationOption)
 -&gt; Parser BlueGreenDeploymentConfiguration
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309210"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-99"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BlueInstanceTerminationOption)
+</span><a href="#local-6989586621679309496"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-100"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BlueInstanceTerminationOption)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;terminateBlueInstancesOnDeploymentSuccess&quot;</span></span><span>
-</span><span id="line-100"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679309204"><span id="local-6989586621679309206"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span></span></span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679309201"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span></span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309193"><span id="local-6989586621679309195"><span id="local-6989586621679309197"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679309191"><span class="annot"><span class="annottext">toJSON :: BlueGreenDeploymentConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309187"><span id="local-6989586621679309188"><span id="local-6989586621679309189"><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
+</span><span id="line-101"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679309490"><span id="local-6989586621679309492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679309487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309479"><span id="local-6989586621679309481"><span id="local-6989586621679309483"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679309477"><span class="annot"><span class="annottext">toJSON :: BlueGreenDeploymentConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration.html#BlueGreenDeploymentConfiguration%27"><span class="hs-identifier hs-type">BlueGreenDeploymentConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309473"><span id="local-6989586621679309474"><span id="local-6989586621679309475"><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
 Maybe GreenFleetProvisioningOption
 Maybe BlueInstanceTerminationOption
 terminateBlueInstancesOnDeploymentSuccess :: Maybe BlueInstanceTerminationOption
-deploymentReadyOption :: Maybe DeploymentReadyOption
 greenFleetProvisioningOption :: Maybe GreenFleetProvisioningOption
+deploymentReadyOption :: Maybe DeploymentReadyOption
 $sel:terminateBlueInstancesOnDeploymentSuccess:BlueGreenDeploymentConfiguration' :: BlueGreenDeploymentConfiguration
 -&gt; Maybe BlueInstanceTerminationOption
-$sel:deploymentReadyOption:BlueGreenDeploymentConfiguration' :: BlueGreenDeploymentConfiguration -&gt; Maybe DeploymentReadyOption
 $sel:greenFleetProvisioningOption:BlueGreenDeploymentConfiguration' :: BlueGreenDeploymentConfiguration
 -&gt; Maybe GreenFleetProvisioningOption
-</span><a href="#local-6989586621679309187"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:deploymentReadyOption:BlueGreenDeploymentConfiguration' :: BlueGreenDeploymentConfiguration -&gt; Maybe DeploymentReadyOption
+</span><a href="#local-6989586621679309473"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;greenFleetProvisioningOption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GreenFleetProvisioningOption -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">(GreenFleetProvisioningOption -&gt; Pair)
--&gt; Maybe GreenFleetProvisioningOption -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GreenFleetProvisioningOption
-</span><a href="#local-6989586621679309189"><span class="hs-identifier hs-var">greenFleetProvisioningOption</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deploymentReadyOption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeploymentReadyOption -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>              </span><span class="annot"><span class="annottext">(DeploymentReadyOption -&gt; Pair)
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">(DeploymentReadyOption -&gt; Pair)
 -&gt; Maybe DeploymentReadyOption -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeploymentReadyOption
-</span><a href="#local-6989586621679309188"><span class="hs-identifier hs-var">deploymentReadyOption</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-119"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679309475"><span class="hs-identifier hs-var">deploymentReadyOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;greenFleetProvisioningOption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GreenFleetProvisioningOption -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">(GreenFleetProvisioningOption -&gt; Pair)
+-&gt; Maybe GreenFleetProvisioningOption -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GreenFleetProvisioningOption
+</span><a href="#local-6989586621679309474"><span class="hs-identifier hs-var">greenFleetProvisioningOption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;terminateBlueInstancesOnDeploymentSuccess&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BlueInstanceTerminationOption -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">(BlueInstanceTerminationOption -&gt; Pair)
+</span><span id="line-121"></span><span>              </span><span class="annot"><span class="annottext">(BlueInstanceTerminationOption -&gt; Pair)
 -&gt; Maybe BlueInstanceTerminationOption -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BlueInstanceTerminationOption
-</span><a href="#local-6989586621679309187"><span class="hs-identifier hs-var">terminateBlueInstancesOnDeploymentSuccess</span></a></span><span>
-</span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span></pre></body></html>
+</span><a href="#local-6989586621679309473"><span class="hs-identifier hs-var">terminateBlueInstancesOnDeploymentSuccess</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span></pre></body></html>

@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679604492"><span id="local-6989586621679604493"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BucketMetricName"><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketMetricName.html#BucketMetricName"><span class="hs-identifier hs-var">BucketMetricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketMetricName%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketMetricName.html#BucketMetricName%27"><span class="hs-identifier hs-var">BucketMetricName'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679605379"><span id="local-6989586621679605380"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BucketMetricName"><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketMetricName.html#BucketMetricName"><span class="hs-identifier hs-var">BucketMetricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketMetricName%27"><span class="annot"><a href="Network.AWS.Lightsail.Types.BucketMetricName.html#BucketMetricName%27"><span class="hs-identifier hs-var">BucketMetricName'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBucketMetricName"><span class="annot"><span class="annottext">BucketMetricName -&gt; Text
 </span><a href="Network.AWS.Lightsail.Types.BucketMetricName.html#fromBucketMetricName"><span class="hs-identifier hs-var hs-var">fromBucketMetricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679604484"><span id="local-6989586621679604486"><span id="local-6989586621679604488"><span class="annot"><span class="annottext">Int -&gt; BucketMetricName -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679605371"><span id="local-6989586621679605373"><span id="local-6989586621679605375"><span class="annot"><span class="annottext">Int -&gt; BucketMetricName -&gt; ShowS
 [BucketMetricName] -&gt; ShowS
 BucketMetricName -&gt; String
 (Int -&gt; BucketMetricName -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: BucketMetricName -&gt; String
 showsPrec :: Int -&gt; BucketMetricName -&gt; ShowS
 $cshowsPrec :: Int -&gt; BucketMetricName -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679604475"><span id="local-6989586621679604477"><span id="local-6989586621679604479"><span id="local-6989586621679604481"><span class="annot"><span class="annottext">ReadPrec [BucketMetricName]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679605362"><span id="local-6989586621679605364"><span id="local-6989586621679605366"><span id="local-6989586621679605368"><span class="annot"><span class="annottext">ReadPrec [BucketMetricName]
 ReadPrec BucketMetricName
 Int -&gt; ReadS BucketMetricName
 ReadS [BucketMetricName]
@@ -72,7 +72,7 @@ $creadList :: ReadS [BucketMetricName]
 readsPrec :: Int -&gt; ReadS BucketMetricName
 $creadsPrec :: Int -&gt; ReadS BucketMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679604470"><span id="local-6989586621679604472"><span class="annot"><span class="annottext">BucketMetricName -&gt; BucketMetricName -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679605357"><span id="local-6989586621679605359"><span class="annot"><span class="annottext">BucketMetricName -&gt; BucketMetricName -&gt; Bool
 (BucketMetricName -&gt; BucketMetricName -&gt; Bool)
 -&gt; (BucketMetricName -&gt; BucketMetricName -&gt; Bool)
 -&gt; Eq BucketMetricName
@@ -82,7 +82,7 @@ $c/= :: BucketMetricName -&gt; BucketMetricName -&gt; Bool
 == :: BucketMetricName -&gt; BucketMetricName -&gt; Bool
 $c== :: BucketMetricName -&gt; BucketMetricName -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679604454"><span id="local-6989586621679604456"><span id="local-6989586621679604458"><span id="local-6989586621679604460"><span id="local-6989586621679604462"><span id="local-6989586621679604464"><span id="local-6989586621679604466"><span class="annot"><span class="annottext">Eq BucketMetricName
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679605341"><span id="local-6989586621679605343"><span id="local-6989586621679605345"><span id="local-6989586621679605347"><span id="local-6989586621679605349"><span id="local-6989586621679605351"><span id="local-6989586621679605353"><span class="annot"><span class="annottext">Eq BucketMetricName
 Eq BucketMetricName
 -&gt; (BucketMetricName -&gt; BucketMetricName -&gt; Ordering)
 -&gt; (BucketMetricName -&gt; BucketMetricName -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. BucketMetricName -&gt; Rep BucketMetricName x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679604446"><span id="local-6989586621679604448"><span class="annot"><span class="annottext">Int -&gt; BucketMetricName -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679605333"><span id="local-6989586621679605335"><span class="annot"><span class="annottext">Int -&gt; BucketMetricName -&gt; Int
 BucketMetricName -&gt; Int
 (Int -&gt; BucketMetricName -&gt; Int)
 -&gt; (BucketMetricName -&gt; Int) -&gt; Hashable BucketMetricName
@@ -143,51 +143,51 @@ $chash :: BucketMetricName -&gt; Int
 hashWithSalt :: Int -&gt; BucketMetricName -&gt; Int
 $chashWithSalt :: Int -&gt; BucketMetricName -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679604443"><span class="annot"><span class="annottext">BucketMetricName -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679605330"><span class="annot"><span class="annottext">BucketMetricName -&gt; ()
 (BucketMetricName -&gt; ()) -&gt; NFData BucketMetricName
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: BucketMetricName -&gt; ()
 $crnf :: BucketMetricName -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679604440"><span class="annot"><span class="annottext">Text -&gt; Either String BucketMetricName
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679605327"><span class="annot"><span class="annottext">Text -&gt; Either String BucketMetricName
 (Text -&gt; Either String BucketMetricName)
 -&gt; FromText BucketMetricName
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String BucketMetricName
 $cfromText :: Text -&gt; Either String BucketMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679604437"><span class="annot"><span class="annottext">BucketMetricName -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679605324"><span class="annot"><span class="annottext">BucketMetricName -&gt; Text
 (BucketMetricName -&gt; Text) -&gt; ToText BucketMetricName
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: BucketMetricName -&gt; Text
 $ctoText :: BucketMetricName -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679604434"><span class="annot"><span class="annottext">BucketMetricName -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679605321"><span class="annot"><span class="annottext">BucketMetricName -&gt; ByteString
 (BucketMetricName -&gt; ByteString) -&gt; ToByteString BucketMetricName
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: BucketMetricName -&gt; ByteString
 $ctoBS :: BucketMetricName -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679604431"><span class="annot"><span class="annottext">BucketMetricName -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679605318"><span class="annot"><span class="annottext">BucketMetricName -&gt; ByteStringBuilder
 (BucketMetricName -&gt; ByteStringBuilder) -&gt; ToLog BucketMetricName
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: BucketMetricName -&gt; ByteStringBuilder
 $cbuild :: BucketMetricName -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679604428"><span class="annot"><span class="annottext">HeaderName -&gt; BucketMetricName -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679605315"><span class="annot"><span class="annottext">HeaderName -&gt; BucketMetricName -&gt; [Header]
 (HeaderName -&gt; BucketMetricName -&gt; [Header])
 -&gt; ToHeader BucketMetricName
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; BucketMetricName -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; BucketMetricName -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679604425"><span class="annot"><span class="annottext">BucketMetricName -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679605312"><span class="annot"><span class="annottext">BucketMetricName -&gt; QueryString
 (BucketMetricName -&gt; QueryString) -&gt; ToQuery BucketMetricName
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: BucketMetricName -&gt; QueryString
 $ctoQuery :: BucketMetricName -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679604420"><span id="local-6989586621679604422"><span class="annot"><span class="annottext">Value -&gt; Parser [BucketMetricName]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679605307"><span id="local-6989586621679605309"><span class="annot"><span class="annottext">Value -&gt; Parser [BucketMetricName]
 Value -&gt; Parser BucketMetricName
 (Value -&gt; Parser BucketMetricName)
 -&gt; (Value -&gt; Parser [BucketMetricName])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [BucketMetricName]
 parseJSON :: Value -&gt; Parser BucketMetricName
 $cparseJSON :: Value -&gt; Parser BucketMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679604415"><span id="local-6989586621679604417"><span class="annot"><span class="annottext">FromJSONKeyFunction [BucketMetricName]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679605302"><span id="local-6989586621679605304"><span class="annot"><span class="annottext">FromJSONKeyFunction [BucketMetricName]
 FromJSONKeyFunction BucketMetricName
 FromJSONKeyFunction BucketMetricName
 -&gt; FromJSONKeyFunction [BucketMetricName]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [BucketMetricName]
 fromJSONKey :: FromJSONKeyFunction BucketMetricName
 $cfromJSONKey :: FromJSONKeyFunction BucketMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679604406"><span id="local-6989586621679604408"><span id="local-6989586621679604410"><span id="local-6989586621679604412"><span class="annot"><span class="annottext">[BucketMetricName] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679605293"><span id="local-6989586621679605295"><span id="local-6989586621679605297"><span id="local-6989586621679605299"><span class="annot"><span class="annottext">[BucketMetricName] -&gt; Encoding
 [BucketMetricName] -&gt; Value
 BucketMetricName -&gt; Encoding
 BucketMetricName -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: BucketMetricName -&gt; Encoding
 toJSON :: BucketMetricName -&gt; Value
 $ctoJSON :: BucketMetricName -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679604401"><span id="local-6989586621679604403"><span class="annot"><span class="annottext">ToJSONKeyFunction [BucketMetricName]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679605288"><span id="local-6989586621679605290"><span class="annot"><span class="annottext">ToJSONKeyFunction [BucketMetricName]
 ToJSONKeyFunction BucketMetricName
 ToJSONKeyFunction BucketMetricName
 -&gt; ToJSONKeyFunction [BucketMetricName]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [BucketMetricName]
 toJSONKey :: ToJSONKeyFunction BucketMetricName
 $ctoJSONKey :: ToJSONKeyFunction BucketMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679604398"><span class="annot"><span class="annottext">[Node] -&gt; Either String BucketMetricName
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679605285"><span class="annot"><span class="annottext">[Node] -&gt; Either String BucketMetricName
 ([Node] -&gt; Either String BucketMetricName)
 -&gt; FromXML BucketMetricName
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String BucketMetricName
 $cparseXML :: [Node] -&gt; Either String BucketMetricName
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679604395"><span class="annot"><span class="annottext">BucketMetricName -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679605282"><span class="annot"><span class="annottext">BucketMetricName -&gt; XML
 (BucketMetricName -&gt; XML) -&gt; ToXML BucketMetricName
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: BucketMetricName -&gt; XML

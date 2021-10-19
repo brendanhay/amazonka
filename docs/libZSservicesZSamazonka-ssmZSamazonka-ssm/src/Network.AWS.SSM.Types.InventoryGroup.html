@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- match the specified criteria.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInventoryGroup' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679796084"><span id="local-6989586621679796085"></span></span><span class="hs-keyword">data</span><span> </span><span id="InventoryGroup"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup"><span class="hs-identifier hs-var">InventoryGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryGroup%27"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup%27"><span class="hs-identifier hs-var">InventoryGroup'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679797725"><span id="local-6989586621679797726"></span></span><span class="hs-keyword">data</span><span> </span><span id="InventoryGroup"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup"><span class="hs-identifier hs-var">InventoryGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryGroup%27"><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup%27"><span class="hs-identifier hs-var">InventoryGroup'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the group.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AInventoryGroup%27"><span class="annot"><span class="annottext">InventoryGroup -&gt; Text
 </span><a href="Network.AWS.SSM.Types.InventoryGroup.html#%24sel%3Aname%3AInventoryGroup%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Afilters%3AInventoryGroup%27"><span class="annot"><span class="annottext">InventoryGroup -&gt; NonEmpty InventoryFilter
 </span><a href="Network.AWS.SSM.Types.InventoryGroup.html#%24sel%3Afilters%3AInventoryGroup%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryFilter.html#InventoryFilter"><span class="hs-identifier hs-type">InventoryFilter</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679796077"><span id="local-6989586621679796079"><span class="annot"><span class="annottext">InventoryGroup -&gt; InventoryGroup -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797718"><span id="local-6989586621679797720"><span class="annot"><span class="annottext">InventoryGroup -&gt; InventoryGroup -&gt; Bool
 (InventoryGroup -&gt; InventoryGroup -&gt; Bool)
 -&gt; (InventoryGroup -&gt; InventoryGroup -&gt; Bool) -&gt; Eq InventoryGroup
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InventoryGroup -&gt; InventoryGroup -&gt; Bool
 == :: InventoryGroup -&gt; InventoryGroup -&gt; Bool
 $c== :: InventoryGroup -&gt; InventoryGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796068"><span id="local-6989586621679796070"><span id="local-6989586621679796072"><span id="local-6989586621679796074"><span class="annot"><span class="annottext">ReadPrec [InventoryGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797709"><span id="local-6989586621679797711"><span id="local-6989586621679797713"><span id="local-6989586621679797715"><span class="annot"><span class="annottext">ReadPrec [InventoryGroup]
 ReadPrec InventoryGroup
 Int -&gt; ReadS InventoryGroup
 ReadS [InventoryGroup]
@@ -68,7 +68,7 @@ readList :: ReadS [InventoryGroup]
 $creadList :: ReadS [InventoryGroup]
 readsPrec :: Int -&gt; ReadS InventoryGroup
 $creadsPrec :: Int -&gt; ReadS InventoryGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796061"><span id="local-6989586621679796063"><span id="local-6989586621679796065"><span class="annot"><span class="annottext">Int -&gt; InventoryGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797702"><span id="local-6989586621679797704"><span id="local-6989586621679797706"><span class="annot"><span class="annottext">Int -&gt; InventoryGroup -&gt; ShowS
 [InventoryGroup] -&gt; ShowS
 InventoryGroup -&gt; String
 (Int -&gt; InventoryGroup -&gt; ShowS)
@@ -115,28 +115,28 @@ $cfrom :: forall x. InventoryGroup -&gt; Rep InventoryGroup x
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryFilter.html#InventoryFilter"><span class="hs-identifier hs-type">InventoryFilter</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup"><span class="hs-identifier hs-type">InventoryGroup</span></a></span><span>
 </span><span id="line-63"></span><span id="newInventoryGroup"><span class="annot"><span class="annottext">newInventoryGroup :: Text -&gt; NonEmpty InventoryFilter -&gt; InventoryGroup
-</span><a href="Network.AWS.SSM.Types.InventoryGroup.html#newInventoryGroup"><span class="hs-identifier hs-var hs-var">newInventoryGroup</span></a></span></span><span> </span><span id="local-6989586621679796055"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796055"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679796054"><span class="annot"><span class="annottext">NonEmpty InventoryFilter
-</span><a href="#local-6989586621679796054"><span class="hs-identifier hs-var">pFilters_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SSM.Types.InventoryGroup.html#newInventoryGroup"><span class="hs-identifier hs-var hs-var">newInventoryGroup</span></a></span></span><span> </span><span id="local-6989586621679797696"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797696"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679797695"><span class="annot"><span class="annottext">NonEmpty InventoryFilter
+</span><a href="#local-6989586621679797695"><span class="hs-identifier hs-var">pFilters_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">InventoryGroup' :: Text -&gt; NonEmpty InventoryFilter -&gt; InventoryGroup
 </span><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup%27"><span class="hs-identifier hs-type">InventoryGroup'</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:InventoryGroup' :: Text
 </span><a href="Network.AWS.SSM.Types.InventoryGroup.html#%24sel%3Aname%3AInventoryGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796055"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679797696"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:InventoryGroup' :: NonEmpty InventoryFilter
 </span><a href="Network.AWS.SSM.Types.InventoryGroup.html#%24sel%3Afilters%3AInventoryGroup%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
   (NonEmpty InventoryFilter) (Identity (NonEmpty InventoryFilter))
 -&gt; Tagged
      (NonEmpty InventoryFilter) (Identity (NonEmpty InventoryFilter))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
    (NonEmpty InventoryFilter) (Identity (NonEmpty InventoryFilter))
  -&gt; Tagged
       (NonEmpty InventoryFilter) (Identity (NonEmpty InventoryFilter)))
 -&gt; NonEmpty InventoryFilter -&gt; NonEmpty InventoryFilter
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty InventoryFilter
-</span><a href="#local-6989586621679796054"><span class="hs-identifier hs-var">pFilters_</span></a></span><span>
+</span><a href="#local-6989586621679797695"><span class="hs-identifier hs-var">pFilters_</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The name of the group.</span><span>
@@ -146,16 +146,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (InventoryGroup -&gt; Text -&gt; InventoryGroup)
 -&gt; Lens InventoryGroup InventoryGroup Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup%27"><span class="hs-identifier hs-type">InventoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796048"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup%27"><span class="hs-identifier hs-type">InventoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797689"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:InventoryGroup' :: InventoryGroup -&gt; Text
-</span><a href="#local-6989586621679796048"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796048"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796047"><span class="annot"><span class="annottext">s :: InventoryGroup
-</span><a href="#local-6989586621679796047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup%27"><span class="hs-identifier hs-type">InventoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796046"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryGroup
-</span><a href="#local-6989586621679796047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InventoryGroup' :: Text
+</span><a href="#local-6989586621679797689"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797689"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797688"><span class="annot"><span class="annottext">s :: InventoryGroup
+</span><a href="#local-6989586621679797688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup%27"><span class="hs-identifier hs-type">InventoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797687"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryGroup
+</span><a href="#local-6989586621679797688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InventoryGroup' :: Text
 </span><a href="Network.AWS.SSM.Types.InventoryGroup.html#%24sel%3Aname%3AInventoryGroup%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup"><span class="hs-identifier hs-type">InventoryGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup"><span class="hs-identifier hs-type">InventoryGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | Filters define the criteria for the group. The @matchingCount@ field</span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- displays the number of resources that match the criteria. The</span><span>
@@ -172,16 +172,16 @@ $sel:name:InventoryGroup' :: InventoryGroup -&gt; Text
      (NonEmpty InventoryFilter)
      (NonEmpty InventoryFilter)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup%27"><span class="hs-identifier hs-type">InventoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796044"><span class="annot"><span class="annottext">NonEmpty InventoryFilter
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup%27"><span class="hs-identifier hs-type">InventoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797685"><span class="annot"><span class="annottext">NonEmpty InventoryFilter
 filters :: NonEmpty InventoryFilter
 $sel:filters:InventoryGroup' :: InventoryGroup -&gt; NonEmpty InventoryFilter
-</span><a href="#local-6989586621679796044"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty InventoryFilter
-</span><a href="#local-6989586621679796044"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796043"><span class="annot"><span class="annottext">s :: InventoryGroup
-</span><a href="#local-6989586621679796043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup%27"><span class="hs-identifier hs-type">InventoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796042"><span class="annot"><span class="annottext">NonEmpty InventoryFilter
-</span><a href="#local-6989586621679796042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryGroup
-</span><a href="#local-6989586621679796043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:InventoryGroup' :: NonEmpty InventoryFilter
+</span><a href="#local-6989586621679797685"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty InventoryFilter
+</span><a href="#local-6989586621679797685"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797684"><span class="annot"><span class="annottext">s :: InventoryGroup
+</span><a href="#local-6989586621679797684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup%27"><span class="hs-identifier hs-type">InventoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797683"><span class="annot"><span class="annottext">NonEmpty InventoryFilter
+</span><a href="#local-6989586621679797683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryGroup
+</span><a href="#local-6989586621679797684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:InventoryGroup' :: NonEmpty InventoryFilter
 </span><a href="Network.AWS.SSM.Types.InventoryGroup.html#%24sel%3Afilters%3AInventoryGroup%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty InventoryFilter
-</span><a href="#local-6989586621679796042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup"><span class="hs-identifier hs-type">InventoryGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty InventoryFilter -&gt; f (NonEmpty InventoryFilter))
+</span><a href="#local-6989586621679797683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup"><span class="hs-identifier hs-type">InventoryGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty InventoryFilter -&gt; f (NonEmpty InventoryFilter))
  -&gt; InventoryGroup -&gt; f InventoryGroup)
 -&gt; ((NonEmpty InventoryFilter -&gt; f (NonEmpty InventoryFilter))
     -&gt; NonEmpty InventoryFilter -&gt; f (NonEmpty InventoryFilter))
@@ -191,22 +191,22 @@ $sel:filters:InventoryGroup' :: InventoryGroup -&gt; NonEmpty InventoryFilter
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty InventoryFilter -&gt; f (NonEmpty InventoryFilter))
 -&gt; NonEmpty InventoryFilter -&gt; f (NonEmpty InventoryFilter)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796037"><span id="local-6989586621679796039"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup"><span class="hs-identifier hs-type">InventoryGroup</span></a></span></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797678"><span id="local-6989586621679797680"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup"><span class="hs-identifier hs-type">InventoryGroup</span></a></span></span></span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796034"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup"><span class="hs-identifier hs-type">InventoryGroup</span></a></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup"><span class="hs-identifier hs-type">InventoryGroup</span></a></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796026"><span id="local-6989586621679796028"><span id="local-6989586621679796030"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup"><span class="hs-identifier hs-type">InventoryGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679796024"><span class="annot"><span class="annottext">toJSON :: InventoryGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup%27"><span class="hs-identifier hs-type">InventoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796021"><span id="local-6989586621679796022"><span class="annot"><span class="annottext">NonEmpty InventoryFilter
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797667"><span id="local-6989586621679797669"><span id="local-6989586621679797671"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup"><span class="hs-identifier hs-type">InventoryGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679797665"><span class="annot"><span class="annottext">toJSON :: InventoryGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InventoryGroup.html#InventoryGroup%27"><span class="hs-identifier hs-type">InventoryGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797662"><span id="local-6989586621679797663"><span class="annot"><span class="annottext">NonEmpty InventoryFilter
 Text
 filters :: NonEmpty InventoryFilter
 name :: Text
 $sel:filters:InventoryGroup' :: InventoryGroup -&gt; NonEmpty InventoryFilter
 $sel:name:InventoryGroup' :: InventoryGroup -&gt; Text
-</span><a href="#local-6989586621679796021"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679797662"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -218,14 +218,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796022"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679797663"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty InventoryFilter -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty InventoryFilter
-</span><a href="#local-6989586621679796021"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797662"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span></pre></body></html>

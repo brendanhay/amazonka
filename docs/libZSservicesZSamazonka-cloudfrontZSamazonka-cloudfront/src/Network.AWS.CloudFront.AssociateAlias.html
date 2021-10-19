@@ -58,7 +58,7 @@
 </span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newAssociateAlias' smart constructor.</span><span>
-</span><span id="line-61"></span><span id="local-6989586621679422707"><span id="local-6989586621679422708"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateAlias"><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-var">AssociateAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateAlias%27"><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-var">AssociateAlias'</span></a></span></span><span>
+</span><span id="line-61"></span><span id="local-6989586621679422991"><span id="local-6989586621679422992"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateAlias"><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-var">AssociateAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateAlias%27"><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-var">AssociateAlias'</span></a></span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the distribution that you&#8217;re associating the alias with.</span><span>
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AtargetDistributionId%3AAssociateAlias%27"><span class="annot"><span class="annottext">AssociateAlias -&gt; Text
 </span><a href="Network.AWS.CloudFront.AssociateAlias.html#%24sel%3AtargetDistributionId%3AAssociateAlias%27"><span class="hs-identifier hs-var hs-var">targetDistributionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3Aalias%3AAssociateAlias%27"><span class="annot"><span class="annottext">AssociateAlias -&gt; Text
 </span><a href="Network.AWS.CloudFront.AssociateAlias.html#%24sel%3Aalias%3AAssociateAlias%27"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422700"><span id="local-6989586621679422702"><span class="annot"><span class="annottext">AssociateAlias -&gt; AssociateAlias -&gt; Bool
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422984"><span id="local-6989586621679422986"><span class="annot"><span class="annottext">AssociateAlias -&gt; AssociateAlias -&gt; Bool
 (AssociateAlias -&gt; AssociateAlias -&gt; Bool)
 -&gt; (AssociateAlias -&gt; AssociateAlias -&gt; Bool) -&gt; Eq AssociateAlias
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateAlias -&gt; AssociateAlias -&gt; Bool
 == :: AssociateAlias -&gt; AssociateAlias -&gt; Bool
 $c== :: AssociateAlias -&gt; AssociateAlias -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422691"><span id="local-6989586621679422693"><span id="local-6989586621679422695"><span id="local-6989586621679422697"><span class="annot"><span class="annottext">ReadPrec [AssociateAlias]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422975"><span id="local-6989586621679422977"><span id="local-6989586621679422979"><span id="local-6989586621679422981"><span class="annot"><span class="annottext">ReadPrec [AssociateAlias]
 ReadPrec AssociateAlias
 Int -&gt; ReadS AssociateAlias
 ReadS [AssociateAlias]
@@ -94,7 +94,7 @@ readList :: ReadS [AssociateAlias]
 $creadList :: ReadS [AssociateAlias]
 readsPrec :: Int -&gt; ReadS AssociateAlias
 $creadsPrec :: Int -&gt; ReadS AssociateAlias
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422684"><span id="local-6989586621679422686"><span id="local-6989586621679422688"><span class="annot"><span class="annottext">Int -&gt; AssociateAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422968"><span id="local-6989586621679422970"><span id="local-6989586621679422972"><span class="annot"><span class="annottext">Int -&gt; AssociateAlias -&gt; ShowS
 [AssociateAlias] -&gt; ShowS
 AssociateAlias -&gt; String
 (Int -&gt; AssociateAlias -&gt; ShowS)
@@ -138,18 +138,18 @@ $cfrom :: forall x. AssociateAlias -&gt; Rep AssociateAlias x
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span><span>
 </span><span id="line-86"></span><span id="newAssociateAlias"><span class="annot"><span class="annottext">newAssociateAlias :: Text -&gt; Text -&gt; AssociateAlias
-</span><a href="Network.AWS.CloudFront.AssociateAlias.html#newAssociateAlias"><span class="hs-identifier hs-var hs-var">newAssociateAlias</span></a></span></span><span> </span><span id="local-6989586621679422679"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422679"><span class="hs-identifier hs-var">pTargetDistributionId_</span></a></span></span><span> </span><span id="local-6989586621679422678"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422678"><span class="hs-identifier hs-var">pAlias_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.AssociateAlias.html#newAssociateAlias"><span class="hs-identifier hs-var hs-var">newAssociateAlias</span></a></span></span><span> </span><span id="local-6989586621679422963"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422963"><span class="hs-identifier hs-var">pTargetDistributionId_</span></a></span></span><span> </span><span id="local-6989586621679422962"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422962"><span class="hs-identifier hs-var">pAlias_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">AssociateAlias' :: Text -&gt; Text -&gt; AssociateAlias
 </span><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-type">AssociateAlias'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetDistributionId:AssociateAlias' :: Text
 </span><a href="Network.AWS.CloudFront.AssociateAlias.html#%24sel%3AtargetDistributionId%3AAssociateAlias%27"><span class="hs-identifier hs-var">targetDistributionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422679"><span class="hs-identifier hs-var">pTargetDistributionId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422963"><span class="hs-identifier hs-var">pTargetDistributionId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:alias:AssociateAlias' :: Text
 </span><a href="Network.AWS.CloudFront.AssociateAlias.html#%24sel%3Aalias%3AAssociateAlias%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422678"><span class="hs-identifier hs-var">pAlias_</span></a></span><span>
+</span><a href="#local-6989586621679422962"><span class="hs-identifier hs-var">pAlias_</span></a></span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | The ID of the distribution that you&#8217;re associating the alias with.</span><span>
@@ -159,16 +159,16 @@ $cfrom :: forall x. AssociateAlias -&gt; Rep AssociateAlias x
 -&gt; (AssociateAlias -&gt; Text -&gt; AssociateAlias)
 -&gt; Lens AssociateAlias AssociateAlias Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-type">AssociateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422675"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-type">AssociateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422959"><span class="annot"><span class="annottext">Text
 targetDistributionId :: Text
 $sel:targetDistributionId:AssociateAlias' :: AssociateAlias -&gt; Text
-</span><a href="#local-6989586621679422675"><span class="hs-identifier hs-var hs-var">targetDistributionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422675"><span class="hs-identifier hs-var">targetDistributionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422674"><span class="annot"><span class="annottext">s :: AssociateAlias
-</span><a href="#local-6989586621679422674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-type">AssociateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422673"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateAlias
-</span><a href="#local-6989586621679422674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDistributionId:AssociateAlias' :: Text
+</span><a href="#local-6989586621679422959"><span class="hs-identifier hs-var hs-var">targetDistributionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422959"><span class="hs-identifier hs-var">targetDistributionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422958"><span class="annot"><span class="annottext">s :: AssociateAlias
+</span><a href="#local-6989586621679422958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-type">AssociateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422957"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateAlias
+</span><a href="#local-6989586621679422958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetDistributionId:AssociateAlias' :: Text
 </span><a href="Network.AWS.CloudFront.AssociateAlias.html#%24sel%3AtargetDistributionId%3AAssociateAlias%27"><span class="hs-identifier hs-var">targetDistributionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The alias (also known as a CNAME) to add to the target distribution.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#associateAlias_alias"><span class="hs-identifier hs-type">associateAlias_alias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -177,27 +177,27 @@ $sel:targetDistributionId:AssociateAlias' :: AssociateAlias -&gt; Text
 -&gt; (AssociateAlias -&gt; Text -&gt; AssociateAlias)
 -&gt; Lens AssociateAlias AssociateAlias Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-type">AssociateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422672"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-type">AssociateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422956"><span class="annot"><span class="annottext">Text
 alias :: Text
 $sel:alias:AssociateAlias' :: AssociateAlias -&gt; Text
-</span><a href="#local-6989586621679422672"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422672"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422671"><span class="annot"><span class="annottext">s :: AssociateAlias
-</span><a href="#local-6989586621679422671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-type">AssociateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422670"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateAlias
-</span><a href="#local-6989586621679422671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alias:AssociateAlias' :: Text
+</span><a href="#local-6989586621679422956"><span class="hs-identifier hs-var hs-var">alias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422956"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679422955"><span class="annot"><span class="annottext">s :: AssociateAlias
+</span><a href="#local-6989586621679422955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-type">AssociateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679422954"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679422954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateAlias
+</span><a href="#local-6989586621679422955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:alias:AssociateAlias' :: Text
 </span><a href="Network.AWS.CloudFront.AssociateAlias.html#%24sel%3Aalias%3AAssociateAlias%27"><span class="hs-identifier hs-var">alias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679422954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAliasResponse"><span class="hs-identifier hs-type">AssociateAliasResponse</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679422666"><span class="annot"><span class="annottext">request :: AssociateAlias -&gt; Request AssociateAlias
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679422950"><span class="annot"><span class="annottext">request :: AssociateAlias -&gt; Request AssociateAlias
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AssociateAlias -&gt; Request AssociateAlias
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.put</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679422662"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679422946"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateAlias
 -&gt; ClientResponse ClientBody
@@ -221,12 +221,12 @@ AWSResponse a
 AssociateAliasResponse
 </span><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAliasResponse%27"><span class="hs-identifier hs-var">AssociateAliasResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422655"><span id="local-6989586621679422657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422939"><span id="local-6989586621679422941"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679422648"><span class="annot"><span class="annottext">toHeaders :: AssociateAlias -&gt; [Header]
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679422932"><span class="annot"><span class="annottext">toHeaders :: AssociateAlias -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; AssociateAlias -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -234,13 +234,13 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679422643"><span class="annot"><span class="annottext">toPath :: AssociateAlias -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-type">AssociateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422640"><span id="local-6989586621679422641"><span class="annot"><span class="annottext">Text
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679422927"><span class="annot"><span class="annottext">toPath :: AssociateAlias -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-type">AssociateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422924"><span id="local-6989586621679422925"><span class="annot"><span class="annottext">Text
 alias :: Text
 targetDistributionId :: Text
 $sel:alias:AssociateAlias' :: AssociateAlias -&gt; Text
 $sel:targetDistributionId:AssociateAlias' :: AssociateAlias -&gt; Text
-</span><a href="#local-6989586621679422640"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679422924"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -249,32 +249,32 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422641"><span class="hs-identifier hs-var">targetDistributionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679422925"><span class="hs-identifier hs-var">targetDistributionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/associate-alias&quot;</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias"><span class="hs-identifier hs-type">AssociateAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679422636"><span class="annot"><span class="annottext">toQuery :: AssociateAlias -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-type">AssociateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422633"><span id="local-6989586621679422634"><span class="annot"><span class="annottext">Text
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679422920"><span class="annot"><span class="annottext">toQuery :: AssociateAlias -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAlias%27"><span class="hs-identifier hs-type">AssociateAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679422917"><span id="local-6989586621679422918"><span class="annot"><span class="annottext">Text
 alias :: Text
 targetDistributionId :: Text
 $sel:alias:AssociateAlias' :: AssociateAlias -&gt; Text
 $sel:targetDistributionId:AssociateAlias' :: AssociateAlias -&gt; Text
-</span><a href="#local-6989586621679422633"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679422917"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Alias&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679422633"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679422917"><span class="hs-identifier hs-var">alias</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newAssociateAliasResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679422630"><span id="local-6989586621679422631"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateAliasResponse"><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAliasResponse"><span class="hs-identifier hs-var">AssociateAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateAliasResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAliasResponse%27"><span class="hs-identifier hs-var">AssociateAliasResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679422914"><span id="local-6989586621679422915"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateAliasResponse"><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAliasResponse"><span class="hs-identifier hs-var">AssociateAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateAliasResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAliasResponse%27"><span class="hs-identifier hs-var">AssociateAliasResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422626"><span id="local-6989586621679422628"><span class="annot"><span class="annottext">AssociateAliasResponse -&gt; AssociateAliasResponse -&gt; Bool
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679422910"><span id="local-6989586621679422912"><span class="annot"><span class="annottext">AssociateAliasResponse -&gt; AssociateAliasResponse -&gt; Bool
 (AssociateAliasResponse -&gt; AssociateAliasResponse -&gt; Bool)
 -&gt; (AssociateAliasResponse -&gt; AssociateAliasResponse -&gt; Bool)
 -&gt; Eq AssociateAliasResponse
@@ -283,7 +283,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateAliasResponse -&gt; AssociateAliasResponse -&gt; Bool
 == :: AssociateAliasResponse -&gt; AssociateAliasResponse -&gt; Bool
 $c== :: AssociateAliasResponse -&gt; AssociateAliasResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422618"><span id="local-6989586621679422620"><span id="local-6989586621679422622"><span id="local-6989586621679422624"><span class="annot"><span class="annottext">ReadPrec [AssociateAliasResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422902"><span id="local-6989586621679422904"><span id="local-6989586621679422906"><span id="local-6989586621679422908"><span class="annot"><span class="annottext">ReadPrec [AssociateAliasResponse]
 ReadPrec AssociateAliasResponse
 Int -&gt; ReadS AssociateAliasResponse
 ReadS [AssociateAliasResponse]
@@ -303,7 +303,7 @@ readList :: ReadS [AssociateAliasResponse]
 $creadList :: ReadS [AssociateAliasResponse]
 readsPrec :: Int -&gt; ReadS AssociateAliasResponse
 $creadsPrec :: Int -&gt; ReadS AssociateAliasResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422612"><span id="local-6989586621679422614"><span id="local-6989586621679422616"><span class="annot"><span class="annottext">Int -&gt; AssociateAliasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679422896"><span id="local-6989586621679422898"><span id="local-6989586621679422900"><span class="annot"><span class="annottext">Int -&gt; AssociateAliasResponse -&gt; ShowS
 [AssociateAliasResponse] -&gt; ShowS
 AssociateAliasResponse -&gt; String
 (Int -&gt; AssociateAliasResponse -&gt; ShowS)
@@ -340,5 +340,5 @@ $cfrom :: forall x. AssociateAliasResponse -&gt; Rep AssociateAliasResponse x
 </span><a href="Network.AWS.CloudFront.AssociateAlias.html#newAssociateAliasResponse"><span class="hs-identifier hs-var hs-var">newAssociateAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AssociateAliasResponse
 </span><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAliasResponse%27"><span class="hs-identifier hs-var">AssociateAliasResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422608"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAliasResponse"><span class="hs-identifier hs-type">AssociateAliasResponse</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679422892"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.AssociateAlias.html#AssociateAliasResponse"><span class="hs-identifier hs-type">AssociateAliasResponse</span></a></span></span><span>
 </span><span id="line-143"></span></pre></body></html>

@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- @deviceSelectionConfiguration@ request parameter in ScheduleRun.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newDeviceSelectionConfiguration' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679367572"><span id="local-6989586621679367573"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceSelectionConfiguration"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-var">DeviceSelectionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceSelectionConfiguration%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration%27"><span class="hs-identifier hs-var">DeviceSelectionConfiguration'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679367816"><span id="local-6989586621679367817"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeviceSelectionConfiguration"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-var">DeviceSelectionConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeviceSelectionConfiguration%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration%27"><span class="hs-identifier hs-var">DeviceSelectionConfiguration'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Used to dynamically select a set of devices for a test run. A filter is</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- made up of an attribute, an operator, and one or more values.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -118,7 +118,7 @@
 </span><span id="line-117"></span><span>    </span><span id="%24sel%3AmaxDevices%3ADeviceSelectionConfiguration%27"><span class="annot"><span class="annottext">DeviceSelectionConfiguration -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#%24sel%3AmaxDevices%3ADeviceSelectionConfiguration%27"><span class="hs-identifier hs-var hs-var">maxDevices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367565"><span id="local-6989586621679367567"><span class="annot"><span class="annottext">DeviceSelectionConfiguration
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367809"><span id="local-6989586621679367811"><span class="annot"><span class="annottext">DeviceSelectionConfiguration
 -&gt; DeviceSelectionConfiguration -&gt; Bool
 (DeviceSelectionConfiguration
  -&gt; DeviceSelectionConfiguration -&gt; Bool)
@@ -134,7 +134,7 @@ $c/= :: DeviceSelectionConfiguration
 -&gt; DeviceSelectionConfiguration -&gt; Bool
 $c== :: DeviceSelectionConfiguration
 -&gt; DeviceSelectionConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367556"><span id="local-6989586621679367558"><span id="local-6989586621679367560"><span id="local-6989586621679367562"><span class="annot"><span class="annottext">ReadPrec [DeviceSelectionConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367800"><span id="local-6989586621679367802"><span id="local-6989586621679367804"><span id="local-6989586621679367806"><span class="annot"><span class="annottext">ReadPrec [DeviceSelectionConfiguration]
 ReadPrec DeviceSelectionConfiguration
 Int -&gt; ReadS DeviceSelectionConfiguration
 ReadS [DeviceSelectionConfiguration]
@@ -154,7 +154,7 @@ readList :: ReadS [DeviceSelectionConfiguration]
 $creadList :: ReadS [DeviceSelectionConfiguration]
 readsPrec :: Int -&gt; ReadS DeviceSelectionConfiguration
 $creadsPrec :: Int -&gt; ReadS DeviceSelectionConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367549"><span id="local-6989586621679367551"><span id="local-6989586621679367553"><span class="annot"><span class="annottext">Int -&gt; DeviceSelectionConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367793"><span id="local-6989586621679367795"><span id="local-6989586621679367797"><span class="annot"><span class="annottext">Int -&gt; DeviceSelectionConfiguration -&gt; ShowS
 [DeviceSelectionConfiguration] -&gt; ShowS
 DeviceSelectionConfiguration -&gt; String
 (Int -&gt; DeviceSelectionConfiguration -&gt; ShowS)
@@ -283,8 +283,8 @@ DeviceSelectionConfiguration -&gt; Rep DeviceSelectionConfiguration x
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-216"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-type">DeviceSelectionConfiguration</span></a></span><span>
 </span><span id="line-217"></span><span id="newDeviceSelectionConfiguration"><span class="annot"><span class="annottext">newDeviceSelectionConfiguration :: Int -&gt; DeviceSelectionConfiguration
-</span><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#newDeviceSelectionConfiguration"><span class="hs-identifier hs-var hs-var">newDeviceSelectionConfiguration</span></a></span></span><span> </span><span id="local-6989586621679367543"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367543"><span class="hs-identifier hs-var">pMaxDevices_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#newDeviceSelectionConfiguration"><span class="hs-identifier hs-var hs-var">newDeviceSelectionConfiguration</span></a></span></span><span> </span><span id="local-6989586621679367787"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367787"><span class="hs-identifier hs-var">pMaxDevices_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><span class="annottext">DeviceSelectionConfiguration' :: [DeviceFilter] -&gt; Int -&gt; DeviceSelectionConfiguration
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration%27"><span class="hs-identifier hs-type">DeviceSelectionConfiguration'</span></a></span><span>
 </span><span id="line-219"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DeviceSelectionConfiguration' :: [DeviceFilter]
@@ -294,7 +294,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxDevices:DeviceSelectionConfiguration' :: Int
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#%24sel%3AmaxDevices%3ADeviceSelectionConfiguration%27"><span class="hs-identifier hs-var">maxDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367543"><span class="hs-identifier hs-var">pMaxDevices_</span></a></span><span>
+</span><a href="#local-6989586621679367787"><span class="hs-identifier hs-var">pMaxDevices_</span></a></span><span>
 </span><span id="line-222"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-223"></span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- | Used to dynamically select a set of devices for a test run. A filter is</span><span>
@@ -391,16 +391,16 @@ forall a. Monoid a =&gt; a
      [DeviceFilter]
      [DeviceFilter]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration%27"><span class="hs-identifier hs-type">DeviceSelectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367539"><span class="annot"><span class="annottext">[DeviceFilter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration%27"><span class="hs-identifier hs-type">DeviceSelectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367783"><span class="annot"><span class="annottext">[DeviceFilter]
 filters :: [DeviceFilter]
 $sel:filters:DeviceSelectionConfiguration' :: DeviceSelectionConfiguration -&gt; [DeviceFilter]
-</span><a href="#local-6989586621679367539"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DeviceFilter]
-</span><a href="#local-6989586621679367539"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367538"><span class="annot"><span class="annottext">s :: DeviceSelectionConfiguration
-</span><a href="#local-6989586621679367538"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration%27"><span class="hs-identifier hs-type">DeviceSelectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367537"><span class="annot"><span class="annottext">[DeviceFilter]
-</span><a href="#local-6989586621679367537"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSelectionConfiguration
-</span><a href="#local-6989586621679367538"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DeviceSelectionConfiguration' :: [DeviceFilter]
+</span><a href="#local-6989586621679367783"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[DeviceFilter]
+</span><a href="#local-6989586621679367783"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367782"><span class="annot"><span class="annottext">s :: DeviceSelectionConfiguration
+</span><a href="#local-6989586621679367782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration%27"><span class="hs-identifier hs-type">DeviceSelectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367781"><span class="annot"><span class="annottext">[DeviceFilter]
+</span><a href="#local-6989586621679367781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSelectionConfiguration
+</span><a href="#local-6989586621679367782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DeviceSelectionConfiguration' :: [DeviceFilter]
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#%24sel%3Afilters%3ADeviceSelectionConfiguration%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[DeviceFilter]
-</span><a href="#local-6989586621679367537"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-type">DeviceSelectionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DeviceFilter] -&gt; f [DeviceFilter])
+</span><a href="#local-6989586621679367781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-type">DeviceSelectionConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([DeviceFilter] -&gt; f [DeviceFilter])
  -&gt; DeviceSelectionConfiguration -&gt; f DeviceSelectionConfiguration)
 -&gt; (([DeviceFilter] -&gt; f [DeviceFilter])
     -&gt; [DeviceFilter] -&gt; f [DeviceFilter])
@@ -410,8 +410,8 @@ $sel:filters:DeviceSelectionConfiguration' :: DeviceSelectionConfiguration -&gt;
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([DeviceFilter] -&gt; f [DeviceFilter])
 -&gt; [DeviceFilter] -&gt; f [DeviceFilter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-308"></span><span>
 </span><span id="line-309"></span><span class="hs-comment">-- | The maximum number of devices to be included in a test run.</span><span>
 </span><span id="line-310"></span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#deviceSelectionConfiguration_maxDevices"><span class="hs-identifier hs-type">deviceSelectionConfiguration_maxDevices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-type">DeviceSelectionConfiguration</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -423,32 +423,32 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      DeviceSelectionConfiguration DeviceSelectionConfiguration Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration%27"><span class="hs-identifier hs-type">DeviceSelectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367533"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration%27"><span class="hs-identifier hs-type">DeviceSelectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367777"><span class="annot"><span class="annottext">Int
 maxDevices :: Int
 $sel:maxDevices:DeviceSelectionConfiguration' :: DeviceSelectionConfiguration -&gt; Int
-</span><a href="#local-6989586621679367533"><span class="hs-identifier hs-var hs-var">maxDevices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367533"><span class="hs-identifier hs-var">maxDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367532"><span class="annot"><span class="annottext">s :: DeviceSelectionConfiguration
-</span><a href="#local-6989586621679367532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration%27"><span class="hs-identifier hs-type">DeviceSelectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367531"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSelectionConfiguration
-</span><a href="#local-6989586621679367532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxDevices:DeviceSelectionConfiguration' :: Int
+</span><a href="#local-6989586621679367777"><span class="hs-identifier hs-var hs-var">maxDevices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367777"><span class="hs-identifier hs-var">maxDevices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367776"><span class="annot"><span class="annottext">s :: DeviceSelectionConfiguration
+</span><a href="#local-6989586621679367776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration%27"><span class="hs-identifier hs-type">DeviceSelectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367775"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679367775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeviceSelectionConfiguration
+</span><a href="#local-6989586621679367776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxDevices:DeviceSelectionConfiguration' :: Int
 </span><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#%24sel%3AmaxDevices%3ADeviceSelectionConfiguration%27"><span class="hs-identifier hs-var">maxDevices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-type">DeviceSelectionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-type">DeviceSelectionConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-312"></span><span>
 </span><span id="line-313"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-314"></span><span>  </span><span id="local-6989586621679367527"><span id="local-6989586621679367529"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-314"></span><span>  </span><span id="local-6989586621679367771"><span id="local-6989586621679367773"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-315"></span><span>    </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-type">DeviceSelectionConfiguration</span></a></span></span></span><span>
 </span><span id="line-316"></span><span>
-</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367524"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-type">DeviceSelectionConfiguration</span></a></span></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367768"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-type">DeviceSelectionConfiguration</span></a></span></span><span>
 </span><span id="line-318"></span><span>
-</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367516"><span id="local-6989586621679367518"><span id="local-6989586621679367520"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-type">DeviceSelectionConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-320"></span><span>  </span><span id="local-6989586621679367514"><span class="annot"><span class="annottext">toJSON :: DeviceSelectionConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration%27"><span class="hs-identifier hs-type">DeviceSelectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367511"><span id="local-6989586621679367512"><span class="annot"><span class="annottext">Int
+</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367760"><span id="local-6989586621679367762"><span id="local-6989586621679367764"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration"><span class="hs-identifier hs-type">DeviceSelectionConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-320"></span><span>  </span><span id="local-6989586621679367758"><span class="annot"><span class="annottext">toJSON :: DeviceSelectionConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration.html#DeviceSelectionConfiguration%27"><span class="hs-identifier hs-type">DeviceSelectionConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367755"><span id="local-6989586621679367756"><span class="annot"><span class="annottext">Int
 [DeviceFilter]
 maxDevices :: Int
 filters :: [DeviceFilter]
 $sel:maxDevices:DeviceSelectionConfiguration' :: DeviceSelectionConfiguration -&gt; Int
 $sel:filters:DeviceSelectionConfiguration' :: DeviceSelectionConfiguration -&gt; [DeviceFilter]
-</span><a href="#local-6989586621679367511"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679367755"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-321"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-322"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -460,14 +460,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [DeviceFilter] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[DeviceFilter]
-</span><a href="#local-6989586621679367512"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679367756"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-324"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;maxDevices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679367511"><span class="hs-identifier hs-var">maxDevices</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367755"><span class="hs-identifier hs-var">maxDevices</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-325"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-326"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-327"></span></pre></body></html>

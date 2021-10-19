@@ -38,13 +38,13 @@
 </span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-40"></span><span>
-</span><span id="line-41"></span><span id="local-6989586621679350291"><span id="local-6989586621679350292"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StartChildWorkflowExecutionFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.StartChildWorkflowExecutionFailedCause.html#StartChildWorkflowExecutionFailedCause"><span class="hs-identifier hs-var">StartChildWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartChildWorkflowExecutionFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.StartChildWorkflowExecutionFailedCause.html#StartChildWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-var">StartChildWorkflowExecutionFailedCause'</span></a></span></span><span>
+</span><span id="line-41"></span><span id="local-6989586621679350368"><span id="local-6989586621679350369"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StartChildWorkflowExecutionFailedCause"><span class="annot"><a href="Network.AWS.SWF.Types.StartChildWorkflowExecutionFailedCause.html#StartChildWorkflowExecutionFailedCause"><span class="hs-identifier hs-var">StartChildWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartChildWorkflowExecutionFailedCause%27"><span class="annot"><a href="Network.AWS.SWF.Types.StartChildWorkflowExecutionFailedCause.html#StartChildWorkflowExecutionFailedCause%27"><span class="hs-identifier hs-var">StartChildWorkflowExecutionFailedCause'</span></a></span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStartChildWorkflowExecutionFailedCause"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause -&gt; Text
 </span><a href="Network.AWS.SWF.Types.StartChildWorkflowExecutionFailedCause.html#fromStartChildWorkflowExecutionFailedCause"><span class="hs-identifier hs-var hs-var">fromStartChildWorkflowExecutionFailedCause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350283"><span id="local-6989586621679350285"><span id="local-6989586621679350287"><span class="annot"><span class="annottext">Int -&gt; StartChildWorkflowExecutionFailedCause -&gt; ShowS
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350360"><span id="local-6989586621679350362"><span id="local-6989586621679350364"><span class="annot"><span class="annottext">Int -&gt; StartChildWorkflowExecutionFailedCause -&gt; ShowS
 [StartChildWorkflowExecutionFailedCause] -&gt; ShowS
 StartChildWorkflowExecutionFailedCause -&gt; String
 (Int -&gt; StartChildWorkflowExecutionFailedCause -&gt; ShowS)
@@ -60,7 +60,7 @@ $cshow :: StartChildWorkflowExecutionFailedCause -&gt; String
 showsPrec :: Int -&gt; StartChildWorkflowExecutionFailedCause -&gt; ShowS
 $cshowsPrec :: Int -&gt; StartChildWorkflowExecutionFailedCause -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679350274"><span id="local-6989586621679350276"><span id="local-6989586621679350278"><span id="local-6989586621679350280"><span class="annot"><span class="annottext">ReadPrec [StartChildWorkflowExecutionFailedCause]
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679350351"><span id="local-6989586621679350353"><span id="local-6989586621679350355"><span id="local-6989586621679350357"><span class="annot"><span class="annottext">ReadPrec [StartChildWorkflowExecutionFailedCause]
 ReadPrec StartChildWorkflowExecutionFailedCause
 Int -&gt; ReadS StartChildWorkflowExecutionFailedCause
 ReadS [StartChildWorkflowExecutionFailedCause]
@@ -81,7 +81,7 @@ $creadList :: ReadS [StartChildWorkflowExecutionFailedCause]
 readsPrec :: Int -&gt; ReadS StartChildWorkflowExecutionFailedCause
 $creadsPrec :: Int -&gt; ReadS StartChildWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679350269"><span id="local-6989586621679350271"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679350346"><span id="local-6989586621679350348"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause
 -&gt; StartChildWorkflowExecutionFailedCause -&gt; Bool
 (StartChildWorkflowExecutionFailedCause
  -&gt; StartChildWorkflowExecutionFailedCause -&gt; Bool)
@@ -98,7 +98,7 @@ $c/= :: StartChildWorkflowExecutionFailedCause
 $c== :: StartChildWorkflowExecutionFailedCause
 -&gt; StartChildWorkflowExecutionFailedCause -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679350253"><span id="local-6989586621679350255"><span id="local-6989586621679350257"><span id="local-6989586621679350259"><span id="local-6989586621679350261"><span id="local-6989586621679350263"><span id="local-6989586621679350265"><span class="annot"><span class="annottext">Eq StartChildWorkflowExecutionFailedCause
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679350330"><span id="local-6989586621679350332"><span id="local-6989586621679350334"><span id="local-6989586621679350336"><span id="local-6989586621679350338"><span id="local-6989586621679350340"><span id="local-6989586621679350342"><span class="annot"><span class="annottext">Eq StartChildWorkflowExecutionFailedCause
 Eq StartChildWorkflowExecutionFailedCause
 -&gt; (StartChildWorkflowExecutionFailedCause
     -&gt; StartChildWorkflowExecutionFailedCause -&gt; Ordering)
@@ -192,7 +192,7 @@ StartChildWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350245"><span id="local-6989586621679350247"><span class="annot"><span class="annottext">Int -&gt; StartChildWorkflowExecutionFailedCause -&gt; Int
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679350322"><span id="local-6989586621679350324"><span class="annot"><span class="annottext">Int -&gt; StartChildWorkflowExecutionFailedCause -&gt; Int
 StartChildWorkflowExecutionFailedCause -&gt; Int
 (Int -&gt; StartChildWorkflowExecutionFailedCause -&gt; Int)
 -&gt; (StartChildWorkflowExecutionFailedCause -&gt; Int)
@@ -203,56 +203,56 @@ $chash :: StartChildWorkflowExecutionFailedCause -&gt; Int
 hashWithSalt :: Int -&gt; StartChildWorkflowExecutionFailedCause -&gt; Int
 $chashWithSalt :: Int -&gt; StartChildWorkflowExecutionFailedCause -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679350242"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause -&gt; ()
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679350319"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause -&gt; ()
 (StartChildWorkflowExecutionFailedCause -&gt; ())
 -&gt; NFData StartChildWorkflowExecutionFailedCause
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StartChildWorkflowExecutionFailedCause -&gt; ()
 $crnf :: StartChildWorkflowExecutionFailedCause -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679350239"><span class="annot"><span class="annottext">Text -&gt; Either String StartChildWorkflowExecutionFailedCause
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679350316"><span class="annot"><span class="annottext">Text -&gt; Either String StartChildWorkflowExecutionFailedCause
 (Text -&gt; Either String StartChildWorkflowExecutionFailedCause)
 -&gt; FromText StartChildWorkflowExecutionFailedCause
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StartChildWorkflowExecutionFailedCause
 $cfromText :: Text -&gt; Either String StartChildWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679350236"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause -&gt; Text
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679350313"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause -&gt; Text
 (StartChildWorkflowExecutionFailedCause -&gt; Text)
 -&gt; ToText StartChildWorkflowExecutionFailedCause
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StartChildWorkflowExecutionFailedCause -&gt; Text
 $ctoText :: StartChildWorkflowExecutionFailedCause -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679350233"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause -&gt; ByteString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679350310"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause -&gt; ByteString
 (StartChildWorkflowExecutionFailedCause -&gt; ByteString)
 -&gt; ToByteString StartChildWorkflowExecutionFailedCause
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StartChildWorkflowExecutionFailedCause -&gt; ByteString
 $ctoBS :: StartChildWorkflowExecutionFailedCause -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679350230"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause -&gt; ByteStringBuilder
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679350307"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause -&gt; ByteStringBuilder
 (StartChildWorkflowExecutionFailedCause -&gt; ByteStringBuilder)
 -&gt; ToLog StartChildWorkflowExecutionFailedCause
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StartChildWorkflowExecutionFailedCause -&gt; ByteStringBuilder
 $cbuild :: StartChildWorkflowExecutionFailedCause -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679350227"><span class="annot"><span class="annottext">HeaderName -&gt; StartChildWorkflowExecutionFailedCause -&gt; [Header]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679350304"><span class="annot"><span class="annottext">HeaderName -&gt; StartChildWorkflowExecutionFailedCause -&gt; [Header]
 (HeaderName -&gt; StartChildWorkflowExecutionFailedCause -&gt; [Header])
 -&gt; ToHeader StartChildWorkflowExecutionFailedCause
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StartChildWorkflowExecutionFailedCause -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StartChildWorkflowExecutionFailedCause -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679350224"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause -&gt; QueryString
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679350301"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause -&gt; QueryString
 (StartChildWorkflowExecutionFailedCause -&gt; QueryString)
 -&gt; ToQuery StartChildWorkflowExecutionFailedCause
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StartChildWorkflowExecutionFailedCause -&gt; QueryString
 $ctoQuery :: StartChildWorkflowExecutionFailedCause -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679350219"><span id="local-6989586621679350221"><span class="annot"><span class="annottext">Value -&gt; Parser [StartChildWorkflowExecutionFailedCause]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679350296"><span id="local-6989586621679350298"><span class="annot"><span class="annottext">Value -&gt; Parser [StartChildWorkflowExecutionFailedCause]
 Value -&gt; Parser StartChildWorkflowExecutionFailedCause
 (Value -&gt; Parser StartChildWorkflowExecutionFailedCause)
 -&gt; (Value -&gt; Parser [StartChildWorkflowExecutionFailedCause])
@@ -264,7 +264,7 @@ $cparseJSONList :: Value -&gt; Parser [StartChildWorkflowExecutionFailedCause]
 parseJSON :: Value -&gt; Parser StartChildWorkflowExecutionFailedCause
 $cparseJSON :: Value -&gt; Parser StartChildWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679350214"><span id="local-6989586621679350216"><span class="annot"><span class="annottext">FromJSONKeyFunction [StartChildWorkflowExecutionFailedCause]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679350291"><span id="local-6989586621679350293"><span class="annot"><span class="annottext">FromJSONKeyFunction [StartChildWorkflowExecutionFailedCause]
 FromJSONKeyFunction StartChildWorkflowExecutionFailedCause
 FromJSONKeyFunction StartChildWorkflowExecutionFailedCause
 -&gt; FromJSONKeyFunction [StartChildWorkflowExecutionFailedCause]
@@ -276,7 +276,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StartChildWorkflowExecutionFailedCause
 fromJSONKey :: FromJSONKeyFunction StartChildWorkflowExecutionFailedCause
 $cfromJSONKey :: FromJSONKeyFunction StartChildWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679350205"><span id="local-6989586621679350207"><span id="local-6989586621679350209"><span id="local-6989586621679350211"><span class="annot"><span class="annottext">[StartChildWorkflowExecutionFailedCause] -&gt; Encoding
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679350282"><span id="local-6989586621679350284"><span id="local-6989586621679350286"><span id="local-6989586621679350288"><span class="annot"><span class="annottext">[StartChildWorkflowExecutionFailedCause] -&gt; Encoding
 [StartChildWorkflowExecutionFailedCause] -&gt; Value
 StartChildWorkflowExecutionFailedCause -&gt; Encoding
 StartChildWorkflowExecutionFailedCause -&gt; Value
@@ -300,7 +300,7 @@ $ctoEncoding :: StartChildWorkflowExecutionFailedCause -&gt; Encoding
 toJSON :: StartChildWorkflowExecutionFailedCause -&gt; Value
 $ctoJSON :: StartChildWorkflowExecutionFailedCause -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679350200"><span id="local-6989586621679350202"><span class="annot"><span class="annottext">ToJSONKeyFunction [StartChildWorkflowExecutionFailedCause]
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679350277"><span id="local-6989586621679350279"><span class="annot"><span class="annottext">ToJSONKeyFunction [StartChildWorkflowExecutionFailedCause]
 ToJSONKeyFunction StartChildWorkflowExecutionFailedCause
 ToJSONKeyFunction StartChildWorkflowExecutionFailedCause
 -&gt; ToJSONKeyFunction [StartChildWorkflowExecutionFailedCause]
@@ -312,14 +312,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StartChildWorkflowExecutionFailedCause]
 toJSONKey :: ToJSONKeyFunction StartChildWorkflowExecutionFailedCause
 $ctoJSONKey :: ToJSONKeyFunction StartChildWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679350197"><span class="annot"><span class="annottext">[Node] -&gt; Either String StartChildWorkflowExecutionFailedCause
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679350274"><span class="annot"><span class="annottext">[Node] -&gt; Either String StartChildWorkflowExecutionFailedCause
 ([Node] -&gt; Either String StartChildWorkflowExecutionFailedCause)
 -&gt; FromXML StartChildWorkflowExecutionFailedCause
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StartChildWorkflowExecutionFailedCause
 $cparseXML :: [Node] -&gt; Either String StartChildWorkflowExecutionFailedCause
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679350194"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause -&gt; XML
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679350271"><span class="annot"><span class="annottext">StartChildWorkflowExecutionFailedCause -&gt; XML
 (StartChildWorkflowExecutionFailedCause -&gt; XML)
 -&gt; ToXML StartChildWorkflowExecutionFailedCause
 forall a. (a -&gt; XML) -&gt; ToXML a

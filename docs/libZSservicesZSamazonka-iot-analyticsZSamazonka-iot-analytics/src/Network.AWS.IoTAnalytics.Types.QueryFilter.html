@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- according to the timeframe in which it arrives.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newQueryFilter' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679257532"><span id="local-6989586621679257533"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueryFilter"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter"><span class="hs-identifier hs-var">QueryFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryFilter%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter%27"><span class="hs-identifier hs-var">QueryFilter'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679257734"><span id="local-6989586621679257735"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueryFilter"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter"><span class="hs-identifier hs-var">QueryFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueryFilter%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter%27"><span class="hs-identifier hs-var">QueryFilter'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Used to limit data to that which has arrived since the last execution of</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the action.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AdeltaTime%3AQueryFilter%27"><span class="annot"><span class="annottext">QueryFilter -&gt; Maybe DeltaTime
 </span><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#%24sel%3AdeltaTime%3AQueryFilter%27"><span class="hs-identifier hs-var hs-var">deltaTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.DeltaTime.html#DeltaTime"><span class="hs-identifier hs-type">DeltaTime</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257526"><span id="local-6989586621679257528"><span class="annot"><span class="annottext">QueryFilter -&gt; QueryFilter -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257728"><span id="local-6989586621679257730"><span class="annot"><span class="annottext">QueryFilter -&gt; QueryFilter -&gt; Bool
 (QueryFilter -&gt; QueryFilter -&gt; Bool)
 -&gt; (QueryFilter -&gt; QueryFilter -&gt; Bool) -&gt; Eq QueryFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: QueryFilter -&gt; QueryFilter -&gt; Bool
 == :: QueryFilter -&gt; QueryFilter -&gt; Bool
 $c== :: QueryFilter -&gt; QueryFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257517"><span id="local-6989586621679257519"><span id="local-6989586621679257521"><span id="local-6989586621679257523"><span class="annot"><span class="annottext">ReadPrec [QueryFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257719"><span id="local-6989586621679257721"><span id="local-6989586621679257723"><span id="local-6989586621679257725"><span class="annot"><span class="annottext">ReadPrec [QueryFilter]
 ReadPrec QueryFilter
 Int -&gt; ReadS QueryFilter
 ReadS [QueryFilter]
@@ -62,7 +62,7 @@ readList :: ReadS [QueryFilter]
 $creadList :: ReadS [QueryFilter]
 readsPrec :: Int -&gt; ReadS QueryFilter
 $creadsPrec :: Int -&gt; ReadS QueryFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257510"><span id="local-6989586621679257512"><span id="local-6989586621679257514"><span class="annot"><span class="annottext">Int -&gt; QueryFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257712"><span id="local-6989586621679257714"><span id="local-6989586621679257716"><span class="annot"><span class="annottext">Int -&gt; QueryFilter -&gt; ShowS
 [QueryFilter] -&gt; ShowS
 QueryFilter -&gt; String
 (Int -&gt; QueryFilter -&gt; ShowS)
@@ -117,19 +117,19 @@ forall a. Maybe a
 -&gt; (QueryFilter -&gt; Maybe DeltaTime -&gt; QueryFilter)
 -&gt; Lens QueryFilter QueryFilter (Maybe DeltaTime) (Maybe DeltaTime)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter%27"><span class="hs-identifier hs-type">QueryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257501"><span class="annot"><span class="annottext">Maybe DeltaTime
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter%27"><span class="hs-identifier hs-type">QueryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257703"><span class="annot"><span class="annottext">Maybe DeltaTime
 deltaTime :: Maybe DeltaTime
 $sel:deltaTime:QueryFilter' :: QueryFilter -&gt; Maybe DeltaTime
-</span><a href="#local-6989586621679257501"><span class="hs-identifier hs-var hs-var">deltaTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeltaTime
-</span><a href="#local-6989586621679257501"><span class="hs-identifier hs-var">deltaTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257500"><span class="annot"><span class="annottext">s :: QueryFilter
-</span><a href="#local-6989586621679257500"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter%27"><span class="hs-identifier hs-type">QueryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257499"><span class="annot"><span class="annottext">Maybe DeltaTime
-</span><a href="#local-6989586621679257499"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryFilter
-</span><a href="#local-6989586621679257500"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deltaTime:QueryFilter' :: Maybe DeltaTime
+</span><a href="#local-6989586621679257703"><span class="hs-identifier hs-var hs-var">deltaTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeltaTime
+</span><a href="#local-6989586621679257703"><span class="hs-identifier hs-var">deltaTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257702"><span class="annot"><span class="annottext">s :: QueryFilter
+</span><a href="#local-6989586621679257702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter%27"><span class="hs-identifier hs-type">QueryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257701"><span class="annot"><span class="annottext">Maybe DeltaTime
+</span><a href="#local-6989586621679257701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueryFilter
+</span><a href="#local-6989586621679257702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deltaTime:QueryFilter' :: Maybe DeltaTime
 </span><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#%24sel%3AdeltaTime%3AQueryFilter%27"><span class="hs-identifier hs-var">deltaTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeltaTime
-</span><a href="#local-6989586621679257499"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter"><span class="hs-identifier hs-type">QueryFilter</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679257701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter"><span class="hs-identifier hs-type">QueryFilter</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257496"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter"><span class="hs-identifier hs-type">QueryFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679257494"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser QueryFilter
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257698"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter"><span class="hs-identifier hs-type">QueryFilter</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679257696"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser QueryFilter
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser QueryFilter) -&gt; Value -&gt; Parser QueryFilter
@@ -137,29 +137,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;QueryFilter&quot;</span></span><span>
-</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257491"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257491"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257693"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257693"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeltaTime -&gt; QueryFilter
 </span><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter%27"><span class="hs-identifier hs-var">QueryFilter'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe DeltaTime -&gt; QueryFilter)
 -&gt; Parser (Maybe DeltaTime) -&gt; Parser QueryFilter
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679257491"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeltaTime)
+</span><a href="#local-6989586621679257693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeltaTime)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deltaTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257485"><span id="local-6989586621679257487"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter"><span class="hs-identifier hs-type">QueryFilter</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257687"><span id="local-6989586621679257689"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter"><span class="hs-identifier hs-type">QueryFilter</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257482"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter"><span class="hs-identifier hs-type">QueryFilter</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257684"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter"><span class="hs-identifier hs-type">QueryFilter</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257474"><span id="local-6989586621679257476"><span id="local-6989586621679257478"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter"><span class="hs-identifier hs-type">QueryFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679257472"><span class="annot"><span class="annottext">toJSON :: QueryFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter%27"><span class="hs-identifier hs-type">QueryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257470"><span class="annot"><span class="annottext">Maybe DeltaTime
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257676"><span id="local-6989586621679257678"><span id="local-6989586621679257680"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter"><span class="hs-identifier hs-type">QueryFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679257674"><span class="annot"><span class="annottext">toJSON :: QueryFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.QueryFilter.html#QueryFilter%27"><span class="hs-identifier hs-type">QueryFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257672"><span class="annot"><span class="annottext">Maybe DeltaTime
 deltaTime :: Maybe DeltaTime
 $sel:deltaTime:QueryFilter' :: QueryFilter -&gt; Maybe DeltaTime
-</span><a href="#local-6989586621679257470"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679257672"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -171,6 +171,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(DeltaTime -&gt; Pair) -&gt; Maybe DeltaTime -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeltaTime
-</span><a href="#local-6989586621679257470"><span class="hs-identifier hs-var">deltaTime</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679257672"><span class="hs-identifier hs-var">deltaTime</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

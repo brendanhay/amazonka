@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- action.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newFindingFilter' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679249934"><span id="local-6989586621679249935"></span></span><span class="hs-keyword">data</span><span> </span><span id="FindingFilter"><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-var">FindingFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingFilter%27"><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-var">FindingFilter'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679250305"><span id="local-6989586621679250306"></span></span><span class="hs-keyword">data</span><span> </span><span id="FindingFilter"><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-var">FindingFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingFilter%27"><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-var">FindingFilter'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- __agentId__ property of the Finding data type.</span><span>
@@ -38,39 +38,39 @@
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AagentIds%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">agentIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- __rulesPackageArn__ property of the Finding data type.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3ArulesPackageArns%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Text]
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3ArulesPackageArns%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The time range during which the finding is generated.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AcreationTimeRange%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe TimestampRange
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AcreationTimeRange%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">creationTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- __severity__ property of the Finding data type.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aseverities%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Severity]
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3Aseverities%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">severities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Severity.html#Severity"><span class="hs-identifier hs-type">Severity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the list of values that are specified</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- for this data type property must be contained in the list of values of</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- the __attributes__ property of the Finding data type.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aattributes%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Attribute]
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3Aattributes%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- __userAttributes__ property of the Finding data type.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AuserAttributes%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Attribute]
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- __ruleName__ property of the Finding data type.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AruleNames%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Text]
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AruleNames%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">ruleNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- __userAttributes__ property of the Finding data type.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AuserAttributes%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Attribute]
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AuserAttributes%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- __autoScalingGroup__ property of the Finding data type.</span><span>
-</span><span id="line-59"></span><span>    </span><span id="%24sel%3AautoScalingGroups%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Text]
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AautoScalingGroups%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- __rulesPackageArn__ property of the Finding data type.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3ArulesPackageArns%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Text]
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3ArulesPackageArns%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, the list of values that are specified</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- for this data type property must be contained in the list of values of</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- the __attributes__ property of the Finding data type.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aattributes%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Attribute]
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3Aattributes%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- __severity__ property of the Finding data type.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Aseverities%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Severity]
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3Aseverities%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">severities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Severity.html#Severity"><span class="hs-identifier hs-type">Severity</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The time range during which the finding is generated.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AcreationTimeRange%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe TimestampRange
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AcreationTimeRange%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">creationTimeRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- __ruleName__ property of the Finding data type.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AruleNames%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Text]
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AruleNames%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">ruleNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- __autoScalingGroup__ property of the Finding data type.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AautoScalingGroups%3AFindingFilter%27"><span class="annot"><span class="annottext">FindingFilter -&gt; Maybe [Text]
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AautoScalingGroups%3AFindingFilter%27"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249921"><span id="local-6989586621679249923"><span class="annot"><span class="annottext">FindingFilter -&gt; FindingFilter -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250292"><span id="local-6989586621679250294"><span class="annot"><span class="annottext">FindingFilter -&gt; FindingFilter -&gt; Bool
 (FindingFilter -&gt; FindingFilter -&gt; Bool)
 -&gt; (FindingFilter -&gt; FindingFilter -&gt; Bool) -&gt; Eq FindingFilter
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FindingFilter -&gt; FindingFilter -&gt; Bool
 == :: FindingFilter -&gt; FindingFilter -&gt; Bool
 $c== :: FindingFilter -&gt; FindingFilter -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249912"><span id="local-6989586621679249914"><span id="local-6989586621679249916"><span id="local-6989586621679249918"><span class="annot"><span class="annottext">ReadPrec [FindingFilter]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250283"><span id="local-6989586621679250285"><span id="local-6989586621679250287"><span id="local-6989586621679250289"><span class="annot"><span class="annottext">ReadPrec [FindingFilter]
 ReadPrec FindingFilter
 Int -&gt; ReadS FindingFilter
 ReadS [FindingFilter]
@@ -98,7 +98,7 @@ readList :: ReadS [FindingFilter]
 $creadList :: ReadS [FindingFilter]
 readsPrec :: Int -&gt; ReadS FindingFilter
 $creadsPrec :: Int -&gt; ReadS FindingFilter
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249905"><span id="local-6989586621679249907"><span id="local-6989586621679249909"><span class="annot"><span class="annottext">Int -&gt; FindingFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250276"><span id="local-6989586621679250278"><span id="local-6989586621679250280"><span class="annot"><span class="annottext">Int -&gt; FindingFilter -&gt; ShowS
 [FindingFilter] -&gt; ShowS
 FindingFilter -&gt; String
 (Int -&gt; FindingFilter -&gt; ShowS)
@@ -136,42 +136,42 @@ $cfrom :: forall x. FindingFilter -&gt; Rep FindingFilter x
 </span><span id="line-76"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- __agentId__ property of the Finding data type.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'rulesPackageArns', 'findingFilter_rulesPackageArns' - For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'ruleNames', 'findingFilter_ruleNames' - For a record to match a filter, one of the values that is specified for</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- __rulesPackageArn__ property of the Finding data type.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- __ruleName__ property of the Finding data type.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'creationTimeRange', 'findingFilter_creationTimeRange' - The time range during which the finding is generated.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'severities', 'findingFilter_severities' - For a record to match a filter, one of the values that is specified for</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- __severity__ property of the Finding data type.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'attributes', 'findingFilter_attributes' - For a record to match a filter, the list of values that are specified</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- for this data type property must be contained in the list of values of</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- the __attributes__ property of the Finding data type.</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'userAttributes', 'findingFilter_userAttributes' - For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- __userAttributes__ property of the Finding data type.</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'autoScalingGroups', 'findingFilter_autoScalingGroups' - For a record to match a filter, one of the values that is specified for</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- __autoScalingGroup__ property of the Finding data type.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'userAttributes', 'findingFilter_userAttributes' - For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- __userAttributes__ property of the Finding data type.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'rulesPackageArns', 'findingFilter_rulesPackageArns' - For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- __rulesPackageArn__ property of the Finding data type.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'attributes', 'findingFilter_attributes' - For a record to match a filter, the list of values that are specified</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- for this data type property must be contained in the list of values of</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- the __attributes__ property of the Finding data type.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'severities', 'findingFilter_severities' - For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- __severity__ property of the Finding data type.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'creationTimeRange', 'findingFilter_creationTimeRange' - The time range during which the finding is generated.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'ruleNames', 'findingFilter_ruleNames' - For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'autoScalingGroups', 'findingFilter_autoScalingGroups' - For a record to match a filter, one of the values that is specified for</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- __ruleName__ property of the Finding data type.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- __autoScalingGroup__ property of the Finding data type.</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#newFindingFilter"><span class="hs-identifier hs-type">newFindingFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span>
 </span><span id="line-106"></span><span id="newFindingFilter"><span class="annot"><span class="annottext">newFindingFilter :: FindingFilter
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#newFindingFilter"><span class="hs-identifier hs-var hs-var">newFindingFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">FindingFilter' :: Maybe [Text]
 -&gt; Maybe [Text]
--&gt; Maybe TimestampRange
--&gt; Maybe [Severity]
--&gt; Maybe [Attribute]
 -&gt; Maybe [Attribute]
 -&gt; Maybe [Text]
+-&gt; Maybe [Attribute]
+-&gt; Maybe [Severity]
+-&gt; Maybe TimestampRange
 -&gt; Maybe [Text]
 -&gt; FindingFilter
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span>
@@ -179,32 +179,32 @@ $cfrom :: forall x. FindingFilter -&gt; Rep FindingFilter x
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AagentIds%3AFindingFilter%27"><span class="hs-identifier hs-var">agentIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:rulesPackageArns:FindingFilter' :: Maybe [Text]
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleNames:FindingFilter' :: Maybe [Text]
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AruleNames%3AFindingFilter%27"><span class="hs-identifier hs-var">ruleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:userAttributes:FindingFilter' :: Maybe [Attribute]
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AuserAttributes%3AFindingFilter%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:rulesPackageArns:FindingFilter' :: Maybe [Text]
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3ArulesPackageArns%3AFindingFilter%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimeRange:FindingFilter' :: Maybe TimestampRange
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AcreationTimeRange%3AFindingFilter%27"><span class="hs-identifier hs-var">creationTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:severities:FindingFilter' :: Maybe [Severity]
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3Aseverities%3AFindingFilter%27"><span class="hs-identifier hs-var">severities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Severity]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:FindingFilter' :: Maybe [Attribute]
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3Aattributes%3AFindingFilter%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:userAttributes:FindingFilter' :: Maybe [Attribute]
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AuserAttributes%3AFindingFilter%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:severities:FindingFilter' :: Maybe [Severity]
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3Aseverities%3AFindingFilter%27"><span class="hs-identifier hs-var">severities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Severity]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroups:FindingFilter' :: Maybe [Text]
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationTimeRange:FindingFilter' :: Maybe TimestampRange
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AcreationTimeRange%3AFindingFilter%27"><span class="hs-identifier hs-var">creationTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroups:FindingFilter' :: Maybe [Text]
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AautoScalingGroups%3AFindingFilter%27"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleNames:FindingFilter' :: Maybe [Text]
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AruleNames%3AFindingFilter%27"><span class="hs-identifier hs-var">ruleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
@@ -219,16 +219,16 @@ forall a. Maybe a
 -&gt; (FindingFilter -&gt; Maybe [Text] -&gt; FindingFilter)
 -&gt; Lens FindingFilter FindingFilter (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249896"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250267"><span class="annot"><span class="annottext">Maybe [Text]
 agentIds :: Maybe [Text]
 $sel:agentIds:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
-</span><a href="#local-6989586621679249896"><span class="hs-identifier hs-var hs-var">agentIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249896"><span class="hs-identifier hs-var">agentIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249895"><span class="annot"><span class="annottext">s :: FindingFilter
-</span><a href="#local-6989586621679249895"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249894"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249894"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
-</span><a href="#local-6989586621679249895"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentIds:FindingFilter' :: Maybe [Text]
+</span><a href="#local-6989586621679250267"><span class="hs-identifier hs-var hs-var">agentIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250267"><span class="hs-identifier hs-var">agentIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250266"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679250266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250265"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679250266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentIds:FindingFilter' :: Maybe [Text]
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AagentIds%3AFindingFilter%27"><span class="hs-identifier hs-var">agentIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249894"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679250265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; FindingFilter -&gt; f FindingFilter)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -242,29 +242,106 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
 </span><span id="line-125"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- __rulesPackageArn__ property of the Finding data type.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_rulesPackageArns"><span class="hs-identifier hs-type">findingFilter_rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="findingFilter_rulesPackageArns"><span class="annot"><span class="annottext">findingFilter_rulesPackageArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-126"></span><span class="hs-comment">-- __ruleName__ property of the Finding data type.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_ruleNames"><span class="hs-identifier hs-type">findingFilter_ruleNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="findingFilter_ruleNames"><span class="annot"><span class="annottext">findingFilter_ruleNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FindingFilter -&gt; f FindingFilter
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_ruleNames"><span class="hs-identifier hs-var hs-var">findingFilter_ruleNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Text])
+-&gt; (FindingFilter -&gt; Maybe [Text] -&gt; FindingFilter)
+-&gt; Lens FindingFilter FindingFilter (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250260"><span class="annot"><span class="annottext">Maybe [Text]
+ruleNames :: Maybe [Text]
+$sel:ruleNames:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
+</span><a href="#local-6989586621679250260"><span class="hs-identifier hs-var hs-var">ruleNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250260"><span class="hs-identifier hs-var">ruleNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250259"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679250259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250258"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679250259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleNames:FindingFilter' :: Maybe [Text]
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AruleNames%3AFindingFilter%27"><span class="hs-identifier hs-var">ruleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; FindingFilter -&gt; f FindingFilter)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; FindingFilter
+-&gt; f FindingFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- __userAttributes__ property of the Finding data type.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_userAttributes"><span class="hs-identifier hs-type">findingFilter_userAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="findingFilter_userAttributes"><span class="annot"><span class="annottext">findingFilter_userAttributes :: (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; FindingFilter -&gt; f FindingFilter
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_userAttributes"><span class="hs-identifier hs-var hs-var">findingFilter_userAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Attribute])
+-&gt; (FindingFilter -&gt; Maybe [Attribute] -&gt; FindingFilter)
+-&gt; Lens
+     FindingFilter FindingFilter (Maybe [Attribute]) (Maybe [Attribute])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250256"><span class="annot"><span class="annottext">Maybe [Attribute]
+userAttributes :: Maybe [Attribute]
+$sel:userAttributes:FindingFilter' :: FindingFilter -&gt; Maybe [Attribute]
+</span><a href="#local-6989586621679250256"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679250256"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250255"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679250255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250254"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679250254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679250255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributes:FindingFilter' :: Maybe [Attribute]
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AuserAttributes%3AFindingFilter%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679250254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+ -&gt; FindingFilter -&gt; f FindingFilter)
+-&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+    -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; FindingFilter
+-&gt; f FindingFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+-&gt; Iso
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- __rulesPackageArn__ property of the Finding data type.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_rulesPackageArns"><span class="hs-identifier hs-type">findingFilter_rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="findingFilter_rulesPackageArns"><span class="annot"><span class="annottext">findingFilter_rulesPackageArns :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; FindingFilter -&gt; f FindingFilter
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_rulesPackageArns"><span class="hs-identifier hs-var hs-var">findingFilter_rulesPackageArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Text])
 -&gt; (FindingFilter -&gt; Maybe [Text] -&gt; FindingFilter)
 -&gt; Lens FindingFilter FindingFilter (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249889"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250252"><span class="annot"><span class="annottext">Maybe [Text]
 rulesPackageArns :: Maybe [Text]
 $sel:rulesPackageArns:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
-</span><a href="#local-6989586621679249889"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249889"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249888"><span class="annot"><span class="annottext">s :: FindingFilter
-</span><a href="#local-6989586621679249888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249887"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
-</span><a href="#local-6989586621679249888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesPackageArns:FindingFilter' :: Maybe [Text]
+</span><a href="#local-6989586621679250252"><span class="hs-identifier hs-var hs-var">rulesPackageArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250252"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250251"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679250251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250250"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679250251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rulesPackageArns:FindingFilter' :: Maybe [Text]
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3ArulesPackageArns%3AFindingFilter%27"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679250250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; FindingFilter -&gt; f FindingFilter)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -278,53 +355,71 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The time range during which the finding is generated.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_creationTimeRange"><span class="hs-identifier hs-type">findingFilter_creationTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="findingFilter_creationTimeRange"><span class="annot"><span class="annottext">findingFilter_creationTimeRange :: (Maybe TimestampRange -&gt; f (Maybe TimestampRange))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | For a record to match a filter, the list of values that are specified</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for this data type property must be contained in the list of values of</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- the __attributes__ property of the Finding data type.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_attributes"><span class="hs-identifier hs-type">findingFilter_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="findingFilter_attributes"><span class="annot"><span class="annottext">findingFilter_attributes :: (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
 -&gt; FindingFilter -&gt; f FindingFilter
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_creationTimeRange"><span class="hs-identifier hs-var hs-var">findingFilter_creationTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe TimestampRange)
--&gt; (FindingFilter -&gt; Maybe TimestampRange -&gt; FindingFilter)
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_attributes"><span class="hs-identifier hs-var hs-var">findingFilter_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Attribute])
+-&gt; (FindingFilter -&gt; Maybe [Attribute] -&gt; FindingFilter)
 -&gt; Lens
-     FindingFilter
-     FindingFilter
-     (Maybe TimestampRange)
-     (Maybe TimestampRange)
+     FindingFilter FindingFilter (Maybe [Attribute]) (Maybe [Attribute])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249885"><span class="annot"><span class="annottext">Maybe TimestampRange
-creationTimeRange :: Maybe TimestampRange
-$sel:creationTimeRange:FindingFilter' :: FindingFilter -&gt; Maybe TimestampRange
-</span><a href="#local-6989586621679249885"><span class="hs-identifier hs-var hs-var">creationTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679249885"><span class="hs-identifier hs-var">creationTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249884"><span class="annot"><span class="annottext">s :: FindingFilter
-</span><a href="#local-6989586621679249884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249883"><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679249883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
-</span><a href="#local-6989586621679249884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeRange:FindingFilter' :: Maybe TimestampRange
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AcreationTimeRange%3AFindingFilter%27"><span class="hs-identifier hs-var">creationTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679249883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- __severity__ property of the Finding data type.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_severities"><span class="hs-identifier hs-type">findingFilter_severities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Severity.html#Severity"><span class="hs-identifier hs-type">Severity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="findingFilter_severities"><span class="annot"><span class="annottext">findingFilter_severities :: (Maybe [Severity] -&gt; f (Maybe [Severity]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250248"><span class="annot"><span class="annottext">Maybe [Attribute]
+attributes :: Maybe [Attribute]
+$sel:attributes:FindingFilter' :: FindingFilter -&gt; Maybe [Attribute]
+</span><a href="#local-6989586621679250248"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679250248"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250247"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679250247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250246"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679250246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679250247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:FindingFilter' :: Maybe [Attribute]
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3Aattributes%3AFindingFilter%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679250246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+ -&gt; FindingFilter -&gt; f FindingFilter)
+-&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+    -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; FindingFilter
+-&gt; f FindingFilter
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+-&gt; Iso
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- __severity__ property of the Finding data type.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_severities"><span class="hs-identifier hs-type">findingFilter_severities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Severity.html#Severity"><span class="hs-identifier hs-type">Severity</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="findingFilter_severities"><span class="annot"><span class="annottext">findingFilter_severities :: (Maybe [Severity] -&gt; f (Maybe [Severity]))
 -&gt; FindingFilter -&gt; f FindingFilter
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_severities"><span class="hs-identifier hs-var hs-var">findingFilter_severities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Severity])
 -&gt; (FindingFilter -&gt; Maybe [Severity] -&gt; FindingFilter)
 -&gt; Lens
      FindingFilter FindingFilter (Maybe [Severity]) (Maybe [Severity])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249881"><span class="annot"><span class="annottext">Maybe [Severity]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250244"><span class="annot"><span class="annottext">Maybe [Severity]
 severities :: Maybe [Severity]
 $sel:severities:FindingFilter' :: FindingFilter -&gt; Maybe [Severity]
-</span><a href="#local-6989586621679249881"><span class="hs-identifier hs-var hs-var">severities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Severity]
-</span><a href="#local-6989586621679249881"><span class="hs-identifier hs-var">severities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249880"><span class="annot"><span class="annottext">s :: FindingFilter
-</span><a href="#local-6989586621679249880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249879"><span class="annot"><span class="annottext">Maybe [Severity]
-</span><a href="#local-6989586621679249879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
-</span><a href="#local-6989586621679249880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severities:FindingFilter' :: Maybe [Severity]
+</span><a href="#local-6989586621679250244"><span class="hs-identifier hs-var hs-var">severities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Severity]
+</span><a href="#local-6989586621679250244"><span class="hs-identifier hs-var">severities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250243"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679250243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250242"><span class="annot"><span class="annottext">Maybe [Severity]
+</span><a href="#local-6989586621679250242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679250243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severities:FindingFilter' :: Maybe [Severity]
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3Aseverities%3AFindingFilter%27"><span class="hs-identifier hs-var">severities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Severity]
-</span><a href="#local-6989586621679249879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Severity] -&gt; f (Maybe [Severity]))
+</span><a href="#local-6989586621679250242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Severity] -&gt; f (Maybe [Severity]))
  -&gt; FindingFilter -&gt; f FindingFilter)
 -&gt; ((Maybe [Severity] -&gt; f (Maybe [Severity]))
     -&gt; Maybe [Severity] -&gt; f (Maybe [Severity]))
@@ -342,111 +437,52 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Severity] [Severity] [Severity] [Severity]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | For a record to match a filter, the list of values that are specified</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- for this data type property must be contained in the list of values of</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- the __attributes__ property of the Finding data type.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_attributes"><span class="hs-identifier hs-type">findingFilter_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="findingFilter_attributes"><span class="annot"><span class="annottext">findingFilter_attributes :: (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The time range during which the finding is generated.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_creationTimeRange"><span class="hs-identifier hs-type">findingFilter_creationTimeRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="findingFilter_creationTimeRange"><span class="annot"><span class="annottext">findingFilter_creationTimeRange :: (Maybe TimestampRange -&gt; f (Maybe TimestampRange))
 -&gt; FindingFilter -&gt; f FindingFilter
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_attributes"><span class="hs-identifier hs-var hs-var">findingFilter_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Attribute])
--&gt; (FindingFilter -&gt; Maybe [Attribute] -&gt; FindingFilter)
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_creationTimeRange"><span class="hs-identifier hs-var hs-var">findingFilter_creationTimeRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe TimestampRange)
+-&gt; (FindingFilter -&gt; Maybe TimestampRange -&gt; FindingFilter)
 -&gt; Lens
-     FindingFilter FindingFilter (Maybe [Attribute]) (Maybe [Attribute])
+     FindingFilter
+     FindingFilter
+     (Maybe TimestampRange)
+     (Maybe TimestampRange)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249877"><span class="annot"><span class="annottext">Maybe [Attribute]
-attributes :: Maybe [Attribute]
-$sel:attributes:FindingFilter' :: FindingFilter -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679249877"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679249877"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249876"><span class="annot"><span class="annottext">s :: FindingFilter
-</span><a href="#local-6989586621679249876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249875"><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679249875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
-</span><a href="#local-6989586621679249876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:FindingFilter' :: Maybe [Attribute]
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3Aattributes%3AFindingFilter%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679249875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
- -&gt; FindingFilter -&gt; f FindingFilter)
--&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
-    -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
--&gt; (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
--&gt; FindingFilter
--&gt; f FindingFilter
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
--&gt; Iso
-     (Maybe [Attribute])
-     (Maybe [Attribute])
-     (Maybe [Attribute])
-     (Maybe [Attribute])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | For a record to match a filter, the value that is specified for this</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- data type property must be contained in the list of values of the</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- __userAttributes__ property of the Finding data type.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_userAttributes"><span class="hs-identifier hs-type">findingFilter_userAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Inspector.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="findingFilter_userAttributes"><span class="annot"><span class="annottext">findingFilter_userAttributes :: (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
--&gt; FindingFilter -&gt; f FindingFilter
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_userAttributes"><span class="hs-identifier hs-var hs-var">findingFilter_userAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Attribute])
--&gt; (FindingFilter -&gt; Maybe [Attribute] -&gt; FindingFilter)
--&gt; Lens
-     FindingFilter FindingFilter (Maybe [Attribute]) (Maybe [Attribute])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249873"><span class="annot"><span class="annottext">Maybe [Attribute]
-userAttributes :: Maybe [Attribute]
-$sel:userAttributes:FindingFilter' :: FindingFilter -&gt; Maybe [Attribute]
-</span><a href="#local-6989586621679249873"><span class="hs-identifier hs-var hs-var">userAttributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679249873"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249872"><span class="annot"><span class="annottext">s :: FindingFilter
-</span><a href="#local-6989586621679249872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249871"><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679249871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
-</span><a href="#local-6989586621679249872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userAttributes:FindingFilter' :: Maybe [Attribute]
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AuserAttributes%3AFindingFilter%27"><span class="hs-identifier hs-var">userAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679249871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
- -&gt; FindingFilter -&gt; f FindingFilter)
--&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
-    -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
--&gt; (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
--&gt; FindingFilter
--&gt; f FindingFilter
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
--&gt; Iso
-     (Maybe [Attribute])
-     (Maybe [Attribute])
-     (Maybe [Attribute])
-     (Maybe [Attribute])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- __autoScalingGroup__ property of the Finding data type.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_autoScalingGroups"><span class="hs-identifier hs-type">findingFilter_autoScalingGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="findingFilter_autoScalingGroups"><span class="annot"><span class="annottext">findingFilter_autoScalingGroups :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250240"><span class="annot"><span class="annottext">Maybe TimestampRange
+creationTimeRange :: Maybe TimestampRange
+$sel:creationTimeRange:FindingFilter' :: FindingFilter -&gt; Maybe TimestampRange
+</span><a href="#local-6989586621679250240"><span class="hs-identifier hs-var hs-var">creationTimeRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679250240"><span class="hs-identifier hs-var">creationTimeRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250239"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679250239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250238"><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679250238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679250239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTimeRange:FindingFilter' :: Maybe TimestampRange
+</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AcreationTimeRange%3AFindingFilter%27"><span class="hs-identifier hs-var">creationTimeRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679250238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- __autoScalingGroup__ property of the Finding data type.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_autoScalingGroups"><span class="hs-identifier hs-type">findingFilter_autoScalingGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="findingFilter_autoScalingGroups"><span class="annot"><span class="annottext">findingFilter_autoScalingGroups :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; FindingFilter -&gt; f FindingFilter
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_autoScalingGroups"><span class="hs-identifier hs-var hs-var">findingFilter_autoScalingGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Text])
 -&gt; (FindingFilter -&gt; Maybe [Text] -&gt; FindingFilter)
 -&gt; Lens FindingFilter FindingFilter (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249869"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250236"><span class="annot"><span class="annottext">Maybe [Text]
 autoScalingGroups :: Maybe [Text]
 $sel:autoScalingGroups:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
-</span><a href="#local-6989586621679249869"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249869"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249868"><span class="annot"><span class="annottext">s :: FindingFilter
-</span><a href="#local-6989586621679249868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249867"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
-</span><a href="#local-6989586621679249868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroups:FindingFilter' :: Maybe [Text]
+</span><a href="#local-6989586621679250236"><span class="hs-identifier hs-var hs-var">autoScalingGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250236"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250235"><span class="annot"><span class="annottext">s :: FindingFilter
+</span><a href="#local-6989586621679250235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250234"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
+</span><a href="#local-6989586621679250235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroups:FindingFilter' :: Maybe [Text]
 </span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AautoScalingGroups%3AFindingFilter%27"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679250234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; FindingFilter -&gt; f FindingFilter)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -460,72 +496,36 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- | For a record to match a filter, one of the values that is specified for</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- this data type property must be the exact match of the value of the</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- __ruleName__ property of the Finding data type.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_ruleNames"><span class="hs-identifier hs-type">findingFilter_ruleNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span id="findingFilter_ruleNames"><span class="annot"><span class="annottext">findingFilter_ruleNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; FindingFilter -&gt; f FindingFilter
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#findingFilter_ruleNames"><span class="hs-identifier hs-var hs-var">findingFilter_ruleNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingFilter -&gt; Maybe [Text])
--&gt; (FindingFilter -&gt; Maybe [Text] -&gt; FindingFilter)
--&gt; Lens FindingFilter FindingFilter (Maybe [Text]) (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249865"><span class="annot"><span class="annottext">Maybe [Text]
-ruleNames :: Maybe [Text]
-$sel:ruleNames:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
-</span><a href="#local-6989586621679249865"><span class="hs-identifier hs-var hs-var">ruleNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249865"><span class="hs-identifier hs-var">ruleNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249864"><span class="annot"><span class="annottext">s :: FindingFilter
-</span><a href="#local-6989586621679249864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249863"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingFilter
-</span><a href="#local-6989586621679249864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleNames:FindingFilter' :: Maybe [Text]
-</span><a href="Network.AWS.Inspector.Types.FindingFilter.html#%24sel%3AruleNames%3AFindingFilter%27"><span class="hs-identifier hs-var">ruleNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; FindingFilter -&gt; f FindingFilter)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; FindingFilter
--&gt; f FindingFilter
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249859"><span id="local-6989586621679249861"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span></span></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250230"><span id="local-6989586621679250232"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span></span></span><span>
 </span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249856"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250227"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span></span><span>
 </span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249848"><span id="local-6989586621679249850"><span id="local-6989586621679249852"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679249846"><span class="annot"><span class="annottext">toJSON :: FindingFilter -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249837"><span id="local-6989586621679249838"><span id="local-6989586621679249839"><span id="local-6989586621679249840"><span id="local-6989586621679249841"><span id="local-6989586621679249842"><span id="local-6989586621679249843"><span id="local-6989586621679249844"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250219"><span id="local-6989586621679250221"><span id="local-6989586621679250223"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter"><span class="hs-identifier hs-type">FindingFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679250217"><span class="annot"><span class="annottext">toJSON :: FindingFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.FindingFilter.html#FindingFilter%27"><span class="hs-identifier hs-type">FindingFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250208"><span id="local-6989586621679250209"><span id="local-6989586621679250210"><span id="local-6989586621679250211"><span id="local-6989586621679250212"><span id="local-6989586621679250213"><span id="local-6989586621679250214"><span id="local-6989586621679250215"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe [Attribute]
 Maybe [Severity]
 Maybe TimestampRange
-ruleNames :: Maybe [Text]
 autoScalingGroups :: Maybe [Text]
-userAttributes :: Maybe [Attribute]
-attributes :: Maybe [Attribute]
-severities :: Maybe [Severity]
 creationTimeRange :: Maybe TimestampRange
+severities :: Maybe [Severity]
+attributes :: Maybe [Attribute]
 rulesPackageArns :: Maybe [Text]
+userAttributes :: Maybe [Attribute]
+ruleNames :: Maybe [Text]
 agentIds :: Maybe [Text]
-$sel:ruleNames:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
 $sel:autoScalingGroups:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
-$sel:userAttributes:FindingFilter' :: FindingFilter -&gt; Maybe [Attribute]
-$sel:attributes:FindingFilter' :: FindingFilter -&gt; Maybe [Attribute]
-$sel:severities:FindingFilter' :: FindingFilter -&gt; Maybe [Severity]
 $sel:creationTimeRange:FindingFilter' :: FindingFilter -&gt; Maybe TimestampRange
+$sel:severities:FindingFilter' :: FindingFilter -&gt; Maybe [Severity]
+$sel:attributes:FindingFilter' :: FindingFilter -&gt; Maybe [Attribute]
 $sel:rulesPackageArns:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
+$sel:userAttributes:FindingFilter' :: FindingFilter -&gt; Maybe [Attribute]
+$sel:ruleNames:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
 $sel:agentIds:FindingFilter' :: FindingFilter -&gt; Maybe [Text]
-</span><a href="#local-6989586621679249837"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679250208"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -537,60 +537,60 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249844"><span class="hs-identifier hs-var">agentIds</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250215"><span class="hs-identifier hs-var">agentIds</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-173"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ruleNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679250214"><span class="hs-identifier hs-var">ruleNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Attribute] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>              </span><span class="annot"><span class="annottext">([Attribute] -&gt; Pair) -&gt; Maybe [Attribute] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679250213"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;rulesPackageArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+</span><span id="line-177"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249843"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;creationTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimestampRange -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span>              </span><span class="annot"><span class="annottext">(TimestampRange -&gt; Pair) -&gt; Maybe TimestampRange -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
-</span><a href="#local-6989586621679249842"><span class="hs-identifier hs-var">creationTimeRange</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;severities&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Severity] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Severity] -&gt; Pair) -&gt; Maybe [Severity] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Severity]
-</span><a href="#local-6989586621679249841"><span class="hs-identifier hs-var">severities</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250212"><span class="hs-identifier hs-var">rulesPackageArns</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Attribute] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Attribute] -&gt; Pair) -&gt; Maybe [Attribute] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679249840"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679250211"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;userAttributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Attribute] -&gt; Pair
+</span><span class="hs-string">&quot;severities&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Severity] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Severity] -&gt; Pair) -&gt; Maybe [Severity] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Severity]
+</span><a href="#local-6989586621679250210"><span class="hs-identifier hs-var">severities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;creationTimeRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TimestampRange -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">([Attribute] -&gt; Pair) -&gt; Maybe [Attribute] -&gt; Maybe Pair
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">(TimestampRange -&gt; Pair) -&gt; Maybe TimestampRange -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
-</span><a href="#local-6989586621679249839"><span class="hs-identifier hs-var">userAttributes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TimestampRange
+</span><a href="#local-6989586621679250209"><span class="hs-identifier hs-var">creationTimeRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;autoScalingGroups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+</span><span id="line-183"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249838"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ruleNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679249837"><span class="hs-identifier hs-var">ruleNames</span></a></span><span>
+</span><a href="#local-6989586621679250208"><span class="hs-identifier hs-var">autoScalingGroups</span></a></span><span>
 </span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span></pre></body></html>

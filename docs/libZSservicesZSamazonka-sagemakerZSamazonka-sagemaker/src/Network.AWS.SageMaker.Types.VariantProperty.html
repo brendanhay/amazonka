@@ -33,7 +33,7 @@
 </span><span id="line-33"></span><span class="hs-comment">-- existing variant properties of the endpoint.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newVariantProperty' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621680357318"><span id="local-6989586621680357319"></span></span><span class="hs-keyword">data</span><span> </span><span id="VariantProperty"><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty"><span class="hs-identifier hs-var">VariantProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VariantProperty%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty%27"><span class="hs-identifier hs-var">VariantProperty'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621680358773"><span id="local-6989586621680358774"></span></span><span class="hs-keyword">data</span><span> </span><span id="VariantProperty"><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty"><span class="hs-identifier hs-var">VariantProperty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VariantProperty%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty%27"><span class="hs-identifier hs-var">VariantProperty'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of variant property. The supported values are:</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @DesiredInstanceCount@: Overrides the existing variant instance</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AvariantPropertyType%3AVariantProperty%27"><span class="annot"><span class="annottext">VariantProperty -&gt; VariantPropertyType
 </span><a href="Network.AWS.SageMaker.Types.VariantProperty.html#%24sel%3AvariantPropertyType%3AVariantProperty%27"><span class="hs-identifier hs-var hs-var">variantPropertyType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType"><span class="hs-identifier hs-type">VariantPropertyType</span></a></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680357312"><span id="local-6989586621680357314"><span class="annot"><span class="annottext">VariantProperty -&gt; VariantProperty -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680358767"><span id="local-6989586621680358769"><span class="annot"><span class="annottext">VariantProperty -&gt; VariantProperty -&gt; Bool
 (VariantProperty -&gt; VariantProperty -&gt; Bool)
 -&gt; (VariantProperty -&gt; VariantProperty -&gt; Bool)
 -&gt; Eq VariantProperty
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VariantProperty -&gt; VariantProperty -&gt; Bool
 == :: VariantProperty -&gt; VariantProperty -&gt; Bool
 $c== :: VariantProperty -&gt; VariantProperty -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680357303"><span id="local-6989586621680357305"><span id="local-6989586621680357307"><span id="local-6989586621680357309"><span class="annot"><span class="annottext">ReadPrec [VariantProperty]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680358758"><span id="local-6989586621680358760"><span id="local-6989586621680358762"><span id="local-6989586621680358764"><span class="annot"><span class="annottext">ReadPrec [VariantProperty]
 ReadPrec VariantProperty
 Int -&gt; ReadS VariantProperty
 ReadS [VariantProperty]
@@ -77,7 +77,7 @@ readList :: ReadS [VariantProperty]
 $creadList :: ReadS [VariantProperty]
 readsPrec :: Int -&gt; ReadS VariantProperty
 $creadsPrec :: Int -&gt; ReadS VariantProperty
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680357296"><span id="local-6989586621680357298"><span id="local-6989586621680357300"><span class="annot"><span class="annottext">Int -&gt; VariantProperty -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680358751"><span id="local-6989586621680358753"><span id="local-6989586621680358755"><span class="annot"><span class="annottext">Int -&gt; VariantProperty -&gt; ShowS
 [VariantProperty] -&gt; ShowS
 VariantProperty -&gt; String
 (Int -&gt; VariantProperty -&gt; ShowS)
@@ -127,14 +127,14 @@ $cfrom :: forall x. VariantProperty -&gt; Rep VariantProperty x
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantPropertyType.html#VariantPropertyType"><span class="hs-identifier hs-type">VariantPropertyType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty"><span class="hs-identifier hs-type">VariantProperty</span></a></span><span>
 </span><span id="line-75"></span><span id="newVariantProperty"><span class="annot"><span class="annottext">newVariantProperty :: VariantPropertyType -&gt; VariantProperty
-</span><a href="Network.AWS.SageMaker.Types.VariantProperty.html#newVariantProperty"><span class="hs-identifier hs-var hs-var">newVariantProperty</span></a></span></span><span> </span><span id="local-6989586621680357290"><span class="annot"><span class="annottext">VariantPropertyType
-</span><a href="#local-6989586621680357290"><span class="hs-identifier hs-var">pVariantPropertyType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.VariantProperty.html#newVariantProperty"><span class="hs-identifier hs-var hs-var">newVariantProperty</span></a></span></span><span> </span><span id="local-6989586621680358745"><span class="annot"><span class="annottext">VariantPropertyType
+</span><a href="#local-6989586621680358745"><span class="hs-identifier hs-var">pVariantPropertyType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">VariantProperty' :: VariantPropertyType -&gt; VariantProperty
 </span><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty%27"><span class="hs-identifier hs-type">VariantProperty'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:variantPropertyType:VariantProperty' :: VariantPropertyType
 </span><a href="Network.AWS.SageMaker.Types.VariantProperty.html#%24sel%3AvariantPropertyType%3AVariantProperty%27"><span class="hs-identifier hs-var">variantPropertyType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">VariantPropertyType
-</span><a href="#local-6989586621680357290"><span class="hs-identifier hs-var">pVariantPropertyType_</span></a></span><span>
+</span><a href="#local-6989586621680358745"><span class="hs-identifier hs-var">pVariantPropertyType_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The type of variant property. The supported values are:</span><span>
@@ -159,27 +159,27 @@ $cfrom :: forall x. VariantProperty -&gt; Rep VariantProperty x
      VariantPropertyType
      VariantPropertyType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty%27"><span class="hs-identifier hs-type">VariantProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357286"><span class="annot"><span class="annottext">VariantPropertyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty%27"><span class="hs-identifier hs-type">VariantProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358741"><span class="annot"><span class="annottext">VariantPropertyType
 variantPropertyType :: VariantPropertyType
 $sel:variantPropertyType:VariantProperty' :: VariantProperty -&gt; VariantPropertyType
-</span><a href="#local-6989586621680357286"><span class="hs-identifier hs-var hs-var">variantPropertyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VariantPropertyType
-</span><a href="#local-6989586621680357286"><span class="hs-identifier hs-var">variantPropertyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680357285"><span class="annot"><span class="annottext">s :: VariantProperty
-</span><a href="#local-6989586621680357285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty%27"><span class="hs-identifier hs-type">VariantProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680357284"><span class="annot"><span class="annottext">VariantPropertyType
-</span><a href="#local-6989586621680357284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VariantProperty
-</span><a href="#local-6989586621680357285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:variantPropertyType:VariantProperty' :: VariantPropertyType
+</span><a href="#local-6989586621680358741"><span class="hs-identifier hs-var hs-var">variantPropertyType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VariantPropertyType
+</span><a href="#local-6989586621680358741"><span class="hs-identifier hs-var">variantPropertyType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680358740"><span class="annot"><span class="annottext">s :: VariantProperty
+</span><a href="#local-6989586621680358740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty%27"><span class="hs-identifier hs-type">VariantProperty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680358739"><span class="annot"><span class="annottext">VariantPropertyType
+</span><a href="#local-6989586621680358739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VariantProperty
+</span><a href="#local-6989586621680358740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:variantPropertyType:VariantProperty' :: VariantPropertyType
 </span><a href="Network.AWS.SageMaker.Types.VariantProperty.html#%24sel%3AvariantPropertyType%3AVariantProperty%27"><span class="hs-identifier hs-var">variantPropertyType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VariantPropertyType
-</span><a href="#local-6989586621680357284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty"><span class="hs-identifier hs-type">VariantProperty</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680358739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty"><span class="hs-identifier hs-type">VariantProperty</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680357280"><span id="local-6989586621680357282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty"><span class="hs-identifier hs-type">VariantProperty</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358735"><span id="local-6989586621680358737"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty"><span class="hs-identifier hs-type">VariantProperty</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680357277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty"><span class="hs-identifier hs-type">VariantProperty</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358732"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty"><span class="hs-identifier hs-type">VariantProperty</span></a></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680357269"><span id="local-6989586621680357271"><span id="local-6989586621680357273"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty"><span class="hs-identifier hs-type">VariantProperty</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621680357267"><span class="annot"><span class="annottext">toJSON :: VariantProperty -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty%27"><span class="hs-identifier hs-type">VariantProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680357265"><span class="annot"><span class="annottext">VariantPropertyType
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680358724"><span id="local-6989586621680358726"><span id="local-6989586621680358728"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty"><span class="hs-identifier hs-type">VariantProperty</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621680358722"><span class="annot"><span class="annottext">toJSON :: VariantProperty -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.VariantProperty.html#VariantProperty%27"><span class="hs-identifier hs-type">VariantProperty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680358720"><span class="annot"><span class="annottext">VariantPropertyType
 variantPropertyType :: VariantPropertyType
 $sel:variantPropertyType:VariantProperty' :: VariantProperty -&gt; VariantPropertyType
-</span><a href="#local-6989586621680357265"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680358720"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -192,7 +192,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;VariantPropertyType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VariantPropertyType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">VariantPropertyType
-</span><a href="#local-6989586621680357265"><span class="hs-identifier hs-var">variantPropertyType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680358720"><span class="hs-identifier hs-var">variantPropertyType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span></pre></body></html>

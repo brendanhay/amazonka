@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newAttachStaticIp' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679661783"><span id="local-6989586621679661784"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachStaticIp"><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-var">AttachStaticIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachStaticIp%27"><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp%27"><span class="hs-identifier hs-var">AttachStaticIp'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679662841"><span id="local-6989586621679662842"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachStaticIp"><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-var">AttachStaticIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachStaticIp%27"><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp%27"><span class="hs-identifier hs-var">AttachStaticIp'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the static IP.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AstaticIpName%3AAttachStaticIp%27"><span class="annot"><span class="annottext">AttachStaticIp -&gt; Text
 </span><a href="Network.AWS.Lightsail.AttachStaticIp.html#%24sel%3AstaticIpName%3AAttachStaticIp%27"><span class="hs-identifier hs-var hs-var">staticIpName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AinstanceName%3AAttachStaticIp%27"><span class="annot"><span class="annottext">AttachStaticIp -&gt; Text
 </span><a href="Network.AWS.Lightsail.AttachStaticIp.html#%24sel%3AinstanceName%3AAttachStaticIp%27"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679661776"><span id="local-6989586621679661778"><span class="annot"><span class="annottext">AttachStaticIp -&gt; AttachStaticIp -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679662834"><span id="local-6989586621679662836"><span class="annot"><span class="annottext">AttachStaticIp -&gt; AttachStaticIp -&gt; Bool
 (AttachStaticIp -&gt; AttachStaticIp -&gt; Bool)
 -&gt; (AttachStaticIp -&gt; AttachStaticIp -&gt; Bool) -&gt; Eq AttachStaticIp
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachStaticIp -&gt; AttachStaticIp -&gt; Bool
 == :: AttachStaticIp -&gt; AttachStaticIp -&gt; Bool
 $c== :: AttachStaticIp -&gt; AttachStaticIp -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679661767"><span id="local-6989586621679661769"><span id="local-6989586621679661771"><span id="local-6989586621679661773"><span class="annot"><span class="annottext">ReadPrec [AttachStaticIp]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662825"><span id="local-6989586621679662827"><span id="local-6989586621679662829"><span id="local-6989586621679662831"><span class="annot"><span class="annottext">ReadPrec [AttachStaticIp]
 ReadPrec AttachStaticIp
 Int -&gt; ReadS AttachStaticIp
 ReadS [AttachStaticIp]
@@ -84,7 +84,7 @@ readList :: ReadS [AttachStaticIp]
 $creadList :: ReadS [AttachStaticIp]
 readsPrec :: Int -&gt; ReadS AttachStaticIp
 $creadsPrec :: Int -&gt; ReadS AttachStaticIp
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679661760"><span id="local-6989586621679661762"><span id="local-6989586621679661764"><span class="annot"><span class="annottext">Int -&gt; AttachStaticIp -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662818"><span id="local-6989586621679662820"><span id="local-6989586621679662822"><span class="annot"><span class="annottext">Int -&gt; AttachStaticIp -&gt; ShowS
 [AttachStaticIp] -&gt; ShowS
 AttachStaticIp -&gt; String
 (Int -&gt; AttachStaticIp -&gt; ShowS)
@@ -128,17 +128,17 @@ $cfrom :: forall x. AttachStaticIp -&gt; Rep AttachStaticIp x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span><span>
 </span><span id="line-76"></span><span id="newAttachStaticIp"><span class="annot"><span class="annottext">newAttachStaticIp :: Text -&gt; Text -&gt; AttachStaticIp
-</span><a href="Network.AWS.Lightsail.AttachStaticIp.html#newAttachStaticIp"><span class="hs-identifier hs-var hs-var">newAttachStaticIp</span></a></span></span><span> </span><span id="local-6989586621679661755"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661755"><span class="hs-identifier hs-var">pStaticIpName_</span></a></span></span><span> </span><span id="local-6989586621679661754"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661754"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.AttachStaticIp.html#newAttachStaticIp"><span class="hs-identifier hs-var hs-var">newAttachStaticIp</span></a></span></span><span> </span><span id="local-6989586621679662813"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679662813"><span class="hs-identifier hs-var">pStaticIpName_</span></a></span></span><span> </span><span id="local-6989586621679662812"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679662812"><span class="hs-identifier hs-var">pInstanceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">AttachStaticIp' :: Text -&gt; Text -&gt; AttachStaticIp
 </span><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp%27"><span class="hs-identifier hs-type">AttachStaticIp'</span></a></span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:staticIpName:AttachStaticIp' :: Text
 </span><a href="Network.AWS.Lightsail.AttachStaticIp.html#%24sel%3AstaticIpName%3AAttachStaticIp%27"><span class="hs-identifier hs-var">staticIpName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661755"><span class="hs-identifier hs-var">pStaticIpName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679662813"><span class="hs-identifier hs-var">pStaticIpName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceName:AttachStaticIp' :: Text
 </span><a href="Network.AWS.Lightsail.AttachStaticIp.html#%24sel%3AinstanceName%3AAttachStaticIp%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661754"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span>
+</span><a href="#local-6989586621679662812"><span class="hs-identifier hs-var">pInstanceName_</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-81"></span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- | The name of the static IP.</span><span>
@@ -148,16 +148,16 @@ $cfrom :: forall x. AttachStaticIp -&gt; Rep AttachStaticIp x
 -&gt; (AttachStaticIp -&gt; Text -&gt; AttachStaticIp)
 -&gt; Lens AttachStaticIp AttachStaticIp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp%27"><span class="hs-identifier hs-type">AttachStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661751"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp%27"><span class="hs-identifier hs-type">AttachStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662809"><span class="annot"><span class="annottext">Text
 staticIpName :: Text
 $sel:staticIpName:AttachStaticIp' :: AttachStaticIp -&gt; Text
-</span><a href="#local-6989586621679661751"><span class="hs-identifier hs-var hs-var">staticIpName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661751"><span class="hs-identifier hs-var">staticIpName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679661750"><span class="annot"><span class="annottext">s :: AttachStaticIp
-</span><a href="#local-6989586621679661750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp%27"><span class="hs-identifier hs-type">AttachStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679661749"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachStaticIp
-</span><a href="#local-6989586621679661750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticIpName:AttachStaticIp' :: Text
+</span><a href="#local-6989586621679662809"><span class="hs-identifier hs-var hs-var">staticIpName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679662809"><span class="hs-identifier hs-var">staticIpName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662808"><span class="annot"><span class="annottext">s :: AttachStaticIp
+</span><a href="#local-6989586621679662808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp%27"><span class="hs-identifier hs-type">AttachStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662807"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679662807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachStaticIp
+</span><a href="#local-6989586621679662808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:staticIpName:AttachStaticIp' :: Text
 </span><a href="Network.AWS.Lightsail.AttachStaticIp.html#%24sel%3AstaticIpName%3AAttachStaticIp%27"><span class="hs-identifier hs-var">staticIpName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The instance name to which you want to attach the static IP address.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#attachStaticIp_instanceName"><span class="hs-identifier hs-type">attachStaticIp_instanceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -166,27 +166,27 @@ $sel:staticIpName:AttachStaticIp' :: AttachStaticIp -&gt; Text
 -&gt; (AttachStaticIp -&gt; Text -&gt; AttachStaticIp)
 -&gt; Lens AttachStaticIp AttachStaticIp Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp%27"><span class="hs-identifier hs-type">AttachStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661748"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp%27"><span class="hs-identifier hs-type">AttachStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662806"><span class="annot"><span class="annottext">Text
 instanceName :: Text
 $sel:instanceName:AttachStaticIp' :: AttachStaticIp -&gt; Text
-</span><a href="#local-6989586621679661748"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661748"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679661747"><span class="annot"><span class="annottext">s :: AttachStaticIp
-</span><a href="#local-6989586621679661747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp%27"><span class="hs-identifier hs-type">AttachStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679661746"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachStaticIp
-</span><a href="#local-6989586621679661747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:AttachStaticIp' :: Text
+</span><a href="#local-6989586621679662806"><span class="hs-identifier hs-var hs-var">instanceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679662806"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662805"><span class="annot"><span class="annottext">s :: AttachStaticIp
+</span><a href="#local-6989586621679662805"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp%27"><span class="hs-identifier hs-type">AttachStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662804"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679662804"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachStaticIp
+</span><a href="#local-6989586621679662805"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceName:AttachStaticIp' :: Text
 </span><a href="Network.AWS.Lightsail.AttachStaticIp.html#%24sel%3AinstanceName%3AAttachStaticIp%27"><span class="hs-identifier hs-var">instanceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662804"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse"><span class="hs-identifier hs-type">AttachStaticIpResponse</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679661742"><span class="annot"><span class="annottext">request :: AttachStaticIp -&gt; Request AttachStaticIp
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679662800"><span class="annot"><span class="annottext">request :: AttachStaticIp -&gt; Request AttachStaticIp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AttachStaticIp -&gt; Request AttachStaticIp
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679661738"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679662796"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AttachStaticIp
 -&gt; ClientResponse ClientBody
@@ -210,10 +210,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679661735"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661735"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679661734"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679661734"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679661733"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679661733"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679662793"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679662793"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679662792"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679662792"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679662791"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679662791"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; AttachStaticIpResponse
 </span><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse%27"><span class="hs-identifier hs-var">AttachStaticIpResponse'</span></a></span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; AttachStaticIpResponse)
@@ -221,7 +221,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; AttachStaticIpResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679661733"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+</span><a href="#local-6989586621679662791"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
@@ -238,15 +238,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661735"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662793"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679661724"><span id="local-6989586621679661726"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662782"><span id="local-6989586621679662784"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679661721"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662779"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span></span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679661717"><span class="annot"><span class="annottext">toHeaders :: AttachStaticIp -&gt; ResponseHeaders
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679662775"><span class="annot"><span class="annottext">toHeaders :: AttachStaticIp -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AttachStaticIp -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -273,14 +273,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679661707"><span id="local-6989586621679661709"><span id="local-6989586621679661711"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679661705"><span class="annot"><span class="annottext">toJSON :: AttachStaticIp -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp%27"><span class="hs-identifier hs-type">AttachStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661702"><span id="local-6989586621679661703"><span class="annot"><span class="annottext">Text
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662765"><span id="local-6989586621679662767"><span id="local-6989586621679662769"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679662763"><span class="annot"><span class="annottext">toJSON :: AttachStaticIp -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp%27"><span class="hs-identifier hs-type">AttachStaticIp'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662760"><span id="local-6989586621679662761"><span class="annot"><span class="annottext">Text
 instanceName :: Text
 staticIpName :: Text
 $sel:instanceName:AttachStaticIp' :: AttachStaticIp -&gt; Text
 $sel:staticIpName:AttachStaticIp' :: AttachStaticIp -&gt; Text
-</span><a href="#local-6989586621679661702"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679662760"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -292,26 +292,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;staticIpName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661703"><span class="hs-identifier hs-var">staticIpName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679662761"><span class="hs-identifier hs-var">staticIpName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679661702"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662760"><span class="hs-identifier hs-var">instanceName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679661696"><span class="annot"><span class="annottext">toPath :: AttachStaticIp -&gt; ByteString
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679662754"><span class="annot"><span class="annottext">toPath :: AttachStaticIp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AttachStaticIp -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIp"><span class="hs-identifier hs-type">AttachStaticIp</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679661692"><span class="annot"><span class="annottext">toQuery :: AttachStaticIp -&gt; QueryString
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679662750"><span class="annot"><span class="annottext">toQuery :: AttachStaticIp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AttachStaticIp -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -319,7 +319,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | /See:/ 'newAttachStaticIpResponse' smart constructor.</span><span>
-</span><span id="line-138"></span><span id="local-6989586621679661689"><span id="local-6989586621679661690"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachStaticIpResponse"><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse"><span class="hs-identifier hs-var">AttachStaticIpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachStaticIpResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse%27"><span class="hs-identifier hs-var">AttachStaticIpResponse'</span></a></span></span><span>
+</span><span id="line-138"></span><span id="local-6989586621679662747"><span id="local-6989586621679662748"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttachStaticIpResponse"><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse"><span class="hs-identifier hs-var">AttachStaticIpResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttachStaticIpResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse%27"><span class="hs-identifier hs-var">AttachStaticIpResponse'</span></a></span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
@@ -329,7 +329,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-144"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAttachStaticIpResponse%27"><span class="annot"><span class="annottext">AttachStaticIpResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.AttachStaticIp.html#%24sel%3AhttpStatus%3AAttachStaticIpResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679661683"><span id="local-6989586621679661685"><span class="annot"><span class="annottext">AttachStaticIpResponse -&gt; AttachStaticIpResponse -&gt; Bool
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679662741"><span id="local-6989586621679662743"><span class="annot"><span class="annottext">AttachStaticIpResponse -&gt; AttachStaticIpResponse -&gt; Bool
 (AttachStaticIpResponse -&gt; AttachStaticIpResponse -&gt; Bool)
 -&gt; (AttachStaticIpResponse -&gt; AttachStaticIpResponse -&gt; Bool)
 -&gt; Eq AttachStaticIpResponse
@@ -338,7 +338,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttachStaticIpResponse -&gt; AttachStaticIpResponse -&gt; Bool
 == :: AttachStaticIpResponse -&gt; AttachStaticIpResponse -&gt; Bool
 $c== :: AttachStaticIpResponse -&gt; AttachStaticIpResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679661675"><span id="local-6989586621679661677"><span id="local-6989586621679661679"><span id="local-6989586621679661681"><span class="annot"><span class="annottext">ReadPrec [AttachStaticIpResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662733"><span id="local-6989586621679662735"><span id="local-6989586621679662737"><span id="local-6989586621679662739"><span class="annot"><span class="annottext">ReadPrec [AttachStaticIpResponse]
 ReadPrec AttachStaticIpResponse
 Int -&gt; ReadS AttachStaticIpResponse
 ReadS [AttachStaticIpResponse]
@@ -358,7 +358,7 @@ readList :: ReadS [AttachStaticIpResponse]
 $creadList :: ReadS [AttachStaticIpResponse]
 readsPrec :: Int -&gt; ReadS AttachStaticIpResponse
 $creadsPrec :: Int -&gt; ReadS AttachStaticIpResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679661669"><span id="local-6989586621679661671"><span id="local-6989586621679661673"><span class="annot"><span class="annottext">Int -&gt; AttachStaticIpResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679662727"><span id="local-6989586621679662729"><span id="local-6989586621679662731"><span class="annot"><span class="annottext">Int -&gt; AttachStaticIpResponse -&gt; ShowS
 [AttachStaticIpResponse] -&gt; ShowS
 AttachStaticIpResponse -&gt; String
 (Int -&gt; AttachStaticIpResponse -&gt; ShowS)
@@ -403,8 +403,8 @@ $cfrom :: forall x. AttachStaticIpResponse -&gt; Rep AttachStaticIpResponse x
 </span><span id="line-163"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse"><span class="hs-identifier hs-type">AttachStaticIpResponse</span></a></span><span>
 </span><span id="line-165"></span><span id="newAttachStaticIpResponse"><span class="annot"><span class="annottext">newAttachStaticIpResponse :: Int -&gt; AttachStaticIpResponse
-</span><a href="Network.AWS.Lightsail.AttachStaticIp.html#newAttachStaticIpResponse"><span class="hs-identifier hs-var hs-var">newAttachStaticIpResponse</span></a></span></span><span> </span><span id="local-6989586621679661666"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661666"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lightsail.AttachStaticIp.html#newAttachStaticIpResponse"><span class="hs-identifier hs-var hs-var">newAttachStaticIpResponse</span></a></span></span><span> </span><span id="local-6989586621679662724"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679662724"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">AttachStaticIpResponse' :: Maybe [Operation] -&gt; Int -&gt; AttachStaticIpResponse
 </span><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse%27"><span class="hs-identifier hs-type">AttachStaticIpResponse'</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:AttachStaticIpResponse' :: Maybe [Operation]
@@ -414,7 +414,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AttachStaticIpResponse' :: Int
 </span><a href="Network.AWS.Lightsail.AttachStaticIp.html#%24sel%3AhttpStatus%3AAttachStaticIpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661666"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679662724"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
@@ -432,16 +432,16 @@ forall a. Maybe a
      (Maybe [Operation])
      (Maybe [Operation])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse%27"><span class="hs-identifier hs-type">AttachStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661665"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse%27"><span class="hs-identifier hs-type">AttachStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662723"><span class="annot"><span class="annottext">Maybe [Operation]
 operations :: Maybe [Operation]
 $sel:operations:AttachStaticIpResponse' :: AttachStaticIpResponse -&gt; Maybe [Operation]
-</span><a href="#local-6989586621679661665"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679661665"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679661664"><span class="annot"><span class="annottext">s :: AttachStaticIpResponse
-</span><a href="#local-6989586621679661664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse%27"><span class="hs-identifier hs-type">AttachStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679661663"><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679661663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachStaticIpResponse
-</span><a href="#local-6989586621679661664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:AttachStaticIpResponse' :: Maybe [Operation]
+</span><a href="#local-6989586621679662723"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679662723"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662722"><span class="annot"><span class="annottext">s :: AttachStaticIpResponse
+</span><a href="#local-6989586621679662722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse%27"><span class="hs-identifier hs-type">AttachStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662721"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679662721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachStaticIpResponse
+</span><a href="#local-6989586621679662722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:AttachStaticIpResponse' :: Maybe [Operation]
 </span><a href="Network.AWS.Lightsail.AttachStaticIp.html#%24sel%3Aoperations%3AAttachStaticIpResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
-</span><a href="#local-6989586621679661663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse"><span class="hs-identifier hs-type">AttachStaticIpResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+</span><a href="#local-6989586621679662721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse"><span class="hs-identifier hs-type">AttachStaticIpResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
  -&gt; AttachStaticIpResponse -&gt; f AttachStaticIpResponse)
 -&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
     -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
@@ -459,8 +459,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-179"></span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#attachStaticIpResponse_httpStatus"><span class="hs-identifier hs-type">attachStaticIpResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse"><span class="hs-identifier hs-type">AttachStaticIpResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -470,16 +470,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (AttachStaticIpResponse -&gt; Int -&gt; AttachStaticIpResponse)
 -&gt; Lens AttachStaticIpResponse AttachStaticIpResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse%27"><span class="hs-identifier hs-type">AttachStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679661659"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse%27"><span class="hs-identifier hs-type">AttachStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679662717"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AttachStaticIpResponse' :: AttachStaticIpResponse -&gt; Int
-</span><a href="#local-6989586621679661659"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661659"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679661658"><span class="annot"><span class="annottext">s :: AttachStaticIpResponse
-</span><a href="#local-6989586621679661658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse%27"><span class="hs-identifier hs-type">AttachStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679661657"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachStaticIpResponse
-</span><a href="#local-6989586621679661658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachStaticIpResponse' :: Int
+</span><a href="#local-6989586621679662717"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679662717"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679662716"><span class="annot"><span class="annottext">s :: AttachStaticIpResponse
+</span><a href="#local-6989586621679662716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse%27"><span class="hs-identifier hs-type">AttachStaticIpResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679662715"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679662715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttachStaticIpResponse
+</span><a href="#local-6989586621679662716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AttachStaticIpResponse' :: Int
 </span><a href="Network.AWS.Lightsail.AttachStaticIp.html#%24sel%3AhttpStatus%3AAttachStaticIpResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679661657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse"><span class="hs-identifier hs-type">AttachStaticIpResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679662715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse"><span class="hs-identifier hs-type">AttachStaticIpResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679661655"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse"><span class="hs-identifier hs-type">AttachStaticIpResponse</span></a></span></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679662713"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.AttachStaticIp.html#AttachStaticIpResponse"><span class="hs-identifier hs-type">AttachStaticIpResponse</span></a></span></span><span>
 </span><span id="line-183"></span></pre></body></html>

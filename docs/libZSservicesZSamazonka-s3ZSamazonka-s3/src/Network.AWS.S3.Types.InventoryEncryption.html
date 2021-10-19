@@ -30,15 +30,15 @@
 </span><span id="line-30"></span><span class="hs-comment">-- inventory results.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newInventoryEncryption' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679551674"><span id="local-6989586621679551675"></span></span><span class="hs-keyword">data</span><span> </span><span id="InventoryEncryption"><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-var">InventoryEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryEncryption%27"><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-var">InventoryEncryption'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the use of SSE-KMS to encrypt delivered inventory reports.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Assekms%3AInventoryEncryption%27"><span class="annot"><span class="annottext">InventoryEncryption -&gt; Maybe SSEKMS
-</span><a href="Network.AWS.S3.Types.InventoryEncryption.html#%24sel%3Assekms%3AInventoryEncryption%27"><span class="hs-identifier hs-var hs-var">ssekms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSEKMS.html#SSEKMS"><span class="hs-identifier hs-type">SSEKMS</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Specifies the use of SSE-S3 to encrypt delivered inventory reports.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Asses3%3AInventoryEncryption%27"><span class="annot"><span class="annottext">InventoryEncryption -&gt; Maybe SSES3
-</span><a href="Network.AWS.S3.Types.InventoryEncryption.html#%24sel%3Asses3%3AInventoryEncryption%27"><span class="hs-identifier hs-var hs-var">sses3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3"><span class="hs-identifier hs-type">SSES3</span></a></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679552312"><span id="local-6989586621679552313"></span></span><span class="hs-keyword">data</span><span> </span><span id="InventoryEncryption"><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-var">InventoryEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InventoryEncryption%27"><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-var">InventoryEncryption'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the use of SSE-S3 to encrypt delivered inventory reports.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Asses3%3AInventoryEncryption%27"><span class="annot"><span class="annottext">InventoryEncryption -&gt; Maybe SSES3
+</span><a href="Network.AWS.S3.Types.InventoryEncryption.html#%24sel%3Asses3%3AInventoryEncryption%27"><span class="hs-identifier hs-var hs-var">sses3</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3"><span class="hs-identifier hs-type">SSES3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Specifies the use of SSE-KMS to encrypt delivered inventory reports.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Assekms%3AInventoryEncryption%27"><span class="annot"><span class="annottext">InventoryEncryption -&gt; Maybe SSEKMS
+</span><a href="Network.AWS.S3.Types.InventoryEncryption.html#%24sel%3Assekms%3AInventoryEncryption%27"><span class="hs-identifier hs-var hs-var">ssekms</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSEKMS.html#SSEKMS"><span class="hs-identifier hs-type">SSEKMS</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679551667"><span id="local-6989586621679551669"><span class="annot"><span class="annottext">InventoryEncryption -&gt; InventoryEncryption -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552305"><span id="local-6989586621679552307"><span class="annot"><span class="annottext">InventoryEncryption -&gt; InventoryEncryption -&gt; Bool
 (InventoryEncryption -&gt; InventoryEncryption -&gt; Bool)
 -&gt; (InventoryEncryption -&gt; InventoryEncryption -&gt; Bool)
 -&gt; Eq InventoryEncryption
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InventoryEncryption -&gt; InventoryEncryption -&gt; Bool
 == :: InventoryEncryption -&gt; InventoryEncryption -&gt; Bool
 $c== :: InventoryEncryption -&gt; InventoryEncryption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679551660"><span id="local-6989586621679551662"><span id="local-6989586621679551664"><span class="annot"><span class="annottext">Int -&gt; InventoryEncryption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552298"><span id="local-6989586621679552300"><span id="local-6989586621679552302"><span class="annot"><span class="annottext">Int -&gt; InventoryEncryption -&gt; ShowS
 [InventoryEncryption] -&gt; ShowS
 InventoryEncryption -&gt; String
 (Int -&gt; InventoryEncryption -&gt; ShowS)
@@ -81,28 +81,48 @@ $cfrom :: forall x. InventoryEncryption -&gt; Rep InventoryEncryption x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'ssekms', 'inventoryEncryption_ssekms' - Specifies the use of SSE-KMS to encrypt delivered inventory reports.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'sses3', 'inventoryEncryption_sses3' - Specifies the use of SSE-S3 to encrypt delivered inventory reports.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'sses3', 'inventoryEncryption_sses3' - Specifies the use of SSE-S3 to encrypt delivered inventory reports.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'ssekms', 'inventoryEncryption_ssekms' - Specifies the use of SSE-KMS to encrypt delivered inventory reports.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#newInventoryEncryption"><span class="hs-identifier hs-type">newInventoryEncryption</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span><span>
 </span><span id="line-54"></span><span id="newInventoryEncryption"><span class="annot"><span class="annottext">newInventoryEncryption :: InventoryEncryption
 </span><a href="Network.AWS.S3.Types.InventoryEncryption.html#newInventoryEncryption"><span class="hs-identifier hs-var hs-var">newInventoryEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">InventoryEncryption' :: Maybe SSEKMS -&gt; Maybe SSES3 -&gt; InventoryEncryption
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">InventoryEncryption' :: Maybe SSES3 -&gt; Maybe SSEKMS -&gt; InventoryEncryption
 </span><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-type">InventoryEncryption'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ssekms:InventoryEncryption' :: Maybe SSEKMS
-</span><a href="Network.AWS.S3.Types.InventoryEncryption.html#%24sel%3Assekms%3AInventoryEncryption%27"><span class="hs-identifier hs-var">ssekms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSEKMS
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sses3:InventoryEncryption' :: Maybe SSES3
+</span><a href="Network.AWS.S3.Types.InventoryEncryption.html#%24sel%3Asses3%3AInventoryEncryption%27"><span class="hs-identifier hs-var">sses3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSES3
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:sses3:InventoryEncryption' :: Maybe SSES3
-</span><a href="Network.AWS.S3.Types.InventoryEncryption.html#%24sel%3Asses3%3AInventoryEncryption%27"><span class="hs-identifier hs-var">sses3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSES3
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:ssekms:InventoryEncryption' :: Maybe SSEKMS
+</span><a href="Network.AWS.S3.Types.InventoryEncryption.html#%24sel%3Assekms%3AInventoryEncryption%27"><span class="hs-identifier hs-var">ssekms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSEKMS
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | Specifies the use of SSE-KMS to encrypt delivered inventory reports.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#inventoryEncryption_ssekms"><span class="hs-identifier hs-type">inventoryEncryption_ssekms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSEKMS.html#SSEKMS"><span class="hs-identifier hs-type">SSEKMS</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="inventoryEncryption_ssekms"><span class="annot"><span class="annottext">inventoryEncryption_ssekms :: (Maybe SSEKMS -&gt; f (Maybe SSEKMS))
+</span><span id="line-60"></span><span class="hs-comment">-- | Specifies the use of SSE-S3 to encrypt delivered inventory reports.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#inventoryEncryption_sses3"><span class="hs-identifier hs-type">inventoryEncryption_sses3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3"><span class="hs-identifier hs-type">SSES3</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="inventoryEncryption_sses3"><span class="annot"><span class="annottext">inventoryEncryption_sses3 :: (Maybe SSES3 -&gt; f (Maybe SSES3))
+-&gt; InventoryEncryption -&gt; f InventoryEncryption
+</span><a href="Network.AWS.S3.Types.InventoryEncryption.html#inventoryEncryption_sses3"><span class="hs-identifier hs-var hs-var">inventoryEncryption_sses3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryEncryption -&gt; Maybe SSES3)
+-&gt; (InventoryEncryption -&gt; Maybe SSES3 -&gt; InventoryEncryption)
+-&gt; Lens
+     InventoryEncryption InventoryEncryption (Maybe SSES3) (Maybe SSES3)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-type">InventoryEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552289"><span class="annot"><span class="annottext">Maybe SSES3
+sses3 :: Maybe SSES3
+$sel:sses3:InventoryEncryption' :: InventoryEncryption -&gt; Maybe SSES3
+</span><a href="#local-6989586621679552289"><span class="hs-identifier hs-var hs-var">sses3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSES3
+</span><a href="#local-6989586621679552289"><span class="hs-identifier hs-var">sses3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552288"><span class="annot"><span class="annottext">s :: InventoryEncryption
+</span><a href="#local-6989586621679552288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-type">InventoryEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552287"><span class="annot"><span class="annottext">Maybe SSES3
+</span><a href="#local-6989586621679552287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryEncryption
+</span><a href="#local-6989586621679552288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sses3:InventoryEncryption' :: Maybe SSES3
+</span><a href="Network.AWS.S3.Types.InventoryEncryption.html#%24sel%3Asses3%3AInventoryEncryption%27"><span class="hs-identifier hs-var">sses3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSES3
+</span><a href="#local-6989586621679552287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Specifies the use of SSE-KMS to encrypt delivered inventory reports.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#inventoryEncryption_ssekms"><span class="hs-identifier hs-type">inventoryEncryption_ssekms</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSEKMS.html#SSEKMS"><span class="hs-identifier hs-type">SSEKMS</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="inventoryEncryption_ssekms"><span class="annot"><span class="annottext">inventoryEncryption_ssekms :: (Maybe SSEKMS -&gt; f (Maybe SSEKMS))
 -&gt; InventoryEncryption -&gt; f InventoryEncryption
 </span><a href="Network.AWS.S3.Types.InventoryEncryption.html#inventoryEncryption_ssekms"><span class="hs-identifier hs-var hs-var">inventoryEncryption_ssekms</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryEncryption -&gt; Maybe SSEKMS)
 -&gt; (InventoryEncryption -&gt; Maybe SSEKMS -&gt; InventoryEncryption)
@@ -112,84 +132,65 @@ forall a. Maybe a
      (Maybe SSEKMS)
      (Maybe SSEKMS)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-type">InventoryEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551651"><span class="annot"><span class="annottext">Maybe SSEKMS
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-type">InventoryEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552285"><span class="annot"><span class="annottext">Maybe SSEKMS
 ssekms :: Maybe SSEKMS
 $sel:ssekms:InventoryEncryption' :: InventoryEncryption -&gt; Maybe SSEKMS
-</span><a href="#local-6989586621679551651"><span class="hs-identifier hs-var hs-var">ssekms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSEKMS
-</span><a href="#local-6989586621679551651"><span class="hs-identifier hs-var">ssekms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551650"><span class="annot"><span class="annottext">s :: InventoryEncryption
-</span><a href="#local-6989586621679551650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-type">InventoryEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551649"><span class="annot"><span class="annottext">Maybe SSEKMS
-</span><a href="#local-6989586621679551649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryEncryption
-</span><a href="#local-6989586621679551650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ssekms:InventoryEncryption' :: Maybe SSEKMS
+</span><a href="#local-6989586621679552285"><span class="hs-identifier hs-var hs-var">ssekms</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSEKMS
+</span><a href="#local-6989586621679552285"><span class="hs-identifier hs-var">ssekms</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552284"><span class="annot"><span class="annottext">s :: InventoryEncryption
+</span><a href="#local-6989586621679552284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-type">InventoryEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552283"><span class="annot"><span class="annottext">Maybe SSEKMS
+</span><a href="#local-6989586621679552283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryEncryption
+</span><a href="#local-6989586621679552284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ssekms:InventoryEncryption' :: Maybe SSEKMS
 </span><a href="Network.AWS.S3.Types.InventoryEncryption.html#%24sel%3Assekms%3AInventoryEncryption%27"><span class="hs-identifier hs-var">ssekms</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSEKMS
-</span><a href="#local-6989586621679551649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | Specifies the use of SSE-S3 to encrypt delivered inventory reports.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#inventoryEncryption_sses3"><span class="hs-identifier hs-type">inventoryEncryption_sses3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.SSES3.html#SSES3"><span class="hs-identifier hs-type">SSES3</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="inventoryEncryption_sses3"><span class="annot"><span class="annottext">inventoryEncryption_sses3 :: (Maybe SSES3 -&gt; f (Maybe SSES3))
--&gt; InventoryEncryption -&gt; f InventoryEncryption
-</span><a href="Network.AWS.S3.Types.InventoryEncryption.html#inventoryEncryption_sses3"><span class="hs-identifier hs-var hs-var">inventoryEncryption_sses3</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InventoryEncryption -&gt; Maybe SSES3)
--&gt; (InventoryEncryption -&gt; Maybe SSES3 -&gt; InventoryEncryption)
--&gt; Lens
-     InventoryEncryption InventoryEncryption (Maybe SSES3) (Maybe SSES3)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-type">InventoryEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551647"><span class="annot"><span class="annottext">Maybe SSES3
-sses3 :: Maybe SSES3
-$sel:sses3:InventoryEncryption' :: InventoryEncryption -&gt; Maybe SSES3
-</span><a href="#local-6989586621679551647"><span class="hs-identifier hs-var hs-var">sses3</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSES3
-</span><a href="#local-6989586621679551647"><span class="hs-identifier hs-var">sses3</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679551646"><span class="annot"><span class="annottext">s :: InventoryEncryption
-</span><a href="#local-6989586621679551646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-type">InventoryEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679551645"><span class="annot"><span class="annottext">Maybe SSES3
-</span><a href="#local-6989586621679551645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InventoryEncryption
-</span><a href="#local-6989586621679551646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sses3:InventoryEncryption' :: Maybe SSES3
-</span><a href="Network.AWS.S3.Types.InventoryEncryption.html#%24sel%3Asses3%3AInventoryEncryption%27"><span class="hs-identifier hs-var">sses3</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSES3
-</span><a href="#local-6989586621679551645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679552283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679551642"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InventoryEncryption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679551640"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551640"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">Maybe SSEKMS -&gt; Maybe SSES3 -&gt; InventoryEncryption
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679552280"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String InventoryEncryption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679552278"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679552278"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">Maybe SSES3 -&gt; Maybe SSEKMS -&gt; InventoryEncryption
 </span><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-var">InventoryEncryption'</span></a></span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">(Maybe SSEKMS -&gt; Maybe SSES3 -&gt; InventoryEncryption)
--&gt; Either String (Maybe SSEKMS)
--&gt; Either String (Maybe SSES3 -&gt; InventoryEncryption)
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">(Maybe SSES3 -&gt; Maybe SSEKMS -&gt; InventoryEncryption)
+-&gt; Either String (Maybe SSES3)
+-&gt; Either String (Maybe SSEKMS -&gt; InventoryEncryption)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551640"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SSEKMS)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SSE-KMS&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe SSES3 -&gt; InventoryEncryption)
--&gt; Either String (Maybe SSES3) -&gt; Either String InventoryEncryption
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679551640"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SSES3)
+</span><a href="#local-6989586621679552278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SSES3)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SSE-S3&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe SSEKMS -&gt; InventoryEncryption)
+-&gt; Either String (Maybe SSEKMS)
+-&gt; Either String InventoryEncryption
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679552278"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe SSEKMS)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SSE-KMS&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551634"><span id="local-6989586621679551636"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552272"><span id="local-6989586621679552274"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679551631"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552269"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span></span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption"><span class="hs-identifier hs-type">InventoryEncryption</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679551627"><span class="annot"><span class="annottext">toXML :: InventoryEncryption -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-type">InventoryEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679551624"><span id="local-6989586621679551625"><span class="annot"><span class="annottext">Maybe SSEKMS
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679552265"><span class="annot"><span class="annottext">toXML :: InventoryEncryption -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.InventoryEncryption.html#InventoryEncryption%27"><span class="hs-identifier hs-type">InventoryEncryption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552262"><span id="local-6989586621679552263"><span class="annot"><span class="annottext">Maybe SSEKMS
 Maybe SSES3
-sses3 :: Maybe SSES3
 ssekms :: Maybe SSEKMS
-$sel:sses3:InventoryEncryption' :: InventoryEncryption -&gt; Maybe SSES3
+sses3 :: Maybe SSES3
 $sel:ssekms:InventoryEncryption' :: InventoryEncryption -&gt; Maybe SSEKMS
-</span><a href="#local-6989586621679551624"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:sses3:InventoryEncryption' :: InventoryEncryption -&gt; Maybe SSES3
+</span><a href="#local-6989586621679552262"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-81"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;SSE-KMS&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe SSEKMS -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe SSEKMS
-</span><a href="#local-6989586621679551625"><span class="hs-identifier hs-var">ssekms</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;SSE-S3&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe SSES3 -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe SSES3
-</span><a href="#local-6989586621679551624"><span class="hs-identifier hs-var">sses3</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679552263"><span class="hs-identifier hs-var">sses3</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;SSE-KMS&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe SSEKMS -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe SSEKMS
+</span><a href="#local-6989586621679552262"><span class="hs-identifier hs-var">ssekms</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-82"></span></pre></body></html>

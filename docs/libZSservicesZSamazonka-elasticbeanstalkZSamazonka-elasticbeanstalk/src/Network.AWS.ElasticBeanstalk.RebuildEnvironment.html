@@ -29,8 +29,8 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#newRebuildEnvironment"><span class="hs-identifier">newRebuildEnvironment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#rebuildEnvironment_environmentId"><span class="hs-identifier">rebuildEnvironment_environmentId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#rebuildEnvironment_environmentName"><span class="hs-identifier">rebuildEnvironment_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#rebuildEnvironment_environmentName"><span class="hs-identifier">rebuildEnvironment_environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#rebuildEnvironment_environmentId"><span class="hs-identifier">rebuildEnvironment_environmentId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironmentResponse"><span class="hs-identifier">RebuildEnvironmentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -48,23 +48,23 @@
 </span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newRebuildEnvironment' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679310415"><span id="local-6989586621679310416"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebuildEnvironment"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-var">RebuildEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebuildEnvironment%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment%27"><span class="hs-identifier hs-var">RebuildEnvironment'</span></a></span></span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the environment to rebuild.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679310713"><span id="local-6989586621679310714"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebuildEnvironment"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-var">RebuildEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebuildEnvironment%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment%27"><span class="hs-identifier hs-var">RebuildEnvironment'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the environment to rebuild.</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AenvironmentId%3ARebuildEnvironment%27"><span class="annot"><span class="annottext">RebuildEnvironment -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#%24sel%3AenvironmentId%3ARebuildEnvironment%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The name of the environment to rebuild.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AenvironmentName%3ARebuildEnvironment%27"><span class="annot"><span class="annottext">RebuildEnvironment -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#%24sel%3AenvironmentName%3ARebuildEnvironment%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The ID of the environment to rebuild.</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
-</span><span id="line-63"></span><span>    </span><span id="%24sel%3AenvironmentName%3ARebuildEnvironment%27"><span class="annot"><span class="annottext">RebuildEnvironment -&gt; Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#%24sel%3AenvironmentName%3ARebuildEnvironment%27"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AenvironmentId%3ARebuildEnvironment%27"><span class="annot"><span class="annottext">RebuildEnvironment -&gt; Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#%24sel%3AenvironmentId%3ARebuildEnvironment%27"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310408"><span id="local-6989586621679310410"><span class="annot"><span class="annottext">RebuildEnvironment -&gt; RebuildEnvironment -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310706"><span id="local-6989586621679310708"><span class="annot"><span class="annottext">RebuildEnvironment -&gt; RebuildEnvironment -&gt; Bool
 (RebuildEnvironment -&gt; RebuildEnvironment -&gt; Bool)
 -&gt; (RebuildEnvironment -&gt; RebuildEnvironment -&gt; Bool)
 -&gt; Eq RebuildEnvironment
@@ -73,7 +73,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebuildEnvironment -&gt; RebuildEnvironment -&gt; Bool
 == :: RebuildEnvironment -&gt; RebuildEnvironment -&gt; Bool
 $c== :: RebuildEnvironment -&gt; RebuildEnvironment -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310399"><span id="local-6989586621679310401"><span id="local-6989586621679310403"><span id="local-6989586621679310405"><span class="annot"><span class="annottext">ReadPrec [RebuildEnvironment]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310697"><span id="local-6989586621679310699"><span id="local-6989586621679310701"><span id="local-6989586621679310703"><span class="annot"><span class="annottext">ReadPrec [RebuildEnvironment]
 ReadPrec RebuildEnvironment
 Int -&gt; ReadS RebuildEnvironment
 ReadS [RebuildEnvironment]
@@ -93,7 +93,7 @@ readList :: ReadS [RebuildEnvironment]
 $creadList :: ReadS [RebuildEnvironment]
 readsPrec :: Int -&gt; ReadS RebuildEnvironment
 $creadsPrec :: Int -&gt; ReadS RebuildEnvironment
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310392"><span id="local-6989586621679310394"><span id="local-6989586621679310396"><span class="annot"><span class="annottext">Int -&gt; RebuildEnvironment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310690"><span id="local-6989586621679310692"><span id="local-6989586621679310694"><span class="annot"><span class="annottext">Int -&gt; RebuildEnvironment -&gt; ShowS
 [RebuildEnvironment] -&gt; ShowS
 RebuildEnvironment -&gt; String
 (Int -&gt; RebuildEnvironment -&gt; ShowS)
@@ -127,16 +127,16 @@ $cfrom :: forall x. RebuildEnvironment -&gt; Rep RebuildEnvironment x
 </span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'environmentId', 'rebuildEnvironment_environmentId' - The ID of the environment to rebuild.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'environmentName', 'rebuildEnvironment_environmentName' - The name of the environment to rebuild.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'environmentName', 'rebuildEnvironment_environmentName' - The name of the environment to rebuild.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'environmentId', 'rebuildEnvironment_environmentId' - The ID of the environment to rebuild.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#newRebuildEnvironment"><span class="hs-identifier hs-type">newRebuildEnvironment</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span>
@@ -144,75 +144,75 @@ $cfrom :: forall x. RebuildEnvironment -&gt; Rep RebuildEnvironment x
 </span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#newRebuildEnvironment"><span class="hs-identifier hs-var hs-var">newRebuildEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">RebuildEnvironment' :: Maybe Text -&gt; Maybe Text -&gt; RebuildEnvironment
 </span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment%27"><span class="hs-identifier hs-type">RebuildEnvironment'</span></a></span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:environmentId:RebuildEnvironment' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#%24sel%3AenvironmentId%3ARebuildEnvironment%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:environmentName:RebuildEnvironment' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#%24sel%3AenvironmentName%3ARebuildEnvironment%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentName:RebuildEnvironment' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#%24sel%3AenvironmentName%3ARebuildEnvironment%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:environmentId:RebuildEnvironment' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#%24sel%3AenvironmentId%3ARebuildEnvironment%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The ID of the environment to rebuild.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The name of the environment to rebuild.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
-</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#rebuildEnvironment_environmentId"><span class="hs-identifier hs-type">rebuildEnvironment_environmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span id="rebuildEnvironment_environmentId"><span class="annot"><span class="annottext">rebuildEnvironment_environmentId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RebuildEnvironment -&gt; f RebuildEnvironment
-</span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#rebuildEnvironment_environmentId"><span class="hs-identifier hs-var hs-var">rebuildEnvironment_environmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RebuildEnvironment -&gt; Maybe Text)
--&gt; (RebuildEnvironment -&gt; Maybe Text -&gt; RebuildEnvironment)
--&gt; Lens
-     RebuildEnvironment RebuildEnvironment (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment%27"><span class="hs-identifier hs-type">RebuildEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310385"><span class="annot"><span class="annottext">Maybe Text
-environmentId :: Maybe Text
-$sel:environmentId:RebuildEnvironment' :: RebuildEnvironment -&gt; Maybe Text
-</span><a href="#local-6989586621679310385"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310385"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310384"><span class="annot"><span class="annottext">s :: RebuildEnvironment
-</span><a href="#local-6989586621679310384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment%27"><span class="hs-identifier hs-type">RebuildEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310383"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebuildEnvironment
-</span><a href="#local-6989586621679310384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:RebuildEnvironment' :: Maybe Text
-</span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#%24sel%3AenvironmentId%3ARebuildEnvironment%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The name of the environment to rebuild.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentId, or both. If</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- you do not specify either, AWS Elastic Beanstalk returns</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#rebuildEnvironment_environmentName"><span class="hs-identifier hs-type">rebuildEnvironment_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="rebuildEnvironment_environmentName"><span class="annot"><span class="annottext">rebuildEnvironment_environmentName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#rebuildEnvironment_environmentName"><span class="hs-identifier hs-type">rebuildEnvironment_environmentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="rebuildEnvironment_environmentName"><span class="annot"><span class="annottext">rebuildEnvironment_environmentName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; RebuildEnvironment -&gt; f RebuildEnvironment
 </span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#rebuildEnvironment_environmentName"><span class="hs-identifier hs-var hs-var">rebuildEnvironment_environmentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RebuildEnvironment -&gt; Maybe Text)
 -&gt; (RebuildEnvironment -&gt; Maybe Text -&gt; RebuildEnvironment)
 -&gt; Lens
      RebuildEnvironment RebuildEnvironment (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment%27"><span class="hs-identifier hs-type">RebuildEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310382"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment%27"><span class="hs-identifier hs-type">RebuildEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310683"><span class="annot"><span class="annottext">Maybe Text
 environmentName :: Maybe Text
 $sel:environmentName:RebuildEnvironment' :: RebuildEnvironment -&gt; Maybe Text
-</span><a href="#local-6989586621679310382"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310382"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310381"><span class="annot"><span class="annottext">s :: RebuildEnvironment
-</span><a href="#local-6989586621679310381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment%27"><span class="hs-identifier hs-type">RebuildEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310380"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebuildEnvironment
-</span><a href="#local-6989586621679310381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:RebuildEnvironment' :: Maybe Text
+</span><a href="#local-6989586621679310683"><span class="hs-identifier hs-var hs-var">environmentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310683"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310682"><span class="annot"><span class="annottext">s :: RebuildEnvironment
+</span><a href="#local-6989586621679310682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment%27"><span class="hs-identifier hs-type">RebuildEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310681"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebuildEnvironment
+</span><a href="#local-6989586621679310682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentName:RebuildEnvironment' :: Maybe Text
 </span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#%24sel%3AenvironmentName%3ARebuildEnvironment%27"><span class="hs-identifier hs-var">environmentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679310681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ID of the environment to rebuild.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Condition: You must specify either this or an EnvironmentName, or both.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- If you do not specify either, AWS Elastic Beanstalk returns</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- @MissingRequiredParameter@ error.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#rebuildEnvironment_environmentId"><span class="hs-identifier hs-type">rebuildEnvironment_environmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="rebuildEnvironment_environmentId"><span class="annot"><span class="annottext">rebuildEnvironment_environmentId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RebuildEnvironment -&gt; f RebuildEnvironment
+</span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#rebuildEnvironment_environmentId"><span class="hs-identifier hs-var hs-var">rebuildEnvironment_environmentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RebuildEnvironment -&gt; Maybe Text)
+-&gt; (RebuildEnvironment -&gt; Maybe Text -&gt; RebuildEnvironment)
+-&gt; Lens
+     RebuildEnvironment RebuildEnvironment (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment%27"><span class="hs-identifier hs-type">RebuildEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310680"><span class="annot"><span class="annottext">Maybe Text
+environmentId :: Maybe Text
+$sel:environmentId:RebuildEnvironment' :: RebuildEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679310680"><span class="hs-identifier hs-var hs-var">environmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310680"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310679"><span class="annot"><span class="annottext">s :: RebuildEnvironment
+</span><a href="#local-6989586621679310679"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment%27"><span class="hs-identifier hs-type">RebuildEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310678"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310678"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RebuildEnvironment
+</span><a href="#local-6989586621679310679"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentId:RebuildEnvironment' :: Maybe Text
+</span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#%24sel%3AenvironmentId%3ARebuildEnvironment%27"><span class="hs-identifier hs-var">environmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310678"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironmentResponse"><span class="hs-identifier hs-type">RebuildEnvironmentResponse</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679310376"><span class="annot"><span class="annottext">request :: RebuildEnvironment -&gt; Request RebuildEnvironment
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679310674"><span class="annot"><span class="annottext">request :: RebuildEnvironment -&gt; Request RebuildEnvironment
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RebuildEnvironment -&gt; Request RebuildEnvironment
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ElasticBeanstalk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679310372"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679310670"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RebuildEnvironment
 -&gt; ClientResponse ClientBody
@@ -238,12 +238,12 @@ AWSResponse a
 RebuildEnvironmentResponse
 </span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironmentResponse%27"><span class="hs-identifier hs-var">RebuildEnvironmentResponse'</span></a></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310365"><span id="local-6989586621679310367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310663"><span id="local-6989586621679310665"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310660"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621679310358"><span class="annot"><span class="annottext">toHeaders :: RebuildEnvironment -&gt; [Header]
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679310656"><span class="annot"><span class="annottext">toHeaders :: RebuildEnvironment -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; RebuildEnvironment -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -251,20 +251,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679310353"><span class="annot"><span class="annottext">toPath :: RebuildEnvironment -&gt; ByteString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679310651"><span class="annot"><span class="annottext">toPath :: RebuildEnvironment -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RebuildEnvironment -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment"><span class="hs-identifier hs-type">RebuildEnvironment</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679310349"><span class="annot"><span class="annottext">toQuery :: RebuildEnvironment -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment%27"><span class="hs-identifier hs-type">RebuildEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310346"><span id="local-6989586621679310347"><span class="annot"><span class="annottext">Maybe Text
-environmentName :: Maybe Text
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679310647"><span class="annot"><span class="annottext">toQuery :: RebuildEnvironment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironment%27"><span class="hs-identifier hs-type">RebuildEnvironment'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310644"><span id="local-6989586621679310645"><span class="annot"><span class="annottext">Maybe Text
 environmentId :: Maybe Text
-$sel:environmentName:RebuildEnvironment' :: RebuildEnvironment -&gt; Maybe Text
+environmentName :: Maybe Text
 $sel:environmentId:RebuildEnvironment' :: RebuildEnvironment -&gt; Maybe Text
-</span><a href="#local-6989586621679310346"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:environmentName:RebuildEnvironment' :: RebuildEnvironment -&gt; Maybe Text
+</span><a href="#local-6989586621679310644"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -281,22 +281,22 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;EnvironmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310347"><span class="hs-identifier hs-var">environmentId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;EnvironmentName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679310346"><span class="hs-identifier hs-var">environmentName</span></a></span><span>
+</span><a href="#local-6989586621679310645"><span class="hs-identifier hs-var">environmentName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnvironmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679310644"><span class="hs-identifier hs-var">environmentId</span></a></span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | /See:/ 'newRebuildEnvironmentResponse' smart constructor.</span><span>
-</span><span id="line-141"></span><span id="local-6989586621679310343"><span id="local-6989586621679310344"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebuildEnvironmentResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironmentResponse"><span class="hs-identifier hs-var">RebuildEnvironmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebuildEnvironmentResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironmentResponse%27"><span class="hs-identifier hs-var">RebuildEnvironmentResponse'</span></a></span></span><span>
+</span><span id="line-141"></span><span id="local-6989586621679310641"><span id="local-6989586621679310642"></span></span><span class="hs-keyword">data</span><span> </span><span id="RebuildEnvironmentResponse"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironmentResponse"><span class="hs-identifier hs-var">RebuildEnvironmentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RebuildEnvironmentResponse%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironmentResponse%27"><span class="hs-identifier hs-var">RebuildEnvironmentResponse'</span></a></span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310339"><span id="local-6989586621679310341"><span class="annot"><span class="annottext">RebuildEnvironmentResponse -&gt; RebuildEnvironmentResponse -&gt; Bool
+</span><span id="line-144"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310637"><span id="local-6989586621679310639"><span class="annot"><span class="annottext">RebuildEnvironmentResponse -&gt; RebuildEnvironmentResponse -&gt; Bool
 (RebuildEnvironmentResponse -&gt; RebuildEnvironmentResponse -&gt; Bool)
 -&gt; (RebuildEnvironmentResponse
     -&gt; RebuildEnvironmentResponse -&gt; Bool)
@@ -306,7 +306,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RebuildEnvironmentResponse -&gt; RebuildEnvironmentResponse -&gt; Bool
 == :: RebuildEnvironmentResponse -&gt; RebuildEnvironmentResponse -&gt; Bool
 $c== :: RebuildEnvironmentResponse -&gt; RebuildEnvironmentResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310331"><span id="local-6989586621679310333"><span id="local-6989586621679310335"><span id="local-6989586621679310337"><span class="annot"><span class="annottext">ReadPrec [RebuildEnvironmentResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310629"><span id="local-6989586621679310631"><span id="local-6989586621679310633"><span id="local-6989586621679310635"><span class="annot"><span class="annottext">ReadPrec [RebuildEnvironmentResponse]
 ReadPrec RebuildEnvironmentResponse
 Int -&gt; ReadS RebuildEnvironmentResponse
 ReadS [RebuildEnvironmentResponse]
@@ -326,7 +326,7 @@ readList :: ReadS [RebuildEnvironmentResponse]
 $creadList :: ReadS [RebuildEnvironmentResponse]
 readsPrec :: Int -&gt; ReadS RebuildEnvironmentResponse
 $creadsPrec :: Int -&gt; ReadS RebuildEnvironmentResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310325"><span id="local-6989586621679310327"><span id="local-6989586621679310329"><span class="annot"><span class="annottext">Int -&gt; RebuildEnvironmentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310623"><span id="local-6989586621679310625"><span id="local-6989586621679310627"><span class="annot"><span class="annottext">Int -&gt; RebuildEnvironmentResponse -&gt; ShowS
 [RebuildEnvironmentResponse] -&gt; ShowS
 RebuildEnvironmentResponse -&gt; String
 (Int -&gt; RebuildEnvironmentResponse -&gt; ShowS)
@@ -369,5 +369,5 @@ RebuildEnvironmentResponse -&gt; Rep RebuildEnvironmentResponse x
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">RebuildEnvironmentResponse
 </span><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironmentResponse%27"><span class="hs-identifier hs-var">RebuildEnvironmentResponse'</span></a></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310321"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironmentResponse"><span class="hs-identifier hs-type">RebuildEnvironmentResponse</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310619"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.RebuildEnvironment.html#RebuildEnvironmentResponse"><span class="hs-identifier hs-type">RebuildEnvironmentResponse</span></a></span></span><span>
 </span><span id="line-156"></span></pre></body></html>

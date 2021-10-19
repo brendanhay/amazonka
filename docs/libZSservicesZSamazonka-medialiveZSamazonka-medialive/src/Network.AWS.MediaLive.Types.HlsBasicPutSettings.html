@@ -26,24 +26,24 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Hls Basic Put Settings</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHlsBasicPutSettings' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679878731"><span id="local-6989586621679878732"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsBasicPutSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-var">HlsBasicPutSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsBasicPutSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-var">HlsBasicPutSettings'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Size in seconds of file cache for streaming outputs.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AfilecacheDuration%3AHlsBasicPutSettings%27"><span class="annot"><span class="annottext">HlsBasicPutSettings -&gt; Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3AfilecacheDuration%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var hs-var">filecacheDuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | Number of retry attempts that will be made before the Live Event is put</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- into an error state.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AnumRetries%3AHlsBasicPutSettings%27"><span class="annot"><span class="annottext">HlsBasicPutSettings -&gt; Maybe Natural
+</span><span id="line-29"></span><span id="local-6989586621679885392"><span id="local-6989586621679885393"></span></span><span class="hs-keyword">data</span><span> </span><span id="HlsBasicPutSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-var">HlsBasicPutSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsBasicPutSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-var">HlsBasicPutSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Number of retry attempts that will be made before the Live Event is put</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- into an error state.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AnumRetries%3AHlsBasicPutSettings%27"><span class="annot"><span class="annottext">HlsBasicPutSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3AnumRetries%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var hs-var">numRetries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Number of seconds to wait before retrying connection to the CDN if the</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- connection is lost.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AconnectionRetryInterval%3AHlsBasicPutSettings%27"><span class="annot"><span class="annottext">HlsBasicPutSettings -&gt; Maybe Natural
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Number of seconds to wait before retrying connection to the CDN if the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- connection is lost.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AconnectionRetryInterval%3AHlsBasicPutSettings%27"><span class="annot"><span class="annottext">HlsBasicPutSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3AconnectionRetryInterval%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var hs-var">connectionRetryInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Size in seconds of file cache for streaming outputs.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AfilecacheDuration%3AHlsBasicPutSettings%27"><span class="annot"><span class="annottext">HlsBasicPutSettings -&gt; Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3AfilecacheDuration%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var hs-var">filecacheDuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | If a streaming output fails, number of seconds to wait until a restart</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- is initiated. A value of 0 means never restart.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3ArestartDelay%3AHlsBasicPutSettings%27"><span class="annot"><span class="annottext">HlsBasicPutSettings -&gt; Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3ArestartDelay%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var hs-var">restartDelay</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679878722"><span id="local-6989586621679878724"><span class="annot"><span class="annottext">HlsBasicPutSettings -&gt; HlsBasicPutSettings -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679885383"><span id="local-6989586621679885385"><span class="annot"><span class="annottext">HlsBasicPutSettings -&gt; HlsBasicPutSettings -&gt; Bool
 (HlsBasicPutSettings -&gt; HlsBasicPutSettings -&gt; Bool)
 -&gt; (HlsBasicPutSettings -&gt; HlsBasicPutSettings -&gt; Bool)
 -&gt; Eq HlsBasicPutSettings
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HlsBasicPutSettings -&gt; HlsBasicPutSettings -&gt; Bool
 == :: HlsBasicPutSettings -&gt; HlsBasicPutSettings -&gt; Bool
 $c== :: HlsBasicPutSettings -&gt; HlsBasicPutSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679878713"><span id="local-6989586621679878715"><span id="local-6989586621679878717"><span id="local-6989586621679878719"><span class="annot"><span class="annottext">ReadPrec [HlsBasicPutSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679885374"><span id="local-6989586621679885376"><span id="local-6989586621679885378"><span id="local-6989586621679885380"><span class="annot"><span class="annottext">ReadPrec [HlsBasicPutSettings]
 ReadPrec HlsBasicPutSettings
 Int -&gt; ReadS HlsBasicPutSettings
 ReadS [HlsBasicPutSettings]
@@ -72,7 +72,7 @@ readList :: ReadS [HlsBasicPutSettings]
 $creadList :: ReadS [HlsBasicPutSettings]
 readsPrec :: Int -&gt; ReadS HlsBasicPutSettings
 $creadsPrec :: Int -&gt; ReadS HlsBasicPutSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679878706"><span id="local-6989586621679878708"><span id="local-6989586621679878710"><span class="annot"><span class="annottext">Int -&gt; HlsBasicPutSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679885367"><span id="local-6989586621679885369"><span id="local-6989586621679885371"><span class="annot"><span class="annottext">Int -&gt; HlsBasicPutSettings -&gt; ShowS
 [HlsBasicPutSettings] -&gt; ShowS
 HlsBasicPutSettings -&gt; String
 (Int -&gt; HlsBasicPutSettings -&gt; ShowS)
@@ -106,13 +106,13 @@ $cfrom :: forall x. HlsBasicPutSettings -&gt; Rep HlsBasicPutSettings x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'filecacheDuration', 'hlsBasicPutSettings_filecacheDuration' - Size in seconds of file cache for streaming outputs.</span><span>
-</span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'numRetries', 'hlsBasicPutSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- into an error state.</span><span>
-</span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'connectionRetryInterval', 'hlsBasicPutSettings_connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- connection is lost.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'numRetries', 'hlsBasicPutSettings_numRetries' - Number of retry attempts that will be made before the Live Event is put</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- into an error state.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'connectionRetryInterval', 'hlsBasicPutSettings_connectionRetryInterval' - Number of seconds to wait before retrying connection to the CDN if the</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- connection is lost.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'filecacheDuration', 'hlsBasicPutSettings_filecacheDuration' - Size in seconds of file cache for streaming outputs.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'restartDelay', 'hlsBasicPutSettings_restartDelay' - If a streaming output fails, number of seconds to wait until a restart</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- is initiated. A value of 0 means never restart.</span><span>
@@ -126,52 +126,28 @@ $cfrom :: forall x. HlsBasicPutSettings -&gt; Rep HlsBasicPutSettings x
 -&gt; Maybe Natural
 -&gt; HlsBasicPutSettings
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filecacheDuration:HlsBasicPutSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3AfilecacheDuration%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:numRetries:HlsBasicPutSettings' :: Maybe Natural
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:numRetries:HlsBasicPutSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3AnumRetries%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var">numRetries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionRetryInterval:HlsBasicPutSettings' :: Maybe Natural
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionRetryInterval:HlsBasicPutSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3AconnectionRetryInterval%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:restartDelay:HlsBasicPutSettings' :: Maybe Natural
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:filecacheDuration:HlsBasicPutSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3AfilecacheDuration%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:restartDelay:HlsBasicPutSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3ArestartDelay%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var">restartDelay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- | Size in seconds of file cache for streaming outputs.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#hlsBasicPutSettings_filecacheDuration"><span class="hs-identifier hs-type">hlsBasicPutSettings_filecacheDuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="hlsBasicPutSettings_filecacheDuration"><span class="annot"><span class="annottext">hlsBasicPutSettings_filecacheDuration :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; HlsBasicPutSettings -&gt; f HlsBasicPutSettings
-</span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#hlsBasicPutSettings_filecacheDuration"><span class="hs-identifier hs-var hs-var">hlsBasicPutSettings_filecacheDuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsBasicPutSettings -&gt; Maybe Natural)
--&gt; (HlsBasicPutSettings -&gt; Maybe Natural -&gt; HlsBasicPutSettings)
--&gt; Lens
-     HlsBasicPutSettings
-     HlsBasicPutSettings
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679878697"><span class="annot"><span class="annottext">Maybe Natural
-filecacheDuration :: Maybe Natural
-$sel:filecacheDuration:HlsBasicPutSettings' :: HlsBasicPutSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679878697"><span class="hs-identifier hs-var hs-var">filecacheDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878697"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679878696"><span class="annot"><span class="annottext">s :: HlsBasicPutSettings
-</span><a href="#local-6989586621679878696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679878695"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsBasicPutSettings
-</span><a href="#local-6989586621679878696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filecacheDuration:HlsBasicPutSettings' :: Maybe Natural
-</span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3AfilecacheDuration%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | Number of retry attempts that will be made before the Live Event is put</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- into an error state.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#hlsBasicPutSettings_numRetries"><span class="hs-identifier hs-type">hlsBasicPutSettings_numRetries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="hlsBasicPutSettings_numRetries"><span class="annot"><span class="annottext">hlsBasicPutSettings_numRetries :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Number of retry attempts that will be made before the Live Event is put</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- into an error state.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#hlsBasicPutSettings_numRetries"><span class="hs-identifier hs-type">hlsBasicPutSettings_numRetries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="hlsBasicPutSettings_numRetries"><span class="annot"><span class="annottext">hlsBasicPutSettings_numRetries :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; HlsBasicPutSettings -&gt; f HlsBasicPutSettings
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#hlsBasicPutSettings_numRetries"><span class="hs-identifier hs-var hs-var">hlsBasicPutSettings_numRetries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsBasicPutSettings -&gt; Maybe Natural)
 -&gt; (HlsBasicPutSettings -&gt; Maybe Natural -&gt; HlsBasicPutSettings)
@@ -181,21 +157,21 @@ $sel:filecacheDuration:HlsBasicPutSettings' :: HlsBasicPutSettings -&gt; Maybe N
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679878693"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679885358"><span class="annot"><span class="annottext">Maybe Natural
 numRetries :: Maybe Natural
 $sel:numRetries:HlsBasicPutSettings' :: HlsBasicPutSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679878693"><span class="hs-identifier hs-var hs-var">numRetries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878693"><span class="hs-identifier hs-var">numRetries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679878692"><span class="annot"><span class="annottext">s :: HlsBasicPutSettings
-</span><a href="#local-6989586621679878692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679878691"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsBasicPutSettings
-</span><a href="#local-6989586621679878692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numRetries:HlsBasicPutSettings' :: Maybe Natural
+</span><a href="#local-6989586621679885358"><span class="hs-identifier hs-var hs-var">numRetries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885358"><span class="hs-identifier hs-var">numRetries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679885357"><span class="annot"><span class="annottext">s :: HlsBasicPutSettings
+</span><a href="#local-6989586621679885357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679885356"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsBasicPutSettings
+</span><a href="#local-6989586621679885357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numRetries:HlsBasicPutSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3AnumRetries%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var">numRetries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | Number of seconds to wait before retrying connection to the CDN if the</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- connection is lost.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#hlsBasicPutSettings_connectionRetryInterval"><span class="hs-identifier hs-type">hlsBasicPutSettings_connectionRetryInterval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="hlsBasicPutSettings_connectionRetryInterval"><span class="annot"><span class="annottext">hlsBasicPutSettings_connectionRetryInterval :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679885356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Number of seconds to wait before retrying connection to the CDN if the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- connection is lost.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#hlsBasicPutSettings_connectionRetryInterval"><span class="hs-identifier hs-type">hlsBasicPutSettings_connectionRetryInterval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="hlsBasicPutSettings_connectionRetryInterval"><span class="annot"><span class="annottext">hlsBasicPutSettings_connectionRetryInterval :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; HlsBasicPutSettings -&gt; f HlsBasicPutSettings
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#hlsBasicPutSettings_connectionRetryInterval"><span class="hs-identifier hs-var hs-var">hlsBasicPutSettings_connectionRetryInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsBasicPutSettings -&gt; Maybe Natural)
 -&gt; (HlsBasicPutSettings -&gt; Maybe Natural -&gt; HlsBasicPutSettings)
@@ -205,21 +181,44 @@ $sel:numRetries:HlsBasicPutSettings' :: HlsBasicPutSettings -&gt; Maybe Natural
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679878689"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679885354"><span class="annot"><span class="annottext">Maybe Natural
 connectionRetryInterval :: Maybe Natural
 $sel:connectionRetryInterval:HlsBasicPutSettings' :: HlsBasicPutSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679878689"><span class="hs-identifier hs-var hs-var">connectionRetryInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878689"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679878688"><span class="annot"><span class="annottext">s :: HlsBasicPutSettings
-</span><a href="#local-6989586621679878688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679878687"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsBasicPutSettings
-</span><a href="#local-6989586621679878688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionRetryInterval:HlsBasicPutSettings' :: Maybe Natural
+</span><a href="#local-6989586621679885354"><span class="hs-identifier hs-var hs-var">connectionRetryInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885354"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679885353"><span class="annot"><span class="annottext">s :: HlsBasicPutSettings
+</span><a href="#local-6989586621679885353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679885352"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsBasicPutSettings
+</span><a href="#local-6989586621679885353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionRetryInterval:HlsBasicPutSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3AconnectionRetryInterval%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | If a streaming output fails, number of seconds to wait until a restart</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- is initiated. A value of 0 means never restart.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#hlsBasicPutSettings_restartDelay"><span class="hs-identifier hs-type">hlsBasicPutSettings_restartDelay</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="hlsBasicPutSettings_restartDelay"><span class="annot"><span class="annottext">hlsBasicPutSettings_restartDelay :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679885352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | Size in seconds of file cache for streaming outputs.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#hlsBasicPutSettings_filecacheDuration"><span class="hs-identifier hs-type">hlsBasicPutSettings_filecacheDuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="hlsBasicPutSettings_filecacheDuration"><span class="annot"><span class="annottext">hlsBasicPutSettings_filecacheDuration :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; HlsBasicPutSettings -&gt; f HlsBasicPutSettings
+</span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#hlsBasicPutSettings_filecacheDuration"><span class="hs-identifier hs-var hs-var">hlsBasicPutSettings_filecacheDuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsBasicPutSettings -&gt; Maybe Natural)
+-&gt; (HlsBasicPutSettings -&gt; Maybe Natural -&gt; HlsBasicPutSettings)
+-&gt; Lens
+     HlsBasicPutSettings
+     HlsBasicPutSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679885350"><span class="annot"><span class="annottext">Maybe Natural
+filecacheDuration :: Maybe Natural
+$sel:filecacheDuration:HlsBasicPutSettings' :: HlsBasicPutSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679885350"><span class="hs-identifier hs-var hs-var">filecacheDuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885350"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679885349"><span class="annot"><span class="annottext">s :: HlsBasicPutSettings
+</span><a href="#local-6989586621679885349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679885348"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsBasicPutSettings
+</span><a href="#local-6989586621679885349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filecacheDuration:HlsBasicPutSettings' :: Maybe Natural
+</span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3AfilecacheDuration%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | If a streaming output fails, number of seconds to wait until a restart</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- is initiated. A value of 0 means never restart.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#hlsBasicPutSettings_restartDelay"><span class="hs-identifier hs-type">hlsBasicPutSettings_restartDelay</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="hlsBasicPutSettings_restartDelay"><span class="annot"><span class="annottext">hlsBasicPutSettings_restartDelay :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; HlsBasicPutSettings -&gt; f HlsBasicPutSettings
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#hlsBasicPutSettings_restartDelay"><span class="hs-identifier hs-var hs-var">hlsBasicPutSettings_restartDelay</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HlsBasicPutSettings -&gt; Maybe Natural)
 -&gt; (HlsBasicPutSettings -&gt; Maybe Natural -&gt; HlsBasicPutSettings)
@@ -229,37 +228,37 @@ $sel:connectionRetryInterval:HlsBasicPutSettings' :: HlsBasicPutSettings -&gt; M
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679878685"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679885346"><span class="annot"><span class="annottext">Maybe Natural
 restartDelay :: Maybe Natural
 $sel:restartDelay:HlsBasicPutSettings' :: HlsBasicPutSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679878685"><span class="hs-identifier hs-var hs-var">restartDelay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878685"><span class="hs-identifier hs-var">restartDelay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679878684"><span class="annot"><span class="annottext">s :: HlsBasicPutSettings
-</span><a href="#local-6989586621679878684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679878683"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsBasicPutSettings
-</span><a href="#local-6989586621679878684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restartDelay:HlsBasicPutSettings' :: Maybe Natural
+</span><a href="#local-6989586621679885346"><span class="hs-identifier hs-var hs-var">restartDelay</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885346"><span class="hs-identifier hs-var">restartDelay</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679885345"><span class="annot"><span class="annottext">s :: HlsBasicPutSettings
+</span><a href="#local-6989586621679885345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679885344"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HlsBasicPutSettings
+</span><a href="#local-6989586621679885345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:restartDelay:HlsBasicPutSettings' :: Maybe Natural
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#%24sel%3ArestartDelay%3AHlsBasicPutSettings%27"><span class="hs-identifier hs-var">restartDelay</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679878680"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679878678"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsBasicPutSettings
+</span><a href="#local-6989586621679885344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679885341"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679885339"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HlsBasicPutSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HlsBasicPutSettings)
 -&gt; Value
 -&gt; Parser HlsBasicPutSettings
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HlsBasicPutSettings&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679878675"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679878675"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679885336"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679885336"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; Maybe Natural
 -&gt; HlsBasicPutSettings
 </span><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-var">HlsBasicPutSettings'</span></a></span><span>
-</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
  -&gt; Maybe Natural
  -&gt; Maybe Natural
  -&gt; Maybe Natural
@@ -270,91 +269,91 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; Maybe Natural -&gt; Maybe Natural -&gt; HlsBasicPutSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679878675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679885336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;filecacheDuration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;numRetries&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Natural
    -&gt; Maybe Natural -&gt; Maybe Natural -&gt; HlsBasicPutSettings)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; HlsBasicPutSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679878675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679885336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;numRetries&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Natural -&gt; HlsBasicPutSettings)
+</span><span class="hs-string">&quot;connectionRetryInterval&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Natural -&gt; HlsBasicPutSettings)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser (Maybe Natural -&gt; HlsBasicPutSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679878675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679885336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;connectionRetryInterval&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; HlsBasicPutSettings)
+</span><span class="hs-string">&quot;filecacheDuration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; HlsBasicPutSettings)
 -&gt; Parser (Maybe Natural) -&gt; Parser HlsBasicPutSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679878675"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679885336"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;restartDelay&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679878669"><span id="local-6989586621679878671"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span></span></span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679878666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span></span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679878658"><span id="local-6989586621679878660"><span id="local-6989586621679878662"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679878656"><span class="annot"><span class="annottext">toJSON :: HlsBasicPutSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679878651"><span id="local-6989586621679878652"><span id="local-6989586621679878653"><span id="local-6989586621679878654"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679885330"><span id="local-6989586621679885332"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679885327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679885319"><span id="local-6989586621679885321"><span id="local-6989586621679885323"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings"><span class="hs-identifier hs-type">HlsBasicPutSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679885317"><span class="annot"><span class="annottext">toJSON :: HlsBasicPutSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsBasicPutSettings.html#HlsBasicPutSettings%27"><span class="hs-identifier hs-type">HlsBasicPutSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679885312"><span id="local-6989586621679885313"><span id="local-6989586621679885314"><span id="local-6989586621679885315"><span class="annot"><span class="annottext">Maybe Natural
 restartDelay :: Maybe Natural
+filecacheDuration :: Maybe Natural
 connectionRetryInterval :: Maybe Natural
 numRetries :: Maybe Natural
-filecacheDuration :: Maybe Natural
 $sel:restartDelay:HlsBasicPutSettings' :: HlsBasicPutSettings -&gt; Maybe Natural
+$sel:filecacheDuration:HlsBasicPutSettings' :: HlsBasicPutSettings -&gt; Maybe Natural
 $sel:connectionRetryInterval:HlsBasicPutSettings' :: HlsBasicPutSettings -&gt; Maybe Natural
 $sel:numRetries:HlsBasicPutSettings' :: HlsBasicPutSettings -&gt; Maybe Natural
-$sel:filecacheDuration:HlsBasicPutSettings' :: HlsBasicPutSettings -&gt; Maybe Natural
-</span><a href="#local-6989586621679878651"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679885312"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;filecacheDuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878654"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;numRetries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878653"><span class="hs-identifier hs-var">numRetries</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679885315"><span class="hs-identifier hs-var">numRetries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connectionRetryInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878652"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679885314"><span class="hs-identifier hs-var">connectionRetryInterval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;filecacheDuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679885313"><span class="hs-identifier hs-var">filecacheDuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;restartDelay&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679878651"><span class="hs-identifier hs-var">restartDelay</span></a></span><span>
-</span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span></pre></body></html>
+</span><a href="#local-6989586621679885312"><span class="hs-identifier hs-var">restartDelay</span></a></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span></pre></body></html>

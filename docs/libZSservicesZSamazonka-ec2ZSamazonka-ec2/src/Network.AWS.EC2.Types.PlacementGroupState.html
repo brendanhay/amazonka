@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621681100397"><span id="local-6989586621681100398"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlacementGroupState"><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupState.html#PlacementGroupState"><span class="hs-identifier hs-var">PlacementGroupState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementGroupState%27"><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupState.html#PlacementGroupState%27"><span class="hs-identifier hs-var">PlacementGroupState'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621681135097"><span id="local-6989586621681135098"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlacementGroupState"><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupState.html#PlacementGroupState"><span class="hs-identifier hs-var">PlacementGroupState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlacementGroupState%27"><span class="annot"><a href="Network.AWS.EC2.Types.PlacementGroupState.html#PlacementGroupState%27"><span class="hs-identifier hs-var">PlacementGroupState'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPlacementGroupState"><span class="annot"><span class="annottext">PlacementGroupState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.PlacementGroupState.html#fromPlacementGroupState"><span class="hs-identifier hs-var hs-var">fromPlacementGroupState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681100389"><span id="local-6989586621681100391"><span id="local-6989586621681100393"><span class="annot"><span class="annottext">Int -&gt; PlacementGroupState -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681135089"><span id="local-6989586621681135091"><span id="local-6989586621681135093"><span class="annot"><span class="annottext">Int -&gt; PlacementGroupState -&gt; ShowS
 [PlacementGroupState] -&gt; ShowS
 PlacementGroupState -&gt; String
 (Int -&gt; PlacementGroupState -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: PlacementGroupState -&gt; String
 showsPrec :: Int -&gt; PlacementGroupState -&gt; ShowS
 $cshowsPrec :: Int -&gt; PlacementGroupState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681100380"><span id="local-6989586621681100382"><span id="local-6989586621681100384"><span id="local-6989586621681100386"><span class="annot"><span class="annottext">ReadPrec [PlacementGroupState]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681135080"><span id="local-6989586621681135082"><span id="local-6989586621681135084"><span id="local-6989586621681135086"><span class="annot"><span class="annottext">ReadPrec [PlacementGroupState]
 ReadPrec PlacementGroupState
 Int -&gt; ReadS PlacementGroupState
 ReadS [PlacementGroupState]
@@ -75,7 +75,7 @@ $creadList :: ReadS [PlacementGroupState]
 readsPrec :: Int -&gt; ReadS PlacementGroupState
 $creadsPrec :: Int -&gt; ReadS PlacementGroupState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681100375"><span id="local-6989586621681100377"><span class="annot"><span class="annottext">PlacementGroupState -&gt; PlacementGroupState -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681135075"><span id="local-6989586621681135077"><span class="annot"><span class="annottext">PlacementGroupState -&gt; PlacementGroupState -&gt; Bool
 (PlacementGroupState -&gt; PlacementGroupState -&gt; Bool)
 -&gt; (PlacementGroupState -&gt; PlacementGroupState -&gt; Bool)
 -&gt; Eq PlacementGroupState
@@ -85,7 +85,7 @@ $c/= :: PlacementGroupState -&gt; PlacementGroupState -&gt; Bool
 == :: PlacementGroupState -&gt; PlacementGroupState -&gt; Bool
 $c== :: PlacementGroupState -&gt; PlacementGroupState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681100359"><span id="local-6989586621681100361"><span id="local-6989586621681100363"><span id="local-6989586621681100365"><span id="local-6989586621681100367"><span id="local-6989586621681100369"><span id="local-6989586621681100371"><span class="annot"><span class="annottext">Eq PlacementGroupState
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681135059"><span id="local-6989586621681135061"><span id="local-6989586621681135063"><span id="local-6989586621681135065"><span id="local-6989586621681135067"><span id="local-6989586621681135069"><span id="local-6989586621681135071"><span class="annot"><span class="annottext">Eq PlacementGroupState
 Eq PlacementGroupState
 -&gt; (PlacementGroupState -&gt; PlacementGroupState -&gt; Ordering)
 -&gt; (PlacementGroupState -&gt; PlacementGroupState -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. PlacementGroupState -&gt; Rep PlacementGroupState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681100351"><span id="local-6989586621681100353"><span class="annot"><span class="annottext">Int -&gt; PlacementGroupState -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681135051"><span id="local-6989586621681135053"><span class="annot"><span class="annottext">Int -&gt; PlacementGroupState -&gt; Int
 PlacementGroupState -&gt; Int
 (Int -&gt; PlacementGroupState -&gt; Int)
 -&gt; (PlacementGroupState -&gt; Int) -&gt; Hashable PlacementGroupState
@@ -148,53 +148,53 @@ $chash :: PlacementGroupState -&gt; Int
 hashWithSalt :: Int -&gt; PlacementGroupState -&gt; Int
 $chashWithSalt :: Int -&gt; PlacementGroupState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681100348"><span class="annot"><span class="annottext">PlacementGroupState -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681135048"><span class="annot"><span class="annottext">PlacementGroupState -&gt; ()
 (PlacementGroupState -&gt; ()) -&gt; NFData PlacementGroupState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PlacementGroupState -&gt; ()
 $crnf :: PlacementGroupState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681100345"><span class="annot"><span class="annottext">Text -&gt; Either String PlacementGroupState
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681135045"><span class="annot"><span class="annottext">Text -&gt; Either String PlacementGroupState
 (Text -&gt; Either String PlacementGroupState)
 -&gt; FromText PlacementGroupState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PlacementGroupState
 $cfromText :: Text -&gt; Either String PlacementGroupState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681100342"><span class="annot"><span class="annottext">PlacementGroupState -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681135042"><span class="annot"><span class="annottext">PlacementGroupState -&gt; Text
 (PlacementGroupState -&gt; Text) -&gt; ToText PlacementGroupState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PlacementGroupState -&gt; Text
 $ctoText :: PlacementGroupState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681100339"><span class="annot"><span class="annottext">PlacementGroupState -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681135039"><span class="annot"><span class="annottext">PlacementGroupState -&gt; ByteString
 (PlacementGroupState -&gt; ByteString)
 -&gt; ToByteString PlacementGroupState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PlacementGroupState -&gt; ByteString
 $ctoBS :: PlacementGroupState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681100336"><span class="annot"><span class="annottext">PlacementGroupState -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681135036"><span class="annot"><span class="annottext">PlacementGroupState -&gt; ByteStringBuilder
 (PlacementGroupState -&gt; ByteStringBuilder)
 -&gt; ToLog PlacementGroupState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PlacementGroupState -&gt; ByteStringBuilder
 $cbuild :: PlacementGroupState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681100333"><span class="annot"><span class="annottext">HeaderName -&gt; PlacementGroupState -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681135033"><span class="annot"><span class="annottext">HeaderName -&gt; PlacementGroupState -&gt; [Header]
 (HeaderName -&gt; PlacementGroupState -&gt; [Header])
 -&gt; ToHeader PlacementGroupState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PlacementGroupState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PlacementGroupState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681100330"><span class="annot"><span class="annottext">PlacementGroupState -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681135030"><span class="annot"><span class="annottext">PlacementGroupState -&gt; QueryString
 (PlacementGroupState -&gt; QueryString) -&gt; ToQuery PlacementGroupState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PlacementGroupState -&gt; QueryString
 $ctoQuery :: PlacementGroupState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681100325"><span id="local-6989586621681100327"><span class="annot"><span class="annottext">Value -&gt; Parser [PlacementGroupState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681135025"><span id="local-6989586621681135027"><span class="annot"><span class="annottext">Value -&gt; Parser [PlacementGroupState]
 Value -&gt; Parser PlacementGroupState
 (Value -&gt; Parser PlacementGroupState)
 -&gt; (Value -&gt; Parser [PlacementGroupState])
@@ -206,7 +206,7 @@ $cparseJSONList :: Value -&gt; Parser [PlacementGroupState]
 parseJSON :: Value -&gt; Parser PlacementGroupState
 $cparseJSON :: Value -&gt; Parser PlacementGroupState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681100320"><span id="local-6989586621681100322"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlacementGroupState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681135020"><span id="local-6989586621681135022"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlacementGroupState]
 FromJSONKeyFunction PlacementGroupState
 FromJSONKeyFunction PlacementGroupState
 -&gt; FromJSONKeyFunction [PlacementGroupState]
@@ -218,7 +218,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PlacementGroupState]
 fromJSONKey :: FromJSONKeyFunction PlacementGroupState
 $cfromJSONKey :: FromJSONKeyFunction PlacementGroupState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681100311"><span id="local-6989586621681100313"><span id="local-6989586621681100315"><span id="local-6989586621681100317"><span class="annot"><span class="annottext">[PlacementGroupState] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681135011"><span id="local-6989586621681135013"><span id="local-6989586621681135015"><span id="local-6989586621681135017"><span class="annot"><span class="annottext">[PlacementGroupState] -&gt; Encoding
 [PlacementGroupState] -&gt; Value
 PlacementGroupState -&gt; Encoding
 PlacementGroupState -&gt; Value
@@ -242,7 +242,7 @@ $ctoEncoding :: PlacementGroupState -&gt; Encoding
 toJSON :: PlacementGroupState -&gt; Value
 $ctoJSON :: PlacementGroupState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681100306"><span id="local-6989586621681100308"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlacementGroupState]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681135006"><span id="local-6989586621681135008"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlacementGroupState]
 ToJSONKeyFunction PlacementGroupState
 ToJSONKeyFunction PlacementGroupState
 -&gt; ToJSONKeyFunction [PlacementGroupState]
@@ -254,14 +254,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PlacementGroupState]
 toJSONKey :: ToJSONKeyFunction PlacementGroupState
 $ctoJSONKey :: ToJSONKeyFunction PlacementGroupState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681100303"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlacementGroupState
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681135003"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlacementGroupState
 ([Node] -&gt; Either String PlacementGroupState)
 -&gt; FromXML PlacementGroupState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PlacementGroupState
 $cparseXML :: [Node] -&gt; Either String PlacementGroupState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681100300"><span class="annot"><span class="annottext">PlacementGroupState -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681135000"><span class="annot"><span class="annottext">PlacementGroupState -&gt; XML
 (PlacementGroupState -&gt; XML) -&gt; ToXML PlacementGroupState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PlacementGroupState -&gt; XML

@@ -27,19 +27,19 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A complex type that contains zero or more @Tag@ elements.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTags' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679403489"><span id="local-6989586621679403490"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tags"><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags"><span class="hs-identifier hs-var">Tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tags%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags%27"><span class="hs-identifier hs-var">Tags'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679403760"><span id="local-6989586621679403761"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tags"><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags"><span class="hs-identifier hs-var">Tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tags%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags%27"><span class="hs-identifier hs-var">Tags'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex type that contains @Tag@ elements.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aitems%3ATags%27"><span class="annot"><span class="annottext">Tags -&gt; Maybe [Tag]
 </span><a href="Network.AWS.CloudFront.Types.Tags.html#%24sel%3Aitems%3ATags%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403483"><span id="local-6989586621679403485"><span class="annot"><span class="annottext">Tags -&gt; Tags -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679403754"><span id="local-6989586621679403756"><span class="annot"><span class="annottext">Tags -&gt; Tags -&gt; Bool
 (Tags -&gt; Tags -&gt; Bool) -&gt; (Tags -&gt; Tags -&gt; Bool) -&gt; Eq Tags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Tags -&gt; Tags -&gt; Bool
 $c/= :: Tags -&gt; Tags -&gt; Bool
 == :: Tags -&gt; Tags -&gt; Bool
 $c== :: Tags -&gt; Tags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403474"><span id="local-6989586621679403476"><span id="local-6989586621679403478"><span id="local-6989586621679403480"><span class="annot"><span class="annottext">ReadPrec [Tags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403745"><span id="local-6989586621679403747"><span id="local-6989586621679403749"><span id="local-6989586621679403751"><span class="annot"><span class="annottext">ReadPrec [Tags]
 ReadPrec Tags
 Int -&gt; ReadS Tags
 ReadS [Tags]
@@ -56,7 +56,7 @@ readList :: ReadS [Tags]
 $creadList :: ReadS [Tags]
 readsPrec :: Int -&gt; ReadS Tags
 $creadsPrec :: Int -&gt; ReadS Tags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403467"><span id="local-6989586621679403469"><span id="local-6989586621679403471"><span class="annot"><span class="annottext">Int -&gt; Tags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679403738"><span id="local-6989586621679403740"><span id="local-6989586621679403742"><span class="annot"><span class="annottext">Int -&gt; Tags -&gt; ShowS
 [Tags] -&gt; ShowS
 Tags -&gt; String
 (Int -&gt; Tags -&gt; ShowS)
@@ -104,16 +104,16 @@ forall a. Maybe a
 -&gt; (Tags -&gt; Maybe [Tag] -&gt; Tags)
 -&gt; Lens Tags Tags (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags%27"><span class="hs-identifier hs-type">Tags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403458"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags%27"><span class="hs-identifier hs-type">Tags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403729"><span class="annot"><span class="annottext">Maybe [Tag]
 items :: Maybe [Tag]
 $sel:items:Tags' :: Tags -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679403458"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679403458"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403457"><span class="annot"><span class="annottext">s :: Tags
-</span><a href="#local-6989586621679403457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags%27"><span class="hs-identifier hs-type">Tags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403456"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679403456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tags
-</span><a href="#local-6989586621679403457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:Tags' :: Maybe [Tag]
+</span><a href="#local-6989586621679403729"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679403729"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679403728"><span class="annot"><span class="annottext">s :: Tags
+</span><a href="#local-6989586621679403728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags%27"><span class="hs-identifier hs-type">Tags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679403727"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679403727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tags
+</span><a href="#local-6989586621679403728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:Tags' :: Maybe [Tag]
 </span><a href="Network.AWS.CloudFront.Types.Tags.html#%24sel%3Aitems%3ATags%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679403456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags"><span class="hs-identifier hs-type">Tags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Tags -&gt; f Tags)
+</span><a href="#local-6989586621679403727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags"><span class="hs-identifier hs-type">Tags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; Tags -&gt; f Tags)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -126,20 +126,20 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags"><span class="hs-identifier hs-type">Tags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679403450"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Tags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679403448"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679403448"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679403721"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Tags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679403719"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679403719"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">Maybe [Tag] -&gt; Tags
 </span><a href="Network.AWS.CloudFront.Types.Tags.html#Tags%27"><span class="hs-identifier hs-var">Tags'</span></a></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">(Maybe [Tag] -&gt; Tags)
 -&gt; Either String (Maybe [Tag]) -&gt; Either String Tags
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679403448"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679403719"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -162,16 +162,16 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403439"><span id="local-6989586621679403441"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags"><span class="hs-identifier hs-type">Tags</span></a></span></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403710"><span id="local-6989586621679403712"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags"><span class="hs-identifier hs-type">Tags</span></a></span></span></span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403436"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags"><span class="hs-identifier hs-type">Tags</span></a></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679403707"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags"><span class="hs-identifier hs-type">Tags</span></a></span></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags"><span class="hs-identifier hs-type">Tags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-65"></span><span>  </span><span id="local-6989586621679403432"><span class="annot"><span class="annottext">toXML :: Tags -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags%27"><span class="hs-identifier hs-type">Tags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403430"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679403703"><span class="annot"><span class="annottext">toXML :: Tags -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Tags.html#Tags%27"><span class="hs-identifier hs-type">Tags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679403701"><span class="annot"><span class="annottext">Maybe [Tag]
 items :: Maybe [Tag]
 $sel:items:Tags' :: Tags -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679403430"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679403701"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -187,6 +187,6 @@ forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; XML) -&gt; Maybe [Tag] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679403430"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679403701"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span></pre></body></html>

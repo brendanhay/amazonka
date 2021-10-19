@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679250483"><span id="local-6989586621679250484"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EncryptionStatus"><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionStatus.html#EncryptionStatus"><span class="hs-identifier hs-var">EncryptionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionStatus%27"><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionStatus.html#EncryptionStatus%27"><span class="hs-identifier hs-var">EncryptionStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679250752"><span id="local-6989586621679250753"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EncryptionStatus"><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionStatus.html#EncryptionStatus"><span class="hs-identifier hs-var">EncryptionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncryptionStatus%27"><span class="annot"><a href="Network.AWS.XRay.Types.EncryptionStatus.html#EncryptionStatus%27"><span class="hs-identifier hs-var">EncryptionStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEncryptionStatus"><span class="annot"><span class="annottext">EncryptionStatus -&gt; Text
 </span><a href="Network.AWS.XRay.Types.EncryptionStatus.html#fromEncryptionStatus"><span class="hs-identifier hs-var hs-var">fromEncryptionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250475"><span id="local-6989586621679250477"><span id="local-6989586621679250479"><span class="annot"><span class="annottext">Int -&gt; EncryptionStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250744"><span id="local-6989586621679250746"><span id="local-6989586621679250748"><span class="annot"><span class="annottext">Int -&gt; EncryptionStatus -&gt; ShowS
 [EncryptionStatus] -&gt; ShowS
 EncryptionStatus -&gt; String
 (Int -&gt; EncryptionStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: EncryptionStatus -&gt; String
 showsPrec :: Int -&gt; EncryptionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; EncryptionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679250466"><span id="local-6989586621679250468"><span id="local-6989586621679250470"><span id="local-6989586621679250472"><span class="annot"><span class="annottext">ReadPrec [EncryptionStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679250735"><span id="local-6989586621679250737"><span id="local-6989586621679250739"><span id="local-6989586621679250741"><span class="annot"><span class="annottext">ReadPrec [EncryptionStatus]
 ReadPrec EncryptionStatus
 Int -&gt; ReadS EncryptionStatus
 ReadS [EncryptionStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [EncryptionStatus]
 readsPrec :: Int -&gt; ReadS EncryptionStatus
 $creadsPrec :: Int -&gt; ReadS EncryptionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679250461"><span id="local-6989586621679250463"><span class="annot"><span class="annottext">EncryptionStatus -&gt; EncryptionStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679250730"><span id="local-6989586621679250732"><span class="annot"><span class="annottext">EncryptionStatus -&gt; EncryptionStatus -&gt; Bool
 (EncryptionStatus -&gt; EncryptionStatus -&gt; Bool)
 -&gt; (EncryptionStatus -&gt; EncryptionStatus -&gt; Bool)
 -&gt; Eq EncryptionStatus
@@ -82,7 +82,7 @@ $c/= :: EncryptionStatus -&gt; EncryptionStatus -&gt; Bool
 == :: EncryptionStatus -&gt; EncryptionStatus -&gt; Bool
 $c== :: EncryptionStatus -&gt; EncryptionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679250445"><span id="local-6989586621679250447"><span id="local-6989586621679250449"><span id="local-6989586621679250451"><span id="local-6989586621679250453"><span id="local-6989586621679250455"><span id="local-6989586621679250457"><span class="annot"><span class="annottext">Eq EncryptionStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679250714"><span id="local-6989586621679250716"><span id="local-6989586621679250718"><span id="local-6989586621679250720"><span id="local-6989586621679250722"><span id="local-6989586621679250724"><span id="local-6989586621679250726"><span class="annot"><span class="annottext">Eq EncryptionStatus
 Eq EncryptionStatus
 -&gt; (EncryptionStatus -&gt; EncryptionStatus -&gt; Ordering)
 -&gt; (EncryptionStatus -&gt; EncryptionStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. EncryptionStatus -&gt; Rep EncryptionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250437"><span id="local-6989586621679250439"><span class="annot"><span class="annottext">Int -&gt; EncryptionStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679250706"><span id="local-6989586621679250708"><span class="annot"><span class="annottext">Int -&gt; EncryptionStatus -&gt; Int
 EncryptionStatus -&gt; Int
 (Int -&gt; EncryptionStatus -&gt; Int)
 -&gt; (EncryptionStatus -&gt; Int) -&gt; Hashable EncryptionStatus
@@ -143,51 +143,51 @@ $chash :: EncryptionStatus -&gt; Int
 hashWithSalt :: Int -&gt; EncryptionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; EncryptionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679250434"><span class="annot"><span class="annottext">EncryptionStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679250703"><span class="annot"><span class="annottext">EncryptionStatus -&gt; ()
 (EncryptionStatus -&gt; ()) -&gt; NFData EncryptionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EncryptionStatus -&gt; ()
 $crnf :: EncryptionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679250431"><span class="annot"><span class="annottext">Text -&gt; Either String EncryptionStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679250700"><span class="annot"><span class="annottext">Text -&gt; Either String EncryptionStatus
 (Text -&gt; Either String EncryptionStatus)
 -&gt; FromText EncryptionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EncryptionStatus
 $cfromText :: Text -&gt; Either String EncryptionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679250428"><span class="annot"><span class="annottext">EncryptionStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679250697"><span class="annot"><span class="annottext">EncryptionStatus -&gt; Text
 (EncryptionStatus -&gt; Text) -&gt; ToText EncryptionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EncryptionStatus -&gt; Text
 $ctoText :: EncryptionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679250425"><span class="annot"><span class="annottext">EncryptionStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679250694"><span class="annot"><span class="annottext">EncryptionStatus -&gt; ByteString
 (EncryptionStatus -&gt; ByteString) -&gt; ToByteString EncryptionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EncryptionStatus -&gt; ByteString
 $ctoBS :: EncryptionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679250422"><span class="annot"><span class="annottext">EncryptionStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679250691"><span class="annot"><span class="annottext">EncryptionStatus -&gt; ByteStringBuilder
 (EncryptionStatus -&gt; ByteStringBuilder) -&gt; ToLog EncryptionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EncryptionStatus -&gt; ByteStringBuilder
 $cbuild :: EncryptionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679250419"><span class="annot"><span class="annottext">HeaderName -&gt; EncryptionStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679250688"><span class="annot"><span class="annottext">HeaderName -&gt; EncryptionStatus -&gt; [Header]
 (HeaderName -&gt; EncryptionStatus -&gt; [Header])
 -&gt; ToHeader EncryptionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EncryptionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EncryptionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250416"><span class="annot"><span class="annottext">EncryptionStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679250685"><span class="annot"><span class="annottext">EncryptionStatus -&gt; QueryString
 (EncryptionStatus -&gt; QueryString) -&gt; ToQuery EncryptionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EncryptionStatus -&gt; QueryString
 $ctoQuery :: EncryptionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250411"><span id="local-6989586621679250413"><span class="annot"><span class="annottext">Value -&gt; Parser [EncryptionStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679250680"><span id="local-6989586621679250682"><span class="annot"><span class="annottext">Value -&gt; Parser [EncryptionStatus]
 Value -&gt; Parser EncryptionStatus
 (Value -&gt; Parser EncryptionStatus)
 -&gt; (Value -&gt; Parser [EncryptionStatus])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [EncryptionStatus]
 parseJSON :: Value -&gt; Parser EncryptionStatus
 $cparseJSON :: Value -&gt; Parser EncryptionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250406"><span id="local-6989586621679250408"><span class="annot"><span class="annottext">FromJSONKeyFunction [EncryptionStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679250675"><span id="local-6989586621679250677"><span class="annot"><span class="annottext">FromJSONKeyFunction [EncryptionStatus]
 FromJSONKeyFunction EncryptionStatus
 FromJSONKeyFunction EncryptionStatus
 -&gt; FromJSONKeyFunction [EncryptionStatus]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EncryptionStatus]
 fromJSONKey :: FromJSONKeyFunction EncryptionStatus
 $cfromJSONKey :: FromJSONKeyFunction EncryptionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250397"><span id="local-6989586621679250399"><span id="local-6989586621679250401"><span id="local-6989586621679250403"><span class="annot"><span class="annottext">[EncryptionStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679250666"><span id="local-6989586621679250668"><span id="local-6989586621679250670"><span id="local-6989586621679250672"><span class="annot"><span class="annottext">[EncryptionStatus] -&gt; Encoding
 [EncryptionStatus] -&gt; Value
 EncryptionStatus -&gt; Encoding
 EncryptionStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: EncryptionStatus -&gt; Encoding
 toJSON :: EncryptionStatus -&gt; Value
 $ctoJSON :: EncryptionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250392"><span id="local-6989586621679250394"><span class="annot"><span class="annottext">ToJSONKeyFunction [EncryptionStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679250661"><span id="local-6989586621679250663"><span class="annot"><span class="annottext">ToJSONKeyFunction [EncryptionStatus]
 ToJSONKeyFunction EncryptionStatus
 ToJSONKeyFunction EncryptionStatus
 -&gt; ToJSONKeyFunction [EncryptionStatus]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EncryptionStatus]
 toJSONKey :: ToJSONKeyFunction EncryptionStatus
 $ctoJSONKey :: ToJSONKeyFunction EncryptionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250389"><span class="annot"><span class="annottext">[Node] -&gt; Either String EncryptionStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679250658"><span class="annot"><span class="annottext">[Node] -&gt; Either String EncryptionStatus
 ([Node] -&gt; Either String EncryptionStatus)
 -&gt; FromXML EncryptionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EncryptionStatus
 $cparseXML :: [Node] -&gt; Either String EncryptionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679250386"><span class="annot"><span class="annottext">EncryptionStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679250655"><span class="annot"><span class="annottext">EncryptionStatus -&gt; XML
 (EncryptionStatus -&gt; XML) -&gt; ToXML EncryptionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EncryptionStatus -&gt; XML

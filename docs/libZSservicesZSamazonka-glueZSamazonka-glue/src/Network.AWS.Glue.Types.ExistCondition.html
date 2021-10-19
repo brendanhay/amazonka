@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679685194"><span id="local-6989586621679685195"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExistCondition"><span class="annot"><a href="Network.AWS.Glue.Types.ExistCondition.html#ExistCondition"><span class="hs-identifier hs-var">ExistCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExistCondition%27"><span class="annot"><a href="Network.AWS.Glue.Types.ExistCondition.html#ExistCondition%27"><span class="hs-identifier hs-var">ExistCondition'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679686845"><span id="local-6989586621679686846"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExistCondition"><span class="annot"><a href="Network.AWS.Glue.Types.ExistCondition.html#ExistCondition"><span class="hs-identifier hs-var">ExistCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExistCondition%27"><span class="annot"><a href="Network.AWS.Glue.Types.ExistCondition.html#ExistCondition%27"><span class="hs-identifier hs-var">ExistCondition'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExistCondition"><span class="annot"><span class="annottext">ExistCondition -&gt; Text
 </span><a href="Network.AWS.Glue.Types.ExistCondition.html#fromExistCondition"><span class="hs-identifier hs-var hs-var">fromExistCondition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679685186"><span id="local-6989586621679685188"><span id="local-6989586621679685190"><span class="annot"><span class="annottext">Int -&gt; ExistCondition -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679686837"><span id="local-6989586621679686839"><span id="local-6989586621679686841"><span class="annot"><span class="annottext">Int -&gt; ExistCondition -&gt; ShowS
 [ExistCondition] -&gt; ShowS
 ExistCondition -&gt; String
 (Int -&gt; ExistCondition -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ExistCondition -&gt; String
 showsPrec :: Int -&gt; ExistCondition -&gt; ShowS
 $cshowsPrec :: Int -&gt; ExistCondition -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679685177"><span id="local-6989586621679685179"><span id="local-6989586621679685181"><span id="local-6989586621679685183"><span class="annot"><span class="annottext">ReadPrec [ExistCondition]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679686828"><span id="local-6989586621679686830"><span id="local-6989586621679686832"><span id="local-6989586621679686834"><span class="annot"><span class="annottext">ReadPrec [ExistCondition]
 ReadPrec ExistCondition
 Int -&gt; ReadS ExistCondition
 ReadS [ExistCondition]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ExistCondition]
 readsPrec :: Int -&gt; ReadS ExistCondition
 $creadsPrec :: Int -&gt; ReadS ExistCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679685172"><span id="local-6989586621679685174"><span class="annot"><span class="annottext">ExistCondition -&gt; ExistCondition -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679686823"><span id="local-6989586621679686825"><span class="annot"><span class="annottext">ExistCondition -&gt; ExistCondition -&gt; Bool
 (ExistCondition -&gt; ExistCondition -&gt; Bool)
 -&gt; (ExistCondition -&gt; ExistCondition -&gt; Bool) -&gt; Eq ExistCondition
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ExistCondition -&gt; ExistCondition -&gt; Bool
 == :: ExistCondition -&gt; ExistCondition -&gt; Bool
 $c== :: ExistCondition -&gt; ExistCondition -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679685156"><span id="local-6989586621679685158"><span id="local-6989586621679685160"><span id="local-6989586621679685162"><span id="local-6989586621679685164"><span id="local-6989586621679685166"><span id="local-6989586621679685168"><span class="annot"><span class="annottext">Eq ExistCondition
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679686807"><span id="local-6989586621679686809"><span id="local-6989586621679686811"><span id="local-6989586621679686813"><span id="local-6989586621679686815"><span id="local-6989586621679686817"><span id="local-6989586621679686819"><span class="annot"><span class="annottext">Eq ExistCondition
 Eq ExistCondition
 -&gt; (ExistCondition -&gt; ExistCondition -&gt; Ordering)
 -&gt; (ExistCondition -&gt; ExistCondition -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ExistCondition -&gt; Rep ExistCondition x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679685148"><span id="local-6989586621679685150"><span class="annot"><span class="annottext">Int -&gt; ExistCondition -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679686799"><span id="local-6989586621679686801"><span class="annot"><span class="annottext">Int -&gt; ExistCondition -&gt; Int
 ExistCondition -&gt; Int
 (Int -&gt; ExistCondition -&gt; Int)
 -&gt; (ExistCondition -&gt; Int) -&gt; Hashable ExistCondition
@@ -143,50 +143,50 @@ $chash :: ExistCondition -&gt; Int
 hashWithSalt :: Int -&gt; ExistCondition -&gt; Int
 $chashWithSalt :: Int -&gt; ExistCondition -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679685145"><span class="annot"><span class="annottext">ExistCondition -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679686796"><span class="annot"><span class="annottext">ExistCondition -&gt; ()
 (ExistCondition -&gt; ()) -&gt; NFData ExistCondition
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ExistCondition -&gt; ()
 $crnf :: ExistCondition -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679685142"><span class="annot"><span class="annottext">Text -&gt; Either String ExistCondition
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679686793"><span class="annot"><span class="annottext">Text -&gt; Either String ExistCondition
 (Text -&gt; Either String ExistCondition) -&gt; FromText ExistCondition
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ExistCondition
 $cfromText :: Text -&gt; Either String ExistCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679685139"><span class="annot"><span class="annottext">ExistCondition -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679686790"><span class="annot"><span class="annottext">ExistCondition -&gt; Text
 (ExistCondition -&gt; Text) -&gt; ToText ExistCondition
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ExistCondition -&gt; Text
 $ctoText :: ExistCondition -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679685136"><span class="annot"><span class="annottext">ExistCondition -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679686787"><span class="annot"><span class="annottext">ExistCondition -&gt; ByteString
 (ExistCondition -&gt; ByteString) -&gt; ToByteString ExistCondition
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ExistCondition -&gt; ByteString
 $ctoBS :: ExistCondition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679685133"><span class="annot"><span class="annottext">ExistCondition -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679686784"><span class="annot"><span class="annottext">ExistCondition -&gt; ByteStringBuilder
 (ExistCondition -&gt; ByteStringBuilder) -&gt; ToLog ExistCondition
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ExistCondition -&gt; ByteStringBuilder
 $cbuild :: ExistCondition -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679685130"><span class="annot"><span class="annottext">HeaderName -&gt; ExistCondition -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679686781"><span class="annot"><span class="annottext">HeaderName -&gt; ExistCondition -&gt; [Header]
 (HeaderName -&gt; ExistCondition -&gt; [Header])
 -&gt; ToHeader ExistCondition
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ExistCondition -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ExistCondition -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679685127"><span class="annot"><span class="annottext">ExistCondition -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679686778"><span class="annot"><span class="annottext">ExistCondition -&gt; QueryString
 (ExistCondition -&gt; QueryString) -&gt; ToQuery ExistCondition
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ExistCondition -&gt; QueryString
 $ctoQuery :: ExistCondition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679685122"><span id="local-6989586621679685124"><span class="annot"><span class="annottext">Value -&gt; Parser [ExistCondition]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679686773"><span id="local-6989586621679686775"><span class="annot"><span class="annottext">Value -&gt; Parser [ExistCondition]
 Value -&gt; Parser ExistCondition
 (Value -&gt; Parser ExistCondition)
 -&gt; (Value -&gt; Parser [ExistCondition]) -&gt; FromJSON ExistCondition
@@ -197,7 +197,7 @@ $cparseJSONList :: Value -&gt; Parser [ExistCondition]
 parseJSON :: Value -&gt; Parser ExistCondition
 $cparseJSON :: Value -&gt; Parser ExistCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679685117"><span id="local-6989586621679685119"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExistCondition]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679686768"><span id="local-6989586621679686770"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExistCondition]
 FromJSONKeyFunction ExistCondition
 FromJSONKeyFunction ExistCondition
 -&gt; FromJSONKeyFunction [ExistCondition]
@@ -209,7 +209,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ExistCondition]
 fromJSONKey :: FromJSONKeyFunction ExistCondition
 $cfromJSONKey :: FromJSONKeyFunction ExistCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679685108"><span id="local-6989586621679685110"><span id="local-6989586621679685112"><span id="local-6989586621679685114"><span class="annot"><span class="annottext">[ExistCondition] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679686759"><span id="local-6989586621679686761"><span id="local-6989586621679686763"><span id="local-6989586621679686765"><span class="annot"><span class="annottext">[ExistCondition] -&gt; Encoding
 [ExistCondition] -&gt; Value
 ExistCondition -&gt; Encoding
 ExistCondition -&gt; Value
@@ -233,7 +233,7 @@ $ctoEncoding :: ExistCondition -&gt; Encoding
 toJSON :: ExistCondition -&gt; Value
 $ctoJSON :: ExistCondition -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679685103"><span id="local-6989586621679685105"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExistCondition]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679686754"><span id="local-6989586621679686756"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExistCondition]
 ToJSONKeyFunction ExistCondition
 ToJSONKeyFunction ExistCondition
 -&gt; ToJSONKeyFunction [ExistCondition] -&gt; ToJSONKey ExistCondition
@@ -244,13 +244,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ExistCondition]
 toJSONKey :: ToJSONKeyFunction ExistCondition
 $ctoJSONKey :: ToJSONKeyFunction ExistCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679685100"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExistCondition
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679686751"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExistCondition
 ([Node] -&gt; Either String ExistCondition) -&gt; FromXML ExistCondition
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ExistCondition
 $cparseXML :: [Node] -&gt; Either String ExistCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679685097"><span class="annot"><span class="annottext">ExistCondition -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679686748"><span class="annot"><span class="annottext">ExistCondition -&gt; XML
 (ExistCondition -&gt; XML) -&gt; ToXML ExistCondition
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ExistCondition -&gt; XML

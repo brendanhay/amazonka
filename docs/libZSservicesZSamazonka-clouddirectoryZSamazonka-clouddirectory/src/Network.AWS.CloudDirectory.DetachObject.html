@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDetachObject' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679344860"><span id="local-6989586621679344861"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachObject"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-var">DetachObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachObject%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-var">DetachObject'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679345275"><span id="local-6989586621679345276"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachObject"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-var">DetachObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachObject%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-var">DetachObject'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the Directory</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- where objects reside. For more information, see arns.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AdirectoryArn%3ADetachObject%27"><span class="annot"><span class="annottext">DetachObject -&gt; Text
@@ -63,7 +63,7 @@
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AlinkName%3ADetachObject%27"><span class="annot"><span class="annottext">DetachObject -&gt; Text
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#%24sel%3AlinkName%3ADetachObject%27"><span class="hs-identifier hs-var hs-var">linkName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344852"><span id="local-6989586621679344854"><span class="annot"><span class="annottext">DetachObject -&gt; DetachObject -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345267"><span id="local-6989586621679345269"><span class="annot"><span class="annottext">DetachObject -&gt; DetachObject -&gt; Bool
 (DetachObject -&gt; DetachObject -&gt; Bool)
 -&gt; (DetachObject -&gt; DetachObject -&gt; Bool) -&gt; Eq DetachObject
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -71,7 +71,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachObject -&gt; DetachObject -&gt; Bool
 == :: DetachObject -&gt; DetachObject -&gt; Bool
 $c== :: DetachObject -&gt; DetachObject -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344843"><span id="local-6989586621679344845"><span id="local-6989586621679344847"><span id="local-6989586621679344849"><span class="annot"><span class="annottext">ReadPrec [DetachObject]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345258"><span id="local-6989586621679345260"><span id="local-6989586621679345262"><span id="local-6989586621679345264"><span class="annot"><span class="annottext">ReadPrec [DetachObject]
 ReadPrec DetachObject
 Int -&gt; ReadS DetachObject
 ReadS [DetachObject]
@@ -91,7 +91,7 @@ readList :: ReadS [DetachObject]
 $creadList :: ReadS [DetachObject]
 readsPrec :: Int -&gt; ReadS DetachObject
 $creadsPrec :: Int -&gt; ReadS DetachObject
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344836"><span id="local-6989586621679344838"><span id="local-6989586621679344840"><span class="annot"><span class="annottext">Int -&gt; DetachObject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345251"><span id="local-6989586621679345253"><span id="local-6989586621679345255"><span class="annot"><span class="annottext">Int -&gt; DetachObject -&gt; ShowS
 [DetachObject] -&gt; ShowS
 DetachObject -&gt; String
 (Int -&gt; DetachObject -&gt; ShowS)
@@ -142,23 +142,23 @@ $cfrom :: forall x. DetachObject -&gt; Rep DetachObject x
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span><span>
 </span><span id="line-88"></span><span id="newDetachObject"><span class="annot"><span class="annottext">newDetachObject :: Text -&gt; ObjectReference -&gt; Text -&gt; DetachObject
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#newDetachObject"><span class="hs-identifier hs-var hs-var">newDetachObject</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679344831"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344831"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679344830"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679344830"><span class="hs-identifier hs-var">pParentReference_</span></a></span></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679344829"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344829"><span class="hs-identifier hs-var">pLinkName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679345246"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345246"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679345245"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679345245"><span class="hs-identifier hs-var">pParentReference_</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679345244"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345244"><span class="hs-identifier hs-var">pLinkName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">DetachObject' :: Text -&gt; ObjectReference -&gt; Text -&gt; DetachObject
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:directoryArn:DetachObject' :: Text
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#%24sel%3AdirectoryArn%3ADetachObject%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344831"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679345246"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:parentReference:DetachObject' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#%24sel%3AparentReference%3ADetachObject%27"><span class="hs-identifier hs-var">parentReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679344830"><span class="hs-identifier hs-var">pParentReference_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679345245"><span class="hs-identifier hs-var">pParentReference_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:linkName:DetachObject' :: Text
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#%24sel%3AlinkName%3ADetachObject%27"><span class="hs-identifier hs-var">linkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344829"><span class="hs-identifier hs-var">pLinkName_</span></a></span><span>
+</span><a href="#local-6989586621679345244"><span class="hs-identifier hs-var">pLinkName_</span></a></span><span>
 </span><span id="line-96"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the Directory</span><span>
@@ -169,16 +169,16 @@ $cfrom :: forall x. DetachObject -&gt; Rep DetachObject x
 -&gt; (DetachObject -&gt; Text -&gt; DetachObject)
 -&gt; Lens DetachObject DetachObject Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344826"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345241"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:DetachObject' :: DetachObject -&gt; Text
-</span><a href="#local-6989586621679344826"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344826"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344825"><span class="annot"><span class="annottext">s :: DetachObject
-</span><a href="#local-6989586621679344825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344824"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachObject
-</span><a href="#local-6989586621679344825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DetachObject' :: Text
+</span><a href="#local-6989586621679345241"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345241"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345240"><span class="annot"><span class="annottext">s :: DetachObject
+</span><a href="#local-6989586621679345240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345239"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachObject
+</span><a href="#local-6989586621679345240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:DetachObject' :: Text
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#%24sel%3AdirectoryArn%3ADetachObject%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- | The parent reference from which the object with the specified link name</span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- is detached.</span><span>
@@ -189,16 +189,16 @@ $sel:directoryArn:DetachObject' :: DetachObject -&gt; Text
 -&gt; (DetachObject -&gt; ObjectReference -&gt; DetachObject)
 -&gt; Lens DetachObject DetachObject ObjectReference ObjectReference
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344823"><span class="annot"><span class="annottext">ObjectReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345238"><span class="annot"><span class="annottext">ObjectReference
 parentReference :: ObjectReference
 $sel:parentReference:DetachObject' :: DetachObject -&gt; ObjectReference
-</span><a href="#local-6989586621679344823"><span class="hs-identifier hs-var hs-var">parentReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679344823"><span class="hs-identifier hs-var">parentReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344822"><span class="annot"><span class="annottext">s :: DetachObject
-</span><a href="#local-6989586621679344822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344821"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679344821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachObject
-</span><a href="#local-6989586621679344822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentReference:DetachObject' :: ObjectReference
+</span><a href="#local-6989586621679345238"><span class="hs-identifier hs-var hs-var">parentReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679345238"><span class="hs-identifier hs-var">parentReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345237"><span class="annot"><span class="annottext">s :: DetachObject
+</span><a href="#local-6989586621679345237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345236"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679345236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachObject
+</span><a href="#local-6989586621679345237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parentReference:DetachObject' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#%24sel%3AparentReference%3ADetachObject%27"><span class="hs-identifier hs-var">parentReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679344821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The link name associated with the object that needs to be detached.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#detachObject_linkName"><span class="hs-identifier hs-type">detachObject_linkName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -207,25 +207,25 @@ $sel:parentReference:DetachObject' :: DetachObject -&gt; ObjectReference
 -&gt; (DetachObject -&gt; Text -&gt; DetachObject)
 -&gt; Lens DetachObject DetachObject Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344820"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345235"><span class="annot"><span class="annottext">Text
 linkName :: Text
 $sel:linkName:DetachObject' :: DetachObject -&gt; Text
-</span><a href="#local-6989586621679344820"><span class="hs-identifier hs-var hs-var">linkName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344820"><span class="hs-identifier hs-var">linkName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344819"><span class="annot"><span class="annottext">s :: DetachObject
-</span><a href="#local-6989586621679344819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344818"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachObject
-</span><a href="#local-6989586621679344819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkName:DetachObject' :: Text
+</span><a href="#local-6989586621679345235"><span class="hs-identifier hs-var hs-var">linkName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345235"><span class="hs-identifier hs-var">linkName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345234"><span class="annot"><span class="annottext">s :: DetachObject
+</span><a href="#local-6989586621679345234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345233"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679345233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachObject
+</span><a href="#local-6989586621679345234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:linkName:DetachObject' :: Text
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#%24sel%3AlinkName%3ADetachObject%27"><span class="hs-identifier hs-var">linkName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse"><span class="hs-identifier hs-type">DetachObjectResponse</span></a></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679344814"><span class="annot"><span class="annottext">request :: DetachObject -&gt; Request DetachObject
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679345229"><span class="annot"><span class="annottext">request :: DetachObject -&gt; Request DetachObject
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DetachObject -&gt; Request DetachObject
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679344810"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679345225"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DetachObject
 -&gt; ClientResponse ClientBody
@@ -249,10 +249,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679344807"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344807"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679344806"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679344806"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679344805"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344805"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679345222"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679345222"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679345221"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679345221"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679345220"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679345220"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; DetachObjectResponse
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse%27"><span class="hs-identifier hs-var">DetachObjectResponse'</span></a></span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; DetachObjectResponse)
@@ -260,7 +260,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; DetachObjectResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679344805"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679345220"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DetachedObjectIdentifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -272,16 +272,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344807"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345222"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344797"><span id="local-6989586621679344799"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345212"><span id="local-6989586621679345214"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span></span></span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344794"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345209"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679344790"><span class="annot"><span class="annottext">toHeaders :: DetachObject -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344786"><span id="local-6989586621679344787"><span id="local-6989586621679344788"><span class="annot"><span class="annottext">Text
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679345205"><span class="annot"><span class="annottext">toHeaders :: DetachObject -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345201"><span id="local-6989586621679345202"><span id="local-6989586621679345203"><span class="annot"><span class="annottext">Text
 ObjectReference
 linkName :: Text
 parentReference :: ObjectReference
@@ -289,7 +289,7 @@ directoryArn :: Text
 $sel:linkName:DetachObject' :: DetachObject -&gt; Text
 $sel:parentReference:DetachObject' :: DetachObject -&gt; ObjectReference
 $sel:directoryArn:DetachObject' :: DetachObject -&gt; Text
-</span><a href="#local-6989586621679344786"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679345201"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -297,11 +297,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344788"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679345203"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344778"><span id="local-6989586621679344780"><span id="local-6989586621679344782"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679344776"><span class="annot"><span class="annottext">toJSON :: DetachObject -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344772"><span id="local-6989586621679344773"><span id="local-6989586621679344774"><span class="annot"><span class="annottext">Text
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345193"><span id="local-6989586621679345195"><span id="local-6989586621679345197"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679345191"><span class="annot"><span class="annottext">toJSON :: DetachObject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject%27"><span class="hs-identifier hs-type">DetachObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345187"><span id="local-6989586621679345188"><span id="local-6989586621679345189"><span class="annot"><span class="annottext">Text
 ObjectReference
 linkName :: Text
 parentReference :: ObjectReference
@@ -309,7 +309,7 @@ directoryArn :: Text
 $sel:linkName:DetachObject' :: DetachObject -&gt; Text
 $sel:parentReference:DetachObject' :: DetachObject -&gt; ObjectReference
 $sel:directoryArn:DetachObject' :: DetachObject -&gt; Text
-</span><a href="#local-6989586621679344772"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679345187"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -322,19 +322,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ParentReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679344773"><span class="hs-identifier hs-var">parentReference</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679345188"><span class="hs-identifier hs-var">parentReference</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LinkName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679344772"><span class="hs-identifier hs-var">linkName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345187"><span class="hs-identifier hs-var">linkName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679344766"><span class="annot"><span class="annottext">toPath :: DetachObject -&gt; ByteString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679345181"><span class="annot"><span class="annottext">toPath :: DetachObject -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; DetachObject -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -343,7 +343,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/object/detach&quot;</span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObject"><span class="hs-identifier hs-type">DetachObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679344761"><span class="annot"><span class="annottext">toQuery :: DetachObject -&gt; QueryString
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679345176"><span class="annot"><span class="annottext">toQuery :: DetachObject -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DetachObject -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -351,7 +351,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newDetachObjectResponse' smart constructor.</span><span>
-</span><span id="line-151"></span><span id="local-6989586621679344758"><span id="local-6989586621679344759"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachObjectResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse"><span class="hs-identifier hs-var">DetachObjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachObjectResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse%27"><span class="hs-identifier hs-var">DetachObjectResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span id="local-6989586621679345173"><span id="local-6989586621679345174"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetachObjectResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse"><span class="hs-identifier hs-var">DetachObjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetachObjectResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse%27"><span class="hs-identifier hs-var">DetachObjectResponse'</span></a></span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ObjectIdentifier@ that was detached from the object.</span><span>
 </span><span id="line-153"></span><span>    </span><span id="%24sel%3AdetachedObjectIdentifier%3ADetachObjectResponse%27"><span class="annot"><span class="annottext">DetachObjectResponse -&gt; Maybe Text
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#%24sel%3AdetachedObjectIdentifier%3ADetachObjectResponse%27"><span class="hs-identifier hs-var hs-var">detachedObjectIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -359,7 +359,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADetachObjectResponse%27"><span class="annot"><span class="annottext">DetachObjectResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#%24sel%3AhttpStatus%3ADetachObjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679344752"><span id="local-6989586621679344754"><span class="annot"><span class="annottext">DetachObjectResponse -&gt; DetachObjectResponse -&gt; Bool
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679345167"><span id="local-6989586621679345169"><span class="annot"><span class="annottext">DetachObjectResponse -&gt; DetachObjectResponse -&gt; Bool
 (DetachObjectResponse -&gt; DetachObjectResponse -&gt; Bool)
 -&gt; (DetachObjectResponse -&gt; DetachObjectResponse -&gt; Bool)
 -&gt; Eq DetachObjectResponse
@@ -368,7 +368,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DetachObjectResponse -&gt; DetachObjectResponse -&gt; Bool
 == :: DetachObjectResponse -&gt; DetachObjectResponse -&gt; Bool
 $c== :: DetachObjectResponse -&gt; DetachObjectResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344744"><span id="local-6989586621679344746"><span id="local-6989586621679344748"><span id="local-6989586621679344750"><span class="annot"><span class="annottext">ReadPrec [DetachObjectResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345159"><span id="local-6989586621679345161"><span id="local-6989586621679345163"><span id="local-6989586621679345165"><span class="annot"><span class="annottext">ReadPrec [DetachObjectResponse]
 ReadPrec DetachObjectResponse
 Int -&gt; ReadS DetachObjectResponse
 ReadS [DetachObjectResponse]
@@ -388,7 +388,7 @@ readList :: ReadS [DetachObjectResponse]
 $creadList :: ReadS [DetachObjectResponse]
 readsPrec :: Int -&gt; ReadS DetachObjectResponse
 $creadsPrec :: Int -&gt; ReadS DetachObjectResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679344738"><span id="local-6989586621679344740"><span id="local-6989586621679344742"><span class="annot"><span class="annottext">Int -&gt; DetachObjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679345153"><span id="local-6989586621679345155"><span id="local-6989586621679345157"><span class="annot"><span class="annottext">Int -&gt; DetachObjectResponse -&gt; ShowS
 [DetachObjectResponse] -&gt; ShowS
 DetachObjectResponse -&gt; String
 (Int -&gt; DetachObjectResponse -&gt; ShowS)
@@ -430,8 +430,8 @@ $cfrom :: forall x. DetachObjectResponse -&gt; Rep DetachObjectResponse x
 </span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-173"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse"><span class="hs-identifier hs-type">DetachObjectResponse</span></a></span><span>
 </span><span id="line-174"></span><span id="newDetachObjectResponse"><span class="annot"><span class="annottext">newDetachObjectResponse :: Int -&gt; DetachObjectResponse
-</span><a href="Network.AWS.CloudDirectory.DetachObject.html#newDetachObjectResponse"><span class="hs-identifier hs-var hs-var">newDetachObjectResponse</span></a></span></span><span> </span><span id="local-6989586621679344735"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344735"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.DetachObject.html#newDetachObjectResponse"><span class="hs-identifier hs-var hs-var">newDetachObjectResponse</span></a></span></span><span> </span><span id="local-6989586621679345150"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679345150"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">DetachObjectResponse' :: Maybe Text -&gt; Int -&gt; DetachObjectResponse
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse%27"><span class="hs-identifier hs-type">DetachObjectResponse'</span></a></span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detachedObjectIdentifier:DetachObjectResponse' :: Maybe Text
@@ -441,7 +441,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DetachObjectResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#%24sel%3AhttpStatus%3ADetachObjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344735"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679345150"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-179"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The @ObjectIdentifier@ that was detached from the object.</span><span>
@@ -453,16 +453,16 @@ forall a. Maybe a
 -&gt; Lens
      DetachObjectResponse DetachObjectResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse%27"><span class="hs-identifier hs-type">DetachObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344734"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse%27"><span class="hs-identifier hs-type">DetachObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345149"><span class="annot"><span class="annottext">Maybe Text
 detachedObjectIdentifier :: Maybe Text
 $sel:detachedObjectIdentifier:DetachObjectResponse' :: DetachObjectResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679344734"><span class="hs-identifier hs-var hs-var">detachedObjectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344734"><span class="hs-identifier hs-var">detachedObjectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344733"><span class="annot"><span class="annottext">s :: DetachObjectResponse
-</span><a href="#local-6989586621679344733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse%27"><span class="hs-identifier hs-type">DetachObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344732"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachObjectResponse
-</span><a href="#local-6989586621679344733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detachedObjectIdentifier:DetachObjectResponse' :: Maybe Text
+</span><a href="#local-6989586621679345149"><span class="hs-identifier hs-var hs-var">detachedObjectIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679345149"><span class="hs-identifier hs-var">detachedObjectIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345148"><span class="annot"><span class="annottext">s :: DetachObjectResponse
+</span><a href="#local-6989586621679345148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse%27"><span class="hs-identifier hs-type">DetachObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345147"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679345147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachObjectResponse
+</span><a href="#local-6989586621679345148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detachedObjectIdentifier:DetachObjectResponse' :: Maybe Text
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#%24sel%3AdetachedObjectIdentifier%3ADetachObjectResponse%27"><span class="hs-identifier hs-var">detachedObjectIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679344732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse"><span class="hs-identifier hs-type">DetachObjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse"><span class="hs-identifier hs-type">DetachObjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#detachObjectResponse_httpStatus"><span class="hs-identifier hs-type">detachObjectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse"><span class="hs-identifier hs-type">DetachObjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -471,16 +471,16 @@ $sel:detachedObjectIdentifier:DetachObjectResponse' :: DetachObjectResponse -&gt
 -&gt; (DetachObjectResponse -&gt; Int -&gt; DetachObjectResponse)
 -&gt; Lens DetachObjectResponse DetachObjectResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse%27"><span class="hs-identifier hs-type">DetachObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679344731"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse%27"><span class="hs-identifier hs-type">DetachObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679345146"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DetachObjectResponse' :: DetachObjectResponse -&gt; Int
-</span><a href="#local-6989586621679344731"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344731"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679344730"><span class="annot"><span class="annottext">s :: DetachObjectResponse
-</span><a href="#local-6989586621679344730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse%27"><span class="hs-identifier hs-type">DetachObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679344729"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachObjectResponse
-</span><a href="#local-6989586621679344730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetachObjectResponse' :: Int
+</span><a href="#local-6989586621679345146"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679345146"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679345145"><span class="annot"><span class="annottext">s :: DetachObjectResponse
+</span><a href="#local-6989586621679345145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse%27"><span class="hs-identifier hs-type">DetachObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679345144"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679345144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetachObjectResponse
+</span><a href="#local-6989586621679345145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DetachObjectResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.DetachObject.html#%24sel%3AhttpStatus%3ADetachObjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679344729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse"><span class="hs-identifier hs-type">DetachObjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679345144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse"><span class="hs-identifier hs-type">DetachObjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679344727"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse"><span class="hs-identifier hs-type">DetachObjectResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679345142"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.DetachObject.html#DetachObjectResponse"><span class="hs-identifier hs-type">DetachObjectResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

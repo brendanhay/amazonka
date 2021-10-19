@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- violated.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSecurityProfileTarget' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679796317"><span id="local-6989586621679796318"></span></span><span class="hs-keyword">data</span><span> </span><span id="SecurityProfileTarget"><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-var">SecurityProfileTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityProfileTarget%27"><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget%27"><span class="hs-identifier hs-var">SecurityProfileTarget'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679797188"><span id="local-6989586621679797189"></span></span><span class="hs-keyword">data</span><span> </span><span id="SecurityProfileTarget"><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-var">SecurityProfileTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SecurityProfileTarget%27"><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget%27"><span class="hs-identifier hs-var">SecurityProfileTarget'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the security profile.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Aarn%3ASecurityProfileTarget%27"><span class="annot"><span class="annottext">SecurityProfileTarget -&gt; Text
 </span><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#%24sel%3Aarn%3ASecurityProfileTarget%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679796311"><span id="local-6989586621679796313"><span class="annot"><span class="annottext">SecurityProfileTarget -&gt; SecurityProfileTarget -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797182"><span id="local-6989586621679797184"><span class="annot"><span class="annottext">SecurityProfileTarget -&gt; SecurityProfileTarget -&gt; Bool
 (SecurityProfileTarget -&gt; SecurityProfileTarget -&gt; Bool)
 -&gt; (SecurityProfileTarget -&gt; SecurityProfileTarget -&gt; Bool)
 -&gt; Eq SecurityProfileTarget
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SecurityProfileTarget -&gt; SecurityProfileTarget -&gt; Bool
 == :: SecurityProfileTarget -&gt; SecurityProfileTarget -&gt; Bool
 $c== :: SecurityProfileTarget -&gt; SecurityProfileTarget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796302"><span id="local-6989586621679796304"><span id="local-6989586621679796306"><span id="local-6989586621679796308"><span class="annot"><span class="annottext">ReadPrec [SecurityProfileTarget]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797173"><span id="local-6989586621679797175"><span id="local-6989586621679797177"><span id="local-6989586621679797179"><span class="annot"><span class="annottext">ReadPrec [SecurityProfileTarget]
 ReadPrec SecurityProfileTarget
 Int -&gt; ReadS SecurityProfileTarget
 ReadS [SecurityProfileTarget]
@@ -61,7 +61,7 @@ readList :: ReadS [SecurityProfileTarget]
 $creadList :: ReadS [SecurityProfileTarget]
 readsPrec :: Int -&gt; ReadS SecurityProfileTarget
 $creadsPrec :: Int -&gt; ReadS SecurityProfileTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796295"><span id="local-6989586621679796297"><span id="local-6989586621679796299"><span class="annot"><span class="annottext">Int -&gt; SecurityProfileTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797166"><span id="local-6989586621679797168"><span id="local-6989586621679797170"><span class="annot"><span class="annottext">Int -&gt; SecurityProfileTarget -&gt; ShowS
 [SecurityProfileTarget] -&gt; ShowS
 SecurityProfileTarget -&gt; String
 (Int -&gt; SecurityProfileTarget -&gt; ShowS)
@@ -101,12 +101,12 @@ $cfrom :: forall x. SecurityProfileTarget -&gt; Rep SecurityProfileTarget x
 </span><span id="line-47"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-48"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span><span>
 </span><span id="line-49"></span><span id="newSecurityProfileTarget"><span class="annot"><span class="annottext">newSecurityProfileTarget :: Text -&gt; SecurityProfileTarget
-</span><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#newSecurityProfileTarget"><span class="hs-identifier hs-var hs-var">newSecurityProfileTarget</span></a></span></span><span> </span><span id="local-6989586621679796289"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796289"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#newSecurityProfileTarget"><span class="hs-identifier hs-var hs-var">newSecurityProfileTarget</span></a></span></span><span> </span><span id="local-6989586621679797160"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797160"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">SecurityProfileTarget' :: Text -&gt; SecurityProfileTarget
 </span><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget%27"><span class="hs-identifier hs-type">SecurityProfileTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:SecurityProfileTarget' :: Text
 </span><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#%24sel%3Aarn%3ASecurityProfileTarget%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796289"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679797160"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | The ARN of the security profile.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#securityProfileTarget_arn"><span class="hs-identifier hs-type">securityProfileTarget_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -116,19 +116,19 @@ $cfrom :: forall x. SecurityProfileTarget -&gt; Rep SecurityProfileTarget x
 -&gt; (SecurityProfileTarget -&gt; Text -&gt; SecurityProfileTarget)
 -&gt; Lens SecurityProfileTarget SecurityProfileTarget Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget%27"><span class="hs-identifier hs-type">SecurityProfileTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796285"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget%27"><span class="hs-identifier hs-type">SecurityProfileTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797156"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:SecurityProfileTarget' :: SecurityProfileTarget -&gt; Text
-</span><a href="#local-6989586621679796285"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796285"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796284"><span class="annot"><span class="annottext">s :: SecurityProfileTarget
-</span><a href="#local-6989586621679796284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget%27"><span class="hs-identifier hs-type">SecurityProfileTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796283"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityProfileTarget
-</span><a href="#local-6989586621679796284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:SecurityProfileTarget' :: Text
+</span><a href="#local-6989586621679797156"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797156"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797155"><span class="annot"><span class="annottext">s :: SecurityProfileTarget
+</span><a href="#local-6989586621679797155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget%27"><span class="hs-identifier hs-type">SecurityProfileTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797154"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SecurityProfileTarget
+</span><a href="#local-6989586621679797155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:SecurityProfileTarget' :: Text
 </span><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#%24sel%3Aarn%3ASecurityProfileTarget%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796280"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679796278"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SecurityProfileTarget
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797151"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679797149"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SecurityProfileTarget
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SecurityProfileTarget)
@@ -138,20 +138,20 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SecurityProfileTarget&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679796275"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796275"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679797146"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679797146"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; SecurityProfileTarget
 </span><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget%27"><span class="hs-identifier hs-var">SecurityProfileTarget'</span></a></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; SecurityProfileTarget)
 -&gt; Parser Text -&gt; Parser SecurityProfileTarget
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679796275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679797146"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796269"><span id="local-6989586621679796271"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797140"><span id="local-6989586621679797142"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797137"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.SecurityProfileTarget.html#SecurityProfileTarget"><span class="hs-identifier hs-type">SecurityProfileTarget</span></a></span></span><span>
 </span><span id="line-67"></span></pre></body></html>

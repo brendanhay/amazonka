@@ -29,15 +29,15 @@
 </span><span id="line-29"></span><span class="hs-comment">-- member is non-zero.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newStartingEventBatchCondition' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679697481"><span id="local-6989586621679697482"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartingEventBatchCondition"><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-var">StartingEventBatchCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartingEventBatchCondition%27"><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition%27"><span class="hs-identifier hs-var">StartingEventBatchCondition'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Number of events in the batch.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbatchSize%3AStartingEventBatchCondition%27"><span class="annot"><span class="annottext">StartingEventBatchCondition -&gt; Maybe Int
-</span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#%24sel%3AbatchSize%3AStartingEventBatchCondition%27"><span class="hs-identifier hs-var hs-var">batchSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Duration of the batch window in seconds.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AbatchWindow%3AStartingEventBatchCondition%27"><span class="annot"><span class="annottext">StartingEventBatchCondition -&gt; Maybe Int
-</span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#%24sel%3AbatchWindow%3AStartingEventBatchCondition%27"><span class="hs-identifier hs-var hs-var">batchWindow</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679699176"><span id="local-6989586621679699177"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartingEventBatchCondition"><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-var">StartingEventBatchCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartingEventBatchCondition%27"><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition%27"><span class="hs-identifier hs-var">StartingEventBatchCondition'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Duration of the batch window in seconds.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbatchWindow%3AStartingEventBatchCondition%27"><span class="annot"><span class="annottext">StartingEventBatchCondition -&gt; Maybe Int
+</span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#%24sel%3AbatchWindow%3AStartingEventBatchCondition%27"><span class="hs-identifier hs-var hs-var">batchWindow</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Number of events in the batch.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AbatchSize%3AStartingEventBatchCondition%27"><span class="annot"><span class="annottext">StartingEventBatchCondition -&gt; Maybe Int
+</span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#%24sel%3AbatchSize%3AStartingEventBatchCondition%27"><span class="hs-identifier hs-var hs-var">batchSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679697474"><span id="local-6989586621679697476"><span class="annot"><span class="annottext">StartingEventBatchCondition -&gt; StartingEventBatchCondition -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679699169"><span id="local-6989586621679699171"><span class="annot"><span class="annottext">StartingEventBatchCondition -&gt; StartingEventBatchCondition -&gt; Bool
 (StartingEventBatchCondition
  -&gt; StartingEventBatchCondition -&gt; Bool)
 -&gt; (StartingEventBatchCondition
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartingEventBatchCondition -&gt; StartingEventBatchCondition -&gt; Bool
 == :: StartingEventBatchCondition -&gt; StartingEventBatchCondition -&gt; Bool
 $c== :: StartingEventBatchCondition -&gt; StartingEventBatchCondition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679697465"><span id="local-6989586621679697467"><span id="local-6989586621679697469"><span id="local-6989586621679697471"><span class="annot"><span class="annottext">ReadPrec [StartingEventBatchCondition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679699160"><span id="local-6989586621679699162"><span id="local-6989586621679699164"><span id="local-6989586621679699166"><span class="annot"><span class="annottext">ReadPrec [StartingEventBatchCondition]
 ReadPrec StartingEventBatchCondition
 Int -&gt; ReadS StartingEventBatchCondition
 ReadS [StartingEventBatchCondition]
@@ -68,7 +68,7 @@ readList :: ReadS [StartingEventBatchCondition]
 $creadList :: ReadS [StartingEventBatchCondition]
 readsPrec :: Int -&gt; ReadS StartingEventBatchCondition
 $creadsPrec :: Int -&gt; ReadS StartingEventBatchCondition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679697458"><span id="local-6989586621679697460"><span id="local-6989586621679697462"><span class="annot"><span class="annottext">Int -&gt; StartingEventBatchCondition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679699153"><span id="local-6989586621679699155"><span id="local-6989586621679699157"><span class="annot"><span class="annottext">Int -&gt; StartingEventBatchCondition -&gt; ShowS
 [StartingEventBatchCondition] -&gt; ShowS
 StartingEventBatchCondition -&gt; String
 (Int -&gt; StartingEventBatchCondition -&gt; ShowS)
@@ -108,53 +108,29 @@ StartingEventBatchCondition -&gt; Rep StartingEventBatchCondition x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'batchSize', 'startingEventBatchCondition_batchSize' - Number of events in the batch.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'batchWindow', 'startingEventBatchCondition_batchWindow' - Duration of the batch window in seconds.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'batchWindow', 'startingEventBatchCondition_batchWindow' - Duration of the batch window in seconds.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'batchSize', 'startingEventBatchCondition_batchSize' - Number of events in the batch.</span><span>
 </span><span id="line-51"></span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#newStartingEventBatchCondition"><span class="hs-identifier hs-type">newStartingEventBatchCondition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span><span>
 </span><span id="line-53"></span><span id="newStartingEventBatchCondition"><span class="annot"><span class="annottext">newStartingEventBatchCondition :: StartingEventBatchCondition
 </span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#newStartingEventBatchCondition"><span class="hs-identifier hs-var hs-var">newStartingEventBatchCondition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">StartingEventBatchCondition' :: Maybe Int -&gt; Maybe Int -&gt; StartingEventBatchCondition
 </span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition%27"><span class="hs-identifier hs-type">StartingEventBatchCondition'</span></a></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:batchSize:StartingEventBatchCondition' :: Maybe Int
-</span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#%24sel%3AbatchSize%3AStartingEventBatchCondition%27"><span class="hs-identifier hs-var">batchSize</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:batchWindow:StartingEventBatchCondition' :: Maybe Int
+</span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#%24sel%3AbatchWindow%3AStartingEventBatchCondition%27"><span class="hs-identifier hs-var">batchWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:batchWindow:StartingEventBatchCondition' :: Maybe Int
-</span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#%24sel%3AbatchWindow%3AStartingEventBatchCondition%27"><span class="hs-identifier hs-var">batchWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:batchSize:StartingEventBatchCondition' :: Maybe Int
+</span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#%24sel%3AbatchSize%3AStartingEventBatchCondition%27"><span class="hs-identifier hs-var">batchSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | Number of events in the batch.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#startingEventBatchCondition_batchSize"><span class="hs-identifier hs-type">startingEventBatchCondition_batchSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="startingEventBatchCondition_batchSize"><span class="annot"><span class="annottext">startingEventBatchCondition_batchSize :: (Maybe Int -&gt; f (Maybe Int))
--&gt; StartingEventBatchCondition -&gt; f StartingEventBatchCondition
-</span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#startingEventBatchCondition_batchSize"><span class="hs-identifier hs-var hs-var">startingEventBatchCondition_batchSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartingEventBatchCondition -&gt; Maybe Int)
--&gt; (StartingEventBatchCondition
-    -&gt; Maybe Int -&gt; StartingEventBatchCondition)
--&gt; Lens
-     StartingEventBatchCondition
-     StartingEventBatchCondition
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition%27"><span class="hs-identifier hs-type">StartingEventBatchCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697449"><span class="annot"><span class="annottext">Maybe Int
-batchSize :: Maybe Int
-$sel:batchSize:StartingEventBatchCondition' :: StartingEventBatchCondition -&gt; Maybe Int
-</span><a href="#local-6989586621679697449"><span class="hs-identifier hs-var hs-var">batchSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679697449"><span class="hs-identifier hs-var">batchSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679697448"><span class="annot"><span class="annottext">s :: StartingEventBatchCondition
-</span><a href="#local-6989586621679697448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition%27"><span class="hs-identifier hs-type">StartingEventBatchCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679697447"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679697447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartingEventBatchCondition
-</span><a href="#local-6989586621679697448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchSize:StartingEventBatchCondition' :: Maybe Int
-</span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#%24sel%3AbatchSize%3AStartingEventBatchCondition%27"><span class="hs-identifier hs-var">batchSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679697447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | Duration of the batch window in seconds.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#startingEventBatchCondition_batchWindow"><span class="hs-identifier hs-type">startingEventBatchCondition_batchWindow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="startingEventBatchCondition_batchWindow"><span class="annot"><span class="annottext">startingEventBatchCondition_batchWindow :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-60"></span><span class="hs-comment">-- | Duration of the batch window in seconds.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#startingEventBatchCondition_batchWindow"><span class="hs-identifier hs-type">startingEventBatchCondition_batchWindow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="startingEventBatchCondition_batchWindow"><span class="annot"><span class="annottext">startingEventBatchCondition_batchWindow :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; StartingEventBatchCondition -&gt; f StartingEventBatchCondition
 </span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#startingEventBatchCondition_batchWindow"><span class="hs-identifier hs-var hs-var">startingEventBatchCondition_batchWindow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartingEventBatchCondition -&gt; Maybe Int)
 -&gt; (StartingEventBatchCondition
@@ -165,19 +141,43 @@ $sel:batchSize:StartingEventBatchCondition' :: StartingEventBatchCondition -&gt;
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition%27"><span class="hs-identifier hs-type">StartingEventBatchCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679697445"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition%27"><span class="hs-identifier hs-type">StartingEventBatchCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699144"><span class="annot"><span class="annottext">Maybe Int
 batchWindow :: Maybe Int
 $sel:batchWindow:StartingEventBatchCondition' :: StartingEventBatchCondition -&gt; Maybe Int
-</span><a href="#local-6989586621679697445"><span class="hs-identifier hs-var hs-var">batchWindow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679697445"><span class="hs-identifier hs-var">batchWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679697444"><span class="annot"><span class="annottext">s :: StartingEventBatchCondition
-</span><a href="#local-6989586621679697444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition%27"><span class="hs-identifier hs-type">StartingEventBatchCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679697443"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679697443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartingEventBatchCondition
-</span><a href="#local-6989586621679697444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchWindow:StartingEventBatchCondition' :: Maybe Int
+</span><a href="#local-6989586621679699144"><span class="hs-identifier hs-var hs-var">batchWindow</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679699144"><span class="hs-identifier hs-var">batchWindow</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699143"><span class="annot"><span class="annottext">s :: StartingEventBatchCondition
+</span><a href="#local-6989586621679699143"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition%27"><span class="hs-identifier hs-type">StartingEventBatchCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699142"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679699142"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartingEventBatchCondition
+</span><a href="#local-6989586621679699143"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchWindow:StartingEventBatchCondition' :: Maybe Int
 </span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#%24sel%3AbatchWindow%3AStartingEventBatchCondition%27"><span class="hs-identifier hs-var">batchWindow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679697443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679699142"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Number of events in the batch.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#startingEventBatchCondition_batchSize"><span class="hs-identifier hs-type">startingEventBatchCondition_batchSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="startingEventBatchCondition_batchSize"><span class="annot"><span class="annottext">startingEventBatchCondition_batchSize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; StartingEventBatchCondition -&gt; f StartingEventBatchCondition
+</span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#startingEventBatchCondition_batchSize"><span class="hs-identifier hs-var hs-var">startingEventBatchCondition_batchSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartingEventBatchCondition -&gt; Maybe Int)
+-&gt; (StartingEventBatchCondition
+    -&gt; Maybe Int -&gt; StartingEventBatchCondition)
+-&gt; Lens
+     StartingEventBatchCondition
+     StartingEventBatchCondition
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition%27"><span class="hs-identifier hs-type">StartingEventBatchCondition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679699140"><span class="annot"><span class="annottext">Maybe Int
+batchSize :: Maybe Int
+$sel:batchSize:StartingEventBatchCondition' :: StartingEventBatchCondition -&gt; Maybe Int
+</span><a href="#local-6989586621679699140"><span class="hs-identifier hs-var hs-var">batchSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679699140"><span class="hs-identifier hs-var">batchSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679699139"><span class="annot"><span class="annottext">s :: StartingEventBatchCondition
+</span><a href="#local-6989586621679699139"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition%27"><span class="hs-identifier hs-type">StartingEventBatchCondition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679699138"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679699138"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartingEventBatchCondition
+</span><a href="#local-6989586621679699139"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchSize:StartingEventBatchCondition' :: Maybe Int
+</span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#%24sel%3AbatchSize%3AStartingEventBatchCondition%27"><span class="hs-identifier hs-var">batchSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679699138"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697440"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679697438"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StartingEventBatchCondition
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679699135"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679699133"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StartingEventBatchCondition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StartingEventBatchCondition)
@@ -187,8 +187,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StartingEventBatchCondition&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679697435"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679697435"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679699130"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679699130"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Int -&gt; StartingEventBatchCondition
 </span><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition%27"><span class="hs-identifier hs-var">StartingEventBatchCondition'</span></a></span><span>
 </span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Int -&gt; StartingEventBatchCondition)
@@ -196,21 +196,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Int -&gt; StartingEventBatchCondition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679697435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679699130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BatchSize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;BatchWindow&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; StartingEventBatchCondition)
 -&gt; Parser (Maybe Int) -&gt; Parser StartingEventBatchCondition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679697435"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679699130"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BatchWindow&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;BatchSize&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697429"><span id="local-6989586621679697431"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679699124"><span id="local-6989586621679699126"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679697426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679699121"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.StartingEventBatchCondition.html#StartingEventBatchCondition"><span class="hs-identifier hs-type">StartingEventBatchCondition</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

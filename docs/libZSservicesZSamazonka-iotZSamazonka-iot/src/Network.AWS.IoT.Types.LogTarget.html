@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | A log target.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLogTarget' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679788738"><span id="local-6989586621679788739"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogTarget"><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-var">LogTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogTarget%27"><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-var">LogTarget'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679789596"><span id="local-6989586621679789597"></span></span><span class="hs-keyword">data</span><span> </span><span id="LogTarget"><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-var">LogTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LogTarget%27"><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-var">LogTarget'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The target name.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AtargetName%3ALogTarget%27"><span class="annot"><span class="annottext">LogTarget -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.LogTarget.html#%24sel%3AtargetName%3ALogTarget%27"><span class="hs-identifier hs-var hs-var">targetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AtargetType%3ALogTarget%27"><span class="annot"><span class="annottext">LogTarget -&gt; LogTargetType
 </span><a href="Network.AWS.IoT.Types.LogTarget.html#%24sel%3AtargetType%3ALogTarget%27"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTargetType.html#LogTargetType"><span class="hs-identifier hs-type">LogTargetType</span></a></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679788731"><span id="local-6989586621679788733"><span class="annot"><span class="annottext">LogTarget -&gt; LogTarget -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789589"><span id="local-6989586621679789591"><span class="annot"><span class="annottext">LogTarget -&gt; LogTarget -&gt; Bool
 (LogTarget -&gt; LogTarget -&gt; Bool)
 -&gt; (LogTarget -&gt; LogTarget -&gt; Bool) -&gt; Eq LogTarget
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LogTarget -&gt; LogTarget -&gt; Bool
 == :: LogTarget -&gt; LogTarget -&gt; Bool
 $c== :: LogTarget -&gt; LogTarget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788722"><span id="local-6989586621679788724"><span id="local-6989586621679788726"><span id="local-6989586621679788728"><span class="annot"><span class="annottext">ReadPrec [LogTarget]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789580"><span id="local-6989586621679789582"><span id="local-6989586621679789584"><span id="local-6989586621679789586"><span class="annot"><span class="annottext">ReadPrec [LogTarget]
 ReadPrec LogTarget
 Int -&gt; ReadS LogTarget
 ReadS [LogTarget]
@@ -63,7 +63,7 @@ readList :: ReadS [LogTarget]
 $creadList :: ReadS [LogTarget]
 readsPrec :: Int -&gt; ReadS LogTarget
 $creadsPrec :: Int -&gt; ReadS LogTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788715"><span id="local-6989586621679788717"><span id="local-6989586621679788719"><span class="annot"><span class="annottext">Int -&gt; LogTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789573"><span id="local-6989586621679789575"><span id="local-6989586621679789577"><span class="annot"><span class="annottext">Int -&gt; LogTarget -&gt; ShowS
 [LogTarget] -&gt; ShowS
 LogTarget -&gt; String
 (Int -&gt; LogTarget -&gt; ShowS)
@@ -104,8 +104,8 @@ $cfrom :: forall x. LogTarget -&gt; Rep LogTarget x
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTargetType.html#LogTargetType"><span class="hs-identifier hs-type">LogTargetType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span><span>
 </span><span id="line-53"></span><span id="newLogTarget"><span class="annot"><span class="annottext">newLogTarget :: LogTargetType -&gt; LogTarget
-</span><a href="Network.AWS.IoT.Types.LogTarget.html#newLogTarget"><span class="hs-identifier hs-var hs-var">newLogTarget</span></a></span></span><span> </span><span id="local-6989586621679788709"><span class="annot"><span class="annottext">LogTargetType
-</span><a href="#local-6989586621679788709"><span class="hs-identifier hs-var">pTargetType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.LogTarget.html#newLogTarget"><span class="hs-identifier hs-var hs-var">newLogTarget</span></a></span></span><span> </span><span id="local-6989586621679789567"><span class="annot"><span class="annottext">LogTargetType
+</span><a href="#local-6989586621679789567"><span class="hs-identifier hs-var">pTargetType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">LogTarget' :: Maybe Text -&gt; LogTargetType -&gt; LogTarget
 </span><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-type">LogTarget'</span></a></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targetName:LogTarget' :: Maybe Text
@@ -114,7 +114,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetType:LogTarget' :: LogTargetType
 </span><a href="Network.AWS.IoT.Types.LogTarget.html#%24sel%3AtargetType%3ALogTarget%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LogTargetType
-</span><a href="#local-6989586621679788709"><span class="hs-identifier hs-var">pTargetType_</span></a></span><span>
+</span><a href="#local-6989586621679789567"><span class="hs-identifier hs-var">pTargetType_</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | The target name.</span><span>
@@ -124,16 +124,16 @@ forall a. Maybe a
 -&gt; (LogTarget -&gt; Maybe Text -&gt; LogTarget)
 -&gt; Lens LogTarget LogTarget (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-type">LogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788705"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-type">LogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789563"><span class="annot"><span class="annottext">Maybe Text
 targetName :: Maybe Text
 $sel:targetName:LogTarget' :: LogTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679788705"><span class="hs-identifier hs-var hs-var">targetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788705"><span class="hs-identifier hs-var">targetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788704"><span class="annot"><span class="annottext">s :: LogTarget
-</span><a href="#local-6989586621679788704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-type">LogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788703"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogTarget
-</span><a href="#local-6989586621679788704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetName:LogTarget' :: Maybe Text
+</span><a href="#local-6989586621679789563"><span class="hs-identifier hs-var hs-var">targetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679789563"><span class="hs-identifier hs-var">targetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789562"><span class="annot"><span class="annottext">s :: LogTarget
+</span><a href="#local-6989586621679789562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-type">LogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789561"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679789561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogTarget
+</span><a href="#local-6989586621679789562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetName:LogTarget' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.LogTarget.html#%24sel%3AtargetName%3ALogTarget%27"><span class="hs-identifier hs-var">targetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679789561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The target type.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#logTarget_targetType"><span class="hs-identifier hs-type">logTarget_targetType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTargetType.html#LogTargetType"><span class="hs-identifier hs-type">LogTargetType</span></a></span><span>
@@ -142,34 +142,34 @@ $sel:targetName:LogTarget' :: LogTarget -&gt; Maybe Text
 -&gt; (LogTarget -&gt; LogTargetType -&gt; LogTarget)
 -&gt; Lens LogTarget LogTarget LogTargetType LogTargetType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-type">LogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788701"><span class="annot"><span class="annottext">LogTargetType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-type">LogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789559"><span class="annot"><span class="annottext">LogTargetType
 targetType :: LogTargetType
 $sel:targetType:LogTarget' :: LogTarget -&gt; LogTargetType
-</span><a href="#local-6989586621679788701"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogTargetType
-</span><a href="#local-6989586621679788701"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788700"><span class="annot"><span class="annottext">s :: LogTarget
-</span><a href="#local-6989586621679788700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-type">LogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788699"><span class="annot"><span class="annottext">LogTargetType
-</span><a href="#local-6989586621679788699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogTarget
-</span><a href="#local-6989586621679788700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetType:LogTarget' :: LogTargetType
+</span><a href="#local-6989586621679789559"><span class="hs-identifier hs-var hs-var">targetType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogTargetType
+</span><a href="#local-6989586621679789559"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789558"><span class="annot"><span class="annottext">s :: LogTarget
+</span><a href="#local-6989586621679789558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-type">LogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789557"><span class="annot"><span class="annottext">LogTargetType
+</span><a href="#local-6989586621679789557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LogTarget
+</span><a href="#local-6989586621679789558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetType:LogTarget' :: LogTargetType
 </span><a href="Network.AWS.IoT.Types.LogTarget.html#%24sel%3AtargetType%3ALogTarget%27"><span class="hs-identifier hs-var">targetType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LogTargetType
-</span><a href="#local-6989586621679788699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679789557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788696"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679788694"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogTarget
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789554"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679789552"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LogTarget
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser LogTarget) -&gt; Value -&gt; Parser LogTarget
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;LogTarget&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679788691"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788691"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679789549"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679789549"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; LogTargetType -&gt; LogTarget
 </span><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-var">LogTarget'</span></a></span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; LogTargetType -&gt; LogTarget)
 -&gt; Parser (Maybe Text) -&gt; Parser (LogTargetType -&gt; LogTarget)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679789549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetName&quot;</span></span><span class="hs-special">)</span><span>
@@ -177,25 +177,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser LogTargetType -&gt; Parser LogTarget
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679788691"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser LogTargetType
+</span><a href="#local-6989586621679789549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser LogTargetType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788684"><span id="local-6989586621679788686"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789542"><span id="local-6989586621679789544"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span></span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788681"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789539"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788673"><span id="local-6989586621679788675"><span id="local-6989586621679788677"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679788671"><span class="annot"><span class="annottext">toJSON :: LogTarget -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-type">LogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788668"><span id="local-6989586621679788669"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789531"><span id="local-6989586621679789533"><span id="local-6989586621679789535"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget"><span class="hs-identifier hs-type">LogTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679789529"><span class="annot"><span class="annottext">toJSON :: LogTarget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.LogTarget.html#LogTarget%27"><span class="hs-identifier hs-type">LogTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789526"><span id="local-6989586621679789527"><span class="annot"><span class="annottext">Maybe Text
 LogTargetType
 targetType :: LogTargetType
 targetName :: Maybe Text
 $sel:targetType:LogTarget' :: LogTarget -&gt; LogTargetType
 $sel:targetName:LogTarget' :: LogTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679788668"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679789526"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -207,14 +207,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679788669"><span class="hs-identifier hs-var">targetName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679789527"><span class="hs-identifier hs-var">targetName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;targetType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LogTargetType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LogTargetType
-</span><a href="#local-6989586621679788668"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679789526"><span class="hs-identifier hs-var">targetType</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span></pre></body></html>

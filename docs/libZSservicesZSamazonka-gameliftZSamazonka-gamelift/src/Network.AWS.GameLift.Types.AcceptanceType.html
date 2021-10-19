@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679427436"><span id="local-6989586621679427437"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AcceptanceType"><span class="annot"><a href="Network.AWS.GameLift.Types.AcceptanceType.html#AcceptanceType"><span class="hs-identifier hs-var">AcceptanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptanceType%27"><span class="annot"><a href="Network.AWS.GameLift.Types.AcceptanceType.html#AcceptanceType%27"><span class="hs-identifier hs-var">AcceptanceType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679427879"><span id="local-6989586621679427880"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AcceptanceType"><span class="annot"><a href="Network.AWS.GameLift.Types.AcceptanceType.html#AcceptanceType"><span class="hs-identifier hs-var">AcceptanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AcceptanceType%27"><span class="annot"><a href="Network.AWS.GameLift.Types.AcceptanceType.html#AcceptanceType%27"><span class="hs-identifier hs-var">AcceptanceType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAcceptanceType"><span class="annot"><span class="annottext">AcceptanceType -&gt; Text
 </span><a href="Network.AWS.GameLift.Types.AcceptanceType.html#fromAcceptanceType"><span class="hs-identifier hs-var hs-var">fromAcceptanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427428"><span id="local-6989586621679427430"><span id="local-6989586621679427432"><span class="annot"><span class="annottext">Int -&gt; AcceptanceType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427871"><span id="local-6989586621679427873"><span id="local-6989586621679427875"><span class="annot"><span class="annottext">Int -&gt; AcceptanceType -&gt; ShowS
 [AcceptanceType] -&gt; ShowS
 AcceptanceType -&gt; String
 (Int -&gt; AcceptanceType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: AcceptanceType -&gt; String
 showsPrec :: Int -&gt; AcceptanceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AcceptanceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679427419"><span id="local-6989586621679427421"><span id="local-6989586621679427423"><span id="local-6989586621679427425"><span class="annot"><span class="annottext">ReadPrec [AcceptanceType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679427862"><span id="local-6989586621679427864"><span id="local-6989586621679427866"><span id="local-6989586621679427868"><span class="annot"><span class="annottext">ReadPrec [AcceptanceType]
 ReadPrec AcceptanceType
 Int -&gt; ReadS AcceptanceType
 ReadS [AcceptanceType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [AcceptanceType]
 readsPrec :: Int -&gt; ReadS AcceptanceType
 $creadsPrec :: Int -&gt; ReadS AcceptanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679427414"><span id="local-6989586621679427416"><span class="annot"><span class="annottext">AcceptanceType -&gt; AcceptanceType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679427857"><span id="local-6989586621679427859"><span class="annot"><span class="annottext">AcceptanceType -&gt; AcceptanceType -&gt; Bool
 (AcceptanceType -&gt; AcceptanceType -&gt; Bool)
 -&gt; (AcceptanceType -&gt; AcceptanceType -&gt; Bool) -&gt; Eq AcceptanceType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: AcceptanceType -&gt; AcceptanceType -&gt; Bool
 == :: AcceptanceType -&gt; AcceptanceType -&gt; Bool
 $c== :: AcceptanceType -&gt; AcceptanceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679427398"><span id="local-6989586621679427400"><span id="local-6989586621679427402"><span id="local-6989586621679427404"><span id="local-6989586621679427406"><span id="local-6989586621679427408"><span id="local-6989586621679427410"><span class="annot"><span class="annottext">Eq AcceptanceType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679427841"><span id="local-6989586621679427843"><span id="local-6989586621679427845"><span id="local-6989586621679427847"><span id="local-6989586621679427849"><span id="local-6989586621679427851"><span id="local-6989586621679427853"><span class="annot"><span class="annottext">Eq AcceptanceType
 Eq AcceptanceType
 -&gt; (AcceptanceType -&gt; AcceptanceType -&gt; Ordering)
 -&gt; (AcceptanceType -&gt; AcceptanceType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. AcceptanceType -&gt; Rep AcceptanceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427390"><span id="local-6989586621679427392"><span class="annot"><span class="annottext">Int -&gt; AcceptanceType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679427833"><span id="local-6989586621679427835"><span class="annot"><span class="annottext">Int -&gt; AcceptanceType -&gt; Int
 AcceptanceType -&gt; Int
 (Int -&gt; AcceptanceType -&gt; Int)
 -&gt; (AcceptanceType -&gt; Int) -&gt; Hashable AcceptanceType
@@ -142,50 +142,50 @@ $chash :: AcceptanceType -&gt; Int
 hashWithSalt :: Int -&gt; AcceptanceType -&gt; Int
 $chashWithSalt :: Int -&gt; AcceptanceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679427387"><span class="annot"><span class="annottext">AcceptanceType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679427830"><span class="annot"><span class="annottext">AcceptanceType -&gt; ()
 (AcceptanceType -&gt; ()) -&gt; NFData AcceptanceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AcceptanceType -&gt; ()
 $crnf :: AcceptanceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679427384"><span class="annot"><span class="annottext">Text -&gt; Either String AcceptanceType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679427827"><span class="annot"><span class="annottext">Text -&gt; Either String AcceptanceType
 (Text -&gt; Either String AcceptanceType) -&gt; FromText AcceptanceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AcceptanceType
 $cfromText :: Text -&gt; Either String AcceptanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679427381"><span class="annot"><span class="annottext">AcceptanceType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679427824"><span class="annot"><span class="annottext">AcceptanceType -&gt; Text
 (AcceptanceType -&gt; Text) -&gt; ToText AcceptanceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AcceptanceType -&gt; Text
 $ctoText :: AcceptanceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679427378"><span class="annot"><span class="annottext">AcceptanceType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679427821"><span class="annot"><span class="annottext">AcceptanceType -&gt; ByteString
 (AcceptanceType -&gt; ByteString) -&gt; ToByteString AcceptanceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AcceptanceType -&gt; ByteString
 $ctoBS :: AcceptanceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679427375"><span class="annot"><span class="annottext">AcceptanceType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679427818"><span class="annot"><span class="annottext">AcceptanceType -&gt; ByteStringBuilder
 (AcceptanceType -&gt; ByteStringBuilder) -&gt; ToLog AcceptanceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AcceptanceType -&gt; ByteStringBuilder
 $cbuild :: AcceptanceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679427372"><span class="annot"><span class="annottext">HeaderName -&gt; AcceptanceType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679427815"><span class="annot"><span class="annottext">HeaderName -&gt; AcceptanceType -&gt; [Header]
 (HeaderName -&gt; AcceptanceType -&gt; [Header])
 -&gt; ToHeader AcceptanceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AcceptanceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AcceptanceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679427369"><span class="annot"><span class="annottext">AcceptanceType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679427812"><span class="annot"><span class="annottext">AcceptanceType -&gt; QueryString
 (AcceptanceType -&gt; QueryString) -&gt; ToQuery AcceptanceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AcceptanceType -&gt; QueryString
 $ctoQuery :: AcceptanceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679427364"><span id="local-6989586621679427366"><span class="annot"><span class="annottext">Value -&gt; Parser [AcceptanceType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679427807"><span id="local-6989586621679427809"><span class="annot"><span class="annottext">Value -&gt; Parser [AcceptanceType]
 Value -&gt; Parser AcceptanceType
 (Value -&gt; Parser AcceptanceType)
 -&gt; (Value -&gt; Parser [AcceptanceType]) -&gt; FromJSON AcceptanceType
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [AcceptanceType]
 parseJSON :: Value -&gt; Parser AcceptanceType
 $cparseJSON :: Value -&gt; Parser AcceptanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679427359"><span id="local-6989586621679427361"><span class="annot"><span class="annottext">FromJSONKeyFunction [AcceptanceType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679427802"><span id="local-6989586621679427804"><span class="annot"><span class="annottext">FromJSONKeyFunction [AcceptanceType]
 FromJSONKeyFunction AcceptanceType
 FromJSONKeyFunction AcceptanceType
 -&gt; FromJSONKeyFunction [AcceptanceType]
@@ -208,7 +208,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AcceptanceType]
 fromJSONKey :: FromJSONKeyFunction AcceptanceType
 $cfromJSONKey :: FromJSONKeyFunction AcceptanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679427350"><span id="local-6989586621679427352"><span id="local-6989586621679427354"><span id="local-6989586621679427356"><span class="annot"><span class="annottext">[AcceptanceType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679427793"><span id="local-6989586621679427795"><span id="local-6989586621679427797"><span id="local-6989586621679427799"><span class="annot"><span class="annottext">[AcceptanceType] -&gt; Encoding
 [AcceptanceType] -&gt; Value
 AcceptanceType -&gt; Encoding
 AcceptanceType -&gt; Value
@@ -232,7 +232,7 @@ $ctoEncoding :: AcceptanceType -&gt; Encoding
 toJSON :: AcceptanceType -&gt; Value
 $ctoJSON :: AcceptanceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679427345"><span id="local-6989586621679427347"><span class="annot"><span class="annottext">ToJSONKeyFunction [AcceptanceType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679427788"><span id="local-6989586621679427790"><span class="annot"><span class="annottext">ToJSONKeyFunction [AcceptanceType]
 ToJSONKeyFunction AcceptanceType
 ToJSONKeyFunction AcceptanceType
 -&gt; ToJSONKeyFunction [AcceptanceType] -&gt; ToJSONKey AcceptanceType
@@ -243,13 +243,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AcceptanceType]
 toJSONKey :: ToJSONKeyFunction AcceptanceType
 $ctoJSONKey :: ToJSONKeyFunction AcceptanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679427342"><span class="annot"><span class="annottext">[Node] -&gt; Either String AcceptanceType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679427785"><span class="annot"><span class="annottext">[Node] -&gt; Either String AcceptanceType
 ([Node] -&gt; Either String AcceptanceType) -&gt; FromXML AcceptanceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AcceptanceType
 $cparseXML :: [Node] -&gt; Either String AcceptanceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679427339"><span class="annot"><span class="annottext">AcceptanceType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679427782"><span class="annot"><span class="annottext">AcceptanceType -&gt; XML
 (AcceptanceType -&gt; XML) -&gt; ToXML AcceptanceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AcceptanceType -&gt; XML

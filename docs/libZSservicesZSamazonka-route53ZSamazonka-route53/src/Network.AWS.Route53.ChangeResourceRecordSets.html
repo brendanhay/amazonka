@@ -139,7 +139,7 @@
 </span><span id="line-139"></span><span class="hs-comment">-- set.</span><span>
 </span><span id="line-140"></span><span class="hs-comment">--</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- /See:/ 'newChangeResourceRecordSets' smart constructor.</span><span>
-</span><span id="line-142"></span><span id="local-6989586621679312470"><span id="local-6989586621679312471"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChangeResourceRecordSets"><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-var">ChangeResourceRecordSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeResourceRecordSets%27"><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-var">ChangeResourceRecordSets'</span></a></span></span><span>
+</span><span id="line-142"></span><span id="local-6989586621679312665"><span id="local-6989586621679312666"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChangeResourceRecordSets"><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-var">ChangeResourceRecordSets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeResourceRecordSets%27"><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-var">ChangeResourceRecordSets'</span></a></span></span><span>
 </span><span id="line-143"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the hosted zone that contains the resource record sets that</span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-comment">-- you want to change.</span><span>
 </span><span id="line-145"></span><span>    </span><span id="%24sel%3AhostedZoneId%3AChangeResourceRecordSets%27"><span class="annot"><span class="annottext">ChangeResourceRecordSets -&gt; ResourceId
@@ -149,7 +149,7 @@
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AchangeBatch%3AChangeResourceRecordSets%27"><span class="annot"><span class="annottext">ChangeResourceRecordSets -&gt; ChangeBatch
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#%24sel%3AchangeBatch%3AChangeResourceRecordSets%27"><span class="hs-identifier hs-var hs-var">changeBatch</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ChangeBatch.html#ChangeBatch"><span class="hs-identifier hs-type">ChangeBatch</span></a></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312463"><span id="local-6989586621679312465"><span class="annot"><span class="annottext">ChangeResourceRecordSets -&gt; ChangeResourceRecordSets -&gt; Bool
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312658"><span id="local-6989586621679312660"><span class="annot"><span class="annottext">ChangeResourceRecordSets -&gt; ChangeResourceRecordSets -&gt; Bool
 (ChangeResourceRecordSets -&gt; ChangeResourceRecordSets -&gt; Bool)
 -&gt; (ChangeResourceRecordSets -&gt; ChangeResourceRecordSets -&gt; Bool)
 -&gt; Eq ChangeResourceRecordSets
@@ -158,7 +158,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ChangeResourceRecordSets -&gt; ChangeResourceRecordSets -&gt; Bool
 == :: ChangeResourceRecordSets -&gt; ChangeResourceRecordSets -&gt; Bool
 $c== :: ChangeResourceRecordSets -&gt; ChangeResourceRecordSets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312454"><span id="local-6989586621679312456"><span id="local-6989586621679312458"><span id="local-6989586621679312460"><span class="annot"><span class="annottext">ReadPrec [ChangeResourceRecordSets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312649"><span id="local-6989586621679312651"><span id="local-6989586621679312653"><span id="local-6989586621679312655"><span class="annot"><span class="annottext">ReadPrec [ChangeResourceRecordSets]
 ReadPrec ChangeResourceRecordSets
 Int -&gt; ReadS ChangeResourceRecordSets
 ReadS [ChangeResourceRecordSets]
@@ -178,7 +178,7 @@ readList :: ReadS [ChangeResourceRecordSets]
 $creadList :: ReadS [ChangeResourceRecordSets]
 readsPrec :: Int -&gt; ReadS ChangeResourceRecordSets
 $creadsPrec :: Int -&gt; ReadS ChangeResourceRecordSets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312447"><span id="local-6989586621679312449"><span id="local-6989586621679312451"><span class="annot"><span class="annottext">Int -&gt; ChangeResourceRecordSets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312642"><span id="local-6989586621679312644"><span id="local-6989586621679312646"><span class="annot"><span class="annottext">Int -&gt; ChangeResourceRecordSets -&gt; ShowS
 [ChangeResourceRecordSets] -&gt; ShowS
 ChangeResourceRecordSets -&gt; String
 (Int -&gt; ChangeResourceRecordSets -&gt; ShowS)
@@ -231,19 +231,19 @@ ChangeResourceRecordSets -&gt; Rep ChangeResourceRecordSets x
 </span><span id="line-170"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span><span>
 </span><span id="line-171"></span><span id="newChangeResourceRecordSets"><span class="annot"><span class="annottext">newChangeResourceRecordSets :: ResourceId -&gt; ChangeBatch -&gt; ChangeResourceRecordSets
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#newChangeResourceRecordSets"><span class="hs-identifier hs-var hs-var">newChangeResourceRecordSets</span></a></span></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679312442"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679312442"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span></span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679312441"><span class="annot"><span class="annottext">ChangeBatch
-</span><a href="#local-6989586621679312441"><span class="hs-identifier hs-var">pChangeBatch_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679312637"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679312637"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679312636"><span class="annot"><span class="annottext">ChangeBatch
+</span><a href="#local-6989586621679312636"><span class="hs-identifier hs-var">pChangeBatch_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">ChangeResourceRecordSets' :: ResourceId -&gt; ChangeBatch -&gt; ChangeResourceRecordSets
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-type">ChangeResourceRecordSets'</span></a></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:hostedZoneId:ChangeResourceRecordSets' :: ResourceId
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#%24sel%3AhostedZoneId%3AChangeResourceRecordSets%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679312442"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312637"><span class="hs-identifier hs-var">pHostedZoneId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">$sel:changeBatch:ChangeResourceRecordSets' :: ChangeBatch
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#%24sel%3AchangeBatch%3AChangeResourceRecordSets%27"><span class="hs-identifier hs-var">changeBatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeBatch
-</span><a href="#local-6989586621679312441"><span class="hs-identifier hs-var">pChangeBatch_</span></a></span><span>
+</span><a href="#local-6989586621679312636"><span class="hs-identifier hs-var">pChangeBatch_</span></a></span><span>
 </span><span id="line-178"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- | The ID of the hosted zone that contains the resource record sets that</span><span>
@@ -260,16 +260,16 @@ ChangeResourceRecordSets -&gt; Rep ChangeResourceRecordSets x
      ResourceId
      ResourceId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-type">ChangeResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312438"><span class="annot"><span class="annottext">ResourceId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-type">ChangeResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312633"><span class="annot"><span class="annottext">ResourceId
 hostedZoneId :: ResourceId
 $sel:hostedZoneId:ChangeResourceRecordSets' :: ChangeResourceRecordSets -&gt; ResourceId
-</span><a href="#local-6989586621679312438"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679312438"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312437"><span class="annot"><span class="annottext">s :: ChangeResourceRecordSets
-</span><a href="#local-6989586621679312437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-type">ChangeResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312436"><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679312436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeResourceRecordSets
-</span><a href="#local-6989586621679312437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:ChangeResourceRecordSets' :: ResourceId
+</span><a href="#local-6989586621679312633"><span class="hs-identifier hs-var hs-var">hostedZoneId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679312633"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312632"><span class="annot"><span class="annottext">s :: ChangeResourceRecordSets
+</span><a href="#local-6989586621679312632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-type">ChangeResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312631"><span class="annot"><span class="annottext">ResourceId
+</span><a href="#local-6989586621679312631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeResourceRecordSets
+</span><a href="#local-6989586621679312632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hostedZoneId:ChangeResourceRecordSets' :: ResourceId
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#%24sel%3AhostedZoneId%3AChangeResourceRecordSets%27"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679312436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | A complex type that contains an optional comment and the @Changes@</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- element.</span><span>
@@ -285,28 +285,28 @@ $sel:hostedZoneId:ChangeResourceRecordSets' :: ChangeResourceRecordSets -&gt; Re
      ChangeBatch
      ChangeBatch
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-type">ChangeResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312435"><span class="annot"><span class="annottext">ChangeBatch
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-type">ChangeResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312630"><span class="annot"><span class="annottext">ChangeBatch
 changeBatch :: ChangeBatch
 $sel:changeBatch:ChangeResourceRecordSets' :: ChangeResourceRecordSets -&gt; ChangeBatch
-</span><a href="#local-6989586621679312435"><span class="hs-identifier hs-var hs-var">changeBatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeBatch
-</span><a href="#local-6989586621679312435"><span class="hs-identifier hs-var">changeBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312434"><span class="annot"><span class="annottext">s :: ChangeResourceRecordSets
-</span><a href="#local-6989586621679312434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-type">ChangeResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312433"><span class="annot"><span class="annottext">ChangeBatch
-</span><a href="#local-6989586621679312433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeResourceRecordSets
-</span><a href="#local-6989586621679312434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeBatch:ChangeResourceRecordSets' :: ChangeBatch
+</span><a href="#local-6989586621679312630"><span class="hs-identifier hs-var hs-var">changeBatch</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeBatch
+</span><a href="#local-6989586621679312630"><span class="hs-identifier hs-var">changeBatch</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312629"><span class="annot"><span class="annottext">s :: ChangeResourceRecordSets
+</span><a href="#local-6989586621679312629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-type">ChangeResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312628"><span class="annot"><span class="annottext">ChangeBatch
+</span><a href="#local-6989586621679312628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeResourceRecordSets
+</span><a href="#local-6989586621679312629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeBatch:ChangeResourceRecordSets' :: ChangeBatch
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#%24sel%3AchangeBatch%3AChangeResourceRecordSets%27"><span class="hs-identifier hs-var">changeBatch</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeBatch
-</span><a href="#local-6989586621679312433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-189"></span><span>
 </span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-192"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse</span></a></span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679312429"><span class="annot"><span class="annottext">request :: ChangeResourceRecordSets -&gt; Request ChangeResourceRecordSets
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679312624"><span class="annot"><span class="annottext">request :: ChangeResourceRecordSets -&gt; Request ChangeResourceRecordSets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ChangeResourceRecordSets -&gt; Request ChangeResourceRecordSets
 forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postXML</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679312425"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679312620"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ChangeResourceRecordSets
 -&gt; ClientResponse ClientBody
@@ -332,10 +332,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312422"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312422"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312421"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679312421"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312420"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679312420"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312617"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312617"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312616"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312616"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312615"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679312615"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ChangeInfo -&gt; ChangeResourceRecordSetsResponse
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">ChangeResourceRecordSetsResponse'</span></a></span><span>
 </span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ChangeInfo -&gt; ChangeResourceRecordSetsResponse)
@@ -347,24 +347,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312422"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312617"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>            </span><span class="annot"><span class="annottext">Either String (ChangeInfo -&gt; ChangeResourceRecordSetsResponse)
 -&gt; Either String ChangeInfo
 -&gt; Either String ChangeResourceRecordSetsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679312420"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ChangeInfo
+</span><a href="#local-6989586621679312615"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ChangeInfo
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ChangeInfo&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312412"><span id="local-6989586621679312414"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span></span></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312607"><span id="local-6989586621679312609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span></span></span><span>
 </span><span id="line-204"></span><span>
-</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312409"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span></span><span>
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-208"></span><span>  </span><span id="local-6989586621679312405"><span class="annot"><span class="annottext">toElement :: ChangeResourceRecordSets -&gt; Element
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679312600"><span class="annot"><span class="annottext">toElement :: ChangeResourceRecordSets -&gt; Element
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; ChangeResourceRecordSets -&gt; Element
 forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
@@ -373,7 +373,7 @@ forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
 </span><span class="hs-string">&quot;{https://route53.amazonaws.com/doc/2013-04-01/}ChangeResourceRecordSetsRequest&quot;</span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679312400"><span class="annot"><span class="annottext">toHeaders :: ChangeResourceRecordSets -&gt; ResponseHeaders
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679312595"><span class="annot"><span class="annottext">toHeaders :: ChangeResourceRecordSets -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ChangeResourceRecordSets -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -381,14 +381,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679312395"><span class="annot"><span class="annottext">toPath :: ChangeResourceRecordSets -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-type">ChangeResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312392"><span id="local-6989586621679312393"><span class="annot"><span class="annottext">ResourceId
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679312590"><span class="annot"><span class="annottext">toPath :: ChangeResourceRecordSets -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-type">ChangeResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312587"><span id="local-6989586621679312588"><span class="annot"><span class="annottext">ResourceId
 ChangeBatch
 changeBatch :: ChangeBatch
 hostedZoneId :: ResourceId
 $sel:changeBatch:ChangeResourceRecordSets' :: ChangeResourceRecordSets -&gt; ChangeBatch
 $sel:hostedZoneId:ChangeResourceRecordSets' :: ChangeResourceRecordSets -&gt; ResourceId
-</span><a href="#local-6989586621679312392"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679312587"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -397,13 +397,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">ResourceId -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">ResourceId
-</span><a href="#local-6989586621679312393"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312588"><span class="hs-identifier hs-var">hostedZoneId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/rrset/&quot;</span></span><span>
 </span><span id="line-221"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-222"></span><span>
 </span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-224"></span><span>  </span><span id="local-6989586621679312388"><span class="annot"><span class="annottext">toQuery :: ChangeResourceRecordSets -&gt; QueryString
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679312583"><span class="annot"><span class="annottext">toQuery :: ChangeResourceRecordSets -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ChangeResourceRecordSets -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -411,26 +411,26 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets"><span class="hs-identifier hs-type">ChangeResourceRecordSets</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679312384"><span class="annot"><span class="annottext">toXML :: ChangeResourceRecordSets -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-type">ChangeResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312381"><span id="local-6989586621679312382"><span class="annot"><span class="annottext">ResourceId
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679312579"><span class="annot"><span class="annottext">toXML :: ChangeResourceRecordSets -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSets%27"><span class="hs-identifier hs-type">ChangeResourceRecordSets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312576"><span id="local-6989586621679312577"><span class="annot"><span class="annottext">ResourceId
 ChangeBatch
 changeBatch :: ChangeBatch
 hostedZoneId :: ResourceId
 $sel:changeBatch:ChangeResourceRecordSets' :: ChangeResourceRecordSets -&gt; ChangeBatch
 $sel:hostedZoneId:ChangeResourceRecordSets' :: ChangeResourceRecordSets -&gt; ResourceId
-</span><a href="#local-6989586621679312381"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679312576"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;ChangeBatch&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; ChangeBatch -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">ChangeBatch
-</span><a href="#local-6989586621679312381"><span class="hs-identifier hs-var">changeBatch</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679312576"><span class="hs-identifier hs-var">changeBatch</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | A complex type containing the response for the request.</span><span>
 </span><span id="line-231"></span><span class="hs-comment">--</span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- /See:/ 'newChangeResourceRecordSetsResponse' smart constructor.</span><span>
-</span><span id="line-233"></span><span id="local-6989586621679312378"><span id="local-6989586621679312379"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChangeResourceRecordSetsResponse"><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse"><span class="hs-identifier hs-var">ChangeResourceRecordSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeResourceRecordSetsResponse%27"><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">ChangeResourceRecordSetsResponse'</span></a></span></span><span>
+</span><span id="line-233"></span><span id="local-6989586621679312573"><span id="local-6989586621679312574"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChangeResourceRecordSetsResponse"><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse"><span class="hs-identifier hs-var">ChangeResourceRecordSetsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeResourceRecordSetsResponse%27"><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">ChangeResourceRecordSetsResponse'</span></a></span></span><span>
 </span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-235"></span><span>    </span><span id="%24sel%3AhttpStatus%3AChangeResourceRecordSetsResponse%27"><span class="annot"><span class="annottext">ChangeResourceRecordSetsResponse -&gt; Int
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#%24sel%3AhttpStatus%3AChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -443,7 +443,7 @@ forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span id="line-242"></span><span>    </span><span id="%24sel%3AchangeInfo%3AChangeResourceRecordSetsResponse%27"><span class="annot"><span class="annottext">ChangeResourceRecordSetsResponse -&gt; ChangeInfo
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#%24sel%3AchangeInfo%3AChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-var hs-var">changeInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Types.ChangeInfo.html#ChangeInfo"><span class="hs-identifier hs-type">ChangeInfo</span></a></span><span>
 </span><span id="line-243"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-244"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312372"><span id="local-6989586621679312374"><span class="annot"><span class="annottext">ChangeResourceRecordSetsResponse
+</span><span id="line-244"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312567"><span id="local-6989586621679312569"><span class="annot"><span class="annottext">ChangeResourceRecordSetsResponse
 -&gt; ChangeResourceRecordSetsResponse -&gt; Bool
 (ChangeResourceRecordSetsResponse
  -&gt; ChangeResourceRecordSetsResponse -&gt; Bool)
@@ -459,7 +459,7 @@ $c/= :: ChangeResourceRecordSetsResponse
 -&gt; ChangeResourceRecordSetsResponse -&gt; Bool
 $c== :: ChangeResourceRecordSetsResponse
 -&gt; ChangeResourceRecordSetsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312364"><span id="local-6989586621679312366"><span id="local-6989586621679312368"><span id="local-6989586621679312370"><span class="annot"><span class="annottext">ReadPrec [ChangeResourceRecordSetsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312559"><span id="local-6989586621679312561"><span id="local-6989586621679312563"><span id="local-6989586621679312565"><span class="annot"><span class="annottext">ReadPrec [ChangeResourceRecordSetsResponse]
 ReadPrec ChangeResourceRecordSetsResponse
 Int -&gt; ReadS ChangeResourceRecordSetsResponse
 ReadS [ChangeResourceRecordSetsResponse]
@@ -479,7 +479,7 @@ readList :: ReadS [ChangeResourceRecordSetsResponse]
 $creadList :: ReadS [ChangeResourceRecordSetsResponse]
 readsPrec :: Int -&gt; ReadS ChangeResourceRecordSetsResponse
 $creadsPrec :: Int -&gt; ReadS ChangeResourceRecordSetsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312358"><span id="local-6989586621679312360"><span id="local-6989586621679312362"><span class="annot"><span class="annottext">Int -&gt; ChangeResourceRecordSetsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312553"><span id="local-6989586621679312555"><span id="local-6989586621679312557"><span class="annot"><span class="annottext">Int -&gt; ChangeResourceRecordSetsResponse -&gt; ShowS
 [ChangeResourceRecordSetsResponse] -&gt; ShowS
 ChangeResourceRecordSetsResponse -&gt; String
 (Int -&gt; ChangeResourceRecordSetsResponse -&gt; ShowS)
@@ -541,19 +541,19 @@ ChangeResourceRecordSetsResponse
 </span><span id="line-267"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse</span></a></span><span>
 </span><span id="line-268"></span><span id="newChangeResourceRecordSetsResponse"><span class="annot"><span class="annottext">newChangeResourceRecordSetsResponse :: Int -&gt; ChangeInfo -&gt; ChangeResourceRecordSetsResponse
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#newChangeResourceRecordSetsResponse"><span class="hs-identifier hs-var hs-var">newChangeResourceRecordSetsResponse</span></a></span></span><span>
-</span><span id="line-269"></span><span>  </span><span id="local-6989586621679312355"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312355"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-270"></span><span>  </span><span id="local-6989586621679312354"><span class="annot"><span class="annottext">ChangeInfo
-</span><a href="#local-6989586621679312354"><span class="hs-identifier hs-var">pChangeInfo_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>  </span><span id="local-6989586621679312550"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312550"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621679312549"><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679312549"><span class="hs-identifier hs-var">pChangeInfo_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-271"></span><span>    </span><span class="annot"><span class="annottext">ChangeResourceRecordSetsResponse' :: Int -&gt; ChangeInfo -&gt; ChangeResourceRecordSetsResponse
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse'</span></a></span><span>
 </span><span id="line-272"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ChangeResourceRecordSetsResponse' :: Int
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#%24sel%3AhttpStatus%3AChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-273"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312355"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312550"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">$sel:changeInfo:ChangeResourceRecordSetsResponse' :: ChangeInfo
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#%24sel%3AchangeInfo%3AChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">changeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
-</span><a href="#local-6989586621679312354"><span class="hs-identifier hs-var">pChangeInfo_</span></a></span><span>
+</span><a href="#local-6989586621679312549"><span class="hs-identifier hs-var">pChangeInfo_</span></a></span><span>
 </span><span id="line-275"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-276"></span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -570,16 +570,16 @@ ChangeResourceRecordSetsResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312353"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312548"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ChangeResourceRecordSetsResponse' :: ChangeResourceRecordSetsResponse -&gt; Int
-</span><a href="#local-6989586621679312353"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312353"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312352"><span class="annot"><span class="annottext">s :: ChangeResourceRecordSetsResponse
-</span><a href="#local-6989586621679312352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312351"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeResourceRecordSetsResponse
-</span><a href="#local-6989586621679312352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ChangeResourceRecordSetsResponse' :: Int
+</span><a href="#local-6989586621679312548"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312548"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312547"><span class="annot"><span class="annottext">s :: ChangeResourceRecordSetsResponse
+</span><a href="#local-6989586621679312547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312546"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeResourceRecordSetsResponse
+</span><a href="#local-6989586621679312547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ChangeResourceRecordSetsResponse' :: Int
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#%24sel%3AhttpStatus%3AChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679312351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- | A complex type that contains information about changes made to your</span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- hosted zone.</span><span>
@@ -600,18 +600,18 @@ $sel:httpStatus:ChangeResourceRecordSetsResponse' :: ChangeResourceRecordSetsRes
      ChangeInfo
      ChangeInfo
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312350"><span class="annot"><span class="annottext">ChangeInfo
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312545"><span class="annot"><span class="annottext">ChangeInfo
 changeInfo :: ChangeInfo
 $sel:changeInfo:ChangeResourceRecordSetsResponse' :: ChangeResourceRecordSetsResponse -&gt; ChangeInfo
-</span><a href="#local-6989586621679312350"><span class="hs-identifier hs-var hs-var">changeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
-</span><a href="#local-6989586621679312350"><span class="hs-identifier hs-var">changeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312349"><span class="annot"><span class="annottext">s :: ChangeResourceRecordSetsResponse
-</span><a href="#local-6989586621679312349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312348"><span class="annot"><span class="annottext">ChangeInfo
-</span><a href="#local-6989586621679312348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeResourceRecordSetsResponse
-</span><a href="#local-6989586621679312349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeInfo:ChangeResourceRecordSetsResponse' :: ChangeInfo
+</span><a href="#local-6989586621679312545"><span class="hs-identifier hs-var hs-var">changeInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679312545"><span class="hs-identifier hs-var">changeInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312544"><span class="annot"><span class="annottext">s :: ChangeResourceRecordSetsResponse
+</span><a href="#local-6989586621679312544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312543"><span class="annot"><span class="annottext">ChangeInfo
+</span><a href="#local-6989586621679312543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeResourceRecordSetsResponse
+</span><a href="#local-6989586621679312544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:changeInfo:ChangeResourceRecordSetsResponse' :: ChangeInfo
 </span><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#%24sel%3AchangeInfo%3AChangeResourceRecordSetsResponse%27"><span class="hs-identifier hs-var">changeInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ChangeInfo
-</span><a href="#local-6989586621679312348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-291"></span><span>  </span><span id="local-6989586621679312346"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-291"></span><span>  </span><span id="local-6989586621679312541"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-292"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53.ChangeResourceRecordSets.html#ChangeResourceRecordSetsResponse"><span class="hs-identifier hs-type">ChangeResourceRecordSetsResponse</span></a></span></span><span>
 </span><span id="line-293"></span></pre></body></html>

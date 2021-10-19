@@ -26,15 +26,15 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | This data type is used in the AssessmentRunFilter data type.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTimestampRange' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679249776"><span id="local-6989586621679249777"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimestampRange"><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-var">TimestampRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimestampRange%27"><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-var">TimestampRange'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum value of the timestamp range.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AbeginDate%3ATimestampRange%27"><span class="annot"><span class="annottext">TimestampRange -&gt; Maybe POSIX
-</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#%24sel%3AbeginDate%3ATimestampRange%27"><span class="hs-identifier hs-var hs-var">beginDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The maximum value of the timestamp range.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AendDate%3ATimestampRange%27"><span class="annot"><span class="annottext">TimestampRange -&gt; Maybe POSIX
-</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#%24sel%3AendDate%3ATimestampRange%27"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679250147"><span id="local-6989586621679250148"></span></span><span class="hs-keyword">data</span><span> </span><span id="TimestampRange"><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-var">TimestampRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TimestampRange%27"><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-var">TimestampRange'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum value of the timestamp range.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AendDate%3ATimestampRange%27"><span class="annot"><span class="annottext">TimestampRange -&gt; Maybe POSIX
+</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#%24sel%3AendDate%3ATimestampRange%27"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The minimum value of the timestamp range.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AbeginDate%3ATimestampRange%27"><span class="annot"><span class="annottext">TimestampRange -&gt; Maybe POSIX
+</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#%24sel%3AbeginDate%3ATimestampRange%27"><span class="hs-identifier hs-var hs-var">beginDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249769"><span id="local-6989586621679249771"><span class="annot"><span class="annottext">TimestampRange -&gt; TimestampRange -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250140"><span id="local-6989586621679250142"><span class="annot"><span class="annottext">TimestampRange -&gt; TimestampRange -&gt; Bool
 (TimestampRange -&gt; TimestampRange -&gt; Bool)
 -&gt; (TimestampRange -&gt; TimestampRange -&gt; Bool) -&gt; Eq TimestampRange
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TimestampRange -&gt; TimestampRange -&gt; Bool
 == :: TimestampRange -&gt; TimestampRange -&gt; Bool
 $c== :: TimestampRange -&gt; TimestampRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249760"><span id="local-6989586621679249762"><span id="local-6989586621679249764"><span id="local-6989586621679249766"><span class="annot"><span class="annottext">ReadPrec [TimestampRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250131"><span id="local-6989586621679250133"><span id="local-6989586621679250135"><span id="local-6989586621679250137"><span class="annot"><span class="annottext">ReadPrec [TimestampRange]
 ReadPrec TimestampRange
 Int -&gt; ReadS TimestampRange
 ReadS [TimestampRange]
@@ -62,7 +62,7 @@ readList :: ReadS [TimestampRange]
 $creadList :: ReadS [TimestampRange]
 readsPrec :: Int -&gt; ReadS TimestampRange
 $creadsPrec :: Int -&gt; ReadS TimestampRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249753"><span id="local-6989586621679249755"><span id="local-6989586621679249757"><span class="annot"><span class="annottext">Int -&gt; TimestampRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250124"><span id="local-6989586621679250126"><span id="local-6989586621679250128"><span class="annot"><span class="annottext">Int -&gt; TimestampRange -&gt; ShowS
 [TimestampRange] -&gt; ShowS
 TimestampRange -&gt; String
 (Int -&gt; TimestampRange -&gt; ShowS)
@@ -96,43 +96,43 @@ $cfrom :: forall x. TimestampRange -&gt; Rep TimestampRange x
 </span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-44"></span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span class="hs-comment">-- 'beginDate', 'timestampRange_beginDate' - The minimum value of the timestamp range.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'endDate', 'timestampRange_endDate' - The maximum value of the timestamp range.</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'endDate', 'timestampRange_endDate' - The maximum value of the timestamp range.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'beginDate', 'timestampRange_beginDate' - The minimum value of the timestamp range.</span><span>
 </span><span id="line-48"></span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#newTimestampRange"><span class="hs-identifier hs-type">newTimestampRange</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span>
 </span><span id="line-50"></span><span id="newTimestampRange"><span class="annot"><span class="annottext">newTimestampRange :: TimestampRange
 </span><a href="Network.AWS.Inspector.Types.TimestampRange.html#newTimestampRange"><span class="hs-identifier hs-var hs-var">newTimestampRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">TimestampRange' :: Maybe POSIX -&gt; Maybe POSIX -&gt; TimestampRange
 </span><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:beginDate:TimestampRange' :: Maybe POSIX
-</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#%24sel%3AbeginDate%3ATimestampRange%27"><span class="hs-identifier hs-var">beginDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endDate:TimestampRange' :: Maybe POSIX
+</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#%24sel%3AendDate%3ATimestampRange%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:endDate:TimestampRange' :: Maybe POSIX
-</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#%24sel%3AendDate%3ATimestampRange%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:beginDate:TimestampRange' :: Maybe POSIX
+</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#%24sel%3AbeginDate%3ATimestampRange%27"><span class="hs-identifier hs-var">beginDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- | The minimum value of the timestamp range.</span><span>
-</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#timestampRange_beginDate"><span class="hs-identifier hs-type">timestampRange_beginDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-58"></span><span id="timestampRange_beginDate"><span class="annot"><span class="annottext">timestampRange_beginDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-56"></span><span class="hs-comment">-- | The maximum value of the timestamp range.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#timestampRange_endDate"><span class="hs-identifier hs-type">timestampRange_endDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="timestampRange_endDate"><span class="annot"><span class="annottext">timestampRange_endDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; TimestampRange -&gt; f TimestampRange
-</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#timestampRange_beginDate"><span class="hs-identifier hs-var hs-var">timestampRange_beginDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimestampRange -&gt; Maybe POSIX)
+</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#timestampRange_endDate"><span class="hs-identifier hs-var hs-var">timestampRange_endDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimestampRange -&gt; Maybe POSIX)
 -&gt; (TimestampRange -&gt; Maybe POSIX -&gt; TimestampRange)
 -&gt; Lens TimestampRange TimestampRange (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249744"><span class="annot"><span class="annottext">Maybe POSIX
-beginDate :: Maybe POSIX
-$sel:beginDate:TimestampRange' :: TimestampRange -&gt; Maybe POSIX
-</span><a href="#local-6989586621679249744"><span class="hs-identifier hs-var hs-var">beginDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679249744"><span class="hs-identifier hs-var">beginDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249743"><span class="annot"><span class="annottext">s :: TimestampRange
-</span><a href="#local-6989586621679249743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249742"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679249742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestampRange
-</span><a href="#local-6989586621679249743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beginDate:TimestampRange' :: Maybe POSIX
-</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#%24sel%3AbeginDate%3ATimestampRange%27"><span class="hs-identifier hs-var">beginDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679249742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250115"><span class="annot"><span class="annottext">Maybe POSIX
+endDate :: Maybe POSIX
+$sel:endDate:TimestampRange' :: TimestampRange -&gt; Maybe POSIX
+</span><a href="#local-6989586621679250115"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679250115"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250114"><span class="annot"><span class="annottext">s :: TimestampRange
+</span><a href="#local-6989586621679250114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250113"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679250113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestampRange
+</span><a href="#local-6989586621679250114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDate:TimestampRange' :: Maybe POSIX
+</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#%24sel%3AendDate%3ATimestampRange%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679250113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; TimestampRange -&gt; f TimestampRange)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -149,24 +149,24 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | The maximum value of the timestamp range.</span><span>
-</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#timestampRange_endDate"><span class="hs-identifier hs-type">timestampRange_endDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span id="timestampRange_endDate"><span class="annot"><span class="annottext">timestampRange_endDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-60"></span><span class="hs-comment">-- | The minimum value of the timestamp range.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#timestampRange_beginDate"><span class="hs-identifier hs-type">timestampRange_beginDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="timestampRange_beginDate"><span class="annot"><span class="annottext">timestampRange_beginDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; TimestampRange -&gt; f TimestampRange
-</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#timestampRange_endDate"><span class="hs-identifier hs-var hs-var">timestampRange_endDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimestampRange -&gt; Maybe POSIX)
+</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#timestampRange_beginDate"><span class="hs-identifier hs-var hs-var">timestampRange_beginDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TimestampRange -&gt; Maybe POSIX)
 -&gt; (TimestampRange -&gt; Maybe POSIX -&gt; TimestampRange)
 -&gt; Lens TimestampRange TimestampRange (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249737"><span class="annot"><span class="annottext">Maybe POSIX
-endDate :: Maybe POSIX
-$sel:endDate:TimestampRange' :: TimestampRange -&gt; Maybe POSIX
-</span><a href="#local-6989586621679249737"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679249737"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249736"><span class="annot"><span class="annottext">s :: TimestampRange
-</span><a href="#local-6989586621679249736"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249735"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679249735"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestampRange
-</span><a href="#local-6989586621679249736"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDate:TimestampRange' :: Maybe POSIX
-</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#%24sel%3AendDate%3ATimestampRange%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679249735"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250108"><span class="annot"><span class="annottext">Maybe POSIX
+beginDate :: Maybe POSIX
+$sel:beginDate:TimestampRange' :: TimestampRange -&gt; Maybe POSIX
+</span><a href="#local-6989586621679250108"><span class="hs-identifier hs-var hs-var">beginDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679250108"><span class="hs-identifier hs-var">beginDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250107"><span class="annot"><span class="annottext">s :: TimestampRange
+</span><a href="#local-6989586621679250107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250106"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679250106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TimestampRange
+</span><a href="#local-6989586621679250107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beginDate:TimestampRange' :: Maybe POSIX
+</span><a href="Network.AWS.Inspector.Types.TimestampRange.html#%24sel%3AbeginDate%3ATimestampRange%27"><span class="hs-identifier hs-var">beginDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679250106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; TimestampRange -&gt; f TimestampRange)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -183,37 +183,37 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249731"><span id="local-6989586621679249733"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250102"><span id="local-6989586621679250104"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249728"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250099"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249720"><span id="local-6989586621679249722"><span id="local-6989586621679249724"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679249718"><span class="annot"><span class="annottext">toJSON :: TimestampRange -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249715"><span id="local-6989586621679249716"><span class="annot"><span class="annottext">Maybe POSIX
-endDate :: Maybe POSIX
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679250091"><span id="local-6989586621679250093"><span id="local-6989586621679250095"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange"><span class="hs-identifier hs-type">TimestampRange</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679250089"><span class="annot"><span class="annottext">toJSON :: TimestampRange -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Inspector.Types.TimestampRange.html#TimestampRange%27"><span class="hs-identifier hs-type">TimestampRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250086"><span id="local-6989586621679250087"><span class="annot"><span class="annottext">Maybe POSIX
 beginDate :: Maybe POSIX
-$sel:endDate:TimestampRange' :: TimestampRange -&gt; Maybe POSIX
+endDate :: Maybe POSIX
 $sel:beginDate:TimestampRange' :: TimestampRange -&gt; Maybe POSIX
-</span><a href="#local-6989586621679249715"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:endDate:TimestampRange' :: TimestampRange -&gt; Maybe POSIX
+</span><a href="#local-6989586621679250086"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-72"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;beginDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679249716"><span class="hs-identifier hs-var">beginDate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;endDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679249715"><span class="hs-identifier hs-var">endDate</span></a></span><span>
+</span><a href="#local-6989586621679250087"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;beginDate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679250086"><span class="hs-identifier hs-var">beginDate</span></a></span><span>
 </span><span id="line-74"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span></pre></body></html>

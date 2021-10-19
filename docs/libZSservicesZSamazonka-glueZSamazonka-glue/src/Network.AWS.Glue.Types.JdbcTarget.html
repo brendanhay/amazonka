@@ -26,20 +26,20 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies a JDBC data store to crawl.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newJdbcTarget' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679686441"><span id="local-6989586621679686442"></span></span><span class="hs-keyword">data</span><span> </span><span id="JdbcTarget"><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-var">JdbcTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JdbcTarget%27"><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-var">JdbcTarget'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the connection to use to connect to the JDBC target.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AconnectionName%3AJdbcTarget%27"><span class="annot"><span class="annottext">JdbcTarget -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679688094"><span id="local-6989586621679688095"></span></span><span class="hs-keyword">data</span><span> </span><span id="JdbcTarget"><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-var">JdbcTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JdbcTarget%27"><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-var">JdbcTarget'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The path of the JDBC target.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Apath%3AJdbcTarget%27"><span class="annot"><span class="annottext">JdbcTarget -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.JdbcTarget.html#%24sel%3Apath%3AJdbcTarget%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The name of the connection to use to connect to the JDBC target.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AconnectionName%3AJdbcTarget%27"><span class="annot"><span class="annottext">JdbcTarget -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.JdbcTarget.html#%24sel%3AconnectionName%3AJdbcTarget%27"><span class="hs-identifier hs-var hs-var">connectionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | A list of glob patterns used to exclude from the crawl. For more</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler&gt;.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aexclusions%3AJdbcTarget%27"><span class="annot"><span class="annottext">JdbcTarget -&gt; Maybe [Text]
-</span><a href="Network.AWS.Glue.Types.JdbcTarget.html#%24sel%3Aexclusions%3AJdbcTarget%27"><span class="hs-identifier hs-var hs-var">exclusions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The path of the JDBC target.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3Apath%3AJdbcTarget%27"><span class="annot"><span class="annottext">JdbcTarget -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.JdbcTarget.html#%24sel%3Apath%3AJdbcTarget%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A list of glob patterns used to exclude from the crawl. For more</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler&gt;.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Aexclusions%3AJdbcTarget%27"><span class="annot"><span class="annottext">JdbcTarget -&gt; Maybe [Text]
+</span><a href="Network.AWS.Glue.Types.JdbcTarget.html#%24sel%3Aexclusions%3AJdbcTarget%27"><span class="hs-identifier hs-var hs-var">exclusions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679686433"><span id="local-6989586621679686435"><span class="annot"><span class="annottext">JdbcTarget -&gt; JdbcTarget -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679688086"><span id="local-6989586621679688088"><span class="annot"><span class="annottext">JdbcTarget -&gt; JdbcTarget -&gt; Bool
 (JdbcTarget -&gt; JdbcTarget -&gt; Bool)
 -&gt; (JdbcTarget -&gt; JdbcTarget -&gt; Bool) -&gt; Eq JdbcTarget
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JdbcTarget -&gt; JdbcTarget -&gt; Bool
 == :: JdbcTarget -&gt; JdbcTarget -&gt; Bool
 $c== :: JdbcTarget -&gt; JdbcTarget -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679686424"><span id="local-6989586621679686426"><span id="local-6989586621679686428"><span id="local-6989586621679686430"><span class="annot"><span class="annottext">ReadPrec [JdbcTarget]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679688077"><span id="local-6989586621679688079"><span id="local-6989586621679688081"><span id="local-6989586621679688083"><span class="annot"><span class="annottext">ReadPrec [JdbcTarget]
 ReadPrec JdbcTarget
 Int -&gt; ReadS JdbcTarget
 ReadS [JdbcTarget]
@@ -67,7 +67,7 @@ readList :: ReadS [JdbcTarget]
 $creadList :: ReadS [JdbcTarget]
 readsPrec :: Int -&gt; ReadS JdbcTarget
 $creadsPrec :: Int -&gt; ReadS JdbcTarget
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679686417"><span id="local-6989586621679686419"><span id="local-6989586621679686421"><span class="annot"><span class="annottext">Int -&gt; JdbcTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679688070"><span id="local-6989586621679688072"><span id="local-6989586621679688074"><span class="annot"><span class="annottext">Int -&gt; JdbcTarget -&gt; ShowS
 [JdbcTarget] -&gt; ShowS
 JdbcTarget -&gt; String
 (Int -&gt; JdbcTarget -&gt; ShowS)
@@ -100,70 +100,88 @@ $cfrom :: forall x. JdbcTarget -&gt; Rep JdbcTarget x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'connectionName', 'jdbcTarget_connectionName' - The name of the connection to use to connect to the JDBC target.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'path', 'jdbcTarget_path' - The path of the JDBC target.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'exclusions', 'jdbcTarget_exclusions' - A list of glob patterns used to exclude from the crawl. For more</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler&gt;.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'path', 'jdbcTarget_path' - The path of the JDBC target.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'connectionName', 'jdbcTarget_connectionName' - The name of the connection to use to connect to the JDBC target.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'exclusions', 'jdbcTarget_exclusions' - A list of glob patterns used to exclude from the crawl. For more</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler&gt;.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#newJdbcTarget"><span class="hs-identifier hs-type">newJdbcTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-57"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span>
 </span><span id="line-58"></span><span id="newJdbcTarget"><span class="annot"><span class="annottext">newJdbcTarget :: JdbcTarget
 </span><a href="Network.AWS.Glue.Types.JdbcTarget.html#newJdbcTarget"><span class="hs-identifier hs-var hs-var">newJdbcTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">JdbcTarget' :: Maybe Text -&gt; Maybe [Text] -&gt; Maybe Text -&gt; JdbcTarget
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">JdbcTarget' :: Maybe Text -&gt; Maybe Text -&gt; Maybe [Text] -&gt; JdbcTarget
 </span><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:connectionName:JdbcTarget' :: Maybe Text
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:path:JdbcTarget' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.JdbcTarget.html#%24sel%3Apath%3AJdbcTarget%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionName:JdbcTarget' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.JdbcTarget.html#%24sel%3AconnectionName%3AJdbcTarget%27"><span class="hs-identifier hs-var">connectionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:exclusions:JdbcTarget' :: Maybe [Text]
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:exclusions:JdbcTarget' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.JdbcTarget.html#%24sel%3Aexclusions%3AJdbcTarget%27"><span class="hs-identifier hs-var">exclusions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:path:JdbcTarget' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.JdbcTarget.html#%24sel%3Apath%3AJdbcTarget%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | The name of the connection to use to connect to the JDBC target.</span><span>
-</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#jdbcTarget_connectionName"><span class="hs-identifier hs-type">jdbcTarget_connectionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span id="jdbcTarget_connectionName"><span class="annot"><span class="annottext">jdbcTarget_connectionName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JdbcTarget -&gt; f JdbcTarget
+</span><span id="line-65"></span><span class="hs-comment">-- | The path of the JDBC target.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#jdbcTarget_path"><span class="hs-identifier hs-type">jdbcTarget_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="jdbcTarget_path"><span class="annot"><span class="annottext">jdbcTarget_path :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JdbcTarget -&gt; f JdbcTarget
+</span><a href="Network.AWS.Glue.Types.JdbcTarget.html#jdbcTarget_path"><span class="hs-identifier hs-var hs-var">jdbcTarget_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JdbcTarget -&gt; Maybe Text)
+-&gt; (JdbcTarget -&gt; Maybe Text -&gt; JdbcTarget)
+-&gt; Lens JdbcTarget JdbcTarget (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688061"><span class="annot"><span class="annottext">Maybe Text
+path :: Maybe Text
+$sel:path:JdbcTarget' :: JdbcTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679688061"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688061"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688060"><span class="annot"><span class="annottext">s :: JdbcTarget
+</span><a href="#local-6989586621679688060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688059"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JdbcTarget
+</span><a href="#local-6989586621679688060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:JdbcTarget' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.JdbcTarget.html#%24sel%3Apath%3AJdbcTarget%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The name of the connection to use to connect to the JDBC target.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#jdbcTarget_connectionName"><span class="hs-identifier hs-type">jdbcTarget_connectionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="jdbcTarget_connectionName"><span class="annot"><span class="annottext">jdbcTarget_connectionName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JdbcTarget -&gt; f JdbcTarget
 </span><a href="Network.AWS.Glue.Types.JdbcTarget.html#jdbcTarget_connectionName"><span class="hs-identifier hs-var hs-var">jdbcTarget_connectionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JdbcTarget -&gt; Maybe Text)
 -&gt; (JdbcTarget -&gt; Maybe Text -&gt; JdbcTarget)
 -&gt; Lens JdbcTarget JdbcTarget (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686408"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688057"><span class="annot"><span class="annottext">Maybe Text
 connectionName :: Maybe Text
 $sel:connectionName:JdbcTarget' :: JdbcTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679686408"><span class="hs-identifier hs-var hs-var">connectionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686408"><span class="hs-identifier hs-var">connectionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686407"><span class="annot"><span class="annottext">s :: JdbcTarget
-</span><a href="#local-6989586621679686407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686406"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JdbcTarget
-</span><a href="#local-6989586621679686407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionName:JdbcTarget' :: Maybe Text
+</span><a href="#local-6989586621679688057"><span class="hs-identifier hs-var hs-var">connectionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688057"><span class="hs-identifier hs-var">connectionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688056"><span class="annot"><span class="annottext">s :: JdbcTarget
+</span><a href="#local-6989586621679688056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688055"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JdbcTarget
+</span><a href="#local-6989586621679688056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionName:JdbcTarget' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.JdbcTarget.html#%24sel%3AconnectionName%3AJdbcTarget%27"><span class="hs-identifier hs-var">connectionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | A list of glob patterns used to exclude from the crawl. For more</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler&gt;.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#jdbcTarget_exclusions"><span class="hs-identifier hs-type">jdbcTarget_exclusions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="jdbcTarget_exclusions"><span class="annot"><span class="annottext">jdbcTarget_exclusions :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; JdbcTarget -&gt; f JdbcTarget
+</span><a href="#local-6989586621679688055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | A list of glob patterns used to exclude from the crawl. For more</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html Catalog Tables with a Crawler&gt;.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#jdbcTarget_exclusions"><span class="hs-identifier hs-type">jdbcTarget_exclusions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="jdbcTarget_exclusions"><span class="annot"><span class="annottext">jdbcTarget_exclusions :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; JdbcTarget -&gt; f JdbcTarget
 </span><a href="Network.AWS.Glue.Types.JdbcTarget.html#jdbcTarget_exclusions"><span class="hs-identifier hs-var hs-var">jdbcTarget_exclusions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JdbcTarget -&gt; Maybe [Text])
 -&gt; (JdbcTarget -&gt; Maybe [Text] -&gt; JdbcTarget)
 -&gt; Lens JdbcTarget JdbcTarget (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686404"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688053"><span class="annot"><span class="annottext">Maybe [Text]
 exclusions :: Maybe [Text]
 $sel:exclusions:JdbcTarget' :: JdbcTarget -&gt; Maybe [Text]
-</span><a href="#local-6989586621679686404"><span class="hs-identifier hs-var hs-var">exclusions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679686404"><span class="hs-identifier hs-var">exclusions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686403"><span class="annot"><span class="annottext">s :: JdbcTarget
-</span><a href="#local-6989586621679686403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686402"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679686402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JdbcTarget
-</span><a href="#local-6989586621679686403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusions:JdbcTarget' :: Maybe [Text]
+</span><a href="#local-6989586621679688053"><span class="hs-identifier hs-var hs-var">exclusions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679688053"><span class="hs-identifier hs-var">exclusions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679688052"><span class="annot"><span class="annottext">s :: JdbcTarget
+</span><a href="#local-6989586621679688052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679688051"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679688051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JdbcTarget
+</span><a href="#local-6989586621679688052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exclusions:JdbcTarget' :: Maybe [Text]
 </span><a href="Network.AWS.Glue.Types.JdbcTarget.html#%24sel%3Aexclusions%3AJdbcTarget%27"><span class="hs-identifier hs-var">exclusions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679686402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; JdbcTarget -&gt; f JdbcTarget)
+</span><a href="#local-6989586621679688051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; JdbcTarget -&gt; f JdbcTarget)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -176,29 +194,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The path of the JDBC target.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#jdbcTarget_path"><span class="hs-identifier hs-type">jdbcTarget_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="jdbcTarget_path"><span class="annot"><span class="annottext">jdbcTarget_path :: (Maybe Text -&gt; f (Maybe Text)) -&gt; JdbcTarget -&gt; f JdbcTarget
-</span><a href="Network.AWS.Glue.Types.JdbcTarget.html#jdbcTarget_path"><span class="hs-identifier hs-var hs-var">jdbcTarget_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(JdbcTarget -&gt; Maybe Text)
--&gt; (JdbcTarget -&gt; Maybe Text -&gt; JdbcTarget)
--&gt; Lens JdbcTarget JdbcTarget (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686397"><span class="annot"><span class="annottext">Maybe Text
-path :: Maybe Text
-$sel:path:JdbcTarget' :: JdbcTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679686397"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686397"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679686396"><span class="annot"><span class="annottext">s :: JdbcTarget
-</span><a href="#local-6989586621679686396"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679686395"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686395"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JdbcTarget
-</span><a href="#local-6989586621679686396"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:JdbcTarget' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.JdbcTarget.html#%24sel%3Apath%3AJdbcTarget%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686395"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679686392"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679686390"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JdbcTarget
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679688045"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679688043"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JdbcTarget
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JdbcTarget) -&gt; Value -&gt; Parser JdbcTarget
@@ -206,24 +206,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JdbcTarget&quot;</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679686387"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679686387"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Maybe Text -&gt; JdbcTarget
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679688040"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679688040"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe [Text] -&gt; JdbcTarget
 </span><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-var">JdbcTarget'</span></a></span><span>
-</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; Maybe Text -&gt; JdbcTarget)
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe [Text] -&gt; JdbcTarget)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe [Text] -&gt; Maybe Text -&gt; JdbcTarget)
+-&gt; Parser (Maybe Text -&gt; Maybe [Text] -&gt; JdbcTarget)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679686387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679688040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe [Text] -&gt; JdbcTarget)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe [Text] -&gt; JdbcTarget)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679688040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConnectionName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; Maybe Text -&gt; JdbcTarget)
--&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Text -&gt; JdbcTarget)
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; JdbcTarget)
+-&gt; Parser (Maybe [Text]) -&gt; Parser JdbcTarget
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679686387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679688040"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Exclusions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -232,58 +240,50 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; JdbcTarget)
--&gt; Parser (Maybe Text) -&gt; Parser JdbcTarget
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679686387"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Path&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679686380"><span id="local-6989586621679686382"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679688033"><span id="local-6989586621679688035"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679686377"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679688030"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679686369"><span id="local-6989586621679686371"><span id="local-6989586621679686373"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679686367"><span class="annot"><span class="annottext">toJSON :: JdbcTarget -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679686363"><span id="local-6989586621679686364"><span id="local-6989586621679686365"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679688022"><span id="local-6989586621679688024"><span id="local-6989586621679688026"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget"><span class="hs-identifier hs-type">JdbcTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679688020"><span class="annot"><span class="annottext">toJSON :: JdbcTarget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.JdbcTarget.html#JdbcTarget%27"><span class="hs-identifier hs-type">JdbcTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679688016"><span id="local-6989586621679688017"><span id="local-6989586621679688018"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe Text
-path :: Maybe Text
 exclusions :: Maybe [Text]
 connectionName :: Maybe Text
-$sel:path:JdbcTarget' :: JdbcTarget -&gt; Maybe Text
+path :: Maybe Text
 $sel:exclusions:JdbcTarget' :: JdbcTarget -&gt; Maybe [Text]
 $sel:connectionName:JdbcTarget' :: JdbcTarget -&gt; Maybe Text
-</span><a href="#local-6989586621679686363"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:path:JdbcTarget' :: JdbcTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679688016"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-98"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ConnectionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686365"><span class="hs-identifier hs-var">connectionName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Exclusions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679686364"><span class="hs-identifier hs-var">exclusions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Path&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679686363"><span class="hs-identifier hs-var">path</span></a></span><span>
+</span><a href="#local-6989586621679688018"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConnectionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679688017"><span class="hs-identifier hs-var">connectionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Exclusions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679688016"><span class="hs-identifier hs-var">exclusions</span></a></span><span>
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span></pre></body></html>

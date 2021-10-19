@@ -26,25 +26,25 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Provides information about an intent.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newIntentMetadata' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679311085"><span id="local-6989586621679311086"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntentMetadata"><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-var">IntentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntentMetadata%27"><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-var">IntentMetadata'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679311367"><span id="local-6989586621679311368"></span></span><span class="hs-keyword">data</span><span> </span><span id="IntentMetadata"><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-var">IntentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IntentMetadata%27"><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-var">IntentMetadata'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date that the intent was created.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AcreatedDate%3AIntentMetadata%27"><span class="annot"><span class="annottext">IntentMetadata -&gt; Maybe POSIX
 </span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3AcreatedDate%3AIntentMetadata%27"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The date that the intent was updated. When you create an intent, the</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- creation date and last updated date are the same.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastUpdatedDate%3AIntentMetadata%27"><span class="annot"><span class="annottext">IntentMetadata -&gt; Maybe POSIX
-</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3AlastUpdatedDate%3AIntentMetadata%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The version of the intent.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aversion%3AIntentMetadata%27"><span class="annot"><span class="annottext">IntentMetadata -&gt; Maybe Text
-</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3Aversion%3AIntentMetadata%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the intent.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aname%3AIntentMetadata%27"><span class="annot"><span class="annottext">IntentMetadata -&gt; Maybe Text
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The name of the intent.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AIntentMetadata%27"><span class="annot"><span class="annottext">IntentMetadata -&gt; Maybe Text
 </span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3Aname%3AIntentMetadata%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The version of the intent.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aversion%3AIntentMetadata%27"><span class="annot"><span class="annottext">IntentMetadata -&gt; Maybe Text
+</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3Aversion%3AIntentMetadata%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The date that the intent was updated. When you create an intent, the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- creation date and last updated date are the same.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlastUpdatedDate%3AIntentMetadata%27"><span class="annot"><span class="annottext">IntentMetadata -&gt; Maybe POSIX
+</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3AlastUpdatedDate%3AIntentMetadata%27"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A description of the intent.</span><span>
 </span><span id="line-40"></span><span>    </span><span id="%24sel%3Adescription%3AIntentMetadata%27"><span class="annot"><span class="annottext">IntentMetadata -&gt; Maybe Text
 </span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3Adescription%3AIntentMetadata%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311075"><span id="local-6989586621679311077"><span class="annot"><span class="annottext">IntentMetadata -&gt; IntentMetadata -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311357"><span id="local-6989586621679311359"><span class="annot"><span class="annottext">IntentMetadata -&gt; IntentMetadata -&gt; Bool
 (IntentMetadata -&gt; IntentMetadata -&gt; Bool)
 -&gt; (IntentMetadata -&gt; IntentMetadata -&gt; Bool) -&gt; Eq IntentMetadata
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -52,7 +52,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IntentMetadata -&gt; IntentMetadata -&gt; Bool
 == :: IntentMetadata -&gt; IntentMetadata -&gt; Bool
 $c== :: IntentMetadata -&gt; IntentMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311066"><span id="local-6989586621679311068"><span id="local-6989586621679311070"><span id="local-6989586621679311072"><span class="annot"><span class="annottext">ReadPrec [IntentMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311348"><span id="local-6989586621679311350"><span id="local-6989586621679311352"><span id="local-6989586621679311354"><span class="annot"><span class="annottext">ReadPrec [IntentMetadata]
 ReadPrec IntentMetadata
 Int -&gt; ReadS IntentMetadata
 ReadS [IntentMetadata]
@@ -72,7 +72,7 @@ readList :: ReadS [IntentMetadata]
 $creadList :: ReadS [IntentMetadata]
 readsPrec :: Int -&gt; ReadS IntentMetadata
 $creadsPrec :: Int -&gt; ReadS IntentMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311059"><span id="local-6989586621679311061"><span id="local-6989586621679311063"><span class="annot"><span class="annottext">Int -&gt; IntentMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311341"><span id="local-6989586621679311343"><span id="local-6989586621679311345"><span class="annot"><span class="annottext">Int -&gt; IntentMetadata -&gt; ShowS
 [IntentMetadata] -&gt; ShowS
 IntentMetadata -&gt; String
 (Int -&gt; IntentMetadata -&gt; ShowS)
@@ -108,12 +108,12 @@ $cfrom :: forall x. IntentMetadata -&gt; Rep IntentMetadata x
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- 'createdDate', 'intentMetadata_createdDate' - The date that the intent was created.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'lastUpdatedDate', 'intentMetadata_lastUpdatedDate' - The date that the intent was updated. When you create an intent, the</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- creation date and last updated date are the same.</span><span>
-</span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'version', 'intentMetadata_version' - The version of the intent.</span><span>
-</span><span id="line-58"></span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- 'name', 'intentMetadata_name' - The name of the intent.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'name', 'intentMetadata_name' - The name of the intent.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'version', 'intentMetadata_version' - The version of the intent.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'lastUpdatedDate', 'intentMetadata_lastUpdatedDate' - The date that the intent was updated. When you create an intent, the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- creation date and last updated date are the same.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'description', 'intentMetadata_description' - A description of the intent.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#newIntentMetadata"><span class="hs-identifier hs-type">newIntentMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -121,9 +121,9 @@ $cfrom :: forall x. IntentMetadata -&gt; Rep IntentMetadata x
 </span><span id="line-64"></span><span id="newIntentMetadata"><span class="annot"><span class="annottext">newIntentMetadata :: IntentMetadata
 </span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#newIntentMetadata"><span class="hs-identifier hs-var hs-var">newIntentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">IntentMetadata' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; IntentMetadata
 </span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span>
@@ -131,16 +131,16 @@ $cfrom :: forall x. IntentMetadata -&gt; Rep IntentMetadata x
 </span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3AcreatedDate%3AIntentMetadata%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:IntentMetadata' :: Maybe POSIX
-</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3AlastUpdatedDate%3AIntentMetadata%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:IntentMetadata' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3Aname%3AIntentMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:IntentMetadata' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3Aversion%3AIntentMetadata%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:IntentMetadata' :: Maybe Text
-</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3Aname%3AIntentMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:IntentMetadata' :: Maybe POSIX
+</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3AlastUpdatedDate%3AIntentMetadata%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:IntentMetadata' :: Maybe Text
@@ -157,16 +157,16 @@ forall a. Maybe a
 -&gt; (IntentMetadata -&gt; Maybe POSIX -&gt; IntentMetadata)
 -&gt; Lens IntentMetadata IntentMetadata (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311050"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311332"><span class="annot"><span class="annottext">Maybe POSIX
 createdDate :: Maybe POSIX
 $sel:createdDate:IntentMetadata' :: IntentMetadata -&gt; Maybe POSIX
-</span><a href="#local-6989586621679311050"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679311050"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311049"><span class="annot"><span class="annottext">s :: IntentMetadata
-</span><a href="#local-6989586621679311049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311048"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679311048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentMetadata
-</span><a href="#local-6989586621679311049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:IntentMetadata' :: Maybe POSIX
+</span><a href="#local-6989586621679311332"><span class="hs-identifier hs-var hs-var">createdDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679311332"><span class="hs-identifier hs-var">createdDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311331"><span class="annot"><span class="annottext">s :: IntentMetadata
+</span><a href="#local-6989586621679311331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311330"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679311330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentMetadata
+</span><a href="#local-6989586621679311331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdDate:IntentMetadata' :: Maybe POSIX
 </span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3AcreatedDate%3AIntentMetadata%27"><span class="hs-identifier hs-var">createdDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679311048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679311330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; IntentMetadata -&gt; f IntentMetadata)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -183,25 +183,63 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The date that the intent was updated. When you create an intent, the</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- creation date and last updated date are the same.</span><span>
-</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#intentMetadata_lastUpdatedDate"><span class="hs-identifier hs-type">intentMetadata_lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-80"></span><span id="intentMetadata_lastUpdatedDate"><span class="annot"><span class="annottext">intentMetadata_lastUpdatedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-77"></span><span class="hs-comment">-- | The name of the intent.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#intentMetadata_name"><span class="hs-identifier hs-type">intentMetadata_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="intentMetadata_name"><span class="annot"><span class="annottext">intentMetadata_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IntentMetadata -&gt; f IntentMetadata
+</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#intentMetadata_name"><span class="hs-identifier hs-var hs-var">intentMetadata_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentMetadata -&gt; Maybe Text)
+-&gt; (IntentMetadata -&gt; Maybe Text -&gt; IntentMetadata)
+-&gt; Lens IntentMetadata IntentMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311325"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:IntentMetadata' :: IntentMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679311325"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311325"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311324"><span class="annot"><span class="annottext">s :: IntentMetadata
+</span><a href="#local-6989586621679311324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311323"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentMetadata
+</span><a href="#local-6989586621679311324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:IntentMetadata' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3Aname%3AIntentMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The version of the intent.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#intentMetadata_version"><span class="hs-identifier hs-type">intentMetadata_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="intentMetadata_version"><span class="annot"><span class="annottext">intentMetadata_version :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IntentMetadata -&gt; f IntentMetadata
+</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#intentMetadata_version"><span class="hs-identifier hs-var hs-var">intentMetadata_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentMetadata -&gt; Maybe Text)
+-&gt; (IntentMetadata -&gt; Maybe Text -&gt; IntentMetadata)
+-&gt; Lens IntentMetadata IntentMetadata (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311321"><span class="annot"><span class="annottext">Maybe Text
+version :: Maybe Text
+$sel:version:IntentMetadata' :: IntentMetadata -&gt; Maybe Text
+</span><a href="#local-6989586621679311321"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311321"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311320"><span class="annot"><span class="annottext">s :: IntentMetadata
+</span><a href="#local-6989586621679311320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311319"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentMetadata
+</span><a href="#local-6989586621679311320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:IntentMetadata' :: Maybe Text
+</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3Aversion%3AIntentMetadata%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The date that the intent was updated. When you create an intent, the</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- creation date and last updated date are the same.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#intentMetadata_lastUpdatedDate"><span class="hs-identifier hs-type">intentMetadata_lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="intentMetadata_lastUpdatedDate"><span class="annot"><span class="annottext">intentMetadata_lastUpdatedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; IntentMetadata -&gt; f IntentMetadata
 </span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#intentMetadata_lastUpdatedDate"><span class="hs-identifier hs-var hs-var">intentMetadata_lastUpdatedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentMetadata -&gt; Maybe POSIX)
 -&gt; (IntentMetadata -&gt; Maybe POSIX -&gt; IntentMetadata)
 -&gt; Lens IntentMetadata IntentMetadata (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311043"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311317"><span class="annot"><span class="annottext">Maybe POSIX
 lastUpdatedDate :: Maybe POSIX
 $sel:lastUpdatedDate:IntentMetadata' :: IntentMetadata -&gt; Maybe POSIX
-</span><a href="#local-6989586621679311043"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679311043"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311042"><span class="annot"><span class="annottext">s :: IntentMetadata
-</span><a href="#local-6989586621679311042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311041"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679311041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentMetadata
-</span><a href="#local-6989586621679311042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:IntentMetadata' :: Maybe POSIX
+</span><a href="#local-6989586621679311317"><span class="hs-identifier hs-var hs-var">lastUpdatedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679311317"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311316"><span class="annot"><span class="annottext">s :: IntentMetadata
+</span><a href="#local-6989586621679311316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311315"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679311315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentMetadata
+</span><a href="#local-6989586621679311316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedDate:IntentMetadata' :: Maybe POSIX
 </span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3AlastUpdatedDate%3AIntentMetadata%27"><span class="hs-identifier hs-var">lastUpdatedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679311041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679311315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; IntentMetadata -&gt; f IntentMetadata)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -217,44 +255,6 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- | The version of the intent.</span><span>
-</span><span id="line-83"></span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#intentMetadata_version"><span class="hs-identifier hs-type">intentMetadata_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-84"></span><span id="intentMetadata_version"><span class="annot"><span class="annottext">intentMetadata_version :: (Maybe Text -&gt; f (Maybe Text))
--&gt; IntentMetadata -&gt; f IntentMetadata
-</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#intentMetadata_version"><span class="hs-identifier hs-var hs-var">intentMetadata_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentMetadata -&gt; Maybe Text)
--&gt; (IntentMetadata -&gt; Maybe Text -&gt; IntentMetadata)
--&gt; Lens IntentMetadata IntentMetadata (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311039"><span class="annot"><span class="annottext">Maybe Text
-version :: Maybe Text
-$sel:version:IntentMetadata' :: IntentMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679311039"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311039"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311038"><span class="annot"><span class="annottext">s :: IntentMetadata
-</span><a href="#local-6989586621679311038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311037"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentMetadata
-</span><a href="#local-6989586621679311038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:IntentMetadata' :: Maybe Text
-</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3Aversion%3AIntentMetadata%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- | The name of the intent.</span><span>
-</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#intentMetadata_name"><span class="hs-identifier hs-type">intentMetadata_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span id="intentMetadata_name"><span class="annot"><span class="annottext">intentMetadata_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; IntentMetadata -&gt; f IntentMetadata
-</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#intentMetadata_name"><span class="hs-identifier hs-var hs-var">intentMetadata_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IntentMetadata -&gt; Maybe Text)
--&gt; (IntentMetadata -&gt; Maybe Text -&gt; IntentMetadata)
--&gt; Lens IntentMetadata IntentMetadata (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311035"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:IntentMetadata' :: IntentMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679311035"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311035"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311034"><span class="annot"><span class="annottext">s :: IntentMetadata
-</span><a href="#local-6989586621679311034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311033"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentMetadata
-</span><a href="#local-6989586621679311034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:IntentMetadata' :: Maybe Text
-</span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3Aname%3AIntentMetadata%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | A description of the intent.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#intentMetadata_description"><span class="hs-identifier hs-type">intentMetadata_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -264,19 +264,19 @@ $sel:name:IntentMetadata' :: IntentMetadata -&gt; Maybe Text
 -&gt; (IntentMetadata -&gt; Maybe Text -&gt; IntentMetadata)
 -&gt; Lens IntentMetadata IntentMetadata (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311031"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311313"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:IntentMetadata' :: IntentMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679311031"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311031"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311030"><span class="annot"><span class="annottext">s :: IntentMetadata
-</span><a href="#local-6989586621679311030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311029"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentMetadata
-</span><a href="#local-6989586621679311030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:IntentMetadata' :: Maybe Text
+</span><a href="#local-6989586621679311313"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311313"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311312"><span class="annot"><span class="annottext">s :: IntentMetadata
+</span><a href="#local-6989586621679311312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-type">IntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311311"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679311311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IntentMetadata
+</span><a href="#local-6989586621679311312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:IntentMetadata' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#%24sel%3Adescription%3AIntentMetadata%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311026"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679311024"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IntentMetadata
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311308"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679311306"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser IntentMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser IntentMetadata)
@@ -286,71 +286,71 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;IntentMetadata&quot;</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311021"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311021"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311303"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311303"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; IntentMetadata
 </span><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata%27"><span class="hs-identifier hs-var">IntentMetadata'</span></a></span><span>
 </span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; IntentMetadata)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; IntentMetadata)
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; IntentMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679311303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;createdDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; IntentMetadata)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
-     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; IntentMetadata)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;lastUpdatedDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; IntentMetadata)
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; IntentMetadata)
 -&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; IntentMetadata)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; IntentMetadata)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; IntentMetadata)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; IntentMetadata)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679311303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; Maybe Text -&gt; IntentMetadata)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; IntentMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;version&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; IntentMetadata)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; IntentMetadata)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; IntentMetadata)
 -&gt; Parser (Maybe Text) -&gt; Parser IntentMetadata
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679311303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311015"><span id="local-6989586621679311017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311297"><span id="local-6989586621679311299"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.IntentMetadata.html#IntentMetadata"><span class="hs-identifier hs-type">IntentMetadata</span></a></span></span><span>
 </span><span id="line-110"></span></pre></body></html>

@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-comment">-- using a single authorization token submitted in a custom header,</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- @REQUEST@ for a Lambda function using incoming request parameters, and</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- @COGNITO_USER_POOLS@ for using an Amazon Cognito user pool.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679363904"><span id="local-6989586621679363905"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthorizerType"><span class="annot"><a href="Network.AWS.APIGateway.Types.AuthorizerType.html#AuthorizerType"><span class="hs-identifier hs-var">AuthorizerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizerType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.AuthorizerType.html#AuthorizerType%27"><span class="hs-identifier hs-var">AuthorizerType'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679364396"><span id="local-6989586621679364397"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthorizerType"><span class="annot"><a href="Network.AWS.APIGateway.Types.AuthorizerType.html#AuthorizerType"><span class="hs-identifier hs-var">AuthorizerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizerType%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.AuthorizerType.html#AuthorizerType%27"><span class="hs-identifier hs-var">AuthorizerType'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthorizerType"><span class="annot"><span class="annottext">AuthorizerType -&gt; Text
 </span><a href="Network.AWS.APIGateway.Types.AuthorizerType.html#fromAuthorizerType"><span class="hs-identifier hs-var hs-var">fromAuthorizerType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679363896"><span id="local-6989586621679363898"><span id="local-6989586621679363900"><span class="annot"><span class="annottext">Int -&gt; AuthorizerType -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364388"><span id="local-6989586621679364390"><span id="local-6989586621679364392"><span class="annot"><span class="annottext">Int -&gt; AuthorizerType -&gt; ShowS
 [AuthorizerType] -&gt; ShowS
 AuthorizerType -&gt; String
 (Int -&gt; AuthorizerType -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: AuthorizerType -&gt; String
 showsPrec :: Int -&gt; AuthorizerType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AuthorizerType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679363887"><span id="local-6989586621679363889"><span id="local-6989586621679363891"><span id="local-6989586621679363893"><span class="annot"><span class="annottext">ReadPrec [AuthorizerType]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679364379"><span id="local-6989586621679364381"><span id="local-6989586621679364383"><span id="local-6989586621679364385"><span class="annot"><span class="annottext">ReadPrec [AuthorizerType]
 ReadPrec AuthorizerType
 Int -&gt; ReadS AuthorizerType
 ReadS [AuthorizerType]
@@ -77,7 +77,7 @@ $creadList :: ReadS [AuthorizerType]
 readsPrec :: Int -&gt; ReadS AuthorizerType
 $creadsPrec :: Int -&gt; ReadS AuthorizerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679363882"><span id="local-6989586621679363884"><span class="annot"><span class="annottext">AuthorizerType -&gt; AuthorizerType -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679364374"><span id="local-6989586621679364376"><span class="annot"><span class="annottext">AuthorizerType -&gt; AuthorizerType -&gt; Bool
 (AuthorizerType -&gt; AuthorizerType -&gt; Bool)
 -&gt; (AuthorizerType -&gt; AuthorizerType -&gt; Bool) -&gt; Eq AuthorizerType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ $c/= :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
 == :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
 $c== :: AuthorizerType -&gt; AuthorizerType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679363866"><span id="local-6989586621679363868"><span id="local-6989586621679363870"><span id="local-6989586621679363872"><span id="local-6989586621679363874"><span id="local-6989586621679363876"><span id="local-6989586621679363878"><span class="annot"><span class="annottext">Eq AuthorizerType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679364358"><span id="local-6989586621679364360"><span id="local-6989586621679364362"><span id="local-6989586621679364364"><span id="local-6989586621679364366"><span id="local-6989586621679364368"><span id="local-6989586621679364370"><span class="annot"><span class="annottext">Eq AuthorizerType
 Eq AuthorizerType
 -&gt; (AuthorizerType -&gt; AuthorizerType -&gt; Ordering)
 -&gt; (AuthorizerType -&gt; AuthorizerType -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. AuthorizerType -&gt; Rep AuthorizerType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679363858"><span id="local-6989586621679363860"><span class="annot"><span class="annottext">Int -&gt; AuthorizerType -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679364350"><span id="local-6989586621679364352"><span class="annot"><span class="annottext">Int -&gt; AuthorizerType -&gt; Int
 AuthorizerType -&gt; Int
 (Int -&gt; AuthorizerType -&gt; Int)
 -&gt; (AuthorizerType -&gt; Int) -&gt; Hashable AuthorizerType
@@ -147,50 +147,50 @@ $chash :: AuthorizerType -&gt; Int
 hashWithSalt :: Int -&gt; AuthorizerType -&gt; Int
 $chashWithSalt :: Int -&gt; AuthorizerType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679363855"><span class="annot"><span class="annottext">AuthorizerType -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679364347"><span class="annot"><span class="annottext">AuthorizerType -&gt; ()
 (AuthorizerType -&gt; ()) -&gt; NFData AuthorizerType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AuthorizerType -&gt; ()
 $crnf :: AuthorizerType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679363852"><span class="annot"><span class="annottext">Text -&gt; Either String AuthorizerType
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679364344"><span class="annot"><span class="annottext">Text -&gt; Either String AuthorizerType
 (Text -&gt; Either String AuthorizerType) -&gt; FromText AuthorizerType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AuthorizerType
 $cfromText :: Text -&gt; Either String AuthorizerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679363849"><span class="annot"><span class="annottext">AuthorizerType -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679364341"><span class="annot"><span class="annottext">AuthorizerType -&gt; Text
 (AuthorizerType -&gt; Text) -&gt; ToText AuthorizerType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AuthorizerType -&gt; Text
 $ctoText :: AuthorizerType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679363846"><span class="annot"><span class="annottext">AuthorizerType -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679364338"><span class="annot"><span class="annottext">AuthorizerType -&gt; ByteString
 (AuthorizerType -&gt; ByteString) -&gt; ToByteString AuthorizerType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AuthorizerType -&gt; ByteString
 $ctoBS :: AuthorizerType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679363843"><span class="annot"><span class="annottext">AuthorizerType -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679364335"><span class="annot"><span class="annottext">AuthorizerType -&gt; ByteStringBuilder
 (AuthorizerType -&gt; ByteStringBuilder) -&gt; ToLog AuthorizerType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AuthorizerType -&gt; ByteStringBuilder
 $cbuild :: AuthorizerType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679363840"><span class="annot"><span class="annottext">HeaderName -&gt; AuthorizerType -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679364332"><span class="annot"><span class="annottext">HeaderName -&gt; AuthorizerType -&gt; [Header]
 (HeaderName -&gt; AuthorizerType -&gt; [Header])
 -&gt; ToHeader AuthorizerType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AuthorizerType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AuthorizerType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679363837"><span class="annot"><span class="annottext">AuthorizerType -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679364329"><span class="annot"><span class="annottext">AuthorizerType -&gt; QueryString
 (AuthorizerType -&gt; QueryString) -&gt; ToQuery AuthorizerType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AuthorizerType -&gt; QueryString
 $ctoQuery :: AuthorizerType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679363832"><span id="local-6989586621679363834"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthorizerType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679364324"><span id="local-6989586621679364326"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthorizerType]
 Value -&gt; Parser AuthorizerType
 (Value -&gt; Parser AuthorizerType)
 -&gt; (Value -&gt; Parser [AuthorizerType]) -&gt; FromJSON AuthorizerType
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [AuthorizerType]
 parseJSON :: Value -&gt; Parser AuthorizerType
 $cparseJSON :: Value -&gt; Parser AuthorizerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679363827"><span id="local-6989586621679363829"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthorizerType]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679364319"><span id="local-6989586621679364321"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthorizerType]
 FromJSONKeyFunction AuthorizerType
 FromJSONKeyFunction AuthorizerType
 -&gt; FromJSONKeyFunction [AuthorizerType]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AuthorizerType]
 fromJSONKey :: FromJSONKeyFunction AuthorizerType
 $cfromJSONKey :: FromJSONKeyFunction AuthorizerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679363818"><span id="local-6989586621679363820"><span id="local-6989586621679363822"><span id="local-6989586621679363824"><span class="annot"><span class="annottext">[AuthorizerType] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679364310"><span id="local-6989586621679364312"><span id="local-6989586621679364314"><span id="local-6989586621679364316"><span class="annot"><span class="annottext">[AuthorizerType] -&gt; Encoding
 [AuthorizerType] -&gt; Value
 AuthorizerType -&gt; Encoding
 AuthorizerType -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: AuthorizerType -&gt; Encoding
 toJSON :: AuthorizerType -&gt; Value
 $ctoJSON :: AuthorizerType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679363813"><span id="local-6989586621679363815"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthorizerType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679364305"><span id="local-6989586621679364307"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthorizerType]
 ToJSONKeyFunction AuthorizerType
 ToJSONKeyFunction AuthorizerType
 -&gt; ToJSONKeyFunction [AuthorizerType] -&gt; ToJSONKey AuthorizerType
@@ -248,13 +248,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AuthorizerType]
 toJSONKey :: ToJSONKeyFunction AuthorizerType
 $ctoJSONKey :: ToJSONKeyFunction AuthorizerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679363810"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthorizerType
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679364302"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthorizerType
 ([Node] -&gt; Either String AuthorizerType) -&gt; FromXML AuthorizerType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AuthorizerType
 $cparseXML :: [Node] -&gt; Either String AuthorizerType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679363807"><span class="annot"><span class="annottext">AuthorizerType -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679364299"><span class="annot"><span class="annottext">AuthorizerType -&gt; XML
 (AuthorizerType -&gt; XML) -&gt; ToXML AuthorizerType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AuthorizerType -&gt; XML

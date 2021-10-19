@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newCreateAnomalyMonitor' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679348559"><span id="local-6989586621679348560"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAnomalyMonitor"><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-var">CreateAnomalyMonitor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAnomalyMonitor%27"><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor%27"><span class="hs-identifier hs-var">CreateAnomalyMonitor'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679348931"><span id="local-6989586621679348932"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAnomalyMonitor"><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-var">CreateAnomalyMonitor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAnomalyMonitor%27"><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor%27"><span class="hs-identifier hs-var">CreateAnomalyMonitor'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The cost anomaly detection monitor object that you want to create.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AanomalyMonitor%3ACreateAnomalyMonitor%27"><span class="annot"><span class="annottext">CreateAnomalyMonitor -&gt; AnomalyMonitor
 </span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#%24sel%3AanomalyMonitor%3ACreateAnomalyMonitor%27"><span class="hs-identifier hs-var hs-var">anomalyMonitor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyMonitor.html#AnomalyMonitor"><span class="hs-identifier hs-type">AnomalyMonitor</span></a></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348553"><span id="local-6989586621679348555"><span class="annot"><span class="annottext">CreateAnomalyMonitor -&gt; CreateAnomalyMonitor -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348925"><span id="local-6989586621679348927"><span class="annot"><span class="annottext">CreateAnomalyMonitor -&gt; CreateAnomalyMonitor -&gt; Bool
 (CreateAnomalyMonitor -&gt; CreateAnomalyMonitor -&gt; Bool)
 -&gt; (CreateAnomalyMonitor -&gt; CreateAnomalyMonitor -&gt; Bool)
 -&gt; Eq CreateAnomalyMonitor
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateAnomalyMonitor -&gt; CreateAnomalyMonitor -&gt; Bool
 == :: CreateAnomalyMonitor -&gt; CreateAnomalyMonitor -&gt; Bool
 $c== :: CreateAnomalyMonitor -&gt; CreateAnomalyMonitor -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348544"><span id="local-6989586621679348546"><span id="local-6989586621679348548"><span id="local-6989586621679348550"><span class="annot"><span class="annottext">ReadPrec [CreateAnomalyMonitor]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348916"><span id="local-6989586621679348918"><span id="local-6989586621679348920"><span id="local-6989586621679348922"><span class="annot"><span class="annottext">ReadPrec [CreateAnomalyMonitor]
 ReadPrec CreateAnomalyMonitor
 Int -&gt; ReadS CreateAnomalyMonitor
 ReadS [CreateAnomalyMonitor]
@@ -82,7 +82,7 @@ readList :: ReadS [CreateAnomalyMonitor]
 $creadList :: ReadS [CreateAnomalyMonitor]
 readsPrec :: Int -&gt; ReadS CreateAnomalyMonitor
 $creadsPrec :: Int -&gt; ReadS CreateAnomalyMonitor
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348537"><span id="local-6989586621679348539"><span id="local-6989586621679348541"><span class="annot"><span class="annottext">Int -&gt; CreateAnomalyMonitor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348909"><span id="local-6989586621679348911"><span id="local-6989586621679348913"><span class="annot"><span class="annottext">Int -&gt; CreateAnomalyMonitor -&gt; ShowS
 [CreateAnomalyMonitor] -&gt; ShowS
 CreateAnomalyMonitor -&gt; String
 (Int -&gt; CreateAnomalyMonitor -&gt; ShowS)
@@ -122,14 +122,14 @@ $cfrom :: forall x. CreateAnomalyMonitor -&gt; Rep CreateAnomalyMonitor x
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.Types.AnomalyMonitor.html#AnomalyMonitor"><span class="hs-identifier hs-type">AnomalyMonitor</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span><span>
 </span><span id="line-70"></span><span id="newCreateAnomalyMonitor"><span class="annot"><span class="annottext">newCreateAnomalyMonitor :: AnomalyMonitor -&gt; CreateAnomalyMonitor
-</span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#newCreateAnomalyMonitor"><span class="hs-identifier hs-var hs-var">newCreateAnomalyMonitor</span></a></span></span><span> </span><span id="local-6989586621679348532"><span class="annot"><span class="annottext">AnomalyMonitor
-</span><a href="#local-6989586621679348532"><span class="hs-identifier hs-var">pAnomalyMonitor_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#newCreateAnomalyMonitor"><span class="hs-identifier hs-var hs-var">newCreateAnomalyMonitor</span></a></span></span><span> </span><span id="local-6989586621679348904"><span class="annot"><span class="annottext">AnomalyMonitor
+</span><a href="#local-6989586621679348904"><span class="hs-identifier hs-var">pAnomalyMonitor_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">CreateAnomalyMonitor' :: AnomalyMonitor -&gt; CreateAnomalyMonitor
 </span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor%27"><span class="hs-identifier hs-type">CreateAnomalyMonitor'</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:anomalyMonitor:CreateAnomalyMonitor' :: AnomalyMonitor
 </span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#%24sel%3AanomalyMonitor%3ACreateAnomalyMonitor%27"><span class="hs-identifier hs-var">anomalyMonitor</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">AnomalyMonitor
-</span><a href="#local-6989586621679348532"><span class="hs-identifier hs-var">pAnomalyMonitor_</span></a></span><span>
+</span><a href="#local-6989586621679348904"><span class="hs-identifier hs-var">pAnomalyMonitor_</span></a></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The cost anomaly detection monitor object that you want to create.</span><span>
@@ -144,27 +144,27 @@ $cfrom :: forall x. CreateAnomalyMonitor -&gt; Rep CreateAnomalyMonitor x
      AnomalyMonitor
      AnomalyMonitor
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor%27"><span class="hs-identifier hs-type">CreateAnomalyMonitor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348529"><span class="annot"><span class="annottext">AnomalyMonitor
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor%27"><span class="hs-identifier hs-type">CreateAnomalyMonitor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348901"><span class="annot"><span class="annottext">AnomalyMonitor
 anomalyMonitor :: AnomalyMonitor
 $sel:anomalyMonitor:CreateAnomalyMonitor' :: CreateAnomalyMonitor -&gt; AnomalyMonitor
-</span><a href="#local-6989586621679348529"><span class="hs-identifier hs-var hs-var">anomalyMonitor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyMonitor
-</span><a href="#local-6989586621679348529"><span class="hs-identifier hs-var">anomalyMonitor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348528"><span class="annot"><span class="annottext">s :: CreateAnomalyMonitor
-</span><a href="#local-6989586621679348528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor%27"><span class="hs-identifier hs-type">CreateAnomalyMonitor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348527"><span class="annot"><span class="annottext">AnomalyMonitor
-</span><a href="#local-6989586621679348527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAnomalyMonitor
-</span><a href="#local-6989586621679348528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:anomalyMonitor:CreateAnomalyMonitor' :: AnomalyMonitor
+</span><a href="#local-6989586621679348901"><span class="hs-identifier hs-var hs-var">anomalyMonitor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyMonitor
+</span><a href="#local-6989586621679348901"><span class="hs-identifier hs-var">anomalyMonitor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348900"><span class="annot"><span class="annottext">s :: CreateAnomalyMonitor
+</span><a href="#local-6989586621679348900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor%27"><span class="hs-identifier hs-type">CreateAnomalyMonitor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348899"><span class="annot"><span class="annottext">AnomalyMonitor
+</span><a href="#local-6989586621679348899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAnomalyMonitor
+</span><a href="#local-6989586621679348900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:anomalyMonitor:CreateAnomalyMonitor' :: AnomalyMonitor
 </span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#%24sel%3AanomalyMonitor%3ACreateAnomalyMonitor%27"><span class="hs-identifier hs-var">anomalyMonitor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AnomalyMonitor
-</span><a href="#local-6989586621679348527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679348523"><span class="annot"><span class="annottext">request :: CreateAnomalyMonitor -&gt; Request CreateAnomalyMonitor
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679348895"><span class="annot"><span class="annottext">request :: CreateAnomalyMonitor -&gt; Request CreateAnomalyMonitor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateAnomalyMonitor -&gt; Request CreateAnomalyMonitor
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CostExplorer.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679348519"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679348891"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateAnomalyMonitor
 -&gt; ClientResponse ClientBody
@@ -190,10 +190,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348516"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348516"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348515"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679348515"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348514"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348514"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348888"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348888"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348887"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679348887"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348886"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679348886"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; CreateAnomalyMonitorResponse
 </span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-var">CreateAnomalyMonitorResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; CreateAnomalyMonitorResponse)
@@ -205,23 +205,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348516"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348888"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateAnomalyMonitorResponse)
 -&gt; Either String Text -&gt; Either String CreateAnomalyMonitorResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348514"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679348886"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MonitorArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348506"><span id="local-6989586621679348508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348878"><span id="local-6989586621679348880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679348499"><span class="annot"><span class="annottext">toHeaders :: CreateAnomalyMonitor -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679348871"><span class="annot"><span class="annottext">toHeaders :: CreateAnomalyMonitor -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateAnomalyMonitor -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -248,12 +248,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348489"><span id="local-6989586621679348491"><span id="local-6989586621679348493"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679348487"><span class="annot"><span class="annottext">toJSON :: CreateAnomalyMonitor -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor%27"><span class="hs-identifier hs-type">CreateAnomalyMonitor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348485"><span class="annot"><span class="annottext">AnomalyMonitor
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348861"><span id="local-6989586621679348863"><span id="local-6989586621679348865"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679348859"><span class="annot"><span class="annottext">toJSON :: CreateAnomalyMonitor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor%27"><span class="hs-identifier hs-type">CreateAnomalyMonitor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348857"><span class="annot"><span class="annottext">AnomalyMonitor
 anomalyMonitor :: AnomalyMonitor
 $sel:anomalyMonitor:CreateAnomalyMonitor' :: CreateAnomalyMonitor -&gt; AnomalyMonitor
-</span><a href="#local-6989586621679348485"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679348857"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -266,19 +266,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;AnomalyMonitor&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AnomalyMonitor -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">AnomalyMonitor
-</span><a href="#local-6989586621679348485"><span class="hs-identifier hs-var">anomalyMonitor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348857"><span class="hs-identifier hs-var">anomalyMonitor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679348479"><span class="annot"><span class="annottext">toPath :: CreateAnomalyMonitor -&gt; ByteString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679348851"><span class="annot"><span class="annottext">toPath :: CreateAnomalyMonitor -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateAnomalyMonitor -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitor"><span class="hs-identifier hs-type">CreateAnomalyMonitor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679348475"><span class="annot"><span class="annottext">toQuery :: CreateAnomalyMonitor -&gt; QueryString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679348847"><span class="annot"><span class="annottext">toQuery :: CreateAnomalyMonitor -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateAnomalyMonitor -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -286,7 +286,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newCreateAnomalyMonitorResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679348472"><span id="local-6989586621679348473"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAnomalyMonitorResponse"><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse"><span class="hs-identifier hs-var">CreateAnomalyMonitorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAnomalyMonitorResponse%27"><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-var">CreateAnomalyMonitorResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679348844"><span id="local-6989586621679348845"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateAnomalyMonitorResponse"><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse"><span class="hs-identifier hs-var">CreateAnomalyMonitorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateAnomalyMonitorResponse%27"><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-var">CreateAnomalyMonitorResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateAnomalyMonitorResponse%27"><span class="annot"><span class="annottext">CreateAnomalyMonitorResponse -&gt; Int
 </span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#%24sel%3AhttpStatus%3ACreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -295,7 +295,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AmonitorArn%3ACreateAnomalyMonitorResponse%27"><span class="annot"><span class="annottext">CreateAnomalyMonitorResponse -&gt; Text
 </span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#%24sel%3AmonitorArn%3ACreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-var hs-var">monitorArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348466"><span id="local-6989586621679348468"><span class="annot"><span class="annottext">CreateAnomalyMonitorResponse
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348838"><span id="local-6989586621679348840"><span class="annot"><span class="annottext">CreateAnomalyMonitorResponse
 -&gt; CreateAnomalyMonitorResponse -&gt; Bool
 (CreateAnomalyMonitorResponse
  -&gt; CreateAnomalyMonitorResponse -&gt; Bool)
@@ -311,7 +311,7 @@ $c/= :: CreateAnomalyMonitorResponse
 -&gt; CreateAnomalyMonitorResponse -&gt; Bool
 $c== :: CreateAnomalyMonitorResponse
 -&gt; CreateAnomalyMonitorResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348458"><span id="local-6989586621679348460"><span id="local-6989586621679348462"><span id="local-6989586621679348464"><span class="annot"><span class="annottext">ReadPrec [CreateAnomalyMonitorResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348830"><span id="local-6989586621679348832"><span id="local-6989586621679348834"><span id="local-6989586621679348836"><span class="annot"><span class="annottext">ReadPrec [CreateAnomalyMonitorResponse]
 ReadPrec CreateAnomalyMonitorResponse
 Int -&gt; ReadS CreateAnomalyMonitorResponse
 ReadS [CreateAnomalyMonitorResponse]
@@ -331,7 +331,7 @@ readList :: ReadS [CreateAnomalyMonitorResponse]
 $creadList :: ReadS [CreateAnomalyMonitorResponse]
 readsPrec :: Int -&gt; ReadS CreateAnomalyMonitorResponse
 $creadsPrec :: Int -&gt; ReadS CreateAnomalyMonitorResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348452"><span id="local-6989586621679348454"><span id="local-6989586621679348456"><span class="annot"><span class="annottext">Int -&gt; CreateAnomalyMonitorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348824"><span id="local-6989586621679348826"><span id="local-6989586621679348828"><span class="annot"><span class="annottext">Int -&gt; CreateAnomalyMonitorResponse -&gt; ShowS
 [CreateAnomalyMonitorResponse] -&gt; ShowS
 CreateAnomalyMonitorResponse -&gt; String
 (Int -&gt; CreateAnomalyMonitorResponse -&gt; ShowS)
@@ -383,19 +383,19 @@ CreateAnomalyMonitorResponse -&gt; Rep CreateAnomalyMonitorResponse x
 </span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse</span></a></span><span>
 </span><span id="line-155"></span><span id="newCreateAnomalyMonitorResponse"><span class="annot"><span class="annottext">newCreateAnomalyMonitorResponse :: Int -&gt; Text -&gt; CreateAnomalyMonitorResponse
 </span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#newCreateAnomalyMonitorResponse"><span class="hs-identifier hs-var hs-var">newCreateAnomalyMonitorResponse</span></a></span></span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679348449"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-157"></span><span>  </span><span id="local-6989586621679348448"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348448"><span class="hs-identifier hs-var">pMonitorArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679348821"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348821"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679348820"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348820"><span class="hs-identifier hs-var">pMonitorArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">CreateAnomalyMonitorResponse' :: Int -&gt; Text -&gt; CreateAnomalyMonitorResponse
 </span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAnomalyMonitorResponse' :: Int
 </span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#%24sel%3AhttpStatus%3ACreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348449"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679348821"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:monitorArn:CreateAnomalyMonitorResponse' :: Text
 </span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#%24sel%3AmonitorArn%3ACreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-var">monitorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348448"><span class="hs-identifier hs-var">pMonitorArn_</span></a></span><span>
+</span><a href="#local-6989586621679348820"><span class="hs-identifier hs-var">pMonitorArn_</span></a></span><span>
 </span><span id="line-162"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -408,16 +408,16 @@ CreateAnomalyMonitorResponse -&gt; Rep CreateAnomalyMonitorResponse x
 -&gt; Lens
      CreateAnomalyMonitorResponse CreateAnomalyMonitorResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348447"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348819"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateAnomalyMonitorResponse' :: CreateAnomalyMonitorResponse -&gt; Int
-</span><a href="#local-6989586621679348447"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348447"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348446"><span class="annot"><span class="annottext">s :: CreateAnomalyMonitorResponse
-</span><a href="#local-6989586621679348446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348445"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAnomalyMonitorResponse
-</span><a href="#local-6989586621679348446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAnomalyMonitorResponse' :: Int
+</span><a href="#local-6989586621679348819"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348819"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348818"><span class="annot"><span class="annottext">s :: CreateAnomalyMonitorResponse
+</span><a href="#local-6989586621679348818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348817"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679348817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAnomalyMonitorResponse
+</span><a href="#local-6989586621679348818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateAnomalyMonitorResponse' :: Int
 </span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#%24sel%3AhttpStatus%3ACreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>
 </span><span id="line-168"></span><span class="hs-comment">-- | The unique identifier of your newly created cost anomaly detection</span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- monitor.</span><span>
@@ -430,16 +430,16 @@ $sel:httpStatus:CreateAnomalyMonitorResponse' :: CreateAnomalyMonitorResponse -&
 -&gt; Lens
      CreateAnomalyMonitorResponse CreateAnomalyMonitorResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348444"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348816"><span class="annot"><span class="annottext">Text
 monitorArn :: Text
 $sel:monitorArn:CreateAnomalyMonitorResponse' :: CreateAnomalyMonitorResponse -&gt; Text
-</span><a href="#local-6989586621679348444"><span class="hs-identifier hs-var hs-var">monitorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348444"><span class="hs-identifier hs-var">monitorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348443"><span class="annot"><span class="annottext">s :: CreateAnomalyMonitorResponse
-</span><a href="#local-6989586621679348443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348442"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAnomalyMonitorResponse
-</span><a href="#local-6989586621679348443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitorArn:CreateAnomalyMonitorResponse' :: Text
+</span><a href="#local-6989586621679348816"><span class="hs-identifier hs-var hs-var">monitorArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348816"><span class="hs-identifier hs-var">monitorArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348815"><span class="annot"><span class="annottext">s :: CreateAnomalyMonitorResponse
+</span><a href="#local-6989586621679348815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348814"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679348814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateAnomalyMonitorResponse
+</span><a href="#local-6989586621679348815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:monitorArn:CreateAnomalyMonitorResponse' :: Text
 </span><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#%24sel%3AmonitorArn%3ACreateAnomalyMonitorResponse%27"><span class="hs-identifier hs-var">monitorArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679348814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348440"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348812"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostExplorer.CreateAnomalyMonitor.html#CreateAnomalyMonitorResponse"><span class="hs-identifier hs-type">CreateAnomalyMonitorResponse</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

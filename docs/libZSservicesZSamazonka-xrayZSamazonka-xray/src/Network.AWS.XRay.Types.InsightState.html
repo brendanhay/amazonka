@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679252080"><span id="local-6989586621679252081"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InsightState"><span class="annot"><a href="Network.AWS.XRay.Types.InsightState.html#InsightState"><span class="hs-identifier hs-var">InsightState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightState%27"><span class="annot"><a href="Network.AWS.XRay.Types.InsightState.html#InsightState%27"><span class="hs-identifier hs-var">InsightState'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679252352"><span id="local-6989586621679252353"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InsightState"><span class="annot"><a href="Network.AWS.XRay.Types.InsightState.html#InsightState"><span class="hs-identifier hs-var">InsightState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InsightState%27"><span class="annot"><a href="Network.AWS.XRay.Types.InsightState.html#InsightState%27"><span class="hs-identifier hs-var">InsightState'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInsightState"><span class="annot"><span class="annottext">InsightState -&gt; Text
 </span><a href="Network.AWS.XRay.Types.InsightState.html#fromInsightState"><span class="hs-identifier hs-var hs-var">fromInsightState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679252072"><span id="local-6989586621679252074"><span id="local-6989586621679252076"><span class="annot"><span class="annottext">Int -&gt; InsightState -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679252344"><span id="local-6989586621679252346"><span id="local-6989586621679252348"><span class="annot"><span class="annottext">Int -&gt; InsightState -&gt; ShowS
 [InsightState] -&gt; ShowS
 InsightState -&gt; String
 (Int -&gt; InsightState -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: InsightState -&gt; String
 showsPrec :: Int -&gt; InsightState -&gt; ShowS
 $cshowsPrec :: Int -&gt; InsightState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679252063"><span id="local-6989586621679252065"><span id="local-6989586621679252067"><span id="local-6989586621679252069"><span class="annot"><span class="annottext">ReadPrec [InsightState]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679252335"><span id="local-6989586621679252337"><span id="local-6989586621679252339"><span id="local-6989586621679252341"><span class="annot"><span class="annottext">ReadPrec [InsightState]
 ReadPrec InsightState
 Int -&gt; ReadS InsightState
 ReadS [InsightState]
@@ -72,7 +72,7 @@ $creadList :: ReadS [InsightState]
 readsPrec :: Int -&gt; ReadS InsightState
 $creadsPrec :: Int -&gt; ReadS InsightState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679252058"><span id="local-6989586621679252060"><span class="annot"><span class="annottext">InsightState -&gt; InsightState -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679252330"><span id="local-6989586621679252332"><span class="annot"><span class="annottext">InsightState -&gt; InsightState -&gt; Bool
 (InsightState -&gt; InsightState -&gt; Bool)
 -&gt; (InsightState -&gt; InsightState -&gt; Bool) -&gt; Eq InsightState
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: InsightState -&gt; InsightState -&gt; Bool
 == :: InsightState -&gt; InsightState -&gt; Bool
 $c== :: InsightState -&gt; InsightState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679252042"><span id="local-6989586621679252044"><span id="local-6989586621679252046"><span id="local-6989586621679252048"><span id="local-6989586621679252050"><span id="local-6989586621679252052"><span id="local-6989586621679252054"><span class="annot"><span class="annottext">Eq InsightState
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679252314"><span id="local-6989586621679252316"><span id="local-6989586621679252318"><span id="local-6989586621679252320"><span id="local-6989586621679252322"><span id="local-6989586621679252324"><span id="local-6989586621679252326"><span class="annot"><span class="annottext">Eq InsightState
 Eq InsightState
 -&gt; (InsightState -&gt; InsightState -&gt; Ordering)
 -&gt; (InsightState -&gt; InsightState -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. InsightState -&gt; Rep InsightState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679252034"><span id="local-6989586621679252036"><span class="annot"><span class="annottext">Int -&gt; InsightState -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679252306"><span id="local-6989586621679252308"><span class="annot"><span class="annottext">Int -&gt; InsightState -&gt; Int
 InsightState -&gt; Int
 (Int -&gt; InsightState -&gt; Int)
 -&gt; (InsightState -&gt; Int) -&gt; Hashable InsightState
@@ -142,49 +142,49 @@ $chash :: InsightState -&gt; Int
 hashWithSalt :: Int -&gt; InsightState -&gt; Int
 $chashWithSalt :: Int -&gt; InsightState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679252031"><span class="annot"><span class="annottext">InsightState -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679252303"><span class="annot"><span class="annottext">InsightState -&gt; ()
 (InsightState -&gt; ()) -&gt; NFData InsightState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InsightState -&gt; ()
 $crnf :: InsightState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679252028"><span class="annot"><span class="annottext">Text -&gt; Either String InsightState
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679252300"><span class="annot"><span class="annottext">Text -&gt; Either String InsightState
 (Text -&gt; Either String InsightState) -&gt; FromText InsightState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InsightState
 $cfromText :: Text -&gt; Either String InsightState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679252025"><span class="annot"><span class="annottext">InsightState -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679252297"><span class="annot"><span class="annottext">InsightState -&gt; Text
 (InsightState -&gt; Text) -&gt; ToText InsightState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InsightState -&gt; Text
 $ctoText :: InsightState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679252022"><span class="annot"><span class="annottext">InsightState -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679252294"><span class="annot"><span class="annottext">InsightState -&gt; ByteString
 (InsightState -&gt; ByteString) -&gt; ToByteString InsightState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InsightState -&gt; ByteString
 $ctoBS :: InsightState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679252019"><span class="annot"><span class="annottext">InsightState -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679252291"><span class="annot"><span class="annottext">InsightState -&gt; ByteStringBuilder
 (InsightState -&gt; ByteStringBuilder) -&gt; ToLog InsightState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InsightState -&gt; ByteStringBuilder
 $cbuild :: InsightState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679252016"><span class="annot"><span class="annottext">HeaderName -&gt; InsightState -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679252288"><span class="annot"><span class="annottext">HeaderName -&gt; InsightState -&gt; [Header]
 (HeaderName -&gt; InsightState -&gt; [Header]) -&gt; ToHeader InsightState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InsightState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InsightState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679252013"><span class="annot"><span class="annottext">InsightState -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679252285"><span class="annot"><span class="annottext">InsightState -&gt; QueryString
 (InsightState -&gt; QueryString) -&gt; ToQuery InsightState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InsightState -&gt; QueryString
 $ctoQuery :: InsightState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679252008"><span id="local-6989586621679252010"><span class="annot"><span class="annottext">Value -&gt; Parser [InsightState]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679252280"><span id="local-6989586621679252282"><span class="annot"><span class="annottext">Value -&gt; Parser [InsightState]
 Value -&gt; Parser InsightState
 (Value -&gt; Parser InsightState)
 -&gt; (Value -&gt; Parser [InsightState]) -&gt; FromJSON InsightState
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [InsightState]
 parseJSON :: Value -&gt; Parser InsightState
 $cparseJSON :: Value -&gt; Parser InsightState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679252003"><span id="local-6989586621679252005"><span class="annot"><span class="annottext">FromJSONKeyFunction [InsightState]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679252275"><span id="local-6989586621679252277"><span class="annot"><span class="annottext">FromJSONKeyFunction [InsightState]
 FromJSONKeyFunction InsightState
 FromJSONKeyFunction InsightState
 -&gt; FromJSONKeyFunction [InsightState] -&gt; FromJSONKey InsightState
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InsightState]
 fromJSONKey :: FromJSONKeyFunction InsightState
 $cfromJSONKey :: FromJSONKeyFunction InsightState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679251994"><span id="local-6989586621679251996"><span id="local-6989586621679251998"><span id="local-6989586621679252000"><span class="annot"><span class="annottext">[InsightState] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679252266"><span id="local-6989586621679252268"><span id="local-6989586621679252270"><span id="local-6989586621679252272"><span class="annot"><span class="annottext">[InsightState] -&gt; Encoding
 [InsightState] -&gt; Value
 InsightState -&gt; Encoding
 InsightState -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: InsightState -&gt; Encoding
 toJSON :: InsightState -&gt; Value
 $ctoJSON :: InsightState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679251989"><span id="local-6989586621679251991"><span class="annot"><span class="annottext">ToJSONKeyFunction [InsightState]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679252261"><span id="local-6989586621679252263"><span class="annot"><span class="annottext">ToJSONKeyFunction [InsightState]
 ToJSONKeyFunction InsightState
 ToJSONKeyFunction InsightState
 -&gt; ToJSONKeyFunction [InsightState] -&gt; ToJSONKey InsightState
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InsightState]
 toJSONKey :: ToJSONKeyFunction InsightState
 $ctoJSONKey :: ToJSONKeyFunction InsightState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679251986"><span class="annot"><span class="annottext">[Node] -&gt; Either String InsightState
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679252258"><span class="annot"><span class="annottext">[Node] -&gt; Either String InsightState
 ([Node] -&gt; Either String InsightState) -&gt; FromXML InsightState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InsightState
 $cparseXML :: [Node] -&gt; Either String InsightState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679251983"><span class="annot"><span class="annottext">InsightState -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679252255"><span class="annot"><span class="annottext">InsightState -&gt; XML
 (InsightState -&gt; XML) -&gt; ToXML InsightState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InsightState -&gt; XML

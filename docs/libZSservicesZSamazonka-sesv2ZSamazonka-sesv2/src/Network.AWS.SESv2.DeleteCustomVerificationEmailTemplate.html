@@ -23,7 +23,7 @@
 </span><span id="line-23"></span><span class="hs-comment">-- Deletes an existing custom verification email template.</span><span>
 </span><span id="line-24"></span><span class="hs-comment">--</span><span>
 </span><span id="line-25"></span><span class="hs-comment">-- For more information about custom verification email templates, see</span><span>
-</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/es/latest/DeveloperGuide/send-email-verify-address-custom.html Using Custom Verification Email Templates&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html Using Custom Verification Email Templates&gt;</span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- in the /Amazon SES Developer Guide/.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- You can execute this operation no more than once per second.</span><span>
@@ -55,13 +55,13 @@
 </span><span id="line-55"></span><span class="hs-comment">-- template.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- /See:/ 'newDeleteCustomVerificationEmailTemplate' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679346850"><span id="local-6989586621679346851"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomVerificationEmailTemplate"><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate"><span class="hs-identifier hs-var">DeleteCustomVerificationEmailTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomVerificationEmailTemplate%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate%27"><span class="hs-identifier hs-var">DeleteCustomVerificationEmailTemplate'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679349428"><span id="local-6989586621679349429"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomVerificationEmailTemplate"><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate"><span class="hs-identifier hs-var">DeleteCustomVerificationEmailTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomVerificationEmailTemplate%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate%27"><span class="hs-identifier hs-var">DeleteCustomVerificationEmailTemplate'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the custom verification email template that you want to</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- delete.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AtemplateName%3ADeleteCustomVerificationEmailTemplate%27"><span class="annot"><span class="annottext">DeleteCustomVerificationEmailTemplate -&gt; Text
 </span><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#%24sel%3AtemplateName%3ADeleteCustomVerificationEmailTemplate%27"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346844"><span id="local-6989586621679346846"><span class="annot"><span class="annottext">DeleteCustomVerificationEmailTemplate
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349422"><span id="local-6989586621679349424"><span class="annot"><span class="annottext">DeleteCustomVerificationEmailTemplate
 -&gt; DeleteCustomVerificationEmailTemplate -&gt; Bool
 (DeleteCustomVerificationEmailTemplate
  -&gt; DeleteCustomVerificationEmailTemplate -&gt; Bool)
@@ -77,7 +77,7 @@ $c/= :: DeleteCustomVerificationEmailTemplate
 -&gt; DeleteCustomVerificationEmailTemplate -&gt; Bool
 $c== :: DeleteCustomVerificationEmailTemplate
 -&gt; DeleteCustomVerificationEmailTemplate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346835"><span id="local-6989586621679346837"><span id="local-6989586621679346839"><span id="local-6989586621679346841"><span class="annot"><span class="annottext">ReadPrec [DeleteCustomVerificationEmailTemplate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349413"><span id="local-6989586621679349415"><span id="local-6989586621679349417"><span id="local-6989586621679349419"><span class="annot"><span class="annottext">ReadPrec [DeleteCustomVerificationEmailTemplate]
 ReadPrec DeleteCustomVerificationEmailTemplate
 Int -&gt; ReadS DeleteCustomVerificationEmailTemplate
 ReadS [DeleteCustomVerificationEmailTemplate]
@@ -97,7 +97,7 @@ readList :: ReadS [DeleteCustomVerificationEmailTemplate]
 $creadList :: ReadS [DeleteCustomVerificationEmailTemplate]
 readsPrec :: Int -&gt; ReadS DeleteCustomVerificationEmailTemplate
 $creadsPrec :: Int -&gt; ReadS DeleteCustomVerificationEmailTemplate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346828"><span id="local-6989586621679346830"><span id="local-6989586621679346832"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomVerificationEmailTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349406"><span id="local-6989586621679349408"><span id="local-6989586621679349410"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomVerificationEmailTemplate -&gt; ShowS
 [DeleteCustomVerificationEmailTemplate] -&gt; ShowS
 DeleteCustomVerificationEmailTemplate -&gt; String
 (Int -&gt; DeleteCustomVerificationEmailTemplate -&gt; ShowS)
@@ -151,14 +151,14 @@ DeleteCustomVerificationEmailTemplate
 </span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate</span></a></span><span>
 </span><span id="line-79"></span><span id="newDeleteCustomVerificationEmailTemplate"><span class="annot"><span class="annottext">newDeleteCustomVerificationEmailTemplate :: Text -&gt; DeleteCustomVerificationEmailTemplate
 </span><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#newDeleteCustomVerificationEmailTemplate"><span class="hs-identifier hs-var hs-var">newDeleteCustomVerificationEmailTemplate</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679346823"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346823"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679349401"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349401"><span class="hs-identifier hs-var">pTemplateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">DeleteCustomVerificationEmailTemplate' :: Text -&gt; DeleteCustomVerificationEmailTemplate
 </span><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate%27"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate'</span></a></span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:templateName:DeleteCustomVerificationEmailTemplate' :: Text
 </span><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#%24sel%3AtemplateName%3ADeleteCustomVerificationEmailTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346823"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span>
+</span><a href="#local-6989586621679349401"><span class="hs-identifier hs-var">pTemplateName_</span></a></span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The name of the custom verification email template that you want to</span><span>
@@ -176,16 +176,16 @@ DeleteCustomVerificationEmailTemplate
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate%27"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346820"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate%27"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349398"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:DeleteCustomVerificationEmailTemplate' :: DeleteCustomVerificationEmailTemplate -&gt; Text
-</span><a href="#local-6989586621679346820"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346820"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346819"><span class="annot"><span class="annottext">s :: DeleteCustomVerificationEmailTemplate
-</span><a href="#local-6989586621679346819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate%27"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346818"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomVerificationEmailTemplate
-</span><a href="#local-6989586621679346819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:DeleteCustomVerificationEmailTemplate' :: Text
+</span><a href="#local-6989586621679349398"><span class="hs-identifier hs-var hs-var">templateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349398"><span class="hs-identifier hs-var">templateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349397"><span class="annot"><span class="annottext">s :: DeleteCustomVerificationEmailTemplate
+</span><a href="#local-6989586621679349397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate%27"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349396"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomVerificationEmailTemplate
+</span><a href="#local-6989586621679349397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:templateName:DeleteCustomVerificationEmailTemplate' :: Text
 </span><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#%24sel%3AtemplateName%3ADeleteCustomVerificationEmailTemplate%27"><span class="hs-identifier hs-var">templateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -195,7 +195,7 @@ $sel:templateName:DeleteCustomVerificationEmailTemplate' :: DeleteCustomVerifica
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplateResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679346814"><span class="annot"><span class="annottext">request :: DeleteCustomVerificationEmailTemplate
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679349392"><span class="annot"><span class="annottext">request :: DeleteCustomVerificationEmailTemplate
 -&gt; Request DeleteCustomVerificationEmailTemplate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteCustomVerificationEmailTemplate
@@ -203,7 +203,7 @@ $sel:templateName:DeleteCustomVerificationEmailTemplate' :: DeleteCustomVerifica
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679346810"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679349388"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteCustomVerificationEmailTemplate
 -&gt; ClientResponse ClientBody
@@ -234,10 +234,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346807"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346807"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679346806"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679346806"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679346805"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679346805"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349385"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349385"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679349384"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679349384"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679349383"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679349383"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteCustomVerificationEmailTemplateResponse
 </span><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse%27"><span class="hs-identifier hs-var">DeleteCustomVerificationEmailTemplateResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteCustomVerificationEmailTemplateResponse)
@@ -249,22 +249,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346807"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349385"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
 </span><span id="line-107"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679346798"><span id="local-6989586621679346800"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679349376"><span id="local-6989586621679349378"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679346795"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679349373"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate</span></a></span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate</span></a></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679346791"><span class="annot"><span class="annottext">toHeaders :: DeleteCustomVerificationEmailTemplate -&gt; ResponseHeaders
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679349369"><span class="annot"><span class="annottext">toHeaders :: DeleteCustomVerificationEmailTemplate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DeleteCustomVerificationEmailTemplate -&gt; ResponseHeaders
@@ -288,11 +288,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate</span></a></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679346785"><span class="annot"><span class="annottext">toPath :: DeleteCustomVerificationEmailTemplate -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate%27"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346783"><span class="annot"><span class="annottext">Text
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679349363"><span class="annot"><span class="annottext">toPath :: DeleteCustomVerificationEmailTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate%27"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349361"><span class="annot"><span class="annottext">Text
 templateName :: Text
 $sel:templateName:DeleteCustomVerificationEmailTemplate' :: DeleteCustomVerificationEmailTemplate -&gt; Text
-</span><a href="#local-6989586621679346783"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679349361"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -301,14 +301,14 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346783"><span class="hs-identifier hs-var">templateName</span></a></span><span>
+</span><a href="#local-6989586621679349361"><span class="hs-identifier hs-var">templateName</span></a></span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplate"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplate</span></a></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679346779"><span class="annot"><span class="annottext">toQuery :: DeleteCustomVerificationEmailTemplate -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679349357"><span class="annot"><span class="annottext">toQuery :: DeleteCustomVerificationEmailTemplate -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteCustomVerificationEmailTemplate -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -319,12 +319,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-146"></span><span class="hs-comment">-- with an empty HTTP body.</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- /See:/ 'newDeleteCustomVerificationEmailTemplateResponse' smart constructor.</span><span>
-</span><span id="line-149"></span><span id="local-6989586621679346776"><span id="local-6989586621679346777"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomVerificationEmailTemplateResponse"><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse"><span class="hs-identifier hs-var">DeleteCustomVerificationEmailTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomVerificationEmailTemplateResponse%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse%27"><span class="hs-identifier hs-var">DeleteCustomVerificationEmailTemplateResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span id="local-6989586621679349354"><span id="local-6989586621679349355"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteCustomVerificationEmailTemplateResponse"><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse"><span class="hs-identifier hs-var">DeleteCustomVerificationEmailTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteCustomVerificationEmailTemplateResponse%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse%27"><span class="hs-identifier hs-var">DeleteCustomVerificationEmailTemplateResponse'</span></a></span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteCustomVerificationEmailTemplateResponse%27"><span class="annot"><span class="annottext">DeleteCustomVerificationEmailTemplateResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#%24sel%3AhttpStatus%3ADeleteCustomVerificationEmailTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346771"><span id="local-6989586621679346773"><span class="annot"><span class="annottext">DeleteCustomVerificationEmailTemplateResponse
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349349"><span id="local-6989586621679349351"><span class="annot"><span class="annottext">DeleteCustomVerificationEmailTemplateResponse
 -&gt; DeleteCustomVerificationEmailTemplateResponse -&gt; Bool
 (DeleteCustomVerificationEmailTemplateResponse
  -&gt; DeleteCustomVerificationEmailTemplateResponse -&gt; Bool)
@@ -340,7 +340,7 @@ $c/= :: DeleteCustomVerificationEmailTemplateResponse
 -&gt; DeleteCustomVerificationEmailTemplateResponse -&gt; Bool
 $c== :: DeleteCustomVerificationEmailTemplateResponse
 -&gt; DeleteCustomVerificationEmailTemplateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346763"><span id="local-6989586621679346765"><span id="local-6989586621679346767"><span id="local-6989586621679346769"><span class="annot"><span class="annottext">ReadPrec [DeleteCustomVerificationEmailTemplateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349341"><span id="local-6989586621679349343"><span id="local-6989586621679349345"><span id="local-6989586621679349347"><span class="annot"><span class="annottext">ReadPrec [DeleteCustomVerificationEmailTemplateResponse]
 ReadPrec DeleteCustomVerificationEmailTemplateResponse
 Int -&gt; ReadS DeleteCustomVerificationEmailTemplateResponse
 ReadS [DeleteCustomVerificationEmailTemplateResponse]
@@ -360,7 +360,7 @@ readList :: ReadS [DeleteCustomVerificationEmailTemplateResponse]
 $creadList :: ReadS [DeleteCustomVerificationEmailTemplateResponse]
 readsPrec :: Int -&gt; ReadS DeleteCustomVerificationEmailTemplateResponse
 $creadsPrec :: Int -&gt; ReadS DeleteCustomVerificationEmailTemplateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346757"><span id="local-6989586621679346759"><span id="local-6989586621679346761"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomVerificationEmailTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349335"><span id="local-6989586621679349337"><span id="local-6989586621679349339"><span class="annot"><span class="annottext">Int -&gt; DeleteCustomVerificationEmailTemplateResponse -&gt; ShowS
 [DeleteCustomVerificationEmailTemplateResponse] -&gt; ShowS
 DeleteCustomVerificationEmailTemplateResponse -&gt; String
 (Int -&gt; DeleteCustomVerificationEmailTemplateResponse -&gt; ShowS)
@@ -413,14 +413,14 @@ DeleteCustomVerificationEmailTemplateResponse
 </span><span id="line-167"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplateResponse</span></a></span><span>
 </span><span id="line-168"></span><span id="newDeleteCustomVerificationEmailTemplateResponse"><span class="annot"><span class="annottext">newDeleteCustomVerificationEmailTemplateResponse :: Int -&gt; DeleteCustomVerificationEmailTemplateResponse
 </span><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#newDeleteCustomVerificationEmailTemplateResponse"><span class="hs-identifier hs-var hs-var">newDeleteCustomVerificationEmailTemplateResponse</span></a></span></span><span>
-</span><span id="line-169"></span><span>  </span><span id="local-6989586621679346754"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346754"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679349332"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349332"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">DeleteCustomVerificationEmailTemplateResponse' :: Int -&gt; DeleteCustomVerificationEmailTemplateResponse
 </span><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse%27"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplateResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCustomVerificationEmailTemplateResponse' :: Int
 </span><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#%24sel%3AhttpStatus%3ADeleteCustomVerificationEmailTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346754"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679349332"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -437,18 +437,18 @@ DeleteCustomVerificationEmailTemplateResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse%27"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346753"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse%27"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349331"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteCustomVerificationEmailTemplateResponse' :: DeleteCustomVerificationEmailTemplateResponse -&gt; Int
-</span><a href="#local-6989586621679346753"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346753"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346752"><span class="annot"><span class="annottext">s :: DeleteCustomVerificationEmailTemplateResponse
-</span><a href="#local-6989586621679346752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse%27"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346751"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomVerificationEmailTemplateResponse
-</span><a href="#local-6989586621679346752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCustomVerificationEmailTemplateResponse' :: Int
+</span><a href="#local-6989586621679349331"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349331"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349330"><span class="annot"><span class="annottext">s :: DeleteCustomVerificationEmailTemplateResponse
+</span><a href="#local-6989586621679349330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse%27"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349329"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteCustomVerificationEmailTemplateResponse
+</span><a href="#local-6989586621679349330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteCustomVerificationEmailTemplateResponse' :: Int
 </span><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#%24sel%3AhttpStatus%3ADeleteCustomVerificationEmailTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679346749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679349327"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.DeleteCustomVerificationEmailTemplate.html#DeleteCustomVerificationEmailTemplateResponse"><span class="hs-identifier hs-type">DeleteCustomVerificationEmailTemplateResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

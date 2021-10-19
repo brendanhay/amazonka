@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#newUpdateContact"><span class="hs-identifier">newUpdateContact</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_phoneNumber"><span class="hs-identifier">updateContact_phoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_lastName"><span class="hs-identifier">updateContact_lastName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_phoneNumbers"><span class="hs-identifier">updateContact_phoneNumbers</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_lastName"><span class="hs-identifier">updateContact_lastName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_firstName"><span class="hs-identifier">updateContact_firstName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_displayName"><span class="hs-identifier">updateContact_displayName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_sipAddresses"><span class="hs-identifier">updateContact_sipAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_phoneNumber"><span class="hs-identifier">updateContact_phoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_sipAddresses"><span class="hs-identifier">updateContact_sipAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_firstName"><span class="hs-identifier">updateContact_firstName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_displayName"><span class="hs-identifier">updateContact_displayName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_contactArn"><span class="hs-identifier">updateContact_contactArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -52,33 +52,33 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateContact' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679395226"><span id="local-6989586621679395227"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateContact"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-var">UpdateContact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateContact%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-var">UpdateContact'</span></a></span></span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated phone number of the contact. The phone number type defaults</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- to WORK. You can either specify PhoneNumber or PhoneNumbers. We</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- recommend that you use PhoneNumbers, which lets you specify the phone</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- number type and multiple numbers.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AphoneNumber%3AUpdateContact%27"><span class="annot"><span class="annottext">UpdateContact -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AphoneNumber%3AUpdateContact%27"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The list of phone numbers for the contact.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AphoneNumbers%3AUpdateContact%27"><span class="annot"><span class="annottext">UpdateContact -&gt; Maybe [PhoneNumber]
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AphoneNumbers%3AUpdateContact%27"><span class="hs-identifier hs-var hs-var">phoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The updated last name of the contact.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AlastName%3AUpdateContact%27"><span class="annot"><span class="annottext">UpdateContact -&gt; Maybe Text
+</span><span id="line-55"></span><span id="local-6989586621679395599"><span id="local-6989586621679395600"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateContact"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-var">UpdateContact</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateContact%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-var">UpdateContact'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated last name of the contact.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AlastName%3AUpdateContact%27"><span class="annot"><span class="annottext">UpdateContact -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AlastName%3AUpdateContact%27"><span class="hs-identifier hs-var hs-var">lastName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The updated first name of the contact.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AfirstName%3AUpdateContact%27"><span class="annot"><span class="annottext">UpdateContact -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AfirstName%3AUpdateContact%27"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The updated display name of the contact.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdisplayName%3AUpdateContact%27"><span class="annot"><span class="annottext">UpdateContact -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AdisplayName%3AUpdateContact%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The list of SIP addresses for the contact.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AsipAddresses%3AUpdateContact%27"><span class="annot"><span class="annottext">UpdateContact -&gt; Maybe [SipAddress]
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The list of phone numbers for the contact.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AphoneNumbers%3AUpdateContact%27"><span class="annot"><span class="annottext">UpdateContact -&gt; Maybe [PhoneNumber]
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AphoneNumbers%3AUpdateContact%27"><span class="hs-identifier hs-var hs-var">phoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The updated phone number of the contact. The phone number type defaults</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- to WORK. You can either specify PhoneNumber or PhoneNumbers. We</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- recommend that you use PhoneNumbers, which lets you specify the phone</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- number type and multiple numbers.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AphoneNumber%3AUpdateContact%27"><span class="annot"><span class="annottext">UpdateContact -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AphoneNumber%3AUpdateContact%27"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The list of SIP addresses for the contact.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AsipAddresses%3AUpdateContact%27"><span class="annot"><span class="annottext">UpdateContact -&gt; Maybe [SipAddress]
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AsipAddresses%3AUpdateContact%27"><span class="hs-identifier hs-var hs-var">sipAddresses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.SipAddress.html#SipAddress"><span class="hs-identifier hs-type">SipAddress</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The updated first name of the contact.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AfirstName%3AUpdateContact%27"><span class="annot"><span class="annottext">UpdateContact -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AfirstName%3AUpdateContact%27"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The updated display name of the contact.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdisplayName%3AUpdateContact%27"><span class="annot"><span class="annottext">UpdateContact -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AdisplayName%3AUpdateContact%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The ARN of the contact to update.</span><span>
 </span><span id="line-72"></span><span>    </span><span id="%24sel%3AcontactArn%3AUpdateContact%27"><span class="annot"><span class="annottext">UpdateContact -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AcontactArn%3AUpdateContact%27"><span class="hs-identifier hs-var hs-var">contactArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395214"><span id="local-6989586621679395216"><span class="annot"><span class="annottext">UpdateContact -&gt; UpdateContact -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395587"><span id="local-6989586621679395589"><span class="annot"><span class="annottext">UpdateContact -&gt; UpdateContact -&gt; Bool
 (UpdateContact -&gt; UpdateContact -&gt; Bool)
 -&gt; (UpdateContact -&gt; UpdateContact -&gt; Bool) -&gt; Eq UpdateContact
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -86,7 +86,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateContact -&gt; UpdateContact -&gt; Bool
 == :: UpdateContact -&gt; UpdateContact -&gt; Bool
 $c== :: UpdateContact -&gt; UpdateContact -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395207"><span id="local-6989586621679395209"><span id="local-6989586621679395211"><span class="annot"><span class="annottext">Int -&gt; UpdateContact -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395580"><span id="local-6989586621679395582"><span id="local-6989586621679395584"><span class="annot"><span class="annottext">Int -&gt; UpdateContact -&gt; ShowS
 [UpdateContact] -&gt; ShowS
 UpdateContact -&gt; String
 (Int -&gt; UpdateContact -&gt; ShowS)
@@ -120,20 +120,20 @@ $cfrom :: forall x. UpdateContact -&gt; Rep UpdateContact x
 </span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'phoneNumber', 'updateContact_phoneNumber' - The updated phone number of the contact. The phone number type defaults</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- to WORK. You can either specify PhoneNumber or PhoneNumbers. We</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- recommend that you use PhoneNumbers, which lets you specify the phone</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- number type and multiple numbers.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'phoneNumbers', 'updateContact_phoneNumbers' - The list of phone numbers for the contact.</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'lastName', 'updateContact_lastName' - The updated last name of the contact.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'lastName', 'updateContact_lastName' - The updated last name of the contact.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'phoneNumbers', 'updateContact_phoneNumbers' - The list of phone numbers for the contact.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'phoneNumber', 'updateContact_phoneNumber' - The updated phone number of the contact. The phone number type defaults</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- to WORK. You can either specify PhoneNumber or PhoneNumbers. We</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- recommend that you use PhoneNumbers, which lets you specify the phone</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- number type and multiple numbers.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'firstName', 'updateContact_firstName' - The updated first name of the contact.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'sipAddresses', 'updateContact_sipAddresses' - The list of SIP addresses for the contact.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'displayName', 'updateContact_displayName' - The updated display name of the contact.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'firstName', 'updateContact_firstName' - The updated first name of the contact.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'sipAddresses', 'updateContact_sipAddresses' - The list of SIP addresses for the contact.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'displayName', 'updateContact_displayName' - The updated display name of the contact.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- 'contactArn', 'updateContact_contactArn' - The ARN of the contact to update.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#newUpdateContact"><span class="hs-identifier hs-type">newUpdateContact</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -141,52 +141,112 @@ $cfrom :: forall x. UpdateContact -&gt; Rep UpdateContact x
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span>
 </span><span id="line-104"></span><span id="newUpdateContact"><span class="annot"><span class="annottext">newUpdateContact :: Text -&gt; UpdateContact
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#newUpdateContact"><span class="hs-identifier hs-var hs-var">newUpdateContact</span></a></span></span><span> </span><span id="local-6989586621679395202"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395202"><span class="hs-identifier hs-var">pContactArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">UpdateContact' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#newUpdateContact"><span class="hs-identifier hs-var hs-var">newUpdateContact</span></a></span></span><span> </span><span id="local-6989586621679395575"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395575"><span class="hs-identifier hs-var">pContactArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">UpdateContact' :: Maybe Text
 -&gt; Maybe [PhoneNumber]
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
 -&gt; Maybe [SipAddress]
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Text
 -&gt; UpdateContact
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:phoneNumber:UpdateContact' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AphoneNumber%3AUpdateContact%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastName:UpdateContact' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AlastName%3AUpdateContact%27"><span class="hs-identifier hs-var">lastName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:phoneNumbers:UpdateContact' :: Maybe [PhoneNumber]
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AphoneNumbers%3AUpdateContact%27"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastName:UpdateContact' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AlastName%3AUpdateContact%27"><span class="hs-identifier hs-var">lastName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:phoneNumber:UpdateContact' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AphoneNumber%3AUpdateContact%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:firstName:UpdateContact' :: Maybe Text
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:sipAddresses:UpdateContact' :: Maybe [SipAddress]
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AsipAddresses%3AUpdateContact%27"><span class="hs-identifier hs-var">sipAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SipAddress]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:firstName:UpdateContact' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AfirstName%3AUpdateContact%27"><span class="hs-identifier hs-var">firstName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:UpdateContact' :: Maybe Text
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:UpdateContact' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AdisplayName%3AUpdateContact%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:sipAddresses:UpdateContact' :: Maybe [SipAddress]
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AsipAddresses%3AUpdateContact%27"><span class="hs-identifier hs-var">sipAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SipAddress]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:contactArn:UpdateContact' :: Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AcontactArn%3AUpdateContact%27"><span class="hs-identifier hs-var">contactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395202"><span class="hs-identifier hs-var">pContactArn_</span></a></span><span>
+</span><a href="#local-6989586621679395575"><span class="hs-identifier hs-var">pContactArn_</span></a></span><span>
 </span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The updated phone number of the contact. The phone number type defaults</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- to WORK. You can either specify PhoneNumber or PhoneNumbers. We</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- recommend that you use PhoneNumbers, which lets you specify the phone</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- number type and multiple numbers.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_phoneNumber"><span class="hs-identifier hs-type">updateContact_phoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="updateContact_phoneNumber"><span class="annot"><span class="annottext">updateContact_phoneNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateContact -&gt; f UpdateContact
+</span><span id="line-115"></span><span class="hs-comment">-- | The updated last name of the contact.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_lastName"><span class="hs-identifier hs-type">updateContact_lastName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="updateContact_lastName"><span class="annot"><span class="annottext">updateContact_lastName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateContact -&gt; f UpdateContact
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_lastName"><span class="hs-identifier hs-var hs-var">updateContact_lastName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContact -&gt; Maybe Text)
+-&gt; (UpdateContact -&gt; Maybe Text -&gt; UpdateContact)
+-&gt; Lens UpdateContact UpdateContact (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395572"><span class="annot"><span class="annottext">Maybe Text
+lastName :: Maybe Text
+$sel:lastName:UpdateContact' :: UpdateContact -&gt; Maybe Text
+</span><a href="#local-6989586621679395572"><span class="hs-identifier hs-var hs-var">lastName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395572"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395571"><span class="annot"><span class="annottext">s :: UpdateContact
+</span><a href="#local-6989586621679395571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395570"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
+</span><a href="#local-6989586621679395571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastName:UpdateContact' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AlastName%3AUpdateContact%27"><span class="hs-identifier hs-var">lastName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The list of phone numbers for the contact.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_phoneNumbers"><span class="hs-identifier hs-type">updateContact_phoneNumbers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="updateContact_phoneNumbers"><span class="annot"><span class="annottext">updateContact_phoneNumbers :: (Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+-&gt; UpdateContact -&gt; f UpdateContact
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_phoneNumbers"><span class="hs-identifier hs-var hs-var">updateContact_phoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContact -&gt; Maybe [PhoneNumber])
+-&gt; (UpdateContact -&gt; Maybe [PhoneNumber] -&gt; UpdateContact)
+-&gt; Lens
+     UpdateContact
+     UpdateContact
+     (Maybe [PhoneNumber])
+     (Maybe [PhoneNumber])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395569"><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+phoneNumbers :: Maybe [PhoneNumber]
+$sel:phoneNumbers:UpdateContact' :: UpdateContact -&gt; Maybe [PhoneNumber]
+</span><a href="#local-6989586621679395569"><span class="hs-identifier hs-var hs-var">phoneNumbers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+</span><a href="#local-6989586621679395569"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395568"><span class="annot"><span class="annottext">s :: UpdateContact
+</span><a href="#local-6989586621679395568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395567"><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+</span><a href="#local-6989586621679395567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
+</span><a href="#local-6989586621679395568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumbers:UpdateContact' :: Maybe [PhoneNumber]
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AphoneNumbers%3AUpdateContact%27"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+</span><a href="#local-6989586621679395567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+ -&gt; UpdateContact -&gt; f UpdateContact)
+-&gt; ((Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+    -&gt; Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+-&gt; (Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
+-&gt; UpdateContact
+-&gt; f UpdateContact
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PhoneNumber] [PhoneNumber] [PhoneNumber] [PhoneNumber]
+-&gt; Iso
+     (Maybe [PhoneNumber])
+     (Maybe [PhoneNumber])
+     (Maybe [PhoneNumber])
+     (Maybe [PhoneNumber])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PhoneNumber] [PhoneNumber] [PhoneNumber] [PhoneNumber]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The updated phone number of the contact. The phone number type defaults</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- to WORK. You can either specify PhoneNumber or PhoneNumbers. We</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- recommend that you use PhoneNumbers, which lets you specify the phone</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- number type and multiple numbers.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_phoneNumber"><span class="hs-identifier hs-type">updateContact_phoneNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="updateContact_phoneNumber"><span class="annot"><span class="annottext">updateContact_phoneNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateContact -&gt; f UpdateContact
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_phoneNumber"><span class="hs-identifier hs-var hs-var">updateContact_phoneNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContact -&gt; Maybe (Sensitive Text))
 -&gt; (UpdateContact -&gt; Maybe (Sensitive Text) -&gt; UpdateContact)
 -&gt; Lens
@@ -195,16 +255,16 @@ forall a. Maybe a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395199"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395563"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 phoneNumber :: Maybe (Sensitive Text)
 $sel:phoneNumber:UpdateContact' :: UpdateContact -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679395199"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679395199"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395198"><span class="annot"><span class="annottext">s :: UpdateContact
-</span><a href="#local-6989586621679395198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395197"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679395197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
-</span><a href="#local-6989586621679395198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:UpdateContact' :: Maybe (Sensitive Text)
+</span><a href="#local-6989586621679395563"><span class="hs-identifier hs-var hs-var">phoneNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679395563"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395562"><span class="annot"><span class="annottext">s :: UpdateContact
+</span><a href="#local-6989586621679395562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395561"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679395561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
+</span><a href="#local-6989586621679395562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumber:UpdateContact' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AphoneNumber%3AUpdateContact%27"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679395197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><a href="#local-6989586621679395561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; UpdateContact -&gt; f UpdateContact)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -224,106 +284,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The list of phone numbers for the contact.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_phoneNumbers"><span class="hs-identifier hs-type">updateContact_phoneNumbers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.PhoneNumber.html#PhoneNumber"><span class="hs-identifier hs-type">PhoneNumber</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="updateContact_phoneNumbers"><span class="annot"><span class="annottext">updateContact_phoneNumbers :: (Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
--&gt; UpdateContact -&gt; f UpdateContact
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_phoneNumbers"><span class="hs-identifier hs-var hs-var">updateContact_phoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContact -&gt; Maybe [PhoneNumber])
--&gt; (UpdateContact -&gt; Maybe [PhoneNumber] -&gt; UpdateContact)
--&gt; Lens
-     UpdateContact
-     UpdateContact
-     (Maybe [PhoneNumber])
-     (Maybe [PhoneNumber])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395193"><span class="annot"><span class="annottext">Maybe [PhoneNumber]
-phoneNumbers :: Maybe [PhoneNumber]
-$sel:phoneNumbers:UpdateContact' :: UpdateContact -&gt; Maybe [PhoneNumber]
-</span><a href="#local-6989586621679395193"><span class="hs-identifier hs-var hs-var">phoneNumbers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
-</span><a href="#local-6989586621679395193"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395192"><span class="annot"><span class="annottext">s :: UpdateContact
-</span><a href="#local-6989586621679395192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395191"><span class="annot"><span class="annottext">Maybe [PhoneNumber]
-</span><a href="#local-6989586621679395191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
-</span><a href="#local-6989586621679395192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumbers:UpdateContact' :: Maybe [PhoneNumber]
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AphoneNumbers%3AUpdateContact%27"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
-</span><a href="#local-6989586621679395191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
- -&gt; UpdateContact -&gt; f UpdateContact)
--&gt; ((Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
-    -&gt; Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
--&gt; (Maybe [PhoneNumber] -&gt; f (Maybe [PhoneNumber]))
--&gt; UpdateContact
--&gt; f UpdateContact
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PhoneNumber] [PhoneNumber] [PhoneNumber] [PhoneNumber]
--&gt; Iso
-     (Maybe [PhoneNumber])
-     (Maybe [PhoneNumber])
-     (Maybe [PhoneNumber])
-     (Maybe [PhoneNumber])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PhoneNumber] [PhoneNumber] [PhoneNumber] [PhoneNumber]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The updated last name of the contact.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_lastName"><span class="hs-identifier hs-type">updateContact_lastName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="updateContact_lastName"><span class="annot"><span class="annottext">updateContact_lastName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateContact -&gt; f UpdateContact
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_lastName"><span class="hs-identifier hs-var hs-var">updateContact_lastName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContact -&gt; Maybe Text)
--&gt; (UpdateContact -&gt; Maybe Text -&gt; UpdateContact)
--&gt; Lens UpdateContact UpdateContact (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395189"><span class="annot"><span class="annottext">Maybe Text
-lastName :: Maybe Text
-$sel:lastName:UpdateContact' :: UpdateContact -&gt; Maybe Text
-</span><a href="#local-6989586621679395189"><span class="hs-identifier hs-var hs-var">lastName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395189"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395188"><span class="annot"><span class="annottext">s :: UpdateContact
-</span><a href="#local-6989586621679395188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395187"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
-</span><a href="#local-6989586621679395188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastName:UpdateContact' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AlastName%3AUpdateContact%27"><span class="hs-identifier hs-var">lastName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The updated first name of the contact.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_firstName"><span class="hs-identifier hs-type">updateContact_firstName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="updateContact_firstName"><span class="annot"><span class="annottext">updateContact_firstName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateContact -&gt; f UpdateContact
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_firstName"><span class="hs-identifier hs-var hs-var">updateContact_firstName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContact -&gt; Maybe Text)
--&gt; (UpdateContact -&gt; Maybe Text -&gt; UpdateContact)
--&gt; Lens UpdateContact UpdateContact (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395186"><span class="annot"><span class="annottext">Maybe Text
-firstName :: Maybe Text
-$sel:firstName:UpdateContact' :: UpdateContact -&gt; Maybe Text
-</span><a href="#local-6989586621679395186"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395186"><span class="hs-identifier hs-var">firstName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395185"><span class="annot"><span class="annottext">s :: UpdateContact
-</span><a href="#local-6989586621679395185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395184"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
-</span><a href="#local-6989586621679395185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firstName:UpdateContact' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AfirstName%3AUpdateContact%27"><span class="hs-identifier hs-var">firstName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The updated display name of the contact.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_displayName"><span class="hs-identifier hs-type">updateContact_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="updateContact_displayName"><span class="annot"><span class="annottext">updateContact_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateContact -&gt; f UpdateContact
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_displayName"><span class="hs-identifier hs-var hs-var">updateContact_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContact -&gt; Maybe Text)
--&gt; (UpdateContact -&gt; Maybe Text -&gt; UpdateContact)
--&gt; Lens UpdateContact UpdateContact (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395183"><span class="annot"><span class="annottext">Maybe Text
-displayName :: Maybe Text
-$sel:displayName:UpdateContact' :: UpdateContact -&gt; Maybe Text
-</span><a href="#local-6989586621679395183"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395183"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395182"><span class="annot"><span class="annottext">s :: UpdateContact
-</span><a href="#local-6989586621679395182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395181"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
-</span><a href="#local-6989586621679395182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:UpdateContact' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AdisplayName%3AUpdateContact%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | The list of SIP addresses for the contact.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_sipAddresses"><span class="hs-identifier hs-type">updateContact_sipAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.SipAddress.html#SipAddress"><span class="hs-identifier hs-type">SipAddress</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="updateContact_sipAddresses"><span class="annot"><span class="annottext">updateContact_sipAddresses :: (Maybe [SipAddress] -&gt; f (Maybe [SipAddress]))
+</span><span id="line-130"></span><span class="hs-comment">-- | The list of SIP addresses for the contact.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_sipAddresses"><span class="hs-identifier hs-type">updateContact_sipAddresses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.SipAddress.html#SipAddress"><span class="hs-identifier hs-type">SipAddress</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="updateContact_sipAddresses"><span class="annot"><span class="annottext">updateContact_sipAddresses :: (Maybe [SipAddress] -&gt; f (Maybe [SipAddress]))
 -&gt; UpdateContact -&gt; f UpdateContact
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_sipAddresses"><span class="hs-identifier hs-var hs-var">updateContact_sipAddresses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContact -&gt; Maybe [SipAddress])
 -&gt; (UpdateContact -&gt; Maybe [SipAddress] -&gt; UpdateContact)
@@ -333,16 +297,16 @@ $sel:displayName:UpdateContact' :: UpdateContact -&gt; Maybe Text
      (Maybe [SipAddress])
      (Maybe [SipAddress])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395180"><span class="annot"><span class="annottext">Maybe [SipAddress]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395559"><span class="annot"><span class="annottext">Maybe [SipAddress]
 sipAddresses :: Maybe [SipAddress]
 $sel:sipAddresses:UpdateContact' :: UpdateContact -&gt; Maybe [SipAddress]
-</span><a href="#local-6989586621679395180"><span class="hs-identifier hs-var hs-var">sipAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SipAddress]
-</span><a href="#local-6989586621679395180"><span class="hs-identifier hs-var">sipAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395179"><span class="annot"><span class="annottext">s :: UpdateContact
-</span><a href="#local-6989586621679395179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395178"><span class="annot"><span class="annottext">Maybe [SipAddress]
-</span><a href="#local-6989586621679395178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
-</span><a href="#local-6989586621679395179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sipAddresses:UpdateContact' :: Maybe [SipAddress]
+</span><a href="#local-6989586621679395559"><span class="hs-identifier hs-var hs-var">sipAddresses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SipAddress]
+</span><a href="#local-6989586621679395559"><span class="hs-identifier hs-var">sipAddresses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395558"><span class="annot"><span class="annottext">s :: UpdateContact
+</span><a href="#local-6989586621679395558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395557"><span class="annot"><span class="annottext">Maybe [SipAddress]
+</span><a href="#local-6989586621679395557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
+</span><a href="#local-6989586621679395558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sipAddresses:UpdateContact' :: Maybe [SipAddress]
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AsipAddresses%3AUpdateContact%27"><span class="hs-identifier hs-var">sipAddresses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SipAddress]
-</span><a href="#local-6989586621679395178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SipAddress] -&gt; f (Maybe [SipAddress]))
+</span><a href="#local-6989586621679395557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SipAddress] -&gt; f (Maybe [SipAddress]))
  -&gt; UpdateContact -&gt; f UpdateContact)
 -&gt; ((Maybe [SipAddress] -&gt; f (Maybe [SipAddress]))
     -&gt; Maybe [SipAddress] -&gt; f (Maybe [SipAddress]))
@@ -360,8 +324,44 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SipAddress] [SipAddress] [SipAddress] [SipAddress]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The updated first name of the contact.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_firstName"><span class="hs-identifier hs-type">updateContact_firstName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="updateContact_firstName"><span class="annot"><span class="annottext">updateContact_firstName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateContact -&gt; f UpdateContact
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_firstName"><span class="hs-identifier hs-var hs-var">updateContact_firstName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContact -&gt; Maybe Text)
+-&gt; (UpdateContact -&gt; Maybe Text -&gt; UpdateContact)
+-&gt; Lens UpdateContact UpdateContact (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395556"><span class="annot"><span class="annottext">Maybe Text
+firstName :: Maybe Text
+$sel:firstName:UpdateContact' :: UpdateContact -&gt; Maybe Text
+</span><a href="#local-6989586621679395556"><span class="hs-identifier hs-var hs-var">firstName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395556"><span class="hs-identifier hs-var">firstName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395555"><span class="annot"><span class="annottext">s :: UpdateContact
+</span><a href="#local-6989586621679395555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395554"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
+</span><a href="#local-6989586621679395555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firstName:UpdateContact' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AfirstName%3AUpdateContact%27"><span class="hs-identifier hs-var">firstName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The updated display name of the contact.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_displayName"><span class="hs-identifier hs-type">updateContact_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="updateContact_displayName"><span class="annot"><span class="annottext">updateContact_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateContact -&gt; f UpdateContact
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_displayName"><span class="hs-identifier hs-var hs-var">updateContact_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContact -&gt; Maybe Text)
+-&gt; (UpdateContact -&gt; Maybe Text -&gt; UpdateContact)
+-&gt; Lens UpdateContact UpdateContact (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395553"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:UpdateContact' :: UpdateContact -&gt; Maybe Text
+</span><a href="#local-6989586621679395553"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395553"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395552"><span class="annot"><span class="annottext">s :: UpdateContact
+</span><a href="#local-6989586621679395552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395551"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
+</span><a href="#local-6989586621679395552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:UpdateContact' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AdisplayName%3AUpdateContact%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | The ARN of the contact to update.</span><span>
 </span><span id="line-143"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContact_contactArn"><span class="hs-identifier hs-type">updateContact_contactArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -370,27 +370,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (UpdateContact -&gt; Text -&gt; UpdateContact)
 -&gt; Lens UpdateContact UpdateContact Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395177"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395550"><span class="annot"><span class="annottext">Text
 contactArn :: Text
 $sel:contactArn:UpdateContact' :: UpdateContact -&gt; Text
-</span><a href="#local-6989586621679395177"><span class="hs-identifier hs-var hs-var">contactArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395177"><span class="hs-identifier hs-var">contactArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395176"><span class="annot"><span class="annottext">s :: UpdateContact
-</span><a href="#local-6989586621679395176"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395175"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395175"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
-</span><a href="#local-6989586621679395176"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactArn:UpdateContact' :: Text
+</span><a href="#local-6989586621679395550"><span class="hs-identifier hs-var hs-var">contactArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395550"><span class="hs-identifier hs-var">contactArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395549"><span class="annot"><span class="annottext">s :: UpdateContact
+</span><a href="#local-6989586621679395549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395548"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContact
+</span><a href="#local-6989586621679395549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactArn:UpdateContact' :: Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AcontactArn%3AUpdateContact%27"><span class="hs-identifier hs-var">contactArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395175"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-148"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse"><span class="hs-identifier hs-type">UpdateContactResponse</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679395171"><span class="annot"><span class="annottext">request :: UpdateContact -&gt; Request UpdateContact
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679395544"><span class="annot"><span class="annottext">request :: UpdateContact -&gt; Request UpdateContact
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateContact -&gt; Request UpdateContact
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679395167"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679395540"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateContact
 -&gt; ClientResponse ClientBody
@@ -414,10 +414,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395164"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395164"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395163"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679395163"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395162"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679395162"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395537"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395537"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395536"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679395536"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395535"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679395535"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateContactResponse
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse%27"><span class="hs-identifier hs-var">UpdateContactResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateContactResponse)
@@ -428,15 +428,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395164"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395537"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395155"><span id="local-6989586621679395157"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395528"><span id="local-6989586621679395530"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395152"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395525"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span></span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679395148"><span class="annot"><span class="annottext">toHeaders :: UpdateContact -&gt; ResponseHeaders
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679395521"><span class="annot"><span class="annottext">toHeaders :: UpdateContact -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateContact -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -463,94 +463,94 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-174"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
-</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395138"><span id="local-6989586621679395140"><span id="local-6989586621679395142"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679395136"><span class="annot"><span class="annottext">toJSON :: UpdateContact -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395128"><span id="local-6989586621679395129"><span id="local-6989586621679395130"><span id="local-6989586621679395131"><span id="local-6989586621679395132"><span id="local-6989586621679395133"><span id="local-6989586621679395134"><span class="annot"><span class="annottext">Maybe [PhoneNumber]
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395511"><span id="local-6989586621679395513"><span id="local-6989586621679395515"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679395509"><span class="annot"><span class="annottext">toJSON :: UpdateContact -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact%27"><span class="hs-identifier hs-type">UpdateContact'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395501"><span id="local-6989586621679395502"><span id="local-6989586621679395503"><span id="local-6989586621679395504"><span id="local-6989586621679395505"><span id="local-6989586621679395506"><span id="local-6989586621679395507"><span class="annot"><span class="annottext">Maybe [PhoneNumber]
 Maybe [SipAddress]
 Maybe Text
 Maybe (Sensitive Text)
 Text
 contactArn :: Text
-sipAddresses :: Maybe [SipAddress]
 displayName :: Maybe Text
 firstName :: Maybe Text
-lastName :: Maybe Text
-phoneNumbers :: Maybe [PhoneNumber]
+sipAddresses :: Maybe [SipAddress]
 phoneNumber :: Maybe (Sensitive Text)
+phoneNumbers :: Maybe [PhoneNumber]
+lastName :: Maybe Text
 $sel:contactArn:UpdateContact' :: UpdateContact -&gt; Text
-$sel:sipAddresses:UpdateContact' :: UpdateContact -&gt; Maybe [SipAddress]
 $sel:displayName:UpdateContact' :: UpdateContact -&gt; Maybe Text
 $sel:firstName:UpdateContact' :: UpdateContact -&gt; Maybe Text
-$sel:lastName:UpdateContact' :: UpdateContact -&gt; Maybe Text
-$sel:phoneNumbers:UpdateContact' :: UpdateContact -&gt; Maybe [PhoneNumber]
+$sel:sipAddresses:UpdateContact' :: UpdateContact -&gt; Maybe [SipAddress]
 $sel:phoneNumber:UpdateContact' :: UpdateContact -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679395128"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:phoneNumbers:UpdateContact' :: UpdateContact -&gt; Maybe [PhoneNumber]
+$sel:lastName:UpdateContact' :: UpdateContact -&gt; Maybe Text
+</span><a href="#local-6989586621679395501"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-181"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+</span><span class="hs-string">&quot;LastName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679395134"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395507"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PhoneNumbers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PhoneNumber] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([PhoneNumber] -&gt; Pair) -&gt; Maybe [PhoneNumber] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PhoneNumber]
-</span><a href="#local-6989586621679395133"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679395506"><span class="hs-identifier hs-var">phoneNumbers</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;PhoneNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395132"><span class="hs-identifier hs-var">lastName</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679395505"><span class="hs-identifier hs-var">phoneNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FirstName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395131"><span class="hs-identifier hs-var">firstName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679395130"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SipAddresses&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [SipAddress] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([SipAddress] -&gt; Pair) -&gt; Maybe [SipAddress] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SipAddress]
-</span><a href="#local-6989586621679395129"><span class="hs-identifier hs-var">sipAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679395504"><span class="hs-identifier hs-var">sipAddresses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirstName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395503"><span class="hs-identifier hs-var">firstName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395502"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-187"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContactArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679395128"><span class="hs-identifier hs-var">contactArn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395501"><span class="hs-identifier hs-var">contactArn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-189"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679395122"><span class="annot"><span class="annottext">toPath :: UpdateContact -&gt; ByteString
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679395495"><span class="annot"><span class="annottext">toPath :: UpdateContact -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateContact -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContact"><span class="hs-identifier hs-type">UpdateContact</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679395118"><span class="annot"><span class="annottext">toQuery :: UpdateContact -&gt; QueryString
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679395491"><span class="annot"><span class="annottext">toQuery :: UpdateContact -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateContact -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -558,12 +558,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-comment">-- | /See:/ 'newUpdateContactResponse' smart constructor.</span><span>
-</span><span id="line-198"></span><span id="local-6989586621679395115"><span id="local-6989586621679395116"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateContactResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse"><span class="hs-identifier hs-var">UpdateContactResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateContactResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse%27"><span class="hs-identifier hs-var">UpdateContactResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span id="local-6989586621679395488"><span id="local-6989586621679395489"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateContactResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse"><span class="hs-identifier hs-var">UpdateContactResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateContactResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse%27"><span class="hs-identifier hs-var">UpdateContactResponse'</span></a></span></span><span>
 </span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-200"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateContactResponse%27"><span class="annot"><span class="annottext">UpdateContactResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AhttpStatus%3AUpdateContactResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395110"><span id="local-6989586621679395112"><span class="annot"><span class="annottext">UpdateContactResponse -&gt; UpdateContactResponse -&gt; Bool
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395483"><span id="local-6989586621679395485"><span class="annot"><span class="annottext">UpdateContactResponse -&gt; UpdateContactResponse -&gt; Bool
 (UpdateContactResponse -&gt; UpdateContactResponse -&gt; Bool)
 -&gt; (UpdateContactResponse -&gt; UpdateContactResponse -&gt; Bool)
 -&gt; Eq UpdateContactResponse
@@ -572,7 +572,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateContactResponse -&gt; UpdateContactResponse -&gt; Bool
 == :: UpdateContactResponse -&gt; UpdateContactResponse -&gt; Bool
 $c== :: UpdateContactResponse -&gt; UpdateContactResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395102"><span id="local-6989586621679395104"><span id="local-6989586621679395106"><span id="local-6989586621679395108"><span class="annot"><span class="annottext">ReadPrec [UpdateContactResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395475"><span id="local-6989586621679395477"><span id="local-6989586621679395479"><span id="local-6989586621679395481"><span class="annot"><span class="annottext">ReadPrec [UpdateContactResponse]
 ReadPrec UpdateContactResponse
 Int -&gt; ReadS UpdateContactResponse
 ReadS [UpdateContactResponse]
@@ -592,7 +592,7 @@ readList :: ReadS [UpdateContactResponse]
 $creadList :: ReadS [UpdateContactResponse]
 readsPrec :: Int -&gt; ReadS UpdateContactResponse
 $creadsPrec :: Int -&gt; ReadS UpdateContactResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395095"><span id="local-6989586621679395097"><span id="local-6989586621679395099"><span class="annot"><span class="annottext">Int -&gt; UpdateContactResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395468"><span id="local-6989586621679395470"><span id="local-6989586621679395472"><span class="annot"><span class="annottext">Int -&gt; UpdateContactResponse -&gt; ShowS
 [UpdateContactResponse] -&gt; ShowS
 UpdateContactResponse -&gt; String
 (Int -&gt; UpdateContactResponse -&gt; ShowS)
@@ -632,12 +632,12 @@ $cfrom :: forall x. UpdateContactResponse -&gt; Rep UpdateContactResponse x
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-216"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse"><span class="hs-identifier hs-type">UpdateContactResponse</span></a></span><span>
 </span><span id="line-217"></span><span id="newUpdateContactResponse"><span class="annot"><span class="annottext">newUpdateContactResponse :: Int -&gt; UpdateContactResponse
-</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#newUpdateContactResponse"><span class="hs-identifier hs-var hs-var">newUpdateContactResponse</span></a></span></span><span> </span><span id="local-6989586621679395092"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395092"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#newUpdateContactResponse"><span class="hs-identifier hs-var hs-var">newUpdateContactResponse</span></a></span></span><span> </span><span id="local-6989586621679395465"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395465"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-218"></span><span>  </span><span class="annot"><span class="annottext">UpdateContactResponse' :: Int -&gt; UpdateContactResponse
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse%27"><span class="hs-identifier hs-type">UpdateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateContactResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AhttpStatus%3AUpdateContactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395092"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679395465"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-221"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#updateContactResponse_httpStatus"><span class="hs-identifier hs-type">updateContactResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse"><span class="hs-identifier hs-type">UpdateContactResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -646,16 +646,16 @@ $cfrom :: forall x. UpdateContactResponse -&gt; Rep UpdateContactResponse x
 -&gt; (UpdateContactResponse -&gt; Int -&gt; UpdateContactResponse)
 -&gt; Lens UpdateContactResponse UpdateContactResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse%27"><span class="hs-identifier hs-type">UpdateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395091"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse%27"><span class="hs-identifier hs-type">UpdateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395464"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateContactResponse' :: UpdateContactResponse -&gt; Int
-</span><a href="#local-6989586621679395091"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395091"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395090"><span class="annot"><span class="annottext">s :: UpdateContactResponse
-</span><a href="#local-6989586621679395090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse%27"><span class="hs-identifier hs-type">UpdateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395089"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContactResponse
-</span><a href="#local-6989586621679395090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateContactResponse' :: Int
+</span><a href="#local-6989586621679395464"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395464"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395463"><span class="annot"><span class="annottext">s :: UpdateContactResponse
+</span><a href="#local-6989586621679395463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse%27"><span class="hs-identifier hs-type">UpdateContactResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395462"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContactResponse
+</span><a href="#local-6989586621679395463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateContactResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateContact.html#%24sel%3AhttpStatus%3AUpdateContactResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679395089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse"><span class="hs-identifier hs-type">UpdateContactResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679395462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse"><span class="hs-identifier hs-type">UpdateContactResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395087"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse"><span class="hs-identifier hs-type">UpdateContactResponse</span></a></span></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395460"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateContact.html#UpdateContactResponse"><span class="hs-identifier hs-type">UpdateContactResponse</span></a></span></span><span>
 </span><span id="line-225"></span></pre></body></html>

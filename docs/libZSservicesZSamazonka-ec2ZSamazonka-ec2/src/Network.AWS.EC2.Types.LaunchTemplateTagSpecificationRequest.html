@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | The tags specification for the launch template.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newLaunchTemplateTagSpecificationRequest' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681125486"><span id="local-6989586621681125487"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateTagSpecificationRequest"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest"><span class="hs-identifier hs-var">LaunchTemplateTagSpecificationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateTagSpecificationRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-var">LaunchTemplateTagSpecificationRequest'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681160365"><span id="local-6989586621681160366"></span></span><span class="hs-keyword">data</span><span> </span><span id="LaunchTemplateTagSpecificationRequest"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest"><span class="hs-identifier hs-var">LaunchTemplateTagSpecificationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LaunchTemplateTagSpecificationRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-var">LaunchTemplateTagSpecificationRequest'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of resource to tag. Currently, the resource types that support</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- tagging on creation are @instance@ and @volume@. To tag a resource after</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- it has been created, see</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Atags%3ALaunchTemplateTagSpecificationRequest%27"><span class="annot"><span class="annottext">LaunchTemplateTagSpecificationRequest -&gt; Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#%24sel%3Atags%3ALaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681125479"><span id="local-6989586621681125481"><span class="annot"><span class="annottext">LaunchTemplateTagSpecificationRequest
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681160358"><span id="local-6989586621681160360"><span class="annot"><span class="annottext">LaunchTemplateTagSpecificationRequest
 -&gt; LaunchTemplateTagSpecificationRequest -&gt; Bool
 (LaunchTemplateTagSpecificationRequest
  -&gt; LaunchTemplateTagSpecificationRequest -&gt; Bool)
@@ -56,7 +56,7 @@ $c/= :: LaunchTemplateTagSpecificationRequest
 -&gt; LaunchTemplateTagSpecificationRequest -&gt; Bool
 $c== :: LaunchTemplateTagSpecificationRequest
 -&gt; LaunchTemplateTagSpecificationRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681125470"><span id="local-6989586621681125472"><span id="local-6989586621681125474"><span id="local-6989586621681125476"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateTagSpecificationRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681160349"><span id="local-6989586621681160351"><span id="local-6989586621681160353"><span id="local-6989586621681160355"><span class="annot"><span class="annottext">ReadPrec [LaunchTemplateTagSpecificationRequest]
 ReadPrec LaunchTemplateTagSpecificationRequest
 Int -&gt; ReadS LaunchTemplateTagSpecificationRequest
 ReadS [LaunchTemplateTagSpecificationRequest]
@@ -76,7 +76,7 @@ readList :: ReadS [LaunchTemplateTagSpecificationRequest]
 $creadList :: ReadS [LaunchTemplateTagSpecificationRequest]
 readsPrec :: Int -&gt; ReadS LaunchTemplateTagSpecificationRequest
 $creadsPrec :: Int -&gt; ReadS LaunchTemplateTagSpecificationRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681125463"><span id="local-6989586621681125465"><span id="local-6989586621681125467"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateTagSpecificationRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681160342"><span id="local-6989586621681160344"><span id="local-6989586621681160346"><span class="annot"><span class="annottext">Int -&gt; LaunchTemplateTagSpecificationRequest -&gt; ShowS
 [LaunchTemplateTagSpecificationRequest] -&gt; ShowS
 LaunchTemplateTagSpecificationRequest -&gt; String
 (Int -&gt; LaunchTemplateTagSpecificationRequest -&gt; ShowS)
@@ -163,16 +163,16 @@ forall a. Maybe a
      (Maybe ResourceType)
      (Maybe ResourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125454"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160333"><span class="annot"><span class="annottext">Maybe ResourceType
 resourceType :: Maybe ResourceType
 $sel:resourceType:LaunchTemplateTagSpecificationRequest' :: LaunchTemplateTagSpecificationRequest -&gt; Maybe ResourceType
-</span><a href="#local-6989586621681125454"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621681125454"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125453"><span class="annot"><span class="annottext">s :: LaunchTemplateTagSpecificationRequest
-</span><a href="#local-6989586621681125453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125452"><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621681125452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateTagSpecificationRequest
-</span><a href="#local-6989586621681125453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:LaunchTemplateTagSpecificationRequest' :: Maybe ResourceType
+</span><a href="#local-6989586621681160333"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621681160333"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160332"><span class="annot"><span class="annottext">s :: LaunchTemplateTagSpecificationRequest
+</span><a href="#local-6989586621681160332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160331"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621681160331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateTagSpecificationRequest
+</span><a href="#local-6989586621681160332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:LaunchTemplateTagSpecificationRequest' :: Maybe ResourceType
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#%24sel%3AresourceType%3ALaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621681125452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681160331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The tags to apply to the resource.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#launchTemplateTagSpecificationRequest_tags"><span class="hs-identifier hs-type">launchTemplateTagSpecificationRequest_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -188,16 +188,16 @@ $sel:resourceType:LaunchTemplateTagSpecificationRequest' :: LaunchTemplateTagSpe
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125450"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160329"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:LaunchTemplateTagSpecificationRequest' :: LaunchTemplateTagSpecificationRequest -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681125450"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681125450"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681125449"><span class="annot"><span class="annottext">s :: LaunchTemplateTagSpecificationRequest
-</span><a href="#local-6989586621681125449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681125448"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681125448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateTagSpecificationRequest
-</span><a href="#local-6989586621681125449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:LaunchTemplateTagSpecificationRequest' :: Maybe [Tag]
+</span><a href="#local-6989586621681160329"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681160329"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681160328"><span class="annot"><span class="annottext">s :: LaunchTemplateTagSpecificationRequest
+</span><a href="#local-6989586621681160328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681160327"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681160327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LaunchTemplateTagSpecificationRequest
+</span><a href="#local-6989586621681160328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:LaunchTemplateTagSpecificationRequest' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#%24sel%3Atags%3ALaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681125448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681160327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; LaunchTemplateTagSpecificationRequest
  -&gt; f LaunchTemplateTagSpecificationRequest)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -212,29 +212,29 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621681125441"><span id="local-6989586621681125443"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621681160320"><span id="local-6989586621681160322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621681125438"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621681160317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest</span></a></span></span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest</span></a></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621681125434"><span class="annot"><span class="annottext">toQuery :: LaunchTemplateTagSpecificationRequest -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681125431"><span id="local-6989586621681125432"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621681160313"><span class="annot"><span class="annottext">toQuery :: LaunchTemplateTagSpecificationRequest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest.html#LaunchTemplateTagSpecificationRequest%27"><span class="hs-identifier hs-type">LaunchTemplateTagSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681160310"><span id="local-6989586621681160311"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe ResourceType
 tags :: Maybe [Tag]
 resourceType :: Maybe ResourceType
 $sel:tags:LaunchTemplateTagSpecificationRequest' :: LaunchTemplateTagSpecificationRequest -&gt; Maybe [Tag]
 $sel:resourceType:LaunchTemplateTagSpecificationRequest' :: LaunchTemplateTagSpecificationRequest -&gt; Maybe ResourceType
-</span><a href="#local-6989586621681125431"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681160310"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -242,7 +242,7 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ResourceType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621681125432"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681160311"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -254,6 +254,6 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; QueryString) -&gt; Maybe [Tag] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681125431"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681160310"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span></pre></body></html>

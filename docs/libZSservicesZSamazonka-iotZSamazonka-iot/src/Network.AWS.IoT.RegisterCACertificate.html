@@ -38,10 +38,10 @@
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#newRegisterCACertificate"><span class="hs-identifier">newRegisterCACertificate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_allowAutoRegistration"><span class="hs-identifier">registerCACertificate_allowAutoRegistration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_setAsActive"><span class="hs-identifier">registerCACertificate_setAsActive</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_tags"><span class="hs-identifier">registerCACertificate_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_registrationConfig"><span class="hs-identifier">registerCACertificate_registrationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_setAsActive"><span class="hs-identifier">registerCACertificate_setAsActive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_allowAutoRegistration"><span class="hs-identifier">registerCACertificate_allowAutoRegistration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_registrationConfig"><span class="hs-identifier">registerCACertificate_registrationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_tags"><span class="hs-identifier">registerCACertificate_tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_caCertificate"><span class="hs-identifier">registerCACertificate_caCertificate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_verificationCertificate"><span class="hs-identifier">registerCACertificate_verificationCertificate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>
@@ -66,28 +66,28 @@
 </span><span id="line-66"></span><span class="hs-comment">-- | The input to the RegisterCACertificate operation.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- /See:/ 'newRegisterCACertificate' smart constructor.</span><span>
-</span><span id="line-69"></span><span id="local-6989586621679814822"><span id="local-6989586621679814823"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterCACertificate"><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-var">RegisterCACertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterCACertificate%27"><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-var">RegisterCACertificate'</span></a></span></span><span>
-</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Allows this CA certificate to be used for auto registration of device</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- certificates.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AallowAutoRegistration%3ARegisterCACertificate%27"><span class="annot"><span class="annottext">RegisterCACertificate -&gt; Maybe Bool
-</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AallowAutoRegistration%3ARegisterCACertificate%27"><span class="hs-identifier hs-var hs-var">allowAutoRegistration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | A boolean value that specifies if the CA certificate is set to active.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3AsetAsActive%3ARegisterCACertificate%27"><span class="annot"><span class="annottext">RegisterCACertificate -&gt; Maybe Bool
+</span><span id="line-69"></span><span id="local-6989586621679815732"><span id="local-6989586621679815733"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterCACertificate"><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-var">RegisterCACertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterCACertificate%27"><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-var">RegisterCACertificate'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A boolean value that specifies if the CA certificate is set to active.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AsetAsActive%3ARegisterCACertificate%27"><span class="annot"><span class="annottext">RegisterCACertificate -&gt; Maybe Bool
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AsetAsActive%3ARegisterCACertificate%27"><span class="hs-identifier hs-var hs-var">setAsActive</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Metadata which can be used to manage the CA certificate.</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- For URI Request parameters use format: ...key1=value1&amp;key2=value2...</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- For the CLI command-line parameter use format: &amp;&amp;tags</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- \&quot;key1=value1&amp;key2=value2...\&quot;</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- For the cli-input-json file use format: \&quot;tags\&quot;:</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- \&quot;key1=value1&amp;key2=value2...\&quot;</span><span>
-</span><span id="line-84"></span><span>    </span><span id="%24sel%3Atags%3ARegisterCACertificate%27"><span class="annot"><span class="annottext">RegisterCACertificate -&gt; Maybe [Tag]
-</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3Atags%3ARegisterCACertificate%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Information about the registration configuration.</span><span>
-</span><span id="line-86"></span><span>    </span><span id="%24sel%3AregistrationConfig%3ARegisterCACertificate%27"><span class="annot"><span class="annottext">RegisterCACertificate -&gt; Maybe RegistrationConfig
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Allows this CA certificate to be used for auto registration of device</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- certificates.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AallowAutoRegistration%3ARegisterCACertificate%27"><span class="annot"><span class="annottext">RegisterCACertificate -&gt; Maybe Bool
+</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AallowAutoRegistration%3ARegisterCACertificate%27"><span class="hs-identifier hs-var hs-var">allowAutoRegistration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Information about the registration configuration.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AregistrationConfig%3ARegisterCACertificate%27"><span class="annot"><span class="annottext">RegisterCACertificate -&gt; Maybe RegistrationConfig
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AregistrationConfig%3ARegisterCACertificate%27"><span class="hs-identifier hs-var hs-var">registrationConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Metadata which can be used to manage the CA certificate.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- For URI Request parameters use format: ...key1=value1&amp;key2=value2...</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- For the CLI command-line parameter use format: &amp;&amp;tags</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- \&quot;key1=value1&amp;key2=value2...\&quot;</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- For the cli-input-json file use format: \&quot;tags\&quot;:</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- \&quot;key1=value1&amp;key2=value2...\&quot;</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Atags%3ARegisterCACertificate%27"><span class="annot"><span class="annottext">RegisterCACertificate -&gt; Maybe [Tag]
+</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3Atags%3ARegisterCACertificate%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The CA certificate.</span><span>
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AcaCertificate%3ARegisterCACertificate%27"><span class="annot"><span class="annottext">RegisterCACertificate -&gt; Text
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AcaCertificate%3ARegisterCACertificate%27"><span class="hs-identifier hs-var hs-var">caCertificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -95,7 +95,7 @@
 </span><span id="line-90"></span><span>    </span><span id="%24sel%3AverificationCertificate%3ARegisterCACertificate%27"><span class="annot"><span class="annottext">RegisterCACertificate -&gt; Text
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AverificationCertificate%3ARegisterCACertificate%27"><span class="hs-identifier hs-var hs-var">verificationCertificate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814811"><span id="local-6989586621679814813"><span class="annot"><span class="annottext">RegisterCACertificate -&gt; RegisterCACertificate -&gt; Bool
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679815721"><span id="local-6989586621679815723"><span class="annot"><span class="annottext">RegisterCACertificate -&gt; RegisterCACertificate -&gt; Bool
 (RegisterCACertificate -&gt; RegisterCACertificate -&gt; Bool)
 -&gt; (RegisterCACertificate -&gt; RegisterCACertificate -&gt; Bool)
 -&gt; Eq RegisterCACertificate
@@ -104,7 +104,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterCACertificate -&gt; RegisterCACertificate -&gt; Bool
 == :: RegisterCACertificate -&gt; RegisterCACertificate -&gt; Bool
 $c== :: RegisterCACertificate -&gt; RegisterCACertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814802"><span id="local-6989586621679814804"><span id="local-6989586621679814806"><span id="local-6989586621679814808"><span class="annot"><span class="annottext">ReadPrec [RegisterCACertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815712"><span id="local-6989586621679815714"><span id="local-6989586621679815716"><span id="local-6989586621679815718"><span class="annot"><span class="annottext">ReadPrec [RegisterCACertificate]
 ReadPrec RegisterCACertificate
 Int -&gt; ReadS RegisterCACertificate
 ReadS [RegisterCACertificate]
@@ -124,7 +124,7 @@ readList :: ReadS [RegisterCACertificate]
 $creadList :: ReadS [RegisterCACertificate]
 readsPrec :: Int -&gt; ReadS RegisterCACertificate
 $creadsPrec :: Int -&gt; ReadS RegisterCACertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814795"><span id="local-6989586621679814797"><span id="local-6989586621679814799"><span class="annot"><span class="annottext">Int -&gt; RegisterCACertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815705"><span id="local-6989586621679815707"><span id="local-6989586621679815709"><span class="annot"><span class="annottext">Int -&gt; RegisterCACertificate -&gt; ShowS
 [RegisterCACertificate] -&gt; ShowS
 RegisterCACertificate -&gt; String
 (Int -&gt; RegisterCACertificate -&gt; ShowS)
@@ -158,22 +158,22 @@ $cfrom :: forall x. RegisterCACertificate -&gt; Rep RegisterCACertificate x
 </span><span id="line-99"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'allowAutoRegistration', 'registerCACertificate_allowAutoRegistration' - Allows this CA certificate to be used for auto registration of device</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- certificates.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'setAsActive', 'registerCACertificate_setAsActive' - A boolean value that specifies if the CA certificate is set to active.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'setAsActive', 'registerCACertificate_setAsActive' - A boolean value that specifies if the CA certificate is set to active.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'allowAutoRegistration', 'registerCACertificate_allowAutoRegistration' - Allows this CA certificate to be used for auto registration of device</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- certificates.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'tags', 'registerCACertificate_tags' - Metadata which can be used to manage the CA certificate.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'registrationConfig', 'registerCACertificate_registrationConfig' - Information about the registration configuration.</span><span>
 </span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- For URI Request parameters use format: ...key1=value1&amp;key2=value2...</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'tags', 'registerCACertificate_tags' - Metadata which can be used to manage the CA certificate.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- For the CLI command-line parameter use format: &amp;&amp;tags</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- \&quot;key1=value1&amp;key2=value2...\&quot;</span><span>
-</span><span id="line-113"></span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- For the cli-input-json file use format: \&quot;tags\&quot;:</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- \&quot;key1=value1&amp;key2=value2...\&quot;</span><span>
-</span><span id="line-116"></span><span class="hs-comment">--</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- 'registrationConfig', 'registerCACertificate_registrationConfig' - Information about the registration configuration.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- For URI Request parameters use format: ...key1=value1&amp;key2=value2...</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- For the CLI command-line parameter use format: &amp;&amp;tags</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- \&quot;key1=value1&amp;key2=value2...\&quot;</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- For the cli-input-json file use format: \&quot;tags\&quot;:</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- \&quot;key1=value1&amp;key2=value2...\&quot;</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- 'caCertificate', 'registerCACertificate_caCertificate' - The CA certificate.</span><span>
 </span><span id="line-120"></span><span class="hs-comment">--</span><span>
@@ -186,70 +186,46 @@ $cfrom :: forall x. RegisterCACertificate -&gt; Rep RegisterCACertificate x
 </span><span id="line-127"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span>
 </span><span id="line-128"></span><span id="newRegisterCACertificate"><span class="annot"><span class="annottext">newRegisterCACertificate :: Text -&gt; Text -&gt; RegisterCACertificate
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#newRegisterCACertificate"><span class="hs-identifier hs-var hs-var">newRegisterCACertificate</span></a></span></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679814790"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814790"><span class="hs-identifier hs-var">pCaCertificate_</span></a></span></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679814789"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814789"><span class="hs-identifier hs-var">pVerificationCertificate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679815700"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679815700"><span class="hs-identifier hs-var">pCaCertificate_</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679815699"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679815699"><span class="hs-identifier hs-var">pVerificationCertificate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">RegisterCACertificate' :: Maybe Bool
 -&gt; Maybe Bool
--&gt; Maybe [Tag]
 -&gt; Maybe RegistrationConfig
+-&gt; Maybe [Tag]
 -&gt; Text
 -&gt; Text
 -&gt; RegisterCACertificate
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allowAutoRegistration:RegisterCACertificate' :: Maybe Bool
-</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AallowAutoRegistration%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">allowAutoRegistration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:setAsActive:RegisterCACertificate' :: Maybe Bool
+</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AsetAsActive%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">setAsActive</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:setAsActive:RegisterCACertificate' :: Maybe Bool
-</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AsetAsActive%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">setAsActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:allowAutoRegistration:RegisterCACertificate' :: Maybe Bool
+</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AallowAutoRegistration%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">allowAutoRegistration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:RegisterCACertificate' :: Maybe [Tag]
-</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3Atags%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:registrationConfig:RegisterCACertificate' :: Maybe RegistrationConfig
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:registrationConfig:RegisterCACertificate' :: Maybe RegistrationConfig
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AregistrationConfig%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">registrationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:RegisterCACertificate' :: Maybe [Tag]
+</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3Atags%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:caCertificate:RegisterCACertificate' :: Text
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AcaCertificate%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">caCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814790"><span class="hs-identifier hs-var">pCaCertificate_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679815700"><span class="hs-identifier hs-var">pCaCertificate_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:verificationCertificate:RegisterCACertificate' :: Text
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AverificationCertificate%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">verificationCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814789"><span class="hs-identifier hs-var">pVerificationCertificate_</span></a></span><span>
+</span><a href="#local-6989586621679815699"><span class="hs-identifier hs-var">pVerificationCertificate_</span></a></span><span>
 </span><span id="line-139"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | Allows this CA certificate to be used for auto registration of device</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- certificates.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_allowAutoRegistration"><span class="hs-identifier hs-type">registerCACertificate_allowAutoRegistration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="registerCACertificate_allowAutoRegistration"><span class="annot"><span class="annottext">registerCACertificate_allowAutoRegistration :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; RegisterCACertificate -&gt; f RegisterCACertificate
-</span><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_allowAutoRegistration"><span class="hs-identifier hs-var hs-var">registerCACertificate_allowAutoRegistration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterCACertificate -&gt; Maybe Bool)
--&gt; (RegisterCACertificate -&gt; Maybe Bool -&gt; RegisterCACertificate)
--&gt; Lens
-     RegisterCACertificate
-     RegisterCACertificate
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814786"><span class="annot"><span class="annottext">Maybe Bool
-allowAutoRegistration :: Maybe Bool
-$sel:allowAutoRegistration:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe Bool
-</span><a href="#local-6989586621679814786"><span class="hs-identifier hs-var hs-var">allowAutoRegistration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679814786"><span class="hs-identifier hs-var">allowAutoRegistration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814785"><span class="annot"><span class="annottext">s :: RegisterCACertificate
-</span><a href="#local-6989586621679814785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814784"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679814784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificate
-</span><a href="#local-6989586621679814785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowAutoRegistration:RegisterCACertificate' :: Maybe Bool
-</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AallowAutoRegistration%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">allowAutoRegistration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679814784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | A boolean value that specifies if the CA certificate is set to active.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_setAsActive"><span class="hs-identifier hs-type">registerCACertificate_setAsActive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="registerCACertificate_setAsActive"><span class="annot"><span class="annottext">registerCACertificate_setAsActive :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-141"></span><span class="hs-comment">-- | A boolean value that specifies if the CA certificate is set to active.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_setAsActive"><span class="hs-identifier hs-type">registerCACertificate_setAsActive</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="registerCACertificate_setAsActive"><span class="annot"><span class="annottext">registerCACertificate_setAsActive :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; RegisterCACertificate -&gt; f RegisterCACertificate
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_setAsActive"><span class="hs-identifier hs-var hs-var">registerCACertificate_setAsActive</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterCACertificate -&gt; Maybe Bool)
 -&gt; (RegisterCACertificate -&gt; Maybe Bool -&gt; RegisterCACertificate)
@@ -259,28 +235,76 @@ $sel:allowAutoRegistration:RegisterCACertificate' :: RegisterCACertificate -&gt;
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814783"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815696"><span class="annot"><span class="annottext">Maybe Bool
 setAsActive :: Maybe Bool
 $sel:setAsActive:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe Bool
-</span><a href="#local-6989586621679814783"><span class="hs-identifier hs-var hs-var">setAsActive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679814783"><span class="hs-identifier hs-var">setAsActive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814782"><span class="annot"><span class="annottext">s :: RegisterCACertificate
-</span><a href="#local-6989586621679814782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814781"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679814781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificate
-</span><a href="#local-6989586621679814782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:setAsActive:RegisterCACertificate' :: Maybe Bool
+</span><a href="#local-6989586621679815696"><span class="hs-identifier hs-var hs-var">setAsActive</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679815696"><span class="hs-identifier hs-var">setAsActive</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815695"><span class="annot"><span class="annottext">s :: RegisterCACertificate
+</span><a href="#local-6989586621679815695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815694"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679815694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificate
+</span><a href="#local-6989586621679815695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:setAsActive:RegisterCACertificate' :: Maybe Bool
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AsetAsActive%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">setAsActive</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679814781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | Allows this CA certificate to be used for auto registration of device</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- certificates.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_allowAutoRegistration"><span class="hs-identifier hs-type">registerCACertificate_allowAutoRegistration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="registerCACertificate_allowAutoRegistration"><span class="annot"><span class="annottext">registerCACertificate_allowAutoRegistration :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; RegisterCACertificate -&gt; f RegisterCACertificate
+</span><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_allowAutoRegistration"><span class="hs-identifier hs-var hs-var">registerCACertificate_allowAutoRegistration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterCACertificate -&gt; Maybe Bool)
+-&gt; (RegisterCACertificate -&gt; Maybe Bool -&gt; RegisterCACertificate)
+-&gt; Lens
+     RegisterCACertificate
+     RegisterCACertificate
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815693"><span class="annot"><span class="annottext">Maybe Bool
+allowAutoRegistration :: Maybe Bool
+$sel:allowAutoRegistration:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe Bool
+</span><a href="#local-6989586621679815693"><span class="hs-identifier hs-var hs-var">allowAutoRegistration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679815693"><span class="hs-identifier hs-var">allowAutoRegistration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815692"><span class="annot"><span class="annottext">s :: RegisterCACertificate
+</span><a href="#local-6989586621679815692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815691"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679815691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificate
+</span><a href="#local-6989586621679815692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowAutoRegistration:RegisterCACertificate' :: Maybe Bool
+</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AallowAutoRegistration%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">allowAutoRegistration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679815691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | Metadata which can be used to manage the CA certificate.</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- For URI Request parameters use format: ...key1=value1&amp;key2=value2...</span><span>
-</span><span id="line-153"></span><span class="hs-comment">--</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- For the CLI command-line parameter use format: &amp;&amp;tags</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- \&quot;key1=value1&amp;key2=value2...\&quot;</span><span>
-</span><span id="line-156"></span><span class="hs-comment">--</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- For the cli-input-json file use format: \&quot;tags\&quot;:</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- \&quot;key1=value1&amp;key2=value2...\&quot;</span><span>
-</span><span id="line-159"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_tags"><span class="hs-identifier hs-type">registerCACertificate_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span id="registerCACertificate_tags"><span class="annot"><span class="annottext">registerCACertificate_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><span id="line-150"></span><span class="hs-comment">-- | Information about the registration configuration.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_registrationConfig"><span class="hs-identifier hs-type">registerCACertificate_registrationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="registerCACertificate_registrationConfig"><span class="annot"><span class="annottext">registerCACertificate_registrationConfig :: (Maybe RegistrationConfig -&gt; f (Maybe RegistrationConfig))
+-&gt; RegisterCACertificate -&gt; f RegisterCACertificate
+</span><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_registrationConfig"><span class="hs-identifier hs-var hs-var">registerCACertificate_registrationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterCACertificate -&gt; Maybe RegistrationConfig)
+-&gt; (RegisterCACertificate
+    -&gt; Maybe RegistrationConfig -&gt; RegisterCACertificate)
+-&gt; Lens
+     RegisterCACertificate
+     RegisterCACertificate
+     (Maybe RegistrationConfig)
+     (Maybe RegistrationConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815690"><span class="annot"><span class="annottext">Maybe RegistrationConfig
+registrationConfig :: Maybe RegistrationConfig
+$sel:registrationConfig:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe RegistrationConfig
+</span><a href="#local-6989586621679815690"><span class="hs-identifier hs-var hs-var">registrationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationConfig
+</span><a href="#local-6989586621679815690"><span class="hs-identifier hs-var">registrationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815689"><span class="annot"><span class="annottext">s :: RegisterCACertificate
+</span><a href="#local-6989586621679815689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815688"><span class="annot"><span class="annottext">Maybe RegistrationConfig
+</span><a href="#local-6989586621679815688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificate
+</span><a href="#local-6989586621679815689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrationConfig:RegisterCACertificate' :: Maybe RegistrationConfig
+</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AregistrationConfig%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">registrationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationConfig
+</span><a href="#local-6989586621679815688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Metadata which can be used to manage the CA certificate.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- For URI Request parameters use format: ...key1=value1&amp;key2=value2...</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- For the CLI command-line parameter use format: &amp;&amp;tags</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- \&quot;key1=value1&amp;key2=value2...\&quot;</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- For the cli-input-json file use format: \&quot;tags\&quot;:</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- \&quot;key1=value1&amp;key2=value2...\&quot;</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_tags"><span class="hs-identifier hs-type">registerCACertificate_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="registerCACertificate_tags"><span class="annot"><span class="annottext">registerCACertificate_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; RegisterCACertificate -&gt; f RegisterCACertificate
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_tags"><span class="hs-identifier hs-var hs-var">registerCACertificate_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterCACertificate -&gt; Maybe [Tag])
 -&gt; (RegisterCACertificate -&gt; Maybe [Tag] -&gt; RegisterCACertificate)
@@ -290,16 +314,16 @@ $sel:setAsActive:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe Boo
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814780"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815687"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679814780"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679814780"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814779"><span class="annot"><span class="annottext">s :: RegisterCACertificate
-</span><a href="#local-6989586621679814779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814778"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679814778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificate
-</span><a href="#local-6989586621679814779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RegisterCACertificate' :: Maybe [Tag]
+</span><a href="#local-6989586621679815687"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679815687"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815686"><span class="annot"><span class="annottext">s :: RegisterCACertificate
+</span><a href="#local-6989586621679815686"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815685"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679815685"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificate
+</span><a href="#local-6989586621679815686"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:RegisterCACertificate' :: Maybe [Tag]
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3Atags%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679814778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679815685"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; RegisterCACertificate -&gt; f RegisterCACertificate)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -313,32 +337,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- | Information about the registration configuration.</span><span>
-</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_registrationConfig"><span class="hs-identifier hs-type">registerCACertificate_registrationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.RegistrationConfig.html#RegistrationConfig"><span class="hs-identifier hs-type">RegistrationConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span id="registerCACertificate_registrationConfig"><span class="annot"><span class="annottext">registerCACertificate_registrationConfig :: (Maybe RegistrationConfig -&gt; f (Maybe RegistrationConfig))
--&gt; RegisterCACertificate -&gt; f RegisterCACertificate
-</span><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_registrationConfig"><span class="hs-identifier hs-var hs-var">registerCACertificate_registrationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterCACertificate -&gt; Maybe RegistrationConfig)
--&gt; (RegisterCACertificate
-    -&gt; Maybe RegistrationConfig -&gt; RegisterCACertificate)
--&gt; Lens
-     RegisterCACertificate
-     RegisterCACertificate
-     (Maybe RegistrationConfig)
-     (Maybe RegistrationConfig)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814774"><span class="annot"><span class="annottext">Maybe RegistrationConfig
-registrationConfig :: Maybe RegistrationConfig
-$sel:registrationConfig:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe RegistrationConfig
-</span><a href="#local-6989586621679814774"><span class="hs-identifier hs-var hs-var">registrationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationConfig
-</span><a href="#local-6989586621679814774"><span class="hs-identifier hs-var">registrationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814773"><span class="annot"><span class="annottext">s :: RegisterCACertificate
-</span><a href="#local-6989586621679814773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814772"><span class="annot"><span class="annottext">Maybe RegistrationConfig
-</span><a href="#local-6989586621679814772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificate
-</span><a href="#local-6989586621679814773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registrationConfig:RegisterCACertificate' :: Maybe RegistrationConfig
-</span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AregistrationConfig%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">registrationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationConfig
-</span><a href="#local-6989586621679814772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The CA certificate.</span><span>
 </span><span id="line-167"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_caCertificate"><span class="hs-identifier hs-type">registerCACertificate_caCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -348,16 +348,16 @@ $sel:registrationConfig:RegisterCACertificate' :: RegisterCACertificate -&gt; Ma
 -&gt; (RegisterCACertificate -&gt; Text -&gt; RegisterCACertificate)
 -&gt; Lens RegisterCACertificate RegisterCACertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814771"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815681"><span class="annot"><span class="annottext">Text
 caCertificate :: Text
 $sel:caCertificate:RegisterCACertificate' :: RegisterCACertificate -&gt; Text
-</span><a href="#local-6989586621679814771"><span class="hs-identifier hs-var hs-var">caCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814771"><span class="hs-identifier hs-var">caCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814770"><span class="annot"><span class="annottext">s :: RegisterCACertificate
-</span><a href="#local-6989586621679814770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814769"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificate
-</span><a href="#local-6989586621679814770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caCertificate:RegisterCACertificate' :: Text
+</span><a href="#local-6989586621679815681"><span class="hs-identifier hs-var hs-var">caCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679815681"><span class="hs-identifier hs-var">caCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815680"><span class="annot"><span class="annottext">s :: RegisterCACertificate
+</span><a href="#local-6989586621679815680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815679"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679815679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificate
+</span><a href="#local-6989586621679815680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caCertificate:RegisterCACertificate' :: Text
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AcaCertificate%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">caCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- | The private key verification certificate.</span><span>
 </span><span id="line-171"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificate_verificationCertificate"><span class="hs-identifier hs-type">registerCACertificate_verificationCertificate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -367,27 +367,27 @@ $sel:caCertificate:RegisterCACertificate' :: RegisterCACertificate -&gt; Text
 -&gt; (RegisterCACertificate -&gt; Text -&gt; RegisterCACertificate)
 -&gt; Lens RegisterCACertificate RegisterCACertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814768"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815678"><span class="annot"><span class="annottext">Text
 verificationCertificate :: Text
 $sel:verificationCertificate:RegisterCACertificate' :: RegisterCACertificate -&gt; Text
-</span><a href="#local-6989586621679814768"><span class="hs-identifier hs-var hs-var">verificationCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814768"><span class="hs-identifier hs-var">verificationCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814767"><span class="annot"><span class="annottext">s :: RegisterCACertificate
-</span><a href="#local-6989586621679814767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814766"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificate
-</span><a href="#local-6989586621679814767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationCertificate:RegisterCACertificate' :: Text
+</span><a href="#local-6989586621679815678"><span class="hs-identifier hs-var hs-var">verificationCertificate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679815678"><span class="hs-identifier hs-var">verificationCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815677"><span class="annot"><span class="annottext">s :: RegisterCACertificate
+</span><a href="#local-6989586621679815677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815676"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679815676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificate
+</span><a href="#local-6989586621679815677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationCertificate:RegisterCACertificate' :: Text
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AverificationCertificate%3ARegisterCACertificate%27"><span class="hs-identifier hs-var">verificationCertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-175"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-176"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-type">RegisterCACertificateResponse</span></a></span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679814762"><span class="annot"><span class="annottext">request :: RegisterCACertificate -&gt; Request RegisterCACertificate
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679815672"><span class="annot"><span class="annottext">request :: RegisterCACertificate -&gt; Request RegisterCACertificate
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterCACertificate -&gt; Request RegisterCACertificate
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679814758"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679815668"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RegisterCACertificate
 -&gt; ClientResponse ClientBody
@@ -413,10 +413,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814755"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679814755"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679814754"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679814754"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679814753"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814753"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679815665"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679815665"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679815664"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679815664"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679815663"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679815663"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; RegisterCACertificateResponse
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-var">RegisterCACertificateResponse'</span></a></span><span>
 </span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Int -&gt; RegisterCACertificateResponse)
@@ -425,7 +425,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; RegisterCACertificateResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814753"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679815663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -434,7 +434,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; RegisterCACertificateResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814753"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679815663"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;certificateId&quot;</span></span><span class="hs-special">)</span><span>
@@ -446,68 +446,68 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679814755"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815665"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814745"><span id="local-6989586621679814747"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span></span></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815655"><span id="local-6989586621679815657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span></span></span><span>
 </span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814742"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span></span><span>
 </span><span id="line-191"></span><span>
 </span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679814738"><span class="annot"><span class="annottext">toHeaders :: RegisterCACertificate -&gt; ResponseHeaders
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679815648"><span class="annot"><span class="annottext">toHeaders :: RegisterCACertificate -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterCACertificate -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814729"><span id="local-6989586621679814731"><span id="local-6989586621679814733"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679814727"><span class="annot"><span class="annottext">toJSON :: RegisterCACertificate -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814720"><span id="local-6989586621679814721"><span id="local-6989586621679814722"><span id="local-6989586621679814723"><span id="local-6989586621679814724"><span id="local-6989586621679814725"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815639"><span id="local-6989586621679815641"><span id="local-6989586621679815643"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679815637"><span class="annot"><span class="annottext">toJSON :: RegisterCACertificate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815630"><span id="local-6989586621679815631"><span id="local-6989586621679815632"><span id="local-6989586621679815633"><span id="local-6989586621679815634"><span id="local-6989586621679815635"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Tag]
 Maybe RegistrationConfig
 Text
 verificationCertificate :: Text
 caCertificate :: Text
-registrationConfig :: Maybe RegistrationConfig
 tags :: Maybe [Tag]
-setAsActive :: Maybe Bool
+registrationConfig :: Maybe RegistrationConfig
 allowAutoRegistration :: Maybe Bool
+setAsActive :: Maybe Bool
 $sel:verificationCertificate:RegisterCACertificate' :: RegisterCACertificate -&gt; Text
 $sel:caCertificate:RegisterCACertificate' :: RegisterCACertificate -&gt; Text
-$sel:registrationConfig:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe RegistrationConfig
 $sel:tags:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe [Tag]
-$sel:setAsActive:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe Bool
+$sel:registrationConfig:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe RegistrationConfig
 $sel:allowAutoRegistration:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe Bool
-</span><a href="#local-6989586621679814720"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:setAsActive:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe Bool
+</span><a href="#local-6989586621679815630"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-199"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;registrationConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RegistrationConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(RegistrationConfig -&gt; Pair)
+-&gt; Maybe RegistrationConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationConfig
+</span><a href="#local-6989586621679815633"><span class="hs-identifier hs-var">registrationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679814723"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;registrationConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RegistrationConfig -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span>              </span><span class="annot"><span class="annottext">(RegistrationConfig -&gt; Pair)
--&gt; Maybe RegistrationConfig -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RegistrationConfig
-</span><a href="#local-6989586621679814722"><span class="hs-identifier hs-var">registrationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679815632"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;caCertificate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814721"><span class="hs-identifier hs-var">caCertificate</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679815631"><span class="hs-identifier hs-var">caCertificate</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -516,57 +516,57 @@ forall a. a -&gt; Maybe a
 </span><span id="line-205"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679814720"><span class="hs-identifier hs-var">verificationCertificate</span></a></span><span>
+</span><a href="#local-6989586621679815630"><span class="hs-identifier hs-var">verificationCertificate</span></a></span><span>
 </span><span id="line-206"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-208"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-209"></span><span>
 </span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679814714"><span class="annot"><span class="annottext">toPath :: RegisterCACertificate -&gt; ByteString
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679815624"><span class="annot"><span class="annottext">toPath :: RegisterCACertificate -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterCACertificate -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/cacertificate&quot;</span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate"><span class="hs-identifier hs-type">RegisterCACertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679814710"><span class="annot"><span class="annottext">toQuery :: RegisterCACertificate -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814703"><span id="local-6989586621679814704"><span id="local-6989586621679814705"><span id="local-6989586621679814706"><span id="local-6989586621679814707"><span id="local-6989586621679814708"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679815620"><span class="annot"><span class="annottext">toQuery :: RegisterCACertificate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificate%27"><span class="hs-identifier hs-type">RegisterCACertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815613"><span id="local-6989586621679815614"><span id="local-6989586621679815615"><span id="local-6989586621679815616"><span id="local-6989586621679815617"><span id="local-6989586621679815618"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Tag]
 Maybe RegistrationConfig
 Text
 verificationCertificate :: Text
 caCertificate :: Text
-registrationConfig :: Maybe RegistrationConfig
 tags :: Maybe [Tag]
-setAsActive :: Maybe Bool
+registrationConfig :: Maybe RegistrationConfig
 allowAutoRegistration :: Maybe Bool
+setAsActive :: Maybe Bool
 $sel:verificationCertificate:RegisterCACertificate' :: RegisterCACertificate -&gt; Text
 $sel:caCertificate:RegisterCACertificate' :: RegisterCACertificate -&gt; Text
-$sel:registrationConfig:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe RegistrationConfig
 $sel:tags:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe [Tag]
-$sel:setAsActive:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe Bool
+$sel:registrationConfig:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe RegistrationConfig
 $sel:allowAutoRegistration:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe Bool
-</span><a href="#local-6989586621679814703"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:setAsActive:RegisterCACertificate' :: RegisterCACertificate -&gt; Maybe Bool
+</span><a href="#local-6989586621679815613"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-216"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;allowAutoRegistration&quot;</span></span><span>
-</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679814708"><span class="hs-identifier hs-var">allowAutoRegistration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;setAsActive&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679814707"><span class="hs-identifier hs-var">setAsActive</span></a></span><span>
+</span><a href="#local-6989586621679815618"><span class="hs-identifier hs-var">setAsActive</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;allowAutoRegistration&quot;</span></span><span>
+</span><span id="line-218"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679815617"><span class="hs-identifier hs-var">allowAutoRegistration</span></a></span><span>
 </span><span id="line-219"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-220"></span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- | The output from the RegisterCACertificateResponse operation.</span><span>
 </span><span id="line-222"></span><span class="hs-comment">--</span><span>
 </span><span id="line-223"></span><span class="hs-comment">-- /See:/ 'newRegisterCACertificateResponse' smart constructor.</span><span>
-</span><span id="line-224"></span><span id="local-6989586621679814700"><span id="local-6989586621679814701"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterCACertificateResponse"><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-var">RegisterCACertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterCACertificateResponse%27"><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-var">RegisterCACertificateResponse'</span></a></span></span><span>
+</span><span id="line-224"></span><span id="local-6989586621679815610"><span id="local-6989586621679815611"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterCACertificateResponse"><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-var">RegisterCACertificateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterCACertificateResponse%27"><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-var">RegisterCACertificateResponse'</span></a></span></span><span>
 </span><span id="line-225"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The CA certificate ARN.</span><span>
 </span><span id="line-226"></span><span>    </span><span id="%24sel%3AcertificateArn%3ARegisterCACertificateResponse%27"><span class="annot"><span class="annottext">RegisterCACertificateResponse -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AcertificateArn%3ARegisterCACertificateResponse%27"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -577,7 +577,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-230"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterCACertificateResponse%27"><span class="annot"><span class="annottext">RegisterCACertificateResponse -&gt; Int
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AhttpStatus%3ARegisterCACertificateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-231"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-232"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814693"><span id="local-6989586621679814695"><span class="annot"><span class="annottext">RegisterCACertificateResponse
+</span><span id="line-232"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679815603"><span id="local-6989586621679815605"><span class="annot"><span class="annottext">RegisterCACertificateResponse
 -&gt; RegisterCACertificateResponse -&gt; Bool
 (RegisterCACertificateResponse
  -&gt; RegisterCACertificateResponse -&gt; Bool)
@@ -593,7 +593,7 @@ $c/= :: RegisterCACertificateResponse
 -&gt; RegisterCACertificateResponse -&gt; Bool
 $c== :: RegisterCACertificateResponse
 -&gt; RegisterCACertificateResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814685"><span id="local-6989586621679814687"><span id="local-6989586621679814689"><span id="local-6989586621679814691"><span class="annot"><span class="annottext">ReadPrec [RegisterCACertificateResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815595"><span id="local-6989586621679815597"><span id="local-6989586621679815599"><span id="local-6989586621679815601"><span class="annot"><span class="annottext">ReadPrec [RegisterCACertificateResponse]
 ReadPrec RegisterCACertificateResponse
 Int -&gt; ReadS RegisterCACertificateResponse
 ReadS [RegisterCACertificateResponse]
@@ -613,7 +613,7 @@ readList :: ReadS [RegisterCACertificateResponse]
 $creadList :: ReadS [RegisterCACertificateResponse]
 readsPrec :: Int -&gt; ReadS RegisterCACertificateResponse
 $creadsPrec :: Int -&gt; ReadS RegisterCACertificateResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814679"><span id="local-6989586621679814681"><span id="local-6989586621679814683"><span class="annot"><span class="annottext">Int -&gt; RegisterCACertificateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815589"><span id="local-6989586621679815591"><span id="local-6989586621679815593"><span class="annot"><span class="annottext">Int -&gt; RegisterCACertificateResponse -&gt; ShowS
 [RegisterCACertificateResponse] -&gt; ShowS
 RegisterCACertificateResponse -&gt; String
 (Int -&gt; RegisterCACertificateResponse -&gt; ShowS)
@@ -669,8 +669,8 @@ RegisterCACertificateResponse
 </span><span id="line-249"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-250"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-type">RegisterCACertificateResponse</span></a></span><span>
 </span><span id="line-251"></span><span id="newRegisterCACertificateResponse"><span class="annot"><span class="annottext">newRegisterCACertificateResponse :: Int -&gt; RegisterCACertificateResponse
-</span><a href="Network.AWS.IoT.RegisterCACertificate.html#newRegisterCACertificateResponse"><span class="hs-identifier hs-var hs-var">newRegisterCACertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679814676"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679814676"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.RegisterCACertificate.html#newRegisterCACertificateResponse"><span class="hs-identifier hs-var hs-var">newRegisterCACertificateResponse</span></a></span></span><span> </span><span id="local-6989586621679815586"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679815586"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-252"></span><span>  </span><span class="annot"><span class="annottext">RegisterCACertificateResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; RegisterCACertificateResponse
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-type">RegisterCACertificateResponse'</span></a></span><span>
 </span><span id="line-253"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:certificateArn:RegisterCACertificateResponse' :: Maybe Text
@@ -684,7 +684,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterCACertificateResponse' :: Int
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AhttpStatus%3ARegisterCACertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679814676"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679815586"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-257"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-258"></span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- | The CA certificate ARN.</span><span>
@@ -700,16 +700,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-type">RegisterCACertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814675"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-type">RegisterCACertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815585"><span class="annot"><span class="annottext">Maybe Text
 certificateArn :: Maybe Text
 $sel:certificateArn:RegisterCACertificateResponse' :: RegisterCACertificateResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679814675"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814675"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814674"><span class="annot"><span class="annottext">s :: RegisterCACertificateResponse
-</span><a href="#local-6989586621679814674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-type">RegisterCACertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814673"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificateResponse
-</span><a href="#local-6989586621679814674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:RegisterCACertificateResponse' :: Maybe Text
+</span><a href="#local-6989586621679815585"><span class="hs-identifier hs-var hs-var">certificateArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815585"><span class="hs-identifier hs-var">certificateArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815584"><span class="annot"><span class="annottext">s :: RegisterCACertificateResponse
+</span><a href="#local-6989586621679815584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-type">RegisterCACertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815583"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificateResponse
+</span><a href="#local-6989586621679815584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateArn:RegisterCACertificateResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AcertificateArn%3ARegisterCACertificateResponse%27"><span class="hs-identifier hs-var">certificateArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-type">RegisterCACertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-type">RegisterCACertificateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-262"></span><span>
 </span><span id="line-263"></span><span class="hs-comment">-- | The CA certificate identifier.</span><span>
 </span><span id="line-264"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificateResponse_certificateId"><span class="hs-identifier hs-type">registerCACertificateResponse_certificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-type">RegisterCACertificateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -724,16 +724,16 @@ $sel:certificateArn:RegisterCACertificateResponse' :: RegisterCACertificateRespo
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-type">RegisterCACertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814672"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-type">RegisterCACertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815582"><span class="annot"><span class="annottext">Maybe Text
 certificateId :: Maybe Text
 $sel:certificateId:RegisterCACertificateResponse' :: RegisterCACertificateResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679814672"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814672"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814671"><span class="annot"><span class="annottext">s :: RegisterCACertificateResponse
-</span><a href="#local-6989586621679814671"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-type">RegisterCACertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814670"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814670"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificateResponse
-</span><a href="#local-6989586621679814671"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:RegisterCACertificateResponse' :: Maybe Text
+</span><a href="#local-6989586621679815582"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815582"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815581"><span class="annot"><span class="annottext">s :: RegisterCACertificateResponse
+</span><a href="#local-6989586621679815581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-type">RegisterCACertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815580"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificateResponse
+</span><a href="#local-6989586621679815581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:RegisterCACertificateResponse' :: Maybe Text
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AcertificateId%3ARegisterCACertificateResponse%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814670"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-type">RegisterCACertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-type">RegisterCACertificateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-268"></span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#registerCACertificateResponse_httpStatus"><span class="hs-identifier hs-type">registerCACertificateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-type">RegisterCACertificateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -745,16 +745,16 @@ $sel:certificateId:RegisterCACertificateResponse' :: RegisterCACertificateRespon
 -&gt; Lens
      RegisterCACertificateResponse RegisterCACertificateResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-type">RegisterCACertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814669"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-type">RegisterCACertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815579"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RegisterCACertificateResponse' :: RegisterCACertificateResponse -&gt; Int
-</span><a href="#local-6989586621679814669"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679814669"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814668"><span class="annot"><span class="annottext">s :: RegisterCACertificateResponse
-</span><a href="#local-6989586621679814668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-type">RegisterCACertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814667"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679814667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificateResponse
-</span><a href="#local-6989586621679814668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterCACertificateResponse' :: Int
+</span><a href="#local-6989586621679815579"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679815579"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815578"><span class="annot"><span class="annottext">s :: RegisterCACertificateResponse
+</span><a href="#local-6989586621679815578"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse%27"><span class="hs-identifier hs-type">RegisterCACertificateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815577"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679815577"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterCACertificateResponse
+</span><a href="#local-6989586621679815578"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterCACertificateResponse' :: Int
 </span><a href="Network.AWS.IoT.RegisterCACertificate.html#%24sel%3AhttpStatus%3ARegisterCACertificateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679814667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-type">RegisterCACertificateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815577"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-type">RegisterCACertificateResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
-</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814665"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-type">RegisterCACertificateResponse</span></a></span></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815575"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.RegisterCACertificate.html#RegisterCACertificateResponse"><span class="hs-identifier hs-type">RegisterCACertificateResponse</span></a></span></span><span>
 </span><span id="line-272"></span></pre></body></html>

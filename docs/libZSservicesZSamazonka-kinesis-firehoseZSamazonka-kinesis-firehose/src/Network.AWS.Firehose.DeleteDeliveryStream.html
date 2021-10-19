@@ -60,7 +60,7 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newDeleteDeliveryStream' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621679269288"><span id="local-6989586621679269289"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeliveryStream"><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-var">DeleteDeliveryStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeliveryStream%27"><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream%27"><span class="hs-identifier hs-var">DeleteDeliveryStream'</span></a></span></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679284179"><span id="local-6989586621679284180"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeliveryStream"><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-var">DeleteDeliveryStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeliveryStream%27"><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream%27"><span class="hs-identifier hs-var">DeleteDeliveryStream'</span></a></span></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set this to true if you want to delete the delivery stream even if</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Kinesis Data Firehose is unable to retire the grant for the CMK. Kinesis</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- Data Firehose might be unable to retire the grant due to a customer</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AdeliveryStreamName%3ADeleteDeliveryStream%27"><span class="annot"><span class="annottext">DeleteDeliveryStream -&gt; Text
 </span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#%24sel%3AdeliveryStreamName%3ADeleteDeliveryStream%27"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269281"><span id="local-6989586621679269283"><span class="annot"><span class="annottext">DeleteDeliveryStream -&gt; DeleteDeliveryStream -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284172"><span id="local-6989586621679284174"><span class="annot"><span class="annottext">DeleteDeliveryStream -&gt; DeleteDeliveryStream -&gt; Bool
 (DeleteDeliveryStream -&gt; DeleteDeliveryStream -&gt; Bool)
 -&gt; (DeleteDeliveryStream -&gt; DeleteDeliveryStream -&gt; Bool)
 -&gt; Eq DeleteDeliveryStream
@@ -87,7 +87,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteDeliveryStream -&gt; DeleteDeliveryStream -&gt; Bool
 == :: DeleteDeliveryStream -&gt; DeleteDeliveryStream -&gt; Bool
 $c== :: DeleteDeliveryStream -&gt; DeleteDeliveryStream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269272"><span id="local-6989586621679269274"><span id="local-6989586621679269276"><span id="local-6989586621679269278"><span class="annot"><span class="annottext">ReadPrec [DeleteDeliveryStream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284163"><span id="local-6989586621679284165"><span id="local-6989586621679284167"><span id="local-6989586621679284169"><span class="annot"><span class="annottext">ReadPrec [DeleteDeliveryStream]
 ReadPrec DeleteDeliveryStream
 Int -&gt; ReadS DeleteDeliveryStream
 ReadS [DeleteDeliveryStream]
@@ -107,7 +107,7 @@ readList :: ReadS [DeleteDeliveryStream]
 $creadList :: ReadS [DeleteDeliveryStream]
 readsPrec :: Int -&gt; ReadS DeleteDeliveryStream
 $creadsPrec :: Int -&gt; ReadS DeleteDeliveryStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269265"><span id="local-6989586621679269267"><span id="local-6989586621679269269"><span class="annot"><span class="annottext">Int -&gt; DeleteDeliveryStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284156"><span id="local-6989586621679284158"><span id="local-6989586621679284160"><span class="annot"><span class="annottext">Int -&gt; DeleteDeliveryStream -&gt; ShowS
 [DeleteDeliveryStream] -&gt; ShowS
 DeleteDeliveryStream -&gt; String
 (Int -&gt; DeleteDeliveryStream -&gt; ShowS)
@@ -159,8 +159,8 @@ $cfrom :: forall x. DeleteDeliveryStream -&gt; Rep DeleteDeliveryStream x
 </span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span><span>
 </span><span id="line-106"></span><span id="newDeleteDeliveryStream"><span class="annot"><span class="annottext">newDeleteDeliveryStream :: Text -&gt; DeleteDeliveryStream
-</span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#newDeleteDeliveryStream"><span class="hs-identifier hs-var hs-var">newDeleteDeliveryStream</span></a></span></span><span> </span><span id="local-6989586621679269260"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269260"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#newDeleteDeliveryStream"><span class="hs-identifier hs-var hs-var">newDeleteDeliveryStream</span></a></span></span><span> </span><span id="local-6989586621679284151"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284151"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">DeleteDeliveryStream' :: Maybe Bool -&gt; Text -&gt; DeleteDeliveryStream
 </span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream%27"><span class="hs-identifier hs-type">DeleteDeliveryStream'</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:allowForceDelete:DeleteDeliveryStream' :: Maybe Bool
@@ -170,7 +170,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:deliveryStreamName:DeleteDeliveryStream' :: Text
 </span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#%24sel%3AdeliveryStreamName%3ADeleteDeliveryStream%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269260"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span><span>
+</span><a href="#local-6989586621679284151"><span class="hs-identifier hs-var">pDeliveryStreamName_</span></a></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | Set this to true if you want to delete the delivery stream even if</span><span>
@@ -192,16 +192,16 @@ forall a. Maybe a
 -&gt; Lens
      DeleteDeliveryStream DeleteDeliveryStream (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream%27"><span class="hs-identifier hs-type">DeleteDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269257"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream%27"><span class="hs-identifier hs-type">DeleteDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284148"><span class="annot"><span class="annottext">Maybe Bool
 allowForceDelete :: Maybe Bool
 $sel:allowForceDelete:DeleteDeliveryStream' :: DeleteDeliveryStream -&gt; Maybe Bool
-</span><a href="#local-6989586621679269257"><span class="hs-identifier hs-var hs-var">allowForceDelete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679269257"><span class="hs-identifier hs-var">allowForceDelete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269256"><span class="annot"><span class="annottext">s :: DeleteDeliveryStream
-</span><a href="#local-6989586621679269256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream%27"><span class="hs-identifier hs-type">DeleteDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269255"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679269255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeliveryStream
-</span><a href="#local-6989586621679269256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowForceDelete:DeleteDeliveryStream' :: Maybe Bool
+</span><a href="#local-6989586621679284148"><span class="hs-identifier hs-var hs-var">allowForceDelete</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679284148"><span class="hs-identifier hs-var">allowForceDelete</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284147"><span class="annot"><span class="annottext">s :: DeleteDeliveryStream
+</span><a href="#local-6989586621679284147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream%27"><span class="hs-identifier hs-type">DeleteDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284146"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679284146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeliveryStream
+</span><a href="#local-6989586621679284147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:allowForceDelete:DeleteDeliveryStream' :: Maybe Bool
 </span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#%24sel%3AallowForceDelete%3ADeleteDeliveryStream%27"><span class="hs-identifier hs-var">allowForceDelete</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679269255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The name of the delivery stream.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#deleteDeliveryStream_deliveryStreamName"><span class="hs-identifier hs-type">deleteDeliveryStream_deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -210,27 +210,27 @@ $sel:allowForceDelete:DeleteDeliveryStream' :: DeleteDeliveryStream -&gt; Maybe 
 -&gt; (DeleteDeliveryStream -&gt; Text -&gt; DeleteDeliveryStream)
 -&gt; Lens DeleteDeliveryStream DeleteDeliveryStream Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream%27"><span class="hs-identifier hs-type">DeleteDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269254"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream%27"><span class="hs-identifier hs-type">DeleteDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284145"><span class="annot"><span class="annottext">Text
 deliveryStreamName :: Text
 $sel:deliveryStreamName:DeleteDeliveryStream' :: DeleteDeliveryStream -&gt; Text
-</span><a href="#local-6989586621679269254"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269254"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269253"><span class="annot"><span class="annottext">s :: DeleteDeliveryStream
-</span><a href="#local-6989586621679269253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream%27"><span class="hs-identifier hs-type">DeleteDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269252"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeliveryStream
-</span><a href="#local-6989586621679269253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamName:DeleteDeliveryStream' :: Text
+</span><a href="#local-6989586621679284145"><span class="hs-identifier hs-var hs-var">deliveryStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284145"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284144"><span class="annot"><span class="annottext">s :: DeleteDeliveryStream
+</span><a href="#local-6989586621679284144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream%27"><span class="hs-identifier hs-type">DeleteDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284143"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679284143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeliveryStream
+</span><a href="#local-6989586621679284144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryStreamName:DeleteDeliveryStream' :: Text
 </span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#%24sel%3AdeliveryStreamName%3ADeleteDeliveryStream%27"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-133"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>      </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse"><span class="hs-identifier hs-type">DeleteDeliveryStreamResponse</span></a></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679269248"><span class="annot"><span class="annottext">request :: DeleteDeliveryStream -&gt; Request DeleteDeliveryStream
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679284139"><span class="annot"><span class="annottext">request :: DeleteDeliveryStream -&gt; Request DeleteDeliveryStream
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteDeliveryStream -&gt; Request DeleteDeliveryStream
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Firehose.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679269244"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679284135"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteDeliveryStream
 -&gt; ClientResponse ClientBody
@@ -256,10 +256,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679269241"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679269241"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679269240"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679269240"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679269239"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679269239"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679284132"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284132"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679284131"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679284131"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679284130"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679284130"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteDeliveryStreamResponse
 </span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse%27"><span class="hs-identifier hs-var">DeleteDeliveryStreamResponse'</span></a></span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteDeliveryStreamResponse)
@@ -270,15 +270,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679269241"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284132"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269232"><span id="local-6989586621679269234"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span></span></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284123"><span id="local-6989586621679284125"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span></span></span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269229"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284120"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679269225"><span class="annot"><span class="annottext">toHeaders :: DeleteDeliveryStream -&gt; ResponseHeaders
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679284116"><span class="annot"><span class="annottext">toHeaders :: DeleteDeliveryStream -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteDeliveryStream -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -305,15 +305,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-159"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
-</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269215"><span id="local-6989586621679269217"><span id="local-6989586621679269219"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679269213"><span class="annot"><span class="annottext">toJSON :: DeleteDeliveryStream -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream%27"><span class="hs-identifier hs-type">DeleteDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269210"><span id="local-6989586621679269211"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284106"><span id="local-6989586621679284108"><span id="local-6989586621679284110"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679284104"><span class="annot"><span class="annottext">toJSON :: DeleteDeliveryStream -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream%27"><span class="hs-identifier hs-type">DeleteDeliveryStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284101"><span id="local-6989586621679284102"><span class="annot"><span class="annottext">Maybe Bool
 Text
 deliveryStreamName :: Text
 allowForceDelete :: Maybe Bool
 $sel:deliveryStreamName:DeleteDeliveryStream' :: DeleteDeliveryStream -&gt; Text
 $sel:allowForceDelete:DeleteDeliveryStream' :: DeleteDeliveryStream -&gt; Maybe Bool
-</span><a href="#local-6989586621679269210"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679284101"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -326,7 +326,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679269211"><span class="hs-identifier hs-var">allowForceDelete</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679284102"><span class="hs-identifier hs-var">allowForceDelete</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -334,19 +334,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;DeliveryStreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679269210"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284101"><span class="hs-identifier hs-var">deliveryStreamName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-171"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679269204"><span class="annot"><span class="annottext">toPath :: DeleteDeliveryStream -&gt; ByteString
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679284095"><span class="annot"><span class="annottext">toPath :: DeleteDeliveryStream -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteDeliveryStream -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStream"><span class="hs-identifier hs-type">DeleteDeliveryStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621679269200"><span class="annot"><span class="annottext">toQuery :: DeleteDeliveryStream -&gt; QueryString
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679284091"><span class="annot"><span class="annottext">toQuery :: DeleteDeliveryStream -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteDeliveryStream -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -354,12 +354,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | /See:/ 'newDeleteDeliveryStreamResponse' smart constructor.</span><span>
-</span><span id="line-180"></span><span id="local-6989586621679269197"><span id="local-6989586621679269198"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeliveryStreamResponse"><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse"><span class="hs-identifier hs-var">DeleteDeliveryStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeliveryStreamResponse%27"><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse%27"><span class="hs-identifier hs-var">DeleteDeliveryStreamResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span id="local-6989586621679284088"><span id="local-6989586621679284089"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteDeliveryStreamResponse"><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse"><span class="hs-identifier hs-var">DeleteDeliveryStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteDeliveryStreamResponse%27"><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse%27"><span class="hs-identifier hs-var">DeleteDeliveryStreamResponse'</span></a></span></span><span>
 </span><span id="line-181"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-182"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteDeliveryStreamResponse%27"><span class="annot"><span class="annottext">DeleteDeliveryStreamResponse -&gt; Int
 </span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#%24sel%3AhttpStatus%3ADeleteDeliveryStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-183"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269192"><span id="local-6989586621679269194"><span class="annot"><span class="annottext">DeleteDeliveryStreamResponse
+</span><span id="line-184"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679284083"><span id="local-6989586621679284085"><span class="annot"><span class="annottext">DeleteDeliveryStreamResponse
 -&gt; DeleteDeliveryStreamResponse -&gt; Bool
 (DeleteDeliveryStreamResponse
  -&gt; DeleteDeliveryStreamResponse -&gt; Bool)
@@ -375,7 +375,7 @@ $c/= :: DeleteDeliveryStreamResponse
 -&gt; DeleteDeliveryStreamResponse -&gt; Bool
 $c== :: DeleteDeliveryStreamResponse
 -&gt; DeleteDeliveryStreamResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269184"><span id="local-6989586621679269186"><span id="local-6989586621679269188"><span id="local-6989586621679269190"><span class="annot"><span class="annottext">ReadPrec [DeleteDeliveryStreamResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284075"><span id="local-6989586621679284077"><span id="local-6989586621679284079"><span id="local-6989586621679284081"><span class="annot"><span class="annottext">ReadPrec [DeleteDeliveryStreamResponse]
 ReadPrec DeleteDeliveryStreamResponse
 Int -&gt; ReadS DeleteDeliveryStreamResponse
 ReadS [DeleteDeliveryStreamResponse]
@@ -395,7 +395,7 @@ readList :: ReadS [DeleteDeliveryStreamResponse]
 $creadList :: ReadS [DeleteDeliveryStreamResponse]
 readsPrec :: Int -&gt; ReadS DeleteDeliveryStreamResponse
 $creadsPrec :: Int -&gt; ReadS DeleteDeliveryStreamResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269178"><span id="local-6989586621679269180"><span id="local-6989586621679269182"><span class="annot"><span class="annottext">Int -&gt; DeleteDeliveryStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679284069"><span id="local-6989586621679284071"><span id="local-6989586621679284073"><span class="annot"><span class="annottext">Int -&gt; DeleteDeliveryStreamResponse -&gt; ShowS
 [DeleteDeliveryStreamResponse] -&gt; ShowS
 DeleteDeliveryStreamResponse -&gt; String
 (Int -&gt; DeleteDeliveryStreamResponse -&gt; ShowS)
@@ -441,14 +441,14 @@ DeleteDeliveryStreamResponse -&gt; Rep DeleteDeliveryStreamResponse x
 </span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-198"></span><span>  </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse"><span class="hs-identifier hs-type">DeleteDeliveryStreamResponse</span></a></span><span>
 </span><span id="line-199"></span><span id="newDeleteDeliveryStreamResponse"><span class="annot"><span class="annottext">newDeleteDeliveryStreamResponse :: Int -&gt; DeleteDeliveryStreamResponse
-</span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#newDeleteDeliveryStreamResponse"><span class="hs-identifier hs-var hs-var">newDeleteDeliveryStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679269175"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679269175"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#newDeleteDeliveryStreamResponse"><span class="hs-identifier hs-var hs-var">newDeleteDeliveryStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679284066"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284066"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">DeleteDeliveryStreamResponse' :: Int -&gt; DeleteDeliveryStreamResponse
 </span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse%27"><span class="hs-identifier hs-type">DeleteDeliveryStreamResponse'</span></a></span><span>
 </span><span id="line-201"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDeliveryStreamResponse' :: Int
 </span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#%24sel%3AhttpStatus%3ADeleteDeliveryStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679269175"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679284066"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -461,16 +461,16 @@ DeleteDeliveryStreamResponse -&gt; Rep DeleteDeliveryStreamResponse x
 -&gt; Lens
      DeleteDeliveryStreamResponse DeleteDeliveryStreamResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse%27"><span class="hs-identifier hs-type">DeleteDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269174"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse%27"><span class="hs-identifier hs-type">DeleteDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679284065"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteDeliveryStreamResponse' :: DeleteDeliveryStreamResponse -&gt; Int
-</span><a href="#local-6989586621679269174"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679269174"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269173"><span class="annot"><span class="annottext">s :: DeleteDeliveryStreamResponse
-</span><a href="#local-6989586621679269173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse%27"><span class="hs-identifier hs-type">DeleteDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269172"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679269172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeliveryStreamResponse
-</span><a href="#local-6989586621679269173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDeliveryStreamResponse' :: Int
+</span><a href="#local-6989586621679284065"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284065"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679284064"><span class="annot"><span class="annottext">s :: DeleteDeliveryStreamResponse
+</span><a href="#local-6989586621679284064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse%27"><span class="hs-identifier hs-type">DeleteDeliveryStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679284063"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679284063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteDeliveryStreamResponse
+</span><a href="#local-6989586621679284064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteDeliveryStreamResponse' :: Int
 </span><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#%24sel%3AhttpStatus%3ADeleteDeliveryStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679269172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse"><span class="hs-identifier hs-type">DeleteDeliveryStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679284063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse"><span class="hs-identifier hs-type">DeleteDeliveryStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse"><span class="hs-identifier hs-type">DeleteDeliveryStreamResponse</span></a></span></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679284061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Firehose.DeleteDeliveryStream.html#DeleteDeliveryStreamResponse"><span class="hs-identifier hs-type">DeleteDeliveryStreamResponse</span></a></span></span><span>
 </span><span id="line-210"></span></pre></body></html>

@@ -28,27 +28,27 @@
 </span><span id="line-28"></span><span class="hs-comment">-- secondary index.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAutoScalingSettingsDescription' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679367355"><span id="local-6989586621679367356"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingSettingsDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-var">AutoScalingSettingsDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingSettingsDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">AutoScalingSettingsDescription'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The minimum capacity units that a global table or global secondary index</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- should be scaled down to.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AminimumUnits%3AAutoScalingSettingsDescription%27"><span class="annot"><span class="annottext">AutoScalingSettingsDescription -&gt; Maybe Natural
+</span><span id="line-31"></span><span id="local-6989586621679368013"><span id="local-6989586621679368014"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoScalingSettingsDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-var">AutoScalingSettingsDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoScalingSettingsDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">AutoScalingSettingsDescription'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Disabled auto scaling for this global table or global secondary index.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AautoScalingDisabled%3AAutoScalingSettingsDescription%27"><span class="annot"><span class="annottext">AutoScalingSettingsDescription -&gt; Maybe Bool
+</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AautoScalingDisabled%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var hs-var">autoScalingDisabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The minimum capacity units that a global table or global secondary index</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- should be scaled down to.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AminimumUnits%3AAutoScalingSettingsDescription%27"><span class="annot"><span class="annottext">AutoScalingSettingsDescription -&gt; Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AminimumUnits%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var hs-var">minimumUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Information about the scaling policies.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AscalingPolicies%3AAutoScalingSettingsDescription%27"><span class="annot"><span class="annottext">AutoScalingSettingsDescription
--&gt; Maybe [AutoScalingPolicyDescription]
-</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AscalingPolicies%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var hs-var">scalingPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingPolicyDescription.html#AutoScalingPolicyDescription"><span class="hs-identifier hs-type">AutoScalingPolicyDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The maximum capacity units that a global table or global secondary index</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- should be scaled up to.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AmaximumUnits%3AAutoScalingSettingsDescription%27"><span class="annot"><span class="annottext">AutoScalingSettingsDescription -&gt; Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AmaximumUnits%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var hs-var">maximumUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Role ARN used for configuring the auto scaling policy.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AautoScalingRoleArn%3AAutoScalingSettingsDescription%27"><span class="annot"><span class="annottext">AutoScalingSettingsDescription -&gt; Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AautoScalingRoleArn%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var hs-var">autoScalingRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Disabled auto scaling for this global table or global secondary index.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AautoScalingDisabled%3AAutoScalingSettingsDescription%27"><span class="annot"><span class="annottext">AutoScalingSettingsDescription -&gt; Maybe Bool
-</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AautoScalingDisabled%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var hs-var">autoScalingDisabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Information about the scaling policies.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AscalingPolicies%3AAutoScalingSettingsDescription%27"><span class="annot"><span class="annottext">AutoScalingSettingsDescription
+-&gt; Maybe [AutoScalingPolicyDescription]
+</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AscalingPolicies%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var hs-var">scalingPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingPolicyDescription.html#AutoScalingPolicyDescription"><span class="hs-identifier hs-type">AutoScalingPolicyDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Role ARN used for configuring the auto scaling policy.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AautoScalingRoleArn%3AAutoScalingSettingsDescription%27"><span class="annot"><span class="annottext">AutoScalingSettingsDescription -&gt; Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AautoScalingRoleArn%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var hs-var">autoScalingRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367345"><span id="local-6989586621679367347"><span class="annot"><span class="annottext">AutoScalingSettingsDescription
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679368003"><span id="local-6989586621679368005"><span class="annot"><span class="annottext">AutoScalingSettingsDescription
 -&gt; AutoScalingSettingsDescription -&gt; Bool
 (AutoScalingSettingsDescription
  -&gt; AutoScalingSettingsDescription -&gt; Bool)
@@ -64,7 +64,7 @@ $c/= :: AutoScalingSettingsDescription
 -&gt; AutoScalingSettingsDescription -&gt; Bool
 $c== :: AutoScalingSettingsDescription
 -&gt; AutoScalingSettingsDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367336"><span id="local-6989586621679367338"><span id="local-6989586621679367340"><span id="local-6989586621679367342"><span class="annot"><span class="annottext">ReadPrec [AutoScalingSettingsDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367994"><span id="local-6989586621679367996"><span id="local-6989586621679367998"><span id="local-6989586621679368000"><span class="annot"><span class="annottext">ReadPrec [AutoScalingSettingsDescription]
 ReadPrec AutoScalingSettingsDescription
 Int -&gt; ReadS AutoScalingSettingsDescription
 ReadS [AutoScalingSettingsDescription]
@@ -84,7 +84,7 @@ readList :: ReadS [AutoScalingSettingsDescription]
 $creadList :: ReadS [AutoScalingSettingsDescription]
 readsPrec :: Int -&gt; ReadS AutoScalingSettingsDescription
 $creadsPrec :: Int -&gt; ReadS AutoScalingSettingsDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367329"><span id="local-6989586621679367331"><span id="local-6989586621679367333"><span class="annot"><span class="annottext">Int -&gt; AutoScalingSettingsDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367987"><span id="local-6989586621679367989"><span id="local-6989586621679367991"><span class="annot"><span class="annottext">Int -&gt; AutoScalingSettingsDescription -&gt; ShowS
 [AutoScalingSettingsDescription] -&gt; ShowS
 AutoScalingSettingsDescription -&gt; String
 (Int -&gt; AutoScalingSettingsDescription -&gt; ShowS)
@@ -130,55 +130,80 @@ AutoScalingSettingsDescription
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'minimumUnits', 'autoScalingSettingsDescription_minimumUnits' - The minimum capacity units that a global table or global secondary index</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- should be scaled down to.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'scalingPolicies', 'autoScalingSettingsDescription_scalingPolicies' - Information about the scaling policies.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'autoScalingDisabled', 'autoScalingSettingsDescription_autoScalingDisabled' - Disabled auto scaling for this global table or global secondary index.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'minimumUnits', 'autoScalingSettingsDescription_minimumUnits' - The minimum capacity units that a global table or global secondary index</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- should be scaled down to.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'maximumUnits', 'autoScalingSettingsDescription_maximumUnits' - The maximum capacity units that a global table or global secondary index</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- should be scaled up to.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'autoScalingRoleArn', 'autoScalingSettingsDescription_autoScalingRoleArn' - Role ARN used for configuring the auto scaling policy.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'scalingPolicies', 'autoScalingSettingsDescription_scalingPolicies' - Information about the scaling policies.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'autoScalingDisabled', 'autoScalingSettingsDescription_autoScalingDisabled' - Disabled auto scaling for this global table or global secondary index.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'autoScalingRoleArn', 'autoScalingSettingsDescription_autoScalingRoleArn' - Role ARN used for configuring the auto scaling policy.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#newAutoScalingSettingsDescription"><span class="hs-identifier hs-type">newAutoScalingSettingsDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span>
 </span><span id="line-68"></span><span id="newAutoScalingSettingsDescription"><span class="annot"><span class="annottext">newAutoScalingSettingsDescription :: AutoScalingSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#newAutoScalingSettingsDescription"><span class="hs-identifier hs-var hs-var">newAutoScalingSettingsDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">AutoScalingSettingsDescription' :: Maybe Natural
--&gt; Maybe [AutoScalingPolicyDescription]
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">AutoScalingSettingsDescription' :: Maybe Bool
 -&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe [AutoScalingPolicyDescription]
 -&gt; Maybe Text
--&gt; Maybe Bool
 -&gt; AutoScalingSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:minimumUnits:AutoScalingSettingsDescription' :: Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AminimumUnits%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">minimumUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:autoScalingDisabled:AutoScalingSettingsDescription' :: Maybe Bool
+</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AautoScalingDisabled%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">autoScalingDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:scalingPolicies:AutoScalingSettingsDescription' :: Maybe [AutoScalingPolicyDescription]
-</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AscalingPolicies%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">scalingPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoScalingPolicyDescription]
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:minimumUnits:AutoScalingSettingsDescription' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AminimumUnits%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">minimumUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:maximumUnits:AutoScalingSettingsDescription' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AmaximumUnits%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">maximumUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingRoleArn:AutoScalingSettingsDescription' :: Maybe Text
-</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AautoScalingRoleArn%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">autoScalingRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:scalingPolicies:AutoScalingSettingsDescription' :: Maybe [AutoScalingPolicyDescription]
+</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AscalingPolicies%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">scalingPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoScalingPolicyDescription]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingDisabled:AutoScalingSettingsDescription' :: Maybe Bool
-</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AautoScalingDisabled%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">autoScalingDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingRoleArn:AutoScalingSettingsDescription' :: Maybe Text
+</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AautoScalingRoleArn%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">autoScalingRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- | The minimum capacity units that a global table or global secondary index</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- should be scaled down to.</span><span>
-</span><span id="line-80"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_minimumUnits"><span class="hs-identifier hs-type">autoScalingSettingsDescription_minimumUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-81"></span><span id="autoScalingSettingsDescription_minimumUnits"><span class="annot"><span class="annottext">autoScalingSettingsDescription_minimumUnits :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-78"></span><span class="hs-comment">-- | Disabled auto scaling for this global table or global secondary index.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_autoScalingDisabled"><span class="hs-identifier hs-type">autoScalingSettingsDescription_autoScalingDisabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="autoScalingSettingsDescription_autoScalingDisabled"><span class="annot"><span class="annottext">autoScalingSettingsDescription_autoScalingDisabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AutoScalingSettingsDescription
+-&gt; f AutoScalingSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_autoScalingDisabled"><span class="hs-identifier hs-var hs-var">autoScalingSettingsDescription_autoScalingDisabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingSettingsDescription -&gt; Maybe Bool)
+-&gt; (AutoScalingSettingsDescription
+    -&gt; Maybe Bool -&gt; AutoScalingSettingsDescription)
+-&gt; Lens
+     AutoScalingSettingsDescription
+     AutoScalingSettingsDescription
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367978"><span class="annot"><span class="annottext">Maybe Bool
+autoScalingDisabled :: Maybe Bool
+$sel:autoScalingDisabled:AutoScalingSettingsDescription' :: AutoScalingSettingsDescription -&gt; Maybe Bool
+</span><a href="#local-6989586621679367978"><span class="hs-identifier hs-var hs-var">autoScalingDisabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679367978"><span class="hs-identifier hs-var">autoScalingDisabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367977"><span class="annot"><span class="annottext">s :: AutoScalingSettingsDescription
+</span><a href="#local-6989586621679367977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367976"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679367976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingSettingsDescription
+</span><a href="#local-6989586621679367977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingDisabled:AutoScalingSettingsDescription' :: Maybe Bool
+</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AautoScalingDisabled%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">autoScalingDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679367976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The minimum capacity units that a global table or global secondary index</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- should be scaled down to.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_minimumUnits"><span class="hs-identifier hs-type">autoScalingSettingsDescription_minimumUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="autoScalingSettingsDescription_minimumUnits"><span class="annot"><span class="annottext">autoScalingSettingsDescription_minimumUnits :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; AutoScalingSettingsDescription
 -&gt; f AutoScalingSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_minimumUnits"><span class="hs-identifier hs-var hs-var">autoScalingSettingsDescription_minimumUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingSettingsDescription -&gt; Maybe Natural)
@@ -190,20 +215,46 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367320"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367974"><span class="annot"><span class="annottext">Maybe Natural
 minimumUnits :: Maybe Natural
 $sel:minimumUnits:AutoScalingSettingsDescription' :: AutoScalingSettingsDescription -&gt; Maybe Natural
-</span><a href="#local-6989586621679367320"><span class="hs-identifier hs-var hs-var">minimumUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679367320"><span class="hs-identifier hs-var">minimumUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367319"><span class="annot"><span class="annottext">s :: AutoScalingSettingsDescription
-</span><a href="#local-6989586621679367319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367318"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679367318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingSettingsDescription
-</span><a href="#local-6989586621679367319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumUnits:AutoScalingSettingsDescription' :: Maybe Natural
+</span><a href="#local-6989586621679367974"><span class="hs-identifier hs-var hs-var">minimumUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679367974"><span class="hs-identifier hs-var">minimumUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367973"><span class="annot"><span class="annottext">s :: AutoScalingSettingsDescription
+</span><a href="#local-6989586621679367973"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367972"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679367972"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingSettingsDescription
+</span><a href="#local-6989586621679367973"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minimumUnits:AutoScalingSettingsDescription' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AminimumUnits%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">minimumUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679367318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | Information about the scaling policies.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_scalingPolicies"><span class="hs-identifier hs-type">autoScalingSettingsDescription_scalingPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingPolicyDescription.html#AutoScalingPolicyDescription"><span class="hs-identifier hs-type">AutoScalingPolicyDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="autoScalingSettingsDescription_scalingPolicies"><span class="annot"><span class="annottext">autoScalingSettingsDescription_scalingPolicies :: (Maybe [AutoScalingPolicyDescription]
+</span><a href="#local-6989586621679367972"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The maximum capacity units that a global table or global secondary index</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- should be scaled up to.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_maximumUnits"><span class="hs-identifier hs-type">autoScalingSettingsDescription_maximumUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="autoScalingSettingsDescription_maximumUnits"><span class="annot"><span class="annottext">autoScalingSettingsDescription_maximumUnits :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; AutoScalingSettingsDescription
+-&gt; f AutoScalingSettingsDescription
+</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_maximumUnits"><span class="hs-identifier hs-var hs-var">autoScalingSettingsDescription_maximumUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingSettingsDescription -&gt; Maybe Natural)
+-&gt; (AutoScalingSettingsDescription
+    -&gt; Maybe Natural -&gt; AutoScalingSettingsDescription)
+-&gt; Lens
+     AutoScalingSettingsDescription
+     AutoScalingSettingsDescription
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367970"><span class="annot"><span class="annottext">Maybe Natural
+maximumUnits :: Maybe Natural
+$sel:maximumUnits:AutoScalingSettingsDescription' :: AutoScalingSettingsDescription -&gt; Maybe Natural
+</span><a href="#local-6989586621679367970"><span class="hs-identifier hs-var hs-var">maximumUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679367970"><span class="hs-identifier hs-var">maximumUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367969"><span class="annot"><span class="annottext">s :: AutoScalingSettingsDescription
+</span><a href="#local-6989586621679367969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367968"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679367968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingSettingsDescription
+</span><a href="#local-6989586621679367969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumUnits:AutoScalingSettingsDescription' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AmaximumUnits%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">maximumUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679367968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | Information about the scaling policies.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_scalingPolicies"><span class="hs-identifier hs-type">autoScalingSettingsDescription_scalingPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingPolicyDescription.html#AutoScalingPolicyDescription"><span class="hs-identifier hs-type">AutoScalingPolicyDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="autoScalingSettingsDescription_scalingPolicies"><span class="annot"><span class="annottext">autoScalingSettingsDescription_scalingPolicies :: (Maybe [AutoScalingPolicyDescription]
  -&gt; f (Maybe [AutoScalingPolicyDescription]))
 -&gt; AutoScalingSettingsDescription
 -&gt; f AutoScalingSettingsDescription
@@ -218,17 +269,17 @@ $sel:minimumUnits:AutoScalingSettingsDescription' :: AutoScalingSettingsDescript
      (Maybe [AutoScalingPolicyDescription])
      (Maybe [AutoScalingPolicyDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367316"><span class="annot"><span class="annottext">Maybe [AutoScalingPolicyDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367966"><span class="annot"><span class="annottext">Maybe [AutoScalingPolicyDescription]
 scalingPolicies :: Maybe [AutoScalingPolicyDescription]
 $sel:scalingPolicies:AutoScalingSettingsDescription' :: AutoScalingSettingsDescription
 -&gt; Maybe [AutoScalingPolicyDescription]
-</span><a href="#local-6989586621679367316"><span class="hs-identifier hs-var hs-var">scalingPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoScalingPolicyDescription]
-</span><a href="#local-6989586621679367316"><span class="hs-identifier hs-var">scalingPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367315"><span class="annot"><span class="annottext">s :: AutoScalingSettingsDescription
-</span><a href="#local-6989586621679367315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367314"><span class="annot"><span class="annottext">Maybe [AutoScalingPolicyDescription]
-</span><a href="#local-6989586621679367314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingSettingsDescription
-</span><a href="#local-6989586621679367315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingPolicies:AutoScalingSettingsDescription' :: Maybe [AutoScalingPolicyDescription]
+</span><a href="#local-6989586621679367966"><span class="hs-identifier hs-var hs-var">scalingPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoScalingPolicyDescription]
+</span><a href="#local-6989586621679367966"><span class="hs-identifier hs-var">scalingPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367965"><span class="annot"><span class="annottext">s :: AutoScalingSettingsDescription
+</span><a href="#local-6989586621679367965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367964"><span class="annot"><span class="annottext">Maybe [AutoScalingPolicyDescription]
+</span><a href="#local-6989586621679367964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingSettingsDescription
+</span><a href="#local-6989586621679367965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingPolicies:AutoScalingSettingsDescription' :: Maybe [AutoScalingPolicyDescription]
 </span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AscalingPolicies%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">scalingPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AutoScalingPolicyDescription]
-</span><a href="#local-6989586621679367314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AutoScalingPolicyDescription]
+</span><a href="#local-6989586621679367964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AutoScalingPolicyDescription]
   -&gt; f (Maybe [AutoScalingPolicyDescription]))
  -&gt; AutoScalingSettingsDescription
  -&gt; f AutoScalingSettingsDescription)
@@ -259,38 +310,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AutoScalingPolicyDescription]
   [AutoScalingPolicyDescription]
   [AutoScalingPolicyDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The maximum capacity units that a global table or global secondary index</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- should be scaled up to.</span><span>
-</span><span id="line-89"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_maximumUnits"><span class="hs-identifier hs-type">autoScalingSettingsDescription_maximumUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span id="autoScalingSettingsDescription_maximumUnits"><span class="annot"><span class="annottext">autoScalingSettingsDescription_maximumUnits :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; AutoScalingSettingsDescription
--&gt; f AutoScalingSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_maximumUnits"><span class="hs-identifier hs-var hs-var">autoScalingSettingsDescription_maximumUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingSettingsDescription -&gt; Maybe Natural)
--&gt; (AutoScalingSettingsDescription
-    -&gt; Maybe Natural -&gt; AutoScalingSettingsDescription)
--&gt; Lens
-     AutoScalingSettingsDescription
-     AutoScalingSettingsDescription
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367309"><span class="annot"><span class="annottext">Maybe Natural
-maximumUnits :: Maybe Natural
-$sel:maximumUnits:AutoScalingSettingsDescription' :: AutoScalingSettingsDescription -&gt; Maybe Natural
-</span><a href="#local-6989586621679367309"><span class="hs-identifier hs-var hs-var">maximumUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679367309"><span class="hs-identifier hs-var">maximumUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367308"><span class="annot"><span class="annottext">s :: AutoScalingSettingsDescription
-</span><a href="#local-6989586621679367308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367307"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679367307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingSettingsDescription
-</span><a href="#local-6989586621679367308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maximumUnits:AutoScalingSettingsDescription' :: Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AmaximumUnits%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">maximumUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679367307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | Role ARN used for configuring the auto scaling policy.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_autoScalingRoleArn"><span class="hs-identifier hs-type">autoScalingSettingsDescription_autoScalingRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="autoScalingSettingsDescription_autoScalingRoleArn"><span class="annot"><span class="annottext">autoScalingSettingsDescription_autoScalingRoleArn :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | Role ARN used for configuring the auto scaling policy.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_autoScalingRoleArn"><span class="hs-identifier hs-type">autoScalingSettingsDescription_autoScalingRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="autoScalingSettingsDescription_autoScalingRoleArn"><span class="annot"><span class="annottext">autoScalingSettingsDescription_autoScalingRoleArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AutoScalingSettingsDescription
 -&gt; f AutoScalingSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_autoScalingRoleArn"><span class="hs-identifier hs-var hs-var">autoScalingSettingsDescription_autoScalingRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingSettingsDescription -&gt; Maybe Text)
@@ -302,44 +327,19 @@ $sel:maximumUnits:AutoScalingSettingsDescription' :: AutoScalingSettingsDescript
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367305"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367959"><span class="annot"><span class="annottext">Maybe Text
 autoScalingRoleArn :: Maybe Text
 $sel:autoScalingRoleArn:AutoScalingSettingsDescription' :: AutoScalingSettingsDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679367305"><span class="hs-identifier hs-var hs-var">autoScalingRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367305"><span class="hs-identifier hs-var">autoScalingRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367304"><span class="annot"><span class="annottext">s :: AutoScalingSettingsDescription
-</span><a href="#local-6989586621679367304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367303"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingSettingsDescription
-</span><a href="#local-6989586621679367304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingRoleArn:AutoScalingSettingsDescription' :: Maybe Text
+</span><a href="#local-6989586621679367959"><span class="hs-identifier hs-var hs-var">autoScalingRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367959"><span class="hs-identifier hs-var">autoScalingRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367958"><span class="annot"><span class="annottext">s :: AutoScalingSettingsDescription
+</span><a href="#local-6989586621679367958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367957"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingSettingsDescription
+</span><a href="#local-6989586621679367958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingRoleArn:AutoScalingSettingsDescription' :: Maybe Text
 </span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AautoScalingRoleArn%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">autoScalingRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | Disabled auto scaling for this global table or global secondary index.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_autoScalingDisabled"><span class="hs-identifier hs-type">autoScalingSettingsDescription_autoScalingDisabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="autoScalingSettingsDescription_autoScalingDisabled"><span class="annot"><span class="annottext">autoScalingSettingsDescription_autoScalingDisabled :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; AutoScalingSettingsDescription
--&gt; f AutoScalingSettingsDescription
-</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#autoScalingSettingsDescription_autoScalingDisabled"><span class="hs-identifier hs-var hs-var">autoScalingSettingsDescription_autoScalingDisabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoScalingSettingsDescription -&gt; Maybe Bool)
--&gt; (AutoScalingSettingsDescription
-    -&gt; Maybe Bool -&gt; AutoScalingSettingsDescription)
--&gt; Lens
-     AutoScalingSettingsDescription
-     AutoScalingSettingsDescription
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367301"><span class="annot"><span class="annottext">Maybe Bool
-autoScalingDisabled :: Maybe Bool
-$sel:autoScalingDisabled:AutoScalingSettingsDescription' :: AutoScalingSettingsDescription -&gt; Maybe Bool
-</span><a href="#local-6989586621679367301"><span class="hs-identifier hs-var hs-var">autoScalingDisabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679367301"><span class="hs-identifier hs-var">autoScalingDisabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367300"><span class="annot"><span class="annottext">s :: AutoScalingSettingsDescription
-</span><a href="#local-6989586621679367300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-type">AutoScalingSettingsDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367299"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679367299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoScalingSettingsDescription
-</span><a href="#local-6989586621679367300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingDisabled:AutoScalingSettingsDescription' :: Maybe Bool
-</span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#%24sel%3AautoScalingDisabled%3AAutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">autoScalingDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679367299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679367957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367296"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679367294"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoScalingSettingsDescription
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367954"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679367952"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoScalingSettingsDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AutoScalingSettingsDescription)
@@ -349,95 +349,102 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AutoScalingSettingsDescription&quot;</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367291"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367291"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
--&gt; Maybe [AutoScalingPolicyDescription]
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367949"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367949"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
 -&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe [AutoScalingPolicyDescription]
 -&gt; Maybe Text
--&gt; Maybe Bool
 -&gt; AutoScalingSettingsDescription
 </span><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription%27"><span class="hs-identifier hs-var">AutoScalingSettingsDescription'</span></a></span><span>
-</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
- -&gt; Maybe [AutoScalingPolicyDescription]
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
  -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe [AutoScalingPolicyDescription]
  -&gt; Maybe Text
- -&gt; Maybe Bool
  -&gt; AutoScalingSettingsDescription)
--&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe [AutoScalingPolicyDescription]
+     (Maybe Natural
       -&gt; Maybe Natural
+      -&gt; Maybe [AutoScalingPolicyDescription]
       -&gt; Maybe Text
-      -&gt; Maybe Bool
       -&gt; AutoScalingSettingsDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679367949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoScalingDisabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe [AutoScalingPolicyDescription]
+   -&gt; Maybe Text
+   -&gt; AutoScalingSettingsDescription)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe [AutoScalingPolicyDescription]
+      -&gt; Maybe Text
+      -&gt; AutoScalingSettingsDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MinimumUnits&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [AutoScalingPolicyDescription]
-   -&gt; Maybe Natural
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe [AutoScalingPolicyDescription]
    -&gt; Maybe Text
-   -&gt; Maybe Bool
    -&gt; AutoScalingSettingsDescription)
--&gt; Parser (Maybe [AutoScalingPolicyDescription])
+-&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe Natural
-      -&gt; Maybe Text -&gt; Maybe Bool -&gt; AutoScalingSettingsDescription)
+     (Maybe [AutoScalingPolicyDescription]
+      -&gt; Maybe Text -&gt; AutoScalingSettingsDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaximumUnits&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AutoScalingPolicyDescription]
+   -&gt; Maybe Text -&gt; AutoScalingSettingsDescription)
+-&gt; Parser (Maybe [AutoScalingPolicyDescription])
+-&gt; Parser (Maybe Text -&gt; AutoScalingSettingsDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [AutoScalingPolicyDescription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ScalingPolicies&quot;</span></span><span>
-</span><span id="line-108"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AutoScalingPolicyDescription]))
+</span><span id="line-110"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AutoScalingPolicyDescription]))
 -&gt; Maybe [AutoScalingPolicyDescription]
 -&gt; Parser (Maybe [AutoScalingPolicyDescription])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AutoScalingPolicyDescription]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-109"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
-   -&gt; Maybe Text -&gt; Maybe Bool -&gt; AutoScalingSettingsDescription)
--&gt; Parser (Maybe Natural)
--&gt; Parser
-     (Maybe Text -&gt; Maybe Bool -&gt; AutoScalingSettingsDescription)
+</span><span id="line-111"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AutoScalingSettingsDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser AutoScalingSettingsDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaximumUnits&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Bool -&gt; AutoScalingSettingsDescription)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Bool -&gt; AutoScalingSettingsDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679367949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AutoScalingRoleArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; AutoScalingSettingsDescription)
--&gt; Parser (Maybe Bool) -&gt; Parser AutoScalingSettingsDescription
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AutoScalingDisabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679367284"><span id="local-6989586621679367286"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679367942"><span id="local-6989586621679367944"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span></span></span><span>
 </span><span id="line-118"></span><span>
 </span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679367281"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679367939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription.html#AutoScalingSettingsDescription"><span class="hs-identifier hs-type">AutoScalingSettingsDescription</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

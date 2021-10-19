@@ -14,71 +14,71 @@
 </span><span id="line-14"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SDB.Lens</span><span>
 </span><span id="line-15"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
 </span><span id="line-16"></span><span>
-</span><span id="line-17"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListDomains</span></span><span>
-</span><span id="line-18"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.ListDomains.html#listDomains_nextToken"><span class="hs-identifier">listDomains_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-19"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.ListDomains.html#listDomains_maxNumberOfDomains"><span class="hs-identifier">listDomains_maxNumberOfDomains</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.ListDomains.html#listDomainsResponse_domainNames"><span class="hs-identifier">listDomainsResponse_domainNames</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.ListDomains.html#listDomainsResponse_nextToken"><span class="hs-identifier">listDomainsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.ListDomains.html#listDomainsResponse_httpStatus"><span class="hs-identifier">listDomainsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-23"></span><span>
-</span><span id="line-24"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteAttributes</span></span><span>
-</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#deleteAttributes_expected"><span class="hs-identifier">deleteAttributes_expected</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#deleteAttributes_attributes"><span class="hs-identifier">deleteAttributes_attributes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#deleteAttributes_domainName"><span class="hs-identifier">deleteAttributes_domainName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#deleteAttributes_itemName"><span class="hs-identifier">deleteAttributes_itemName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-29"></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DomainMetadata</span></span><span>
-</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadata_domainName"><span class="hs-identifier">domainMetadata_domainName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_attributeNamesSizeBytes"><span class="hs-identifier">domainMetadataResponse_attributeNamesSizeBytes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_attributeValueCount"><span class="hs-identifier">domainMetadataResponse_attributeValueCount</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_attributeNameCount"><span class="hs-identifier">domainMetadataResponse_attributeNameCount</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_attributeValuesSizeBytes"><span class="hs-identifier">domainMetadataResponse_attributeValuesSizeBytes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_timestamp"><span class="hs-identifier">domainMetadataResponse_timestamp</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_itemCount"><span class="hs-identifier">domainMetadataResponse_itemCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** BatchDeleteAttributes</span></span><span>
+</span><span id="line-18"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#batchDeleteAttributes_domainName"><span class="hs-identifier">batchDeleteAttributes_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#batchDeleteAttributes_items"><span class="hs-identifier">batchDeleteAttributes_items</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** BatchPutAttributes</span></span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#batchPutAttributes_domainName"><span class="hs-identifier">batchPutAttributes_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#batchPutAttributes_items"><span class="hs-identifier">batchPutAttributes_items</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetAttributes</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.GetAttributes.html#getAttributes_consistentRead"><span class="hs-identifier">getAttributes_consistentRead</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.GetAttributes.html#getAttributes_attributeNames"><span class="hs-identifier">getAttributes_attributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.GetAttributes.html#getAttributes_domainName"><span class="hs-identifier">getAttributes_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.GetAttributes.html#getAttributes_itemName"><span class="hs-identifier">getAttributes_itemName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.GetAttributes.html#getAttributesResponse_attributes"><span class="hs-identifier">getAttributesResponse_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.GetAttributes.html#getAttributesResponse_httpStatus"><span class="hs-identifier">getAttributesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** CreateDomain</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#createDomain_domainName"><span class="hs-identifier">createDomain_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DomainMetadata</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadata_domainName"><span class="hs-identifier">domainMetadata_domainName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_itemNamesSizeBytes"><span class="hs-identifier">domainMetadataResponse_itemNamesSizeBytes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_httpStatus"><span class="hs-identifier">domainMetadataResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** BatchPutAttributes</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#batchPutAttributes_domainName"><span class="hs-identifier">batchPutAttributes_domainName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.BatchPutAttributes.html#batchPutAttributes_items"><span class="hs-identifier">batchPutAttributes_items</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** CreateDomain</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.CreateDomain.html#createDomain_domainName"><span class="hs-identifier">createDomain_domainName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteDomain</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DeleteDomain.html#deleteDomain_domainName"><span class="hs-identifier">deleteDomain_domainName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetAttributes</span></span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.GetAttributes.html#getAttributes_consistentRead"><span class="hs-identifier">getAttributes_consistentRead</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.GetAttributes.html#getAttributes_attributeNames"><span class="hs-identifier">getAttributes_attributeNames</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.GetAttributes.html#getAttributes_domainName"><span class="hs-identifier">getAttributes_domainName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.GetAttributes.html#getAttributes_itemName"><span class="hs-identifier">getAttributes_itemName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.GetAttributes.html#getAttributesResponse_attributes"><span class="hs-identifier">getAttributesResponse_attributes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.GetAttributes.html#getAttributesResponse_httpStatus"><span class="hs-identifier">getAttributesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutAttributes</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.PutAttributes.html#putAttributes_expected"><span class="hs-identifier">putAttributes_expected</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.PutAttributes.html#putAttributes_domainName"><span class="hs-identifier">putAttributes_domainName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.PutAttributes.html#putAttributes_itemName"><span class="hs-identifier">putAttributes_itemName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.PutAttributes.html#putAttributes_attributes"><span class="hs-identifier">putAttributes_attributes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Select</span></span><span>
-</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Select.html#select_nextToken"><span class="hs-identifier">select_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Select.html#select_consistentRead"><span class="hs-identifier">select_consistentRead</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Select.html#select_selectExpression"><span class="hs-identifier">select_selectExpression</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Select.html#selectResponse_nextToken"><span class="hs-identifier">selectResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Select.html#selectResponse_items"><span class="hs-identifier">selectResponse_items</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Select.html#selectResponse_httpStatus"><span class="hs-identifier">selectResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** BatchDeleteAttributes</span></span><span>
-</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#batchDeleteAttributes_domainName"><span class="hs-identifier">batchDeleteAttributes_domainName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.BatchDeleteAttributes.html#batchDeleteAttributes_items"><span class="hs-identifier">batchDeleteAttributes_items</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_attributeValuesSizeBytes"><span class="hs-identifier">domainMetadataResponse_attributeValuesSizeBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_attributeNameCount"><span class="hs-identifier">domainMetadataResponse_attributeNameCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_attributeNamesSizeBytes"><span class="hs-identifier">domainMetadataResponse_attributeNamesSizeBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_attributeValueCount"><span class="hs-identifier">domainMetadataResponse_attributeValueCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_itemCount"><span class="hs-identifier">domainMetadataResponse_itemCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_timestamp"><span class="hs-identifier">domainMetadataResponse_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DomainMetadata.html#domainMetadataResponse_httpStatus"><span class="hs-identifier">domainMetadataResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Select</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Select.html#select_consistentRead"><span class="hs-identifier">select_consistentRead</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Select.html#select_nextToken"><span class="hs-identifier">select_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Select.html#select_selectExpression"><span class="hs-identifier">select_selectExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Select.html#selectResponse_items"><span class="hs-identifier">selectResponse_items</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Select.html#selectResponse_nextToken"><span class="hs-identifier">selectResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Select.html#selectResponse_httpStatus"><span class="hs-identifier">selectResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteAttributes</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#deleteAttributes_attributes"><span class="hs-identifier">deleteAttributes_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#deleteAttributes_expected"><span class="hs-identifier">deleteAttributes_expected</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#deleteAttributes_domainName"><span class="hs-identifier">deleteAttributes_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DeleteAttributes.html#deleteAttributes_itemName"><span class="hs-identifier">deleteAttributes_itemName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** PutAttributes</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.PutAttributes.html#putAttributes_expected"><span class="hs-identifier">putAttributes_expected</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.PutAttributes.html#putAttributes_domainName"><span class="hs-identifier">putAttributes_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.PutAttributes.html#putAttributes_itemName"><span class="hs-identifier">putAttributes_itemName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.PutAttributes.html#putAttributes_attributes"><span class="hs-identifier">putAttributes_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteDomain</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.DeleteDomain.html#deleteDomain_domainName"><span class="hs-identifier">deleteDomain_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListDomains</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.ListDomains.html#listDomains_maxNumberOfDomains"><span class="hs-identifier">listDomains_maxNumberOfDomains</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.ListDomains.html#listDomains_nextToken"><span class="hs-identifier">listDomains_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.ListDomains.html#listDomainsResponse_domainNames"><span class="hs-identifier">listDomainsResponse_domainNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.ListDomains.html#listDomainsResponse_nextToken"><span class="hs-identifier">listDomainsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.ListDomains.html#listDomainsResponse_httpStatus"><span class="hs-identifier">listDomainsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Attribute</span></span><span>
-</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#attribute_alternateNameEncoding"><span class="hs-identifier">attribute_alternateNameEncoding</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#attribute_alternateValueEncoding"><span class="hs-identifier">attribute_alternateValueEncoding</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#attribute_alternateValueEncoding"><span class="hs-identifier">attribute_alternateValueEncoding</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#attribute_alternateNameEncoding"><span class="hs-identifier">attribute_alternateNameEncoding</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#attribute_name"><span class="hs-identifier">attribute_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Types.Attribute.html#attribute_value"><span class="hs-identifier">attribute_value</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>
@@ -102,8 +102,8 @@
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UpdateCondition</span></span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#updateCondition_exists"><span class="hs-identifier">updateCondition_exists</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#updateCondition_name"><span class="hs-identifier">updateCondition_name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#updateCondition_value"><span class="hs-identifier">updateCondition_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#updateCondition_value"><span class="hs-identifier">updateCondition_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.SDB.Types.UpdateCondition.html#updateCondition_name"><span class="hs-identifier">updateCondition_name</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span class="hs-keyword">where</span><span>
 </span><span id="line-109"></span><span>

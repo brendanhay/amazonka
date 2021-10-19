@@ -27,29 +27,29 @@
 </span><span id="line-27"></span><span class="hs-comment">-- set.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newReputationOptions' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679274484"><span id="local-6989586621679274485"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReputationOptions"><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-var">ReputationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReputationOptions%27"><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-var">ReputationOptions'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes whether or not Amazon SES publishes reputation metrics for the</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- configuration set, such as bounce and complaint rates, to Amazon</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- CloudWatch.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679274681"><span id="local-6989586621679274682"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReputationOptions"><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-var">ReputationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReputationOptions%27"><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-var">ReputationOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time at which the reputation metrics for the configuration</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- set were last reset. Resetting these metrics is known as a /fresh</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- start/.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- If the value is @true@, reputation metrics are published. If the value</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- is @false@, reputation metrics are not published. The default value is</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @false@.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="annot"><span class="annottext">ReputationOptions -&gt; Maybe Bool
-</span><a href="Network.AWS.SES.Types.ReputationOptions.html#%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var hs-var">reputationMetricsEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date and time at which the reputation metrics for the configuration</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- set were last reset. Resetting these metrics is known as a /fresh</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- start/.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- When you disable email sending for a configuration set using</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- UpdateConfigurationSetSendingEnabled and later re-enable it, the</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- reputation metrics for the configuration set (but not for the entire</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Amazon SES account) are reset.</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- If email sending for the configuration set has never been disabled and</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- later re-enabled, the value of this attribute is @null@.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AlastFreshStart%3AReputationOptions%27"><span class="annot"><span class="annottext">ReputationOptions -&gt; Maybe ISO8601
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- When you disable email sending for a configuration set using</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- UpdateConfigurationSetSendingEnabled and later re-enable it, the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- reputation metrics for the configuration set (but not for the entire</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Amazon SES account) are reset.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- If email sending for the configuration set has never been disabled and</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- later re-enabled, the value of this attribute is @null@.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlastFreshStart%3AReputationOptions%27"><span class="annot"><span class="annottext">ReputationOptions -&gt; Maybe ISO8601
 </span><a href="Network.AWS.SES.Types.ReputationOptions.html#%24sel%3AlastFreshStart%3AReputationOptions%27"><span class="hs-identifier hs-var hs-var">lastFreshStart</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Describes whether or not Amazon SES publishes reputation metrics for the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- configuration set, such as bounce and complaint rates, to Amazon</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- CloudWatch.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- If the value is @true@, reputation metrics are published. If the value</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- is @false@, reputation metrics are not published. The default value is</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @false@.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="annot"><span class="annottext">ReputationOptions -&gt; Maybe Bool
+</span><a href="Network.AWS.SES.Types.ReputationOptions.html#%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var hs-var">reputationMetricsEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Describes whether email sending is enabled or disabled for the</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- configuration set. If the value is @true@, then Amazon SES will send</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- emails that use the configuration set. If the value is @false@, Amazon</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AsendingEnabled%3AReputationOptions%27"><span class="annot"><span class="annottext">ReputationOptions -&gt; Maybe Bool
 </span><a href="Network.AWS.SES.Types.ReputationOptions.html#%24sel%3AsendingEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var hs-var">sendingEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274476"><span id="local-6989586621679274478"><span class="annot"><span class="annottext">ReputationOptions -&gt; ReputationOptions -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274673"><span id="local-6989586621679274675"><span class="annot"><span class="annottext">ReputationOptions -&gt; ReputationOptions -&gt; Bool
 (ReputationOptions -&gt; ReputationOptions -&gt; Bool)
 -&gt; (ReputationOptions -&gt; ReputationOptions -&gt; Bool)
 -&gt; Eq ReputationOptions
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReputationOptions -&gt; ReputationOptions -&gt; Bool
 == :: ReputationOptions -&gt; ReputationOptions -&gt; Bool
 $c== :: ReputationOptions -&gt; ReputationOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274467"><span id="local-6989586621679274469"><span id="local-6989586621679274471"><span id="local-6989586621679274473"><span class="annot"><span class="annottext">ReadPrec [ReputationOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274664"><span id="local-6989586621679274666"><span id="local-6989586621679274668"><span id="local-6989586621679274670"><span class="annot"><span class="annottext">ReadPrec [ReputationOptions]
 ReadPrec ReputationOptions
 Int -&gt; ReadS ReputationOptions
 ReadS [ReputationOptions]
@@ -88,7 +88,7 @@ readList :: ReadS [ReputationOptions]
 $creadList :: ReadS [ReputationOptions]
 readsPrec :: Int -&gt; ReadS ReputationOptions
 $creadsPrec :: Int -&gt; ReadS ReputationOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274460"><span id="local-6989586621679274462"><span id="local-6989586621679274464"><span class="annot"><span class="annottext">Int -&gt; ReputationOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274657"><span id="local-6989586621679274659"><span id="local-6989586621679274661"><span class="annot"><span class="annottext">Int -&gt; ReputationOptions -&gt; ShowS
 [ReputationOptions] -&gt; ShowS
 ReputationOptions -&gt; String
 (Int -&gt; ReputationOptions -&gt; ShowS)
@@ -122,25 +122,25 @@ $cfrom :: forall x. ReputationOptions -&gt; Rep ReputationOptions x
 </span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'reputationMetricsEnabled', 'reputationOptions_reputationMetricsEnabled' - Describes whether or not Amazon SES publishes reputation metrics for the</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- configuration set, such as bounce and complaint rates, to Amazon</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- CloudWatch.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'lastFreshStart', 'reputationOptions_lastFreshStart' - The date and time at which the reputation metrics for the configuration</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- set were last reset. Resetting these metrics is known as a /fresh</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- start/.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- If the value is @true@, reputation metrics are published. If the value</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- is @false@, reputation metrics are not published. The default value is</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- @false@.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'lastFreshStart', 'reputationOptions_lastFreshStart' - The date and time at which the reputation metrics for the configuration</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- set were last reset. Resetting these metrics is known as a /fresh</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- start/.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- When you disable email sending for a configuration set using</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- UpdateConfigurationSetSendingEnabled and later re-enable it, the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- reputation metrics for the configuration set (but not for the entire</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Amazon SES account) are reset.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- If email sending for the configuration set has never been disabled and</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- later re-enabled, the value of this attribute is @null@.</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- When you disable email sending for a configuration set using</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- UpdateConfigurationSetSendingEnabled and later re-enable it, the</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- reputation metrics for the configuration set (but not for the entire</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- Amazon SES account) are reset.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- If email sending for the configuration set has never been disabled and</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- later re-enabled, the value of this attribute is @null@.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'reputationMetricsEnabled', 'reputationOptions_reputationMetricsEnabled' - Describes whether or not Amazon SES publishes reputation metrics for the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- configuration set, such as bounce and complaint rates, to Amazon</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- CloudWatch.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- If the value is @true@, reputation metrics are published. If the value</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- is @false@, reputation metrics are not published. The default value is</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- @false@.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- 'sendingEnabled', 'reputationOptions_sendingEnabled' - Describes whether email sending is enabled or disabled for the</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- configuration set. If the value is @true@, then Amazon SES will send</span><span>
@@ -152,15 +152,15 @@ $cfrom :: forall x. ReputationOptions -&gt; Rep ReputationOptions x
 </span><span id="line-96"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span>
 </span><span id="line-97"></span><span id="newReputationOptions"><span class="annot"><span class="annottext">newReputationOptions :: ReputationOptions
 </span><a href="Network.AWS.SES.Types.ReputationOptions.html#newReputationOptions"><span class="hs-identifier hs-var hs-var">newReputationOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">ReputationOptions' :: Maybe Bool -&gt; Maybe ISO8601 -&gt; Maybe Bool -&gt; ReputationOptions
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">ReputationOptions' :: Maybe ISO8601 -&gt; Maybe Bool -&gt; Maybe Bool -&gt; ReputationOptions
 </span><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reputationMetricsEnabled:ReputationOptions' :: Maybe Bool
-</span><a href="Network.AWS.SES.Types.ReputationOptions.html#%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastFreshStart:ReputationOptions' :: Maybe ISO8601
+</span><a href="Network.AWS.SES.Types.ReputationOptions.html#%24sel%3AlastFreshStart%3AReputationOptions%27"><span class="hs-identifier hs-var">lastFreshStart</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastFreshStart:ReputationOptions' :: Maybe ISO8601
-</span><a href="Network.AWS.SES.Types.ReputationOptions.html#%24sel%3AlastFreshStart%3AReputationOptions%27"><span class="hs-identifier hs-var">lastFreshStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:reputationMetricsEnabled:ReputationOptions' :: Maybe Bool
+</span><a href="Network.AWS.SES.Types.ReputationOptions.html#%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:sendingEnabled:ReputationOptions' :: Maybe Bool
@@ -169,61 +169,35 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | Describes whether or not Amazon SES publishes reputation metrics for the</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- configuration set, such as bounce and complaint rates, to Amazon</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- CloudWatch.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The date and time at which the reputation metrics for the configuration</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- set were last reset. Resetting these metrics is known as a /fresh</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- start/.</span><span>
 </span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- If the value is @true@, reputation metrics are published. If the value</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- is @false@, reputation metrics are not published. The default value is</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- @false@.</span><span>
-</span><span id="line-112"></span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#reputationOptions_reputationMetricsEnabled"><span class="hs-identifier hs-type">reputationOptions_reputationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span id="reputationOptions_reputationMetricsEnabled"><span class="annot"><span class="annottext">reputationOptions_reputationMetricsEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ReputationOptions -&gt; f ReputationOptions
-</span><a href="Network.AWS.SES.Types.ReputationOptions.html#reputationOptions_reputationMetricsEnabled"><span class="hs-identifier hs-var hs-var">reputationOptions_reputationMetricsEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReputationOptions -&gt; Maybe Bool)
--&gt; (ReputationOptions -&gt; Maybe Bool -&gt; ReputationOptions)
--&gt; Lens
-     ReputationOptions ReputationOptions (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274451"><span class="annot"><span class="annottext">Maybe Bool
-reputationMetricsEnabled :: Maybe Bool
-$sel:reputationMetricsEnabled:ReputationOptions' :: ReputationOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679274451"><span class="hs-identifier hs-var hs-var">reputationMetricsEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274451"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274450"><span class="annot"><span class="annottext">s :: ReputationOptions
-</span><a href="#local-6989586621679274450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274449"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReputationOptions
-</span><a href="#local-6989586621679274450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reputationMetricsEnabled:ReputationOptions' :: Maybe Bool
-</span><a href="Network.AWS.SES.Types.ReputationOptions.html#%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- | The date and time at which the reputation metrics for the configuration</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- set were last reset. Resetting these metrics is known as a /fresh</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- start/.</span><span>
-</span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- When you disable email sending for a configuration set using</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- UpdateConfigurationSetSendingEnabled and later re-enable it, the</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- reputation metrics for the configuration set (but not for the entire</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- Amazon SES account) are reset.</span><span>
-</span><span id="line-123"></span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- If email sending for the configuration set has never been disabled and</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- later re-enabled, the value of this attribute is @null@.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#reputationOptions_lastFreshStart"><span class="hs-identifier hs-type">reputationOptions_lastFreshStart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="reputationOptions_lastFreshStart"><span class="annot"><span class="annottext">reputationOptions_lastFreshStart :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-109"></span><span class="hs-comment">-- When you disable email sending for a configuration set using</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- UpdateConfigurationSetSendingEnabled and later re-enable it, the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- reputation metrics for the configuration set (but not for the entire</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Amazon SES account) are reset.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- If email sending for the configuration set has never been disabled and</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- later re-enabled, the value of this attribute is @null@.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#reputationOptions_lastFreshStart"><span class="hs-identifier hs-type">reputationOptions_lastFreshStart</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="reputationOptions_lastFreshStart"><span class="annot"><span class="annottext">reputationOptions_lastFreshStart :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ReputationOptions -&gt; f ReputationOptions
 </span><a href="Network.AWS.SES.Types.ReputationOptions.html#reputationOptions_lastFreshStart"><span class="hs-identifier hs-var hs-var">reputationOptions_lastFreshStart</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReputationOptions -&gt; Maybe ISO8601)
 -&gt; (ReputationOptions -&gt; Maybe ISO8601 -&gt; ReputationOptions)
 -&gt; Lens
      ReputationOptions ReputationOptions (Maybe ISO8601) (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274447"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274648"><span class="annot"><span class="annottext">Maybe ISO8601
 lastFreshStart :: Maybe ISO8601
 $sel:lastFreshStart:ReputationOptions' :: ReputationOptions -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679274447"><span class="hs-identifier hs-var hs-var">lastFreshStart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679274447"><span class="hs-identifier hs-var">lastFreshStart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274446"><span class="annot"><span class="annottext">s :: ReputationOptions
-</span><a href="#local-6989586621679274446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274445"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679274445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReputationOptions
-</span><a href="#local-6989586621679274446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastFreshStart:ReputationOptions' :: Maybe ISO8601
+</span><a href="#local-6989586621679274648"><span class="hs-identifier hs-var hs-var">lastFreshStart</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679274648"><span class="hs-identifier hs-var">lastFreshStart</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274647"><span class="annot"><span class="annottext">s :: ReputationOptions
+</span><a href="#local-6989586621679274647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274646"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679274646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReputationOptions
+</span><a href="#local-6989586621679274647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastFreshStart:ReputationOptions' :: Maybe ISO8601
 </span><a href="Network.AWS.SES.Types.ReputationOptions.html#%24sel%3AlastFreshStart%3AReputationOptions%27"><span class="hs-identifier hs-var">lastFreshStart</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679274445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679274646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; ReputationOptions -&gt; f ReputationOptions)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -240,6 +214,32 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | Describes whether or not Amazon SES publishes reputation metrics for the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- configuration set, such as bounce and complaint rates, to Amazon</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- CloudWatch.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- If the value is @true@, reputation metrics are published. If the value</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- is @false@, reputation metrics are not published. The default value is</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- @false@.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#reputationOptions_reputationMetricsEnabled"><span class="hs-identifier hs-type">reputationOptions_reputationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="reputationOptions_reputationMetricsEnabled"><span class="annot"><span class="annottext">reputationOptions_reputationMetricsEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ReputationOptions -&gt; f ReputationOptions
+</span><a href="Network.AWS.SES.Types.ReputationOptions.html#reputationOptions_reputationMetricsEnabled"><span class="hs-identifier hs-var hs-var">reputationOptions_reputationMetricsEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReputationOptions -&gt; Maybe Bool)
+-&gt; (ReputationOptions -&gt; Maybe Bool -&gt; ReputationOptions)
+-&gt; Lens
+     ReputationOptions ReputationOptions (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274641"><span class="annot"><span class="annottext">Maybe Bool
+reputationMetricsEnabled :: Maybe Bool
+$sel:reputationMetricsEnabled:ReputationOptions' :: ReputationOptions -&gt; Maybe Bool
+</span><a href="#local-6989586621679274641"><span class="hs-identifier hs-var hs-var">reputationMetricsEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274641"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274640"><span class="annot"><span class="annottext">s :: ReputationOptions
+</span><a href="#local-6989586621679274640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274639"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReputationOptions
+</span><a href="#local-6989586621679274640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reputationMetricsEnabled:ReputationOptions' :: Maybe Bool
+</span><a href="Network.AWS.SES.Types.ReputationOptions.html#%24sel%3AreputationMetricsEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var">reputationMetricsEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | Describes whether email sending is enabled or disabled for the</span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- configuration set. If the value is @true@, then Amazon SES will send</span><span>
@@ -255,51 +255,51 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; Lens
      ReputationOptions ReputationOptions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274440"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274637"><span class="annot"><span class="annottext">Maybe Bool
 sendingEnabled :: Maybe Bool
 $sel:sendingEnabled:ReputationOptions' :: ReputationOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679274440"><span class="hs-identifier hs-var hs-var">sendingEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274440"><span class="hs-identifier hs-var">sendingEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274439"><span class="annot"><span class="annottext">s :: ReputationOptions
-</span><a href="#local-6989586621679274439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274438"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReputationOptions
-</span><a href="#local-6989586621679274439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sendingEnabled:ReputationOptions' :: Maybe Bool
+</span><a href="#local-6989586621679274637"><span class="hs-identifier hs-var hs-var">sendingEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274637"><span class="hs-identifier hs-var">sendingEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274636"><span class="annot"><span class="annottext">s :: ReputationOptions
+</span><a href="#local-6989586621679274636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-type">ReputationOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274635"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679274635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReputationOptions
+</span><a href="#local-6989586621679274636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sendingEnabled:ReputationOptions' :: Maybe Bool
 </span><a href="Network.AWS.SES.Types.ReputationOptions.html#%24sel%3AsendingEnabled%3AReputationOptions%27"><span class="hs-identifier hs-var">sendingEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679274438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679274635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679274435"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReputationOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679274433"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679274433"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe ISO8601 -&gt; Maybe Bool -&gt; ReputationOptions
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679274632"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReputationOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679274630"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679274630"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601 -&gt; Maybe Bool -&gt; Maybe Bool -&gt; ReputationOptions
 </span><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions%27"><span class="hs-identifier hs-var">ReputationOptions'</span></a></span><span>
-</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe ISO8601 -&gt; Maybe Bool -&gt; ReputationOptions)
--&gt; Either String (Maybe Bool)
--&gt; Either String (Maybe ISO8601 -&gt; Maybe Bool -&gt; ReputationOptions)
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601 -&gt; Maybe Bool -&gt; Maybe Bool -&gt; ReputationOptions)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe Bool -&gt; Maybe Bool -&gt; ReputationOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679274433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReputationMetricsEnabled&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; Maybe Bool -&gt; ReputationOptions)
--&gt; Either String (Maybe ISO8601)
--&gt; Either String (Maybe Bool -&gt; ReputationOptions)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679274433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679274630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LastFreshStart&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Maybe Bool -&gt; ReputationOptions)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe Bool -&gt; ReputationOptions)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679274630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReputationMetricsEnabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; ReputationOptions)
 -&gt; Either String (Maybe Bool) -&gt; Either String ReputationOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679274433"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679274630"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SendingEnabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274427"><span id="local-6989586621679274429"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274624"><span id="local-6989586621679274626"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274424"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274621"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.ReputationOptions.html#ReputationOptions"><span class="hs-identifier hs-type">ReputationOptions</span></a></span></span><span>
 </span><span id="line-148"></span></pre></body></html>

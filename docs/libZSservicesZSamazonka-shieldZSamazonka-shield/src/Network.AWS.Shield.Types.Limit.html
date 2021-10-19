@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Specifies how many protections of a given type you can create.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newLimit' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679202061"><span id="local-6989586621679202062"></span></span><span class="hs-keyword">data</span><span> </span><span id="Limit"><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-var">Limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Limit%27"><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit%27"><span class="hs-identifier hs-var">Limit'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679202186"><span id="local-6989586621679202187"></span></span><span class="hs-keyword">data</span><span> </span><span id="Limit"><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-var">Limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Limit%27"><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit%27"><span class="hs-identifier hs-var">Limit'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of protections that can be created for the specified</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- @Type@.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Amax%3ALimit%27"><span class="annot"><span class="annottext">Limit -&gt; Maybe Integer
@@ -35,14 +35,14 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Atype%27%3ALimit%27"><span class="annot"><span class="annottext">Limit -&gt; Maybe Text
 </span><a href="Network.AWS.Shield.Types.Limit.html#%24sel%3Atype%27%3ALimit%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202054"><span id="local-6989586621679202056"><span class="annot"><span class="annottext">Limit -&gt; Limit -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202179"><span id="local-6989586621679202181"><span class="annot"><span class="annottext">Limit -&gt; Limit -&gt; Bool
 (Limit -&gt; Limit -&gt; Bool) -&gt; (Limit -&gt; Limit -&gt; Bool) -&gt; Eq Limit
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Limit -&gt; Limit -&gt; Bool
 $c/= :: Limit -&gt; Limit -&gt; Bool
 == :: Limit -&gt; Limit -&gt; Bool
 $c== :: Limit -&gt; Limit -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202045"><span id="local-6989586621679202047"><span id="local-6989586621679202049"><span id="local-6989586621679202051"><span class="annot"><span class="annottext">ReadPrec [Limit]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202170"><span id="local-6989586621679202172"><span id="local-6989586621679202174"><span id="local-6989586621679202176"><span class="annot"><span class="annottext">ReadPrec [Limit]
 ReadPrec Limit
 Int -&gt; ReadS Limit
 ReadS [Limit]
@@ -62,7 +62,7 @@ readList :: ReadS [Limit]
 $creadList :: ReadS [Limit]
 readsPrec :: Int -&gt; ReadS Limit
 $creadsPrec :: Int -&gt; ReadS Limit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202038"><span id="local-6989586621679202040"><span id="local-6989586621679202042"><span class="annot"><span class="annottext">Int -&gt; Limit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202163"><span id="local-6989586621679202165"><span id="local-6989586621679202167"><span class="annot"><span class="annottext">Int -&gt; Limit -&gt; ShowS
 [Limit] -&gt; ShowS
 Limit -&gt; String
 (Int -&gt; Limit -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Maybe a
 -&gt; (Limit -&gt; Maybe Integer -&gt; Limit)
 -&gt; Lens Limit Limit (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit%27"><span class="hs-identifier hs-type">Limit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202029"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit%27"><span class="hs-identifier hs-type">Limit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202154"><span class="annot"><span class="annottext">Maybe Integer
 max :: Maybe Integer
 $sel:max:Limit' :: Limit -&gt; Maybe Integer
-</span><a href="#local-6989586621679202029"><span class="hs-identifier hs-var hs-var">max</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679202029"><span class="hs-identifier hs-var">max</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202028"><span class="annot"><span class="annottext">s :: Limit
-</span><a href="#local-6989586621679202028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit%27"><span class="hs-identifier hs-type">Limit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202027"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679202027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Limit
-</span><a href="#local-6989586621679202028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:max:Limit' :: Maybe Integer
+</span><a href="#local-6989586621679202154"><span class="hs-identifier hs-var hs-var">max</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679202154"><span class="hs-identifier hs-var">max</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202153"><span class="annot"><span class="annottext">s :: Limit
+</span><a href="#local-6989586621679202153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit%27"><span class="hs-identifier hs-type">Limit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202152"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679202152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Limit
+</span><a href="#local-6989586621679202153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:max:Limit' :: Maybe Integer
 </span><a href="Network.AWS.Shield.Types.Limit.html#%24sel%3Amax%3ALimit%27"><span class="hs-identifier hs-var">max</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679202027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-type">Limit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-type">Limit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | The type of protection.</span><span>
 </span><span id="line-64"></span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#limit_type"><span class="hs-identifier hs-type">limit_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-type">Limit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -139,46 +139,46 @@ $sel:max:Limit' :: Limit -&gt; Maybe Integer
 -&gt; (Limit -&gt; Maybe Text -&gt; Limit)
 -&gt; Lens Limit Limit (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit%27"><span class="hs-identifier hs-type">Limit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202025"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit%27"><span class="hs-identifier hs-type">Limit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202150"><span class="annot"><span class="annottext">Maybe Text
 type' :: Maybe Text
 $sel:type':Limit' :: Limit -&gt; Maybe Text
-</span><a href="#local-6989586621679202025"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202025"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202024"><span class="annot"><span class="annottext">s :: Limit
-</span><a href="#local-6989586621679202024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit%27"><span class="hs-identifier hs-type">Limit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202023"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Limit
-</span><a href="#local-6989586621679202024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Limit' :: Maybe Text
+</span><a href="#local-6989586621679202150"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202150"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202149"><span class="annot"><span class="annottext">s :: Limit
+</span><a href="#local-6989586621679202149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit%27"><span class="hs-identifier hs-type">Limit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202148"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Limit
+</span><a href="#local-6989586621679202149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Limit' :: Maybe Text
 </span><a href="Network.AWS.Shield.Types.Limit.html#%24sel%3Atype%27%3ALimit%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679202023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-type">Limit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679202148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-type">Limit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202020"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-type">Limit</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679202018"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Limit
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202145"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-type">Limit</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679202143"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Limit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Limit) -&gt; Value -&gt; Parser Limit
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202015"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202015"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202140"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202140"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe Text -&gt; Limit
 </span><a href="Network.AWS.Shield.Types.Limit.html#Limit%27"><span class="hs-identifier hs-var">Limit'</span></a></span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Maybe Text -&gt; Limit)
 -&gt; Parser (Maybe Integer) -&gt; Parser (Maybe Text -&gt; Limit)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679202140"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Max&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Limit) -&gt; Parser (Maybe Text) -&gt; Parser Limit
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679202015"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679202140"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202009"><span id="local-6989586621679202011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-type">Limit</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202134"><span id="local-6989586621679202136"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-type">Limit</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-type">Limit</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Shield.Types.Limit.html#Limit"><span class="hs-identifier hs-type">Limit</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

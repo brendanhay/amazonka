@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- its objective metric to choose the best training job.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMetricDefinition' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621680314626"><span id="local-6989586621680314627"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-var">MetricDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-var">MetricDefinition'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680316004"><span id="local-6989586621680316005"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricDefinition"><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-var">MetricDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricDefinition%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-var">MetricDefinition'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the metric.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AMetricDefinition%27"><span class="annot"><span class="annottext">MetricDefinition -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#%24sel%3Aname%3AMetricDefinition%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3Aregex%3AMetricDefinition%27"><span class="annot"><span class="annottext">MetricDefinition -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#%24sel%3Aregex%3AMetricDefinition%27"><span class="hs-identifier hs-var hs-var">regex</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680314619"><span id="local-6989586621680314621"><span class="annot"><span class="annottext">MetricDefinition -&gt; MetricDefinition -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680315997"><span id="local-6989586621680315999"><span class="annot"><span class="annottext">MetricDefinition -&gt; MetricDefinition -&gt; Bool
 (MetricDefinition -&gt; MetricDefinition -&gt; Bool)
 -&gt; (MetricDefinition -&gt; MetricDefinition -&gt; Bool)
 -&gt; Eq MetricDefinition
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricDefinition -&gt; MetricDefinition -&gt; Bool
 == :: MetricDefinition -&gt; MetricDefinition -&gt; Bool
 $c== :: MetricDefinition -&gt; MetricDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680314610"><span id="local-6989586621680314612"><span id="local-6989586621680314614"><span id="local-6989586621680314616"><span class="annot"><span class="annottext">ReadPrec [MetricDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680315988"><span id="local-6989586621680315990"><span id="local-6989586621680315992"><span id="local-6989586621680315994"><span class="annot"><span class="annottext">ReadPrec [MetricDefinition]
 ReadPrec MetricDefinition
 Int -&gt; ReadS MetricDefinition
 ReadS [MetricDefinition]
@@ -69,7 +69,7 @@ readList :: ReadS [MetricDefinition]
 $creadList :: ReadS [MetricDefinition]
 readsPrec :: Int -&gt; ReadS MetricDefinition
 $creadsPrec :: Int -&gt; ReadS MetricDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680314603"><span id="local-6989586621680314605"><span id="local-6989586621680314607"><span class="annot"><span class="annottext">Int -&gt; MetricDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680315981"><span id="local-6989586621680315983"><span id="local-6989586621680315985"><span class="annot"><span class="annottext">Int -&gt; MetricDefinition -&gt; ShowS
 [MetricDefinition] -&gt; ShowS
 MetricDefinition -&gt; String
 (Int -&gt; MetricDefinition -&gt; ShowS)
@@ -116,15 +116,15 @@ $cfrom :: forall x. MetricDefinition -&gt; Rep MetricDefinition x
 </span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span><span>
 </span><span id="line-63"></span><span id="newMetricDefinition"><span class="annot"><span class="annottext">newMetricDefinition :: Text -&gt; Text -&gt; MetricDefinition
-</span><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#newMetricDefinition"><span class="hs-identifier hs-var hs-var">newMetricDefinition</span></a></span></span><span> </span><span id="local-6989586621680314597"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680314597"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621680314596"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680314596"><span class="hs-identifier hs-var">pRegex_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#newMetricDefinition"><span class="hs-identifier hs-var hs-var">newMetricDefinition</span></a></span></span><span> </span><span id="local-6989586621680315975"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680315975"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621680315974"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680315974"><span class="hs-identifier hs-var">pRegex_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">MetricDefinition' :: Text -&gt; Text -&gt; MetricDefinition
 </span><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-type">MetricDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MetricDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#%24sel%3Aname%3AMetricDefinition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680314597"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:regex:MetricDefinition' :: Text
+</span><a href="#local-6989586621680315975"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:regex:MetricDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#%24sel%3Aregex%3AMetricDefinition%27"><span class="hs-identifier hs-var">regex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680314596"><span class="hs-identifier hs-var">pRegex_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621680315974"><span class="hs-identifier hs-var">pRegex_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-comment">-- | The name of the metric.</span><span>
 </span><span id="line-67"></span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#metricDefinition_name"><span class="hs-identifier hs-type">metricDefinition_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -133,16 +133,16 @@ $cfrom :: forall x. MetricDefinition -&gt; Rep MetricDefinition x
 -&gt; (MetricDefinition -&gt; Text -&gt; MetricDefinition)
 -&gt; Lens MetricDefinition MetricDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-type">MetricDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680314592"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-type">MetricDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680315970"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:MetricDefinition' :: MetricDefinition -&gt; Text
-</span><a href="#local-6989586621680314592"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680314592"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680314591"><span class="annot"><span class="annottext">s :: MetricDefinition
-</span><a href="#local-6989586621680314591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-type">MetricDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680314590"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680314590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDefinition
-</span><a href="#local-6989586621680314591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MetricDefinition' :: Text
+</span><a href="#local-6989586621680315970"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680315970"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680315969"><span class="annot"><span class="annottext">s :: MetricDefinition
+</span><a href="#local-6989586621680315969"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-type">MetricDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680315968"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680315968"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDefinition
+</span><a href="#local-6989586621680315969"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:MetricDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#%24sel%3Aname%3AMetricDefinition%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680314590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680315968"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | A regular expression that searches the output of a training job and gets</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- the value of the metric. For more information about using regular</span><span>
@@ -154,19 +154,19 @@ $sel:name:MetricDefinition' :: MetricDefinition -&gt; Text
 -&gt; (MetricDefinition -&gt; Text -&gt; MetricDefinition)
 -&gt; Lens MetricDefinition MetricDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-type">MetricDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680314588"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-type">MetricDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680315966"><span class="annot"><span class="annottext">Text
 regex :: Text
 $sel:regex:MetricDefinition' :: MetricDefinition -&gt; Text
-</span><a href="#local-6989586621680314588"><span class="hs-identifier hs-var hs-var">regex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680314588"><span class="hs-identifier hs-var">regex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680314587"><span class="annot"><span class="annottext">s :: MetricDefinition
-</span><a href="#local-6989586621680314587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-type">MetricDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680314586"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680314586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDefinition
-</span><a href="#local-6989586621680314587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regex:MetricDefinition' :: Text
+</span><a href="#local-6989586621680315966"><span class="hs-identifier hs-var hs-var">regex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680315966"><span class="hs-identifier hs-var">regex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680315965"><span class="annot"><span class="annottext">s :: MetricDefinition
+</span><a href="#local-6989586621680315965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-type">MetricDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680315964"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680315964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricDefinition
+</span><a href="#local-6989586621680315965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:regex:MetricDefinition' :: Text
 </span><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#%24sel%3Aregex%3AMetricDefinition%27"><span class="hs-identifier hs-var">regex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680314586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680315964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680314583"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621680314581"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricDefinition
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315961"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621680315959"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MetricDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MetricDefinition)
@@ -176,39 +176,39 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MetricDefinition&quot;</span></span><span>
-</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680314578"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680314578"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680315956"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680315956"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; MetricDefinition
 </span><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-var">MetricDefinition'</span></a></span><span>
 </span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; MetricDefinition)
 -&gt; Parser Text -&gt; Parser (Text -&gt; MetricDefinition)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680314578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680315956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; MetricDefinition)
 -&gt; Parser Text -&gt; Parser MetricDefinition
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680314578"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621680315956"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Regex&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680314572"><span id="local-6989586621680314574"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315950"><span id="local-6989586621680315952"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680314569"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315947"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680314561"><span id="local-6989586621680314563"><span id="local-6989586621680314565"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621680314559"><span class="annot"><span class="annottext">toJSON :: MetricDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-type">MetricDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680314556"><span id="local-6989586621680314557"><span class="annot"><span class="annottext">Text
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680315939"><span id="local-6989586621680315941"><span id="local-6989586621680315943"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition"><span class="hs-identifier hs-type">MetricDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680315937"><span class="annot"><span class="annottext">toJSON :: MetricDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.MetricDefinition.html#MetricDefinition%27"><span class="hs-identifier hs-type">MetricDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680315934"><span id="local-6989586621680315935"><span class="annot"><span class="annottext">Text
 regex :: Text
 name :: Text
 $sel:regex:MetricDefinition' :: MetricDefinition -&gt; Text
 $sel:name:MetricDefinition' :: MetricDefinition -&gt; Text
-</span><a href="#local-6989586621680314556"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680315934"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -220,14 +220,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680314557"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680315935"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Regex&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680314556"><span class="hs-identifier hs-var">regex</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680315934"><span class="hs-identifier hs-var">regex</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

@@ -27,16 +27,16 @@
 </span><span id="line-27"></span><span class="hs-comment">-- confidence level in the determination.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEyeglasses' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679323316"><span id="local-6989586621679323317"></span></span><span class="hs-keyword">data</span><span> </span><span id="Eyeglasses"><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-var">Eyeglasses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eyeglasses%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses%27"><span class="hs-identifier hs-var">Eyeglasses'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Level of confidence in the determination.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aconfidence%3AEyeglasses%27"><span class="annot"><span class="annottext">Eyeglasses -&gt; Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#%24sel%3Aconfidence%3AEyeglasses%27"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Boolean value that indicates whether the face is wearing eye glasses or</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- not.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Avalue%3AEyeglasses%27"><span class="annot"><span class="annottext">Eyeglasses -&gt; Maybe Bool
-</span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#%24sel%3Avalue%3AEyeglasses%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679323593"><span id="local-6989586621679323594"></span></span><span class="hs-keyword">data</span><span> </span><span id="Eyeglasses"><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-var">Eyeglasses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eyeglasses%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses%27"><span class="hs-identifier hs-var">Eyeglasses'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Boolean value that indicates whether the face is wearing eye glasses or</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- not.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Avalue%3AEyeglasses%27"><span class="annot"><span class="annottext">Eyeglasses -&gt; Maybe Bool
+</span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#%24sel%3Avalue%3AEyeglasses%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Level of confidence in the determination.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aconfidence%3AEyeglasses%27"><span class="annot"><span class="annottext">Eyeglasses -&gt; Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#%24sel%3Aconfidence%3AEyeglasses%27"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323309"><span id="local-6989586621679323311"><span class="annot"><span class="annottext">Eyeglasses -&gt; Eyeglasses -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323586"><span id="local-6989586621679323588"><span class="annot"><span class="annottext">Eyeglasses -&gt; Eyeglasses -&gt; Bool
 (Eyeglasses -&gt; Eyeglasses -&gt; Bool)
 -&gt; (Eyeglasses -&gt; Eyeglasses -&gt; Bool) -&gt; Eq Eyeglasses
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Eyeglasses -&gt; Eyeglasses -&gt; Bool
 == :: Eyeglasses -&gt; Eyeglasses -&gt; Bool
 $c== :: Eyeglasses -&gt; Eyeglasses -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323300"><span id="local-6989586621679323302"><span id="local-6989586621679323304"><span id="local-6989586621679323306"><span class="annot"><span class="annottext">ReadPrec [Eyeglasses]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323577"><span id="local-6989586621679323579"><span id="local-6989586621679323581"><span id="local-6989586621679323583"><span class="annot"><span class="annottext">ReadPrec [Eyeglasses]
 ReadPrec Eyeglasses
 Int -&gt; ReadS Eyeglasses
 ReadS [Eyeglasses]
@@ -64,7 +64,7 @@ readList :: ReadS [Eyeglasses]
 $creadList :: ReadS [Eyeglasses]
 readsPrec :: Int -&gt; ReadS Eyeglasses
 $creadsPrec :: Int -&gt; ReadS Eyeglasses
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323293"><span id="local-6989586621679323295"><span id="local-6989586621679323297"><span class="annot"><span class="annottext">Int -&gt; Eyeglasses -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323570"><span id="local-6989586621679323572"><span id="local-6989586621679323574"><span class="annot"><span class="annottext">Int -&gt; Eyeglasses -&gt; ShowS
 [Eyeglasses] -&gt; ShowS
 Eyeglasses -&gt; String
 (Int -&gt; Eyeglasses -&gt; ShowS)
@@ -97,65 +97,65 @@ $cfrom :: forall x. Eyeglasses -&gt; Rep Eyeglasses x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'confidence', 'eyeglasses_confidence' - Level of confidence in the determination.</span><span>
-</span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'value', 'eyeglasses_value' - Boolean value that indicates whether the face is wearing eye glasses or</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- not.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'value', 'eyeglasses_value' - Boolean value that indicates whether the face is wearing eye glasses or</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- not.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'confidence', 'eyeglasses_confidence' - Level of confidence in the determination.</span><span>
 </span><span id="line-51"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#newEyeglasses"><span class="hs-identifier hs-type">newEyeglasses</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span><span>
 </span><span id="line-53"></span><span id="newEyeglasses"><span class="annot"><span class="annottext">newEyeglasses :: Eyeglasses
 </span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#newEyeglasses"><span class="hs-identifier hs-var hs-var">newEyeglasses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">Eyeglasses' :: Maybe Double -&gt; Maybe Bool -&gt; Eyeglasses
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">Eyeglasses' :: Maybe Bool -&gt; Maybe Double -&gt; Eyeglasses
 </span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses%27"><span class="hs-identifier hs-type">Eyeglasses'</span></a></span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:confidence:Eyeglasses' :: Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#%24sel%3Aconfidence%3AEyeglasses%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:value:Eyeglasses' :: Maybe Bool
+</span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#%24sel%3Avalue%3AEyeglasses%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:Eyeglasses' :: Maybe Bool
-</span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#%24sel%3Avalue%3AEyeglasses%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">$sel:confidence:Eyeglasses' :: Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#%24sel%3Aconfidence%3AEyeglasses%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | Level of confidence in the determination.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#eyeglasses_confidence"><span class="hs-identifier hs-type">eyeglasses_confidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="eyeglasses_confidence"><span class="annot"><span class="annottext">eyeglasses_confidence :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Eyeglasses -&gt; f Eyeglasses
-</span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#eyeglasses_confidence"><span class="hs-identifier hs-var hs-var">eyeglasses_confidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Eyeglasses -&gt; Maybe Double)
--&gt; (Eyeglasses -&gt; Maybe Double -&gt; Eyeglasses)
--&gt; Lens Eyeglasses Eyeglasses (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses%27"><span class="hs-identifier hs-type">Eyeglasses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323284"><span class="annot"><span class="annottext">Maybe Double
-confidence :: Maybe Double
-$sel:confidence:Eyeglasses' :: Eyeglasses -&gt; Maybe Double
-</span><a href="#local-6989586621679323284"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679323284"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323283"><span class="annot"><span class="annottext">s :: Eyeglasses
-</span><a href="#local-6989586621679323283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses%27"><span class="hs-identifier hs-type">Eyeglasses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323282"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679323282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Eyeglasses
-</span><a href="#local-6989586621679323283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:Eyeglasses' :: Maybe Double
-</span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#%24sel%3Aconfidence%3AEyeglasses%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679323282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | Boolean value that indicates whether the face is wearing eye glasses or</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- not.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#eyeglasses_value"><span class="hs-identifier hs-type">eyeglasses_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="eyeglasses_value"><span class="annot"><span class="annottext">eyeglasses_value :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Eyeglasses -&gt; f Eyeglasses
+</span><span id="line-59"></span><span class="hs-comment">-- | Boolean value that indicates whether the face is wearing eye glasses or</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- not.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#eyeglasses_value"><span class="hs-identifier hs-type">eyeglasses_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="eyeglasses_value"><span class="annot"><span class="annottext">eyeglasses_value :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Eyeglasses -&gt; f Eyeglasses
 </span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#eyeglasses_value"><span class="hs-identifier hs-var hs-var">eyeglasses_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Eyeglasses -&gt; Maybe Bool)
 -&gt; (Eyeglasses -&gt; Maybe Bool -&gt; Eyeglasses)
 -&gt; Lens Eyeglasses Eyeglasses (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses%27"><span class="hs-identifier hs-type">Eyeglasses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323280"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses%27"><span class="hs-identifier hs-type">Eyeglasses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323561"><span class="annot"><span class="annottext">Maybe Bool
 value :: Maybe Bool
 $sel:value:Eyeglasses' :: Eyeglasses -&gt; Maybe Bool
-</span><a href="#local-6989586621679323280"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679323280"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323279"><span class="annot"><span class="annottext">s :: Eyeglasses
-</span><a href="#local-6989586621679323279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses%27"><span class="hs-identifier hs-type">Eyeglasses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323278"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679323278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Eyeglasses
-</span><a href="#local-6989586621679323279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Eyeglasses' :: Maybe Bool
+</span><a href="#local-6989586621679323561"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679323561"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323560"><span class="annot"><span class="annottext">s :: Eyeglasses
+</span><a href="#local-6989586621679323560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses%27"><span class="hs-identifier hs-type">Eyeglasses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323559"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679323559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Eyeglasses
+</span><a href="#local-6989586621679323560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Eyeglasses' :: Maybe Bool
 </span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#%24sel%3Avalue%3AEyeglasses%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679323278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679323559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Level of confidence in the determination.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#eyeglasses_confidence"><span class="hs-identifier hs-type">eyeglasses_confidence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="eyeglasses_confidence"><span class="annot"><span class="annottext">eyeglasses_confidence :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Eyeglasses -&gt; f Eyeglasses
+</span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#eyeglasses_confidence"><span class="hs-identifier hs-var hs-var">eyeglasses_confidence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Eyeglasses -&gt; Maybe Double)
+-&gt; (Eyeglasses -&gt; Maybe Double -&gt; Eyeglasses)
+-&gt; Lens Eyeglasses Eyeglasses (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses%27"><span class="hs-identifier hs-type">Eyeglasses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323557"><span class="annot"><span class="annottext">Maybe Double
+confidence :: Maybe Double
+$sel:confidence:Eyeglasses' :: Eyeglasses -&gt; Maybe Double
+</span><a href="#local-6989586621679323557"><span class="hs-identifier hs-var hs-var">confidence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679323557"><span class="hs-identifier hs-var">confidence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323556"><span class="annot"><span class="annottext">s :: Eyeglasses
+</span><a href="#local-6989586621679323556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses%27"><span class="hs-identifier hs-type">Eyeglasses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323555"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679323555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Eyeglasses
+</span><a href="#local-6989586621679323556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:confidence:Eyeglasses' :: Maybe Double
+</span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#%24sel%3Aconfidence%3AEyeglasses%27"><span class="hs-identifier hs-var">confidence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679323555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323275"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679323273"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Eyeglasses
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323552"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679323550"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Eyeglasses
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Eyeglasses) -&gt; Value -&gt; Parser Eyeglasses
@@ -163,29 +163,29 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Eyeglasses&quot;</span></span><span>
-</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323270"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679323270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double -&gt; Maybe Bool -&gt; Eyeglasses
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323547"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323547"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe Double -&gt; Eyeglasses
 </span><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses%27"><span class="hs-identifier hs-var">Eyeglasses'</span></a></span><span>
-</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Double -&gt; Maybe Bool -&gt; Eyeglasses)
--&gt; Parser (Maybe Double) -&gt; Parser (Maybe Bool -&gt; Eyeglasses)
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe Double -&gt; Eyeglasses)
+-&gt; Parser (Maybe Bool) -&gt; Parser (Maybe Double -&gt; Eyeglasses)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679323270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Confidence&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; Eyeglasses)
--&gt; Parser (Maybe Bool) -&gt; Parser Eyeglasses
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679323270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679323547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Eyeglasses)
+-&gt; Parser (Maybe Double) -&gt; Parser Eyeglasses
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679323547"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Confidence&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323264"><span id="local-6989586621679323266"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323541"><span id="local-6989586621679323543"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span></span></span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323538"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.Eyeglasses.html#Eyeglasses"><span class="hs-identifier hs-type">Eyeglasses</span></a></span></span><span>
 </span><span id="line-81"></span></pre></body></html>

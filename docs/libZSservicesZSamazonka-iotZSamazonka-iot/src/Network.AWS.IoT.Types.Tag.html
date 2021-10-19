@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A set of key\/value pairs that are used to manage the resource.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newTag' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679799590"><span id="local-6989586621679799591"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tag"><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tag%27"><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-var">Tag'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679800465"><span id="local-6989586621679800466"></span></span><span class="hs-keyword">data</span><span> </span><span id="Tag"><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-var">Tag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tag%27"><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-var">Tag'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tag\'s value.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Avalue%3ATag%27"><span class="annot"><span class="annottext">Tag -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.Tag.html#%24sel%3Avalue%3ATag%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -34,14 +34,14 @@
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Akey%3ATag%27"><span class="annot"><span class="annottext">Tag -&gt; Text
 </span><a href="Network.AWS.IoT.Types.Tag.html#%24sel%3Akey%3ATag%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679799583"><span id="local-6989586621679799585"><span class="annot"><span class="annottext">Tag -&gt; Tag -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679800458"><span id="local-6989586621679800460"><span class="annot"><span class="annottext">Tag -&gt; Tag -&gt; Bool
 (Tag -&gt; Tag -&gt; Bool) -&gt; (Tag -&gt; Tag -&gt; Bool) -&gt; Eq Tag
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Tag -&gt; Tag -&gt; Bool
 $c/= :: Tag -&gt; Tag -&gt; Bool
 == :: Tag -&gt; Tag -&gt; Bool
 $c== :: Tag -&gt; Tag -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799574"><span id="local-6989586621679799576"><span id="local-6989586621679799578"><span id="local-6989586621679799580"><span class="annot"><span class="annottext">ReadPrec [Tag]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800449"><span id="local-6989586621679800451"><span id="local-6989586621679800453"><span id="local-6989586621679800455"><span class="annot"><span class="annottext">ReadPrec [Tag]
 ReadPrec Tag
 Int -&gt; ReadS Tag
 ReadS [Tag]
@@ -58,7 +58,7 @@ readList :: ReadS [Tag]
 $creadList :: ReadS [Tag]
 readsPrec :: Int -&gt; ReadS Tag
 $creadsPrec :: Int -&gt; ReadS Tag
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679799567"><span id="local-6989586621679799569"><span id="local-6989586621679799571"><span class="annot"><span class="annottext">Int -&gt; Tag -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679800442"><span id="local-6989586621679800444"><span id="local-6989586621679800446"><span class="annot"><span class="annottext">Int -&gt; Tag -&gt; ShowS
 [Tag] -&gt; ShowS
 Tag -&gt; String
 (Int -&gt; Tag -&gt; ShowS)
@@ -97,15 +97,15 @@ $cfrom :: forall x. Tag -&gt; Rep Tag x
 </span><span id="line-50"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span>
 </span><span id="line-52"></span><span id="newTag"><span class="annot"><span class="annottext">newTag :: Text -&gt; Tag
-</span><a href="Network.AWS.IoT.Types.Tag.html#newTag"><span class="hs-identifier hs-var hs-var">newTag</span></a></span></span><span> </span><span id="local-6989586621679799561"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799561"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.IoT.Types.Tag.html#newTag"><span class="hs-identifier hs-var hs-var">newTag</span></a></span></span><span> </span><span id="local-6989586621679800436"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800436"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">Tag' :: Maybe Text -&gt; Text -&gt; Tag
 </span><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Tag' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.Tag.html#%24sel%3Avalue%3ATag%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:key:Tag' :: Text
 </span><a href="Network.AWS.IoT.Types.Tag.html#%24sel%3Akey%3ATag%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799561"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679800436"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | The tag\'s value.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#tag_value"><span class="hs-identifier hs-type">tag_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -114,74 +114,74 @@ forall a. Maybe a
 -&gt; (Tag -&gt; Maybe Text -&gt; Tag)
 -&gt; Lens Tag Tag (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799557"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800432"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:Tag' :: Tag -&gt; Maybe Text
-</span><a href="#local-6989586621679799557"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799557"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799556"><span class="annot"><span class="annottext">s :: Tag
-</span><a href="#local-6989586621679799556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799555"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
-</span><a href="#local-6989586621679799556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Tag' :: Maybe Text
+</span><a href="#local-6989586621679800432"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800432"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800431"><span class="annot"><span class="annottext">s :: Tag
+</span><a href="#local-6989586621679800431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800430"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679800430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
+</span><a href="#local-6989586621679800431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:Tag' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.Tag.html#%24sel%3Avalue%3ATag%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | The tag\'s key.</span><span>
 </span><span id="line-60"></span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#tag_key"><span class="hs-identifier hs-type">tag_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-61"></span><span id="tag_key"><span class="annot"><span class="annottext">tag_key :: (Text -&gt; f Text) -&gt; Tag -&gt; f Tag
 </span><a href="Network.AWS.IoT.Types.Tag.html#tag_key"><span class="hs-identifier hs-var hs-var">tag_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Tag -&gt; Text) -&gt; (Tag -&gt; Text -&gt; Tag) -&gt; Lens Tag Tag Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799553"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800428"><span class="annot"><span class="annottext">Text
 key :: Text
 $sel:key:Tag' :: Tag -&gt; Text
-</span><a href="#local-6989586621679799553"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799553"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679799552"><span class="annot"><span class="annottext">s :: Tag
-</span><a href="#local-6989586621679799552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679799551"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
-</span><a href="#local-6989586621679799552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Tag' :: Text
+</span><a href="#local-6989586621679800428"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800428"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679800427"><span class="annot"><span class="annottext">s :: Tag
+</span><a href="#local-6989586621679800427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679800426"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679800426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Tag
+</span><a href="#local-6989586621679800427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Tag' :: Text
 </span><a href="Network.AWS.IoT.Types.Tag.html#%24sel%3Akey%3ATag%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799548"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679799546"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Tag
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800423"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679800421"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Tag
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Tag) -&gt; Value -&gt; Parser Tag
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span>
-</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679799543"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799543"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679800418"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679800418"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Text -&gt; Tag
 </span><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-var">Tag'</span></a></span><span>
 </span><span id="line-69"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Text -&gt; Tag)
 -&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Tag)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679800418"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Text -&gt; Tag) -&gt; Parser Text -&gt; Parser Tag
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679799543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679800418"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799536"><span id="local-6989586621679799538"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800411"><span id="local-6989586621679800413"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679799525"><span id="local-6989586621679799527"><span id="local-6989586621679799529"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679799523"><span class="annot"><span class="annottext">toJSON :: Tag -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679799520"><span id="local-6989586621679799521"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679800400"><span id="local-6989586621679800402"><span id="local-6989586621679800404"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679800398"><span class="annot"><span class="annottext">toJSON :: Tag -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.Tag.html#Tag%27"><span class="hs-identifier hs-type">Tag'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679800395"><span id="local-6989586621679800396"><span class="annot"><span class="annottext">Maybe Text
 Text
 key :: Text
 value :: Maybe Text
 $sel:key:Tag' :: Tag -&gt; Text
 $sel:value:Tag' :: Tag -&gt; Maybe Text
-</span><a href="#local-6989586621679799520"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679800395"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -193,14 +193,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679799521"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679800396"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679799520"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679800395"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span></pre></body></html>

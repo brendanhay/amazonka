@@ -29,9 +29,9 @@
 </span><span id="line-29"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#newListPrincipalsForPortfolio"><span class="hs-identifier">newListPrincipalsForPortfolio</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_pageSize"><span class="hs-identifier">listPrincipalsForPortfolio_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_acceptLanguage"><span class="hs-identifier">listPrincipalsForPortfolio_acceptLanguage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_pageToken"><span class="hs-identifier">listPrincipalsForPortfolio_pageToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_acceptLanguage"><span class="hs-identifier">listPrincipalsForPortfolio_acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_pageSize"><span class="hs-identifier">listPrincipalsForPortfolio_pageSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_portfolioId"><span class="hs-identifier">listPrincipalsForPortfolio_portfolioId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -39,8 +39,8 @@
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#newListPrincipalsForPortfolioResponse"><span class="hs-identifier">newListPrincipalsForPortfolioResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolioResponse_principals"><span class="hs-identifier">listPrincipalsForPortfolioResponse_principals</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolioResponse_nextPageToken"><span class="hs-identifier">listPrincipalsForPortfolioResponse_nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolioResponse_nextPageToken"><span class="hs-identifier">listPrincipalsForPortfolioResponse_nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolioResponse_principals"><span class="hs-identifier">listPrincipalsForPortfolioResponse_principals</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolioResponse_httpStatus"><span class="hs-identifier">listPrincipalsForPortfolioResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span class="hs-keyword">where</span><span>
@@ -53,28 +53,28 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.html"><span class="hs-identifier">Network.AWS.ServiceCatalog.Types</span></a></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListPrincipalsForPortfolio' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679414786"><span id="local-6989586621679414787"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPrincipalsForPortfolio"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-var">ListPrincipalsForPortfolio</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPrincipalsForPortfolio%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">ListPrincipalsForPortfolio'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3ApageSize%3AListPrincipalsForPortfolio%27"><span class="annot"><span class="annottext">ListPrincipalsForPortfolio -&gt; Maybe Natural
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3ApageSize%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- results, use null.</span><span>
-</span><span id="line-61"></span><span>    </span><span id="%24sel%3ApageToken%3AListPrincipalsForPortfolio%27"><span class="annot"><span class="annottext">ListPrincipalsForPortfolio -&gt; Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3ApageToken%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The language code.</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AacceptLanguage%3AListPrincipalsForPortfolio%27"><span class="annot"><span class="annottext">ListPrincipalsForPortfolio -&gt; Maybe Text
+</span><span id="line-56"></span><span id="local-6989586621679415265"><span id="local-6989586621679415266"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPrincipalsForPortfolio"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-var">ListPrincipalsForPortfolio</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPrincipalsForPortfolio%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">ListPrincipalsForPortfolio'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AacceptLanguage%3AListPrincipalsForPortfolio%27"><span class="annot"><span class="annottext">ListPrincipalsForPortfolio -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AacceptLanguage%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- results, use null.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3ApageToken%3AListPrincipalsForPortfolio%27"><span class="annot"><span class="annottext">ListPrincipalsForPortfolio -&gt; Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3ApageToken%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3ApageSize%3AListPrincipalsForPortfolio%27"><span class="annot"><span class="annottext">ListPrincipalsForPortfolio -&gt; Maybe Natural
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3ApageSize%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The portfolio identifier.</span><span>
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AportfolioId%3AListPrincipalsForPortfolio%27"><span class="annot"><span class="annottext">ListPrincipalsForPortfolio -&gt; Text
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AportfolioId%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var hs-var">portfolioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414777"><span id="local-6989586621679414779"><span class="annot"><span class="annottext">ListPrincipalsForPortfolio -&gt; ListPrincipalsForPortfolio -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415256"><span id="local-6989586621679415258"><span class="annot"><span class="annottext">ListPrincipalsForPortfolio -&gt; ListPrincipalsForPortfolio -&gt; Bool
 (ListPrincipalsForPortfolio -&gt; ListPrincipalsForPortfolio -&gt; Bool)
 -&gt; (ListPrincipalsForPortfolio
     -&gt; ListPrincipalsForPortfolio -&gt; Bool)
@@ -84,7 +84,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListPrincipalsForPortfolio -&gt; ListPrincipalsForPortfolio -&gt; Bool
 == :: ListPrincipalsForPortfolio -&gt; ListPrincipalsForPortfolio -&gt; Bool
 $c== :: ListPrincipalsForPortfolio -&gt; ListPrincipalsForPortfolio -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414768"><span id="local-6989586621679414770"><span id="local-6989586621679414772"><span id="local-6989586621679414774"><span class="annot"><span class="annottext">ReadPrec [ListPrincipalsForPortfolio]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415247"><span id="local-6989586621679415249"><span id="local-6989586621679415251"><span id="local-6989586621679415253"><span class="annot"><span class="annottext">ReadPrec [ListPrincipalsForPortfolio]
 ReadPrec ListPrincipalsForPortfolio
 Int -&gt; ReadS ListPrincipalsForPortfolio
 ReadS [ListPrincipalsForPortfolio]
@@ -104,7 +104,7 @@ readList :: ReadS [ListPrincipalsForPortfolio]
 $creadList :: ReadS [ListPrincipalsForPortfolio]
 readsPrec :: Int -&gt; ReadS ListPrincipalsForPortfolio
 $creadsPrec :: Int -&gt; ReadS ListPrincipalsForPortfolio
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414761"><span id="local-6989586621679414763"><span id="local-6989586621679414765"><span class="annot"><span class="annottext">Int -&gt; ListPrincipalsForPortfolio -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415240"><span id="local-6989586621679415242"><span id="local-6989586621679415244"><span class="annot"><span class="annottext">Int -&gt; ListPrincipalsForPortfolio -&gt; ShowS
 [ListPrincipalsForPortfolio] -&gt; ShowS
 ListPrincipalsForPortfolio -&gt; String
 (Int -&gt; ListPrincipalsForPortfolio -&gt; ShowS)
@@ -144,18 +144,18 @@ ListPrincipalsForPortfolio -&gt; Rep ListPrincipalsForPortfolio x
 </span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'pageSize', 'listPrincipalsForPortfolio_pageSize' - The maximum number of items to return with this call.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'acceptLanguage', 'listPrincipalsForPortfolio_acceptLanguage' - The language code.</span><span>
 </span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'pageToken', 'listPrincipalsForPortfolio_pageToken' - The page token for the next set of results. To retrieve the first set of</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- results, use null.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'acceptLanguage', 'listPrincipalsForPortfolio_acceptLanguage' - The language code.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'pageToken', 'listPrincipalsForPortfolio_pageToken' - The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- results, use null.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'pageSize', 'listPrincipalsForPortfolio_pageSize' - The maximum number of items to return with this call.</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- 'portfolioId', 'listPrincipalsForPortfolio_portfolioId' - The portfolio identifier.</span><span>
 </span><span id="line-97"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#newListPrincipalsForPortfolio"><span class="hs-identifier hs-type">newListPrincipalsForPortfolio</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -163,87 +163,41 @@ ListPrincipalsForPortfolio -&gt; Rep ListPrincipalsForPortfolio x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span>
 </span><span id="line-101"></span><span id="newListPrincipalsForPortfolio"><span class="annot"><span class="annottext">newListPrincipalsForPortfolio :: Text -&gt; ListPrincipalsForPortfolio
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#newListPrincipalsForPortfolio"><span class="hs-identifier hs-var hs-var">newListPrincipalsForPortfolio</span></a></span></span><span> </span><span id="local-6989586621679414756"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414756"><span class="hs-identifier hs-var">pPortfolioId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolio' :: Maybe Natural
--&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ListPrincipalsForPortfolio
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#newListPrincipalsForPortfolio"><span class="hs-identifier hs-var hs-var">newListPrincipalsForPortfolio</span></a></span></span><span> </span><span id="local-6989586621679415235"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415235"><span class="hs-identifier hs-var">pPortfolioId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolio' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; ListPrincipalsForPortfolio
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pageSize:ListPrincipalsForPortfolio' :: Maybe Natural
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3ApageSize%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:acceptLanguage:ListPrincipalsForPortfolio' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AacceptLanguage%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageToken:ListPrincipalsForPortfolio' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3ApageToken%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:acceptLanguage:ListPrincipalsForPortfolio' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AacceptLanguage%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSize:ListPrincipalsForPortfolio' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3ApageSize%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:portfolioId:ListPrincipalsForPortfolio' :: Text
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AportfolioId%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">portfolioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414756"><span class="hs-identifier hs-var">pPortfolioId_</span></a></span><span>
+</span><a href="#local-6989586621679415235"><span class="hs-identifier hs-var">pPortfolioId_</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_pageSize"><span class="hs-identifier hs-type">listPrincipalsForPortfolio_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="listPrincipalsForPortfolio_pageSize"><span class="annot"><span class="annottext">listPrincipalsForPortfolio_pageSize :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ListPrincipalsForPortfolio -&gt; f ListPrincipalsForPortfolio
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_pageSize"><span class="hs-identifier hs-var hs-var">listPrincipalsForPortfolio_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalsForPortfolio -&gt; Maybe Natural)
--&gt; (ListPrincipalsForPortfolio
-    -&gt; Maybe Natural -&gt; ListPrincipalsForPortfolio)
--&gt; Lens
-     ListPrincipalsForPortfolio
-     ListPrincipalsForPortfolio
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414754"><span class="annot"><span class="annottext">Maybe Natural
-pageSize :: Maybe Natural
-$sel:pageSize:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&gt; Maybe Natural
-</span><a href="#local-6989586621679414754"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679414754"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414753"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolio
-</span><a href="#local-6989586621679414753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414752"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679414752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolio
-</span><a href="#local-6989586621679414753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListPrincipalsForPortfolio' :: Maybe Natural
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3ApageSize%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679414752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- results, use null.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_pageToken"><span class="hs-identifier hs-type">listPrincipalsForPortfolio_pageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="listPrincipalsForPortfolio_pageToken"><span class="annot"><span class="annottext">listPrincipalsForPortfolio_pageToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListPrincipalsForPortfolio -&gt; f ListPrincipalsForPortfolio
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_pageToken"><span class="hs-identifier hs-var hs-var">listPrincipalsForPortfolio_pageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalsForPortfolio -&gt; Maybe Text)
--&gt; (ListPrincipalsForPortfolio
-    -&gt; Maybe Text -&gt; ListPrincipalsForPortfolio)
--&gt; Lens
-     ListPrincipalsForPortfolio
-     ListPrincipalsForPortfolio
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414751"><span class="annot"><span class="annottext">Maybe Text
-pageToken :: Maybe Text
-$sel:pageToken:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&gt; Maybe Text
-</span><a href="#local-6989586621679414751"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414751"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414750"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolio
-</span><a href="#local-6989586621679414750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414749"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolio
-</span><a href="#local-6989586621679414750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:ListPrincipalsForPortfolio' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3ApageToken%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The language code.</span><span>
-</span><span id="line-120"></span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
-</span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
-</span><span id="line-124"></span><span class="hs-comment">--</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_acceptLanguage"><span class="hs-identifier hs-type">listPrincipalsForPortfolio_acceptLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="listPrincipalsForPortfolio_acceptLanguage"><span class="annot"><span class="annottext">listPrincipalsForPortfolio_acceptLanguage :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-110"></span><span class="hs-comment">-- | The language code.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   @en@ - English (default)</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- -   @jp@ - Japanese</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   @zh@ - Chinese</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_acceptLanguage"><span class="hs-identifier hs-type">listPrincipalsForPortfolio_acceptLanguage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="listPrincipalsForPortfolio_acceptLanguage"><span class="annot"><span class="annottext">listPrincipalsForPortfolio_acceptLanguage :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListPrincipalsForPortfolio -&gt; f ListPrincipalsForPortfolio
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_acceptLanguage"><span class="hs-identifier hs-var hs-var">listPrincipalsForPortfolio_acceptLanguage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalsForPortfolio -&gt; Maybe Text)
 -&gt; (ListPrincipalsForPortfolio
@@ -254,16 +208,65 @@ $sel:pageToken:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414748"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415233"><span class="annot"><span class="annottext">Maybe Text
 acceptLanguage :: Maybe Text
 $sel:acceptLanguage:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&gt; Maybe Text
-</span><a href="#local-6989586621679414748"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414748"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414747"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolio
-</span><a href="#local-6989586621679414747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414746"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolio
-</span><a href="#local-6989586621679414747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:ListPrincipalsForPortfolio' :: Maybe Text
+</span><a href="#local-6989586621679415233"><span class="hs-identifier hs-var hs-var">acceptLanguage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415233"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415232"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolio
+</span><a href="#local-6989586621679415232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415231"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolio
+</span><a href="#local-6989586621679415232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:acceptLanguage:ListPrincipalsForPortfolio' :: Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AacceptLanguage%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The page token for the next set of results. To retrieve the first set of</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- results, use null.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_pageToken"><span class="hs-identifier hs-type">listPrincipalsForPortfolio_pageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="listPrincipalsForPortfolio_pageToken"><span class="annot"><span class="annottext">listPrincipalsForPortfolio_pageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPrincipalsForPortfolio -&gt; f ListPrincipalsForPortfolio
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_pageToken"><span class="hs-identifier hs-var hs-var">listPrincipalsForPortfolio_pageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalsForPortfolio -&gt; Maybe Text)
+-&gt; (ListPrincipalsForPortfolio
+    -&gt; Maybe Text -&gt; ListPrincipalsForPortfolio)
+-&gt; Lens
+     ListPrincipalsForPortfolio
+     ListPrincipalsForPortfolio
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415230"><span class="annot"><span class="annottext">Maybe Text
+pageToken :: Maybe Text
+$sel:pageToken:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&gt; Maybe Text
+</span><a href="#local-6989586621679415230"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415230"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415229"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolio
+</span><a href="#local-6989586621679415229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415228"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolio
+</span><a href="#local-6989586621679415229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:ListPrincipalsForPortfolio' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3ApageToken%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The maximum number of items to return with this call.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_pageSize"><span class="hs-identifier hs-type">listPrincipalsForPortfolio_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="listPrincipalsForPortfolio_pageSize"><span class="annot"><span class="annottext">listPrincipalsForPortfolio_pageSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListPrincipalsForPortfolio -&gt; f ListPrincipalsForPortfolio
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_pageSize"><span class="hs-identifier hs-var hs-var">listPrincipalsForPortfolio_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalsForPortfolio -&gt; Maybe Natural)
+-&gt; (ListPrincipalsForPortfolio
+    -&gt; Maybe Natural -&gt; ListPrincipalsForPortfolio)
+-&gt; Lens
+     ListPrincipalsForPortfolio
+     ListPrincipalsForPortfolio
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415227"><span class="annot"><span class="annottext">Maybe Natural
+pageSize :: Maybe Natural
+$sel:pageSize:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&gt; Maybe Natural
+</span><a href="#local-6989586621679415227"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679415227"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415226"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolio
+</span><a href="#local-6989586621679415226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415225"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679415225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolio
+</span><a href="#local-6989586621679415226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListPrincipalsForPortfolio' :: Maybe Natural
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3ApageSize%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679415225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | The portfolio identifier.</span><span>
 </span><span id="line-130"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolio_portfolioId"><span class="hs-identifier hs-type">listPrincipalsForPortfolio_portfolioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -275,30 +278,30 @@ $sel:acceptLanguage:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&
 -&gt; Lens
      ListPrincipalsForPortfolio ListPrincipalsForPortfolio Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414745"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415224"><span class="annot"><span class="annottext">Text
 portfolioId :: Text
 $sel:portfolioId:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&gt; Text
-</span><a href="#local-6989586621679414745"><span class="hs-identifier hs-var hs-var">portfolioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414745"><span class="hs-identifier hs-var">portfolioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414744"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolio
-</span><a href="#local-6989586621679414744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414743"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolio
-</span><a href="#local-6989586621679414744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portfolioId:ListPrincipalsForPortfolio' :: Text
+</span><a href="#local-6989586621679415224"><span class="hs-identifier hs-var hs-var">portfolioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415224"><span class="hs-identifier hs-var">portfolioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415223"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolio
+</span><a href="#local-6989586621679415223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415222"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679415222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolio
+</span><a href="#local-6989586621679415223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portfolioId:ListPrincipalsForPortfolio' :: Text
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AportfolioId%3AListPrincipalsForPortfolio%27"><span class="hs-identifier hs-var">portfolioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679414739"><span class="annot"><span class="annottext">page :: ListPrincipalsForPortfolio
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679415218"><span class="annot"><span class="annottext">page :: ListPrincipalsForPortfolio
 -&gt; AWSResponse ListPrincipalsForPortfolio
 -&gt; Maybe ListPrincipalsForPortfolio
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679414737"><span class="annot"><span class="annottext">ListPrincipalsForPortfolio
-</span><a href="#local-6989586621679414737"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679414736"><span class="annot"><span class="annottext">AWSResponse ListPrincipalsForPortfolio
-</span><a href="#local-6989586621679414736"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679415216"><span class="annot"><span class="annottext">ListPrincipalsForPortfolio
+</span><a href="#local-6989586621679415216"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679415215"><span class="annot"><span class="annottext">AWSResponse ListPrincipalsForPortfolio
+</span><a href="#local-6989586621679415215"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-136"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPrincipalsForPortfolio
 ListPrincipalsForPortfolioResponse
-</span><a href="#local-6989586621679414736"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679415215"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse
 -&gt; Getting (First Text) ListPrincipalsForPortfolioResponse Text
 -&gt; Maybe Text
@@ -328,7 +331,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-142"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPrincipalsForPortfolio
 ListPrincipalsForPortfolioResponse
-</span><a href="#local-6989586621679414736"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679415215"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse
 -&gt; Getting
      (First [Principal]) ListPrincipalsForPortfolioResponse [Principal]
@@ -368,7 +371,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolio
-</span><a href="#local-6989586621679414737"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679415216"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolio
 -&gt; (ListPrincipalsForPortfolio -&gt; ListPrincipalsForPortfolio)
 -&gt; ListPrincipalsForPortfolio
@@ -391,7 +394,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPrincipalsForPortfolio
 ListPrincipalsForPortfolioResponse
-</span><a href="#local-6989586621679414736"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679415215"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse
 -&gt; Getting (First Text) ListPrincipalsForPortfolioResponse Text
 -&gt; Maybe Text
@@ -417,13 +420,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-156"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-157"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>      </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679414726"><span class="annot"><span class="annottext">request :: ListPrincipalsForPortfolio -&gt; Request ListPrincipalsForPortfolio
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679415205"><span class="annot"><span class="annottext">request :: ListPrincipalsForPortfolio -&gt; Request ListPrincipalsForPortfolio
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListPrincipalsForPortfolio -&gt; Request ListPrincipalsForPortfolio
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.ServiceCatalog.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679414722"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679415201"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListPrincipalsForPortfolio
 -&gt; ClientResponse ClientBody
@@ -449,21 +452,33 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679414719"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414719"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679414718"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679414718"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679414717"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679414717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Principal]
--&gt; Maybe Text -&gt; Int -&gt; ListPrincipalsForPortfolioResponse
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679415198"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415198"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679415197"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679415197"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679415196"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679415196"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [Principal] -&gt; Int -&gt; ListPrincipalsForPortfolioResponse
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var">ListPrincipalsForPortfolioResponse'</span></a></span><span>
-</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Principal]
- -&gt; Maybe Text -&gt; Int -&gt; ListPrincipalsForPortfolioResponse)
--&gt; Either String (Maybe [Principal])
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [Principal] -&gt; Int -&gt; ListPrincipalsForPortfolioResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; ListPrincipalsForPortfolioResponse)
+     String
+     (Maybe [Principal] -&gt; Int -&gt; ListPrincipalsForPortfolioResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679414717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Principal]))
+</span><a href="#local-6989586621679415196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextPageToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Principal] -&gt; Int -&gt; ListPrincipalsForPortfolioResponse)
+-&gt; Either String (Maybe [Principal])
+-&gt; Either String (Int -&gt; ListPrincipalsForPortfolioResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679415196"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Principal]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Principals&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Principal]))
@@ -472,16 +487,6 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Principal]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; ListPrincipalsForPortfolioResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ListPrincipalsForPortfolioResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679414717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextPageToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListPrincipalsForPortfolioResponse)
 -&gt; Either String Int
 -&gt; Either String ListPrincipalsForPortfolioResponse
@@ -491,15 +496,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414719"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415198"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
-</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414708"><span id="local-6989586621679414710"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span></span></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415187"><span id="local-6989586621679415189"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span></span></span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414705"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span></span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-174"></span><span>  </span><span id="local-6989586621679414701"><span class="annot"><span class="annottext">toHeaders :: ListPrincipalsForPortfolio -&gt; ResponseHeaders
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679415180"><span class="annot"><span class="annottext">toHeaders :: ListPrincipalsForPortfolio -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPrincipalsForPortfolio -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -526,66 +531,66 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-185"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
-</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679414691"><span id="local-6989586621679414693"><span id="local-6989586621679414695"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679414689"><span class="annot"><span class="annottext">toJSON :: ListPrincipalsForPortfolio -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414684"><span id="local-6989586621679414685"><span id="local-6989586621679414686"><span id="local-6989586621679414687"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679415170"><span id="local-6989586621679415172"><span id="local-6989586621679415174"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679415168"><span class="annot"><span class="annottext">toJSON :: ListPrincipalsForPortfolio -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415163"><span id="local-6989586621679415164"><span id="local-6989586621679415165"><span id="local-6989586621679415166"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 portfolioId :: Text
-acceptLanguage :: Maybe Text
-pageToken :: Maybe Text
 pageSize :: Maybe Natural
+pageToken :: Maybe Text
+acceptLanguage :: Maybe Text
 $sel:portfolioId:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&gt; Text
-$sel:acceptLanguage:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&gt; Maybe Text
-$sel:pageToken:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&gt; Maybe Text
 $sel:pageSize:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&gt; Maybe Natural
-</span><a href="#local-6989586621679414684"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:pageToken:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&gt; Maybe Text
+$sel:acceptLanguage:ListPrincipalsForPortfolio' :: ListPrincipalsForPortfolio -&gt; Maybe Text
+</span><a href="#local-6989586621679415163"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-191"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-192"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+</span><span class="hs-string">&quot;AcceptLanguage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679414687"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415166"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PageToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414686"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-194"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AcceptLanguage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><a href="#local-6989586621679415165"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-195"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414685"><span class="hs-identifier hs-var">acceptLanguage</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679415164"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PortfolioId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679414684"><span class="hs-identifier hs-var">portfolioId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415163"><span class="hs-identifier hs-var">portfolioId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-201"></span><span>  </span><span id="local-6989586621679414678"><span class="annot"><span class="annottext">toPath :: ListPrincipalsForPortfolio -&gt; ByteString
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679415157"><span class="annot"><span class="annottext">toPath :: ListPrincipalsForPortfolio -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPrincipalsForPortfolio -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolio"><span class="hs-identifier hs-type">ListPrincipalsForPortfolio</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-204"></span><span>  </span><span id="local-6989586621679414674"><span class="annot"><span class="annottext">toQuery :: ListPrincipalsForPortfolio -&gt; QueryString
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679415153"><span class="annot"><span class="annottext">toQuery :: ListPrincipalsForPortfolio -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListPrincipalsForPortfolio -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -593,19 +598,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | /See:/ 'newListPrincipalsForPortfolioResponse' smart constructor.</span><span>
-</span><span id="line-207"></span><span id="local-6989586621679414671"><span id="local-6989586621679414672"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPrincipalsForPortfolioResponse"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-var">ListPrincipalsForPortfolioResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPrincipalsForPortfolioResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var">ListPrincipalsForPortfolioResponse'</span></a></span></span><span>
-</span><span id="line-208"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IAM principals (users or roles) associated with the portfolio.</span><span>
-</span><span id="line-209"></span><span>    </span><span id="%24sel%3Aprincipals%3AListPrincipalsForPortfolioResponse%27"><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse -&gt; Maybe [Principal]
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3Aprincipals%3AListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var hs-var">principals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
-</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- no additional results, this value is null.</span><span>
-</span><span id="line-212"></span><span>    </span><span id="%24sel%3AnextPageToken%3AListPrincipalsForPortfolioResponse%27"><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse -&gt; Maybe Text
+</span><span id="line-207"></span><span id="local-6989586621679415150"><span id="local-6989586621679415151"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPrincipalsForPortfolioResponse"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-var">ListPrincipalsForPortfolioResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPrincipalsForPortfolioResponse%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var">ListPrincipalsForPortfolioResponse'</span></a></span></span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AnextPageToken%3AListPrincipalsForPortfolioResponse%27"><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse -&gt; Maybe Text
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AnextPageToken%3AListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | The IAM principals (users or roles) associated with the portfolio.</span><span>
+</span><span id="line-212"></span><span>    </span><span id="%24sel%3Aprincipals%3AListPrincipalsForPortfolioResponse%27"><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse -&gt; Maybe [Principal]
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3Aprincipals%3AListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var hs-var">principals</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-214"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPrincipalsForPortfolioResponse%27"><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse -&gt; Int
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AhttpStatus%3AListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-215"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679414664"><span id="local-6989586621679414666"><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679415143"><span id="local-6989586621679415145"><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse
 -&gt; ListPrincipalsForPortfolioResponse -&gt; Bool
 (ListPrincipalsForPortfolioResponse
  -&gt; ListPrincipalsForPortfolioResponse -&gt; Bool)
@@ -621,7 +626,7 @@ $c/= :: ListPrincipalsForPortfolioResponse
 -&gt; ListPrincipalsForPortfolioResponse -&gt; Bool
 $c== :: ListPrincipalsForPortfolioResponse
 -&gt; ListPrincipalsForPortfolioResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414656"><span id="local-6989586621679414658"><span id="local-6989586621679414660"><span id="local-6989586621679414662"><span class="annot"><span class="annottext">ReadPrec [ListPrincipalsForPortfolioResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415135"><span id="local-6989586621679415137"><span id="local-6989586621679415139"><span id="local-6989586621679415141"><span class="annot"><span class="annottext">ReadPrec [ListPrincipalsForPortfolioResponse]
 ReadPrec ListPrincipalsForPortfolioResponse
 Int -&gt; ReadS ListPrincipalsForPortfolioResponse
 ReadS [ListPrincipalsForPortfolioResponse]
@@ -641,7 +646,7 @@ readList :: ReadS [ListPrincipalsForPortfolioResponse]
 $creadList :: ReadS [ListPrincipalsForPortfolioResponse]
 readsPrec :: Int -&gt; ReadS ListPrincipalsForPortfolioResponse
 $creadsPrec :: Int -&gt; ReadS ListPrincipalsForPortfolioResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679414650"><span id="local-6989586621679414652"><span id="local-6989586621679414654"><span class="annot"><span class="annottext">Int -&gt; ListPrincipalsForPortfolioResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679415129"><span id="local-6989586621679415131"><span id="local-6989586621679415133"><span class="annot"><span class="annottext">Int -&gt; ListPrincipalsForPortfolioResponse -&gt; ShowS
 [ListPrincipalsForPortfolioResponse] -&gt; ShowS
 ListPrincipalsForPortfolioResponse -&gt; String
 (Int -&gt; ListPrincipalsForPortfolioResponse -&gt; ShowS)
@@ -687,10 +692,10 @@ ListPrincipalsForPortfolioResponse
 </span><span id="line-223"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-224"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-225"></span><span class="hs-comment">--</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- 'principals', 'listPrincipalsForPortfolioResponse_principals' - The IAM principals (users or roles) associated with the portfolio.</span><span>
-</span><span id="line-227"></span><span class="hs-comment">--</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- 'nextPageToken', 'listPrincipalsForPortfolioResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- 'nextPageToken', 'listPrincipalsForPortfolioResponse_nextPageToken' - The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- 'principals', 'listPrincipalsForPortfolioResponse_principals' - The IAM principals (users or roles) associated with the portfolio.</span><span>
 </span><span id="line-230"></span><span class="hs-comment">--</span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- 'httpStatus', 'listPrincipalsForPortfolioResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-232"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#newListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">newListPrincipalsForPortfolioResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -698,28 +703,50 @@ ListPrincipalsForPortfolioResponse
 </span><span id="line-234"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-235"></span><span>  </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span><span>
 </span><span id="line-236"></span><span id="newListPrincipalsForPortfolioResponse"><span class="annot"><span class="annottext">newListPrincipalsForPortfolioResponse :: Int -&gt; ListPrincipalsForPortfolioResponse
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#newListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-var hs-var">newListPrincipalsForPortfolioResponse</span></a></span></span><span> </span><span id="local-6989586621679414647"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414647"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-237"></span><span>  </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse' :: Maybe [Principal]
--&gt; Maybe Text -&gt; Int -&gt; ListPrincipalsForPortfolioResponse
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#newListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-var hs-var">newListPrincipalsForPortfolioResponse</span></a></span></span><span> </span><span id="local-6989586621679415126"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415126"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse' :: Maybe Text
+-&gt; Maybe [Principal] -&gt; Int -&gt; ListPrincipalsForPortfolioResponse
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse'</span></a></span><span>
-</span><span id="line-238"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:principals:ListPrincipalsForPortfolioResponse' :: Maybe [Principal]
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3Aprincipals%3AListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var">principals</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Principal]
+</span><span id="line-238"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageToken:ListPrincipalsForPortfolioResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AnextPageToken%3AListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextPageToken:ListPrincipalsForPortfolioResponse' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AnextPageToken%3AListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-240"></span><span>      </span><span class="annot"><span class="annottext">$sel:principals:ListPrincipalsForPortfolioResponse' :: Maybe [Principal]
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3Aprincipals%3AListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var">principals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Principal]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-241"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPrincipalsForPortfolioResponse' :: Int
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AhttpStatus%3AListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414647"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679415126"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-242"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-243"></span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- | The IAM principals (users or roles) associated with the portfolio.</span><span>
-</span><span id="line-245"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolioResponse_principals"><span class="hs-identifier hs-type">listPrincipalsForPortfolioResponse_principals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span id="listPrincipalsForPortfolioResponse_principals"><span class="annot"><span class="annottext">listPrincipalsForPortfolioResponse_principals :: (Maybe [Principal] -&gt; f (Maybe [Principal]))
+</span><span id="line-244"></span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolioResponse_nextPageToken"><span class="hs-identifier hs-type">listPrincipalsForPortfolioResponse_nextPageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span id="listPrincipalsForPortfolioResponse_nextPageToken"><span class="annot"><span class="annottext">listPrincipalsForPortfolioResponse_nextPageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPrincipalsForPortfolioResponse
+-&gt; f ListPrincipalsForPortfolioResponse
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolioResponse_nextPageToken"><span class="hs-identifier hs-var hs-var">listPrincipalsForPortfolioResponse_nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalsForPortfolioResponse -&gt; Maybe Text)
+-&gt; (ListPrincipalsForPortfolioResponse
+    -&gt; Maybe Text -&gt; ListPrincipalsForPortfolioResponse)
+-&gt; Lens' ListPrincipalsForPortfolioResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415125"><span class="annot"><span class="annottext">Maybe Text
+nextPageToken :: Maybe Text
+$sel:nextPageToken:ListPrincipalsForPortfolioResponse' :: ListPrincipalsForPortfolioResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679415125"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415125"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415124"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolioResponse
+</span><a href="#local-6989586621679415124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415123"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse
+</span><a href="#local-6989586621679415124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:ListPrincipalsForPortfolioResponse' :: Maybe Text
+</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AnextPageToken%3AListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679415123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The IAM principals (users or roles) associated with the portfolio.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolioResponse_principals"><span class="hs-identifier hs-type">listPrincipalsForPortfolioResponse_principals</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.Principal.html#Principal"><span class="hs-identifier hs-type">Principal</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span id="listPrincipalsForPortfolioResponse_principals"><span class="annot"><span class="annottext">listPrincipalsForPortfolioResponse_principals :: (Maybe [Principal] -&gt; f (Maybe [Principal]))
 -&gt; ListPrincipalsForPortfolioResponse
 -&gt; f ListPrincipalsForPortfolioResponse
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolioResponse_principals"><span class="hs-identifier hs-var hs-var">listPrincipalsForPortfolioResponse_principals</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalsForPortfolioResponse -&gt; Maybe [Principal])
@@ -727,16 +754,16 @@ forall a. Maybe a
     -&gt; Maybe [Principal] -&gt; ListPrincipalsForPortfolioResponse)
 -&gt; Lens' ListPrincipalsForPortfolioResponse (Maybe [Principal])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414646"><span class="annot"><span class="annottext">Maybe [Principal]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415122"><span class="annot"><span class="annottext">Maybe [Principal]
 principals :: Maybe [Principal]
 $sel:principals:ListPrincipalsForPortfolioResponse' :: ListPrincipalsForPortfolioResponse -&gt; Maybe [Principal]
-</span><a href="#local-6989586621679414646"><span class="hs-identifier hs-var hs-var">principals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Principal]
-</span><a href="#local-6989586621679414646"><span class="hs-identifier hs-var">principals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414645"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolioResponse
-</span><a href="#local-6989586621679414645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414644"><span class="annot"><span class="annottext">Maybe [Principal]
-</span><a href="#local-6989586621679414644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse
-</span><a href="#local-6989586621679414645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principals:ListPrincipalsForPortfolioResponse' :: Maybe [Principal]
+</span><a href="#local-6989586621679415122"><span class="hs-identifier hs-var hs-var">principals</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Principal]
+</span><a href="#local-6989586621679415122"><span class="hs-identifier hs-var">principals</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415121"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolioResponse
+</span><a href="#local-6989586621679415121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415120"><span class="annot"><span class="annottext">Maybe [Principal]
+</span><a href="#local-6989586621679415120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse
+</span><a href="#local-6989586621679415121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principals:ListPrincipalsForPortfolioResponse' :: Maybe [Principal]
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3Aprincipals%3AListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var">principals</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Principal]
-</span><a href="#local-6989586621679414644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Principal] -&gt; f (Maybe [Principal]))
+</span><a href="#local-6989586621679415120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Principal] -&gt; f (Maybe [Principal]))
  -&gt; ListPrincipalsForPortfolioResponse
  -&gt; f ListPrincipalsForPortfolioResponse)
 -&gt; ((Maybe [Principal] -&gt; f (Maybe [Principal]))
@@ -755,30 +782,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Principal] [Principal] [Principal] [Principal]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- | The page token to use to retrieve the next set of results. If there are</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- no additional results, this value is null.</span><span>
-</span><span id="line-250"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolioResponse_nextPageToken"><span class="hs-identifier hs-type">listPrincipalsForPortfolioResponse_nextPageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-251"></span><span id="listPrincipalsForPortfolioResponse_nextPageToken"><span class="annot"><span class="annottext">listPrincipalsForPortfolioResponse_nextPageToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListPrincipalsForPortfolioResponse
--&gt; f ListPrincipalsForPortfolioResponse
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolioResponse_nextPageToken"><span class="hs-identifier hs-var hs-var">listPrincipalsForPortfolioResponse_nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalsForPortfolioResponse -&gt; Maybe Text)
--&gt; (ListPrincipalsForPortfolioResponse
-    -&gt; Maybe Text -&gt; ListPrincipalsForPortfolioResponse)
--&gt; Lens' ListPrincipalsForPortfolioResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414641"><span class="annot"><span class="annottext">Maybe Text
-nextPageToken :: Maybe Text
-$sel:nextPageToken:ListPrincipalsForPortfolioResponse' :: ListPrincipalsForPortfolioResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679414641"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414641"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414640"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolioResponse
-</span><a href="#local-6989586621679414640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414639"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse
-</span><a href="#local-6989586621679414640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:ListPrincipalsForPortfolioResponse' :: Maybe Text
-</span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AnextPageToken%3AListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679414639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-252"></span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-254"></span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#listPrincipalsForPortfolioResponse_httpStatus"><span class="hs-identifier hs-type">listPrincipalsForPortfolioResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -794,18 +799,18 @@ $sel:nextPageToken:ListPrincipalsForPortfolioResponse' :: ListPrincipalsForPortf
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679414638"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679415117"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListPrincipalsForPortfolioResponse' :: ListPrincipalsForPortfolioResponse -&gt; Int
-</span><a href="#local-6989586621679414638"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414638"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679414637"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolioResponse
-</span><a href="#local-6989586621679414637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679414636"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse
-</span><a href="#local-6989586621679414637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPrincipalsForPortfolioResponse' :: Int
+</span><a href="#local-6989586621679415117"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415117"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679415116"><span class="annot"><span class="annottext">s :: ListPrincipalsForPortfolioResponse
+</span><a href="#local-6989586621679415116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679415115"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679415115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalsForPortfolioResponse
+</span><a href="#local-6989586621679415116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPrincipalsForPortfolioResponse' :: Int
 </span><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#%24sel%3AhttpStatus%3AListPrincipalsForPortfolioResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679414636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679415115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
 </span><span id="line-257"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-258"></span><span>  </span><span id="local-6989586621679414634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621679415113"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-259"></span><span>    </span><span class="annot"><a href="Network.AWS.ServiceCatalog.ListPrincipalsForPortfolio.html#ListPrincipalsForPortfolioResponse"><span class="hs-identifier hs-type">ListPrincipalsForPortfolioResponse</span></a></span></span><span>
 </span><span id="line-260"></span></pre></body></html>

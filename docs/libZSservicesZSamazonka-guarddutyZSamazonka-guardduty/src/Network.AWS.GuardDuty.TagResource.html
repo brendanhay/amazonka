@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newTagResource' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679303924"><span id="local-6989586621679303925"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResource"><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-var">TagResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResource%27"><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-var">TagResource'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679304219"><span id="local-6989586621679304220"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResource"><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-var">TagResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResource%27"><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-var">TagResource'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the GuardDuty resource to apply a tag</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- to.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AresourceArn%3ATagResource%27"><span class="annot"><span class="annottext">TagResource -&gt; Text
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Atags%3ATagResource%27"><span class="annot"><span class="annottext">TagResource -&gt; HashMap Text Text
 </span><a href="Network.AWS.GuardDuty.TagResource.html#%24sel%3Atags%3ATagResource%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303917"><span id="local-6989586621679303919"><span class="annot"><span class="annottext">TagResource -&gt; TagResource -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304212"><span id="local-6989586621679304214"><span class="annot"><span class="annottext">TagResource -&gt; TagResource -&gt; Bool
 (TagResource -&gt; TagResource -&gt; Bool)
 -&gt; (TagResource -&gt; TagResource -&gt; Bool) -&gt; Eq TagResource
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagResource -&gt; TagResource -&gt; Bool
 == :: TagResource -&gt; TagResource -&gt; Bool
 $c== :: TagResource -&gt; TagResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303908"><span id="local-6989586621679303910"><span id="local-6989586621679303912"><span id="local-6989586621679303914"><span class="annot"><span class="annottext">ReadPrec [TagResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304203"><span id="local-6989586621679304205"><span id="local-6989586621679304207"><span id="local-6989586621679304209"><span class="annot"><span class="annottext">ReadPrec [TagResource]
 ReadPrec TagResource
 Int -&gt; ReadS TagResource
 ReadS [TagResource]
@@ -84,7 +84,7 @@ readList :: ReadS [TagResource]
 $creadList :: ReadS [TagResource]
 readsPrec :: Int -&gt; ReadS TagResource
 $creadsPrec :: Int -&gt; ReadS TagResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303901"><span id="local-6989586621679303903"><span id="local-6989586621679303905"><span class="annot"><span class="annottext">Int -&gt; TagResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304196"><span id="local-6989586621679304198"><span id="local-6989586621679304200"><span class="annot"><span class="annottext">Int -&gt; TagResource -&gt; ShowS
 [TagResource] -&gt; ShowS
 TagResource -&gt; String
 (Int -&gt; TagResource -&gt; ShowS)
@@ -127,13 +127,13 @@ $cfrom :: forall x. TagResource -&gt; Rep TagResource x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span>
 </span><span id="line-75"></span><span id="newTagResource"><span class="annot"><span class="annottext">newTagResource :: Text -&gt; TagResource
-</span><a href="Network.AWS.GuardDuty.TagResource.html#newTagResource"><span class="hs-identifier hs-var hs-var">newTagResource</span></a></span></span><span> </span><span id="local-6989586621679303896"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303896"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.TagResource.html#newTagResource"><span class="hs-identifier hs-var hs-var">newTagResource</span></a></span></span><span> </span><span id="local-6989586621679304191"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304191"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">TagResource' :: Text -&gt; HashMap Text Text -&gt; TagResource
 </span><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceArn:TagResource' :: Text
 </span><a href="Network.AWS.GuardDuty.TagResource.html#%24sel%3AresourceArn%3ATagResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303896"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304191"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:TagResource' :: HashMap Text Text
 </span><a href="Network.AWS.GuardDuty.TagResource.html#%24sel%3Atags%3ATagResource%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
 forall a. Monoid a =&gt; a
@@ -148,16 +148,16 @@ forall a. Monoid a =&gt; a
 -&gt; (TagResource -&gt; Text -&gt; TagResource)
 -&gt; Lens TagResource TagResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303893"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304188"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:TagResource' :: TagResource -&gt; Text
-</span><a href="#local-6989586621679303893"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303893"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303892"><span class="annot"><span class="annottext">s :: TagResource
-</span><a href="#local-6989586621679303892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303891"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
-</span><a href="#local-6989586621679303892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:TagResource' :: Text
+</span><a href="#local-6989586621679304188"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304188"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304187"><span class="annot"><span class="annottext">s :: TagResource
+</span><a href="#local-6989586621679304187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304186"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
+</span><a href="#local-6989586621679304187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:TagResource' :: Text
 </span><a href="Network.AWS.GuardDuty.TagResource.html#%24sel%3AresourceArn%3ATagResource%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The tags to be added to a resource.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#tagResource_tags"><span class="hs-identifier hs-type">tagResource_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -168,16 +168,16 @@ $sel:resourceArn:TagResource' :: TagResource -&gt; Text
 -&gt; Lens
      TagResource TagResource (HashMap Text Text) (HashMap Text Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303890"><span class="annot"><span class="annottext">HashMap Text Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304185"><span class="annot"><span class="annottext">HashMap Text Text
 tags :: HashMap Text Text
 $sel:tags:TagResource' :: TagResource -&gt; HashMap Text Text
-</span><a href="#local-6989586621679303890"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679303890"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303889"><span class="annot"><span class="annottext">s :: TagResource
-</span><a href="#local-6989586621679303889"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303888"><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679303888"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
-</span><a href="#local-6989586621679303889"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagResource' :: HashMap Text Text
+</span><a href="#local-6989586621679304185"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679304185"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304184"><span class="annot"><span class="annottext">s :: TagResource
+</span><a href="#local-6989586621679304184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304183"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679304183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResource
+</span><a href="#local-6989586621679304184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagResource' :: HashMap Text Text
 </span><a href="Network.AWS.GuardDuty.TagResource.html#%24sel%3Atags%3ATagResource%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679303888"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+</span><a href="#local-6989586621679304183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
  -&gt; TagResource -&gt; f TagResource)
 -&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
     -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
@@ -187,17 +187,17 @@ $sel:tags:TagResource' :: TagResource -&gt; HashMap Text Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
 -&gt; HashMap Text Text -&gt; f (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679303882"><span class="annot"><span class="annottext">request :: TagResource -&gt; Request TagResource
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679304177"><span class="annot"><span class="annottext">request :: TagResource -&gt; Request TagResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; TagResource -&gt; Request TagResource
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679303878"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679304173"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy TagResource
 -&gt; ClientResponse ClientBody
@@ -221,10 +221,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303875"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303875"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679303874"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679303874"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679303873"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679303873"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304170"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304170"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304169"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304169"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304168"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679304168"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-96"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; TagResourceResponse
 </span><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-var">TagResourceResponse'</span></a></span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; TagResourceResponse)
@@ -235,15 +235,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303875"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304170"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303866"><span id="local-6989586621679303868"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304161"><span id="local-6989586621679304163"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303863"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679303859"><span class="annot"><span class="annottext">toHeaders :: TagResource -&gt; ResponseHeaders
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679304154"><span class="annot"><span class="annottext">toHeaders :: TagResource -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; TagResource -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -262,15 +262,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303849"><span id="local-6989586621679303851"><span id="local-6989586621679303853"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679303847"><span class="annot"><span class="annottext">toJSON :: TagResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303844"><span id="local-6989586621679303845"><span class="annot"><span class="annottext">Text
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304144"><span id="local-6989586621679304146"><span id="local-6989586621679304148"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679304142"><span class="annot"><span class="annottext">toJSON :: TagResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304139"><span id="local-6989586621679304140"><span class="annot"><span class="annottext">Text
 HashMap Text Text
 tags :: HashMap Text Text
 resourceArn :: Text
 $sel:tags:TagResource' :: TagResource -&gt; HashMap Text Text
 $sel:resourceArn:TagResource' :: TagResource -&gt; Text
-</span><a href="#local-6989586621679303844"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679304139"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -282,28 +282,28 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
-</span><a href="#local-6989586621679303844"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679304139"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679303838"><span class="annot"><span class="annottext">toPath :: TagResource -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303835"><span id="local-6989586621679303836"><span class="annot"><span class="annottext">Text
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679304133"><span class="annot"><span class="annottext">toPath :: TagResource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource%27"><span class="hs-identifier hs-type">TagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304130"><span id="local-6989586621679304131"><span class="annot"><span class="annottext">Text
 HashMap Text Text
 tags :: HashMap Text Text
 resourceArn :: Text
 $sel:tags:TagResource' :: TagResource -&gt; HashMap Text Text
 $sel:resourceArn:TagResource' :: TagResource -&gt; Text
-</span><a href="#local-6989586621679303835"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679304130"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/tags/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303836"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679304131"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResource"><span class="hs-identifier hs-type">TagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679303831"><span class="annot"><span class="annottext">toQuery :: TagResource -&gt; QueryString
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679304126"><span class="annot"><span class="annottext">toQuery :: TagResource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; TagResource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -311,12 +311,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-comment">-- | /See:/ 'newTagResourceResponse' smart constructor.</span><span>
-</span><span id="line-130"></span><span id="local-6989586621679303828"><span id="local-6989586621679303829"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResourceResponse"><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-var">TagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResourceResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-var">TagResourceResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span id="local-6989586621679304123"><span id="local-6989586621679304124"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagResourceResponse"><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-var">TagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagResourceResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-var">TagResourceResponse'</span></a></span></span><span>
 </span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-132"></span><span>    </span><span id="%24sel%3AhttpStatus%3ATagResourceResponse%27"><span class="annot"><span class="annottext">TagResourceResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.TagResource.html#%24sel%3AhttpStatus%3ATagResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303823"><span id="local-6989586621679303825"><span class="annot"><span class="annottext">TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304118"><span id="local-6989586621679304120"><span class="annot"><span class="annottext">TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
 (TagResourceResponse -&gt; TagResourceResponse -&gt; Bool)
 -&gt; (TagResourceResponse -&gt; TagResourceResponse -&gt; Bool)
 -&gt; Eq TagResourceResponse
@@ -325,7 +325,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
 == :: TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
 $c== :: TagResourceResponse -&gt; TagResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303815"><span id="local-6989586621679303817"><span id="local-6989586621679303819"><span id="local-6989586621679303821"><span class="annot"><span class="annottext">ReadPrec [TagResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304110"><span id="local-6989586621679304112"><span id="local-6989586621679304114"><span id="local-6989586621679304116"><span class="annot"><span class="annottext">ReadPrec [TagResourceResponse]
 ReadPrec TagResourceResponse
 Int -&gt; ReadS TagResourceResponse
 ReadS [TagResourceResponse]
@@ -345,7 +345,7 @@ readList :: ReadS [TagResourceResponse]
 $creadList :: ReadS [TagResourceResponse]
 readsPrec :: Int -&gt; ReadS TagResourceResponse
 $creadsPrec :: Int -&gt; ReadS TagResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303809"><span id="local-6989586621679303811"><span id="local-6989586621679303813"><span class="annot"><span class="annottext">Int -&gt; TagResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304104"><span id="local-6989586621679304106"><span id="local-6989586621679304108"><span class="annot"><span class="annottext">Int -&gt; TagResourceResponse -&gt; ShowS
 [TagResourceResponse] -&gt; ShowS
 TagResourceResponse -&gt; String
 (Int -&gt; TagResourceResponse -&gt; ShowS)
@@ -385,12 +385,12 @@ $cfrom :: forall x. TagResourceResponse -&gt; Rep TagResourceResponse x
 </span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span>
 </span><span id="line-149"></span><span id="newTagResourceResponse"><span class="annot"><span class="annottext">newTagResourceResponse :: Int -&gt; TagResourceResponse
-</span><a href="Network.AWS.GuardDuty.TagResource.html#newTagResourceResponse"><span class="hs-identifier hs-var hs-var">newTagResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679303806"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.TagResource.html#newTagResourceResponse"><span class="hs-identifier hs-var hs-var">newTagResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679304101"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304101"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">TagResourceResponse' :: Int -&gt; TagResourceResponse
 </span><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagResourceResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.TagResource.html#%24sel%3AhttpStatus%3ATagResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303806"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679304101"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#tagResourceResponse_httpStatus"><span class="hs-identifier hs-type">tagResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -399,16 +399,16 @@ $cfrom :: forall x. TagResourceResponse -&gt; Rep TagResourceResponse x
 -&gt; (TagResourceResponse -&gt; Int -&gt; TagResourceResponse)
 -&gt; Lens TagResourceResponse TagResourceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303805"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304100"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:TagResourceResponse' :: TagResourceResponse -&gt; Int
-</span><a href="#local-6989586621679303805"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303805"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303804"><span class="annot"><span class="annottext">s :: TagResourceResponse
-</span><a href="#local-6989586621679303804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303803"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResourceResponse
-</span><a href="#local-6989586621679303804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagResourceResponse' :: Int
+</span><a href="#local-6989586621679304100"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304100"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304099"><span class="annot"><span class="annottext">s :: TagResourceResponse
+</span><a href="#local-6989586621679304099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse%27"><span class="hs-identifier hs-type">TagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304098"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagResourceResponse
+</span><a href="#local-6989586621679304099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:TagResourceResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.TagResource.html#%24sel%3AhttpStatus%3ATagResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303801"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304096"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.TagResource.html#TagResourceResponse"><span class="hs-identifier hs-type">TagResourceResponse</span></a></span></span><span>
 </span><span id="line-157"></span></pre></body></html>

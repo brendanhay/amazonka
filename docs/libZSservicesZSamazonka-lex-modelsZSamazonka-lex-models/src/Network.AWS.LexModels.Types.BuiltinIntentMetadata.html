@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Provides metadata for a built-in intent.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBuiltinIntentMetadata' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679311965"><span id="local-6989586621679311966"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuiltinIntentMetadata"><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata"><span class="hs-identifier hs-var">BuiltinIntentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuiltinIntentMetadata%27"><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata%27"><span class="hs-identifier hs-var">BuiltinIntentMetadata'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679312248"><span id="local-6989586621679312249"></span></span><span class="hs-keyword">data</span><span> </span><span id="BuiltinIntentMetadata"><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata"><span class="hs-identifier hs-var">BuiltinIntentMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BuiltinIntentMetadata%27"><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata%27"><span class="hs-identifier hs-var">BuiltinIntentMetadata'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the built-in intent. To find the signature for</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- an intent, see</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/standard-intents Standard Built-in Intents&gt;</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AsupportedLocales%3ABuiltinIntentMetadata%27"><span class="annot"><span class="annottext">BuiltinIntentMetadata -&gt; Maybe [Locale]
 </span><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#%24sel%3AsupportedLocales%3ABuiltinIntentMetadata%27"><span class="hs-identifier hs-var hs-var">supportedLocales</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311958"><span id="local-6989586621679311960"><span class="annot"><span class="annottext">BuiltinIntentMetadata -&gt; BuiltinIntentMetadata -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312241"><span id="local-6989586621679312243"><span class="annot"><span class="annottext">BuiltinIntentMetadata -&gt; BuiltinIntentMetadata -&gt; Bool
 (BuiltinIntentMetadata -&gt; BuiltinIntentMetadata -&gt; Bool)
 -&gt; (BuiltinIntentMetadata -&gt; BuiltinIntentMetadata -&gt; Bool)
 -&gt; Eq BuiltinIntentMetadata
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BuiltinIntentMetadata -&gt; BuiltinIntentMetadata -&gt; Bool
 == :: BuiltinIntentMetadata -&gt; BuiltinIntentMetadata -&gt; Bool
 $c== :: BuiltinIntentMetadata -&gt; BuiltinIntentMetadata -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311949"><span id="local-6989586621679311951"><span id="local-6989586621679311953"><span id="local-6989586621679311955"><span class="annot"><span class="annottext">ReadPrec [BuiltinIntentMetadata]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312232"><span id="local-6989586621679312234"><span id="local-6989586621679312236"><span id="local-6989586621679312238"><span class="annot"><span class="annottext">ReadPrec [BuiltinIntentMetadata]
 ReadPrec BuiltinIntentMetadata
 Int -&gt; ReadS BuiltinIntentMetadata
 ReadS [BuiltinIntentMetadata]
@@ -67,7 +67,7 @@ readList :: ReadS [BuiltinIntentMetadata]
 $creadList :: ReadS [BuiltinIntentMetadata]
 readsPrec :: Int -&gt; ReadS BuiltinIntentMetadata
 $creadsPrec :: Int -&gt; ReadS BuiltinIntentMetadata
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311942"><span id="local-6989586621679311944"><span id="local-6989586621679311946"><span class="annot"><span class="annottext">Int -&gt; BuiltinIntentMetadata -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312225"><span id="local-6989586621679312227"><span id="local-6989586621679312229"><span class="annot"><span class="annottext">Int -&gt; BuiltinIntentMetadata -&gt; ShowS
 [BuiltinIntentMetadata] -&gt; ShowS
 BuiltinIntentMetadata -&gt; String
 (Int -&gt; BuiltinIntentMetadata -&gt; ShowS)
@@ -138,16 +138,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata%27"><span class="hs-identifier hs-type">BuiltinIntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311933"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata%27"><span class="hs-identifier hs-type">BuiltinIntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312216"><span class="annot"><span class="annottext">Maybe Text
 signature :: Maybe Text
 $sel:signature:BuiltinIntentMetadata' :: BuiltinIntentMetadata -&gt; Maybe Text
-</span><a href="#local-6989586621679311933"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311933"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311932"><span class="annot"><span class="annottext">s :: BuiltinIntentMetadata
-</span><a href="#local-6989586621679311932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata%27"><span class="hs-identifier hs-type">BuiltinIntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311931"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuiltinIntentMetadata
-</span><a href="#local-6989586621679311932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signature:BuiltinIntentMetadata' :: Maybe Text
+</span><a href="#local-6989586621679312216"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312216"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312215"><span class="annot"><span class="annottext">s :: BuiltinIntentMetadata
+</span><a href="#local-6989586621679312215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata%27"><span class="hs-identifier hs-type">BuiltinIntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312214"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuiltinIntentMetadata
+</span><a href="#local-6989586621679312215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signature:BuiltinIntentMetadata' :: Maybe Text
 </span><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#%24sel%3Asignature%3ABuiltinIntentMetadata%27"><span class="hs-keyword hs-var">signature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679311931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata"><span class="hs-identifier hs-type">BuiltinIntentMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata"><span class="hs-identifier hs-type">BuiltinIntentMetadata</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | A list of identifiers for the locales that the intent supports.</span><span>
 </span><span id="line-71"></span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#builtinIntentMetadata_supportedLocales"><span class="hs-identifier hs-type">builtinIntentMetadata_supportedLocales</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata"><span class="hs-identifier hs-type">BuiltinIntentMetadata</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.LexModels.Types.Locale.html#Locale"><span class="hs-identifier hs-type">Locale</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -162,16 +162,16 @@ $sel:signature:BuiltinIntentMetadata' :: BuiltinIntentMetadata -&gt; Maybe Text
      (Maybe [Locale])
      (Maybe [Locale])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata%27"><span class="hs-identifier hs-type">BuiltinIntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311929"><span class="annot"><span class="annottext">Maybe [Locale]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata%27"><span class="hs-identifier hs-type">BuiltinIntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312212"><span class="annot"><span class="annottext">Maybe [Locale]
 supportedLocales :: Maybe [Locale]
 $sel:supportedLocales:BuiltinIntentMetadata' :: BuiltinIntentMetadata -&gt; Maybe [Locale]
-</span><a href="#local-6989586621679311929"><span class="hs-identifier hs-var hs-var">supportedLocales</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Locale]
-</span><a href="#local-6989586621679311929"><span class="hs-identifier hs-var">supportedLocales</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311928"><span class="annot"><span class="annottext">s :: BuiltinIntentMetadata
-</span><a href="#local-6989586621679311928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata%27"><span class="hs-identifier hs-type">BuiltinIntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311927"><span class="annot"><span class="annottext">Maybe [Locale]
-</span><a href="#local-6989586621679311927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuiltinIntentMetadata
-</span><a href="#local-6989586621679311928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedLocales:BuiltinIntentMetadata' :: Maybe [Locale]
+</span><a href="#local-6989586621679312212"><span class="hs-identifier hs-var hs-var">supportedLocales</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Locale]
+</span><a href="#local-6989586621679312212"><span class="hs-identifier hs-var">supportedLocales</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312211"><span class="annot"><span class="annottext">s :: BuiltinIntentMetadata
+</span><a href="#local-6989586621679312211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata%27"><span class="hs-identifier hs-type">BuiltinIntentMetadata'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312210"><span class="annot"><span class="annottext">Maybe [Locale]
+</span><a href="#local-6989586621679312210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BuiltinIntentMetadata
+</span><a href="#local-6989586621679312211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:supportedLocales:BuiltinIntentMetadata' :: Maybe [Locale]
 </span><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#%24sel%3AsupportedLocales%3ABuiltinIntentMetadata%27"><span class="hs-identifier hs-var">supportedLocales</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Locale]
-</span><a href="#local-6989586621679311927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata"><span class="hs-identifier hs-type">BuiltinIntentMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Locale] -&gt; f (Maybe [Locale]))
+</span><a href="#local-6989586621679312210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata"><span class="hs-identifier hs-type">BuiltinIntentMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Locale] -&gt; f (Maybe [Locale]))
  -&gt; BuiltinIntentMetadata -&gt; f BuiltinIntentMetadata)
 -&gt; ((Maybe [Locale] -&gt; f (Maybe [Locale]))
     -&gt; Maybe [Locale] -&gt; f (Maybe [Locale]))
@@ -186,11 +186,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Locale] [Locale] [Locale] [Locale]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311921"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata"><span class="hs-identifier hs-type">BuiltinIntentMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679311919"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuiltinIntentMetadata
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312204"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata"><span class="hs-identifier hs-type">BuiltinIntentMetadata</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679312202"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BuiltinIntentMetadata
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BuiltinIntentMetadata)
@@ -200,8 +200,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BuiltinIntentMetadata&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311916"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311916"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312199"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312199"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Locale] -&gt; BuiltinIntentMetadata
 </span><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata%27"><span class="hs-identifier hs-var">BuiltinIntentMetadata'</span></a></span><span>
 </span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Locale] -&gt; BuiltinIntentMetadata)
@@ -209,7 +209,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe [Locale] -&gt; BuiltinIntentMetadata)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679312199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;signature&quot;</span></span><span class="hs-special">)</span><span>
@@ -217,7 +217,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe [Locale]) -&gt; Parser BuiltinIntentMetadata
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311916"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Locale]))
+</span><a href="#local-6989586621679312199"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Locale]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;supportedLocales&quot;</span></span><span>
@@ -230,7 +230,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-83"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311909"><span id="local-6989586621679311911"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata"><span class="hs-identifier hs-type">BuiltinIntentMetadata</span></a></span></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312192"><span id="local-6989586621679312194"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata"><span class="hs-identifier hs-type">BuiltinIntentMetadata</span></a></span></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311906"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata"><span class="hs-identifier hs-type">BuiltinIntentMetadata</span></a></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.LexModels.Types.BuiltinIntentMetadata.html#BuiltinIntentMetadata"><span class="hs-identifier hs-type">BuiltinIntentMetadata</span></a></span></span><span>
 </span><span id="line-89"></span></pre></body></html>

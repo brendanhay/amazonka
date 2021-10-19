@@ -34,13 +34,13 @@
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-36"></span><span>
-</span><span id="line-37"></span><span id="local-6989586621679362842"><span id="local-6989586621679362843"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExecutionResult"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ExecutionResult.html#ExecutionResult"><span class="hs-identifier hs-var">ExecutionResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionResult%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ExecutionResult.html#ExecutionResult%27"><span class="hs-identifier hs-var">ExecutionResult'</span></a></span></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679363077"><span id="local-6989586621679363078"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExecutionResult"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ExecutionResult.html#ExecutionResult"><span class="hs-identifier hs-var">ExecutionResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExecutionResult%27"><span class="annot"><a href="Network.AWS.DeviceFarm.Types.ExecutionResult.html#ExecutionResult%27"><span class="hs-identifier hs-var">ExecutionResult'</span></a></span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExecutionResult"><span class="annot"><span class="annottext">ExecutionResult -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.Types.ExecutionResult.html#fromExecutionResult"><span class="hs-identifier hs-var hs-var">fromExecutionResult</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362834"><span id="local-6989586621679362836"><span id="local-6989586621679362838"><span class="annot"><span class="annottext">Int -&gt; ExecutionResult -&gt; ShowS
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679363069"><span id="local-6989586621679363071"><span id="local-6989586621679363073"><span class="annot"><span class="annottext">Int -&gt; ExecutionResult -&gt; ShowS
 [ExecutionResult] -&gt; ShowS
 ExecutionResult -&gt; String
 (Int -&gt; ExecutionResult -&gt; ShowS)
@@ -56,7 +56,7 @@ $cshow :: ExecutionResult -&gt; String
 showsPrec :: Int -&gt; ExecutionResult -&gt; ShowS
 $cshowsPrec :: Int -&gt; ExecutionResult -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679362825"><span id="local-6989586621679362827"><span id="local-6989586621679362829"><span id="local-6989586621679362831"><span class="annot"><span class="annottext">ReadPrec [ExecutionResult]
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679363060"><span id="local-6989586621679363062"><span id="local-6989586621679363064"><span id="local-6989586621679363066"><span class="annot"><span class="annottext">ReadPrec [ExecutionResult]
 ReadPrec ExecutionResult
 Int -&gt; ReadS ExecutionResult
 ReadS [ExecutionResult]
@@ -77,7 +77,7 @@ $creadList :: ReadS [ExecutionResult]
 readsPrec :: Int -&gt; ReadS ExecutionResult
 $creadsPrec :: Int -&gt; ReadS ExecutionResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679362820"><span id="local-6989586621679362822"><span class="annot"><span class="annottext">ExecutionResult -&gt; ExecutionResult -&gt; Bool
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679363055"><span id="local-6989586621679363057"><span class="annot"><span class="annottext">ExecutionResult -&gt; ExecutionResult -&gt; Bool
 (ExecutionResult -&gt; ExecutionResult -&gt; Bool)
 -&gt; (ExecutionResult -&gt; ExecutionResult -&gt; Bool)
 -&gt; Eq ExecutionResult
@@ -87,7 +87,7 @@ $c/= :: ExecutionResult -&gt; ExecutionResult -&gt; Bool
 == :: ExecutionResult -&gt; ExecutionResult -&gt; Bool
 $c== :: ExecutionResult -&gt; ExecutionResult -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679362804"><span id="local-6989586621679362806"><span id="local-6989586621679362808"><span id="local-6989586621679362810"><span id="local-6989586621679362812"><span id="local-6989586621679362814"><span id="local-6989586621679362816"><span class="annot"><span class="annottext">Eq ExecutionResult
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679363039"><span id="local-6989586621679363041"><span id="local-6989586621679363043"><span id="local-6989586621679363045"><span id="local-6989586621679363047"><span id="local-6989586621679363049"><span id="local-6989586621679363051"><span class="annot"><span class="annottext">Eq ExecutionResult
 Eq ExecutionResult
 -&gt; (ExecutionResult -&gt; ExecutionResult -&gt; Ordering)
 -&gt; (ExecutionResult -&gt; ExecutionResult -&gt; Bool)
@@ -138,7 +138,7 @@ $cfrom :: forall x. ExecutionResult -&gt; Rep ExecutionResult x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679362796"><span id="local-6989586621679362798"><span class="annot"><span class="annottext">Int -&gt; ExecutionResult -&gt; Int
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679363031"><span id="local-6989586621679363033"><span class="annot"><span class="annottext">Int -&gt; ExecutionResult -&gt; Int
 ExecutionResult -&gt; Int
 (Int -&gt; ExecutionResult -&gt; Int)
 -&gt; (ExecutionResult -&gt; Int) -&gt; Hashable ExecutionResult
@@ -148,50 +148,50 @@ $chash :: ExecutionResult -&gt; Int
 hashWithSalt :: Int -&gt; ExecutionResult -&gt; Int
 $chashWithSalt :: Int -&gt; ExecutionResult -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679362793"><span class="annot"><span class="annottext">ExecutionResult -&gt; ()
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679363028"><span class="annot"><span class="annottext">ExecutionResult -&gt; ()
 (ExecutionResult -&gt; ()) -&gt; NFData ExecutionResult
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ExecutionResult -&gt; ()
 $crnf :: ExecutionResult -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679362790"><span class="annot"><span class="annottext">Text -&gt; Either String ExecutionResult
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679363025"><span class="annot"><span class="annottext">Text -&gt; Either String ExecutionResult
 (Text -&gt; Either String ExecutionResult) -&gt; FromText ExecutionResult
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ExecutionResult
 $cfromText :: Text -&gt; Either String ExecutionResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679362787"><span class="annot"><span class="annottext">ExecutionResult -&gt; Text
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679363022"><span class="annot"><span class="annottext">ExecutionResult -&gt; Text
 (ExecutionResult -&gt; Text) -&gt; ToText ExecutionResult
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ExecutionResult -&gt; Text
 $ctoText :: ExecutionResult -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679362784"><span class="annot"><span class="annottext">ExecutionResult -&gt; ByteString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679363019"><span class="annot"><span class="annottext">ExecutionResult -&gt; ByteString
 (ExecutionResult -&gt; ByteString) -&gt; ToByteString ExecutionResult
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ExecutionResult -&gt; ByteString
 $ctoBS :: ExecutionResult -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679362781"><span class="annot"><span class="annottext">ExecutionResult -&gt; ByteStringBuilder
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679363016"><span class="annot"><span class="annottext">ExecutionResult -&gt; ByteStringBuilder
 (ExecutionResult -&gt; ByteStringBuilder) -&gt; ToLog ExecutionResult
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ExecutionResult -&gt; ByteStringBuilder
 $cbuild :: ExecutionResult -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679362778"><span class="annot"><span class="annottext">HeaderName -&gt; ExecutionResult -&gt; [Header]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679363013"><span class="annot"><span class="annottext">HeaderName -&gt; ExecutionResult -&gt; [Header]
 (HeaderName -&gt; ExecutionResult -&gt; [Header])
 -&gt; ToHeader ExecutionResult
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ExecutionResult -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ExecutionResult -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679362775"><span class="annot"><span class="annottext">ExecutionResult -&gt; QueryString
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679363010"><span class="annot"><span class="annottext">ExecutionResult -&gt; QueryString
 (ExecutionResult -&gt; QueryString) -&gt; ToQuery ExecutionResult
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ExecutionResult -&gt; QueryString
 $ctoQuery :: ExecutionResult -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679362770"><span id="local-6989586621679362772"><span class="annot"><span class="annottext">Value -&gt; Parser [ExecutionResult]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679363005"><span id="local-6989586621679363007"><span class="annot"><span class="annottext">Value -&gt; Parser [ExecutionResult]
 Value -&gt; Parser ExecutionResult
 (Value -&gt; Parser ExecutionResult)
 -&gt; (Value -&gt; Parser [ExecutionResult]) -&gt; FromJSON ExecutionResult
@@ -202,7 +202,7 @@ $cparseJSONList :: Value -&gt; Parser [ExecutionResult]
 parseJSON :: Value -&gt; Parser ExecutionResult
 $cparseJSON :: Value -&gt; Parser ExecutionResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679362765"><span id="local-6989586621679362767"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExecutionResult]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679363000"><span id="local-6989586621679363002"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExecutionResult]
 FromJSONKeyFunction ExecutionResult
 FromJSONKeyFunction ExecutionResult
 -&gt; FromJSONKeyFunction [ExecutionResult]
@@ -214,7 +214,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ExecutionResult]
 fromJSONKey :: FromJSONKeyFunction ExecutionResult
 $cfromJSONKey :: FromJSONKeyFunction ExecutionResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679362756"><span id="local-6989586621679362758"><span id="local-6989586621679362760"><span id="local-6989586621679362762"><span class="annot"><span class="annottext">[ExecutionResult] -&gt; Encoding
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679362991"><span id="local-6989586621679362993"><span id="local-6989586621679362995"><span id="local-6989586621679362997"><span class="annot"><span class="annottext">[ExecutionResult] -&gt; Encoding
 [ExecutionResult] -&gt; Value
 ExecutionResult -&gt; Encoding
 ExecutionResult -&gt; Value
@@ -238,7 +238,7 @@ $ctoEncoding :: ExecutionResult -&gt; Encoding
 toJSON :: ExecutionResult -&gt; Value
 $ctoJSON :: ExecutionResult -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679362751"><span id="local-6989586621679362753"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExecutionResult]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679362986"><span id="local-6989586621679362988"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExecutionResult]
 ToJSONKeyFunction ExecutionResult
 ToJSONKeyFunction ExecutionResult
 -&gt; ToJSONKeyFunction [ExecutionResult] -&gt; ToJSONKey ExecutionResult
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ExecutionResult]
 toJSONKey :: ToJSONKeyFunction ExecutionResult
 $ctoJSONKey :: ToJSONKeyFunction ExecutionResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679362748"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExecutionResult
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679362983"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExecutionResult
 ([Node] -&gt; Either String ExecutionResult)
 -&gt; FromXML ExecutionResult
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ExecutionResult
 $cparseXML :: [Node] -&gt; Either String ExecutionResult
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679362745"><span class="annot"><span class="annottext">ExecutionResult -&gt; XML
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679362980"><span class="annot"><span class="annottext">ExecutionResult -&gt; XML
 (ExecutionResult -&gt; XML) -&gt; ToXML ExecutionResult
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ExecutionResult -&gt; XML

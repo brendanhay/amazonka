@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newListProvisionedCapacity' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679221460"><span id="local-6989586621679221461"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProvisionedCapacity"><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-var">ListProvisionedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProvisionedCapacity%27"><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity%27"><span class="hs-identifier hs-var">ListProvisionedCapacity'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679221515"><span id="local-6989586621679221516"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProvisionedCapacity"><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-var">ListProvisionedCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProvisionedCapacity%27"><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity%27"><span class="hs-identifier hs-var">ListProvisionedCapacity'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS account ID of the account that owns the vault. You can either</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- specify an AWS account ID or optionally a single \'-\' (hyphen), in</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- which case Amazon S3 Glacier uses the AWS account ID associated with the</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AaccountId%3AListProvisionedCapacity%27"><span class="annot"><span class="annottext">ListProvisionedCapacity -&gt; Text
 </span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#%24sel%3AaccountId%3AListProvisionedCapacity%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221454"><span id="local-6989586621679221456"><span class="annot"><span class="annottext">ListProvisionedCapacity -&gt; ListProvisionedCapacity -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221509"><span id="local-6989586621679221511"><span class="annot"><span class="annottext">ListProvisionedCapacity -&gt; ListProvisionedCapacity -&gt; Bool
 (ListProvisionedCapacity -&gt; ListProvisionedCapacity -&gt; Bool)
 -&gt; (ListProvisionedCapacity -&gt; ListProvisionedCapacity -&gt; Bool)
 -&gt; Eq ListProvisionedCapacity
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListProvisionedCapacity -&gt; ListProvisionedCapacity -&gt; Bool
 == :: ListProvisionedCapacity -&gt; ListProvisionedCapacity -&gt; Bool
 $c== :: ListProvisionedCapacity -&gt; ListProvisionedCapacity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221445"><span id="local-6989586621679221447"><span id="local-6989586621679221449"><span id="local-6989586621679221451"><span class="annot"><span class="annottext">ReadPrec [ListProvisionedCapacity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221500"><span id="local-6989586621679221502"><span id="local-6989586621679221504"><span id="local-6989586621679221506"><span class="annot"><span class="annottext">ReadPrec [ListProvisionedCapacity]
 ReadPrec ListProvisionedCapacity
 Int -&gt; ReadS ListProvisionedCapacity
 ReadS [ListProvisionedCapacity]
@@ -86,7 +86,7 @@ readList :: ReadS [ListProvisionedCapacity]
 $creadList :: ReadS [ListProvisionedCapacity]
 readsPrec :: Int -&gt; ReadS ListProvisionedCapacity
 $creadsPrec :: Int -&gt; ReadS ListProvisionedCapacity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221438"><span id="local-6989586621679221440"><span id="local-6989586621679221442"><span class="annot"><span class="annottext">Int -&gt; ListProvisionedCapacity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221493"><span id="local-6989586621679221495"><span id="local-6989586621679221497"><span class="annot"><span class="annottext">Int -&gt; ListProvisionedCapacity -&gt; ShowS
 [ListProvisionedCapacity] -&gt; ShowS
 ListProvisionedCapacity -&gt; String
 (Int -&gt; ListProvisionedCapacity -&gt; ShowS)
@@ -132,12 +132,12 @@ $cfrom :: forall x. ListProvisionedCapacity -&gt; Rep ListProvisionedCapacity x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-type">ListProvisionedCapacity</span></a></span><span>
 </span><span id="line-78"></span><span id="newListProvisionedCapacity"><span class="annot"><span class="annottext">newListProvisionedCapacity :: Text -&gt; ListProvisionedCapacity
-</span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#newListProvisionedCapacity"><span class="hs-identifier hs-var hs-var">newListProvisionedCapacity</span></a></span></span><span> </span><span id="local-6989586621679221433"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221433"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#newListProvisionedCapacity"><span class="hs-identifier hs-var hs-var">newListProvisionedCapacity</span></a></span></span><span> </span><span id="local-6989586621679221488"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221488"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">ListProvisionedCapacity' :: Text -&gt; ListProvisionedCapacity
 </span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity%27"><span class="hs-identifier hs-type">ListProvisionedCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ListProvisionedCapacity' :: Text
 </span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#%24sel%3AaccountId%3AListProvisionedCapacity%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221433"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679221488"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The AWS account ID of the account that owns the vault. You can either</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- specify an AWS account ID or optionally a single \'-\' (hyphen), in</span><span>
@@ -151,22 +151,22 @@ $cfrom :: forall x. ListProvisionedCapacity -&gt; Rep ListProvisionedCapacity x
 -&gt; (ListProvisionedCapacity -&gt; Text -&gt; ListProvisionedCapacity)
 -&gt; Lens ListProvisionedCapacity ListProvisionedCapacity Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity%27"><span class="hs-identifier hs-type">ListProvisionedCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221430"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity%27"><span class="hs-identifier hs-type">ListProvisionedCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221485"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:ListProvisionedCapacity' :: ListProvisionedCapacity -&gt; Text
-</span><a href="#local-6989586621679221430"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221430"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221429"><span class="annot"><span class="annottext">s :: ListProvisionedCapacity
-</span><a href="#local-6989586621679221429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity%27"><span class="hs-identifier hs-type">ListProvisionedCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221428"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisionedCapacity
-</span><a href="#local-6989586621679221429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ListProvisionedCapacity' :: Text
+</span><a href="#local-6989586621679221485"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221485"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221484"><span class="annot"><span class="annottext">s :: ListProvisionedCapacity
+</span><a href="#local-6989586621679221484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity%27"><span class="hs-identifier hs-type">ListProvisionedCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221483"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679221483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisionedCapacity
+</span><a href="#local-6989586621679221484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ListProvisionedCapacity' :: Text
 </span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#%24sel%3AaccountId%3AListProvisionedCapacity%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-type">ListProvisionedCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-type">ListProvisionedCapacity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-type">ListProvisionedCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-type">ListProvisionedCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679221424"><span class="annot"><span class="annottext">request :: ListProvisionedCapacity -&gt; Request ListProvisionedCapacity
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679221479"><span class="annot"><span class="annottext">request :: ListProvisionedCapacity -&gt; Request ListProvisionedCapacity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ByteString
 -&gt; Request ListProvisionedCapacity
@@ -186,7 +186,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679221417"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679221472"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListProvisionedCapacity
 -&gt; ClientResponse ClientBody
@@ -212,10 +212,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221414"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221414"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679221413"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679221413"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679221412"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221412"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679221469"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221469"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679221468"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679221468"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679221467"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221467"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ProvisionedCapacityDescription]
 -&gt; Int -&gt; ListProvisionedCapacityResponse
 </span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse%27"><span class="hs-identifier hs-var">ListProvisionedCapacityResponse'</span></a></span><span>
@@ -225,7 +225,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ListProvisionedCapacityResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679221412"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679221467"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [ProvisionedCapacityDescription]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -248,15 +248,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221414"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221469"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221403"><span id="local-6989586621679221405"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-type">ListProvisionedCapacity</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221458"><span id="local-6989586621679221460"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-type">ListProvisionedCapacity</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221400"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-type">ListProvisionedCapacity</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679221455"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-type">ListProvisionedCapacity</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-type">ListProvisionedCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679221396"><span class="annot"><span class="annottext">toHeaders :: ListProvisionedCapacity -&gt; ResponseHeaders
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679221451"><span class="annot"><span class="annottext">toHeaders :: ListProvisionedCapacity -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListProvisionedCapacity -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -264,11 +264,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-type">ListProvisionedCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679221391"><span class="annot"><span class="annottext">toPath :: ListProvisionedCapacity -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity%27"><span class="hs-identifier hs-type">ListProvisionedCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221389"><span class="annot"><span class="annottext">Text
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679221446"><span class="annot"><span class="annottext">toPath :: ListProvisionedCapacity -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity%27"><span class="hs-identifier hs-type">ListProvisionedCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221444"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:ListProvisionedCapacity' :: ListProvisionedCapacity -&gt; Text
-</span><a href="#local-6989586621679221389"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679221444"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -276,11 +276,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679221389"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679221444"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/provisioned-capacity&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacity"><span class="hs-identifier hs-type">ListProvisionedCapacity</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679221385"><span class="annot"><span class="annottext">toQuery :: ListProvisionedCapacity -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679221440"><span class="annot"><span class="annottext">toQuery :: ListProvisionedCapacity -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListProvisionedCapacity -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -288,7 +288,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newListProvisionedCapacityResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679221382"><span id="local-6989586621679221383"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProvisionedCapacityResponse"><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse"><span class="hs-identifier hs-var">ListProvisionedCapacityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProvisionedCapacityResponse%27"><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse%27"><span class="hs-identifier hs-var">ListProvisionedCapacityResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679221437"><span id="local-6989586621679221438"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProvisionedCapacityResponse"><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse"><span class="hs-identifier hs-var">ListProvisionedCapacityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProvisionedCapacityResponse%27"><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse%27"><span class="hs-identifier hs-var">ListProvisionedCapacityResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response body contains the following JSON fields.</span><span>
 </span><span id="line-124"></span><span>    </span><span id="%24sel%3AprovisionedCapacityList%3AListProvisionedCapacityResponse%27"><span class="annot"><span class="annottext">ListProvisionedCapacityResponse
 -&gt; Maybe [ProvisionedCapacityDescription]
@@ -297,7 +297,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListProvisionedCapacityResponse%27"><span class="annot"><span class="annottext">ListProvisionedCapacityResponse -&gt; Int
 </span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#%24sel%3AhttpStatus%3AListProvisionedCapacityResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221376"><span id="local-6989586621679221378"><span class="annot"><span class="annottext">ListProvisionedCapacityResponse
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679221431"><span id="local-6989586621679221433"><span class="annot"><span class="annottext">ListProvisionedCapacityResponse
 -&gt; ListProvisionedCapacityResponse -&gt; Bool
 (ListProvisionedCapacityResponse
  -&gt; ListProvisionedCapacityResponse -&gt; Bool)
@@ -313,7 +313,7 @@ $c/= :: ListProvisionedCapacityResponse
 -&gt; ListProvisionedCapacityResponse -&gt; Bool
 $c== :: ListProvisionedCapacityResponse
 -&gt; ListProvisionedCapacityResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221368"><span id="local-6989586621679221370"><span id="local-6989586621679221372"><span id="local-6989586621679221374"><span class="annot"><span class="annottext">ReadPrec [ListProvisionedCapacityResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221423"><span id="local-6989586621679221425"><span id="local-6989586621679221427"><span id="local-6989586621679221429"><span class="annot"><span class="annottext">ReadPrec [ListProvisionedCapacityResponse]
 ReadPrec ListProvisionedCapacityResponse
 Int -&gt; ReadS ListProvisionedCapacityResponse
 ReadS [ListProvisionedCapacityResponse]
@@ -333,7 +333,7 @@ readList :: ReadS [ListProvisionedCapacityResponse]
 $creadList :: ReadS [ListProvisionedCapacityResponse]
 readsPrec :: Int -&gt; ReadS ListProvisionedCapacityResponse
 $creadsPrec :: Int -&gt; ReadS ListProvisionedCapacityResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221362"><span id="local-6989586621679221364"><span id="local-6989586621679221366"><span class="annot"><span class="annottext">Int -&gt; ListProvisionedCapacityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679221417"><span id="local-6989586621679221419"><span id="local-6989586621679221421"><span class="annot"><span class="annottext">Int -&gt; ListProvisionedCapacityResponse -&gt; ShowS
 [ListProvisionedCapacityResponse] -&gt; ShowS
 ListProvisionedCapacityResponse -&gt; String
 (Int -&gt; ListProvisionedCapacityResponse -&gt; ShowS)
@@ -387,8 +387,8 @@ ListProvisionedCapacityResponse
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse</span></a></span><span>
 </span><span id="line-145"></span><span id="newListProvisionedCapacityResponse"><span class="annot"><span class="annottext">newListProvisionedCapacityResponse :: Int -&gt; ListProvisionedCapacityResponse
-</span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#newListProvisionedCapacityResponse"><span class="hs-identifier hs-var hs-var">newListProvisionedCapacityResponse</span></a></span></span><span> </span><span id="local-6989586621679221359"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221359"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#newListProvisionedCapacityResponse"><span class="hs-identifier hs-var hs-var">newListProvisionedCapacityResponse</span></a></span></span><span> </span><span id="local-6989586621679221414"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221414"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">ListProvisionedCapacityResponse' :: Maybe [ProvisionedCapacityDescription]
 -&gt; Int -&gt; ListProvisionedCapacityResponse
 </span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse'</span></a></span><span>
@@ -399,7 +399,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListProvisionedCapacityResponse' :: Int
 </span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#%24sel%3AhttpStatus%3AListProvisionedCapacityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221359"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679221414"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The response body contains the following JSON fields.</span><span>
@@ -419,17 +419,17 @@ forall a. Maybe a
      (Maybe [ProvisionedCapacityDescription])
      (Maybe [ProvisionedCapacityDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221358"><span class="annot"><span class="annottext">Maybe [ProvisionedCapacityDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221413"><span class="annot"><span class="annottext">Maybe [ProvisionedCapacityDescription]
 provisionedCapacityList :: Maybe [ProvisionedCapacityDescription]
 $sel:provisionedCapacityList:ListProvisionedCapacityResponse' :: ListProvisionedCapacityResponse
 -&gt; Maybe [ProvisionedCapacityDescription]
-</span><a href="#local-6989586621679221358"><span class="hs-identifier hs-var hs-var">provisionedCapacityList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisionedCapacityDescription]
-</span><a href="#local-6989586621679221358"><span class="hs-identifier hs-var">provisionedCapacityList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221357"><span class="annot"><span class="annottext">s :: ListProvisionedCapacityResponse
-</span><a href="#local-6989586621679221357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221356"><span class="annot"><span class="annottext">Maybe [ProvisionedCapacityDescription]
-</span><a href="#local-6989586621679221356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisionedCapacityResponse
-</span><a href="#local-6989586621679221357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedCapacityList:ListProvisionedCapacityResponse' :: Maybe [ProvisionedCapacityDescription]
+</span><a href="#local-6989586621679221413"><span class="hs-identifier hs-var hs-var">provisionedCapacityList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisionedCapacityDescription]
+</span><a href="#local-6989586621679221413"><span class="hs-identifier hs-var">provisionedCapacityList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221412"><span class="annot"><span class="annottext">s :: ListProvisionedCapacityResponse
+</span><a href="#local-6989586621679221412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221411"><span class="annot"><span class="annottext">Maybe [ProvisionedCapacityDescription]
+</span><a href="#local-6989586621679221411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisionedCapacityResponse
+</span><a href="#local-6989586621679221412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:provisionedCapacityList:ListProvisionedCapacityResponse' :: Maybe [ProvisionedCapacityDescription]
 </span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#%24sel%3AprovisionedCapacityList%3AListProvisionedCapacityResponse%27"><span class="hs-identifier hs-var">provisionedCapacityList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProvisionedCapacityDescription]
-</span><a href="#local-6989586621679221356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProvisionedCapacityDescription]
+</span><a href="#local-6989586621679221411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProvisionedCapacityDescription]
   -&gt; f (Maybe [ProvisionedCapacityDescription]))
  -&gt; ListProvisionedCapacityResponse
  -&gt; f ListProvisionedCapacityResponse)
@@ -460,8 +460,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ProvisionedCapacityDescription]
   [ProvisionedCapacityDescription]
   [ProvisionedCapacityDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#listProvisionedCapacityResponse_httpStatus"><span class="hs-identifier hs-type">listProvisionedCapacityResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -477,18 +477,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221353"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679221408"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListProvisionedCapacityResponse' :: ListProvisionedCapacityResponse -&gt; Int
-</span><a href="#local-6989586621679221353"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221353"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221352"><span class="annot"><span class="annottext">s :: ListProvisionedCapacityResponse
-</span><a href="#local-6989586621679221352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221351"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisionedCapacityResponse
-</span><a href="#local-6989586621679221352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListProvisionedCapacityResponse' :: Int
+</span><a href="#local-6989586621679221408"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221408"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679221407"><span class="annot"><span class="annottext">s :: ListProvisionedCapacityResponse
+</span><a href="#local-6989586621679221407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse%27"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679221406"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679221406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProvisionedCapacityResponse
+</span><a href="#local-6989586621679221407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListProvisionedCapacityResponse' :: Int
 </span><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#%24sel%3AhttpStatus%3AListProvisionedCapacityResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679221351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679221406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679221349"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679221404"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.ListProvisionedCapacity.html#ListProvisionedCapacityResponse"><span class="hs-identifier hs-type">ListProvisionedCapacityResponse</span></a></span></span><span>
 </span><span id="line-163"></span></pre></body></html>

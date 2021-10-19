@@ -30,54 +30,54 @@
 </span><span id="line-30"></span><span class="hs-comment">-- GetServiceLastAccessedDetails operation.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newServiceLastAccessed' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679432760"><span id="local-6989586621679432761"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceLastAccessed"><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-var">ServiceLastAccessed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceLastAccessed%27"><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-var">ServiceLastAccessed'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of authenticated principals (root user, IAM users, or</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- IAM roles) that have attempted to access the service.</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- This field is null if no principals attempted to access the service</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- within the</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AtotalAuthenticatedEntities%3AServiceLastAccessed%27"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; Maybe Int
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AtotalAuthenticatedEntities%3AServiceLastAccessed%27"><span class="hs-identifier hs-var hs-var">totalAuthenticatedEntities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The Region from which the authenticated entity (user or role) last</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- attempted to access the service. Amazon Web Services does not report</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- unauthenticated requests.</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- within the</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
-</span><span id="line-48"></span><span>    </span><span id="%24sel%3AlastAuthenticatedRegion%3AServiceLastAccessed%27"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; Maybe Text
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticatedRegion%3AServiceLastAccessed%27"><span class="hs-identifier hs-var hs-var">lastAuthenticatedRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The ARN of the authenticated entity (user or role) that last attempted</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- to access the service. Amazon Web Services does not report</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- unauthenticated requests.</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- within the</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
-</span><span id="line-56"></span><span>    </span><span id="%24sel%3AlastAuthenticatedEntity%3AServiceLastAccessed%27"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; Maybe Text
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticatedEntity%3AServiceLastAccessed%27"><span class="hs-identifier hs-var hs-var">lastAuthenticatedEntity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | An object that contains details about the most recent attempt to access</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- a tracked action within the service.</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- This field is null if there no tracked actions or if the principal did</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- not use the tracked actions within the</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- This field is also null if the report was generated at the service level</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- and not the action level. For more information, see the @Granularity@</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- field in GenerateServiceLastAccessedDetails.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AtrackedActionsLastAccessed%3AServiceLastAccessed%27"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; Maybe [TrackedActionLastAccessed]
+</span><span id="line-33"></span><span id="local-6989586621679433284"><span id="local-6989586621679433285"></span></span><span class="hs-keyword">data</span><span> </span><span id="ServiceLastAccessed"><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-var">ServiceLastAccessed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceLastAccessed%27"><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-var">ServiceLastAccessed'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when an</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- authenticated entity most recently attempted to access the service.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- Amazon Web Services does not report unauthenticated requests.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- within the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AlastAuthenticated%3AServiceLastAccessed%27"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; Maybe ISO8601
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticated%3AServiceLastAccessed%27"><span class="hs-identifier hs-var hs-var">lastAuthenticated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | An object that contains details about the most recent attempt to access</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- a tracked action within the service.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- This field is null if there no tracked actions or if the principal did</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- not use the tracked actions within the</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- This field is also null if the report was generated at the service level</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- and not the action level. For more information, see the @Granularity@</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- field in GenerateServiceLastAccessedDetails.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AtrackedActionsLastAccessed%3AServiceLastAccessed%27"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; Maybe [TrackedActionLastAccessed]
 </span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AtrackedActionsLastAccessed%3AServiceLastAccessed%27"><span class="hs-identifier hs-var hs-var">trackedActionsLastAccessed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.TrackedActionLastAccessed.html#TrackedActionLastAccessed"><span class="hs-identifier hs-type">TrackedActionLastAccessed</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The date and time,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when an</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- authenticated entity most recently attempted to access the service.</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Amazon Web Services does not report unauthenticated requests.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The ARN of the authenticated entity (user or role) that last attempted</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- to access the service. Amazon Web Services does not report</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- unauthenticated requests.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- within the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AlastAuthenticatedEntity%3AServiceLastAccessed%27"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; Maybe Text
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticatedEntity%3AServiceLastAccessed%27"><span class="hs-identifier hs-var hs-var">lastAuthenticatedEntity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The Region from which the authenticated entity (user or role) last</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- attempted to access the service. Amazon Web Services does not report</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- unauthenticated requests.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- within the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AlastAuthenticatedRegion%3AServiceLastAccessed%27"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; Maybe Text
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticatedRegion%3AServiceLastAccessed%27"><span class="hs-identifier hs-var hs-var">lastAuthenticatedRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The total number of authenticated principals (root user, IAM users, or</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- IAM roles) that have attempted to access the service.</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- This field is null if no principals attempted to access the service</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- within the</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
-</span><span id="line-75"></span><span>    </span><span id="%24sel%3AlastAuthenticated%3AServiceLastAccessed%27"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; Maybe ISO8601
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticated%3AServiceLastAccessed%27"><span class="hs-identifier hs-var hs-var">lastAuthenticated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AtotalAuthenticatedEntities%3AServiceLastAccessed%27"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; Maybe Int
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AtotalAuthenticatedEntities%3AServiceLastAccessed%27"><span class="hs-identifier hs-var hs-var">totalAuthenticatedEntities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The name of the service in which access was attempted.</span><span>
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AserviceName%3AServiceLastAccessed%27"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; Text
 </span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AserviceName%3AServiceLastAccessed%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -94,7 +94,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AserviceNamespace%3AServiceLastAccessed%27"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; Text
 </span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AserviceNamespace%3AServiceLastAccessed%27"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432748"><span id="local-6989586621679432750"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; ServiceLastAccessed -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679433272"><span id="local-6989586621679433274"><span class="annot"><span class="annottext">ServiceLastAccessed -&gt; ServiceLastAccessed -&gt; Bool
 (ServiceLastAccessed -&gt; ServiceLastAccessed -&gt; Bool)
 -&gt; (ServiceLastAccessed -&gt; ServiceLastAccessed -&gt; Bool)
 -&gt; Eq ServiceLastAccessed
@@ -103,7 +103,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ServiceLastAccessed -&gt; ServiceLastAccessed -&gt; Bool
 == :: ServiceLastAccessed -&gt; ServiceLastAccessed -&gt; Bool
 $c== :: ServiceLastAccessed -&gt; ServiceLastAccessed -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432739"><span id="local-6989586621679432741"><span id="local-6989586621679432743"><span id="local-6989586621679432745"><span class="annot"><span class="annottext">ReadPrec [ServiceLastAccessed]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433263"><span id="local-6989586621679433265"><span id="local-6989586621679433267"><span id="local-6989586621679433269"><span class="annot"><span class="annottext">ReadPrec [ServiceLastAccessed]
 ReadPrec ServiceLastAccessed
 Int -&gt; ReadS ServiceLastAccessed
 ReadS [ServiceLastAccessed]
@@ -123,7 +123,7 @@ readList :: ReadS [ServiceLastAccessed]
 $creadList :: ReadS [ServiceLastAccessed]
 readsPrec :: Int -&gt; ReadS ServiceLastAccessed
 $creadsPrec :: Int -&gt; ReadS ServiceLastAccessed
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432732"><span id="local-6989586621679432734"><span id="local-6989586621679432736"><span class="annot"><span class="annottext">Int -&gt; ServiceLastAccessed -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679433256"><span id="local-6989586621679433258"><span id="local-6989586621679433260"><span class="annot"><span class="annottext">Int -&gt; ServiceLastAccessed -&gt; ShowS
 [ServiceLastAccessed] -&gt; ShowS
 ServiceLastAccessed -&gt; String
 (Int -&gt; ServiceLastAccessed -&gt; ShowS)
@@ -157,45 +157,45 @@ $cfrom :: forall x. ServiceLastAccessed -&gt; Rep ServiceLastAccessed x
 </span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'totalAuthenticatedEntities', 'serviceLastAccessed_totalAuthenticatedEntities' - The total number of authenticated principals (root user, IAM users, or</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- IAM roles) that have attempted to access the service.</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- This field is null if no principals attempted to access the service</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- within the</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'lastAuthenticatedRegion', 'serviceLastAccessed_lastAuthenticatedRegion' - The Region from which the authenticated entity (user or role) last</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- attempted to access the service. Amazon Web Services does not report</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- unauthenticated requests.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- within the</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- 'lastAuthenticatedEntity', 'serviceLastAccessed_lastAuthenticatedEntity' - The ARN of the authenticated entity (user or role) that last attempted</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- to access the service. Amazon Web Services does not report</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- unauthenticated requests.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'lastAuthenticated', 'serviceLastAccessed_lastAuthenticated' - The date and time,</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when an</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- authenticated entity most recently attempted to access the service.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Amazon Web Services does not report unauthenticated requests.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- within the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'trackedActionsLastAccessed', 'serviceLastAccessed_trackedActionsLastAccessed' - An object that contains details about the most recent attempt to access</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- a tracked action within the service.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- This field is null if there no tracked actions or if the principal did</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- not use the tracked actions within the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- This field is also null if the report was generated at the service level</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- and not the action level. For more information, see the @Granularity@</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- field in GenerateServiceLastAccessedDetails.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- within the</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'lastAuthenticatedEntity', 'serviceLastAccessed_lastAuthenticatedEntity' - The ARN of the authenticated entity (user or role) that last attempted</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- to access the service. Amazon Web Services does not report</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- unauthenticated requests.</span><span>
 </span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- 'trackedActionsLastAccessed', 'serviceLastAccessed_trackedActionsLastAccessed' - An object that contains details about the most recent attempt to access</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- a tracked action within the service.</span><span>
-</span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- This field is null if there no tracked actions or if the principal did</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- not use the tracked actions within the</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- This field is also null if the report was generated at the service level</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- and not the action level. For more information, see the @Granularity@</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- field in GenerateServiceLastAccessedDetails.</span><span>
-</span><span id="line-132"></span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- 'lastAuthenticated', 'serviceLastAccessed_lastAuthenticated' - The date and time,</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when an</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- authenticated entity most recently attempted to access the service.</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- Amazon Web Services does not report unauthenticated requests.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- within the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'lastAuthenticatedRegion', 'serviceLastAccessed_lastAuthenticatedRegion' - The Region from which the authenticated entity (user or role) last</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- attempted to access the service. Amazon Web Services does not report</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- unauthenticated requests.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- within the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'totalAuthenticatedEntities', 'serviceLastAccessed_totalAuthenticatedEntities' - The total number of authenticated principals (root user, IAM users, or</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- IAM roles) that have attempted to access the service.</span><span>
 </span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- This field is null if no principals attempted to access the service</span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- within the</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
 </span><span id="line-141"></span><span class="hs-comment">--</span><span>
@@ -219,136 +219,105 @@ $cfrom :: forall x. ServiceLastAccessed -&gt; Rep ServiceLastAccessed x
 </span><span id="line-159"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span>
 </span><span id="line-160"></span><span id="newServiceLastAccessed"><span class="annot"><span class="annottext">newServiceLastAccessed :: Text -&gt; Text -&gt; ServiceLastAccessed
 </span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#newServiceLastAccessed"><span class="hs-identifier hs-var hs-var">newServiceLastAccessed</span></a></span></span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679432726"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432726"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679432725"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432725"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">ServiceLastAccessed' :: Maybe Int
--&gt; Maybe Text
--&gt; Maybe Text
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679433250"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433250"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679433249"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433249"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">ServiceLastAccessed' :: Maybe ISO8601
 -&gt; Maybe [TrackedActionLastAccessed]
--&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; Text
 -&gt; Text
 -&gt; ServiceLastAccessed
 </span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span>
-</span><span id="line-164"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:totalAuthenticatedEntities:ServiceLastAccessed' :: Maybe Int
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AtotalAuthenticatedEntities%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">totalAuthenticatedEntities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-164"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastAuthenticated:ServiceLastAccessed' :: Maybe ISO8601
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticated%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">lastAuthenticated</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe ISO8601
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastAuthenticatedRegion:ServiceLastAccessed' :: Maybe Text
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticatedRegion%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">lastAuthenticatedRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:trackedActionsLastAccessed:ServiceLastAccessed' :: Maybe [TrackedActionLastAccessed]
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AtrackedActionsLastAccessed%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">trackedActionsLastAccessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TrackedActionLastAccessed]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastAuthenticatedEntity:ServiceLastAccessed' :: Maybe Text
 </span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticatedEntity%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">lastAuthenticatedEntity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:trackedActionsLastAccessed:ServiceLastAccessed' :: Maybe [TrackedActionLastAccessed]
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AtrackedActionsLastAccessed%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">trackedActionsLastAccessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TrackedActionLastAccessed]
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastAuthenticatedRegion:ServiceLastAccessed' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticatedRegion%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">lastAuthenticatedRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastAuthenticated:ServiceLastAccessed' :: Maybe ISO8601
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticated%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">lastAuthenticated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span id="line-169"></span><span>        </span><span class="annot"><span class="annottext">$sel:totalAuthenticatedEntities:ServiceLastAccessed' :: Maybe Int
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AtotalAuthenticatedEntities%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">totalAuthenticatedEntities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceName:ServiceLastAccessed' :: Text
 </span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AserviceName%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432726"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679433250"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceNamespace:ServiceLastAccessed' :: Text
 </span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AserviceNamespace%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432725"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span>
+</span><a href="#local-6989586621679433249"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span>
 </span><span id="line-172"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- | The total number of authenticated principals (root user, IAM users, or</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- IAM roles) that have attempted to access the service.</span><span>
-</span><span id="line-176"></span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- This field is null if no principals attempted to access the service</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- within the</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
-</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_totalAuthenticatedEntities"><span class="hs-identifier hs-type">serviceLastAccessed_totalAuthenticatedEntities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span id="serviceLastAccessed_totalAuthenticatedEntities"><span class="annot"><span class="annottext">serviceLastAccessed_totalAuthenticatedEntities :: (Maybe Int -&gt; f (Maybe Int))
+</span><span id="line-174"></span><span class="hs-comment">-- | The date and time,</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when an</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- authenticated entity most recently attempted to access the service.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Amazon Web Services does not report unauthenticated requests.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- within the</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_lastAuthenticated"><span class="hs-identifier hs-type">serviceLastAccessed_lastAuthenticated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="serviceLastAccessed_lastAuthenticated"><span class="annot"><span class="annottext">serviceLastAccessed_lastAuthenticated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; ServiceLastAccessed -&gt; f ServiceLastAccessed
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_totalAuthenticatedEntities"><span class="hs-identifier hs-var hs-var">serviceLastAccessed_totalAuthenticatedEntities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceLastAccessed -&gt; Maybe Int)
--&gt; (ServiceLastAccessed -&gt; Maybe Int -&gt; ServiceLastAccessed)
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_lastAuthenticated"><span class="hs-identifier hs-var hs-var">serviceLastAccessed_lastAuthenticated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceLastAccessed -&gt; Maybe ISO8601)
+-&gt; (ServiceLastAccessed -&gt; Maybe ISO8601 -&gt; ServiceLastAccessed)
 -&gt; Lens
-     ServiceLastAccessed ServiceLastAccessed (Maybe Int) (Maybe Int)
+     ServiceLastAccessed
+     ServiceLastAccessed
+     (Maybe ISO8601)
+     (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432721"><span class="annot"><span class="annottext">Maybe Int
-totalAuthenticatedEntities :: Maybe Int
-$sel:totalAuthenticatedEntities:ServiceLastAccessed' :: ServiceLastAccessed -&gt; Maybe Int
-</span><a href="#local-6989586621679432721"><span class="hs-identifier hs-var hs-var">totalAuthenticatedEntities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679432721"><span class="hs-identifier hs-var">totalAuthenticatedEntities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432720"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
-</span><a href="#local-6989586621679432720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432719"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679432719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
-</span><a href="#local-6989586621679432720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalAuthenticatedEntities:ServiceLastAccessed' :: Maybe Int
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AtotalAuthenticatedEntities%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">totalAuthenticatedEntities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679432719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- | The Region from which the authenticated entity (user or role) last</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- attempted to access the service. Amazon Web Services does not report</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- unauthenticated requests.</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- within the</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
-</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_lastAuthenticatedRegion"><span class="hs-identifier hs-type">serviceLastAccessed_lastAuthenticatedRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span id="serviceLastAccessed_lastAuthenticatedRegion"><span class="annot"><span class="annottext">serviceLastAccessed_lastAuthenticatedRegion :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ServiceLastAccessed -&gt; f ServiceLastAccessed
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_lastAuthenticatedRegion"><span class="hs-identifier hs-var hs-var">serviceLastAccessed_lastAuthenticatedRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceLastAccessed -&gt; Maybe Text)
--&gt; (ServiceLastAccessed -&gt; Maybe Text -&gt; ServiceLastAccessed)
--&gt; Lens
-     ServiceLastAccessed ServiceLastAccessed (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432717"><span class="annot"><span class="annottext">Maybe Text
-lastAuthenticatedRegion :: Maybe Text
-$sel:lastAuthenticatedRegion:ServiceLastAccessed' :: ServiceLastAccessed -&gt; Maybe Text
-</span><a href="#local-6989586621679432717"><span class="hs-identifier hs-var hs-var">lastAuthenticatedRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679432717"><span class="hs-identifier hs-var">lastAuthenticatedRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432716"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
-</span><a href="#local-6989586621679432716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432715"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679432715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
-</span><a href="#local-6989586621679432716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthenticatedRegion:ServiceLastAccessed' :: Maybe Text
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticatedRegion%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">lastAuthenticatedRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679432715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- | The ARN of the authenticated entity (user or role) that last attempted</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- to access the service. Amazon Web Services does not report</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- unauthenticated requests.</span><span>
-</span><span id="line-196"></span><span class="hs-comment">--</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- within the</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
-</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_lastAuthenticatedEntity"><span class="hs-identifier hs-type">serviceLastAccessed_lastAuthenticatedEntity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span id="serviceLastAccessed_lastAuthenticatedEntity"><span class="annot"><span class="annottext">serviceLastAccessed_lastAuthenticatedEntity :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ServiceLastAccessed -&gt; f ServiceLastAccessed
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_lastAuthenticatedEntity"><span class="hs-identifier hs-var hs-var">serviceLastAccessed_lastAuthenticatedEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceLastAccessed -&gt; Maybe Text)
--&gt; (ServiceLastAccessed -&gt; Maybe Text -&gt; ServiceLastAccessed)
--&gt; Lens
-     ServiceLastAccessed ServiceLastAccessed (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432713"><span class="annot"><span class="annottext">Maybe Text
-lastAuthenticatedEntity :: Maybe Text
-$sel:lastAuthenticatedEntity:ServiceLastAccessed' :: ServiceLastAccessed -&gt; Maybe Text
-</span><a href="#local-6989586621679432713"><span class="hs-identifier hs-var hs-var">lastAuthenticatedEntity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679432713"><span class="hs-identifier hs-var">lastAuthenticatedEntity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432712"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
-</span><a href="#local-6989586621679432712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432711"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679432711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
-</span><a href="#local-6989586621679432712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthenticatedEntity:ServiceLastAccessed' :: Maybe Text
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticatedEntity%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">lastAuthenticatedEntity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679432711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- | An object that contains details about the most recent attempt to access</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- a tracked action within the service.</span><span>
-</span><span id="line-205"></span><span class="hs-comment">--</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- This field is null if there no tracked actions or if the principal did</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- not use the tracked actions within the</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- This field is also null if the report was generated at the service level</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- and not the action level. For more information, see the @Granularity@</span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- field in GenerateServiceLastAccessedDetails.</span><span>
-</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_trackedActionsLastAccessed"><span class="hs-identifier hs-type">serviceLastAccessed_trackedActionsLastAccessed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.TrackedActionLastAccessed.html#TrackedActionLastAccessed"><span class="hs-identifier hs-type">TrackedActionLastAccessed</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span id="serviceLastAccessed_trackedActionsLastAccessed"><span class="annot"><span class="annottext">serviceLastAccessed_trackedActionsLastAccessed :: (Maybe [TrackedActionLastAccessed]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433245"><span class="annot"><span class="annottext">Maybe ISO8601
+lastAuthenticated :: Maybe ISO8601
+$sel:lastAuthenticated:ServiceLastAccessed' :: ServiceLastAccessed -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679433245"><span class="hs-identifier hs-var hs-var">lastAuthenticated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679433245"><span class="hs-identifier hs-var">lastAuthenticated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433244"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
+</span><a href="#local-6989586621679433244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433243"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679433243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
+</span><a href="#local-6989586621679433244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthenticated:ServiceLastAccessed' :: Maybe ISO8601
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticated%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">lastAuthenticated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679433243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; ServiceLastAccessed -&gt; f ServiceLastAccessed)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ServiceLastAccessed
+-&gt; f ServiceLastAccessed
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | An object that contains details about the most recent attempt to access</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- a tracked action within the service.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- This field is null if there no tracked actions or if the principal did</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- not use the tracked actions within the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- This field is also null if the report was generated at the service level</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- and not the action level. For more information, see the @Granularity@</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- field in GenerateServiceLastAccessedDetails.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_trackedActionsLastAccessed"><span class="hs-identifier hs-type">serviceLastAccessed_trackedActionsLastAccessed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.IAM.Types.TrackedActionLastAccessed.html#TrackedActionLastAccessed"><span class="hs-identifier hs-type">TrackedActionLastAccessed</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="serviceLastAccessed_trackedActionsLastAccessed"><span class="annot"><span class="annottext">serviceLastAccessed_trackedActionsLastAccessed :: (Maybe [TrackedActionLastAccessed]
  -&gt; f (Maybe [TrackedActionLastAccessed]))
 -&gt; ServiceLastAccessed -&gt; f ServiceLastAccessed
 </span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_trackedActionsLastAccessed"><span class="hs-identifier hs-var hs-var">serviceLastAccessed_trackedActionsLastAccessed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceLastAccessed -&gt; Maybe [TrackedActionLastAccessed])
@@ -360,16 +329,16 @@ $sel:lastAuthenticatedEntity:ServiceLastAccessed' :: ServiceLastAccessed -&gt; M
      (Maybe [TrackedActionLastAccessed])
      (Maybe [TrackedActionLastAccessed])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432709"><span class="annot"><span class="annottext">Maybe [TrackedActionLastAccessed]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433238"><span class="annot"><span class="annottext">Maybe [TrackedActionLastAccessed]
 trackedActionsLastAccessed :: Maybe [TrackedActionLastAccessed]
 $sel:trackedActionsLastAccessed:ServiceLastAccessed' :: ServiceLastAccessed -&gt; Maybe [TrackedActionLastAccessed]
-</span><a href="#local-6989586621679432709"><span class="hs-identifier hs-var hs-var">trackedActionsLastAccessed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TrackedActionLastAccessed]
-</span><a href="#local-6989586621679432709"><span class="hs-identifier hs-var">trackedActionsLastAccessed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432708"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
-</span><a href="#local-6989586621679432708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432707"><span class="annot"><span class="annottext">Maybe [TrackedActionLastAccessed]
-</span><a href="#local-6989586621679432707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
-</span><a href="#local-6989586621679432708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trackedActionsLastAccessed:ServiceLastAccessed' :: Maybe [TrackedActionLastAccessed]
+</span><a href="#local-6989586621679433238"><span class="hs-identifier hs-var hs-var">trackedActionsLastAccessed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TrackedActionLastAccessed]
+</span><a href="#local-6989586621679433238"><span class="hs-identifier hs-var">trackedActionsLastAccessed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433237"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
+</span><a href="#local-6989586621679433237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433236"><span class="annot"><span class="annottext">Maybe [TrackedActionLastAccessed]
+</span><a href="#local-6989586621679433236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
+</span><a href="#local-6989586621679433237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trackedActionsLastAccessed:ServiceLastAccessed' :: Maybe [TrackedActionLastAccessed]
 </span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AtrackedActionsLastAccessed%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">trackedActionsLastAccessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TrackedActionLastAccessed]
-</span><a href="#local-6989586621679432707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TrackedActionLastAccessed]
+</span><a href="#local-6989586621679433236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TrackedActionLastAccessed]
   -&gt; f (Maybe [TrackedActionLastAccessed]))
  -&gt; ServiceLastAccessed -&gt; f ServiceLastAccessed)
 -&gt; ((Maybe [TrackedActionLastAccessed]
@@ -399,54 +368,85 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [TrackedActionLastAccessed]
   [TrackedActionLastAccessed]
   [TrackedActionLastAccessed]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- | The date and time,</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- in&#160;&lt;http://www.iso.org/iso/iso8601 ISO 8601 date-time format&gt;, when an</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- authenticated entity most recently attempted to access the service.</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- Amazon Web Services does not report unauthenticated requests.</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The ARN of the authenticated entity (user or role) that last attempted</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- to access the service. Amazon Web Services does not report</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- unauthenticated requests.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- within the</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_lastAuthenticatedEntity"><span class="hs-identifier hs-type">serviceLastAccessed_lastAuthenticatedEntity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="serviceLastAccessed_lastAuthenticatedEntity"><span class="annot"><span class="annottext">serviceLastAccessed_lastAuthenticatedEntity :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ServiceLastAccessed -&gt; f ServiceLastAccessed
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_lastAuthenticatedEntity"><span class="hs-identifier hs-var hs-var">serviceLastAccessed_lastAuthenticatedEntity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceLastAccessed -&gt; Maybe Text)
+-&gt; (ServiceLastAccessed -&gt; Maybe Text -&gt; ServiceLastAccessed)
+-&gt; Lens
+     ServiceLastAccessed ServiceLastAccessed (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433233"><span class="annot"><span class="annottext">Maybe Text
+lastAuthenticatedEntity :: Maybe Text
+$sel:lastAuthenticatedEntity:ServiceLastAccessed' :: ServiceLastAccessed -&gt; Maybe Text
+</span><a href="#local-6989586621679433233"><span class="hs-identifier hs-var hs-var">lastAuthenticatedEntity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433233"><span class="hs-identifier hs-var">lastAuthenticatedEntity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433232"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
+</span><a href="#local-6989586621679433232"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433231"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433231"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
+</span><a href="#local-6989586621679433232"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthenticatedEntity:ServiceLastAccessed' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticatedEntity%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">lastAuthenticatedEntity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433231"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The Region from which the authenticated entity (user or role) last</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- attempted to access the service. Amazon Web Services does not report</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- unauthenticated requests.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- within the</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_lastAuthenticatedRegion"><span class="hs-identifier hs-type">serviceLastAccessed_lastAuthenticatedRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="serviceLastAccessed_lastAuthenticatedRegion"><span class="annot"><span class="annottext">serviceLastAccessed_lastAuthenticatedRegion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ServiceLastAccessed -&gt; f ServiceLastAccessed
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_lastAuthenticatedRegion"><span class="hs-identifier hs-var hs-var">serviceLastAccessed_lastAuthenticatedRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceLastAccessed -&gt; Maybe Text)
+-&gt; (ServiceLastAccessed -&gt; Maybe Text -&gt; ServiceLastAccessed)
+-&gt; Lens
+     ServiceLastAccessed ServiceLastAccessed (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433229"><span class="annot"><span class="annottext">Maybe Text
+lastAuthenticatedRegion :: Maybe Text
+$sel:lastAuthenticatedRegion:ServiceLastAccessed' :: ServiceLastAccessed -&gt; Maybe Text
+</span><a href="#local-6989586621679433229"><span class="hs-identifier hs-var hs-var">lastAuthenticatedRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433229"><span class="hs-identifier hs-var">lastAuthenticatedRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433228"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
+</span><a href="#local-6989586621679433228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433227"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
+</span><a href="#local-6989586621679433228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthenticatedRegion:ServiceLastAccessed' :: Maybe Text
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticatedRegion%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">lastAuthenticatedRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679433227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The total number of authenticated principals (root user, IAM users, or</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- IAM roles) that have attempted to access the service.</span><span>
 </span><span id="line-219"></span><span class="hs-comment">--</span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- This field is null if no IAM entities attempted to access the service</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- This field is null if no principals attempted to access the service</span><span>
 </span><span id="line-221"></span><span class="hs-comment">-- within the</span><span>
 </span><span id="line-222"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period&gt;.</span><span>
-</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_lastAuthenticated"><span class="hs-identifier hs-type">serviceLastAccessed_lastAuthenticated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-224"></span><span id="serviceLastAccessed_lastAuthenticated"><span class="annot"><span class="annottext">serviceLastAccessed_lastAuthenticated :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_totalAuthenticatedEntities"><span class="hs-identifier hs-type">serviceLastAccessed_totalAuthenticatedEntities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="serviceLastAccessed_totalAuthenticatedEntities"><span class="annot"><span class="annottext">serviceLastAccessed_totalAuthenticatedEntities :: (Maybe Int -&gt; f (Maybe Int))
 -&gt; ServiceLastAccessed -&gt; f ServiceLastAccessed
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_lastAuthenticated"><span class="hs-identifier hs-var hs-var">serviceLastAccessed_lastAuthenticated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceLastAccessed -&gt; Maybe ISO8601)
--&gt; (ServiceLastAccessed -&gt; Maybe ISO8601 -&gt; ServiceLastAccessed)
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_totalAuthenticatedEntities"><span class="hs-identifier hs-var hs-var">serviceLastAccessed_totalAuthenticatedEntities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ServiceLastAccessed -&gt; Maybe Int)
+-&gt; (ServiceLastAccessed -&gt; Maybe Int -&gt; ServiceLastAccessed)
 -&gt; Lens
-     ServiceLastAccessed
-     ServiceLastAccessed
-     (Maybe ISO8601)
-     (Maybe ISO8601)
+     ServiceLastAccessed ServiceLastAccessed (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432702"><span class="annot"><span class="annottext">Maybe ISO8601
-lastAuthenticated :: Maybe ISO8601
-$sel:lastAuthenticated:ServiceLastAccessed' :: ServiceLastAccessed -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679432702"><span class="hs-identifier hs-var hs-var">lastAuthenticated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679432702"><span class="hs-identifier hs-var">lastAuthenticated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432701"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
-</span><a href="#local-6989586621679432701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432700"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679432700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
-</span><a href="#local-6989586621679432701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastAuthenticated:ServiceLastAccessed' :: Maybe ISO8601
-</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AlastAuthenticated%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">lastAuthenticated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679432700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
- -&gt; ServiceLastAccessed -&gt; f ServiceLastAccessed)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ServiceLastAccessed
--&gt; f ServiceLastAccessed
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
--&gt; Iso
-     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433225"><span class="annot"><span class="annottext">Maybe Int
+totalAuthenticatedEntities :: Maybe Int
+$sel:totalAuthenticatedEntities:ServiceLastAccessed' :: ServiceLastAccessed -&gt; Maybe Int
+</span><a href="#local-6989586621679433225"><span class="hs-identifier hs-var hs-var">totalAuthenticatedEntities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433225"><span class="hs-identifier hs-var">totalAuthenticatedEntities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433224"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
+</span><a href="#local-6989586621679433224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433223"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
+</span><a href="#local-6989586621679433224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalAuthenticatedEntities:ServiceLastAccessed' :: Maybe Int
+</span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AtotalAuthenticatedEntities%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">totalAuthenticatedEntities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679433223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-comment">-- | The name of the service in which access was attempted.</span><span>
 </span><span id="line-227"></span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#serviceLastAccessed_serviceName"><span class="hs-identifier hs-type">serviceLastAccessed_serviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -455,16 +455,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (ServiceLastAccessed -&gt; Text -&gt; ServiceLastAccessed)
 -&gt; Lens ServiceLastAccessed ServiceLastAccessed Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432697"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433221"><span class="annot"><span class="annottext">Text
 serviceName :: Text
 $sel:serviceName:ServiceLastAccessed' :: ServiceLastAccessed -&gt; Text
-</span><a href="#local-6989586621679432697"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432697"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432696"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
-</span><a href="#local-6989586621679432696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432695"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
-</span><a href="#local-6989586621679432696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:ServiceLastAccessed' :: Text
+</span><a href="#local-6989586621679433221"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433221"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433220"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
+</span><a href="#local-6989586621679433220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433219"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
+</span><a href="#local-6989586621679433220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:ServiceLastAccessed' :: Text
 </span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AserviceName%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-comment">-- | The namespace of the service in which access was attempted.</span><span>
 </span><span id="line-231"></span><span class="hs-comment">--</span><span>
@@ -482,116 +482,80 @@ $sel:serviceName:ServiceLastAccessed' :: ServiceLastAccessed -&gt; Text
 -&gt; (ServiceLastAccessed -&gt; Text -&gt; ServiceLastAccessed)
 -&gt; Lens ServiceLastAccessed ServiceLastAccessed Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432693"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679433217"><span class="annot"><span class="annottext">Text
 serviceNamespace :: Text
 $sel:serviceNamespace:ServiceLastAccessed' :: ServiceLastAccessed -&gt; Text
-</span><a href="#local-6989586621679432693"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432693"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432692"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
-</span><a href="#local-6989586621679432692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432691"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
-</span><a href="#local-6989586621679432692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:ServiceLastAccessed' :: Text
+</span><a href="#local-6989586621679433217"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433217"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679433216"><span class="annot"><span class="annottext">s :: ServiceLastAccessed
+</span><a href="#local-6989586621679433216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-type">ServiceLastAccessed'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679433215"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679433215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceLastAccessed
+</span><a href="#local-6989586621679433216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:ServiceLastAccessed' :: Text
 </span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#%24sel%3AserviceNamespace%3AServiceLastAccessed%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679432691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679433215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679432688"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ServiceLastAccessed
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679432686"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432686"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int
--&gt; Maybe Text
--&gt; Maybe Text
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679433212"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ServiceLastAccessed
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679433210"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679433210"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
 -&gt; Maybe [TrackedActionLastAccessed]
--&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
 -&gt; Text
 -&gt; Text
 -&gt; ServiceLastAccessed
 </span><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed%27"><span class="hs-identifier hs-var">ServiceLastAccessed'</span></a></span><span>
-</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int
- -&gt; Maybe Text
- -&gt; Maybe Text
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
  -&gt; Maybe [TrackedActionLastAccessed]
- -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
  -&gt; Text
  -&gt; Text
  -&gt; ServiceLastAccessed)
--&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe ISO8601)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe [TrackedActionLastAccessed]
       -&gt; Maybe Text
-      -&gt; Maybe [TrackedActionLastAccessed]
-      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; Maybe Int
       -&gt; Text
       -&gt; Text
       -&gt; ServiceLastAccessed)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621679433210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TotalAuthenticatedEntities&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastAuthenticated&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
+  (Maybe [TrackedActionLastAccessed]
    -&gt; Maybe Text
-   -&gt; Maybe [TrackedActionLastAccessed]
-   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; Maybe Int
    -&gt; Text
    -&gt; Text
    -&gt; ServiceLastAccessed)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [TrackedActionLastAccessed])
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe [TrackedActionLastAccessed]
-      -&gt; Maybe ISO8601
-      -&gt; Text
-      -&gt; Text
-      -&gt; ServiceLastAccessed)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastAuthenticatedRegion&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe [TrackedActionLastAccessed]
-   -&gt; Maybe ISO8601
-   -&gt; Text
-   -&gt; Text
-   -&gt; ServiceLastAccessed)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [TrackedActionLastAccessed]
-      -&gt; Maybe ISO8601 -&gt; Text -&gt; Text -&gt; ServiceLastAccessed)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastAuthenticatedEntity&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [TrackedActionLastAccessed]
-   -&gt; Maybe ISO8601 -&gt; Text -&gt; Text -&gt; ServiceLastAccessed)
--&gt; Either String (Maybe [TrackedActionLastAccessed])
--&gt; Either
-     String (Maybe ISO8601 -&gt; Text -&gt; Text -&gt; ServiceLastAccessed)
+      -&gt; Maybe Text -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; ServiceLastAccessed)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679433210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrackedActionsLastAccessed&quot;</span></span><span>
-</span><span id="line-250"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+</span><span id="line-248"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-251"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-249"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [TrackedActionLastAccessed]))
 -&gt; Either String (Maybe [TrackedActionLastAccessed])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -604,23 +568,47 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe ISO8601 -&gt; Text -&gt; Text -&gt; ServiceLastAccessed)
--&gt; Either String (Maybe ISO8601)
+</span><span id="line-250"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; ServiceLastAccessed)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; ServiceLastAccessed)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679433210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastAuthenticatedEntity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Maybe Int -&gt; Text -&gt; Text -&gt; ServiceLastAccessed)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Int -&gt; Text -&gt; Text -&gt; ServiceLastAccessed)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679433210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastAuthenticatedRegion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Text -&gt; Text -&gt; ServiceLastAccessed)
+-&gt; Either String (Maybe Int)
 -&gt; Either String (Text -&gt; Text -&gt; ServiceLastAccessed)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679433210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastAuthenticated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TotalAuthenticatedEntities&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; ServiceLastAccessed)
 -&gt; Either String Text
 -&gt; Either String (Text -&gt; ServiceLastAccessed)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679433210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceName&quot;</span></span><span class="hs-special">)</span><span>
@@ -628,12 +616,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String ServiceLastAccessed
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679432686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679433210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceNamespace&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-256"></span><span>
-</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432676"><span id="local-6989586621679432678"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span></span></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433200"><span id="local-6989586621679433202"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span></span></span><span>
 </span><span id="line-258"></span><span>
-</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span></span><span>
+</span><span id="line-259"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679433197"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.ServiceLastAccessed.html#ServiceLastAccessed"><span class="hs-identifier hs-type">ServiceLastAccessed</span></a></span></span><span>
 </span><span id="line-260"></span></pre></body></html>

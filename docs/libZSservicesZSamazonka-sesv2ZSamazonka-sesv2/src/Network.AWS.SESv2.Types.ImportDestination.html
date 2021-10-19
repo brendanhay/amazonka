@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- import job is going to target.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newImportDestination' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679330326"><span id="local-6989586621679330327"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportDestination"><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-var">ImportDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportDestination%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination%27"><span class="hs-identifier hs-var">ImportDestination'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679332840"><span id="local-6989586621679332841"></span></span><span class="hs-keyword">data</span><span> </span><span id="ImportDestination"><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-var">ImportDestination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImportDestination%27"><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination%27"><span class="hs-identifier hs-var">ImportDestination'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that contains the action of the import job towards suppression</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- list.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AsuppressionListDestination%3AImportDestination%27"><span class="annot"><span class="annottext">ImportDestination -&gt; Maybe SuppressionListDestination
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3AcontactListDestination%3AImportDestination%27"><span class="annot"><span class="annottext">ImportDestination -&gt; Maybe ContactListDestination
 </span><a href="Network.AWS.SESv2.Types.ImportDestination.html#%24sel%3AcontactListDestination%3AImportDestination%27"><span class="hs-identifier hs-var hs-var">contactListDestination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ContactListDestination.html#ContactListDestination"><span class="hs-identifier hs-type">ContactListDestination</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330319"><span id="local-6989586621679330321"><span class="annot"><span class="annottext">ImportDestination -&gt; ImportDestination -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679332833"><span id="local-6989586621679332835"><span class="annot"><span class="annottext">ImportDestination -&gt; ImportDestination -&gt; Bool
 (ImportDestination -&gt; ImportDestination -&gt; Bool)
 -&gt; (ImportDestination -&gt; ImportDestination -&gt; Bool)
 -&gt; Eq ImportDestination
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ImportDestination -&gt; ImportDestination -&gt; Bool
 == :: ImportDestination -&gt; ImportDestination -&gt; Bool
 $c== :: ImportDestination -&gt; ImportDestination -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330310"><span id="local-6989586621679330312"><span id="local-6989586621679330314"><span id="local-6989586621679330316"><span class="annot"><span class="annottext">ReadPrec [ImportDestination]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332824"><span id="local-6989586621679332826"><span id="local-6989586621679332828"><span id="local-6989586621679332830"><span class="annot"><span class="annottext">ReadPrec [ImportDestination]
 ReadPrec ImportDestination
 Int -&gt; ReadS ImportDestination
 ReadS [ImportDestination]
@@ -68,7 +68,7 @@ readList :: ReadS [ImportDestination]
 $creadList :: ReadS [ImportDestination]
 readsPrec :: Int -&gt; ReadS ImportDestination
 $creadsPrec :: Int -&gt; ReadS ImportDestination
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330303"><span id="local-6989586621679330305"><span id="local-6989586621679330307"><span class="annot"><span class="annottext">Int -&gt; ImportDestination -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679332817"><span id="local-6989586621679332819"><span id="local-6989586621679332821"><span class="annot"><span class="annottext">Int -&gt; ImportDestination -&gt; ShowS
 [ImportDestination] -&gt; ShowS
 ImportDestination -&gt; String
 (Int -&gt; ImportDestination -&gt; ShowS)
@@ -140,16 +140,16 @@ forall a. Maybe a
      (Maybe SuppressionListDestination)
      (Maybe SuppressionListDestination)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination%27"><span class="hs-identifier hs-type">ImportDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330294"><span class="annot"><span class="annottext">Maybe SuppressionListDestination
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination%27"><span class="hs-identifier hs-type">ImportDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332808"><span class="annot"><span class="annottext">Maybe SuppressionListDestination
 suppressionListDestination :: Maybe SuppressionListDestination
 $sel:suppressionListDestination:ImportDestination' :: ImportDestination -&gt; Maybe SuppressionListDestination
-</span><a href="#local-6989586621679330294"><span class="hs-identifier hs-var hs-var">suppressionListDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SuppressionListDestination
-</span><a href="#local-6989586621679330294"><span class="hs-identifier hs-var">suppressionListDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330293"><span class="annot"><span class="annottext">s :: ImportDestination
-</span><a href="#local-6989586621679330293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination%27"><span class="hs-identifier hs-type">ImportDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330292"><span class="annot"><span class="annottext">Maybe SuppressionListDestination
-</span><a href="#local-6989586621679330292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportDestination
-</span><a href="#local-6989586621679330293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressionListDestination:ImportDestination' :: Maybe SuppressionListDestination
+</span><a href="#local-6989586621679332808"><span class="hs-identifier hs-var hs-var">suppressionListDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SuppressionListDestination
+</span><a href="#local-6989586621679332808"><span class="hs-identifier hs-var">suppressionListDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332807"><span class="annot"><span class="annottext">s :: ImportDestination
+</span><a href="#local-6989586621679332807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination%27"><span class="hs-identifier hs-type">ImportDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332806"><span class="annot"><span class="annottext">Maybe SuppressionListDestination
+</span><a href="#local-6989586621679332806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportDestination
+</span><a href="#local-6989586621679332807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suppressionListDestination:ImportDestination' :: Maybe SuppressionListDestination
 </span><a href="Network.AWS.SESv2.Types.ImportDestination.html#%24sel%3AsuppressionListDestination%3AImportDestination%27"><span class="hs-identifier hs-var">suppressionListDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SuppressionListDestination
-</span><a href="#local-6989586621679330292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-type">ImportDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679332806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-type">ImportDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | An object that contains the action of the import job towards a contact</span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- list.</span><span>
@@ -165,19 +165,19 @@ $sel:suppressionListDestination:ImportDestination' :: ImportDestination -&gt; Ma
      (Maybe ContactListDestination)
      (Maybe ContactListDestination)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination%27"><span class="hs-identifier hs-type">ImportDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330290"><span class="annot"><span class="annottext">Maybe ContactListDestination
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination%27"><span class="hs-identifier hs-type">ImportDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332804"><span class="annot"><span class="annottext">Maybe ContactListDestination
 contactListDestination :: Maybe ContactListDestination
 $sel:contactListDestination:ImportDestination' :: ImportDestination -&gt; Maybe ContactListDestination
-</span><a href="#local-6989586621679330290"><span class="hs-identifier hs-var hs-var">contactListDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContactListDestination
-</span><a href="#local-6989586621679330290"><span class="hs-identifier hs-var">contactListDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330289"><span class="annot"><span class="annottext">s :: ImportDestination
-</span><a href="#local-6989586621679330289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination%27"><span class="hs-identifier hs-type">ImportDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330288"><span class="annot"><span class="annottext">Maybe ContactListDestination
-</span><a href="#local-6989586621679330288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportDestination
-</span><a href="#local-6989586621679330289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactListDestination:ImportDestination' :: Maybe ContactListDestination
+</span><a href="#local-6989586621679332804"><span class="hs-identifier hs-var hs-var">contactListDestination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContactListDestination
+</span><a href="#local-6989586621679332804"><span class="hs-identifier hs-var">contactListDestination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679332803"><span class="annot"><span class="annottext">s :: ImportDestination
+</span><a href="#local-6989586621679332803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination%27"><span class="hs-identifier hs-type">ImportDestination'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679332802"><span class="annot"><span class="annottext">Maybe ContactListDestination
+</span><a href="#local-6989586621679332802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ImportDestination
+</span><a href="#local-6989586621679332803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactListDestination:ImportDestination' :: Maybe ContactListDestination
 </span><a href="Network.AWS.SESv2.Types.ImportDestination.html#%24sel%3AcontactListDestination%3AImportDestination%27"><span class="hs-identifier hs-var">contactListDestination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContactListDestination
-</span><a href="#local-6989586621679330288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-type">ImportDestination</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679332802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-type">ImportDestination</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330285"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-type">ImportDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679330283"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImportDestination
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332799"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-type">ImportDestination</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679332797"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ImportDestination
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ImportDestination)
@@ -187,8 +187,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ImportDestination&quot;</span></span><span>
-</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330280"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330280"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679332794"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679332794"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-79"></span><span>          </span><span class="annot"><span class="annottext">Maybe SuppressionListDestination
 -&gt; Maybe ContactListDestination -&gt; ImportDestination
 </span><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination%27"><span class="hs-identifier hs-var">ImportDestination'</span></a></span><span>
@@ -198,7 +198,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe ContactListDestination -&gt; ImportDestination)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SuppressionListDestination)
+</span><a href="#local-6989586621679332794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SuppressionListDestination)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SuppressionListDestination&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,25 +207,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser ImportDestination
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679330280"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContactListDestination)
+</span><a href="#local-6989586621679332794"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContactListDestination)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContactListDestination&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330274"><span id="local-6989586621679330276"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-type">ImportDestination</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332788"><span id="local-6989586621679332790"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-type">ImportDestination</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330271"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-type">ImportDestination</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-type">ImportDestination</span></a></span></span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330263"><span id="local-6989586621679330265"><span id="local-6989586621679330267"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-type">ImportDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679330261"><span class="annot"><span class="annottext">toJSON :: ImportDestination -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination%27"><span class="hs-identifier hs-type">ImportDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330258"><span id="local-6989586621679330259"><span class="annot"><span class="annottext">Maybe ContactListDestination
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679332777"><span id="local-6989586621679332779"><span id="local-6989586621679332781"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination"><span class="hs-identifier hs-type">ImportDestination</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679332775"><span class="annot"><span class="annottext">toJSON :: ImportDestination -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.ImportDestination.html#ImportDestination%27"><span class="hs-identifier hs-type">ImportDestination'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679332772"><span id="local-6989586621679332773"><span class="annot"><span class="annottext">Maybe ContactListDestination
 Maybe SuppressionListDestination
 contactListDestination :: Maybe ContactListDestination
 suppressionListDestination :: Maybe SuppressionListDestination
 $sel:contactListDestination:ImportDestination' :: ImportDestination -&gt; Maybe ContactListDestination
 $sel:suppressionListDestination:ImportDestination' :: ImportDestination -&gt; Maybe SuppressionListDestination
-</span><a href="#local-6989586621679330258"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679332772"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -239,7 +239,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe SuppressionListDestination -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SuppressionListDestination
-</span><a href="#local-6989586621679330259"><span class="hs-identifier hs-var">suppressionListDestination</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679332773"><span class="hs-identifier hs-var">suppressionListDestination</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-94"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContactListDestination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContactListDestination -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -248,7 +248,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ContactListDestination -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContactListDestination
-</span><a href="#local-6989586621679330258"><span class="hs-identifier hs-var">contactListDestination</span></a></span><span>
+</span><a href="#local-6989586621679332772"><span class="hs-identifier hs-var">contactListDestination</span></a></span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

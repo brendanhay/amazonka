@@ -73,8 +73,8 @@
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#newInitiateMultipartUploadResponse"><span class="hs-identifier">newInitiateMultipartUploadResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUploadResponse_uploadId"><span class="hs-identifier">initiateMultipartUploadResponse_uploadId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUploadResponse_location"><span class="hs-identifier">initiateMultipartUploadResponse_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUploadResponse_location"><span class="hs-identifier">initiateMultipartUploadResponse_location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUploadResponse_uploadId"><span class="hs-identifier">initiateMultipartUploadResponse_uploadId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUploadResponse_httpStatus"><span class="hs-identifier">initiateMultipartUploadResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span class="hs-keyword">where</span><span>
@@ -90,7 +90,7 @@
 </span><span id="line-90"></span><span class="hs-comment">-- Glacier vault.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- /See:/ 'newInitiateMultipartUpload' smart constructor.</span><span>
-</span><span id="line-93"></span><span id="local-6989586621679222820"><span id="local-6989586621679222821"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateMultipartUpload"><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-var">InitiateMultipartUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateMultipartUpload%27"><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-var">InitiateMultipartUpload'</span></a></span></span><span>
+</span><span id="line-93"></span><span id="local-6989586621679222879"><span id="local-6989586621679222880"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateMultipartUpload"><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-var">InitiateMultipartUpload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateMultipartUpload%27"><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-var">InitiateMultipartUpload'</span></a></span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The archive description that you are uploading in parts.</span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-96"></span><span>    </span><span class="hs-comment">-- The part size must be a megabyte (1024 KB) multiplied by a power of 2,</span><span>
@@ -114,7 +114,7 @@
 </span><span id="line-111"></span><span>    </span><span id="%24sel%3ApartSize%3AInitiateMultipartUpload%27"><span class="annot"><span class="annottext">InitiateMultipartUpload -&gt; Text
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3ApartSize%3AInitiateMultipartUpload%27"><span class="hs-identifier hs-var hs-var">partSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-112"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222811"><span id="local-6989586621679222813"><span class="annot"><span class="annottext">InitiateMultipartUpload -&gt; InitiateMultipartUpload -&gt; Bool
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222870"><span id="local-6989586621679222872"><span class="annot"><span class="annottext">InitiateMultipartUpload -&gt; InitiateMultipartUpload -&gt; Bool
 (InitiateMultipartUpload -&gt; InitiateMultipartUpload -&gt; Bool)
 -&gt; (InitiateMultipartUpload -&gt; InitiateMultipartUpload -&gt; Bool)
 -&gt; Eq InitiateMultipartUpload
@@ -123,7 +123,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: InitiateMultipartUpload -&gt; InitiateMultipartUpload -&gt; Bool
 == :: InitiateMultipartUpload -&gt; InitiateMultipartUpload -&gt; Bool
 $c== :: InitiateMultipartUpload -&gt; InitiateMultipartUpload -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222802"><span id="local-6989586621679222804"><span id="local-6989586621679222806"><span id="local-6989586621679222808"><span class="annot"><span class="annottext">ReadPrec [InitiateMultipartUpload]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222861"><span id="local-6989586621679222863"><span id="local-6989586621679222865"><span id="local-6989586621679222867"><span class="annot"><span class="annottext">ReadPrec [InitiateMultipartUpload]
 ReadPrec InitiateMultipartUpload
 Int -&gt; ReadS InitiateMultipartUpload
 ReadS [InitiateMultipartUpload]
@@ -143,7 +143,7 @@ readList :: ReadS [InitiateMultipartUpload]
 $creadList :: ReadS [InitiateMultipartUpload]
 readsPrec :: Int -&gt; ReadS InitiateMultipartUpload
 $creadsPrec :: Int -&gt; ReadS InitiateMultipartUpload
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222795"><span id="local-6989586621679222797"><span id="local-6989586621679222799"><span class="annot"><span class="annottext">Int -&gt; InitiateMultipartUpload -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222854"><span id="local-6989586621679222856"><span id="local-6989586621679222858"><span class="annot"><span class="annottext">Int -&gt; InitiateMultipartUpload -&gt; ShowS
 [InitiateMultipartUpload] -&gt; ShowS
 InitiateMultipartUpload -&gt; String
 (Int -&gt; InitiateMultipartUpload -&gt; ShowS)
@@ -206,12 +206,12 @@ $cfrom :: forall x. InitiateMultipartUpload -&gt; Rep InitiateMultipartUpload x
 </span><span id="line-147"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span>
 </span><span id="line-148"></span><span id="newInitiateMultipartUpload"><span class="annot"><span class="annottext">newInitiateMultipartUpload :: Text -&gt; Text -&gt; Text -&gt; InitiateMultipartUpload
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#newInitiateMultipartUpload"><span class="hs-identifier hs-var hs-var">newInitiateMultipartUpload</span></a></span></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679222790"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222790"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679222789"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222789"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679222788"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222788"><span class="hs-identifier hs-var">pPartSize_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679222849"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222849"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679222848"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222848"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679222847"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222847"><span class="hs-identifier hs-var">pPartSize_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">InitiateMultipartUpload' :: Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; InitiateMultipartUpload
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:archiveDescription:InitiateMultipartUpload' :: Maybe Text
@@ -221,13 +221,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:accountId:InitiateMultipartUpload' :: Text
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AaccountId%3AInitiateMultipartUpload%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222790"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222849"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">$sel:vaultName:InitiateMultipartUpload' :: Text
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AvaultName%3AInitiateMultipartUpload%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222789"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222848"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">$sel:partSize:InitiateMultipartUpload' :: Text
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3ApartSize%3AInitiateMultipartUpload%27"><span class="hs-identifier hs-var">partSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222788"><span class="hs-identifier hs-var">pPartSize_</span></a></span><span>
+</span><a href="#local-6989586621679222847"><span class="hs-identifier hs-var">pPartSize_</span></a></span><span>
 </span><span id="line-158"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- | The archive description that you are uploading in parts.</span><span>
@@ -248,16 +248,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222785"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222844"><span class="annot"><span class="annottext">Maybe Text
 archiveDescription :: Maybe Text
 $sel:archiveDescription:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Maybe Text
-</span><a href="#local-6989586621679222785"><span class="hs-identifier hs-var hs-var">archiveDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222785"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222784"><span class="annot"><span class="annottext">s :: InitiateMultipartUpload
-</span><a href="#local-6989586621679222784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222783"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUpload
-</span><a href="#local-6989586621679222784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveDescription:InitiateMultipartUpload' :: Maybe Text
+</span><a href="#local-6989586621679222844"><span class="hs-identifier hs-var hs-var">archiveDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222844"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222843"><span class="annot"><span class="annottext">s :: InitiateMultipartUpload
+</span><a href="#local-6989586621679222843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222842"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUpload
+</span><a href="#local-6989586621679222843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveDescription:InitiateMultipartUpload' :: Maybe Text
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AarchiveDescription%3AInitiateMultipartUpload%27"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID of the account that owns the</span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- vault. You can either specify an AWS account ID or optionally a single</span><span>
@@ -271,16 +271,16 @@ $sel:archiveDescription:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt
 -&gt; (InitiateMultipartUpload -&gt; Text -&gt; InitiateMultipartUpload)
 -&gt; Lens InitiateMultipartUpload InitiateMultipartUpload Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222782"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222841"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Text
-</span><a href="#local-6989586621679222782"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222782"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222781"><span class="annot"><span class="annottext">s :: InitiateMultipartUpload
-</span><a href="#local-6989586621679222781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222780"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUpload
-</span><a href="#local-6989586621679222781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InitiateMultipartUpload' :: Text
+</span><a href="#local-6989586621679222841"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222841"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222840"><span class="annot"><span class="annottext">s :: InitiateMultipartUpload
+</span><a href="#local-6989586621679222840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222839"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUpload
+</span><a href="#local-6989586621679222840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InitiateMultipartUpload' :: Text
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AaccountId%3AInitiateMultipartUpload%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The name of the vault.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUpload_vaultName"><span class="hs-identifier hs-type">initiateMultipartUpload_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -290,16 +290,16 @@ $sel:accountId:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Text
 -&gt; (InitiateMultipartUpload -&gt; Text -&gt; InitiateMultipartUpload)
 -&gt; Lens InitiateMultipartUpload InitiateMultipartUpload Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222779"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222838"><span class="annot"><span class="annottext">Text
 vaultName :: Text
 $sel:vaultName:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Text
-</span><a href="#local-6989586621679222779"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222779"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222778"><span class="annot"><span class="annottext">s :: InitiateMultipartUpload
-</span><a href="#local-6989586621679222778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222777"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUpload
-</span><a href="#local-6989586621679222778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:InitiateMultipartUpload' :: Text
+</span><a href="#local-6989586621679222838"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222838"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222837"><span class="annot"><span class="annottext">s :: InitiateMultipartUpload
+</span><a href="#local-6989586621679222837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222836"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUpload
+</span><a href="#local-6989586621679222837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:InitiateMultipartUpload' :: Text
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AvaultName%3AInitiateMultipartUpload%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The size of each part except the last, in bytes. The last part can be</span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- smaller than this part size.</span><span>
@@ -310,22 +310,22 @@ $sel:vaultName:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Text
 -&gt; (InitiateMultipartUpload -&gt; Text -&gt; InitiateMultipartUpload)
 -&gt; Lens InitiateMultipartUpload InitiateMultipartUpload Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222776"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222835"><span class="annot"><span class="annottext">Text
 partSize :: Text
 $sel:partSize:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Text
-</span><a href="#local-6989586621679222776"><span class="hs-identifier hs-var hs-var">partSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222776"><span class="hs-identifier hs-var">partSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222775"><span class="annot"><span class="annottext">s :: InitiateMultipartUpload
-</span><a href="#local-6989586621679222775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222774"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUpload
-</span><a href="#local-6989586621679222775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partSize:InitiateMultipartUpload' :: Text
+</span><a href="#local-6989586621679222835"><span class="hs-identifier hs-var hs-var">partSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222835"><span class="hs-identifier hs-var">partSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222834"><span class="annot"><span class="annottext">s :: InitiateMultipartUpload
+</span><a href="#local-6989586621679222834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222833"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUpload
+</span><a href="#local-6989586621679222834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:partSize:InitiateMultipartUpload' :: Text
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3ApartSize%3AInitiateMultipartUpload%27"><span class="hs-identifier hs-var">partSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-187"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-188"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-189"></span><span>      </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679222770"><span class="annot"><span class="annottext">request :: InitiateMultipartUpload -&gt; Request InitiateMultipartUpload
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679222829"><span class="annot"><span class="annottext">request :: InitiateMultipartUpload -&gt; Request InitiateMultipartUpload
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">ByteString
 -&gt; Request InitiateMultipartUpload
@@ -345,7 +345,7 @@ forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621679222763"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679222822"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy InitiateMultipartUpload
 -&gt; ClientResponse ClientBody
@@ -371,10 +371,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222760"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222760"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222759"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679222759"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222758"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679222758"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222819"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222819"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222818"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679222818"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222817"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679222817"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-196"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Int -&gt; InitiateMultipartUploadResponse
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var">InitiateMultipartUploadResponse'</span></a></span><span>
 </span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -384,24 +384,24 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; InitiateMultipartUploadResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679222759"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679222818"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;x-amz-multipart-upload-id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Int -&gt; InitiateMultipartUploadResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; InitiateMultipartUploadResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679222759"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679222818"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
 forall a.
 FromText a =&gt;
 ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
-</span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;x-amz-multipart-upload-id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; InitiateMultipartUploadResponse)
 -&gt; Either String Int
 -&gt; Either String InitiateMultipartUploadResponse
@@ -411,16 +411,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222760"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222819"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-201"></span><span>
-</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222750"><span id="local-6989586621679222752"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span></span></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222809"><span id="local-6989586621679222811"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span></span></span><span>
 </span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222806"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span></span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679222743"><span class="annot"><span class="annottext">toHeaders :: InitiateMultipartUpload -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222738"><span id="local-6989586621679222739"><span id="local-6989586621679222740"><span id="local-6989586621679222741"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679222802"><span class="annot"><span class="annottext">toHeaders :: InitiateMultipartUpload -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222797"><span id="local-6989586621679222798"><span id="local-6989586621679222799"><span id="local-6989586621679222800"><span class="annot"><span class="annottext">Maybe Text
 Text
 partSize :: Text
 vaultName :: Text
@@ -430,7 +430,7 @@ $sel:partSize:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Text
 $sel:vaultName:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Text
 $sel:accountId:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Text
 $sel:archiveDescription:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Maybe Text
-</span><a href="#local-6989586621679222738"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679222797"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-208"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -439,16 +439,16 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-210"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222741"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222800"><span class="hs-identifier hs-var">archiveDescription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-part-size&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222738"><span class="hs-identifier hs-var">partSize</span></a></span><span>
+</span><a href="#local-6989586621679222797"><span class="hs-identifier hs-var">partSize</span></a></span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-213"></span><span>
-</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222730"><span id="local-6989586621679222732"><span id="local-6989586621679222734"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679222728"><span class="annot"><span class="annottext">toJSON :: InitiateMultipartUpload -&gt; Value
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222789"><span id="local-6989586621679222791"><span id="local-6989586621679222793"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679222787"><span class="annot"><span class="annottext">toJSON :: InitiateMultipartUpload -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; InitiateMultipartUpload -&gt; Value
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
@@ -457,8 +457,8 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679222722"><span class="annot"><span class="annottext">toPath :: InitiateMultipartUpload -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222717"><span id="local-6989586621679222718"><span id="local-6989586621679222719"><span id="local-6989586621679222720"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679222781"><span class="annot"><span class="annottext">toPath :: InitiateMultipartUpload -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload%27"><span class="hs-identifier hs-type">InitiateMultipartUpload'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222776"><span id="local-6989586621679222777"><span id="local-6989586621679222778"><span id="local-6989586621679222779"><span class="annot"><span class="annottext">Maybe Text
 Text
 partSize :: Text
 vaultName :: Text
@@ -468,7 +468,7 @@ $sel:partSize:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Text
 $sel:vaultName:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Text
 $sel:accountId:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Text
 $sel:archiveDescription:InitiateMultipartUpload' :: InitiateMultipartUpload -&gt; Maybe Text
-</span><a href="#local-6989586621679222717"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679222776"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -477,19 +477,19 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222719"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222778"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679222718"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679222777"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/multipart-uploads&quot;</span></span><span>
 </span><span id="line-225"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-226"></span><span>
 </span><span id="line-227"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUpload"><span class="hs-identifier hs-type">InitiateMultipartUpload</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-228"></span><span>  </span><span id="local-6989586621679222713"><span class="annot"><span class="annottext">toQuery :: InitiateMultipartUpload -&gt; QueryString
+</span><span id="line-228"></span><span>  </span><span id="local-6989586621679222772"><span class="annot"><span class="annottext">toQuery :: InitiateMultipartUpload -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; InitiateMultipartUpload -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -499,20 +499,20 @@ forall a. Monoid a =&gt; a
 </span><span id="line-230"></span><span class="hs-comment">-- | The Amazon S3 Glacier response to your request.</span><span>
 </span><span id="line-231"></span><span class="hs-comment">--</span><span>
 </span><span id="line-232"></span><span class="hs-comment">-- /See:/ 'newInitiateMultipartUploadResponse' smart constructor.</span><span>
-</span><span id="line-233"></span><span id="local-6989586621679222710"><span id="local-6989586621679222711"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateMultipartUploadResponse"><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-var">InitiateMultipartUploadResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateMultipartUploadResponse%27"><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var">InitiateMultipartUploadResponse'</span></a></span></span><span>
-</span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the multipart upload. This value is also included as part of</span><span>
-</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- the location.</span><span>
-</span><span id="line-236"></span><span>    </span><span id="%24sel%3AuploadId%3AInitiateMultipartUploadResponse%27"><span class="annot"><span class="annottext">InitiateMultipartUploadResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AuploadId%3AInitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | The relative URI path of the multipart upload ID Amazon S3 Glacier</span><span>
-</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-239"></span><span>    </span><span id="%24sel%3Alocation%3AInitiateMultipartUploadResponse%27"><span class="annot"><span class="annottext">InitiateMultipartUploadResponse -&gt; Maybe Text
+</span><span id="line-233"></span><span id="local-6989586621679222769"><span id="local-6989586621679222770"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateMultipartUploadResponse"><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-var">InitiateMultipartUploadResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateMultipartUploadResponse%27"><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var">InitiateMultipartUploadResponse'</span></a></span></span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The relative URI path of the multipart upload ID Amazon S3 Glacier</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-236"></span><span>    </span><span id="%24sel%3Alocation%3AInitiateMultipartUploadResponse%27"><span class="annot"><span class="annottext">InitiateMultipartUploadResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3Alocation%3AInitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- | The ID of the multipart upload. This value is also included as part of</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- the location.</span><span>
+</span><span id="line-239"></span><span>    </span><span id="%24sel%3AuploadId%3AInitiateMultipartUploadResponse%27"><span class="annot"><span class="annottext">InitiateMultipartUploadResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AuploadId%3AInitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-241"></span><span>    </span><span id="%24sel%3AhttpStatus%3AInitiateMultipartUploadResponse%27"><span class="annot"><span class="annottext">InitiateMultipartUploadResponse -&gt; Int
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AhttpStatus%3AInitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-242"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222703"><span id="local-6989586621679222705"><span class="annot"><span class="annottext">InitiateMultipartUploadResponse
+</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222762"><span id="local-6989586621679222764"><span class="annot"><span class="annottext">InitiateMultipartUploadResponse
 -&gt; InitiateMultipartUploadResponse -&gt; Bool
 (InitiateMultipartUploadResponse
  -&gt; InitiateMultipartUploadResponse -&gt; Bool)
@@ -528,7 +528,7 @@ $c/= :: InitiateMultipartUploadResponse
 -&gt; InitiateMultipartUploadResponse -&gt; Bool
 $c== :: InitiateMultipartUploadResponse
 -&gt; InitiateMultipartUploadResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222695"><span id="local-6989586621679222697"><span id="local-6989586621679222699"><span id="local-6989586621679222701"><span class="annot"><span class="annottext">ReadPrec [InitiateMultipartUploadResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222754"><span id="local-6989586621679222756"><span id="local-6989586621679222758"><span id="local-6989586621679222760"><span class="annot"><span class="annottext">ReadPrec [InitiateMultipartUploadResponse]
 ReadPrec InitiateMultipartUploadResponse
 Int -&gt; ReadS InitiateMultipartUploadResponse
 ReadS [InitiateMultipartUploadResponse]
@@ -548,7 +548,7 @@ readList :: ReadS [InitiateMultipartUploadResponse]
 $creadList :: ReadS [InitiateMultipartUploadResponse]
 readsPrec :: Int -&gt; ReadS InitiateMultipartUploadResponse
 $creadsPrec :: Int -&gt; ReadS InitiateMultipartUploadResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222689"><span id="local-6989586621679222691"><span id="local-6989586621679222693"><span class="annot"><span class="annottext">Int -&gt; InitiateMultipartUploadResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222748"><span id="local-6989586621679222750"><span id="local-6989586621679222752"><span class="annot"><span class="annottext">Int -&gt; InitiateMultipartUploadResponse -&gt; ShowS
 [InitiateMultipartUploadResponse] -&gt; ShowS
 InitiateMultipartUploadResponse -&gt; String
 (Int -&gt; InitiateMultipartUploadResponse -&gt; ShowS)
@@ -594,11 +594,11 @@ InitiateMultipartUploadResponse
 </span><span id="line-250"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-252"></span><span class="hs-comment">--</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- 'uploadId', 'initiateMultipartUploadResponse_uploadId' - The ID of the multipart upload. This value is also included as part of</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- the location.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- 'location', 'initiateMultipartUploadResponse_location' - The relative URI path of the multipart upload ID Amazon S3 Glacier</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- created.</span><span>
 </span><span id="line-255"></span><span class="hs-comment">--</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- 'location', 'initiateMultipartUploadResponse_location' - The relative URI path of the multipart upload ID Amazon S3 Glacier</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- 'uploadId', 'initiateMultipartUploadResponse_uploadId' - The ID of the multipart upload. This value is also included as part of</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- the location.</span><span>
 </span><span id="line-258"></span><span class="hs-comment">--</span><span>
 </span><span id="line-259"></span><span class="hs-comment">-- 'httpStatus', 'initiateMultipartUploadResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-260"></span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#newInitiateMultipartUploadResponse"><span class="hs-identifier hs-type">newInitiateMultipartUploadResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -606,54 +606,28 @@ InitiateMultipartUploadResponse
 </span><span id="line-262"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-263"></span><span>  </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span><span>
 </span><span id="line-264"></span><span id="newInitiateMultipartUploadResponse"><span class="annot"><span class="annottext">newInitiateMultipartUploadResponse :: Int -&gt; InitiateMultipartUploadResponse
-</span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#newInitiateMultipartUploadResponse"><span class="hs-identifier hs-var hs-var">newInitiateMultipartUploadResponse</span></a></span></span><span> </span><span id="local-6989586621679222686"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222686"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#newInitiateMultipartUploadResponse"><span class="hs-identifier hs-var hs-var">newInitiateMultipartUploadResponse</span></a></span></span><span> </span><span id="local-6989586621679222745"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222745"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-265"></span><span>  </span><span class="annot"><span class="annottext">InitiateMultipartUploadResponse' :: Maybe Text -&gt; Maybe Text -&gt; Int -&gt; InitiateMultipartUploadResponse
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse'</span></a></span><span>
-</span><span id="line-266"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:uploadId:InitiateMultipartUploadResponse' :: Maybe Text
-</span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AuploadId%3AInitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:location:InitiateMultipartUploadResponse' :: Maybe Text
+</span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3Alocation%3AInitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:InitiateMultipartUploadResponse' :: Maybe Text
-</span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3Alocation%3AInitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-268"></span><span>      </span><span class="annot"><span class="annottext">$sel:uploadId:InitiateMultipartUploadResponse' :: Maybe Text
+</span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AuploadId%3AInitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-269"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateMultipartUploadResponse' :: Int
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AhttpStatus%3AInitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222686"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679222745"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-270"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-271"></span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- | The ID of the multipart upload. This value is also included as part of</span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- the location.</span><span>
-</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUploadResponse_uploadId"><span class="hs-identifier hs-type">initiateMultipartUploadResponse_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-275"></span><span id="initiateMultipartUploadResponse_uploadId"><span class="annot"><span class="annottext">initiateMultipartUploadResponse_uploadId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InitiateMultipartUploadResponse
--&gt; f InitiateMultipartUploadResponse
-</span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUploadResponse_uploadId"><span class="hs-identifier hs-var hs-var">initiateMultipartUploadResponse_uploadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InitiateMultipartUploadResponse -&gt; Maybe Text)
--&gt; (InitiateMultipartUploadResponse
-    -&gt; Maybe Text -&gt; InitiateMultipartUploadResponse)
--&gt; Lens
-     InitiateMultipartUploadResponse
-     InitiateMultipartUploadResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222685"><span class="annot"><span class="annottext">Maybe Text
-uploadId :: Maybe Text
-$sel:uploadId:InitiateMultipartUploadResponse' :: InitiateMultipartUploadResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679222685"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222685"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222684"><span class="annot"><span class="annottext">s :: InitiateMultipartUploadResponse
-</span><a href="#local-6989586621679222684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222683"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUploadResponse
-</span><a href="#local-6989586621679222684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:InitiateMultipartUploadResponse' :: Maybe Text
-</span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AuploadId%3AInitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-276"></span><span>
-</span><span id="line-277"></span><span class="hs-comment">-- | The relative URI path of the multipart upload ID Amazon S3 Glacier</span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- created.</span><span>
-</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUploadResponse_location"><span class="hs-identifier hs-type">initiateMultipartUploadResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-280"></span><span id="initiateMultipartUploadResponse_location"><span class="annot"><span class="annottext">initiateMultipartUploadResponse_location :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-272"></span><span class="hs-comment">-- | The relative URI path of the multipart upload ID Amazon S3 Glacier</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- created.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUploadResponse_location"><span class="hs-identifier hs-type">initiateMultipartUploadResponse_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="initiateMultipartUploadResponse_location"><span class="annot"><span class="annottext">initiateMultipartUploadResponse_location :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InitiateMultipartUploadResponse
 -&gt; f InitiateMultipartUploadResponse
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUploadResponse_location"><span class="hs-identifier hs-var hs-var">initiateMultipartUploadResponse_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InitiateMultipartUploadResponse -&gt; Maybe Text)
@@ -665,16 +639,42 @@ $sel:uploadId:InitiateMultipartUploadResponse' :: InitiateMultipartUploadRespons
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222682"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222744"><span class="annot"><span class="annottext">Maybe Text
 location :: Maybe Text
 $sel:location:InitiateMultipartUploadResponse' :: InitiateMultipartUploadResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679222682"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222682"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222681"><span class="annot"><span class="annottext">s :: InitiateMultipartUploadResponse
-</span><a href="#local-6989586621679222681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222680"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUploadResponse
-</span><a href="#local-6989586621679222681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:InitiateMultipartUploadResponse' :: Maybe Text
+</span><a href="#local-6989586621679222744"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222744"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222743"><span class="annot"><span class="annottext">s :: InitiateMultipartUploadResponse
+</span><a href="#local-6989586621679222743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222742"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUploadResponse
+</span><a href="#local-6989586621679222743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:InitiateMultipartUploadResponse' :: Maybe Text
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3Alocation%3AInitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679222680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The ID of the multipart upload. This value is also included as part of</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- the location.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUploadResponse_uploadId"><span class="hs-identifier hs-type">initiateMultipartUploadResponse_uploadId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="initiateMultipartUploadResponse_uploadId"><span class="annot"><span class="annottext">initiateMultipartUploadResponse_uploadId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InitiateMultipartUploadResponse
+-&gt; f InitiateMultipartUploadResponse
+</span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUploadResponse_uploadId"><span class="hs-identifier hs-var hs-var">initiateMultipartUploadResponse_uploadId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InitiateMultipartUploadResponse -&gt; Maybe Text)
+-&gt; (InitiateMultipartUploadResponse
+    -&gt; Maybe Text -&gt; InitiateMultipartUploadResponse)
+-&gt; Lens
+     InitiateMultipartUploadResponse
+     InitiateMultipartUploadResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222741"><span class="annot"><span class="annottext">Maybe Text
+uploadId :: Maybe Text
+$sel:uploadId:InitiateMultipartUploadResponse' :: InitiateMultipartUploadResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679222741"><span class="hs-identifier hs-var hs-var">uploadId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222741"><span class="hs-identifier hs-var">uploadId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222740"><span class="annot"><span class="annottext">s :: InitiateMultipartUploadResponse
+</span><a href="#local-6989586621679222740"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222739"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222739"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUploadResponse
+</span><a href="#local-6989586621679222740"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadId:InitiateMultipartUploadResponse' :: Maybe Text
+</span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AuploadId%3AInitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var">uploadId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222739"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-283"></span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#initiateMultipartUploadResponse_httpStatus"><span class="hs-identifier hs-type">initiateMultipartUploadResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -690,18 +690,18 @@ $sel:location:InitiateMultipartUploadResponse' :: InitiateMultipartUploadRespons
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222679"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222738"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:InitiateMultipartUploadResponse' :: InitiateMultipartUploadResponse -&gt; Int
-</span><a href="#local-6989586621679222679"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222679"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222678"><span class="annot"><span class="annottext">s :: InitiateMultipartUploadResponse
-</span><a href="#local-6989586621679222678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222677"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUploadResponse
-</span><a href="#local-6989586621679222678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateMultipartUploadResponse' :: Int
+</span><a href="#local-6989586621679222738"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222738"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222737"><span class="annot"><span class="annottext">s :: InitiateMultipartUploadResponse
+</span><a href="#local-6989586621679222737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse%27"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222736"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateMultipartUploadResponse
+</span><a href="#local-6989586621679222737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateMultipartUploadResponse' :: Int
 </span><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#%24sel%3AhttpStatus%3AInitiateMultipartUploadResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679222677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679222736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-285"></span><span>
 </span><span id="line-286"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-287"></span><span>  </span><span id="local-6989586621679222675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-287"></span><span>  </span><span id="local-6989586621679222734"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-288"></span><span>    </span><span class="annot"><a href="Network.AWS.Glacier.InitiateMultipartUpload.html#InitiateMultipartUploadResponse"><span class="hs-identifier hs-type">InitiateMultipartUploadResponse</span></a></span></span><span>
 </span><span id="line-289"></span></pre></body></html>

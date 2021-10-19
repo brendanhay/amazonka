@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679295531"><span id="local-6989586621679295532"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EngineType"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EngineType.html#EngineType"><span class="hs-identifier hs-var">EngineType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EngineType%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EngineType.html#EngineType%27"><span class="hs-identifier hs-var">EngineType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679295733"><span id="local-6989586621679295734"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EngineType"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EngineType.html#EngineType"><span class="hs-identifier hs-var">EngineType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EngineType%27"><span class="annot"><a href="Network.AWS.ElasticSearch.Types.EngineType.html#EngineType%27"><span class="hs-identifier hs-var">EngineType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEngineType"><span class="annot"><span class="annottext">EngineType -&gt; Text
 </span><a href="Network.AWS.ElasticSearch.Types.EngineType.html#fromEngineType"><span class="hs-identifier hs-var hs-var">fromEngineType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295523"><span id="local-6989586621679295525"><span id="local-6989586621679295527"><span class="annot"><span class="annottext">Int -&gt; EngineType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295725"><span id="local-6989586621679295727"><span id="local-6989586621679295729"><span class="annot"><span class="annottext">Int -&gt; EngineType -&gt; ShowS
 [EngineType] -&gt; ShowS
 EngineType -&gt; String
 (Int -&gt; EngineType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: EngineType -&gt; String
 showsPrec :: Int -&gt; EngineType -&gt; ShowS
 $cshowsPrec :: Int -&gt; EngineType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295514"><span id="local-6989586621679295516"><span id="local-6989586621679295518"><span id="local-6989586621679295520"><span class="annot"><span class="annottext">ReadPrec [EngineType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679295716"><span id="local-6989586621679295718"><span id="local-6989586621679295720"><span id="local-6989586621679295722"><span class="annot"><span class="annottext">ReadPrec [EngineType]
 ReadPrec EngineType
 Int -&gt; ReadS EngineType
 ReadS [EngineType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [EngineType]
 readsPrec :: Int -&gt; ReadS EngineType
 $creadsPrec :: Int -&gt; ReadS EngineType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295509"><span id="local-6989586621679295511"><span class="annot"><span class="annottext">EngineType -&gt; EngineType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679295711"><span id="local-6989586621679295713"><span class="annot"><span class="annottext">EngineType -&gt; EngineType -&gt; Bool
 (EngineType -&gt; EngineType -&gt; Bool)
 -&gt; (EngineType -&gt; EngineType -&gt; Bool) -&gt; Eq EngineType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: EngineType -&gt; EngineType -&gt; Bool
 == :: EngineType -&gt; EngineType -&gt; Bool
 $c== :: EngineType -&gt; EngineType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295493"><span id="local-6989586621679295495"><span id="local-6989586621679295497"><span id="local-6989586621679295499"><span id="local-6989586621679295501"><span id="local-6989586621679295503"><span id="local-6989586621679295505"><span class="annot"><span class="annottext">Eq EngineType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679295695"><span id="local-6989586621679295697"><span id="local-6989586621679295699"><span id="local-6989586621679295701"><span id="local-6989586621679295703"><span id="local-6989586621679295705"><span id="local-6989586621679295707"><span class="annot"><span class="annottext">Eq EngineType
 Eq EngineType
 -&gt; (EngineType -&gt; EngineType -&gt; Ordering)
 -&gt; (EngineType -&gt; EngineType -&gt; Bool)
@@ -131,7 +131,7 @@ $cfrom :: forall x. EngineType -&gt; Rep EngineType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295485"><span id="local-6989586621679295487"><span class="annot"><span class="annottext">Int -&gt; EngineType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679295687"><span id="local-6989586621679295689"><span class="annot"><span class="annottext">Int -&gt; EngineType -&gt; Int
 EngineType -&gt; Int
 (Int -&gt; EngineType -&gt; Int)
 -&gt; (EngineType -&gt; Int) -&gt; Hashable EngineType
@@ -141,49 +141,49 @@ $chash :: EngineType -&gt; Int
 hashWithSalt :: Int -&gt; EngineType -&gt; Int
 $chashWithSalt :: Int -&gt; EngineType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295482"><span class="annot"><span class="annottext">EngineType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679295684"><span class="annot"><span class="annottext">EngineType -&gt; ()
 (EngineType -&gt; ()) -&gt; NFData EngineType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: EngineType -&gt; ()
 $crnf :: EngineType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295479"><span class="annot"><span class="annottext">Text -&gt; Either String EngineType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679295681"><span class="annot"><span class="annottext">Text -&gt; Either String EngineType
 (Text -&gt; Either String EngineType) -&gt; FromText EngineType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String EngineType
 $cfromText :: Text -&gt; Either String EngineType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295476"><span class="annot"><span class="annottext">EngineType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679295678"><span class="annot"><span class="annottext">EngineType -&gt; Text
 (EngineType -&gt; Text) -&gt; ToText EngineType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: EngineType -&gt; Text
 $ctoText :: EngineType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295473"><span class="annot"><span class="annottext">EngineType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679295675"><span class="annot"><span class="annottext">EngineType -&gt; ByteString
 (EngineType -&gt; ByteString) -&gt; ToByteString EngineType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: EngineType -&gt; ByteString
 $ctoBS :: EngineType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295470"><span class="annot"><span class="annottext">EngineType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679295672"><span class="annot"><span class="annottext">EngineType -&gt; ByteStringBuilder
 (EngineType -&gt; ByteStringBuilder) -&gt; ToLog EngineType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: EngineType -&gt; ByteStringBuilder
 $cbuild :: EngineType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295467"><span class="annot"><span class="annottext">HeaderName -&gt; EngineType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679295669"><span class="annot"><span class="annottext">HeaderName -&gt; EngineType -&gt; [Header]
 (HeaderName -&gt; EngineType -&gt; [Header]) -&gt; ToHeader EngineType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; EngineType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; EngineType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295464"><span class="annot"><span class="annottext">EngineType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679295666"><span class="annot"><span class="annottext">EngineType -&gt; QueryString
 (EngineType -&gt; QueryString) -&gt; ToQuery EngineType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: EngineType -&gt; QueryString
 $ctoQuery :: EngineType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295459"><span id="local-6989586621679295461"><span class="annot"><span class="annottext">Value -&gt; Parser [EngineType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679295661"><span id="local-6989586621679295663"><span class="annot"><span class="annottext">Value -&gt; Parser [EngineType]
 Value -&gt; Parser EngineType
 (Value -&gt; Parser EngineType)
 -&gt; (Value -&gt; Parser [EngineType]) -&gt; FromJSON EngineType
@@ -194,7 +194,7 @@ $cparseJSONList :: Value -&gt; Parser [EngineType]
 parseJSON :: Value -&gt; Parser EngineType
 $cparseJSON :: Value -&gt; Parser EngineType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295454"><span id="local-6989586621679295456"><span class="annot"><span class="annottext">FromJSONKeyFunction [EngineType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679295656"><span id="local-6989586621679295658"><span class="annot"><span class="annottext">FromJSONKeyFunction [EngineType]
 FromJSONKeyFunction EngineType
 FromJSONKeyFunction EngineType
 -&gt; FromJSONKeyFunction [EngineType] -&gt; FromJSONKey EngineType
@@ -205,7 +205,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [EngineType]
 fromJSONKey :: FromJSONKeyFunction EngineType
 $cfromJSONKey :: FromJSONKeyFunction EngineType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295445"><span id="local-6989586621679295447"><span id="local-6989586621679295449"><span id="local-6989586621679295451"><span class="annot"><span class="annottext">[EngineType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679295647"><span id="local-6989586621679295649"><span id="local-6989586621679295651"><span id="local-6989586621679295653"><span class="annot"><span class="annottext">[EngineType] -&gt; Encoding
 [EngineType] -&gt; Value
 EngineType -&gt; Encoding
 EngineType -&gt; Value
@@ -229,7 +229,7 @@ $ctoEncoding :: EngineType -&gt; Encoding
 toJSON :: EngineType -&gt; Value
 $ctoJSON :: EngineType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295440"><span id="local-6989586621679295442"><span class="annot"><span class="annottext">ToJSONKeyFunction [EngineType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679295642"><span id="local-6989586621679295644"><span class="annot"><span class="annottext">ToJSONKeyFunction [EngineType]
 ToJSONKeyFunction EngineType
 ToJSONKeyFunction EngineType
 -&gt; ToJSONKeyFunction [EngineType] -&gt; ToJSONKey EngineType
@@ -240,13 +240,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [EngineType]
 toJSONKey :: ToJSONKeyFunction EngineType
 $ctoJSONKey :: ToJSONKeyFunction EngineType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295437"><span class="annot"><span class="annottext">[Node] -&gt; Either String EngineType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679295639"><span class="annot"><span class="annottext">[Node] -&gt; Either String EngineType
 ([Node] -&gt; Either String EngineType) -&gt; FromXML EngineType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String EngineType
 $cparseXML :: [Node] -&gt; Either String EngineType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295434"><span class="annot"><span class="annottext">EngineType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679295636"><span class="annot"><span class="annottext">EngineType -&gt; XML
 (EngineType -&gt; XML) -&gt; ToXML EngineType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: EngineType -&gt; XML

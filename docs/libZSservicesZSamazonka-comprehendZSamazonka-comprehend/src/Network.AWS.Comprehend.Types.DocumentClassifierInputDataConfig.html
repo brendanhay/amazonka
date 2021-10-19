@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- how-document-classification-training-data.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newDocumentClassifierInputDataConfig' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679348823"><span id="local-6989586621679348824"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentClassifierInputDataConfig"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-var">DocumentClassifierInputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentClassifierInputDataConfig%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var">DocumentClassifierInputDataConfig'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679349096"><span id="local-6989586621679349097"></span></span><span class="hs-keyword">data</span><span> </span><span id="DocumentClassifierInputDataConfig"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-var">DocumentClassifierInputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DocumentClassifierInputDataConfig%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var">DocumentClassifierInputDataConfig'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of augmented manifest files that provide training data for your</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- custom model. An augmented manifest file is a labeled dataset that is</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- produced by Amazon SageMaker Ground Truth.</span><span>
@@ -61,21 +61,21 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AdataFormat%3ADocumentClassifierInputDataConfig%27"><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig
 -&gt; Maybe DocumentClassifierDataFormat
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AdataFormat%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierDataFormat.html#DocumentClassifierDataFormat"><span class="hs-identifier hs-type">DocumentClassifierDataFormat</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 URI for the input data. The Amazon S3 bucket must be in</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- the same AWS Region as the API endpoint that you are calling. The URI</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- can point to a single input file or it can provide the prefix for a</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- collection of input files.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AtestS3Uri%3ADocumentClassifierInputDataConfig%27"><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig -&gt; Maybe Text
-</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AtestS3Uri%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var hs-var">testS3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Indicates the delimiter used to separate each label for training a</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- multi-label classifier. The default delimiter between labels is a pipe</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- (|). You can use a different character as a delimiter (if it\'s an</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- allowed character) by specifying it under Delimiter for labels. If the</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- training documents use a delimiter other than the default or the</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- delimiter you specify, the labels on that line will be combined to make</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- a single unique label, such as LABELLABELLABEL.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AlabelDelimiter%3ADocumentClassifierInputDataConfig%27"><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig -&gt; Maybe Text
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Indicates the delimiter used to separate each label for training a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- multi-label classifier. The default delimiter between labels is a pipe</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- (|). You can use a different character as a delimiter (if it\'s an</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- allowed character) by specifying it under Delimiter for labels. If the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- training documents use a delimiter other than the default or the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- delimiter you specify, the labels on that line will be combined to make</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- a single unique label, such as LABELLABELLABEL.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AlabelDelimiter%3ADocumentClassifierInputDataConfig%27"><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig -&gt; Maybe Text
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AlabelDelimiter%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var hs-var">labelDelimiter</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 URI for the input data. The Amazon S3 bucket must be in</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the same AWS Region as the API endpoint that you are calling. The URI</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- can point to a single input file or it can provide the prefix for a</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- collection of input files.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AtestS3Uri%3ADocumentClassifierInputDataConfig%27"><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig -&gt; Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AtestS3Uri%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var hs-var">testS3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 URI for the input data. The S3 bucket must be in the same</span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-comment">-- region as the API endpoint that you are calling. The URI can point to a</span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-comment">-- single input file or it can provide the prefix for a collection of input</span><span>
@@ -90,7 +90,7 @@
 </span><span id="line-84"></span><span>    </span><span id="%24sel%3As3Uri%3ADocumentClassifierInputDataConfig%27"><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig -&gt; Maybe Text
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3As3Uri%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348813"><span id="local-6989586621679348815"><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349086"><span id="local-6989586621679349088"><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig
 -&gt; DocumentClassifierInputDataConfig -&gt; Bool
 (DocumentClassifierInputDataConfig
  -&gt; DocumentClassifierInputDataConfig -&gt; Bool)
@@ -106,7 +106,7 @@ $c/= :: DocumentClassifierInputDataConfig
 -&gt; DocumentClassifierInputDataConfig -&gt; Bool
 $c== :: DocumentClassifierInputDataConfig
 -&gt; DocumentClassifierInputDataConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348804"><span id="local-6989586621679348806"><span id="local-6989586621679348808"><span id="local-6989586621679348810"><span class="annot"><span class="annottext">ReadPrec [DocumentClassifierInputDataConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349077"><span id="local-6989586621679349079"><span id="local-6989586621679349081"><span id="local-6989586621679349083"><span class="annot"><span class="annottext">ReadPrec [DocumentClassifierInputDataConfig]
 ReadPrec DocumentClassifierInputDataConfig
 Int -&gt; ReadS DocumentClassifierInputDataConfig
 ReadS [DocumentClassifierInputDataConfig]
@@ -126,7 +126,7 @@ readList :: ReadS [DocumentClassifierInputDataConfig]
 $creadList :: ReadS [DocumentClassifierInputDataConfig]
 readsPrec :: Int -&gt; ReadS DocumentClassifierInputDataConfig
 $creadsPrec :: Int -&gt; ReadS DocumentClassifierInputDataConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348797"><span id="local-6989586621679348799"><span id="local-6989586621679348801"><span class="annot"><span class="annottext">Int -&gt; DocumentClassifierInputDataConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349070"><span id="local-6989586621679349072"><span id="local-6989586621679349074"><span class="annot"><span class="annottext">Int -&gt; DocumentClassifierInputDataConfig -&gt; ShowS
 [DocumentClassifierInputDataConfig] -&gt; ShowS
 DocumentClassifierInputDataConfig -&gt; String
 (Int -&gt; DocumentClassifierInputDataConfig -&gt; ShowS)
@@ -197,18 +197,18 @@ DocumentClassifierInputDataConfig
 </span><span id="line-118"></span><span class="hs-comment">-- If you don\'t specify a value, Amazon Comprehend uses @COMPREHEND_CSV@</span><span>
 </span><span id="line-119"></span><span class="hs-comment">-- as the default.</span><span>
 </span><span id="line-120"></span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- 'testS3Uri', 'documentClassifierInputDataConfig_testS3Uri' - The Amazon S3 URI for the input data. The Amazon S3 bucket must be in</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- the same AWS Region as the API endpoint that you are calling. The URI</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- can point to a single input file or it can provide the prefix for a</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- collection of input files.</span><span>
-</span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- 'labelDelimiter', 'documentClassifierInputDataConfig_labelDelimiter' - Indicates the delimiter used to separate each label for training a</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- multi-label classifier. The default delimiter between labels is a pipe</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- (|). You can use a different character as a delimiter (if it\'s an</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- allowed character) by specifying it under Delimiter for labels. If the</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- training documents use a delimiter other than the default or the</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- delimiter you specify, the labels on that line will be combined to make</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- a single unique label, such as LABELLABELLABEL.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'labelDelimiter', 'documentClassifierInputDataConfig_labelDelimiter' - Indicates the delimiter used to separate each label for training a</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- multi-label classifier. The default delimiter between labels is a pipe</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- (|). You can use a different character as a delimiter (if it\'s an</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- allowed character) by specifying it under Delimiter for labels. If the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- training documents use a delimiter other than the default or the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- delimiter you specify, the labels on that line will be combined to make</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- a single unique label, such as LABELLABELLABEL.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'testS3Uri', 'documentClassifierInputDataConfig_testS3Uri' - The Amazon S3 URI for the input data. The Amazon S3 bucket must be in</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- the same AWS Region as the API endpoint that you are calling. The URI</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- can point to a single input file or it can provide the prefix for a</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- collection of input files.</span><span>
 </span><span id="line-133"></span><span class="hs-comment">--</span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- 's3Uri', 'documentClassifierInputDataConfig_s3Uri' - The Amazon S3 URI for the input data. The S3 bucket must be in the same</span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- region as the API endpoint that you are calling. The URI can point to a</span><span>
@@ -241,12 +241,12 @@ forall a. Maybe a
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AdataFormat%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var">dataFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentClassifierDataFormat
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:testS3Uri:DocumentClassifierInputDataConfig' :: Maybe Text
-</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AtestS3Uri%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var">testS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:labelDelimiter:DocumentClassifierInputDataConfig' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AlabelDelimiter%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var">labelDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:labelDelimiter:DocumentClassifierInputDataConfig' :: Maybe Text
-</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AlabelDelimiter%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var">labelDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:testS3Uri:DocumentClassifierInputDataConfig' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AtestS3Uri%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var">testS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Uri:DocumentClassifierInputDataConfig' :: Maybe Text
@@ -277,17 +277,17 @@ forall a. Maybe a
      (Maybe [AugmentedManifestsListItem])
      (Maybe [AugmentedManifestsListItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348788"><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349061"><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
 augmentedManifests :: Maybe [AugmentedManifestsListItem]
 $sel:augmentedManifests:DocumentClassifierInputDataConfig' :: DocumentClassifierInputDataConfig
 -&gt; Maybe [AugmentedManifestsListItem]
-</span><a href="#local-6989586621679348788"><span class="hs-identifier hs-var hs-var">augmentedManifests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
-</span><a href="#local-6989586621679348788"><span class="hs-identifier hs-var">augmentedManifests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348787"><span class="annot"><span class="annottext">s :: DocumentClassifierInputDataConfig
-</span><a href="#local-6989586621679348787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348786"><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
-</span><a href="#local-6989586621679348786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig
-</span><a href="#local-6989586621679348787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:augmentedManifests:DocumentClassifierInputDataConfig' :: Maybe [AugmentedManifestsListItem]
+</span><a href="#local-6989586621679349061"><span class="hs-identifier hs-var hs-var">augmentedManifests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
+</span><a href="#local-6989586621679349061"><span class="hs-identifier hs-var">augmentedManifests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349060"><span class="annot"><span class="annottext">s :: DocumentClassifierInputDataConfig
+</span><a href="#local-6989586621679349060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349059"><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
+</span><a href="#local-6989586621679349059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig
+</span><a href="#local-6989586621679349060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:augmentedManifests:DocumentClassifierInputDataConfig' :: Maybe [AugmentedManifestsListItem]
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AaugmentedManifests%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var">augmentedManifests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
-</span><a href="#local-6989586621679348786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AugmentedManifestsListItem]
+</span><a href="#local-6989586621679349059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AugmentedManifestsListItem]
   -&gt; f (Maybe [AugmentedManifestsListItem]))
  -&gt; DocumentClassifierInputDataConfig
  -&gt; f DocumentClassifierInputDataConfig)
@@ -318,8 +318,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AugmentedManifestsListItem]
   [AugmentedManifestsListItem]
   [AugmentedManifestsListItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-comment">-- | The format of your training data:</span><span>
 </span><span id="line-167"></span><span class="hs-comment">--</span><span>
@@ -354,55 +354,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe DocumentClassifierDataFormat)
      (Maybe DocumentClassifierDataFormat)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348781"><span class="annot"><span class="annottext">Maybe DocumentClassifierDataFormat
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349054"><span class="annot"><span class="annottext">Maybe DocumentClassifierDataFormat
 dataFormat :: Maybe DocumentClassifierDataFormat
 $sel:dataFormat:DocumentClassifierInputDataConfig' :: DocumentClassifierInputDataConfig
 -&gt; Maybe DocumentClassifierDataFormat
-</span><a href="#local-6989586621679348781"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentClassifierDataFormat
-</span><a href="#local-6989586621679348781"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348780"><span class="annot"><span class="annottext">s :: DocumentClassifierInputDataConfig
-</span><a href="#local-6989586621679348780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348779"><span class="annot"><span class="annottext">Maybe DocumentClassifierDataFormat
-</span><a href="#local-6989586621679348779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig
-</span><a href="#local-6989586621679348780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataFormat:DocumentClassifierInputDataConfig' :: Maybe DocumentClassifierDataFormat
+</span><a href="#local-6989586621679349054"><span class="hs-identifier hs-var hs-var">dataFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentClassifierDataFormat
+</span><a href="#local-6989586621679349054"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349053"><span class="annot"><span class="annottext">s :: DocumentClassifierInputDataConfig
+</span><a href="#local-6989586621679349053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349052"><span class="annot"><span class="annottext">Maybe DocumentClassifierDataFormat
+</span><a href="#local-6989586621679349052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig
+</span><a href="#local-6989586621679349053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataFormat:DocumentClassifierInputDataConfig' :: Maybe DocumentClassifierDataFormat
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AdataFormat%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var">dataFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DocumentClassifierDataFormat
-</span><a href="#local-6989586621679348779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- | The Amazon S3 URI for the input data. The Amazon S3 bucket must be in</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- the same AWS Region as the API endpoint that you are calling. The URI</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- can point to a single input file or it can provide the prefix for a</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- collection of input files.</span><span>
-</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#documentClassifierInputDataConfig_testS3Uri"><span class="hs-identifier hs-type">documentClassifierInputDataConfig_testS3Uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span id="documentClassifierInputDataConfig_testS3Uri"><span class="annot"><span class="annottext">documentClassifierInputDataConfig_testS3Uri :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DocumentClassifierInputDataConfig
--&gt; f DocumentClassifierInputDataConfig
-</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#documentClassifierInputDataConfig_testS3Uri"><span class="hs-identifier hs-var hs-var">documentClassifierInputDataConfig_testS3Uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentClassifierInputDataConfig -&gt; Maybe Text)
--&gt; (DocumentClassifierInputDataConfig
-    -&gt; Maybe Text -&gt; DocumentClassifierInputDataConfig)
--&gt; Lens
-     DocumentClassifierInputDataConfig
-     DocumentClassifierInputDataConfig
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348777"><span class="annot"><span class="annottext">Maybe Text
-testS3Uri :: Maybe Text
-$sel:testS3Uri:DocumentClassifierInputDataConfig' :: DocumentClassifierInputDataConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679348777"><span class="hs-identifier hs-var hs-var">testS3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679348777"><span class="hs-identifier hs-var">testS3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348776"><span class="annot"><span class="annottext">s :: DocumentClassifierInputDataConfig
-</span><a href="#local-6989586621679348776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348775"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679348775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig
-</span><a href="#local-6989586621679348776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testS3Uri:DocumentClassifierInputDataConfig' :: Maybe Text
-</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AtestS3Uri%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var">testS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679348775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- | Indicates the delimiter used to separate each label for training a</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- multi-label classifier. The default delimiter between labels is a pipe</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- (|). You can use a different character as a delimiter (if it\'s an</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- allowed character) by specifying it under Delimiter for labels. If the</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- training documents use a delimiter other than the default or the</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- delimiter you specify, the labels on that line will be combined to make</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- a single unique label, such as LABELLABELLABEL.</span><span>
-</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#documentClassifierInputDataConfig_labelDelimiter"><span class="hs-identifier hs-type">documentClassifierInputDataConfig_labelDelimiter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span id="documentClassifierInputDataConfig_labelDelimiter"><span class="annot"><span class="annottext">documentClassifierInputDataConfig_labelDelimiter :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-186"></span><span class="hs-comment">-- | Indicates the delimiter used to separate each label for training a</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- multi-label classifier. The default delimiter between labels is a pipe</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- (|). You can use a different character as a delimiter (if it\'s an</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- allowed character) by specifying it under Delimiter for labels. If the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- training documents use a delimiter other than the default or the</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- delimiter you specify, the labels on that line will be combined to make</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- a single unique label, such as LABELLABELLABEL.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#documentClassifierInputDataConfig_labelDelimiter"><span class="hs-identifier hs-type">documentClassifierInputDataConfig_labelDelimiter</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="documentClassifierInputDataConfig_labelDelimiter"><span class="annot"><span class="annottext">documentClassifierInputDataConfig_labelDelimiter :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DocumentClassifierInputDataConfig
 -&gt; f DocumentClassifierInputDataConfig
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#documentClassifierInputDataConfig_labelDelimiter"><span class="hs-identifier hs-var hs-var">documentClassifierInputDataConfig_labelDelimiter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentClassifierInputDataConfig -&gt; Maybe Text)
@@ -414,16 +386,44 @@ $sel:testS3Uri:DocumentClassifierInputDataConfig' :: DocumentClassifierInputData
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348773"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349050"><span class="annot"><span class="annottext">Maybe Text
 labelDelimiter :: Maybe Text
 $sel:labelDelimiter:DocumentClassifierInputDataConfig' :: DocumentClassifierInputDataConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679348773"><span class="hs-identifier hs-var hs-var">labelDelimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679348773"><span class="hs-identifier hs-var">labelDelimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348772"><span class="annot"><span class="annottext">s :: DocumentClassifierInputDataConfig
-</span><a href="#local-6989586621679348772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348771"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679348771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig
-</span><a href="#local-6989586621679348772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labelDelimiter:DocumentClassifierInputDataConfig' :: Maybe Text
+</span><a href="#local-6989586621679349050"><span class="hs-identifier hs-var hs-var">labelDelimiter</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349050"><span class="hs-identifier hs-var">labelDelimiter</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349049"><span class="annot"><span class="annottext">s :: DocumentClassifierInputDataConfig
+</span><a href="#local-6989586621679349049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349048"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig
+</span><a href="#local-6989586621679349049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labelDelimiter:DocumentClassifierInputDataConfig' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AlabelDelimiter%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var">labelDelimiter</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679348771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | The Amazon S3 URI for the input data. The Amazon S3 bucket must be in</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- the same AWS Region as the API endpoint that you are calling. The URI</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- can point to a single input file or it can provide the prefix for a</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- collection of input files.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#documentClassifierInputDataConfig_testS3Uri"><span class="hs-identifier hs-type">documentClassifierInputDataConfig_testS3Uri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="documentClassifierInputDataConfig_testS3Uri"><span class="annot"><span class="annottext">documentClassifierInputDataConfig_testS3Uri :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DocumentClassifierInputDataConfig
+-&gt; f DocumentClassifierInputDataConfig
+</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#documentClassifierInputDataConfig_testS3Uri"><span class="hs-identifier hs-var hs-var">documentClassifierInputDataConfig_testS3Uri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DocumentClassifierInputDataConfig -&gt; Maybe Text)
+-&gt; (DocumentClassifierInputDataConfig
+    -&gt; Maybe Text -&gt; DocumentClassifierInputDataConfig)
+-&gt; Lens
+     DocumentClassifierInputDataConfig
+     DocumentClassifierInputDataConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349046"><span class="annot"><span class="annottext">Maybe Text
+testS3Uri :: Maybe Text
+$sel:testS3Uri:DocumentClassifierInputDataConfig' :: DocumentClassifierInputDataConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679349046"><span class="hs-identifier hs-var hs-var">testS3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349046"><span class="hs-identifier hs-var">testS3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349045"><span class="annot"><span class="annottext">s :: DocumentClassifierInputDataConfig
+</span><a href="#local-6989586621679349045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349044"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig
+</span><a href="#local-6989586621679349045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:testS3Uri:DocumentClassifierInputDataConfig' :: Maybe Text
+</span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3AtestS3Uri%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var">testS3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
 </span><span id="line-203"></span><span class="hs-comment">-- | The Amazon S3 URI for the input data. The S3 bucket must be in the same</span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- region as the API endpoint that you are calling. The URI can point to a</span><span>
@@ -449,22 +449,22 @@ $sel:labelDelimiter:DocumentClassifierInputDataConfig' :: DocumentClassifierInpu
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348769"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349042"><span class="annot"><span class="annottext">Maybe Text
 s3Uri :: Maybe Text
 $sel:s3Uri:DocumentClassifierInputDataConfig' :: DocumentClassifierInputDataConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679348769"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679348769"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348768"><span class="annot"><span class="annottext">s :: DocumentClassifierInputDataConfig
-</span><a href="#local-6989586621679348768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348767"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679348767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig
-</span><a href="#local-6989586621679348768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:DocumentClassifierInputDataConfig' :: Maybe Text
+</span><a href="#local-6989586621679349042"><span class="hs-identifier hs-var hs-var">s3Uri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349042"><span class="hs-identifier hs-var">s3Uri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349041"><span class="annot"><span class="annottext">s :: DocumentClassifierInputDataConfig
+</span><a href="#local-6989586621679349041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349040"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DocumentClassifierInputDataConfig
+</span><a href="#local-6989586621679349041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Uri:DocumentClassifierInputDataConfig' :: Maybe Text
 </span><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#%24sel%3As3Uri%3ADocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-var">s3Uri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679348767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679348764"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679349037"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-219"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span></span><span>
 </span><span id="line-220"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621679348762"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentClassifierInputDataConfig
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679349035"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DocumentClassifierInputDataConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DocumentClassifierInputDataConfig)
@@ -474,8 +474,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DocumentClassifierInputDataConfig&quot;</span></span><span>
-</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348759"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348759"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349032"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349032"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
 -&gt; Maybe DocumentClassifierDataFormat
 -&gt; Maybe Text
@@ -498,7 +498,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; DocumentClassifierInputDataConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348759"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679349032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Parser (Maybe (Maybe [AugmentedManifestsListItem]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -523,7 +523,7 @@ forall a. Monoid a =&gt; a
       -&gt; Maybe Text -&gt; Maybe Text -&gt; DocumentClassifierInputDataConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348759"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DocumentClassifierDataFormat)
+</span><a href="#local-6989586621679349032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DocumentClassifierDataFormat)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataFormat&quot;</span></span><span class="hs-special">)</span><span>
@@ -535,59 +535,59 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe Text -&gt; DocumentClassifierInputDataConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348759"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679349032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;TestS3Uri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LabelDelimiter&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text -&gt; Maybe Text -&gt; DocumentClassifierInputDataConfig)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; DocumentClassifierInputDataConfig)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348759"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679349032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LabelDelimiter&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;TestS3Uri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DocumentClassifierInputDataConfig)
 -&gt; Parser (Maybe Text) -&gt; Parser DocumentClassifierInputDataConfig
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679348759"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679349032"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-233"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-234"></span><span>
 </span><span id="line-235"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621679348752"><span id="local-6989586621679348754"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679349025"><span id="local-6989586621679349027"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-237"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span></span></span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-240"></span><span>  </span><span id="local-6989586621679348749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679349022"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-241"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span></span><span>
 </span><span id="line-242"></span><span>
 </span><span id="line-243"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679348741"><span id="local-6989586621679348743"><span id="local-6989586621679348745"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679349014"><span id="local-6989586621679349016"><span id="local-6989586621679349018"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig</span></a></span></span></span></span><span>
 </span><span id="line-246"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-247"></span><span>  </span><span id="local-6989586621679348739"><span class="annot"><span class="annottext">toJSON :: DocumentClassifierInputDataConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348733"><span id="local-6989586621679348734"><span id="local-6989586621679348735"><span id="local-6989586621679348736"><span id="local-6989586621679348737"><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679349012"><span class="annot"><span class="annottext">toJSON :: DocumentClassifierInputDataConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig.html#DocumentClassifierInputDataConfig%27"><span class="hs-identifier hs-type">DocumentClassifierInputDataConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349006"><span id="local-6989586621679349007"><span id="local-6989586621679349008"><span id="local-6989586621679349009"><span id="local-6989586621679349010"><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
 Maybe Text
 Maybe DocumentClassifierDataFormat
 s3Uri :: Maybe Text
-labelDelimiter :: Maybe Text
 testS3Uri :: Maybe Text
+labelDelimiter :: Maybe Text
 dataFormat :: Maybe DocumentClassifierDataFormat
 augmentedManifests :: Maybe [AugmentedManifestsListItem]
 $sel:s3Uri:DocumentClassifierInputDataConfig' :: DocumentClassifierInputDataConfig -&gt; Maybe Text
-$sel:labelDelimiter:DocumentClassifierInputDataConfig' :: DocumentClassifierInputDataConfig -&gt; Maybe Text
 $sel:testS3Uri:DocumentClassifierInputDataConfig' :: DocumentClassifierInputDataConfig -&gt; Maybe Text
+$sel:labelDelimiter:DocumentClassifierInputDataConfig' :: DocumentClassifierInputDataConfig -&gt; Maybe Text
 $sel:dataFormat:DocumentClassifierInputDataConfig' :: DocumentClassifierInputDataConfig
 -&gt; Maybe DocumentClassifierDataFormat
 $sel:augmentedManifests:DocumentClassifierInputDataConfig' :: DocumentClassifierInputDataConfig
 -&gt; Maybe [AugmentedManifestsListItem]
-</span><a href="#local-6989586621679348733"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679349006"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-248"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-249"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -601,7 +601,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [AugmentedManifestsListItem] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AugmentedManifestsListItem]
-</span><a href="#local-6989586621679348737"><span class="hs-identifier hs-var">augmentedManifests</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679349010"><span class="hs-identifier hs-var">augmentedManifests</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataFormat&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DocumentClassifierDataFormat -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -609,29 +609,29 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe DocumentClassifierDataFormat -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DocumentClassifierDataFormat
-</span><a href="#local-6989586621679348736"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679349009"><span class="hs-identifier hs-var">dataFormat</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LabelDelimiter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679349008"><span class="hs-identifier hs-var">labelDelimiter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TestS3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679348735"><span class="hs-identifier hs-var">testS3Uri</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LabelDelimiter&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-255"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679348734"><span class="hs-identifier hs-var">labelDelimiter</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679349007"><span class="hs-identifier hs-var">testS3Uri</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-256"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3Uri&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679348733"><span class="hs-identifier hs-var">s3Uri</span></a></span><span>
+</span><a href="#local-6989586621679349006"><span class="hs-identifier hs-var">s3Uri</span></a></span><span>
 </span><span id="line-257"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-258"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-259"></span></pre></body></html>

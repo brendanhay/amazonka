@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-comment">-- interval. When set to VIDEO_INTERVAL, these additional markers will not</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- be inserted. Only applicable when EBP segmentation markers are is</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- selected (segmentationMarkers is EBP or EBP_LEGACY).</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679979736"><span id="local-6989586621679979737"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsEbpAudioInterval"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval.html#M2tsEbpAudioInterval"><span class="hs-identifier hs-var">M2tsEbpAudioInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsEbpAudioInterval%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval.html#M2tsEbpAudioInterval%27"><span class="hs-identifier hs-var">M2tsEbpAudioInterval'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679984526"><span id="local-6989586621679984527"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="M2tsEbpAudioInterval"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval.html#M2tsEbpAudioInterval"><span class="hs-identifier hs-var">M2tsEbpAudioInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="M2tsEbpAudioInterval%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval.html#M2tsEbpAudioInterval%27"><span class="hs-identifier hs-var">M2tsEbpAudioInterval'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromM2tsEbpAudioInterval"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval.html#fromM2tsEbpAudioInterval"><span class="hs-identifier hs-var hs-var">fromM2tsEbpAudioInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979728"><span id="local-6989586621679979730"><span id="local-6989586621679979732"><span class="annot"><span class="annottext">Int -&gt; M2tsEbpAudioInterval -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679984518"><span id="local-6989586621679984520"><span id="local-6989586621679984522"><span class="annot"><span class="annottext">Int -&gt; M2tsEbpAudioInterval -&gt; ShowS
 [M2tsEbpAudioInterval] -&gt; ShowS
 M2tsEbpAudioInterval -&gt; String
 (Int -&gt; M2tsEbpAudioInterval -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: M2tsEbpAudioInterval -&gt; String
 showsPrec :: Int -&gt; M2tsEbpAudioInterval -&gt; ShowS
 $cshowsPrec :: Int -&gt; M2tsEbpAudioInterval -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679979719"><span id="local-6989586621679979721"><span id="local-6989586621679979723"><span id="local-6989586621679979725"><span class="annot"><span class="annottext">ReadPrec [M2tsEbpAudioInterval]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679984509"><span id="local-6989586621679984511"><span id="local-6989586621679984513"><span id="local-6989586621679984515"><span class="annot"><span class="annottext">ReadPrec [M2tsEbpAudioInterval]
 ReadPrec M2tsEbpAudioInterval
 Int -&gt; ReadS M2tsEbpAudioInterval
 ReadS [M2tsEbpAudioInterval]
@@ -78,7 +78,7 @@ $creadList :: ReadS [M2tsEbpAudioInterval]
 readsPrec :: Int -&gt; ReadS M2tsEbpAudioInterval
 $creadsPrec :: Int -&gt; ReadS M2tsEbpAudioInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679979714"><span id="local-6989586621679979716"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; M2tsEbpAudioInterval -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679984504"><span id="local-6989586621679984506"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; M2tsEbpAudioInterval -&gt; Bool
 (M2tsEbpAudioInterval -&gt; M2tsEbpAudioInterval -&gt; Bool)
 -&gt; (M2tsEbpAudioInterval -&gt; M2tsEbpAudioInterval -&gt; Bool)
 -&gt; Eq M2tsEbpAudioInterval
@@ -88,7 +88,7 @@ $c/= :: M2tsEbpAudioInterval -&gt; M2tsEbpAudioInterval -&gt; Bool
 == :: M2tsEbpAudioInterval -&gt; M2tsEbpAudioInterval -&gt; Bool
 $c== :: M2tsEbpAudioInterval -&gt; M2tsEbpAudioInterval -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679979698"><span id="local-6989586621679979700"><span id="local-6989586621679979702"><span id="local-6989586621679979704"><span id="local-6989586621679979706"><span id="local-6989586621679979708"><span id="local-6989586621679979710"><span class="annot"><span class="annottext">Eq M2tsEbpAudioInterval
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679984488"><span id="local-6989586621679984490"><span id="local-6989586621679984492"><span id="local-6989586621679984494"><span id="local-6989586621679984496"><span id="local-6989586621679984498"><span id="local-6989586621679984500"><span class="annot"><span class="annottext">Eq M2tsEbpAudioInterval
 Eq M2tsEbpAudioInterval
 -&gt; (M2tsEbpAudioInterval -&gt; M2tsEbpAudioInterval -&gt; Ordering)
 -&gt; (M2tsEbpAudioInterval -&gt; M2tsEbpAudioInterval -&gt; Bool)
@@ -146,7 +146,7 @@ $cfrom :: forall x. M2tsEbpAudioInterval -&gt; Rep M2tsEbpAudioInterval x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679979690"><span id="local-6989586621679979692"><span class="annot"><span class="annottext">Int -&gt; M2tsEbpAudioInterval -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679984480"><span id="local-6989586621679984482"><span class="annot"><span class="annottext">Int -&gt; M2tsEbpAudioInterval -&gt; Int
 M2tsEbpAudioInterval -&gt; Int
 (Int -&gt; M2tsEbpAudioInterval -&gt; Int)
 -&gt; (M2tsEbpAudioInterval -&gt; Int) -&gt; Hashable M2tsEbpAudioInterval
@@ -156,54 +156,54 @@ $chash :: M2tsEbpAudioInterval -&gt; Int
 hashWithSalt :: Int -&gt; M2tsEbpAudioInterval -&gt; Int
 $chashWithSalt :: Int -&gt; M2tsEbpAudioInterval -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679979687"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679984477"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; ()
 (M2tsEbpAudioInterval -&gt; ()) -&gt; NFData M2tsEbpAudioInterval
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: M2tsEbpAudioInterval -&gt; ()
 $crnf :: M2tsEbpAudioInterval -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679979684"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsEbpAudioInterval
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679984474"><span class="annot"><span class="annottext">Text -&gt; Either String M2tsEbpAudioInterval
 (Text -&gt; Either String M2tsEbpAudioInterval)
 -&gt; FromText M2tsEbpAudioInterval
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String M2tsEbpAudioInterval
 $cfromText :: Text -&gt; Either String M2tsEbpAudioInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679979681"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679984471"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; Text
 (M2tsEbpAudioInterval -&gt; Text) -&gt; ToText M2tsEbpAudioInterval
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: M2tsEbpAudioInterval -&gt; Text
 $ctoText :: M2tsEbpAudioInterval -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679979678"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679984468"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; ByteString
 (M2tsEbpAudioInterval -&gt; ByteString)
 -&gt; ToByteString M2tsEbpAudioInterval
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: M2tsEbpAudioInterval -&gt; ByteString
 $ctoBS :: M2tsEbpAudioInterval -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679979675"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679984465"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; ByteStringBuilder
 (M2tsEbpAudioInterval -&gt; ByteStringBuilder)
 -&gt; ToLog M2tsEbpAudioInterval
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: M2tsEbpAudioInterval -&gt; ByteStringBuilder
 $cbuild :: M2tsEbpAudioInterval -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679979672"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsEbpAudioInterval -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679984462"><span class="annot"><span class="annottext">HeaderName -&gt; M2tsEbpAudioInterval -&gt; [Header]
 (HeaderName -&gt; M2tsEbpAudioInterval -&gt; [Header])
 -&gt; ToHeader M2tsEbpAudioInterval
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; M2tsEbpAudioInterval -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; M2tsEbpAudioInterval -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679979669"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679984459"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; QueryString
 (M2tsEbpAudioInterval -&gt; QueryString)
 -&gt; ToQuery M2tsEbpAudioInterval
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: M2tsEbpAudioInterval -&gt; QueryString
 $ctoQuery :: M2tsEbpAudioInterval -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679979664"><span id="local-6989586621679979666"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsEbpAudioInterval]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679984454"><span id="local-6989586621679984456"><span class="annot"><span class="annottext">Value -&gt; Parser [M2tsEbpAudioInterval]
 Value -&gt; Parser M2tsEbpAudioInterval
 (Value -&gt; Parser M2tsEbpAudioInterval)
 -&gt; (Value -&gt; Parser [M2tsEbpAudioInterval])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [M2tsEbpAudioInterval]
 parseJSON :: Value -&gt; Parser M2tsEbpAudioInterval
 $cparseJSON :: Value -&gt; Parser M2tsEbpAudioInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679979659"><span id="local-6989586621679979661"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsEbpAudioInterval]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679984449"><span id="local-6989586621679984451"><span class="annot"><span class="annottext">FromJSONKeyFunction [M2tsEbpAudioInterval]
 FromJSONKeyFunction M2tsEbpAudioInterval
 FromJSONKeyFunction M2tsEbpAudioInterval
 -&gt; FromJSONKeyFunction [M2tsEbpAudioInterval]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [M2tsEbpAudioInterval]
 fromJSONKey :: FromJSONKeyFunction M2tsEbpAudioInterval
 $cfromJSONKey :: FromJSONKeyFunction M2tsEbpAudioInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679979650"><span id="local-6989586621679979652"><span id="local-6989586621679979654"><span id="local-6989586621679979656"><span class="annot"><span class="annottext">[M2tsEbpAudioInterval] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679984440"><span id="local-6989586621679984442"><span id="local-6989586621679984444"><span id="local-6989586621679984446"><span class="annot"><span class="annottext">[M2tsEbpAudioInterval] -&gt; Encoding
 [M2tsEbpAudioInterval] -&gt; Value
 M2tsEbpAudioInterval -&gt; Encoding
 M2tsEbpAudioInterval -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: M2tsEbpAudioInterval -&gt; Encoding
 toJSON :: M2tsEbpAudioInterval -&gt; Value
 $ctoJSON :: M2tsEbpAudioInterval -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679979645"><span id="local-6989586621679979647"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsEbpAudioInterval]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679984435"><span id="local-6989586621679984437"><span class="annot"><span class="annottext">ToJSONKeyFunction [M2tsEbpAudioInterval]
 ToJSONKeyFunction M2tsEbpAudioInterval
 ToJSONKeyFunction M2tsEbpAudioInterval
 -&gt; ToJSONKeyFunction [M2tsEbpAudioInterval]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [M2tsEbpAudioInterval]
 toJSONKey :: ToJSONKeyFunction M2tsEbpAudioInterval
 $ctoJSONKey :: ToJSONKeyFunction M2tsEbpAudioInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679979642"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsEbpAudioInterval
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679984432"><span class="annot"><span class="annottext">[Node] -&gt; Either String M2tsEbpAudioInterval
 ([Node] -&gt; Either String M2tsEbpAudioInterval)
 -&gt; FromXML M2tsEbpAudioInterval
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String M2tsEbpAudioInterval
 $cparseXML :: [Node] -&gt; Either String M2tsEbpAudioInterval
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679979639"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679984429"><span class="annot"><span class="annottext">M2tsEbpAudioInterval -&gt; XML
 (M2tsEbpAudioInterval -&gt; XML) -&gt; ToXML M2tsEbpAudioInterval
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: M2tsEbpAudioInterval -&gt; XML

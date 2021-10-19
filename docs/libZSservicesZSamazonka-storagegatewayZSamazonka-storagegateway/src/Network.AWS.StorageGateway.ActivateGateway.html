@@ -21,12 +21,12 @@
 </span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
 </span><span id="line-22"></span><span class="hs-comment">--</span><span>
 </span><span id="line-23"></span><span class="hs-comment">-- Activates the gateway you previously deployed on your host. In the</span><span>
-</span><span id="line-24"></span><span class="hs-comment">-- activation process, you specify information such as the Region that you</span><span>
-</span><span id="line-25"></span><span class="hs-comment">-- want to use for storing snapshots or tapes, the time zone for scheduled</span><span>
-</span><span id="line-26"></span><span class="hs-comment">-- snapshots the gateway snapshot schedule window, an activation key, and a</span><span>
-</span><span id="line-27"></span><span class="hs-comment">-- name for your gateway. The activation process also associates your</span><span>
-</span><span id="line-28"></span><span class="hs-comment">-- gateway with your account. For more information, see</span><span>
-</span><span id="line-29"></span><span class="hs-comment">-- UpdateGatewayInformation.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- activation process, you specify information such as the Amazon Web</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Services Region that you want to use for storing snapshots or tapes, the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- time zone for scheduled snapshots the gateway snapshot schedule window,</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- an activation key, and a name for your gateway. The activation process</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- also associates your gateway with your account. For more information,</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- see UpdateGatewayInformation.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- You must turn on the gateway VM before you can activate your gateway.</span><span>
 </span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.StorageGateway.ActivateGateway</span><span>
@@ -78,7 +78,7 @@
 </span><span id="line-78"></span><span class="hs-comment">-- -   ActivateGatewayInput$TapeDriveType</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- /See:/ 'newActivateGateway' smart constructor.</span><span>
-</span><span id="line-81"></span><span id="local-6989586621679390772"><span id="local-6989586621679390773"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivateGateway"><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-var">ActivateGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivateGateway%27"><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-var">ActivateGateway'</span></a></span></span><span>
+</span><span id="line-81"></span><span id="local-6989586621679395347"><span id="local-6989586621679395348"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivateGateway"><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-var">ActivateGateway</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivateGateway%27"><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-var">ActivateGateway'</span></a></span></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value that indicates the type of medium changer to use for tape</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">-- gateway. This field is optional.</span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -132,20 +132,22 @@
 </span><span id="line-126"></span><span>    </span><span class="hs-comment">-- schedule.</span><span>
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AgatewayTimezone%3AActivateGateway%27"><span class="annot"><span class="annottext">ActivateGateway -&gt; Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AgatewayTimezone%3AActivateGateway%27"><span class="hs-identifier hs-var hs-var">gatewayTimezone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | A value that indicates the Region where you want to store your data. The</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- gateway Region specified must be the same Region as the Region in your</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- @Host@ header in the request. For more information about available</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- Regions and endpoints for Storage Gateway, see</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas&gt;</span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
-</span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- Valid Values: See</span><span>
-</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas&gt;</span><span>
-</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
-</span><span id="line-138"></span><span>    </span><span id="%24sel%3AgatewayRegion%3AActivateGateway%27"><span class="annot"><span class="annottext">ActivateGateway -&gt; Text
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | A value that indicates the Amazon Web Services Region where you want to</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- store your data. The gateway Amazon Web Services Region specified must</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- be the same Amazon Web Services Region as the Amazon Web Services Region</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- in your @Host@ header in the request. For more information about</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- available Amazon Web Services Regions and endpoints for Storage Gateway,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- see</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas&gt;</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- Valid Values: See</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas&gt;</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AgatewayRegion%3AActivateGateway%27"><span class="annot"><span class="annottext">ActivateGateway -&gt; Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AgatewayRegion%3AActivateGateway%27"><span class="hs-identifier hs-var hs-var">gatewayRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390759"><span id="local-6989586621679390761"><span class="annot"><span class="annottext">ActivateGateway -&gt; ActivateGateway -&gt; Bool
+</span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395334"><span id="local-6989586621679395336"><span class="annot"><span class="annottext">ActivateGateway -&gt; ActivateGateway -&gt; Bool
 (ActivateGateway -&gt; ActivateGateway -&gt; Bool)
 -&gt; (ActivateGateway -&gt; ActivateGateway -&gt; Bool)
 -&gt; Eq ActivateGateway
@@ -154,7 +156,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActivateGateway -&gt; ActivateGateway -&gt; Bool
 == :: ActivateGateway -&gt; ActivateGateway -&gt; Bool
 $c== :: ActivateGateway -&gt; ActivateGateway -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390750"><span id="local-6989586621679390752"><span id="local-6989586621679390754"><span id="local-6989586621679390756"><span class="annot"><span class="annottext">ReadPrec [ActivateGateway]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395325"><span id="local-6989586621679395327"><span id="local-6989586621679395329"><span id="local-6989586621679395331"><span class="annot"><span class="annottext">ReadPrec [ActivateGateway]
 ReadPrec ActivateGateway
 Int -&gt; ReadS ActivateGateway
 ReadS [ActivateGateway]
@@ -174,7 +176,7 @@ readList :: ReadS [ActivateGateway]
 $creadList :: ReadS [ActivateGateway]
 readsPrec :: Int -&gt; ReadS ActivateGateway
 $creadsPrec :: Int -&gt; ReadS ActivateGateway
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390743"><span id="local-6989586621679390745"><span id="local-6989586621679390747"><span class="annot"><span class="annottext">Int -&gt; ActivateGateway -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395318"><span id="local-6989586621679395320"><span id="local-6989586621679395322"><span class="annot"><span class="annottext">Int -&gt; ActivateGateway -&gt; ShowS
 [ActivateGateway] -&gt; ShowS
 ActivateGateway -&gt; String
 (Int -&gt; ActivateGateway -&gt; ShowS)
@@ -199,92 +201,94 @@ forall a.
 $cto :: forall x. Rep ActivateGateway x -&gt; ActivateGateway
 $cfrom :: forall x. ActivateGateway -&gt; Rep ActivateGateway x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- Create a value of 'ActivateGateway' with all optional fields omitted.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Create a value of 'ActivateGateway' with all optional fields omitted.</span><span>
 </span><span id="line-146"></span><span class="hs-comment">--</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-149"></span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- 'mediumChangerType', 'activateGateway_mediumChangerType' - The value that indicates the type of medium changer to use for tape</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- gateway. This field is optional.</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'mediumChangerType', 'activateGateway_mediumChangerType' - The value that indicates the type of medium changer to use for tape</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- gateway. This field is optional.</span><span>
 </span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- 'tapeDriveType', 'activateGateway_tapeDriveType' - The value that indicates the type of tape drive to use for tape gateway.</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- This field is optional.</span><span>
-</span><span id="line-157"></span><span class="hs-comment">--</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- Valid Values: @IBM-ULT3580-TD5@</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'tapeDriveType', 'activateGateway_tapeDriveType' - The value that indicates the type of tape drive to use for tape gateway.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- This field is optional.</span><span>
 </span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- 'gatewayType', 'activateGateway_gatewayType' - A value that defines the type of gateway to activate. The type specified</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- is critical to all later functions of the gateway and cannot be changed</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- after activation. The default value is @CACHED@.</span><span>
-</span><span id="line-163"></span><span class="hs-comment">--</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@ | @FILE_FSX_SMB|@</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Valid Values: @IBM-ULT3580-TD5@</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'gatewayType', 'activateGateway_gatewayType' - A value that defines the type of gateway to activate. The type specified</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- is critical to all later functions of the gateway and cannot be changed</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- after activation. The default value is @CACHED@.</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- 'tags', 'activateGateway_tags' - A list of up to 50 tags that you can assign to the gateway. Each tag is</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- a key-value pair.</span><span>
-</span><span id="line-168"></span><span class="hs-comment">--</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- Valid characters for key and value are letters, spaces, and numbers that</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- can be represented in UTF-8 format, and the following special</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- characters, and the maximum length for a tag\'s value is 256 characters.</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- 'activationKey', 'activateGateway_activationKey' - Your gateway activation key. You can obtain the activation key by</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- sending an HTTP GET request with redirects enabled to the gateway IP</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- address (port 80). The redirect URL returned in the response provides</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- you the activation key for your gateway in the query string parameter</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- @activationKey@. It may also include other activation-related</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- parameters, however, these are merely defaults -- the arguments you pass</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- to the @ActivateGateway@ API call determine the actual configuration of</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- your gateway.</span><span>
-</span><span id="line-182"></span><span class="hs-comment">--</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key&gt;</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- in the /Storage Gateway User Guide/.</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- 'gatewayName', 'activateGateway_gatewayName' - The name you configured for your gateway.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@ | @FILE_FSX_SMB|@</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'tags', 'activateGateway_tags' - A list of up to 50 tags that you can assign to the gateway. Each tag is</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- a key-value pair.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Valid characters for key and value are letters, spaces, and numbers that</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- can be represented in UTF-8 format, and the following special</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- characters, and the maximum length for a tag\'s value is 256 characters.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'activationKey', 'activateGateway_activationKey' - Your gateway activation key. You can obtain the activation key by</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- sending an HTTP GET request with redirects enabled to the gateway IP</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- address (port 80). The redirect URL returned in the response provides</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- you the activation key for your gateway in the query string parameter</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- @activationKey@. It may also include other activation-related</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- parameters, however, these are merely defaults -- the arguments you pass</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- to the @ActivateGateway@ API call determine the actual configuration of</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- your gateway.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key&gt;</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- in the /Storage Gateway User Guide/.</span><span>
 </span><span id="line-188"></span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- 'gatewayTimezone', 'activateGateway_gatewayTimezone' - A value that indicates the time zone you want to set for the gateway.</span><span>
-</span><span id="line-190"></span><span class="hs-comment">-- The time zone is of the format \&quot;GMT-hr:mm\&quot; or \&quot;GMT+hr:mm\&quot;. For</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00</span><span>
-</span><span id="line-192"></span><span class="hs-comment">-- indicates the time is 2 hours ahead of GMT. The time zone is used, for</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- example, for scheduling snapshots and your gateway\'s maintenance</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- schedule.</span><span>
-</span><span id="line-195"></span><span class="hs-comment">--</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- 'gatewayRegion', 'activateGateway_gatewayRegion' - A value that indicates the Region where you want to store your data. The</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- gateway Region specified must be the same Region as the Region in your</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- @Host@ header in the request. For more information about available</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- Regions and endpoints for Storage Gateway, see</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas&gt;</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
-</span><span id="line-202"></span><span class="hs-comment">--</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- Valid Values: See</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'gatewayName', 'activateGateway_gatewayName' - The name you configured for your gateway.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'gatewayTimezone', 'activateGateway_gatewayTimezone' - A value that indicates the time zone you want to set for the gateway.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- The time zone is of the format \&quot;GMT-hr:mm\&quot; or \&quot;GMT+hr:mm\&quot;. For</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- indicates the time is 2 hours ahead of GMT. The time zone is used, for</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- example, for scheduling snapshots and your gateway\'s maintenance</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- schedule.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'gatewayRegion', 'activateGateway_gatewayRegion' - A value that indicates the Amazon Web Services Region where you want to</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- store your data. The gateway Amazon Web Services Region specified must</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- be the same Amazon Web Services Region as the Amazon Web Services Region</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- in your @Host@ header in the request. For more information about</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- available Amazon Web Services Regions and endpoints for Storage Gateway,</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- see</span><span>
 </span><span id="line-204"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas&gt;</span><span>
 </span><span id="line-205"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
-</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#newActivateGateway"><span class="hs-identifier hs-type">newActivateGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-207"></span><span>  </span><span class="hs-comment">-- | 'activationKey'</span><span>
-</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'gatewayName'</span><span>
-</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'gatewayTimezone'</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Valid Values: See</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas&gt;</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#newActivateGateway"><span class="hs-identifier hs-type">newActivateGateway</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'activationKey'</span><span>
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-213"></span><span>  </span><span class="hs-comment">-- | 'gatewayRegion'</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-comment">-- | 'gatewayName'</span><span>
 </span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-215"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span>
-</span><span id="line-216"></span><span id="newActivateGateway"><span class="annot"><span class="annottext">newActivateGateway :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; ActivateGateway
+</span><span id="line-215"></span><span>  </span><span class="hs-comment">-- | 'gatewayTimezone'</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-comment">-- | 'gatewayRegion'</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span>
+</span><span id="line-220"></span><span id="newActivateGateway"><span class="annot"><span class="annottext">newActivateGateway :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; ActivateGateway
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#newActivateGateway"><span class="hs-identifier hs-var hs-var">newActivateGateway</span></a></span></span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679390738"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390738"><span class="hs-identifier hs-var">pActivationKey_</span></a></span></span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679390737"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390737"><span class="hs-identifier hs-var">pGatewayName_</span></a></span></span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621679390736"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390736"><span class="hs-identifier hs-var">pGatewayTimezone_</span></a></span></span><span>
-</span><span id="line-220"></span><span>  </span><span id="local-6989586621679390735"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390735"><span class="hs-identifier hs-var">pGatewayRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">ActivateGateway' :: Maybe Text
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679395313"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395313"><span class="hs-identifier hs-var">pActivationKey_</span></a></span></span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679395312"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395312"><span class="hs-identifier hs-var">pGatewayName_</span></a></span></span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679395311"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395311"><span class="hs-identifier hs-var">pGatewayTimezone_</span></a></span></span><span>
+</span><span id="line-224"></span><span>  </span><span id="local-6989586621679395310"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395310"><span class="hs-identifier hs-var">pGatewayRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><span class="annottext">ActivateGateway' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Tag]
@@ -294,128 +298,128 @@ $cfrom :: forall x. ActivateGateway -&gt; Rep ActivateGateway x
 -&gt; Text
 -&gt; ActivateGateway
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span>
-</span><span id="line-222"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mediumChangerType:ActivateGateway' :: Maybe Text
+</span><span id="line-226"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:mediumChangerType:ActivateGateway' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AmediumChangerType%3AActivateGateway%27"><span class="hs-identifier hs-var">mediumChangerType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-227"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:tapeDriveType:ActivateGateway' :: Maybe Text
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">$sel:tapeDriveType:ActivateGateway' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AtapeDriveType%3AActivateGateway%27"><span class="hs-identifier hs-var">tapeDriveType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayType:ActivateGateway' :: Maybe Text
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayType:ActivateGateway' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AgatewayType%3AActivateGateway%27"><span class="hs-identifier hs-var">gatewayType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:ActivateGateway' :: Maybe [Tag]
+</span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:ActivateGateway' :: Maybe [Tag]
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3Atags%3AActivateGateway%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">$sel:activationKey:ActivateGateway' :: Text
+</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">$sel:activationKey:ActivateGateway' :: Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AactivationKey%3AActivateGateway%27"><span class="hs-identifier hs-var">activationKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390738"><span class="hs-identifier hs-var">pActivationKey_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayName:ActivateGateway' :: Text
+</span><a href="#local-6989586621679395313"><span class="hs-identifier hs-var">pActivationKey_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayName:ActivateGateway' :: Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AgatewayName%3AActivateGateway%27"><span class="hs-identifier hs-var">gatewayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390737"><span class="hs-identifier hs-var">pGatewayName_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayTimezone:ActivateGateway' :: Text
+</span><a href="#local-6989586621679395312"><span class="hs-identifier hs-var">pGatewayName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayTimezone:ActivateGateway' :: Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AgatewayTimezone%3AActivateGateway%27"><span class="hs-identifier hs-var">gatewayTimezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390736"><span class="hs-identifier hs-var">pGatewayTimezone_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayRegion:ActivateGateway' :: Text
+</span><a href="#local-6989586621679395311"><span class="hs-identifier hs-var">pGatewayTimezone_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">$sel:gatewayRegion:ActivateGateway' :: Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AgatewayRegion%3AActivateGateway%27"><span class="hs-identifier hs-var">gatewayRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390735"><span class="hs-identifier hs-var">pGatewayRegion_</span></a></span><span>
-</span><span id="line-231"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- | The value that indicates the type of medium changer to use for tape</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- gateway. This field is optional.</span><span>
-</span><span id="line-235"></span><span class="hs-comment">--</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@</span><span>
-</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_mediumChangerType"><span class="hs-identifier hs-type">activateGateway_mediumChangerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-238"></span><span id="activateGateway_mediumChangerType"><span class="annot"><span class="annottext">activateGateway_mediumChangerType :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679395310"><span class="hs-identifier hs-var">pGatewayRegion_</span></a></span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The value that indicates the type of medium changer to use for tape</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- gateway. This field is optional.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_mediumChangerType"><span class="hs-identifier hs-type">activateGateway_mediumChangerType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="activateGateway_mediumChangerType"><span class="annot"><span class="annottext">activateGateway_mediumChangerType :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ActivateGateway -&gt; f ActivateGateway
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_mediumChangerType"><span class="hs-identifier hs-var hs-var">activateGateway_mediumChangerType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivateGateway -&gt; Maybe Text)
 -&gt; (ActivateGateway -&gt; Maybe Text -&gt; ActivateGateway)
 -&gt; Lens ActivateGateway ActivateGateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390732"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395307"><span class="annot"><span class="annottext">Maybe Text
 mediumChangerType :: Maybe Text
 $sel:mediumChangerType:ActivateGateway' :: ActivateGateway -&gt; Maybe Text
-</span><a href="#local-6989586621679390732"><span class="hs-identifier hs-var hs-var">mediumChangerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390732"><span class="hs-identifier hs-var">mediumChangerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390731"><span class="annot"><span class="annottext">s :: ActivateGateway
-</span><a href="#local-6989586621679390731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390730"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
-</span><a href="#local-6989586621679390731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediumChangerType:ActivateGateway' :: Maybe Text
+</span><a href="#local-6989586621679395307"><span class="hs-identifier hs-var hs-var">mediumChangerType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395307"><span class="hs-identifier hs-var">mediumChangerType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395306"><span class="annot"><span class="annottext">s :: ActivateGateway
+</span><a href="#local-6989586621679395306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395305"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
+</span><a href="#local-6989586621679395306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediumChangerType:ActivateGateway' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AmediumChangerType%3AActivateGateway%27"><span class="hs-identifier hs-var">mediumChangerType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- | The value that indicates the type of tape drive to use for tape gateway.</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- This field is optional.</span><span>
-</span><span id="line-242"></span><span class="hs-comment">--</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- Valid Values: @IBM-ULT3580-TD5@</span><span>
-</span><span id="line-244"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_tapeDriveType"><span class="hs-identifier hs-type">activateGateway_tapeDriveType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-245"></span><span id="activateGateway_tapeDriveType"><span class="annot"><span class="annottext">activateGateway_tapeDriveType :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679395305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The value that indicates the type of tape drive to use for tape gateway.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- This field is optional.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- Valid Values: @IBM-ULT3580-TD5@</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_tapeDriveType"><span class="hs-identifier hs-type">activateGateway_tapeDriveType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="activateGateway_tapeDriveType"><span class="annot"><span class="annottext">activateGateway_tapeDriveType :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ActivateGateway -&gt; f ActivateGateway
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_tapeDriveType"><span class="hs-identifier hs-var hs-var">activateGateway_tapeDriveType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivateGateway -&gt; Maybe Text)
 -&gt; (ActivateGateway -&gt; Maybe Text -&gt; ActivateGateway)
 -&gt; Lens ActivateGateway ActivateGateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390729"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395304"><span class="annot"><span class="annottext">Maybe Text
 tapeDriveType :: Maybe Text
 $sel:tapeDriveType:ActivateGateway' :: ActivateGateway -&gt; Maybe Text
-</span><a href="#local-6989586621679390729"><span class="hs-identifier hs-var hs-var">tapeDriveType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390729"><span class="hs-identifier hs-var">tapeDriveType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390728"><span class="annot"><span class="annottext">s :: ActivateGateway
-</span><a href="#local-6989586621679390728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390727"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
-</span><a href="#local-6989586621679390728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tapeDriveType:ActivateGateway' :: Maybe Text
+</span><a href="#local-6989586621679395304"><span class="hs-identifier hs-var hs-var">tapeDriveType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395304"><span class="hs-identifier hs-var">tapeDriveType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395303"><span class="annot"><span class="annottext">s :: ActivateGateway
+</span><a href="#local-6989586621679395303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395302"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
+</span><a href="#local-6989586621679395303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tapeDriveType:ActivateGateway' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AtapeDriveType%3AActivateGateway%27"><span class="hs-identifier hs-var">tapeDriveType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- | A value that defines the type of gateway to activate. The type specified</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- is critical to all later functions of the gateway and cannot be changed</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- after activation. The default value is @CACHED@.</span><span>
-</span><span id="line-250"></span><span class="hs-comment">--</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@ | @FILE_FSX_SMB|@</span><span>
-</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_gatewayType"><span class="hs-identifier hs-type">activateGateway_gatewayType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-253"></span><span id="activateGateway_gatewayType"><span class="annot"><span class="annottext">activateGateway_gatewayType :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679395302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | A value that defines the type of gateway to activate. The type specified</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- is critical to all later functions of the gateway and cannot be changed</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- after activation. The default value is @CACHED@.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- Valid Values: @STORED@ | @CACHED@ | @VTL@ | @FILE_S3@ | @FILE_FSX_SMB|@</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_gatewayType"><span class="hs-identifier hs-type">activateGateway_gatewayType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="activateGateway_gatewayType"><span class="annot"><span class="annottext">activateGateway_gatewayType :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ActivateGateway -&gt; f ActivateGateway
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_gatewayType"><span class="hs-identifier hs-var hs-var">activateGateway_gatewayType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivateGateway -&gt; Maybe Text)
 -&gt; (ActivateGateway -&gt; Maybe Text -&gt; ActivateGateway)
 -&gt; Lens ActivateGateway ActivateGateway (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390726"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395301"><span class="annot"><span class="annottext">Maybe Text
 gatewayType :: Maybe Text
 $sel:gatewayType:ActivateGateway' :: ActivateGateway -&gt; Maybe Text
-</span><a href="#local-6989586621679390726"><span class="hs-identifier hs-var hs-var">gatewayType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390726"><span class="hs-identifier hs-var">gatewayType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390725"><span class="annot"><span class="annottext">s :: ActivateGateway
-</span><a href="#local-6989586621679390725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390724"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
-</span><a href="#local-6989586621679390725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayType:ActivateGateway' :: Maybe Text
+</span><a href="#local-6989586621679395301"><span class="hs-identifier hs-var hs-var">gatewayType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395301"><span class="hs-identifier hs-var">gatewayType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395300"><span class="annot"><span class="annottext">s :: ActivateGateway
+</span><a href="#local-6989586621679395300"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395299"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395299"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
+</span><a href="#local-6989586621679395300"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayType:ActivateGateway' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AgatewayType%3AActivateGateway%27"><span class="hs-identifier hs-var">gatewayType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-254"></span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- | A list of up to 50 tags that you can assign to the gateway. Each tag is</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- a key-value pair.</span><span>
-</span><span id="line-257"></span><span class="hs-comment">--</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- Valid characters for key and value are letters, spaces, and numbers that</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- can be represented in UTF-8 format, and the following special</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- characters, and the maximum length for a tag\'s value is 256 characters.</span><span>
-</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_tags"><span class="hs-identifier hs-type">activateGateway_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-263"></span><span id="activateGateway_tags"><span class="annot"><span class="annottext">activateGateway_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679395299"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | A list of up to 50 tags that you can assign to the gateway. Each tag is</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- a key-value pair.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- Valid characters for key and value are letters, spaces, and numbers that</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- can be represented in UTF-8 format, and the following special</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- characters: + - = . _ : \/ \@. The maximum length of a tag\'s key is 128</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- characters, and the maximum length for a tag\'s value is 256 characters.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_tags"><span class="hs-identifier hs-type">activateGateway_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.StorageGateway.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="activateGateway_tags"><span class="annot"><span class="annottext">activateGateway_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; ActivateGateway -&gt; f ActivateGateway
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_tags"><span class="hs-identifier hs-var hs-var">activateGateway_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivateGateway -&gt; Maybe [Tag])
 -&gt; (ActivateGateway -&gt; Maybe [Tag] -&gt; ActivateGateway)
 -&gt; Lens ActivateGateway ActivateGateway (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390723"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395298"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:ActivateGateway' :: ActivateGateway -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679390723"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679390723"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390722"><span class="annot"><span class="annottext">s :: ActivateGateway
-</span><a href="#local-6989586621679390722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390721"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679390721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
-</span><a href="#local-6989586621679390722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ActivateGateway' :: Maybe [Tag]
+</span><a href="#local-6989586621679395298"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679395298"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395297"><span class="annot"><span class="annottext">s :: ActivateGateway
+</span><a href="#local-6989586621679395297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395296"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679395296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
+</span><a href="#local-6989586621679395297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ActivateGateway' :: Maybe [Tag]
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3Atags%3AActivateGateway%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679390721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679395296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; ActivateGateway -&gt; f ActivateGateway)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -429,122 +433,124 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-264"></span><span>
-</span><span id="line-265"></span><span class="hs-comment">-- | Your gateway activation key. You can obtain the activation key by</span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- sending an HTTP GET request with redirects enabled to the gateway IP</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- address (port 80). The redirect URL returned in the response provides</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- you the activation key for your gateway in the query string parameter</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- @activationKey@. It may also include other activation-related</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- parameters, however, these are merely defaults -- the arguments you pass</span><span>
-</span><span id="line-271"></span><span class="hs-comment">-- to the @ActivateGateway@ API call determine the actual configuration of</span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- your gateway.</span><span>
-</span><span id="line-273"></span><span class="hs-comment">--</span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- For more information, see</span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key&gt;</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- in the /Storage Gateway User Guide/.</span><span>
-</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_activationKey"><span class="hs-identifier hs-type">activateGateway_activationKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-278"></span><span id="activateGateway_activationKey"><span class="annot"><span class="annottext">activateGateway_activationKey :: (Text -&gt; f Text) -&gt; ActivateGateway -&gt; f ActivateGateway
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | Your gateway activation key. You can obtain the activation key by</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- sending an HTTP GET request with redirects enabled to the gateway IP</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- address (port 80). The redirect URL returned in the response provides</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- you the activation key for your gateway in the query string parameter</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- @activationKey@. It may also include other activation-related</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- parameters, however, these are merely defaults -- the arguments you pass</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- to the @ActivateGateway@ API call determine the actual configuration of</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- your gateway.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html Getting activation key&gt;</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- in the /Storage Gateway User Guide/.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_activationKey"><span class="hs-identifier hs-type">activateGateway_activationKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-282"></span><span id="activateGateway_activationKey"><span class="annot"><span class="annottext">activateGateway_activationKey :: (Text -&gt; f Text) -&gt; ActivateGateway -&gt; f ActivateGateway
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_activationKey"><span class="hs-identifier hs-var hs-var">activateGateway_activationKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivateGateway -&gt; Text)
 -&gt; (ActivateGateway -&gt; Text -&gt; ActivateGateway)
 -&gt; Lens ActivateGateway ActivateGateway Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390717"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395292"><span class="annot"><span class="annottext">Text
 activationKey :: Text
 $sel:activationKey:ActivateGateway' :: ActivateGateway -&gt; Text
-</span><a href="#local-6989586621679390717"><span class="hs-identifier hs-var hs-var">activationKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390717"><span class="hs-identifier hs-var">activationKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390716"><span class="annot"><span class="annottext">s :: ActivateGateway
-</span><a href="#local-6989586621679390716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390715"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
-</span><a href="#local-6989586621679390716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activationKey:ActivateGateway' :: Text
+</span><a href="#local-6989586621679395292"><span class="hs-identifier hs-var hs-var">activationKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395292"><span class="hs-identifier hs-var">activationKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395291"><span class="annot"><span class="annottext">s :: ActivateGateway
+</span><a href="#local-6989586621679395291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395290"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
+</span><a href="#local-6989586621679395291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activationKey:ActivateGateway' :: Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AactivationKey%3AActivateGateway%27"><span class="hs-identifier hs-var">activationKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-279"></span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- | The name you configured for your gateway.</span><span>
-</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_gatewayName"><span class="hs-identifier hs-type">activateGateway_gatewayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-282"></span><span id="activateGateway_gatewayName"><span class="annot"><span class="annottext">activateGateway_gatewayName :: (Text -&gt; f Text) -&gt; ActivateGateway -&gt; f ActivateGateway
+</span><a href="#local-6989586621679395290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | The name you configured for your gateway.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_gatewayName"><span class="hs-identifier hs-type">activateGateway_gatewayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-286"></span><span id="activateGateway_gatewayName"><span class="annot"><span class="annottext">activateGateway_gatewayName :: (Text -&gt; f Text) -&gt; ActivateGateway -&gt; f ActivateGateway
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_gatewayName"><span class="hs-identifier hs-var hs-var">activateGateway_gatewayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivateGateway -&gt; Text)
 -&gt; (ActivateGateway -&gt; Text -&gt; ActivateGateway)
 -&gt; Lens ActivateGateway ActivateGateway Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390714"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395289"><span class="annot"><span class="annottext">Text
 gatewayName :: Text
 $sel:gatewayName:ActivateGateway' :: ActivateGateway -&gt; Text
-</span><a href="#local-6989586621679390714"><span class="hs-identifier hs-var hs-var">gatewayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390714"><span class="hs-identifier hs-var">gatewayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390713"><span class="annot"><span class="annottext">s :: ActivateGateway
-</span><a href="#local-6989586621679390713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390712"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
-</span><a href="#local-6989586621679390713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayName:ActivateGateway' :: Text
+</span><a href="#local-6989586621679395289"><span class="hs-identifier hs-var hs-var">gatewayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395289"><span class="hs-identifier hs-var">gatewayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395288"><span class="annot"><span class="annottext">s :: ActivateGateway
+</span><a href="#local-6989586621679395288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395287"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
+</span><a href="#local-6989586621679395288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayName:ActivateGateway' :: Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AgatewayName%3AActivateGateway%27"><span class="hs-identifier hs-var">gatewayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-283"></span><span>
-</span><span id="line-284"></span><span class="hs-comment">-- | A value that indicates the time zone you want to set for the gateway.</span><span>
-</span><span id="line-285"></span><span class="hs-comment">-- The time zone is of the format \&quot;GMT-hr:mm\&quot; or \&quot;GMT+hr:mm\&quot;. For</span><span>
-</span><span id="line-286"></span><span class="hs-comment">-- example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00</span><span>
-</span><span id="line-287"></span><span class="hs-comment">-- indicates the time is 2 hours ahead of GMT. The time zone is used, for</span><span>
-</span><span id="line-288"></span><span class="hs-comment">-- example, for scheduling snapshots and your gateway\'s maintenance</span><span>
-</span><span id="line-289"></span><span class="hs-comment">-- schedule.</span><span>
-</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_gatewayTimezone"><span class="hs-identifier hs-type">activateGateway_gatewayTimezone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-291"></span><span id="activateGateway_gatewayTimezone"><span class="annot"><span class="annottext">activateGateway_gatewayTimezone :: (Text -&gt; f Text) -&gt; ActivateGateway -&gt; f ActivateGateway
+</span><a href="#local-6989586621679395287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | A value that indicates the time zone you want to set for the gateway.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- The time zone is of the format \&quot;GMT-hr:mm\&quot; or \&quot;GMT+hr:mm\&quot;. For</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- example, GMT-4:00 indicates the time is 4 hours behind GMT. GMT+2:00</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- indicates the time is 2 hours ahead of GMT. The time zone is used, for</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- example, for scheduling snapshots and your gateway\'s maintenance</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- schedule.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_gatewayTimezone"><span class="hs-identifier hs-type">activateGateway_gatewayTimezone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-295"></span><span id="activateGateway_gatewayTimezone"><span class="annot"><span class="annottext">activateGateway_gatewayTimezone :: (Text -&gt; f Text) -&gt; ActivateGateway -&gt; f ActivateGateway
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_gatewayTimezone"><span class="hs-identifier hs-var hs-var">activateGateway_gatewayTimezone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivateGateway -&gt; Text)
 -&gt; (ActivateGateway -&gt; Text -&gt; ActivateGateway)
 -&gt; Lens ActivateGateway ActivateGateway Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390711"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395286"><span class="annot"><span class="annottext">Text
 gatewayTimezone :: Text
 $sel:gatewayTimezone:ActivateGateway' :: ActivateGateway -&gt; Text
-</span><a href="#local-6989586621679390711"><span class="hs-identifier hs-var hs-var">gatewayTimezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390711"><span class="hs-identifier hs-var">gatewayTimezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390710"><span class="annot"><span class="annottext">s :: ActivateGateway
-</span><a href="#local-6989586621679390710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390709"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
-</span><a href="#local-6989586621679390710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayTimezone:ActivateGateway' :: Text
+</span><a href="#local-6989586621679395286"><span class="hs-identifier hs-var hs-var">gatewayTimezone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395286"><span class="hs-identifier hs-var">gatewayTimezone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395285"><span class="annot"><span class="annottext">s :: ActivateGateway
+</span><a href="#local-6989586621679395285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395284"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
+</span><a href="#local-6989586621679395285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayTimezone:ActivateGateway' :: Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AgatewayTimezone%3AActivateGateway%27"><span class="hs-identifier hs-var">gatewayTimezone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-292"></span><span>
-</span><span id="line-293"></span><span class="hs-comment">-- | A value that indicates the Region where you want to store your data. The</span><span>
-</span><span id="line-294"></span><span class="hs-comment">-- gateway Region specified must be the same Region as the Region in your</span><span>
-</span><span id="line-295"></span><span class="hs-comment">-- @Host@ header in the request. For more information about available</span><span>
-</span><span id="line-296"></span><span class="hs-comment">-- Regions and endpoints for Storage Gateway, see</span><span>
-</span><span id="line-297"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas&gt;</span><span>
-</span><span id="line-298"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
-</span><span id="line-299"></span><span class="hs-comment">--</span><span>
-</span><span id="line-300"></span><span class="hs-comment">-- Valid Values: See</span><span>
-</span><span id="line-301"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas&gt;</span><span>
-</span><span id="line-302"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
-</span><span id="line-303"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_gatewayRegion"><span class="hs-identifier hs-type">activateGateway_gatewayRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-304"></span><span id="activateGateway_gatewayRegion"><span class="annot"><span class="annottext">activateGateway_gatewayRegion :: (Text -&gt; f Text) -&gt; ActivateGateway -&gt; f ActivateGateway
+</span><a href="#local-6989586621679395284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | A value that indicates the Amazon Web Services Region where you want to</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- store your data. The gateway Amazon Web Services Region specified must</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- be the same Amazon Web Services Region as the Amazon Web Services Region</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- in your @Host@ header in the request. For more information about</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- available Amazon Web Services Regions and endpoints for Storage Gateway,</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas&gt;</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- Valid Values: See</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/sg.html Storage Gateway endpoints and quotas&gt;</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-309"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_gatewayRegion"><span class="hs-identifier hs-type">activateGateway_gatewayRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-310"></span><span id="activateGateway_gatewayRegion"><span class="annot"><span class="annottext">activateGateway_gatewayRegion :: (Text -&gt; f Text) -&gt; ActivateGateway -&gt; f ActivateGateway
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGateway_gatewayRegion"><span class="hs-identifier hs-var hs-var">activateGateway_gatewayRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivateGateway -&gt; Text)
 -&gt; (ActivateGateway -&gt; Text -&gt; ActivateGateway)
 -&gt; Lens ActivateGateway ActivateGateway Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390708"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395283"><span class="annot"><span class="annottext">Text
 gatewayRegion :: Text
 $sel:gatewayRegion:ActivateGateway' :: ActivateGateway -&gt; Text
-</span><a href="#local-6989586621679390708"><span class="hs-identifier hs-var hs-var">gatewayRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390708"><span class="hs-identifier hs-var">gatewayRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390707"><span class="annot"><span class="annottext">s :: ActivateGateway
-</span><a href="#local-6989586621679390707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390706"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
-</span><a href="#local-6989586621679390707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayRegion:ActivateGateway' :: Text
+</span><a href="#local-6989586621679395283"><span class="hs-identifier hs-var hs-var">gatewayRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395283"><span class="hs-identifier hs-var">gatewayRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395282"><span class="annot"><span class="annottext">s :: ActivateGateway
+</span><a href="#local-6989586621679395282"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395281"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395281"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGateway
+</span><a href="#local-6989586621679395282"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayRegion:ActivateGateway' :: Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AgatewayRegion%3AActivateGateway%27"><span class="hs-identifier hs-var">gatewayRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-305"></span><span>
-</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-307"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-308"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-309"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span><span>
-</span><span id="line-310"></span><span>  </span><span id="local-6989586621679390702"><span class="annot"><span class="annottext">request :: ActivateGateway -&gt; Request ActivateGateway
+</span><a href="#local-6989586621679395281"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-313"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-314"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-315"></span><span>      </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span><span>
+</span><span id="line-316"></span><span>  </span><span id="local-6989586621679395277"><span class="annot"><span class="annottext">request :: ActivateGateway -&gt; Request ActivateGateway
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ActivateGateway -&gt; Request ActivateGateway
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-311"></span><span>  </span><span id="local-6989586621679390698"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-317"></span><span>  </span><span id="local-6989586621679395273"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ActivateGateway
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse ActivateGateway)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-312"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-318"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; Object
  -&gt; Either String (AWSResponse ActivateGateway))
@@ -562,22 +568,22 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-313"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679390695"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390695"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390694"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679390694"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390693"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390693"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-314"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; ActivateGatewayResponse
+</span><span id="line-319"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679395270"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395270"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679395269"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679395269"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679395268"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679395268"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-320"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; ActivateGatewayResponse
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse%27"><span class="hs-identifier hs-var">ActivateGatewayResponse'</span></a></span><span>
-</span><span id="line-315"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; ActivateGatewayResponse)
+</span><span id="line-321"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; ActivateGatewayResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; ActivateGatewayResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679390693"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679395268"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-316"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ActivateGatewayResponse)
+</span><span id="line-322"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ActivateGatewayResponse)
 -&gt; Either String Int -&gt; Either String ActivateGatewayResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -585,44 +591,44 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390695"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-317"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-318"></span><span>
-</span><span id="line-319"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390685"><span id="local-6989586621679390687"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span></span></span><span>
-</span><span id="line-320"></span><span>
-</span><span id="line-321"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390682"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span></span><span>
-</span><span id="line-322"></span><span>
-</span><span id="line-323"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-324"></span><span>  </span><span id="local-6989586621679390678"><span class="annot"><span class="annottext">toHeaders :: ActivateGateway -&gt; ResponseHeaders
+</span><a href="#local-6989586621679395270"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395260"><span id="local-6989586621679395262"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span></span></span><span>
+</span><span id="line-326"></span><span>
+</span><span id="line-327"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395257"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span></span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-330"></span><span>  </span><span id="local-6989586621679395253"><span class="annot"><span class="annottext">toHeaders :: ActivateGateway -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-325"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ActivateGateway -&gt; ResponseHeaders
+</span><span id="line-331"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ActivateGateway -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
-</span><span id="line-326"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><span id="line-332"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-327"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-333"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
-</span><span id="line-328"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-334"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;StorageGateway_20130630.ActivateGateway&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-329"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-330"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-331"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-335"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-336"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
-</span><span id="line-332"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-338"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-333"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-334"></span><span>                      </span><span class="hs-special">)</span><span>
-</span><span id="line-335"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-336"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-337"></span><span>
-</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390668"><span id="local-6989586621679390670"><span id="local-6989586621679390672"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-339"></span><span>  </span><span id="local-6989586621679390666"><span class="annot"><span class="annottext">toJSON :: ActivateGateway -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390657"><span id="local-6989586621679390658"><span id="local-6989586621679390659"><span id="local-6989586621679390660"><span id="local-6989586621679390661"><span id="local-6989586621679390662"><span id="local-6989586621679390663"><span id="local-6989586621679390664"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-339"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-340"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-342"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395243"><span id="local-6989586621679395245"><span id="local-6989586621679395247"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-345"></span><span>  </span><span id="local-6989586621679395241"><span class="annot"><span class="annottext">toJSON :: ActivateGateway -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway%27"><span class="hs-identifier hs-type">ActivateGateway'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395232"><span id="local-6989586621679395233"><span id="local-6989586621679395234"><span id="local-6989586621679395235"><span id="local-6989586621679395236"><span id="local-6989586621679395237"><span id="local-6989586621679395238"><span id="local-6989586621679395239"><span class="annot"><span class="annottext">Maybe [Tag]
 Maybe Text
 Text
 gatewayRegion :: Text
@@ -641,107 +647,108 @@ $sel:tags:ActivateGateway' :: ActivateGateway -&gt; Maybe [Tag]
 $sel:gatewayType:ActivateGateway' :: ActivateGateway -&gt; Maybe Text
 $sel:tapeDriveType:ActivateGateway' :: ActivateGateway -&gt; Maybe Text
 $sel:mediumChangerType:ActivateGateway' :: ActivateGateway -&gt; Maybe Text
-</span><a href="#local-6989586621679390657"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-340"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679395232"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-346"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-341"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-347"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-342"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-348"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MediumChangerType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-343"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-349"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390664"><span class="hs-identifier hs-var">mediumChangerType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-344"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395239"><span class="hs-identifier hs-var">mediumChangerType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-350"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TapeDriveType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390663"><span class="hs-identifier hs-var">tapeDriveType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-345"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395238"><span class="hs-identifier hs-var">tapeDriveType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GatewayType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390662"><span class="hs-identifier hs-var">gatewayType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-346"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679395237"><span class="hs-identifier hs-var">gatewayType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679390661"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-347"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679395236"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ActivationKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390660"><span class="hs-identifier hs-var">activationKey</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-348"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679395235"><span class="hs-identifier hs-var">activationKey</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GatewayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390659"><span class="hs-identifier hs-var">gatewayName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-349"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679395234"><span class="hs-identifier hs-var">gatewayName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-355"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
-</span><span id="line-350"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-356"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GatewayTimezone&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390658"><span class="hs-identifier hs-var">gatewayTimezone</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-351"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679395233"><span class="hs-identifier hs-var">gatewayTimezone</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-357"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
-</span><span id="line-352"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-358"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GatewayRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679390657"><span class="hs-identifier hs-var">gatewayRegion</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-353"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-354"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-355"></span><span>
-</span><span id="line-356"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-357"></span><span>  </span><span id="local-6989586621679390651"><span class="annot"><span class="annottext">toPath :: ActivateGateway -&gt; ByteString
+</span><a href="#local-6989586621679395232"><span class="hs-identifier hs-var">gatewayRegion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-360"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-363"></span><span>  </span><span id="local-6989586621679395226"><span class="annot"><span class="annottext">toPath :: ActivateGateway -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ActivateGateway -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-358"></span><span>
-</span><span id="line-359"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-360"></span><span>  </span><span id="local-6989586621679390647"><span class="annot"><span class="annottext">toQuery :: ActivateGateway -&gt; QueryString
+</span><span id="line-364"></span><span>
+</span><span id="line-365"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGateway"><span class="hs-identifier hs-type">ActivateGateway</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-366"></span><span>  </span><span id="local-6989586621679395222"><span class="annot"><span class="annottext">toQuery :: ActivateGateway -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ActivateGateway -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-361"></span><span>
-</span><span id="line-362"></span><span class="hs-comment">-- | Storage Gateway returns the Amazon Resource Name (ARN) of the activated</span><span>
-</span><span id="line-363"></span><span class="hs-comment">-- gateway. It is a string made of information such as your account,</span><span>
-</span><span id="line-364"></span><span class="hs-comment">-- gateway name, and Region. This ARN is used to reference the gateway in</span><span>
-</span><span id="line-365"></span><span class="hs-comment">-- other API operations as well as resource-based authorization.</span><span>
-</span><span id="line-366"></span><span class="hs-comment">--</span><span>
-</span><span id="line-367"></span><span class="hs-comment">-- For gateways activated prior to September 02, 2015, the gateway ARN</span><span>
-</span><span id="line-368"></span><span class="hs-comment">-- contains the gateway name rather than the gateway ID. Changing the name</span><span>
-</span><span id="line-369"></span><span class="hs-comment">-- of the gateway has no effect on the gateway ARN.</span><span>
-</span><span id="line-370"></span><span class="hs-comment">--</span><span>
-</span><span id="line-371"></span><span class="hs-comment">-- /See:/ 'newActivateGatewayResponse' smart constructor.</span><span>
-</span><span id="line-372"></span><span id="local-6989586621679390644"><span id="local-6989586621679390645"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivateGatewayResponse"><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-var">ActivateGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivateGatewayResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse%27"><span class="hs-identifier hs-var">ActivateGatewayResponse'</span></a></span></span><span>
-</span><span id="line-373"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3AActivateGatewayResponse%27"><span class="annot"><span class="annottext">ActivateGatewayResponse -&gt; Maybe Text
+</span><span id="line-367"></span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- | Storage Gateway returns the Amazon Resource Name (ARN) of the activated</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- gateway. It is a string made of information such as your account,</span><span>
+</span><span id="line-370"></span><span class="hs-comment">-- gateway name, and Amazon Web Services Region. This ARN is used to</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- reference the gateway in other API operations as well as resource-based</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- authorization.</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--</span><span>
+</span><span id="line-374"></span><span class="hs-comment">-- For gateways activated prior to September 02, 2015, the gateway ARN</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- contains the gateway name rather than the gateway ID. Changing the name</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- of the gateway has no effect on the gateway ARN.</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- /See:/ 'newActivateGatewayResponse' smart constructor.</span><span>
+</span><span id="line-379"></span><span id="local-6989586621679395219"><span id="local-6989586621679395220"></span></span><span class="hs-keyword">data</span><span> </span><span id="ActivateGatewayResponse"><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-var">ActivateGatewayResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActivateGatewayResponse%27"><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse%27"><span class="hs-identifier hs-var">ActivateGatewayResponse'</span></a></span></span><span>
+</span><span id="line-380"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3AActivateGatewayResponse%27"><span class="annot"><span class="annottext">ActivateGatewayResponse -&gt; Maybe Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AgatewayARN%3AActivateGatewayResponse%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-374"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-375"></span><span>    </span><span id="%24sel%3AhttpStatus%3AActivateGatewayResponse%27"><span class="annot"><span class="annottext">ActivateGatewayResponse -&gt; Int
+</span><span id="line-381"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-382"></span><span>    </span><span id="%24sel%3AhttpStatus%3AActivateGatewayResponse%27"><span class="annot"><span class="annottext">ActivateGatewayResponse -&gt; Int
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AhttpStatus%3AActivateGatewayResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-376"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-377"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390638"><span id="local-6989586621679390640"><span class="annot"><span class="annottext">ActivateGatewayResponse -&gt; ActivateGatewayResponse -&gt; Bool
+</span><span id="line-383"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-384"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679395213"><span id="local-6989586621679395215"><span class="annot"><span class="annottext">ActivateGatewayResponse -&gt; ActivateGatewayResponse -&gt; Bool
 (ActivateGatewayResponse -&gt; ActivateGatewayResponse -&gt; Bool)
 -&gt; (ActivateGatewayResponse -&gt; ActivateGatewayResponse -&gt; Bool)
 -&gt; Eq ActivateGatewayResponse
@@ -750,7 +757,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ActivateGatewayResponse -&gt; ActivateGatewayResponse -&gt; Bool
 == :: ActivateGatewayResponse -&gt; ActivateGatewayResponse -&gt; Bool
 $c== :: ActivateGatewayResponse -&gt; ActivateGatewayResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390630"><span id="local-6989586621679390632"><span id="local-6989586621679390634"><span id="local-6989586621679390636"><span class="annot"><span class="annottext">ReadPrec [ActivateGatewayResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395205"><span id="local-6989586621679395207"><span id="local-6989586621679395209"><span id="local-6989586621679395211"><span class="annot"><span class="annottext">ReadPrec [ActivateGatewayResponse]
 ReadPrec ActivateGatewayResponse
 Int -&gt; ReadS ActivateGatewayResponse
 ReadS [ActivateGatewayResponse]
@@ -770,7 +777,7 @@ readList :: ReadS [ActivateGatewayResponse]
 $creadList :: ReadS [ActivateGatewayResponse]
 readsPrec :: Int -&gt; ReadS ActivateGatewayResponse
 $creadsPrec :: Int -&gt; ReadS ActivateGatewayResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390624"><span id="local-6989586621679390626"><span id="local-6989586621679390628"><span class="annot"><span class="annottext">Int -&gt; ActivateGatewayResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679395199"><span id="local-6989586621679395201"><span id="local-6989586621679395203"><span class="annot"><span class="annottext">Int -&gt; ActivateGatewayResponse -&gt; ShowS
 [ActivateGatewayResponse] -&gt; ShowS
 ActivateGatewayResponse -&gt; String
 (Int -&gt; ActivateGatewayResponse -&gt; ShowS)
@@ -797,40 +804,40 @@ forall a.
 $cto :: forall x. Rep ActivateGatewayResponse x -&gt; ActivateGatewayResponse
 $cfrom :: forall x. ActivateGatewayResponse -&gt; Rep ActivateGatewayResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-378"></span><span>
-</span><span id="line-379"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-380"></span><span class="hs-comment">-- Create a value of 'ActivateGatewayResponse' with all optional fields omitted.</span><span>
-</span><span id="line-381"></span><span class="hs-comment">--</span><span>
-</span><span id="line-382"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-383"></span><span class="hs-comment">--</span><span>
-</span><span id="line-384"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-385"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-386"></span><span class="hs-comment">--</span><span>
-</span><span id="line-387"></span><span class="hs-comment">-- 'gatewayARN', 'activateGatewayResponse_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-385"></span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-387"></span><span class="hs-comment">-- Create a value of 'ActivateGatewayResponse' with all optional fields omitted.</span><span>
 </span><span id="line-388"></span><span class="hs-comment">--</span><span>
-</span><span id="line-389"></span><span class="hs-comment">-- 'httpStatus', 'activateGatewayResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-390"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#newActivateGatewayResponse"><span class="hs-identifier hs-type">newActivateGatewayResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-391"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-392"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-393"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span><span>
-</span><span id="line-394"></span><span id="newActivateGatewayResponse"><span class="annot"><span class="annottext">newActivateGatewayResponse :: Int -&gt; ActivateGatewayResponse
-</span><a href="Network.AWS.StorageGateway.ActivateGateway.html#newActivateGatewayResponse"><span class="hs-identifier hs-var hs-var">newActivateGatewayResponse</span></a></span></span><span> </span><span id="local-6989586621679390621"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390621"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-395"></span><span>  </span><span class="annot"><span class="annottext">ActivateGatewayResponse' :: Maybe Text -&gt; Int -&gt; ActivateGatewayResponse
+</span><span id="line-389"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- 'gatewayARN', 'activateGatewayResponse_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--</span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- 'httpStatus', 'activateGatewayResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-397"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#newActivateGatewayResponse"><span class="hs-identifier hs-type">newActivateGatewayResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-398"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-399"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-400"></span><span>  </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span><span>
+</span><span id="line-401"></span><span id="newActivateGatewayResponse"><span class="annot"><span class="annottext">newActivateGatewayResponse :: Int -&gt; ActivateGatewayResponse
+</span><a href="Network.AWS.StorageGateway.ActivateGateway.html#newActivateGatewayResponse"><span class="hs-identifier hs-var hs-var">newActivateGatewayResponse</span></a></span></span><span> </span><span id="local-6989586621679395196"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395196"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-402"></span><span>  </span><span class="annot"><span class="annottext">ActivateGatewayResponse' :: Maybe Text -&gt; Int -&gt; ActivateGatewayResponse
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse%27"><span class="hs-identifier hs-type">ActivateGatewayResponse'</span></a></span><span>
-</span><span id="line-396"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gatewayARN:ActivateGatewayResponse' :: Maybe Text
+</span><span id="line-403"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gatewayARN:ActivateGatewayResponse' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AgatewayARN%3AActivateGatewayResponse%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-397"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-404"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-398"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ActivateGatewayResponse' :: Int
+</span><span id="line-405"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ActivateGatewayResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AhttpStatus%3AActivateGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390621"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-399"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-400"></span><span>
-</span><span id="line-401"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-402"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGatewayResponse_gatewayARN"><span class="hs-identifier hs-type">activateGatewayResponse_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-403"></span><span id="activateGatewayResponse_gatewayARN"><span class="annot"><span class="annottext">activateGatewayResponse_gatewayARN :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679395196"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-406"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-407"></span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-409"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGatewayResponse_gatewayARN"><span class="hs-identifier hs-type">activateGatewayResponse_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-410"></span><span id="activateGatewayResponse_gatewayARN"><span class="annot"><span class="annottext">activateGatewayResponse_gatewayARN :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ActivateGatewayResponse -&gt; f ActivateGatewayResponse
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGatewayResponse_gatewayARN"><span class="hs-identifier hs-var hs-var">activateGatewayResponse_gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivateGatewayResponse -&gt; Maybe Text)
 -&gt; (ActivateGatewayResponse
@@ -841,35 +848,35 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse%27"><span class="hs-identifier hs-type">ActivateGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390620"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse%27"><span class="hs-identifier hs-type">ActivateGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395195"><span class="annot"><span class="annottext">Maybe Text
 gatewayARN :: Maybe Text
 $sel:gatewayARN:ActivateGatewayResponse' :: ActivateGatewayResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679390620"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390620"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390619"><span class="annot"><span class="annottext">s :: ActivateGatewayResponse
-</span><a href="#local-6989586621679390619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse%27"><span class="hs-identifier hs-type">ActivateGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390618"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGatewayResponse
-</span><a href="#local-6989586621679390619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:ActivateGatewayResponse' :: Maybe Text
+</span><a href="#local-6989586621679395195"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395195"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395194"><span class="annot"><span class="annottext">s :: ActivateGatewayResponse
+</span><a href="#local-6989586621679395194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse%27"><span class="hs-identifier hs-type">ActivateGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395193"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679395193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGatewayResponse
+</span><a href="#local-6989586621679395194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:ActivateGatewayResponse' :: Maybe Text
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AgatewayARN%3AActivateGatewayResponse%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679390618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-404"></span><span>
-</span><span id="line-405"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-406"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGatewayResponse_httpStatus"><span class="hs-identifier hs-type">activateGatewayResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-407"></span><span id="activateGatewayResponse_httpStatus"><span class="annot"><span class="annottext">activateGatewayResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679395193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-411"></span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-413"></span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGatewayResponse_httpStatus"><span class="hs-identifier hs-type">activateGatewayResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-414"></span><span id="activateGatewayResponse_httpStatus"><span class="annot"><span class="annottext">activateGatewayResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; ActivateGatewayResponse -&gt; f ActivateGatewayResponse
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#activateGatewayResponse_httpStatus"><span class="hs-identifier hs-var hs-var">activateGatewayResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ActivateGatewayResponse -&gt; Int)
 -&gt; (ActivateGatewayResponse -&gt; Int -&gt; ActivateGatewayResponse)
 -&gt; Lens ActivateGatewayResponse ActivateGatewayResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse%27"><span class="hs-identifier hs-type">ActivateGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390617"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse%27"><span class="hs-identifier hs-type">ActivateGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679395192"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ActivateGatewayResponse' :: ActivateGatewayResponse -&gt; Int
-</span><a href="#local-6989586621679390617"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390617"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390616"><span class="annot"><span class="annottext">s :: ActivateGatewayResponse
-</span><a href="#local-6989586621679390616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse%27"><span class="hs-identifier hs-type">ActivateGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390615"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGatewayResponse
-</span><a href="#local-6989586621679390616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ActivateGatewayResponse' :: Int
+</span><a href="#local-6989586621679395192"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395192"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679395191"><span class="annot"><span class="annottext">s :: ActivateGatewayResponse
+</span><a href="#local-6989586621679395191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse%27"><span class="hs-identifier hs-type">ActivateGatewayResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679395190"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679395190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ActivateGatewayResponse
+</span><a href="#local-6989586621679395191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ActivateGatewayResponse' :: Int
 </span><a href="Network.AWS.StorageGateway.ActivateGateway.html#%24sel%3AhttpStatus%3AActivateGatewayResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679390615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-408"></span><span>
-</span><span id="line-409"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390613"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span></span><span>
-</span><span id="line-410"></span></pre></body></html>
+</span><a href="#local-6989586621679395190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-415"></span><span>
+</span><span id="line-416"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679395188"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.StorageGateway.ActivateGateway.html#ActivateGatewayResponse"><span class="hs-identifier hs-type">ActivateGatewayResponse</span></a></span></span><span>
+</span><span id="line-417"></span></pre></body></html>

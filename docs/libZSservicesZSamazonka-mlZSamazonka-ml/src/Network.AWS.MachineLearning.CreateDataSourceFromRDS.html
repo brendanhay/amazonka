@@ -43,8 +43,8 @@
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#newCreateDataSourceFromRDS"><span class="hs-identifier">newCreateDataSourceFromRDS</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_computeStatistics"><span class="hs-identifier">createDataSourceFromRDS_computeStatistics</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_dataSourceName"><span class="hs-identifier">createDataSourceFromRDS_dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_dataSourceName"><span class="hs-identifier">createDataSourceFromRDS_dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_computeStatistics"><span class="hs-identifier">createDataSourceFromRDS_computeStatistics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_dataSourceId"><span class="hs-identifier">createDataSourceFromRDS_dataSourceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_rDSData"><span class="hs-identifier">createDataSourceFromRDS_rDSData</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_roleARN"><span class="hs-identifier">createDataSourceFromRDS_roleARN</span></a></span><span class="hs-special">,</span><span>
@@ -67,17 +67,17 @@
 </span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newCreateDataSourceFromRDS' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679259994"><span id="local-6989586621679259995"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromRDS"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-var">CreateDataSourceFromRDS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromRDS%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">CreateDataSourceFromRDS'</span></a></span></span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- training.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3AcomputeStatistics%3ACreateDataSourceFromRDS%27"><span class="annot"><span class="annottext">CreateDataSourceFromRDS -&gt; Maybe Bool
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
-</span><span id="line-78"></span><span>    </span><span id="%24sel%3AdataSourceName%3ACreateDataSourceFromRDS%27"><span class="annot"><span class="annottext">CreateDataSourceFromRDS -&gt; Maybe Text
+</span><span id="line-70"></span><span id="local-6989586621679260090"><span id="local-6989586621679260091"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromRDS"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-var">CreateDataSourceFromRDS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromRDS%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">CreateDataSourceFromRDS'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AdataSourceName%3ACreateDataSourceFromRDS%27"><span class="annot"><span class="annottext">CreateDataSourceFromRDS -&gt; Maybe Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AdataSourceName%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- training.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AcomputeStatistics%3ACreateDataSourceFromRDS%27"><span class="annot"><span class="annottext">CreateDataSourceFromRDS -&gt; Maybe Bool
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @DataSource@. Typically,</span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">-- an Amazon Resource Number (ARN) becomes the ID for a @DataSource@.</span><span>
 </span><span id="line-81"></span><span>    </span><span id="%24sel%3AdataSourceId%3ACreateDataSourceFromRDS%27"><span class="annot"><span class="annottext">CreateDataSourceFromRDS -&gt; Text
@@ -137,7 +137,7 @@
 </span><span id="line-133"></span><span>    </span><span id="%24sel%3AroleARN%3ACreateDataSourceFromRDS%27"><span class="annot"><span class="annottext">CreateDataSourceFromRDS -&gt; Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AroleARN%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259984"><span id="local-6989586621679259986"><span class="annot"><span class="annottext">CreateDataSourceFromRDS -&gt; CreateDataSourceFromRDS -&gt; Bool
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679260080"><span id="local-6989586621679260082"><span class="annot"><span class="annottext">CreateDataSourceFromRDS -&gt; CreateDataSourceFromRDS -&gt; Bool
 (CreateDataSourceFromRDS -&gt; CreateDataSourceFromRDS -&gt; Bool)
 -&gt; (CreateDataSourceFromRDS -&gt; CreateDataSourceFromRDS -&gt; Bool)
 -&gt; Eq CreateDataSourceFromRDS
@@ -146,7 +146,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateDataSourceFromRDS -&gt; CreateDataSourceFromRDS -&gt; Bool
 == :: CreateDataSourceFromRDS -&gt; CreateDataSourceFromRDS -&gt; Bool
 $c== :: CreateDataSourceFromRDS -&gt; CreateDataSourceFromRDS -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259975"><span id="local-6989586621679259977"><span id="local-6989586621679259979"><span id="local-6989586621679259981"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromRDS]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260071"><span id="local-6989586621679260073"><span id="local-6989586621679260075"><span id="local-6989586621679260077"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromRDS]
 ReadPrec CreateDataSourceFromRDS
 Int -&gt; ReadS CreateDataSourceFromRDS
 ReadS [CreateDataSourceFromRDS]
@@ -166,7 +166,7 @@ readList :: ReadS [CreateDataSourceFromRDS]
 $creadList :: ReadS [CreateDataSourceFromRDS]
 readsPrec :: Int -&gt; ReadS CreateDataSourceFromRDS
 $creadsPrec :: Int -&gt; ReadS CreateDataSourceFromRDS
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259968"><span id="local-6989586621679259970"><span id="local-6989586621679259972"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromRDS -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679260064"><span id="local-6989586621679260066"><span id="local-6989586621679260068"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromRDS -&gt; ShowS
 [CreateDataSourceFromRDS] -&gt; ShowS
 CreateDataSourceFromRDS -&gt; String
 (Int -&gt; CreateDataSourceFromRDS -&gt; ShowS)
@@ -202,13 +202,13 @@ $cfrom :: forall x. CreateDataSourceFromRDS -&gt; Rep CreateDataSourceFromRDS x
 </span><span id="line-142"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- 'computeStatistics', 'createDataSourceFromRDS_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- training.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- 'dataSourceName', 'createDataSourceFromRDS_dataSourceName' - A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'dataSourceName', 'createDataSourceFromRDS_dataSourceName' - A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'computeStatistics', 'createDataSourceFromRDS_computeStatistics' - The compute statistics for a @DataSource@. The statistics are generated</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- training.</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- 'dataSourceId', 'createDataSourceFromRDS_dataSourceId' - A user-supplied ID that uniquely identifies the @DataSource@. Typically,</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- an Amazon Resource Number (ARN) becomes the ID for a @DataSource@.</span><span>
@@ -274,70 +274,42 @@ $cfrom :: forall x. CreateDataSourceFromRDS -&gt; Rep CreateDataSourceFromRDS x
 </span><span id="line-214"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span>
 </span><span id="line-215"></span><span id="newCreateDataSourceFromRDS"><span class="annot"><span class="annottext">newCreateDataSourceFromRDS :: Text -&gt; RDSDataSpec -&gt; Text -&gt; CreateDataSourceFromRDS
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#newCreateDataSourceFromRDS"><span class="hs-identifier hs-var hs-var">newCreateDataSourceFromRDS</span></a></span></span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621679259963"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259963"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span></span><span>
-</span><span id="line-217"></span><span>  </span><span id="local-6989586621679259962"><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679259962"><span class="hs-identifier hs-var">pRDSData_</span></a></span></span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679259961"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259961"><span class="hs-identifier hs-var">pRoleARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">CreateDataSourceFromRDS' :: Maybe Bool
--&gt; Maybe Text
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679260059"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260059"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span></span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679260058"><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679260058"><span class="hs-identifier hs-var">pRDSData_</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679260057"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260057"><span class="hs-identifier hs-var">pRoleARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><span class="annottext">CreateDataSourceFromRDS' :: Maybe Text
+-&gt; Maybe Bool
 -&gt; Text
 -&gt; RDSDataSpec
 -&gt; Text
 -&gt; CreateDataSourceFromRDS
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span>
-</span><span id="line-220"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromRDS' :: Maybe Bool
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-220"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromRDS' :: Maybe Text
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AdataSourceName%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromRDS' :: Maybe Text
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AdataSourceName%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromRDS' :: Maybe Bool
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromRDS' :: Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AdataSourceId%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259963"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260059"><span class="hs-identifier hs-var">pDataSourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">$sel:rDSData:CreateDataSourceFromRDS' :: RDSDataSpec
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3ArDSData%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">rDSData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679259962"><span class="hs-identifier hs-var">pRDSData_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679260058"><span class="hs-identifier hs-var">pRDSData_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleARN:CreateDataSourceFromRDS' :: Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AroleARN%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259961"><span class="hs-identifier hs-var">pRoleARN_</span></a></span><span>
+</span><a href="#local-6989586621679260057"><span class="hs-identifier hs-var">pRoleARN_</span></a></span><span>
 </span><span id="line-226"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-227"></span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- training.</span><span>
-</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_computeStatistics"><span class="hs-identifier hs-type">createDataSourceFromRDS_computeStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span id="createDataSourceFromRDS_computeStatistics"><span class="annot"><span class="annottext">createDataSourceFromRDS_computeStatistics :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; CreateDataSourceFromRDS -&gt; f CreateDataSourceFromRDS
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_computeStatistics"><span class="hs-identifier hs-var hs-var">createDataSourceFromRDS_computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromRDS -&gt; Maybe Bool)
--&gt; (CreateDataSourceFromRDS
-    -&gt; Maybe Bool -&gt; CreateDataSourceFromRDS)
--&gt; Lens
-     CreateDataSourceFromRDS
-     CreateDataSourceFromRDS
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259958"><span class="annot"><span class="annottext">Maybe Bool
-computeStatistics :: Maybe Bool
-$sel:computeStatistics:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; Maybe Bool
-</span><a href="#local-6989586621679259958"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259958"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259957"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDS
-</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259956"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDS
-</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromRDS' :: Maybe Bool
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
-</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_dataSourceName"><span class="hs-identifier hs-type">createDataSourceFromRDS_dataSourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-238"></span><span id="createDataSourceFromRDS_dataSourceName"><span class="annot"><span class="annottext">createDataSourceFromRDS_dataSourceName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-228"></span><span class="hs-comment">-- | A user-supplied name or description of the @DataSource@.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_dataSourceName"><span class="hs-identifier hs-type">createDataSourceFromRDS_dataSourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="createDataSourceFromRDS_dataSourceName"><span class="annot"><span class="annottext">createDataSourceFromRDS_dataSourceName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateDataSourceFromRDS -&gt; f CreateDataSourceFromRDS
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_dataSourceName"><span class="hs-identifier hs-var hs-var">createDataSourceFromRDS_dataSourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromRDS -&gt; Maybe Text)
 -&gt; (CreateDataSourceFromRDS
@@ -348,16 +320,44 @@ $sel:computeStatistics:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt;
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259955"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260054"><span class="annot"><span class="annottext">Maybe Text
 dataSourceName :: Maybe Text
 $sel:dataSourceName:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; Maybe Text
-</span><a href="#local-6989586621679259955"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259955"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259954"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDS
-</span><a href="#local-6989586621679259954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259953"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDS
-</span><a href="#local-6989586621679259954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromRDS' :: Maybe Text
+</span><a href="#local-6989586621679260054"><span class="hs-identifier hs-var hs-var">dataSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260054"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260053"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDS
+</span><a href="#local-6989586621679260053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260052"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679260052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDS
+</span><a href="#local-6989586621679260053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceName:CreateDataSourceFromRDS' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AdataSourceName%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The compute statistics for a @DataSource@. The statistics are generated</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- from the observation data referenced by a @DataSource@. Amazon ML uses</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- the statistics internally during @MLModel@ training. This parameter must</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- be set to @true@ if the @@DataSource@@ needs to be used for @MLModel@</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- training.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_computeStatistics"><span class="hs-identifier hs-type">createDataSourceFromRDS_computeStatistics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="createDataSourceFromRDS_computeStatistics"><span class="annot"><span class="annottext">createDataSourceFromRDS_computeStatistics :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateDataSourceFromRDS -&gt; f CreateDataSourceFromRDS
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDS_computeStatistics"><span class="hs-identifier hs-var hs-var">createDataSourceFromRDS_computeStatistics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDataSourceFromRDS -&gt; Maybe Bool)
+-&gt; (CreateDataSourceFromRDS
+    -&gt; Maybe Bool -&gt; CreateDataSourceFromRDS)
+-&gt; Lens
+     CreateDataSourceFromRDS
+     CreateDataSourceFromRDS
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260051"><span class="annot"><span class="annottext">Maybe Bool
+computeStatistics :: Maybe Bool
+$sel:computeStatistics:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; Maybe Bool
+</span><a href="#local-6989586621679260051"><span class="hs-identifier hs-var hs-var">computeStatistics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679260051"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260050"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDS
+</span><a href="#local-6989586621679260050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260049"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679260049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDS
+</span><a href="#local-6989586621679260050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:computeStatistics:CreateDataSourceFromRDS' :: Maybe Bool
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AcomputeStatistics%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679260049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-239"></span><span>
 </span><span id="line-240"></span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @DataSource@. Typically,</span><span>
 </span><span id="line-241"></span><span class="hs-comment">-- an Amazon Resource Number (ARN) becomes the ID for a @DataSource@.</span><span>
@@ -368,16 +368,16 @@ $sel:dataSourceName:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; Ma
 -&gt; (CreateDataSourceFromRDS -&gt; Text -&gt; CreateDataSourceFromRDS)
 -&gt; Lens CreateDataSourceFromRDS CreateDataSourceFromRDS Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259952"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260048"><span class="annot"><span class="annottext">Text
 dataSourceId :: Text
 $sel:dataSourceId:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; Text
-</span><a href="#local-6989586621679259952"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259952"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259951"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDS
-</span><a href="#local-6989586621679259951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259950"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDS
-</span><a href="#local-6989586621679259951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromRDS' :: Text
+</span><a href="#local-6989586621679260048"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260048"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260047"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDS
+</span><a href="#local-6989586621679260047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260046"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDS
+</span><a href="#local-6989586621679260047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromRDS' :: Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AdataSourceId%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | The data specification of an Amazon RDS @DataSource@:</span><span>
 </span><span id="line-246"></span><span class="hs-comment">--</span><span>
@@ -438,16 +438,16 @@ $sel:dataSourceId:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; Text
      RDSDataSpec
      RDSDataSpec
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259949"><span class="annot"><span class="annottext">RDSDataSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260045"><span class="annot"><span class="annottext">RDSDataSpec
 rDSData :: RDSDataSpec
 $sel:rDSData:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; RDSDataSpec
-</span><a href="#local-6989586621679259949"><span class="hs-identifier hs-var hs-var">rDSData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679259949"><span class="hs-identifier hs-var">rDSData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259948"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDS
-</span><a href="#local-6989586621679259948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259947"><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679259947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDS
-</span><a href="#local-6989586621679259948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rDSData:CreateDataSourceFromRDS' :: RDSDataSpec
+</span><a href="#local-6989586621679260045"><span class="hs-identifier hs-var hs-var">rDSData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679260045"><span class="hs-identifier hs-var">rDSData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260044"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDS
+</span><a href="#local-6989586621679260044"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260043"><span class="annot"><span class="annottext">RDSDataSpec
+</span><a href="#local-6989586621679260043"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDS
+</span><a href="#local-6989586621679260044"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rDSData:CreateDataSourceFromRDS' :: RDSDataSpec
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3ArDSData%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">rDSData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679259947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260043"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-294"></span><span>
 </span><span id="line-295"></span><span class="hs-comment">-- | The role that Amazon ML assumes on behalf of the user to create and</span><span>
 </span><span id="line-296"></span><span class="hs-comment">-- activate a data pipeline in the user\'s account and copy data using the</span><span>
@@ -459,28 +459,28 @@ $sel:rDSData:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; RDSDataSp
 -&gt; (CreateDataSourceFromRDS -&gt; Text -&gt; CreateDataSourceFromRDS)
 -&gt; Lens CreateDataSourceFromRDS CreateDataSourceFromRDS Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259946"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679260042"><span class="annot"><span class="annottext">Text
 roleARN :: Text
 $sel:roleARN:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; Text
-</span><a href="#local-6989586621679259946"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259946"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259945"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDS
-</span><a href="#local-6989586621679259945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259944"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDS
-</span><a href="#local-6989586621679259945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:CreateDataSourceFromRDS' :: Text
+</span><a href="#local-6989586621679260042"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260042"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679260041"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDS
+</span><a href="#local-6989586621679260041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679260040"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679260040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDS
+</span><a href="#local-6989586621679260041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:CreateDataSourceFromRDS' :: Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AroleARN%3ACreateDataSourceFromRDS%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-300"></span><span>
 </span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-302"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-303"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-304"></span><span>      </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse</span></a></span><span>
-</span><span id="line-305"></span><span>  </span><span id="local-6989586621679259940"><span class="annot"><span class="annottext">request :: CreateDataSourceFromRDS -&gt; Request CreateDataSourceFromRDS
+</span><span id="line-305"></span><span>  </span><span id="local-6989586621679260036"><span class="annot"><span class="annottext">request :: CreateDataSourceFromRDS -&gt; Request CreateDataSourceFromRDS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreateDataSourceFromRDS -&gt; Request CreateDataSourceFromRDS
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MachineLearning.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-306"></span><span>  </span><span id="local-6989586621679259936"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621679260032"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateDataSourceFromRDS
 -&gt; ClientResponse ClientBody
@@ -506,10 +506,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-308"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259933"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259933"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679259932"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679259932"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679259931"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259931"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-308"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679260029"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679260029"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679260028"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679260028"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679260027"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679260027"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-309"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateDataSourceFromRDSResponse
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-var">CreateDataSourceFromRDSResponse'</span></a></span><span>
 </span><span id="line-310"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateDataSourceFromRDSResponse)
@@ -517,7 +517,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateDataSourceFromRDSResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259931"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679260027"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSourceId&quot;</span></span><span class="hs-special">)</span><span>
@@ -530,15 +530,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259933"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679260029"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-312"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-313"></span><span>
-</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259923"><span id="local-6989586621679259925"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span></span></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260019"><span id="local-6989586621679260021"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span></span></span><span>
 </span><span id="line-315"></span><span>
-</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260016"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span></span><span>
 </span><span id="line-317"></span><span>
 </span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-319"></span><span>  </span><span id="local-6989586621679259916"><span class="annot"><span class="annottext">toHeaders :: CreateDataSourceFromRDS -&gt; ResponseHeaders
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621679260012"><span class="annot"><span class="annottext">toHeaders :: CreateDataSourceFromRDS -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-320"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDataSourceFromRDS -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -565,77 +565,77 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-330"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-331"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-332"></span><span>
-</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259906"><span id="local-6989586621679259908"><span id="local-6989586621679259910"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-334"></span><span>  </span><span id="local-6989586621679259904"><span class="annot"><span class="annottext">toJSON :: CreateDataSourceFromRDS -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259898"><span id="local-6989586621679259899"><span id="local-6989586621679259900"><span id="local-6989586621679259901"><span id="local-6989586621679259902"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679260002"><span id="local-6989586621679260004"><span id="local-6989586621679260006"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-334"></span><span>  </span><span id="local-6989586621679260000"><span class="annot"><span class="annottext">toJSON :: CreateDataSourceFromRDS -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDS'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259994"><span id="local-6989586621679259995"><span id="local-6989586621679259996"><span id="local-6989586621679259997"><span id="local-6989586621679259998"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 Text
 RDSDataSpec
 roleARN :: Text
 rDSData :: RDSDataSpec
 dataSourceId :: Text
-dataSourceName :: Maybe Text
 computeStatistics :: Maybe Bool
+dataSourceName :: Maybe Text
 $sel:roleARN:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; Text
 $sel:rDSData:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; RDSDataSpec
 $sel:dataSourceId:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; Text
-$sel:dataSourceName:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; Maybe Text
 $sel:computeStatistics:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; Maybe Bool
-</span><a href="#local-6989586621679259898"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:dataSourceName:CreateDataSourceFromRDS' :: CreateDataSourceFromRDS -&gt; Maybe Text
+</span><a href="#local-6989586621679259994"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-335"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-336"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-337"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ComputeStatistics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-338"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679259902"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-339"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-340"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-338"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259901"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259998"><span class="hs-identifier hs-var">dataSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComputeStatistics&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-340"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679259997"><span class="hs-identifier hs-var">computeStatistics</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-341"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DataSourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259900"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259996"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-342"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RDSData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RDSDataSpec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RDSDataSpec
-</span><a href="#local-6989586621679259899"><span class="hs-identifier hs-var">rDSData</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679259995"><span class="hs-identifier hs-var">rDSData</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-343"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679259898"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259994"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-344"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-345"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-346"></span><span>
 </span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-348"></span><span>  </span><span id="local-6989586621679259892"><span class="annot"><span class="annottext">toPath :: CreateDataSourceFromRDS -&gt; ByteString
+</span><span id="line-348"></span><span>  </span><span id="local-6989586621679259988"><span class="annot"><span class="annottext">toPath :: CreateDataSourceFromRDS -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDataSourceFromRDS -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-349"></span><span>
 </span><span id="line-350"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDS"><span class="hs-identifier hs-type">CreateDataSourceFromRDS</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-351"></span><span>  </span><span id="local-6989586621679259888"><span class="annot"><span class="annottext">toQuery :: CreateDataSourceFromRDS -&gt; QueryString
+</span><span id="line-351"></span><span>  </span><span id="local-6989586621679259984"><span class="annot"><span class="annottext">toQuery :: CreateDataSourceFromRDS -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDataSourceFromRDS -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -653,7 +653,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-361"></span><span class="hs-comment">-- the @pipelineId @ from the describe call.</span><span>
 </span><span id="line-362"></span><span class="hs-comment">--</span><span>
 </span><span id="line-363"></span><span class="hs-comment">-- /See:/ 'newCreateDataSourceFromRDSResponse' smart constructor.</span><span>
-</span><span id="line-364"></span><span id="local-6989586621679259885"><span id="local-6989586621679259886"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromRDSResponse"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse"><span class="hs-identifier hs-var">CreateDataSourceFromRDSResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromRDSResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-var">CreateDataSourceFromRDSResponse'</span></a></span></span><span>
+</span><span id="line-364"></span><span id="local-6989586621679259981"><span id="local-6989586621679259982"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDataSourceFromRDSResponse"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse"><span class="hs-identifier hs-var">CreateDataSourceFromRDSResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDataSourceFromRDSResponse%27"><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-var">CreateDataSourceFromRDSResponse'</span></a></span></span><span>
 </span><span id="line-365"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the datasource. This value</span><span>
 </span><span id="line-366"></span><span>    </span><span class="hs-comment">-- should be identical to the value of the @DataSourceID@ in the request.</span><span>
 </span><span id="line-367"></span><span>    </span><span id="%24sel%3AdataSourceId%3ACreateDataSourceFromRDSResponse%27"><span class="annot"><span class="annottext">CreateDataSourceFromRDSResponse -&gt; Maybe Text
@@ -662,7 +662,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-369"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateDataSourceFromRDSResponse%27"><span class="annot"><span class="annottext">CreateDataSourceFromRDSResponse -&gt; Int
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AhttpStatus%3ACreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-370"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-371"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259879"><span id="local-6989586621679259881"><span class="annot"><span class="annottext">CreateDataSourceFromRDSResponse
+</span><span id="line-371"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259975"><span id="local-6989586621679259977"><span class="annot"><span class="annottext">CreateDataSourceFromRDSResponse
 -&gt; CreateDataSourceFromRDSResponse -&gt; Bool
 (CreateDataSourceFromRDSResponse
  -&gt; CreateDataSourceFromRDSResponse -&gt; Bool)
@@ -678,7 +678,7 @@ $c/= :: CreateDataSourceFromRDSResponse
 -&gt; CreateDataSourceFromRDSResponse -&gt; Bool
 $c== :: CreateDataSourceFromRDSResponse
 -&gt; CreateDataSourceFromRDSResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259871"><span id="local-6989586621679259873"><span id="local-6989586621679259875"><span id="local-6989586621679259877"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromRDSResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259967"><span id="local-6989586621679259969"><span id="local-6989586621679259971"><span id="local-6989586621679259973"><span class="annot"><span class="annottext">ReadPrec [CreateDataSourceFromRDSResponse]
 ReadPrec CreateDataSourceFromRDSResponse
 Int -&gt; ReadS CreateDataSourceFromRDSResponse
 ReadS [CreateDataSourceFromRDSResponse]
@@ -698,7 +698,7 @@ readList :: ReadS [CreateDataSourceFromRDSResponse]
 $creadList :: ReadS [CreateDataSourceFromRDSResponse]
 readsPrec :: Int -&gt; ReadS CreateDataSourceFromRDSResponse
 $creadsPrec :: Int -&gt; ReadS CreateDataSourceFromRDSResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259865"><span id="local-6989586621679259867"><span id="local-6989586621679259869"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromRDSResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259961"><span id="local-6989586621679259963"><span id="local-6989586621679259965"><span class="annot"><span class="annottext">Int -&gt; CreateDataSourceFromRDSResponse -&gt; ShowS
 [CreateDataSourceFromRDSResponse] -&gt; ShowS
 CreateDataSourceFromRDSResponse -&gt; String
 (Int -&gt; CreateDataSourceFromRDSResponse -&gt; ShowS)
@@ -753,8 +753,8 @@ CreateDataSourceFromRDSResponse
 </span><span id="line-387"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-388"></span><span>  </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse</span></a></span><span>
 </span><span id="line-389"></span><span id="newCreateDataSourceFromRDSResponse"><span class="annot"><span class="annottext">newCreateDataSourceFromRDSResponse :: Int -&gt; CreateDataSourceFromRDSResponse
-</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#newCreateDataSourceFromRDSResponse"><span class="hs-identifier hs-var hs-var">newCreateDataSourceFromRDSResponse</span></a></span></span><span> </span><span id="local-6989586621679259862"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259862"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#newCreateDataSourceFromRDSResponse"><span class="hs-identifier hs-var hs-var">newCreateDataSourceFromRDSResponse</span></a></span></span><span> </span><span id="local-6989586621679259958"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259958"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-390"></span><span>  </span><span class="annot"><span class="annottext">CreateDataSourceFromRDSResponse' :: Maybe Text -&gt; Int -&gt; CreateDataSourceFromRDSResponse
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse'</span></a></span><span>
 </span><span id="line-391"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromRDSResponse' :: Maybe Text
@@ -764,7 +764,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-393"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDataSourceFromRDSResponse' :: Int
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AhttpStatus%3ACreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259862"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679259958"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-394"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-395"></span><span>
 </span><span id="line-396"></span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the datasource. This value</span><span>
@@ -782,16 +782,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259861"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259957"><span class="annot"><span class="annottext">Maybe Text
 dataSourceId :: Maybe Text
 $sel:dataSourceId:CreateDataSourceFromRDSResponse' :: CreateDataSourceFromRDSResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679259861"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259861"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259860"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDSResponse
-</span><a href="#local-6989586621679259860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259859"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDSResponse
-</span><a href="#local-6989586621679259860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromRDSResponse' :: Maybe Text
+</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var hs-var">dataSourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259957"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259956"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDSResponse
+</span><a href="#local-6989586621679259956"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259955"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679259955"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDSResponse
+</span><a href="#local-6989586621679259956"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceId:CreateDataSourceFromRDSResponse' :: Maybe Text
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AdataSourceId%3ACreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-var">dataSourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259955"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-400"></span><span>
 </span><span id="line-401"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-402"></span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#createDataSourceFromRDSResponse_httpStatus"><span class="hs-identifier hs-type">createDataSourceFromRDSResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -807,18 +807,18 @@ $sel:dataSourceId:CreateDataSourceFromRDSResponse' :: CreateDataSourceFromRDSRes
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259858"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259954"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateDataSourceFromRDSResponse' :: CreateDataSourceFromRDSResponse -&gt; Int
-</span><a href="#local-6989586621679259858"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259858"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259857"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDSResponse
-</span><a href="#local-6989586621679259857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259856"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDSResponse
-</span><a href="#local-6989586621679259857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDataSourceFromRDSResponse' :: Int
+</span><a href="#local-6989586621679259954"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259954"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259953"><span class="annot"><span class="annottext">s :: CreateDataSourceFromRDSResponse
+</span><a href="#local-6989586621679259953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259952"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679259952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDataSourceFromRDSResponse
+</span><a href="#local-6989586621679259953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateDataSourceFromRDSResponse' :: Int
 </span><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#%24sel%3AhttpStatus%3ACreateDataSourceFromRDSResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679259856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-404"></span><span>
 </span><span id="line-405"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-406"></span><span>  </span><span id="local-6989586621679259854"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-406"></span><span>  </span><span id="local-6989586621679259950"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-407"></span><span>    </span><span class="annot"><a href="Network.AWS.MachineLearning.CreateDataSourceFromRDS.html#CreateDataSourceFromRDSResponse"><span class="hs-identifier hs-type">CreateDataSourceFromRDSResponse</span></a></span></span><span>
 </span><span id="line-408"></span></pre></body></html>

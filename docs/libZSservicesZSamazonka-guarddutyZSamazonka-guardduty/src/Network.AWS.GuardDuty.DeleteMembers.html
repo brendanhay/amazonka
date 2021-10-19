@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteMembers' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679311660"><span id="local-6989586621679311661"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMembers"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-var">DeleteMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMembers%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-var">DeleteMembers'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679311993"><span id="local-6989586621679311994"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMembers"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-var">DeleteMembers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMembers%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-var">DeleteMembers'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the detector of the GuardDuty account whose members you</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- want to delete.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AdetectorId%3ADeleteMembers%27"><span class="annot"><span class="annottext">DeleteMembers -&gt; Text
@@ -59,7 +59,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AaccountIds%3ADeleteMembers%27"><span class="annot"><span class="annottext">DeleteMembers -&gt; NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#%24sel%3AaccountIds%3ADeleteMembers%27"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311653"><span id="local-6989586621679311655"><span class="annot"><span class="annottext">DeleteMembers -&gt; DeleteMembers -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311986"><span id="local-6989586621679311988"><span class="annot"><span class="annottext">DeleteMembers -&gt; DeleteMembers -&gt; Bool
 (DeleteMembers -&gt; DeleteMembers -&gt; Bool)
 -&gt; (DeleteMembers -&gt; DeleteMembers -&gt; Bool) -&gt; Eq DeleteMembers
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteMembers -&gt; DeleteMembers -&gt; Bool
 == :: DeleteMembers -&gt; DeleteMembers -&gt; Bool
 $c== :: DeleteMembers -&gt; DeleteMembers -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311644"><span id="local-6989586621679311646"><span id="local-6989586621679311648"><span id="local-6989586621679311650"><span class="annot"><span class="annottext">ReadPrec [DeleteMembers]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311977"><span id="local-6989586621679311979"><span id="local-6989586621679311981"><span id="local-6989586621679311983"><span class="annot"><span class="annottext">ReadPrec [DeleteMembers]
 ReadPrec DeleteMembers
 Int -&gt; ReadS DeleteMembers
 ReadS [DeleteMembers]
@@ -87,7 +87,7 @@ readList :: ReadS [DeleteMembers]
 $creadList :: ReadS [DeleteMembers]
 readsPrec :: Int -&gt; ReadS DeleteMembers
 $creadsPrec :: Int -&gt; ReadS DeleteMembers
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311637"><span id="local-6989586621679311639"><span id="local-6989586621679311641"><span class="annot"><span class="annottext">Int -&gt; DeleteMembers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311970"><span id="local-6989586621679311972"><span id="local-6989586621679311974"><span class="annot"><span class="annottext">Int -&gt; DeleteMembers -&gt; ShowS
 [DeleteMembers] -&gt; ShowS
 DeleteMembers -&gt; String
 (Int -&gt; DeleteMembers -&gt; ShowS)
@@ -133,24 +133,24 @@ $cfrom :: forall x. DeleteMembers -&gt; Rep DeleteMembers x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span>
 </span><span id="line-81"></span><span id="newDeleteMembers"><span class="annot"><span class="annottext">newDeleteMembers :: Text -&gt; NonEmpty Text -&gt; DeleteMembers
-</span><a href="Network.AWS.GuardDuty.DeleteMembers.html#newDeleteMembers"><span class="hs-identifier hs-var hs-var">newDeleteMembers</span></a></span></span><span> </span><span id="local-6989586621679311632"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311632"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679311631"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679311631"><span class="hs-identifier hs-var">pAccountIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.DeleteMembers.html#newDeleteMembers"><span class="hs-identifier hs-var hs-var">newDeleteMembers</span></a></span></span><span> </span><span id="local-6989586621679311965"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311965"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span id="local-6989586621679311964"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679311964"><span class="hs-identifier hs-var">pAccountIds_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeleteMembers' :: Text -&gt; NonEmpty Text -&gt; DeleteMembers
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorId:DeleteMembers' :: Text
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#%24sel%3AdetectorId%3ADeleteMembers%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311632"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311965"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountIds:DeleteMembers' :: NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#%24sel%3AaccountIds%3ADeleteMembers%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
 -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
  -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
 -&gt; NonEmpty Text -&gt; NonEmpty Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679311631"><span class="hs-identifier hs-var">pAccountIds_</span></a></span><span>
+</span><a href="#local-6989586621679311964"><span class="hs-identifier hs-var">pAccountIds_</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The unique ID of the detector of the GuardDuty account whose members you</span><span>
@@ -161,16 +161,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; (DeleteMembers -&gt; Text -&gt; DeleteMembers)
 -&gt; Lens DeleteMembers DeleteMembers Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311626"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311959"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:DeleteMembers' :: DeleteMembers -&gt; Text
-</span><a href="#local-6989586621679311626"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311626"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311625"><span class="annot"><span class="annottext">s :: DeleteMembers
-</span><a href="#local-6989586621679311625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311624"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMembers
-</span><a href="#local-6989586621679311625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:DeleteMembers' :: Text
+</span><a href="#local-6989586621679311959"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311959"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311958"><span class="annot"><span class="annottext">s :: DeleteMembers
+</span><a href="#local-6989586621679311958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311957"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679311957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMembers
+</span><a href="#local-6989586621679311958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:DeleteMembers' :: Text
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#%24sel%3AdetectorId%3ADeleteMembers%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | A list of account IDs of the GuardDuty member accounts that you want to</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- delete.</span><span>
@@ -181,16 +181,16 @@ $sel:detectorId:DeleteMembers' :: DeleteMembers -&gt; Text
 -&gt; (DeleteMembers -&gt; NonEmpty Text -&gt; DeleteMembers)
 -&gt; Lens DeleteMembers DeleteMembers (NonEmpty Text) (NonEmpty Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311623"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311956"><span class="annot"><span class="annottext">NonEmpty Text
 accountIds :: NonEmpty Text
 $sel:accountIds:DeleteMembers' :: DeleteMembers -&gt; NonEmpty Text
-</span><a href="#local-6989586621679311623"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679311623"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311622"><span class="annot"><span class="annottext">s :: DeleteMembers
-</span><a href="#local-6989586621679311622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311621"><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679311621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMembers
-</span><a href="#local-6989586621679311622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:DeleteMembers' :: NonEmpty Text
+</span><a href="#local-6989586621679311956"><span class="hs-identifier hs-var hs-var">accountIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679311956"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311955"><span class="annot"><span class="annottext">s :: DeleteMembers
+</span><a href="#local-6989586621679311955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311954"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679311954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMembers
+</span><a href="#local-6989586621679311955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountIds:DeleteMembers' :: NonEmpty Text
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#%24sel%3AaccountIds%3ADeleteMembers%27"><span class="hs-identifier hs-var">accountIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679311621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+</span><a href="#local-6989586621679311954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
  -&gt; DeleteMembers -&gt; f DeleteMembers)
 -&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
     -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
@@ -200,19 +200,19 @@ $sel:accountIds:DeleteMembers' :: DeleteMembers -&gt; NonEmpty Text
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
 -&gt; NonEmpty Text -&gt; f (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-98"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-99"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679311616"><span class="annot"><span class="annottext">request :: DeleteMembers -&gt; Request DeleteMembers
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679311949"><span class="annot"><span class="annottext">request :: DeleteMembers -&gt; Request DeleteMembers
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteMembers -&gt; Request DeleteMembers
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679311612"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679311945"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteMembers
 -&gt; ClientResponse ClientBody
@@ -236,10 +236,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311609"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311609"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311608"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679311608"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311607"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311607"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679311942"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311942"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679311941"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679311941"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679311940"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679311940"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [UnprocessedAccount] -&gt; DeleteMembersResponse
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-var">DeleteMembersResponse'</span></a></span><span>
 </span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [UnprocessedAccount] -&gt; DeleteMembersResponse)
@@ -251,13 +251,13 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311609"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311942"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either String ([UnprocessedAccount] -&gt; DeleteMembersResponse)
 -&gt; Either String [UnprocessedAccount]
 -&gt; Either String DeleteMembersResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679311607"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [UnprocessedAccount])
+</span><a href="#local-6989586621679311940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [UnprocessedAccount])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;unprocessedAccounts&quot;</span></span><span>
@@ -270,12 +270,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-109"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311598"><span id="local-6989586621679311600"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span></span></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311931"><span id="local-6989586621679311933"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span></span></span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311595"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311928"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span></span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679311591"><span class="annot"><span class="annottext">toHeaders :: DeleteMembers -&gt; ResponseHeaders
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679311924"><span class="annot"><span class="annottext">toHeaders :: DeleteMembers -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteMembers -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -294,15 +294,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311581"><span id="local-6989586621679311583"><span id="local-6989586621679311585"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679311579"><span class="annot"><span class="annottext">toJSON :: DeleteMembers -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311576"><span id="local-6989586621679311577"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311914"><span id="local-6989586621679311916"><span id="local-6989586621679311918"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679311912"><span class="annot"><span class="annottext">toJSON :: DeleteMembers -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311909"><span id="local-6989586621679311910"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 accountIds :: NonEmpty Text
 detectorId :: Text
 $sel:accountIds:DeleteMembers' :: DeleteMembers -&gt; NonEmpty Text
 $sel:detectorId:DeleteMembers' :: DeleteMembers -&gt; Text
-</span><a href="#local-6989586621679311576"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311909"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -314,18 +314,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;accountIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
-</span><a href="#local-6989586621679311576"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679311909"><span class="hs-identifier hs-var">accountIds</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679311570"><span class="annot"><span class="annottext">toPath :: DeleteMembers -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311567"><span id="local-6989586621679311568"><span class="annot"><span class="annottext">NonEmpty Text
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679311903"><span class="annot"><span class="annottext">toPath :: DeleteMembers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers%27"><span class="hs-identifier hs-type">DeleteMembers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311900"><span id="local-6989586621679311901"><span class="annot"><span class="annottext">NonEmpty Text
 Text
 accountIds :: NonEmpty Text
 detectorId :: Text
 $sel:accountIds:DeleteMembers' :: DeleteMembers -&gt; NonEmpty Text
 $sel:detectorId:DeleteMembers' :: DeleteMembers -&gt; Text
-</span><a href="#local-6989586621679311567"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679311900"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -334,13 +334,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679311568"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311901"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/member/delete&quot;</span></span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembers"><span class="hs-identifier hs-type">DeleteMembers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679311563"><span class="annot"><span class="annottext">toQuery :: DeleteMembers -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679311896"><span class="annot"><span class="annottext">toQuery :: DeleteMembers -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteMembers -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -348,7 +348,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newDeleteMembersResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679311560"><span id="local-6989586621679311561"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMembersResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-var">DeleteMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMembersResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-var">DeleteMembersResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679311893"><span id="local-6989586621679311894"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMembersResponse"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-var">DeleteMembersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMembersResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-var">DeleteMembersResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteMembersResponse%27"><span class="annot"><span class="annottext">DeleteMembersResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#%24sel%3AhttpStatus%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -356,7 +356,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AunprocessedAccounts%3ADeleteMembersResponse%27"><span class="annot"><span class="annottext">DeleteMembersResponse -&gt; [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#%24sel%3AunprocessedAccounts%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311554"><span id="local-6989586621679311556"><span class="annot"><span class="annottext">DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679311887"><span id="local-6989586621679311889"><span class="annot"><span class="annottext">DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool
 (DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool)
 -&gt; (DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool)
 -&gt; Eq DeleteMembersResponse
@@ -365,7 +365,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool
 == :: DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool
 $c== :: DeleteMembersResponse -&gt; DeleteMembersResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311546"><span id="local-6989586621679311548"><span id="local-6989586621679311550"><span id="local-6989586621679311552"><span class="annot"><span class="annottext">ReadPrec [DeleteMembersResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311879"><span id="local-6989586621679311881"><span id="local-6989586621679311883"><span id="local-6989586621679311885"><span class="annot"><span class="annottext">ReadPrec [DeleteMembersResponse]
 ReadPrec DeleteMembersResponse
 Int -&gt; ReadS DeleteMembersResponse
 ReadS [DeleteMembersResponse]
@@ -385,7 +385,7 @@ readList :: ReadS [DeleteMembersResponse]
 $creadList :: ReadS [DeleteMembersResponse]
 readsPrec :: Int -&gt; ReadS DeleteMembersResponse
 $creadsPrec :: Int -&gt; ReadS DeleteMembersResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311540"><span id="local-6989586621679311542"><span id="local-6989586621679311544"><span class="annot"><span class="annottext">Int -&gt; DeleteMembersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679311873"><span id="local-6989586621679311875"><span id="local-6989586621679311877"><span class="annot"><span class="annottext">Int -&gt; DeleteMembersResponse -&gt; ShowS
 [DeleteMembersResponse] -&gt; ShowS
 DeleteMembersResponse -&gt; String
 (Int -&gt; DeleteMembersResponse -&gt; ShowS)
@@ -427,13 +427,13 @@ $cfrom :: forall x. DeleteMembersResponse -&gt; Rep DeleteMembersResponse x
 </span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span>
 </span><span id="line-169"></span><span id="newDeleteMembersResponse"><span class="annot"><span class="annottext">newDeleteMembersResponse :: Int -&gt; DeleteMembersResponse
-</span><a href="Network.AWS.GuardDuty.DeleteMembers.html#newDeleteMembersResponse"><span class="hs-identifier hs-var hs-var">newDeleteMembersResponse</span></a></span></span><span> </span><span id="local-6989586621679311537"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311537"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.DeleteMembers.html#newDeleteMembersResponse"><span class="hs-identifier hs-var hs-var">newDeleteMembersResponse</span></a></span></span><span> </span><span id="local-6989586621679311870"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311870"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">DeleteMembersResponse' :: Int -&gt; [UnprocessedAccount] -&gt; DeleteMembersResponse
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMembersResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#%24sel%3AhttpStatus%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311537"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679311870"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:DeleteMembersResponse' :: [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#%24sel%3AunprocessedAccounts%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
 forall a. Monoid a =&gt; a
@@ -447,16 +447,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DeleteMembersResponse -&gt; Int -&gt; DeleteMembersResponse)
 -&gt; Lens DeleteMembersResponse DeleteMembersResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311536"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311869"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteMembersResponse' :: DeleteMembersResponse -&gt; Int
-</span><a href="#local-6989586621679311536"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311536"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311535"><span class="annot"><span class="annottext">s :: DeleteMembersResponse
-</span><a href="#local-6989586621679311535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311534"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMembersResponse
-</span><a href="#local-6989586621679311535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMembersResponse' :: Int
+</span><a href="#local-6989586621679311869"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311869"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311868"><span class="annot"><span class="annottext">s :: DeleteMembersResponse
+</span><a href="#local-6989586621679311868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311867"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679311867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMembersResponse
+</span><a href="#local-6989586621679311868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMembersResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#%24sel%3AhttpStatus%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679311534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679311867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | The accounts that could not be processed.</span><span>
 </span><span id="line-180"></span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#deleteMembersResponse_unprocessedAccounts"><span class="hs-identifier hs-type">deleteMembersResponse_unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.UnprocessedAccount.html#UnprocessedAccount"><span class="hs-identifier hs-type">UnprocessedAccount</span></a></span><span class="hs-special">]</span><span>
@@ -471,16 +471,16 @@ $sel:httpStatus:DeleteMembersResponse' :: DeleteMembersResponse -&gt; Int
      [UnprocessedAccount]
      [UnprocessedAccount]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311533"><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679311866"><span class="annot"><span class="annottext">[UnprocessedAccount]
 unprocessedAccounts :: [UnprocessedAccount]
 $sel:unprocessedAccounts:DeleteMembersResponse' :: DeleteMembersResponse -&gt; [UnprocessedAccount]
-</span><a href="#local-6989586621679311533"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679311533"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311532"><span class="annot"><span class="annottext">s :: DeleteMembersResponse
-</span><a href="#local-6989586621679311532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311531"><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679311531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMembersResponse
-</span><a href="#local-6989586621679311532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:DeleteMembersResponse' :: [UnprocessedAccount]
+</span><a href="#local-6989586621679311866"><span class="hs-identifier hs-var hs-var">unprocessedAccounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><a href="#local-6989586621679311866"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679311865"><span class="annot"><span class="annottext">s :: DeleteMembersResponse
+</span><a href="#local-6989586621679311865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse%27"><span class="hs-identifier hs-type">DeleteMembersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679311864"><span class="annot"><span class="annottext">[UnprocessedAccount]
+</span><a href="#local-6989586621679311864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMembersResponse
+</span><a href="#local-6989586621679311865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unprocessedAccounts:DeleteMembersResponse' :: [UnprocessedAccount]
 </span><a href="Network.AWS.GuardDuty.DeleteMembers.html#%24sel%3AunprocessedAccounts%3ADeleteMembersResponse%27"><span class="hs-identifier hs-var">unprocessedAccounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[UnprocessedAccount]
-</span><a href="#local-6989586621679311531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UnprocessedAccount] -&gt; f [UnprocessedAccount])
+</span><a href="#local-6989586621679311864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([UnprocessedAccount] -&gt; f [UnprocessedAccount])
  -&gt; DeleteMembersResponse -&gt; f DeleteMembersResponse)
 -&gt; (([UnprocessedAccount] -&gt; f [UnprocessedAccount])
     -&gt; [UnprocessedAccount] -&gt; f [UnprocessedAccount])
@@ -490,8 +490,8 @@ $sel:unprocessedAccounts:DeleteMembersResponse' :: DeleteMembersResponse -&gt; [
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([UnprocessedAccount] -&gt; f [UnprocessedAccount])
 -&gt; [UnprocessedAccount] -&gt; f [UnprocessedAccount]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311529"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679311862"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.DeleteMembers.html#DeleteMembersResponse"><span class="hs-identifier hs-type">DeleteMembersResponse</span></a></span></span><span>
 </span><span id="line-184"></span></pre></body></html>

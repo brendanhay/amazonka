@@ -27,46 +27,46 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Status information about the instance association.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInstanceAssociationStatusInfo' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679813145"><span id="local-6989586621679813146"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceAssociationStatusInfo"><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-var">InstanceAssociationStatusInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAssociationStatusInfo%27"><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">InstanceAssociationStatusInfo'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Status information about the instance association.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3Astatus%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3Astatus%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679814845"><span id="local-6989586621679814846"></span></span><span class="hs-keyword">data</span><span> </span><span id="InstanceAssociationStatusInfo"><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-var">InstanceAssociationStatusInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAssociationStatusInfo%27"><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">InstanceAssociationStatusInfo'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The association ID.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AassociationId%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationId%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The instance ID where the association was created.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AinstanceId%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AinstanceId%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Detailed status information about the instance association.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AdetailedStatus%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AdetailedStatus%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">detailedStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the association.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aname%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3Aname%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The association ID.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AassociationId%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationId%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A URL for an S3 bucket where you want to store the results of this</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AoutputUrl%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe InstanceAssociationOutputUrl
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Status information about the instance association.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatus%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3Astatus%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | A URL for an S3 bucket where you want to store the results of this</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AoutputUrl%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe InstanceAssociationOutputUrl
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AoutputUrl%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">outputUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The date the instance association ran.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AexecutionDate%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe POSIX
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AexecutionDate%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">executionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Summary information about association execution.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AexecutionSummary%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Summary information about association execution.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AexecutionSummary%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AexecutionSummary%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">executionSummary</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The name of the association applied to the instance.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AassociationName%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationName%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">associationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the association.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aname%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3Aname%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | An error code returned by the request to create the association.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AerrorCode%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AerrorCode%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The association document versions.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdocumentVersion%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AdocumentVersion%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The version of the association applied to the instance.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AassociationVersion%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationVersion%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">associationVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | An error code returned by the request to create the association.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AerrorCode%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AerrorCode%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The association document versions.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdocumentVersion%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AdocumentVersion%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The date the instance association ran.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AexecutionDate%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AexecutionDate%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">executionDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The name of the association applied to the instance.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AassociationName%3AInstanceAssociationStatusInfo%27"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationName%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var hs-var">associationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679813128"><span id="local-6989586621679813130"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814828"><span id="local-6989586621679814830"><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
 -&gt; InstanceAssociationStatusInfo -&gt; Bool
 (InstanceAssociationStatusInfo
  -&gt; InstanceAssociationStatusInfo -&gt; Bool)
@@ -82,7 +82,7 @@ $c/= :: InstanceAssociationStatusInfo
 -&gt; InstanceAssociationStatusInfo -&gt; Bool
 $c== :: InstanceAssociationStatusInfo
 -&gt; InstanceAssociationStatusInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813119"><span id="local-6989586621679813121"><span id="local-6989586621679813123"><span id="local-6989586621679813125"><span class="annot"><span class="annottext">ReadPrec [InstanceAssociationStatusInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814819"><span id="local-6989586621679814821"><span id="local-6989586621679814823"><span id="local-6989586621679814825"><span class="annot"><span class="annottext">ReadPrec [InstanceAssociationStatusInfo]
 ReadPrec InstanceAssociationStatusInfo
 Int -&gt; ReadS InstanceAssociationStatusInfo
 ReadS [InstanceAssociationStatusInfo]
@@ -102,7 +102,7 @@ readList :: ReadS [InstanceAssociationStatusInfo]
 $creadList :: ReadS [InstanceAssociationStatusInfo]
 readsPrec :: Int -&gt; ReadS InstanceAssociationStatusInfo
 $creadsPrec :: Int -&gt; ReadS InstanceAssociationStatusInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679813112"><span id="local-6989586621679813114"><span id="local-6989586621679813116"><span class="annot"><span class="annottext">Int -&gt; InstanceAssociationStatusInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814812"><span id="local-6989586621679814814"><span id="local-6989586621679814816"><span class="annot"><span class="annottext">Int -&gt; InstanceAssociationStatusInfo -&gt; ShowS
 [InstanceAssociationStatusInfo] -&gt; ShowS
 InstanceAssociationStatusInfo -&gt; String
 (Int -&gt; InstanceAssociationStatusInfo -&gt; ShowS)
@@ -148,30 +148,30 @@ InstanceAssociationStatusInfo
 </span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'status', 'instanceAssociationStatusInfo_status' - Status information about the instance association.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'associationId', 'instanceAssociationStatusInfo_associationId' - The association ID.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- 'instanceId', 'instanceAssociationStatusInfo_instanceId' - The instance ID where the association was created.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- 'detailedStatus', 'instanceAssociationStatusInfo_detailedStatus' - Detailed status information about the instance association.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'name', 'instanceAssociationStatusInfo_name' - The name of the association.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'status', 'instanceAssociationStatusInfo_status' - Status information about the instance association.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'associationId', 'instanceAssociationStatusInfo_associationId' - The association ID.</span><span>
-</span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'outputUrl', 'instanceAssociationStatusInfo_outputUrl' - A URL for an S3 bucket where you want to store the results of this</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'outputUrl', 'instanceAssociationStatusInfo_outputUrl' - A URL for an S3 bucket where you want to store the results of this</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'executionSummary', 'instanceAssociationStatusInfo_executionSummary' - Summary information about association execution.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'executionDate', 'instanceAssociationStatusInfo_executionDate' - The date the instance association ran.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'name', 'instanceAssociationStatusInfo_name' - The name of the association.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'executionSummary', 'instanceAssociationStatusInfo_executionSummary' - Summary information about association execution.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'errorCode', 'instanceAssociationStatusInfo_errorCode' - An error code returned by the request to create the association.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'associationName', 'instanceAssociationStatusInfo_associationName' - The name of the association applied to the instance.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'documentVersion', 'instanceAssociationStatusInfo_documentVersion' - The association document versions.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- 'associationVersion', 'instanceAssociationStatusInfo_associationVersion' - The version of the association applied to the instance.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'errorCode', 'instanceAssociationStatusInfo_errorCode' - An error code returned by the request to create the association.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'executionDate', 'instanceAssociationStatusInfo_executionDate' - The date the instance association ran.</span><span>
 </span><span id="line-89"></span><span class="hs-comment">--</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 'documentVersion', 'instanceAssociationStatusInfo_documentVersion' - The association document versions.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'associationName', 'instanceAssociationStatusInfo_associationName' - The name of the association applied to the instance.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#newInstanceAssociationStatusInfo"><span class="hs-identifier hs-type">newInstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span>
 </span><span id="line-93"></span><span id="newInstanceAssociationStatusInfo"><span class="annot"><span class="annottext">newInstanceAssociationStatusInfo :: InstanceAssociationStatusInfo
@@ -180,18 +180,18 @@ InstanceAssociationStatusInfo
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe InstanceAssociationOutputUrl
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; InstanceAssociationStatusInfo
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:InstanceAssociationStatusInfo' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3Astatus%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:associationId:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationId%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
@@ -203,49 +203,49 @@ forall a. Maybe a
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AdetailedStatus%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">detailedStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:InstanceAssociationStatusInfo' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3Aname%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3Astatus%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationId:InstanceAssociationStatusInfo' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationId%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputUrl:InstanceAssociationStatusInfo' :: Maybe InstanceAssociationOutputUrl
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputUrl:InstanceAssociationStatusInfo' :: Maybe InstanceAssociationOutputUrl
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AoutputUrl%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">outputUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAssociationOutputUrl
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionDate:InstanceAssociationStatusInfo' :: Maybe POSIX
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AexecutionDate%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">executionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionSummary:InstanceAssociationStatusInfo' :: Maybe Text
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionSummary:InstanceAssociationStatusInfo' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AexecutionSummary%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">executionSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationName:InstanceAssociationStatusInfo' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationName%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">associationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3Aname%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AerrorCode%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentVersion:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AdocumentVersion%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">documentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationVersion:InstanceAssociationStatusInfo' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationVersion%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">associationVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorCode:InstanceAssociationStatusInfo' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AerrorCode%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionDate:InstanceAssociationStatusInfo' :: Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AexecutionDate%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">executionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentVersion:InstanceAssociationStatusInfo' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AdocumentVersion%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">documentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:associationName:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationName%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">associationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | Status information about the instance association.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_status"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="instanceAssociationStatusInfo_status"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_status :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-110"></span><span class="hs-comment">-- | The association ID.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_associationId"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="instanceAssociationStatusInfo_associationId"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_associationId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_status"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_associationId"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_associationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
 -&gt; (InstanceAssociationStatusInfo
     -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
 -&gt; Lens
@@ -254,16 +254,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813103"><span class="annot"><span class="annottext">Maybe Text
-status :: Maybe Text
-$sel:status:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679813103"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813103"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813102"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813101"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:InstanceAssociationStatusInfo' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3Astatus%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814803"><span class="annot"><span class="annottext">Maybe Text
+associationId :: Maybe Text
+$sel:associationId:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679814803"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814803"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814802"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814801"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationId%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- | The instance ID where the association was created.</span><span>
 </span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_instanceId"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -278,16 +278,16 @@ $sel:status:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813099"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814799"><span class="annot"><span class="annottext">Maybe Text
 instanceId :: Maybe Text
 $sel:instanceId:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679813099"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813099"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813098"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813097"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="#local-6989586621679814799"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814799"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814798"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814797"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:InstanceAssociationStatusInfo' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AinstanceId%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679814797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | Detailed status information about the instance association.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_detailedStatus"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_detailedStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -302,22 +302,22 @@ $sel:instanceId:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813095"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814795"><span class="annot"><span class="annottext">Maybe Text
 detailedStatus :: Maybe Text
 $sel:detailedStatus:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679813095"><span class="hs-identifier hs-var hs-var">detailedStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813095"><span class="hs-identifier hs-var">detailedStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813094"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813093"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detailedStatus:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="#local-6989586621679814795"><span class="hs-identifier hs-var hs-var">detailedStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814795"><span class="hs-identifier hs-var">detailedStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814794"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814793"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detailedStatus:InstanceAssociationStatusInfo' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AdetailedStatus%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">detailedStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679814793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The name of the association.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_name"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="instanceAssociationStatusInfo_name"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_name :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-122"></span><span class="hs-comment">-- | Status information about the instance association.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_status"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="instanceAssociationStatusInfo_status"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_status :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_name"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_status"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
 -&gt; (InstanceAssociationStatusInfo
     -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
 -&gt; Lens
@@ -326,45 +326,21 @@ $sel:detailedStatus:InstanceAssociationStatusInfo' :: InstanceAssociationStatusI
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813091"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679813091"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813091"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813090"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813089"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InstanceAssociationStatusInfo' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3Aname%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814791"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679814791"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814791"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814790"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814789"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3Astatus%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The association ID.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_associationId"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="instanceAssociationStatusInfo_associationId"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_associationId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_associationId"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_associationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
--&gt; (InstanceAssociationStatusInfo
-    -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
--&gt; Lens
-     InstanceAssociationStatusInfo
-     InstanceAssociationStatusInfo
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813087"><span class="annot"><span class="annottext">Maybe Text
-associationId :: Maybe Text
-$sel:associationId:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679813087"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813087"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813086"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813085"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:InstanceAssociationStatusInfo' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationId%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | A URL for an S3 bucket where you want to store the results of this</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_outputUrl"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_outputUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="instanceAssociationStatusInfo_outputUrl"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_outputUrl :: (Maybe InstanceAssociationOutputUrl
+</span><span id="line-126"></span><span class="hs-comment">-- | A URL for an S3 bucket where you want to store the results of this</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_outputUrl"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_outputUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationOutputUrl.html#InstanceAssociationOutputUrl"><span class="hs-identifier hs-type">InstanceAssociationOutputUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="instanceAssociationStatusInfo_outputUrl"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_outputUrl :: (Maybe InstanceAssociationOutputUrl
  -&gt; f (Maybe InstanceAssociationOutputUrl))
 -&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_outputUrl"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_outputUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo
@@ -378,20 +354,140 @@ $sel:associationId:InstanceAssociationStatusInfo' :: InstanceAssociationStatusIn
      (Maybe InstanceAssociationOutputUrl)
      (Maybe InstanceAssociationOutputUrl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813083"><span class="annot"><span class="annottext">Maybe InstanceAssociationOutputUrl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814787"><span class="annot"><span class="annottext">Maybe InstanceAssociationOutputUrl
 outputUrl :: Maybe InstanceAssociationOutputUrl
 $sel:outputUrl:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe InstanceAssociationOutputUrl
-</span><a href="#local-6989586621679813083"><span class="hs-identifier hs-var hs-var">outputUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAssociationOutputUrl
-</span><a href="#local-6989586621679813083"><span class="hs-identifier hs-var">outputUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813082"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813081"><span class="annot"><span class="annottext">Maybe InstanceAssociationOutputUrl
-</span><a href="#local-6989586621679813081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputUrl:InstanceAssociationStatusInfo' :: Maybe InstanceAssociationOutputUrl
+</span><a href="#local-6989586621679814787"><span class="hs-identifier hs-var hs-var">outputUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAssociationOutputUrl
+</span><a href="#local-6989586621679814787"><span class="hs-identifier hs-var">outputUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814786"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814785"><span class="annot"><span class="annottext">Maybe InstanceAssociationOutputUrl
+</span><a href="#local-6989586621679814785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputUrl:InstanceAssociationStatusInfo' :: Maybe InstanceAssociationOutputUrl
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AoutputUrl%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">outputUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAssociationOutputUrl
-</span><a href="#local-6989586621679813081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679814785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Summary information about association execution.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_executionSummary"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_executionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="instanceAssociationStatusInfo_executionSummary"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_executionSummary :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_executionSummary"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_executionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
+-&gt; (InstanceAssociationStatusInfo
+    -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
+-&gt; Lens
+     InstanceAssociationStatusInfo
+     InstanceAssociationStatusInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814783"><span class="annot"><span class="annottext">Maybe Text
+executionSummary :: Maybe Text
+$sel:executionSummary:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679814783"><span class="hs-identifier hs-var hs-var">executionSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814783"><span class="hs-identifier hs-var">executionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814782"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814781"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionSummary:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AexecutionSummary%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">executionSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The date the instance association ran.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_executionDate"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_executionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="instanceAssociationStatusInfo_executionDate"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_executionDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-135"></span><span class="hs-comment">-- | The name of the association.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_name"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="instanceAssociationStatusInfo_name"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_name"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
+-&gt; (InstanceAssociationStatusInfo
+    -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
+-&gt; Lens
+     InstanceAssociationStatusInfo
+     InstanceAssociationStatusInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814779"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679814779"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814779"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814778"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814777"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3Aname%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | An error code returned by the request to create the association.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_errorCode"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="instanceAssociationStatusInfo_errorCode"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_errorCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_errorCode"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
+-&gt; (InstanceAssociationStatusInfo
+    -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
+-&gt; Lens
+     InstanceAssociationStatusInfo
+     InstanceAssociationStatusInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814775"><span class="annot"><span class="annottext">Maybe Text
+errorCode :: Maybe Text
+$sel:errorCode:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679814775"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814775"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814774"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814773"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AerrorCode%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The association document versions.</span><span>
+</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_documentVersion"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_documentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span id="instanceAssociationStatusInfo_documentVersion"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_documentVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_documentVersion"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_documentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
+-&gt; (InstanceAssociationStatusInfo
+    -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
+-&gt; Lens
+     InstanceAssociationStatusInfo
+     InstanceAssociationStatusInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814771"><span class="annot"><span class="annottext">Maybe Text
+documentVersion :: Maybe Text
+$sel:documentVersion:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679814771"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814771"><span class="hs-identifier hs-var">documentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814770"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814769"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentVersion:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AdocumentVersion%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">documentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The version of the association applied to the instance.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_associationVersion"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_associationVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="instanceAssociationStatusInfo_associationVersion"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_associationVersion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_associationVersion"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_associationVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
+-&gt; (InstanceAssociationStatusInfo
+    -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
+-&gt; Lens
+     InstanceAssociationStatusInfo
+     InstanceAssociationStatusInfo
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814767"><span class="annot"><span class="annottext">Maybe Text
+associationVersion :: Maybe Text
+$sel:associationVersion:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
+</span><a href="#local-6989586621679814767"><span class="hs-identifier hs-var hs-var">associationVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814767"><span class="hs-identifier hs-var">associationVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814766"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814765"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationVersion:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationVersion%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">associationVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The date the instance association ran.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_executionDate"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_executionDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="instanceAssociationStatusInfo_executionDate"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_executionDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_executionDate"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_executionDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe POSIX)
 -&gt; (InstanceAssociationStatusInfo
@@ -402,16 +498,16 @@ $sel:outputUrl:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813079"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814763"><span class="annot"><span class="annottext">Maybe POSIX
 executionDate :: Maybe POSIX
 $sel:executionDate:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe POSIX
-</span><a href="#local-6989586621679813079"><span class="hs-identifier hs-var hs-var">executionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679813079"><span class="hs-identifier hs-var">executionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813078"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813077"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679813077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionDate:InstanceAssociationStatusInfo' :: Maybe POSIX
+</span><a href="#local-6989586621679814763"><span class="hs-identifier hs-var hs-var">executionDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679814763"><span class="hs-identifier hs-var">executionDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814762"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814761"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679814761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionDate:InstanceAssociationStatusInfo' :: Maybe POSIX
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AexecutionDate%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">executionDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679813077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679814761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; InstanceAssociationStatusInfo
  -&gt; f InstanceAssociationStatusInfo)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -428,34 +524,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | Summary information about association execution.</span><span>
-</span><span id="line-140"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_executionSummary"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_executionSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span id="instanceAssociationStatusInfo_executionSummary"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_executionSummary :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_executionSummary"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_executionSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
--&gt; (InstanceAssociationStatusInfo
-    -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
--&gt; Lens
-     InstanceAssociationStatusInfo
-     InstanceAssociationStatusInfo
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813072"><span class="annot"><span class="annottext">Maybe Text
-executionSummary :: Maybe Text
-$sel:executionSummary:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679813072"><span class="hs-identifier hs-var hs-var">executionSummary</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813072"><span class="hs-identifier hs-var">executionSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813071"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813070"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionSummary:InstanceAssociationStatusInfo' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AexecutionSummary%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">executionSummary</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- | The name of the association applied to the instance.</span><span>
-</span><span id="line-144"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_associationName"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_associationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span id="instanceAssociationStatusInfo_associationName"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_associationName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The name of the association applied to the instance.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_associationName"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_associationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="instanceAssociationStatusInfo_associationName"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_associationName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_associationName"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_associationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
 -&gt; (InstanceAssociationStatusInfo
@@ -466,91 +538,19 @@ $sel:executionSummary:InstanceAssociationStatusInfo' :: InstanceAssociationStatu
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813068"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814756"><span class="annot"><span class="annottext">Maybe Text
 associationName :: Maybe Text
 $sel:associationName:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679813068"><span class="hs-identifier hs-var hs-var">associationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813068"><span class="hs-identifier hs-var">associationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813067"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813066"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationName:InstanceAssociationStatusInfo' :: Maybe Text
+</span><a href="#local-6989586621679814756"><span class="hs-identifier hs-var hs-var">associationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814756"><span class="hs-identifier hs-var">associationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814755"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814754"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679814754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
+</span><a href="#local-6989586621679814755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationName:InstanceAssociationStatusInfo' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationName%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">associationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- | The version of the association applied to the instance.</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_associationVersion"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_associationVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="instanceAssociationStatusInfo_associationVersion"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_associationVersion :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_associationVersion"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_associationVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
--&gt; (InstanceAssociationStatusInfo
-    -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
--&gt; Lens
-     InstanceAssociationStatusInfo
-     InstanceAssociationStatusInfo
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813064"><span class="annot"><span class="annottext">Maybe Text
-associationVersion :: Maybe Text
-$sel:associationVersion:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679813064"><span class="hs-identifier hs-var hs-var">associationVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813064"><span class="hs-identifier hs-var">associationVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813063"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813062"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationVersion:InstanceAssociationStatusInfo' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AassociationVersion%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">associationVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- | An error code returned by the request to create the association.</span><span>
-</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_errorCode"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_errorCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span id="instanceAssociationStatusInfo_errorCode"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_errorCode :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_errorCode"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_errorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
--&gt; (InstanceAssociationStatusInfo
-    -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
--&gt; Lens
-     InstanceAssociationStatusInfo
-     InstanceAssociationStatusInfo
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813060"><span class="annot"><span class="annottext">Maybe Text
-errorCode :: Maybe Text
-$sel:errorCode:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679813060"><span class="hs-identifier hs-var hs-var">errorCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813060"><span class="hs-identifier hs-var">errorCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813059"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813058"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorCode:InstanceAssociationStatusInfo' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AerrorCode%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">errorCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- | The association document versions.</span><span>
-</span><span id="line-156"></span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_documentVersion"><span class="hs-identifier hs-type">instanceAssociationStatusInfo_documentVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-157"></span><span id="instanceAssociationStatusInfo_documentVersion"><span class="annot"><span class="annottext">instanceAssociationStatusInfo_documentVersion :: (Maybe Text -&gt; f (Maybe Text))
--&gt; InstanceAssociationStatusInfo -&gt; f InstanceAssociationStatusInfo
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#instanceAssociationStatusInfo_documentVersion"><span class="hs-identifier hs-var hs-var">instanceAssociationStatusInfo_documentVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InstanceAssociationStatusInfo -&gt; Maybe Text)
--&gt; (InstanceAssociationStatusInfo
-    -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
--&gt; Lens
-     InstanceAssociationStatusInfo
-     InstanceAssociationStatusInfo
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679813056"><span class="annot"><span class="annottext">Maybe Text
-documentVersion :: Maybe Text
-$sel:documentVersion:InstanceAssociationStatusInfo' :: InstanceAssociationStatusInfo -&gt; Maybe Text
-</span><a href="#local-6989586621679813056"><span class="hs-identifier hs-var hs-var">documentVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813056"><span class="hs-identifier hs-var">documentVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679813055"><span class="annot"><span class="annottext">s :: InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679813054"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InstanceAssociationStatusInfo
-</span><a href="#local-6989586621679813055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentVersion:InstanceAssociationStatusInfo' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#%24sel%3AdocumentVersion%3AInstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">documentVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679813054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679814754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813051"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679813049"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceAssociationStatusInfo
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814751"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679814749"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InstanceAssociationStatusInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InstanceAssociationStatusInfo)
@@ -560,19 +560,19 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InstanceAssociationStatusInfo&quot;</span></span><span>
-</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679813046"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813046"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814746"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679814746"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-164"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe InstanceAssociationOutputUrl
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; InstanceAssociationStatusInfo
 </span><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo%27"><span class="hs-identifier hs-var">InstanceAssociationStatusInfo'</span></a></span><span>
@@ -580,13 +580,13 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe InstanceAssociationOutputUrl
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; InstanceAssociationStatusInfo)
 -&gt; Parser (Maybe Text)
@@ -594,253 +594,253 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe InstanceAssociationOutputUrl
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; InstanceAssociationStatusInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679814746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AssociationId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe InstanceAssociationOutputUrl
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; InstanceAssociationStatusInfo)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe InstanceAssociationOutputUrl
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; InstanceAssociationStatusInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679814746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe InstanceAssociationOutputUrl
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; InstanceAssociationStatusInfo)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe InstanceAssociationOutputUrl
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; InstanceAssociationStatusInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679814746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DetailedStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe InstanceAssociationOutputUrl
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; InstanceAssociationStatusInfo)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe InstanceAssociationOutputUrl
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; InstanceAssociationStatusInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe InstanceAssociationOutputUrl
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; InstanceAssociationStatusInfo)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe InstanceAssociationOutputUrl
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; InstanceAssociationStatusInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679814746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AssociationId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe InstanceAssociationOutputUrl
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; InstanceAssociationStatusInfo)
 -&gt; Parser (Maybe InstanceAssociationOutputUrl)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; InstanceAssociationStatusInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceAssociationOutputUrl)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OutputUrl&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; InstanceAssociationStatusInfo)
--&gt; Parser (Maybe POSIX)
--&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
       -&gt; InstanceAssociationStatusInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679814746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceAssociationOutputUrl)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ExecutionDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;OutputUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; InstanceAssociationStatusInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; InstanceAssociationStatusInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679814746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExecutionSummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; InstanceAssociationStatusInfo)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; InstanceAssociationStatusInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679814746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; InstanceAssociationStatusInfo)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; InstanceAssociationStatusInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679814746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ExecutionSummary&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe POSIX
    -&gt; Maybe Text
    -&gt; InstanceAssociationStatusInfo)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679814746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AssociationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;DocumentVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
-     (Maybe Text -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
+     (Maybe POSIX -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679814746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AssociationVersion&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
--&gt; Parser (Maybe Text)
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; InstanceAssociationStatusInfo)
+-&gt; Parser (Maybe POSIX)
 -&gt; Parser (Maybe Text -&gt; InstanceAssociationStatusInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679814746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ErrorCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ExecutionDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; InstanceAssociationStatusInfo)
 -&gt; Parser (Maybe Text) -&gt; Parser InstanceAssociationStatusInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679813046"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679814746"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DocumentVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AssociationName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679813040"><span id="local-6989586621679813042"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679814740"><span id="local-6989586621679814742"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span></span></span><span>
 </span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679813037"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814737"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.InstanceAssociationStatusInfo.html#InstanceAssociationStatusInfo"><span class="hs-identifier hs-type">InstanceAssociationStatusInfo</span></a></span></span><span>
 </span><span id="line-184"></span></pre></body></html>

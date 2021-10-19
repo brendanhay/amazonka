@@ -24,12 +24,12 @@
 </span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-25"></span><span>
 </span><span id="line-26"></span><span class="hs-comment">-- | An object that contains information about the inbox placement data</span><span>
-</span><span id="line-27"></span><span class="hs-comment">-- settings for a verified domain that&#8217;s associated with your AWS account.</span><span>
-</span><span id="line-28"></span><span class="hs-comment">-- This data is available only if you enabled the Deliverability dashboard</span><span>
-</span><span id="line-29"></span><span class="hs-comment">-- for the domain.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- settings for a verified domain that&#8217;s associated with your Amazon Web</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Services account. This data is available only if you enabled the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Deliverability dashboard for the domain.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInboxPlacementTrackingOption' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679326558"><span id="local-6989586621679326559"></span></span><span class="hs-keyword">data</span><span> </span><span id="InboxPlacementTrackingOption"><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-var">InboxPlacementTrackingOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InboxPlacementTrackingOption%27"><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption%27"><span class="hs-identifier hs-var">InboxPlacementTrackingOption'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679329065"><span id="local-6989586621679329066"></span></span><span class="hs-keyword">data</span><span> </span><span id="InboxPlacementTrackingOption"><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-var">InboxPlacementTrackingOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InboxPlacementTrackingOption%27"><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption%27"><span class="hs-identifier hs-var">InboxPlacementTrackingOption'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of strings, one for each major email provider that the inbox</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- placement data applies to.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AtrackedIsps%3AInboxPlacementTrackingOption%27"><span class="annot"><span class="annottext">InboxPlacementTrackingOption -&gt; Maybe [Text]
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aglobal%3AInboxPlacementTrackingOption%27"><span class="annot"><span class="annottext">InboxPlacementTrackingOption -&gt; Maybe Bool
 </span><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#%24sel%3Aglobal%3AInboxPlacementTrackingOption%27"><span class="hs-identifier hs-var hs-var">global</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679326551"><span id="local-6989586621679326553"><span class="annot"><span class="annottext">InboxPlacementTrackingOption
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329058"><span id="local-6989586621679329060"><span class="annot"><span class="annottext">InboxPlacementTrackingOption
 -&gt; InboxPlacementTrackingOption -&gt; Bool
 (InboxPlacementTrackingOption
  -&gt; InboxPlacementTrackingOption -&gt; Bool)
@@ -54,7 +54,7 @@ $c/= :: InboxPlacementTrackingOption
 -&gt; InboxPlacementTrackingOption -&gt; Bool
 $c== :: InboxPlacementTrackingOption
 -&gt; InboxPlacementTrackingOption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326542"><span id="local-6989586621679326544"><span id="local-6989586621679326546"><span id="local-6989586621679326548"><span class="annot"><span class="annottext">ReadPrec [InboxPlacementTrackingOption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329049"><span id="local-6989586621679329051"><span id="local-6989586621679329053"><span id="local-6989586621679329055"><span class="annot"><span class="annottext">ReadPrec [InboxPlacementTrackingOption]
 ReadPrec InboxPlacementTrackingOption
 Int -&gt; ReadS InboxPlacementTrackingOption
 ReadS [InboxPlacementTrackingOption]
@@ -74,7 +74,7 @@ readList :: ReadS [InboxPlacementTrackingOption]
 $creadList :: ReadS [InboxPlacementTrackingOption]
 readsPrec :: Int -&gt; ReadS InboxPlacementTrackingOption
 $creadsPrec :: Int -&gt; ReadS InboxPlacementTrackingOption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679326535"><span id="local-6989586621679326537"><span id="local-6989586621679326539"><span class="annot"><span class="annottext">Int -&gt; InboxPlacementTrackingOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329042"><span id="local-6989586621679329044"><span id="local-6989586621679329046"><span class="annot"><span class="annottext">Int -&gt; InboxPlacementTrackingOption -&gt; ShowS
 [InboxPlacementTrackingOption] -&gt; ShowS
 InboxPlacementTrackingOption -&gt; String
 (Int -&gt; InboxPlacementTrackingOption -&gt; ShowS)
@@ -149,16 +149,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption%27"><span class="hs-identifier hs-type">InboxPlacementTrackingOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326526"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption%27"><span class="hs-identifier hs-type">InboxPlacementTrackingOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329033"><span class="annot"><span class="annottext">Maybe [Text]
 trackedIsps :: Maybe [Text]
 $sel:trackedIsps:InboxPlacementTrackingOption' :: InboxPlacementTrackingOption -&gt; Maybe [Text]
-</span><a href="#local-6989586621679326526"><span class="hs-identifier hs-var hs-var">trackedIsps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679326526"><span class="hs-identifier hs-var">trackedIsps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326525"><span class="annot"><span class="annottext">s :: InboxPlacementTrackingOption
-</span><a href="#local-6989586621679326525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption%27"><span class="hs-identifier hs-type">InboxPlacementTrackingOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326524"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679326524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InboxPlacementTrackingOption
-</span><a href="#local-6989586621679326525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trackedIsps:InboxPlacementTrackingOption' :: Maybe [Text]
+</span><a href="#local-6989586621679329033"><span class="hs-identifier hs-var hs-var">trackedIsps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679329033"><span class="hs-identifier hs-var">trackedIsps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329032"><span class="annot"><span class="annottext">s :: InboxPlacementTrackingOption
+</span><a href="#local-6989586621679329032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption%27"><span class="hs-identifier hs-type">InboxPlacementTrackingOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329031"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679329031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InboxPlacementTrackingOption
+</span><a href="#local-6989586621679329032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trackedIsps:InboxPlacementTrackingOption' :: Maybe [Text]
 </span><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#%24sel%3AtrackedIsps%3AInboxPlacementTrackingOption%27"><span class="hs-identifier hs-var">trackedIsps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679326524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-type">InboxPlacementTrackingOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679329031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-type">InboxPlacementTrackingOption</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; InboxPlacementTrackingOption -&gt; f InboxPlacementTrackingOption)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -172,8 +172,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | Specifies whether inbox placement data is being tracked for the domain.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#inboxPlacementTrackingOption_global"><span class="hs-identifier hs-type">inboxPlacementTrackingOption_global</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-type">InboxPlacementTrackingOption</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -188,19 +188,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption%27"><span class="hs-identifier hs-type">InboxPlacementTrackingOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326519"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption%27"><span class="hs-identifier hs-type">InboxPlacementTrackingOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329026"><span class="annot"><span class="annottext">Maybe Bool
 global :: Maybe Bool
 $sel:global:InboxPlacementTrackingOption' :: InboxPlacementTrackingOption -&gt; Maybe Bool
-</span><a href="#local-6989586621679326519"><span class="hs-identifier hs-var hs-var">global</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679326519"><span class="hs-identifier hs-var">global</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679326518"><span class="annot"><span class="annottext">s :: InboxPlacementTrackingOption
-</span><a href="#local-6989586621679326518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption%27"><span class="hs-identifier hs-type">InboxPlacementTrackingOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679326517"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679326517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InboxPlacementTrackingOption
-</span><a href="#local-6989586621679326518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:global:InboxPlacementTrackingOption' :: Maybe Bool
+</span><a href="#local-6989586621679329026"><span class="hs-identifier hs-var hs-var">global</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679329026"><span class="hs-identifier hs-var">global</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329025"><span class="annot"><span class="annottext">s :: InboxPlacementTrackingOption
+</span><a href="#local-6989586621679329025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption%27"><span class="hs-identifier hs-type">InboxPlacementTrackingOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329024"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679329024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InboxPlacementTrackingOption
+</span><a href="#local-6989586621679329025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:global:InboxPlacementTrackingOption' :: Maybe Bool
 </span><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#%24sel%3Aglobal%3AInboxPlacementTrackingOption%27"><span class="hs-identifier hs-var">global</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679326517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-type">InboxPlacementTrackingOption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679329024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-type">InboxPlacementTrackingOption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326514"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-type">InboxPlacementTrackingOption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679326512"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InboxPlacementTrackingOption
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329021"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-type">InboxPlacementTrackingOption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679329019"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser InboxPlacementTrackingOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser InboxPlacementTrackingOption)
@@ -210,8 +210,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;InboxPlacementTrackingOption&quot;</span></span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679326509"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326509"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679329016"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679329016"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Bool -&gt; InboxPlacementTrackingOption
 </span><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption%27"><span class="hs-identifier hs-var">InboxPlacementTrackingOption'</span></a></span><span>
 </span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Bool -&gt; InboxPlacementTrackingOption)
@@ -219,7 +219,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Bool -&gt; InboxPlacementTrackingOption)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><a href="#local-6989586621679329016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TrackedIsps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
@@ -232,27 +232,27 @@ forall a. Monoid a =&gt; a
 -&gt; Parser (Maybe Bool) -&gt; Parser InboxPlacementTrackingOption
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679326509"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+</span><a href="#local-6989586621679329016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Global&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679326502"><span id="local-6989586621679326504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679329009"><span id="local-6989586621679329011"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-type">InboxPlacementTrackingOption</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-type">InboxPlacementTrackingOption</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329006"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-type">InboxPlacementTrackingOption</span></a></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326491"><span id="local-6989586621679326493"><span id="local-6989586621679326495"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-type">InboxPlacementTrackingOption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679326489"><span class="annot"><span class="annottext">toJSON :: InboxPlacementTrackingOption -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption%27"><span class="hs-identifier hs-type">InboxPlacementTrackingOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326486"><span id="local-6989586621679326487"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679328998"><span id="local-6989586621679329000"><span id="local-6989586621679329002"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption"><span class="hs-identifier hs-type">InboxPlacementTrackingOption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679328996"><span class="annot"><span class="annottext">toJSON :: InboxPlacementTrackingOption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.InboxPlacementTrackingOption.html#InboxPlacementTrackingOption%27"><span class="hs-identifier hs-type">InboxPlacementTrackingOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679328993"><span id="local-6989586621679328994"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 global :: Maybe Bool
 trackedIsps :: Maybe [Text]
 $sel:global:InboxPlacementTrackingOption' :: InboxPlacementTrackingOption -&gt; Maybe Bool
 $sel:trackedIsps:InboxPlacementTrackingOption' :: InboxPlacementTrackingOption -&gt; Maybe [Text]
-</span><a href="#local-6989586621679326486"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679328993"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -264,14 +264,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679326487"><span class="hs-identifier hs-var">trackedIsps</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679328994"><span class="hs-identifier hs-var">trackedIsps</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Global&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679326486"><span class="hs-identifier hs-var">global</span></a></span><span>
+</span><a href="#local-6989586621679328993"><span class="hs-identifier hs-var">global</span></a></span><span>
 </span><span id="line-93"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span></pre></body></html>

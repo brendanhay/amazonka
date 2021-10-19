@@ -68,9 +68,9 @@
 </span><span id="line-68"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#newGetFaceSearchResponse"><span class="hs-identifier">newGetFaceSearchResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_statusMessage"><span class="hs-identifier">getFaceSearchResponse_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_nextToken"><span class="hs-identifier">getFaceSearchResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_videoMetadata"><span class="hs-identifier">getFaceSearchResponse_videoMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_nextToken"><span class="hs-identifier">getFaceSearchResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_statusMessage"><span class="hs-identifier">getFaceSearchResponse_statusMessage</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_jobStatus"><span class="hs-identifier">getFaceSearchResponse_jobStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_persons"><span class="hs-identifier">getFaceSearchResponse_persons</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_httpStatus"><span class="hs-identifier">getFaceSearchResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
@@ -85,7 +85,7 @@
 </span><span id="line-85"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | /See:/ 'newGetFaceSearch' smart constructor.</span><span>
-</span><span id="line-88"></span><span id="local-6989586621679342576"><span id="local-6989586621679342577"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFaceSearch"><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-var">GetFaceSearch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFaceSearch%27"><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-var">GetFaceSearch'</span></a></span></span><span>
+</span><span id="line-88"></span><span id="local-6989586621679342889"><span id="local-6989586621679342890"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFaceSearch"><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-var">GetFaceSearch</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFaceSearch%27"><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-var">GetFaceSearch'</span></a></span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the previous response was incomplete (because there is more search</span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-comment">-- results to retrieve), Amazon Rekognition Video returns a pagination</span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-comment">-- token in the response. You can use this pagination token to retrieve the</span><span>
@@ -107,7 +107,7 @@
 </span><span id="line-104"></span><span>    </span><span id="%24sel%3AjobId%3AGetFaceSearch%27"><span class="annot"><span class="annottext">GetFaceSearch -&gt; Text
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AjobId%3AGetFaceSearch%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-105"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342567"><span id="local-6989586621679342569"><span class="annot"><span class="annottext">GetFaceSearch -&gt; GetFaceSearch -&gt; Bool
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342880"><span id="local-6989586621679342882"><span class="annot"><span class="annottext">GetFaceSearch -&gt; GetFaceSearch -&gt; Bool
 (GetFaceSearch -&gt; GetFaceSearch -&gt; Bool)
 -&gt; (GetFaceSearch -&gt; GetFaceSearch -&gt; Bool) -&gt; Eq GetFaceSearch
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -115,7 +115,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetFaceSearch -&gt; GetFaceSearch -&gt; Bool
 == :: GetFaceSearch -&gt; GetFaceSearch -&gt; Bool
 $c== :: GetFaceSearch -&gt; GetFaceSearch -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342558"><span id="local-6989586621679342560"><span id="local-6989586621679342562"><span id="local-6989586621679342564"><span class="annot"><span class="annottext">ReadPrec [GetFaceSearch]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342871"><span id="local-6989586621679342873"><span id="local-6989586621679342875"><span id="local-6989586621679342877"><span class="annot"><span class="annottext">ReadPrec [GetFaceSearch]
 ReadPrec GetFaceSearch
 Int -&gt; ReadS GetFaceSearch
 ReadS [GetFaceSearch]
@@ -135,7 +135,7 @@ readList :: ReadS [GetFaceSearch]
 $creadList :: ReadS [GetFaceSearch]
 readsPrec :: Int -&gt; ReadS GetFaceSearch
 $creadsPrec :: Int -&gt; ReadS GetFaceSearch
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342551"><span id="local-6989586621679342553"><span id="local-6989586621679342555"><span class="annot"><span class="annottext">Int -&gt; GetFaceSearch -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342864"><span id="local-6989586621679342866"><span id="local-6989586621679342868"><span class="annot"><span class="annottext">Int -&gt; GetFaceSearch -&gt; ShowS
 [GetFaceSearch] -&gt; ShowS
 GetFaceSearch -&gt; String
 (Int -&gt; GetFaceSearch -&gt; ShowS)
@@ -189,8 +189,8 @@ $cfrom :: forall x. GetFaceSearch -&gt; Rep GetFaceSearch x
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span>
 </span><span id="line-135"></span><span id="newGetFaceSearch"><span class="annot"><span class="annottext">newGetFaceSearch :: Text -&gt; GetFaceSearch
-</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#newGetFaceSearch"><span class="hs-identifier hs-var hs-var">newGetFaceSearch</span></a></span></span><span> </span><span id="local-6989586621679342546"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342546"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#newGetFaceSearch"><span class="hs-identifier hs-var hs-var">newGetFaceSearch</span></a></span></span><span> </span><span id="local-6989586621679342859"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342859"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">GetFaceSearch' :: Maybe Text
 -&gt; Maybe Natural -&gt; Maybe FaceSearchSortBy -&gt; Text -&gt; GetFaceSearch
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span>
@@ -208,7 +208,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:GetFaceSearch' :: Text
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AjobId%3AGetFaceSearch%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342546"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
+</span><a href="#local-6989586621679342859"><span class="hs-identifier hs-var">pJobId_</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | If the previous response was incomplete (because there is more search</span><span>
@@ -221,16 +221,16 @@ forall a. Maybe a
 -&gt; (GetFaceSearch -&gt; Maybe Text -&gt; GetFaceSearch)
 -&gt; Lens GetFaceSearch GetFaceSearch (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342543"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342856"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetFaceSearch' :: GetFaceSearch -&gt; Maybe Text
-</span><a href="#local-6989586621679342543"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342543"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342542"><span class="annot"><span class="annottext">s :: GetFaceSearch
-</span><a href="#local-6989586621679342542"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342541"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342541"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearch
-</span><a href="#local-6989586621679342542"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetFaceSearch' :: Maybe Text
+</span><a href="#local-6989586621679342856"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342856"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342855"><span class="annot"><span class="annottext">s :: GetFaceSearch
+</span><a href="#local-6989586621679342855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342854"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearch
+</span><a href="#local-6989586621679342855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetFaceSearch' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AnextToken%3AGetFaceSearch%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342541"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | Maximum number of results to return per paginated call. The largest</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- value you can specify is 1000. If you specify a value greater than 1000,</span><span>
@@ -242,16 +242,16 @@ $sel:nextToken:GetFaceSearch' :: GetFaceSearch -&gt; Maybe Text
 -&gt; (GetFaceSearch -&gt; Maybe Natural -&gt; GetFaceSearch)
 -&gt; Lens GetFaceSearch GetFaceSearch (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342540"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342853"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:GetFaceSearch' :: GetFaceSearch -&gt; Maybe Natural
-</span><a href="#local-6989586621679342540"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679342540"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342539"><span class="annot"><span class="annottext">s :: GetFaceSearch
-</span><a href="#local-6989586621679342539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342538"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679342538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearch
-</span><a href="#local-6989586621679342539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetFaceSearch' :: Maybe Natural
+</span><a href="#local-6989586621679342853"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679342853"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342852"><span class="annot"><span class="annottext">s :: GetFaceSearch
+</span><a href="#local-6989586621679342852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342851"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679342851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearch
+</span><a href="#local-6989586621679342852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetFaceSearch' :: Maybe Natural
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AmaxResults%3AGetFaceSearch%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679342538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | Sort to use for grouping faces in the response. Use @TIMESTAMP@ to group</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- faces by the time that they are recognized. Use @INDEX@ to sort by</span><span>
@@ -267,16 +267,16 @@ $sel:maxResults:GetFaceSearch' :: GetFaceSearch -&gt; Maybe Natural
      (Maybe FaceSearchSortBy)
      (Maybe FaceSearchSortBy)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342537"><span class="annot"><span class="annottext">Maybe FaceSearchSortBy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342850"><span class="annot"><span class="annottext">Maybe FaceSearchSortBy
 sortBy :: Maybe FaceSearchSortBy
 $sel:sortBy:GetFaceSearch' :: GetFaceSearch -&gt; Maybe FaceSearchSortBy
-</span><a href="#local-6989586621679342537"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FaceSearchSortBy
-</span><a href="#local-6989586621679342537"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342536"><span class="annot"><span class="annottext">s :: GetFaceSearch
-</span><a href="#local-6989586621679342536"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342535"><span class="annot"><span class="annottext">Maybe FaceSearchSortBy
-</span><a href="#local-6989586621679342535"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearch
-</span><a href="#local-6989586621679342536"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:GetFaceSearch' :: Maybe FaceSearchSortBy
+</span><a href="#local-6989586621679342850"><span class="hs-identifier hs-var hs-var">sortBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FaceSearchSortBy
+</span><a href="#local-6989586621679342850"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342849"><span class="annot"><span class="annottext">s :: GetFaceSearch
+</span><a href="#local-6989586621679342849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342848"><span class="annot"><span class="annottext">Maybe FaceSearchSortBy
+</span><a href="#local-6989586621679342848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearch
+</span><a href="#local-6989586621679342849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sortBy:GetFaceSearch' :: Maybe FaceSearchSortBy
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AsortBy%3AGetFaceSearch%27"><span class="hs-identifier hs-var">sortBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FaceSearchSortBy
-</span><a href="#local-6989586621679342535"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | The job identifer for the search request. You get the job identifier</span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- from an initial call to @StartFaceSearch@.</span><span>
@@ -286,27 +286,27 @@ $sel:sortBy:GetFaceSearch' :: GetFaceSearch -&gt; Maybe FaceSearchSortBy
 -&gt; (GetFaceSearch -&gt; Text -&gt; GetFaceSearch)
 -&gt; Lens GetFaceSearch GetFaceSearch Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342534"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342847"><span class="annot"><span class="annottext">Text
 jobId :: Text
 $sel:jobId:GetFaceSearch' :: GetFaceSearch -&gt; Text
-</span><a href="#local-6989586621679342534"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342534"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342533"><span class="annot"><span class="annottext">s :: GetFaceSearch
-</span><a href="#local-6989586621679342533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342532"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearch
-</span><a href="#local-6989586621679342533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetFaceSearch' :: Text
+</span><a href="#local-6989586621679342847"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342847"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342846"><span class="annot"><span class="annottext">s :: GetFaceSearch
+</span><a href="#local-6989586621679342846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342845"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679342845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearch
+</span><a href="#local-6989586621679342846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:GetFaceSearch' :: Text
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AjobId%3AGetFaceSearch%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-168"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-169"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679342528"><span class="annot"><span class="annottext">request :: GetFaceSearch -&gt; Request GetFaceSearch
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679342841"><span class="annot"><span class="annottext">request :: GetFaceSearch -&gt; Request GetFaceSearch
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetFaceSearch -&gt; Request GetFaceSearch
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679342524"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679342837"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetFaceSearch
 -&gt; ClientResponse ClientBody
@@ -330,10 +330,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342521"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342521"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679342520"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679342520"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679342519"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342519"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679342834"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342834"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679342833"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679342833"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679342832"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679342832"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe VideoMetadata
 -&gt; Maybe Text
@@ -360,10 +360,10 @@ MonadResource m =&gt;
       -&gt; GetFaceSearchResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679342832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe VideoMetadata
@@ -382,7 +382,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; GetFaceSearchResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VideoMetadata)
+</span><a href="#local-6989586621679342832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VideoMetadata)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VideoMetadata&quot;</span></span><span class="hs-special">)</span><span>
@@ -400,10 +400,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
       -&gt; Maybe [PersonMatch] -&gt; Int -&gt; GetFaceSearchResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679342832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;StatusMessage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe VideoJobStatus
@@ -413,7 +413,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe [PersonMatch] -&gt; Int -&gt; GetFaceSearchResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VideoJobStatus)
+</span><a href="#local-6989586621679342832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VideoJobStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobStatus&quot;</span></span><span class="hs-special">)</span><span>
@@ -422,7 +422,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; GetFaceSearchResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679342519"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PersonMatch]))
+</span><a href="#local-6989586621679342832"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [PersonMatch]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Persons&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PersonMatch]))
@@ -439,15 +439,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342521"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342834"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342510"><span id="local-6989586621679342512"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span></span></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342823"><span id="local-6989586621679342825"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span></span></span><span>
 </span><span id="line-185"></span><span>
-</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342507"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342820"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span></span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679342503"><span class="annot"><span class="annottext">toHeaders :: GetFaceSearch -&gt; ResponseHeaders
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679342816"><span class="annot"><span class="annottext">toHeaders :: GetFaceSearch -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetFaceSearch -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -474,9 +474,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-200"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-201"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342493"><span id="local-6989586621679342495"><span id="local-6989586621679342497"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-204"></span><span>  </span><span id="local-6989586621679342491"><span class="annot"><span class="annottext">toJSON :: GetFaceSearch -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342486"><span id="local-6989586621679342487"><span id="local-6989586621679342488"><span id="local-6989586621679342489"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342806"><span id="local-6989586621679342808"><span id="local-6989586621679342810"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span id="local-6989586621679342804"><span class="annot"><span class="annottext">toJSON :: GetFaceSearch -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch%27"><span class="hs-identifier hs-type">GetFaceSearch'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342799"><span id="local-6989586621679342800"><span id="local-6989586621679342801"><span id="local-6989586621679342802"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Maybe FaceSearchSortBy
 Text
@@ -488,7 +488,7 @@ $sel:jobId:GetFaceSearch' :: GetFaceSearch -&gt; Text
 $sel:sortBy:GetFaceSearch' :: GetFaceSearch -&gt; Maybe FaceSearchSortBy
 $sel:maxResults:GetFaceSearch' :: GetFaceSearch -&gt; Maybe Natural
 $sel:nextToken:GetFaceSearch' :: GetFaceSearch -&gt; Maybe Text
-</span><a href="#local-6989586621679342486"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679342799"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-205"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-206"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -500,40 +500,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342489"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342802"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679342488"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342801"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SortBy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FaceSearchSortBy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FaceSearchSortBy -&gt; Pair) -&gt; Maybe FaceSearchSortBy -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FaceSearchSortBy
-</span><a href="#local-6989586621679342487"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679342800"><span class="hs-identifier hs-var">sortBy</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679342486"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679342799"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-212"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-215"></span><span>  </span><span id="local-6989586621679342480"><span class="annot"><span class="annottext">toPath :: GetFaceSearch -&gt; ByteString
+</span><span id="line-215"></span><span>  </span><span id="local-6989586621679342793"><span class="annot"><span class="annottext">toPath :: GetFaceSearch -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetFaceSearch -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-216"></span><span>
 </span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearch"><span class="hs-identifier hs-type">GetFaceSearch</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-218"></span><span>  </span><span id="local-6989586621679342476"><span class="annot"><span class="annottext">toQuery :: GetFaceSearch -&gt; QueryString
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679342789"><span class="annot"><span class="annottext">toQuery :: GetFaceSearch -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetFaceSearch -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -541,20 +541,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | /See:/ 'newGetFaceSearchResponse' smart constructor.</span><span>
-</span><span id="line-221"></span><span id="local-6989586621679342473"><span id="local-6989586621679342474"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFaceSearchResponse"><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-var">GetFaceSearchResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFaceSearchResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-var">GetFaceSearchResponse'</span></a></span></span><span>
-</span><span id="line-222"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
-</span><span id="line-223"></span><span>    </span><span id="%24sel%3AstatusMessage%3AGetFaceSearchResponse%27"><span class="annot"><span class="annottext">GetFaceSearchResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AstatusMessage%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- | Information about a video that Amazon Rekognition analyzed.</span><span>
-</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from a</span><span>
-</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition Video operation.</span><span>
-</span><span id="line-227"></span><span>    </span><span id="%24sel%3AvideoMetadata%3AGetFaceSearchResponse%27"><span class="annot"><span class="annottext">GetFaceSearchResponse -&gt; Maybe VideoMetadata
-</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AvideoMetadata%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var hs-var">videoMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoMetadata.html#VideoMetadata"><span class="hs-identifier hs-type">VideoMetadata</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- | If the response is truncated, Amazon Rekognition Video returns this</span><span>
-</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
-</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- set of search results.</span><span>
-</span><span id="line-231"></span><span>    </span><span id="%24sel%3AnextToken%3AGetFaceSearchResponse%27"><span class="annot"><span class="annottext">GetFaceSearchResponse -&gt; Maybe Text
+</span><span id="line-221"></span><span id="local-6989586621679342786"><span id="local-6989586621679342787"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFaceSearchResponse"><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-var">GetFaceSearchResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFaceSearchResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-var">GetFaceSearchResponse'</span></a></span></span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the response is truncated, Amazon Rekognition Video returns this</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- set of search results.</span><span>
+</span><span id="line-225"></span><span>    </span><span id="%24sel%3AnextToken%3AGetFaceSearchResponse%27"><span class="annot"><span class="annottext">GetFaceSearchResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AnextToken%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- | Information about a video that Amazon Rekognition analyzed.</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from a</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- Amazon Rekognition Video operation.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3AvideoMetadata%3AGetFaceSearchResponse%27"><span class="annot"><span class="annottext">GetFaceSearchResponse -&gt; Maybe VideoMetadata
+</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AvideoMetadata%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var hs-var">videoMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoMetadata.html#VideoMetadata"><span class="hs-identifier hs-type">VideoMetadata</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- | If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
+</span><span id="line-231"></span><span>    </span><span id="%24sel%3AstatusMessage%3AGetFaceSearchResponse%27"><span class="annot"><span class="annottext">GetFaceSearchResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AstatusMessage%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-232"></span><span>    </span><span class="hs-comment">-- | The current status of the face search job.</span><span>
 </span><span id="line-233"></span><span>    </span><span id="%24sel%3AjobStatus%3AGetFaceSearchResponse%27"><span class="annot"><span class="annottext">GetFaceSearchResponse -&gt; Maybe VideoJobStatus
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AjobStatus%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoJobStatus.html#VideoJobStatus"><span class="hs-identifier hs-type">VideoJobStatus</span></a></span><span class="hs-special">,</span><span>
@@ -571,7 +571,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-243"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetFaceSearchResponse%27"><span class="annot"><span class="annottext">GetFaceSearchResponse -&gt; Int
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AhttpStatus%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-244"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-245"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342463"><span id="local-6989586621679342465"><span class="annot"><span class="annottext">GetFaceSearchResponse -&gt; GetFaceSearchResponse -&gt; Bool
+</span><span id="line-245"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679342776"><span id="local-6989586621679342778"><span class="annot"><span class="annottext">GetFaceSearchResponse -&gt; GetFaceSearchResponse -&gt; Bool
 (GetFaceSearchResponse -&gt; GetFaceSearchResponse -&gt; Bool)
 -&gt; (GetFaceSearchResponse -&gt; GetFaceSearchResponse -&gt; Bool)
 -&gt; Eq GetFaceSearchResponse
@@ -580,7 +580,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetFaceSearchResponse -&gt; GetFaceSearchResponse -&gt; Bool
 == :: GetFaceSearchResponse -&gt; GetFaceSearchResponse -&gt; Bool
 $c== :: GetFaceSearchResponse -&gt; GetFaceSearchResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342455"><span id="local-6989586621679342457"><span id="local-6989586621679342459"><span id="local-6989586621679342461"><span class="annot"><span class="annottext">ReadPrec [GetFaceSearchResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342768"><span id="local-6989586621679342770"><span id="local-6989586621679342772"><span id="local-6989586621679342774"><span class="annot"><span class="annottext">ReadPrec [GetFaceSearchResponse]
 ReadPrec GetFaceSearchResponse
 Int -&gt; ReadS GetFaceSearchResponse
 ReadS [GetFaceSearchResponse]
@@ -600,7 +600,7 @@ readList :: ReadS [GetFaceSearchResponse]
 $creadList :: ReadS [GetFaceSearchResponse]
 readsPrec :: Int -&gt; ReadS GetFaceSearchResponse
 $creadsPrec :: Int -&gt; ReadS GetFaceSearchResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342449"><span id="local-6989586621679342451"><span id="local-6989586621679342453"><span class="annot"><span class="annottext">Int -&gt; GetFaceSearchResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679342762"><span id="local-6989586621679342764"><span id="local-6989586621679342766"><span class="annot"><span class="annottext">Int -&gt; GetFaceSearchResponse -&gt; ShowS
 [GetFaceSearchResponse] -&gt; ShowS
 GetFaceSearchResponse -&gt; String
 (Int -&gt; GetFaceSearchResponse -&gt; ShowS)
@@ -634,15 +634,15 @@ $cfrom :: forall x. GetFaceSearchResponse -&gt; Rep GetFaceSearchResponse x
 </span><span id="line-252"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-253"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-254"></span><span class="hs-comment">--</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- 'statusMessage', 'getFaceSearchResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
-</span><span id="line-256"></span><span class="hs-comment">--</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- 'videoMetadata', 'getFaceSearchResponse_videoMetadata' - Information about a video that Amazon Rekognition analyzed.</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from a</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- Amazon Rekognition Video operation.</span><span>
-</span><span id="line-260"></span><span class="hs-comment">--</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- 'nextToken', 'getFaceSearchResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- set of search results.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'nextToken', 'getFaceSearchResponse_nextToken' - If the response is truncated, Amazon Rekognition Video returns this</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- set of search results.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- 'videoMetadata', 'getFaceSearchResponse_videoMetadata' - Information about a video that Amazon Rekognition analyzed.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from a</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- Amazon Rekognition Video operation.</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- 'statusMessage', 'getFaceSearchResponse_statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
 </span><span id="line-264"></span><span class="hs-comment">--</span><span>
 </span><span id="line-265"></span><span class="hs-comment">-- 'jobStatus', 'getFaceSearchResponse_jobStatus' - The current status of the face search job.</span><span>
 </span><span id="line-266"></span><span class="hs-comment">--</span><span>
@@ -660,8 +660,8 @@ $cfrom :: forall x. GetFaceSearchResponse -&gt; Rep GetFaceSearchResponse x
 </span><span id="line-278"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-279"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span>
 </span><span id="line-280"></span><span id="newGetFaceSearchResponse"><span class="annot"><span class="annottext">newGetFaceSearchResponse :: Int -&gt; GetFaceSearchResponse
-</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#newGetFaceSearchResponse"><span class="hs-identifier hs-var hs-var">newGetFaceSearchResponse</span></a></span></span><span> </span><span id="local-6989586621679342446"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342446"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#newGetFaceSearchResponse"><span class="hs-identifier hs-var hs-var">newGetFaceSearchResponse</span></a></span></span><span> </span><span id="local-6989586621679342759"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342759"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-281"></span><span>  </span><span class="annot"><span class="annottext">GetFaceSearchResponse' :: Maybe Text
 -&gt; Maybe VideoMetadata
 -&gt; Maybe Text
@@ -670,37 +670,38 @@ $cfrom :: forall x. GetFaceSearchResponse -&gt; Rep GetFaceSearchResponse x
 -&gt; Int
 -&gt; GetFaceSearchResponse
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span>
-</span><span id="line-282"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statusMessage:GetFaceSearchResponse' :: Maybe Text
-</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AstatusMessage%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-283"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">$sel:videoMetadata:GetFaceSearchResponse' :: Maybe VideoMetadata
-</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AvideoMetadata%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">videoMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoMetadata
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetFaceSearchResponse' :: Maybe Text
+</span><span id="line-282"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetFaceSearchResponse' :: Maybe Text
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AnextToken%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobStatus:GetFaceSearchResponse' :: Maybe VideoJobStatus
+</span><span id="line-283"></span><span>      </span><span class="annot"><span class="annottext">$sel:videoMetadata:GetFaceSearchResponse' :: Maybe VideoMetadata
+</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AvideoMetadata%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">videoMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoMetadata
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusMessage:GetFaceSearchResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AstatusMessage%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobStatus:GetFaceSearchResponse' :: Maybe VideoJobStatus
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AjobStatus%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoJobStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:persons:GetFaceSearchResponse' :: Maybe [PersonMatch]
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:persons:GetFaceSearchResponse' :: Maybe [PersonMatch]
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3Apersons%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">persons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PersonMatch]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-288"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetFaceSearchResponse' :: Int
+</span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetFaceSearchResponse' :: Int
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AhttpStatus%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342446"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-289"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-290"></span><span>
-</span><span id="line-291"></span><span class="hs-comment">-- | If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
-</span><span id="line-292"></span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_statusMessage"><span class="hs-identifier hs-type">getFaceSearchResponse_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-293"></span><span id="getFaceSearchResponse_statusMessage"><span class="annot"><span class="annottext">getFaceSearchResponse_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679342759"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-288"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | If the response is truncated, Amazon Rekognition Video returns this</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- set of search results.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_nextToken"><span class="hs-identifier hs-type">getFaceSearchResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span id="getFaceSearchResponse_nextToken"><span class="annot"><span class="annottext">getFaceSearchResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetFaceSearchResponse -&gt; f GetFaceSearchResponse
-</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_statusMessage"><span class="hs-identifier hs-var hs-var">getFaceSearchResponse_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFaceSearchResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_nextToken"><span class="hs-identifier hs-var hs-var">getFaceSearchResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFaceSearchResponse -&gt; Maybe Text)
 -&gt; (GetFaceSearchResponse -&gt; Maybe Text -&gt; GetFaceSearchResponse)
 -&gt; Lens
      GetFaceSearchResponse
@@ -708,22 +709,22 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342445"><span class="annot"><span class="annottext">Maybe Text
-statusMessage :: Maybe Text
-$sel:statusMessage:GetFaceSearchResponse' :: GetFaceSearchResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679342445"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342445"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342444"><span class="annot"><span class="annottext">s :: GetFaceSearchResponse
-</span><a href="#local-6989586621679342444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342443"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearchResponse
-</span><a href="#local-6989586621679342444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:GetFaceSearchResponse' :: Maybe Text
-</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AstatusMessage%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-294"></span><span>
-</span><span id="line-295"></span><span class="hs-comment">-- | Information about a video that Amazon Rekognition analyzed.</span><span>
-</span><span id="line-296"></span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from a</span><span>
-</span><span id="line-297"></span><span class="hs-comment">-- Amazon Rekognition Video operation.</span><span>
-</span><span id="line-298"></span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_videoMetadata"><span class="hs-identifier hs-type">getFaceSearchResponse_videoMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoMetadata.html#VideoMetadata"><span class="hs-identifier hs-type">VideoMetadata</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-299"></span><span id="getFaceSearchResponse_videoMetadata"><span class="annot"><span class="annottext">getFaceSearchResponse_videoMetadata :: (Maybe VideoMetadata -&gt; f (Maybe VideoMetadata))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342758"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetFaceSearchResponse' :: GetFaceSearchResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679342758"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342758"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342757"><span class="annot"><span class="annottext">s :: GetFaceSearchResponse
+</span><a href="#local-6989586621679342757"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342756"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342756"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearchResponse
+</span><a href="#local-6989586621679342757"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetFaceSearchResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AnextToken%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342756"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | Information about a video that Amazon Rekognition analyzed.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- @Videometadata@ is returned in every page of paginated responses from a</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- Amazon Rekognition Video operation.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_videoMetadata"><span class="hs-identifier hs-type">getFaceSearchResponse_videoMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoMetadata.html#VideoMetadata"><span class="hs-identifier hs-type">VideoMetadata</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span id="getFaceSearchResponse_videoMetadata"><span class="annot"><span class="annottext">getFaceSearchResponse_videoMetadata :: (Maybe VideoMetadata -&gt; f (Maybe VideoMetadata))
 -&gt; GetFaceSearchResponse -&gt; f GetFaceSearchResponse
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_videoMetadata"><span class="hs-identifier hs-var hs-var">getFaceSearchResponse_videoMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFaceSearchResponse -&gt; Maybe VideoMetadata)
 -&gt; (GetFaceSearchResponse
@@ -734,24 +735,22 @@ $sel:statusMessage:GetFaceSearchResponse' :: GetFaceSearchResponse -&gt; Maybe T
      (Maybe VideoMetadata)
      (Maybe VideoMetadata)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342442"><span class="annot"><span class="annottext">Maybe VideoMetadata
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342755"><span class="annot"><span class="annottext">Maybe VideoMetadata
 videoMetadata :: Maybe VideoMetadata
 $sel:videoMetadata:GetFaceSearchResponse' :: GetFaceSearchResponse -&gt; Maybe VideoMetadata
-</span><a href="#local-6989586621679342442"><span class="hs-identifier hs-var hs-var">videoMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoMetadata
-</span><a href="#local-6989586621679342442"><span class="hs-identifier hs-var">videoMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342441"><span class="annot"><span class="annottext">s :: GetFaceSearchResponse
-</span><a href="#local-6989586621679342441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342440"><span class="annot"><span class="annottext">Maybe VideoMetadata
-</span><a href="#local-6989586621679342440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearchResponse
-</span><a href="#local-6989586621679342441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoMetadata:GetFaceSearchResponse' :: Maybe VideoMetadata
+</span><a href="#local-6989586621679342755"><span class="hs-identifier hs-var hs-var">videoMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoMetadata
+</span><a href="#local-6989586621679342755"><span class="hs-identifier hs-var">videoMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342754"><span class="annot"><span class="annottext">s :: GetFaceSearchResponse
+</span><a href="#local-6989586621679342754"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342753"><span class="annot"><span class="annottext">Maybe VideoMetadata
+</span><a href="#local-6989586621679342753"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearchResponse
+</span><a href="#local-6989586621679342754"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoMetadata:GetFaceSearchResponse' :: Maybe VideoMetadata
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AvideoMetadata%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">videoMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoMetadata
-</span><a href="#local-6989586621679342440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-300"></span><span>
-</span><span id="line-301"></span><span class="hs-comment">-- | If the response is truncated, Amazon Rekognition Video returns this</span><span>
-</span><span id="line-302"></span><span class="hs-comment">-- token that you can use in the subsequent request to retrieve the next</span><span>
-</span><span id="line-303"></span><span class="hs-comment">-- set of search results.</span><span>
-</span><span id="line-304"></span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_nextToken"><span class="hs-identifier hs-type">getFaceSearchResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-305"></span><span id="getFaceSearchResponse_nextToken"><span class="annot"><span class="annottext">getFaceSearchResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679342753"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | If the job fails, @StatusMessage@ provides a descriptive error message.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_statusMessage"><span class="hs-identifier hs-type">getFaceSearchResponse_statusMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="getFaceSearchResponse_statusMessage"><span class="annot"><span class="annottext">getFaceSearchResponse_statusMessage :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetFaceSearchResponse -&gt; f GetFaceSearchResponse
-</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_nextToken"><span class="hs-identifier hs-var hs-var">getFaceSearchResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFaceSearchResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_statusMessage"><span class="hs-identifier hs-var hs-var">getFaceSearchResponse_statusMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFaceSearchResponse -&gt; Maybe Text)
 -&gt; (GetFaceSearchResponse -&gt; Maybe Text -&gt; GetFaceSearchResponse)
 -&gt; Lens
      GetFaceSearchResponse
@@ -759,20 +758,20 @@ $sel:videoMetadata:GetFaceSearchResponse' :: GetFaceSearchResponse -&gt; Maybe V
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342439"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:GetFaceSearchResponse' :: GetFaceSearchResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679342439"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342439"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342438"><span class="annot"><span class="annottext">s :: GetFaceSearchResponse
-</span><a href="#local-6989586621679342438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342437"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearchResponse
-</span><a href="#local-6989586621679342438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetFaceSearchResponse' :: Maybe Text
-</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AnextToken%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679342437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-306"></span><span>
-</span><span id="line-307"></span><span class="hs-comment">-- | The current status of the face search job.</span><span>
-</span><span id="line-308"></span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_jobStatus"><span class="hs-identifier hs-type">getFaceSearchResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoJobStatus.html#VideoJobStatus"><span class="hs-identifier hs-type">VideoJobStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-309"></span><span id="getFaceSearchResponse_jobStatus"><span class="annot"><span class="annottext">getFaceSearchResponse_jobStatus :: (Maybe VideoJobStatus -&gt; f (Maybe VideoJobStatus))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342752"><span class="annot"><span class="annottext">Maybe Text
+statusMessage :: Maybe Text
+$sel:statusMessage:GetFaceSearchResponse' :: GetFaceSearchResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679342752"><span class="hs-identifier hs-var hs-var">statusMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342752"><span class="hs-identifier hs-var">statusMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342751"><span class="annot"><span class="annottext">s :: GetFaceSearchResponse
+</span><a href="#local-6989586621679342751"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342750"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342750"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearchResponse
+</span><a href="#local-6989586621679342751"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusMessage:GetFaceSearchResponse' :: Maybe Text
+</span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AstatusMessage%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">statusMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342750"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | The current status of the face search job.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_jobStatus"><span class="hs-identifier hs-type">getFaceSearchResponse_jobStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.Types.VideoJobStatus.html#VideoJobStatus"><span class="hs-identifier hs-type">VideoJobStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span id="getFaceSearchResponse_jobStatus"><span class="annot"><span class="annottext">getFaceSearchResponse_jobStatus :: (Maybe VideoJobStatus -&gt; f (Maybe VideoJobStatus))
 -&gt; GetFaceSearchResponse -&gt; f GetFaceSearchResponse
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_jobStatus"><span class="hs-identifier hs-var hs-var">getFaceSearchResponse_jobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFaceSearchResponse -&gt; Maybe VideoJobStatus)
 -&gt; (GetFaceSearchResponse
@@ -783,26 +782,26 @@ $sel:nextToken:GetFaceSearchResponse' :: GetFaceSearchResponse -&gt; Maybe Text
      (Maybe VideoJobStatus)
      (Maybe VideoJobStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342436"><span class="annot"><span class="annottext">Maybe VideoJobStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342749"><span class="annot"><span class="annottext">Maybe VideoJobStatus
 jobStatus :: Maybe VideoJobStatus
 $sel:jobStatus:GetFaceSearchResponse' :: GetFaceSearchResponse -&gt; Maybe VideoJobStatus
-</span><a href="#local-6989586621679342436"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoJobStatus
-</span><a href="#local-6989586621679342436"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342435"><span class="annot"><span class="annottext">s :: GetFaceSearchResponse
-</span><a href="#local-6989586621679342435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342434"><span class="annot"><span class="annottext">Maybe VideoJobStatus
-</span><a href="#local-6989586621679342434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearchResponse
-</span><a href="#local-6989586621679342435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:GetFaceSearchResponse' :: Maybe VideoJobStatus
+</span><a href="#local-6989586621679342749"><span class="hs-identifier hs-var hs-var">jobStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoJobStatus
+</span><a href="#local-6989586621679342749"><span class="hs-identifier hs-var">jobStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342748"><span class="annot"><span class="annottext">s :: GetFaceSearchResponse
+</span><a href="#local-6989586621679342748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342747"><span class="annot"><span class="annottext">Maybe VideoJobStatus
+</span><a href="#local-6989586621679342747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearchResponse
+</span><a href="#local-6989586621679342748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobStatus:GetFaceSearchResponse' :: Maybe VideoJobStatus
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AjobStatus%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">jobStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoJobStatus
-</span><a href="#local-6989586621679342434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-310"></span><span>
-</span><span id="line-311"></span><span class="hs-comment">-- | An array of persons, PersonMatch, in the video whose face(s) match the</span><span>
-</span><span id="line-312"></span><span class="hs-comment">-- face(s) in an Amazon Rekognition collection. It also includes time</span><span>
-</span><span id="line-313"></span><span class="hs-comment">-- information for when persons are matched in the video. You specify the</span><span>
-</span><span id="line-314"></span><span class="hs-comment">-- input collection in an initial call to @StartFaceSearch@. Each @Persons@</span><span>
-</span><span id="line-315"></span><span class="hs-comment">-- element includes a time the person was matched, face match details</span><span>
-</span><span id="line-316"></span><span class="hs-comment">-- (@FaceMatches@) for matching faces in the collection, and person</span><span>
-</span><span id="line-317"></span><span class="hs-comment">-- information (@Person@) for the matched person.</span><span>
-</span><span id="line-318"></span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_persons"><span class="hs-identifier hs-type">getFaceSearchResponse_persons</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-319"></span><span id="getFaceSearchResponse_persons"><span class="annot"><span class="annottext">getFaceSearchResponse_persons :: (Maybe [PersonMatch] -&gt; f (Maybe [PersonMatch]))
+</span><a href="#local-6989586621679342747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- | An array of persons, PersonMatch, in the video whose face(s) match the</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- face(s) in an Amazon Rekognition collection. It also includes time</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- information for when persons are matched in the video. You specify the</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- input collection in an initial call to @StartFaceSearch@. Each @Persons@</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- element includes a time the person was matched, face match details</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- (@FaceMatches@) for matching faces in the collection, and person</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- information (@Person@) for the matched person.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_persons"><span class="hs-identifier hs-type">getFaceSearchResponse_persons</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Rekognition.Types.PersonMatch.html#PersonMatch"><span class="hs-identifier hs-type">PersonMatch</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span id="getFaceSearchResponse_persons"><span class="annot"><span class="annottext">getFaceSearchResponse_persons :: (Maybe [PersonMatch] -&gt; f (Maybe [PersonMatch]))
 -&gt; GetFaceSearchResponse -&gt; f GetFaceSearchResponse
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_persons"><span class="hs-identifier hs-var hs-var">getFaceSearchResponse_persons</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFaceSearchResponse -&gt; Maybe [PersonMatch])
 -&gt; (GetFaceSearchResponse
@@ -813,16 +812,16 @@ $sel:jobStatus:GetFaceSearchResponse' :: GetFaceSearchResponse -&gt; Maybe Video
      (Maybe [PersonMatch])
      (Maybe [PersonMatch])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342433"><span class="annot"><span class="annottext">Maybe [PersonMatch]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342746"><span class="annot"><span class="annottext">Maybe [PersonMatch]
 persons :: Maybe [PersonMatch]
 $sel:persons:GetFaceSearchResponse' :: GetFaceSearchResponse -&gt; Maybe [PersonMatch]
-</span><a href="#local-6989586621679342433"><span class="hs-identifier hs-var hs-var">persons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PersonMatch]
-</span><a href="#local-6989586621679342433"><span class="hs-identifier hs-var">persons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342432"><span class="annot"><span class="annottext">s :: GetFaceSearchResponse
-</span><a href="#local-6989586621679342432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342431"><span class="annot"><span class="annottext">Maybe [PersonMatch]
-</span><a href="#local-6989586621679342431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearchResponse
-</span><a href="#local-6989586621679342432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:persons:GetFaceSearchResponse' :: Maybe [PersonMatch]
+</span><a href="#local-6989586621679342746"><span class="hs-identifier hs-var hs-var">persons</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PersonMatch]
+</span><a href="#local-6989586621679342746"><span class="hs-identifier hs-var">persons</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342745"><span class="annot"><span class="annottext">s :: GetFaceSearchResponse
+</span><a href="#local-6989586621679342745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342744"><span class="annot"><span class="annottext">Maybe [PersonMatch]
+</span><a href="#local-6989586621679342744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearchResponse
+</span><a href="#local-6989586621679342745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:persons:GetFaceSearchResponse' :: Maybe [PersonMatch]
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3Apersons%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">persons</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PersonMatch]
-</span><a href="#local-6989586621679342431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PersonMatch] -&gt; f (Maybe [PersonMatch]))
+</span><a href="#local-6989586621679342744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PersonMatch] -&gt; f (Maybe [PersonMatch]))
  -&gt; GetFaceSearchResponse -&gt; f GetFaceSearchResponse)
 -&gt; ((Maybe [PersonMatch] -&gt; f (Maybe [PersonMatch]))
     -&gt; Maybe [PersonMatch] -&gt; f (Maybe [PersonMatch]))
@@ -840,26 +839,26 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PersonMatch] [PersonMatch] [PersonMatch] [PersonMatch]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-320"></span><span>
-</span><span id="line-321"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-322"></span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_httpStatus"><span class="hs-identifier hs-type">getFaceSearchResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-323"></span><span id="getFaceSearchResponse_httpStatus"><span class="annot"><span class="annottext">getFaceSearchResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetFaceSearchResponse -&gt; f GetFaceSearchResponse
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_httpStatus"><span class="hs-identifier hs-type">getFaceSearchResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-322"></span><span id="getFaceSearchResponse_httpStatus"><span class="annot"><span class="annottext">getFaceSearchResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetFaceSearchResponse -&gt; f GetFaceSearchResponse
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#getFaceSearchResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getFaceSearchResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFaceSearchResponse -&gt; Int)
 -&gt; (GetFaceSearchResponse -&gt; Int -&gt; GetFaceSearchResponse)
 -&gt; Lens GetFaceSearchResponse GetFaceSearchResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342427"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342740"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetFaceSearchResponse' :: GetFaceSearchResponse -&gt; Int
-</span><a href="#local-6989586621679342427"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342427"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342426"><span class="annot"><span class="annottext">s :: GetFaceSearchResponse
-</span><a href="#local-6989586621679342426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342425"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearchResponse
-</span><a href="#local-6989586621679342426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFaceSearchResponse' :: Int
+</span><a href="#local-6989586621679342740"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342740"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342739"><span class="annot"><span class="annottext">s :: GetFaceSearchResponse
+</span><a href="#local-6989586621679342739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse%27"><span class="hs-identifier hs-type">GetFaceSearchResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342738"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFaceSearchResponse
+</span><a href="#local-6989586621679342739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFaceSearchResponse' :: Int
 </span><a href="Network.AWS.Rekognition.GetFaceSearch.html#%24sel%3AhttpStatus%3AGetFaceSearchResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679342425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-324"></span><span>
-</span><span id="line-325"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span></span><span>
-</span><span id="line-326"></span></pre></body></html>
+</span><a href="#local-6989586621679342738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.GetFaceSearch.html#GetFaceSearchResponse"><span class="hs-identifier hs-type">GetFaceSearchResponse</span></a></span></span><span>
+</span><span id="line-325"></span></pre></body></html>

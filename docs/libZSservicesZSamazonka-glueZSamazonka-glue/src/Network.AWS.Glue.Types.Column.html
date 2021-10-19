@@ -26,21 +26,21 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A column in a @Table@.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newColumn' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679679282"><span id="local-6989586621679679283"></span></span><span class="hs-keyword">data</span><span> </span><span id="Column"><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-var">Column</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Column%27"><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-var">Column'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A free-form text comment.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Acomment%3AColumn%27"><span class="annot"><span class="annottext">Column -&gt; Maybe Text
-</span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Acomment%3AColumn%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679680926"><span id="local-6989586621679680927"></span></span><span class="hs-keyword">data</span><span> </span><span id="Column"><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-var">Column</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Column%27"><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-var">Column'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | These key-value pairs define properties associated with the column.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aparameters%3AColumn%27"><span class="annot"><span class="annottext">Column -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Aparameters%3AColumn%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The data type of the @Column@.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Atype%27%3AColumn%27"><span class="annot"><span class="annottext">Column -&gt; Maybe Text
 </span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Atype%27%3AColumn%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | These key-value pairs define properties associated with the column.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aparameters%3AColumn%27"><span class="annot"><span class="annottext">Column -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Aparameters%3AColumn%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A free-form text comment.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Acomment%3AColumn%27"><span class="annot"><span class="annottext">Column -&gt; Maybe Text
+</span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Acomment%3AColumn%27"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the @Column@.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Aname%3AColumn%27"><span class="annot"><span class="annottext">Column -&gt; Text
 </span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Aname%3AColumn%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679679273"><span id="local-6989586621679679275"><span class="annot"><span class="annottext">Column -&gt; Column -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679680917"><span id="local-6989586621679680919"><span class="annot"><span class="annottext">Column -&gt; Column -&gt; Bool
 (Column -&gt; Column -&gt; Bool)
 -&gt; (Column -&gt; Column -&gt; Bool) -&gt; Eq Column
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Column -&gt; Column -&gt; Bool
 == :: Column -&gt; Column -&gt; Bool
 $c== :: Column -&gt; Column -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679679264"><span id="local-6989586621679679266"><span id="local-6989586621679679268"><span id="local-6989586621679679270"><span class="annot"><span class="annottext">ReadPrec [Column]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679680908"><span id="local-6989586621679680910"><span id="local-6989586621679680912"><span id="local-6989586621679680914"><span class="annot"><span class="annottext">ReadPrec [Column]
 ReadPrec Column
 Int -&gt; ReadS Column
 ReadS [Column]
@@ -68,7 +68,7 @@ readList :: ReadS [Column]
 $creadList :: ReadS [Column]
 readsPrec :: Int -&gt; ReadS Column
 $creadsPrec :: Int -&gt; ReadS Column
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679679257"><span id="local-6989586621679679259"><span id="local-6989586621679679261"><span class="annot"><span class="annottext">Int -&gt; Column -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679680901"><span id="local-6989586621679680903"><span id="local-6989586621679680905"><span class="annot"><span class="annottext">Int -&gt; Column -&gt; ShowS
 [Column] -&gt; ShowS
 Column -&gt; String
 (Int -&gt; Column -&gt; ShowS)
@@ -99,11 +99,11 @@ $cfrom :: forall x. Column -&gt; Rep Column x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'comment', 'column_comment' - A free-form text comment.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'parameters', 'column_parameters' - These key-value pairs define properties associated with the column.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- 'type'', 'column_type' - The data type of the @Column@.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'parameters', 'column_parameters' - These key-value pairs define properties associated with the column.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'comment', 'column_comment' - A free-form text comment.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- 'name', 'column_name' - The name of the @Column@.</span><span>
 </span><span id="line-56"></span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#newColumn"><span class="hs-identifier hs-type">newColumn</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -111,67 +111,31 @@ $cfrom :: forall x. Column -&gt; Rep Column x
 </span><span id="line-58"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span>
 </span><span id="line-60"></span><span id="newColumn"><span class="annot"><span class="annottext">newColumn :: Text -&gt; Column
-</span><a href="Network.AWS.Glue.Types.Column.html#newColumn"><span class="hs-identifier hs-var hs-var">newColumn</span></a></span></span><span> </span><span id="local-6989586621679679251"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679251"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">Column' :: Maybe Text
--&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; Column
+</span><a href="Network.AWS.Glue.Types.Column.html#newColumn"><span class="hs-identifier hs-var hs-var">newColumn</span></a></span></span><span> </span><span id="local-6989586621679680895"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679680895"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">Column' :: Maybe (HashMap Text Text)
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Column
 </span><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:comment:Column' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Acomment%3AColumn%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameters:Column' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Aparameters%3AColumn%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Column' :: Maybe Text
 </span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Atype%27%3AColumn%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameters:Column' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Aparameters%3AColumn%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:comment:Column' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Acomment%3AColumn%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Column' :: Text
 </span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Aname%3AColumn%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679251"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679680895"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | A free-form text comment.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#column_comment"><span class="hs-identifier hs-type">column_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="column_comment"><span class="annot"><span class="annottext">column_comment :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Column -&gt; f Column
-</span><a href="Network.AWS.Glue.Types.Column.html#column_comment"><span class="hs-identifier hs-var hs-var">column_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Column -&gt; Maybe Text)
--&gt; (Column -&gt; Maybe Text -&gt; Column)
--&gt; Lens Column Column (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679247"><span class="annot"><span class="annottext">Maybe Text
-comment :: Maybe Text
-$sel:comment:Column' :: Column -&gt; Maybe Text
-</span><a href="#local-6989586621679679247"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679679247"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679246"><span class="annot"><span class="annottext">s :: Column
-</span><a href="#local-6989586621679679246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679245"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679679245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Column
-</span><a href="#local-6989586621679679246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:Column' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Acomment%3AColumn%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679679245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The data type of the @Column@.</span><span>
-</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#column_type"><span class="hs-identifier hs-type">column_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span id="column_type"><span class="annot"><span class="annottext">column_type :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Column -&gt; f Column
-</span><a href="Network.AWS.Glue.Types.Column.html#column_type"><span class="hs-identifier hs-var hs-var">column_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Column -&gt; Maybe Text)
--&gt; (Column -&gt; Maybe Text -&gt; Column)
--&gt; Lens Column Column (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679243"><span class="annot"><span class="annottext">Maybe Text
-type' :: Maybe Text
-$sel:type':Column' :: Column -&gt; Maybe Text
-</span><a href="#local-6989586621679679243"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679679243"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679242"><span class="annot"><span class="annottext">s :: Column
-</span><a href="#local-6989586621679679242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679241"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679679241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Column
-</span><a href="#local-6989586621679679242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Column' :: Maybe Text
-</span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Atype%27%3AColumn%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679679241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- | These key-value pairs define properties associated with the column.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#column_parameters"><span class="hs-identifier hs-type">column_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="column_parameters"><span class="annot"><span class="annottext">column_parameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-68"></span><span class="hs-comment">-- | These key-value pairs define properties associated with the column.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#column_parameters"><span class="hs-identifier hs-type">column_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="column_parameters"><span class="annot"><span class="annottext">column_parameters :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; Column -&gt; f Column
 </span><a href="Network.AWS.Glue.Types.Column.html#column_parameters"><span class="hs-identifier hs-var hs-var">column_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Column -&gt; Maybe (HashMap Text Text))
 -&gt; (Column -&gt; Maybe (HashMap Text Text) -&gt; Column)
@@ -181,16 +145,16 @@ $sel:type':Column' :: Column -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679239"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680891"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 parameters :: Maybe (HashMap Text Text)
 $sel:parameters:Column' :: Column -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679679239"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679679239"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679238"><span class="annot"><span class="annottext">s :: Column
-</span><a href="#local-6989586621679679238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679237"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679679237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Column
-</span><a href="#local-6989586621679679238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:Column' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679680891"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679680891"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680890"><span class="annot"><span class="annottext">s :: Column
+</span><a href="#local-6989586621679680890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680889"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679680889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Column
+</span><a href="#local-6989586621679680890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:Column' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Aparameters%3AColumn%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679679237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679680889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Column -&gt; f Column)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -216,8 +180,44 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The data type of the @Column@.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#column_type"><span class="hs-identifier hs-type">column_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="column_type"><span class="annot"><span class="annottext">column_type :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Column -&gt; f Column
+</span><a href="Network.AWS.Glue.Types.Column.html#column_type"><span class="hs-identifier hs-var hs-var">column_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Column -&gt; Maybe Text)
+-&gt; (Column -&gt; Maybe Text -&gt; Column)
+-&gt; Lens Column Column (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680884"><span class="annot"><span class="annottext">Maybe Text
+type' :: Maybe Text
+$sel:type':Column' :: Column -&gt; Maybe Text
+</span><a href="#local-6989586621679680884"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679680884"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680883"><span class="annot"><span class="annottext">s :: Column
+</span><a href="#local-6989586621679680883"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680882"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679680882"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Column
+</span><a href="#local-6989586621679680883"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Column' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Atype%27%3AColumn%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679680882"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | A free-form text comment.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#column_comment"><span class="hs-identifier hs-type">column_comment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="column_comment"><span class="annot"><span class="annottext">column_comment :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Column -&gt; f Column
+</span><a href="Network.AWS.Glue.Types.Column.html#column_comment"><span class="hs-identifier hs-var hs-var">column_comment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Column -&gt; Maybe Text)
+-&gt; (Column -&gt; Maybe Text -&gt; Column)
+-&gt; Lens Column Column (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680880"><span class="annot"><span class="annottext">Maybe Text
+comment :: Maybe Text
+$sel:comment:Column' :: Column -&gt; Maybe Text
+</span><a href="#local-6989586621679680880"><span class="hs-identifier hs-var hs-var">comment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679680880"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680879"><span class="annot"><span class="annottext">s :: Column
+</span><a href="#local-6989586621679680879"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680878"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679680878"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Column
+</span><a href="#local-6989586621679680879"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:comment:Column' :: Maybe Text
+</span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Acomment%3AColumn%27"><span class="hs-identifier hs-var">comment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679680878"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | The name of the @Column@.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#column_name"><span class="hs-identifier hs-type">column_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -225,55 +225,37 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 </span><a href="Network.AWS.Glue.Types.Column.html#column_name"><span class="hs-identifier hs-var hs-var">column_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Column -&gt; Text)
 -&gt; (Column -&gt; Text -&gt; Column) -&gt; Lens Column Column Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679232"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680876"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:Column' :: Column -&gt; Text
-</span><a href="#local-6989586621679679232"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679232"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679679231"><span class="annot"><span class="annottext">s :: Column
-</span><a href="#local-6989586621679679231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679679230"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Column
-</span><a href="#local-6989586621679679231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Column' :: Text
+</span><a href="#local-6989586621679680876"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679680876"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679680875"><span class="annot"><span class="annottext">s :: Column
+</span><a href="#local-6989586621679680875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679680874"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679680874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Column
+</span><a href="#local-6989586621679680875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Column' :: Text
 </span><a href="Network.AWS.Glue.Types.Column.html#%24sel%3Aname%3AColumn%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679680874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679227"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679679225"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Column
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680871"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679680869"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Column
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Column) -&gt; Value -&gt; Parser Column
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Column&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679679222"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679222"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; Column
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679680866"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679680866"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Column
 </span><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-var">Column'</span></a></span><span>
-</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; Column)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; Column)
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Column)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Column)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Comment&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; Column)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe (HashMap Text Text) -&gt; Text -&gt; Column)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; Text -&gt; Column)
--&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser (Text -&gt; Column)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679680866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -282,67 +264,83 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; Column)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Text -&gt; Column)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679680866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; Column)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; Column)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679680866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Comment&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Column) -&gt; Parser Text -&gt; Parser Column
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679679222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679680866"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679214"><span id="local-6989586621679679216"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680858"><span id="local-6989586621679680860"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span></span></span><span>
 </span><span id="line-97"></span><span>
-</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679211"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680855"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span></span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679679203"><span id="local-6989586621679679205"><span id="local-6989586621679679207"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679679201"><span class="annot"><span class="annottext">toJSON :: Column -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679679196"><span id="local-6989586621679679197"><span id="local-6989586621679679198"><span id="local-6989586621679679199"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679680847"><span id="local-6989586621679680849"><span id="local-6989586621679680851"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column"><span class="hs-identifier hs-type">Column</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679680845"><span class="annot"><span class="annottext">toJSON :: Column -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.Column.html#Column%27"><span class="hs-identifier hs-type">Column'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679680840"><span id="local-6989586621679680841"><span id="local-6989586621679680842"><span id="local-6989586621679680843"><span class="annot"><span class="annottext">Maybe Text
 Maybe (HashMap Text Text)
 Text
 name :: Text
-parameters :: Maybe (HashMap Text Text)
-type' :: Maybe Text
 comment :: Maybe Text
+type' :: Maybe Text
+parameters :: Maybe (HashMap Text Text)
 $sel:name:Column' :: Column -&gt; Text
-$sel:parameters:Column' :: Column -&gt; Maybe (HashMap Text Text)
-$sel:type':Column' :: Column -&gt; Maybe Text
 $sel:comment:Column' :: Column -&gt; Maybe Text
-</span><a href="#local-6989586621679679196"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:type':Column' :: Column -&gt; Maybe Text
+$sel:parameters:Column' :: Column -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679680840"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-104"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Comment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679679199"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679679198"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Parameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
 -&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679679197"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679680843"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679680842"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Comment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679680841"><span class="hs-identifier hs-var">comment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679679196"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679680840"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span></pre></body></html>

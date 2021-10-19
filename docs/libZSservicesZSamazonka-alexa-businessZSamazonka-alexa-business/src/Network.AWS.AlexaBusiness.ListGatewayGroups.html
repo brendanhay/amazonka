@@ -36,8 +36,8 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#newListGatewayGroupsResponse"><span class="hs-identifier">newListGatewayGroupsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#listGatewayGroupsResponse_nextToken"><span class="hs-identifier">listGatewayGroupsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#listGatewayGroupsResponse_gatewayGroups"><span class="hs-identifier">listGatewayGroupsResponse_gatewayGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#listGatewayGroupsResponse_gatewayGroups"><span class="hs-identifier">listGatewayGroupsResponse_gatewayGroups</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#listGatewayGroupsResponse_nextToken"><span class="hs-identifier">listGatewayGroupsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#listGatewayGroupsResponse_httpStatus"><span class="hs-identifier">listGatewayGroupsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span class="hs-keyword">where</span><span>
@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListGatewayGroups' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679382499"><span id="local-6989586621679382500"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGatewayGroups"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-var">ListGatewayGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGatewayGroups%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups%27"><span class="hs-identifier hs-var">ListGatewayGroups'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679382853"><span id="local-6989586621679382854"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGatewayGroups"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-var">ListGatewayGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGatewayGroups%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups%27"><span class="hs-identifier hs-var">ListGatewayGroups'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token used to paginate though multiple pages of gateway group</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- summaries.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListGatewayGroups%27"><span class="annot"><span class="annottext">ListGatewayGroups -&gt; Maybe Text
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AmaxResults%3AListGatewayGroups%27"><span class="annot"><span class="annottext">ListGatewayGroups -&gt; Maybe Natural
 </span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AmaxResults%3AListGatewayGroups%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382492"><span id="local-6989586621679382494"><span class="annot"><span class="annottext">ListGatewayGroups -&gt; ListGatewayGroups -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382846"><span id="local-6989586621679382848"><span class="annot"><span class="annottext">ListGatewayGroups -&gt; ListGatewayGroups -&gt; Bool
 (ListGatewayGroups -&gt; ListGatewayGroups -&gt; Bool)
 -&gt; (ListGatewayGroups -&gt; ListGatewayGroups -&gt; Bool)
 -&gt; Eq ListGatewayGroups
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGatewayGroups -&gt; ListGatewayGroups -&gt; Bool
 == :: ListGatewayGroups -&gt; ListGatewayGroups -&gt; Bool
 $c== :: ListGatewayGroups -&gt; ListGatewayGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382483"><span id="local-6989586621679382485"><span id="local-6989586621679382487"><span id="local-6989586621679382489"><span class="annot"><span class="annottext">ReadPrec [ListGatewayGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382837"><span id="local-6989586621679382839"><span id="local-6989586621679382841"><span id="local-6989586621679382843"><span class="annot"><span class="annottext">ReadPrec [ListGatewayGroups]
 ReadPrec ListGatewayGroups
 Int -&gt; ReadS ListGatewayGroups
 ReadS [ListGatewayGroups]
@@ -89,7 +89,7 @@ readList :: ReadS [ListGatewayGroups]
 $creadList :: ReadS [ListGatewayGroups]
 readsPrec :: Int -&gt; ReadS ListGatewayGroups
 $creadsPrec :: Int -&gt; ReadS ListGatewayGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382476"><span id="local-6989586621679382478"><span id="local-6989586621679382480"><span class="annot"><span class="annottext">Int -&gt; ListGatewayGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382830"><span id="local-6989586621679382832"><span id="local-6989586621679382834"><span class="annot"><span class="annottext">Int -&gt; ListGatewayGroups -&gt; ShowS
 [ListGatewayGroups] -&gt; ShowS
 ListGatewayGroups -&gt; String
 (Int -&gt; ListGatewayGroups -&gt; ShowS)
@@ -154,16 +154,16 @@ forall a. Maybe a
 -&gt; Lens
      ListGatewayGroups ListGatewayGroups (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups%27"><span class="hs-identifier hs-type">ListGatewayGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382469"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups%27"><span class="hs-identifier hs-type">ListGatewayGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382823"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListGatewayGroups' :: ListGatewayGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679382469"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679382469"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382468"><span class="annot"><span class="annottext">s :: ListGatewayGroups
-</span><a href="#local-6989586621679382468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups%27"><span class="hs-identifier hs-type">ListGatewayGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382467"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679382467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewayGroups
-</span><a href="#local-6989586621679382468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGatewayGroups' :: Maybe Text
+</span><a href="#local-6989586621679382823"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382823"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382822"><span class="annot"><span class="annottext">s :: ListGatewayGroups
+</span><a href="#local-6989586621679382822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups%27"><span class="hs-identifier hs-type">ListGatewayGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382821"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewayGroups
+</span><a href="#local-6989586621679382822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGatewayGroups' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AnextToken%3AListGatewayGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679382467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The maximum number of gateway group summaries to return. The default is</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- 50.</span><span>
@@ -175,27 +175,27 @@ $sel:nextToken:ListGatewayGroups' :: ListGatewayGroups -&gt; Maybe Text
 -&gt; Lens
      ListGatewayGroups ListGatewayGroups (Maybe Natural) (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups%27"><span class="hs-identifier hs-type">ListGatewayGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382466"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups%27"><span class="hs-identifier hs-type">ListGatewayGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382820"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListGatewayGroups' :: ListGatewayGroups -&gt; Maybe Natural
-</span><a href="#local-6989586621679382466"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679382466"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382465"><span class="annot"><span class="annottext">s :: ListGatewayGroups
-</span><a href="#local-6989586621679382465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups%27"><span class="hs-identifier hs-type">ListGatewayGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382464"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679382464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewayGroups
-</span><a href="#local-6989586621679382465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListGatewayGroups' :: Maybe Natural
+</span><a href="#local-6989586621679382820"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679382820"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382819"><span class="annot"><span class="annottext">s :: ListGatewayGroups
+</span><a href="#local-6989586621679382819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups%27"><span class="hs-identifier hs-type">ListGatewayGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382818"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679382818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewayGroups
+</span><a href="#local-6989586621679382819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListGatewayGroups' :: Maybe Natural
 </span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AmaxResults%3AListGatewayGroups%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679382464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679382460"><span class="annot"><span class="annottext">request :: ListGatewayGroups -&gt; Request ListGatewayGroups
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679382814"><span class="annot"><span class="annottext">request :: ListGatewayGroups -&gt; Request ListGatewayGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListGatewayGroups -&gt; Request ListGatewayGroups
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679382456"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679382810"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListGatewayGroups
 -&gt; ClientResponse ClientBody
@@ -221,33 +221,20 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679382453"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382453"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679382452"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679382452"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679382451"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679382451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [GatewayGroupSummary] -&gt; Int -&gt; ListGatewayGroupsResponse
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679382807"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382807"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679382806"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679382806"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679382805"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679382805"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe [GatewayGroupSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListGatewayGroupsResponse
 </span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-var">ListGatewayGroupsResponse'</span></a></span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [GatewayGroupSummary] -&gt; Int -&gt; ListGatewayGroupsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [GatewayGroupSummary] -&gt; Int -&gt; ListGatewayGroupsResponse)
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [GatewayGroupSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListGatewayGroupsResponse)
+-&gt; Either String (Maybe [GatewayGroupSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListGatewayGroupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679382451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [GatewayGroupSummary] -&gt; Int -&gt; ListGatewayGroupsResponse)
--&gt; Either String (Maybe [GatewayGroupSummary])
--&gt; Either String (Int -&gt; ListGatewayGroupsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679382451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679382805"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [GatewayGroupSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
@@ -258,6 +245,15 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GatewayGroupSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListGatewayGroupsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListGatewayGroupsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679382805"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListGatewayGroupsResponse)
 -&gt; Either String Int -&gt; Either String ListGatewayGroupsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -266,15 +262,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382453"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382807"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382442"><span id="local-6989586621679382444"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382796"><span id="local-6989586621679382798"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679382435"><span class="annot"><span class="annottext">toHeaders :: ListGatewayGroups -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679382789"><span class="annot"><span class="annottext">toHeaders :: ListGatewayGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListGatewayGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -301,15 +297,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382425"><span id="local-6989586621679382427"><span id="local-6989586621679382429"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679382423"><span class="annot"><span class="annottext">toJSON :: ListGatewayGroups -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups%27"><span class="hs-identifier hs-type">ListGatewayGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382420"><span id="local-6989586621679382421"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382779"><span id="local-6989586621679382781"><span id="local-6989586621679382783"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679382777"><span class="annot"><span class="annottext">toJSON :: ListGatewayGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups%27"><span class="hs-identifier hs-type">ListGatewayGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382774"><span id="local-6989586621679382775"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
 $sel:maxResults:ListGatewayGroups' :: ListGatewayGroups -&gt; Maybe Natural
 $sel:nextToken:ListGatewayGroups' :: ListGatewayGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679382420"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679382774"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -321,26 +317,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679382421"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679382775"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679382420"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679382774"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679382414"><span class="annot"><span class="annottext">toPath :: ListGatewayGroups -&gt; ByteString
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679382768"><span class="annot"><span class="annottext">toPath :: ListGatewayGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListGatewayGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroups"><span class="hs-identifier hs-type">ListGatewayGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679382410"><span class="annot"><span class="annottext">toQuery :: ListGatewayGroups -&gt; QueryString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679382764"><span class="annot"><span class="annottext">toQuery :: ListGatewayGroups -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListGatewayGroups -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -348,19 +344,19 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newListGatewayGroupsResponse' smart constructor.</span><span>
-</span><span id="line-143"></span><span id="local-6989586621679382407"><span id="local-6989586621679382408"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGatewayGroupsResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-var">ListGatewayGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGatewayGroupsResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-var">ListGatewayGroupsResponse'</span></a></span></span><span>
-</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token used to paginate though multiple pages of gateway group</span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- summaries.</span><span>
-</span><span id="line-146"></span><span>    </span><span id="%24sel%3AnextToken%3AListGatewayGroupsResponse%27"><span class="annot"><span class="annottext">ListGatewayGroupsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AnextToken%3AListGatewayGroupsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The gateway groups in the list.</span><span>
-</span><span id="line-148"></span><span>    </span><span id="%24sel%3AgatewayGroups%3AListGatewayGroupsResponse%27"><span class="annot"><span class="annottext">ListGatewayGroupsResponse -&gt; Maybe [GatewayGroupSummary]
+</span><span id="line-143"></span><span id="local-6989586621679382761"><span id="local-6989586621679382762"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListGatewayGroupsResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-var">ListGatewayGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListGatewayGroupsResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-var">ListGatewayGroupsResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The gateway groups in the list.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AgatewayGroups%3AListGatewayGroupsResponse%27"><span class="annot"><span class="annottext">ListGatewayGroupsResponse -&gt; Maybe [GatewayGroupSummary]
 </span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AgatewayGroups%3AListGatewayGroupsResponse%27"><span class="hs-identifier hs-var hs-var">gatewayGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.GatewayGroupSummary.html#GatewayGroupSummary"><span class="hs-identifier hs-type">GatewayGroupSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The token used to paginate though multiple pages of gateway group</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- summaries.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AnextToken%3AListGatewayGroupsResponse%27"><span class="annot"><span class="annottext">ListGatewayGroupsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AnextToken%3AListGatewayGroupsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListGatewayGroupsResponse%27"><span class="annot"><span class="annottext">ListGatewayGroupsResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AhttpStatus%3AListGatewayGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382400"><span id="local-6989586621679382402"><span class="annot"><span class="annottext">ListGatewayGroupsResponse -&gt; ListGatewayGroupsResponse -&gt; Bool
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382754"><span id="local-6989586621679382756"><span class="annot"><span class="annottext">ListGatewayGroupsResponse -&gt; ListGatewayGroupsResponse -&gt; Bool
 (ListGatewayGroupsResponse -&gt; ListGatewayGroupsResponse -&gt; Bool)
 -&gt; (ListGatewayGroupsResponse -&gt; ListGatewayGroupsResponse -&gt; Bool)
 -&gt; Eq ListGatewayGroupsResponse
@@ -369,7 +365,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListGatewayGroupsResponse -&gt; ListGatewayGroupsResponse -&gt; Bool
 == :: ListGatewayGroupsResponse -&gt; ListGatewayGroupsResponse -&gt; Bool
 $c== :: ListGatewayGroupsResponse -&gt; ListGatewayGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382392"><span id="local-6989586621679382394"><span id="local-6989586621679382396"><span id="local-6989586621679382398"><span class="annot"><span class="annottext">ReadPrec [ListGatewayGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382746"><span id="local-6989586621679382748"><span id="local-6989586621679382750"><span id="local-6989586621679382752"><span class="annot"><span class="annottext">ReadPrec [ListGatewayGroupsResponse]
 ReadPrec ListGatewayGroupsResponse
 Int -&gt; ReadS ListGatewayGroupsResponse
 ReadS [ListGatewayGroupsResponse]
@@ -389,7 +385,7 @@ readList :: ReadS [ListGatewayGroupsResponse]
 $creadList :: ReadS [ListGatewayGroupsResponse]
 readsPrec :: Int -&gt; ReadS ListGatewayGroupsResponse
 $creadsPrec :: Int -&gt; ReadS ListGatewayGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382386"><span id="local-6989586621679382388"><span id="local-6989586621679382390"><span class="annot"><span class="annottext">Int -&gt; ListGatewayGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382740"><span id="local-6989586621679382742"><span id="local-6989586621679382744"><span class="annot"><span class="annottext">Int -&gt; ListGatewayGroupsResponse -&gt; ShowS
 [ListGatewayGroupsResponse] -&gt; ShowS
 ListGatewayGroupsResponse -&gt; String
 (Int -&gt; ListGatewayGroupsResponse -&gt; ShowS)
@@ -429,10 +425,10 @@ ListGatewayGroupsResponse -&gt; Rep ListGatewayGroupsResponse x
 </span><span id="line-159"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-160"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-161"></span><span class="hs-comment">--</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- 'nextToken', 'listGatewayGroupsResponse_nextToken' - The token used to paginate though multiple pages of gateway group</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- summaries.</span><span>
-</span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- 'gatewayGroups', 'listGatewayGroupsResponse_gatewayGroups' - The gateway groups in the list.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'gatewayGroups', 'listGatewayGroupsResponse_gatewayGroups' - The gateway groups in the list.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'nextToken', 'listGatewayGroupsResponse_nextToken' - The token used to paginate though multiple pages of gateway group</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- summaries.</span><span>
 </span><span id="line-166"></span><span class="hs-comment">--</span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- 'httpStatus', 'listGatewayGroupsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#newListGatewayGroupsResponse"><span class="hs-identifier hs-type">newListGatewayGroupsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -440,53 +436,28 @@ ListGatewayGroupsResponse -&gt; Rep ListGatewayGroupsResponse x
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-171"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span><span>
 </span><span id="line-172"></span><span id="newListGatewayGroupsResponse"><span class="annot"><span class="annottext">newListGatewayGroupsResponse :: Int -&gt; ListGatewayGroupsResponse
-</span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#newListGatewayGroupsResponse"><span class="hs-identifier hs-var hs-var">newListGatewayGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679382383"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382383"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">ListGatewayGroupsResponse' :: Maybe Text
--&gt; Maybe [GatewayGroupSummary] -&gt; Int -&gt; ListGatewayGroupsResponse
+</span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#newListGatewayGroupsResponse"><span class="hs-identifier hs-var hs-var">newListGatewayGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679382737"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">ListGatewayGroupsResponse' :: Maybe [GatewayGroupSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListGatewayGroupsResponse
 </span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-type">ListGatewayGroupsResponse'</span></a></span><span>
-</span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListGatewayGroupsResponse' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AnextToken%3AListGatewayGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gatewayGroups:ListGatewayGroupsResponse' :: Maybe [GatewayGroupSummary]
+</span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AgatewayGroups%3AListGatewayGroupsResponse%27"><span class="hs-identifier hs-var">gatewayGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe [GatewayGroupSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayGroups:ListGatewayGroupsResponse' :: Maybe [GatewayGroupSummary]
-</span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AgatewayGroups%3AListGatewayGroupsResponse%27"><span class="hs-identifier hs-var">gatewayGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GatewayGroupSummary]
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListGatewayGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AnextToken%3AListGatewayGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListGatewayGroupsResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AhttpStatus%3AListGatewayGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382383"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679382737"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-178"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- | The token used to paginate though multiple pages of gateway group</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- summaries.</span><span>
-</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#listGatewayGroupsResponse_nextToken"><span class="hs-identifier hs-type">listGatewayGroupsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span id="listGatewayGroupsResponse_nextToken"><span class="annot"><span class="annottext">listGatewayGroupsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListGatewayGroupsResponse -&gt; f ListGatewayGroupsResponse
-</span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#listGatewayGroupsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listGatewayGroupsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGatewayGroupsResponse -&gt; Maybe Text)
--&gt; (ListGatewayGroupsResponse
-    -&gt; Maybe Text -&gt; ListGatewayGroupsResponse)
--&gt; Lens
-     ListGatewayGroupsResponse
-     ListGatewayGroupsResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-type">ListGatewayGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382382"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListGatewayGroupsResponse' :: ListGatewayGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679382382"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679382382"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382381"><span class="annot"><span class="annottext">s :: ListGatewayGroupsResponse
-</span><a href="#local-6989586621679382381"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-type">ListGatewayGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382380"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679382380"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewayGroupsResponse
-</span><a href="#local-6989586621679382381"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGatewayGroupsResponse' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AnextToken%3AListGatewayGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679382380"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- | The gateway groups in the list.</span><span>
-</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#listGatewayGroupsResponse_gatewayGroups"><span class="hs-identifier hs-type">listGatewayGroupsResponse_gatewayGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.GatewayGroupSummary.html#GatewayGroupSummary"><span class="hs-identifier hs-type">GatewayGroupSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-187"></span><span id="listGatewayGroupsResponse_gatewayGroups"><span class="annot"><span class="annottext">listGatewayGroupsResponse_gatewayGroups :: (Maybe [GatewayGroupSummary] -&gt; f (Maybe [GatewayGroupSummary]))
+</span><span id="line-180"></span><span class="hs-comment">-- | The gateway groups in the list.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#listGatewayGroupsResponse_gatewayGroups"><span class="hs-identifier hs-type">listGatewayGroupsResponse_gatewayGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.AlexaBusiness.Types.GatewayGroupSummary.html#GatewayGroupSummary"><span class="hs-identifier hs-type">GatewayGroupSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="listGatewayGroupsResponse_gatewayGroups"><span class="annot"><span class="annottext">listGatewayGroupsResponse_gatewayGroups :: (Maybe [GatewayGroupSummary] -&gt; f (Maybe [GatewayGroupSummary]))
 -&gt; ListGatewayGroupsResponse -&gt; f ListGatewayGroupsResponse
 </span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#listGatewayGroupsResponse_gatewayGroups"><span class="hs-identifier hs-var hs-var">listGatewayGroupsResponse_gatewayGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGatewayGroupsResponse -&gt; Maybe [GatewayGroupSummary])
 -&gt; (ListGatewayGroupsResponse
@@ -497,16 +468,16 @@ $sel:nextToken:ListGatewayGroupsResponse' :: ListGatewayGroupsResponse -&gt; May
      (Maybe [GatewayGroupSummary])
      (Maybe [GatewayGroupSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-type">ListGatewayGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382379"><span class="annot"><span class="annottext">Maybe [GatewayGroupSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-type">ListGatewayGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382736"><span class="annot"><span class="annottext">Maybe [GatewayGroupSummary]
 gatewayGroups :: Maybe [GatewayGroupSummary]
 $sel:gatewayGroups:ListGatewayGroupsResponse' :: ListGatewayGroupsResponse -&gt; Maybe [GatewayGroupSummary]
-</span><a href="#local-6989586621679382379"><span class="hs-identifier hs-var hs-var">gatewayGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GatewayGroupSummary]
-</span><a href="#local-6989586621679382379"><span class="hs-identifier hs-var">gatewayGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382378"><span class="annot"><span class="annottext">s :: ListGatewayGroupsResponse
-</span><a href="#local-6989586621679382378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-type">ListGatewayGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382377"><span class="annot"><span class="annottext">Maybe [GatewayGroupSummary]
-</span><a href="#local-6989586621679382377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewayGroupsResponse
-</span><a href="#local-6989586621679382378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayGroups:ListGatewayGroupsResponse' :: Maybe [GatewayGroupSummary]
+</span><a href="#local-6989586621679382736"><span class="hs-identifier hs-var hs-var">gatewayGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GatewayGroupSummary]
+</span><a href="#local-6989586621679382736"><span class="hs-identifier hs-var">gatewayGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382735"><span class="annot"><span class="annottext">s :: ListGatewayGroupsResponse
+</span><a href="#local-6989586621679382735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-type">ListGatewayGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382734"><span class="annot"><span class="annottext">Maybe [GatewayGroupSummary]
+</span><a href="#local-6989586621679382734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewayGroupsResponse
+</span><a href="#local-6989586621679382735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayGroups:ListGatewayGroupsResponse' :: Maybe [GatewayGroupSummary]
 </span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AgatewayGroups%3AListGatewayGroupsResponse%27"><span class="hs-identifier hs-var">gatewayGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GatewayGroupSummary]
-</span><a href="#local-6989586621679382377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GatewayGroupSummary] -&gt; f (Maybe [GatewayGroupSummary]))
+</span><a href="#local-6989586621679382734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GatewayGroupSummary] -&gt; f (Maybe [GatewayGroupSummary]))
  -&gt; ListGatewayGroupsResponse -&gt; f ListGatewayGroupsResponse)
 -&gt; ((Maybe [GatewayGroupSummary]
      -&gt; f (Maybe [GatewayGroupSummary]))
@@ -533,8 +504,33 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [GatewayGroupSummary]
   [GatewayGroupSummary]
   [GatewayGroupSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The token used to paginate though multiple pages of gateway group</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- summaries.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#listGatewayGroupsResponse_nextToken"><span class="hs-identifier hs-type">listGatewayGroupsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="listGatewayGroupsResponse_nextToken"><span class="annot"><span class="annottext">listGatewayGroupsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListGatewayGroupsResponse -&gt; f ListGatewayGroupsResponse
+</span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#listGatewayGroupsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listGatewayGroupsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListGatewayGroupsResponse -&gt; Maybe Text)
+-&gt; (ListGatewayGroupsResponse
+    -&gt; Maybe Text -&gt; ListGatewayGroupsResponse)
+-&gt; Lens
+     ListGatewayGroupsResponse
+     ListGatewayGroupsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-type">ListGatewayGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382730"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListGatewayGroupsResponse' :: ListGatewayGroupsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679382730"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382730"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382729"><span class="annot"><span class="annottext">s :: ListGatewayGroupsResponse
+</span><a href="#local-6989586621679382729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-type">ListGatewayGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382728"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewayGroupsResponse
+</span><a href="#local-6989586621679382729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListGatewayGroupsResponse' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AnextToken%3AListGatewayGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679382728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-190"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#listGatewayGroupsResponse_httpStatus"><span class="hs-identifier hs-type">listGatewayGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -544,16 +540,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (ListGatewayGroupsResponse -&gt; Int -&gt; ListGatewayGroupsResponse)
 -&gt; Lens ListGatewayGroupsResponse ListGatewayGroupsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-type">ListGatewayGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382373"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-type">ListGatewayGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382727"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListGatewayGroupsResponse' :: ListGatewayGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679382373"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382373"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382372"><span class="annot"><span class="annottext">s :: ListGatewayGroupsResponse
-</span><a href="#local-6989586621679382372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-type">ListGatewayGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382371"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewayGroupsResponse
-</span><a href="#local-6989586621679382372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGatewayGroupsResponse' :: Int
+</span><a href="#local-6989586621679382727"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382727"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382726"><span class="annot"><span class="annottext">s :: ListGatewayGroupsResponse
+</span><a href="#local-6989586621679382726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse%27"><span class="hs-identifier hs-type">ListGatewayGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382725"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListGatewayGroupsResponse
+</span><a href="#local-6989586621679382726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListGatewayGroupsResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#%24sel%3AhttpStatus%3AListGatewayGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382369"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382723"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.ListGatewayGroups.html#ListGatewayGroupsResponse"><span class="hs-identifier hs-type">ListGatewayGroupsResponse</span></a></span></span><span>
 </span><span id="line-194"></span></pre></body></html>

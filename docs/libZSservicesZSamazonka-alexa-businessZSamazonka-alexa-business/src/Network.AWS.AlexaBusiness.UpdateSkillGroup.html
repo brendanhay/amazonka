@@ -27,9 +27,9 @@
 </span><span id="line-27"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#newUpdateSkillGroup"><span class="hs-identifier">newUpdateSkillGroup</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-28"></span><span>
 </span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_skillGroupName"><span class="hs-identifier">updateSkillGroup_skillGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_skillGroupArn"><span class="hs-identifier">updateSkillGroup_skillGroupArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_description"><span class="hs-identifier">updateSkillGroup_description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_skillGroupArn"><span class="hs-identifier">updateSkillGroup_skillGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_skillGroupName"><span class="hs-identifier">updateSkillGroup_skillGroupName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse"><span class="hs-identifier">UpdateSkillGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -48,18 +48,18 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newUpdateSkillGroup' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679396847"><span id="local-6989586621679396848"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSkillGroup"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-var">UpdateSkillGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSkillGroup%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-var">UpdateSkillGroup'</span></a></span></span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The updated name for the skill group.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AskillGroupName%3AUpdateSkillGroup%27"><span class="annot"><span class="annottext">UpdateSkillGroup -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AskillGroupName%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var hs-var">skillGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679397224"><span id="local-6989586621679397225"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSkillGroup"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-var">UpdateSkillGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSkillGroup%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-var">UpdateSkillGroup'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the skill group to update.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AskillGroupArn%3AUpdateSkillGroup%27"><span class="annot"><span class="annottext">UpdateSkillGroup -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AskillGroupArn%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var hs-var">skillGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The updated description for the skill group.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateSkillGroup%27"><span class="annot"><span class="annottext">UpdateSkillGroup -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3Adescription%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The ARN of the skill group to update.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AskillGroupArn%3AUpdateSkillGroup%27"><span class="annot"><span class="annottext">UpdateSkillGroup -&gt; Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AskillGroupArn%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var hs-var">skillGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The updated name for the skill group.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AskillGroupName%3AUpdateSkillGroup%27"><span class="annot"><span class="annottext">UpdateSkillGroup -&gt; Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AskillGroupName%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var hs-var">skillGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396839"><span id="local-6989586621679396841"><span class="annot"><span class="annottext">UpdateSkillGroup -&gt; UpdateSkillGroup -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397216"><span id="local-6989586621679397218"><span class="annot"><span class="annottext">UpdateSkillGroup -&gt; UpdateSkillGroup -&gt; Bool
 (UpdateSkillGroup -&gt; UpdateSkillGroup -&gt; Bool)
 -&gt; (UpdateSkillGroup -&gt; UpdateSkillGroup -&gt; Bool)
 -&gt; Eq UpdateSkillGroup
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateSkillGroup -&gt; UpdateSkillGroup -&gt; Bool
 == :: UpdateSkillGroup -&gt; UpdateSkillGroup -&gt; Bool
 $c== :: UpdateSkillGroup -&gt; UpdateSkillGroup -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396830"><span id="local-6989586621679396832"><span id="local-6989586621679396834"><span id="local-6989586621679396836"><span class="annot"><span class="annottext">ReadPrec [UpdateSkillGroup]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397207"><span id="local-6989586621679397209"><span id="local-6989586621679397211"><span id="local-6989586621679397213"><span class="annot"><span class="annottext">ReadPrec [UpdateSkillGroup]
 ReadPrec UpdateSkillGroup
 Int -&gt; ReadS UpdateSkillGroup
 ReadS [UpdateSkillGroup]
@@ -88,7 +88,7 @@ readList :: ReadS [UpdateSkillGroup]
 $creadList :: ReadS [UpdateSkillGroup]
 readsPrec :: Int -&gt; ReadS UpdateSkillGroup
 $creadsPrec :: Int -&gt; ReadS UpdateSkillGroup
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396823"><span id="local-6989586621679396825"><span id="local-6989586621679396827"><span class="annot"><span class="annottext">Int -&gt; UpdateSkillGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397200"><span id="local-6989586621679397202"><span id="local-6989586621679397204"><span class="annot"><span class="annottext">Int -&gt; UpdateSkillGroup -&gt; ShowS
 [UpdateSkillGroup] -&gt; ShowS
 UpdateSkillGroup -&gt; String
 (Int -&gt; UpdateSkillGroup -&gt; ShowS)
@@ -122,49 +122,49 @@ $cfrom :: forall x. UpdateSkillGroup -&gt; Rep UpdateSkillGroup x
 </span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- 'skillGroupName', 'updateSkillGroup_skillGroupName' - The updated name for the skill group.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'skillGroupArn', 'updateSkillGroup_skillGroupArn' - The ARN of the skill group to update.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- 'description', 'updateSkillGroup_description' - The updated description for the skill group.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'skillGroupArn', 'updateSkillGroup_skillGroupArn' - The ARN of the skill group to update.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'skillGroupName', 'updateSkillGroup_skillGroupName' - The updated name for the skill group.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#newUpdateSkillGroup"><span class="hs-identifier hs-type">newUpdateSkillGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span>
 </span><span id="line-76"></span><span id="newUpdateSkillGroup"><span class="annot"><span class="annottext">newUpdateSkillGroup :: UpdateSkillGroup
 </span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#newUpdateSkillGroup"><span class="hs-identifier hs-var hs-var">newUpdateSkillGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">UpdateSkillGroup' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; UpdateSkillGroup
 </span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:skillGroupName:UpdateSkillGroup' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AskillGroupName%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var">skillGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:skillGroupArn:UpdateSkillGroup' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AskillGroupArn%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateSkillGroup' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3Adescription%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:skillGroupArn:UpdateSkillGroup' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AskillGroupArn%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:skillGroupName:UpdateSkillGroup' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AskillGroupName%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var">skillGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | The updated name for the skill group.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_skillGroupName"><span class="hs-identifier hs-type">updateSkillGroup_skillGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="updateSkillGroup_skillGroupName"><span class="annot"><span class="annottext">updateSkillGroup_skillGroupName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-83"></span><span class="hs-comment">-- | The ARN of the skill group to update.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_skillGroupArn"><span class="hs-identifier hs-type">updateSkillGroup_skillGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="updateSkillGroup_skillGroupArn"><span class="annot"><span class="annottext">updateSkillGroup_skillGroupArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateSkillGroup -&gt; f UpdateSkillGroup
-</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_skillGroupName"><span class="hs-identifier hs-var hs-var">updateSkillGroup_skillGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSkillGroup -&gt; Maybe Text)
+</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_skillGroupArn"><span class="hs-identifier hs-var hs-var">updateSkillGroup_skillGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSkillGroup -&gt; Maybe Text)
 -&gt; (UpdateSkillGroup -&gt; Maybe Text -&gt; UpdateSkillGroup)
 -&gt; Lens UpdateSkillGroup UpdateSkillGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396816"><span class="annot"><span class="annottext">Maybe Text
-skillGroupName :: Maybe Text
-$sel:skillGroupName:UpdateSkillGroup' :: UpdateSkillGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679396816"><span class="hs-identifier hs-var hs-var">skillGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396816"><span class="hs-identifier hs-var">skillGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396815"><span class="annot"><span class="annottext">s :: UpdateSkillGroup
-</span><a href="#local-6989586621679396815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396814"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSkillGroup
-</span><a href="#local-6989586621679396815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skillGroupName:UpdateSkillGroup' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AskillGroupName%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var">skillGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397193"><span class="annot"><span class="annottext">Maybe Text
+skillGroupArn :: Maybe Text
+$sel:skillGroupArn:UpdateSkillGroup' :: UpdateSkillGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679397193"><span class="hs-identifier hs-var hs-var">skillGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397193"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397192"><span class="annot"><span class="annottext">s :: UpdateSkillGroup
+</span><a href="#local-6989586621679397192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397191"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSkillGroup
+</span><a href="#local-6989586621679397192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skillGroupArn:UpdateSkillGroup' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AskillGroupArn%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-comment">-- | The updated description for the skill group.</span><span>
 </span><span id="line-88"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_description"><span class="hs-identifier hs-type">updateSkillGroup_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -174,46 +174,46 @@ $sel:skillGroupName:UpdateSkillGroup' :: UpdateSkillGroup -&gt; Maybe Text
 -&gt; (UpdateSkillGroup -&gt; Maybe Text -&gt; UpdateSkillGroup)
 -&gt; Lens UpdateSkillGroup UpdateSkillGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396813"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397190"><span class="annot"><span class="annottext">Maybe Text
 description :: Maybe Text
 $sel:description:UpdateSkillGroup' :: UpdateSkillGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679396813"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396813"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396812"><span class="annot"><span class="annottext">s :: UpdateSkillGroup
-</span><a href="#local-6989586621679396812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396811"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSkillGroup
-</span><a href="#local-6989586621679396812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateSkillGroup' :: Maybe Text
+</span><a href="#local-6989586621679397190"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397190"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397189"><span class="annot"><span class="annottext">s :: UpdateSkillGroup
+</span><a href="#local-6989586621679397189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397188"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSkillGroup
+</span><a href="#local-6989586621679397189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateSkillGroup' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3Adescription%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The ARN of the skill group to update.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_skillGroupArn"><span class="hs-identifier hs-type">updateSkillGroup_skillGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="updateSkillGroup_skillGroupArn"><span class="annot"><span class="annottext">updateSkillGroup_skillGroupArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-91"></span><span class="hs-comment">-- | The updated name for the skill group.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_skillGroupName"><span class="hs-identifier hs-type">updateSkillGroup_skillGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="updateSkillGroup_skillGroupName"><span class="annot"><span class="annottext">updateSkillGroup_skillGroupName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UpdateSkillGroup -&gt; f UpdateSkillGroup
-</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_skillGroupArn"><span class="hs-identifier hs-var hs-var">updateSkillGroup_skillGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSkillGroup -&gt; Maybe Text)
+</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#updateSkillGroup_skillGroupName"><span class="hs-identifier hs-var hs-var">updateSkillGroup_skillGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateSkillGroup -&gt; Maybe Text)
 -&gt; (UpdateSkillGroup -&gt; Maybe Text -&gt; UpdateSkillGroup)
 -&gt; Lens UpdateSkillGroup UpdateSkillGroup (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396810"><span class="annot"><span class="annottext">Maybe Text
-skillGroupArn :: Maybe Text
-$sel:skillGroupArn:UpdateSkillGroup' :: UpdateSkillGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679396810"><span class="hs-identifier hs-var hs-var">skillGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396810"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396809"><span class="annot"><span class="annottext">s :: UpdateSkillGroup
-</span><a href="#local-6989586621679396809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396808"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSkillGroup
-</span><a href="#local-6989586621679396809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skillGroupArn:UpdateSkillGroup' :: Maybe Text
-</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AskillGroupArn%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397187"><span class="annot"><span class="annottext">Maybe Text
+skillGroupName :: Maybe Text
+$sel:skillGroupName:UpdateSkillGroup' :: UpdateSkillGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679397187"><span class="hs-identifier hs-var hs-var">skillGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397187"><span class="hs-identifier hs-var">skillGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397186"><span class="annot"><span class="annottext">s :: UpdateSkillGroup
+</span><a href="#local-6989586621679397186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397185"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSkillGroup
+</span><a href="#local-6989586621679397186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skillGroupName:UpdateSkillGroup' :: Maybe Text
+</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AskillGroupName%3AUpdateSkillGroup%27"><span class="hs-identifier hs-var">skillGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-97"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>      </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse"><span class="hs-identifier hs-type">UpdateSkillGroupResponse</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679396804"><span class="annot"><span class="annottext">request :: UpdateSkillGroup -&gt; Request UpdateSkillGroup
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679397181"><span class="annot"><span class="annottext">request :: UpdateSkillGroup -&gt; Request UpdateSkillGroup
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateSkillGroup -&gt; Request UpdateSkillGroup
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679396800"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679397177"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateSkillGroup
 -&gt; ClientResponse ClientBody
@@ -237,10 +237,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679396797"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396797"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679396796"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679396796"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679396795"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679396795"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679397174"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679397174"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679397173"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679397173"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679397172"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679397172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateSkillGroupResponse
 </span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse%27"><span class="hs-identifier hs-var">UpdateSkillGroupResponse'</span></a></span><span>
 </span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateSkillGroupResponse)
@@ -251,15 +251,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396797"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397174"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396788"><span id="local-6989586621679396790"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397165"><span id="local-6989586621679397167"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679396781"><span class="annot"><span class="annottext">toHeaders :: UpdateSkillGroup -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679397158"><span class="annot"><span class="annottext">toHeaders :: UpdateSkillGroup -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateSkillGroup -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -286,55 +286,55 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396771"><span id="local-6989586621679396773"><span id="local-6989586621679396775"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679396769"><span class="annot"><span class="annottext">toJSON :: UpdateSkillGroup -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396765"><span id="local-6989586621679396766"><span id="local-6989586621679396767"><span class="annot"><span class="annottext">Maybe Text
-skillGroupArn :: Maybe Text
-description :: Maybe Text
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397148"><span id="local-6989586621679397150"><span id="local-6989586621679397152"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679397146"><span class="annot"><span class="annottext">toJSON :: UpdateSkillGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup%27"><span class="hs-identifier hs-type">UpdateSkillGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397142"><span id="local-6989586621679397143"><span id="local-6989586621679397144"><span class="annot"><span class="annottext">Maybe Text
 skillGroupName :: Maybe Text
-$sel:skillGroupArn:UpdateSkillGroup' :: UpdateSkillGroup -&gt; Maybe Text
-$sel:description:UpdateSkillGroup' :: UpdateSkillGroup -&gt; Maybe Text
+description :: Maybe Text
+skillGroupArn :: Maybe Text
 $sel:skillGroupName:UpdateSkillGroup' :: UpdateSkillGroup -&gt; Maybe Text
-</span><a href="#local-6989586621679396765"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:description:UpdateSkillGroup' :: UpdateSkillGroup -&gt; Maybe Text
+$sel:skillGroupArn:UpdateSkillGroup' :: UpdateSkillGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679397142"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SkillGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396767"><span class="hs-identifier hs-var">skillGroupName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396766"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SkillGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679396765"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span>
+</span><a href="#local-6989586621679397144"><span class="hs-identifier hs-var">skillGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397143"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SkillGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679397142"><span class="hs-identifier hs-var">skillGroupName</span></a></span><span>
 </span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679396759"><span class="annot"><span class="annottext">toPath :: UpdateSkillGroup -&gt; ByteString
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679397136"><span class="annot"><span class="annottext">toPath :: UpdateSkillGroup -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateSkillGroup -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroup"><span class="hs-identifier hs-type">UpdateSkillGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679396755"><span class="annot"><span class="annottext">toQuery :: UpdateSkillGroup -&gt; QueryString
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679397132"><span class="annot"><span class="annottext">toQuery :: UpdateSkillGroup -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateSkillGroup -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -342,12 +342,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newUpdateSkillGroupResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679396752"><span id="local-6989586621679396753"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSkillGroupResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse"><span class="hs-identifier hs-var">UpdateSkillGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSkillGroupResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse%27"><span class="hs-identifier hs-var">UpdateSkillGroupResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679397129"><span id="local-6989586621679397130"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateSkillGroupResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse"><span class="hs-identifier hs-var">UpdateSkillGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateSkillGroupResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse%27"><span class="hs-identifier hs-var">UpdateSkillGroupResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateSkillGroupResponse%27"><span class="annot"><span class="annottext">UpdateSkillGroupResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AhttpStatus%3AUpdateSkillGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396747"><span id="local-6989586621679396749"><span class="annot"><span class="annottext">UpdateSkillGroupResponse -&gt; UpdateSkillGroupResponse -&gt; Bool
+</span><span id="line-148"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679397124"><span id="local-6989586621679397126"><span class="annot"><span class="annottext">UpdateSkillGroupResponse -&gt; UpdateSkillGroupResponse -&gt; Bool
 (UpdateSkillGroupResponse -&gt; UpdateSkillGroupResponse -&gt; Bool)
 -&gt; (UpdateSkillGroupResponse -&gt; UpdateSkillGroupResponse -&gt; Bool)
 -&gt; Eq UpdateSkillGroupResponse
@@ -356,7 +356,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateSkillGroupResponse -&gt; UpdateSkillGroupResponse -&gt; Bool
 == :: UpdateSkillGroupResponse -&gt; UpdateSkillGroupResponse -&gt; Bool
 $c== :: UpdateSkillGroupResponse -&gt; UpdateSkillGroupResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396739"><span id="local-6989586621679396741"><span id="local-6989586621679396743"><span id="local-6989586621679396745"><span class="annot"><span class="annottext">ReadPrec [UpdateSkillGroupResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397116"><span id="local-6989586621679397118"><span id="local-6989586621679397120"><span id="local-6989586621679397122"><span class="annot"><span class="annottext">ReadPrec [UpdateSkillGroupResponse]
 ReadPrec UpdateSkillGroupResponse
 Int -&gt; ReadS UpdateSkillGroupResponse
 ReadS [UpdateSkillGroupResponse]
@@ -376,7 +376,7 @@ readList :: ReadS [UpdateSkillGroupResponse]
 $creadList :: ReadS [UpdateSkillGroupResponse]
 readsPrec :: Int -&gt; ReadS UpdateSkillGroupResponse
 $creadsPrec :: Int -&gt; ReadS UpdateSkillGroupResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396733"><span id="local-6989586621679396735"><span id="local-6989586621679396737"><span class="annot"><span class="annottext">Int -&gt; UpdateSkillGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679397110"><span id="local-6989586621679397112"><span id="local-6989586621679397114"><span class="annot"><span class="annottext">Int -&gt; UpdateSkillGroupResponse -&gt; ShowS
 [UpdateSkillGroupResponse] -&gt; ShowS
 UpdateSkillGroupResponse -&gt; String
 (Int -&gt; UpdateSkillGroupResponse -&gt; ShowS)
@@ -422,14 +422,14 @@ UpdateSkillGroupResponse -&gt; Rep UpdateSkillGroupResponse x
 </span><span id="line-161"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-162"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse"><span class="hs-identifier hs-type">UpdateSkillGroupResponse</span></a></span><span>
 </span><span id="line-163"></span><span id="newUpdateSkillGroupResponse"><span class="annot"><span class="annottext">newUpdateSkillGroupResponse :: Int -&gt; UpdateSkillGroupResponse
-</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#newUpdateSkillGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateSkillGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679396730"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396730"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#newUpdateSkillGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateSkillGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679397107"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679397107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">UpdateSkillGroupResponse' :: Int -&gt; UpdateSkillGroupResponse
 </span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse%27"><span class="hs-identifier hs-type">UpdateSkillGroupResponse'</span></a></span><span>
 </span><span id="line-165"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSkillGroupResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AhttpStatus%3AUpdateSkillGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396730"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679397107"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-167"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -440,16 +440,16 @@ UpdateSkillGroupResponse -&gt; Rep UpdateSkillGroupResponse x
 -&gt; (UpdateSkillGroupResponse -&gt; Int -&gt; UpdateSkillGroupResponse)
 -&gt; Lens UpdateSkillGroupResponse UpdateSkillGroupResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse%27"><span class="hs-identifier hs-type">UpdateSkillGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396729"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse%27"><span class="hs-identifier hs-type">UpdateSkillGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679397106"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateSkillGroupResponse' :: UpdateSkillGroupResponse -&gt; Int
-</span><a href="#local-6989586621679396729"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396729"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396728"><span class="annot"><span class="annottext">s :: UpdateSkillGroupResponse
-</span><a href="#local-6989586621679396728"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse%27"><span class="hs-identifier hs-type">UpdateSkillGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396727"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396727"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSkillGroupResponse
-</span><a href="#local-6989586621679396728"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSkillGroupResponse' :: Int
+</span><a href="#local-6989586621679397106"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679397106"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679397105"><span class="annot"><span class="annottext">s :: UpdateSkillGroupResponse
+</span><a href="#local-6989586621679397105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse%27"><span class="hs-identifier hs-type">UpdateSkillGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679397104"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679397104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateSkillGroupResponse
+</span><a href="#local-6989586621679397105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateSkillGroupResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#%24sel%3AhttpStatus%3AUpdateSkillGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679396727"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse"><span class="hs-identifier hs-type">UpdateSkillGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679397104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse"><span class="hs-identifier hs-type">UpdateSkillGroupResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396725"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse"><span class="hs-identifier hs-type">UpdateSkillGroupResponse</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679397102"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.UpdateSkillGroup.html#UpdateSkillGroupResponse"><span class="hs-identifier hs-type">UpdateSkillGroupResponse</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

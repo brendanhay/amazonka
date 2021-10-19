@@ -37,16 +37,16 @@
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacks_nextToken"><span class="hs-identifier">describeOrganizationConformancePacks_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacks_organizationConformancePackNames"><span class="hs-identifier">describeOrganizationConformancePacks_organizationConformancePackNames</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacks_limit"><span class="hs-identifier">describeOrganizationConformancePacks_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacks_limit"><span class="hs-identifier">describeOrganizationConformancePacks_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacks_organizationConformancePackNames"><span class="hs-identifier">describeOrganizationConformancePacks_organizationConformancePackNames</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier">DescribeOrganizationConformancePacksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#newDescribeOrganizationConformancePacksResponse"><span class="hs-identifier">newDescribeOrganizationConformancePacksResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_nextToken"><span class="hs-identifier">describeOrganizationConformancePacksResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_organizationConformancePacks"><span class="hs-identifier">describeOrganizationConformancePacksResponse_organizationConformancePacks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_organizationConformancePacks"><span class="hs-identifier">describeOrganizationConformancePacksResponse_organizationConformancePacks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_nextToken"><span class="hs-identifier">describeOrganizationConformancePacksResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_httpStatus"><span class="hs-identifier">describeOrganizationConformancePacksResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span class="hs-keyword">where</span><span>
@@ -59,21 +59,21 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newDescribeOrganizationConformancePacks' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679423461"><span id="local-6989586621679423462"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOrganizationConformancePacks"><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-var">DescribeOrganizationConformancePacks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOrganizationConformancePacks%27"><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var">DescribeOrganizationConformancePacks'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679424114"><span id="local-6989586621679424115"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOrganizationConformancePacks"><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-var">DescribeOrganizationConformancePacks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOrganizationConformancePacks%27"><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var">DescribeOrganizationConformancePacks'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The nextToken string returned on a previous page that you use to get the</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- next page of results in a paginated response.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeOrganizationConformancePacks%27"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks -&gt; Maybe Text
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AnextToken%3ADescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name that you assign to an organization conformance pack.</span><span>
-</span><span id="line-67"></span><span>    </span><span id="%24sel%3AorganizationConformancePackNames%3ADescribeOrganizationConformancePacks%27"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks -&gt; Maybe [Text]
-</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AorganizationConformancePackNames%3ADescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var hs-var">organizationConformancePackNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The maximum number of organization config packs returned on each page.</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- If you do no specify a number, Config uses the default. The default is</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- 100.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeOrganizationConformancePacks%27"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks -&gt; Maybe Natural
-</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3Alimit%3ADescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The maximum number of organization config packs returned on each page.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- If you do no specify a number, Config uses the default. The default is</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- 100.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeOrganizationConformancePacks%27"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks -&gt; Maybe Natural
+</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3Alimit%3ADescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The name that you assign to an organization conformance pack.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AorganizationConformancePackNames%3ADescribeOrganizationConformancePacks%27"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks -&gt; Maybe [Text]
+</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AorganizationConformancePackNames%3ADescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var hs-var">organizationConformancePackNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423453"><span id="local-6989586621679423455"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424106"><span id="local-6989586621679424108"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks
 -&gt; DescribeOrganizationConformancePacks -&gt; Bool
 (DescribeOrganizationConformancePacks
  -&gt; DescribeOrganizationConformancePacks -&gt; Bool)
@@ -89,7 +89,7 @@ $c/= :: DescribeOrganizationConformancePacks
 -&gt; DescribeOrganizationConformancePacks -&gt; Bool
 $c== :: DescribeOrganizationConformancePacks
 -&gt; DescribeOrganizationConformancePacks -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423444"><span id="local-6989586621679423446"><span id="local-6989586621679423448"><span id="local-6989586621679423450"><span class="annot"><span class="annottext">ReadPrec [DescribeOrganizationConformancePacks]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424097"><span id="local-6989586621679424099"><span id="local-6989586621679424101"><span id="local-6989586621679424103"><span class="annot"><span class="annottext">ReadPrec [DescribeOrganizationConformancePacks]
 ReadPrec DescribeOrganizationConformancePacks
 Int -&gt; ReadS DescribeOrganizationConformancePacks
 ReadS [DescribeOrganizationConformancePacks]
@@ -109,7 +109,7 @@ readList :: ReadS [DescribeOrganizationConformancePacks]
 $creadList :: ReadS [DescribeOrganizationConformancePacks]
 readsPrec :: Int -&gt; ReadS DescribeOrganizationConformancePacks
 $creadsPrec :: Int -&gt; ReadS DescribeOrganizationConformancePacks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423437"><span id="local-6989586621679423439"><span id="local-6989586621679423441"><span class="annot"><span class="annottext">Int -&gt; DescribeOrganizationConformancePacks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424090"><span id="local-6989586621679424092"><span id="local-6989586621679424094"><span class="annot"><span class="annottext">Int -&gt; DescribeOrganizationConformancePacks -&gt; ShowS
 [DescribeOrganizationConformancePacks] -&gt; ShowS
 DescribeOrganizationConformancePacks -&gt; String
 (Int -&gt; DescribeOrganizationConformancePacks -&gt; ShowS)
@@ -158,18 +158,18 @@ DescribeOrganizationConformancePacks
 </span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'describeOrganizationConformancePacks_nextToken' - The nextToken string returned on a previous page that you use to get the</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- next page of results in a paginated response.</span><span>
 </span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- 'organizationConformancePackNames', 'describeOrganizationConformancePacks_organizationConformancePackNames' - The name that you assign to an organization conformance pack.</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'limit', 'describeOrganizationConformancePacks_limit' - The maximum number of organization config packs returned on each page.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- If you do no specify a number, Config uses the default. The default is</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- 100.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'limit', 'describeOrganizationConformancePacks_limit' - The maximum number of organization config packs returned on each page.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- If you do no specify a number, Config uses the default. The default is</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 100.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'organizationConformancePackNames', 'describeOrganizationConformancePacks_organizationConformancePackNames' - The name that you assign to an organization conformance pack.</span><span>
 </span><span id="line-91"></span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#newDescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">newDescribeOrganizationConformancePacks</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span>
 </span><span id="line-93"></span><span id="newDescribeOrganizationConformancePacks"><span class="annot"><span class="annottext">newDescribeOrganizationConformancePacks :: DescribeOrganizationConformancePacks
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#newDescribeOrganizationConformancePacks"><span class="hs-identifier hs-var hs-var">newDescribeOrganizationConformancePacks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks' :: Maybe Text
--&gt; Maybe [Text]
 -&gt; Maybe Natural
+-&gt; Maybe [Text]
 -&gt; DescribeOrganizationConformancePacks
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span>
 </span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeOrganizationConformancePacks' :: Maybe Text
@@ -177,13 +177,13 @@ DescribeOrganizationConformancePacks
 </span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationConformancePackNames:DescribeOrganizationConformancePacks' :: Maybe [Text]
-</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AorganizationConformancePackNames%3ADescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var">organizationConformancePackNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:DescribeOrganizationConformancePacks' :: Maybe Natural
+</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3Alimit%3ADescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:DescribeOrganizationConformancePacks' :: Maybe Natural
-</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3Alimit%3ADescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationConformancePackNames:DescribeOrganizationConformancePacks' :: Maybe [Text]
+</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AorganizationConformancePackNames%3ADescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var">organizationConformancePackNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
@@ -203,20 +203,47 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423431"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424084"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeOrganizationConformancePacks' :: DescribeOrganizationConformancePacks -&gt; Maybe Text
-</span><a href="#local-6989586621679423431"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423431"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423430"><span class="annot"><span class="annottext">s :: DescribeOrganizationConformancePacks
-</span><a href="#local-6989586621679423430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423429"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks
-</span><a href="#local-6989586621679423430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeOrganizationConformancePacks' :: Maybe Text
+</span><a href="#local-6989586621679424084"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679424084"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424083"><span class="annot"><span class="annottext">s :: DescribeOrganizationConformancePacks
+</span><a href="#local-6989586621679424083"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424082"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679424082"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks
+</span><a href="#local-6989586621679424083"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeOrganizationConformancePacks' :: Maybe Text
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AnextToken%3ADescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424082"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The name that you assign to an organization conformance pack.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacks_organizationConformancePackNames"><span class="hs-identifier hs-type">describeOrganizationConformancePacks_organizationConformancePackNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="describeOrganizationConformancePacks_organizationConformancePackNames"><span class="annot"><span class="annottext">describeOrganizationConformancePacks_organizationConformancePackNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-107"></span><span class="hs-comment">-- | The maximum number of organization config packs returned on each page.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- If you do no specify a number, Config uses the default. The default is</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 100.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacks_limit"><span class="hs-identifier hs-type">describeOrganizationConformancePacks_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="describeOrganizationConformancePacks_limit"><span class="annot"><span class="annottext">describeOrganizationConformancePacks_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeOrganizationConformancePacks
+-&gt; f DescribeOrganizationConformancePacks
+</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacks_limit"><span class="hs-identifier hs-var hs-var">describeOrganizationConformancePacks_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOrganizationConformancePacks -&gt; Maybe Natural)
+-&gt; (DescribeOrganizationConformancePacks
+    -&gt; Maybe Natural -&gt; DescribeOrganizationConformancePacks)
+-&gt; Lens
+     DescribeOrganizationConformancePacks
+     DescribeOrganizationConformancePacks
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424081"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:DescribeOrganizationConformancePacks' :: DescribeOrganizationConformancePacks -&gt; Maybe Natural
+</span><a href="#local-6989586621679424081"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424081"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424080"><span class="annot"><span class="annottext">s :: DescribeOrganizationConformancePacks
+</span><a href="#local-6989586621679424080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424079"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks
+</span><a href="#local-6989586621679424080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeOrganizationConformancePacks' :: Maybe Natural
+</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3Alimit%3ADescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679424079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The name that you assign to an organization conformance pack.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacks_organizationConformancePackNames"><span class="hs-identifier hs-type">describeOrganizationConformancePacks_organizationConformancePackNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="describeOrganizationConformancePacks_organizationConformancePackNames"><span class="annot"><span class="annottext">describeOrganizationConformancePacks_organizationConformancePackNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DescribeOrganizationConformancePacks
 -&gt; f DescribeOrganizationConformancePacks
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacks_organizationConformancePackNames"><span class="hs-identifier hs-var hs-var">describeOrganizationConformancePacks_organizationConformancePackNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOrganizationConformancePacks -&gt; Maybe [Text])
@@ -228,16 +255,16 @@ $sel:nextToken:DescribeOrganizationConformancePacks' :: DescribeOrganizationConf
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423428"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424078"><span class="annot"><span class="annottext">Maybe [Text]
 organizationConformancePackNames :: Maybe [Text]
 $sel:organizationConformancePackNames:DescribeOrganizationConformancePacks' :: DescribeOrganizationConformancePacks -&gt; Maybe [Text]
-</span><a href="#local-6989586621679423428"><span class="hs-identifier hs-var hs-var">organizationConformancePackNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679423428"><span class="hs-identifier hs-var">organizationConformancePackNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423427"><span class="annot"><span class="annottext">s :: DescribeOrganizationConformancePacks
-</span><a href="#local-6989586621679423427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423426"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679423426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks
-</span><a href="#local-6989586621679423427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationConformancePackNames:DescribeOrganizationConformancePacks' :: Maybe [Text]
+</span><a href="#local-6989586621679424078"><span class="hs-identifier hs-var hs-var">organizationConformancePackNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679424078"><span class="hs-identifier hs-var">organizationConformancePackNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424077"><span class="annot"><span class="annottext">s :: DescribeOrganizationConformancePacks
+</span><a href="#local-6989586621679424077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424076"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679424076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks
+</span><a href="#local-6989586621679424077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationConformancePackNames:DescribeOrganizationConformancePacks' :: Maybe [Text]
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AorganizationConformancePackNames%3ADescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var">organizationConformancePackNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679423426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679424076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeOrganizationConformancePacks
  -&gt; f DescribeOrganizationConformancePacks)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -252,52 +279,25 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The maximum number of organization config packs returned on each page.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- If you do no specify a number, Config uses the default. The default is</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 100.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacks_limit"><span class="hs-identifier hs-type">describeOrganizationConformancePacks_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="describeOrganizationConformancePacks_limit"><span class="annot"><span class="annottext">describeOrganizationConformancePacks_limit :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeOrganizationConformancePacks
--&gt; f DescribeOrganizationConformancePacks
-</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacks_limit"><span class="hs-identifier hs-var hs-var">describeOrganizationConformancePacks_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOrganizationConformancePacks -&gt; Maybe Natural)
--&gt; (DescribeOrganizationConformancePacks
-    -&gt; Maybe Natural -&gt; DescribeOrganizationConformancePacks)
--&gt; Lens
-     DescribeOrganizationConformancePacks
-     DescribeOrganizationConformancePacks
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423422"><span class="annot"><span class="annottext">Maybe Natural
-limit :: Maybe Natural
-$sel:limit:DescribeOrganizationConformancePacks' :: DescribeOrganizationConformancePacks -&gt; Maybe Natural
-</span><a href="#local-6989586621679423422"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679423422"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423421"><span class="annot"><span class="annottext">s :: DescribeOrganizationConformancePacks
-</span><a href="#local-6989586621679423421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423420"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679423420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks
-</span><a href="#local-6989586621679423421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeOrganizationConformancePacks' :: Maybe Natural
-</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3Alimit%3ADescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679423420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-118"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679423416"><span class="annot"><span class="annottext">page :: DescribeOrganizationConformancePacks
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679424069"><span class="annot"><span class="annottext">page :: DescribeOrganizationConformancePacks
 -&gt; AWSResponse DescribeOrganizationConformancePacks
 -&gt; Maybe DescribeOrganizationConformancePacks
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679423414"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks
-</span><a href="#local-6989586621679423414"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679423413"><span class="annot"><span class="annottext">AWSResponse DescribeOrganizationConformancePacks
-</span><a href="#local-6989586621679423413"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679424067"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks
+</span><a href="#local-6989586621679424067"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679424066"><span class="annot"><span class="annottext">AWSResponse DescribeOrganizationConformancePacks
+</span><a href="#local-6989586621679424066"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeOrganizationConformancePacks
 DescribeOrganizationConformancePacksResponse
-</span><a href="#local-6989586621679423413"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679424066"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse
 -&gt; Getting
      (First Text) DescribeOrganizationConformancePacksResponse Text
@@ -329,7 +329,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-129"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeOrganizationConformancePacks
 DescribeOrganizationConformancePacksResponse
-</span><a href="#local-6989586621679423413"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679424066"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse
 -&gt; Getting
      (First [OrganizationConformancePack])
@@ -396,7 +396,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks
-</span><a href="#local-6989586621679423414"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679424067"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacks
 -&gt; (DescribeOrganizationConformancePacks
     -&gt; DescribeOrganizationConformancePacks)
@@ -420,7 +420,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeOrganizationConformancePacks
 DescribeOrganizationConformancePacksResponse
-</span><a href="#local-6989586621679423413"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679424066"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse
 -&gt; Getting
      (First Text) DescribeOrganizationConformancePacksResponse Text
@@ -451,7 +451,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679423404"><span class="annot"><span class="annottext">request :: DescribeOrganizationConformancePacks
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679424057"><span class="annot"><span class="annottext">request :: DescribeOrganizationConformancePacks
 -&gt; Request DescribeOrganizationConformancePacks
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeOrganizationConformancePacks
@@ -459,7 +459,7 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679423400"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679424053"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeOrganizationConformancePacks
 -&gt; ClientResponse ClientBody
@@ -490,53 +490,51 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679423397"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423397"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679423396"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679423396"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679423395"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679423395"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [OrganizationConformancePack]
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679424050"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679424050"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679424049"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679424049"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679424048"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679424048"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe [OrganizationConformancePack]
+-&gt; Maybe Text
 -&gt; Int
 -&gt; DescribeOrganizationConformancePacksResponse
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var">DescribeOrganizationConformancePacksResponse'</span></a></span><span>
-</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [OrganizationConformancePack]
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [OrganizationConformancePack]
+ -&gt; Maybe Text
  -&gt; Int
  -&gt; DescribeOrganizationConformancePacksResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [OrganizationConformancePack]
-      -&gt; Int -&gt; DescribeOrganizationConformancePacksResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679423395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [OrganizationConformancePack]
-   -&gt; Int -&gt; DescribeOrganizationConformancePacksResponse)
 -&gt; Either String (Maybe [OrganizationConformancePack])
 -&gt; Either
-     String (Int -&gt; DescribeOrganizationConformancePacksResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679423395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+     String
+     (Maybe Text -&gt; Int -&gt; DescribeOrganizationConformancePacksResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679424048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe [OrganizationConformancePack]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OrganizationConformancePacks&quot;</span></span><span>
-</span><span id="line-156"></span><span>                              </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [OrganizationConformancePack]))
+</span><span id="line-155"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [OrganizationConformancePack]))
 -&gt; Maybe [OrganizationConformancePack]
 -&gt; Either String (Maybe [OrganizationConformancePack])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationConformancePack]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-157"></span><span>                          </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; DescribeOrganizationConformancePacksResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; DescribeOrganizationConformancePacksResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679424048"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-158"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeOrganizationConformancePacksResponse)
 -&gt; Either String Int
 -&gt; Either String DescribeOrganizationConformancePacksResponse
@@ -546,22 +544,22 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423397"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679424050"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679423386"><span id="local-6989586621679423388"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679424039"><span id="local-6989586621679424041"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span></span></span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679423383"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679424036"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-167"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span>
 </span><span id="line-172"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679423379"><span class="annot"><span class="annottext">toHeaders :: DescribeOrganizationConformancePacks -&gt; ResponseHeaders
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679424032"><span class="annot"><span class="annottext">toHeaders :: DescribeOrganizationConformancePacks -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
 -&gt; DescribeOrganizationConformancePacks -&gt; ResponseHeaders
@@ -590,20 +588,20 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679423369"><span id="local-6989586621679423371"><span id="local-6989586621679423373"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679424022"><span id="local-6989586621679424024"><span id="local-6989586621679424026"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-189"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span></span></span></span><span>
 </span><span id="line-190"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679423367"><span class="annot"><span class="annottext">toJSON :: DescribeOrganizationConformancePacks -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423363"><span id="local-6989586621679423364"><span id="local-6989586621679423365"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679424020"><span class="annot"><span class="annottext">toJSON :: DescribeOrganizationConformancePacks -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424016"><span id="local-6989586621679424017"><span id="local-6989586621679424018"><span class="annot"><span class="annottext">Maybe Natural
 Maybe [Text]
 Maybe Text
-limit :: Maybe Natural
 organizationConformancePackNames :: Maybe [Text]
+limit :: Maybe Natural
 nextToken :: Maybe Text
-$sel:limit:DescribeOrganizationConformancePacks' :: DescribeOrganizationConformancePacks -&gt; Maybe Natural
 $sel:organizationConformancePackNames:DescribeOrganizationConformancePacks' :: DescribeOrganizationConformancePacks -&gt; Maybe [Text]
+$sel:limit:DescribeOrganizationConformancePacks' :: DescribeOrganizationConformancePacks -&gt; Maybe Natural
 $sel:nextToken:DescribeOrganizationConformancePacks' :: DescribeOrganizationConformancePacks -&gt; Maybe Text
-</span><a href="#local-6989586621679423363"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679424016"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -615,22 +613,22 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423365"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679424018"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OrganizationConformancePackNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679423364"><span class="hs-identifier hs-var">organizationConformancePackNames</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679423363"><span class="hs-identifier hs-var">limit</span></a></span><span>
+</span><a href="#local-6989586621679424017"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OrganizationConformancePackNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679424016"><span class="hs-identifier hs-var">organizationConformancePackNames</span></a></span><span>
 </span><span id="line-198"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
@@ -638,7 +636,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-202"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
 </span><span id="line-203"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span>
 </span><span id="line-204"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-205"></span><span>  </span><span id="local-6989586621679423357"><span class="annot"><span class="annottext">toPath :: DescribeOrganizationConformancePacks -&gt; ByteString
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679424010"><span class="annot"><span class="annottext">toPath :: DescribeOrganizationConformancePacks -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeOrganizationConformancePacks -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
@@ -648,7 +646,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-209"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacks"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacks</span></a></span><span>
 </span><span id="line-210"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-211"></span><span>  </span><span id="local-6989586621679423353"><span class="annot"><span class="annottext">toQuery :: DescribeOrganizationConformancePacks -&gt; QueryString
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679424006"><span class="annot"><span class="annottext">toQuery :: DescribeOrganizationConformancePacks -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeOrganizationConformancePacks -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -656,20 +654,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-212"></span><span>
 </span><span id="line-213"></span><span class="hs-comment">-- | /See:/ 'newDescribeOrganizationConformancePacksResponse' smart constructor.</span><span>
-</span><span id="line-214"></span><span id="local-6989586621679423350"><span id="local-6989586621679423351"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOrganizationConformancePacksResponse"><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-var">DescribeOrganizationConformancePacksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOrganizationConformancePacksResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var">DescribeOrganizationConformancePacksResponse'</span></a></span></span><span>
-</span><span id="line-215"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The nextToken string returned on a previous page that you use to get the</span><span>
-</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- next page of results in a paginated response.</span><span>
-</span><span id="line-217"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeOrganizationConformancePacksResponse%27"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AnextToken%3ADescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- | Returns a list of OrganizationConformancePacks objects.</span><span>
-</span><span id="line-219"></span><span>    </span><span id="%24sel%3AorganizationConformancePacks%3ADescribeOrganizationConformancePacksResponse%27"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse
+</span><span id="line-214"></span><span id="local-6989586621679424003"><span id="local-6989586621679424004"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOrganizationConformancePacksResponse"><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-var">DescribeOrganizationConformancePacksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOrganizationConformancePacksResponse%27"><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var">DescribeOrganizationConformancePacksResponse'</span></a></span></span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns a list of OrganizationConformancePacks objects.</span><span>
+</span><span id="line-216"></span><span>    </span><span id="%24sel%3AorganizationConformancePacks%3ADescribeOrganizationConformancePacksResponse%27"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse
 -&gt; Maybe [OrganizationConformancePack]
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AorganizationConformancePacks%3ADescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var hs-var">organizationConformancePacks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- | The nextToken string returned on a previous page that you use to get the</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- next page of results in a paginated response.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeOrganizationConformancePacksResponse%27"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AnextToken%3ADescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-221"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeOrganizationConformancePacksResponse%27"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse -&gt; Int
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AhttpStatus%3ADescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-222"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423343"><span id="local-6989586621679423345"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423996"><span id="local-6989586621679423998"><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse
 -&gt; DescribeOrganizationConformancePacksResponse -&gt; Bool
 (DescribeOrganizationConformancePacksResponse
  -&gt; DescribeOrganizationConformancePacksResponse -&gt; Bool)
@@ -685,7 +683,7 @@ $c/= :: DescribeOrganizationConformancePacksResponse
 -&gt; DescribeOrganizationConformancePacksResponse -&gt; Bool
 $c== :: DescribeOrganizationConformancePacksResponse
 -&gt; DescribeOrganizationConformancePacksResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423335"><span id="local-6989586621679423337"><span id="local-6989586621679423339"><span id="local-6989586621679423341"><span class="annot"><span class="annottext">ReadPrec [DescribeOrganizationConformancePacksResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423988"><span id="local-6989586621679423990"><span id="local-6989586621679423992"><span id="local-6989586621679423994"><span class="annot"><span class="annottext">ReadPrec [DescribeOrganizationConformancePacksResponse]
 ReadPrec DescribeOrganizationConformancePacksResponse
 Int -&gt; ReadS DescribeOrganizationConformancePacksResponse
 ReadS [DescribeOrganizationConformancePacksResponse]
@@ -705,7 +703,7 @@ readList :: ReadS [DescribeOrganizationConformancePacksResponse]
 $creadList :: ReadS [DescribeOrganizationConformancePacksResponse]
 readsPrec :: Int -&gt; ReadS DescribeOrganizationConformancePacksResponse
 $creadsPrec :: Int -&gt; ReadS DescribeOrganizationConformancePacksResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423329"><span id="local-6989586621679423331"><span id="local-6989586621679423333"><span class="annot"><span class="annottext">Int -&gt; DescribeOrganizationConformancePacksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423982"><span id="local-6989586621679423984"><span id="local-6989586621679423986"><span class="annot"><span class="annottext">Int -&gt; DescribeOrganizationConformancePacksResponse -&gt; ShowS
 [DescribeOrganizationConformancePacksResponse] -&gt; ShowS
 DescribeOrganizationConformancePacksResponse -&gt; String
 (Int -&gt; DescribeOrganizationConformancePacksResponse -&gt; ShowS)
@@ -751,10 +749,10 @@ DescribeOrganizationConformancePacksResponse
 </span><span id="line-230"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-231"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-232"></span><span class="hs-comment">--</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- 'nextToken', 'describeOrganizationConformancePacksResponse_nextToken' - The nextToken string returned on a previous page that you use to get the</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- next page of results in a paginated response.</span><span>
-</span><span id="line-235"></span><span class="hs-comment">--</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- 'organizationConformancePacks', 'describeOrganizationConformancePacksResponse_organizationConformancePacks' - Returns a list of OrganizationConformancePacks objects.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'organizationConformancePacks', 'describeOrganizationConformancePacksResponse_organizationConformancePacks' - Returns a list of OrganizationConformancePacks objects.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'nextToken', 'describeOrganizationConformancePacksResponse_nextToken' - The nextToken string returned on a previous page that you use to get the</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- next page of results in a paginated response.</span><span>
 </span><span id="line-237"></span><span class="hs-comment">--</span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- 'httpStatus', 'describeOrganizationConformancePacksResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-239"></span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#newDescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">newDescribeOrganizationConformancePacksResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -763,53 +761,30 @@ DescribeOrganizationConformancePacksResponse
 </span><span id="line-242"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span>
 </span><span id="line-243"></span><span id="newDescribeOrganizationConformancePacksResponse"><span class="annot"><span class="annottext">newDescribeOrganizationConformancePacksResponse :: Int -&gt; DescribeOrganizationConformancePacksResponse
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#newDescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-var hs-var">newDescribeOrganizationConformancePacksResponse</span></a></span></span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679423326"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423326"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse' :: Maybe Text
--&gt; Maybe [OrganizationConformancePack]
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679423979"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423979"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse' :: Maybe [OrganizationConformancePack]
+-&gt; Maybe Text
 -&gt; Int
 -&gt; DescribeOrganizationConformancePacksResponse
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse'</span></a></span><span>
-</span><span id="line-246"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeOrganizationConformancePacksResponse' :: Maybe Text
-</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AnextToken%3ADescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">$sel:organizationConformancePacks:DescribeOrganizationConformancePacksResponse' :: Maybe [OrganizationConformancePack]
+</span><span id="line-246"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:organizationConformancePacks:DescribeOrganizationConformancePacksResponse' :: Maybe [OrganizationConformancePack]
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AorganizationConformancePacks%3ADescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var">organizationConformancePacks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-249"></span><span>          </span><span class="annot"><span class="annottext">Maybe [OrganizationConformancePack]
+</span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">Maybe [OrganizationConformancePack]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOrganizationConformancePacksResponse' :: Int
-</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AhttpStatus%3ADescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423326"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-251"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-252"></span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- | The nextToken string returned on a previous page that you use to get the</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- next page of results in a paginated response.</span><span>
-</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_nextToken"><span class="hs-identifier hs-type">describeOrganizationConformancePacksResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-256"></span><span id="describeOrganizationConformancePacksResponse_nextToken"><span class="annot"><span class="annottext">describeOrganizationConformancePacksResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeOrganizationConformancePacksResponse
--&gt; f DescribeOrganizationConformancePacksResponse
-</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeOrganizationConformancePacksResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOrganizationConformancePacksResponse -&gt; Maybe Text)
--&gt; (DescribeOrganizationConformancePacksResponse
-    -&gt; Maybe Text -&gt; DescribeOrganizationConformancePacksResponse)
--&gt; Lens' DescribeOrganizationConformancePacksResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423325"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeOrganizationConformancePacksResponse' :: DescribeOrganizationConformancePacksResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679423325"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423325"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423324"><span class="annot"><span class="annottext">s :: DescribeOrganizationConformancePacksResponse
-</span><a href="#local-6989586621679423324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423323"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse
-</span><a href="#local-6989586621679423324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeOrganizationConformancePacksResponse' :: Maybe Text
+</span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeOrganizationConformancePacksResponse' :: Maybe Text
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AnextToken%3ADescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679423323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- | Returns a list of OrganizationConformancePacks objects.</span><span>
-</span><span id="line-259"></span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_organizationConformancePacks"><span class="hs-identifier hs-type">describeOrganizationConformancePacksResponse_organizationConformancePacks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-260"></span><span id="describeOrganizationConformancePacksResponse_organizationConformancePacks"><span class="annot"><span class="annottext">describeOrganizationConformancePacksResponse_organizationConformancePacks :: (Maybe [OrganizationConformancePack]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOrganizationConformancePacksResponse' :: Int
+</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AhttpStatus%3ADescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423979"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | Returns a list of OrganizationConformancePacks objects.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_organizationConformancePacks"><span class="hs-identifier hs-type">describeOrganizationConformancePacksResponse_organizationConformancePacks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Config.Types.OrganizationConformancePack.html#OrganizationConformancePack"><span class="hs-identifier hs-type">OrganizationConformancePack</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span id="describeOrganizationConformancePacksResponse_organizationConformancePacks"><span class="annot"><span class="annottext">describeOrganizationConformancePacksResponse_organizationConformancePacks :: (Maybe [OrganizationConformancePack]
  -&gt; f (Maybe [OrganizationConformancePack]))
 -&gt; DescribeOrganizationConformancePacksResponse
 -&gt; f DescribeOrganizationConformancePacksResponse
@@ -822,17 +797,17 @@ $sel:nextToken:DescribeOrganizationConformancePacksResponse' :: DescribeOrganiza
      DescribeOrganizationConformancePacksResponse
      (Maybe [OrganizationConformancePack])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423322"><span class="annot"><span class="annottext">Maybe [OrganizationConformancePack]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423978"><span class="annot"><span class="annottext">Maybe [OrganizationConformancePack]
 organizationConformancePacks :: Maybe [OrganizationConformancePack]
 $sel:organizationConformancePacks:DescribeOrganizationConformancePacksResponse' :: DescribeOrganizationConformancePacksResponse
 -&gt; Maybe [OrganizationConformancePack]
-</span><a href="#local-6989586621679423322"><span class="hs-identifier hs-var hs-var">organizationConformancePacks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationConformancePack]
-</span><a href="#local-6989586621679423322"><span class="hs-identifier hs-var">organizationConformancePacks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423321"><span class="annot"><span class="annottext">s :: DescribeOrganizationConformancePacksResponse
-</span><a href="#local-6989586621679423321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423320"><span class="annot"><span class="annottext">Maybe [OrganizationConformancePack]
-</span><a href="#local-6989586621679423320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse
-</span><a href="#local-6989586621679423321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationConformancePacks:DescribeOrganizationConformancePacksResponse' :: Maybe [OrganizationConformancePack]
+</span><a href="#local-6989586621679423978"><span class="hs-identifier hs-var hs-var">organizationConformancePacks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationConformancePack]
+</span><a href="#local-6989586621679423978"><span class="hs-identifier hs-var">organizationConformancePacks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423977"><span class="annot"><span class="annottext">s :: DescribeOrganizationConformancePacksResponse
+</span><a href="#local-6989586621679423977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423976"><span class="annot"><span class="annottext">Maybe [OrganizationConformancePack]
+</span><a href="#local-6989586621679423976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse
+</span><a href="#local-6989586621679423977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationConformancePacks:DescribeOrganizationConformancePacksResponse' :: Maybe [OrganizationConformancePack]
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AorganizationConformancePacks%3ADescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var">organizationConformancePacks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OrganizationConformancePack]
-</span><a href="#local-6989586621679423320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OrganizationConformancePack]
+</span><a href="#local-6989586621679423976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OrganizationConformancePack]
   -&gt; f (Maybe [OrganizationConformancePack]))
  -&gt; DescribeOrganizationConformancePacksResponse
  -&gt; f DescribeOrganizationConformancePacksResponse)
@@ -863,12 +838,34 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [OrganizationConformancePack]
   [OrganizationConformancePack]
   [OrganizationConformancePack]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-261"></span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_httpStatus"><span class="hs-identifier hs-type">describeOrganizationConformancePacksResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-264"></span><span id="describeOrganizationConformancePacksResponse_httpStatus"><span class="annot"><span class="annottext">describeOrganizationConformancePacksResponse_httpStatus :: (Int -&gt; f Int)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | The nextToken string returned on a previous page that you use to get the</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- next page of results in a paginated response.</span><span>
+</span><span id="line-258"></span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_nextToken"><span class="hs-identifier hs-type">describeOrganizationConformancePacksResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span id="describeOrganizationConformancePacksResponse_nextToken"><span class="annot"><span class="annottext">describeOrganizationConformancePacksResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeOrganizationConformancePacksResponse
+-&gt; f DescribeOrganizationConformancePacksResponse
+</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeOrganizationConformancePacksResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOrganizationConformancePacksResponse -&gt; Maybe Text)
+-&gt; (DescribeOrganizationConformancePacksResponse
+    -&gt; Maybe Text -&gt; DescribeOrganizationConformancePacksResponse)
+-&gt; Lens' DescribeOrganizationConformancePacksResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423975"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeOrganizationConformancePacksResponse' :: DescribeOrganizationConformancePacksResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679423975"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423975"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423974"><span class="annot"><span class="annottext">s :: DescribeOrganizationConformancePacksResponse
+</span><a href="#local-6989586621679423974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423973"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse
+</span><a href="#local-6989586621679423974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeOrganizationConformancePacksResponse' :: Maybe Text
+</span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AnextToken%3ADescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_httpStatus"><span class="hs-identifier hs-type">describeOrganizationConformancePacksResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-263"></span><span id="describeOrganizationConformancePacksResponse_httpStatus"><span class="annot"><span class="annottext">describeOrganizationConformancePacksResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; DescribeOrganizationConformancePacksResponse
 -&gt; f DescribeOrganizationConformancePacksResponse
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#describeOrganizationConformancePacksResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeOrganizationConformancePacksResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOrganizationConformancePacksResponse -&gt; Int)
@@ -880,18 +877,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423319"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423972"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeOrganizationConformancePacksResponse' :: DescribeOrganizationConformancePacksResponse -&gt; Int
-</span><a href="#local-6989586621679423319"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423319"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423318"><span class="annot"><span class="annottext">s :: DescribeOrganizationConformancePacksResponse
-</span><a href="#local-6989586621679423318"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423317"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423317"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse
-</span><a href="#local-6989586621679423318"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOrganizationConformancePacksResponse' :: Int
+</span><a href="#local-6989586621679423972"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423972"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423971"><span class="annot"><span class="annottext">s :: DescribeOrganizationConformancePacksResponse
+</span><a href="#local-6989586621679423971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423970"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679423970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOrganizationConformancePacksResponse
+</span><a href="#local-6989586621679423971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOrganizationConformancePacksResponse' :: Int
 </span><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#%24sel%3AhttpStatus%3ADescribeOrganizationConformancePacksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679423317"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-265"></span><span>
-</span><span id="line-266"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-267"></span><span>  </span><span id="local-6989586621679423315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span></span><span>
-</span><span id="line-269"></span></pre></body></html>
+</span><a href="#local-6989586621679423970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679423968"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Network.AWS.Config.DescribeOrganizationConformancePacks.html#DescribeOrganizationConformancePacksResponse"><span class="hs-identifier hs-type">DescribeOrganizationConformancePacksResponse</span></a></span></span><span>
+</span><span id="line-268"></span></pre></body></html>

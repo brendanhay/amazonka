@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679343429"><span id="local-6989586621679343430"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputFormat"><span class="annot"><a href="Network.AWS.Comprehend.Types.InputFormat.html#InputFormat"><span class="hs-identifier hs-var">InputFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputFormat%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.InputFormat.html#InputFormat%27"><span class="hs-identifier hs-var">InputFormat'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679343695"><span id="local-6989586621679343696"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputFormat"><span class="annot"><a href="Network.AWS.Comprehend.Types.InputFormat.html#InputFormat"><span class="hs-identifier hs-var">InputFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputFormat%27"><span class="annot"><a href="Network.AWS.Comprehend.Types.InputFormat.html#InputFormat%27"><span class="hs-identifier hs-var">InputFormat'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputFormat"><span class="annot"><span class="annottext">InputFormat -&gt; Text
 </span><a href="Network.AWS.Comprehend.Types.InputFormat.html#fromInputFormat"><span class="hs-identifier hs-var hs-var">fromInputFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679343421"><span id="local-6989586621679343423"><span id="local-6989586621679343425"><span class="annot"><span class="annottext">Int -&gt; InputFormat -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679343687"><span id="local-6989586621679343689"><span id="local-6989586621679343691"><span class="annot"><span class="annottext">Int -&gt; InputFormat -&gt; ShowS
 [InputFormat] -&gt; ShowS
 InputFormat -&gt; String
 (Int -&gt; InputFormat -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: InputFormat -&gt; String
 showsPrec :: Int -&gt; InputFormat -&gt; ShowS
 $cshowsPrec :: Int -&gt; InputFormat -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679343412"><span id="local-6989586621679343414"><span id="local-6989586621679343416"><span id="local-6989586621679343418"><span class="annot"><span class="annottext">ReadPrec [InputFormat]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679343678"><span id="local-6989586621679343680"><span id="local-6989586621679343682"><span id="local-6989586621679343684"><span class="annot"><span class="annottext">ReadPrec [InputFormat]
 ReadPrec InputFormat
 Int -&gt; ReadS InputFormat
 ReadS [InputFormat]
@@ -72,7 +72,7 @@ $creadList :: ReadS [InputFormat]
 readsPrec :: Int -&gt; ReadS InputFormat
 $creadsPrec :: Int -&gt; ReadS InputFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679343407"><span id="local-6989586621679343409"><span class="annot"><span class="annottext">InputFormat -&gt; InputFormat -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679343673"><span id="local-6989586621679343675"><span class="annot"><span class="annottext">InputFormat -&gt; InputFormat -&gt; Bool
 (InputFormat -&gt; InputFormat -&gt; Bool)
 -&gt; (InputFormat -&gt; InputFormat -&gt; Bool) -&gt; Eq InputFormat
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: InputFormat -&gt; InputFormat -&gt; Bool
 == :: InputFormat -&gt; InputFormat -&gt; Bool
 $c== :: InputFormat -&gt; InputFormat -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679343391"><span id="local-6989586621679343393"><span id="local-6989586621679343395"><span id="local-6989586621679343397"><span id="local-6989586621679343399"><span id="local-6989586621679343401"><span id="local-6989586621679343403"><span class="annot"><span class="annottext">Eq InputFormat
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679343657"><span id="local-6989586621679343659"><span id="local-6989586621679343661"><span id="local-6989586621679343663"><span id="local-6989586621679343665"><span id="local-6989586621679343667"><span id="local-6989586621679343669"><span class="annot"><span class="annottext">Eq InputFormat
 Eq InputFormat
 -&gt; (InputFormat -&gt; InputFormat -&gt; Ordering)
 -&gt; (InputFormat -&gt; InputFormat -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. InputFormat -&gt; Rep InputFormat x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679343383"><span id="local-6989586621679343385"><span class="annot"><span class="annottext">Int -&gt; InputFormat -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679343649"><span id="local-6989586621679343651"><span class="annot"><span class="annottext">Int -&gt; InputFormat -&gt; Int
 InputFormat -&gt; Int
 (Int -&gt; InputFormat -&gt; Int)
 -&gt; (InputFormat -&gt; Int) -&gt; Hashable InputFormat
@@ -142,49 +142,49 @@ $chash :: InputFormat -&gt; Int
 hashWithSalt :: Int -&gt; InputFormat -&gt; Int
 $chashWithSalt :: Int -&gt; InputFormat -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679343380"><span class="annot"><span class="annottext">InputFormat -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679343646"><span class="annot"><span class="annottext">InputFormat -&gt; ()
 (InputFormat -&gt; ()) -&gt; NFData InputFormat
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: InputFormat -&gt; ()
 $crnf :: InputFormat -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679343377"><span class="annot"><span class="annottext">Text -&gt; Either String InputFormat
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679343643"><span class="annot"><span class="annottext">Text -&gt; Either String InputFormat
 (Text -&gt; Either String InputFormat) -&gt; FromText InputFormat
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String InputFormat
 $cfromText :: Text -&gt; Either String InputFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679343374"><span class="annot"><span class="annottext">InputFormat -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679343640"><span class="annot"><span class="annottext">InputFormat -&gt; Text
 (InputFormat -&gt; Text) -&gt; ToText InputFormat
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: InputFormat -&gt; Text
 $ctoText :: InputFormat -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679343371"><span class="annot"><span class="annottext">InputFormat -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679343637"><span class="annot"><span class="annottext">InputFormat -&gt; ByteString
 (InputFormat -&gt; ByteString) -&gt; ToByteString InputFormat
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: InputFormat -&gt; ByteString
 $ctoBS :: InputFormat -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679343368"><span class="annot"><span class="annottext">InputFormat -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679343634"><span class="annot"><span class="annottext">InputFormat -&gt; ByteStringBuilder
 (InputFormat -&gt; ByteStringBuilder) -&gt; ToLog InputFormat
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: InputFormat -&gt; ByteStringBuilder
 $cbuild :: InputFormat -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679343365"><span class="annot"><span class="annottext">HeaderName -&gt; InputFormat -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679343631"><span class="annot"><span class="annottext">HeaderName -&gt; InputFormat -&gt; [Header]
 (HeaderName -&gt; InputFormat -&gt; [Header]) -&gt; ToHeader InputFormat
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; InputFormat -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; InputFormat -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679343362"><span class="annot"><span class="annottext">InputFormat -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679343628"><span class="annot"><span class="annottext">InputFormat -&gt; QueryString
 (InputFormat -&gt; QueryString) -&gt; ToQuery InputFormat
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: InputFormat -&gt; QueryString
 $ctoQuery :: InputFormat -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679343357"><span id="local-6989586621679343359"><span class="annot"><span class="annottext">Value -&gt; Parser [InputFormat]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679343623"><span id="local-6989586621679343625"><span class="annot"><span class="annottext">Value -&gt; Parser [InputFormat]
 Value -&gt; Parser InputFormat
 (Value -&gt; Parser InputFormat)
 -&gt; (Value -&gt; Parser [InputFormat]) -&gt; FromJSON InputFormat
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [InputFormat]
 parseJSON :: Value -&gt; Parser InputFormat
 $cparseJSON :: Value -&gt; Parser InputFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679343352"><span id="local-6989586621679343354"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputFormat]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679343618"><span id="local-6989586621679343620"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputFormat]
 FromJSONKeyFunction InputFormat
 FromJSONKeyFunction InputFormat
 -&gt; FromJSONKeyFunction [InputFormat] -&gt; FromJSONKey InputFormat
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [InputFormat]
 fromJSONKey :: FromJSONKeyFunction InputFormat
 $cfromJSONKey :: FromJSONKeyFunction InputFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679343343"><span id="local-6989586621679343345"><span id="local-6989586621679343347"><span id="local-6989586621679343349"><span class="annot"><span class="annottext">[InputFormat] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679343609"><span id="local-6989586621679343611"><span id="local-6989586621679343613"><span id="local-6989586621679343615"><span class="annot"><span class="annottext">[InputFormat] -&gt; Encoding
 [InputFormat] -&gt; Value
 InputFormat -&gt; Encoding
 InputFormat -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: InputFormat -&gt; Encoding
 toJSON :: InputFormat -&gt; Value
 $ctoJSON :: InputFormat -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679343338"><span id="local-6989586621679343340"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputFormat]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679343604"><span id="local-6989586621679343606"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputFormat]
 ToJSONKeyFunction InputFormat
 ToJSONKeyFunction InputFormat
 -&gt; ToJSONKeyFunction [InputFormat] -&gt; ToJSONKey InputFormat
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [InputFormat]
 toJSONKey :: ToJSONKeyFunction InputFormat
 $ctoJSONKey :: ToJSONKeyFunction InputFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679343335"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputFormat
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679343601"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputFormat
 ([Node] -&gt; Either String InputFormat) -&gt; FromXML InputFormat
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String InputFormat
 $cparseXML :: [Node] -&gt; Either String InputFormat
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679343332"><span class="annot"><span class="annottext">InputFormat -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679343598"><span class="annot"><span class="annottext">InputFormat -&gt; XML
 (InputFormat -&gt; XML) -&gt; ToXML InputFormat
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: InputFormat -&gt; XML

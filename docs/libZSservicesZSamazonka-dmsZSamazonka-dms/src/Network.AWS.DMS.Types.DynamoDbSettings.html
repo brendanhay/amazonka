@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- Management (IAM) role used to define an Amazon DynamoDB target endpoint.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDynamoDbSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679431041"><span id="local-6989586621679431042"></span></span><span class="hs-keyword">data</span><span> </span><span id="DynamoDbSettings"><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings"><span class="hs-identifier hs-var">DynamoDbSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DynamoDbSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings%27"><span class="hs-identifier hs-var">DynamoDbSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679431312"><span id="local-6989586621679431313"></span></span><span class="hs-keyword">data</span><span> </span><span id="DynamoDbSettings"><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings"><span class="hs-identifier hs-var">DynamoDbSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DynamoDbSettings%27"><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings%27"><span class="hs-identifier hs-var">DynamoDbSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) used by the service to access the IAM</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- role. The role must allow the @iam:PassRole@ action.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AserviceAccessRoleArn%3ADynamoDbSettings%27"><span class="annot"><span class="annottext">DynamoDbSettings -&gt; Text
 </span><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#%24sel%3AserviceAccessRoleArn%3ADynamoDbSettings%27"><span class="hs-identifier hs-var hs-var">serviceAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431035"><span id="local-6989586621679431037"><span class="annot"><span class="annottext">DynamoDbSettings -&gt; DynamoDbSettings -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431306"><span id="local-6989586621679431308"><span class="annot"><span class="annottext">DynamoDbSettings -&gt; DynamoDbSettings -&gt; Bool
 (DynamoDbSettings -&gt; DynamoDbSettings -&gt; Bool)
 -&gt; (DynamoDbSettings -&gt; DynamoDbSettings -&gt; Bool)
 -&gt; Eq DynamoDbSettings
@@ -42,7 +42,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DynamoDbSettings -&gt; DynamoDbSettings -&gt; Bool
 == :: DynamoDbSettings -&gt; DynamoDbSettings -&gt; Bool
 $c== :: DynamoDbSettings -&gt; DynamoDbSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431026"><span id="local-6989586621679431028"><span id="local-6989586621679431030"><span id="local-6989586621679431032"><span class="annot"><span class="annottext">ReadPrec [DynamoDbSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431297"><span id="local-6989586621679431299"><span id="local-6989586621679431301"><span id="local-6989586621679431303"><span class="annot"><span class="annottext">ReadPrec [DynamoDbSettings]
 ReadPrec DynamoDbSettings
 Int -&gt; ReadS DynamoDbSettings
 ReadS [DynamoDbSettings]
@@ -62,7 +62,7 @@ readList :: ReadS [DynamoDbSettings]
 $creadList :: ReadS [DynamoDbSettings]
 readsPrec :: Int -&gt; ReadS DynamoDbSettings
 $creadsPrec :: Int -&gt; ReadS DynamoDbSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431019"><span id="local-6989586621679431021"><span id="local-6989586621679431023"><span class="annot"><span class="annottext">Int -&gt; DynamoDbSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431290"><span id="local-6989586621679431292"><span id="local-6989586621679431294"><span class="annot"><span class="annottext">Int -&gt; DynamoDbSettings -&gt; ShowS
 [DynamoDbSettings] -&gt; ShowS
 DynamoDbSettings -&gt; String
 (Int -&gt; DynamoDbSettings -&gt; ShowS)
@@ -103,14 +103,14 @@ $cfrom :: forall x. DynamoDbSettings -&gt; Rep DynamoDbSettings x
 </span><span id="line-49"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings"><span class="hs-identifier hs-type">DynamoDbSettings</span></a></span><span>
 </span><span id="line-51"></span><span id="newDynamoDbSettings"><span class="annot"><span class="annottext">newDynamoDbSettings :: Text -&gt; DynamoDbSettings
-</span><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#newDynamoDbSettings"><span class="hs-identifier hs-var hs-var">newDynamoDbSettings</span></a></span></span><span> </span><span id="local-6989586621679431013"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431013"><span class="hs-identifier hs-var">pServiceAccessRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#newDynamoDbSettings"><span class="hs-identifier hs-var hs-var">newDynamoDbSettings</span></a></span></span><span> </span><span id="local-6989586621679431284"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431284"><span class="hs-identifier hs-var">pServiceAccessRoleArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">DynamoDbSettings' :: Text -&gt; DynamoDbSettings
 </span><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings%27"><span class="hs-identifier hs-type">DynamoDbSettings'</span></a></span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceAccessRoleArn:DynamoDbSettings' :: Text
 </span><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#%24sel%3AserviceAccessRoleArn%3ADynamoDbSettings%27"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431013"><span class="hs-identifier hs-var">pServiceAccessRoleArn_</span></a></span><span>
+</span><a href="#local-6989586621679431284"><span class="hs-identifier hs-var">pServiceAccessRoleArn_</span></a></span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) used by the service to access the IAM</span><span>
@@ -121,19 +121,19 @@ $cfrom :: forall x. DynamoDbSettings -&gt; Rep DynamoDbSettings x
 -&gt; (DynamoDbSettings -&gt; Text -&gt; DynamoDbSettings)
 -&gt; Lens DynamoDbSettings DynamoDbSettings Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings%27"><span class="hs-identifier hs-type">DynamoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431009"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings%27"><span class="hs-identifier hs-type">DynamoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431280"><span class="annot"><span class="annottext">Text
 serviceAccessRoleArn :: Text
 $sel:serviceAccessRoleArn:DynamoDbSettings' :: DynamoDbSettings -&gt; Text
-</span><a href="#local-6989586621679431009"><span class="hs-identifier hs-var hs-var">serviceAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431009"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431008"><span class="annot"><span class="annottext">s :: DynamoDbSettings
-</span><a href="#local-6989586621679431008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings%27"><span class="hs-identifier hs-type">DynamoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431007"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamoDbSettings
-</span><a href="#local-6989586621679431008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccessRoleArn:DynamoDbSettings' :: Text
+</span><a href="#local-6989586621679431280"><span class="hs-identifier hs-var hs-var">serviceAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431280"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431279"><span class="annot"><span class="annottext">s :: DynamoDbSettings
+</span><a href="#local-6989586621679431279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings%27"><span class="hs-identifier hs-type">DynamoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431278"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679431278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DynamoDbSettings
+</span><a href="#local-6989586621679431279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccessRoleArn:DynamoDbSettings' :: Text
 </span><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#%24sel%3AserviceAccessRoleArn%3ADynamoDbSettings%27"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings"><span class="hs-identifier hs-type">DynamoDbSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679431278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings"><span class="hs-identifier hs-type">DynamoDbSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431004"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings"><span class="hs-identifier hs-type">DynamoDbSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621679431002"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DynamoDbSettings
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431275"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings"><span class="hs-identifier hs-type">DynamoDbSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679431273"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DynamoDbSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DynamoDbSettings)
@@ -143,30 +143,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DynamoDbSettings&quot;</span></span><span>
-</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430999"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430999"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679431270"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679431270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; DynamoDbSettings
 </span><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings%27"><span class="hs-identifier hs-var">DynamoDbSettings'</span></a></span><span>
 </span><span id="line-68"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; DynamoDbSettings)
 -&gt; Parser Text -&gt; Parser DynamoDbSettings
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679430999"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679431270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceAccessRoleArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430993"><span id="local-6989586621679430995"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings"><span class="hs-identifier hs-type">DynamoDbSettings</span></a></span></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431264"><span id="local-6989586621679431266"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings"><span class="hs-identifier hs-type">DynamoDbSettings</span></a></span></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430990"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings"><span class="hs-identifier hs-type">DynamoDbSettings</span></a></span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings"><span class="hs-identifier hs-type">DynamoDbSettings</span></a></span></span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430982"><span id="local-6989586621679430984"><span id="local-6989586621679430986"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings"><span class="hs-identifier hs-type">DynamoDbSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679430980"><span class="annot"><span class="annottext">toJSON :: DynamoDbSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings%27"><span class="hs-identifier hs-type">DynamoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430978"><span class="annot"><span class="annottext">Text
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431253"><span id="local-6989586621679431255"><span id="local-6989586621679431257"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings"><span class="hs-identifier hs-type">DynamoDbSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679431251"><span class="annot"><span class="annottext">toJSON :: DynamoDbSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DMS.Types.DynamoDbSettings.html#DynamoDbSettings%27"><span class="hs-identifier hs-type">DynamoDbSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431249"><span class="annot"><span class="annottext">Text
 serviceAccessRoleArn :: Text
 $sel:serviceAccessRoleArn:DynamoDbSettings' :: DynamoDbSettings -&gt; Text
-</span><a href="#local-6989586621679430978"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679431249"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -180,7 +180,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-81"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430978"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span>
+</span><a href="#local-6989586621679431249"><span class="hs-identifier hs-var">serviceAccessRoleArn</span></a></span><span>
 </span><span id="line-82"></span><span>              </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>

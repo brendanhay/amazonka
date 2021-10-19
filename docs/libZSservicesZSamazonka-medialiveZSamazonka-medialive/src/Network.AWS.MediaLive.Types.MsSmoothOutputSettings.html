@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Ms Smooth Output Settings</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMsSmoothOutputSettings' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679899600"><span id="local-6989586621679899601"></span></span><span class="hs-keyword">data</span><span> </span><span id="MsSmoothOutputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-var">MsSmoothOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MsSmoothOutputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings%27"><span class="hs-identifier hs-var">MsSmoothOutputSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679906270"><span id="local-6989586621679906271"></span></span><span class="hs-keyword">data</span><span> </span><span id="MsSmoothOutputSettings"><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-var">MsSmoothOutputSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MsSmoothOutputSettings%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings%27"><span class="hs-identifier hs-var">MsSmoothOutputSettings'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Only applicable when this output is referencing an H.265 video</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- description. Specifies whether MP4 segments should be packaged as HEV1</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- or HVC1.</span><span>
@@ -38,7 +38,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3AnameModifier%3AMsSmoothOutputSettings%27"><span class="annot"><span class="annottext">MsSmoothOutputSettings -&gt; Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#%24sel%3AnameModifier%3AMsSmoothOutputSettings%27"><span class="hs-identifier hs-var hs-var">nameModifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679899593"><span id="local-6989586621679899595"><span class="annot"><span class="annottext">MsSmoothOutputSettings -&gt; MsSmoothOutputSettings -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679906263"><span id="local-6989586621679906265"><span class="annot"><span class="annottext">MsSmoothOutputSettings -&gt; MsSmoothOutputSettings -&gt; Bool
 (MsSmoothOutputSettings -&gt; MsSmoothOutputSettings -&gt; Bool)
 -&gt; (MsSmoothOutputSettings -&gt; MsSmoothOutputSettings -&gt; Bool)
 -&gt; Eq MsSmoothOutputSettings
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MsSmoothOutputSettings -&gt; MsSmoothOutputSettings -&gt; Bool
 == :: MsSmoothOutputSettings -&gt; MsSmoothOutputSettings -&gt; Bool
 $c== :: MsSmoothOutputSettings -&gt; MsSmoothOutputSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679899584"><span id="local-6989586621679899586"><span id="local-6989586621679899588"><span id="local-6989586621679899590"><span class="annot"><span class="annottext">ReadPrec [MsSmoothOutputSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679906254"><span id="local-6989586621679906256"><span id="local-6989586621679906258"><span id="local-6989586621679906260"><span class="annot"><span class="annottext">ReadPrec [MsSmoothOutputSettings]
 ReadPrec MsSmoothOutputSettings
 Int -&gt; ReadS MsSmoothOutputSettings
 ReadS [MsSmoothOutputSettings]
@@ -67,7 +67,7 @@ readList :: ReadS [MsSmoothOutputSettings]
 $creadList :: ReadS [MsSmoothOutputSettings]
 readsPrec :: Int -&gt; ReadS MsSmoothOutputSettings
 $creadsPrec :: Int -&gt; ReadS MsSmoothOutputSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679899577"><span id="local-6989586621679899579"><span id="local-6989586621679899581"><span class="annot"><span class="annottext">Int -&gt; MsSmoothOutputSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679906247"><span id="local-6989586621679906249"><span id="local-6989586621679906251"><span class="annot"><span class="annottext">Int -&gt; MsSmoothOutputSettings -&gt; ShowS
 [MsSmoothOutputSettings] -&gt; ShowS
 MsSmoothOutputSettings -&gt; String
 (Int -&gt; MsSmoothOutputSettings -&gt; ShowS)
@@ -142,16 +142,16 @@ forall a. Maybe a
      (Maybe MsSmoothH265PackagingType)
      (Maybe MsSmoothH265PackagingType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings%27"><span class="hs-identifier hs-type">MsSmoothOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679899568"><span class="annot"><span class="annottext">Maybe MsSmoothH265PackagingType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings%27"><span class="hs-identifier hs-type">MsSmoothOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679906238"><span class="annot"><span class="annottext">Maybe MsSmoothH265PackagingType
 h265PackagingType :: Maybe MsSmoothH265PackagingType
 $sel:h265PackagingType:MsSmoothOutputSettings' :: MsSmoothOutputSettings -&gt; Maybe MsSmoothH265PackagingType
-</span><a href="#local-6989586621679899568"><span class="hs-identifier hs-var hs-var">h265PackagingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothH265PackagingType
-</span><a href="#local-6989586621679899568"><span class="hs-identifier hs-var">h265PackagingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679899567"><span class="annot"><span class="annottext">s :: MsSmoothOutputSettings
-</span><a href="#local-6989586621679899567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings%27"><span class="hs-identifier hs-type">MsSmoothOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679899566"><span class="annot"><span class="annottext">Maybe MsSmoothH265PackagingType
-</span><a href="#local-6989586621679899566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothOutputSettings
-</span><a href="#local-6989586621679899567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:h265PackagingType:MsSmoothOutputSettings' :: Maybe MsSmoothH265PackagingType
+</span><a href="#local-6989586621679906238"><span class="hs-identifier hs-var hs-var">h265PackagingType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothH265PackagingType
+</span><a href="#local-6989586621679906238"><span class="hs-identifier hs-var">h265PackagingType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679906237"><span class="annot"><span class="annottext">s :: MsSmoothOutputSettings
+</span><a href="#local-6989586621679906237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings%27"><span class="hs-identifier hs-type">MsSmoothOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679906236"><span class="annot"><span class="annottext">Maybe MsSmoothH265PackagingType
+</span><a href="#local-6989586621679906236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothOutputSettings
+</span><a href="#local-6989586621679906237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:h265PackagingType:MsSmoothOutputSettings' :: Maybe MsSmoothH265PackagingType
 </span><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#%24sel%3Ah265PackagingType%3AMsSmoothOutputSettings%27"><span class="hs-identifier hs-var">h265PackagingType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothH265PackagingType
-</span><a href="#local-6989586621679899566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679906236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | String concatenated to the end of the destination filename. Required for</span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- multiple outputs of the same type.</span><span>
@@ -166,19 +166,19 @@ $sel:h265PackagingType:MsSmoothOutputSettings' :: MsSmoothOutputSettings -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings%27"><span class="hs-identifier hs-type">MsSmoothOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679899564"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings%27"><span class="hs-identifier hs-type">MsSmoothOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679906234"><span class="annot"><span class="annottext">Maybe Text
 nameModifier :: Maybe Text
 $sel:nameModifier:MsSmoothOutputSettings' :: MsSmoothOutputSettings -&gt; Maybe Text
-</span><a href="#local-6989586621679899564"><span class="hs-identifier hs-var hs-var">nameModifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679899564"><span class="hs-identifier hs-var">nameModifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679899563"><span class="annot"><span class="annottext">s :: MsSmoothOutputSettings
-</span><a href="#local-6989586621679899563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings%27"><span class="hs-identifier hs-type">MsSmoothOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679899562"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679899562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothOutputSettings
-</span><a href="#local-6989586621679899563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameModifier:MsSmoothOutputSettings' :: Maybe Text
+</span><a href="#local-6989586621679906234"><span class="hs-identifier hs-var hs-var">nameModifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679906234"><span class="hs-identifier hs-var">nameModifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679906233"><span class="annot"><span class="annottext">s :: MsSmoothOutputSettings
+</span><a href="#local-6989586621679906233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings%27"><span class="hs-identifier hs-type">MsSmoothOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679906232"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679906232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MsSmoothOutputSettings
+</span><a href="#local-6989586621679906233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nameModifier:MsSmoothOutputSettings' :: Maybe Text
 </span><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#%24sel%3AnameModifier%3AMsSmoothOutputSettings%27"><span class="hs-identifier hs-var">nameModifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679899562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679906232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679899559"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679899557"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MsSmoothOutputSettings
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679906229"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679906227"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MsSmoothOutputSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MsSmoothOutputSettings)
@@ -188,8 +188,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MsSmoothOutputSettings&quot;</span></span><span>
-</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679899554"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679899554"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679906224"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679906224"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe MsSmoothH265PackagingType
 -&gt; Maybe Text -&gt; MsSmoothOutputSettings
 </span><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings%27"><span class="hs-identifier hs-var">MsSmoothOutputSettings'</span></a></span><span>
@@ -199,7 +199,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; MsSmoothOutputSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679899554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MsSmoothH265PackagingType)
+</span><a href="#local-6989586621679906224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MsSmoothH265PackagingType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;h265PackagingType&quot;</span></span><span class="hs-special">)</span><span>
@@ -207,25 +207,25 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser MsSmoothOutputSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679899554"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679906224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nameModifier&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679899548"><span id="local-6989586621679899550"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679906218"><span id="local-6989586621679906220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span></span></span><span>
 </span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679899545"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679906215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span></span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679899537"><span id="local-6989586621679899539"><span id="local-6989586621679899541"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679899535"><span class="annot"><span class="annottext">toJSON :: MsSmoothOutputSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings%27"><span class="hs-identifier hs-type">MsSmoothOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679899532"><span id="local-6989586621679899533"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679906207"><span id="local-6989586621679906209"><span id="local-6989586621679906211"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings"><span class="hs-identifier hs-type">MsSmoothOutputSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679906205"><span class="annot"><span class="annottext">toJSON :: MsSmoothOutputSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MediaLive.Types.MsSmoothOutputSettings.html#MsSmoothOutputSettings%27"><span class="hs-identifier hs-type">MsSmoothOutputSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679906202"><span id="local-6989586621679906203"><span class="annot"><span class="annottext">Maybe Text
 Maybe MsSmoothH265PackagingType
 nameModifier :: Maybe Text
 h265PackagingType :: Maybe MsSmoothH265PackagingType
 $sel:nameModifier:MsSmoothOutputSettings' :: MsSmoothOutputSettings -&gt; Maybe Text
 $sel:h265PackagingType:MsSmoothOutputSettings' :: MsSmoothOutputSettings -&gt; Maybe MsSmoothH265PackagingType
-</span><a href="#local-6989586621679899532"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679906202"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -239,14 +239,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe MsSmoothH265PackagingType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MsSmoothH265PackagingType
-</span><a href="#local-6989586621679899533"><span class="hs-identifier hs-var">h265PackagingType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679906203"><span class="hs-identifier hs-var">h265PackagingType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nameModifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679899532"><span class="hs-identifier hs-var">nameModifier</span></a></span><span>
+</span><a href="#local-6989586621679906202"><span class="hs-identifier hs-var">nameModifier</span></a></span><span>
 </span><span id="line-96"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span></pre></body></html>

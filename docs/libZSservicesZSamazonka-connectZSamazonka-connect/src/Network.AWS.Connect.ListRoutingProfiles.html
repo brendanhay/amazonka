@@ -45,8 +45,8 @@
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#newListRoutingProfilesResponse"><span class="hs-identifier">newListRoutingProfilesResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_nextToken"><span class="hs-identifier">listRoutingProfilesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_routingProfileSummaryList"><span class="hs-identifier">listRoutingProfilesResponse_routingProfileSummaryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_routingProfileSummaryList"><span class="hs-identifier">listRoutingProfilesResponse_routingProfileSummaryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_nextToken"><span class="hs-identifier">listRoutingProfilesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_httpStatus"><span class="hs-identifier">listRoutingProfilesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span class="hs-keyword">where</span><span>
@@ -59,7 +59,7 @@
 </span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newListRoutingProfiles' smart constructor.</span><span>
-</span><span id="line-62"></span><span id="local-6989586621679412624"><span id="local-6989586621679412625"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRoutingProfiles"><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-var">ListRoutingProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRoutingProfiles%27"><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-var">ListRoutingProfiles'</span></a></span></span><span>
+</span><span id="line-62"></span><span id="local-6989586621679412923"><span id="local-6989586621679412924"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRoutingProfiles"><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-var">ListRoutingProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRoutingProfiles%27"><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-var">ListRoutingProfiles'</span></a></span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results. Use the value returned in the</span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- previous response in the next request to retrieve the next set of</span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-comment">-- results.</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AinstanceId%3AListRoutingProfiles%27"><span class="annot"><span class="annottext">ListRoutingProfiles -&gt; Text
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AinstanceId%3AListRoutingProfiles%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412616"><span id="local-6989586621679412618"><span class="annot"><span class="annottext">ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412915"><span id="local-6989586621679412917"><span class="annot"><span class="annottext">ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool
 (ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool)
 -&gt; (ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool)
 -&gt; Eq ListRoutingProfiles
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool
 == :: ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool
 $c== :: ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412607"><span id="local-6989586621679412609"><span id="local-6989586621679412611"><span id="local-6989586621679412613"><span class="annot"><span class="annottext">ReadPrec [ListRoutingProfiles]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412906"><span id="local-6989586621679412908"><span id="local-6989586621679412910"><span id="local-6989586621679412912"><span class="annot"><span class="annottext">ReadPrec [ListRoutingProfiles]
 ReadPrec ListRoutingProfiles
 Int -&gt; ReadS ListRoutingProfiles
 ReadS [ListRoutingProfiles]
@@ -102,7 +102,7 @@ readList :: ReadS [ListRoutingProfiles]
 $creadList :: ReadS [ListRoutingProfiles]
 readsPrec :: Int -&gt; ReadS ListRoutingProfiles
 $creadsPrec :: Int -&gt; ReadS ListRoutingProfiles
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412600"><span id="local-6989586621679412602"><span id="local-6989586621679412604"><span class="annot"><span class="annottext">Int -&gt; ListRoutingProfiles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412899"><span id="local-6989586621679412901"><span id="local-6989586621679412903"><span class="annot"><span class="annottext">Int -&gt; ListRoutingProfiles -&gt; ShowS
 [ListRoutingProfiles] -&gt; ShowS
 ListRoutingProfiles -&gt; String
 (Int -&gt; ListRoutingProfiles -&gt; ShowS)
@@ -149,8 +149,8 @@ $cfrom :: forall x. ListRoutingProfiles -&gt; Rep ListRoutingProfiles x
 </span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-94"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span>
 </span><span id="line-95"></span><span id="newListRoutingProfiles"><span class="annot"><span class="annottext">newListRoutingProfiles :: Text -&gt; ListRoutingProfiles
-</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#newListRoutingProfiles"><span class="hs-identifier hs-var hs-var">newListRoutingProfiles</span></a></span></span><span> </span><span id="local-6989586621679412595"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412595"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#newListRoutingProfiles"><span class="hs-identifier hs-var hs-var">newListRoutingProfiles</span></a></span></span><span> </span><span id="local-6989586621679412894"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412894"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">ListRoutingProfiles' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListRoutingProfiles
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListRoutingProfiles' :: Maybe Text
@@ -163,7 +163,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:ListRoutingProfiles' :: Text
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AinstanceId%3AListRoutingProfiles%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412595"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><a href="#local-6989586621679412894"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
 </span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- | The token for the next set of results. Use the value returned in the</span><span>
@@ -177,16 +177,16 @@ forall a. Maybe a
 -&gt; Lens
      ListRoutingProfiles ListRoutingProfiles (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412593"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412892"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Text
-</span><a href="#local-6989586621679412593"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412593"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412592"><span class="annot"><span class="annottext">s :: ListRoutingProfiles
-</span><a href="#local-6989586621679412592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412591"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfiles
-</span><a href="#local-6989586621679412592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRoutingProfiles' :: Maybe Text
+</span><a href="#local-6989586621679412892"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412892"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412891"><span class="annot"><span class="annottext">s :: ListRoutingProfiles
+</span><a href="#local-6989586621679412891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412890"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfiles
+</span><a href="#local-6989586621679412891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRoutingProfiles' :: Maybe Text
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AnextToken%3AListRoutingProfiles%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The maximum number of results to return per page.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfiles_maxResults"><span class="hs-identifier hs-type">listRoutingProfiles_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -200,16 +200,16 @@ $sel:nextToken:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412590"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412889"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Natural
-</span><a href="#local-6989586621679412590"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679412590"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412589"><span class="annot"><span class="annottext">s :: ListRoutingProfiles
-</span><a href="#local-6989586621679412589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412588"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679412588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfiles
-</span><a href="#local-6989586621679412589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListRoutingProfiles' :: Maybe Natural
+</span><a href="#local-6989586621679412889"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679412889"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412888"><span class="annot"><span class="annottext">s :: ListRoutingProfiles
+</span><a href="#local-6989586621679412888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412887"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679412887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfiles
+</span><a href="#local-6989586621679412888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListRoutingProfiles' :: Maybe Natural
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AmaxResults%3AListRoutingProfiles%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679412588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
@@ -219,29 +219,29 @@ $sel:maxResults:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Natural
 -&gt; (ListRoutingProfiles -&gt; Text -&gt; ListRoutingProfiles)
 -&gt; Lens ListRoutingProfiles ListRoutingProfiles Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412587"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412886"><span class="annot"><span class="annottext">Text
 instanceId :: Text
 $sel:instanceId:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Text
-</span><a href="#local-6989586621679412587"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412587"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412586"><span class="annot"><span class="annottext">s :: ListRoutingProfiles
-</span><a href="#local-6989586621679412586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412585"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfiles
-</span><a href="#local-6989586621679412586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListRoutingProfiles' :: Text
+</span><a href="#local-6989586621679412886"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412886"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412885"><span class="annot"><span class="annottext">s :: ListRoutingProfiles
+</span><a href="#local-6989586621679412885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412884"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfiles
+</span><a href="#local-6989586621679412885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListRoutingProfiles' :: Text
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AinstanceId%3AListRoutingProfiles%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679412581"><span class="annot"><span class="annottext">page :: ListRoutingProfiles
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679412880"><span class="annot"><span class="annottext">page :: ListRoutingProfiles
 -&gt; AWSResponse ListRoutingProfiles -&gt; Maybe ListRoutingProfiles
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679412579"><span class="annot"><span class="annottext">ListRoutingProfiles
-</span><a href="#local-6989586621679412579"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679412578"><span class="annot"><span class="annottext">AWSResponse ListRoutingProfiles
-</span><a href="#local-6989586621679412578"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679412878"><span class="annot"><span class="annottext">ListRoutingProfiles
+</span><a href="#local-6989586621679412878"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679412877"><span class="annot"><span class="annottext">AWSResponse ListRoutingProfiles
+</span><a href="#local-6989586621679412877"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-120"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRoutingProfiles
 ListRoutingProfilesResponse
-</span><a href="#local-6989586621679412578"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679412877"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
 -&gt; Getting (First Text) ListRoutingProfilesResponse Text
 -&gt; Maybe Text
@@ -271,7 +271,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-126"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRoutingProfiles
 ListRoutingProfilesResponse
-</span><a href="#local-6989586621679412578"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679412877"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
 -&gt; Getting
      (First [RoutingProfileSummary])
@@ -323,7 +323,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ListRoutingProfiles
-</span><a href="#local-6989586621679412579"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679412878"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">ListRoutingProfiles
 -&gt; (ListRoutingProfiles -&gt; ListRoutingProfiles)
 -&gt; ListRoutingProfiles
@@ -339,7 +339,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRoutingProfiles
 ListRoutingProfilesResponse
-</span><a href="#local-6989586621679412578"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679412877"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
 -&gt; Getting (First Text) ListRoutingProfilesResponse Text
 -&gt; Maybe Text
@@ -365,12 +365,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679412568"><span class="annot"><span class="annottext">request :: ListRoutingProfiles -&gt; Request ListRoutingProfiles
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679412867"><span class="annot"><span class="annottext">request :: ListRoutingProfiles -&gt; Request ListRoutingProfiles
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListRoutingProfiles -&gt; Request ListRoutingProfiles
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679412564"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679412863"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListRoutingProfiles
 -&gt; ClientResponse ClientBody
@@ -396,51 +396,41 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679412561"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412561"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679412560"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679412560"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679412559"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679412559"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [RoutingProfileSummary]
--&gt; Int
--&gt; ListRoutingProfilesResponse
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679412860"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412860"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679412859"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679412859"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679412858"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679412858"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListRoutingProfilesResponse
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">ListRoutingProfilesResponse'</span></a></span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [RoutingProfileSummary]
- -&gt; Int
- -&gt; ListRoutingProfilesResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [RoutingProfileSummary]
-      -&gt; Int -&gt; ListRoutingProfilesResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679412559"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [RoutingProfileSummary]
-   -&gt; Int -&gt; ListRoutingProfilesResponse)
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [RoutingProfileSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListRoutingProfilesResponse)
 -&gt; Either String (Maybe [RoutingProfileSummary])
--&gt; Either String (Int -&gt; ListRoutingProfilesResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679412559"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListRoutingProfilesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679412858"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [RoutingProfileSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RoutingProfileSummaryList&quot;</span></span><span>
-</span><span id="line-150"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RoutingProfileSummary]))
+</span><span id="line-149"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RoutingProfileSummary]))
 -&gt; Maybe [RoutingProfileSummary]
 -&gt; Either String (Maybe [RoutingProfileSummary])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-151"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListRoutingProfilesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListRoutingProfilesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679412858"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListRoutingProfilesResponse)
 -&gt; Either String Int -&gt; Either String ListRoutingProfilesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -449,15 +439,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412561"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412860"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412550"><span id="local-6989586621679412552"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412849"><span id="local-6989586621679412851"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412547"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412846"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679412543"><span class="annot"><span class="annottext">toHeaders :: ListRoutingProfiles -&gt; ResponseHeaders
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679412842"><span class="annot"><span class="annottext">toHeaders :: ListRoutingProfiles -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListRoutingProfiles -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -477,8 +467,8 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
 </span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679412537"><span class="annot"><span class="annottext">toPath :: ListRoutingProfiles -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412533"><span id="local-6989586621679412534"><span id="local-6989586621679412535"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679412836"><span class="annot"><span class="annottext">toPath :: ListRoutingProfiles -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412832"><span id="local-6989586621679412833"><span id="local-6989586621679412834"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 instanceId :: Text
@@ -487,7 +477,7 @@ nextToken :: Maybe Text
 $sel:instanceId:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Text
 $sel:maxResults:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Natural
 $sel:nextToken:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Text
-</span><a href="#local-6989586621679412533"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679412832"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -495,11 +485,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/routing-profiles-summary/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679412533"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679412832"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679412529"><span class="annot"><span class="annottext">toQuery :: ListRoutingProfiles -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412525"><span id="local-6989586621679412526"><span id="local-6989586621679412527"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679412828"><span class="annot"><span class="annottext">toQuery :: ListRoutingProfiles -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412824"><span id="local-6989586621679412825"><span id="local-6989586621679412826"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 instanceId :: Text
@@ -508,7 +498,7 @@ nextToken :: Maybe Text
 $sel:instanceId:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Text
 $sel:maxResults:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Natural
 $sel:nextToken:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Text
-</span><a href="#local-6989586621679412525"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679412824"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -516,28 +506,28 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412527"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679412826"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679412526"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679412825"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-180"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-181"></span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newListRoutingProfilesResponse' smart constructor.</span><span>
-</span><span id="line-183"></span><span id="local-6989586621679412522"><span id="local-6989586621679412523"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRoutingProfilesResponse"><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-var">ListRoutingProfilesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRoutingProfilesResponse%27"><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">ListRoutingProfilesResponse'</span></a></span></span><span>
-</span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
-</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-186"></span><span>    </span><span id="%24sel%3AnextToken%3AListRoutingProfilesResponse%27"><span class="annot"><span class="annottext">ListRoutingProfilesResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AnextToken%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- | Information about the routing profiles.</span><span>
-</span><span id="line-188"></span><span>    </span><span id="%24sel%3AroutingProfileSummaryList%3AListRoutingProfilesResponse%27"><span class="annot"><span class="annottext">ListRoutingProfilesResponse -&gt; Maybe [RoutingProfileSummary]
+</span><span id="line-183"></span><span id="local-6989586621679412821"><span id="local-6989586621679412822"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRoutingProfilesResponse"><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-var">ListRoutingProfilesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRoutingProfilesResponse%27"><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">ListRoutingProfilesResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the routing profiles.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AroutingProfileSummaryList%3AListRoutingProfilesResponse%27"><span class="annot"><span class="annottext">ListRoutingProfilesResponse -&gt; Maybe [RoutingProfileSummary]
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AroutingProfileSummaryList%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var hs-var">routingProfileSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileSummary.html#RoutingProfileSummary"><span class="hs-identifier hs-type">RoutingProfileSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AnextToken%3AListRoutingProfilesResponse%27"><span class="annot"><span class="annottext">ListRoutingProfilesResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AnextToken%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListRoutingProfilesResponse%27"><span class="annot"><span class="annottext">ListRoutingProfilesResponse -&gt; Int
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AhttpStatus%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412515"><span id="local-6989586621679412517"><span class="annot"><span class="annottext">ListRoutingProfilesResponse -&gt; ListRoutingProfilesResponse -&gt; Bool
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412814"><span id="local-6989586621679412816"><span class="annot"><span class="annottext">ListRoutingProfilesResponse -&gt; ListRoutingProfilesResponse -&gt; Bool
 (ListRoutingProfilesResponse
  -&gt; ListRoutingProfilesResponse -&gt; Bool)
 -&gt; (ListRoutingProfilesResponse
@@ -548,7 +538,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListRoutingProfilesResponse -&gt; ListRoutingProfilesResponse -&gt; Bool
 == :: ListRoutingProfilesResponse -&gt; ListRoutingProfilesResponse -&gt; Bool
 $c== :: ListRoutingProfilesResponse -&gt; ListRoutingProfilesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412507"><span id="local-6989586621679412509"><span id="local-6989586621679412511"><span id="local-6989586621679412513"><span class="annot"><span class="annottext">ReadPrec [ListRoutingProfilesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412806"><span id="local-6989586621679412808"><span id="local-6989586621679412810"><span id="local-6989586621679412812"><span class="annot"><span class="annottext">ReadPrec [ListRoutingProfilesResponse]
 ReadPrec ListRoutingProfilesResponse
 Int -&gt; ReadS ListRoutingProfilesResponse
 ReadS [ListRoutingProfilesResponse]
@@ -568,7 +558,7 @@ readList :: ReadS [ListRoutingProfilesResponse]
 $creadList :: ReadS [ListRoutingProfilesResponse]
 readsPrec :: Int -&gt; ReadS ListRoutingProfilesResponse
 $creadsPrec :: Int -&gt; ReadS ListRoutingProfilesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412501"><span id="local-6989586621679412503"><span id="local-6989586621679412505"><span class="annot"><span class="annottext">Int -&gt; ListRoutingProfilesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412800"><span id="local-6989586621679412802"><span id="local-6989586621679412804"><span class="annot"><span class="annottext">Int -&gt; ListRoutingProfilesResponse -&gt; ShowS
 [ListRoutingProfilesResponse] -&gt; ShowS
 ListRoutingProfilesResponse -&gt; String
 (Int -&gt; ListRoutingProfilesResponse -&gt; ShowS)
@@ -608,10 +598,10 @@ ListRoutingProfilesResponse -&gt; Rep ListRoutingProfilesResponse x
 </span><span id="line-199"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-201"></span><span class="hs-comment">--</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- 'nextToken', 'listRoutingProfilesResponse_nextToken' - If there are additional results, this is the token for the next set of</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-204"></span><span class="hs-comment">--</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- 'routingProfileSummaryList', 'listRoutingProfilesResponse_routingProfileSummaryList' - Information about the routing profiles.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'routingProfileSummaryList', 'listRoutingProfilesResponse_routingProfileSummaryList' - Information about the routing profiles.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'nextToken', 'listRoutingProfilesResponse_nextToken' - If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- results.</span><span>
 </span><span id="line-206"></span><span class="hs-comment">--</span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- 'httpStatus', 'listRoutingProfilesResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-208"></span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#newListRoutingProfilesResponse"><span class="hs-identifier hs-type">newListRoutingProfilesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -619,51 +609,28 @@ ListRoutingProfilesResponse -&gt; Rep ListRoutingProfilesResponse x
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span>
 </span><span id="line-212"></span><span id="newListRoutingProfilesResponse"><span class="annot"><span class="annottext">newListRoutingProfilesResponse :: Int -&gt; ListRoutingProfilesResponse
-</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#newListRoutingProfilesResponse"><span class="hs-identifier hs-var hs-var">newListRoutingProfilesResponse</span></a></span></span><span> </span><span id="local-6989586621679412498"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412498"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse' :: Maybe Text
--&gt; Maybe [RoutingProfileSummary]
--&gt; Int
--&gt; ListRoutingProfilesResponse
+</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#newListRoutingProfilesResponse"><span class="hs-identifier hs-var hs-var">newListRoutingProfilesResponse</span></a></span></span><span> </span><span id="local-6989586621679412797"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse' :: Maybe [RoutingProfileSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListRoutingProfilesResponse
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span>
-</span><span id="line-214"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListRoutingProfilesResponse' :: Maybe Text
-</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AnextToken%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-214"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:routingProfileSummaryList:ListRoutingProfilesResponse' :: Maybe [RoutingProfileSummary]
+</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AroutingProfileSummaryList%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">routingProfileSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:routingProfileSummaryList:ListRoutingProfilesResponse' :: Maybe [RoutingProfileSummary]
-</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AroutingProfileSummaryList%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">routingProfileSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListRoutingProfilesResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AnextToken%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListRoutingProfilesResponse' :: Int
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AhttpStatus%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412498"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679412797"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-219"></span><span>
-</span><span id="line-220"></span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- results.</span><span>
-</span><span id="line-222"></span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_nextToken"><span class="hs-identifier hs-type">listRoutingProfilesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-223"></span><span id="listRoutingProfilesResponse_nextToken"><span class="annot"><span class="annottext">listRoutingProfilesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListRoutingProfilesResponse -&gt; f ListRoutingProfilesResponse
-</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listRoutingProfilesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRoutingProfilesResponse -&gt; Maybe Text)
--&gt; (ListRoutingProfilesResponse
-    -&gt; Maybe Text -&gt; ListRoutingProfilesResponse)
--&gt; Lens' ListRoutingProfilesResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412497"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListRoutingProfilesResponse' :: ListRoutingProfilesResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679412497"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412497"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412496"><span class="annot"><span class="annottext">s :: ListRoutingProfilesResponse
-</span><a href="#local-6989586621679412496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412495"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
-</span><a href="#local-6989586621679412496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRoutingProfilesResponse' :: Maybe Text
-</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AnextToken%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679412495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-224"></span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- | Information about the routing profiles.</span><span>
-</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_routingProfileSummaryList"><span class="hs-identifier hs-type">listRoutingProfilesResponse_routingProfileSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileSummary.html#RoutingProfileSummary"><span class="hs-identifier hs-type">RoutingProfileSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-227"></span><span id="listRoutingProfilesResponse_routingProfileSummaryList"><span class="annot"><span class="annottext">listRoutingProfilesResponse_routingProfileSummaryList :: (Maybe [RoutingProfileSummary]
+</span><span id="line-220"></span><span class="hs-comment">-- | Information about the routing profiles.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_routingProfileSummaryList"><span class="hs-identifier hs-type">listRoutingProfilesResponse_routingProfileSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Connect.Types.RoutingProfileSummary.html#RoutingProfileSummary"><span class="hs-identifier hs-type">RoutingProfileSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="listRoutingProfilesResponse_routingProfileSummaryList"><span class="annot"><span class="annottext">listRoutingProfilesResponse_routingProfileSummaryList :: (Maybe [RoutingProfileSummary]
  -&gt; f (Maybe [RoutingProfileSummary]))
 -&gt; ListRoutingProfilesResponse -&gt; f ListRoutingProfilesResponse
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_routingProfileSummaryList"><span class="hs-identifier hs-var hs-var">listRoutingProfilesResponse_routingProfileSummaryList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRoutingProfilesResponse -&gt; Maybe [RoutingProfileSummary])
@@ -672,16 +639,16 @@ $sel:nextToken:ListRoutingProfilesResponse' :: ListRoutingProfilesResponse -&gt;
 -&gt; Lens'
      ListRoutingProfilesResponse (Maybe [RoutingProfileSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412494"><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412796"><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
 routingProfileSummaryList :: Maybe [RoutingProfileSummary]
 $sel:routingProfileSummaryList:ListRoutingProfilesResponse' :: ListRoutingProfilesResponse -&gt; Maybe [RoutingProfileSummary]
-</span><a href="#local-6989586621679412494"><span class="hs-identifier hs-var hs-var">routingProfileSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
-</span><a href="#local-6989586621679412494"><span class="hs-identifier hs-var">routingProfileSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412493"><span class="annot"><span class="annottext">s :: ListRoutingProfilesResponse
-</span><a href="#local-6989586621679412493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412492"><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
-</span><a href="#local-6989586621679412492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
-</span><a href="#local-6989586621679412493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingProfileSummaryList:ListRoutingProfilesResponse' :: Maybe [RoutingProfileSummary]
+</span><a href="#local-6989586621679412796"><span class="hs-identifier hs-var hs-var">routingProfileSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
+</span><a href="#local-6989586621679412796"><span class="hs-identifier hs-var">routingProfileSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412795"><span class="annot"><span class="annottext">s :: ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412794"><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
+</span><a href="#local-6989586621679412794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingProfileSummaryList:ListRoutingProfilesResponse' :: Maybe [RoutingProfileSummary]
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AroutingProfileSummaryList%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">routingProfileSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
-</span><a href="#local-6989586621679412492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RoutingProfileSummary]
+</span><a href="#local-6989586621679412794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RoutingProfileSummary]
   -&gt; f (Maybe [RoutingProfileSummary]))
  -&gt; ListRoutingProfilesResponse -&gt; f ListRoutingProfilesResponse)
 -&gt; ((Maybe [RoutingProfileSummary]
@@ -711,8 +678,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RoutingProfileSummary]
   [RoutingProfileSummary]
   [RoutingProfileSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_nextToken"><span class="hs-identifier hs-type">listRoutingProfilesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="listRoutingProfilesResponse_nextToken"><span class="annot"><span class="annottext">listRoutingProfilesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListRoutingProfilesResponse -&gt; f ListRoutingProfilesResponse
+</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listRoutingProfilesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRoutingProfilesResponse -&gt; Maybe Text)
+-&gt; (ListRoutingProfilesResponse
+    -&gt; Maybe Text -&gt; ListRoutingProfilesResponse)
+-&gt; Lens' ListRoutingProfilesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412791"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListRoutingProfilesResponse' :: ListRoutingProfilesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679412791"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412791"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412790"><span class="annot"><span class="annottext">s :: ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412790"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412789"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412789"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412790"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRoutingProfilesResponse' :: Maybe Text
+</span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AnextToken%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412789"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-230"></span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_httpStatus"><span class="hs-identifier hs-type">listRoutingProfilesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -724,16 +712,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ListRoutingProfilesResponse ListRoutingProfilesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412489"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412788"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListRoutingProfilesResponse' :: ListRoutingProfilesResponse -&gt; Int
-</span><a href="#local-6989586621679412489"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412489"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412488"><span class="annot"><span class="annottext">s :: ListRoutingProfilesResponse
-</span><a href="#local-6989586621679412488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412487"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
-</span><a href="#local-6989586621679412488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRoutingProfilesResponse' :: Int
+</span><a href="#local-6989586621679412788"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412788"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412787"><span class="annot"><span class="annottext">s :: ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412787"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412786"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412786"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412787"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRoutingProfilesResponse' :: Int
 </span><a href="Network.AWS.Connect.ListRoutingProfiles.html#%24sel%3AhttpStatus%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679412487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679412786"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412485"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span></span><span>
 </span><span id="line-234"></span></pre></body></html>

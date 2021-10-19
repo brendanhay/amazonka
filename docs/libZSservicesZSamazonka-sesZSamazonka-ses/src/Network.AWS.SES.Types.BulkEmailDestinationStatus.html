@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBulkEmailDestinationStatus' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679270513"><span id="local-6989586621679270514"></span></span><span class="hs-keyword">data</span><span> </span><span id="BulkEmailDestinationStatus"><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-var">BulkEmailDestinationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BulkEmailDestinationStatus%27"><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-var">BulkEmailDestinationStatus'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679270702"><span id="local-6989586621679270703"></span></span><span class="hs-keyword">data</span><span> </span><span id="BulkEmailDestinationStatus"><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-var">BulkEmailDestinationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BulkEmailDestinationStatus%27"><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-var">BulkEmailDestinationStatus'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of a message sent using the @SendBulkTemplatedEmail@</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -80,16 +80,16 @@
 </span><span id="line-80"></span><span>    </span><span class="hs-comment">--     error message for additional information.</span><span>
 </span><span id="line-81"></span><span>    </span><span id="%24sel%3Astatus%3ABulkEmailDestinationStatus%27"><span class="annot"><span class="annottext">BulkEmailDestinationStatus -&gt; Maybe BulkEmailStatus
 </span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#%24sel%3Astatus%3ABulkEmailDestinationStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailStatus.html#BulkEmailStatus"><span class="hs-identifier hs-type">BulkEmailStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The unique message identifier returned from the @SendBulkTemplatedEmail@</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
-</span><span id="line-84"></span><span>    </span><span id="%24sel%3AmessageId%3ABulkEmailDestinationStatus%27"><span class="annot"><span class="annottext">BulkEmailDestinationStatus -&gt; Maybe Text
-</span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#%24sel%3AmessageId%3ABulkEmailDestinationStatus%27"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | A description of an error that prevented a message being sent using the</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- @SendBulkTemplatedEmail@ operation.</span><span>
-</span><span id="line-87"></span><span>    </span><span id="%24sel%3Aerror%3ABulkEmailDestinationStatus%27"><span class="annot"><span class="annottext">BulkEmailDestinationStatus -&gt; Maybe Text
-</span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#%24sel%3Aerror%3ABulkEmailDestinationStatus%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | A description of an error that prevented a message being sent using the</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @SendBulkTemplatedEmail@ operation.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Aerror%3ABulkEmailDestinationStatus%27"><span class="annot"><span class="annottext">BulkEmailDestinationStatus -&gt; Maybe Text
+</span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#%24sel%3Aerror%3ABulkEmailDestinationStatus%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The unique message identifier returned from the @SendBulkTemplatedEmail@</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AmessageId%3ABulkEmailDestinationStatus%27"><span class="annot"><span class="annottext">BulkEmailDestinationStatus -&gt; Maybe Text
+</span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#%24sel%3AmessageId%3ABulkEmailDestinationStatus%27"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270505"><span id="local-6989586621679270507"><span class="annot"><span class="annottext">BulkEmailDestinationStatus -&gt; BulkEmailDestinationStatus -&gt; Bool
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270694"><span id="local-6989586621679270696"><span class="annot"><span class="annottext">BulkEmailDestinationStatus -&gt; BulkEmailDestinationStatus -&gt; Bool
 (BulkEmailDestinationStatus -&gt; BulkEmailDestinationStatus -&gt; Bool)
 -&gt; (BulkEmailDestinationStatus
     -&gt; BulkEmailDestinationStatus -&gt; Bool)
@@ -99,7 +99,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BulkEmailDestinationStatus -&gt; BulkEmailDestinationStatus -&gt; Bool
 == :: BulkEmailDestinationStatus -&gt; BulkEmailDestinationStatus -&gt; Bool
 $c== :: BulkEmailDestinationStatus -&gt; BulkEmailDestinationStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270496"><span id="local-6989586621679270498"><span id="local-6989586621679270500"><span id="local-6989586621679270502"><span class="annot"><span class="annottext">ReadPrec [BulkEmailDestinationStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270685"><span id="local-6989586621679270687"><span id="local-6989586621679270689"><span id="local-6989586621679270691"><span class="annot"><span class="annottext">ReadPrec [BulkEmailDestinationStatus]
 ReadPrec BulkEmailDestinationStatus
 Int -&gt; ReadS BulkEmailDestinationStatus
 ReadS [BulkEmailDestinationStatus]
@@ -119,7 +119,7 @@ readList :: ReadS [BulkEmailDestinationStatus]
 $creadList :: ReadS [BulkEmailDestinationStatus]
 readsPrec :: Int -&gt; ReadS BulkEmailDestinationStatus
 $creadsPrec :: Int -&gt; ReadS BulkEmailDestinationStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270489"><span id="local-6989586621679270491"><span id="local-6989586621679270493"><span class="annot"><span class="annottext">Int -&gt; BulkEmailDestinationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270678"><span id="local-6989586621679270680"><span id="local-6989586621679270682"><span class="annot"><span class="annottext">Int -&gt; BulkEmailDestinationStatus -&gt; ShowS
 [BulkEmailDestinationStatus] -&gt; ShowS
 BulkEmailDestinationStatus -&gt; String
 (Int -&gt; BulkEmailDestinationStatus -&gt; ShowS)
@@ -209,11 +209,11 @@ BulkEmailDestinationStatus -&gt; Rep BulkEmailDestinationStatus x
 </span><span id="line-146"></span><span class="hs-comment">-- -   @Failed@: Amazon SES was unable to process your request. See the</span><span>
 </span><span id="line-147"></span><span class="hs-comment">--     error message for additional information.</span><span>
 </span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- 'messageId', 'bulkEmailDestinationStatus_messageId' - The unique message identifier returned from the @SendBulkTemplatedEmail@</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'error', 'bulkEmailDestinationStatus_error' - A description of an error that prevented a message being sent using the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- @SendBulkTemplatedEmail@ operation.</span><span>
 </span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- 'error', 'bulkEmailDestinationStatus_error' - A description of an error that prevented a message being sent using the</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- @SendBulkTemplatedEmail@ operation.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- 'messageId', 'bulkEmailDestinationStatus_messageId' - The unique message identifier returned from the @SendBulkTemplatedEmail@</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- operation.</span><span>
 </span><span id="line-154"></span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#newBulkEmailDestinationStatus"><span class="hs-identifier hs-type">newBulkEmailDestinationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span><span>
 </span><span id="line-156"></span><span id="newBulkEmailDestinationStatus"><span class="annot"><span class="annottext">newBulkEmailDestinationStatus :: BulkEmailDestinationStatus
@@ -226,12 +226,12 @@ BulkEmailDestinationStatus -&gt; Rep BulkEmailDestinationStatus x
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Maybe BulkEmailStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageId:BulkEmailDestinationStatus' :: Maybe Text
-</span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#%24sel%3AmessageId%3ABulkEmailDestinationStatus%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:error:BulkEmailDestinationStatus' :: Maybe Text
+</span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#%24sel%3Aerror%3ABulkEmailDestinationStatus%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:error:BulkEmailDestinationStatus' :: Maybe Text
-</span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#%24sel%3Aerror%3ABulkEmailDestinationStatus%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:messageId:BulkEmailDestinationStatus' :: Maybe Text
+</span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#%24sel%3AmessageId%3ABulkEmailDestinationStatus%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-162"></span><span>    </span><span class="hs-special">}</span><span>
@@ -297,46 +297,21 @@ forall a. Maybe a
      (Maybe BulkEmailStatus)
      (Maybe BulkEmailStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-type">BulkEmailDestinationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270480"><span class="annot"><span class="annottext">Maybe BulkEmailStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-type">BulkEmailDestinationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270669"><span class="annot"><span class="annottext">Maybe BulkEmailStatus
 status :: Maybe BulkEmailStatus
 $sel:status:BulkEmailDestinationStatus' :: BulkEmailDestinationStatus -&gt; Maybe BulkEmailStatus
-</span><a href="#local-6989586621679270480"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BulkEmailStatus
-</span><a href="#local-6989586621679270480"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270479"><span class="annot"><span class="annottext">s :: BulkEmailDestinationStatus
-</span><a href="#local-6989586621679270479"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-type">BulkEmailDestinationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270478"><span class="annot"><span class="annottext">Maybe BulkEmailStatus
-</span><a href="#local-6989586621679270478"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkEmailDestinationStatus
-</span><a href="#local-6989586621679270479"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:BulkEmailDestinationStatus' :: Maybe BulkEmailStatus
+</span><a href="#local-6989586621679270669"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BulkEmailStatus
+</span><a href="#local-6989586621679270669"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270668"><span class="annot"><span class="annottext">s :: BulkEmailDestinationStatus
+</span><a href="#local-6989586621679270668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-type">BulkEmailDestinationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270667"><span class="annot"><span class="annottext">Maybe BulkEmailStatus
+</span><a href="#local-6989586621679270667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkEmailDestinationStatus
+</span><a href="#local-6989586621679270668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:BulkEmailDestinationStatus' :: Maybe BulkEmailStatus
 </span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#%24sel%3Astatus%3ABulkEmailDestinationStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BulkEmailStatus
-</span><a href="#local-6989586621679270478"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-215"></span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- | The unique message identifier returned from the @SendBulkTemplatedEmail@</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- operation.</span><span>
-</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#bulkEmailDestinationStatus_messageId"><span class="hs-identifier hs-type">bulkEmailDestinationStatus_messageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-219"></span><span id="bulkEmailDestinationStatus_messageId"><span class="annot"><span class="annottext">bulkEmailDestinationStatus_messageId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; BulkEmailDestinationStatus -&gt; f BulkEmailDestinationStatus
-</span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#bulkEmailDestinationStatus_messageId"><span class="hs-identifier hs-var hs-var">bulkEmailDestinationStatus_messageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BulkEmailDestinationStatus -&gt; Maybe Text)
--&gt; (BulkEmailDestinationStatus
-    -&gt; Maybe Text -&gt; BulkEmailDestinationStatus)
--&gt; Lens
-     BulkEmailDestinationStatus
-     BulkEmailDestinationStatus
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-type">BulkEmailDestinationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270476"><span class="annot"><span class="annottext">Maybe Text
-messageId :: Maybe Text
-$sel:messageId:BulkEmailDestinationStatus' :: BulkEmailDestinationStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679270476"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270476"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270475"><span class="annot"><span class="annottext">s :: BulkEmailDestinationStatus
-</span><a href="#local-6989586621679270475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-type">BulkEmailDestinationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270474"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkEmailDestinationStatus
-</span><a href="#local-6989586621679270475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:BulkEmailDestinationStatus' :: Maybe Text
-</span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#%24sel%3AmessageId%3ABulkEmailDestinationStatus%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- | A description of an error that prevented a message being sent using the</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- @SendBulkTemplatedEmail@ operation.</span><span>
-</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#bulkEmailDestinationStatus_error"><span class="hs-identifier hs-type">bulkEmailDestinationStatus_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-224"></span><span id="bulkEmailDestinationStatus_error"><span class="annot"><span class="annottext">bulkEmailDestinationStatus_error :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-216"></span><span class="hs-comment">-- | A description of an error that prevented a message being sent using the</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- @SendBulkTemplatedEmail@ operation.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#bulkEmailDestinationStatus_error"><span class="hs-identifier hs-type">bulkEmailDestinationStatus_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="bulkEmailDestinationStatus_error"><span class="annot"><span class="annottext">bulkEmailDestinationStatus_error :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; BulkEmailDestinationStatus -&gt; f BulkEmailDestinationStatus
 </span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#bulkEmailDestinationStatus_error"><span class="hs-identifier hs-var hs-var">bulkEmailDestinationStatus_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BulkEmailDestinationStatus -&gt; Maybe Text)
 -&gt; (BulkEmailDestinationStatus
@@ -347,21 +322,46 @@ $sel:messageId:BulkEmailDestinationStatus' :: BulkEmailDestinationStatus -&gt; M
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-type">BulkEmailDestinationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270472"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-type">BulkEmailDestinationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270665"><span class="annot"><span class="annottext">Maybe Text
 error :: Maybe Text
 $sel:error:BulkEmailDestinationStatus' :: BulkEmailDestinationStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679270472"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270472"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270471"><span class="annot"><span class="annottext">s :: BulkEmailDestinationStatus
-</span><a href="#local-6989586621679270471"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-type">BulkEmailDestinationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270470"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270470"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkEmailDestinationStatus
-</span><a href="#local-6989586621679270471"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:BulkEmailDestinationStatus' :: Maybe Text
+</span><a href="#local-6989586621679270665"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270665"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270664"><span class="annot"><span class="annottext">s :: BulkEmailDestinationStatus
+</span><a href="#local-6989586621679270664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-type">BulkEmailDestinationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270663"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkEmailDestinationStatus
+</span><a href="#local-6989586621679270664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:BulkEmailDestinationStatus' :: Maybe Text
 </span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#%24sel%3Aerror%3ABulkEmailDestinationStatus%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679270470"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679270663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The unique message identifier returned from the @SendBulkTemplatedEmail@</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- operation.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#bulkEmailDestinationStatus_messageId"><span class="hs-identifier hs-type">bulkEmailDestinationStatus_messageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="bulkEmailDestinationStatus_messageId"><span class="annot"><span class="annottext">bulkEmailDestinationStatus_messageId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BulkEmailDestinationStatus -&gt; f BulkEmailDestinationStatus
+</span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#bulkEmailDestinationStatus_messageId"><span class="hs-identifier hs-var hs-var">bulkEmailDestinationStatus_messageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BulkEmailDestinationStatus -&gt; Maybe Text)
+-&gt; (BulkEmailDestinationStatus
+    -&gt; Maybe Text -&gt; BulkEmailDestinationStatus)
+-&gt; Lens
+     BulkEmailDestinationStatus
+     BulkEmailDestinationStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-type">BulkEmailDestinationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270661"><span class="annot"><span class="annottext">Maybe Text
+messageId :: Maybe Text
+$sel:messageId:BulkEmailDestinationStatus' :: BulkEmailDestinationStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679270661"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270661"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270660"><span class="annot"><span class="annottext">s :: BulkEmailDestinationStatus
+</span><a href="#local-6989586621679270660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-type">BulkEmailDestinationStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270659"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BulkEmailDestinationStatus
+</span><a href="#local-6989586621679270660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:BulkEmailDestinationStatus' :: Maybe Text
+</span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#%24sel%3AmessageId%3ABulkEmailDestinationStatus%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-225"></span><span>
 </span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-227"></span><span>  </span><span id="local-6989586621679270467"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String BulkEmailDestinationStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679270465"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679270465"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679270656"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String BulkEmailDestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679270654"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679270654"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">Maybe BulkEmailStatus
 -&gt; Maybe Text -&gt; Maybe Text -&gt; BulkEmailDestinationStatus
 </span><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus%27"><span class="hs-identifier hs-var">BulkEmailDestinationStatus'</span></a></span><span>
@@ -372,7 +372,7 @@ $sel:error:BulkEmailDestinationStatus' :: BulkEmailDestinationStatus -&gt; Maybe
      String (Maybe Text -&gt; Maybe Text -&gt; BulkEmailDestinationStatus)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679270465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BulkEmailStatus)
+</span><a href="#local-6989586621679270654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe BulkEmailStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -382,21 +382,21 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; BulkEmailDestinationStatus)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679270465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679270654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MessageId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Error&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; BulkEmailDestinationStatus)
 -&gt; Either String (Maybe Text)
 -&gt; Either String BulkEmailDestinationStatus
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679270465"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679270654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Error&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;MessageId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270459"><span id="local-6989586621679270461"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span></span></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270648"><span id="local-6989586621679270650"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span></span></span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270645"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SES.Types.BulkEmailDestinationStatus.html#BulkEmailDestinationStatus"><span class="hs-identifier hs-type">BulkEmailDestinationStatus</span></a></span></span><span>
 </span><span id="line-236"></span></pre></body></html>

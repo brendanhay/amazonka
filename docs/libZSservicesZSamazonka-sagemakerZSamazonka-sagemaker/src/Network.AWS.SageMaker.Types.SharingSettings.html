@@ -31,7 +31,7 @@
 </span><span id="line-31"></span><span class="hs-comment">-- specified, notebook sharing isn\'t allowed.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newSharingSettings' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621680340768"><span id="local-6989586621680340769"></span></span><span class="hs-keyword">data</span><span> </span><span id="SharingSettings"><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-var">SharingSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SharingSettings%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-var">SharingSettings'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621680342182"><span id="local-6989586621680342183"></span></span><span class="hs-keyword">data</span><span> </span><span id="SharingSettings"><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-var">SharingSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SharingSettings%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-var">SharingSettings'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When @NotebookOutputOption@ is @Allowed@, the Amazon Web Services Key</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Management Service (KMS) encryption key ID used to encrypt the notebook</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- cell output in the Amazon S3 bucket.</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3AnotebookOutputOption%3ASharingSettings%27"><span class="annot"><span class="annottext">SharingSettings -&gt; Maybe NotebookOutputOption
 </span><a href="Network.AWS.SageMaker.Types.SharingSettings.html#%24sel%3AnotebookOutputOption%3ASharingSettings%27"><span class="hs-identifier hs-var hs-var">notebookOutputOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.NotebookOutputOption.html#NotebookOutputOption"><span class="hs-identifier hs-type">NotebookOutputOption</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680340760"><span id="local-6989586621680340762"><span class="annot"><span class="annottext">SharingSettings -&gt; SharingSettings -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680342174"><span id="local-6989586621680342176"><span class="annot"><span class="annottext">SharingSettings -&gt; SharingSettings -&gt; Bool
 (SharingSettings -&gt; SharingSettings -&gt; Bool)
 -&gt; (SharingSettings -&gt; SharingSettings -&gt; Bool)
 -&gt; Eq SharingSettings
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SharingSettings -&gt; SharingSettings -&gt; Bool
 == :: SharingSettings -&gt; SharingSettings -&gt; Bool
 $c== :: SharingSettings -&gt; SharingSettings -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680340751"><span id="local-6989586621680340753"><span id="local-6989586621680340755"><span id="local-6989586621680340757"><span class="annot"><span class="annottext">ReadPrec [SharingSettings]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680342165"><span id="local-6989586621680342167"><span id="local-6989586621680342169"><span id="local-6989586621680342171"><span class="annot"><span class="annottext">ReadPrec [SharingSettings]
 ReadPrec SharingSettings
 Int -&gt; ReadS SharingSettings
 ReadS [SharingSettings]
@@ -75,7 +75,7 @@ readList :: ReadS [SharingSettings]
 $creadList :: ReadS [SharingSettings]
 readsPrec :: Int -&gt; ReadS SharingSettings
 $creadsPrec :: Int -&gt; ReadS SharingSettings
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680340744"><span id="local-6989586621680340746"><span id="local-6989586621680340748"><span class="annot"><span class="annottext">Int -&gt; SharingSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680342158"><span id="local-6989586621680342160"><span id="local-6989586621680342162"><span class="annot"><span class="annottext">Int -&gt; SharingSettings -&gt; ShowS
 [SharingSettings] -&gt; ShowS
 SharingSettings -&gt; String
 (Int -&gt; SharingSettings -&gt; ShowS)
@@ -149,16 +149,16 @@ forall a. Maybe a
 -&gt; (SharingSettings -&gt; Maybe Text -&gt; SharingSettings)
 -&gt; Lens SharingSettings SharingSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680340735"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680342149"><span class="annot"><span class="annottext">Maybe Text
 s3KmsKeyId :: Maybe Text
 $sel:s3KmsKeyId:SharingSettings' :: SharingSettings -&gt; Maybe Text
-</span><a href="#local-6989586621680340735"><span class="hs-identifier hs-var hs-var">s3KmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680340735"><span class="hs-identifier hs-var">s3KmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680340734"><span class="annot"><span class="annottext">s :: SharingSettings
-</span><a href="#local-6989586621680340734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680340733"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680340733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharingSettings
-</span><a href="#local-6989586621680340734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KmsKeyId:SharingSettings' :: Maybe Text
+</span><a href="#local-6989586621680342149"><span class="hs-identifier hs-var hs-var">s3KmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680342149"><span class="hs-identifier hs-var">s3KmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680342148"><span class="annot"><span class="annottext">s :: SharingSettings
+</span><a href="#local-6989586621680342148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680342147"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680342147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharingSettings
+</span><a href="#local-6989586621680342148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3KmsKeyId:SharingSettings' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.SharingSettings.html#%24sel%3As3KmsKeyId%3ASharingSettings%27"><span class="hs-identifier hs-var">s3KmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680340733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680342147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | When @NotebookOutputOption@ is @Allowed@, the Amazon S3 bucket used to</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- store the shared notebook snapshots.</span><span>
@@ -169,16 +169,16 @@ $sel:s3KmsKeyId:SharingSettings' :: SharingSettings -&gt; Maybe Text
 -&gt; (SharingSettings -&gt; Maybe Text -&gt; SharingSettings)
 -&gt; Lens SharingSettings SharingSettings (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680340731"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680342145"><span class="annot"><span class="annottext">Maybe Text
 s3OutputPath :: Maybe Text
 $sel:s3OutputPath:SharingSettings' :: SharingSettings -&gt; Maybe Text
-</span><a href="#local-6989586621680340731"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680340731"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680340730"><span class="annot"><span class="annottext">s :: SharingSettings
-</span><a href="#local-6989586621680340730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680340729"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680340729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharingSettings
-</span><a href="#local-6989586621680340730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:SharingSettings' :: Maybe Text
+</span><a href="#local-6989586621680342145"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680342145"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680342144"><span class="annot"><span class="annottext">s :: SharingSettings
+</span><a href="#local-6989586621680342144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680342143"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680342143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharingSettings
+</span><a href="#local-6989586621680342144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:SharingSettings' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.Types.SharingSettings.html#%24sel%3As3OutputPath%3ASharingSettings%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680340729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680342143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Whether to include the notebook cell output when sharing the notebook.</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- The default is @Disabled@.</span><span>
@@ -194,19 +194,19 @@ $sel:s3OutputPath:SharingSettings' :: SharingSettings -&gt; Maybe Text
      (Maybe NotebookOutputOption)
      (Maybe NotebookOutputOption)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680340727"><span class="annot"><span class="annottext">Maybe NotebookOutputOption
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680342141"><span class="annot"><span class="annottext">Maybe NotebookOutputOption
 notebookOutputOption :: Maybe NotebookOutputOption
 $sel:notebookOutputOption:SharingSettings' :: SharingSettings -&gt; Maybe NotebookOutputOption
-</span><a href="#local-6989586621680340727"><span class="hs-identifier hs-var hs-var">notebookOutputOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotebookOutputOption
-</span><a href="#local-6989586621680340727"><span class="hs-identifier hs-var">notebookOutputOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680340726"><span class="annot"><span class="annottext">s :: SharingSettings
-</span><a href="#local-6989586621680340726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680340725"><span class="annot"><span class="annottext">Maybe NotebookOutputOption
-</span><a href="#local-6989586621680340725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharingSettings
-</span><a href="#local-6989586621680340726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notebookOutputOption:SharingSettings' :: Maybe NotebookOutputOption
+</span><a href="#local-6989586621680342141"><span class="hs-identifier hs-var hs-var">notebookOutputOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotebookOutputOption
+</span><a href="#local-6989586621680342141"><span class="hs-identifier hs-var">notebookOutputOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680342140"><span class="annot"><span class="annottext">s :: SharingSettings
+</span><a href="#local-6989586621680342140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680342139"><span class="annot"><span class="annottext">Maybe NotebookOutputOption
+</span><a href="#local-6989586621680342139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SharingSettings
+</span><a href="#local-6989586621680342140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notebookOutputOption:SharingSettings' :: Maybe NotebookOutputOption
 </span><a href="Network.AWS.SageMaker.Types.SharingSettings.html#%24sel%3AnotebookOutputOption%3ASharingSettings%27"><span class="hs-identifier hs-var">notebookOutputOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotebookOutputOption
-</span><a href="#local-6989586621680340725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680342139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680340722"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621680340720"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SharingSettings
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680342136"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621680342134"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SharingSettings
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser SharingSettings)
@@ -216,8 +216,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;SharingSettings&quot;</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680340717"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680340717"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680342131"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680342131"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Maybe NotebookOutputOption -&gt; SharingSettings
 </span><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-var">SharingSettings'</span></a></span><span>
@@ -228,7 +228,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Maybe NotebookOutputOption -&gt; SharingSettings)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680340717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680342131"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -238,7 +238,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe NotebookOutputOption -&gt; SharingSettings)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680340717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621680342131"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span class="hs-special">)</span><span>
@@ -246,19 +246,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe NotebookOutputOption) -&gt; Parser SharingSettings
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680340717"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NotebookOutputOption)
+</span><a href="#local-6989586621680342131"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NotebookOutputOption)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotebookOutputOption&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680340711"><span id="local-6989586621680340713"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680342125"><span id="local-6989586621680342127"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680340708"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680342122"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span></span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680340700"><span id="local-6989586621680340702"><span id="local-6989586621680340704"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621680340698"><span class="annot"><span class="annottext">toJSON :: SharingSettings -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680340694"><span id="local-6989586621680340695"><span id="local-6989586621680340696"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680342114"><span id="local-6989586621680342116"><span id="local-6989586621680342118"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings"><span class="hs-identifier hs-type">SharingSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621680342112"><span class="annot"><span class="annottext">toJSON :: SharingSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.SharingSettings.html#SharingSettings%27"><span class="hs-identifier hs-type">SharingSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680342108"><span id="local-6989586621680342109"><span id="local-6989586621680342110"><span class="annot"><span class="annottext">Maybe Text
 Maybe NotebookOutputOption
 notebookOutputOption :: Maybe NotebookOutputOption
 s3OutputPath :: Maybe Text
@@ -266,7 +266,7 @@ s3KmsKeyId :: Maybe Text
 $sel:notebookOutputOption:SharingSettings' :: SharingSettings -&gt; Maybe NotebookOutputOption
 $sel:s3OutputPath:SharingSettings' :: SharingSettings -&gt; Maybe Text
 $sel:s3KmsKeyId:SharingSettings' :: SharingSettings -&gt; Maybe Text
-</span><a href="#local-6989586621680340694"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680342108"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -278,14 +278,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680340696"><span class="hs-identifier hs-var">s3KmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680342110"><span class="hs-identifier hs-var">s3KmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680340695"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680342109"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NotebookOutputOption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NotebookOutputOption -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -294,7 +294,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe NotebookOutputOption -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NotebookOutputOption
-</span><a href="#local-6989586621680340694"><span class="hs-identifier hs-var">notebookOutputOption</span></a></span><span>
+</span><a href="#local-6989586621680342108"><span class="hs-identifier hs-var">notebookOutputOption</span></a></span><span>
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span></pre></body></html>

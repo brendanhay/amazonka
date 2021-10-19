@@ -69,8 +69,8 @@
 </span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#newVerify"><span class="hs-identifier">newVerify</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#verify_grantTokens"><span class="hs-identifier">verify_grantTokens</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#verify_messageType"><span class="hs-identifier">verify_messageType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#verify_messageType"><span class="hs-identifier">verify_messageType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#verify_grantTokens"><span class="hs-identifier">verify_grantTokens</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#verify_keyId"><span class="hs-identifier">verify_keyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#verify_message"><span class="hs-identifier">verify_message</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#verify_signature"><span class="hs-identifier">verify_signature</span></a></span><span class="hs-special">,</span><span>
@@ -96,27 +96,27 @@
 </span><span id="line-96"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | /See:/ 'newVerify' smart constructor.</span><span>
-</span><span id="line-99"></span><span id="local-6989586621679261888"><span id="local-6989586621679261889"></span></span><span class="hs-keyword">data</span><span> </span><span id="Verify"><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-var">Verify</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Verify%27"><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-var">Verify'</span></a></span></span><span>
-</span><span id="line-100"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of grant tokens.</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- Use a grant token when your permission to call this operation comes from</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- a new grant that has not yet achieved /eventual consistency/. For more</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- and</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token&gt;</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
-</span><span id="line-109"></span><span>    </span><span id="%24sel%3AgrantTokens%3AVerify%27"><span class="annot"><span class="annottext">Verify -&gt; Maybe [Text]
-</span><a href="Network.AWS.KMS.Verify.html#%24sel%3AgrantTokens%3AVerify%27"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | Tells KMS whether the value of the @Message@ parameter is a message or</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- message digest. The default value, RAW, indicates a message. To indicate</span><span>
-</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- a message digest, enter @DIGEST@.</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- Use the @DIGEST@ value only when the value of the @Message@ parameter is</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- a message digest. If you use the @DIGEST@ value with a raw message, the</span><span>
-</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- security of the verification operation can be compromised.</span><span>
-</span><span id="line-117"></span><span>    </span><span id="%24sel%3AmessageType%3AVerify%27"><span class="annot"><span class="annottext">Verify -&gt; Maybe MessageType
+</span><span id="line-99"></span><span id="local-6989586621679262123"><span id="local-6989586621679262124"></span></span><span class="hs-keyword">data</span><span> </span><span id="Verify"><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-var">Verify</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Verify%27"><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-var">Verify'</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Tells KMS whether the value of the @Message@ parameter is a message or</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- message digest. The default value, RAW, indicates a message. To indicate</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- a message digest, enter @DIGEST@.</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- Use the @DIGEST@ value only when the value of the @Message@ parameter is</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- a message digest. If you use the @DIGEST@ value with a raw message, the</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- security of the verification operation can be compromised.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AmessageType%3AVerify%27"><span class="annot"><span class="annottext">Verify -&gt; Maybe MessageType
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AmessageType%3AVerify%27"><span class="hs-identifier hs-var hs-var">messageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.MessageType.html#MessageType"><span class="hs-identifier hs-type">MessageType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | A list of grant tokens.</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- Use a grant token when your permission to call this operation comes from</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- a new grant that has not yet achieved /eventual consistency/. For more</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- and</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token&gt;</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AgrantTokens%3AVerify%27"><span class="annot"><span class="annottext">Verify -&gt; Maybe [Text]
+</span><a href="Network.AWS.KMS.Verify.html#%24sel%3AgrantTokens%3AVerify%27"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | Identifies the asymmetric KMS key that will be used to verify the</span><span>
 </span><span id="line-119"></span><span>    </span><span class="hs-comment">-- signature. This must be the same KMS key that was used to generate the</span><span>
 </span><span id="line-120"></span><span>    </span><span class="hs-comment">-- signature. If you specify a different KMS key, the signature</span><span>
@@ -159,7 +159,7 @@
 </span><span id="line-154"></span><span>    </span><span id="%24sel%3AsigningAlgorithm%3AVerify%27"><span class="annot"><span class="annottext">Verify -&gt; SigningAlgorithmSpec
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AsigningAlgorithm%3AVerify%27"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.SigningAlgorithmSpec.html#SigningAlgorithmSpec"><span class="hs-identifier hs-type">SigningAlgorithmSpec</span></a></span><span>
 </span><span id="line-155"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261877"><span id="local-6989586621679261879"><span class="annot"><span class="annottext">Verify -&gt; Verify -&gt; Bool
+</span><span id="line-156"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262112"><span id="local-6989586621679262114"><span class="annot"><span class="annottext">Verify -&gt; Verify -&gt; Bool
 (Verify -&gt; Verify -&gt; Bool)
 -&gt; (Verify -&gt; Verify -&gt; Bool) -&gt; Eq Verify
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -167,7 +167,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Verify -&gt; Verify -&gt; Bool
 == :: Verify -&gt; Verify -&gt; Bool
 $c== :: Verify -&gt; Verify -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261870"><span id="local-6989586621679261872"><span id="local-6989586621679261874"><span class="annot"><span class="annottext">Int -&gt; Verify -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262105"><span id="local-6989586621679262107"><span id="local-6989586621679262109"><span class="annot"><span class="annottext">Int -&gt; Verify -&gt; ShowS
 [Verify] -&gt; ShowS
 Verify -&gt; String
 (Int -&gt; Verify -&gt; ShowS)
@@ -198,23 +198,23 @@ $cfrom :: forall x. Verify -&gt; Rep Verify x
 </span><span id="line-163"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-164"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- 'grantTokens', 'verify_grantTokens' - A list of grant tokens.</span><span>
-</span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- Use a grant token when your permission to call this operation comes from</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- a new grant that has not yet achieved /eventual consistency/. For more</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- and</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token&gt;</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'messageType', 'verify_messageType' - Tells KMS whether the value of the @Message@ parameter is a message or</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- message digest. The default value, RAW, indicates a message. To indicate</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- a message digest, enter @DIGEST@.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Use the @DIGEST@ value only when the value of the @Message@ parameter is</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- a message digest. If you use the @DIGEST@ value with a raw message, the</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- security of the verification operation can be compromised.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'grantTokens', 'verify_grantTokens' - A list of grant tokens.</span><span>
 </span><span id="line-175"></span><span class="hs-comment">--</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- 'messageType', 'verify_messageType' - Tells KMS whether the value of the @Message@ parameter is a message or</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- message digest. The default value, RAW, indicates a message. To indicate</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- a message digest, enter @DIGEST@.</span><span>
-</span><span id="line-179"></span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- Use the @DIGEST@ value only when the value of the @Message@ parameter is</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- a message digest. If you use the @DIGEST@ value with a raw message, the</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- security of the verification operation can be compromised.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Use a grant token when your permission to call this operation comes from</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- a new grant that has not yet achieved /eventual consistency/. For more</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token&gt;</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
 </span><span id="line-183"></span><span class="hs-comment">--</span><span>
 </span><span id="line-184"></span><span class="hs-comment">-- 'keyId', 'verify_keyId' - Identifies the asymmetric KMS key that will be used to verify the</span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- signature. This must be the same KMS key that was used to generate the</span><span>
@@ -272,33 +272,33 @@ $cfrom :: forall x. Verify -&gt; Rep Verify x
 </span><span id="line-237"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span>
 </span><span id="line-238"></span><span id="newVerify"><span class="annot"><span class="annottext">newVerify :: Text -&gt; ByteString -&gt; ByteString -&gt; SigningAlgorithmSpec -&gt; Verify
 </span><a href="Network.AWS.KMS.Verify.html#newVerify"><span class="hs-identifier hs-var hs-var">newVerify</span></a></span></span><span>
-</span><span id="line-239"></span><span>  </span><span id="local-6989586621679261865"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261865"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span>
-</span><span id="line-240"></span><span>  </span><span id="local-6989586621679261864"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679261864"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621679261863"><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679261863"><span class="hs-identifier hs-var">pSignature_</span></a></span></span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621679261862"><span class="annot"><span class="annottext">SigningAlgorithmSpec
-</span><a href="#local-6989586621679261862"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">Verify' :: Maybe [Text]
--&gt; Maybe MessageType
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679262100"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262100"><span class="hs-identifier hs-var">pKeyId_</span></a></span></span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679262099"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679262099"><span class="hs-identifier hs-var">pMessage_</span></a></span></span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679262098"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679262098"><span class="hs-identifier hs-var">pSignature_</span></a></span></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679262097"><span class="annot"><span class="annottext">SigningAlgorithmSpec
+</span><a href="#local-6989586621679262097"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">Verify' :: Maybe MessageType
+-&gt; Maybe [Text]
 -&gt; Text
 -&gt; Sensitive Base64
 -&gt; Base64
 -&gt; SigningAlgorithmSpec
 -&gt; Verify
 </span><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span>
-</span><span id="line-244"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:grantTokens:Verify' :: Maybe [Text]
-</span><a href="Network.AWS.KMS.Verify.html#%24sel%3AgrantTokens%3AVerify%27"><span class="hs-identifier hs-var">grantTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-244"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:messageType:Verify' :: Maybe MessageType
+</span><a href="Network.AWS.KMS.Verify.html#%24sel%3AmessageType%3AVerify%27"><span class="hs-identifier hs-var">messageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">$sel:messageType:Verify' :: Maybe MessageType
-</span><a href="Network.AWS.KMS.Verify.html#%24sel%3AmessageType%3AVerify%27"><span class="hs-identifier hs-var">messageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageType
+</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">$sel:grantTokens:Verify' :: Maybe [Text]
+</span><a href="Network.AWS.KMS.Verify.html#%24sel%3AgrantTokens%3AVerify%27"><span class="hs-identifier hs-var">grantTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">$sel:keyId:Verify' :: Text
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AkeyId%3AVerify%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261865"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262100"><span class="hs-identifier hs-var">pKeyId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">$sel:message:Verify' :: Sensitive Base64
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3Amessage%3AVerify%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-248"></span><span>          </span><span class="annot"><span class="annottext">Tagged Base64 (Identity Base64)
@@ -320,7 +320,7 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Sensitive Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679261864"><span class="hs-identifier hs-var">pMessage_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262099"><span class="hs-identifier hs-var">pMessage_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">$sel:signature:Verify' :: Base64
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3Asignature%3AVerify%27"><span class="hs-keyword hs-var">signature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged ByteString (Identity ByteString)
 -&gt; Tagged Base64 (Identity Base64)
@@ -330,37 +330,61 @@ Iso' Base64 ByteString
 -&gt; ByteString -&gt; Base64
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><a href="#local-6989586621679261863"><span class="hs-identifier hs-var">pSignature_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262098"><span class="hs-identifier hs-var">pSignature_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">$sel:signingAlgorithm:Verify' :: SigningAlgorithmSpec
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AsigningAlgorithm%3AVerify%27"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithmSpec
-</span><a href="#local-6989586621679261862"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span><span>
+</span><a href="#local-6989586621679262097"><span class="hs-identifier hs-var">pSigningAlgorithm_</span></a></span><span>
 </span><span id="line-252"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- | A list of grant tokens.</span><span>
-</span><span id="line-255"></span><span class="hs-comment">--</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- Use a grant token when your permission to call this operation comes from</span><span>
-</span><span id="line-257"></span><span class="hs-comment">-- a new grant that has not yet achieved /eventual consistency/. For more</span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- information, see</span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- and</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token&gt;</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
-</span><span id="line-263"></span><span class="annot"><a href="Network.AWS.KMS.Verify.html#verify_grantTokens"><span class="hs-identifier hs-type">verify_grantTokens</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-264"></span><span id="verify_grantTokens"><span class="annot"><span class="annottext">verify_grantTokens :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Verify -&gt; f Verify
+</span><span id="line-254"></span><span class="hs-comment">-- | Tells KMS whether the value of the @Message@ parameter is a message or</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- message digest. The default value, RAW, indicates a message. To indicate</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- a message digest, enter @DIGEST@.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- Use the @DIGEST@ value only when the value of the @Message@ parameter is</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- a message digest. If you use the @DIGEST@ value with a raw message, the</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- security of the verification operation can be compromised.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Network.AWS.KMS.Verify.html#verify_messageType"><span class="hs-identifier hs-type">verify_messageType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.MessageType.html#MessageType"><span class="hs-identifier hs-type">MessageType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span id="verify_messageType"><span class="annot"><span class="annottext">verify_messageType :: (Maybe MessageType -&gt; f (Maybe MessageType)) -&gt; Verify -&gt; f Verify
+</span><a href="Network.AWS.KMS.Verify.html#verify_messageType"><span class="hs-identifier hs-var hs-var">verify_messageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Verify -&gt; Maybe MessageType)
+-&gt; (Verify -&gt; Maybe MessageType -&gt; Verify)
+-&gt; Lens Verify Verify (Maybe MessageType) (Maybe MessageType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262090"><span class="annot"><span class="annottext">Maybe MessageType
+messageType :: Maybe MessageType
+$sel:messageType:Verify' :: Verify -&gt; Maybe MessageType
+</span><a href="#local-6989586621679262090"><span class="hs-identifier hs-var hs-var">messageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageType
+</span><a href="#local-6989586621679262090"><span class="hs-identifier hs-var">messageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262089"><span class="annot"><span class="annottext">s :: Verify
+</span><a href="#local-6989586621679262089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262088"><span class="annot"><span class="annottext">Maybe MessageType
+</span><a href="#local-6989586621679262088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Verify
+</span><a href="#local-6989586621679262089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageType:Verify' :: Maybe MessageType
+</span><a href="Network.AWS.KMS.Verify.html#%24sel%3AmessageType%3AVerify%27"><span class="hs-identifier hs-var">messageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageType
+</span><a href="#local-6989586621679262088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- | A list of grant tokens.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- Use a grant token when your permission to call this operation comes from</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- a new grant that has not yet achieved /eventual consistency/. For more</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token Grant token&gt;</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token Using a grant token&gt;</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- in the /Key Management Service Developer Guide/.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.KMS.Verify.html#verify_grantTokens"><span class="hs-identifier hs-type">verify_grantTokens</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="verify_grantTokens"><span class="annot"><span class="annottext">verify_grantTokens :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Verify -&gt; f Verify
 </span><a href="Network.AWS.KMS.Verify.html#verify_grantTokens"><span class="hs-identifier hs-var hs-var">verify_grantTokens</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Verify -&gt; Maybe [Text])
 -&gt; (Verify -&gt; Maybe [Text] -&gt; Verify)
 -&gt; Lens Verify Verify (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261855"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262087"><span class="annot"><span class="annottext">Maybe [Text]
 grantTokens :: Maybe [Text]
 $sel:grantTokens:Verify' :: Verify -&gt; Maybe [Text]
-</span><a href="#local-6989586621679261855"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261855"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261854"><span class="annot"><span class="annottext">s :: Verify
-</span><a href="#local-6989586621679261854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261853"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Verify
-</span><a href="#local-6989586621679261854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantTokens:Verify' :: Maybe [Text]
+</span><a href="#local-6989586621679262087"><span class="hs-identifier hs-var hs-var">grantTokens</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679262087"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262086"><span class="annot"><span class="annottext">s :: Verify
+</span><a href="#local-6989586621679262086"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262085"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679262085"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Verify
+</span><a href="#local-6989586621679262086"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:grantTokens:Verify' :: Maybe [Text]
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AgrantTokens%3AVerify%27"><span class="hs-identifier hs-var">grantTokens</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Verify -&gt; f Verify)
+</span><a href="#local-6989586621679262085"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text])) -&gt; Verify -&gt; f Verify)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
@@ -373,32 +397,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-265"></span><span>
-</span><span id="line-266"></span><span class="hs-comment">-- | Tells KMS whether the value of the @Message@ parameter is a message or</span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- message digest. The default value, RAW, indicates a message. To indicate</span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- a message digest, enter @DIGEST@.</span><span>
-</span><span id="line-269"></span><span class="hs-comment">--</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- Use the @DIGEST@ value only when the value of the @Message@ parameter is</span><span>
-</span><span id="line-271"></span><span class="hs-comment">-- a message digest. If you use the @DIGEST@ value with a raw message, the</span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- security of the verification operation can be compromised.</span><span>
-</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.KMS.Verify.html#verify_messageType"><span class="hs-identifier hs-type">verify_messageType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.MessageType.html#MessageType"><span class="hs-identifier hs-type">MessageType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-274"></span><span id="verify_messageType"><span class="annot"><span class="annottext">verify_messageType :: (Maybe MessageType -&gt; f (Maybe MessageType)) -&gt; Verify -&gt; f Verify
-</span><a href="Network.AWS.KMS.Verify.html#verify_messageType"><span class="hs-identifier hs-var hs-var">verify_messageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Verify -&gt; Maybe MessageType)
--&gt; (Verify -&gt; Maybe MessageType -&gt; Verify)
--&gt; Lens Verify Verify (Maybe MessageType) (Maybe MessageType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261850"><span class="annot"><span class="annottext">Maybe MessageType
-messageType :: Maybe MessageType
-$sel:messageType:Verify' :: Verify -&gt; Maybe MessageType
-</span><a href="#local-6989586621679261850"><span class="hs-identifier hs-var hs-var">messageType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageType
-</span><a href="#local-6989586621679261850"><span class="hs-identifier hs-var">messageType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261849"><span class="annot"><span class="annottext">s :: Verify
-</span><a href="#local-6989586621679261849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261848"><span class="annot"><span class="annottext">Maybe MessageType
-</span><a href="#local-6989586621679261848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Verify
-</span><a href="#local-6989586621679261849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageType:Verify' :: Maybe MessageType
-</span><a href="Network.AWS.KMS.Verify.html#%24sel%3AmessageType%3AVerify%27"><span class="hs-identifier hs-var">messageType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageType
-</span><a href="#local-6989586621679261848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-275"></span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- | Identifies the asymmetric KMS key that will be used to verify the</span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- signature. This must be the same KMS key that was used to generate the</span><span>
@@ -428,16 +428,16 @@ $sel:messageType:Verify' :: Verify -&gt; Maybe MessageType
 </span><a href="Network.AWS.KMS.Verify.html#verify_keyId"><span class="hs-identifier hs-var hs-var">verify_keyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Verify -&gt; Text)
 -&gt; (Verify -&gt; Text -&gt; Verify) -&gt; Lens Verify Verify Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261847"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262082"><span class="annot"><span class="annottext">Text
 keyId :: Text
 $sel:keyId:Verify' :: Verify -&gt; Text
-</span><a href="#local-6989586621679261847"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261847"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261846"><span class="annot"><span class="annottext">s :: Verify
-</span><a href="#local-6989586621679261846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261845"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Verify
-</span><a href="#local-6989586621679261846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:Verify' :: Text
+</span><a href="#local-6989586621679262082"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262082"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262081"><span class="annot"><span class="annottext">s :: Verify
+</span><a href="#local-6989586621679262081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262080"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Verify
+</span><a href="#local-6989586621679262081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:Verify' :: Text
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AkeyId%3AVerify%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-301"></span><span>
 </span><span id="line-302"></span><span class="hs-comment">-- | Specifies the message that was signed. You can submit a raw message of</span><span>
 </span><span id="line-303"></span><span class="hs-comment">-- up to 4096 bytes, or a hash digest of the message. If you submit a</span><span>
@@ -456,16 +456,16 @@ $sel:keyId:Verify' :: Verify -&gt; Text
 -&gt; (Verify -&gt; Sensitive Base64 -&gt; Verify)
 -&gt; Lens Verify Verify (Sensitive Base64) (Sensitive Base64)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261844"><span class="annot"><span class="annottext">Sensitive Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262079"><span class="annot"><span class="annottext">Sensitive Base64
 message :: Sensitive Base64
 $sel:message:Verify' :: Verify -&gt; Sensitive Base64
-</span><a href="#local-6989586621679261844"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Base64
-</span><a href="#local-6989586621679261844"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261843"><span class="annot"><span class="annottext">s :: Verify
-</span><a href="#local-6989586621679261843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261842"><span class="annot"><span class="annottext">Sensitive Base64
-</span><a href="#local-6989586621679261842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Verify
-</span><a href="#local-6989586621679261843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Verify' :: Sensitive Base64
+</span><a href="#local-6989586621679262079"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Base64
+</span><a href="#local-6989586621679262079"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262078"><span class="annot"><span class="annottext">s :: Verify
+</span><a href="#local-6989586621679262078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262077"><span class="annot"><span class="annottext">Sensitive Base64
+</span><a href="#local-6989586621679262077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Verify
+</span><a href="#local-6989586621679262078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:Verify' :: Sensitive Base64
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3Amessage%3AVerify%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Base64
-</span><a href="#local-6989586621679261842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Base64 -&gt; f (Sensitive Base64)) -&gt; Verify -&gt; f Verify)
+</span><a href="#local-6989586621679262077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Base64 -&gt; f (Sensitive Base64)) -&gt; Verify -&gt; f Verify)
 -&gt; ((ByteString -&gt; f ByteString)
     -&gt; Sensitive Base64 -&gt; f (Sensitive Base64))
 -&gt; (ByteString -&gt; f ByteString)
@@ -494,16 +494,16 @@ Iso' Base64 ByteString
 </span><a href="Network.AWS.KMS.Verify.html#verify_signature"><span class="hs-identifier hs-var hs-var">verify_signature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Verify -&gt; Base64)
 -&gt; (Verify -&gt; Base64 -&gt; Verify) -&gt; Lens Verify Verify Base64 Base64
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261841"><span class="annot"><span class="annottext">Base64
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262076"><span class="annot"><span class="annottext">Base64
 signature :: Base64
 $sel:signature:Verify' :: Verify -&gt; Base64
-</span><a href="#local-6989586621679261841"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679261841"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261840"><span class="annot"><span class="annottext">s :: Verify
-</span><a href="#local-6989586621679261840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261839"><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679261839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Verify
-</span><a href="#local-6989586621679261840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signature:Verify' :: Base64
+</span><a href="#local-6989586621679262076"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679262076"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262075"><span class="annot"><span class="annottext">s :: Verify
+</span><a href="#local-6989586621679262075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262074"><span class="annot"><span class="annottext">Base64
+</span><a href="#local-6989586621679262074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Verify
+</span><a href="#local-6989586621679262075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signature:Verify' :: Base64
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3Asignature%3AVerify%27"><span class="hs-keyword hs-var">signature</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679261839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; Verify -&gt; f Verify)
+</span><a href="#local-6989586621679262074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Base64 -&gt; f Base64) -&gt; Verify -&gt; f Verify)
 -&gt; ((ByteString -&gt; f ByteString) -&gt; Base64 -&gt; f Base64)
 -&gt; (ByteString -&gt; f ByteString)
 -&gt; Verify
@@ -522,25 +522,25 @@ Iso' Base64 ByteString
 -&gt; (Verify -&gt; SigningAlgorithmSpec -&gt; Verify)
 -&gt; Lens Verify Verify SigningAlgorithmSpec SigningAlgorithmSpec
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261838"><span class="annot"><span class="annottext">SigningAlgorithmSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262073"><span class="annot"><span class="annottext">SigningAlgorithmSpec
 signingAlgorithm :: SigningAlgorithmSpec
 $sel:signingAlgorithm:Verify' :: Verify -&gt; SigningAlgorithmSpec
-</span><a href="#local-6989586621679261838"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithmSpec
-</span><a href="#local-6989586621679261838"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261837"><span class="annot"><span class="annottext">s :: Verify
-</span><a href="#local-6989586621679261837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261836"><span class="annot"><span class="annottext">SigningAlgorithmSpec
-</span><a href="#local-6989586621679261836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Verify
-</span><a href="#local-6989586621679261837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingAlgorithm:Verify' :: SigningAlgorithmSpec
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithmSpec
+</span><a href="#local-6989586621679262073"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262072"><span class="annot"><span class="annottext">s :: Verify
+</span><a href="#local-6989586621679262072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262071"><span class="annot"><span class="annottext">SigningAlgorithmSpec
+</span><a href="#local-6989586621679262071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Verify
+</span><a href="#local-6989586621679262072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingAlgorithm:Verify' :: SigningAlgorithmSpec
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AsigningAlgorithm%3AVerify%27"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SigningAlgorithmSpec
-</span><a href="#local-6989586621679261836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-328"></span><span>
 </span><span id="line-329"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-330"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-type">VerifyResponse</span></a></span><span>
-</span><span id="line-331"></span><span>  </span><span id="local-6989586621679261832"><span class="annot"><span class="annottext">request :: Verify -&gt; Request Verify
+</span><span id="line-331"></span><span>  </span><span id="local-6989586621679262067"><span class="annot"><span class="annottext">request :: Verify -&gt; Request Verify
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; Verify -&gt; Request Verify
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.KMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-332"></span><span>  </span><span id="local-6989586621679261828"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-332"></span><span>  </span><span id="local-6989586621679262063"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy Verify
 -&gt; ClientResponse ClientBody
@@ -562,10 +562,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-334"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679261825"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261825"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679261824"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679261824"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679261823"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261823"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-334"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262060"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262060"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679262059"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679262059"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679262058"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262058"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-335"></span><span>          </span><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
 -&gt; Maybe Bool -&gt; Maybe Text -&gt; Int -&gt; VerifyResponse
 </span><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-var">VerifyResponse'</span></a></span><span>
@@ -576,7 +576,7 @@ MonadResource m =&gt;
      String (Maybe Bool -&gt; Maybe Text -&gt; Int -&gt; VerifyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SigningAlgorithmSpec)
+</span><a href="#local-6989586621679262058"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SigningAlgorithmSpec)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SigningAlgorithm&quot;</span></span><span class="hs-special">)</span><span>
@@ -585,7 +585,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; VerifyResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679262058"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SignatureValid&quot;</span></span><span class="hs-special">)</span><span>
@@ -594,7 +594,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; VerifyResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679261823"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679262058"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span class="hs-special">)</span><span>
@@ -606,15 +606,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261825"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262060"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-340"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-341"></span><span>
-</span><span id="line-342"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261815"><span id="local-6989586621679261817"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span></span></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262050"><span id="local-6989586621679262052"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span></span></span><span>
 </span><span id="line-343"></span><span>
-</span><span id="line-344"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261812"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262047"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span></span><span>
 </span><span id="line-345"></span><span>
 </span><span id="line-346"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-347"></span><span>  </span><span id="local-6989586621679261808"><span class="annot"><span class="annottext">toHeaders :: Verify -&gt; ResponseHeaders
+</span><span id="line-347"></span><span>  </span><span id="local-6989586621679262043"><span class="annot"><span class="annottext">toHeaders :: Verify -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-348"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; Verify -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -639,9 +639,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-356"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-357"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-358"></span><span>
-</span><span id="line-359"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261798"><span id="local-6989586621679261800"><span id="local-6989586621679261802"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-360"></span><span>  </span><span id="local-6989586621679261796"><span class="annot"><span class="annottext">toJSON :: Verify -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261789"><span id="local-6989586621679261790"><span id="local-6989586621679261791"><span id="local-6989586621679261792"><span id="local-6989586621679261793"><span id="local-6989586621679261794"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-359"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262033"><span id="local-6989586621679262035"><span id="local-6989586621679262037"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-360"></span><span>  </span><span id="local-6989586621679262031"><span class="annot"><span class="annottext">toJSON :: Verify -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify%27"><span class="hs-identifier hs-type">Verify'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262024"><span id="local-6989586621679262025"><span id="local-6989586621679262026"><span id="local-6989586621679262027"><span id="local-6989586621679262028"><span id="local-6989586621679262029"><span class="annot"><span class="annottext">Maybe [Text]
 Maybe MessageType
 Text
 Base64
@@ -651,55 +651,55 @@ signingAlgorithm :: SigningAlgorithmSpec
 signature :: Base64
 message :: Sensitive Base64
 keyId :: Text
-messageType :: Maybe MessageType
 grantTokens :: Maybe [Text]
+messageType :: Maybe MessageType
 $sel:signingAlgorithm:Verify' :: Verify -&gt; SigningAlgorithmSpec
 $sel:signature:Verify' :: Verify -&gt; Base64
 $sel:message:Verify' :: Verify -&gt; Sensitive Base64
 $sel:keyId:Verify' :: Verify -&gt; Text
-$sel:messageType:Verify' :: Verify -&gt; Maybe MessageType
 $sel:grantTokens:Verify' :: Verify -&gt; Maybe [Text]
-</span><a href="#local-6989586621679261789"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:messageType:Verify' :: Verify -&gt; Maybe MessageType
+</span><a href="#local-6989586621679262024"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-361"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-362"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-363"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;GrantTokens&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679261794"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-364"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MessageType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MessageType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MessageType -&gt; Pair) -&gt; Maybe MessageType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MessageType
-</span><a href="#local-6989586621679261793"><span class="hs-identifier hs-var">messageType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262029"><span class="hs-identifier hs-var">messageType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GrantTokens&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679262028"><span class="hs-identifier hs-var">grantTokens</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-365"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679261792"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262027"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-366"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Message&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Base64
-</span><a href="#local-6989586621679261791"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262026"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-367"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Signature&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Base64 -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Base64
-</span><a href="#local-6989586621679261790"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679262025"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-368"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -707,19 +707,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;SigningAlgorithm&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SigningAlgorithmSpec -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SigningAlgorithmSpec
-</span><a href="#local-6989586621679261789"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679262024"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-370"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-371"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-372"></span><span>
 </span><span id="line-373"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-374"></span><span>  </span><span id="local-6989586621679261783"><span class="annot"><span class="annottext">toPath :: Verify -&gt; ByteString
+</span><span id="line-374"></span><span>  </span><span id="local-6989586621679262018"><span class="annot"><span class="annottext">toPath :: Verify -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Verify -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-375"></span><span>
 </span><span id="line-376"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#Verify"><span class="hs-identifier hs-type">Verify</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-377"></span><span>  </span><span id="local-6989586621679261779"><span class="annot"><span class="annottext">toQuery :: Verify -&gt; QueryString
+</span><span id="line-377"></span><span>  </span><span id="local-6989586621679262014"><span class="annot"><span class="annottext">toQuery :: Verify -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; Verify -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -727,7 +727,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-378"></span><span>
 </span><span id="line-379"></span><span class="hs-comment">-- | /See:/ 'newVerifyResponse' smart constructor.</span><span>
-</span><span id="line-380"></span><span id="local-6989586621679261776"><span id="local-6989586621679261777"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyResponse"><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-var">VerifyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyResponse%27"><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-var">VerifyResponse'</span></a></span></span><span>
+</span><span id="line-380"></span><span id="local-6989586621679262011"><span id="local-6989586621679262012"></span></span><span class="hs-keyword">data</span><span> </span><span id="VerifyResponse"><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-var">VerifyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VerifyResponse%27"><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-var">VerifyResponse'</span></a></span></span><span>
 </span><span id="line-381"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The signing algorithm that was used to verify the signature.</span><span>
 </span><span id="line-382"></span><span>    </span><span id="%24sel%3AsigningAlgorithm%3AVerifyResponse%27"><span class="annot"><span class="annottext">VerifyResponse -&gt; Maybe SigningAlgorithmSpec
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AsigningAlgorithm%3AVerifyResponse%27"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.SigningAlgorithmSpec.html#SigningAlgorithmSpec"><span class="hs-identifier hs-type">SigningAlgorithmSpec</span></a></span><span class="hs-special">,</span><span>
@@ -747,7 +747,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-394"></span><span>    </span><span id="%24sel%3AhttpStatus%3AVerifyResponse%27"><span class="annot"><span class="annottext">VerifyResponse -&gt; Int
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AhttpStatus%3AVerifyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-395"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-396"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261768"><span id="local-6989586621679261770"><span class="annot"><span class="annottext">VerifyResponse -&gt; VerifyResponse -&gt; Bool
+</span><span id="line-396"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262003"><span id="local-6989586621679262005"><span class="annot"><span class="annottext">VerifyResponse -&gt; VerifyResponse -&gt; Bool
 (VerifyResponse -&gt; VerifyResponse -&gt; Bool)
 -&gt; (VerifyResponse -&gt; VerifyResponse -&gt; Bool) -&gt; Eq VerifyResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -755,7 +755,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VerifyResponse -&gt; VerifyResponse -&gt; Bool
 == :: VerifyResponse -&gt; VerifyResponse -&gt; Bool
 $c== :: VerifyResponse -&gt; VerifyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261760"><span id="local-6989586621679261762"><span id="local-6989586621679261764"><span id="local-6989586621679261766"><span class="annot"><span class="annottext">ReadPrec [VerifyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261995"><span id="local-6989586621679261997"><span id="local-6989586621679261999"><span id="local-6989586621679262001"><span class="annot"><span class="annottext">ReadPrec [VerifyResponse]
 ReadPrec VerifyResponse
 Int -&gt; ReadS VerifyResponse
 ReadS [VerifyResponse]
@@ -775,7 +775,7 @@ readList :: ReadS [VerifyResponse]
 $creadList :: ReadS [VerifyResponse]
 readsPrec :: Int -&gt; ReadS VerifyResponse
 $creadsPrec :: Int -&gt; ReadS VerifyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261753"><span id="local-6989586621679261755"><span id="local-6989586621679261757"><span class="annot"><span class="annottext">Int -&gt; VerifyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261988"><span id="local-6989586621679261990"><span id="local-6989586621679261992"><span class="annot"><span class="annottext">Int -&gt; VerifyResponse -&gt; ShowS
 [VerifyResponse] -&gt; ShowS
 VerifyResponse -&gt; String
 (Int -&gt; VerifyResponse -&gt; ShowS)
@@ -827,8 +827,8 @@ $cfrom :: forall x. VerifyResponse -&gt; Rep VerifyResponse x
 </span><span id="line-421"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-422"></span><span>  </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-type">VerifyResponse</span></a></span><span>
 </span><span id="line-423"></span><span id="newVerifyResponse"><span class="annot"><span class="annottext">newVerifyResponse :: Int -&gt; VerifyResponse
-</span><a href="Network.AWS.KMS.Verify.html#newVerifyResponse"><span class="hs-identifier hs-var hs-var">newVerifyResponse</span></a></span></span><span> </span><span id="local-6989586621679261750"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261750"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.KMS.Verify.html#newVerifyResponse"><span class="hs-identifier hs-var hs-var">newVerifyResponse</span></a></span></span><span> </span><span id="local-6989586621679261985"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261985"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-424"></span><span>  </span><span class="annot"><span class="annottext">VerifyResponse' :: Maybe SigningAlgorithmSpec
 -&gt; Maybe Bool -&gt; Maybe Text -&gt; Int -&gt; VerifyResponse
 </span><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span>
@@ -846,7 +846,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-428"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyResponse' :: Int
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AhttpStatus%3AVerifyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261750"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679261985"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-429"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-430"></span><span>
 </span><span id="line-431"></span><span class="hs-comment">-- | The signing algorithm that was used to verify the signature.</span><span>
@@ -861,16 +861,16 @@ forall a. Maybe a
      (Maybe SigningAlgorithmSpec)
      (Maybe SigningAlgorithmSpec)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261749"><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261984"><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
 signingAlgorithm :: Maybe SigningAlgorithmSpec
 $sel:signingAlgorithm:VerifyResponse' :: VerifyResponse -&gt; Maybe SigningAlgorithmSpec
-</span><a href="#local-6989586621679261749"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
-</span><a href="#local-6989586621679261749"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261748"><span class="annot"><span class="annottext">s :: VerifyResponse
-</span><a href="#local-6989586621679261748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261747"><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
-</span><a href="#local-6989586621679261747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyResponse
-</span><a href="#local-6989586621679261748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingAlgorithm:VerifyResponse' :: Maybe SigningAlgorithmSpec
+</span><a href="#local-6989586621679261984"><span class="hs-identifier hs-var hs-var">signingAlgorithm</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
+</span><a href="#local-6989586621679261984"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261983"><span class="annot"><span class="annottext">s :: VerifyResponse
+</span><a href="#local-6989586621679261983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261982"><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
+</span><a href="#local-6989586621679261982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyResponse
+</span><a href="#local-6989586621679261983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingAlgorithm:VerifyResponse' :: Maybe SigningAlgorithmSpec
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AsigningAlgorithm%3AVerifyResponse%27"><span class="hs-identifier hs-var">signingAlgorithm</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SigningAlgorithmSpec
-</span><a href="#local-6989586621679261747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-type">VerifyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-type">VerifyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-434"></span><span>
 </span><span id="line-435"></span><span class="hs-comment">-- | A Boolean value that indicates whether the signature was verified. A</span><span>
 </span><span id="line-436"></span><span class="hs-comment">-- value of @True@ indicates that the @Signature@ was produced by signing</span><span>
@@ -884,16 +884,16 @@ $sel:signingAlgorithm:VerifyResponse' :: VerifyResponse -&gt; Maybe SigningAlgor
 -&gt; (VerifyResponse -&gt; Maybe Bool -&gt; VerifyResponse)
 -&gt; Lens VerifyResponse VerifyResponse (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261746"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261981"><span class="annot"><span class="annottext">Maybe Bool
 signatureValid :: Maybe Bool
 $sel:signatureValid:VerifyResponse' :: VerifyResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679261746"><span class="hs-identifier hs-var hs-var">signatureValid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261746"><span class="hs-identifier hs-var">signatureValid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261745"><span class="annot"><span class="annottext">s :: VerifyResponse
-</span><a href="#local-6989586621679261745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261744"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyResponse
-</span><a href="#local-6989586621679261745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signatureValid:VerifyResponse' :: Maybe Bool
+</span><a href="#local-6989586621679261981"><span class="hs-identifier hs-var hs-var">signatureValid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679261981"><span class="hs-identifier hs-var">signatureValid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261980"><span class="annot"><span class="annottext">s :: VerifyResponse
+</span><a href="#local-6989586621679261980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261979"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679261979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyResponse
+</span><a href="#local-6989586621679261980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signatureValid:VerifyResponse' :: Maybe Bool
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AsignatureValid%3AVerifyResponse%27"><span class="hs-identifier hs-var">signatureValid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679261744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-type">VerifyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-type">VerifyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-442"></span><span>
 </span><span id="line-443"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
 </span><span id="line-444"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN&gt;)</span><span>
@@ -905,16 +905,16 @@ $sel:signatureValid:VerifyResponse' :: VerifyResponse -&gt; Maybe Bool
 -&gt; (VerifyResponse -&gt; Maybe Text -&gt; VerifyResponse)
 -&gt; Lens VerifyResponse VerifyResponse (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261743"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261978"><span class="annot"><span class="annottext">Maybe Text
 keyId :: Maybe Text
 $sel:keyId:VerifyResponse' :: VerifyResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679261743"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261743"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261742"><span class="annot"><span class="annottext">s :: VerifyResponse
-</span><a href="#local-6989586621679261742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261741"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyResponse
-</span><a href="#local-6989586621679261742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:VerifyResponse' :: Maybe Text
+</span><a href="#local-6989586621679261978"><span class="hs-identifier hs-var hs-var">keyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261978"><span class="hs-identifier hs-var">keyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261977"><span class="annot"><span class="annottext">s :: VerifyResponse
+</span><a href="#local-6989586621679261977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261976"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679261976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyResponse
+</span><a href="#local-6989586621679261977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyId:VerifyResponse' :: Maybe Text
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AkeyId%3AVerifyResponse%27"><span class="hs-identifier hs-var">keyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679261741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-type">VerifyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-type">VerifyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-448"></span><span>
 </span><span id="line-449"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-450"></span><span class="annot"><a href="Network.AWS.KMS.Verify.html#verifyResponse_httpStatus"><span class="hs-identifier hs-type">verifyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-type">VerifyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -923,16 +923,16 @@ $sel:keyId:VerifyResponse' :: VerifyResponse -&gt; Maybe Text
 -&gt; (VerifyResponse -&gt; Int -&gt; VerifyResponse)
 -&gt; Lens VerifyResponse VerifyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261740"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261975"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:VerifyResponse' :: VerifyResponse -&gt; Int
-</span><a href="#local-6989586621679261740"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261740"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261739"><span class="annot"><span class="annottext">s :: VerifyResponse
-</span><a href="#local-6989586621679261739"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261738"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261738"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyResponse
-</span><a href="#local-6989586621679261739"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyResponse' :: Int
+</span><a href="#local-6989586621679261975"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261975"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261974"><span class="annot"><span class="annottext">s :: VerifyResponse
+</span><a href="#local-6989586621679261974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse%27"><span class="hs-identifier hs-type">VerifyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261973"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerifyResponse
+</span><a href="#local-6989586621679261974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:VerifyResponse' :: Int
 </span><a href="Network.AWS.KMS.Verify.html#%24sel%3AhttpStatus%3AVerifyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679261738"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-type">VerifyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679261973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-type">VerifyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-452"></span><span>
-</span><span id="line-453"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261736"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-type">VerifyResponse</span></a></span></span><span>
+</span><span id="line-453"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261971"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Verify.html#VerifyResponse"><span class="hs-identifier hs-type">VerifyResponse</span></a></span></span><span>
 </span><span id="line-454"></span></pre></body></html>

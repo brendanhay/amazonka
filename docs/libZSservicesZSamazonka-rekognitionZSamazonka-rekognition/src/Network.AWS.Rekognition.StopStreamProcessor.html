@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newStopStreamProcessor' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679336549"><span id="local-6989586621679336550"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopStreamProcessor"><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-var">StopStreamProcessor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopStreamProcessor%27"><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor%27"><span class="hs-identifier hs-var">StopStreamProcessor'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679336848"><span id="local-6989586621679336849"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopStreamProcessor"><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-var">StopStreamProcessor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopStreamProcessor%27"><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor%27"><span class="hs-identifier hs-var">StopStreamProcessor'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of a stream processor created by CreateStreamProcessor.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3AStopStreamProcessor%27"><span class="annot"><span class="annottext">StopStreamProcessor -&gt; Text
 </span><a href="Network.AWS.Rekognition.StopStreamProcessor.html#%24sel%3Aname%3AStopStreamProcessor%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336543"><span id="local-6989586621679336545"><span class="annot"><span class="annottext">StopStreamProcessor -&gt; StopStreamProcessor -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336842"><span id="local-6989586621679336844"><span class="annot"><span class="annottext">StopStreamProcessor -&gt; StopStreamProcessor -&gt; Bool
 (StopStreamProcessor -&gt; StopStreamProcessor -&gt; Bool)
 -&gt; (StopStreamProcessor -&gt; StopStreamProcessor -&gt; Bool)
 -&gt; Eq StopStreamProcessor
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopStreamProcessor -&gt; StopStreamProcessor -&gt; Bool
 == :: StopStreamProcessor -&gt; StopStreamProcessor -&gt; Bool
 $c== :: StopStreamProcessor -&gt; StopStreamProcessor -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336534"><span id="local-6989586621679336536"><span id="local-6989586621679336538"><span id="local-6989586621679336540"><span class="annot"><span class="annottext">ReadPrec [StopStreamProcessor]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336833"><span id="local-6989586621679336835"><span id="local-6989586621679336837"><span id="local-6989586621679336839"><span class="annot"><span class="annottext">ReadPrec [StopStreamProcessor]
 ReadPrec StopStreamProcessor
 Int -&gt; ReadS StopStreamProcessor
 ReadS [StopStreamProcessor]
@@ -81,7 +81,7 @@ readList :: ReadS [StopStreamProcessor]
 $creadList :: ReadS [StopStreamProcessor]
 readsPrec :: Int -&gt; ReadS StopStreamProcessor
 $creadsPrec :: Int -&gt; ReadS StopStreamProcessor
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336527"><span id="local-6989586621679336529"><span id="local-6989586621679336531"><span class="annot"><span class="annottext">Int -&gt; StopStreamProcessor -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336826"><span id="local-6989586621679336828"><span id="local-6989586621679336830"><span class="annot"><span class="annottext">Int -&gt; StopStreamProcessor -&gt; ShowS
 [StopStreamProcessor] -&gt; ShowS
 StopStreamProcessor -&gt; String
 (Int -&gt; StopStreamProcessor -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. StopStreamProcessor -&gt; Rep StopStreamProcessor x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span><span>
 </span><span id="line-69"></span><span id="newStopStreamProcessor"><span class="annot"><span class="annottext">newStopStreamProcessor :: Text -&gt; StopStreamProcessor
-</span><a href="Network.AWS.Rekognition.StopStreamProcessor.html#newStopStreamProcessor"><span class="hs-identifier hs-var hs-var">newStopStreamProcessor</span></a></span></span><span> </span><span id="local-6989586621679336522"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336522"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.StopStreamProcessor.html#newStopStreamProcessor"><span class="hs-identifier hs-var hs-var">newStopStreamProcessor</span></a></span></span><span> </span><span id="local-6989586621679336821"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336821"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">StopStreamProcessor' :: Text -&gt; StopStreamProcessor
 </span><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor%27"><span class="hs-identifier hs-type">StopStreamProcessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopStreamProcessor' :: Text
 </span><a href="Network.AWS.Rekognition.StopStreamProcessor.html#%24sel%3Aname%3AStopStreamProcessor%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336522"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679336821"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of a stream processor created by CreateStreamProcessor.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#stopStreamProcessor_name"><span class="hs-identifier hs-type">stopStreamProcessor_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. StopStreamProcessor -&gt; Rep StopStreamProcessor x
 -&gt; (StopStreamProcessor -&gt; Text -&gt; StopStreamProcessor)
 -&gt; Lens StopStreamProcessor StopStreamProcessor Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor%27"><span class="hs-identifier hs-type">StopStreamProcessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336519"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor%27"><span class="hs-identifier hs-type">StopStreamProcessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336818"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:StopStreamProcessor' :: StopStreamProcessor -&gt; Text
-</span><a href="#local-6989586621679336519"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336519"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336518"><span class="annot"><span class="annottext">s :: StopStreamProcessor
-</span><a href="#local-6989586621679336518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor%27"><span class="hs-identifier hs-type">StopStreamProcessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336517"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopStreamProcessor
-</span><a href="#local-6989586621679336518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopStreamProcessor' :: Text
+</span><a href="#local-6989586621679336818"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336818"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336817"><span class="annot"><span class="annottext">s :: StopStreamProcessor
+</span><a href="#local-6989586621679336817"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor%27"><span class="hs-identifier hs-type">StopStreamProcessor'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336816"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336816"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopStreamProcessor
+</span><a href="#local-6989586621679336817"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopStreamProcessor' :: Text
 </span><a href="Network.AWS.Rekognition.StopStreamProcessor.html#%24sel%3Aname%3AStopStreamProcessor%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336816"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse"><span class="hs-identifier hs-type">StopStreamProcessorResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679336513"><span class="annot"><span class="annottext">request :: StopStreamProcessor -&gt; Request StopStreamProcessor
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679336812"><span class="annot"><span class="annottext">request :: StopStreamProcessor -&gt; Request StopStreamProcessor
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopStreamProcessor -&gt; Request StopStreamProcessor
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Rekognition.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679336509"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679336808"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopStreamProcessor
 -&gt; ClientResponse ClientBody
@@ -181,10 +181,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679336506"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336506"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679336505"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679336505"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679336504"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679336504"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679336805"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336805"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679336804"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679336804"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679336803"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679336803"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; StopStreamProcessorResponse
 </span><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse%27"><span class="hs-identifier hs-var">StopStreamProcessorResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; StopStreamProcessorResponse)
@@ -195,15 +195,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336506"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336805"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336497"><span id="local-6989586621679336499"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336796"><span id="local-6989586621679336798"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336494"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679336490"><span class="annot"><span class="annottext">toHeaders :: StopStreamProcessor -&gt; ResponseHeaders
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679336789"><span class="annot"><span class="annottext">toHeaders :: StopStreamProcessor -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopStreamProcessor -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -230,12 +230,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336480"><span id="local-6989586621679336482"><span id="local-6989586621679336484"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679336478"><span class="annot"><span class="annottext">toJSON :: StopStreamProcessor -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor%27"><span class="hs-identifier hs-type">StopStreamProcessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336476"><span class="annot"><span class="annottext">Text
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336779"><span id="local-6989586621679336781"><span id="local-6989586621679336783"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679336777"><span class="annot"><span class="annottext">toJSON :: StopStreamProcessor -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor%27"><span class="hs-identifier hs-type">StopStreamProcessor'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336775"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:StopStreamProcessor' :: StopStreamProcessor -&gt; Text
-</span><a href="#local-6989586621679336476"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679336775"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -247,18 +247,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679336476"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679336775"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679336470"><span class="annot"><span class="annottext">toPath :: StopStreamProcessor -&gt; ByteString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679336769"><span class="annot"><span class="annottext">toPath :: StopStreamProcessor -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopStreamProcessor -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessor"><span class="hs-identifier hs-type">StopStreamProcessor</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679336466"><span class="annot"><span class="annottext">toQuery :: StopStreamProcessor -&gt; QueryString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679336765"><span class="annot"><span class="annottext">toQuery :: StopStreamProcessor -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopStreamProcessor -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -266,12 +266,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newStopStreamProcessorResponse' smart constructor.</span><span>
-</span><span id="line-121"></span><span id="local-6989586621679336463"><span id="local-6989586621679336464"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopStreamProcessorResponse"><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse"><span class="hs-identifier hs-var">StopStreamProcessorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopStreamProcessorResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse%27"><span class="hs-identifier hs-var">StopStreamProcessorResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span id="local-6989586621679336762"><span id="local-6989586621679336763"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopStreamProcessorResponse"><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse"><span class="hs-identifier hs-var">StopStreamProcessorResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopStreamProcessorResponse%27"><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse%27"><span class="hs-identifier hs-var">StopStreamProcessorResponse'</span></a></span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopStreamProcessorResponse%27"><span class="annot"><span class="annottext">StopStreamProcessorResponse -&gt; Int
 </span><a href="Network.AWS.Rekognition.StopStreamProcessor.html#%24sel%3AhttpStatus%3AStopStreamProcessorResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336458"><span id="local-6989586621679336460"><span class="annot"><span class="annottext">StopStreamProcessorResponse -&gt; StopStreamProcessorResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336757"><span id="local-6989586621679336759"><span class="annot"><span class="annottext">StopStreamProcessorResponse -&gt; StopStreamProcessorResponse -&gt; Bool
 (StopStreamProcessorResponse
  -&gt; StopStreamProcessorResponse -&gt; Bool)
 -&gt; (StopStreamProcessorResponse
@@ -282,7 +282,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopStreamProcessorResponse -&gt; StopStreamProcessorResponse -&gt; Bool
 == :: StopStreamProcessorResponse -&gt; StopStreamProcessorResponse -&gt; Bool
 $c== :: StopStreamProcessorResponse -&gt; StopStreamProcessorResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336450"><span id="local-6989586621679336452"><span id="local-6989586621679336454"><span id="local-6989586621679336456"><span class="annot"><span class="annottext">ReadPrec [StopStreamProcessorResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336749"><span id="local-6989586621679336751"><span id="local-6989586621679336753"><span id="local-6989586621679336755"><span class="annot"><span class="annottext">ReadPrec [StopStreamProcessorResponse]
 ReadPrec StopStreamProcessorResponse
 Int -&gt; ReadS StopStreamProcessorResponse
 ReadS [StopStreamProcessorResponse]
@@ -302,7 +302,7 @@ readList :: ReadS [StopStreamProcessorResponse]
 $creadList :: ReadS [StopStreamProcessorResponse]
 readsPrec :: Int -&gt; ReadS StopStreamProcessorResponse
 $creadsPrec :: Int -&gt; ReadS StopStreamProcessorResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336444"><span id="local-6989586621679336446"><span id="local-6989586621679336448"><span class="annot"><span class="annottext">Int -&gt; StopStreamProcessorResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336743"><span id="local-6989586621679336745"><span id="local-6989586621679336747"><span class="annot"><span class="annottext">Int -&gt; StopStreamProcessorResponse -&gt; ShowS
 [StopStreamProcessorResponse] -&gt; ShowS
 StopStreamProcessorResponse -&gt; String
 (Int -&gt; StopStreamProcessorResponse -&gt; ShowS)
@@ -348,14 +348,14 @@ StopStreamProcessorResponse -&gt; Rep StopStreamProcessorResponse x
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse"><span class="hs-identifier hs-type">StopStreamProcessorResponse</span></a></span><span>
 </span><span id="line-140"></span><span id="newStopStreamProcessorResponse"><span class="annot"><span class="annottext">newStopStreamProcessorResponse :: Int -&gt; StopStreamProcessorResponse
-</span><a href="Network.AWS.Rekognition.StopStreamProcessor.html#newStopStreamProcessorResponse"><span class="hs-identifier hs-var hs-var">newStopStreamProcessorResponse</span></a></span></span><span> </span><span id="local-6989586621679336441"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336441"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Rekognition.StopStreamProcessor.html#newStopStreamProcessorResponse"><span class="hs-identifier hs-var hs-var">newStopStreamProcessorResponse</span></a></span></span><span> </span><span id="local-6989586621679336740"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336740"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">StopStreamProcessorResponse' :: Int -&gt; StopStreamProcessorResponse
 </span><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse%27"><span class="hs-identifier hs-type">StopStreamProcessorResponse'</span></a></span><span>
 </span><span id="line-142"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:StopStreamProcessorResponse' :: Int
 </span><a href="Network.AWS.Rekognition.StopStreamProcessor.html#%24sel%3AhttpStatus%3AStopStreamProcessorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336441"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679336740"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -368,16 +368,16 @@ StopStreamProcessorResponse -&gt; Rep StopStreamProcessorResponse x
 -&gt; Lens
      StopStreamProcessorResponse StopStreamProcessorResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse%27"><span class="hs-identifier hs-type">StopStreamProcessorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336440"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse%27"><span class="hs-identifier hs-type">StopStreamProcessorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336739"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopStreamProcessorResponse' :: StopStreamProcessorResponse -&gt; Int
-</span><a href="#local-6989586621679336440"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336440"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336439"><span class="annot"><span class="annottext">s :: StopStreamProcessorResponse
-</span><a href="#local-6989586621679336439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse%27"><span class="hs-identifier hs-type">StopStreamProcessorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336438"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopStreamProcessorResponse
-</span><a href="#local-6989586621679336439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopStreamProcessorResponse' :: Int
+</span><a href="#local-6989586621679336739"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336739"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336738"><span class="annot"><span class="annottext">s :: StopStreamProcessorResponse
+</span><a href="#local-6989586621679336738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse%27"><span class="hs-identifier hs-type">StopStreamProcessorResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336737"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679336737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopStreamProcessorResponse
+</span><a href="#local-6989586621679336738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopStreamProcessorResponse' :: Int
 </span><a href="Network.AWS.Rekognition.StopStreamProcessor.html#%24sel%3AhttpStatus%3AStopStreamProcessorResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679336438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse"><span class="hs-identifier hs-type">StopStreamProcessorResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679336737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse"><span class="hs-identifier hs-type">StopStreamProcessorResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336436"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse"><span class="hs-identifier hs-type">StopStreamProcessorResponse</span></a></span></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336735"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Rekognition.StopStreamProcessor.html#StopStreamProcessorResponse"><span class="hs-identifier hs-type">StopStreamProcessorResponse</span></a></span></span><span>
 </span><span id="line-151"></span></pre></body></html>

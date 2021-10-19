@@ -48,12 +48,12 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetMasterAccount' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679308418"><span id="local-6989586621679308419"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMasterAccount"><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-var">GetMasterAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMasterAccount%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount%27"><span class="hs-identifier hs-var">GetMasterAccount'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679308742"><span id="local-6989586621679308743"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMasterAccount"><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-var">GetMasterAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMasterAccount%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount%27"><span class="hs-identifier hs-var">GetMasterAccount'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the detector of the GuardDuty member account.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AdetectorId%3AGetMasterAccount%27"><span class="annot"><span class="annottext">GetMasterAccount -&gt; Text
 </span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#%24sel%3AdetectorId%3AGetMasterAccount%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308412"><span id="local-6989586621679308414"><span class="annot"><span class="annottext">GetMasterAccount -&gt; GetMasterAccount -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308736"><span id="local-6989586621679308738"><span class="annot"><span class="annottext">GetMasterAccount -&gt; GetMasterAccount -&gt; Bool
 (GetMasterAccount -&gt; GetMasterAccount -&gt; Bool)
 -&gt; (GetMasterAccount -&gt; GetMasterAccount -&gt; Bool)
 -&gt; Eq GetMasterAccount
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMasterAccount -&gt; GetMasterAccount -&gt; Bool
 == :: GetMasterAccount -&gt; GetMasterAccount -&gt; Bool
 $c== :: GetMasterAccount -&gt; GetMasterAccount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308403"><span id="local-6989586621679308405"><span id="local-6989586621679308407"><span id="local-6989586621679308409"><span class="annot"><span class="annottext">ReadPrec [GetMasterAccount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308727"><span id="local-6989586621679308729"><span id="local-6989586621679308731"><span id="local-6989586621679308733"><span class="annot"><span class="annottext">ReadPrec [GetMasterAccount]
 ReadPrec GetMasterAccount
 Int -&gt; ReadS GetMasterAccount
 ReadS [GetMasterAccount]
@@ -82,7 +82,7 @@ readList :: ReadS [GetMasterAccount]
 $creadList :: ReadS [GetMasterAccount]
 readsPrec :: Int -&gt; ReadS GetMasterAccount
 $creadsPrec :: Int -&gt; ReadS GetMasterAccount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308396"><span id="local-6989586621679308398"><span id="local-6989586621679308400"><span class="annot"><span class="annottext">Int -&gt; GetMasterAccount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308720"><span id="local-6989586621679308722"><span id="local-6989586621679308724"><span class="annot"><span class="annottext">Int -&gt; GetMasterAccount -&gt; ShowS
 [GetMasterAccount] -&gt; ShowS
 GetMasterAccount -&gt; String
 (Int -&gt; GetMasterAccount -&gt; ShowS)
@@ -122,12 +122,12 @@ $cfrom :: forall x. GetMasterAccount -&gt; Rep GetMasterAccount x
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-type">GetMasterAccount</span></a></span><span>
 </span><span id="line-70"></span><span id="newGetMasterAccount"><span class="annot"><span class="annottext">newGetMasterAccount :: Text -&gt; GetMasterAccount
-</span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#newGetMasterAccount"><span class="hs-identifier hs-var hs-var">newGetMasterAccount</span></a></span></span><span> </span><span id="local-6989586621679308391"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308391"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#newGetMasterAccount"><span class="hs-identifier hs-var hs-var">newGetMasterAccount</span></a></span></span><span> </span><span id="local-6989586621679308715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308715"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">GetMasterAccount' :: Text -&gt; GetMasterAccount
 </span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount%27"><span class="hs-identifier hs-type">GetMasterAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:GetMasterAccount' :: Text
 </span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#%24sel%3AdetectorId%3AGetMasterAccount%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308391"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679308715"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The unique ID of the detector of the GuardDuty member account.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#getMasterAccount_detectorId"><span class="hs-identifier hs-type">getMasterAccount_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-type">GetMasterAccount</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -136,27 +136,27 @@ $cfrom :: forall x. GetMasterAccount -&gt; Rep GetMasterAccount x
 -&gt; (GetMasterAccount -&gt; Text -&gt; GetMasterAccount)
 -&gt; Lens GetMasterAccount GetMasterAccount Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount%27"><span class="hs-identifier hs-type">GetMasterAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308388"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount%27"><span class="hs-identifier hs-type">GetMasterAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308712"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:GetMasterAccount' :: GetMasterAccount -&gt; Text
-</span><a href="#local-6989586621679308388"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308388"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308387"><span class="annot"><span class="annottext">s :: GetMasterAccount
-</span><a href="#local-6989586621679308387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount%27"><span class="hs-identifier hs-type">GetMasterAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308386"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMasterAccount
-</span><a href="#local-6989586621679308387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:GetMasterAccount' :: Text
+</span><a href="#local-6989586621679308712"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308712"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308711"><span class="annot"><span class="annottext">s :: GetMasterAccount
+</span><a href="#local-6989586621679308711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount%27"><span class="hs-identifier hs-type">GetMasterAccount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308710"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679308710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMasterAccount
+</span><a href="#local-6989586621679308711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:GetMasterAccount' :: Text
 </span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#%24sel%3AdetectorId%3AGetMasterAccount%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-type">GetMasterAccount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-type">GetMasterAccount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-type">GetMasterAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-type">GetMasterAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse"><span class="hs-identifier hs-type">GetMasterAccountResponse</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679308382"><span class="annot"><span class="annottext">request :: GetMasterAccount -&gt; Request GetMasterAccount
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679308706"><span class="annot"><span class="annottext">request :: GetMasterAccount -&gt; Request GetMasterAccount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetMasterAccount -&gt; Request GetMasterAccount
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.GuardDuty.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679308378"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679308702"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetMasterAccount
 -&gt; ClientResponse ClientBody
@@ -180,10 +180,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308375"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308375"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679308374"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679308374"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679308373"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308373"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679308699"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308699"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679308698"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679308698"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679308697"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679308697"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Master -&gt; GetMasterAccountResponse
 </span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse%27"><span class="hs-identifier hs-var">GetMasterAccountResponse'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Master -&gt; GetMasterAccountResponse)
@@ -195,23 +195,23 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308375"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308699"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Either String (Master -&gt; GetMasterAccountResponse)
 -&gt; Either String Master -&gt; Either String GetMasterAccountResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679308373"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Master
+</span><a href="#local-6989586621679308697"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Master
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;master&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308365"><span id="local-6989586621679308367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-type">GetMasterAccount</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308689"><span id="local-6989586621679308691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-type">GetMasterAccount</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-type">GetMasterAccount</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-type">GetMasterAccount</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-type">GetMasterAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679308358"><span class="annot"><span class="annottext">toHeaders :: GetMasterAccount -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679308682"><span class="annot"><span class="annottext">toHeaders :: GetMasterAccount -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetMasterAccount -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -231,11 +231,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-type">GetMasterAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679308352"><span class="annot"><span class="annottext">toPath :: GetMasterAccount -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount%27"><span class="hs-identifier hs-type">GetMasterAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308350"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679308676"><span class="annot"><span class="annottext">toPath :: GetMasterAccount -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount%27"><span class="hs-identifier hs-type">GetMasterAccount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308674"><span class="annot"><span class="annottext">Text
 detectorId :: Text
 $sel:detectorId:GetMasterAccount' :: GetMasterAccount -&gt; Text
-</span><a href="#local-6989586621679308350"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679308674"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -243,11 +243,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;/detector/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679308350"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679308674"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/master&quot;</span></span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccount"><span class="hs-identifier hs-type">GetMasterAccount</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679308346"><span class="annot"><span class="annottext">toQuery :: GetMasterAccount -&gt; QueryString
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679308670"><span class="annot"><span class="annottext">toQuery :: GetMasterAccount -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetMasterAccount -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -255,7 +255,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | /See:/ 'newGetMasterAccountResponse' smart constructor.</span><span>
-</span><span id="line-114"></span><span id="local-6989586621679308343"><span id="local-6989586621679308344"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMasterAccountResponse"><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse"><span class="hs-identifier hs-var">GetMasterAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMasterAccountResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse%27"><span class="hs-identifier hs-var">GetMasterAccountResponse'</span></a></span></span><span>
+</span><span id="line-114"></span><span id="local-6989586621679308667"><span id="local-6989586621679308668"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetMasterAccountResponse"><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse"><span class="hs-identifier hs-var">GetMasterAccountResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetMasterAccountResponse%27"><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse%27"><span class="hs-identifier hs-var">GetMasterAccountResponse'</span></a></span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-116"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetMasterAccountResponse%27"><span class="annot"><span class="annottext">GetMasterAccountResponse -&gt; Int
 </span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#%24sel%3AhttpStatus%3AGetMasterAccountResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -263,7 +263,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3Amaster%3AGetMasterAccountResponse%27"><span class="annot"><span class="annottext">GetMasterAccountResponse -&gt; Master
 </span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#%24sel%3Amaster%3AGetMasterAccountResponse%27"><span class="hs-identifier hs-var hs-var">master</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308337"><span id="local-6989586621679308339"><span class="annot"><span class="annottext">GetMasterAccountResponse -&gt; GetMasterAccountResponse -&gt; Bool
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679308661"><span id="local-6989586621679308663"><span class="annot"><span class="annottext">GetMasterAccountResponse -&gt; GetMasterAccountResponse -&gt; Bool
 (GetMasterAccountResponse -&gt; GetMasterAccountResponse -&gt; Bool)
 -&gt; (GetMasterAccountResponse -&gt; GetMasterAccountResponse -&gt; Bool)
 -&gt; Eq GetMasterAccountResponse
@@ -272,7 +272,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetMasterAccountResponse -&gt; GetMasterAccountResponse -&gt; Bool
 == :: GetMasterAccountResponse -&gt; GetMasterAccountResponse -&gt; Bool
 $c== :: GetMasterAccountResponse -&gt; GetMasterAccountResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308329"><span id="local-6989586621679308331"><span id="local-6989586621679308333"><span id="local-6989586621679308335"><span class="annot"><span class="annottext">ReadPrec [GetMasterAccountResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308653"><span id="local-6989586621679308655"><span id="local-6989586621679308657"><span id="local-6989586621679308659"><span class="annot"><span class="annottext">ReadPrec [GetMasterAccountResponse]
 ReadPrec GetMasterAccountResponse
 Int -&gt; ReadS GetMasterAccountResponse
 ReadS [GetMasterAccountResponse]
@@ -292,7 +292,7 @@ readList :: ReadS [GetMasterAccountResponse]
 $creadList :: ReadS [GetMasterAccountResponse]
 readsPrec :: Int -&gt; ReadS GetMasterAccountResponse
 $creadsPrec :: Int -&gt; ReadS GetMasterAccountResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308323"><span id="local-6989586621679308325"><span id="local-6989586621679308327"><span class="annot"><span class="annottext">Int -&gt; GetMasterAccountResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679308647"><span id="local-6989586621679308649"><span id="local-6989586621679308651"><span class="annot"><span class="annottext">Int -&gt; GetMasterAccountResponse -&gt; ShowS
 [GetMasterAccountResponse] -&gt; ShowS
 GetMasterAccountResponse -&gt; String
 (Int -&gt; GetMasterAccountResponse -&gt; ShowS)
@@ -342,18 +342,18 @@ GetMasterAccountResponse -&gt; Rep GetMasterAccountResponse x
 </span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse"><span class="hs-identifier hs-type">GetMasterAccountResponse</span></a></span><span>
 </span><span id="line-139"></span><span id="newGetMasterAccountResponse"><span class="annot"><span class="annottext">newGetMasterAccountResponse :: Int -&gt; Master -&gt; GetMasterAccountResponse
-</span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#newGetMasterAccountResponse"><span class="hs-identifier hs-var hs-var">newGetMasterAccountResponse</span></a></span></span><span> </span><span id="local-6989586621679308320"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308320"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679308319"><span class="annot"><span class="annottext">Master
-</span><a href="#local-6989586621679308319"><span class="hs-identifier hs-var">pMaster_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#newGetMasterAccountResponse"><span class="hs-identifier hs-var hs-var">newGetMasterAccountResponse</span></a></span></span><span> </span><span id="local-6989586621679308644"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308644"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679308643"><span class="annot"><span class="annottext">Master
+</span><a href="#local-6989586621679308643"><span class="hs-identifier hs-var">pMaster_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">GetMasterAccountResponse' :: Int -&gt; Master -&gt; GetMasterAccountResponse
 </span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse%27"><span class="hs-identifier hs-type">GetMasterAccountResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetMasterAccountResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#%24sel%3AhttpStatus%3AGetMasterAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308320"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679308644"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:master:GetMasterAccountResponse' :: Master
 </span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#%24sel%3Amaster%3AGetMasterAccountResponse%27"><span class="hs-identifier hs-var">master</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Master
-</span><a href="#local-6989586621679308319"><span class="hs-identifier hs-var">pMaster_</span></a></span><span>
+</span><a href="#local-6989586621679308643"><span class="hs-identifier hs-var">pMaster_</span></a></span><span>
 </span><span id="line-144"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -364,16 +364,16 @@ GetMasterAccountResponse -&gt; Rep GetMasterAccountResponse x
 -&gt; (GetMasterAccountResponse -&gt; Int -&gt; GetMasterAccountResponse)
 -&gt; Lens GetMasterAccountResponse GetMasterAccountResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse%27"><span class="hs-identifier hs-type">GetMasterAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308318"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse%27"><span class="hs-identifier hs-type">GetMasterAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308642"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetMasterAccountResponse' :: GetMasterAccountResponse -&gt; Int
-</span><a href="#local-6989586621679308318"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308318"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308317"><span class="annot"><span class="annottext">s :: GetMasterAccountResponse
-</span><a href="#local-6989586621679308317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse%27"><span class="hs-identifier hs-type">GetMasterAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308316"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMasterAccountResponse
-</span><a href="#local-6989586621679308317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMasterAccountResponse' :: Int
+</span><a href="#local-6989586621679308642"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308642"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308641"><span class="annot"><span class="annottext">s :: GetMasterAccountResponse
+</span><a href="#local-6989586621679308641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse%27"><span class="hs-identifier hs-type">GetMasterAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308640"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679308640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMasterAccountResponse
+</span><a href="#local-6989586621679308641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetMasterAccountResponse' :: Int
 </span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#%24sel%3AhttpStatus%3AGetMasterAccountResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679308316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse"><span class="hs-identifier hs-type">GetMasterAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse"><span class="hs-identifier hs-type">GetMasterAccountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The administrator account details.</span><span>
 </span><span id="line-151"></span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#getMasterAccountResponse_master"><span class="hs-identifier hs-type">getMasterAccountResponse_master</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse"><span class="hs-identifier hs-type">GetMasterAccountResponse</span></a></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Master.html#Master"><span class="hs-identifier hs-type">Master</span></a></span><span>
@@ -384,16 +384,16 @@ $sel:httpStatus:GetMasterAccountResponse' :: GetMasterAccountResponse -&gt; Int
 -&gt; Lens
      GetMasterAccountResponse GetMasterAccountResponse Master Master
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse%27"><span class="hs-identifier hs-type">GetMasterAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308315"><span class="annot"><span class="annottext">Master
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse%27"><span class="hs-identifier hs-type">GetMasterAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679308639"><span class="annot"><span class="annottext">Master
 master :: Master
 $sel:master:GetMasterAccountResponse' :: GetMasterAccountResponse -&gt; Master
-</span><a href="#local-6989586621679308315"><span class="hs-identifier hs-var hs-var">master</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Master
-</span><a href="#local-6989586621679308315"><span class="hs-identifier hs-var">master</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308314"><span class="annot"><span class="annottext">s :: GetMasterAccountResponse
-</span><a href="#local-6989586621679308314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse%27"><span class="hs-identifier hs-type">GetMasterAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308313"><span class="annot"><span class="annottext">Master
-</span><a href="#local-6989586621679308313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMasterAccountResponse
-</span><a href="#local-6989586621679308314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:master:GetMasterAccountResponse' :: Master
+</span><a href="#local-6989586621679308639"><span class="hs-identifier hs-var hs-var">master</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Master
+</span><a href="#local-6989586621679308639"><span class="hs-identifier hs-var">master</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679308638"><span class="annot"><span class="annottext">s :: GetMasterAccountResponse
+</span><a href="#local-6989586621679308638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse%27"><span class="hs-identifier hs-type">GetMasterAccountResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679308637"><span class="annot"><span class="annottext">Master
+</span><a href="#local-6989586621679308637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetMasterAccountResponse
+</span><a href="#local-6989586621679308638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:master:GetMasterAccountResponse' :: Master
 </span><a href="Network.AWS.GuardDuty.GetMasterAccount.html#%24sel%3Amaster%3AGetMasterAccountResponse%27"><span class="hs-identifier hs-var">master</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Master
-</span><a href="#local-6989586621679308313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse"><span class="hs-identifier hs-type">GetMasterAccountResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679308637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse"><span class="hs-identifier hs-type">GetMasterAccountResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse"><span class="hs-identifier hs-type">GetMasterAccountResponse</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679308635"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.GetMasterAccount.html#GetMasterAccountResponse"><span class="hs-identifier hs-type">GetMasterAccountResponse</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

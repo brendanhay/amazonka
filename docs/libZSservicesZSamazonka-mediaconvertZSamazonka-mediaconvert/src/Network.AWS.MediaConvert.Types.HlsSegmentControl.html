@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | When set to SINGLE_FILE, emits program as a single media resource (.ts)</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- file, uses #EXT-X-BYTERANGE tags to index segment for playback.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679973884"><span id="local-6989586621679973885"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsSegmentControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsSegmentControl.html#HlsSegmentControl"><span class="hs-identifier hs-var">HlsSegmentControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsSegmentControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsSegmentControl.html#HlsSegmentControl%27"><span class="hs-identifier hs-var">HlsSegmentControl'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679978509"><span id="local-6989586621679978510"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsSegmentControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsSegmentControl.html#HlsSegmentControl"><span class="hs-identifier hs-var">HlsSegmentControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsSegmentControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.HlsSegmentControl.html#HlsSegmentControl%27"><span class="hs-identifier hs-var">HlsSegmentControl'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsSegmentControl"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.HlsSegmentControl.html#fromHlsSegmentControl"><span class="hs-identifier hs-var hs-var">fromHlsSegmentControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679973876"><span id="local-6989586621679973878"><span id="local-6989586621679973880"><span class="annot"><span class="annottext">Int -&gt; HlsSegmentControl -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679978501"><span id="local-6989586621679978503"><span id="local-6989586621679978505"><span class="annot"><span class="annottext">Int -&gt; HlsSegmentControl -&gt; ShowS
 [HlsSegmentControl] -&gt; ShowS
 HlsSegmentControl -&gt; String
 (Int -&gt; HlsSegmentControl -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: HlsSegmentControl -&gt; String
 showsPrec :: Int -&gt; HlsSegmentControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsSegmentControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679973867"><span id="local-6989586621679973869"><span id="local-6989586621679973871"><span id="local-6989586621679973873"><span class="annot"><span class="annottext">ReadPrec [HlsSegmentControl]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679978492"><span id="local-6989586621679978494"><span id="local-6989586621679978496"><span id="local-6989586621679978498"><span class="annot"><span class="annottext">ReadPrec [HlsSegmentControl]
 ReadPrec HlsSegmentControl
 Int -&gt; ReadS HlsSegmentControl
 ReadS [HlsSegmentControl]
@@ -74,7 +74,7 @@ $creadList :: ReadS [HlsSegmentControl]
 readsPrec :: Int -&gt; ReadS HlsSegmentControl
 $creadsPrec :: Int -&gt; ReadS HlsSegmentControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679973862"><span id="local-6989586621679973864"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; HlsSegmentControl -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679978487"><span id="local-6989586621679978489"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; HlsSegmentControl -&gt; Bool
 (HlsSegmentControl -&gt; HlsSegmentControl -&gt; Bool)
 -&gt; (HlsSegmentControl -&gt; HlsSegmentControl -&gt; Bool)
 -&gt; Eq HlsSegmentControl
@@ -84,7 +84,7 @@ $c/= :: HlsSegmentControl -&gt; HlsSegmentControl -&gt; Bool
 == :: HlsSegmentControl -&gt; HlsSegmentControl -&gt; Bool
 $c== :: HlsSegmentControl -&gt; HlsSegmentControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679973846"><span id="local-6989586621679973848"><span id="local-6989586621679973850"><span id="local-6989586621679973852"><span id="local-6989586621679973854"><span id="local-6989586621679973856"><span id="local-6989586621679973858"><span class="annot"><span class="annottext">Eq HlsSegmentControl
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679978471"><span id="local-6989586621679978473"><span id="local-6989586621679978475"><span id="local-6989586621679978477"><span id="local-6989586621679978479"><span id="local-6989586621679978481"><span id="local-6989586621679978483"><span class="annot"><span class="annottext">Eq HlsSegmentControl
 Eq HlsSegmentControl
 -&gt; (HlsSegmentControl -&gt; HlsSegmentControl -&gt; Ordering)
 -&gt; (HlsSegmentControl -&gt; HlsSegmentControl -&gt; Bool)
@@ -135,7 +135,7 @@ $cfrom :: forall x. HlsSegmentControl -&gt; Rep HlsSegmentControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679973838"><span id="local-6989586621679973840"><span class="annot"><span class="annottext">Int -&gt; HlsSegmentControl -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679978463"><span id="local-6989586621679978465"><span class="annot"><span class="annottext">Int -&gt; HlsSegmentControl -&gt; Int
 HlsSegmentControl -&gt; Int
 (Int -&gt; HlsSegmentControl -&gt; Int)
 -&gt; (HlsSegmentControl -&gt; Int) -&gt; Hashable HlsSegmentControl
@@ -145,51 +145,51 @@ $chash :: HlsSegmentControl -&gt; Int
 hashWithSalt :: Int -&gt; HlsSegmentControl -&gt; Int
 $chashWithSalt :: Int -&gt; HlsSegmentControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679973835"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679978460"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; ()
 (HlsSegmentControl -&gt; ()) -&gt; NFData HlsSegmentControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsSegmentControl -&gt; ()
 $crnf :: HlsSegmentControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679973832"><span class="annot"><span class="annottext">Text -&gt; Either String HlsSegmentControl
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679978457"><span class="annot"><span class="annottext">Text -&gt; Either String HlsSegmentControl
 (Text -&gt; Either String HlsSegmentControl)
 -&gt; FromText HlsSegmentControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsSegmentControl
 $cfromText :: Text -&gt; Either String HlsSegmentControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679973829"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679978454"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; Text
 (HlsSegmentControl -&gt; Text) -&gt; ToText HlsSegmentControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsSegmentControl -&gt; Text
 $ctoText :: HlsSegmentControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679973826"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679978451"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; ByteString
 (HlsSegmentControl -&gt; ByteString) -&gt; ToByteString HlsSegmentControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsSegmentControl -&gt; ByteString
 $ctoBS :: HlsSegmentControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679973823"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679978448"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; ByteStringBuilder
 (HlsSegmentControl -&gt; ByteStringBuilder) -&gt; ToLog HlsSegmentControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsSegmentControl -&gt; ByteStringBuilder
 $cbuild :: HlsSegmentControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679973820"><span class="annot"><span class="annottext">HeaderName -&gt; HlsSegmentControl -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679978445"><span class="annot"><span class="annottext">HeaderName -&gt; HlsSegmentControl -&gt; [Header]
 (HeaderName -&gt; HlsSegmentControl -&gt; [Header])
 -&gt; ToHeader HlsSegmentControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsSegmentControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsSegmentControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679973817"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679978442"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; QueryString
 (HlsSegmentControl -&gt; QueryString) -&gt; ToQuery HlsSegmentControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsSegmentControl -&gt; QueryString
 $ctoQuery :: HlsSegmentControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679973812"><span id="local-6989586621679973814"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsSegmentControl]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679978437"><span id="local-6989586621679978439"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsSegmentControl]
 Value -&gt; Parser HlsSegmentControl
 (Value -&gt; Parser HlsSegmentControl)
 -&gt; (Value -&gt; Parser [HlsSegmentControl])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsSegmentControl]
 parseJSON :: Value -&gt; Parser HlsSegmentControl
 $cparseJSON :: Value -&gt; Parser HlsSegmentControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679973807"><span id="local-6989586621679973809"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsSegmentControl]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679978432"><span id="local-6989586621679978434"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsSegmentControl]
 FromJSONKeyFunction HlsSegmentControl
 FromJSONKeyFunction HlsSegmentControl
 -&gt; FromJSONKeyFunction [HlsSegmentControl]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsSegmentControl]
 fromJSONKey :: FromJSONKeyFunction HlsSegmentControl
 $cfromJSONKey :: FromJSONKeyFunction HlsSegmentControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679973798"><span id="local-6989586621679973800"><span id="local-6989586621679973802"><span id="local-6989586621679973804"><span class="annot"><span class="annottext">[HlsSegmentControl] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679978423"><span id="local-6989586621679978425"><span id="local-6989586621679978427"><span id="local-6989586621679978429"><span class="annot"><span class="annottext">[HlsSegmentControl] -&gt; Encoding
 [HlsSegmentControl] -&gt; Value
 HlsSegmentControl -&gt; Encoding
 HlsSegmentControl -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: HlsSegmentControl -&gt; Encoding
 toJSON :: HlsSegmentControl -&gt; Value
 $ctoJSON :: HlsSegmentControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679973793"><span id="local-6989586621679973795"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsSegmentControl]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679978418"><span id="local-6989586621679978420"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsSegmentControl]
 ToJSONKeyFunction HlsSegmentControl
 ToJSONKeyFunction HlsSegmentControl
 -&gt; ToJSONKeyFunction [HlsSegmentControl]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsSegmentControl]
 toJSONKey :: ToJSONKeyFunction HlsSegmentControl
 $ctoJSONKey :: ToJSONKeyFunction HlsSegmentControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679973790"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsSegmentControl
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679978415"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsSegmentControl
 ([Node] -&gt; Either String HlsSegmentControl)
 -&gt; FromXML HlsSegmentControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsSegmentControl
 $cparseXML :: [Node] -&gt; Either String HlsSegmentControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679973787"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679978412"><span class="annot"><span class="annottext">HlsSegmentControl -&gt; XML
 (HlsSegmentControl -&gt; XML) -&gt; ToXML HlsSegmentControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsSegmentControl -&gt; XML

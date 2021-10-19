@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679264509"><span id="local-6989586621679264510"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfigStatus"><span class="annot"><a href="Network.AWS.EKS.Types.ConfigStatus.html#ConfigStatus"><span class="hs-identifier hs-var">ConfigStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigStatus%27"><span class="annot"><a href="Network.AWS.EKS.Types.ConfigStatus.html#ConfigStatus%27"><span class="hs-identifier hs-var">ConfigStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679264761"><span id="local-6989586621679264762"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConfigStatus"><span class="annot"><a href="Network.AWS.EKS.Types.ConfigStatus.html#ConfigStatus"><span class="hs-identifier hs-var">ConfigStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigStatus%27"><span class="annot"><a href="Network.AWS.EKS.Types.ConfigStatus.html#ConfigStatus%27"><span class="hs-identifier hs-var">ConfigStatus'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConfigStatus"><span class="annot"><span class="annottext">ConfigStatus -&gt; Text
 </span><a href="Network.AWS.EKS.Types.ConfigStatus.html#fromConfigStatus"><span class="hs-identifier hs-var hs-var">fromConfigStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679264501"><span id="local-6989586621679264503"><span id="local-6989586621679264505"><span class="annot"><span class="annottext">Int -&gt; ConfigStatus -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679264753"><span id="local-6989586621679264755"><span id="local-6989586621679264757"><span class="annot"><span class="annottext">Int -&gt; ConfigStatus -&gt; ShowS
 [ConfigStatus] -&gt; ShowS
 ConfigStatus -&gt; String
 (Int -&gt; ConfigStatus -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: ConfigStatus -&gt; String
 showsPrec :: Int -&gt; ConfigStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ConfigStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679264492"><span id="local-6989586621679264494"><span id="local-6989586621679264496"><span id="local-6989586621679264498"><span class="annot"><span class="annottext">ReadPrec [ConfigStatus]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679264744"><span id="local-6989586621679264746"><span id="local-6989586621679264748"><span id="local-6989586621679264750"><span class="annot"><span class="annottext">ReadPrec [ConfigStatus]
 ReadPrec ConfigStatus
 Int -&gt; ReadS ConfigStatus
 ReadS [ConfigStatus]
@@ -73,7 +73,7 @@ $creadList :: ReadS [ConfigStatus]
 readsPrec :: Int -&gt; ReadS ConfigStatus
 $creadsPrec :: Int -&gt; ReadS ConfigStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679264487"><span id="local-6989586621679264489"><span class="annot"><span class="annottext">ConfigStatus -&gt; ConfigStatus -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679264739"><span id="local-6989586621679264741"><span class="annot"><span class="annottext">ConfigStatus -&gt; ConfigStatus -&gt; Bool
 (ConfigStatus -&gt; ConfigStatus -&gt; Bool)
 -&gt; (ConfigStatus -&gt; ConfigStatus -&gt; Bool) -&gt; Eq ConfigStatus
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: ConfigStatus -&gt; ConfigStatus -&gt; Bool
 == :: ConfigStatus -&gt; ConfigStatus -&gt; Bool
 $c== :: ConfigStatus -&gt; ConfigStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679264471"><span id="local-6989586621679264473"><span id="local-6989586621679264475"><span id="local-6989586621679264477"><span id="local-6989586621679264479"><span id="local-6989586621679264481"><span id="local-6989586621679264483"><span class="annot"><span class="annottext">Eq ConfigStatus
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679264723"><span id="local-6989586621679264725"><span id="local-6989586621679264727"><span id="local-6989586621679264729"><span id="local-6989586621679264731"><span id="local-6989586621679264733"><span id="local-6989586621679264735"><span class="annot"><span class="annottext">Eq ConfigStatus
 Eq ConfigStatus
 -&gt; (ConfigStatus -&gt; ConfigStatus -&gt; Ordering)
 -&gt; (ConfigStatus -&gt; ConfigStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ConfigStatus -&gt; Rep ConfigStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679264463"><span id="local-6989586621679264465"><span class="annot"><span class="annottext">Int -&gt; ConfigStatus -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679264715"><span id="local-6989586621679264717"><span class="annot"><span class="annottext">Int -&gt; ConfigStatus -&gt; Int
 ConfigStatus -&gt; Int
 (Int -&gt; ConfigStatus -&gt; Int)
 -&gt; (ConfigStatus -&gt; Int) -&gt; Hashable ConfigStatus
@@ -143,49 +143,49 @@ $chash :: ConfigStatus -&gt; Int
 hashWithSalt :: Int -&gt; ConfigStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ConfigStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679264460"><span class="annot"><span class="annottext">ConfigStatus -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679264712"><span class="annot"><span class="annottext">ConfigStatus -&gt; ()
 (ConfigStatus -&gt; ()) -&gt; NFData ConfigStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ConfigStatus -&gt; ()
 $crnf :: ConfigStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679264457"><span class="annot"><span class="annottext">Text -&gt; Either String ConfigStatus
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679264709"><span class="annot"><span class="annottext">Text -&gt; Either String ConfigStatus
 (Text -&gt; Either String ConfigStatus) -&gt; FromText ConfigStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ConfigStatus
 $cfromText :: Text -&gt; Either String ConfigStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679264454"><span class="annot"><span class="annottext">ConfigStatus -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679264706"><span class="annot"><span class="annottext">ConfigStatus -&gt; Text
 (ConfigStatus -&gt; Text) -&gt; ToText ConfigStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ConfigStatus -&gt; Text
 $ctoText :: ConfigStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679264451"><span class="annot"><span class="annottext">ConfigStatus -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679264703"><span class="annot"><span class="annottext">ConfigStatus -&gt; ByteString
 (ConfigStatus -&gt; ByteString) -&gt; ToByteString ConfigStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ConfigStatus -&gt; ByteString
 $ctoBS :: ConfigStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679264448"><span class="annot"><span class="annottext">ConfigStatus -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679264700"><span class="annot"><span class="annottext">ConfigStatus -&gt; ByteStringBuilder
 (ConfigStatus -&gt; ByteStringBuilder) -&gt; ToLog ConfigStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ConfigStatus -&gt; ByteStringBuilder
 $cbuild :: ConfigStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679264445"><span class="annot"><span class="annottext">HeaderName -&gt; ConfigStatus -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679264697"><span class="annot"><span class="annottext">HeaderName -&gt; ConfigStatus -&gt; [Header]
 (HeaderName -&gt; ConfigStatus -&gt; [Header]) -&gt; ToHeader ConfigStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ConfigStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ConfigStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679264442"><span class="annot"><span class="annottext">ConfigStatus -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679264694"><span class="annot"><span class="annottext">ConfigStatus -&gt; QueryString
 (ConfigStatus -&gt; QueryString) -&gt; ToQuery ConfigStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ConfigStatus -&gt; QueryString
 $ctoQuery :: ConfigStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679264437"><span id="local-6989586621679264439"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfigStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679264689"><span id="local-6989586621679264691"><span class="annot"><span class="annottext">Value -&gt; Parser [ConfigStatus]
 Value -&gt; Parser ConfigStatus
 (Value -&gt; Parser ConfigStatus)
 -&gt; (Value -&gt; Parser [ConfigStatus]) -&gt; FromJSON ConfigStatus
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [ConfigStatus]
 parseJSON :: Value -&gt; Parser ConfigStatus
 $cparseJSON :: Value -&gt; Parser ConfigStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679264432"><span id="local-6989586621679264434"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfigStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679264684"><span id="local-6989586621679264686"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConfigStatus]
 FromJSONKeyFunction ConfigStatus
 FromJSONKeyFunction ConfigStatus
 -&gt; FromJSONKeyFunction [ConfigStatus] -&gt; FromJSONKey ConfigStatus
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ConfigStatus]
 fromJSONKey :: FromJSONKeyFunction ConfigStatus
 $cfromJSONKey :: FromJSONKeyFunction ConfigStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679264423"><span id="local-6989586621679264425"><span id="local-6989586621679264427"><span id="local-6989586621679264429"><span class="annot"><span class="annottext">[ConfigStatus] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679264675"><span id="local-6989586621679264677"><span id="local-6989586621679264679"><span id="local-6989586621679264681"><span class="annot"><span class="annottext">[ConfigStatus] -&gt; Encoding
 [ConfigStatus] -&gt; Value
 ConfigStatus -&gt; Encoding
 ConfigStatus -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: ConfigStatus -&gt; Encoding
 toJSON :: ConfigStatus -&gt; Value
 $ctoJSON :: ConfigStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679264418"><span id="local-6989586621679264420"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfigStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679264670"><span id="local-6989586621679264672"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConfigStatus]
 ToJSONKeyFunction ConfigStatus
 ToJSONKeyFunction ConfigStatus
 -&gt; ToJSONKeyFunction [ConfigStatus] -&gt; ToJSONKey ConfigStatus
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ConfigStatus]
 toJSONKey :: ToJSONKeyFunction ConfigStatus
 $ctoJSONKey :: ToJSONKeyFunction ConfigStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679264415"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfigStatus
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679264667"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConfigStatus
 ([Node] -&gt; Either String ConfigStatus) -&gt; FromXML ConfigStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ConfigStatus
 $cparseXML :: [Node] -&gt; Either String ConfigStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679264412"><span class="annot"><span class="annottext">ConfigStatus -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679264664"><span class="annot"><span class="annottext">ConfigStatus -&gt; XML
 (ConfigStatus -&gt; XML) -&gt; ToXML ConfigStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ConfigStatus -&gt; XML

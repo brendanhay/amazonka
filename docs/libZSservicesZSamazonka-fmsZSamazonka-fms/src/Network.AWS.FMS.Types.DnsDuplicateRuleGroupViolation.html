@@ -27,15 +27,15 @@
 </span><span id="line-27"></span><span class="hs-comment">-- a VPC is already associated with the VPC and can\'t be associated again.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newDnsDuplicateRuleGroupViolation' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679244884"><span id="local-6989586621679244885"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsDuplicateRuleGroupViolation"><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-var">DnsDuplicateRuleGroupViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsDuplicateRuleGroupViolation%27"><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var">DnsDuplicateRuleGroupViolation'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AviolationTarget%3ADnsDuplicateRuleGroupViolation%27"><span class="annot"><span class="annottext">DnsDuplicateRuleGroupViolation -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#%24sel%3AviolationTarget%3ADnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A description of the violation that specifies the rule group and VPC.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AviolationTargetDescription%3ADnsDuplicateRuleGroupViolation%27"><span class="annot"><span class="annottext">DnsDuplicateRuleGroupViolation -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#%24sel%3AviolationTargetDescription%3ADnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var hs-var">violationTargetDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679245114"><span id="local-6989586621679245115"></span></span><span class="hs-keyword">data</span><span> </span><span id="DnsDuplicateRuleGroupViolation"><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-var">DnsDuplicateRuleGroupViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DnsDuplicateRuleGroupViolation%27"><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var">DnsDuplicateRuleGroupViolation'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description of the violation that specifies the rule group and VPC.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AviolationTargetDescription%3ADnsDuplicateRuleGroupViolation%27"><span class="annot"><span class="annottext">DnsDuplicateRuleGroupViolation -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#%24sel%3AviolationTargetDescription%3ADnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var hs-var">violationTargetDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AviolationTarget%3ADnsDuplicateRuleGroupViolation%27"><span class="annot"><span class="annottext">DnsDuplicateRuleGroupViolation -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#%24sel%3AviolationTarget%3ADnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679244877"><span id="local-6989586621679244879"><span class="annot"><span class="annottext">DnsDuplicateRuleGroupViolation
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679245107"><span id="local-6989586621679245109"><span class="annot"><span class="annottext">DnsDuplicateRuleGroupViolation
 -&gt; DnsDuplicateRuleGroupViolation -&gt; Bool
 (DnsDuplicateRuleGroupViolation
  -&gt; DnsDuplicateRuleGroupViolation -&gt; Bool)
@@ -51,7 +51,7 @@ $c/= :: DnsDuplicateRuleGroupViolation
 -&gt; DnsDuplicateRuleGroupViolation -&gt; Bool
 $c== :: DnsDuplicateRuleGroupViolation
 -&gt; DnsDuplicateRuleGroupViolation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244868"><span id="local-6989586621679244870"><span id="local-6989586621679244872"><span id="local-6989586621679244874"><span class="annot"><span class="annottext">ReadPrec [DnsDuplicateRuleGroupViolation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245098"><span id="local-6989586621679245100"><span id="local-6989586621679245102"><span id="local-6989586621679245104"><span class="annot"><span class="annottext">ReadPrec [DnsDuplicateRuleGroupViolation]
 ReadPrec DnsDuplicateRuleGroupViolation
 Int -&gt; ReadS DnsDuplicateRuleGroupViolation
 ReadS [DnsDuplicateRuleGroupViolation]
@@ -71,7 +71,7 @@ readList :: ReadS [DnsDuplicateRuleGroupViolation]
 $creadList :: ReadS [DnsDuplicateRuleGroupViolation]
 readsPrec :: Int -&gt; ReadS DnsDuplicateRuleGroupViolation
 $creadsPrec :: Int -&gt; ReadS DnsDuplicateRuleGroupViolation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679244861"><span id="local-6989586621679244863"><span id="local-6989586621679244865"><span class="annot"><span class="annottext">Int -&gt; DnsDuplicateRuleGroupViolation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679245091"><span id="local-6989586621679245093"><span id="local-6989586621679245095"><span class="annot"><span class="annottext">Int -&gt; DnsDuplicateRuleGroupViolation -&gt; ShowS
 [DnsDuplicateRuleGroupViolation] -&gt; ShowS
 DnsDuplicateRuleGroupViolation -&gt; String
 (Int -&gt; DnsDuplicateRuleGroupViolation -&gt; ShowS)
@@ -117,55 +117,29 @@ DnsDuplicateRuleGroupViolation
 </span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-45"></span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span class="hs-comment">-- 'violationTarget', 'dnsDuplicateRuleGroupViolation_violationTarget' - Information about the VPC ID.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'violationTargetDescription', 'dnsDuplicateRuleGroupViolation_violationTargetDescription' - A description of the violation that specifies the rule group and VPC.</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'violationTargetDescription', 'dnsDuplicateRuleGroupViolation_violationTargetDescription' - A description of the violation that specifies the rule group and VPC.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'violationTarget', 'dnsDuplicateRuleGroupViolation_violationTarget' - Information about the VPC ID.</span><span>
 </span><span id="line-49"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#newDnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">newDnsDuplicateRuleGroupViolation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span><span>
 </span><span id="line-51"></span><span id="newDnsDuplicateRuleGroupViolation"><span class="annot"><span class="annottext">newDnsDuplicateRuleGroupViolation :: DnsDuplicateRuleGroupViolation
 </span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#newDnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-var hs-var">newDnsDuplicateRuleGroupViolation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">DnsDuplicateRuleGroupViolation' :: Maybe Text -&gt; Maybe Text -&gt; DnsDuplicateRuleGroupViolation
 </span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation'</span></a></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:violationTarget:DnsDuplicateRuleGroupViolation' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#%24sel%3AviolationTarget%3ADnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var">violationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:violationTargetDescription:DnsDuplicateRuleGroupViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#%24sel%3AviolationTargetDescription%3ADnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var">violationTargetDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:violationTargetDescription:DnsDuplicateRuleGroupViolation' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#%24sel%3AviolationTargetDescription%3ADnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var">violationTargetDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:violationTarget:DnsDuplicateRuleGroupViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#%24sel%3AviolationTarget%3ADnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var">violationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
-</span><span id="line-60"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#dnsDuplicateRuleGroupViolation_violationTarget"><span class="hs-identifier hs-type">dnsDuplicateRuleGroupViolation_violationTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span id="dnsDuplicateRuleGroupViolation_violationTarget"><span class="annot"><span class="annottext">dnsDuplicateRuleGroupViolation_violationTarget :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DnsDuplicateRuleGroupViolation
--&gt; f DnsDuplicateRuleGroupViolation
-</span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#dnsDuplicateRuleGroupViolation_violationTarget"><span class="hs-identifier hs-var hs-var">dnsDuplicateRuleGroupViolation_violationTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsDuplicateRuleGroupViolation -&gt; Maybe Text)
--&gt; (DnsDuplicateRuleGroupViolation
-    -&gt; Maybe Text -&gt; DnsDuplicateRuleGroupViolation)
--&gt; Lens
-     DnsDuplicateRuleGroupViolation
-     DnsDuplicateRuleGroupViolation
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244852"><span class="annot"><span class="annottext">Maybe Text
-violationTarget :: Maybe Text
-$sel:violationTarget:DnsDuplicateRuleGroupViolation' :: DnsDuplicateRuleGroupViolation -&gt; Maybe Text
-</span><a href="#local-6989586621679244852"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244852"><span class="hs-identifier hs-var">violationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244851"><span class="annot"><span class="annottext">s :: DnsDuplicateRuleGroupViolation
-</span><a href="#local-6989586621679244851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244850"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsDuplicateRuleGroupViolation
-</span><a href="#local-6989586621679244851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTarget:DnsDuplicateRuleGroupViolation' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#%24sel%3AviolationTarget%3ADnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var">violationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | A description of the violation that specifies the rule group and VPC.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#dnsDuplicateRuleGroupViolation_violationTargetDescription"><span class="hs-identifier hs-type">dnsDuplicateRuleGroupViolation_violationTargetDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="dnsDuplicateRuleGroupViolation_violationTargetDescription"><span class="annot"><span class="annottext">dnsDuplicateRuleGroupViolation_violationTargetDescription :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | A description of the violation that specifies the rule group and VPC.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#dnsDuplicateRuleGroupViolation_violationTargetDescription"><span class="hs-identifier hs-type">dnsDuplicateRuleGroupViolation_violationTargetDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="dnsDuplicateRuleGroupViolation_violationTargetDescription"><span class="annot"><span class="annottext">dnsDuplicateRuleGroupViolation_violationTargetDescription :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DnsDuplicateRuleGroupViolation
 -&gt; f DnsDuplicateRuleGroupViolation
 </span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#dnsDuplicateRuleGroupViolation_violationTargetDescription"><span class="hs-identifier hs-var hs-var">dnsDuplicateRuleGroupViolation_violationTargetDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsDuplicateRuleGroupViolation -&gt; Maybe Text)
@@ -177,56 +151,81 @@ $sel:violationTarget:DnsDuplicateRuleGroupViolation' :: DnsDuplicateRuleGroupVio
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679244848"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245082"><span class="annot"><span class="annottext">Maybe Text
 violationTargetDescription :: Maybe Text
 $sel:violationTargetDescription:DnsDuplicateRuleGroupViolation' :: DnsDuplicateRuleGroupViolation -&gt; Maybe Text
-</span><a href="#local-6989586621679244848"><span class="hs-identifier hs-var hs-var">violationTargetDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244848"><span class="hs-identifier hs-var">violationTargetDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679244847"><span class="annot"><span class="annottext">s :: DnsDuplicateRuleGroupViolation
-</span><a href="#local-6989586621679244847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679244846"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsDuplicateRuleGroupViolation
-</span><a href="#local-6989586621679244847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTargetDescription:DnsDuplicateRuleGroupViolation' :: Maybe Text
+</span><a href="#local-6989586621679245082"><span class="hs-identifier hs-var hs-var">violationTargetDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245082"><span class="hs-identifier hs-var">violationTargetDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245081"><span class="annot"><span class="annottext">s :: DnsDuplicateRuleGroupViolation
+</span><a href="#local-6989586621679245081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245080"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsDuplicateRuleGroupViolation
+</span><a href="#local-6989586621679245081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTargetDescription:DnsDuplicateRuleGroupViolation' :: Maybe Text
 </span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#%24sel%3AviolationTargetDescription%3ADnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var">violationTargetDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679244846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679244843"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679244841"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DnsDuplicateRuleGroupViolation
+</span><a href="#local-6989586621679245080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | Information about the VPC ID.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#dnsDuplicateRuleGroupViolation_violationTarget"><span class="hs-identifier hs-type">dnsDuplicateRuleGroupViolation_violationTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="dnsDuplicateRuleGroupViolation_violationTarget"><span class="annot"><span class="annottext">dnsDuplicateRuleGroupViolation_violationTarget :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DnsDuplicateRuleGroupViolation
+-&gt; f DnsDuplicateRuleGroupViolation
+</span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#dnsDuplicateRuleGroupViolation_violationTarget"><span class="hs-identifier hs-var hs-var">dnsDuplicateRuleGroupViolation_violationTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DnsDuplicateRuleGroupViolation -&gt; Maybe Text)
+-&gt; (DnsDuplicateRuleGroupViolation
+    -&gt; Maybe Text -&gt; DnsDuplicateRuleGroupViolation)
+-&gt; Lens
+     DnsDuplicateRuleGroupViolation
+     DnsDuplicateRuleGroupViolation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679245078"><span class="annot"><span class="annottext">Maybe Text
+violationTarget :: Maybe Text
+$sel:violationTarget:DnsDuplicateRuleGroupViolation' :: DnsDuplicateRuleGroupViolation -&gt; Maybe Text
+</span><a href="#local-6989586621679245078"><span class="hs-identifier hs-var hs-var">violationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245078"><span class="hs-identifier hs-var">violationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679245077"><span class="annot"><span class="annottext">s :: DnsDuplicateRuleGroupViolation
+</span><a href="#local-6989586621679245077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679245076"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DnsDuplicateRuleGroupViolation
+</span><a href="#local-6989586621679245077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:violationTarget:DnsDuplicateRuleGroupViolation' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#%24sel%3AviolationTarget%3ADnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var">violationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679245076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679245073"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679245071"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DnsDuplicateRuleGroupViolation
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser DnsDuplicateRuleGroupViolation)
 -&gt; Value
 -&gt; Parser DnsDuplicateRuleGroupViolation
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;DnsDuplicateRuleGroupViolation&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679244838"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244838"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; DnsDuplicateRuleGroupViolation
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679245068"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245068"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; DnsDuplicateRuleGroupViolation
 </span><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation%27"><span class="hs-identifier hs-var">DnsDuplicateRuleGroupViolation'</span></a></span><span>
-</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; DnsDuplicateRuleGroupViolation)
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; DnsDuplicateRuleGroupViolation)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; DnsDuplicateRuleGroupViolation)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ViolationTarget&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DnsDuplicateRuleGroupViolation)
--&gt; Parser (Maybe Text) -&gt; Parser DnsDuplicateRuleGroupViolation
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679244838"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679245068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ViolationTargetDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679244832"><span id="local-6989586621679244834"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span></span></span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679244829"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span></span><span>
-</span><span id="line-84"></span></pre></body></html>
+</span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; DnsDuplicateRuleGroupViolation)
+-&gt; Parser (Maybe Text) -&gt; Parser DnsDuplicateRuleGroupViolation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679245068"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ViolationTarget&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679245062"><span id="local-6989586621679245064"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span></span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679245059"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Network.AWS.FMS.Types.DnsDuplicateRuleGroupViolation.html#DnsDuplicateRuleGroupViolation"><span class="hs-identifier hs-type">DnsDuplicateRuleGroupViolation</span></a></span></span><span>
+</span><span id="line-83"></span></pre></body></html>

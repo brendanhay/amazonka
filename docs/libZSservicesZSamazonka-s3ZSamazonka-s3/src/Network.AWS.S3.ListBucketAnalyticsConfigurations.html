@@ -57,8 +57,8 @@
 </span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#newListBucketAnalyticsConfigurations"><span class="hs-identifier">newListBucketAnalyticsConfigurations</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurations_expectedBucketOwner"><span class="hs-identifier">listBucketAnalyticsConfigurations_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurations_continuationToken"><span class="hs-identifier">listBucketAnalyticsConfigurations_continuationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurations_continuationToken"><span class="hs-identifier">listBucketAnalyticsConfigurations_continuationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurations_expectedBucketOwner"><span class="hs-identifier">listBucketAnalyticsConfigurations_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurations_bucket"><span class="hs-identifier">listBucketAnalyticsConfigurations_bucket</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -67,9 +67,9 @@
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList"><span class="hs-identifier">listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_isTruncated"><span class="hs-identifier">listBucketAnalyticsConfigurationsResponse_isTruncated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_continuationToken"><span class="hs-identifier">listBucketAnalyticsConfigurationsResponse_continuationToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_nextContinuationToken"><span class="hs-identifier">listBucketAnalyticsConfigurationsResponse_nextContinuationToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_continuationToken"><span class="hs-identifier">listBucketAnalyticsConfigurationsResponse_continuationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_isTruncated"><span class="hs-identifier">listBucketAnalyticsConfigurationsResponse_isTruncated</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_httpStatus"><span class="hs-identifier">listBucketAnalyticsConfigurationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-74"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span class="hs-keyword">where</span><span>
@@ -82,22 +82,22 @@
 </span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.html"><span class="hs-identifier">Network.AWS.S3.Types</span></a></span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | /See:/ 'newListBucketAnalyticsConfigurations' smart constructor.</span><span>
-</span><span id="line-85"></span><span id="local-6989586621679570153"><span id="local-6989586621679570154"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBucketAnalyticsConfigurations"><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-var">ListBucketAnalyticsConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBucketAnalyticsConfigurations%27"><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var">ListBucketAnalyticsConfigurations'</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
-</span><span id="line-89"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3AListBucketAnalyticsConfigurations%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations -&gt; Maybe Text
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AexpectedBucketOwner%3AListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The ContinuationToken that represents a placeholder from where this</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- request should begin.</span><span>
-</span><span id="line-92"></span><span>    </span><span id="%24sel%3AcontinuationToken%3AListBucketAnalyticsConfigurations%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations -&gt; Maybe Text
+</span><span id="line-85"></span><span id="local-6989586621679570991"><span id="local-6989586621679570992"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBucketAnalyticsConfigurations"><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-var">ListBucketAnalyticsConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBucketAnalyticsConfigurations%27"><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var">ListBucketAnalyticsConfigurations'</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ContinuationToken that represents a placeholder from where this</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- request should begin.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AcontinuationToken%3AListBucketAnalyticsConfigurations%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations -&gt; Maybe Text
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AcontinuationToken%3AListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var hs-var">continuationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3AListBucketAnalyticsConfigurations%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations -&gt; Maybe Text
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AexpectedBucketOwner%3AListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The name of the bucket from which analytics configurations are</span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-comment">-- retrieved.</span><span>
 </span><span id="line-95"></span><span>    </span><span id="%24sel%3Abucket%3AListBucketAnalyticsConfigurations%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations -&gt; BucketName
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3Abucket%3AListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
 </span><span id="line-96"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679570145"><span id="local-6989586621679570147"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations
+</span><span id="line-97"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679570983"><span id="local-6989586621679570985"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations
 -&gt; ListBucketAnalyticsConfigurations -&gt; Bool
 (ListBucketAnalyticsConfigurations
  -&gt; ListBucketAnalyticsConfigurations -&gt; Bool)
@@ -113,7 +113,7 @@ $c/= :: ListBucketAnalyticsConfigurations
 -&gt; ListBucketAnalyticsConfigurations -&gt; Bool
 $c== :: ListBucketAnalyticsConfigurations
 -&gt; ListBucketAnalyticsConfigurations -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679570136"><span id="local-6989586621679570138"><span id="local-6989586621679570140"><span id="local-6989586621679570142"><span class="annot"><span class="annottext">ReadPrec [ListBucketAnalyticsConfigurations]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679570974"><span id="local-6989586621679570976"><span id="local-6989586621679570978"><span id="local-6989586621679570980"><span class="annot"><span class="annottext">ReadPrec [ListBucketAnalyticsConfigurations]
 ReadPrec ListBucketAnalyticsConfigurations
 Int -&gt; ReadS ListBucketAnalyticsConfigurations
 ReadS [ListBucketAnalyticsConfigurations]
@@ -133,7 +133,7 @@ readList :: ReadS [ListBucketAnalyticsConfigurations]
 $creadList :: ReadS [ListBucketAnalyticsConfigurations]
 readsPrec :: Int -&gt; ReadS ListBucketAnalyticsConfigurations
 $creadsPrec :: Int -&gt; ReadS ListBucketAnalyticsConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679570129"><span id="local-6989586621679570131"><span id="local-6989586621679570133"><span class="annot"><span class="annottext">Int -&gt; ListBucketAnalyticsConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679570967"><span id="local-6989586621679570969"><span id="local-6989586621679570971"><span class="annot"><span class="annottext">Int -&gt; ListBucketAnalyticsConfigurations -&gt; ShowS
 [ListBucketAnalyticsConfigurations] -&gt; ShowS
 ListBucketAnalyticsConfigurations -&gt; String
 (Int -&gt; ListBucketAnalyticsConfigurations -&gt; ShowS)
@@ -179,12 +179,12 @@ ListBucketAnalyticsConfigurations
 </span><span id="line-104"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'expectedBucketOwner', 'listBucketAnalyticsConfigurations_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'continuationToken', 'listBucketAnalyticsConfigurations_continuationToken' - The ContinuationToken that represents a placeholder from where this</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- request should begin.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'continuationToken', 'listBucketAnalyticsConfigurations_continuationToken' - The ContinuationToken that represents a placeholder from where this</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- request should begin.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'expectedBucketOwner', 'listBucketAnalyticsConfigurations_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- 'bucket', 'listBucketAnalyticsConfigurations_bucket' - The name of the bucket from which analytics configurations are</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- retrieved.</span><span>
@@ -193,56 +193,29 @@ ListBucketAnalyticsConfigurations
 </span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span>
 </span><span id="line-120"></span><span id="newListBucketAnalyticsConfigurations"><span class="annot"><span class="annottext">newListBucketAnalyticsConfigurations :: BucketName -&gt; ListBucketAnalyticsConfigurations
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#newListBucketAnalyticsConfigurations"><span class="hs-identifier hs-var hs-var">newListBucketAnalyticsConfigurations</span></a></span></span><span> </span><span id="local-6989586621679570124"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679570124"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#newListBucketAnalyticsConfigurations"><span class="hs-identifier hs-var hs-var">newListBucketAnalyticsConfigurations</span></a></span></span><span> </span><span id="local-6989586621679570962"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679570962"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations' :: Maybe Text
 -&gt; Maybe Text -&gt; BucketName -&gt; ListBucketAnalyticsConfigurations
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:ListBucketAnalyticsConfigurations' :: Maybe Text
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AexpectedBucketOwner%3AListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:continuationToken:ListBucketAnalyticsConfigurations' :: Maybe Text
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AcontinuationToken%3AListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var">continuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:continuationToken:ListBucketAnalyticsConfigurations' :: Maybe Text
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AcontinuationToken%3AListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var">continuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:ListBucketAnalyticsConfigurations' :: Maybe Text
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AexpectedBucketOwner%3AListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:ListBucketAnalyticsConfigurations' :: BucketName
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3Abucket%3AListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679570124"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><a href="#local-6989586621679570962"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
 </span><span id="line-126"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurations_expectedBucketOwner"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurations_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="listBucketAnalyticsConfigurations_expectedBucketOwner"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurations_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListBucketAnalyticsConfigurations
--&gt; f ListBucketAnalyticsConfigurations
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurations_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">listBucketAnalyticsConfigurations_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBucketAnalyticsConfigurations -&gt; Maybe Text)
--&gt; (ListBucketAnalyticsConfigurations
-    -&gt; Maybe Text -&gt; ListBucketAnalyticsConfigurations)
--&gt; Lens
-     ListBucketAnalyticsConfigurations
-     ListBucketAnalyticsConfigurations
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570121"><span class="annot"><span class="annottext">Maybe Text
-expectedBucketOwner :: Maybe Text
-$sel:expectedBucketOwner:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; Maybe Text
-</span><a href="#local-6989586621679570121"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570121"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570120"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurations
-</span><a href="#local-6989586621679570120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570119"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations
-</span><a href="#local-6989586621679570120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:ListBucketAnalyticsConfigurations' :: Maybe Text
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AexpectedBucketOwner%3AListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The ContinuationToken that represents a placeholder from where this</span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- request should begin.</span><span>
-</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurations_continuationToken"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurations_continuationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span id="listBucketAnalyticsConfigurations_continuationToken"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurations_continuationToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-128"></span><span class="hs-comment">-- | The ContinuationToken that represents a placeholder from where this</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- request should begin.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurations_continuationToken"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurations_continuationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="listBucketAnalyticsConfigurations_continuationToken"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurations_continuationToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListBucketAnalyticsConfigurations
 -&gt; f ListBucketAnalyticsConfigurations
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurations_continuationToken"><span class="hs-identifier hs-var hs-var">listBucketAnalyticsConfigurations_continuationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBucketAnalyticsConfigurations -&gt; Maybe Text)
@@ -254,16 +227,43 @@ $sel:expectedBucketOwner:ListBucketAnalyticsConfigurations' :: ListBucketAnalyti
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570118"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570959"><span class="annot"><span class="annottext">Maybe Text
 continuationToken :: Maybe Text
 $sel:continuationToken:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; Maybe Text
-</span><a href="#local-6989586621679570118"><span class="hs-identifier hs-var hs-var">continuationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570118"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570117"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurations
-</span><a href="#local-6989586621679570117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570116"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations
-</span><a href="#local-6989586621679570117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuationToken:ListBucketAnalyticsConfigurations' :: Maybe Text
+</span><a href="#local-6989586621679570959"><span class="hs-identifier hs-var hs-var">continuationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679570959"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570958"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurations
+</span><a href="#local-6989586621679570958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570957"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679570957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations
+</span><a href="#local-6989586621679570958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuationToken:ListBucketAnalyticsConfigurations' :: Maybe Text
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AcontinuationToken%3AListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var">continuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679570957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurations_expectedBucketOwner"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurations_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="listBucketAnalyticsConfigurations_expectedBucketOwner"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurations_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBucketAnalyticsConfigurations
+-&gt; f ListBucketAnalyticsConfigurations
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurations_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">listBucketAnalyticsConfigurations_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBucketAnalyticsConfigurations -&gt; Maybe Text)
+-&gt; (ListBucketAnalyticsConfigurations
+    -&gt; Maybe Text -&gt; ListBucketAnalyticsConfigurations)
+-&gt; Lens
+     ListBucketAnalyticsConfigurations
+     ListBucketAnalyticsConfigurations
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570956"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; Maybe Text
+</span><a href="#local-6989586621679570956"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679570956"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570955"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurations
+</span><a href="#local-6989586621679570955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570954"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679570954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations
+</span><a href="#local-6989586621679570955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:ListBucketAnalyticsConfigurations' :: Maybe Text
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AexpectedBucketOwner%3AListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679570954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-comment">-- | The name of the bucket from which analytics configurations are</span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- retrieved.</span><span>
@@ -280,16 +280,16 @@ $sel:continuationToken:ListBucketAnalyticsConfigurations' :: ListBucketAnalytics
      BucketName
      BucketName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570115"><span class="annot"><span class="annottext">BucketName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570953"><span class="annot"><span class="annottext">BucketName
 bucket :: BucketName
 $sel:bucket:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; BucketName
-</span><a href="#local-6989586621679570115"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679570115"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570114"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurations
-</span><a href="#local-6989586621679570114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570113"><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679570113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations
-</span><a href="#local-6989586621679570114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:ListBucketAnalyticsConfigurations' :: BucketName
+</span><a href="#local-6989586621679570953"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679570953"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570952"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurations
+</span><a href="#local-6989586621679570952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570951"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679570951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurations
+</span><a href="#local-6989586621679570952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:ListBucketAnalyticsConfigurations' :: BucketName
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3Abucket%3AListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679570113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679570951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -298,15 +298,27 @@ $sel:bucket:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurati
 </span><span id="line-148"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-149"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>      </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span>
-</span><span id="line-151"></span><span>  </span><span id="local-6989586621679570109"><span class="annot"><span class="annottext">request :: ListBucketAnalyticsConfigurations
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679570947"><span class="annot"><span class="annottext">request :: ListBucketAnalyticsConfigurations
 -&gt; Request ListBucketAnalyticsConfigurations
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">Request ListBucketAnalyticsConfigurations
+-&gt; Request ListBucketAnalyticsConfigurations
+forall a. Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.s3vhost</span></span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">(Request ListBucketAnalyticsConfigurations
+ -&gt; Request ListBucketAnalyticsConfigurations)
+-&gt; (ListBucketAnalyticsConfigurations
+    -&gt; Request ListBucketAnalyticsConfigurations)
+-&gt; ListBucketAnalyticsConfigurations
+-&gt; Request ListBucketAnalyticsConfigurations
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListBucketAnalyticsConfigurations
 -&gt; Request ListBucketAnalyticsConfigurations
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621679570105"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679570941"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListBucketAnalyticsConfigurations
 -&gt; ClientResponse ClientBody
@@ -314,7 +326,7 @@ forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
         Error
         (ClientResponse (AWSResponse ListBucketAnalyticsConfigurations)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; [Node]
  -&gt; Either String (AWSResponse ListBucketAnalyticsConfigurations))
@@ -334,29 +346,29 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679570102"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679570102"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679570101"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679570101"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679570100"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679570100"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AnalyticsConfiguration]
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679570938"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679570938"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679570937"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679570937"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679570936"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679570936"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AnalyticsConfiguration]
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Bool
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Int
 -&gt; ListBucketAnalyticsConfigurationsResponse
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span>
-</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AnalyticsConfiguration]
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AnalyticsConfiguration]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Bool
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Int
  -&gt; ListBucketAnalyticsConfigurationsResponse)
 -&gt; Either String (Maybe [AnalyticsConfiguration])
 -&gt; Either
      String
-     (Maybe Bool
+     (Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Text
+      -&gt; Maybe Bool
       -&gt; Int
       -&gt; ListBucketAnalyticsConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
@@ -366,57 +378,57 @@ forall (f :: * -&gt; *) a b.
 Applicative f =&gt;
 ([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
 </span><span class="hs-identifier hs-var">Core.may</span></span><span>
-</span><span id="line-157"></span><span>                            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [AnalyticsConfiguration]
+</span><span id="line-159"></span><span>                            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [AnalyticsConfiguration]
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AnalyticsConfiguration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span>                            </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679570100"><span class="hs-identifier hs-var">x</span></a></span><span>
-</span><span id="line-159"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">Either
+</span><span id="line-160"></span><span>                            </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679570936"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-161"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Bool
+  (Maybe Text
    -&gt; Maybe Text
-   -&gt; Maybe Text
+   -&gt; Maybe Bool
    -&gt; Int
    -&gt; ListBucketAnalyticsConfigurationsResponse)
--&gt; Either String (Maybe Bool)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe Text -&gt; Int -&gt; ListBucketAnalyticsConfigurationsResponse)
+      -&gt; Maybe Bool -&gt; Int -&gt; ListBucketAnalyticsConfigurationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679570100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text -&gt; Int -&gt; ListBucketAnalyticsConfigurationsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text -&gt; Int -&gt; ListBucketAnalyticsConfigurationsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679570100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextContinuationToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text -&gt; Int -&gt; ListBucketAnalyticsConfigurationsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; ListBucketAnalyticsConfigurationsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679570100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679570936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ContinuationToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListBucketAnalyticsConfigurationsResponse)
+</span><span id="line-163"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Bool -&gt; Int -&gt; ListBucketAnalyticsConfigurationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool -&gt; Int -&gt; ListBucketAnalyticsConfigurationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679570936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextContinuationToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool -&gt; Int -&gt; ListBucketAnalyticsConfigurationsResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; ListBucketAnalyticsConfigurationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679570936"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListBucketAnalyticsConfigurationsResponse)
 -&gt; Either String Int
 -&gt; Either String ListBucketAnalyticsConfigurationsResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -425,117 +437,117 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679570102"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679570090"><span id="local-6989586621679570092"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span></span></span><span>
-</span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679570087"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span></span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
-</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span>
-</span><span id="line-177"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679570083"><span class="annot"><span class="annottext">toHeaders :: ListBucketAnalyticsConfigurations -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570079"><span id="local-6989586621679570080"><span id="local-6989586621679570081"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679570938"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679570926"><span id="local-6989586621679570928"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679570923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679570919"><span class="annot"><span class="annottext">toHeaders :: ListBucketAnalyticsConfigurations -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570915"><span id="local-6989586621679570916"><span id="local-6989586621679570917"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
-continuationToken :: Maybe Text
 expectedBucketOwner :: Maybe Text
+continuationToken :: Maybe Text
 $sel:bucket:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; BucketName
-$sel:continuationToken:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; Maybe Text
 $sel:expectedBucketOwner:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; Maybe Text
-</span><a href="#local-6989586621679570079"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+$sel:continuationToken:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; Maybe Text
+</span><a href="#local-6989586621679570915"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-180"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-182"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
-</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570081"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
-</span><span id="line-182"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
-</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span>
-</span><span id="line-187"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679570075"><span class="annot"><span class="annottext">toPath :: ListBucketAnalyticsConfigurations -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570071"><span id="local-6989586621679570072"><span id="local-6989586621679570073"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679570916"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679570911"><span class="annot"><span class="annottext">toPath :: ListBucketAnalyticsConfigurations -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570907"><span id="local-6989586621679570908"><span id="local-6989586621679570909"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
-continuationToken :: Maybe Text
 expectedBucketOwner :: Maybe Text
+continuationToken :: Maybe Text
 $sel:bucket:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; BucketName
-$sel:continuationToken:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; Maybe Text
 $sel:expectedBucketOwner:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; Maybe Text
-</span><a href="#local-6989586621679570071"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+$sel:continuationToken:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; Maybe Text
+</span><a href="#local-6989586621679570907"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
-</span><a href="#local-6989586621679570071"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
-</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span>
-</span><span id="line-194"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679570067"><span class="annot"><span class="annottext">toQuery :: ListBucketAnalyticsConfigurations -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570063"><span id="local-6989586621679570064"><span id="local-6989586621679570065"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679570907"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations</span></a></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679570903"><span class="annot"><span class="annottext">toQuery :: ListBucketAnalyticsConfigurations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurations%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570899"><span id="local-6989586621679570900"><span id="local-6989586621679570901"><span class="annot"><span class="annottext">Maybe Text
 BucketName
 bucket :: BucketName
-continuationToken :: Maybe Text
 expectedBucketOwner :: Maybe Text
+continuationToken :: Maybe Text
 $sel:bucket:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; BucketName
-$sel:continuationToken:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; Maybe Text
 $sel:expectedBucketOwner:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; Maybe Text
-</span><a href="#local-6989586621679570063"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+$sel:continuationToken:ListBucketAnalyticsConfigurations' :: ListBucketAnalyticsConfigurations -&gt; Maybe Text
+</span><a href="#local-6989586621679570899"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-197"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-199"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;continuation-token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570064"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679570901"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">QueryString
 </span><span class="hs-string">&quot;analytics&quot;</span></span><span>
-</span><span id="line-199"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- | /See:/ 'newListBucketAnalyticsConfigurationsResponse' smart constructor.</span><span>
-</span><span id="line-202"></span><span id="local-6989586621679570060"><span id="local-6989586621679570061"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBucketAnalyticsConfigurationsResponse"><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-var">ListBucketAnalyticsConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBucketAnalyticsConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">ListBucketAnalyticsConfigurationsResponse'</span></a></span></span><span>
-</span><span id="line-203"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of analytics configurations for a bucket.</span><span>
-</span><span id="line-204"></span><span>    </span><span id="%24sel%3AanalyticsConfigurationList%3AListBucketAnalyticsConfigurationsResponse%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
+</span><span id="line-201"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | /See:/ 'newListBucketAnalyticsConfigurationsResponse' smart constructor.</span><span>
+</span><span id="line-204"></span><span id="local-6989586621679570896"><span id="local-6989586621679570897"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListBucketAnalyticsConfigurationsResponse"><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-var">ListBucketAnalyticsConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListBucketAnalyticsConfigurationsResponse%27"><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">ListBucketAnalyticsConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of analytics configurations for a bucket.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3AanalyticsConfigurationList%3AListBucketAnalyticsConfigurationsResponse%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
 -&gt; Maybe [AnalyticsConfiguration]
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AanalyticsConfigurationList%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">analyticsConfigurationList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | Indicates whether the returned list of analytics configurations is</span><span>
-</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- complete. A value of true indicates that the list is not complete and</span><span>
-</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- the NextContinuationToken will be provided for a subsequent request.</span><span>
-</span><span id="line-208"></span><span>    </span><span id="%24sel%3AisTruncated%3AListBucketAnalyticsConfigurationsResponse%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Bool
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AisTruncated%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- | @NextContinuationToken@ is sent when @isTruncated@ is true, which</span><span>
-</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- indicates that there are more analytics configurations to list. The next</span><span>
-</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- request must include this @NextContinuationToken@. The token is</span><span>
-</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- obfuscated and is not a usable value.</span><span>
-</span><span id="line-213"></span><span>    </span><span id="%24sel%3AnextContinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AnextContinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">nextContinuationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- | The marker that is used as a starting point for this analytics</span><span>
-</span><span id="line-215"></span><span>    </span><span class="hs-comment">-- configuration list response. This value is present if it was sent in the</span><span>
-</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-217"></span><span>    </span><span id="%24sel%3AcontinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Text
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- | The marker that is used as a starting point for this analytics</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- configuration list response. This value is present if it was sent in the</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-210"></span><span>    </span><span id="%24sel%3AcontinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AcontinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">continuationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-219"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListBucketAnalyticsConfigurationsResponse%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse -&gt; Int
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- | @NextContinuationToken@ is sent when @isTruncated@ is true, which</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- indicates that there are more analytics configurations to list. The next</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- request must include this @NextContinuationToken@. The token is</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">-- obfuscated and is not a usable value.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AnextContinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AnextContinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">nextContinuationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | Indicates whether the returned list of analytics configurations is</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- complete. A value of true indicates that the list is not complete and</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- the NextContinuationToken will be provided for a subsequent request.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AisTruncated%3AListBucketAnalyticsConfigurationsResponse%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Bool
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AisTruncated%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListBucketAnalyticsConfigurationsResponse%27"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse -&gt; Int
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AhttpStatus%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-220"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-221"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679570051"><span id="local-6989586621679570053"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
+</span><span id="line-222"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679570887"><span id="local-6989586621679570889"><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
 -&gt; ListBucketAnalyticsConfigurationsResponse -&gt; Bool
 (ListBucketAnalyticsConfigurationsResponse
  -&gt; ListBucketAnalyticsConfigurationsResponse -&gt; Bool)
@@ -551,7 +563,7 @@ $c/= :: ListBucketAnalyticsConfigurationsResponse
 -&gt; ListBucketAnalyticsConfigurationsResponse -&gt; Bool
 $c== :: ListBucketAnalyticsConfigurationsResponse
 -&gt; ListBucketAnalyticsConfigurationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679570043"><span id="local-6989586621679570045"><span id="local-6989586621679570047"><span id="local-6989586621679570049"><span class="annot"><span class="annottext">ReadPrec [ListBucketAnalyticsConfigurationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679570879"><span id="local-6989586621679570881"><span id="local-6989586621679570883"><span id="local-6989586621679570885"><span class="annot"><span class="annottext">ReadPrec [ListBucketAnalyticsConfigurationsResponse]
 ReadPrec ListBucketAnalyticsConfigurationsResponse
 Int -&gt; ReadS ListBucketAnalyticsConfigurationsResponse
 ReadS [ListBucketAnalyticsConfigurationsResponse]
@@ -571,7 +583,7 @@ readList :: ReadS [ListBucketAnalyticsConfigurationsResponse]
 $creadList :: ReadS [ListBucketAnalyticsConfigurationsResponse]
 readsPrec :: Int -&gt; ReadS ListBucketAnalyticsConfigurationsResponse
 $creadsPrec :: Int -&gt; ReadS ListBucketAnalyticsConfigurationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679570037"><span id="local-6989586621679570039"><span id="local-6989586621679570041"><span class="annot"><span class="annottext">Int -&gt; ListBucketAnalyticsConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679570873"><span id="local-6989586621679570875"><span id="local-6989586621679570877"><span class="annot"><span class="annottext">Int -&gt; ListBucketAnalyticsConfigurationsResponse -&gt; ShowS
 [ListBucketAnalyticsConfigurationsResponse] -&gt; ShowS
 ListBucketAnalyticsConfigurationsResponse -&gt; String
 (Int -&gt; ListBucketAnalyticsConfigurationsResponse -&gt; ShowS)
@@ -608,73 +620,73 @@ $cfrom :: forall x.
 ListBucketAnalyticsConfigurationsResponse
 -&gt; Rep ListBucketAnalyticsConfigurationsResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- Create a value of 'ListBucketAnalyticsConfigurationsResponse' with all optional fields omitted.</span><span>
-</span><span id="line-225"></span><span class="hs-comment">--</span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Create a value of 'ListBucketAnalyticsConfigurationsResponse' with all optional fields omitted.</span><span>
 </span><span id="line-227"></span><span class="hs-comment">--</span><span>
-</span><span id="line-228"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-229"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-230"></span><span class="hs-comment">--</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- 'analyticsConfigurationList', 'listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList' - The list of analytics configurations for a bucket.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-232"></span><span class="hs-comment">--</span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- 'isTruncated', 'listBucketAnalyticsConfigurationsResponse_isTruncated' - Indicates whether the returned list of analytics configurations is</span><span>
-</span><span id="line-234"></span><span class="hs-comment">-- complete. A value of true indicates that the list is not complete and</span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- the NextContinuationToken will be provided for a subsequent request.</span><span>
-</span><span id="line-236"></span><span class="hs-comment">--</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- 'nextContinuationToken', 'listBucketAnalyticsConfigurationsResponse_nextContinuationToken' - @NextContinuationToken@ is sent when @isTruncated@ is true, which</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- indicates that there are more analytics configurations to list. The next</span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- request must include this @NextContinuationToken@. The token is</span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- obfuscated and is not a usable value.</span><span>
-</span><span id="line-241"></span><span class="hs-comment">--</span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- 'continuationToken', 'listBucketAnalyticsConfigurationsResponse_continuationToken' - The marker that is used as a starting point for this analytics</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- configuration list response. This value is present if it was sent in the</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-245"></span><span class="hs-comment">--</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- 'httpStatus', 'listBucketAnalyticsConfigurationsResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#newListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">newListBucketAnalyticsConfigurationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-248"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-249"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-250"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span>
-</span><span id="line-251"></span><span id="newListBucketAnalyticsConfigurationsResponse"><span class="annot"><span class="annottext">newListBucketAnalyticsConfigurationsResponse :: Int -&gt; ListBucketAnalyticsConfigurationsResponse
+</span><span id="line-233"></span><span class="hs-comment">-- 'analyticsConfigurationList', 'listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList' - The list of analytics configurations for a bucket.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'continuationToken', 'listBucketAnalyticsConfigurationsResponse_continuationToken' - The marker that is used as a starting point for this analytics</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- configuration list response. This value is present if it was sent in the</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- 'nextContinuationToken', 'listBucketAnalyticsConfigurationsResponse_nextContinuationToken' - @NextContinuationToken@ is sent when @isTruncated@ is true, which</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- indicates that there are more analytics configurations to list. The next</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- request must include this @NextContinuationToken@. The token is</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- obfuscated and is not a usable value.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'isTruncated', 'listBucketAnalyticsConfigurationsResponse_isTruncated' - Indicates whether the returned list of analytics configurations is</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- complete. A value of true indicates that the list is not complete and</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- the NextContinuationToken will be provided for a subsequent request.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- 'httpStatus', 'listBucketAnalyticsConfigurationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#newListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">newListBucketAnalyticsConfigurationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-251"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-252"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span>
+</span><span id="line-253"></span><span id="newListBucketAnalyticsConfigurationsResponse"><span class="annot"><span class="annottext">newListBucketAnalyticsConfigurationsResponse :: Int -&gt; ListBucketAnalyticsConfigurationsResponse
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#newListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newListBucketAnalyticsConfigurationsResponse</span></a></span></span><span>
-</span><span id="line-252"></span><span>  </span><span id="local-6989586621679570034"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679570034"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-253"></span><span>    </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse' :: Maybe [AnalyticsConfiguration]
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621679570870"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679570870"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse' :: Maybe [AnalyticsConfiguration]
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Bool
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Int
 -&gt; ListBucketAnalyticsConfigurationsResponse
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span>
-</span><span id="line-254"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:analyticsConfigurationList:ListBucketAnalyticsConfigurationsResponse' :: Maybe [AnalyticsConfiguration]
+</span><span id="line-256"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:analyticsConfigurationList:ListBucketAnalyticsConfigurationsResponse' :: Maybe [AnalyticsConfiguration]
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AanalyticsConfigurationList%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">analyticsConfigurationList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-255"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AnalyticsConfiguration]
+</span><span id="line-257"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AnalyticsConfiguration]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">$sel:isTruncated:ListBucketAnalyticsConfigurationsResponse' :: Maybe Bool
+</span><span id="line-258"></span><span>        </span><span class="annot"><span class="annottext">$sel:continuationToken:ListBucketAnalyticsConfigurationsResponse' :: Maybe Text
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AcontinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">continuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextContinuationToken:ListBucketAnalyticsConfigurationsResponse' :: Maybe Text
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AnextContinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">nextContinuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-261"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">$sel:isTruncated:ListBucketAnalyticsConfigurationsResponse' :: Maybe Bool
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AisTruncated%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">$sel:nextContinuationToken:ListBucketAnalyticsConfigurationsResponse' :: Maybe Text
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AnextContinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">nextContinuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-258"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-259"></span><span>        </span><span class="annot"><span class="annottext">$sel:continuationToken:ListBucketAnalyticsConfigurationsResponse' :: Maybe Text
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AcontinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">continuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-260"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-261"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListBucketAnalyticsConfigurationsResponse' :: Int
+</span><span id="line-263"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:ListBucketAnalyticsConfigurationsResponse' :: Int
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AhttpStatus%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679570034"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-262"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-263"></span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- | The list of analytics configurations for a bucket.</span><span>
-</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-266"></span><span id="listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList :: (Maybe [AnalyticsConfiguration]
+</span><a href="#local-6989586621679570870"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | The list of analytics configurations for a bucket.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.S3.Types.AnalyticsConfiguration.html#AnalyticsConfiguration"><span class="hs-identifier hs-type">AnalyticsConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurationsResponse_analyticsConfigurationList :: (Maybe [AnalyticsConfiguration]
  -&gt; f (Maybe [AnalyticsConfiguration]))
 -&gt; ListBucketAnalyticsConfigurationsResponse
 -&gt; f ListBucketAnalyticsConfigurationsResponse
@@ -689,17 +701,17 @@ forall a. Maybe a
      (Maybe [AnalyticsConfiguration])
      (Maybe [AnalyticsConfiguration])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570033"><span class="annot"><span class="annottext">Maybe [AnalyticsConfiguration]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570869"><span class="annot"><span class="annottext">Maybe [AnalyticsConfiguration]
 analyticsConfigurationList :: Maybe [AnalyticsConfiguration]
 $sel:analyticsConfigurationList:ListBucketAnalyticsConfigurationsResponse' :: ListBucketAnalyticsConfigurationsResponse
 -&gt; Maybe [AnalyticsConfiguration]
-</span><a href="#local-6989586621679570033"><span class="hs-identifier hs-var hs-var">analyticsConfigurationList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AnalyticsConfiguration]
-</span><a href="#local-6989586621679570033"><span class="hs-identifier hs-var">analyticsConfigurationList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570032"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurationsResponse
-</span><a href="#local-6989586621679570032"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570031"><span class="annot"><span class="annottext">Maybe [AnalyticsConfiguration]
-</span><a href="#local-6989586621679570031"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
-</span><a href="#local-6989586621679570032"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyticsConfigurationList:ListBucketAnalyticsConfigurationsResponse' :: Maybe [AnalyticsConfiguration]
+</span><a href="#local-6989586621679570869"><span class="hs-identifier hs-var hs-var">analyticsConfigurationList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AnalyticsConfiguration]
+</span><a href="#local-6989586621679570869"><span class="hs-identifier hs-var">analyticsConfigurationList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570868"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurationsResponse
+</span><a href="#local-6989586621679570868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570867"><span class="annot"><span class="annottext">Maybe [AnalyticsConfiguration]
+</span><a href="#local-6989586621679570867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
+</span><a href="#local-6989586621679570868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analyticsConfigurationList:ListBucketAnalyticsConfigurationsResponse' :: Maybe [AnalyticsConfiguration]
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AanalyticsConfigurationList%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">analyticsConfigurationList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AnalyticsConfiguration]
-</span><a href="#local-6989586621679570031"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AnalyticsConfiguration]
+</span><a href="#local-6989586621679570867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AnalyticsConfiguration]
   -&gt; f (Maybe [AnalyticsConfiguration]))
  -&gt; ListBucketAnalyticsConfigurationsResponse
  -&gt; f ListBucketAnalyticsConfigurationsResponse)
@@ -730,69 +742,14 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AnalyticsConfiguration]
   [AnalyticsConfiguration]
   [AnalyticsConfiguration]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-267"></span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- | Indicates whether the returned list of analytics configurations is</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- complete. A value of true indicates that the list is not complete and</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- the NextContinuationToken will be provided for a subsequent request.</span><span>
-</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_isTruncated"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurationsResponse_isTruncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-272"></span><span id="listBucketAnalyticsConfigurationsResponse_isTruncated"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurationsResponse_isTruncated :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ListBucketAnalyticsConfigurationsResponse
--&gt; f ListBucketAnalyticsConfigurationsResponse
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_isTruncated"><span class="hs-identifier hs-var hs-var">listBucketAnalyticsConfigurationsResponse_isTruncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Bool)
--&gt; (ListBucketAnalyticsConfigurationsResponse
-    -&gt; Maybe Bool -&gt; ListBucketAnalyticsConfigurationsResponse)
--&gt; Lens
-     ListBucketAnalyticsConfigurationsResponse
-     ListBucketAnalyticsConfigurationsResponse
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570027"><span class="annot"><span class="annottext">Maybe Bool
-isTruncated :: Maybe Bool
-$sel:isTruncated:ListBucketAnalyticsConfigurationsResponse' :: ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Bool
-</span><a href="#local-6989586621679570027"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679570027"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570026"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurationsResponse
-</span><a href="#local-6989586621679570026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570025"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679570025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
-</span><a href="#local-6989586621679570026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListBucketAnalyticsConfigurationsResponse' :: Maybe Bool
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AisTruncated%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679570025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-273"></span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- | @NextContinuationToken@ is sent when @isTruncated@ is true, which</span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- indicates that there are more analytics configurations to list. The next</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- request must include this @NextContinuationToken@. The token is</span><span>
-</span><span id="line-277"></span><span class="hs-comment">-- obfuscated and is not a usable value.</span><span>
-</span><span id="line-278"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_nextContinuationToken"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurationsResponse_nextContinuationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-279"></span><span id="listBucketAnalyticsConfigurationsResponse_nextContinuationToken"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurationsResponse_nextContinuationToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListBucketAnalyticsConfigurationsResponse
--&gt; f ListBucketAnalyticsConfigurationsResponse
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_nextContinuationToken"><span class="hs-identifier hs-var hs-var">listBucketAnalyticsConfigurationsResponse_nextContinuationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Text)
--&gt; (ListBucketAnalyticsConfigurationsResponse
-    -&gt; Maybe Text -&gt; ListBucketAnalyticsConfigurationsResponse)
--&gt; Lens
-     ListBucketAnalyticsConfigurationsResponse
-     ListBucketAnalyticsConfigurationsResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570024"><span class="annot"><span class="annottext">Maybe Text
-nextContinuationToken :: Maybe Text
-$sel:nextContinuationToken:ListBucketAnalyticsConfigurationsResponse' :: ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679570024"><span class="hs-identifier hs-var hs-var">nextContinuationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570024"><span class="hs-identifier hs-var">nextContinuationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570023"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurationsResponse
-</span><a href="#local-6989586621679570023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570022"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
-</span><a href="#local-6989586621679570023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextContinuationToken:ListBucketAnalyticsConfigurationsResponse' :: Maybe Text
-</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AnextContinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">nextContinuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-280"></span><span>
-</span><span id="line-281"></span><span class="hs-comment">-- | The marker that is used as a starting point for this analytics</span><span>
-</span><span id="line-282"></span><span class="hs-comment">-- configuration list response. This value is present if it was sent in the</span><span>
-</span><span id="line-283"></span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-284"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_continuationToken"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurationsResponse_continuationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-285"></span><span id="listBucketAnalyticsConfigurationsResponse_continuationToken"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurationsResponse_continuationToken :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The marker that is used as a starting point for this analytics</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- configuration list response. This value is present if it was sent in the</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_continuationToken"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurationsResponse_continuationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="listBucketAnalyticsConfigurationsResponse_continuationToken"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurationsResponse_continuationToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ListBucketAnalyticsConfigurationsResponse
 -&gt; f ListBucketAnalyticsConfigurationsResponse
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_continuationToken"><span class="hs-identifier hs-var hs-var">listBucketAnalyticsConfigurationsResponse_continuationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Text)
@@ -804,20 +761,75 @@ $sel:nextContinuationToken:ListBucketAnalyticsConfigurationsResponse' :: ListBuc
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570021"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570864"><span class="annot"><span class="annottext">Maybe Text
 continuationToken :: Maybe Text
 $sel:continuationToken:ListBucketAnalyticsConfigurationsResponse' :: ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679570021"><span class="hs-identifier hs-var hs-var">continuationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570021"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570020"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurationsResponse
-</span><a href="#local-6989586621679570020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570019"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
-</span><a href="#local-6989586621679570020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuationToken:ListBucketAnalyticsConfigurationsResponse' :: Maybe Text
+</span><a href="#local-6989586621679570864"><span class="hs-identifier hs-var hs-var">continuationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679570864"><span class="hs-identifier hs-var">continuationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570863"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurationsResponse
+</span><a href="#local-6989586621679570863"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570862"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679570862"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
+</span><a href="#local-6989586621679570863"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:continuationToken:ListBucketAnalyticsConfigurationsResponse' :: Maybe Text
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AcontinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">continuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679570019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-286"></span><span>
-</span><span id="line-287"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_httpStatus"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-289"></span><span id="listBucketAnalyticsConfigurationsResponse_httpStatus"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurationsResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679570862"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- | @NextContinuationToken@ is sent when @isTruncated@ is true, which</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- indicates that there are more analytics configurations to list. The next</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- request must include this @NextContinuationToken@. The token is</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- obfuscated and is not a usable value.</span><span>
+</span><span id="line-280"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_nextContinuationToken"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurationsResponse_nextContinuationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span id="listBucketAnalyticsConfigurationsResponse_nextContinuationToken"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurationsResponse_nextContinuationToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListBucketAnalyticsConfigurationsResponse
+-&gt; f ListBucketAnalyticsConfigurationsResponse
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_nextContinuationToken"><span class="hs-identifier hs-var hs-var">listBucketAnalyticsConfigurationsResponse_nextContinuationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Text)
+-&gt; (ListBucketAnalyticsConfigurationsResponse
+    -&gt; Maybe Text -&gt; ListBucketAnalyticsConfigurationsResponse)
+-&gt; Lens
+     ListBucketAnalyticsConfigurationsResponse
+     ListBucketAnalyticsConfigurationsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570861"><span class="annot"><span class="annottext">Maybe Text
+nextContinuationToken :: Maybe Text
+$sel:nextContinuationToken:ListBucketAnalyticsConfigurationsResponse' :: ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679570861"><span class="hs-identifier hs-var hs-var">nextContinuationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679570861"><span class="hs-identifier hs-var">nextContinuationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570860"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurationsResponse
+</span><a href="#local-6989586621679570860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570859"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679570859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
+</span><a href="#local-6989586621679570860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextContinuationToken:ListBucketAnalyticsConfigurationsResponse' :: Maybe Text
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AnextContinuationToken%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">nextContinuationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679570859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- | Indicates whether the returned list of analytics configurations is</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- complete. A value of true indicates that the list is not complete and</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- the NextContinuationToken will be provided for a subsequent request.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_isTruncated"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurationsResponse_isTruncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="listBucketAnalyticsConfigurationsResponse_isTruncated"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurationsResponse_isTruncated :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ListBucketAnalyticsConfigurationsResponse
+-&gt; f ListBucketAnalyticsConfigurationsResponse
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_isTruncated"><span class="hs-identifier hs-var hs-var">listBucketAnalyticsConfigurationsResponse_isTruncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Bool)
+-&gt; (ListBucketAnalyticsConfigurationsResponse
+    -&gt; Maybe Bool -&gt; ListBucketAnalyticsConfigurationsResponse)
+-&gt; Lens
+     ListBucketAnalyticsConfigurationsResponse
+     ListBucketAnalyticsConfigurationsResponse
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570858"><span class="annot"><span class="annottext">Maybe Bool
+isTruncated :: Maybe Bool
+$sel:isTruncated:ListBucketAnalyticsConfigurationsResponse' :: ListBucketAnalyticsConfigurationsResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679570858"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679570858"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570857"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurationsResponse
+</span><a href="#local-6989586621679570857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570856"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679570856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
+</span><a href="#local-6989586621679570857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListBucketAnalyticsConfigurationsResponse' :: Maybe Bool
+</span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AisTruncated%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679570856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_httpStatus"><span class="hs-identifier hs-type">listBucketAnalyticsConfigurationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-291"></span><span id="listBucketAnalyticsConfigurationsResponse_httpStatus"><span class="annot"><span class="annottext">listBucketAnalyticsConfigurationsResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; ListBucketAnalyticsConfigurationsResponse
 -&gt; f ListBucketAnalyticsConfigurationsResponse
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#listBucketAnalyticsConfigurationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listBucketAnalyticsConfigurationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListBucketAnalyticsConfigurationsResponse -&gt; Int)
@@ -829,18 +841,18 @@ $sel:continuationToken:ListBucketAnalyticsConfigurationsResponse' :: ListBucketA
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570018"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679570855"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListBucketAnalyticsConfigurationsResponse' :: ListBucketAnalyticsConfigurationsResponse -&gt; Int
-</span><a href="#local-6989586621679570018"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679570018"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570017"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurationsResponse
-</span><a href="#local-6989586621679570017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570016"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679570016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
-</span><a href="#local-6989586621679570017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBucketAnalyticsConfigurationsResponse' :: Int
+</span><a href="#local-6989586621679570855"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679570855"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679570854"><span class="annot"><span class="annottext">s :: ListBucketAnalyticsConfigurationsResponse
+</span><a href="#local-6989586621679570854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679570853"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679570853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListBucketAnalyticsConfigurationsResponse
+</span><a href="#local-6989586621679570854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListBucketAnalyticsConfigurationsResponse' :: Int
 </span><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#%24sel%3AhttpStatus%3AListBucketAnalyticsConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679570016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-290"></span><span>
-</span><span id="line-291"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-292"></span><span>  </span><span id="local-6989586621679570014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span></span><span>
-</span><span id="line-294"></span></pre></body></html>
+</span><a href="#local-6989586621679570853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-294"></span><span>  </span><span id="local-6989586621679570851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><a href="Network.AWS.S3.ListBucketAnalyticsConfigurations.html#ListBucketAnalyticsConfigurationsResponse"><span class="hs-identifier hs-type">ListBucketAnalyticsConfigurationsResponse</span></a></span></span><span>
+</span><span id="line-296"></span></pre></body></html>

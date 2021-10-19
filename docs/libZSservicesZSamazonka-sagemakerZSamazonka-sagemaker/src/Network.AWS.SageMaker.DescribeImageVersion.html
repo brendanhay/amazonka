@@ -36,14 +36,14 @@
 </span><span id="line-36"></span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_creationTime"><span class="hs-identifier">describeImageVersionResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageVersionStatus"><span class="hs-identifier">describeImageVersionResponse_imageVersionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_failureReason"><span class="hs-identifier">describeImageVersionResponse_failureReason</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_containerImage"><span class="hs-identifier">describeImageVersionResponse_containerImage</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageVersionArn"><span class="hs-identifier">describeImageVersionResponse_imageVersionArn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_baseImage"><span class="hs-identifier">describeImageVersionResponse_baseImage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_lastModifiedTime"><span class="hs-identifier">describeImageVersionResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageVersionStatus"><span class="hs-identifier">describeImageVersionResponse_imageVersionStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_version"><span class="hs-identifier">describeImageVersionResponse_version</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_failureReason"><span class="hs-identifier">describeImageVersionResponse_failureReason</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_lastModifiedTime"><span class="hs-identifier">describeImageVersionResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageArn"><span class="hs-identifier">describeImageVersionResponse_imageArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_baseImage"><span class="hs-identifier">describeImageVersionResponse_baseImage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageArn"><span class="hs-identifier">describeImageVersionResponse_imageArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageVersionArn"><span class="hs-identifier">describeImageVersionResponse_imageVersionArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_httpStatus"><span class="hs-identifier">describeImageVersionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.html"><span class="hs-identifier">Network.AWS.SageMaker.Types</span></a></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDescribeImageVersion' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621680396246"><span id="local-6989586621680396247"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImageVersion"><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-var">DescribeImageVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImageVersion%27"><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion%27"><span class="hs-identifier hs-var">DescribeImageVersion'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621680397845"><span id="local-6989586621680397846"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImageVersion"><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-var">DescribeImageVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImageVersion%27"><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion%27"><span class="hs-identifier hs-var">DescribeImageVersion'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The version of the image. If not specified, the latest version is</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- described.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3Aversion%3ADescribeImageVersion%27"><span class="annot"><span class="annottext">DescribeImageVersion -&gt; Maybe Natural
@@ -65,7 +65,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AimageName%3ADescribeImageVersion%27"><span class="annot"><span class="annottext">DescribeImageVersion -&gt; Text
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageName%3ADescribeImageVersion%27"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680396239"><span id="local-6989586621680396241"><span class="annot"><span class="annottext">DescribeImageVersion -&gt; DescribeImageVersion -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680397838"><span id="local-6989586621680397840"><span class="annot"><span class="annottext">DescribeImageVersion -&gt; DescribeImageVersion -&gt; Bool
 (DescribeImageVersion -&gt; DescribeImageVersion -&gt; Bool)
 -&gt; (DescribeImageVersion -&gt; DescribeImageVersion -&gt; Bool)
 -&gt; Eq DescribeImageVersion
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeImageVersion -&gt; DescribeImageVersion -&gt; Bool
 == :: DescribeImageVersion -&gt; DescribeImageVersion -&gt; Bool
 $c== :: DescribeImageVersion -&gt; DescribeImageVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680396230"><span id="local-6989586621680396232"><span id="local-6989586621680396234"><span id="local-6989586621680396236"><span class="annot"><span class="annottext">ReadPrec [DescribeImageVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680397829"><span id="local-6989586621680397831"><span id="local-6989586621680397833"><span id="local-6989586621680397835"><span class="annot"><span class="annottext">ReadPrec [DescribeImageVersion]
 ReadPrec DescribeImageVersion
 Int -&gt; ReadS DescribeImageVersion
 ReadS [DescribeImageVersion]
@@ -94,7 +94,7 @@ readList :: ReadS [DescribeImageVersion]
 $creadList :: ReadS [DescribeImageVersion]
 readsPrec :: Int -&gt; ReadS DescribeImageVersion
 $creadsPrec :: Int -&gt; ReadS DescribeImageVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680396223"><span id="local-6989586621680396225"><span id="local-6989586621680396227"><span class="annot"><span class="annottext">Int -&gt; DescribeImageVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680397822"><span id="local-6989586621680397824"><span id="local-6989586621680397826"><span class="annot"><span class="annottext">Int -&gt; DescribeImageVersion -&gt; ShowS
 [DescribeImageVersion] -&gt; ShowS
 DescribeImageVersion -&gt; String
 (Int -&gt; DescribeImageVersion -&gt; ShowS)
@@ -137,8 +137,8 @@ $cfrom :: forall x. DescribeImageVersion -&gt; Rep DescribeImageVersion x
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span><span>
 </span><span id="line-84"></span><span id="newDescribeImageVersion"><span class="annot"><span class="annottext">newDescribeImageVersion :: Text -&gt; DescribeImageVersion
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#newDescribeImageVersion"><span class="hs-identifier hs-var hs-var">newDescribeImageVersion</span></a></span></span><span> </span><span id="local-6989586621680396218"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680396218"><span class="hs-identifier hs-var">pImageName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#newDescribeImageVersion"><span class="hs-identifier hs-var hs-var">newDescribeImageVersion</span></a></span></span><span> </span><span id="local-6989586621680397817"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680397817"><span class="hs-identifier hs-var">pImageName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DescribeImageVersion' :: Maybe Natural -&gt; Text -&gt; DescribeImageVersion
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion%27"><span class="hs-identifier hs-type">DescribeImageVersion'</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:version:DescribeImageVersion' :: Maybe Natural
@@ -147,7 +147,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageName:DescribeImageVersion' :: Text
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageName%3ADescribeImageVersion%27"><span class="hs-identifier hs-var">imageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680396218"><span class="hs-identifier hs-var">pImageName_</span></a></span><span>
+</span><a href="#local-6989586621680397817"><span class="hs-identifier hs-var">pImageName_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The version of the image. If not specified, the latest version is</span><span>
@@ -163,16 +163,16 @@ forall a. Maybe a
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion%27"><span class="hs-identifier hs-type">DescribeImageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680396215"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion%27"><span class="hs-identifier hs-type">DescribeImageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397814"><span class="annot"><span class="annottext">Maybe Natural
 version :: Maybe Natural
 $sel:version:DescribeImageVersion' :: DescribeImageVersion -&gt; Maybe Natural
-</span><a href="#local-6989586621680396215"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680396215"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680396214"><span class="annot"><span class="annottext">s :: DescribeImageVersion
-</span><a href="#local-6989586621680396214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion%27"><span class="hs-identifier hs-type">DescribeImageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680396213"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680396213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersion
-</span><a href="#local-6989586621680396214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:DescribeImageVersion' :: Maybe Natural
+</span><a href="#local-6989586621680397814"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680397814"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397813"><span class="annot"><span class="annottext">s :: DescribeImageVersion
+</span><a href="#local-6989586621680397813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion%27"><span class="hs-identifier hs-type">DescribeImageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397812"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680397812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersion
+</span><a href="#local-6989586621680397813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:DescribeImageVersion' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3Aversion%3ADescribeImageVersion%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680396213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680397812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The name of the image.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersion_imageName"><span class="hs-identifier hs-type">describeImageVersion_imageName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -181,27 +181,27 @@ $sel:version:DescribeImageVersion' :: DescribeImageVersion -&gt; Maybe Natural
 -&gt; (DescribeImageVersion -&gt; Text -&gt; DescribeImageVersion)
 -&gt; Lens DescribeImageVersion DescribeImageVersion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion%27"><span class="hs-identifier hs-type">DescribeImageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680396212"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion%27"><span class="hs-identifier hs-type">DescribeImageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397811"><span class="annot"><span class="annottext">Text
 imageName :: Text
 $sel:imageName:DescribeImageVersion' :: DescribeImageVersion -&gt; Text
-</span><a href="#local-6989586621680396212"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680396212"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680396211"><span class="annot"><span class="annottext">s :: DescribeImageVersion
-</span><a href="#local-6989586621680396211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion%27"><span class="hs-identifier hs-type">DescribeImageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680396210"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680396210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersion
-</span><a href="#local-6989586621680396211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageName:DescribeImageVersion' :: Text
+</span><a href="#local-6989586621680397811"><span class="hs-identifier hs-var hs-var">imageName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680397811"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397810"><span class="annot"><span class="annottext">s :: DescribeImageVersion
+</span><a href="#local-6989586621680397810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion%27"><span class="hs-identifier hs-type">DescribeImageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397809"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680397809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersion
+</span><a href="#local-6989586621680397810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageName:DescribeImageVersion' :: Text
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageName%3ADescribeImageVersion%27"><span class="hs-identifier hs-var">imageName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680396210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680397809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621680396206"><span class="annot"><span class="annottext">request :: DescribeImageVersion -&gt; Request DescribeImageVersion
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621680397805"><span class="annot"><span class="annottext">request :: DescribeImageVersion -&gt; Request DescribeImageVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeImageVersion -&gt; Request DescribeImageVersion
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621680396202"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621680397801"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeImageVersion
 -&gt; ClientResponse ClientBody
@@ -227,165 +227,165 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680396199"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680396199"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680396198"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621680396198"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680396197"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680396197"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680397798"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680397798"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680397797"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680397797"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680397796"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397796"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
--&gt; Maybe ImageVersionStatus
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe ImageVersionStatus
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Int
 -&gt; DescribeImageVersionResponse
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-var">DescribeImageVersionResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
- -&gt; Maybe ImageVersionStatus
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Natural
  -&gt; Maybe Text
  -&gt; Maybe POSIX
+ -&gt; Maybe ImageVersionStatus
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Int
  -&gt; DescribeImageVersionResponse)
 -&gt; Either String (Maybe POSIX)
 -&gt; Either
      String
-     (Maybe ImageVersionStatus
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Natural
+     (Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe POSIX
+      -&gt; Maybe ImageVersionStatus
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Int
       -&gt; DescribeImageVersionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680396197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621680397796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe ImageVersionStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Natural
+  (Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe POSIX
+   -&gt; Maybe ImageVersionStatus
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeImageVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ImageVersionStatus
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeImageVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ImageVersionStatus
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeImageVersionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe ImageVersionStatus
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeImageVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContainerImage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe ImageVersionStatus
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Int
+   -&gt; DescribeImageVersionResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe ImageVersionStatus
+      -&gt; Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Int
+      -&gt; DescribeImageVersionResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680397796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ImageVersionStatus
+   -&gt; Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Int
    -&gt; DescribeImageVersionResponse)
 -&gt; Either String (Maybe ImageVersionStatus)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe Natural
       -&gt; Maybe Text
       -&gt; Maybe Text
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
       -&gt; Maybe Text
       -&gt; Int
       -&gt; DescribeImageVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680396197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImageVersionStatus)
+</span><a href="#local-6989586621680397796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImageVersionStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageVersionStatus&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Int
-   -&gt; DescribeImageVersionResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Int
-      -&gt; DescribeImageVersionResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680396197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ContainerImage&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Int
-   -&gt; DescribeImageVersionResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Int
-      -&gt; DescribeImageVersionResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680396197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ImageVersionArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe Natural
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Int
-   -&gt; DescribeImageVersionResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Natural
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Int
-      -&gt; DescribeImageVersionResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680396197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BaseImage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Natural
    -&gt; Maybe Text
-   -&gt; Maybe POSIX
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Int
    -&gt; DescribeImageVersionResponse)
@@ -393,54 +393,48 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either
      String
      (Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Int
-      -&gt; DescribeImageVersionResponse)
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeImageVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680396197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+</span><a href="#local-6989586621680397796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Version&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Int
-   -&gt; DescribeImageVersionResponse)
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeImageVersionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; DescribeImageVersionResponse)
+     (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeImageVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680396197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680397796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;BaseImage&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe POSIX -&gt; Maybe Text -&gt; Int -&gt; DescribeImageVersionResponse)
--&gt; Either String (Maybe POSIX)
+  (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DescribeImageVersionResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String (Maybe Text -&gt; Int -&gt; DescribeImageVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680396197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+</span><a href="#local-6989586621680397796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ImageArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeImageVersionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; DescribeImageVersionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621680396197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621680397796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ImageArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ImageVersionArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeImageVersionResponse)
 -&gt; Either String Int -&gt; Either String DescribeImageVersionResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -449,15 +443,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680396199"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680397798"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680396189"><span id="local-6989586621680396191"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span></span></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680397788"><span id="local-6989586621680397790"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span></span></span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680396186"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680397785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621680396182"><span class="annot"><span class="annottext">toHeaders :: DescribeImageVersion -&gt; ResponseHeaders
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621680397781"><span class="annot"><span class="annottext">toHeaders :: DescribeImageVersion -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeImageVersion -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -484,15 +478,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680396172"><span id="local-6989586621680396174"><span id="local-6989586621680396176"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621680396170"><span class="annot"><span class="annottext">toJSON :: DescribeImageVersion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion%27"><span class="hs-identifier hs-type">DescribeImageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680396167"><span id="local-6989586621680396168"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680397771"><span id="local-6989586621680397773"><span id="local-6989586621680397775"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621680397769"><span class="annot"><span class="annottext">toJSON :: DescribeImageVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion%27"><span class="hs-identifier hs-type">DescribeImageVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397766"><span id="local-6989586621680397767"><span class="annot"><span class="annottext">Maybe Natural
 Text
 imageName :: Text
 version :: Maybe Natural
 $sel:imageName:DescribeImageVersion' :: DescribeImageVersion -&gt; Text
 $sel:version:DescribeImageVersion' :: DescribeImageVersion -&gt; Maybe Natural
-</span><a href="#local-6989586621680396167"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621680397766"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -504,26 +498,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680396168"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621680397767"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621680396167"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680397766"><span class="hs-identifier hs-var">imageName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621680396161"><span class="annot"><span class="annottext">toPath :: DescribeImageVersion -&gt; ByteString
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621680397760"><span class="annot"><span class="annottext">toPath :: DescribeImageVersion -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeImageVersion -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-150"></span><span>
 </span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersion"><span class="hs-identifier hs-type">DescribeImageVersion</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-152"></span><span>  </span><span id="local-6989586621680396157"><span class="annot"><span class="annottext">toQuery :: DescribeImageVersion -&gt; QueryString
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621680397756"><span class="annot"><span class="annottext">toQuery :: DescribeImageVersion -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeImageVersion -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -531,41 +525,41 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newDescribeImageVersionResponse' smart constructor.</span><span>
-</span><span id="line-155"></span><span id="local-6989586621680396154"><span id="local-6989586621680396155"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImageVersionResponse"><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-var">DescribeImageVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImageVersionResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-var">DescribeImageVersionResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span id="local-6989586621680397753"><span id="local-6989586621680397754"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeImageVersionResponse"><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-var">DescribeImageVersionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeImageVersionResponse%27"><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-var">DescribeImageVersionResponse'</span></a></span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When the version was created.</span><span>
 </span><span id="line-157"></span><span>    </span><span id="%24sel%3AcreationTime%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AcreationTime%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | The status of the version.</span><span>
-</span><span id="line-159"></span><span>    </span><span id="%24sel%3AimageVersionStatus%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe ImageVersionStatus
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageVersionStatus%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">imageVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ImageVersionStatus.html#ImageVersionStatus"><span class="hs-identifier hs-type">ImageVersionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | When a create or delete operation fails, the reason for the failure.</span><span>
+</span><span id="line-159"></span><span>    </span><span id="%24sel%3AfailureReason%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AfailureReason%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-comment">-- | The registry path of the container image that contains this image</span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-comment">-- version.</span><span>
 </span><span id="line-162"></span><span>    </span><span id="%24sel%3AcontainerImage%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AcontainerImage%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">containerImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The ARN of the version.</span><span>
-</span><span id="line-164"></span><span>    </span><span id="%24sel%3AimageVersionArn%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageVersionArn%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">imageVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The registry path of the container image on which this image version is</span><span>
-</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- based.</span><span>
-</span><span id="line-167"></span><span>    </span><span id="%24sel%3AbaseImage%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AbaseImage%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">baseImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | The version number.</span><span>
-</span><span id="line-169"></span><span>    </span><span id="%24sel%3Aversion%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe Natural
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3Aversion%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | When a create or delete operation fails, the reason for the failure.</span><span>
-</span><span id="line-171"></span><span>    </span><span id="%24sel%3AfailureReason%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AfailureReason%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | When the version was last modified.</span><span>
-</span><span id="line-173"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe POSIX
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | When the version was last modified.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe POSIX
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AlastModifiedTime%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the image the version is based on.</span><span>
-</span><span id="line-175"></span><span>    </span><span id="%24sel%3AimageArn%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe Text
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | The status of the version.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3AimageVersionStatus%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe ImageVersionStatus
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageVersionStatus%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">imageVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ImageVersionStatus.html#ImageVersionStatus"><span class="hs-identifier hs-type">ImageVersionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | The version number.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3Aversion%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe Natural
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3Aversion%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The registry path of the container image on which this image version is</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- based.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AbaseImage%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AbaseImage%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">baseImage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the image the version is based on.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AimageArn%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageArn%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">imageArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | The ARN of the version.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AimageVersionArn%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageVersionArn%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">imageVersionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-177"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeImageVersionResponse%27"><span class="annot"><span class="annottext">DescribeImageVersionResponse -&gt; Int
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AhttpStatus%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-178"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-179"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680396140"><span id="local-6989586621680396142"><span class="annot"><span class="annottext">DescribeImageVersionResponse
+</span><span id="line-179"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680397739"><span id="local-6989586621680397741"><span class="annot"><span class="annottext">DescribeImageVersionResponse
 -&gt; DescribeImageVersionResponse -&gt; Bool
 (DescribeImageVersionResponse
  -&gt; DescribeImageVersionResponse -&gt; Bool)
@@ -581,7 +575,7 @@ $c/= :: DescribeImageVersionResponse
 -&gt; DescribeImageVersionResponse -&gt; Bool
 $c== :: DescribeImageVersionResponse
 -&gt; DescribeImageVersionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680396132"><span id="local-6989586621680396134"><span id="local-6989586621680396136"><span id="local-6989586621680396138"><span class="annot"><span class="annottext">ReadPrec [DescribeImageVersionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680397731"><span id="local-6989586621680397733"><span id="local-6989586621680397735"><span id="local-6989586621680397737"><span class="annot"><span class="annottext">ReadPrec [DescribeImageVersionResponse]
 ReadPrec DescribeImageVersionResponse
 Int -&gt; ReadS DescribeImageVersionResponse
 ReadS [DescribeImageVersionResponse]
@@ -601,7 +595,7 @@ readList :: ReadS [DescribeImageVersionResponse]
 $creadList :: ReadS [DescribeImageVersionResponse]
 readsPrec :: Int -&gt; ReadS DescribeImageVersionResponse
 $creadsPrec :: Int -&gt; ReadS DescribeImageVersionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680396126"><span id="local-6989586621680396128"><span id="local-6989586621680396130"><span class="annot"><span class="annottext">Int -&gt; DescribeImageVersionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680397725"><span id="local-6989586621680397727"><span id="local-6989586621680397729"><span class="annot"><span class="annottext">Int -&gt; DescribeImageVersionResponse -&gt; ShowS
 [DescribeImageVersionResponse] -&gt; ShowS
 DescribeImageVersionResponse -&gt; String
 (Int -&gt; DescribeImageVersionResponse -&gt; ShowS)
@@ -643,23 +637,23 @@ DescribeImageVersionResponse -&gt; Rep DescribeImageVersionResponse x
 </span><span id="line-188"></span><span class="hs-comment">--</span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- 'creationTime', 'describeImageVersionResponse_creationTime' - When the version was created.</span><span>
 </span><span id="line-190"></span><span class="hs-comment">--</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- 'imageVersionStatus', 'describeImageVersionResponse_imageVersionStatus' - The status of the version.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'failureReason', 'describeImageVersionResponse_failureReason' - When a create or delete operation fails, the reason for the failure.</span><span>
 </span><span id="line-192"></span><span class="hs-comment">--</span><span>
 </span><span id="line-193"></span><span class="hs-comment">-- 'containerImage', 'describeImageVersionResponse_containerImage' - The registry path of the container image that contains this image</span><span>
 </span><span id="line-194"></span><span class="hs-comment">-- version.</span><span>
 </span><span id="line-195"></span><span class="hs-comment">--</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- 'imageVersionArn', 'describeImageVersionResponse_imageVersionArn' - The ARN of the version.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'lastModifiedTime', 'describeImageVersionResponse_lastModifiedTime' - When the version was last modified.</span><span>
 </span><span id="line-197"></span><span class="hs-comment">--</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- 'baseImage', 'describeImageVersionResponse_baseImage' - The registry path of the container image on which this image version is</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- based.</span><span>
-</span><span id="line-200"></span><span class="hs-comment">--</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- 'version', 'describeImageVersionResponse_version' - The version number.</span><span>
-</span><span id="line-202"></span><span class="hs-comment">--</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- 'failureReason', 'describeImageVersionResponse_failureReason' - When a create or delete operation fails, the reason for the failure.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'imageVersionStatus', 'describeImageVersionResponse_imageVersionStatus' - The status of the version.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'version', 'describeImageVersionResponse_version' - The version number.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'baseImage', 'describeImageVersionResponse_baseImage' - The registry path of the container image on which this image version is</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- based.</span><span>
 </span><span id="line-204"></span><span class="hs-comment">--</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- 'lastModifiedTime', 'describeImageVersionResponse_lastModifiedTime' - When the version was last modified.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'imageArn', 'describeImageVersionResponse_imageArn' - The Amazon Resource Name (ARN) of the image the version is based on.</span><span>
 </span><span id="line-206"></span><span class="hs-comment">--</span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- 'imageArn', 'describeImageVersionResponse_imageArn' - The Amazon Resource Name (ARN) of the image the version is based on.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'imageVersionArn', 'describeImageVersionResponse_imageVersionArn' - The ARN of the version.</span><span>
 </span><span id="line-208"></span><span class="hs-comment">--</span><span>
 </span><span id="line-209"></span><span class="hs-comment">-- 'httpStatus', 'describeImageVersionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-210"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#newDescribeImageVersionResponse"><span class="hs-identifier hs-type">newDescribeImageVersionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -667,16 +661,16 @@ DescribeImageVersionResponse -&gt; Rep DescribeImageVersionResponse x
 </span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span>
 </span><span id="line-214"></span><span id="newDescribeImageVersionResponse"><span class="annot"><span class="annottext">newDescribeImageVersionResponse :: Int -&gt; DescribeImageVersionResponse
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#newDescribeImageVersionResponse"><span class="hs-identifier hs-var hs-var">newDescribeImageVersionResponse</span></a></span></span><span> </span><span id="local-6989586621680396123"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680396123"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#newDescribeImageVersionResponse"><span class="hs-identifier hs-var hs-var">newDescribeImageVersionResponse</span></a></span></span><span> </span><span id="local-6989586621680397722"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680397722"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">DescribeImageVersionResponse' :: Maybe POSIX
--&gt; Maybe ImageVersionStatus
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Natural
 -&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe ImageVersionStatus
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Int
 -&gt; DescribeImageVersionResponse
@@ -686,41 +680,41 @@ DescribeImageVersionResponse -&gt; Rep DescribeImageVersionResponse x
 </span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageVersionStatus:DescribeImageVersionResponse' :: Maybe ImageVersionStatus
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageVersionStatus%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">imageVersionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageVersionStatus
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:DescribeImageVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AfailureReason%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerImage:DescribeImageVersionResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AcontainerImage%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">containerImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageVersionArn:DescribeImageVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageVersionArn%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">imageVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DescribeImageVersionResponse' :: Maybe POSIX
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AlastModifiedTime%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:baseImage:DescribeImageVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AbaseImage%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">baseImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageVersionStatus:DescribeImageVersionResponse' :: Maybe ImageVersionStatus
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageVersionStatus%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">imageVersionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageVersionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:version:DescribeImageVersionResponse' :: Maybe Natural
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3Aversion%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:DescribeImageVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AfailureReason%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:baseImage:DescribeImageVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AbaseImage%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">baseImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DescribeImageVersionResponse' :: Maybe POSIX
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AlastModifiedTime%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageArn:DescribeImageVersionResponse' :: Maybe Text
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageArn:DescribeImageVersionResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageArn%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">imageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageVersionArn:DescribeImageVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageVersionArn%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">imageVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImageVersionResponse' :: Int
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AhttpStatus%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680396123"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621680397722"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-227"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-228"></span><span>
 </span><span id="line-229"></span><span class="hs-comment">-- | When the version was created.</span><span>
@@ -736,16 +730,16 @@ forall a. Maybe a
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680396122"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397721"><span class="annot"><span class="annottext">Maybe POSIX
 creationTime :: Maybe POSIX
 $sel:creationTime:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621680396122"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680396122"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680396121"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
-</span><a href="#local-6989586621680396121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680396120"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680396120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
-</span><a href="#local-6989586621680396121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DescribeImageVersionResponse' :: Maybe POSIX
+</span><a href="#local-6989586621680397721"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680397721"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397720"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
+</span><a href="#local-6989586621680397720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397719"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680397719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
+</span><a href="#local-6989586621680397720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:DescribeImageVersionResponse' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AcreationTime%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680396120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680397719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DescribeImageVersionResponse -&gt; f DescribeImageVersionResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -762,29 +756,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-232"></span><span>
-</span><span id="line-233"></span><span class="hs-comment">-- | The status of the version.</span><span>
-</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageVersionStatus"><span class="hs-identifier hs-type">describeImageVersionResponse_imageVersionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ImageVersionStatus.html#ImageVersionStatus"><span class="hs-identifier hs-type">ImageVersionStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span id="describeImageVersionResponse_imageVersionStatus"><span class="annot"><span class="annottext">describeImageVersionResponse_imageVersionStatus :: (Maybe ImageVersionStatus -&gt; f (Maybe ImageVersionStatus))
+</span><span id="line-233"></span><span class="hs-comment">-- | When a create or delete operation fails, the reason for the failure.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_failureReason"><span class="hs-identifier hs-type">describeImageVersionResponse_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="describeImageVersionResponse_failureReason"><span class="annot"><span class="annottext">describeImageVersionResponse_failureReason :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeImageVersionResponse -&gt; f DescribeImageVersionResponse
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageVersionStatus"><span class="hs-identifier hs-var hs-var">describeImageVersionResponse_imageVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageVersionResponse -&gt; Maybe ImageVersionStatus)
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_failureReason"><span class="hs-identifier hs-var hs-var">describeImageVersionResponse_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageVersionResponse -&gt; Maybe Text)
 -&gt; (DescribeImageVersionResponse
-    -&gt; Maybe ImageVersionStatus -&gt; DescribeImageVersionResponse)
+    -&gt; Maybe Text -&gt; DescribeImageVersionResponse)
 -&gt; Lens
      DescribeImageVersionResponse
      DescribeImageVersionResponse
-     (Maybe ImageVersionStatus)
-     (Maybe ImageVersionStatus)
+     (Maybe Text)
+     (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680396116"><span class="annot"><span class="annottext">Maybe ImageVersionStatus
-imageVersionStatus :: Maybe ImageVersionStatus
-$sel:imageVersionStatus:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe ImageVersionStatus
-</span><a href="#local-6989586621680396116"><span class="hs-identifier hs-var hs-var">imageVersionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageVersionStatus
-</span><a href="#local-6989586621680396116"><span class="hs-identifier hs-var">imageVersionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680396115"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
-</span><a href="#local-6989586621680396115"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680396114"><span class="annot"><span class="annottext">Maybe ImageVersionStatus
-</span><a href="#local-6989586621680396114"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
-</span><a href="#local-6989586621680396115"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageVersionStatus:DescribeImageVersionResponse' :: Maybe ImageVersionStatus
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageVersionStatus%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">imageVersionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageVersionStatus
-</span><a href="#local-6989586621680396114"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397715"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680397715"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397715"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397714"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
+</span><a href="#local-6989586621680397714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397713"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
+</span><a href="#local-6989586621680397714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:DescribeImageVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AfailureReason%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-236"></span><span>
 </span><span id="line-237"></span><span class="hs-comment">-- | The registry path of the container image that contains this image</span><span>
 </span><span id="line-238"></span><span class="hs-comment">-- version.</span><span>
@@ -800,117 +794,20 @@ $sel:imageVersionStatus:DescribeImageVersionResponse' :: DescribeImageVersionRes
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680396113"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397712"><span class="annot"><span class="annottext">Maybe Text
 containerImage :: Maybe Text
 $sel:containerImage:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680396113"><span class="hs-identifier hs-var hs-var">containerImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396113"><span class="hs-identifier hs-var">containerImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680396112"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
-</span><a href="#local-6989586621680396112"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680396111"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396111"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
-</span><a href="#local-6989586621680396112"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerImage:DescribeImageVersionResponse' :: Maybe Text
+</span><a href="#local-6989586621680397712"><span class="hs-identifier hs-var hs-var">containerImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397712"><span class="hs-identifier hs-var">containerImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397711"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
+</span><a href="#local-6989586621680397711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397710"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
+</span><a href="#local-6989586621680397711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerImage:DescribeImageVersionResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AcontainerImage%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">containerImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396111"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680397710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- | The ARN of the version.</span><span>
-</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageVersionArn"><span class="hs-identifier hs-type">describeImageVersionResponse_imageVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-244"></span><span id="describeImageVersionResponse_imageVersionArn"><span class="annot"><span class="annottext">describeImageVersionResponse_imageVersionArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeImageVersionResponse -&gt; f DescribeImageVersionResponse
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageVersionArn"><span class="hs-identifier hs-var hs-var">describeImageVersionResponse_imageVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageVersionResponse -&gt; Maybe Text)
--&gt; (DescribeImageVersionResponse
-    -&gt; Maybe Text -&gt; DescribeImageVersionResponse)
--&gt; Lens
-     DescribeImageVersionResponse
-     DescribeImageVersionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680396110"><span class="annot"><span class="annottext">Maybe Text
-imageVersionArn :: Maybe Text
-$sel:imageVersionArn:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680396110"><span class="hs-identifier hs-var hs-var">imageVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396110"><span class="hs-identifier hs-var">imageVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680396109"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
-</span><a href="#local-6989586621680396109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680396108"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
-</span><a href="#local-6989586621680396109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageVersionArn:DescribeImageVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageVersionArn%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">imageVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-245"></span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- | The registry path of the container image on which this image version is</span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- based.</span><span>
-</span><span id="line-248"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_baseImage"><span class="hs-identifier hs-type">describeImageVersionResponse_baseImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-249"></span><span id="describeImageVersionResponse_baseImage"><span class="annot"><span class="annottext">describeImageVersionResponse_baseImage :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeImageVersionResponse -&gt; f DescribeImageVersionResponse
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_baseImage"><span class="hs-identifier hs-var hs-var">describeImageVersionResponse_baseImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageVersionResponse -&gt; Maybe Text)
--&gt; (DescribeImageVersionResponse
-    -&gt; Maybe Text -&gt; DescribeImageVersionResponse)
--&gt; Lens
-     DescribeImageVersionResponse
-     DescribeImageVersionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680396107"><span class="annot"><span class="annottext">Maybe Text
-baseImage :: Maybe Text
-$sel:baseImage:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680396107"><span class="hs-identifier hs-var hs-var">baseImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396107"><span class="hs-identifier hs-var">baseImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680396106"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
-</span><a href="#local-6989586621680396106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680396105"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
-</span><a href="#local-6989586621680396106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseImage:DescribeImageVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AbaseImage%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">baseImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-250"></span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- | The version number.</span><span>
-</span><span id="line-252"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_version"><span class="hs-identifier hs-type">describeImageVersionResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-253"></span><span id="describeImageVersionResponse_version"><span class="annot"><span class="annottext">describeImageVersionResponse_version :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; DescribeImageVersionResponse -&gt; f DescribeImageVersionResponse
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_version"><span class="hs-identifier hs-var hs-var">describeImageVersionResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageVersionResponse -&gt; Maybe Natural)
--&gt; (DescribeImageVersionResponse
-    -&gt; Maybe Natural -&gt; DescribeImageVersionResponse)
--&gt; Lens
-     DescribeImageVersionResponse
-     DescribeImageVersionResponse
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680396104"><span class="annot"><span class="annottext">Maybe Natural
-version :: Maybe Natural
-$sel:version:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe Natural
-</span><a href="#local-6989586621680396104"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680396104"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680396103"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
-</span><a href="#local-6989586621680396103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680396102"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680396102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
-</span><a href="#local-6989586621680396103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:DescribeImageVersionResponse' :: Maybe Natural
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3Aversion%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621680396102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-254"></span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- | When a create or delete operation fails, the reason for the failure.</span><span>
-</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_failureReason"><span class="hs-identifier hs-type">describeImageVersionResponse_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-257"></span><span id="describeImageVersionResponse_failureReason"><span class="annot"><span class="annottext">describeImageVersionResponse_failureReason :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeImageVersionResponse -&gt; f DescribeImageVersionResponse
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_failureReason"><span class="hs-identifier hs-var hs-var">describeImageVersionResponse_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageVersionResponse -&gt; Maybe Text)
--&gt; (DescribeImageVersionResponse
-    -&gt; Maybe Text -&gt; DescribeImageVersionResponse)
--&gt; Lens
-     DescribeImageVersionResponse
-     DescribeImageVersionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680396101"><span class="annot"><span class="annottext">Maybe Text
-failureReason :: Maybe Text
-$sel:failureReason:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680396101"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396101"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680396100"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
-</span><a href="#local-6989586621680396100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680396099"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
-</span><a href="#local-6989586621680396100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:DescribeImageVersionResponse' :: Maybe Text
-</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AfailureReason%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-258"></span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- | When the version was last modified.</span><span>
-</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_lastModifiedTime"><span class="hs-identifier hs-type">describeImageVersionResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-261"></span><span id="describeImageVersionResponse_lastModifiedTime"><span class="annot"><span class="annottext">describeImageVersionResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span id="line-242"></span><span class="hs-comment">-- | When the version was last modified.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_lastModifiedTime"><span class="hs-identifier hs-type">describeImageVersionResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="describeImageVersionResponse_lastModifiedTime"><span class="annot"><span class="annottext">describeImageVersionResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; DescribeImageVersionResponse -&gt; f DescribeImageVersionResponse
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_lastModifiedTime"><span class="hs-identifier hs-var hs-var">describeImageVersionResponse_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageVersionResponse -&gt; Maybe POSIX)
 -&gt; (DescribeImageVersionResponse
@@ -921,16 +818,16 @@ $sel:failureReason:DescribeImageVersionResponse' :: DescribeImageVersionResponse
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680396098"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397709"><span class="annot"><span class="annottext">Maybe POSIX
 lastModifiedTime :: Maybe POSIX
 $sel:lastModifiedTime:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621680396098"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680396098"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680396097"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
-</span><a href="#local-6989586621680396097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680396096"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680396096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
-</span><a href="#local-6989586621680396097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DescribeImageVersionResponse' :: Maybe POSIX
+</span><a href="#local-6989586621680397709"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680397709"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397708"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
+</span><a href="#local-6989586621680397708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397707"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680397707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
+</span><a href="#local-6989586621680397708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:DescribeImageVersionResponse' :: Maybe POSIX
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AlastModifiedTime%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621680396096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621680397707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; DescribeImageVersionResponse -&gt; f DescribeImageVersionResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -946,10 +843,83 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-262"></span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the image the version is based on.</span><span>
-</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageArn"><span class="hs-identifier hs-type">describeImageVersionResponse_imageArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-265"></span><span id="describeImageVersionResponse_imageArn"><span class="annot"><span class="annottext">describeImageVersionResponse_imageArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The status of the version.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageVersionStatus"><span class="hs-identifier hs-type">describeImageVersionResponse_imageVersionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.Types.ImageVersionStatus.html#ImageVersionStatus"><span class="hs-identifier hs-type">ImageVersionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="describeImageVersionResponse_imageVersionStatus"><span class="annot"><span class="annottext">describeImageVersionResponse_imageVersionStatus :: (Maybe ImageVersionStatus -&gt; f (Maybe ImageVersionStatus))
+-&gt; DescribeImageVersionResponse -&gt; f DescribeImageVersionResponse
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageVersionStatus"><span class="hs-identifier hs-var hs-var">describeImageVersionResponse_imageVersionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageVersionResponse -&gt; Maybe ImageVersionStatus)
+-&gt; (DescribeImageVersionResponse
+    -&gt; Maybe ImageVersionStatus -&gt; DescribeImageVersionResponse)
+-&gt; Lens
+     DescribeImageVersionResponse
+     DescribeImageVersionResponse
+     (Maybe ImageVersionStatus)
+     (Maybe ImageVersionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397706"><span class="annot"><span class="annottext">Maybe ImageVersionStatus
+imageVersionStatus :: Maybe ImageVersionStatus
+$sel:imageVersionStatus:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe ImageVersionStatus
+</span><a href="#local-6989586621680397706"><span class="hs-identifier hs-var hs-var">imageVersionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageVersionStatus
+</span><a href="#local-6989586621680397706"><span class="hs-identifier hs-var">imageVersionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397705"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
+</span><a href="#local-6989586621680397705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397704"><span class="annot"><span class="annottext">Maybe ImageVersionStatus
+</span><a href="#local-6989586621680397704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
+</span><a href="#local-6989586621680397705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageVersionStatus:DescribeImageVersionResponse' :: Maybe ImageVersionStatus
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageVersionStatus%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">imageVersionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageVersionStatus
+</span><a href="#local-6989586621680397704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The version number.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_version"><span class="hs-identifier hs-type">describeImageVersionResponse_version</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="describeImageVersionResponse_version"><span class="annot"><span class="annottext">describeImageVersionResponse_version :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeImageVersionResponse -&gt; f DescribeImageVersionResponse
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_version"><span class="hs-identifier hs-var hs-var">describeImageVersionResponse_version</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageVersionResponse -&gt; Maybe Natural)
+-&gt; (DescribeImageVersionResponse
+    -&gt; Maybe Natural -&gt; DescribeImageVersionResponse)
+-&gt; Lens
+     DescribeImageVersionResponse
+     DescribeImageVersionResponse
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397703"><span class="annot"><span class="annottext">Maybe Natural
+version :: Maybe Natural
+$sel:version:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe Natural
+</span><a href="#local-6989586621680397703"><span class="hs-identifier hs-var hs-var">version</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680397703"><span class="hs-identifier hs-var">version</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397702"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
+</span><a href="#local-6989586621680397702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397701"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680397701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
+</span><a href="#local-6989586621680397702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:version:DescribeImageVersionResponse' :: Maybe Natural
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3Aversion%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">version</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621680397701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The registry path of the container image on which this image version is</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- based.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_baseImage"><span class="hs-identifier hs-type">describeImageVersionResponse_baseImage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="describeImageVersionResponse_baseImage"><span class="annot"><span class="annottext">describeImageVersionResponse_baseImage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImageVersionResponse -&gt; f DescribeImageVersionResponse
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_baseImage"><span class="hs-identifier hs-var hs-var">describeImageVersionResponse_baseImage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageVersionResponse -&gt; Maybe Text)
+-&gt; (DescribeImageVersionResponse
+    -&gt; Maybe Text -&gt; DescribeImageVersionResponse)
+-&gt; Lens
+     DescribeImageVersionResponse
+     DescribeImageVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397700"><span class="annot"><span class="annottext">Maybe Text
+baseImage :: Maybe Text
+$sel:baseImage:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680397700"><span class="hs-identifier hs-var hs-var">baseImage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397700"><span class="hs-identifier hs-var">baseImage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397699"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
+</span><a href="#local-6989586621680397699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397698"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
+</span><a href="#local-6989586621680397699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseImage:DescribeImageVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AbaseImage%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">baseImage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the image the version is based on.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageArn"><span class="hs-identifier hs-type">describeImageVersionResponse_imageArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="describeImageVersionResponse_imageArn"><span class="annot"><span class="annottext">describeImageVersionResponse_imageArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeImageVersionResponse -&gt; f DescribeImageVersionResponse
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageArn"><span class="hs-identifier hs-var hs-var">describeImageVersionResponse_imageArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageVersionResponse -&gt; Maybe Text)
 -&gt; (DescribeImageVersionResponse
@@ -960,16 +930,40 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680396095"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397697"><span class="annot"><span class="annottext">Maybe Text
 imageArn :: Maybe Text
 $sel:imageArn:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621680396095"><span class="hs-identifier hs-var hs-var">imageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396095"><span class="hs-identifier hs-var">imageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680396094"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
-</span><a href="#local-6989586621680396094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680396093"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
-</span><a href="#local-6989586621680396094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageArn:DescribeImageVersionResponse' :: Maybe Text
+</span><a href="#local-6989586621680397697"><span class="hs-identifier hs-var hs-var">imageArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397697"><span class="hs-identifier hs-var">imageArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397696"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
+</span><a href="#local-6989586621680397696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397695"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
+</span><a href="#local-6989586621680397696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageArn:DescribeImageVersionResponse' :: Maybe Text
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageArn%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">imageArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621680396093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680397695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The ARN of the version.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageVersionArn"><span class="hs-identifier hs-type">describeImageVersionResponse_imageVersionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="describeImageVersionResponse_imageVersionArn"><span class="annot"><span class="annottext">describeImageVersionResponse_imageVersionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeImageVersionResponse -&gt; f DescribeImageVersionResponse
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_imageVersionArn"><span class="hs-identifier hs-var hs-var">describeImageVersionResponse_imageVersionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeImageVersionResponse -&gt; Maybe Text)
+-&gt; (DescribeImageVersionResponse
+    -&gt; Maybe Text -&gt; DescribeImageVersionResponse)
+-&gt; Lens
+     DescribeImageVersionResponse
+     DescribeImageVersionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397694"><span class="annot"><span class="annottext">Maybe Text
+imageVersionArn :: Maybe Text
+$sel:imageVersionArn:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680397694"><span class="hs-identifier hs-var hs-var">imageVersionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397694"><span class="hs-identifier hs-var">imageVersionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397693"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
+</span><a href="#local-6989586621680397693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397692"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
+</span><a href="#local-6989586621680397693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageVersionArn:DescribeImageVersionResponse' :: Maybe Text
+</span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AimageVersionArn%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">imageVersionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680397692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-266"></span><span>
 </span><span id="line-267"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-268"></span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#describeImageVersionResponse_httpStatus"><span class="hs-identifier hs-type">describeImageVersionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -981,16 +975,16 @@ $sel:imageArn:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt
 -&gt; Lens
      DescribeImageVersionResponse DescribeImageVersionResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680396092"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680397691"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeImageVersionResponse' :: DescribeImageVersionResponse -&gt; Int
-</span><a href="#local-6989586621680396092"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680396092"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680396091"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
-</span><a href="#local-6989586621680396091"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680396090"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680396090"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
-</span><a href="#local-6989586621680396091"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImageVersionResponse' :: Int
+</span><a href="#local-6989586621680397691"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680397691"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680397690"><span class="annot"><span class="annottext">s :: DescribeImageVersionResponse
+</span><a href="#local-6989586621680397690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse%27"><span class="hs-identifier hs-type">DescribeImageVersionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680397689"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680397689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeImageVersionResponse
+</span><a href="#local-6989586621680397690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeImageVersionResponse' :: Int
 </span><a href="Network.AWS.SageMaker.DescribeImageVersion.html#%24sel%3AhttpStatus%3ADescribeImageVersionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621680396090"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621680397689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-270"></span><span>
-</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680396088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680397687"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SageMaker.DescribeImageVersion.html#DescribeImageVersionResponse"><span class="hs-identifier hs-type">DescribeImageVersionResponse</span></a></span></span><span>
 </span><span id="line-272"></span></pre></body></html>

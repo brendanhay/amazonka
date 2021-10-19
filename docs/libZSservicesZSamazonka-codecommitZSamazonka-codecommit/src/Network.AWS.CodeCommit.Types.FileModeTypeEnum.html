@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679348838"><span id="local-6989586621679348839"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FileModeTypeEnum"><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileModeTypeEnum.html#FileModeTypeEnum"><span class="hs-identifier hs-var">FileModeTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileModeTypeEnum%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileModeTypeEnum.html#FileModeTypeEnum%27"><span class="hs-identifier hs-var">FileModeTypeEnum'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679349109"><span id="local-6989586621679349110"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FileModeTypeEnum"><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileModeTypeEnum.html#FileModeTypeEnum"><span class="hs-identifier hs-var">FileModeTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileModeTypeEnum%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.FileModeTypeEnum.html#FileModeTypeEnum%27"><span class="hs-identifier hs-var">FileModeTypeEnum'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFileModeTypeEnum"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; Text
 </span><a href="Network.AWS.CodeCommit.Types.FileModeTypeEnum.html#fromFileModeTypeEnum"><span class="hs-identifier hs-var hs-var">fromFileModeTypeEnum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348830"><span id="local-6989586621679348832"><span id="local-6989586621679348834"><span class="annot"><span class="annottext">Int -&gt; FileModeTypeEnum -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679349101"><span id="local-6989586621679349103"><span id="local-6989586621679349105"><span class="annot"><span class="annottext">Int -&gt; FileModeTypeEnum -&gt; ShowS
 [FileModeTypeEnum] -&gt; ShowS
 FileModeTypeEnum -&gt; String
 (Int -&gt; FileModeTypeEnum -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: FileModeTypeEnum -&gt; String
 showsPrec :: Int -&gt; FileModeTypeEnum -&gt; ShowS
 $cshowsPrec :: Int -&gt; FileModeTypeEnum -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679348821"><span id="local-6989586621679348823"><span id="local-6989586621679348825"><span id="local-6989586621679348827"><span class="annot"><span class="annottext">ReadPrec [FileModeTypeEnum]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679349092"><span id="local-6989586621679349094"><span id="local-6989586621679349096"><span id="local-6989586621679349098"><span class="annot"><span class="annottext">ReadPrec [FileModeTypeEnum]
 ReadPrec FileModeTypeEnum
 Int -&gt; ReadS FileModeTypeEnum
 ReadS [FileModeTypeEnum]
@@ -73,7 +73,7 @@ $creadList :: ReadS [FileModeTypeEnum]
 readsPrec :: Int -&gt; ReadS FileModeTypeEnum
 $creadsPrec :: Int -&gt; ReadS FileModeTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679348816"><span id="local-6989586621679348818"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; FileModeTypeEnum -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679349087"><span id="local-6989586621679349089"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; FileModeTypeEnum -&gt; Bool
 (FileModeTypeEnum -&gt; FileModeTypeEnum -&gt; Bool)
 -&gt; (FileModeTypeEnum -&gt; FileModeTypeEnum -&gt; Bool)
 -&gt; Eq FileModeTypeEnum
@@ -83,7 +83,7 @@ $c/= :: FileModeTypeEnum -&gt; FileModeTypeEnum -&gt; Bool
 == :: FileModeTypeEnum -&gt; FileModeTypeEnum -&gt; Bool
 $c== :: FileModeTypeEnum -&gt; FileModeTypeEnum -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679348800"><span id="local-6989586621679348802"><span id="local-6989586621679348804"><span id="local-6989586621679348806"><span id="local-6989586621679348808"><span id="local-6989586621679348810"><span id="local-6989586621679348812"><span class="annot"><span class="annottext">Eq FileModeTypeEnum
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679349071"><span id="local-6989586621679349073"><span id="local-6989586621679349075"><span id="local-6989586621679349077"><span id="local-6989586621679349079"><span id="local-6989586621679349081"><span id="local-6989586621679349083"><span class="annot"><span class="annottext">Eq FileModeTypeEnum
 Eq FileModeTypeEnum
 -&gt; (FileModeTypeEnum -&gt; FileModeTypeEnum -&gt; Ordering)
 -&gt; (FileModeTypeEnum -&gt; FileModeTypeEnum -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. FileModeTypeEnum -&gt; Rep FileModeTypeEnum x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679348792"><span id="local-6989586621679348794"><span class="annot"><span class="annottext">Int -&gt; FileModeTypeEnum -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679349063"><span id="local-6989586621679349065"><span class="annot"><span class="annottext">Int -&gt; FileModeTypeEnum -&gt; Int
 FileModeTypeEnum -&gt; Int
 (Int -&gt; FileModeTypeEnum -&gt; Int)
 -&gt; (FileModeTypeEnum -&gt; Int) -&gt; Hashable FileModeTypeEnum
@@ -144,51 +144,51 @@ $chash :: FileModeTypeEnum -&gt; Int
 hashWithSalt :: Int -&gt; FileModeTypeEnum -&gt; Int
 $chashWithSalt :: Int -&gt; FileModeTypeEnum -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679348789"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679349060"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; ()
 (FileModeTypeEnum -&gt; ()) -&gt; NFData FileModeTypeEnum
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FileModeTypeEnum -&gt; ()
 $crnf :: FileModeTypeEnum -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679348786"><span class="annot"><span class="annottext">Text -&gt; Either String FileModeTypeEnum
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679349057"><span class="annot"><span class="annottext">Text -&gt; Either String FileModeTypeEnum
 (Text -&gt; Either String FileModeTypeEnum)
 -&gt; FromText FileModeTypeEnum
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FileModeTypeEnum
 $cfromText :: Text -&gt; Either String FileModeTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679348783"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679349054"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; Text
 (FileModeTypeEnum -&gt; Text) -&gt; ToText FileModeTypeEnum
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FileModeTypeEnum -&gt; Text
 $ctoText :: FileModeTypeEnum -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679348780"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679349051"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; ByteString
 (FileModeTypeEnum -&gt; ByteString) -&gt; ToByteString FileModeTypeEnum
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FileModeTypeEnum -&gt; ByteString
 $ctoBS :: FileModeTypeEnum -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679348777"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679349048"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; ByteStringBuilder
 (FileModeTypeEnum -&gt; ByteStringBuilder) -&gt; ToLog FileModeTypeEnum
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FileModeTypeEnum -&gt; ByteStringBuilder
 $cbuild :: FileModeTypeEnum -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679348774"><span class="annot"><span class="annottext">HeaderName -&gt; FileModeTypeEnum -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679349045"><span class="annot"><span class="annottext">HeaderName -&gt; FileModeTypeEnum -&gt; [Header]
 (HeaderName -&gt; FileModeTypeEnum -&gt; [Header])
 -&gt; ToHeader FileModeTypeEnum
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FileModeTypeEnum -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FileModeTypeEnum -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679348771"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679349042"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; QueryString
 (FileModeTypeEnum -&gt; QueryString) -&gt; ToQuery FileModeTypeEnum
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FileModeTypeEnum -&gt; QueryString
 $ctoQuery :: FileModeTypeEnum -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679348766"><span id="local-6989586621679348768"><span class="annot"><span class="annottext">Value -&gt; Parser [FileModeTypeEnum]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679349037"><span id="local-6989586621679349039"><span class="annot"><span class="annottext">Value -&gt; Parser [FileModeTypeEnum]
 Value -&gt; Parser FileModeTypeEnum
 (Value -&gt; Parser FileModeTypeEnum)
 -&gt; (Value -&gt; Parser [FileModeTypeEnum])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [FileModeTypeEnum]
 parseJSON :: Value -&gt; Parser FileModeTypeEnum
 $cparseJSON :: Value -&gt; Parser FileModeTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679348761"><span id="local-6989586621679348763"><span class="annot"><span class="annottext">FromJSONKeyFunction [FileModeTypeEnum]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679349032"><span id="local-6989586621679349034"><span class="annot"><span class="annottext">FromJSONKeyFunction [FileModeTypeEnum]
 FromJSONKeyFunction FileModeTypeEnum
 FromJSONKeyFunction FileModeTypeEnum
 -&gt; FromJSONKeyFunction [FileModeTypeEnum]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FileModeTypeEnum]
 fromJSONKey :: FromJSONKeyFunction FileModeTypeEnum
 $cfromJSONKey :: FromJSONKeyFunction FileModeTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679348752"><span id="local-6989586621679348754"><span id="local-6989586621679348756"><span id="local-6989586621679348758"><span class="annot"><span class="annottext">[FileModeTypeEnum] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679349023"><span id="local-6989586621679349025"><span id="local-6989586621679349027"><span id="local-6989586621679349029"><span class="annot"><span class="annottext">[FileModeTypeEnum] -&gt; Encoding
 [FileModeTypeEnum] -&gt; Value
 FileModeTypeEnum -&gt; Encoding
 FileModeTypeEnum -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: FileModeTypeEnum -&gt; Encoding
 toJSON :: FileModeTypeEnum -&gt; Value
 $ctoJSON :: FileModeTypeEnum -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679348747"><span id="local-6989586621679348749"><span class="annot"><span class="annottext">ToJSONKeyFunction [FileModeTypeEnum]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679349018"><span id="local-6989586621679349020"><span class="annot"><span class="annottext">ToJSONKeyFunction [FileModeTypeEnum]
 ToJSONKeyFunction FileModeTypeEnum
 ToJSONKeyFunction FileModeTypeEnum
 -&gt; ToJSONKeyFunction [FileModeTypeEnum]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FileModeTypeEnum]
 toJSONKey :: ToJSONKeyFunction FileModeTypeEnum
 $ctoJSONKey :: ToJSONKeyFunction FileModeTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679348744"><span class="annot"><span class="annottext">[Node] -&gt; Either String FileModeTypeEnum
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679349015"><span class="annot"><span class="annottext">[Node] -&gt; Either String FileModeTypeEnum
 ([Node] -&gt; Either String FileModeTypeEnum)
 -&gt; FromXML FileModeTypeEnum
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FileModeTypeEnum
 $cparseXML :: [Node] -&gt; Either String FileModeTypeEnum
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679348741"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679349012"><span class="annot"><span class="annottext">FileModeTypeEnum -&gt; XML
 (FileModeTypeEnum -&gt; XML) -&gt; ToXML FileModeTypeEnum
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FileModeTypeEnum -&gt; XML

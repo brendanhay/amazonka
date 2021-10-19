@@ -53,7 +53,7 @@
 </span><span id="line-53"></span><span class="hs-comment">-- | Represents the input of an update repository description operation.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newUpdateRepositoryDescription' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679375197"><span id="local-6989586621679375198"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRepositoryDescription"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-var">UpdateRepositoryDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRepositoryDescription%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription%27"><span class="hs-identifier hs-var">UpdateRepositoryDescription'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679375519"><span id="local-6989586621679375520"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRepositoryDescription"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-var">UpdateRepositoryDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRepositoryDescription%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription%27"><span class="hs-identifier hs-var">UpdateRepositoryDescription'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The new comment or description for the specified repository. Repository</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- descriptions are limited to 1,000 characters.</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3ArepositoryDescription%3AUpdateRepositoryDescription%27"><span class="annot"><span class="annottext">UpdateRepositoryDescription -&gt; Maybe Text
@@ -63,7 +63,7 @@
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3ArepositoryName%3AUpdateRepositoryDescription%27"><span class="annot"><span class="annottext">UpdateRepositoryDescription -&gt; Text
 </span><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#%24sel%3ArepositoryName%3AUpdateRepositoryDescription%27"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375190"><span id="local-6989586621679375192"><span class="annot"><span class="annottext">UpdateRepositoryDescription -&gt; UpdateRepositoryDescription -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375512"><span id="local-6989586621679375514"><span class="annot"><span class="annottext">UpdateRepositoryDescription -&gt; UpdateRepositoryDescription -&gt; Bool
 (UpdateRepositoryDescription
  -&gt; UpdateRepositoryDescription -&gt; Bool)
 -&gt; (UpdateRepositoryDescription
@@ -74,7 +74,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateRepositoryDescription -&gt; UpdateRepositoryDescription -&gt; Bool
 == :: UpdateRepositoryDescription -&gt; UpdateRepositoryDescription -&gt; Bool
 $c== :: UpdateRepositoryDescription -&gt; UpdateRepositoryDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375181"><span id="local-6989586621679375183"><span id="local-6989586621679375185"><span id="local-6989586621679375187"><span class="annot"><span class="annottext">ReadPrec [UpdateRepositoryDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375503"><span id="local-6989586621679375505"><span id="local-6989586621679375507"><span id="local-6989586621679375509"><span class="annot"><span class="annottext">ReadPrec [UpdateRepositoryDescription]
 ReadPrec UpdateRepositoryDescription
 Int -&gt; ReadS UpdateRepositoryDescription
 ReadS [UpdateRepositoryDescription]
@@ -94,7 +94,7 @@ readList :: ReadS [UpdateRepositoryDescription]
 $creadList :: ReadS [UpdateRepositoryDescription]
 readsPrec :: Int -&gt; ReadS UpdateRepositoryDescription
 $creadsPrec :: Int -&gt; ReadS UpdateRepositoryDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375174"><span id="local-6989586621679375176"><span id="local-6989586621679375178"><span class="annot"><span class="annottext">Int -&gt; UpdateRepositoryDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375496"><span id="local-6989586621679375498"><span id="local-6989586621679375500"><span class="annot"><span class="annottext">Int -&gt; UpdateRepositoryDescription -&gt; ShowS
 [UpdateRepositoryDescription] -&gt; ShowS
 UpdateRepositoryDescription -&gt; String
 (Int -&gt; UpdateRepositoryDescription -&gt; ShowS)
@@ -144,8 +144,8 @@ UpdateRepositoryDescription -&gt; Rep UpdateRepositoryDescription x
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span><span>
 </span><span id="line-83"></span><span id="newUpdateRepositoryDescription"><span class="annot"><span class="annottext">newUpdateRepositoryDescription :: Text -&gt; UpdateRepositoryDescription
-</span><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#newUpdateRepositoryDescription"><span class="hs-identifier hs-var hs-var">newUpdateRepositoryDescription</span></a></span></span><span> </span><span id="local-6989586621679375169"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375169"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#newUpdateRepositoryDescription"><span class="hs-identifier hs-var hs-var">newUpdateRepositoryDescription</span></a></span></span><span> </span><span id="local-6989586621679375491"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375491"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">UpdateRepositoryDescription' :: Maybe Text -&gt; Text -&gt; UpdateRepositoryDescription
 </span><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription%27"><span class="hs-identifier hs-type">UpdateRepositoryDescription'</span></a></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:repositoryDescription:UpdateRepositoryDescription' :: Maybe Text
@@ -155,7 +155,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:UpdateRepositoryDescription' :: Text
 </span><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#%24sel%3ArepositoryName%3AUpdateRepositoryDescription%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375169"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span>
+</span><a href="#local-6989586621679375491"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The new comment or description for the specified repository. Repository</span><span>
@@ -172,16 +172,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription%27"><span class="hs-identifier hs-type">UpdateRepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375166"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription%27"><span class="hs-identifier hs-type">UpdateRepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375488"><span class="annot"><span class="annottext">Maybe Text
 repositoryDescription :: Maybe Text
 $sel:repositoryDescription:UpdateRepositoryDescription' :: UpdateRepositoryDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679375166"><span class="hs-identifier hs-var hs-var">repositoryDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679375166"><span class="hs-identifier hs-var">repositoryDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375165"><span class="annot"><span class="annottext">s :: UpdateRepositoryDescription
-</span><a href="#local-6989586621679375165"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription%27"><span class="hs-identifier hs-type">UpdateRepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375164"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679375164"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRepositoryDescription
-</span><a href="#local-6989586621679375165"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryDescription:UpdateRepositoryDescription' :: Maybe Text
+</span><a href="#local-6989586621679375488"><span class="hs-identifier hs-var hs-var">repositoryDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375488"><span class="hs-identifier hs-var">repositoryDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375487"><span class="annot"><span class="annottext">s :: UpdateRepositoryDescription
+</span><a href="#local-6989586621679375487"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription%27"><span class="hs-identifier hs-type">UpdateRepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375486"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679375486"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRepositoryDescription
+</span><a href="#local-6989586621679375487"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryDescription:UpdateRepositoryDescription' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#%24sel%3ArepositoryDescription%3AUpdateRepositoryDescription%27"><span class="hs-identifier hs-var">repositoryDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679375164"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679375486"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The name of the repository to set or change the comment or description</span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- for.</span><span>
@@ -194,29 +194,29 @@ $sel:repositoryDescription:UpdateRepositoryDescription' :: UpdateRepositoryDescr
 -&gt; Lens
      UpdateRepositoryDescription UpdateRepositoryDescription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription%27"><span class="hs-identifier hs-type">UpdateRepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375163"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription%27"><span class="hs-identifier hs-type">UpdateRepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375485"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:UpdateRepositoryDescription' :: UpdateRepositoryDescription -&gt; Text
-</span><a href="#local-6989586621679375163"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375163"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375162"><span class="annot"><span class="annottext">s :: UpdateRepositoryDescription
-</span><a href="#local-6989586621679375162"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription%27"><span class="hs-identifier hs-type">UpdateRepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375161"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375161"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRepositoryDescription
-</span><a href="#local-6989586621679375162"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:UpdateRepositoryDescription' :: Text
+</span><a href="#local-6989586621679375485"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375485"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375484"><span class="annot"><span class="annottext">s :: UpdateRepositoryDescription
+</span><a href="#local-6989586621679375484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription%27"><span class="hs-identifier hs-type">UpdateRepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375483"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679375483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRepositoryDescription
+</span><a href="#local-6989586621679375484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:UpdateRepositoryDescription' :: Text
 </span><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#%24sel%3ArepositoryName%3AUpdateRepositoryDescription%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375161"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679375483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescriptionResponse"><span class="hs-identifier hs-type">UpdateRepositoryDescriptionResponse</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679375157"><span class="annot"><span class="annottext">request :: UpdateRepositoryDescription -&gt; Request UpdateRepositoryDescription
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679375479"><span class="annot"><span class="annottext">request :: UpdateRepositoryDescription -&gt; Request UpdateRepositoryDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateRepositoryDescription
 -&gt; Request UpdateRepositoryDescription
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679375153"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679375475"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateRepositoryDescription
 -&gt; ClientResponse ClientBody
@@ -243,12 +243,12 @@ AWSResponse a
 UpdateRepositoryDescriptionResponse
 </span><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateRepositoryDescriptionResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375146"><span id="local-6989586621679375148"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375468"><span id="local-6989586621679375470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span></span></span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span></span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679375139"><span class="annot"><span class="annottext">toHeaders :: UpdateRepositoryDescription -&gt; [Header]
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679375461"><span class="annot"><span class="annottext">toHeaders :: UpdateRepositoryDescription -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateRepositoryDescription -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -275,15 +275,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375129"><span id="local-6989586621679375131"><span id="local-6989586621679375133"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679375127"><span class="annot"><span class="annottext">toJSON :: UpdateRepositoryDescription -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription%27"><span class="hs-identifier hs-type">UpdateRepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375124"><span id="local-6989586621679375125"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679375451"><span id="local-6989586621679375453"><span id="local-6989586621679375455"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679375449"><span class="annot"><span class="annottext">toJSON :: UpdateRepositoryDescription -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription%27"><span class="hs-identifier hs-type">UpdateRepositoryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375446"><span id="local-6989586621679375447"><span class="annot"><span class="annottext">Maybe Text
 Text
 repositoryName :: Text
 repositoryDescription :: Maybe Text
 $sel:repositoryName:UpdateRepositoryDescription' :: UpdateRepositoryDescription -&gt; Text
 $sel:repositoryDescription:UpdateRepositoryDescription' :: UpdateRepositoryDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679375124"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679375446"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -296,7 +296,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679375125"><span class="hs-identifier hs-var">repositoryDescription</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679375447"><span class="hs-identifier hs-var">repositoryDescription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -304,19 +304,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679375124"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679375446"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
 </span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-140"></span><span>  </span><span id="local-6989586621679375117"><span class="annot"><span class="annottext">toPath :: UpdateRepositoryDescription -&gt; ByteString
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679375439"><span class="annot"><span class="annottext">toPath :: UpdateRepositoryDescription -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRepositoryDescription -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescription"><span class="hs-identifier hs-type">UpdateRepositoryDescription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679375113"><span class="annot"><span class="annottext">toQuery :: UpdateRepositoryDescription -&gt; QueryString
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679375435"><span class="annot"><span class="annottext">toQuery :: UpdateRepositoryDescription -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRepositoryDescription -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -324,10 +324,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | /See:/ 'newUpdateRepositoryDescriptionResponse' smart constructor.</span><span>
-</span><span id="line-146"></span><span id="local-6989586621679375110"><span id="local-6989586621679375111"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRepositoryDescriptionResponse"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescriptionResponse"><span class="hs-identifier hs-var">UpdateRepositoryDescriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRepositoryDescriptionResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateRepositoryDescriptionResponse'</span></a></span></span><span>
+</span><span id="line-146"></span><span id="local-6989586621679375432"><span id="local-6989586621679375433"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRepositoryDescriptionResponse"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescriptionResponse"><span class="hs-identifier hs-var">UpdateRepositoryDescriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRepositoryDescriptionResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateRepositoryDescriptionResponse'</span></a></span></span><span>
 </span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-148"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375106"><span id="local-6989586621679375108"><span class="annot"><span class="annottext">UpdateRepositoryDescriptionResponse
+</span><span id="line-149"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375428"><span id="local-6989586621679375430"><span class="annot"><span class="annottext">UpdateRepositoryDescriptionResponse
 -&gt; UpdateRepositoryDescriptionResponse -&gt; Bool
 (UpdateRepositoryDescriptionResponse
  -&gt; UpdateRepositoryDescriptionResponse -&gt; Bool)
@@ -343,7 +343,7 @@ $c/= :: UpdateRepositoryDescriptionResponse
 -&gt; UpdateRepositoryDescriptionResponse -&gt; Bool
 $c== :: UpdateRepositoryDescriptionResponse
 -&gt; UpdateRepositoryDescriptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375098"><span id="local-6989586621679375100"><span id="local-6989586621679375102"><span id="local-6989586621679375104"><span class="annot"><span class="annottext">ReadPrec [UpdateRepositoryDescriptionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375420"><span id="local-6989586621679375422"><span id="local-6989586621679375424"><span id="local-6989586621679375426"><span class="annot"><span class="annottext">ReadPrec [UpdateRepositoryDescriptionResponse]
 ReadPrec UpdateRepositoryDescriptionResponse
 Int -&gt; ReadS UpdateRepositoryDescriptionResponse
 ReadS [UpdateRepositoryDescriptionResponse]
@@ -363,7 +363,7 @@ readList :: ReadS [UpdateRepositoryDescriptionResponse]
 $creadList :: ReadS [UpdateRepositoryDescriptionResponse]
 readsPrec :: Int -&gt; ReadS UpdateRepositoryDescriptionResponse
 $creadsPrec :: Int -&gt; ReadS UpdateRepositoryDescriptionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375092"><span id="local-6989586621679375094"><span id="local-6989586621679375096"><span class="annot"><span class="annottext">Int -&gt; UpdateRepositoryDescriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375414"><span id="local-6989586621679375416"><span id="local-6989586621679375418"><span class="annot"><span class="annottext">Int -&gt; UpdateRepositoryDescriptionResponse -&gt; ShowS
 [UpdateRepositoryDescriptionResponse] -&gt; ShowS
 UpdateRepositoryDescriptionResponse -&gt; String
 (Int -&gt; UpdateRepositoryDescriptionResponse -&gt; ShowS)
@@ -413,6 +413,6 @@ UpdateRepositoryDescriptionResponse
 </span><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescriptionResponse%27"><span class="hs-identifier hs-var">UpdateRepositoryDescriptionResponse'</span></a></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679375088"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679375410"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.UpdateRepositoryDescription.html#UpdateRepositoryDescriptionResponse"><span class="hs-identifier hs-type">UpdateRepositoryDescriptionResponse</span></a></span></span><span>
 </span><span id="line-163"></span></pre></body></html>

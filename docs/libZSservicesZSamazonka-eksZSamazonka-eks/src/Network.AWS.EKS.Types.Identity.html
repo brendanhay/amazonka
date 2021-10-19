@@ -27,13 +27,13 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object representing an identity provider.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIdentity' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679267806"><span id="local-6989586621679267807"></span></span><span class="hs-keyword">data</span><span> </span><span id="Identity"><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity"><span class="hs-identifier hs-var">Identity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Identity%27"><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity%27"><span class="hs-identifier hs-var">Identity'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679268067"><span id="local-6989586621679268068"></span></span><span class="hs-keyword">data</span><span> </span><span id="Identity"><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity"><span class="hs-identifier hs-var">Identity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Identity%27"><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity%27"><span class="hs-identifier hs-var">Identity'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object representing the &lt;https://openid.net/connect/ OpenID Connect&gt;</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- identity provider information.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Aoidc%3AIdentity%27"><span class="annot"><span class="annottext">Identity -&gt; Maybe OIDC
 </span><a href="Network.AWS.EKS.Types.Identity.html#%24sel%3Aoidc%3AIdentity%27"><span class="hs-identifier hs-var hs-var">oidc</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.OIDC.html#OIDC"><span class="hs-identifier hs-type">OIDC</span></a></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679267800"><span id="local-6989586621679267802"><span class="annot"><span class="annottext">Identity -&gt; Identity -&gt; Bool
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679268061"><span id="local-6989586621679268063"><span class="annot"><span class="annottext">Identity -&gt; Identity -&gt; Bool
 (Identity -&gt; Identity -&gt; Bool)
 -&gt; (Identity -&gt; Identity -&gt; Bool) -&gt; Eq Identity
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Identity -&gt; Identity -&gt; Bool
 == :: Identity -&gt; Identity -&gt; Bool
 $c== :: Identity -&gt; Identity -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267791"><span id="local-6989586621679267793"><span id="local-6989586621679267795"><span id="local-6989586621679267797"><span class="annot"><span class="annottext">ReadPrec [Identity]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268052"><span id="local-6989586621679268054"><span id="local-6989586621679268056"><span id="local-6989586621679268058"><span class="annot"><span class="annottext">ReadPrec [Identity]
 ReadPrec Identity
 Int -&gt; ReadS Identity
 ReadS [Identity]
@@ -61,7 +61,7 @@ readList :: ReadS [Identity]
 $creadList :: ReadS [Identity]
 readsPrec :: Int -&gt; ReadS Identity
 $creadsPrec :: Int -&gt; ReadS Identity
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679267784"><span id="local-6989586621679267786"><span id="local-6989586621679267788"><span class="annot"><span class="annottext">Int -&gt; Identity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679268045"><span id="local-6989586621679268047"><span id="local-6989586621679268049"><span class="annot"><span class="annottext">Int -&gt; Identity -&gt; ShowS
 [Identity] -&gt; ShowS
 Identity -&gt; String
 (Int -&gt; Identity -&gt; ShowS)
@@ -111,36 +111,36 @@ forall a. Maybe a
 -&gt; (Identity -&gt; Maybe OIDC -&gt; Identity)
 -&gt; Lens Identity Identity (Maybe OIDC) (Maybe OIDC)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity%27"><span class="hs-identifier hs-type">Identity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679267775"><span class="annot"><span class="annottext">Maybe OIDC
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity%27"><span class="hs-identifier hs-type">Identity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679268036"><span class="annot"><span class="annottext">Maybe OIDC
 oidc :: Maybe OIDC
 $sel:oidc:Identity' :: Identity -&gt; Maybe OIDC
-</span><a href="#local-6989586621679267775"><span class="hs-identifier hs-var hs-var">oidc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OIDC
-</span><a href="#local-6989586621679267775"><span class="hs-identifier hs-var">oidc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267774"><span class="annot"><span class="annottext">s :: Identity
-</span><a href="#local-6989586621679267774"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity%27"><span class="hs-identifier hs-type">Identity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679267773"><span class="annot"><span class="annottext">Maybe OIDC
-</span><a href="#local-6989586621679267773"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Identity
-</span><a href="#local-6989586621679267774"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oidc:Identity' :: Maybe OIDC
+</span><a href="#local-6989586621679268036"><span class="hs-identifier hs-var hs-var">oidc</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OIDC
+</span><a href="#local-6989586621679268036"><span class="hs-identifier hs-var">oidc</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268035"><span class="annot"><span class="annottext">s :: Identity
+</span><a href="#local-6989586621679268035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity%27"><span class="hs-identifier hs-type">Identity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679268034"><span class="annot"><span class="annottext">Maybe OIDC
+</span><a href="#local-6989586621679268034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Identity
+</span><a href="#local-6989586621679268035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:oidc:Identity' :: Maybe OIDC
 </span><a href="Network.AWS.EKS.Types.Identity.html#%24sel%3Aoidc%3AIdentity%27"><span class="hs-identifier hs-var">oidc</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OIDC
-</span><a href="#local-6989586621679267773"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679268034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span>
-</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267770"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-57"></span><span>  </span><span id="local-6989586621679267768"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Identity
+</span><span id="line-56"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268031"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-57"></span><span>  </span><span id="local-6989586621679268029"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Identity
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-58"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Identity) -&gt; Value -&gt; Parser Identity
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Identity&quot;</span></span><span>
-</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679267765"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267765"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OIDC -&gt; Identity
+</span><span id="line-60"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679268026"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679268026"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OIDC -&gt; Identity
 </span><a href="Network.AWS.EKS.Types.Identity.html#Identity%27"><span class="hs-identifier hs-var">Identity'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe OIDC -&gt; Identity) -&gt; Parser (Maybe OIDC) -&gt; Parser Identity
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679267765"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OIDC)
+</span><a href="#local-6989586621679268026"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OIDC)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;oidc&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267759"><span id="local-6989586621679267761"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span></span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268020"><span id="local-6989586621679268022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span></span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679267756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679268017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EKS.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span></span><span>
 </span><span id="line-65"></span></pre></body></html>

@@ -26,33 +26,33 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a user\'s profile in AWS CodeStar.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newUserProfileSummary' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679174500"><span id="local-6989586621679174501"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserProfileSummary"><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-var">UserProfileSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserProfileSummary%27"><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-var">UserProfileSummary'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user in IAM.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AuserArn%3AUserProfileSummary%27"><span class="annot"><span class="annottext">UserProfileSummary -&gt; Maybe Text
-</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AuserArn%3AUserProfileSummary%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The SSH public key associated with the user in AWS CodeStar. If a</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- project owner allows the user remote access to project resources, this</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- public key will be used along with the user\'s private key for SSH</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- access.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsshPublicKey%3AUserProfileSummary%27"><span class="annot"><span class="annottext">UserProfileSummary -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679174539"><span id="local-6989586621679174540"></span></span><span class="hs-keyword">data</span><span> </span><span id="UserProfileSummary"><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-var">UserProfileSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UserProfileSummary%27"><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-var">UserProfileSummary'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SSH public key associated with the user in AWS CodeStar. If a</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- project owner allows the user remote access to project resources, this</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- public key will be used along with the user\'s private key for SSH</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- access.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsshPublicKey%3AUserProfileSummary%27"><span class="annot"><span class="annottext">UserProfileSummary -&gt; Maybe Text
 </span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AsshPublicKey%3AUserProfileSummary%27"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The display name of a user in AWS CodeStar. For example, this could be</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- set to both first and last name (\&quot;Mary Major\&quot;) or a single name</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- (\&quot;Mary\&quot;). The display name is also used to generate the initial icon</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- associated with the user in AWS CodeStar projects. If spaces are</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- included in the display name, the first character that appears after the</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- space will be used as the second character in the user initial icon. The</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- initial icon displays a maximum of two characters, so a display name</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- with more than one space (for example \&quot;Mary Jane Major\&quot;) would</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- generate an initial icon using the first character and the first</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- character after the space (\&quot;MJ\&quot;, not \&quot;MM\&quot;).</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AdisplayName%3AUserProfileSummary%27"><span class="annot"><span class="annottext">UserProfileSummary -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AdisplayName%3AUserProfileSummary%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The email address associated with the user.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AemailAddress%3AUserProfileSummary%27"><span class="annot"><span class="annottext">UserProfileSummary -&gt; Maybe (Sensitive Text)
-</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AemailAddress%3AUserProfileSummary%27"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user in IAM.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AuserArn%3AUserProfileSummary%27"><span class="annot"><span class="annottext">UserProfileSummary -&gt; Maybe Text
+</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AuserArn%3AUserProfileSummary%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The email address associated with the user.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AemailAddress%3AUserProfileSummary%27"><span class="annot"><span class="annottext">UserProfileSummary -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AemailAddress%3AUserProfileSummary%27"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The display name of a user in AWS CodeStar. For example, this could be</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- set to both first and last name (\&quot;Mary Major\&quot;) or a single name</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- (\&quot;Mary\&quot;). The display name is also used to generate the initial icon</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- associated with the user in AWS CodeStar projects. If spaces are</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- included in the display name, the first character that appears after the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- space will be used as the second character in the user initial icon. The</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- initial icon displays a maximum of two characters, so a display name</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- with more than one space (for example \&quot;Mary Jane Major\&quot;) would</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- generate an initial icon using the first character and the first</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- character after the space (\&quot;MJ\&quot;, not \&quot;MM\&quot;).</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdisplayName%3AUserProfileSummary%27"><span class="annot"><span class="annottext">UserProfileSummary -&gt; Maybe (Sensitive Text)
+</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AdisplayName%3AUserProfileSummary%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174491"><span id="local-6989586621679174493"><span class="annot"><span class="annottext">UserProfileSummary -&gt; UserProfileSummary -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174530"><span id="local-6989586621679174532"><span class="annot"><span class="annottext">UserProfileSummary -&gt; UserProfileSummary -&gt; Bool
 (UserProfileSummary -&gt; UserProfileSummary -&gt; Bool)
 -&gt; (UserProfileSummary -&gt; UserProfileSummary -&gt; Bool)
 -&gt; Eq UserProfileSummary
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UserProfileSummary -&gt; UserProfileSummary -&gt; Bool
 == :: UserProfileSummary -&gt; UserProfileSummary -&gt; Bool
 $c== :: UserProfileSummary -&gt; UserProfileSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174484"><span id="local-6989586621679174486"><span id="local-6989586621679174488"><span class="annot"><span class="annottext">Int -&gt; UserProfileSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174523"><span id="local-6989586621679174525"><span id="local-6989586621679174527"><span class="annot"><span class="annottext">Int -&gt; UserProfileSummary -&gt; ShowS
 [UserProfileSummary] -&gt; ShowS
 UserProfileSummary -&gt; String
 (Int -&gt; UserProfileSummary -&gt; ShowS)
@@ -95,25 +95,25 @@ $cfrom :: forall x. UserProfileSummary -&gt; Rep UserProfileSummary x
 </span><span id="line-58"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- 'userArn', 'userProfileSummary_userArn' - The Amazon Resource Name (ARN) of the user in IAM.</span><span>
-</span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'sshPublicKey', 'userProfileSummary_sshPublicKey' - The SSH public key associated with the user in AWS CodeStar. If a</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- project owner allows the user remote access to project resources, this</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- public key will be used along with the user\'s private key for SSH</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- access.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'sshPublicKey', 'userProfileSummary_sshPublicKey' - The SSH public key associated with the user in AWS CodeStar. If a</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- project owner allows the user remote access to project resources, this</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- public key will be used along with the user\'s private key for SSH</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- access.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'userArn', 'userProfileSummary_userArn' - The Amazon Resource Name (ARN) of the user in IAM.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'displayName', 'userProfileSummary_displayName' - The display name of a user in AWS CodeStar. For example, this could be</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- set to both first and last name (\&quot;Mary Major\&quot;) or a single name</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- (\&quot;Mary\&quot;). The display name is also used to generate the initial icon</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- associated with the user in AWS CodeStar projects. If spaces are</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- included in the display name, the first character that appears after the</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- space will be used as the second character in the user initial icon. The</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- initial icon displays a maximum of two characters, so a display name</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- with more than one space (for example \&quot;Mary Jane Major\&quot;) would</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- generate an initial icon using the first character and the first</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- character after the space (\&quot;MJ\&quot;, not \&quot;MM\&quot;).</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'emailAddress', 'userProfileSummary_emailAddress' - The email address associated with the user.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'emailAddress', 'userProfileSummary_emailAddress' - The email address associated with the user.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'displayName', 'userProfileSummary_displayName' - The display name of a user in AWS CodeStar. For example, this could be</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- set to both first and last name (\&quot;Mary Major\&quot;) or a single name</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- (\&quot;Mary\&quot;). The display name is also used to generate the initial icon</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- associated with the user in AWS CodeStar projects. If spaces are</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- included in the display name, the first character that appears after the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- space will be used as the second character in the user initial icon. The</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- initial icon displays a maximum of two characters, so a display name</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- with more than one space (for example \&quot;Mary Jane Major\&quot;) would</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- generate an initial icon using the first character and the first</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- character after the space (\&quot;MJ\&quot;, not \&quot;MM\&quot;).</span><span>
 </span><span id="line-80"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#newUserProfileSummary"><span class="hs-identifier hs-type">newUserProfileSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span>
 </span><span id="line-82"></span><span id="newUserProfileSummary"><span class="annot"><span class="annottext">newUserProfileSummary :: UserProfileSummary
@@ -124,81 +124,72 @@ $cfrom :: forall x. UserProfileSummary -&gt; Rep UserProfileSummary x
 -&gt; Maybe (Sensitive Text)
 -&gt; UserProfileSummary
 </span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userArn:UserProfileSummary' :: Maybe Text
-</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AuserArn%3AUserProfileSummary%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:sshPublicKey:UserProfileSummary' :: Maybe Text
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sshPublicKey:UserProfileSummary' :: Maybe Text
 </span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AsshPublicKey%3AUserProfileSummary%27"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:UserProfileSummary' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AdisplayName%3AUserProfileSummary%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:userArn:UserProfileSummary' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AuserArn%3AUserProfileSummary%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailAddress:UserProfileSummary' :: Maybe (Sensitive Text)
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailAddress:UserProfileSummary' :: Maybe (Sensitive Text)
 </span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AemailAddress%3AUserProfileSummary%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:UserProfileSummary' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AdisplayName%3AUserProfileSummary%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user in IAM.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_userArn"><span class="hs-identifier hs-type">userProfileSummary_userArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="userProfileSummary_userArn"><span class="annot"><span class="annottext">userProfileSummary_userArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UserProfileSummary -&gt; f UserProfileSummary
-</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_userArn"><span class="hs-identifier hs-var hs-var">userProfileSummary_userArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserProfileSummary -&gt; Maybe Text)
--&gt; (UserProfileSummary -&gt; Maybe Text -&gt; UserProfileSummary)
--&gt; Lens
-     UserProfileSummary UserProfileSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174475"><span class="annot"><span class="annottext">Maybe Text
-userArn :: Maybe Text
-$sel:userArn:UserProfileSummary' :: UserProfileSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679174475"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174475"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174474"><span class="annot"><span class="annottext">s :: UserProfileSummary
-</span><a href="#local-6989586621679174474"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174473"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174473"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserProfileSummary
-</span><a href="#local-6989586621679174474"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:UserProfileSummary' :: Maybe Text
-</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AuserArn%3AUserProfileSummary%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174473"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The SSH public key associated with the user in AWS CodeStar. If a</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- project owner allows the user remote access to project resources, this</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- public key will be used along with the user\'s private key for SSH</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- access.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_sshPublicKey"><span class="hs-identifier hs-type">userProfileSummary_sshPublicKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="userProfileSummary_sshPublicKey"><span class="annot"><span class="annottext">userProfileSummary_sshPublicKey :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-90"></span><span class="hs-comment">-- | The SSH public key associated with the user in AWS CodeStar. If a</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- project owner allows the user remote access to project resources, this</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- public key will be used along with the user\'s private key for SSH</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- access.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_sshPublicKey"><span class="hs-identifier hs-type">userProfileSummary_sshPublicKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="userProfileSummary_sshPublicKey"><span class="annot"><span class="annottext">userProfileSummary_sshPublicKey :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UserProfileSummary -&gt; f UserProfileSummary
 </span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_sshPublicKey"><span class="hs-identifier hs-var hs-var">userProfileSummary_sshPublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserProfileSummary -&gt; Maybe Text)
 -&gt; (UserProfileSummary -&gt; Maybe Text -&gt; UserProfileSummary)
 -&gt; Lens
      UserProfileSummary UserProfileSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174471"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174514"><span class="annot"><span class="annottext">Maybe Text
 sshPublicKey :: Maybe Text
 $sel:sshPublicKey:UserProfileSummary' :: UserProfileSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679174471"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174471"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174470"><span class="annot"><span class="annottext">s :: UserProfileSummary
-</span><a href="#local-6989586621679174470"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174469"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174469"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserProfileSummary
-</span><a href="#local-6989586621679174470"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshPublicKey:UserProfileSummary' :: Maybe Text
+</span><a href="#local-6989586621679174514"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174514"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174513"><span class="annot"><span class="annottext">s :: UserProfileSummary
+</span><a href="#local-6989586621679174513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174512"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserProfileSummary
+</span><a href="#local-6989586621679174513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshPublicKey:UserProfileSummary' :: Maybe Text
 </span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AsshPublicKey%3AUserProfileSummary%27"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174469"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The display name of a user in AWS CodeStar. For example, this could be</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- set to both first and last name (\&quot;Mary Major\&quot;) or a single name</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- (\&quot;Mary\&quot;). The display name is also used to generate the initial icon</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- associated with the user in AWS CodeStar projects. If spaces are</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- included in the display name, the first character that appears after the</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- space will be used as the second character in the user initial icon. The</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- initial icon displays a maximum of two characters, so a display name</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- with more than one space (for example \&quot;Mary Jane Major\&quot;) would</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- generate an initial icon using the first character and the first</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- character after the space (\&quot;MJ\&quot;, not \&quot;MM\&quot;).</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_displayName"><span class="hs-identifier hs-type">userProfileSummary_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="userProfileSummary_displayName"><span class="annot"><span class="annottext">userProfileSummary_displayName :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679174512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user in IAM.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_userArn"><span class="hs-identifier hs-type">userProfileSummary_userArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="userProfileSummary_userArn"><span class="annot"><span class="annottext">userProfileSummary_userArn :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UserProfileSummary -&gt; f UserProfileSummary
-</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_displayName"><span class="hs-identifier hs-var hs-var">userProfileSummary_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserProfileSummary -&gt; Maybe (Sensitive Text))
+</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_userArn"><span class="hs-identifier hs-var hs-var">userProfileSummary_userArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserProfileSummary -&gt; Maybe Text)
+-&gt; (UserProfileSummary -&gt; Maybe Text -&gt; UserProfileSummary)
+-&gt; Lens
+     UserProfileSummary UserProfileSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174510"><span class="annot"><span class="annottext">Maybe Text
+userArn :: Maybe Text
+$sel:userArn:UserProfileSummary' :: UserProfileSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679174510"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174510"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174509"><span class="annot"><span class="annottext">s :: UserProfileSummary
+</span><a href="#local-6989586621679174509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174508"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserProfileSummary
+</span><a href="#local-6989586621679174509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:UserProfileSummary' :: Maybe Text
+</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AuserArn%3AUserProfileSummary%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The email address associated with the user.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_emailAddress"><span class="hs-identifier hs-type">userProfileSummary_emailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="userProfileSummary_emailAddress"><span class="annot"><span class="annottext">userProfileSummary_emailAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UserProfileSummary -&gt; f UserProfileSummary
+</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_emailAddress"><span class="hs-identifier hs-var hs-var">userProfileSummary_emailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserProfileSummary -&gt; Maybe (Sensitive Text))
 -&gt; (UserProfileSummary
     -&gt; Maybe (Sensitive Text) -&gt; UserProfileSummary)
 -&gt; Lens
@@ -207,16 +198,16 @@ $sel:sshPublicKey:UserProfileSummary' :: UserProfileSummary -&gt; Maybe Text
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174467"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-displayName :: Maybe (Sensitive Text)
-$sel:displayName:UserProfileSummary' :: UserProfileSummary -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679174467"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679174467"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174466"><span class="annot"><span class="annottext">s :: UserProfileSummary
-</span><a href="#local-6989586621679174466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174465"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679174465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserProfileSummary
-</span><a href="#local-6989586621679174466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:UserProfileSummary' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AdisplayName%3AUserProfileSummary%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679174465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174506"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+emailAddress :: Maybe (Sensitive Text)
+$sel:emailAddress:UserProfileSummary' :: UserProfileSummary -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679174506"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679174506"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174505"><span class="annot"><span class="annottext">s :: UserProfileSummary
+</span><a href="#local-6989586621679174505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174504"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679174504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserProfileSummary
+</span><a href="#local-6989586621679174505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:UserProfileSummary' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AemailAddress%3AUserProfileSummary%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679174504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; UserProfileSummary -&gt; f UserProfileSummary)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -236,12 +227,21 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The email address associated with the user.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_emailAddress"><span class="hs-identifier hs-type">userProfileSummary_emailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="userProfileSummary_emailAddress"><span class="annot"><span class="annottext">userProfileSummary_emailAddress :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The display name of a user in AWS CodeStar. For example, this could be</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- set to both first and last name (\&quot;Mary Major\&quot;) or a single name</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- (\&quot;Mary\&quot;). The display name is also used to generate the initial icon</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- associated with the user in AWS CodeStar projects. If spaces are</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- included in the display name, the first character that appears after the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- space will be used as the second character in the user initial icon. The</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- initial icon displays a maximum of two characters, so a display name</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- with more than one space (for example \&quot;Mary Jane Major\&quot;) would</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- generate an initial icon using the first character and the first</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- character after the space (\&quot;MJ\&quot;, not \&quot;MM\&quot;).</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_displayName"><span class="hs-identifier hs-type">userProfileSummary_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="userProfileSummary_displayName"><span class="annot"><span class="annottext">userProfileSummary_displayName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; UserProfileSummary -&gt; f UserProfileSummary
-</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_emailAddress"><span class="hs-identifier hs-var hs-var">userProfileSummary_emailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserProfileSummary -&gt; Maybe (Sensitive Text))
+</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#userProfileSummary_displayName"><span class="hs-identifier hs-var hs-var">userProfileSummary_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UserProfileSummary -&gt; Maybe (Sensitive Text))
 -&gt; (UserProfileSummary
     -&gt; Maybe (Sensitive Text) -&gt; UserProfileSummary)
 -&gt; Lens
@@ -250,16 +250,16 @@ forall a. Iso' (Sensitive a) a
      (Maybe (Sensitive Text))
      (Maybe (Sensitive Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174460"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-emailAddress :: Maybe (Sensitive Text)
-$sel:emailAddress:UserProfileSummary' :: UserProfileSummary -&gt; Maybe (Sensitive Text)
-</span><a href="#local-6989586621679174460"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679174460"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174459"><span class="annot"><span class="annottext">s :: UserProfileSummary
-</span><a href="#local-6989586621679174459"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174458"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679174458"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserProfileSummary
-</span><a href="#local-6989586621679174459"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:UserProfileSummary' :: Maybe (Sensitive Text)
-</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AemailAddress%3AUserProfileSummary%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
-</span><a href="#local-6989586621679174458"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174499"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+displayName :: Maybe (Sensitive Text)
+$sel:displayName:UserProfileSummary' :: UserProfileSummary -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679174499"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679174499"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174498"><span class="annot"><span class="annottext">s :: UserProfileSummary
+</span><a href="#local-6989586621679174498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary%27"><span class="hs-identifier hs-type">UserProfileSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174497"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679174497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UserProfileSummary
+</span><a href="#local-6989586621679174498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:UserProfileSummary' :: Maybe (Sensitive Text)
+</span><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#%24sel%3AdisplayName%3AUserProfileSummary%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679174497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
  -&gt; UserProfileSummary -&gt; f UserProfileSummary)
 -&gt; ((Maybe Text -&gt; f (Maybe Text))
     -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
@@ -280,8 +280,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 forall a. Iso' (Sensitive a) a
 </span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174455"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679174453"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserProfileSummary
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174494"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679174492"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UserProfileSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser UserProfileSummary)
@@ -291,8 +291,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;UserProfileSummary&quot;</span></span><span>
-</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174450"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174450"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174489"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174489"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe (Sensitive Text)
@@ -312,10 +312,10 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; UserProfileSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679174489"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;userArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;sshPublicKey&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe (Sensitive Text)
@@ -327,10 +327,10 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe (Sensitive Text) -&gt; UserProfileSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679174489"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;sshPublicKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;userArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe (Sensitive Text)
    -&gt; Maybe (Sensitive Text) -&gt; UserProfileSummary)
@@ -338,21 +338,21 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (Sensitive Text) -&gt; UserProfileSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679174489"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;displayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;emailAddress&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive Text) -&gt; UserProfileSummary)
 -&gt; Parser (Maybe (Sensitive Text)) -&gt; Parser UserProfileSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174450"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+</span><a href="#local-6989586621679174489"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;emailAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;displayName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174444"><span id="local-6989586621679174446"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174483"><span id="local-6989586621679174485"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span></span></span><span>
 </span><span id="line-131"></span><span>
-</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174441"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174480"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeStar.Types.UserProfileSummary.html#UserProfileSummary"><span class="hs-identifier hs-type">UserProfileSummary</span></a></span></span><span>
 </span><span id="line-133"></span></pre></body></html>

@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Hls H265 Packaging Type</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679879865"><span id="local-6989586621679879866"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsH265PackagingType"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsH265PackagingType.html#HlsH265PackagingType"><span class="hs-identifier hs-var">HlsH265PackagingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsH265PackagingType%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsH265PackagingType.html#HlsH265PackagingType%27"><span class="hs-identifier hs-var">HlsH265PackagingType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679886526"><span id="local-6989586621679886527"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsH265PackagingType"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsH265PackagingType.html#HlsH265PackagingType"><span class="hs-identifier hs-var">HlsH265PackagingType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsH265PackagingType%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.HlsH265PackagingType.html#HlsH265PackagingType%27"><span class="hs-identifier hs-var">HlsH265PackagingType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsH265PackagingType"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.HlsH265PackagingType.html#fromHlsH265PackagingType"><span class="hs-identifier hs-var hs-var">fromHlsH265PackagingType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679879857"><span id="local-6989586621679879859"><span id="local-6989586621679879861"><span class="annot"><span class="annottext">Int -&gt; HlsH265PackagingType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679886518"><span id="local-6989586621679886520"><span id="local-6989586621679886522"><span class="annot"><span class="annottext">Int -&gt; HlsH265PackagingType -&gt; ShowS
 [HlsH265PackagingType] -&gt; ShowS
 HlsH265PackagingType -&gt; String
 (Int -&gt; HlsH265PackagingType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HlsH265PackagingType -&gt; String
 showsPrec :: Int -&gt; HlsH265PackagingType -&gt; ShowS
 $cshowsPrec :: Int -&gt; HlsH265PackagingType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679879848"><span id="local-6989586621679879850"><span id="local-6989586621679879852"><span id="local-6989586621679879854"><span class="annot"><span class="annottext">ReadPrec [HlsH265PackagingType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679886509"><span id="local-6989586621679886511"><span id="local-6989586621679886513"><span id="local-6989586621679886515"><span class="annot"><span class="annottext">ReadPrec [HlsH265PackagingType]
 ReadPrec HlsH265PackagingType
 Int -&gt; ReadS HlsH265PackagingType
 ReadS [HlsH265PackagingType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HlsH265PackagingType]
 readsPrec :: Int -&gt; ReadS HlsH265PackagingType
 $creadsPrec :: Int -&gt; ReadS HlsH265PackagingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679879843"><span id="local-6989586621679879845"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; HlsH265PackagingType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679886504"><span id="local-6989586621679886506"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; HlsH265PackagingType -&gt; Bool
 (HlsH265PackagingType -&gt; HlsH265PackagingType -&gt; Bool)
 -&gt; (HlsH265PackagingType -&gt; HlsH265PackagingType -&gt; Bool)
 -&gt; Eq HlsH265PackagingType
@@ -83,7 +83,7 @@ $c/= :: HlsH265PackagingType -&gt; HlsH265PackagingType -&gt; Bool
 == :: HlsH265PackagingType -&gt; HlsH265PackagingType -&gt; Bool
 $c== :: HlsH265PackagingType -&gt; HlsH265PackagingType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679879827"><span id="local-6989586621679879829"><span id="local-6989586621679879831"><span id="local-6989586621679879833"><span id="local-6989586621679879835"><span id="local-6989586621679879837"><span id="local-6989586621679879839"><span class="annot"><span class="annottext">Eq HlsH265PackagingType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679886488"><span id="local-6989586621679886490"><span id="local-6989586621679886492"><span id="local-6989586621679886494"><span id="local-6989586621679886496"><span id="local-6989586621679886498"><span id="local-6989586621679886500"><span class="annot"><span class="annottext">Eq HlsH265PackagingType
 Eq HlsH265PackagingType
 -&gt; (HlsH265PackagingType -&gt; HlsH265PackagingType -&gt; Ordering)
 -&gt; (HlsH265PackagingType -&gt; HlsH265PackagingType -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. HlsH265PackagingType -&gt; Rep HlsH265PackagingType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679879819"><span id="local-6989586621679879821"><span class="annot"><span class="annottext">Int -&gt; HlsH265PackagingType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679886480"><span id="local-6989586621679886482"><span class="annot"><span class="annottext">Int -&gt; HlsH265PackagingType -&gt; Int
 HlsH265PackagingType -&gt; Int
 (Int -&gt; HlsH265PackagingType -&gt; Int)
 -&gt; (HlsH265PackagingType -&gt; Int) -&gt; Hashable HlsH265PackagingType
@@ -151,54 +151,54 @@ $chash :: HlsH265PackagingType -&gt; Int
 hashWithSalt :: Int -&gt; HlsH265PackagingType -&gt; Int
 $chashWithSalt :: Int -&gt; HlsH265PackagingType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679879816"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679886477"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; ()
 (HlsH265PackagingType -&gt; ()) -&gt; NFData HlsH265PackagingType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HlsH265PackagingType -&gt; ()
 $crnf :: HlsH265PackagingType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679879813"><span class="annot"><span class="annottext">Text -&gt; Either String HlsH265PackagingType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679886474"><span class="annot"><span class="annottext">Text -&gt; Either String HlsH265PackagingType
 (Text -&gt; Either String HlsH265PackagingType)
 -&gt; FromText HlsH265PackagingType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HlsH265PackagingType
 $cfromText :: Text -&gt; Either String HlsH265PackagingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679879810"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679886471"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; Text
 (HlsH265PackagingType -&gt; Text) -&gt; ToText HlsH265PackagingType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HlsH265PackagingType -&gt; Text
 $ctoText :: HlsH265PackagingType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679879807"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679886468"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; ByteString
 (HlsH265PackagingType -&gt; ByteString)
 -&gt; ToByteString HlsH265PackagingType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HlsH265PackagingType -&gt; ByteString
 $ctoBS :: HlsH265PackagingType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679879804"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679886465"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; ByteStringBuilder
 (HlsH265PackagingType -&gt; ByteStringBuilder)
 -&gt; ToLog HlsH265PackagingType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HlsH265PackagingType -&gt; ByteStringBuilder
 $cbuild :: HlsH265PackagingType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679879801"><span class="annot"><span class="annottext">HeaderName -&gt; HlsH265PackagingType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679886462"><span class="annot"><span class="annottext">HeaderName -&gt; HlsH265PackagingType -&gt; [Header]
 (HeaderName -&gt; HlsH265PackagingType -&gt; [Header])
 -&gt; ToHeader HlsH265PackagingType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HlsH265PackagingType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HlsH265PackagingType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679879798"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679886459"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; QueryString
 (HlsH265PackagingType -&gt; QueryString)
 -&gt; ToQuery HlsH265PackagingType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HlsH265PackagingType -&gt; QueryString
 $ctoQuery :: HlsH265PackagingType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679879793"><span id="local-6989586621679879795"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsH265PackagingType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679886454"><span id="local-6989586621679886456"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsH265PackagingType]
 Value -&gt; Parser HlsH265PackagingType
 (Value -&gt; Parser HlsH265PackagingType)
 -&gt; (Value -&gt; Parser [HlsH265PackagingType])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [HlsH265PackagingType]
 parseJSON :: Value -&gt; Parser HlsH265PackagingType
 $cparseJSON :: Value -&gt; Parser HlsH265PackagingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679879788"><span id="local-6989586621679879790"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsH265PackagingType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679886449"><span id="local-6989586621679886451"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsH265PackagingType]
 FromJSONKeyFunction HlsH265PackagingType
 FromJSONKeyFunction HlsH265PackagingType
 -&gt; FromJSONKeyFunction [HlsH265PackagingType]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HlsH265PackagingType]
 fromJSONKey :: FromJSONKeyFunction HlsH265PackagingType
 $cfromJSONKey :: FromJSONKeyFunction HlsH265PackagingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679879779"><span id="local-6989586621679879781"><span id="local-6989586621679879783"><span id="local-6989586621679879785"><span class="annot"><span class="annottext">[HlsH265PackagingType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679886440"><span id="local-6989586621679886442"><span id="local-6989586621679886444"><span id="local-6989586621679886446"><span class="annot"><span class="annottext">[HlsH265PackagingType] -&gt; Encoding
 [HlsH265PackagingType] -&gt; Value
 HlsH265PackagingType -&gt; Encoding
 HlsH265PackagingType -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: HlsH265PackagingType -&gt; Encoding
 toJSON :: HlsH265PackagingType -&gt; Value
 $ctoJSON :: HlsH265PackagingType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679879774"><span id="local-6989586621679879776"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsH265PackagingType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679886435"><span id="local-6989586621679886437"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsH265PackagingType]
 ToJSONKeyFunction HlsH265PackagingType
 ToJSONKeyFunction HlsH265PackagingType
 -&gt; ToJSONKeyFunction [HlsH265PackagingType]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HlsH265PackagingType]
 toJSONKey :: ToJSONKeyFunction HlsH265PackagingType
 $ctoJSONKey :: ToJSONKeyFunction HlsH265PackagingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679879771"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsH265PackagingType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679886432"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsH265PackagingType
 ([Node] -&gt; Either String HlsH265PackagingType)
 -&gt; FromXML HlsH265PackagingType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HlsH265PackagingType
 $cparseXML :: [Node] -&gt; Either String HlsH265PackagingType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679879768"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679886429"><span class="annot"><span class="annottext">HlsH265PackagingType -&gt; XML
 (HlsH265PackagingType -&gt; XML) -&gt; ToXML HlsH265PackagingType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HlsH265PackagingType -&gt; XML

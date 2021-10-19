@@ -28,16 +28,16 @@
 </span><span id="line-28"></span><span class="hs-comment">-- options are enabled by default.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newLiteralArrayOptions' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679208168"><span id="local-6989586621679208169"></span></span><span class="hs-keyword">data</span><span> </span><span id="LiteralArrayOptions"><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-var">LiteralArrayOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LiteralArrayOptions%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-var">LiteralArrayOptions'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679208221"><span id="local-6989586621679208222"></span></span><span class="hs-keyword">data</span><span> </span><span id="LiteralArrayOptions"><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-var">LiteralArrayOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LiteralArrayOptions%27"><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-var">LiteralArrayOptions'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of source fields to map to the field.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AsourceFields%3ALiteralArrayOptions%27"><span class="annot"><span class="annottext">LiteralArrayOptions -&gt; Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AsourceFields%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var hs-var">sourceFields</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Whether facet information can be returned for the field.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AfacetEnabled%3ALiteralArrayOptions%27"><span class="annot"><span class="annottext">LiteralArrayOptions -&gt; Maybe Bool
-</span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AfacetEnabled%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var hs-var">facetEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Whether the contents of the field can be returned in the search results.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AreturnEnabled%3ALiteralArrayOptions%27"><span class="annot"><span class="annottext">LiteralArrayOptions -&gt; Maybe Bool
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Whether the contents of the field can be returned in the search results.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AreturnEnabled%3ALiteralArrayOptions%27"><span class="annot"><span class="annottext">LiteralArrayOptions -&gt; Maybe Bool
 </span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AreturnEnabled%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var hs-var">returnEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Whether facet information can be returned for the field.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AfacetEnabled%3ALiteralArrayOptions%27"><span class="annot"><span class="annottext">LiteralArrayOptions -&gt; Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AfacetEnabled%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var hs-var">facetEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Whether the contents of the field are searchable.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AsearchEnabled%3ALiteralArrayOptions%27"><span class="annot"><span class="annottext">LiteralArrayOptions -&gt; Maybe Bool
 </span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AsearchEnabled%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var hs-var">searchEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
@@ -46,7 +46,7 @@
 </span><span id="line-42"></span><span>    </span><span id="%24sel%3AdefaultValue%3ALiteralArrayOptions%27"><span class="annot"><span class="annottext">LiteralArrayOptions -&gt; Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AdefaultValue%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208158"><span id="local-6989586621679208160"><span class="annot"><span class="annottext">LiteralArrayOptions -&gt; LiteralArrayOptions -&gt; Bool
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208211"><span id="local-6989586621679208213"><span class="annot"><span class="annottext">LiteralArrayOptions -&gt; LiteralArrayOptions -&gt; Bool
 (LiteralArrayOptions -&gt; LiteralArrayOptions -&gt; Bool)
 -&gt; (LiteralArrayOptions -&gt; LiteralArrayOptions -&gt; Bool)
 -&gt; Eq LiteralArrayOptions
@@ -55,7 +55,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: LiteralArrayOptions -&gt; LiteralArrayOptions -&gt; Bool
 == :: LiteralArrayOptions -&gt; LiteralArrayOptions -&gt; Bool
 $c== :: LiteralArrayOptions -&gt; LiteralArrayOptions -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208149"><span id="local-6989586621679208151"><span id="local-6989586621679208153"><span id="local-6989586621679208155"><span class="annot"><span class="annottext">ReadPrec [LiteralArrayOptions]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208202"><span id="local-6989586621679208204"><span id="local-6989586621679208206"><span id="local-6989586621679208208"><span class="annot"><span class="annottext">ReadPrec [LiteralArrayOptions]
 ReadPrec LiteralArrayOptions
 Int -&gt; ReadS LiteralArrayOptions
 ReadS [LiteralArrayOptions]
@@ -75,7 +75,7 @@ readList :: ReadS [LiteralArrayOptions]
 $creadList :: ReadS [LiteralArrayOptions]
 readsPrec :: Int -&gt; ReadS LiteralArrayOptions
 $creadsPrec :: Int -&gt; ReadS LiteralArrayOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208142"><span id="local-6989586621679208144"><span id="local-6989586621679208146"><span class="annot"><span class="annottext">Int -&gt; LiteralArrayOptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208195"><span id="local-6989586621679208197"><span id="local-6989586621679208199"><span class="annot"><span class="annottext">Int -&gt; LiteralArrayOptions -&gt; ShowS
 [LiteralArrayOptions] -&gt; ShowS
 LiteralArrayOptions -&gt; String
 (Int -&gt; LiteralArrayOptions -&gt; ShowS)
@@ -111,9 +111,9 @@ $cfrom :: forall x. LiteralArrayOptions -&gt; Rep LiteralArrayOptions x
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- 'sourceFields', 'literalArrayOptions_sourceFields' - A list of source fields to map to the field.</span><span>
 </span><span id="line-55"></span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- 'facetEnabled', 'literalArrayOptions_facetEnabled' - Whether facet information can be returned for the field.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'returnEnabled', 'literalArrayOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'returnEnabled', 'literalArrayOptions_returnEnabled' - Whether the contents of the field can be returned in the search results.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'facetEnabled', 'literalArrayOptions_facetEnabled' - Whether facet information can be returned for the field.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 'searchEnabled', 'literalArrayOptions_searchEnabled' - Whether the contents of the field are searchable.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
@@ -135,12 +135,12 @@ $cfrom :: forall x. LiteralArrayOptions -&gt; Rep LiteralArrayOptions x
 </span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:facetEnabled:LiteralArrayOptions' :: Maybe Bool
-</span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AfacetEnabled%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var">facetEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:returnEnabled:LiteralArrayOptions' :: Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AreturnEnabled%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:returnEnabled:LiteralArrayOptions' :: Maybe Bool
-</span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AreturnEnabled%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:facetEnabled:LiteralArrayOptions' :: Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AfacetEnabled%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var">facetEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:searchEnabled:LiteralArrayOptions' :: Maybe Bool
@@ -162,56 +162,56 @@ forall a. Maybe a
 -&gt; Lens
      LiteralArrayOptions LiteralArrayOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208133"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208186"><span class="annot"><span class="annottext">Maybe Text
 sourceFields :: Maybe Text
 $sel:sourceFields:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679208133"><span class="hs-identifier hs-var hs-var">sourceFields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208133"><span class="hs-identifier hs-var">sourceFields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208132"><span class="annot"><span class="annottext">s :: LiteralArrayOptions
-</span><a href="#local-6989586621679208132"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208131"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208131"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LiteralArrayOptions
-</span><a href="#local-6989586621679208132"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceFields:LiteralArrayOptions' :: Maybe Text
+</span><a href="#local-6989586621679208186"><span class="hs-identifier hs-var hs-var">sourceFields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208186"><span class="hs-identifier hs-var">sourceFields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208185"><span class="annot"><span class="annottext">s :: LiteralArrayOptions
+</span><a href="#local-6989586621679208185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208184"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LiteralArrayOptions
+</span><a href="#local-6989586621679208185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceFields:LiteralArrayOptions' :: Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AsourceFields%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var">sourceFields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208131"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | Whether facet information can be returned for the field.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#literalArrayOptions_facetEnabled"><span class="hs-identifier hs-type">literalArrayOptions_facetEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="literalArrayOptions_facetEnabled"><span class="annot"><span class="annottext">literalArrayOptions_facetEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; LiteralArrayOptions -&gt; f LiteralArrayOptions
-</span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#literalArrayOptions_facetEnabled"><span class="hs-identifier hs-var hs-var">literalArrayOptions_facetEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LiteralArrayOptions -&gt; Maybe Bool)
--&gt; (LiteralArrayOptions -&gt; Maybe Bool -&gt; LiteralArrayOptions)
--&gt; Lens
-     LiteralArrayOptions LiteralArrayOptions (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208129"><span class="annot"><span class="annottext">Maybe Bool
-facetEnabled :: Maybe Bool
-$sel:facetEnabled:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679208129"><span class="hs-identifier hs-var hs-var">facetEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208129"><span class="hs-identifier hs-var">facetEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208128"><span class="annot"><span class="annottext">s :: LiteralArrayOptions
-</span><a href="#local-6989586621679208128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208127"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LiteralArrayOptions
-</span><a href="#local-6989586621679208128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:facetEnabled:LiteralArrayOptions' :: Maybe Bool
-</span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AfacetEnabled%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var">facetEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- | Whether the contents of the field can be returned in the search results.</span><span>
-</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#literalArrayOptions_returnEnabled"><span class="hs-identifier hs-type">literalArrayOptions_returnEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span id="literalArrayOptions_returnEnabled"><span class="annot"><span class="annottext">literalArrayOptions_returnEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><span id="line-80"></span><span class="hs-comment">-- | Whether the contents of the field can be returned in the search results.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#literalArrayOptions_returnEnabled"><span class="hs-identifier hs-type">literalArrayOptions_returnEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="literalArrayOptions_returnEnabled"><span class="annot"><span class="annottext">literalArrayOptions_returnEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; LiteralArrayOptions -&gt; f LiteralArrayOptions
 </span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#literalArrayOptions_returnEnabled"><span class="hs-identifier hs-var hs-var">literalArrayOptions_returnEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LiteralArrayOptions -&gt; Maybe Bool)
 -&gt; (LiteralArrayOptions -&gt; Maybe Bool -&gt; LiteralArrayOptions)
 -&gt; Lens
      LiteralArrayOptions LiteralArrayOptions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208125"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208182"><span class="annot"><span class="annottext">Maybe Bool
 returnEnabled :: Maybe Bool
 $sel:returnEnabled:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679208125"><span class="hs-identifier hs-var hs-var">returnEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208125"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208124"><span class="annot"><span class="annottext">s :: LiteralArrayOptions
-</span><a href="#local-6989586621679208124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208123"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LiteralArrayOptions
-</span><a href="#local-6989586621679208124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnEnabled:LiteralArrayOptions' :: Maybe Bool
+</span><a href="#local-6989586621679208182"><span class="hs-identifier hs-var hs-var">returnEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679208182"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208181"><span class="annot"><span class="annottext">s :: LiteralArrayOptions
+</span><a href="#local-6989586621679208181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208180"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679208180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LiteralArrayOptions
+</span><a href="#local-6989586621679208181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnEnabled:LiteralArrayOptions' :: Maybe Bool
 </span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AreturnEnabled%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | Whether facet information can be returned for the field.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#literalArrayOptions_facetEnabled"><span class="hs-identifier hs-type">literalArrayOptions_facetEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="literalArrayOptions_facetEnabled"><span class="annot"><span class="annottext">literalArrayOptions_facetEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; LiteralArrayOptions -&gt; f LiteralArrayOptions
+</span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#literalArrayOptions_facetEnabled"><span class="hs-identifier hs-var hs-var">literalArrayOptions_facetEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LiteralArrayOptions -&gt; Maybe Bool)
+-&gt; (LiteralArrayOptions -&gt; Maybe Bool -&gt; LiteralArrayOptions)
+-&gt; Lens
+     LiteralArrayOptions LiteralArrayOptions (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208178"><span class="annot"><span class="annottext">Maybe Bool
+facetEnabled :: Maybe Bool
+$sel:facetEnabled:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Bool
+</span><a href="#local-6989586621679208178"><span class="hs-identifier hs-var hs-var">facetEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679208178"><span class="hs-identifier hs-var">facetEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208177"><span class="annot"><span class="annottext">s :: LiteralArrayOptions
+</span><a href="#local-6989586621679208177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208176"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679208176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LiteralArrayOptions
+</span><a href="#local-6989586621679208177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:facetEnabled:LiteralArrayOptions' :: Maybe Bool
+</span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AfacetEnabled%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var">facetEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679208176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | Whether the contents of the field are searchable.</span><span>
 </span><span id="line-89"></span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#literalArrayOptions_searchEnabled"><span class="hs-identifier hs-type">literalArrayOptions_searchEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
@@ -222,16 +222,16 @@ $sel:returnEnabled:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Bool
 -&gt; Lens
      LiteralArrayOptions LiteralArrayOptions (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208121"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208174"><span class="annot"><span class="annottext">Maybe Bool
 searchEnabled :: Maybe Bool
 $sel:searchEnabled:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Bool
-</span><a href="#local-6989586621679208121"><span class="hs-identifier hs-var hs-var">searchEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208121"><span class="hs-identifier hs-var">searchEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208120"><span class="annot"><span class="annottext">s :: LiteralArrayOptions
-</span><a href="#local-6989586621679208120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208119"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LiteralArrayOptions
-</span><a href="#local-6989586621679208120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchEnabled:LiteralArrayOptions' :: Maybe Bool
+</span><a href="#local-6989586621679208174"><span class="hs-identifier hs-var hs-var">searchEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679208174"><span class="hs-identifier hs-var">searchEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208173"><span class="annot"><span class="annottext">s :: LiteralArrayOptions
+</span><a href="#local-6989586621679208173"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208172"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679208172"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LiteralArrayOptions
+</span><a href="#local-6989586621679208173"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchEnabled:LiteralArrayOptions' :: Maybe Bool
 </span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AsearchEnabled%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var">searchEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208172"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-comment">-- | A value to use for the field if the field isn\'t specified for a</span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- document.</span><span>
@@ -243,21 +243,21 @@ $sel:searchEnabled:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Bool
 -&gt; Lens
      LiteralArrayOptions LiteralArrayOptions (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208117"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208170"><span class="annot"><span class="annottext">Maybe Text
 defaultValue :: Maybe Text
 $sel:defaultValue:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679208117"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208117"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208116"><span class="annot"><span class="annottext">s :: LiteralArrayOptions
-</span><a href="#local-6989586621679208116"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208115"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208115"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LiteralArrayOptions
-</span><a href="#local-6989586621679208116"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValue:LiteralArrayOptions' :: Maybe Text
+</span><a href="#local-6989586621679208170"><span class="hs-identifier hs-var hs-var">defaultValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208170"><span class="hs-identifier hs-var">defaultValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208169"><span class="annot"><span class="annottext">s :: LiteralArrayOptions
+</span><a href="#local-6989586621679208169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208168"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LiteralArrayOptions
+</span><a href="#local-6989586621679208169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultValue:LiteralArrayOptions' :: Maybe Text
 </span><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#%24sel%3AdefaultValue%3ALiteralArrayOptions%27"><span class="hs-identifier hs-var">defaultValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208115"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679208168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679208112"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LiteralArrayOptions
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679208110"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208110"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679208165"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String LiteralArrayOptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679208163"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679208163"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Bool
 -&gt; Maybe Bool
@@ -278,7 +278,7 @@ $sel:defaultValue:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Text
       -&gt; Maybe Bool -&gt; Maybe Bool -&gt; Maybe Text -&gt; LiteralArrayOptions)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679208163"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SourceFields&quot;</span></span><span class="hs-special">)</span><span>
@@ -292,10 +292,10 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      (Maybe Bool -&gt; Maybe Bool -&gt; Maybe Text -&gt; LiteralArrayOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679208163"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FacetEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ReturnEnabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Bool -&gt; Maybe Bool -&gt; Maybe Text -&gt; LiteralArrayOptions)
@@ -303,16 +303,16 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Bool -&gt; Maybe Text -&gt; LiteralArrayOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679208163"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReturnEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;FacetEnabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Maybe Text -&gt; LiteralArrayOptions)
 -&gt; Either String (Maybe Bool)
 -&gt; Either String (Maybe Text -&gt; LiteralArrayOptions)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+</span><a href="#local-6989586621679208163"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SearchEnabled&quot;</span></span><span class="hs-special">)</span><span>
@@ -320,30 +320,30 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text) -&gt; Either String LiteralArrayOptions
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679208110"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679208163"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208104"><span id="local-6989586621679208106"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208157"><span id="local-6989586621679208159"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208101"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208154"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span></span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions"><span class="hs-identifier hs-type">LiteralArrayOptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679208097"><span class="annot"><span class="annottext">toQuery :: LiteralArrayOptions -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208091"><span id="local-6989586621679208092"><span id="local-6989586621679208093"><span id="local-6989586621679208094"><span id="local-6989586621679208095"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679208150"><span class="annot"><span class="annottext">toQuery :: LiteralArrayOptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearch.Types.LiteralArrayOptions.html#LiteralArrayOptions%27"><span class="hs-identifier hs-type">LiteralArrayOptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208144"><span id="local-6989586621679208145"><span id="local-6989586621679208146"><span id="local-6989586621679208147"><span id="local-6989586621679208148"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
 defaultValue :: Maybe Text
 searchEnabled :: Maybe Bool
-returnEnabled :: Maybe Bool
 facetEnabled :: Maybe Bool
+returnEnabled :: Maybe Bool
 sourceFields :: Maybe Text
 $sel:defaultValue:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Text
 $sel:searchEnabled:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Bool
-$sel:returnEnabled:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Bool
 $sel:facetEnabled:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Bool
+$sel:returnEnabled:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Bool
 $sel:sourceFields:LiteralArrayOptions' :: LiteralArrayOptions -&gt; Maybe Text
-</span><a href="#local-6989586621679208091"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679208144"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -351,26 +351,26 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;SourceFields&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208095"><span class="hs-identifier hs-var">sourceFields</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679208148"><span class="hs-identifier hs-var">sourceFields</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;FacetEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208094"><span class="hs-identifier hs-var">facetEnabled</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ReturnEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208093"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679208147"><span class="hs-identifier hs-var">returnEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FacetEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679208146"><span class="hs-identifier hs-var">facetEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SearchEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679208092"><span class="hs-identifier hs-var">searchEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679208145"><span class="hs-identifier hs-var">searchEnabled</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DefaultValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679208091"><span class="hs-identifier hs-var">defaultValue</span></a></span><span>
+</span><a href="#local-6989586621679208144"><span class="hs-identifier hs-var">defaultValue</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span></pre></body></html>

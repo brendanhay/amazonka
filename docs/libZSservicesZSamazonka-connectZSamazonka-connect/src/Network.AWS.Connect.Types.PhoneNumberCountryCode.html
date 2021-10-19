@@ -264,13 +264,13 @@
 </span><span id="line-264"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-265"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-266"></span><span>
-</span><span id="line-267"></span><span id="local-6989586621679400799"><span id="local-6989586621679400800"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PhoneNumberCountryCode"><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberCountryCode.html#PhoneNumberCountryCode"><span class="hs-identifier hs-var">PhoneNumberCountryCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhoneNumberCountryCode%27"><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberCountryCode.html#PhoneNumberCountryCode%27"><span class="hs-identifier hs-var">PhoneNumberCountryCode'</span></a></span></span><span>
+</span><span id="line-267"></span><span id="local-6989586621679401081"><span id="local-6989586621679401082"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PhoneNumberCountryCode"><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberCountryCode.html#PhoneNumberCountryCode"><span class="hs-identifier hs-var">PhoneNumberCountryCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PhoneNumberCountryCode%27"><span class="annot"><a href="Network.AWS.Connect.Types.PhoneNumberCountryCode.html#PhoneNumberCountryCode%27"><span class="hs-identifier hs-var">PhoneNumberCountryCode'</span></a></span></span><span>
 </span><span id="line-268"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPhoneNumberCountryCode"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; Text
 </span><a href="Network.AWS.Connect.Types.PhoneNumberCountryCode.html#fromPhoneNumberCountryCode"><span class="hs-identifier hs-var hs-var">fromPhoneNumberCountryCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-269"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-270"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-271"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-272"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679400791"><span id="local-6989586621679400793"><span id="local-6989586621679400795"><span class="annot"><span class="annottext">Int -&gt; PhoneNumberCountryCode -&gt; ShowS
+</span><span id="line-272"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401073"><span id="local-6989586621679401075"><span id="local-6989586621679401077"><span class="annot"><span class="annottext">Int -&gt; PhoneNumberCountryCode -&gt; ShowS
 [PhoneNumberCountryCode] -&gt; ShowS
 PhoneNumberCountryCode -&gt; String
 (Int -&gt; PhoneNumberCountryCode -&gt; ShowS)
@@ -286,7 +286,7 @@ $cshow :: PhoneNumberCountryCode -&gt; String
 showsPrec :: Int -&gt; PhoneNumberCountryCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; PhoneNumberCountryCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-273"></span><span>      </span><span id="local-6989586621679400782"><span id="local-6989586621679400784"><span id="local-6989586621679400786"><span id="local-6989586621679400788"><span class="annot"><span class="annottext">ReadPrec [PhoneNumberCountryCode]
+</span><span id="line-273"></span><span>      </span><span id="local-6989586621679401064"><span id="local-6989586621679401066"><span id="local-6989586621679401068"><span id="local-6989586621679401070"><span class="annot"><span class="annottext">ReadPrec [PhoneNumberCountryCode]
 ReadPrec PhoneNumberCountryCode
 Int -&gt; ReadS PhoneNumberCountryCode
 ReadS [PhoneNumberCountryCode]
@@ -307,7 +307,7 @@ $creadList :: ReadS [PhoneNumberCountryCode]
 readsPrec :: Int -&gt; ReadS PhoneNumberCountryCode
 $creadsPrec :: Int -&gt; ReadS PhoneNumberCountryCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-274"></span><span>      </span><span id="local-6989586621679400777"><span id="local-6989586621679400779"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; PhoneNumberCountryCode -&gt; Bool
+</span><span id="line-274"></span><span>      </span><span id="local-6989586621679401059"><span id="local-6989586621679401061"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; PhoneNumberCountryCode -&gt; Bool
 (PhoneNumberCountryCode -&gt; PhoneNumberCountryCode -&gt; Bool)
 -&gt; (PhoneNumberCountryCode -&gt; PhoneNumberCountryCode -&gt; Bool)
 -&gt; Eq PhoneNumberCountryCode
@@ -317,7 +317,7 @@ $c/= :: PhoneNumberCountryCode -&gt; PhoneNumberCountryCode -&gt; Bool
 == :: PhoneNumberCountryCode -&gt; PhoneNumberCountryCode -&gt; Bool
 $c== :: PhoneNumberCountryCode -&gt; PhoneNumberCountryCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-275"></span><span>      </span><span id="local-6989586621679400761"><span id="local-6989586621679400763"><span id="local-6989586621679400765"><span id="local-6989586621679400767"><span id="local-6989586621679400769"><span id="local-6989586621679400771"><span id="local-6989586621679400773"><span class="annot"><span class="annottext">Eq PhoneNumberCountryCode
+</span><span id="line-275"></span><span>      </span><span id="local-6989586621679401043"><span id="local-6989586621679401045"><span id="local-6989586621679401047"><span id="local-6989586621679401049"><span id="local-6989586621679401051"><span id="local-6989586621679401053"><span id="local-6989586621679401055"><span class="annot"><span class="annottext">Eq PhoneNumberCountryCode
 Eq PhoneNumberCountryCode
 -&gt; (PhoneNumberCountryCode -&gt; PhoneNumberCountryCode -&gt; Ordering)
 -&gt; (PhoneNumberCountryCode -&gt; PhoneNumberCountryCode -&gt; Bool)
@@ -376,7 +376,7 @@ $cfrom :: forall x. PhoneNumberCountryCode -&gt; Rep PhoneNumberCountryCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-277"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-278"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-279"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679400753"><span id="local-6989586621679400755"><span class="annot"><span class="annottext">Int -&gt; PhoneNumberCountryCode -&gt; Int
+</span><span id="line-279"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679401035"><span id="local-6989586621679401037"><span class="annot"><span class="annottext">Int -&gt; PhoneNumberCountryCode -&gt; Int
 PhoneNumberCountryCode -&gt; Int
 (Int -&gt; PhoneNumberCountryCode -&gt; Int)
 -&gt; (PhoneNumberCountryCode -&gt; Int)
@@ -387,54 +387,54 @@ $chash :: PhoneNumberCountryCode -&gt; Int
 hashWithSalt :: Int -&gt; PhoneNumberCountryCode -&gt; Int
 $chashWithSalt :: Int -&gt; PhoneNumberCountryCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-280"></span><span>      </span><span id="local-6989586621679400750"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; ()
+</span><span id="line-280"></span><span>      </span><span id="local-6989586621679401032"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; ()
 (PhoneNumberCountryCode -&gt; ()) -&gt; NFData PhoneNumberCountryCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PhoneNumberCountryCode -&gt; ()
 $crnf :: PhoneNumberCountryCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-281"></span><span>      </span><span id="local-6989586621679400747"><span class="annot"><span class="annottext">Text -&gt; Either String PhoneNumberCountryCode
+</span><span id="line-281"></span><span>      </span><span id="local-6989586621679401029"><span class="annot"><span class="annottext">Text -&gt; Either String PhoneNumberCountryCode
 (Text -&gt; Either String PhoneNumberCountryCode)
 -&gt; FromText PhoneNumberCountryCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PhoneNumberCountryCode
 $cfromText :: Text -&gt; Either String PhoneNumberCountryCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-282"></span><span>      </span><span id="local-6989586621679400744"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; Text
+</span><span id="line-282"></span><span>      </span><span id="local-6989586621679401026"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; Text
 (PhoneNumberCountryCode -&gt; Text) -&gt; ToText PhoneNumberCountryCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PhoneNumberCountryCode -&gt; Text
 $ctoText :: PhoneNumberCountryCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-283"></span><span>      </span><span id="local-6989586621679400741"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; ByteString
+</span><span id="line-283"></span><span>      </span><span id="local-6989586621679401023"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; ByteString
 (PhoneNumberCountryCode -&gt; ByteString)
 -&gt; ToByteString PhoneNumberCountryCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PhoneNumberCountryCode -&gt; ByteString
 $ctoBS :: PhoneNumberCountryCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-284"></span><span>      </span><span id="local-6989586621679400738"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; ByteStringBuilder
+</span><span id="line-284"></span><span>      </span><span id="local-6989586621679401020"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; ByteStringBuilder
 (PhoneNumberCountryCode -&gt; ByteStringBuilder)
 -&gt; ToLog PhoneNumberCountryCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PhoneNumberCountryCode -&gt; ByteStringBuilder
 $cbuild :: PhoneNumberCountryCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-285"></span><span>      </span><span id="local-6989586621679400735"><span class="annot"><span class="annottext">HeaderName -&gt; PhoneNumberCountryCode -&gt; [Header]
+</span><span id="line-285"></span><span>      </span><span id="local-6989586621679401017"><span class="annot"><span class="annottext">HeaderName -&gt; PhoneNumberCountryCode -&gt; [Header]
 (HeaderName -&gt; PhoneNumberCountryCode -&gt; [Header])
 -&gt; ToHeader PhoneNumberCountryCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PhoneNumberCountryCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PhoneNumberCountryCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-286"></span><span>      </span><span id="local-6989586621679400732"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; QueryString
+</span><span id="line-286"></span><span>      </span><span id="local-6989586621679401014"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; QueryString
 (PhoneNumberCountryCode -&gt; QueryString)
 -&gt; ToQuery PhoneNumberCountryCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PhoneNumberCountryCode -&gt; QueryString
 $ctoQuery :: PhoneNumberCountryCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-287"></span><span>      </span><span id="local-6989586621679400727"><span id="local-6989586621679400729"><span class="annot"><span class="annottext">Value -&gt; Parser [PhoneNumberCountryCode]
+</span><span id="line-287"></span><span>      </span><span id="local-6989586621679401009"><span id="local-6989586621679401011"><span class="annot"><span class="annottext">Value -&gt; Parser [PhoneNumberCountryCode]
 Value -&gt; Parser PhoneNumberCountryCode
 (Value -&gt; Parser PhoneNumberCountryCode)
 -&gt; (Value -&gt; Parser [PhoneNumberCountryCode])
@@ -446,7 +446,7 @@ $cparseJSONList :: Value -&gt; Parser [PhoneNumberCountryCode]
 parseJSON :: Value -&gt; Parser PhoneNumberCountryCode
 $cparseJSON :: Value -&gt; Parser PhoneNumberCountryCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-288"></span><span>      </span><span id="local-6989586621679400722"><span id="local-6989586621679400724"><span class="annot"><span class="annottext">FromJSONKeyFunction [PhoneNumberCountryCode]
+</span><span id="line-288"></span><span>      </span><span id="local-6989586621679401004"><span id="local-6989586621679401006"><span class="annot"><span class="annottext">FromJSONKeyFunction [PhoneNumberCountryCode]
 FromJSONKeyFunction PhoneNumberCountryCode
 FromJSONKeyFunction PhoneNumberCountryCode
 -&gt; FromJSONKeyFunction [PhoneNumberCountryCode]
@@ -458,7 +458,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PhoneNumberCountryCode]
 fromJSONKey :: FromJSONKeyFunction PhoneNumberCountryCode
 $cfromJSONKey :: FromJSONKeyFunction PhoneNumberCountryCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-289"></span><span>      </span><span id="local-6989586621679400713"><span id="local-6989586621679400715"><span id="local-6989586621679400717"><span id="local-6989586621679400719"><span class="annot"><span class="annottext">[PhoneNumberCountryCode] -&gt; Encoding
+</span><span id="line-289"></span><span>      </span><span id="local-6989586621679400995"><span id="local-6989586621679400997"><span id="local-6989586621679400999"><span id="local-6989586621679401001"><span class="annot"><span class="annottext">[PhoneNumberCountryCode] -&gt; Encoding
 [PhoneNumberCountryCode] -&gt; Value
 PhoneNumberCountryCode -&gt; Encoding
 PhoneNumberCountryCode -&gt; Value
@@ -482,7 +482,7 @@ $ctoEncoding :: PhoneNumberCountryCode -&gt; Encoding
 toJSON :: PhoneNumberCountryCode -&gt; Value
 $ctoJSON :: PhoneNumberCountryCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-290"></span><span>      </span><span id="local-6989586621679400708"><span id="local-6989586621679400710"><span class="annot"><span class="annottext">ToJSONKeyFunction [PhoneNumberCountryCode]
+</span><span id="line-290"></span><span>      </span><span id="local-6989586621679400990"><span id="local-6989586621679400992"><span class="annot"><span class="annottext">ToJSONKeyFunction [PhoneNumberCountryCode]
 ToJSONKeyFunction PhoneNumberCountryCode
 ToJSONKeyFunction PhoneNumberCountryCode
 -&gt; ToJSONKeyFunction [PhoneNumberCountryCode]
@@ -494,14 +494,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PhoneNumberCountryCode]
 toJSONKey :: ToJSONKeyFunction PhoneNumberCountryCode
 $ctoJSONKey :: ToJSONKeyFunction PhoneNumberCountryCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-291"></span><span>      </span><span id="local-6989586621679400705"><span class="annot"><span class="annottext">[Node] -&gt; Either String PhoneNumberCountryCode
+</span><span id="line-291"></span><span>      </span><span id="local-6989586621679400987"><span class="annot"><span class="annottext">[Node] -&gt; Either String PhoneNumberCountryCode
 ([Node] -&gt; Either String PhoneNumberCountryCode)
 -&gt; FromXML PhoneNumberCountryCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PhoneNumberCountryCode
 $cparseXML :: [Node] -&gt; Either String PhoneNumberCountryCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-292"></span><span>      </span><span id="local-6989586621679400702"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; XML
+</span><span id="line-292"></span><span>      </span><span id="local-6989586621679400984"><span class="annot"><span class="annottext">PhoneNumberCountryCode -&gt; XML
 (PhoneNumberCountryCode -&gt; XML) -&gt; ToXML PhoneNumberCountryCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PhoneNumberCountryCode -&gt; XML

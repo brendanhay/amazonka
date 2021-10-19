@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newDeleteEventSubscription' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679796512"><span id="local-6989586621679796513"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEventSubscription"><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-var">DeleteEventSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEventSubscription%27"><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription%27"><span class="hs-identifier hs-var">DeleteEventSubscription'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679797667"><span id="local-6989586621679797668"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEventSubscription"><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-var">DeleteEventSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEventSubscription%27"><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription%27"><span class="hs-identifier hs-var">DeleteEventSubscription'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the RDS event notification subscription you want to delete.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AsubscriptionName%3ADeleteEventSubscription%27"><span class="annot"><span class="annottext">DeleteEventSubscription -&gt; Text
 </span><a href="Network.AWS.RDS.DeleteEventSubscription.html#%24sel%3AsubscriptionName%3ADeleteEventSubscription%27"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679796506"><span id="local-6989586621679796508"><span class="annot"><span class="annottext">DeleteEventSubscription -&gt; DeleteEventSubscription -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797661"><span id="local-6989586621679797663"><span class="annot"><span class="annottext">DeleteEventSubscription -&gt; DeleteEventSubscription -&gt; Bool
 (DeleteEventSubscription -&gt; DeleteEventSubscription -&gt; Bool)
 -&gt; (DeleteEventSubscription -&gt; DeleteEventSubscription -&gt; Bool)
 -&gt; Eq DeleteEventSubscription
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteEventSubscription -&gt; DeleteEventSubscription -&gt; Bool
 == :: DeleteEventSubscription -&gt; DeleteEventSubscription -&gt; Bool
 $c== :: DeleteEventSubscription -&gt; DeleteEventSubscription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796497"><span id="local-6989586621679796499"><span id="local-6989586621679796501"><span id="local-6989586621679796503"><span class="annot"><span class="annottext">ReadPrec [DeleteEventSubscription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797652"><span id="local-6989586621679797654"><span id="local-6989586621679797656"><span id="local-6989586621679797658"><span class="annot"><span class="annottext">ReadPrec [DeleteEventSubscription]
 ReadPrec DeleteEventSubscription
 Int -&gt; ReadS DeleteEventSubscription
 ReadS [DeleteEventSubscription]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteEventSubscription]
 $creadList :: ReadS [DeleteEventSubscription]
 readsPrec :: Int -&gt; ReadS DeleteEventSubscription
 $creadsPrec :: Int -&gt; ReadS DeleteEventSubscription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796490"><span id="local-6989586621679796492"><span id="local-6989586621679796494"><span class="annot"><span class="annottext">Int -&gt; DeleteEventSubscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797645"><span id="local-6989586621679797647"><span id="local-6989586621679797649"><span class="annot"><span class="annottext">Int -&gt; DeleteEventSubscription -&gt; ShowS
 [DeleteEventSubscription] -&gt; ShowS
 DeleteEventSubscription -&gt; String
 (Int -&gt; DeleteEventSubscription -&gt; ShowS)
@@ -125,14 +125,14 @@ $cfrom :: forall x. DeleteEventSubscription -&gt; Rep DeleteEventSubscription x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-type">DeleteEventSubscription</span></a></span><span>
 </span><span id="line-71"></span><span id="newDeleteEventSubscription"><span class="annot"><span class="annottext">newDeleteEventSubscription :: Text -&gt; DeleteEventSubscription
-</span><a href="Network.AWS.RDS.DeleteEventSubscription.html#newDeleteEventSubscription"><span class="hs-identifier hs-var hs-var">newDeleteEventSubscription</span></a></span></span><span> </span><span id="local-6989586621679796485"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796485"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DeleteEventSubscription.html#newDeleteEventSubscription"><span class="hs-identifier hs-var hs-var">newDeleteEventSubscription</span></a></span></span><span> </span><span id="local-6989586621679797640"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797640"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">DeleteEventSubscription' :: Text -&gt; DeleteEventSubscription
 </span><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription%27"><span class="hs-identifier hs-type">DeleteEventSubscription'</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subscriptionName:DeleteEventSubscription' :: Text
 </span><a href="Network.AWS.RDS.DeleteEventSubscription.html#%24sel%3AsubscriptionName%3ADeleteEventSubscription%27"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796485"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span><span>
+</span><a href="#local-6989586621679797640"><span class="hs-identifier hs-var">pSubscriptionName_</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | The name of the RDS event notification subscription you want to delete.</span><span>
@@ -143,28 +143,28 @@ $cfrom :: forall x. DeleteEventSubscription -&gt; Rep DeleteEventSubscription x
 -&gt; (DeleteEventSubscription -&gt; Text -&gt; DeleteEventSubscription)
 -&gt; Lens DeleteEventSubscription DeleteEventSubscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription%27"><span class="hs-identifier hs-type">DeleteEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796482"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription%27"><span class="hs-identifier hs-type">DeleteEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797637"><span class="annot"><span class="annottext">Text
 subscriptionName :: Text
 $sel:subscriptionName:DeleteEventSubscription' :: DeleteEventSubscription -&gt; Text
-</span><a href="#local-6989586621679796482"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796482"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796481"><span class="annot"><span class="annottext">s :: DeleteEventSubscription
-</span><a href="#local-6989586621679796481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription%27"><span class="hs-identifier hs-type">DeleteEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796480"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEventSubscription
-</span><a href="#local-6989586621679796481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionName:DeleteEventSubscription' :: Text
+</span><a href="#local-6989586621679797637"><span class="hs-identifier hs-var hs-var">subscriptionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797637"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797636"><span class="annot"><span class="annottext">s :: DeleteEventSubscription
+</span><a href="#local-6989586621679797636"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription%27"><span class="hs-identifier hs-type">DeleteEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797635"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679797635"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEventSubscription
+</span><a href="#local-6989586621679797636"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionName:DeleteEventSubscription' :: Text
 </span><a href="Network.AWS.RDS.DeleteEventSubscription.html#%24sel%3AsubscriptionName%3ADeleteEventSubscription%27"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-type">DeleteEventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797635"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-type">DeleteEventSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-type">DeleteEventSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-type">DeleteEventSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679796476"><span class="annot"><span class="annottext">request :: DeleteEventSubscription -&gt; Request DeleteEventSubscription
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679797631"><span class="annot"><span class="annottext">request :: DeleteEventSubscription -&gt; Request DeleteEventSubscription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteEventSubscription -&gt; Request DeleteEventSubscription
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679796472"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679797627"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteEventSubscription
 -&gt; ClientResponse ClientBody
@@ -195,10 +195,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DeleteEventSubscriptionResult&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679796469"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679796469"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679796468"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679796468"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679796467"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679796467"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679797624"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797624"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679797623"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679797623"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679797622"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679797622"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe EventSubscription -&gt; Int -&gt; DeleteEventSubscriptionResponse
 </span><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-var">DeleteEventSubscriptionResponse'</span></a></span><span>
 </span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EventSubscription -&gt; Int -&gt; DeleteEventSubscriptionResponse)
@@ -206,7 +206,7 @@ Text
 -&gt; Either String (Int -&gt; DeleteEventSubscriptionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679796467"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EventSubscription)
+</span><a href="#local-6989586621679797622"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe EventSubscription)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EventSubscription&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,15 +219,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679796469"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797624"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796459"><span id="local-6989586621679796461"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-type">DeleteEventSubscription</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797614"><span id="local-6989586621679797616"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-type">DeleteEventSubscription</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679796456"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-type">DeleteEventSubscription</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679797611"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-type">DeleteEventSubscription</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-type">DeleteEventSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679796452"><span class="annot"><span class="annottext">toHeaders :: DeleteEventSubscription -&gt; ResponseHeaders
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679797607"><span class="annot"><span class="annottext">toHeaders :: DeleteEventSubscription -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteEventSubscription -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -235,18 +235,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-type">DeleteEventSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679796447"><span class="annot"><span class="annottext">toPath :: DeleteEventSubscription -&gt; ByteString
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679797602"><span class="annot"><span class="annottext">toPath :: DeleteEventSubscription -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteEventSubscription -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription"><span class="hs-identifier hs-type">DeleteEventSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679796443"><span class="annot"><span class="annottext">toQuery :: DeleteEventSubscription -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription%27"><span class="hs-identifier hs-type">DeleteEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796441"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679797598"><span class="annot"><span class="annottext">toQuery :: DeleteEventSubscription -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscription%27"><span class="hs-identifier hs-type">DeleteEventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797596"><span class="annot"><span class="annottext">Text
 subscriptionName :: Text
 $sel:subscriptionName:DeleteEventSubscription' :: DeleteEventSubscription -&gt; Text
-</span><a href="#local-6989586621679796441"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679797596"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -266,18 +266,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;SubscriptionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679796441"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span>
+</span><a href="#local-6989586621679797596"><span class="hs-identifier hs-var">subscriptionName</span></a></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newDeleteEventSubscriptionResponse' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679796438"><span id="local-6989586621679796439"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEventSubscriptionResponse"><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse"><span class="hs-identifier hs-var">DeleteEventSubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEventSubscriptionResponse%27"><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-var">DeleteEventSubscriptionResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679797593"><span id="local-6989586621679797594"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteEventSubscriptionResponse"><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse"><span class="hs-identifier hs-var">DeleteEventSubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteEventSubscriptionResponse%27"><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-var">DeleteEventSubscriptionResponse'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AeventSubscription%3ADeleteEventSubscriptionResponse%27"><span class="annot"><span class="annottext">DeleteEventSubscriptionResponse -&gt; Maybe EventSubscription
 </span><a href="Network.AWS.RDS.DeleteEventSubscription.html#%24sel%3AeventSubscription%3ADeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-var hs-var">eventSubscription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-119"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteEventSubscriptionResponse%27"><span class="annot"><span class="annottext">DeleteEventSubscriptionResponse -&gt; Int
 </span><a href="Network.AWS.RDS.DeleteEventSubscription.html#%24sel%3AhttpStatus%3ADeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679796432"><span id="local-6989586621679796434"><span class="annot"><span class="annottext">DeleteEventSubscriptionResponse
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679797587"><span id="local-6989586621679797589"><span class="annot"><span class="annottext">DeleteEventSubscriptionResponse
 -&gt; DeleteEventSubscriptionResponse -&gt; Bool
 (DeleteEventSubscriptionResponse
  -&gt; DeleteEventSubscriptionResponse -&gt; Bool)
@@ -293,7 +293,7 @@ $c/= :: DeleteEventSubscriptionResponse
 -&gt; DeleteEventSubscriptionResponse -&gt; Bool
 $c== :: DeleteEventSubscriptionResponse
 -&gt; DeleteEventSubscriptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796424"><span id="local-6989586621679796426"><span id="local-6989586621679796428"><span id="local-6989586621679796430"><span class="annot"><span class="annottext">ReadPrec [DeleteEventSubscriptionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797579"><span id="local-6989586621679797581"><span id="local-6989586621679797583"><span id="local-6989586621679797585"><span class="annot"><span class="annottext">ReadPrec [DeleteEventSubscriptionResponse]
 ReadPrec DeleteEventSubscriptionResponse
 Int -&gt; ReadS DeleteEventSubscriptionResponse
 ReadS [DeleteEventSubscriptionResponse]
@@ -313,7 +313,7 @@ readList :: ReadS [DeleteEventSubscriptionResponse]
 $creadList :: ReadS [DeleteEventSubscriptionResponse]
 readsPrec :: Int -&gt; ReadS DeleteEventSubscriptionResponse
 $creadsPrec :: Int -&gt; ReadS DeleteEventSubscriptionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679796418"><span id="local-6989586621679796420"><span id="local-6989586621679796422"><span class="annot"><span class="annottext">Int -&gt; DeleteEventSubscriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679797573"><span id="local-6989586621679797575"><span id="local-6989586621679797577"><span class="annot"><span class="annottext">Int -&gt; DeleteEventSubscriptionResponse -&gt; ShowS
 [DeleteEventSubscriptionResponse] -&gt; ShowS
 DeleteEventSubscriptionResponse -&gt; String
 (Int -&gt; DeleteEventSubscriptionResponse -&gt; ShowS)
@@ -367,8 +367,8 @@ DeleteEventSubscriptionResponse
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-137"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse</span></a></span><span>
 </span><span id="line-138"></span><span id="newDeleteEventSubscriptionResponse"><span class="annot"><span class="annottext">newDeleteEventSubscriptionResponse :: Int -&gt; DeleteEventSubscriptionResponse
-</span><a href="Network.AWS.RDS.DeleteEventSubscription.html#newDeleteEventSubscriptionResponse"><span class="hs-identifier hs-var hs-var">newDeleteEventSubscriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679796415"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679796415"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.DeleteEventSubscription.html#newDeleteEventSubscriptionResponse"><span class="hs-identifier hs-var hs-var">newDeleteEventSubscriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679797570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><span class="annottext">DeleteEventSubscriptionResponse' :: Maybe EventSubscription -&gt; Int -&gt; DeleteEventSubscriptionResponse
 </span><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse'</span></a></span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventSubscription:DeleteEventSubscriptionResponse' :: Maybe EventSubscription
@@ -378,7 +378,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteEventSubscriptionResponse' :: Int
 </span><a href="Network.AWS.RDS.DeleteEventSubscription.html#%24sel%3AhttpStatus%3ADeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679796415"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679797570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-143"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -395,16 +395,16 @@ forall a. Maybe a
      (Maybe EventSubscription)
      (Maybe EventSubscription)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796414"><span class="annot"><span class="annottext">Maybe EventSubscription
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797569"><span class="annot"><span class="annottext">Maybe EventSubscription
 eventSubscription :: Maybe EventSubscription
 $sel:eventSubscription:DeleteEventSubscriptionResponse' :: DeleteEventSubscriptionResponse -&gt; Maybe EventSubscription
-</span><a href="#local-6989586621679796414"><span class="hs-identifier hs-var hs-var">eventSubscription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventSubscription
-</span><a href="#local-6989586621679796414"><span class="hs-identifier hs-var">eventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796413"><span class="annot"><span class="annottext">s :: DeleteEventSubscriptionResponse
-</span><a href="#local-6989586621679796413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796412"><span class="annot"><span class="annottext">Maybe EventSubscription
-</span><a href="#local-6989586621679796412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEventSubscriptionResponse
-</span><a href="#local-6989586621679796413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSubscription:DeleteEventSubscriptionResponse' :: Maybe EventSubscription
+</span><a href="#local-6989586621679797569"><span class="hs-identifier hs-var hs-var">eventSubscription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EventSubscription
+</span><a href="#local-6989586621679797569"><span class="hs-identifier hs-var">eventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797568"><span class="annot"><span class="annottext">s :: DeleteEventSubscriptionResponse
+</span><a href="#local-6989586621679797568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797567"><span class="annot"><span class="annottext">Maybe EventSubscription
+</span><a href="#local-6989586621679797567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEventSubscriptionResponse
+</span><a href="#local-6989586621679797568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventSubscription:DeleteEventSubscriptionResponse' :: Maybe EventSubscription
 </span><a href="Network.AWS.RDS.DeleteEventSubscription.html#%24sel%3AeventSubscription%3ADeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-var">eventSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EventSubscription
-</span><a href="#local-6989586621679796412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-148"></span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-150"></span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#deleteEventSubscriptionResponse_httpStatus"><span class="hs-identifier hs-type">deleteEventSubscriptionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -420,18 +420,18 @@ $sel:eventSubscription:DeleteEventSubscriptionResponse' :: DeleteEventSubscripti
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679796411"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679797566"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteEventSubscriptionResponse' :: DeleteEventSubscriptionResponse -&gt; Int
-</span><a href="#local-6989586621679796411"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679796411"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679796410"><span class="annot"><span class="annottext">s :: DeleteEventSubscriptionResponse
-</span><a href="#local-6989586621679796410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679796409"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679796409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEventSubscriptionResponse
-</span><a href="#local-6989586621679796410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteEventSubscriptionResponse' :: Int
+</span><a href="#local-6989586621679797566"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797566"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679797565"><span class="annot"><span class="annottext">s :: DeleteEventSubscriptionResponse
+</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679797564"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679797564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteEventSubscriptionResponse
+</span><a href="#local-6989586621679797565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteEventSubscriptionResponse' :: Int
 </span><a href="Network.AWS.RDS.DeleteEventSubscription.html#%24sel%3AhttpStatus%3ADeleteEventSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679796409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679797564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679796407"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679797562"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.DeleteEventSubscription.html#DeleteEventSubscriptionResponse"><span class="hs-identifier hs-type">DeleteEventSubscriptionResponse</span></a></span></span><span>
 </span><span id="line-156"></span></pre></body></html>

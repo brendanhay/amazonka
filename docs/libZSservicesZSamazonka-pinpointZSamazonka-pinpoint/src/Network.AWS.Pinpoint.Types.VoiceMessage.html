@@ -27,34 +27,34 @@
 </span><span id="line-27"></span><span class="hs-comment">-- directly to an endpoint through the voice channel.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newVoiceMessage' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679616999"><span id="local-6989586621679617000"></span></span><span class="hs-keyword">data</span><span> </span><span id="VoiceMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-var">VoiceMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VoiceMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-var">VoiceMessage'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The code for the language to use when synthesizing the text of the</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- message script. For a list of supported languages and the code for each</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- one, see the</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide&gt;.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AlanguageCode%3AVoiceMessage%27"><span class="annot"><span class="annottext">VoiceMessage -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AlanguageCode%3AVoiceMessage%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the voice to use when delivering the message. For a list of</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- supported voices, see the</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide&gt;.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AvoiceId%3AVoiceMessage%27"><span class="annot"><span class="annottext">VoiceMessage -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AvoiceId%3AVoiceMessage%27"><span class="hs-identifier hs-var hs-var">voiceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The text of the script to use for the voice message.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Abody%3AVoiceMessage%27"><span class="annot"><span class="annottext">VoiceMessage -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3Abody%3AVoiceMessage%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The default message variables to use in the voice message. You can</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- override the default variables with individual address variables.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3Asubstitutions%3AVoiceMessage%27"><span class="annot"><span class="annottext">VoiceMessage -&gt; Maybe (HashMap Text [Text])
+</span><span id="line-30"></span><span id="local-6989586621679617516"><span id="local-6989586621679617517"></span></span><span class="hs-keyword">data</span><span> </span><span id="VoiceMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-var">VoiceMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VoiceMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-var">VoiceMessage'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The default message variables to use in the voice message. You can</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- override the default variables with individual address variables.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Asubstitutions%3AVoiceMessage%27"><span class="annot"><span class="annottext">VoiceMessage -&gt; Maybe (HashMap Text [Text])
 </span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3Asubstitutions%3AVoiceMessage%27"><span class="hs-identifier hs-var hs-var">substitutions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The long code to send the voice message from. This value should be one</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- of the dedicated long codes that\'s assigned to your AWS account.</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- Although it isn\'t required, we recommend that you specify the long code</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- in E.164 format, for example +12065550100, to ensure prompt and accurate</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- delivery of the message.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AoriginationNumber%3AVoiceMessage%27"><span class="annot"><span class="annottext">VoiceMessage -&gt; Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AoriginationNumber%3AVoiceMessage%27"><span class="hs-identifier hs-var hs-var">originationNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The code for the language to use when synthesizing the text of the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- message script. For a list of supported languages and the code for each</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- one, see the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide&gt;.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AlanguageCode%3AVoiceMessage%27"><span class="annot"><span class="annottext">VoiceMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AlanguageCode%3AVoiceMessage%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The long code to send the voice message from. This value should be one</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- of the dedicated long codes that\'s assigned to your AWS account.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- Although it isn\'t required, we recommend that you specify the long code</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- in E.164 format, for example +12065550100, to ensure prompt and accurate</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- delivery of the message.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AoriginationNumber%3AVoiceMessage%27"><span class="annot"><span class="annottext">VoiceMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AoriginationNumber%3AVoiceMessage%27"><span class="hs-identifier hs-var hs-var">originationNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The text of the script to use for the voice message.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Abody%3AVoiceMessage%27"><span class="annot"><span class="annottext">VoiceMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3Abody%3AVoiceMessage%27"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the voice to use when delivering the message. For a list of</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- supported voices, see the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide&gt;.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AvoiceId%3AVoiceMessage%27"><span class="annot"><span class="annottext">VoiceMessage -&gt; Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AvoiceId%3AVoiceMessage%27"><span class="hs-identifier hs-var hs-var">voiceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679616989"><span id="local-6989586621679616991"><span class="annot"><span class="annottext">VoiceMessage -&gt; VoiceMessage -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679617506"><span id="local-6989586621679617508"><span class="annot"><span class="annottext">VoiceMessage -&gt; VoiceMessage -&gt; Bool
 (VoiceMessage -&gt; VoiceMessage -&gt; Bool)
 -&gt; (VoiceMessage -&gt; VoiceMessage -&gt; Bool) -&gt; Eq VoiceMessage
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: VoiceMessage -&gt; VoiceMessage -&gt; Bool
 == :: VoiceMessage -&gt; VoiceMessage -&gt; Bool
 $c== :: VoiceMessage -&gt; VoiceMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679616980"><span id="local-6989586621679616982"><span id="local-6989586621679616984"><span id="local-6989586621679616986"><span class="annot"><span class="annottext">ReadPrec [VoiceMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679617497"><span id="local-6989586621679617499"><span id="local-6989586621679617501"><span id="local-6989586621679617503"><span class="annot"><span class="annottext">ReadPrec [VoiceMessage]
 ReadPrec VoiceMessage
 Int -&gt; ReadS VoiceMessage
 ReadS [VoiceMessage]
@@ -82,7 +82,7 @@ readList :: ReadS [VoiceMessage]
 $creadList :: ReadS [VoiceMessage]
 readsPrec :: Int -&gt; ReadS VoiceMessage
 $creadsPrec :: Int -&gt; ReadS VoiceMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679616973"><span id="local-6989586621679616975"><span id="local-6989586621679616977"><span class="annot"><span class="annottext">Int -&gt; VoiceMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679617490"><span id="local-6989586621679617492"><span id="local-6989586621679617494"><span class="annot"><span class="annottext">Int -&gt; VoiceMessage -&gt; ShowS
 [VoiceMessage] -&gt; ShowS
 VoiceMessage -&gt; String
 (Int -&gt; VoiceMessage -&gt; ShowS)
@@ -116,121 +116,62 @@ $cfrom :: forall x. VoiceMessage -&gt; Rep VoiceMessage x
 </span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'languageCode', 'voiceMessage_languageCode' - The code for the language to use when synthesizing the text of the</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- message script. For a list of supported languages and the code for each</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- one, see the</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide&gt;.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'voiceId', 'voiceMessage_voiceId' - The name of the voice to use when delivering the message. For a list of</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- supported voices, see the</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide&gt;.</span><span>
-</span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'body', 'voiceMessage_body' - The text of the script to use for the voice message.</span><span>
-</span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'substitutions', 'voiceMessage_substitutions' - The default message variables to use in the voice message. You can</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- override the default variables with individual address variables.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'substitutions', 'voiceMessage_substitutions' - The default message variables to use in the voice message. You can</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- override the default variables with individual address variables.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'languageCode', 'voiceMessage_languageCode' - The code for the language to use when synthesizing the text of the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- message script. For a list of supported languages and the code for each</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- one, see the</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide&gt;.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'originationNumber', 'voiceMessage_originationNumber' - The long code to send the voice message from. This value should be one</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- of the dedicated long codes that\'s assigned to your AWS account.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Although it isn\'t required, we recommend that you specify the long code</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- in E.164 format, for example +12065550100, to ensure prompt and accurate</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- delivery of the message.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'originationNumber', 'voiceMessage_originationNumber' - The long code to send the voice message from. This value should be one</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- of the dedicated long codes that\'s assigned to your AWS account.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- Although it isn\'t required, we recommend that you specify the long code</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- in E.164 format, for example +12065550100, to ensure prompt and accurate</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- delivery of the message.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'body', 'voiceMessage_body' - The text of the script to use for the voice message.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'voiceId', 'voiceMessage_voiceId' - The name of the voice to use when delivering the message. For a list of</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- supported voices, see the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide&gt;.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#newVoiceMessage"><span class="hs-identifier hs-type">newVoiceMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span>
 </span><span id="line-83"></span><span id="newVoiceMessage"><span class="annot"><span class="annottext">newVoiceMessage :: VoiceMessage
 </span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#newVoiceMessage"><span class="hs-identifier hs-var hs-var">newVoiceMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">VoiceMessage' :: Maybe Text
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">VoiceMessage' :: Maybe (HashMap Text [Text])
 -&gt; Maybe Text
 -&gt; Maybe Text
--&gt; Maybe (HashMap Text [Text])
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; VoiceMessage
 </span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:languageCode:VoiceMessage' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AlanguageCode%3AVoiceMessage%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:voiceId:VoiceMessage' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AvoiceId%3AVoiceMessage%27"><span class="hs-identifier hs-var">voiceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:body:VoiceMessage' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3Abody%3AVoiceMessage%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:substitutions:VoiceMessage' :: Maybe (HashMap Text [Text])
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:substitutions:VoiceMessage' :: Maybe (HashMap Text [Text])
 </span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3Asubstitutions%3AVoiceMessage%27"><span class="hs-identifier hs-var">substitutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:originationNumber:VoiceMessage' :: Maybe Text
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageCode:VoiceMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AlanguageCode%3AVoiceMessage%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:originationNumber:VoiceMessage' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AoriginationNumber%3AVoiceMessage%27"><span class="hs-identifier hs-var">originationNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:body:VoiceMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3Abody%3AVoiceMessage%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:voiceId:VoiceMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AvoiceId%3AVoiceMessage%27"><span class="hs-identifier hs-var">voiceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- | The code for the language to use when synthesizing the text of the</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- message script. For a list of supported languages and the code for each</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- one, see the</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide&gt;.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_languageCode"><span class="hs-identifier hs-type">voiceMessage_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="voiceMessage_languageCode"><span class="annot"><span class="annottext">voiceMessage_languageCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VoiceMessage -&gt; f VoiceMessage
-</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_languageCode"><span class="hs-identifier hs-var hs-var">voiceMessage_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VoiceMessage -&gt; Maybe Text)
--&gt; (VoiceMessage -&gt; Maybe Text -&gt; VoiceMessage)
--&gt; Lens VoiceMessage VoiceMessage (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616964"><span class="annot"><span class="annottext">Maybe Text
-languageCode :: Maybe Text
-$sel:languageCode:VoiceMessage' :: VoiceMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679616964"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616964"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679616963"><span class="annot"><span class="annottext">s :: VoiceMessage
-</span><a href="#local-6989586621679616963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679616962"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VoiceMessage
-</span><a href="#local-6989586621679616963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:VoiceMessage' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AlanguageCode%3AVoiceMessage%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The name of the voice to use when delivering the message. For a list of</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- supported voices, see the</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide&gt;.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_voiceId"><span class="hs-identifier hs-type">voiceMessage_voiceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="voiceMessage_voiceId"><span class="annot"><span class="annottext">voiceMessage_voiceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VoiceMessage -&gt; f VoiceMessage
-</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_voiceId"><span class="hs-identifier hs-var hs-var">voiceMessage_voiceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VoiceMessage -&gt; Maybe Text)
--&gt; (VoiceMessage -&gt; Maybe Text -&gt; VoiceMessage)
--&gt; Lens VoiceMessage VoiceMessage (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616960"><span class="annot"><span class="annottext">Maybe Text
-voiceId :: Maybe Text
-$sel:voiceId:VoiceMessage' :: VoiceMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679616960"><span class="hs-identifier hs-var hs-var">voiceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616960"><span class="hs-identifier hs-var">voiceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679616959"><span class="annot"><span class="annottext">s :: VoiceMessage
-</span><a href="#local-6989586621679616959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679616958"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VoiceMessage
-</span><a href="#local-6989586621679616959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceId:VoiceMessage' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AvoiceId%3AVoiceMessage%27"><span class="hs-identifier hs-var">voiceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The text of the script to use for the voice message.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_body"><span class="hs-identifier hs-type">voiceMessage_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="voiceMessage_body"><span class="annot"><span class="annottext">voiceMessage_body :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VoiceMessage -&gt; f VoiceMessage
-</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_body"><span class="hs-identifier hs-var hs-var">voiceMessage_body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VoiceMessage -&gt; Maybe Text)
--&gt; (VoiceMessage -&gt; Maybe Text -&gt; VoiceMessage)
--&gt; Lens VoiceMessage VoiceMessage (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616956"><span class="annot"><span class="annottext">Maybe Text
-body :: Maybe Text
-$sel:body:VoiceMessage' :: VoiceMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679616956"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616956"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679616955"><span class="annot"><span class="annottext">s :: VoiceMessage
-</span><a href="#local-6989586621679616955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679616954"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VoiceMessage
-</span><a href="#local-6989586621679616955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:VoiceMessage' :: Maybe Text
-</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3Abody%3AVoiceMessage%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The default message variables to use in the voice message. You can</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- override the default variables with individual address variables.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_substitutions"><span class="hs-identifier hs-type">voiceMessage_substitutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="voiceMessage_substitutions"><span class="annot"><span class="annottext">voiceMessage_substitutions :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+</span><span id="line-92"></span><span class="hs-comment">-- | The default message variables to use in the voice message. You can</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- override the default variables with individual address variables.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_substitutions"><span class="hs-identifier hs-type">voiceMessage_substitutions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="voiceMessage_substitutions"><span class="annot"><span class="annottext">voiceMessage_substitutions :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
 -&gt; VoiceMessage -&gt; f VoiceMessage
 </span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_substitutions"><span class="hs-identifier hs-var hs-var">voiceMessage_substitutions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VoiceMessage -&gt; Maybe (HashMap Text [Text]))
 -&gt; (VoiceMessage -&gt; Maybe (HashMap Text [Text]) -&gt; VoiceMessage)
@@ -240,16 +181,16 @@ $sel:body:VoiceMessage' :: VoiceMessage -&gt; Maybe Text
      (Maybe (HashMap Text [Text]))
      (Maybe (HashMap Text [Text]))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616952"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617481"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 substitutions :: Maybe (HashMap Text [Text])
 $sel:substitutions:VoiceMessage' :: VoiceMessage -&gt; Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679616952"><span class="hs-identifier hs-var hs-var">substitutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679616952"><span class="hs-identifier hs-var">substitutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679616951"><span class="annot"><span class="annottext">s :: VoiceMessage
-</span><a href="#local-6989586621679616951"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679616950"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679616950"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VoiceMessage
-</span><a href="#local-6989586621679616951"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:substitutions:VoiceMessage' :: Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679617481"><span class="hs-identifier hs-var hs-var">substitutions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679617481"><span class="hs-identifier hs-var">substitutions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617480"><span class="annot"><span class="annottext">s :: VoiceMessage
+</span><a href="#local-6989586621679617480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617479"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679617479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VoiceMessage
+</span><a href="#local-6989586621679617480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:substitutions:VoiceMessage' :: Maybe (HashMap Text [Text])
 </span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3Asubstitutions%3AVoiceMessage%27"><span class="hs-identifier hs-var">substitutions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679616950"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+</span><a href="#local-6989586621679617479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
  -&gt; VoiceMessage -&gt; f VoiceMessage)
 -&gt; ((Maybe (HashMap Text [Text])
      -&gt; f (Maybe (HashMap Text [Text])))
@@ -276,92 +217,151 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text [Text])
   (HashMap Text [Text])
   (HashMap Text [Text])
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The long code to send the voice message from. This value should be one</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- of the dedicated long codes that\'s assigned to your AWS account.</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- Although it isn\'t required, we recommend that you specify the long code</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- in E.164 format, for example +12065550100, to ensure prompt and accurate</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- delivery of the message.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_originationNumber"><span class="hs-identifier hs-type">voiceMessage_originationNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="voiceMessage_originationNumber"><span class="annot"><span class="annottext">voiceMessage_originationNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VoiceMessage -&gt; f VoiceMessage
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The code for the language to use when synthesizing the text of the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- message script. For a list of supported languages and the code for each</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- one, see the</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide&gt;.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_languageCode"><span class="hs-identifier hs-type">voiceMessage_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="voiceMessage_languageCode"><span class="annot"><span class="annottext">voiceMessage_languageCode :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VoiceMessage -&gt; f VoiceMessage
+</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_languageCode"><span class="hs-identifier hs-var hs-var">voiceMessage_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VoiceMessage -&gt; Maybe Text)
+-&gt; (VoiceMessage -&gt; Maybe Text -&gt; VoiceMessage)
+-&gt; Lens VoiceMessage VoiceMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617474"><span class="annot"><span class="annottext">Maybe Text
+languageCode :: Maybe Text
+$sel:languageCode:VoiceMessage' :: VoiceMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679617474"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617474"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617473"><span class="annot"><span class="annottext">s :: VoiceMessage
+</span><a href="#local-6989586621679617473"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617472"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617472"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VoiceMessage
+</span><a href="#local-6989586621679617473"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:VoiceMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AlanguageCode%3AVoiceMessage%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617472"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The long code to send the voice message from. This value should be one</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- of the dedicated long codes that\'s assigned to your AWS account.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Although it isn\'t required, we recommend that you specify the long code</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- in E.164 format, for example +12065550100, to ensure prompt and accurate</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- delivery of the message.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_originationNumber"><span class="hs-identifier hs-type">voiceMessage_originationNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="voiceMessage_originationNumber"><span class="annot"><span class="annottext">voiceMessage_originationNumber :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VoiceMessage -&gt; f VoiceMessage
 </span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_originationNumber"><span class="hs-identifier hs-var hs-var">voiceMessage_originationNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VoiceMessage -&gt; Maybe Text)
 -&gt; (VoiceMessage -&gt; Maybe Text -&gt; VoiceMessage)
 -&gt; Lens VoiceMessage VoiceMessage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616945"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617470"><span class="annot"><span class="annottext">Maybe Text
 originationNumber :: Maybe Text
 $sel:originationNumber:VoiceMessage' :: VoiceMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679616945"><span class="hs-identifier hs-var hs-var">originationNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616945"><span class="hs-identifier hs-var">originationNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679616944"><span class="annot"><span class="annottext">s :: VoiceMessage
-</span><a href="#local-6989586621679616944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679616943"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VoiceMessage
-</span><a href="#local-6989586621679616944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originationNumber:VoiceMessage' :: Maybe Text
+</span><a href="#local-6989586621679617470"><span class="hs-identifier hs-var hs-var">originationNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617470"><span class="hs-identifier hs-var">originationNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617469"><span class="annot"><span class="annottext">s :: VoiceMessage
+</span><a href="#local-6989586621679617469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617468"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VoiceMessage
+</span><a href="#local-6989586621679617469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originationNumber:VoiceMessage' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AoriginationNumber%3AVoiceMessage%27"><span class="hs-identifier hs-var">originationNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616939"><span id="local-6989586621679616941"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span></span></span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616936"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span></span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679616928"><span id="local-6989586621679616930"><span id="local-6989586621679616932"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679616926"><span class="annot"><span class="annottext">toJSON :: VoiceMessage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679616920"><span id="local-6989586621679616921"><span id="local-6989586621679616922"><span id="local-6989586621679616923"><span id="local-6989586621679616924"><span class="annot"><span class="annottext">Maybe Text
-Maybe (HashMap Text [Text])
-originationNumber :: Maybe Text
-substitutions :: Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679617468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The text of the script to use for the voice message.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_body"><span class="hs-identifier hs-type">voiceMessage_body</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="voiceMessage_body"><span class="annot"><span class="annottext">voiceMessage_body :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VoiceMessage -&gt; f VoiceMessage
+</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_body"><span class="hs-identifier hs-var hs-var">voiceMessage_body</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VoiceMessage -&gt; Maybe Text)
+-&gt; (VoiceMessage -&gt; Maybe Text -&gt; VoiceMessage)
+-&gt; Lens VoiceMessage VoiceMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617466"><span class="annot"><span class="annottext">Maybe Text
 body :: Maybe Text
-voiceId :: Maybe Text
-languageCode :: Maybe Text
-$sel:originationNumber:VoiceMessage' :: VoiceMessage -&gt; Maybe Text
-$sel:substitutions:VoiceMessage' :: VoiceMessage -&gt; Maybe (HashMap Text [Text])
 $sel:body:VoiceMessage' :: VoiceMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679617466"><span class="hs-identifier hs-var hs-var">body</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617466"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617465"><span class="annot"><span class="annottext">s :: VoiceMessage
+</span><a href="#local-6989586621679617465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617464"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VoiceMessage
+</span><a href="#local-6989586621679617465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:body:VoiceMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3Abody%3AVoiceMessage%27"><span class="hs-identifier hs-var">body</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The name of the voice to use when delivering the message. For a list of</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- supported voices, see the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide&gt;.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_voiceId"><span class="hs-identifier hs-type">voiceMessage_voiceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="voiceMessage_voiceId"><span class="annot"><span class="annottext">voiceMessage_voiceId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; VoiceMessage -&gt; f VoiceMessage
+</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#voiceMessage_voiceId"><span class="hs-identifier hs-var hs-var">voiceMessage_voiceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VoiceMessage -&gt; Maybe Text)
+-&gt; (VoiceMessage -&gt; Maybe Text -&gt; VoiceMessage)
+-&gt; Lens VoiceMessage VoiceMessage (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617462"><span class="annot"><span class="annottext">Maybe Text
+voiceId :: Maybe Text
 $sel:voiceId:VoiceMessage' :: VoiceMessage -&gt; Maybe Text
+</span><a href="#local-6989586621679617462"><span class="hs-identifier hs-var hs-var">voiceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617462"><span class="hs-identifier hs-var">voiceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679617461"><span class="annot"><span class="annottext">s :: VoiceMessage
+</span><a href="#local-6989586621679617461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679617460"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VoiceMessage
+</span><a href="#local-6989586621679617461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:voiceId:VoiceMessage' :: Maybe Text
+</span><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#%24sel%3AvoiceId%3AVoiceMessage%27"><span class="hs-identifier hs-var">voiceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617456"><span id="local-6989586621679617458"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617453"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679617445"><span id="local-6989586621679617447"><span id="local-6989586621679617449"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage"><span class="hs-identifier hs-type">VoiceMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679617443"><span class="annot"><span class="annottext">toJSON :: VoiceMessage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.VoiceMessage.html#VoiceMessage%27"><span class="hs-identifier hs-type">VoiceMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679617437"><span id="local-6989586621679617438"><span id="local-6989586621679617439"><span id="local-6989586621679617440"><span id="local-6989586621679617441"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text [Text])
+voiceId :: Maybe Text
+body :: Maybe Text
+originationNumber :: Maybe Text
+languageCode :: Maybe Text
+substitutions :: Maybe (HashMap Text [Text])
+$sel:voiceId:VoiceMessage' :: VoiceMessage -&gt; Maybe Text
+$sel:body:VoiceMessage' :: VoiceMessage -&gt; Maybe Text
+$sel:originationNumber:VoiceMessage' :: VoiceMessage -&gt; Maybe Text
 $sel:languageCode:VoiceMessage' :: VoiceMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679616920"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:substitutions:VoiceMessage' :: VoiceMessage -&gt; Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679617437"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616924"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VoiceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616923"><span class="hs-identifier hs-var">voiceId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Body&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616922"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Substitutions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text [Text] -&gt; Pair)
 -&gt; Maybe (HashMap Text [Text]) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679616921"><span class="hs-identifier hs-var">substitutions</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679617441"><span class="hs-identifier hs-var">substitutions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617440"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OriginationNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679616920"><span class="hs-identifier hs-var">originationNumber</span></a></span><span>
+</span><a href="#local-6989586621679617439"><span class="hs-identifier hs-var">originationNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Body&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617438"><span class="hs-identifier hs-var">body</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VoiceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679617437"><span class="hs-identifier hs-var">voiceId</span></a></span><span>
 </span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span></pre></body></html>

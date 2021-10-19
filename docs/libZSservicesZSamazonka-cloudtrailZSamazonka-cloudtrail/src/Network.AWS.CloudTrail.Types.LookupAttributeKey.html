@@ -35,13 +35,13 @@
 </span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span id="local-6989586621679195444"><span id="local-6989586621679195445"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LookupAttributeKey"><span class="annot"><a href="Network.AWS.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey"><span class="hs-identifier hs-var">LookupAttributeKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookupAttributeKey%27"><span class="annot"><a href="Network.AWS.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey%27"><span class="hs-identifier hs-var">LookupAttributeKey'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679195579"><span id="local-6989586621679195580"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LookupAttributeKey"><span class="annot"><a href="Network.AWS.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey"><span class="hs-identifier hs-var">LookupAttributeKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LookupAttributeKey%27"><span class="annot"><a href="Network.AWS.CloudTrail.Types.LookupAttributeKey.html#LookupAttributeKey%27"><span class="hs-identifier hs-var">LookupAttributeKey'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLookupAttributeKey"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; Text
 </span><a href="Network.AWS.CloudTrail.Types.LookupAttributeKey.html#fromLookupAttributeKey"><span class="hs-identifier hs-var hs-var">fromLookupAttributeKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679195436"><span id="local-6989586621679195438"><span id="local-6989586621679195440"><span class="annot"><span class="annottext">Int -&gt; LookupAttributeKey -&gt; ShowS
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679195571"><span id="local-6989586621679195573"><span id="local-6989586621679195575"><span class="annot"><span class="annottext">Int -&gt; LookupAttributeKey -&gt; ShowS
 [LookupAttributeKey] -&gt; ShowS
 LookupAttributeKey -&gt; String
 (Int -&gt; LookupAttributeKey -&gt; ShowS)
@@ -57,7 +57,7 @@ $cshow :: LookupAttributeKey -&gt; String
 showsPrec :: Int -&gt; LookupAttributeKey -&gt; ShowS
 $cshowsPrec :: Int -&gt; LookupAttributeKey -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679195427"><span id="local-6989586621679195429"><span id="local-6989586621679195431"><span id="local-6989586621679195433"><span class="annot"><span class="annottext">ReadPrec [LookupAttributeKey]
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679195562"><span id="local-6989586621679195564"><span id="local-6989586621679195566"><span id="local-6989586621679195568"><span class="annot"><span class="annottext">ReadPrec [LookupAttributeKey]
 ReadPrec LookupAttributeKey
 Int -&gt; ReadS LookupAttributeKey
 ReadS [LookupAttributeKey]
@@ -78,7 +78,7 @@ $creadList :: ReadS [LookupAttributeKey]
 readsPrec :: Int -&gt; ReadS LookupAttributeKey
 $creadsPrec :: Int -&gt; ReadS LookupAttributeKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679195422"><span id="local-6989586621679195424"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679195557"><span id="local-6989586621679195559"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
 (LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool)
 -&gt; (LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool)
 -&gt; Eq LookupAttributeKey
@@ -88,7 +88,7 @@ $c/= :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
 == :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
 $c== :: LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679195406"><span id="local-6989586621679195408"><span id="local-6989586621679195410"><span id="local-6989586621679195412"><span id="local-6989586621679195414"><span id="local-6989586621679195416"><span id="local-6989586621679195418"><span class="annot"><span class="annottext">Eq LookupAttributeKey
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679195541"><span id="local-6989586621679195543"><span id="local-6989586621679195545"><span id="local-6989586621679195547"><span id="local-6989586621679195549"><span id="local-6989586621679195551"><span id="local-6989586621679195553"><span class="annot"><span class="annottext">Eq LookupAttributeKey
 Eq LookupAttributeKey
 -&gt; (LookupAttributeKey -&gt; LookupAttributeKey -&gt; Ordering)
 -&gt; (LookupAttributeKey -&gt; LookupAttributeKey -&gt; Bool)
@@ -139,7 +139,7 @@ $cfrom :: forall x. LookupAttributeKey -&gt; Rep LookupAttributeKey x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679195398"><span id="local-6989586621679195400"><span class="annot"><span class="annottext">Int -&gt; LookupAttributeKey -&gt; Int
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679195533"><span id="local-6989586621679195535"><span class="annot"><span class="annottext">Int -&gt; LookupAttributeKey -&gt; Int
 LookupAttributeKey -&gt; Int
 (Int -&gt; LookupAttributeKey -&gt; Int)
 -&gt; (LookupAttributeKey -&gt; Int) -&gt; Hashable LookupAttributeKey
@@ -149,53 +149,53 @@ $chash :: LookupAttributeKey -&gt; Int
 hashWithSalt :: Int -&gt; LookupAttributeKey -&gt; Int
 $chashWithSalt :: Int -&gt; LookupAttributeKey -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679195395"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; ()
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679195530"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; ()
 (LookupAttributeKey -&gt; ()) -&gt; NFData LookupAttributeKey
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LookupAttributeKey -&gt; ()
 $crnf :: LookupAttributeKey -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679195392"><span class="annot"><span class="annottext">Text -&gt; Either String LookupAttributeKey
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679195527"><span class="annot"><span class="annottext">Text -&gt; Either String LookupAttributeKey
 (Text -&gt; Either String LookupAttributeKey)
 -&gt; FromText LookupAttributeKey
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LookupAttributeKey
 $cfromText :: Text -&gt; Either String LookupAttributeKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679195389"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; Text
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679195524"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; Text
 (LookupAttributeKey -&gt; Text) -&gt; ToText LookupAttributeKey
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LookupAttributeKey -&gt; Text
 $ctoText :: LookupAttributeKey -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679195386"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; ByteString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679195521"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; ByteString
 (LookupAttributeKey -&gt; ByteString)
 -&gt; ToByteString LookupAttributeKey
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LookupAttributeKey -&gt; ByteString
 $ctoBS :: LookupAttributeKey -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679195383"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; ByteStringBuilder
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679195518"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; ByteStringBuilder
 (LookupAttributeKey -&gt; ByteStringBuilder)
 -&gt; ToLog LookupAttributeKey
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LookupAttributeKey -&gt; ByteStringBuilder
 $cbuild :: LookupAttributeKey -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679195380"><span class="annot"><span class="annottext">HeaderName -&gt; LookupAttributeKey -&gt; [Header]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679195515"><span class="annot"><span class="annottext">HeaderName -&gt; LookupAttributeKey -&gt; [Header]
 (HeaderName -&gt; LookupAttributeKey -&gt; [Header])
 -&gt; ToHeader LookupAttributeKey
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LookupAttributeKey -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LookupAttributeKey -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679195377"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; QueryString
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679195512"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; QueryString
 (LookupAttributeKey -&gt; QueryString) -&gt; ToQuery LookupAttributeKey
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LookupAttributeKey -&gt; QueryString
 $ctoQuery :: LookupAttributeKey -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679195372"><span id="local-6989586621679195374"><span class="annot"><span class="annottext">Value -&gt; Parser [LookupAttributeKey]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679195507"><span id="local-6989586621679195509"><span class="annot"><span class="annottext">Value -&gt; Parser [LookupAttributeKey]
 Value -&gt; Parser LookupAttributeKey
 (Value -&gt; Parser LookupAttributeKey)
 -&gt; (Value -&gt; Parser [LookupAttributeKey])
@@ -207,7 +207,7 @@ $cparseJSONList :: Value -&gt; Parser [LookupAttributeKey]
 parseJSON :: Value -&gt; Parser LookupAttributeKey
 $cparseJSON :: Value -&gt; Parser LookupAttributeKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679195367"><span id="local-6989586621679195369"><span class="annot"><span class="annottext">FromJSONKeyFunction [LookupAttributeKey]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679195502"><span id="local-6989586621679195504"><span class="annot"><span class="annottext">FromJSONKeyFunction [LookupAttributeKey]
 FromJSONKeyFunction LookupAttributeKey
 FromJSONKeyFunction LookupAttributeKey
 -&gt; FromJSONKeyFunction [LookupAttributeKey]
@@ -219,7 +219,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LookupAttributeKey]
 fromJSONKey :: FromJSONKeyFunction LookupAttributeKey
 $cfromJSONKey :: FromJSONKeyFunction LookupAttributeKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679195358"><span id="local-6989586621679195360"><span id="local-6989586621679195362"><span id="local-6989586621679195364"><span class="annot"><span class="annottext">[LookupAttributeKey] -&gt; Encoding
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679195493"><span id="local-6989586621679195495"><span id="local-6989586621679195497"><span id="local-6989586621679195499"><span class="annot"><span class="annottext">[LookupAttributeKey] -&gt; Encoding
 [LookupAttributeKey] -&gt; Value
 LookupAttributeKey -&gt; Encoding
 LookupAttributeKey -&gt; Value
@@ -243,7 +243,7 @@ $ctoEncoding :: LookupAttributeKey -&gt; Encoding
 toJSON :: LookupAttributeKey -&gt; Value
 $ctoJSON :: LookupAttributeKey -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679195353"><span id="local-6989586621679195355"><span class="annot"><span class="annottext">ToJSONKeyFunction [LookupAttributeKey]
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679195488"><span id="local-6989586621679195490"><span class="annot"><span class="annottext">ToJSONKeyFunction [LookupAttributeKey]
 ToJSONKeyFunction LookupAttributeKey
 ToJSONKeyFunction LookupAttributeKey
 -&gt; ToJSONKeyFunction [LookupAttributeKey]
@@ -255,14 +255,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LookupAttributeKey]
 toJSONKey :: ToJSONKeyFunction LookupAttributeKey
 $ctoJSONKey :: ToJSONKeyFunction LookupAttributeKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679195350"><span class="annot"><span class="annottext">[Node] -&gt; Either String LookupAttributeKey
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679195485"><span class="annot"><span class="annottext">[Node] -&gt; Either String LookupAttributeKey
 ([Node] -&gt; Either String LookupAttributeKey)
 -&gt; FromXML LookupAttributeKey
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LookupAttributeKey
 $cparseXML :: [Node] -&gt; Either String LookupAttributeKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679195347"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; XML
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679195482"><span class="annot"><span class="annottext">LookupAttributeKey -&gt; XML
 (LookupAttributeKey -&gt; XML) -&gt; ToXML LookupAttributeKey
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LookupAttributeKey -&gt; XML

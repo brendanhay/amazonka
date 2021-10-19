@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.SESv2.Types.DkimSigningKeyLength</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.SESv2.Types.DkimSigningKeyLength</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength"><span class="hs-identifier">DkimSigningKeyLength</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength_RSA_1024_BIT"><span class="hs-identifier">DkimSigningKeyLength_RSA_1024_BIT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength_RSA_2048_BIT"><span class="hs-identifier">DkimSigningKeyLength_RSA_2048_BIT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679327088"><span id="local-6989586621679327089"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DkimSigningKeyLength"><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength"><span class="hs-identifier hs-var">DkimSigningKeyLength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DkimSigningKeyLength%27"><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength%27"><span class="hs-identifier hs-var">DkimSigningKeyLength'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDkimSigningKeyLength"><span class="annot"><span class="annottext">DkimSigningKeyLength -&gt; Text
+</span><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#fromDkimSigningKeyLength"><span class="hs-identifier hs-var hs-var">fromDkimSigningKeyLength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327080"><span id="local-6989586621679327082"><span id="local-6989586621679327084"><span class="annot"><span class="annottext">Int -&gt; DkimSigningKeyLength -&gt; ShowS
+[DkimSigningKeyLength] -&gt; ShowS
+DkimSigningKeyLength -&gt; String
+(Int -&gt; DkimSigningKeyLength -&gt; ShowS)
+-&gt; (DkimSigningKeyLength -&gt; String)
+-&gt; ([DkimSigningKeyLength] -&gt; ShowS)
+-&gt; Show DkimSigningKeyLength
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DkimSigningKeyLength] -&gt; ShowS
+$cshowList :: [DkimSigningKeyLength] -&gt; ShowS
+show :: DkimSigningKeyLength -&gt; String
+$cshow :: DkimSigningKeyLength -&gt; String
+showsPrec :: Int -&gt; DkimSigningKeyLength -&gt; ShowS
+$cshowsPrec :: Int -&gt; DkimSigningKeyLength -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679327071"><span id="local-6989586621679327073"><span id="local-6989586621679327075"><span id="local-6989586621679327077"><span class="annot"><span class="annottext">ReadPrec [DkimSigningKeyLength]
+ReadPrec DkimSigningKeyLength
+Int -&gt; ReadS DkimSigningKeyLength
+ReadS [DkimSigningKeyLength]
+(Int -&gt; ReadS DkimSigningKeyLength)
+-&gt; ReadS [DkimSigningKeyLength]
+-&gt; ReadPrec DkimSigningKeyLength
+-&gt; ReadPrec [DkimSigningKeyLength]
+-&gt; Read DkimSigningKeyLength
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DkimSigningKeyLength]
+$creadListPrec :: ReadPrec [DkimSigningKeyLength]
+readPrec :: ReadPrec DkimSigningKeyLength
+$creadPrec :: ReadPrec DkimSigningKeyLength
+readList :: ReadS [DkimSigningKeyLength]
+$creadList :: ReadS [DkimSigningKeyLength]
+readsPrec :: Int -&gt; ReadS DkimSigningKeyLength
+$creadsPrec :: Int -&gt; ReadS DkimSigningKeyLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679327066"><span id="local-6989586621679327068"><span class="annot"><span class="annottext">DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+(DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool)
+-&gt; (DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool)
+-&gt; Eq DkimSigningKeyLength
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+$c/= :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+== :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+$c== :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679327050"><span id="local-6989586621679327052"><span id="local-6989586621679327054"><span id="local-6989586621679327056"><span id="local-6989586621679327058"><span id="local-6989586621679327060"><span id="local-6989586621679327062"><span class="annot"><span class="annottext">Eq DkimSigningKeyLength
+Eq DkimSigningKeyLength
+-&gt; (DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Ordering)
+-&gt; (DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool)
+-&gt; (DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool)
+-&gt; (DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool)
+-&gt; (DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool)
+-&gt; (DkimSigningKeyLength
+    -&gt; DkimSigningKeyLength -&gt; DkimSigningKeyLength)
+-&gt; (DkimSigningKeyLength
+    -&gt; DkimSigningKeyLength -&gt; DkimSigningKeyLength)
+-&gt; Ord DkimSigningKeyLength
+DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Ordering
+DkimSigningKeyLength
+-&gt; DkimSigningKeyLength -&gt; DkimSigningKeyLength
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DkimSigningKeyLength
+-&gt; DkimSigningKeyLength -&gt; DkimSigningKeyLength
+$cmin :: DkimSigningKeyLength
+-&gt; DkimSigningKeyLength -&gt; DkimSigningKeyLength
+max :: DkimSigningKeyLength
+-&gt; DkimSigningKeyLength -&gt; DkimSigningKeyLength
+$cmax :: DkimSigningKeyLength
+-&gt; DkimSigningKeyLength -&gt; DkimSigningKeyLength
+&gt;= :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+$c&gt;= :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+&gt; :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+$c&gt; :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+&lt;= :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+$c&lt;= :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+&lt; :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+$c&lt; :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Bool
+compare :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Ordering
+$ccompare :: DkimSigningKeyLength -&gt; DkimSigningKeyLength -&gt; Ordering
+$cp1Ord :: Eq DkimSigningKeyLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DkimSigningKeyLength -&gt; Rep DkimSigningKeyLength x)
+-&gt; (forall x. Rep DkimSigningKeyLength x -&gt; DkimSigningKeyLength)
+-&gt; Generic DkimSigningKeyLength
+forall x. Rep DkimSigningKeyLength x -&gt; DkimSigningKeyLength
+forall x. DkimSigningKeyLength -&gt; Rep DkimSigningKeyLength x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DkimSigningKeyLength x -&gt; DkimSigningKeyLength
+$cfrom :: forall x. DkimSigningKeyLength -&gt; Rep DkimSigningKeyLength x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679327042"><span id="local-6989586621679327044"><span class="annot"><span class="annottext">Int -&gt; DkimSigningKeyLength -&gt; Int
+DkimSigningKeyLength -&gt; Int
+(Int -&gt; DkimSigningKeyLength -&gt; Int)
+-&gt; (DkimSigningKeyLength -&gt; Int) -&gt; Hashable DkimSigningKeyLength
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DkimSigningKeyLength -&gt; Int
+$chash :: DkimSigningKeyLength -&gt; Int
+hashWithSalt :: Int -&gt; DkimSigningKeyLength -&gt; Int
+$chashWithSalt :: Int -&gt; DkimSigningKeyLength -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679327039"><span class="annot"><span class="annottext">DkimSigningKeyLength -&gt; ()
+(DkimSigningKeyLength -&gt; ()) -&gt; NFData DkimSigningKeyLength
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DkimSigningKeyLength -&gt; ()
+$crnf :: DkimSigningKeyLength -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679327036"><span class="annot"><span class="annottext">Text -&gt; Either String DkimSigningKeyLength
+(Text -&gt; Either String DkimSigningKeyLength)
+-&gt; FromText DkimSigningKeyLength
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DkimSigningKeyLength
+$cfromText :: Text -&gt; Either String DkimSigningKeyLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679327033"><span class="annot"><span class="annottext">DkimSigningKeyLength -&gt; Text
+(DkimSigningKeyLength -&gt; Text) -&gt; ToText DkimSigningKeyLength
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DkimSigningKeyLength -&gt; Text
+$ctoText :: DkimSigningKeyLength -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679327030"><span class="annot"><span class="annottext">DkimSigningKeyLength -&gt; ByteString
+(DkimSigningKeyLength -&gt; ByteString)
+-&gt; ToByteString DkimSigningKeyLength
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DkimSigningKeyLength -&gt; ByteString
+$ctoBS :: DkimSigningKeyLength -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679327027"><span class="annot"><span class="annottext">DkimSigningKeyLength -&gt; ByteStringBuilder
+(DkimSigningKeyLength -&gt; ByteStringBuilder)
+-&gt; ToLog DkimSigningKeyLength
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DkimSigningKeyLength -&gt; ByteStringBuilder
+$cbuild :: DkimSigningKeyLength -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679327024"><span class="annot"><span class="annottext">HeaderName -&gt; DkimSigningKeyLength -&gt; [Header]
+(HeaderName -&gt; DkimSigningKeyLength -&gt; [Header])
+-&gt; ToHeader DkimSigningKeyLength
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DkimSigningKeyLength -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DkimSigningKeyLength -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679327021"><span class="annot"><span class="annottext">DkimSigningKeyLength -&gt; QueryString
+(DkimSigningKeyLength -&gt; QueryString)
+-&gt; ToQuery DkimSigningKeyLength
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DkimSigningKeyLength -&gt; QueryString
+$ctoQuery :: DkimSigningKeyLength -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679327016"><span id="local-6989586621679327018"><span class="annot"><span class="annottext">Value -&gt; Parser [DkimSigningKeyLength]
+Value -&gt; Parser DkimSigningKeyLength
+(Value -&gt; Parser DkimSigningKeyLength)
+-&gt; (Value -&gt; Parser [DkimSigningKeyLength])
+-&gt; FromJSON DkimSigningKeyLength
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DkimSigningKeyLength]
+$cparseJSONList :: Value -&gt; Parser [DkimSigningKeyLength]
+parseJSON :: Value -&gt; Parser DkimSigningKeyLength
+$cparseJSON :: Value -&gt; Parser DkimSigningKeyLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679327011"><span id="local-6989586621679327013"><span class="annot"><span class="annottext">FromJSONKeyFunction [DkimSigningKeyLength]
+FromJSONKeyFunction DkimSigningKeyLength
+FromJSONKeyFunction DkimSigningKeyLength
+-&gt; FromJSONKeyFunction [DkimSigningKeyLength]
+-&gt; FromJSONKey DkimSigningKeyLength
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DkimSigningKeyLength]
+$cfromJSONKeyList :: FromJSONKeyFunction [DkimSigningKeyLength]
+fromJSONKey :: FromJSONKeyFunction DkimSigningKeyLength
+$cfromJSONKey :: FromJSONKeyFunction DkimSigningKeyLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679327002"><span id="local-6989586621679327004"><span id="local-6989586621679327006"><span id="local-6989586621679327008"><span class="annot"><span class="annottext">[DkimSigningKeyLength] -&gt; Encoding
+[DkimSigningKeyLength] -&gt; Value
+DkimSigningKeyLength -&gt; Encoding
+DkimSigningKeyLength -&gt; Value
+(DkimSigningKeyLength -&gt; Value)
+-&gt; (DkimSigningKeyLength -&gt; Encoding)
+-&gt; ([DkimSigningKeyLength] -&gt; Value)
+-&gt; ([DkimSigningKeyLength] -&gt; Encoding)
+-&gt; ToJSON DkimSigningKeyLength
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DkimSigningKeyLength] -&gt; Encoding
+$ctoEncodingList :: [DkimSigningKeyLength] -&gt; Encoding
+toJSONList :: [DkimSigningKeyLength] -&gt; Value
+$ctoJSONList :: [DkimSigningKeyLength] -&gt; Value
+toEncoding :: DkimSigningKeyLength -&gt; Encoding
+$ctoEncoding :: DkimSigningKeyLength -&gt; Encoding
+toJSON :: DkimSigningKeyLength -&gt; Value
+$ctoJSON :: DkimSigningKeyLength -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679326997"><span id="local-6989586621679326999"><span class="annot"><span class="annottext">ToJSONKeyFunction [DkimSigningKeyLength]
+ToJSONKeyFunction DkimSigningKeyLength
+ToJSONKeyFunction DkimSigningKeyLength
+-&gt; ToJSONKeyFunction [DkimSigningKeyLength]
+-&gt; ToJSONKey DkimSigningKeyLength
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DkimSigningKeyLength]
+$ctoJSONKeyList :: ToJSONKeyFunction [DkimSigningKeyLength]
+toJSONKey :: ToJSONKeyFunction DkimSigningKeyLength
+$ctoJSONKey :: ToJSONKeyFunction DkimSigningKeyLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679326994"><span class="annot"><span class="annottext">[Node] -&gt; Either String DkimSigningKeyLength
+([Node] -&gt; Either String DkimSigningKeyLength)
+-&gt; FromXML DkimSigningKeyLength
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DkimSigningKeyLength
+$cparseXML :: [Node] -&gt; Either String DkimSigningKeyLength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679326991"><span class="annot"><span class="annottext">DkimSigningKeyLength -&gt; XML
+(DkimSigningKeyLength -&gt; XML) -&gt; ToXML DkimSigningKeyLength
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DkimSigningKeyLength -&gt; XML
+$ctoXML :: DkimSigningKeyLength -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength_RSA_1024_BIT"><span class="hs-identifier hs-type">DkimSigningKeyLength_RSA_1024_BIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength"><span class="hs-identifier hs-type">DkimSigningKeyLength</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDkimSigningKeyLength_RSA_1024_BIT"><span id="%24mDkimSigningKeyLength_RSA_1024_BIT"><span id="DkimSigningKeyLength_RSA_1024_BIT"><span class="annot"><span class="annottext">$bDkimSigningKeyLength_RSA_1024_BIT :: DkimSigningKeyLength
+$mDkimSigningKeyLength_RSA_1024_BIT :: forall r. DkimSigningKeyLength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#%24bDkimSigningKeyLength_RSA_1024_BIT"><span class="hs-identifier hs-var hs-var hs-var">DkimSigningKeyLength_RSA_1024_BIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength%27"><span class="hs-identifier hs-type">DkimSigningKeyLength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RSA_1024_BIT&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength_RSA_2048_BIT"><span class="hs-identifier hs-type">DkimSigningKeyLength_RSA_2048_BIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength"><span class="hs-identifier hs-type">DkimSigningKeyLength</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDkimSigningKeyLength_RSA_2048_BIT"><span id="%24mDkimSigningKeyLength_RSA_2048_BIT"><span id="DkimSigningKeyLength_RSA_2048_BIT"><span class="annot"><span class="annottext">$bDkimSigningKeyLength_RSA_2048_BIT :: DkimSigningKeyLength
+$mDkimSigningKeyLength_RSA_2048_BIT :: forall r. DkimSigningKeyLength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#%24bDkimSigningKeyLength_RSA_2048_BIT"><span class="hs-identifier hs-var hs-var hs-var">DkimSigningKeyLength_RSA_2048_BIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength%27"><span class="hs-identifier hs-type">DkimSigningKeyLength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RSA_2048_BIT&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength_RSA_1024_BIT"><span class="hs-pragma hs-type">DkimSigningKeyLength_RSA_1024_BIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength_RSA_2048_BIT"><span class="hs-pragma hs-type">DkimSigningKeyLength_RSA_2048_BIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.Types.DkimSigningKeyLength.html#DkimSigningKeyLength%27"><span class="hs-pragma hs-type">DkimSigningKeyLength'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

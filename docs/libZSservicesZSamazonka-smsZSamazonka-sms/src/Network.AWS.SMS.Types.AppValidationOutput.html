@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Output from validating an application.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAppValidationOutput' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679246853"><span id="local-6989586621679246854"></span></span><span class="hs-keyword">data</span><span> </span><span id="AppValidationOutput"><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput"><span class="hs-identifier hs-var">AppValidationOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppValidationOutput%27"><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput%27"><span class="hs-identifier hs-var">AppValidationOutput'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679246982"><span id="local-6989586621679246983"></span></span><span class="hs-keyword">data</span><span> </span><span id="AppValidationOutput"><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput"><span class="hs-identifier hs-var">AppValidationOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppValidationOutput%27"><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput%27"><span class="hs-identifier hs-var">AppValidationOutput'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Output from using SSM to validate the application.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AssmOutput%3AAppValidationOutput%27"><span class="annot"><span class="annottext">AppValidationOutput -&gt; Maybe SSMOutput
 </span><a href="Network.AWS.SMS.Types.AppValidationOutput.html#%24sel%3AssmOutput%3AAppValidationOutput%27"><span class="hs-identifier hs-var hs-var">ssmOutput</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.SSMOutput.html#SSMOutput"><span class="hs-identifier hs-type">SSMOutput</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246847"><span id="local-6989586621679246849"><span class="annot"><span class="annottext">AppValidationOutput -&gt; AppValidationOutput -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679246976"><span id="local-6989586621679246978"><span class="annot"><span class="annottext">AppValidationOutput -&gt; AppValidationOutput -&gt; Bool
 (AppValidationOutput -&gt; AppValidationOutput -&gt; Bool)
 -&gt; (AppValidationOutput -&gt; AppValidationOutput -&gt; Bool)
 -&gt; Eq AppValidationOutput
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AppValidationOutput -&gt; AppValidationOutput -&gt; Bool
 == :: AppValidationOutput -&gt; AppValidationOutput -&gt; Bool
 $c== :: AppValidationOutput -&gt; AppValidationOutput -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246838"><span id="local-6989586621679246840"><span id="local-6989586621679246842"><span id="local-6989586621679246844"><span class="annot"><span class="annottext">ReadPrec [AppValidationOutput]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246967"><span id="local-6989586621679246969"><span id="local-6989586621679246971"><span id="local-6989586621679246973"><span class="annot"><span class="annottext">ReadPrec [AppValidationOutput]
 ReadPrec AppValidationOutput
 Int -&gt; ReadS AppValidationOutput
 ReadS [AppValidationOutput]
@@ -61,7 +61,7 @@ readList :: ReadS [AppValidationOutput]
 $creadList :: ReadS [AppValidationOutput]
 readsPrec :: Int -&gt; ReadS AppValidationOutput
 $creadsPrec :: Int -&gt; ReadS AppValidationOutput
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246831"><span id="local-6989586621679246833"><span id="local-6989586621679246835"><span class="annot"><span class="annottext">Int -&gt; AppValidationOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679246960"><span id="local-6989586621679246962"><span id="local-6989586621679246964"><span class="annot"><span class="annottext">Int -&gt; AppValidationOutput -&gt; ShowS
 [AppValidationOutput] -&gt; ShowS
 AppValidationOutput -&gt; String
 (Int -&gt; AppValidationOutput -&gt; ShowS)
@@ -118,19 +118,19 @@ forall a. Maybe a
      (Maybe SSMOutput)
      (Maybe SSMOutput)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput%27"><span class="hs-identifier hs-type">AppValidationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246822"><span class="annot"><span class="annottext">Maybe SSMOutput
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput%27"><span class="hs-identifier hs-type">AppValidationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679246951"><span class="annot"><span class="annottext">Maybe SSMOutput
 ssmOutput :: Maybe SSMOutput
 $sel:ssmOutput:AppValidationOutput' :: AppValidationOutput -&gt; Maybe SSMOutput
-</span><a href="#local-6989586621679246822"><span class="hs-identifier hs-var hs-var">ssmOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSMOutput
-</span><a href="#local-6989586621679246822"><span class="hs-identifier hs-var">ssmOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246821"><span class="annot"><span class="annottext">s :: AppValidationOutput
-</span><a href="#local-6989586621679246821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput%27"><span class="hs-identifier hs-type">AppValidationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246820"><span class="annot"><span class="annottext">Maybe SSMOutput
-</span><a href="#local-6989586621679246820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AppValidationOutput
-</span><a href="#local-6989586621679246821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ssmOutput:AppValidationOutput' :: Maybe SSMOutput
+</span><a href="#local-6989586621679246951"><span class="hs-identifier hs-var hs-var">ssmOutput</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SSMOutput
+</span><a href="#local-6989586621679246951"><span class="hs-identifier hs-var">ssmOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679246950"><span class="annot"><span class="annottext">s :: AppValidationOutput
+</span><a href="#local-6989586621679246950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput%27"><span class="hs-identifier hs-type">AppValidationOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679246949"><span class="annot"><span class="annottext">Maybe SSMOutput
+</span><a href="#local-6989586621679246949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AppValidationOutput
+</span><a href="#local-6989586621679246950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ssmOutput:AppValidationOutput' :: Maybe SSMOutput
 </span><a href="Network.AWS.SMS.Types.AppValidationOutput.html#%24sel%3AssmOutput%3AAppValidationOutput%27"><span class="hs-identifier hs-var">ssmOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SSMOutput
-</span><a href="#local-6989586621679246820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput"><span class="hs-identifier hs-type">AppValidationOutput</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679246949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput"><span class="hs-identifier hs-type">AppValidationOutput</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246817"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput"><span class="hs-identifier hs-type">AppValidationOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679246815"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AppValidationOutput
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246946"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput"><span class="hs-identifier hs-type">AppValidationOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679246944"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AppValidationOutput
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AppValidationOutput)
@@ -140,21 +140,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AppValidationOutput&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246812"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246812"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679246941"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679246941"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe SSMOutput -&gt; AppValidationOutput
 </span><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput%27"><span class="hs-identifier hs-var">AppValidationOutput'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SSMOutput -&gt; AppValidationOutput)
 -&gt; Parser (Maybe SSMOutput) -&gt; Parser AppValidationOutput
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679246812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SSMOutput)
+</span><a href="#local-6989586621679246941"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SSMOutput)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ssmOutput&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246806"><span id="local-6989586621679246808"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput"><span class="hs-identifier hs-type">AppValidationOutput</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246935"><span id="local-6989586621679246937"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput"><span class="hs-identifier hs-type">AppValidationOutput</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput"><span class="hs-identifier hs-type">AppValidationOutput</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679246932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SMS.Types.AppValidationOutput.html#AppValidationOutput"><span class="hs-identifier hs-type">AppValidationOutput</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

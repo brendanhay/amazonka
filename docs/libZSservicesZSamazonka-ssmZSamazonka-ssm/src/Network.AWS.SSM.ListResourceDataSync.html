@@ -48,8 +48,8 @@
 </span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#newListResourceDataSyncResponse"><span class="hs-identifier">newListResourceDataSyncResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#listResourceDataSyncResponse_nextToken"><span class="hs-identifier">listResourceDataSyncResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#listResourceDataSyncResponse_resourceDataSyncItems"><span class="hs-identifier">listResourceDataSyncResponse_resourceDataSyncItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#listResourceDataSyncResponse_resourceDataSyncItems"><span class="hs-identifier">listResourceDataSyncResponse_resourceDataSyncItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#listResourceDataSyncResponse_nextToken"><span class="hs-identifier">listResourceDataSyncResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#listResourceDataSyncResponse_httpStatus"><span class="hs-identifier">listResourceDataSyncResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-55"></span><span class="hs-keyword">where</span><span>
@@ -62,7 +62,7 @@
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.html"><span class="hs-identifier">Network.AWS.SSM.Types</span></a></span><span>
 </span><span id="line-63"></span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newListResourceDataSync' smart constructor.</span><span>
-</span><span id="line-65"></span><span id="local-6989586621679827610"><span id="local-6989586621679827611"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceDataSync"><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-var">ListResourceDataSync</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceDataSync%27"><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-var">ListResourceDataSync'</span></a></span></span><span>
+</span><span id="line-65"></span><span id="local-6989586621679829369"><span id="local-6989586621679829370"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceDataSync"><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-var">ListResourceDataSync</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceDataSync%27"><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-var">ListResourceDataSync'</span></a></span></span><span>
 </span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | View a list of resource data syncs according to the sync type. Specify</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @SyncToDestination@ to view resource data syncs that synchronize data to</span><span>
 </span><span id="line-68"></span><span>    </span><span class="hs-comment">-- an Amazon S3 bucket. Specify @SyncFromSource@ to view resource data</span><span>
@@ -79,7 +79,7 @@
 </span><span id="line-77"></span><span>    </span><span id="%24sel%3AmaxResults%3AListResourceDataSync%27"><span class="annot"><span class="annottext">ListResourceDataSync -&gt; Maybe Natural
 </span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AmaxResults%3AListResourceDataSync%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827602"><span id="local-6989586621679827604"><span class="annot"><span class="annottext">ListResourceDataSync -&gt; ListResourceDataSync -&gt; Bool
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679829361"><span id="local-6989586621679829363"><span class="annot"><span class="annottext">ListResourceDataSync -&gt; ListResourceDataSync -&gt; Bool
 (ListResourceDataSync -&gt; ListResourceDataSync -&gt; Bool)
 -&gt; (ListResourceDataSync -&gt; ListResourceDataSync -&gt; Bool)
 -&gt; Eq ListResourceDataSync
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListResourceDataSync -&gt; ListResourceDataSync -&gt; Bool
 == :: ListResourceDataSync -&gt; ListResourceDataSync -&gt; Bool
 $c== :: ListResourceDataSync -&gt; ListResourceDataSync -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827593"><span id="local-6989586621679827595"><span id="local-6989586621679827597"><span id="local-6989586621679827599"><span class="annot"><span class="annottext">ReadPrec [ListResourceDataSync]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679829352"><span id="local-6989586621679829354"><span id="local-6989586621679829356"><span id="local-6989586621679829358"><span class="annot"><span class="annottext">ReadPrec [ListResourceDataSync]
 ReadPrec ListResourceDataSync
 Int -&gt; ReadS ListResourceDataSync
 ReadS [ListResourceDataSync]
@@ -108,7 +108,7 @@ readList :: ReadS [ListResourceDataSync]
 $creadList :: ReadS [ListResourceDataSync]
 readsPrec :: Int -&gt; ReadS ListResourceDataSync
 $creadsPrec :: Int -&gt; ReadS ListResourceDataSync
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827586"><span id="local-6989586621679827588"><span id="local-6989586621679827590"><span class="annot"><span class="annottext">Int -&gt; ListResourceDataSync -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679829345"><span id="local-6989586621679829347"><span id="local-6989586621679829349"><span class="annot"><span class="annottext">Int -&gt; ListResourceDataSync -&gt; ShowS
 [ListResourceDataSync] -&gt; ShowS
 ListResourceDataSync -&gt; String
 (Int -&gt; ListResourceDataSync -&gt; ShowS)
@@ -185,16 +185,16 @@ forall a. Maybe a
 -&gt; Lens
      ListResourceDataSync ListResourceDataSync (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827580"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829339"><span class="annot"><span class="annottext">Maybe Text
 syncType :: Maybe Text
 $sel:syncType:ListResourceDataSync' :: ListResourceDataSync -&gt; Maybe Text
-</span><a href="#local-6989586621679827580"><span class="hs-identifier hs-var hs-var">syncType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827580"><span class="hs-identifier hs-var">syncType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827579"><span class="annot"><span class="annottext">s :: ListResourceDataSync
-</span><a href="#local-6989586621679827579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827578"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceDataSync
-</span><a href="#local-6989586621679827579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncType:ListResourceDataSync' :: Maybe Text
+</span><a href="#local-6989586621679829339"><span class="hs-identifier hs-var hs-var">syncType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679829339"><span class="hs-identifier hs-var">syncType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679829338"><span class="annot"><span class="annottext">s :: ListResourceDataSync
+</span><a href="#local-6989586621679829338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679829337"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679829337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceDataSync
+</span><a href="#local-6989586621679829338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:syncType:ListResourceDataSync' :: Maybe Text
 </span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AsyncType%3AListResourceDataSync%27"><span class="hs-identifier hs-var">syncType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679829337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- results.</span><span>
@@ -206,16 +206,16 @@ $sel:syncType:ListResourceDataSync' :: ListResourceDataSync -&gt; Maybe Text
 -&gt; Lens
      ListResourceDataSync ListResourceDataSync (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827577"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829336"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListResourceDataSync' :: ListResourceDataSync -&gt; Maybe Text
-</span><a href="#local-6989586621679827577"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827577"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827576"><span class="annot"><span class="annottext">s :: ListResourceDataSync
-</span><a href="#local-6989586621679827576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827575"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceDataSync
-</span><a href="#local-6989586621679827576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceDataSync' :: Maybe Text
+</span><a href="#local-6989586621679829336"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679829336"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679829335"><span class="annot"><span class="annottext">s :: ListResourceDataSync
+</span><a href="#local-6989586621679829335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679829334"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679829334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceDataSync
+</span><a href="#local-6989586621679829335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceDataSync' :: Maybe Text
 </span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AnextToken%3AListResourceDataSync%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679829334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | The maximum number of items to return for this call. The call also</span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- returns a token that you can specify in a subsequent call to get the</span><span>
@@ -231,29 +231,29 @@ $sel:nextToken:ListResourceDataSync' :: ListResourceDataSync -&gt; Maybe Text
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827574"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829333"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListResourceDataSync' :: ListResourceDataSync -&gt; Maybe Natural
-</span><a href="#local-6989586621679827574"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679827574"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827573"><span class="annot"><span class="annottext">s :: ListResourceDataSync
-</span><a href="#local-6989586621679827573"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827572"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679827572"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceDataSync
-</span><a href="#local-6989586621679827573"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListResourceDataSync' :: Maybe Natural
+</span><a href="#local-6989586621679829333"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679829333"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679829332"><span class="annot"><span class="annottext">s :: ListResourceDataSync
+</span><a href="#local-6989586621679829332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679829331"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679829331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceDataSync
+</span><a href="#local-6989586621679829332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListResourceDataSync' :: Maybe Natural
 </span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AmaxResults%3AListResourceDataSync%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679827572"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679829331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679827568"><span class="annot"><span class="annottext">page :: ListResourceDataSync
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679829327"><span class="annot"><span class="annottext">page :: ListResourceDataSync
 -&gt; AWSResponse ListResourceDataSync -&gt; Maybe ListResourceDataSync
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679827566"><span class="annot"><span class="annottext">ListResourceDataSync
-</span><a href="#local-6989586621679827566"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679827565"><span class="annot"><span class="annottext">AWSResponse ListResourceDataSync
-</span><a href="#local-6989586621679827565"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679829325"><span class="annot"><span class="annottext">ListResourceDataSync
+</span><a href="#local-6989586621679829325"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679829324"><span class="annot"><span class="annottext">AWSResponse ListResourceDataSync
+</span><a href="#local-6989586621679829324"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-130"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceDataSync
 ListResourceDataSyncResponse
-</span><a href="#local-6989586621679827565"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679829324"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">ListResourceDataSyncResponse
 -&gt; Getting (First Text) ListResourceDataSyncResponse Text
 -&gt; Maybe Text
@@ -283,7 +283,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-136"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceDataSync
 ListResourceDataSyncResponse
-</span><a href="#local-6989586621679827565"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679829324"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">ListResourceDataSyncResponse
 -&gt; Getting
      (First [ResourceDataSyncItem])
@@ -335,7 +335,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ListResourceDataSync
-</span><a href="#local-6989586621679827566"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679829325"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">ListResourceDataSync
 -&gt; (ListResourceDataSync -&gt; ListResourceDataSync)
 -&gt; ListResourceDataSync
@@ -351,7 +351,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListResourceDataSync
 ListResourceDataSyncResponse
-</span><a href="#local-6989586621679827565"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679829324"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">ListResourceDataSyncResponse
 -&gt; Getting (First Text) ListResourceDataSyncResponse Text
 -&gt; Maybe Text
@@ -377,12 +377,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-150"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-151"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>      </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span><span>
-</span><span id="line-153"></span><span>  </span><span id="local-6989586621679827555"><span class="annot"><span class="annottext">request :: ListResourceDataSync -&gt; Request ListResourceDataSync
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679829314"><span class="annot"><span class="annottext">request :: ListResourceDataSync -&gt; Request ListResourceDataSync
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListResourceDataSync -&gt; Request ListResourceDataSync
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679827551"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679829310"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListResourceDataSync
 -&gt; ClientResponse ClientBody
@@ -408,51 +408,42 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679827548"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827548"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679827547"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679827547"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679827546"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679827546"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [ResourceDataSyncItem]
--&gt; Int
--&gt; ListResourceDataSyncResponse
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679829307"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679829307"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679829306"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679829306"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679829305"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679829305"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ResourceDataSyncItem]
+-&gt; Maybe Text -&gt; Int -&gt; ListResourceDataSyncResponse
 </span><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-var">ListResourceDataSyncResponse'</span></a></span><span>
-</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [ResourceDataSyncItem]
- -&gt; Int
- -&gt; ListResourceDataSyncResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [ResourceDataSyncItem]
-      -&gt; Int -&gt; ListResourceDataSyncResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679827546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [ResourceDataSyncItem]
-   -&gt; Int -&gt; ListResourceDataSyncResponse)
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ResourceDataSyncItem]
+ -&gt; Maybe Text -&gt; Int -&gt; ListResourceDataSyncResponse)
 -&gt; Either String (Maybe [ResourceDataSyncItem])
--&gt; Either String (Int -&gt; ListResourceDataSyncResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679827546"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListResourceDataSyncResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679829305"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [ResourceDataSyncItem]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceDataSyncItems&quot;</span></span><span>
-</span><span id="line-160"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ResourceDataSyncItem]))
+</span><span id="line-159"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ResourceDataSyncItem]))
 -&gt; Maybe [ResourceDataSyncItem]
 -&gt; Either String (Maybe [ResourceDataSyncItem])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceDataSyncItem]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-161"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListResourceDataSyncResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListResourceDataSyncResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679829305"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListResourceDataSyncResponse)
 -&gt; Either String Int -&gt; Either String ListResourceDataSyncResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -461,15 +452,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827548"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679829307"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827537"><span id="local-6989586621679827539"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679829296"><span id="local-6989586621679829298"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span></span></span><span>
 </span><span id="line-166"></span><span>
-</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679829293"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span></span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-170"></span><span>  </span><span id="local-6989586621679827530"><span class="annot"><span class="annottext">toHeaders :: ListResourceDataSync -&gt; ResponseHeaders
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679829289"><span class="annot"><span class="annottext">toHeaders :: ListResourceDataSync -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListResourceDataSync -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -496,9 +487,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-183"></span><span>
-</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827520"><span id="local-6989586621679827522"><span id="local-6989586621679827524"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679827518"><span class="annot"><span class="annottext">toJSON :: ListResourceDataSync -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827514"><span id="local-6989586621679827515"><span id="local-6989586621679827516"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679829279"><span id="local-6989586621679829281"><span id="local-6989586621679829283"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679829277"><span class="annot"><span class="annottext">toJSON :: ListResourceDataSync -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync%27"><span class="hs-identifier hs-type">ListResourceDataSync'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829273"><span id="local-6989586621679829274"><span id="local-6989586621679829275"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
@@ -506,7 +497,7 @@ syncType :: Maybe Text
 $sel:maxResults:ListResourceDataSync' :: ListResourceDataSync -&gt; Maybe Natural
 $sel:nextToken:ListResourceDataSync' :: ListResourceDataSync -&gt; Maybe Text
 $sel:syncType:ListResourceDataSync' :: ListResourceDataSync -&gt; Maybe Text
-</span><a href="#local-6989586621679827514"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679829273"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -518,33 +509,33 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827516"><span class="hs-identifier hs-var">syncType</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679829275"><span class="hs-identifier hs-var">syncType</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827515"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679829274"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679827514"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679829273"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
 </span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679827508"><span class="annot"><span class="annottext">toPath :: ListResourceDataSync -&gt; ByteString
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679829267"><span class="annot"><span class="annottext">toPath :: ListResourceDataSync -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListResourceDataSync -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-196"></span><span>
 </span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSync"><span class="hs-identifier hs-type">ListResourceDataSync</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-198"></span><span>  </span><span id="local-6989586621679827504"><span class="annot"><span class="annottext">toQuery :: ListResourceDataSync -&gt; QueryString
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621679829263"><span class="annot"><span class="annottext">toQuery :: ListResourceDataSync -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListResourceDataSync -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -552,20 +543,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-199"></span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- | /See:/ 'newListResourceDataSyncResponse' smart constructor.</span><span>
-</span><span id="line-201"></span><span id="local-6989586621679827501"><span id="local-6989586621679827502"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceDataSyncResponse"><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-var">ListResourceDataSyncResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceDataSyncResponse%27"><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-var">ListResourceDataSyncResponse'</span></a></span></span><span>
-</span><span id="line-202"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
-</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-204"></span><span>    </span><span id="%24sel%3AnextToken%3AListResourceDataSyncResponse%27"><span class="annot"><span class="annottext">ListResourceDataSyncResponse -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AnextToken%3AListResourceDataSyncResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | A list of your current resource data sync configurations and their</span><span>
-</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- statuses.</span><span>
-</span><span id="line-207"></span><span>    </span><span id="%24sel%3AresourceDataSyncItems%3AListResourceDataSyncResponse%27"><span class="annot"><span class="annottext">ListResourceDataSyncResponse -&gt; Maybe [ResourceDataSyncItem]
+</span><span id="line-201"></span><span id="local-6989586621679829260"><span id="local-6989586621679829261"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListResourceDataSyncResponse"><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-var">ListResourceDataSyncResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListResourceDataSyncResponse%27"><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-var">ListResourceDataSyncResponse'</span></a></span></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of your current resource data sync configurations and their</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- statuses.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3AresourceDataSyncItems%3AListResourceDataSyncResponse%27"><span class="annot"><span class="annottext">ListResourceDataSyncResponse -&gt; Maybe [ResourceDataSyncItem]
 </span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AresourceDataSyncItems%3AListResourceDataSyncResponse%27"><span class="hs-identifier hs-var hs-var">resourceDataSyncItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncItem.html#ResourceDataSyncItem"><span class="hs-identifier hs-type">ResourceDataSyncItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3AnextToken%3AListResourceDataSyncResponse%27"><span class="annot"><span class="annottext">ListResourceDataSyncResponse -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AnextToken%3AListResourceDataSyncResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-209"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListResourceDataSyncResponse%27"><span class="annot"><span class="annottext">ListResourceDataSyncResponse -&gt; Int
 </span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AhttpStatus%3AListResourceDataSyncResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-210"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-211"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679827494"><span id="local-6989586621679827496"><span class="annot"><span class="annottext">ListResourceDataSyncResponse
+</span><span id="line-211"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679829253"><span id="local-6989586621679829255"><span class="annot"><span class="annottext">ListResourceDataSyncResponse
 -&gt; ListResourceDataSyncResponse -&gt; Bool
 (ListResourceDataSyncResponse
  -&gt; ListResourceDataSyncResponse -&gt; Bool)
@@ -581,7 +572,7 @@ $c/= :: ListResourceDataSyncResponse
 -&gt; ListResourceDataSyncResponse -&gt; Bool
 $c== :: ListResourceDataSyncResponse
 -&gt; ListResourceDataSyncResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827486"><span id="local-6989586621679827488"><span id="local-6989586621679827490"><span id="local-6989586621679827492"><span class="annot"><span class="annottext">ReadPrec [ListResourceDataSyncResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679829245"><span id="local-6989586621679829247"><span id="local-6989586621679829249"><span id="local-6989586621679829251"><span class="annot"><span class="annottext">ReadPrec [ListResourceDataSyncResponse]
 ReadPrec ListResourceDataSyncResponse
 Int -&gt; ReadS ListResourceDataSyncResponse
 ReadS [ListResourceDataSyncResponse]
@@ -601,7 +592,7 @@ readList :: ReadS [ListResourceDataSyncResponse]
 $creadList :: ReadS [ListResourceDataSyncResponse]
 readsPrec :: Int -&gt; ReadS ListResourceDataSyncResponse
 $creadsPrec :: Int -&gt; ReadS ListResourceDataSyncResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679827480"><span id="local-6989586621679827482"><span id="local-6989586621679827484"><span class="annot"><span class="annottext">Int -&gt; ListResourceDataSyncResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679829239"><span id="local-6989586621679829241"><span id="local-6989586621679829243"><span class="annot"><span class="annottext">Int -&gt; ListResourceDataSyncResponse -&gt; ShowS
 [ListResourceDataSyncResponse] -&gt; ShowS
 ListResourceDataSyncResponse -&gt; String
 (Int -&gt; ListResourceDataSyncResponse -&gt; ShowS)
@@ -641,11 +632,11 @@ ListResourceDataSyncResponse -&gt; Rep ListResourceDataSyncResponse x
 </span><span id="line-218"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-219"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-220"></span><span class="hs-comment">--</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- 'nextToken', 'listResourceDataSyncResponse_nextToken' - The token for the next set of items to return. Use this token to get the</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'resourceDataSyncItems', 'listResourceDataSyncResponse_resourceDataSyncItems' - A list of your current resource data sync configurations and their</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- statuses.</span><span>
 </span><span id="line-223"></span><span class="hs-comment">--</span><span>
-</span><span id="line-224"></span><span class="hs-comment">-- 'resourceDataSyncItems', 'listResourceDataSyncResponse_resourceDataSyncItems' - A list of your current resource data sync configurations and their</span><span>
-</span><span id="line-225"></span><span class="hs-comment">-- statuses.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'nextToken', 'listResourceDataSyncResponse_nextToken' - The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- next set of results.</span><span>
 </span><span id="line-226"></span><span class="hs-comment">--</span><span>
 </span><span id="line-227"></span><span class="hs-comment">-- 'httpStatus', 'listResourceDataSyncResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-228"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#newListResourceDataSyncResponse"><span class="hs-identifier hs-type">newListResourceDataSyncResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -653,52 +644,29 @@ ListResourceDataSyncResponse -&gt; Rep ListResourceDataSyncResponse x
 </span><span id="line-230"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-231"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span><span>
 </span><span id="line-232"></span><span id="newListResourceDataSyncResponse"><span class="annot"><span class="annottext">newListResourceDataSyncResponse :: Int -&gt; ListResourceDataSyncResponse
-</span><a href="Network.AWS.SSM.ListResourceDataSync.html#newListResourceDataSyncResponse"><span class="hs-identifier hs-var hs-var">newListResourceDataSyncResponse</span></a></span></span><span> </span><span id="local-6989586621679827477"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-233"></span><span>  </span><span class="annot"><span class="annottext">ListResourceDataSyncResponse' :: Maybe Text
--&gt; Maybe [ResourceDataSyncItem]
--&gt; Int
--&gt; ListResourceDataSyncResponse
+</span><a href="Network.AWS.SSM.ListResourceDataSync.html#newListResourceDataSyncResponse"><span class="hs-identifier hs-var hs-var">newListResourceDataSyncResponse</span></a></span></span><span> </span><span id="local-6989586621679829236"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679829236"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>  </span><span class="annot"><span class="annottext">ListResourceDataSyncResponse' :: Maybe [ResourceDataSyncItem]
+-&gt; Maybe Text -&gt; Int -&gt; ListResourceDataSyncResponse
 </span><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-type">ListResourceDataSyncResponse'</span></a></span><span>
-</span><span id="line-234"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceDataSyncResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AnextToken%3AListResourceDataSyncResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-234"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceDataSyncItems:ListResourceDataSyncResponse' :: Maybe [ResourceDataSyncItem]
+</span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AresourceDataSyncItems%3AListResourceDataSyncResponse%27"><span class="hs-identifier hs-var">resourceDataSyncItems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ResourceDataSyncItem]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceDataSyncItems:ListResourceDataSyncResponse' :: Maybe [ResourceDataSyncItem]
-</span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AresourceDataSyncItems%3AListResourceDataSyncResponse%27"><span class="hs-identifier hs-var">resourceDataSyncItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceDataSyncItem]
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceDataSyncResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AnextToken%3AListResourceDataSyncResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourceDataSyncResponse' :: Int
 </span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AhttpStatus%3AListResourceDataSyncResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827477"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679829236"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-238"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-239"></span><span>
-</span><span id="line-240"></span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
-</span><span id="line-241"></span><span class="hs-comment">-- next set of results.</span><span>
-</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#listResourceDataSyncResponse_nextToken"><span class="hs-identifier hs-type">listResourceDataSyncResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-243"></span><span id="listResourceDataSyncResponse_nextToken"><span class="annot"><span class="annottext">listResourceDataSyncResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListResourceDataSyncResponse -&gt; f ListResourceDataSyncResponse
-</span><a href="Network.AWS.SSM.ListResourceDataSync.html#listResourceDataSyncResponse_nextToken"><span class="hs-identifier hs-var hs-var">listResourceDataSyncResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceDataSyncResponse -&gt; Maybe Text)
--&gt; (ListResourceDataSyncResponse
-    -&gt; Maybe Text -&gt; ListResourceDataSyncResponse)
--&gt; Lens' ListResourceDataSyncResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-type">ListResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827476"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListResourceDataSyncResponse' :: ListResourceDataSyncResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679827476"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827476"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827475"><span class="annot"><span class="annottext">s :: ListResourceDataSyncResponse
-</span><a href="#local-6989586621679827475"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-type">ListResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827474"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827474"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceDataSyncResponse
-</span><a href="#local-6989586621679827475"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceDataSyncResponse' :: Maybe Text
-</span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AnextToken%3AListResourceDataSyncResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679827474"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-244"></span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- | A list of your current resource data sync configurations and their</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- statuses.</span><span>
-</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#listResourceDataSyncResponse_resourceDataSyncItems"><span class="hs-identifier hs-type">listResourceDataSyncResponse_resourceDataSyncItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncItem.html#ResourceDataSyncItem"><span class="hs-identifier hs-type">ResourceDataSyncItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-248"></span><span id="listResourceDataSyncResponse_resourceDataSyncItems"><span class="annot"><span class="annottext">listResourceDataSyncResponse_resourceDataSyncItems :: (Maybe [ResourceDataSyncItem] -&gt; f (Maybe [ResourceDataSyncItem]))
+</span><span id="line-240"></span><span class="hs-comment">-- | A list of your current resource data sync configurations and their</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- statuses.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#listResourceDataSyncResponse_resourceDataSyncItems"><span class="hs-identifier hs-type">listResourceDataSyncResponse_resourceDataSyncItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.SSM.Types.ResourceDataSyncItem.html#ResourceDataSyncItem"><span class="hs-identifier hs-type">ResourceDataSyncItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="listResourceDataSyncResponse_resourceDataSyncItems"><span class="annot"><span class="annottext">listResourceDataSyncResponse_resourceDataSyncItems :: (Maybe [ResourceDataSyncItem] -&gt; f (Maybe [ResourceDataSyncItem]))
 -&gt; ListResourceDataSyncResponse -&gt; f ListResourceDataSyncResponse
 </span><a href="Network.AWS.SSM.ListResourceDataSync.html#listResourceDataSyncResponse_resourceDataSyncItems"><span class="hs-identifier hs-var hs-var">listResourceDataSyncResponse_resourceDataSyncItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceDataSyncResponse -&gt; Maybe [ResourceDataSyncItem])
 -&gt; (ListResourceDataSyncResponse
@@ -706,16 +674,16 @@ $sel:nextToken:ListResourceDataSyncResponse' :: ListResourceDataSyncResponse -&g
 -&gt; Lens'
      ListResourceDataSyncResponse (Maybe [ResourceDataSyncItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-type">ListResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827473"><span class="annot"><span class="annottext">Maybe [ResourceDataSyncItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-type">ListResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829235"><span class="annot"><span class="annottext">Maybe [ResourceDataSyncItem]
 resourceDataSyncItems :: Maybe [ResourceDataSyncItem]
 $sel:resourceDataSyncItems:ListResourceDataSyncResponse' :: ListResourceDataSyncResponse -&gt; Maybe [ResourceDataSyncItem]
-</span><a href="#local-6989586621679827473"><span class="hs-identifier hs-var hs-var">resourceDataSyncItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceDataSyncItem]
-</span><a href="#local-6989586621679827473"><span class="hs-identifier hs-var">resourceDataSyncItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827472"><span class="annot"><span class="annottext">s :: ListResourceDataSyncResponse
-</span><a href="#local-6989586621679827472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-type">ListResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827471"><span class="annot"><span class="annottext">Maybe [ResourceDataSyncItem]
-</span><a href="#local-6989586621679827471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceDataSyncResponse
-</span><a href="#local-6989586621679827472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceDataSyncItems:ListResourceDataSyncResponse' :: Maybe [ResourceDataSyncItem]
+</span><a href="#local-6989586621679829235"><span class="hs-identifier hs-var hs-var">resourceDataSyncItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceDataSyncItem]
+</span><a href="#local-6989586621679829235"><span class="hs-identifier hs-var">resourceDataSyncItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679829234"><span class="annot"><span class="annottext">s :: ListResourceDataSyncResponse
+</span><a href="#local-6989586621679829234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-type">ListResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679829233"><span class="annot"><span class="annottext">Maybe [ResourceDataSyncItem]
+</span><a href="#local-6989586621679829233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceDataSyncResponse
+</span><a href="#local-6989586621679829234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceDataSyncItems:ListResourceDataSyncResponse' :: Maybe [ResourceDataSyncItem]
 </span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AresourceDataSyncItems%3AListResourceDataSyncResponse%27"><span class="hs-identifier hs-var">resourceDataSyncItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ResourceDataSyncItem]
-</span><a href="#local-6989586621679827471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceDataSyncItem] -&gt; f (Maybe [ResourceDataSyncItem]))
+</span><a href="#local-6989586621679829233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ResourceDataSyncItem] -&gt; f (Maybe [ResourceDataSyncItem]))
  -&gt; ListResourceDataSyncResponse -&gt; f ListResourceDataSyncResponse)
 -&gt; ((Maybe [ResourceDataSyncItem]
      -&gt; f (Maybe [ResourceDataSyncItem]))
@@ -744,8 +712,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [ResourceDataSyncItem]
   [ResourceDataSyncItem]
   [ResourceDataSyncItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#listResourceDataSyncResponse_nextToken"><span class="hs-identifier hs-type">listResourceDataSyncResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="listResourceDataSyncResponse_nextToken"><span class="annot"><span class="annottext">listResourceDataSyncResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListResourceDataSyncResponse -&gt; f ListResourceDataSyncResponse
+</span><a href="Network.AWS.SSM.ListResourceDataSync.html#listResourceDataSyncResponse_nextToken"><span class="hs-identifier hs-var hs-var">listResourceDataSyncResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListResourceDataSyncResponse -&gt; Maybe Text)
+-&gt; (ListResourceDataSyncResponse
+    -&gt; Maybe Text -&gt; ListResourceDataSyncResponse)
+-&gt; Lens' ListResourceDataSyncResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-type">ListResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829230"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListResourceDataSyncResponse' :: ListResourceDataSyncResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679829230"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679829230"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679829229"><span class="annot"><span class="annottext">s :: ListResourceDataSyncResponse
+</span><a href="#local-6989586621679829229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-type">ListResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679829228"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679829228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceDataSyncResponse
+</span><a href="#local-6989586621679829229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListResourceDataSyncResponse' :: Maybe Text
+</span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AnextToken%3AListResourceDataSyncResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679829228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-249"></span><span>
 </span><span id="line-250"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-251"></span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#listResourceDataSyncResponse_httpStatus"><span class="hs-identifier hs-type">listResourceDataSyncResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -757,16 +746,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      ListResourceDataSyncResponse ListResourceDataSyncResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-type">ListResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679827468"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-type">ListResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679829227"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListResourceDataSyncResponse' :: ListResourceDataSyncResponse -&gt; Int
-</span><a href="#local-6989586621679827468"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827468"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679827467"><span class="annot"><span class="annottext">s :: ListResourceDataSyncResponse
-</span><a href="#local-6989586621679827467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-type">ListResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679827466"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceDataSyncResponse
-</span><a href="#local-6989586621679827467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourceDataSyncResponse' :: Int
+</span><a href="#local-6989586621679829227"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679829227"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679829226"><span class="annot"><span class="annottext">s :: ListResourceDataSyncResponse
+</span><a href="#local-6989586621679829226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse%27"><span class="hs-identifier hs-type">ListResourceDataSyncResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679829225"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679829225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListResourceDataSyncResponse
+</span><a href="#local-6989586621679829226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListResourceDataSyncResponse' :: Int
 </span><a href="Network.AWS.SSM.ListResourceDataSync.html#%24sel%3AhttpStatus%3AListResourceDataSyncResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679827466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679829225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679827464"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679829223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.ListResourceDataSync.html#ListResourceDataSyncResponse"><span class="hs-identifier hs-type">ListResourceDataSyncResponse</span></a></span></span><span>
 </span><span id="line-255"></span></pre></body></html>

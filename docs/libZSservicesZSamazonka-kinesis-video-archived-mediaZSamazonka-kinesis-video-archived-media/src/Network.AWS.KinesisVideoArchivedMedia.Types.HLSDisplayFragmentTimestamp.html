@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679164446"><span id="local-6989586621679164447"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HLSDisplayFragmentTimestamp"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.html#HLSDisplayFragmentTimestamp"><span class="hs-identifier hs-var">HLSDisplayFragmentTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HLSDisplayFragmentTimestamp%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.html#HLSDisplayFragmentTimestamp%27"><span class="hs-identifier hs-var">HLSDisplayFragmentTimestamp'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679164457"><span id="local-6989586621679164458"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HLSDisplayFragmentTimestamp"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.html#HLSDisplayFragmentTimestamp"><span class="hs-identifier hs-var">HLSDisplayFragmentTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HLSDisplayFragmentTimestamp%27"><span class="annot"><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.html#HLSDisplayFragmentTimestamp%27"><span class="hs-identifier hs-var">HLSDisplayFragmentTimestamp'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHLSDisplayFragmentTimestamp"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; Text
 </span><a href="Network.AWS.KinesisVideoArchivedMedia.Types.HLSDisplayFragmentTimestamp.html#fromHLSDisplayFragmentTimestamp"><span class="hs-identifier hs-var hs-var">fromHLSDisplayFragmentTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164438"><span id="local-6989586621679164440"><span id="local-6989586621679164442"><span class="annot"><span class="annottext">Int -&gt; HLSDisplayFragmentTimestamp -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164449"><span id="local-6989586621679164451"><span id="local-6989586621679164453"><span class="annot"><span class="annottext">Int -&gt; HLSDisplayFragmentTimestamp -&gt; ShowS
 [HLSDisplayFragmentTimestamp] -&gt; ShowS
 HLSDisplayFragmentTimestamp -&gt; String
 (Int -&gt; HLSDisplayFragmentTimestamp -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: HLSDisplayFragmentTimestamp -&gt; String
 showsPrec :: Int -&gt; HLSDisplayFragmentTimestamp -&gt; ShowS
 $cshowsPrec :: Int -&gt; HLSDisplayFragmentTimestamp -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679164429"><span id="local-6989586621679164431"><span id="local-6989586621679164433"><span id="local-6989586621679164435"><span class="annot"><span class="annottext">ReadPrec [HLSDisplayFragmentTimestamp]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679164440"><span id="local-6989586621679164442"><span id="local-6989586621679164444"><span id="local-6989586621679164446"><span class="annot"><span class="annottext">ReadPrec [HLSDisplayFragmentTimestamp]
 ReadPrec HLSDisplayFragmentTimestamp
 Int -&gt; ReadS HLSDisplayFragmentTimestamp
 ReadS [HLSDisplayFragmentTimestamp]
@@ -72,7 +72,7 @@ $creadList :: ReadS [HLSDisplayFragmentTimestamp]
 readsPrec :: Int -&gt; ReadS HLSDisplayFragmentTimestamp
 $creadsPrec :: Int -&gt; ReadS HLSDisplayFragmentTimestamp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679164424"><span id="local-6989586621679164426"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; HLSDisplayFragmentTimestamp -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679164435"><span id="local-6989586621679164437"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; HLSDisplayFragmentTimestamp -&gt; Bool
 (HLSDisplayFragmentTimestamp
  -&gt; HLSDisplayFragmentTimestamp -&gt; Bool)
 -&gt; (HLSDisplayFragmentTimestamp
@@ -84,7 +84,7 @@ $c/= :: HLSDisplayFragmentTimestamp -&gt; HLSDisplayFragmentTimestamp -&gt; Bool
 == :: HLSDisplayFragmentTimestamp -&gt; HLSDisplayFragmentTimestamp -&gt; Bool
 $c== :: HLSDisplayFragmentTimestamp -&gt; HLSDisplayFragmentTimestamp -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679164408"><span id="local-6989586621679164410"><span id="local-6989586621679164412"><span id="local-6989586621679164414"><span id="local-6989586621679164416"><span id="local-6989586621679164418"><span id="local-6989586621679164420"><span class="annot"><span class="annottext">Eq HLSDisplayFragmentTimestamp
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679164419"><span id="local-6989586621679164421"><span id="local-6989586621679164423"><span id="local-6989586621679164425"><span id="local-6989586621679164427"><span id="local-6989586621679164429"><span id="local-6989586621679164431"><span class="annot"><span class="annottext">Eq HLSDisplayFragmentTimestamp
 Eq HLSDisplayFragmentTimestamp
 -&gt; (HLSDisplayFragmentTimestamp
     -&gt; HLSDisplayFragmentTimestamp -&gt; Ordering)
@@ -156,7 +156,7 @@ HLSDisplayFragmentTimestamp -&gt; Rep HLSDisplayFragmentTimestamp x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164400"><span id="local-6989586621679164402"><span class="annot"><span class="annottext">Int -&gt; HLSDisplayFragmentTimestamp -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679164411"><span id="local-6989586621679164413"><span class="annot"><span class="annottext">Int -&gt; HLSDisplayFragmentTimestamp -&gt; Int
 HLSDisplayFragmentTimestamp -&gt; Int
 (Int -&gt; HLSDisplayFragmentTimestamp -&gt; Int)
 -&gt; (HLSDisplayFragmentTimestamp -&gt; Int)
@@ -167,56 +167,56 @@ $chash :: HLSDisplayFragmentTimestamp -&gt; Int
 hashWithSalt :: Int -&gt; HLSDisplayFragmentTimestamp -&gt; Int
 $chashWithSalt :: Int -&gt; HLSDisplayFragmentTimestamp -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679164397"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679164408"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; ()
 (HLSDisplayFragmentTimestamp -&gt; ())
 -&gt; NFData HLSDisplayFragmentTimestamp
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HLSDisplayFragmentTimestamp -&gt; ()
 $crnf :: HLSDisplayFragmentTimestamp -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679164394"><span class="annot"><span class="annottext">Text -&gt; Either String HLSDisplayFragmentTimestamp
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679164405"><span class="annot"><span class="annottext">Text -&gt; Either String HLSDisplayFragmentTimestamp
 (Text -&gt; Either String HLSDisplayFragmentTimestamp)
 -&gt; FromText HLSDisplayFragmentTimestamp
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HLSDisplayFragmentTimestamp
 $cfromText :: Text -&gt; Either String HLSDisplayFragmentTimestamp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679164391"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679164402"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; Text
 (HLSDisplayFragmentTimestamp -&gt; Text)
 -&gt; ToText HLSDisplayFragmentTimestamp
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HLSDisplayFragmentTimestamp -&gt; Text
 $ctoText :: HLSDisplayFragmentTimestamp -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679164388"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679164399"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; ByteString
 (HLSDisplayFragmentTimestamp -&gt; ByteString)
 -&gt; ToByteString HLSDisplayFragmentTimestamp
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HLSDisplayFragmentTimestamp -&gt; ByteString
 $ctoBS :: HLSDisplayFragmentTimestamp -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679164385"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679164396"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; ByteStringBuilder
 (HLSDisplayFragmentTimestamp -&gt; ByteStringBuilder)
 -&gt; ToLog HLSDisplayFragmentTimestamp
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HLSDisplayFragmentTimestamp -&gt; ByteStringBuilder
 $cbuild :: HLSDisplayFragmentTimestamp -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679164382"><span class="annot"><span class="annottext">HeaderName -&gt; HLSDisplayFragmentTimestamp -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679164393"><span class="annot"><span class="annottext">HeaderName -&gt; HLSDisplayFragmentTimestamp -&gt; [Header]
 (HeaderName -&gt; HLSDisplayFragmentTimestamp -&gt; [Header])
 -&gt; ToHeader HLSDisplayFragmentTimestamp
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HLSDisplayFragmentTimestamp -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HLSDisplayFragmentTimestamp -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679164379"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679164390"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; QueryString
 (HLSDisplayFragmentTimestamp -&gt; QueryString)
 -&gt; ToQuery HLSDisplayFragmentTimestamp
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HLSDisplayFragmentTimestamp -&gt; QueryString
 $ctoQuery :: HLSDisplayFragmentTimestamp -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679164374"><span id="local-6989586621679164376"><span class="annot"><span class="annottext">Value -&gt; Parser [HLSDisplayFragmentTimestamp]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679164385"><span id="local-6989586621679164387"><span class="annot"><span class="annottext">Value -&gt; Parser [HLSDisplayFragmentTimestamp]
 Value -&gt; Parser HLSDisplayFragmentTimestamp
 (Value -&gt; Parser HLSDisplayFragmentTimestamp)
 -&gt; (Value -&gt; Parser [HLSDisplayFragmentTimestamp])
@@ -228,7 +228,7 @@ $cparseJSONList :: Value -&gt; Parser [HLSDisplayFragmentTimestamp]
 parseJSON :: Value -&gt; Parser HLSDisplayFragmentTimestamp
 $cparseJSON :: Value -&gt; Parser HLSDisplayFragmentTimestamp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679164369"><span id="local-6989586621679164371"><span class="annot"><span class="annottext">FromJSONKeyFunction [HLSDisplayFragmentTimestamp]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679164380"><span id="local-6989586621679164382"><span class="annot"><span class="annottext">FromJSONKeyFunction [HLSDisplayFragmentTimestamp]
 FromJSONKeyFunction HLSDisplayFragmentTimestamp
 FromJSONKeyFunction HLSDisplayFragmentTimestamp
 -&gt; FromJSONKeyFunction [HLSDisplayFragmentTimestamp]
@@ -240,7 +240,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HLSDisplayFragmentTimestamp]
 fromJSONKey :: FromJSONKeyFunction HLSDisplayFragmentTimestamp
 $cfromJSONKey :: FromJSONKeyFunction HLSDisplayFragmentTimestamp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679164360"><span id="local-6989586621679164362"><span id="local-6989586621679164364"><span id="local-6989586621679164366"><span class="annot"><span class="annottext">[HLSDisplayFragmentTimestamp] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679164371"><span id="local-6989586621679164373"><span id="local-6989586621679164375"><span id="local-6989586621679164377"><span class="annot"><span class="annottext">[HLSDisplayFragmentTimestamp] -&gt; Encoding
 [HLSDisplayFragmentTimestamp] -&gt; Value
 HLSDisplayFragmentTimestamp -&gt; Encoding
 HLSDisplayFragmentTimestamp -&gt; Value
@@ -264,7 +264,7 @@ $ctoEncoding :: HLSDisplayFragmentTimestamp -&gt; Encoding
 toJSON :: HLSDisplayFragmentTimestamp -&gt; Value
 $ctoJSON :: HLSDisplayFragmentTimestamp -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679164355"><span id="local-6989586621679164357"><span class="annot"><span class="annottext">ToJSONKeyFunction [HLSDisplayFragmentTimestamp]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679164366"><span id="local-6989586621679164368"><span class="annot"><span class="annottext">ToJSONKeyFunction [HLSDisplayFragmentTimestamp]
 ToJSONKeyFunction HLSDisplayFragmentTimestamp
 ToJSONKeyFunction HLSDisplayFragmentTimestamp
 -&gt; ToJSONKeyFunction [HLSDisplayFragmentTimestamp]
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HLSDisplayFragmentTimestamp]
 toJSONKey :: ToJSONKeyFunction HLSDisplayFragmentTimestamp
 $ctoJSONKey :: ToJSONKeyFunction HLSDisplayFragmentTimestamp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679164352"><span class="annot"><span class="annottext">[Node] -&gt; Either String HLSDisplayFragmentTimestamp
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679164363"><span class="annot"><span class="annottext">[Node] -&gt; Either String HLSDisplayFragmentTimestamp
 ([Node] -&gt; Either String HLSDisplayFragmentTimestamp)
 -&gt; FromXML HLSDisplayFragmentTimestamp
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HLSDisplayFragmentTimestamp
 $cparseXML :: [Node] -&gt; Either String HLSDisplayFragmentTimestamp
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679164349"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679164360"><span class="annot"><span class="annottext">HLSDisplayFragmentTimestamp -&gt; XML
 (HLSDisplayFragmentTimestamp -&gt; XML)
 -&gt; ToXML HLSDisplayFragmentTimestamp
 forall a. (a -&gt; XML) -&gt; ToXML a

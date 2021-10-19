@@ -26,19 +26,19 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about the city associated with the IP address.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newCity' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679293885"><span id="local-6989586621679293886"></span></span><span class="hs-keyword">data</span><span> </span><span id="City"><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City"><span class="hs-identifier hs-var">City</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="City%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City%27"><span class="hs-identifier hs-var">City'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679294167"><span id="local-6989586621679294168"></span></span><span class="hs-keyword">data</span><span> </span><span id="City"><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City"><span class="hs-identifier hs-var">City</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="City%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City%27"><span class="hs-identifier hs-var">City'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The city name of the remote IP address.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AcityName%3ACity%27"><span class="annot"><span class="annottext">City -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.City.html#%24sel%3AcityName%3ACity%27"><span class="hs-identifier hs-var hs-var">cityName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293879"><span id="local-6989586621679293881"><span class="annot"><span class="annottext">City -&gt; City -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294161"><span id="local-6989586621679294163"><span class="annot"><span class="annottext">City -&gt; City -&gt; Bool
 (City -&gt; City -&gt; Bool) -&gt; (City -&gt; City -&gt; Bool) -&gt; Eq City
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: City -&gt; City -&gt; Bool
 $c/= :: City -&gt; City -&gt; Bool
 == :: City -&gt; City -&gt; Bool
 $c== :: City -&gt; City -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293870"><span id="local-6989586621679293872"><span id="local-6989586621679293874"><span id="local-6989586621679293876"><span class="annot"><span class="annottext">ReadPrec [City]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294152"><span id="local-6989586621679294154"><span id="local-6989586621679294156"><span id="local-6989586621679294158"><span class="annot"><span class="annottext">ReadPrec [City]
 ReadPrec City
 Int -&gt; ReadS City
 ReadS [City]
@@ -55,7 +55,7 @@ readList :: ReadS [City]
 $creadList :: ReadS [City]
 readsPrec :: Int -&gt; ReadS City
 $creadsPrec :: Int -&gt; ReadS City
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293863"><span id="local-6989586621679293865"><span id="local-6989586621679293867"><span class="annot"><span class="annottext">Int -&gt; City -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294145"><span id="local-6989586621679294147"><span id="local-6989586621679294149"><span class="annot"><span class="annottext">Int -&gt; City -&gt; ShowS
 [City] -&gt; ShowS
 City -&gt; String
 (Int -&gt; City -&gt; ShowS)
@@ -103,36 +103,36 @@ forall a. Maybe a
 -&gt; (City -&gt; Maybe Text -&gt; City)
 -&gt; Lens City City (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City%27"><span class="hs-identifier hs-type">City'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293854"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City%27"><span class="hs-identifier hs-type">City'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294136"><span class="annot"><span class="annottext">Maybe Text
 cityName :: Maybe Text
 $sel:cityName:City' :: City -&gt; Maybe Text
-</span><a href="#local-6989586621679293854"><span class="hs-identifier hs-var hs-var">cityName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293854"><span class="hs-identifier hs-var">cityName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293853"><span class="annot"><span class="annottext">s :: City
-</span><a href="#local-6989586621679293853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City%27"><span class="hs-identifier hs-type">City'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293852"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">City
-</span><a href="#local-6989586621679293853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cityName:City' :: Maybe Text
+</span><a href="#local-6989586621679294136"><span class="hs-identifier hs-var hs-var">cityName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294136"><span class="hs-identifier hs-var">cityName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294135"><span class="annot"><span class="annottext">s :: City
+</span><a href="#local-6989586621679294135"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City%27"><span class="hs-identifier hs-type">City'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294134"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679294134"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">City
+</span><a href="#local-6989586621679294135"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cityName:City' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.City.html#%24sel%3AcityName%3ACity%27"><span class="hs-identifier hs-var">cityName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679293852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City"><span class="hs-identifier hs-type">City</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679294134"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City"><span class="hs-identifier hs-type">City</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293849"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City"><span class="hs-identifier hs-type">City</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-53"></span><span>  </span><span id="local-6989586621679293847"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser City
+</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294131"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City"><span class="hs-identifier hs-type">City</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679294129"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser City
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser City) -&gt; Value -&gt; Parser City
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;City&quot;</span></span><span>
-</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293844"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293844"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; City
+</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294126"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294126"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; City
 </span><a href="Network.AWS.GuardDuty.Types.City.html#City%27"><span class="hs-identifier hs-var">City'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; City) -&gt; Parser (Maybe Text) -&gt; Parser City
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679294126"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cityName&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293838"><span id="local-6989586621679293840"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City"><span class="hs-identifier hs-type">City</span></a></span></span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294120"><span id="local-6989586621679294122"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City"><span class="hs-identifier hs-type">City</span></a></span></span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293835"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City"><span class="hs-identifier hs-type">City</span></a></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679294117"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.City.html#City"><span class="hs-identifier hs-type">City</span></a></span></span><span>
 </span><span id="line-61"></span></pre></body></html>

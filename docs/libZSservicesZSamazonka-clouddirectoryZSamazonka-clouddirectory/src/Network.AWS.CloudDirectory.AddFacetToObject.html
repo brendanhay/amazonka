@@ -50,7 +50,7 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newAddFacetToObject' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679349383"><span id="local-6989586621679349384"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddFacetToObject"><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-var">AddFacetToObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddFacetToObject%27"><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-var">AddFacetToObject'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679349806"><span id="local-6989586621679349807"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddFacetToObject"><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-var">AddFacetToObject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddFacetToObject%27"><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-var">AddFacetToObject'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Attributes on the facet that you are adding to the object.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AobjectAttributeList%3AAddFacetToObject%27"><span class="annot"><span class="annottext">AddFacetToObject -&gt; Maybe [AttributeKeyAndValue]
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#%24sel%3AobjectAttributeList%3AAddFacetToObject%27"><span class="hs-identifier hs-var hs-var">objectAttributeList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.AttributeKeyAndValue.html#AttributeKeyAndValue"><span class="hs-identifier hs-type">AttributeKeyAndValue</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-63"></span><span>    </span><span id="%24sel%3AobjectReference%3AAddFacetToObject%27"><span class="annot"><span class="annottext">AddFacetToObject -&gt; ObjectReference
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#%24sel%3AobjectReference%3AAddFacetToObject%27"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
 </span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349374"><span id="local-6989586621679349376"><span class="annot"><span class="annottext">AddFacetToObject -&gt; AddFacetToObject -&gt; Bool
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349797"><span id="local-6989586621679349799"><span class="annot"><span class="annottext">AddFacetToObject -&gt; AddFacetToObject -&gt; Bool
 (AddFacetToObject -&gt; AddFacetToObject -&gt; Bool)
 -&gt; (AddFacetToObject -&gt; AddFacetToObject -&gt; Bool)
 -&gt; Eq AddFacetToObject
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddFacetToObject -&gt; AddFacetToObject -&gt; Bool
 == :: AddFacetToObject -&gt; AddFacetToObject -&gt; Bool
 $c== :: AddFacetToObject -&gt; AddFacetToObject -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349365"><span id="local-6989586621679349367"><span id="local-6989586621679349369"><span id="local-6989586621679349371"><span class="annot"><span class="annottext">ReadPrec [AddFacetToObject]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349788"><span id="local-6989586621679349790"><span id="local-6989586621679349792"><span id="local-6989586621679349794"><span class="annot"><span class="annottext">ReadPrec [AddFacetToObject]
 ReadPrec AddFacetToObject
 Int -&gt; ReadS AddFacetToObject
 ReadS [AddFacetToObject]
@@ -95,7 +95,7 @@ readList :: ReadS [AddFacetToObject]
 $creadList :: ReadS [AddFacetToObject]
 readsPrec :: Int -&gt; ReadS AddFacetToObject
 $creadsPrec :: Int -&gt; ReadS AddFacetToObject
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349358"><span id="local-6989586621679349360"><span id="local-6989586621679349362"><span class="annot"><span class="annottext">Int -&gt; AddFacetToObject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349781"><span id="local-6989586621679349783"><span id="local-6989586621679349785"><span class="annot"><span class="annottext">Int -&gt; AddFacetToObject -&gt; ShowS
 [AddFacetToObject] -&gt; ShowS
 AddFacetToObject -&gt; String
 (Int -&gt; AddFacetToObject -&gt; ShowS)
@@ -148,12 +148,12 @@ $cfrom :: forall x. AddFacetToObject -&gt; Rep AddFacetToObject x
 </span><span id="line-91"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span>
 </span><span id="line-92"></span><span id="newAddFacetToObject"><span class="annot"><span class="annottext">newAddFacetToObject :: Text -&gt; SchemaFacet -&gt; ObjectReference -&gt; AddFacetToObject
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#newAddFacetToObject"><span class="hs-identifier hs-var hs-var">newAddFacetToObject</span></a></span></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679349353"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349353"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679349352"><span class="annot"><span class="annottext">SchemaFacet
-</span><a href="#local-6989586621679349352"><span class="hs-identifier hs-var">pSchemaFacet_</span></a></span></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679349351"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349351"><span class="hs-identifier hs-var">pObjectReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679349776"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349776"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679349775"><span class="annot"><span class="annottext">SchemaFacet
+</span><a href="#local-6989586621679349775"><span class="hs-identifier hs-var">pSchemaFacet_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679349774"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679349774"><span class="hs-identifier hs-var">pObjectReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">AddFacetToObject' :: Maybe [AttributeKeyAndValue]
 -&gt; Text -&gt; SchemaFacet -&gt; ObjectReference -&gt; AddFacetToObject
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span>
@@ -164,13 +164,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:directoryArn:AddFacetToObject' :: Text
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#%24sel%3AdirectoryArn%3AAddFacetToObject%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349353"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679349776"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:schemaFacet:AddFacetToObject' :: SchemaFacet
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#%24sel%3AschemaFacet%3AAddFacetToObject%27"><span class="hs-identifier hs-var">schemaFacet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SchemaFacet
-</span><a href="#local-6989586621679349352"><span class="hs-identifier hs-var">pSchemaFacet_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679349775"><span class="hs-identifier hs-var">pSchemaFacet_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">$sel:objectReference:AddFacetToObject' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#%24sel%3AobjectReference%3AAddFacetToObject%27"><span class="hs-identifier hs-var">objectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349351"><span class="hs-identifier hs-var">pObjectReference_</span></a></span><span>
+</span><a href="#local-6989586621679349774"><span class="hs-identifier hs-var">pObjectReference_</span></a></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | Attributes on the facet that you are adding to the object.</span><span>
@@ -186,16 +186,16 @@ forall a. Maybe a
      (Maybe [AttributeKeyAndValue])
      (Maybe [AttributeKeyAndValue])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349348"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349771"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
 objectAttributeList :: Maybe [AttributeKeyAndValue]
 $sel:objectAttributeList:AddFacetToObject' :: AddFacetToObject -&gt; Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679349348"><span class="hs-identifier hs-var hs-var">objectAttributeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679349348"><span class="hs-identifier hs-var">objectAttributeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349347"><span class="annot"><span class="annottext">s :: AddFacetToObject
-</span><a href="#local-6989586621679349347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349346"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679349346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFacetToObject
-</span><a href="#local-6989586621679349347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectAttributeList:AddFacetToObject' :: Maybe [AttributeKeyAndValue]
+</span><a href="#local-6989586621679349771"><span class="hs-identifier hs-var hs-var">objectAttributeList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
+</span><a href="#local-6989586621679349771"><span class="hs-identifier hs-var">objectAttributeList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349770"><span class="annot"><span class="annottext">s :: AddFacetToObject
+</span><a href="#local-6989586621679349770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349769"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
+</span><a href="#local-6989586621679349769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFacetToObject
+</span><a href="#local-6989586621679349770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectAttributeList:AddFacetToObject' :: Maybe [AttributeKeyAndValue]
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#%24sel%3AobjectAttributeList%3AAddFacetToObject%27"><span class="hs-identifier hs-var">objectAttributeList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679349346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeKeyAndValue] -&gt; f (Maybe [AttributeKeyAndValue]))
+</span><a href="#local-6989586621679349769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttributeKeyAndValue] -&gt; f (Maybe [AttributeKeyAndValue]))
  -&gt; AddFacetToObject -&gt; f AddFacetToObject)
 -&gt; ((Maybe [AttributeKeyAndValue]
      -&gt; f (Maybe [AttributeKeyAndValue]))
@@ -224,8 +224,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [AttributeKeyAndValue]
   [AttributeKeyAndValue]
   [AttributeKeyAndValue]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) that is associated with the Directory</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- where the object resides. For more information, see arns.</span><span>
@@ -235,16 +235,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (AddFacetToObject -&gt; Text -&gt; AddFacetToObject)
 -&gt; Lens AddFacetToObject AddFacetToObject Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349342"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349765"><span class="annot"><span class="annottext">Text
 directoryArn :: Text
 $sel:directoryArn:AddFacetToObject' :: AddFacetToObject -&gt; Text
-</span><a href="#local-6989586621679349342"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349342"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349341"><span class="annot"><span class="annottext">s :: AddFacetToObject
-</span><a href="#local-6989586621679349341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349340"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFacetToObject
-</span><a href="#local-6989586621679349341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:AddFacetToObject' :: Text
+</span><a href="#local-6989586621679349765"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349765"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349764"><span class="annot"><span class="annottext">s :: AddFacetToObject
+</span><a href="#local-6989586621679349764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349763"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFacetToObject
+</span><a href="#local-6989586621679349764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:AddFacetToObject' :: Text
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#%24sel%3AdirectoryArn%3AAddFacetToObject%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- | Identifiers for the facet that you are adding to the object. See</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- SchemaFacet for details.</span><span>
@@ -255,16 +255,16 @@ $sel:directoryArn:AddFacetToObject' :: AddFacetToObject -&gt; Text
 -&gt; (AddFacetToObject -&gt; SchemaFacet -&gt; AddFacetToObject)
 -&gt; Lens AddFacetToObject AddFacetToObject SchemaFacet SchemaFacet
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349339"><span class="annot"><span class="annottext">SchemaFacet
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349762"><span class="annot"><span class="annottext">SchemaFacet
 schemaFacet :: SchemaFacet
 $sel:schemaFacet:AddFacetToObject' :: AddFacetToObject -&gt; SchemaFacet
-</span><a href="#local-6989586621679349339"><span class="hs-identifier hs-var hs-var">schemaFacet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaFacet
-</span><a href="#local-6989586621679349339"><span class="hs-identifier hs-var">schemaFacet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349338"><span class="annot"><span class="annottext">s :: AddFacetToObject
-</span><a href="#local-6989586621679349338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349337"><span class="annot"><span class="annottext">SchemaFacet
-</span><a href="#local-6989586621679349337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFacetToObject
-</span><a href="#local-6989586621679349338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaFacet:AddFacetToObject' :: SchemaFacet
+</span><a href="#local-6989586621679349762"><span class="hs-identifier hs-var hs-var">schemaFacet</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SchemaFacet
+</span><a href="#local-6989586621679349762"><span class="hs-identifier hs-var">schemaFacet</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349761"><span class="annot"><span class="annottext">s :: AddFacetToObject
+</span><a href="#local-6989586621679349761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349760"><span class="annot"><span class="annottext">SchemaFacet
+</span><a href="#local-6989586621679349760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFacetToObject
+</span><a href="#local-6989586621679349761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaFacet:AddFacetToObject' :: SchemaFacet
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#%24sel%3AschemaFacet%3AAddFacetToObject%27"><span class="hs-identifier hs-var">schemaFacet</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SchemaFacet
-</span><a href="#local-6989586621679349337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- | A reference to the object you are adding the specified facet to.</span><span>
 </span><span id="line-119"></span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#addFacetToObject_objectReference"><span class="hs-identifier hs-type">addFacetToObject_objectReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
@@ -275,27 +275,27 @@ $sel:schemaFacet:AddFacetToObject' :: AddFacetToObject -&gt; SchemaFacet
 -&gt; Lens
      AddFacetToObject AddFacetToObject ObjectReference ObjectReference
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349336"><span class="annot"><span class="annottext">ObjectReference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349759"><span class="annot"><span class="annottext">ObjectReference
 objectReference :: ObjectReference
 $sel:objectReference:AddFacetToObject' :: AddFacetToObject -&gt; ObjectReference
-</span><a href="#local-6989586621679349336"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349336"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349335"><span class="annot"><span class="annottext">s :: AddFacetToObject
-</span><a href="#local-6989586621679349335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349334"><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFacetToObject
-</span><a href="#local-6989586621679349335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectReference:AddFacetToObject' :: ObjectReference
+</span><a href="#local-6989586621679349759"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679349759"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349758"><span class="annot"><span class="annottext">s :: AddFacetToObject
+</span><a href="#local-6989586621679349758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349757"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679349757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFacetToObject
+</span><a href="#local-6989586621679349758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectReference:AddFacetToObject' :: ObjectReference
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#%24sel%3AobjectReference%3AAddFacetToObject%27"><span class="hs-identifier hs-var">objectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-124"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse"><span class="hs-identifier hs-type">AddFacetToObjectResponse</span></a></span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679349330"><span class="annot"><span class="annottext">request :: AddFacetToObject -&gt; Request AddFacetToObject
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679349753"><span class="annot"><span class="annottext">request :: AddFacetToObject -&gt; Request AddFacetToObject
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddFacetToObject -&gt; Request AddFacetToObject
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679349326"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679349749"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AddFacetToObject
 -&gt; ClientResponse ClientBody
@@ -319,10 +319,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349323"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349323"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679349322"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679349322"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679349321"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679349321"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349746"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349746"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679349745"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679349745"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679349744"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679349744"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AddFacetToObjectResponse
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse%27"><span class="hs-identifier hs-var">AddFacetToObjectResponse'</span></a></span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AddFacetToObjectResponse)
@@ -333,16 +333,16 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349323"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349746"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349314"><span id="local-6989586621679349316"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span></span></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349737"><span id="local-6989586621679349739"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span></span></span><span>
 </span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349734"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span></span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679349307"><span class="annot"><span class="annottext">toHeaders :: AddFacetToObject -&gt; ResponseHeaders
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349302"><span id="local-6989586621679349303"><span id="local-6989586621679349304"><span id="local-6989586621679349305"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679349730"><span class="annot"><span class="annottext">toHeaders :: AddFacetToObject -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349725"><span id="local-6989586621679349726"><span id="local-6989586621679349727"><span id="local-6989586621679349728"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
 Text
 ObjectReference
 SchemaFacet
@@ -354,7 +354,7 @@ $sel:objectReference:AddFacetToObject' :: AddFacetToObject -&gt; ObjectReference
 $sel:schemaFacet:AddFacetToObject' :: AddFacetToObject -&gt; SchemaFacet
 $sel:directoryArn:AddFacetToObject' :: AddFacetToObject -&gt; Text
 $sel:objectAttributeList:AddFacetToObject' :: AddFacetToObject -&gt; Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679349302"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679349725"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -362,11 +362,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679349304"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679349727"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349294"><span id="local-6989586621679349296"><span id="local-6989586621679349298"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679349292"><span class="annot"><span class="annottext">toJSON :: AddFacetToObject -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349287"><span id="local-6989586621679349288"><span id="local-6989586621679349289"><span id="local-6989586621679349290"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349717"><span id="local-6989586621679349719"><span id="local-6989586621679349721"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679349715"><span class="annot"><span class="annottext">toJSON :: AddFacetToObject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject%27"><span class="hs-identifier hs-type">AddFacetToObject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349710"><span id="local-6989586621679349711"><span id="local-6989586621679349712"><span id="local-6989586621679349713"><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
 Text
 ObjectReference
 SchemaFacet
@@ -378,7 +378,7 @@ $sel:objectReference:AddFacetToObject' :: AddFacetToObject -&gt; ObjectReference
 $sel:schemaFacet:AddFacetToObject' :: AddFacetToObject -&gt; SchemaFacet
 $sel:directoryArn:AddFacetToObject' :: AddFacetToObject -&gt; Text
 $sel:objectAttributeList:AddFacetToObject' :: AddFacetToObject -&gt; Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679349287"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679349710"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -392,14 +392,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe [AttributeKeyAndValue] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttributeKeyAndValue]
-</span><a href="#local-6989586621679349290"><span class="hs-identifier hs-var">objectAttributeList</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679349713"><span class="hs-identifier hs-var">objectAttributeList</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SchemaFacet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SchemaFacet -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SchemaFacet
-</span><a href="#local-6989586621679349288"><span class="hs-identifier hs-var">schemaFacet</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679349711"><span class="hs-identifier hs-var">schemaFacet</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -407,12 +407,12 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ObjectReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
-</span><a href="#local-6989586621679349287"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349710"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
 </span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-156"></span><span>  </span><span id="local-6989586621679349281"><span class="annot"><span class="annottext">toPath :: AddFacetToObject -&gt; ByteString
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679349704"><span class="annot"><span class="annottext">toPath :: AddFacetToObject -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; AddFacetToObject -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
@@ -421,7 +421,7 @@ forall a b. a -&gt; b -&gt; a
 </span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/object/facets&quot;</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObject"><span class="hs-identifier hs-type">AddFacetToObject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679349276"><span class="annot"><span class="annottext">toQuery :: AddFacetToObject -&gt; QueryString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679349699"><span class="annot"><span class="annottext">toQuery :: AddFacetToObject -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddFacetToObject -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -429,12 +429,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newAddFacetToObjectResponse' smart constructor.</span><span>
-</span><span id="line-164"></span><span id="local-6989586621679349273"><span id="local-6989586621679349274"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddFacetToObjectResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse"><span class="hs-identifier hs-var">AddFacetToObjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddFacetToObjectResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse%27"><span class="hs-identifier hs-var">AddFacetToObjectResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span id="local-6989586621679349696"><span id="local-6989586621679349697"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddFacetToObjectResponse"><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse"><span class="hs-identifier hs-var">AddFacetToObjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddFacetToObjectResponse%27"><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse%27"><span class="hs-identifier hs-var">AddFacetToObjectResponse'</span></a></span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddFacetToObjectResponse%27"><span class="annot"><span class="annottext">AddFacetToObjectResponse -&gt; Int
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#%24sel%3AhttpStatus%3AAddFacetToObjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349268"><span id="local-6989586621679349270"><span class="annot"><span class="annottext">AddFacetToObjectResponse -&gt; AddFacetToObjectResponse -&gt; Bool
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349691"><span id="local-6989586621679349693"><span class="annot"><span class="annottext">AddFacetToObjectResponse -&gt; AddFacetToObjectResponse -&gt; Bool
 (AddFacetToObjectResponse -&gt; AddFacetToObjectResponse -&gt; Bool)
 -&gt; (AddFacetToObjectResponse -&gt; AddFacetToObjectResponse -&gt; Bool)
 -&gt; Eq AddFacetToObjectResponse
@@ -443,7 +443,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddFacetToObjectResponse -&gt; AddFacetToObjectResponse -&gt; Bool
 == :: AddFacetToObjectResponse -&gt; AddFacetToObjectResponse -&gt; Bool
 $c== :: AddFacetToObjectResponse -&gt; AddFacetToObjectResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349260"><span id="local-6989586621679349262"><span id="local-6989586621679349264"><span id="local-6989586621679349266"><span class="annot"><span class="annottext">ReadPrec [AddFacetToObjectResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349683"><span id="local-6989586621679349685"><span id="local-6989586621679349687"><span id="local-6989586621679349689"><span class="annot"><span class="annottext">ReadPrec [AddFacetToObjectResponse]
 ReadPrec AddFacetToObjectResponse
 Int -&gt; ReadS AddFacetToObjectResponse
 ReadS [AddFacetToObjectResponse]
@@ -463,7 +463,7 @@ readList :: ReadS [AddFacetToObjectResponse]
 $creadList :: ReadS [AddFacetToObjectResponse]
 readsPrec :: Int -&gt; ReadS AddFacetToObjectResponse
 $creadsPrec :: Int -&gt; ReadS AddFacetToObjectResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349254"><span id="local-6989586621679349256"><span id="local-6989586621679349258"><span class="annot"><span class="annottext">Int -&gt; AddFacetToObjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349677"><span id="local-6989586621679349679"><span id="local-6989586621679349681"><span class="annot"><span class="annottext">Int -&gt; AddFacetToObjectResponse -&gt; ShowS
 [AddFacetToObjectResponse] -&gt; ShowS
 AddFacetToObjectResponse -&gt; String
 (Int -&gt; AddFacetToObjectResponse -&gt; ShowS)
@@ -509,14 +509,14 @@ AddFacetToObjectResponse -&gt; Rep AddFacetToObjectResponse x
 </span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-182"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse"><span class="hs-identifier hs-type">AddFacetToObjectResponse</span></a></span><span>
 </span><span id="line-183"></span><span id="newAddFacetToObjectResponse"><span class="annot"><span class="annottext">newAddFacetToObjectResponse :: Int -&gt; AddFacetToObjectResponse
-</span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#newAddFacetToObjectResponse"><span class="hs-identifier hs-var hs-var">newAddFacetToObjectResponse</span></a></span></span><span> </span><span id="local-6989586621679349251"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349251"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#newAddFacetToObjectResponse"><span class="hs-identifier hs-var hs-var">newAddFacetToObjectResponse</span></a></span></span><span> </span><span id="local-6989586621679349674"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349674"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">AddFacetToObjectResponse' :: Int -&gt; AddFacetToObjectResponse
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse%27"><span class="hs-identifier hs-type">AddFacetToObjectResponse'</span></a></span><span>
 </span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AddFacetToObjectResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#%24sel%3AhttpStatus%3AAddFacetToObjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349251"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679349674"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-187"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -527,16 +527,16 @@ AddFacetToObjectResponse -&gt; Rep AddFacetToObjectResponse x
 -&gt; (AddFacetToObjectResponse -&gt; Int -&gt; AddFacetToObjectResponse)
 -&gt; Lens AddFacetToObjectResponse AddFacetToObjectResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse%27"><span class="hs-identifier hs-type">AddFacetToObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349250"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse%27"><span class="hs-identifier hs-type">AddFacetToObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349673"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AddFacetToObjectResponse' :: AddFacetToObjectResponse -&gt; Int
-</span><a href="#local-6989586621679349250"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349250"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349249"><span class="annot"><span class="annottext">s :: AddFacetToObjectResponse
-</span><a href="#local-6989586621679349249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse%27"><span class="hs-identifier hs-type">AddFacetToObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349248"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFacetToObjectResponse
-</span><a href="#local-6989586621679349249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddFacetToObjectResponse' :: Int
+</span><a href="#local-6989586621679349673"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349673"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349672"><span class="annot"><span class="annottext">s :: AddFacetToObjectResponse
+</span><a href="#local-6989586621679349672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse%27"><span class="hs-identifier hs-type">AddFacetToObjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349671"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddFacetToObjectResponse
+</span><a href="#local-6989586621679349672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddFacetToObjectResponse' :: Int
 </span><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#%24sel%3AhttpStatus%3AAddFacetToObjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679349248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse"><span class="hs-identifier hs-type">AddFacetToObjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse"><span class="hs-identifier hs-type">AddFacetToObjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349246"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse"><span class="hs-identifier hs-type">AddFacetToObjectResponse</span></a></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349669"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudDirectory.AddFacetToObject.html#AddFacetToObjectResponse"><span class="hs-identifier hs-type">AddFacetToObjectResponse</span></a></span></span><span>
 </span><span id="line-194"></span></pre></body></html>

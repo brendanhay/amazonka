@@ -67,25 +67,25 @@
 </span><span id="line-67"></span><span class="hs-comment">--     minute as possible at all times.</span><span>
 </span><span id="line-68"></span><span class="hs-comment">--</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- /See:/ 'newPredictiveScalingMetricSpecification' smart constructor.</span><span>
-</span><span id="line-70"></span><span id="local-6989586621679330637"><span id="local-6989586621679330638"></span></span><span class="hs-keyword">data</span><span> </span><span id="PredictiveScalingMetricSpecification"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-var">PredictiveScalingMetricSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredictiveScalingMetricSpecification%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var">PredictiveScalingMetricSpecification'</span></a></span></span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The load metric specification.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3ApredefinedLoadMetricSpecification%3APredictiveScalingMetricSpecification%27"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
--&gt; Maybe PredictiveScalingPredefinedLoadMetric
-</span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3ApredefinedLoadMetricSpecification%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var hs-var">predefinedLoadMetricSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedLoadMetric.html#PredictiveScalingPredefinedLoadMetric"><span class="hs-identifier hs-type">PredictiveScalingPredefinedLoadMetric</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The scaling metric specification.</span><span>
-</span><span id="line-74"></span><span>    </span><span id="%24sel%3ApredefinedScalingMetricSpecification%3APredictiveScalingMetricSpecification%27"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
+</span><span id="line-70"></span><span id="local-6989586621679331293"><span id="local-6989586621679331294"></span></span><span class="hs-keyword">data</span><span> </span><span id="PredictiveScalingMetricSpecification"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-var">PredictiveScalingMetricSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredictiveScalingMetricSpecification%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var">PredictiveScalingMetricSpecification'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The scaling metric specification.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3ApredefinedScalingMetricSpecification%3APredictiveScalingMetricSpecification%27"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
 -&gt; Maybe PredictiveScalingPredefinedScalingMetric
 </span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3ApredefinedScalingMetricSpecification%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var hs-var">predefinedScalingMetricSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedScalingMetric.html#PredictiveScalingPredefinedScalingMetric"><span class="hs-identifier hs-type">PredictiveScalingPredefinedScalingMetric</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The metric pair specification from which Amazon EC2 Auto Scaling</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- determines the appropriate scaling metric and load metric to use.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3ApredefinedMetricPairSpecification%3APredictiveScalingMetricSpecification%27"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The metric pair specification from which Amazon EC2 Auto Scaling</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- determines the appropriate scaling metric and load metric to use.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3ApredefinedMetricPairSpecification%3APredictiveScalingMetricSpecification%27"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
 -&gt; Maybe PredictiveScalingPredefinedMetricPair
 </span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3ApredefinedMetricPairSpecification%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var hs-var">predefinedMetricPairSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedMetricPair.html#PredictiveScalingPredefinedMetricPair"><span class="hs-identifier hs-type">PredictiveScalingPredefinedMetricPair</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The load metric specification.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3ApredefinedLoadMetricSpecification%3APredictiveScalingMetricSpecification%27"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
+-&gt; Maybe PredictiveScalingPredefinedLoadMetric
+</span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3ApredefinedLoadMetricSpecification%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var hs-var">predefinedLoadMetricSpecification</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedLoadMetric.html#PredictiveScalingPredefinedLoadMetric"><span class="hs-identifier hs-type">PredictiveScalingPredefinedLoadMetric</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Specifies the target utilization.</span><span>
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AtargetValue%3APredictiveScalingMetricSpecification%27"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification -&gt; Double
 </span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3AtargetValue%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var hs-var">targetValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330628"><span id="local-6989586621679330630"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679331284"><span id="local-6989586621679331286"><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
 -&gt; PredictiveScalingMetricSpecification -&gt; Bool
 (PredictiveScalingMetricSpecification
  -&gt; PredictiveScalingMetricSpecification -&gt; Bool)
@@ -101,7 +101,7 @@ $c/= :: PredictiveScalingMetricSpecification
 -&gt; PredictiveScalingMetricSpecification -&gt; Bool
 $c== :: PredictiveScalingMetricSpecification
 -&gt; PredictiveScalingMetricSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330619"><span id="local-6989586621679330621"><span id="local-6989586621679330623"><span id="local-6989586621679330625"><span class="annot"><span class="annottext">ReadPrec [PredictiveScalingMetricSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331275"><span id="local-6989586621679331277"><span id="local-6989586621679331279"><span id="local-6989586621679331281"><span class="annot"><span class="annottext">ReadPrec [PredictiveScalingMetricSpecification]
 ReadPrec PredictiveScalingMetricSpecification
 Int -&gt; ReadS PredictiveScalingMetricSpecification
 ReadS [PredictiveScalingMetricSpecification]
@@ -121,7 +121,7 @@ readList :: ReadS [PredictiveScalingMetricSpecification]
 $creadList :: ReadS [PredictiveScalingMetricSpecification]
 readsPrec :: Int -&gt; ReadS PredictiveScalingMetricSpecification
 $creadsPrec :: Int -&gt; ReadS PredictiveScalingMetricSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330612"><span id="local-6989586621679330614"><span id="local-6989586621679330616"><span class="annot"><span class="annottext">Int -&gt; PredictiveScalingMetricSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679331268"><span id="local-6989586621679331270"><span id="local-6989586621679331272"><span class="annot"><span class="annottext">Int -&gt; PredictiveScalingMetricSpecification -&gt; ShowS
 [PredictiveScalingMetricSpecification] -&gt; ShowS
 PredictiveScalingMetricSpecification -&gt; String
 (Int -&gt; PredictiveScalingMetricSpecification -&gt; ShowS)
@@ -167,12 +167,12 @@ PredictiveScalingMetricSpecification
 </span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 'predefinedLoadMetricSpecification', 'predictiveScalingMetricSpecification_predefinedLoadMetricSpecification' - The load metric specification.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'predefinedScalingMetricSpecification', 'predictiveScalingMetricSpecification_predefinedScalingMetricSpecification' - The scaling metric specification.</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'predefinedScalingMetricSpecification', 'predictiveScalingMetricSpecification_predefinedScalingMetricSpecification' - The scaling metric specification.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- 'predefinedMetricPairSpecification', 'predictiveScalingMetricSpecification_predefinedMetricPairSpecification' - The metric pair specification from which Amazon EC2 Auto Scaling</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- determines the appropriate scaling metric and load metric to use.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'predefinedMetricPairSpecification', 'predictiveScalingMetricSpecification_predefinedMetricPairSpecification' - The metric pair specification from which Amazon EC2 Auto Scaling</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- determines the appropriate scaling metric and load metric to use.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'predefinedLoadMetricSpecification', 'predictiveScalingMetricSpecification_predefinedLoadMetricSpecification' - The load metric specification.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- 'targetValue', 'predictiveScalingMetricSpecification_targetValue' - Specifies the target utilization.</span><span>
 </span><span id="line-99"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#newPredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">newPredictiveScalingMetricSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -180,66 +180,37 @@ PredictiveScalingMetricSpecification
 </span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span>
 </span><span id="line-103"></span><span id="newPredictiveScalingMetricSpecification"><span class="annot"><span class="annottext">newPredictiveScalingMetricSpecification :: Double -&gt; PredictiveScalingMetricSpecification
-</span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#newPredictiveScalingMetricSpecification"><span class="hs-identifier hs-var hs-var">newPredictiveScalingMetricSpecification</span></a></span></span><span> </span><span id="local-6989586621679330606"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679330606"><span class="hs-identifier hs-var">pTargetValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedLoadMetric
--&gt; Maybe PredictiveScalingPredefinedScalingMetric
+</span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#newPredictiveScalingMetricSpecification"><span class="hs-identifier hs-var hs-var">newPredictiveScalingMetricSpecification</span></a></span></span><span> </span><span id="local-6989586621679331262"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679331262"><span class="hs-identifier hs-var">pTargetValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedScalingMetric
 -&gt; Maybe PredictiveScalingPredefinedMetricPair
+-&gt; Maybe PredictiveScalingPredefinedLoadMetric
 -&gt; Double
 -&gt; PredictiveScalingMetricSpecification
 </span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:predefinedLoadMetricSpecification:PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedLoadMetric
-</span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3ApredefinedLoadMetricSpecification%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var">predefinedLoadMetricSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedLoadMetric
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:predefinedScalingMetricSpecification:PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedScalingMetric
+</span><span id="line-105"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:predefinedScalingMetricSpecification:PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedScalingMetric
 </span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3ApredefinedScalingMetricSpecification%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var">predefinedScalingMetricSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedScalingMetric
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedScalingMetric
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:predefinedMetricPairSpecification:PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedMetricPair
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:predefinedMetricPairSpecification:PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedMetricPair
 </span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3ApredefinedMetricPairSpecification%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var">predefinedMetricPairSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedMetricPair
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedMetricPair
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:predefinedLoadMetricSpecification:PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedLoadMetric
+</span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3ApredefinedLoadMetricSpecification%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var">predefinedLoadMetricSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedLoadMetric
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetValue:PredictiveScalingMetricSpecification' :: Double
 </span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3AtargetValue%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var">targetValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679330606"><span class="hs-identifier hs-var">pTargetValue_</span></a></span><span>
+</span><a href="#local-6989586621679331262"><span class="hs-identifier hs-var">pTargetValue_</span></a></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The load metric specification.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#predictiveScalingMetricSpecification_predefinedLoadMetricSpecification"><span class="hs-identifier hs-type">predictiveScalingMetricSpecification_predefinedLoadMetricSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedLoadMetric.html#PredictiveScalingPredefinedLoadMetric"><span class="hs-identifier hs-type">PredictiveScalingPredefinedLoadMetric</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="predictiveScalingMetricSpecification_predefinedLoadMetricSpecification"><span class="annot"><span class="annottext">predictiveScalingMetricSpecification_predefinedLoadMetricSpecification :: (Maybe PredictiveScalingPredefinedLoadMetric
- -&gt; f (Maybe PredictiveScalingPredefinedLoadMetric))
--&gt; PredictiveScalingMetricSpecification
--&gt; f PredictiveScalingMetricSpecification
-</span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#predictiveScalingMetricSpecification_predefinedLoadMetricSpecification"><span class="hs-identifier hs-var hs-var">predictiveScalingMetricSpecification_predefinedLoadMetricSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PredictiveScalingMetricSpecification
- -&gt; Maybe PredictiveScalingPredefinedLoadMetric)
--&gt; (PredictiveScalingMetricSpecification
-    -&gt; Maybe PredictiveScalingPredefinedLoadMetric
-    -&gt; PredictiveScalingMetricSpecification)
--&gt; Lens
-     PredictiveScalingMetricSpecification
-     PredictiveScalingMetricSpecification
-     (Maybe PredictiveScalingPredefinedLoadMetric)
-     (Maybe PredictiveScalingPredefinedLoadMetric)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330602"><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedLoadMetric
-predefinedLoadMetricSpecification :: Maybe PredictiveScalingPredefinedLoadMetric
-$sel:predefinedLoadMetricSpecification:PredictiveScalingMetricSpecification' :: PredictiveScalingMetricSpecification
--&gt; Maybe PredictiveScalingPredefinedLoadMetric
-</span><a href="#local-6989586621679330602"><span class="hs-identifier hs-var hs-var">predefinedLoadMetricSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedLoadMetric
-</span><a href="#local-6989586621679330602"><span class="hs-identifier hs-var">predefinedLoadMetricSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330601"><span class="annot"><span class="annottext">s :: PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330601"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330600"><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedLoadMetric
-</span><a href="#local-6989586621679330600"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330601"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predefinedLoadMetricSpecification:PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedLoadMetric
-</span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3ApredefinedLoadMetricSpecification%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var">predefinedLoadMetricSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedLoadMetric
-</span><a href="#local-6989586621679330600"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The scaling metric specification.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#predictiveScalingMetricSpecification_predefinedScalingMetricSpecification"><span class="hs-identifier hs-type">predictiveScalingMetricSpecification_predefinedScalingMetricSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedScalingMetric.html#PredictiveScalingPredefinedScalingMetric"><span class="hs-identifier hs-type">PredictiveScalingPredefinedScalingMetric</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="predictiveScalingMetricSpecification_predefinedScalingMetricSpecification"><span class="annot"><span class="annottext">predictiveScalingMetricSpecification_predefinedScalingMetricSpecification :: (Maybe PredictiveScalingPredefinedScalingMetric
+</span><span id="line-114"></span><span class="hs-comment">-- | The scaling metric specification.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#predictiveScalingMetricSpecification_predefinedScalingMetricSpecification"><span class="hs-identifier hs-type">predictiveScalingMetricSpecification_predefinedScalingMetricSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedScalingMetric.html#PredictiveScalingPredefinedScalingMetric"><span class="hs-identifier hs-type">PredictiveScalingPredefinedScalingMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="predictiveScalingMetricSpecification_predefinedScalingMetricSpecification"><span class="annot"><span class="annottext">predictiveScalingMetricSpecification_predefinedScalingMetricSpecification :: (Maybe PredictiveScalingPredefinedScalingMetric
  -&gt; f (Maybe PredictiveScalingPredefinedScalingMetric))
 -&gt; PredictiveScalingMetricSpecification
 -&gt; f PredictiveScalingMetricSpecification
@@ -254,22 +225,22 @@ $sel:predefinedLoadMetricSpecification:PredictiveScalingMetricSpecification' :: 
      (Maybe PredictiveScalingPredefinedScalingMetric)
      (Maybe PredictiveScalingPredefinedScalingMetric)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330598"><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedScalingMetric
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331258"><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedScalingMetric
 predefinedScalingMetricSpecification :: Maybe PredictiveScalingPredefinedScalingMetric
 $sel:predefinedScalingMetricSpecification:PredictiveScalingMetricSpecification' :: PredictiveScalingMetricSpecification
 -&gt; Maybe PredictiveScalingPredefinedScalingMetric
-</span><a href="#local-6989586621679330598"><span class="hs-identifier hs-var hs-var">predefinedScalingMetricSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedScalingMetric
-</span><a href="#local-6989586621679330598"><span class="hs-identifier hs-var">predefinedScalingMetricSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330597"><span class="annot"><span class="annottext">s :: PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330596"><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedScalingMetric
-</span><a href="#local-6989586621679330596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predefinedScalingMetricSpecification:PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedScalingMetric
+</span><a href="#local-6989586621679331258"><span class="hs-identifier hs-var hs-var">predefinedScalingMetricSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedScalingMetric
+</span><a href="#local-6989586621679331258"><span class="hs-identifier hs-var">predefinedScalingMetricSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331257"><span class="annot"><span class="annottext">s :: PredictiveScalingMetricSpecification
+</span><a href="#local-6989586621679331257"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331256"><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedScalingMetric
+</span><a href="#local-6989586621679331256"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
+</span><a href="#local-6989586621679331257"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predefinedScalingMetricSpecification:PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedScalingMetric
 </span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3ApredefinedScalingMetricSpecification%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var">predefinedScalingMetricSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedScalingMetric
-</span><a href="#local-6989586621679330596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The metric pair specification from which Amazon EC2 Auto Scaling</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- determines the appropriate scaling metric and load metric to use.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#predictiveScalingMetricSpecification_predefinedMetricPairSpecification"><span class="hs-identifier hs-type">predictiveScalingMetricSpecification_predefinedMetricPairSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedMetricPair.html#PredictiveScalingPredefinedMetricPair"><span class="hs-identifier hs-type">PredictiveScalingPredefinedMetricPair</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="predictiveScalingMetricSpecification_predefinedMetricPairSpecification"><span class="annot"><span class="annottext">predictiveScalingMetricSpecification_predefinedMetricPairSpecification :: (Maybe PredictiveScalingPredefinedMetricPair
+</span><a href="#local-6989586621679331256"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The metric pair specification from which Amazon EC2 Auto Scaling</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- determines the appropriate scaling metric and load metric to use.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#predictiveScalingMetricSpecification_predefinedMetricPairSpecification"><span class="hs-identifier hs-type">predictiveScalingMetricSpecification_predefinedMetricPairSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedMetricPair.html#PredictiveScalingPredefinedMetricPair"><span class="hs-identifier hs-type">PredictiveScalingPredefinedMetricPair</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="predictiveScalingMetricSpecification_predefinedMetricPairSpecification"><span class="annot"><span class="annottext">predictiveScalingMetricSpecification_predefinedMetricPairSpecification :: (Maybe PredictiveScalingPredefinedMetricPair
  -&gt; f (Maybe PredictiveScalingPredefinedMetricPair))
 -&gt; PredictiveScalingMetricSpecification
 -&gt; f PredictiveScalingMetricSpecification
@@ -284,17 +255,46 @@ $sel:predefinedScalingMetricSpecification:PredictiveScalingMetricSpecification' 
      (Maybe PredictiveScalingPredefinedMetricPair)
      (Maybe PredictiveScalingPredefinedMetricPair)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330594"><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedMetricPair
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331254"><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedMetricPair
 predefinedMetricPairSpecification :: Maybe PredictiveScalingPredefinedMetricPair
 $sel:predefinedMetricPairSpecification:PredictiveScalingMetricSpecification' :: PredictiveScalingMetricSpecification
 -&gt; Maybe PredictiveScalingPredefinedMetricPair
-</span><a href="#local-6989586621679330594"><span class="hs-identifier hs-var hs-var">predefinedMetricPairSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedMetricPair
-</span><a href="#local-6989586621679330594"><span class="hs-identifier hs-var">predefinedMetricPairSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330593"><span class="annot"><span class="annottext">s :: PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330593"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330592"><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedMetricPair
-</span><a href="#local-6989586621679330592"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330593"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predefinedMetricPairSpecification:PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedMetricPair
+</span><a href="#local-6989586621679331254"><span class="hs-identifier hs-var hs-var">predefinedMetricPairSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedMetricPair
+</span><a href="#local-6989586621679331254"><span class="hs-identifier hs-var">predefinedMetricPairSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331253"><span class="annot"><span class="annottext">s :: PredictiveScalingMetricSpecification
+</span><a href="#local-6989586621679331253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331252"><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedMetricPair
+</span><a href="#local-6989586621679331252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
+</span><a href="#local-6989586621679331253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predefinedMetricPairSpecification:PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedMetricPair
 </span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3ApredefinedMetricPairSpecification%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var">predefinedMetricPairSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedMetricPair
-</span><a href="#local-6989586621679330592"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The load metric specification.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#predictiveScalingMetricSpecification_predefinedLoadMetricSpecification"><span class="hs-identifier hs-type">predictiveScalingMetricSpecification_predefinedLoadMetricSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingPredefinedLoadMetric.html#PredictiveScalingPredefinedLoadMetric"><span class="hs-identifier hs-type">PredictiveScalingPredefinedLoadMetric</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="predictiveScalingMetricSpecification_predefinedLoadMetricSpecification"><span class="annot"><span class="annottext">predictiveScalingMetricSpecification_predefinedLoadMetricSpecification :: (Maybe PredictiveScalingPredefinedLoadMetric
+ -&gt; f (Maybe PredictiveScalingPredefinedLoadMetric))
+-&gt; PredictiveScalingMetricSpecification
+-&gt; f PredictiveScalingMetricSpecification
+</span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#predictiveScalingMetricSpecification_predefinedLoadMetricSpecification"><span class="hs-identifier hs-var hs-var">predictiveScalingMetricSpecification_predefinedLoadMetricSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PredictiveScalingMetricSpecification
+ -&gt; Maybe PredictiveScalingPredefinedLoadMetric)
+-&gt; (PredictiveScalingMetricSpecification
+    -&gt; Maybe PredictiveScalingPredefinedLoadMetric
+    -&gt; PredictiveScalingMetricSpecification)
+-&gt; Lens
+     PredictiveScalingMetricSpecification
+     PredictiveScalingMetricSpecification
+     (Maybe PredictiveScalingPredefinedLoadMetric)
+     (Maybe PredictiveScalingPredefinedLoadMetric)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331250"><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedLoadMetric
+predefinedLoadMetricSpecification :: Maybe PredictiveScalingPredefinedLoadMetric
+$sel:predefinedLoadMetricSpecification:PredictiveScalingMetricSpecification' :: PredictiveScalingMetricSpecification
+-&gt; Maybe PredictiveScalingPredefinedLoadMetric
+</span><a href="#local-6989586621679331250"><span class="hs-identifier hs-var hs-var">predefinedLoadMetricSpecification</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedLoadMetric
+</span><a href="#local-6989586621679331250"><span class="hs-identifier hs-var">predefinedLoadMetricSpecification</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331249"><span class="annot"><span class="annottext">s :: PredictiveScalingMetricSpecification
+</span><a href="#local-6989586621679331249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331248"><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedLoadMetric
+</span><a href="#local-6989586621679331248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
+</span><a href="#local-6989586621679331249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predefinedLoadMetricSpecification:PredictiveScalingMetricSpecification' :: Maybe PredictiveScalingPredefinedLoadMetric
+</span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3ApredefinedLoadMetricSpecification%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var">predefinedLoadMetricSpecification</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedLoadMetric
+</span><a href="#local-6989586621679331248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | Specifies the target utilization.</span><span>
 </span><span id="line-128"></span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#predictiveScalingMetricSpecification_targetValue"><span class="hs-identifier hs-type">predictiveScalingMetricSpecification_targetValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
@@ -310,150 +310,150 @@ $sel:predefinedMetricPairSpecification:PredictiveScalingMetricSpecification' :: 
      Double
      Double
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330590"><span class="annot"><span class="annottext">Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331246"><span class="annot"><span class="annottext">Double
 targetValue :: Double
 $sel:targetValue:PredictiveScalingMetricSpecification' :: PredictiveScalingMetricSpecification -&gt; Double
-</span><a href="#local-6989586621679330590"><span class="hs-identifier hs-var hs-var">targetValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679330590"><span class="hs-identifier hs-var">targetValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330589"><span class="annot"><span class="annottext">s :: PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330588"><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679330588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
-</span><a href="#local-6989586621679330589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetValue:PredictiveScalingMetricSpecification' :: Double
+</span><a href="#local-6989586621679331246"><span class="hs-identifier hs-var hs-var">targetValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679331246"><span class="hs-identifier hs-var">targetValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679331245"><span class="annot"><span class="annottext">s :: PredictiveScalingMetricSpecification
+</span><a href="#local-6989586621679331245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679331244"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679331244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredictiveScalingMetricSpecification
+</span><a href="#local-6989586621679331245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetValue:PredictiveScalingMetricSpecification' :: Double
 </span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#%24sel%3AtargetValue%3APredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var">targetValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679330588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679331244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-133"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span>
 </span><span id="line-134"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679330585"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PredictiveScalingMetricSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679330583"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679330583"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedLoadMetric
--&gt; Maybe PredictiveScalingPredefinedScalingMetric
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679331241"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PredictiveScalingMetricSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679331239"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331239"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedScalingMetric
 -&gt; Maybe PredictiveScalingPredefinedMetricPair
+-&gt; Maybe PredictiveScalingPredefinedLoadMetric
 -&gt; Double
 -&gt; PredictiveScalingMetricSpecification
 </span><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-var">PredictiveScalingMetricSpecification'</span></a></span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">(Maybe PredictiveScalingPredefinedLoadMetric
- -&gt; Maybe PredictiveScalingPredefinedScalingMetric
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">(Maybe PredictiveScalingPredefinedScalingMetric
  -&gt; Maybe PredictiveScalingPredefinedMetricPair
+ -&gt; Maybe PredictiveScalingPredefinedLoadMetric
  -&gt; Double
  -&gt; PredictiveScalingMetricSpecification)
--&gt; Either String (Maybe PredictiveScalingPredefinedLoadMetric)
--&gt; Either
-     String
-     (Maybe PredictiveScalingPredefinedScalingMetric
-      -&gt; Maybe PredictiveScalingPredefinedMetricPair
-      -&gt; Double
-      -&gt; PredictiveScalingMetricSpecification)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679330583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
--&gt; Text
--&gt; Either String (Maybe PredictiveScalingPredefinedLoadMetric)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;PredefinedLoadMetricSpecification&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe PredictiveScalingPredefinedScalingMetric
-   -&gt; Maybe PredictiveScalingPredefinedMetricPair
-   -&gt; Double
-   -&gt; PredictiveScalingMetricSpecification)
 -&gt; Either String (Maybe PredictiveScalingPredefinedScalingMetric)
 -&gt; Either
      String
      (Maybe PredictiveScalingPredefinedMetricPair
-      -&gt; Double -&gt; PredictiveScalingMetricSpecification)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679330583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+      -&gt; Maybe PredictiveScalingPredefinedLoadMetric
+      -&gt; Double
+      -&gt; PredictiveScalingMetricSpecification)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331239"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text
 -&gt; Either String (Maybe PredictiveScalingPredefinedScalingMetric)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PredefinedScalingMetricSpecification&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe PredictiveScalingPredefinedMetricPair
-   -&gt; Double -&gt; PredictiveScalingMetricSpecification)
+   -&gt; Maybe PredictiveScalingPredefinedLoadMetric
+   -&gt; Double
+   -&gt; PredictiveScalingMetricSpecification)
 -&gt; Either String (Maybe PredictiveScalingPredefinedMetricPair)
--&gt; Either String (Double -&gt; PredictiveScalingMetricSpecification)
+-&gt; Either
+     String
+     (Maybe PredictiveScalingPredefinedLoadMetric
+      -&gt; Double -&gt; PredictiveScalingMetricSpecification)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679330583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331239"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text
 -&gt; Either String (Maybe PredictiveScalingPredefinedMetricPair)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PredefinedMetricPairSpecification&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe PredictiveScalingPredefinedLoadMetric
+   -&gt; Double -&gt; PredictiveScalingMetricSpecification)
+-&gt; Either String (Maybe PredictiveScalingPredefinedLoadMetric)
+-&gt; Either String (Double -&gt; PredictiveScalingMetricSpecification)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679331239"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text
+-&gt; Either String (Maybe PredictiveScalingPredefinedLoadMetric)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PredefinedLoadMetricSpecification&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Either String (Double -&gt; PredictiveScalingMetricSpecification)
 -&gt; Either String Double
 -&gt; Either String PredictiveScalingMetricSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679330583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Double
+</span><a href="#local-6989586621679331239"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Double
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TargetValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
 </span><span id="line-142"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-143"></span><span>  </span><span id="local-6989586621679330576"><span id="local-6989586621679330578"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679331232"><span id="local-6989586621679331234"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-144"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679330573"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679331229"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span></span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-152"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification</span></a></span><span>
 </span><span id="line-153"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-154"></span><span>  </span><span id="local-6989586621679330569"><span class="annot"><span class="annottext">toQuery :: PredictiveScalingMetricSpecification -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330564"><span id="local-6989586621679330565"><span id="local-6989586621679330566"><span id="local-6989586621679330567"><span class="annot"><span class="annottext">Double
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679331225"><span class="annot"><span class="annottext">toQuery :: PredictiveScalingMetricSpecification -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredictiveScalingMetricSpecification.html#PredictiveScalingMetricSpecification%27"><span class="hs-identifier hs-type">PredictiveScalingMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679331220"><span id="local-6989586621679331221"><span id="local-6989586621679331222"><span id="local-6989586621679331223"><span class="annot"><span class="annottext">Double
 Maybe PredictiveScalingPredefinedLoadMetric
 Maybe PredictiveScalingPredefinedMetricPair
 Maybe PredictiveScalingPredefinedScalingMetric
 targetValue :: Double
+predefinedLoadMetricSpecification :: Maybe PredictiveScalingPredefinedLoadMetric
 predefinedMetricPairSpecification :: Maybe PredictiveScalingPredefinedMetricPair
 predefinedScalingMetricSpecification :: Maybe PredictiveScalingPredefinedScalingMetric
-predefinedLoadMetricSpecification :: Maybe PredictiveScalingPredefinedLoadMetric
 $sel:targetValue:PredictiveScalingMetricSpecification' :: PredictiveScalingMetricSpecification -&gt; Double
+$sel:predefinedLoadMetricSpecification:PredictiveScalingMetricSpecification' :: PredictiveScalingMetricSpecification
+-&gt; Maybe PredictiveScalingPredefinedLoadMetric
 $sel:predefinedMetricPairSpecification:PredictiveScalingMetricSpecification' :: PredictiveScalingMetricSpecification
 -&gt; Maybe PredictiveScalingPredefinedMetricPair
 $sel:predefinedScalingMetricSpecification:PredictiveScalingMetricSpecification' :: PredictiveScalingMetricSpecification
 -&gt; Maybe PredictiveScalingPredefinedScalingMetric
-$sel:predefinedLoadMetricSpecification:PredictiveScalingMetricSpecification' :: PredictiveScalingMetricSpecification
--&gt; Maybe PredictiveScalingPredefinedLoadMetric
-</span><a href="#local-6989586621679330564"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679331220"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-156"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;PredefinedLoadMetricSpecification&quot;</span></span><span>
-</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">ByteString
--&gt; Maybe PredictiveScalingPredefinedLoadMetric -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedLoadMetric
-</span><a href="#local-6989586621679330567"><span class="hs-identifier hs-var">predefinedLoadMetricSpecification</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PredefinedScalingMetricSpecification&quot;</span></span><span>
-</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">ByteString
 -&gt; Maybe PredictiveScalingPredefinedScalingMetric -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedScalingMetric
-</span><a href="#local-6989586621679330566"><span class="hs-identifier hs-var">predefinedScalingMetricSpecification</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679331223"><span class="hs-identifier hs-var">predefinedScalingMetricSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PredefinedMetricPairSpecification&quot;</span></span><span>
-</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">ByteString
 -&gt; Maybe PredictiveScalingPredefinedMetricPair -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedMetricPair
-</span><a href="#local-6989586621679330565"><span class="hs-identifier hs-var">predefinedMetricPairSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679331222"><span class="hs-identifier hs-var">predefinedMetricPairSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PredefinedLoadMetricSpecification&quot;</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+-&gt; Maybe PredictiveScalingPredefinedLoadMetric -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe PredictiveScalingPredefinedLoadMetric
+</span><a href="#local-6989586621679331221"><span class="hs-identifier hs-var">predefinedLoadMetricSpecification</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TargetValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Double -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Double
-</span><a href="#local-6989586621679330564"><span class="hs-identifier hs-var">targetValue</span></a></span><span>
+</span><a href="#local-6989586621679331220"><span class="hs-identifier hs-var">targetValue</span></a></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-164"></span></pre></body></html>

@@ -53,12 +53,12 @@
 </span><span id="line-53"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newDeleteConfigRule' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679431494"><span id="local-6989586621679431495"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConfigRule"><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-var">DeleteConfigRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConfigRule%27"><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule%27"><span class="hs-identifier hs-var">DeleteConfigRule'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679432169"><span id="local-6989586621679432170"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConfigRule"><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-var">DeleteConfigRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConfigRule%27"><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule%27"><span class="hs-identifier hs-var">DeleteConfigRule'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Config rule that you want to delete.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AconfigRuleName%3ADeleteConfigRule%27"><span class="annot"><span class="annottext">DeleteConfigRule -&gt; Text
 </span><a href="Network.AWS.Config.DeleteConfigRule.html#%24sel%3AconfigRuleName%3ADeleteConfigRule%27"><span class="hs-identifier hs-var hs-var">configRuleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431488"><span id="local-6989586621679431490"><span class="annot"><span class="annottext">DeleteConfigRule -&gt; DeleteConfigRule -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432163"><span id="local-6989586621679432165"><span class="annot"><span class="annottext">DeleteConfigRule -&gt; DeleteConfigRule -&gt; Bool
 (DeleteConfigRule -&gt; DeleteConfigRule -&gt; Bool)
 -&gt; (DeleteConfigRule -&gt; DeleteConfigRule -&gt; Bool)
 -&gt; Eq DeleteConfigRule
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteConfigRule -&gt; DeleteConfigRule -&gt; Bool
 == :: DeleteConfigRule -&gt; DeleteConfigRule -&gt; Bool
 $c== :: DeleteConfigRule -&gt; DeleteConfigRule -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431479"><span id="local-6989586621679431481"><span id="local-6989586621679431483"><span id="local-6989586621679431485"><span class="annot"><span class="annottext">ReadPrec [DeleteConfigRule]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432154"><span id="local-6989586621679432156"><span id="local-6989586621679432158"><span id="local-6989586621679432160"><span class="annot"><span class="annottext">ReadPrec [DeleteConfigRule]
 ReadPrec DeleteConfigRule
 Int -&gt; ReadS DeleteConfigRule
 ReadS [DeleteConfigRule]
@@ -87,7 +87,7 @@ readList :: ReadS [DeleteConfigRule]
 $creadList :: ReadS [DeleteConfigRule]
 readsPrec :: Int -&gt; ReadS DeleteConfigRule
 $creadsPrec :: Int -&gt; ReadS DeleteConfigRule
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431472"><span id="local-6989586621679431474"><span id="local-6989586621679431476"><span class="annot"><span class="annottext">Int -&gt; DeleteConfigRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432147"><span id="local-6989586621679432149"><span id="local-6989586621679432151"><span class="annot"><span class="annottext">Int -&gt; DeleteConfigRule -&gt; ShowS
 [DeleteConfigRule] -&gt; ShowS
 DeleteConfigRule -&gt; String
 (Int -&gt; DeleteConfigRule -&gt; ShowS)
@@ -127,14 +127,14 @@ $cfrom :: forall x. DeleteConfigRule -&gt; Rep DeleteConfigRule x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span><span>
 </span><span id="line-75"></span><span id="newDeleteConfigRule"><span class="annot"><span class="annottext">newDeleteConfigRule :: Text -&gt; DeleteConfigRule
-</span><a href="Network.AWS.Config.DeleteConfigRule.html#newDeleteConfigRule"><span class="hs-identifier hs-var hs-var">newDeleteConfigRule</span></a></span></span><span> </span><span id="local-6989586621679431467"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431467"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Config.DeleteConfigRule.html#newDeleteConfigRule"><span class="hs-identifier hs-var hs-var">newDeleteConfigRule</span></a></span></span><span> </span><span id="local-6989586621679432142"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432142"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DeleteConfigRule' :: Text -&gt; DeleteConfigRule
 </span><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule%27"><span class="hs-identifier hs-type">DeleteConfigRule'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:configRuleName:DeleteConfigRule' :: Text
 </span><a href="Network.AWS.Config.DeleteConfigRule.html#%24sel%3AconfigRuleName%3ADeleteConfigRule%27"><span class="hs-identifier hs-var">configRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431467"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span><span>
+</span><a href="#local-6989586621679432142"><span class="hs-identifier hs-var">pConfigRuleName_</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | The name of the Config rule that you want to delete.</span><span>
@@ -144,27 +144,27 @@ $cfrom :: forall x. DeleteConfigRule -&gt; Rep DeleteConfigRule x
 -&gt; (DeleteConfigRule -&gt; Text -&gt; DeleteConfigRule)
 -&gt; Lens DeleteConfigRule DeleteConfigRule Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule%27"><span class="hs-identifier hs-type">DeleteConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431464"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule%27"><span class="hs-identifier hs-type">DeleteConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432139"><span class="annot"><span class="annottext">Text
 configRuleName :: Text
 $sel:configRuleName:DeleteConfigRule' :: DeleteConfigRule -&gt; Text
-</span><a href="#local-6989586621679431464"><span class="hs-identifier hs-var hs-var">configRuleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431464"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679431463"><span class="annot"><span class="annottext">s :: DeleteConfigRule
-</span><a href="#local-6989586621679431463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule%27"><span class="hs-identifier hs-type">DeleteConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679431462"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConfigRule
-</span><a href="#local-6989586621679431463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleName:DeleteConfigRule' :: Text
+</span><a href="#local-6989586621679432139"><span class="hs-identifier hs-var hs-var">configRuleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432139"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679432138"><span class="annot"><span class="annottext">s :: DeleteConfigRule
+</span><a href="#local-6989586621679432138"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule%27"><span class="hs-identifier hs-type">DeleteConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679432137"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679432137"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteConfigRule
+</span><a href="#local-6989586621679432138"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configRuleName:DeleteConfigRule' :: Text
 </span><a href="Network.AWS.Config.DeleteConfigRule.html#%24sel%3AconfigRuleName%3ADeleteConfigRule%27"><span class="hs-identifier hs-var">configRuleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432137"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRuleResponse"><span class="hs-identifier hs-type">DeleteConfigRuleResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679431458"><span class="annot"><span class="annottext">request :: DeleteConfigRule -&gt; Request DeleteConfigRule
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679432133"><span class="annot"><span class="annottext">request :: DeleteConfigRule -&gt; Request DeleteConfigRule
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteConfigRule -&gt; Request DeleteConfigRule
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Config.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679431454"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679432129"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteConfigRule
 -&gt; ClientResponse ClientBody
@@ -188,12 +188,12 @@ AWSResponse a
 DeleteConfigRuleResponse
 </span><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRuleResponse%27"><span class="hs-identifier hs-var">DeleteConfigRuleResponse'</span></a></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431447"><span id="local-6989586621679431449"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432122"><span id="local-6989586621679432124"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432119"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679431440"><span class="annot"><span class="annottext">toHeaders :: DeleteConfigRule -&gt; [Header]
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679432115"><span class="annot"><span class="annottext">toHeaders :: DeleteConfigRule -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteConfigRule -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -220,12 +220,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-109"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
-</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431430"><span id="local-6989586621679431432"><span id="local-6989586621679431434"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679431428"><span class="annot"><span class="annottext">toJSON :: DeleteConfigRule -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule%27"><span class="hs-identifier hs-type">DeleteConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679431426"><span class="annot"><span class="annottext">Text
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432105"><span id="local-6989586621679432107"><span id="local-6989586621679432109"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679432103"><span class="annot"><span class="annottext">toJSON :: DeleteConfigRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule%27"><span class="hs-identifier hs-type">DeleteConfigRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679432101"><span class="annot"><span class="annottext">Text
 configRuleName :: Text
 $sel:configRuleName:DeleteConfigRule' :: DeleteConfigRule -&gt; Text
-</span><a href="#local-6989586621679431426"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679432101"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -238,19 +238,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ConfigRuleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679431426"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679432101"><span class="hs-identifier hs-var">configRuleName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679431420"><span class="annot"><span class="annottext">toPath :: DeleteConfigRule -&gt; ByteString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679432095"><span class="annot"><span class="annottext">toPath :: DeleteConfigRule -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteConfigRule -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRule"><span class="hs-identifier hs-type">DeleteConfigRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679431416"><span class="annot"><span class="annottext">toQuery :: DeleteConfigRule -&gt; QueryString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679432091"><span class="annot"><span class="annottext">toQuery :: DeleteConfigRule -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteConfigRule -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -258,10 +258,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newDeleteConfigRuleResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679431413"><span id="local-6989586621679431414"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConfigRuleResponse"><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRuleResponse"><span class="hs-identifier hs-var">DeleteConfigRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConfigRuleResponse%27"><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRuleResponse%27"><span class="hs-identifier hs-var">DeleteConfigRuleResponse'</span></a></span></span><span>
+</span><span id="line-128"></span><span id="local-6989586621679432088"><span id="local-6989586621679432089"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteConfigRuleResponse"><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRuleResponse"><span class="hs-identifier hs-var">DeleteConfigRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteConfigRuleResponse%27"><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRuleResponse%27"><span class="hs-identifier hs-var">DeleteConfigRuleResponse'</span></a></span></span><span>
 </span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431409"><span id="local-6989586621679431411"><span class="annot"><span class="annottext">DeleteConfigRuleResponse -&gt; DeleteConfigRuleResponse -&gt; Bool
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679432084"><span id="local-6989586621679432086"><span class="annot"><span class="annottext">DeleteConfigRuleResponse -&gt; DeleteConfigRuleResponse -&gt; Bool
 (DeleteConfigRuleResponse -&gt; DeleteConfigRuleResponse -&gt; Bool)
 -&gt; (DeleteConfigRuleResponse -&gt; DeleteConfigRuleResponse -&gt; Bool)
 -&gt; Eq DeleteConfigRuleResponse
@@ -270,7 +270,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteConfigRuleResponse -&gt; DeleteConfigRuleResponse -&gt; Bool
 == :: DeleteConfigRuleResponse -&gt; DeleteConfigRuleResponse -&gt; Bool
 $c== :: DeleteConfigRuleResponse -&gt; DeleteConfigRuleResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431401"><span id="local-6989586621679431403"><span id="local-6989586621679431405"><span id="local-6989586621679431407"><span class="annot"><span class="annottext">ReadPrec [DeleteConfigRuleResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432076"><span id="local-6989586621679432078"><span id="local-6989586621679432080"><span id="local-6989586621679432082"><span class="annot"><span class="annottext">ReadPrec [DeleteConfigRuleResponse]
 ReadPrec DeleteConfigRuleResponse
 Int -&gt; ReadS DeleteConfigRuleResponse
 ReadS [DeleteConfigRuleResponse]
@@ -290,7 +290,7 @@ readList :: ReadS [DeleteConfigRuleResponse]
 $creadList :: ReadS [DeleteConfigRuleResponse]
 readsPrec :: Int -&gt; ReadS DeleteConfigRuleResponse
 $creadsPrec :: Int -&gt; ReadS DeleteConfigRuleResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679431395"><span id="local-6989586621679431397"><span id="local-6989586621679431399"><span class="annot"><span class="annottext">Int -&gt; DeleteConfigRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679432070"><span id="local-6989586621679432072"><span id="local-6989586621679432074"><span class="annot"><span class="annottext">Int -&gt; DeleteConfigRuleResponse -&gt; ShowS
 [DeleteConfigRuleResponse] -&gt; ShowS
 DeleteConfigRuleResponse -&gt; String
 (Int -&gt; DeleteConfigRuleResponse -&gt; ShowS)
@@ -333,5 +333,5 @@ DeleteConfigRuleResponse -&gt; Rep DeleteConfigRuleResponse x
 </span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DeleteConfigRuleResponse
 </span><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRuleResponse%27"><span class="hs-identifier hs-var">DeleteConfigRuleResponse'</span></a></span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679431391"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRuleResponse"><span class="hs-identifier hs-type">DeleteConfigRuleResponse</span></a></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679432066"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.DeleteConfigRule.html#DeleteConfigRuleResponse"><span class="hs-identifier hs-type">DeleteConfigRuleResponse</span></a></span></span><span>
 </span><span id="line-143"></span></pre></body></html>

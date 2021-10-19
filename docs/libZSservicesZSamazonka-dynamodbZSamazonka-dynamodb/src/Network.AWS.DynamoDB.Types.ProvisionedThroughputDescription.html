@@ -28,35 +28,35 @@
 </span><span id="line-28"></span><span class="hs-comment">-- decreases.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newProvisionedThroughputDescription' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679375752"><span id="local-6989586621679375753"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProvisionedThroughputDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-var">ProvisionedThroughputDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisionedThroughputDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">ProvisionedThroughputDescription'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date and time of the last provisioned throughput decrease for this</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- table.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastDecreaseDateTime%3AProvisionedThroughputDescription%27"><span class="annot"><span class="annottext">ProvisionedThroughputDescription -&gt; Maybe POSIX
+</span><span id="line-31"></span><span id="local-6989586621679376433"><span id="local-6989586621679376434"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProvisionedThroughputDescription"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-var">ProvisionedThroughputDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProvisionedThroughputDescription%27"><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">ProvisionedThroughputDescription'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum number of strongly consistent reads consumed per second</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@. Eventually consistent</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- reads require less effort than strongly consistent reads, so a setting</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @ReadCapacityUnits@ per second.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AreadCapacityUnits%3AProvisionedThroughputDescription%27"><span class="annot"><span class="annottext">ProvisionedThroughputDescription -&gt; Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AreadCapacityUnits%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var hs-var">readCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The date and time of the last provisioned throughput decrease for this</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlastDecreaseDateTime%3AProvisionedThroughputDescription%27"><span class="annot"><span class="annottext">ProvisionedThroughputDescription -&gt; Maybe POSIX
 </span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AlastDecreaseDateTime%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var hs-var">lastDecreaseDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The date and time of the last provisioned throughput increase for this</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- table.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AlastIncreaseDateTime%3AProvisionedThroughputDescription%27"><span class="annot"><span class="annottext">ProvisionedThroughputDescription -&gt; Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AlastIncreaseDateTime%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var hs-var">lastIncreaseDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The maximum number of writes consumed per second before DynamoDB returns</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- a @ThrottlingException@.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AwriteCapacityUnits%3AProvisionedThroughputDescription%27"><span class="annot"><span class="annottext">ProvisionedThroughputDescription -&gt; Maybe Natural
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The maximum number of writes consumed per second before DynamoDB returns</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- a @ThrottlingException@.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AwriteCapacityUnits%3AProvisionedThroughputDescription%27"><span class="annot"><span class="annottext">ProvisionedThroughputDescription -&gt; Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AwriteCapacityUnits%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var hs-var">writeCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The number of provisioned throughput decreases for this table during</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- this UTC calendar day. For current maximums on provisioned throughput</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- decreases, see</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas&gt;</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3AnumberOfDecreasesToday%3AProvisionedThroughputDescription%27"><span class="annot"><span class="annottext">ProvisionedThroughputDescription -&gt; Maybe Natural
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The number of provisioned throughput decreases for this table during</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- this UTC calendar day. For current maximums on provisioned throughput</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- decreases, see</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas&gt;</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AnumberOfDecreasesToday%3AProvisionedThroughputDescription%27"><span class="annot"><span class="annottext">ProvisionedThroughputDescription -&gt; Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AnumberOfDecreasesToday%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var hs-var">numberOfDecreasesToday</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The maximum number of strongly consistent reads consumed per second</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@. Eventually consistent</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- reads require less effort than strongly consistent reads, so a setting</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @ReadCapacityUnits@ per second.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AreadCapacityUnits%3AProvisionedThroughputDescription%27"><span class="annot"><span class="annottext">ProvisionedThroughputDescription -&gt; Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AreadCapacityUnits%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var hs-var">readCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The date and time of the last provisioned throughput increase for this</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AlastIncreaseDateTime%3AProvisionedThroughputDescription%27"><span class="annot"><span class="annottext">ProvisionedThroughputDescription -&gt; Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AlastIncreaseDateTime%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var hs-var">lastIncreaseDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679375742"><span id="local-6989586621679375744"><span class="annot"><span class="annottext">ProvisionedThroughputDescription
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679376423"><span id="local-6989586621679376425"><span class="annot"><span class="annottext">ProvisionedThroughputDescription
 -&gt; ProvisionedThroughputDescription -&gt; Bool
 (ProvisionedThroughputDescription
  -&gt; ProvisionedThroughputDescription -&gt; Bool)
@@ -72,7 +72,7 @@ $c/= :: ProvisionedThroughputDescription
 -&gt; ProvisionedThroughputDescription -&gt; Bool
 $c== :: ProvisionedThroughputDescription
 -&gt; ProvisionedThroughputDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375733"><span id="local-6989586621679375735"><span id="local-6989586621679375737"><span id="local-6989586621679375739"><span class="annot"><span class="annottext">ReadPrec [ProvisionedThroughputDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376414"><span id="local-6989586621679376416"><span id="local-6989586621679376418"><span id="local-6989586621679376420"><span class="annot"><span class="annottext">ReadPrec [ProvisionedThroughputDescription]
 ReadPrec ProvisionedThroughputDescription
 Int -&gt; ReadS ProvisionedThroughputDescription
 ReadS [ProvisionedThroughputDescription]
@@ -92,7 +92,7 @@ readList :: ReadS [ProvisionedThroughputDescription]
 $creadList :: ReadS [ProvisionedThroughputDescription]
 readsPrec :: Int -&gt; ReadS ProvisionedThroughputDescription
 $creadsPrec :: Int -&gt; ReadS ProvisionedThroughputDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679375726"><span id="local-6989586621679375728"><span id="local-6989586621679375730"><span class="annot"><span class="annottext">Int -&gt; ProvisionedThroughputDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679376407"><span id="local-6989586621679376409"><span id="local-6989586621679376411"><span class="annot"><span class="annottext">Int -&gt; ProvisionedThroughputDescription -&gt; ShowS
 [ProvisionedThroughputDescription] -&gt; ShowS
 ProvisionedThroughputDescription -&gt; String
 (Int -&gt; ProvisionedThroughputDescription -&gt; ShowS)
@@ -138,44 +138,44 @@ ProvisionedThroughputDescription
 </span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'lastDecreaseDateTime', 'provisionedThroughputDescription_lastDecreaseDateTime' - The date and time of the last provisioned throughput decrease for this</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- table.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'lastIncreaseDateTime', 'provisionedThroughputDescription_lastIncreaseDateTime' - The date and time of the last provisioned throughput increase for this</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'readCapacityUnits', 'provisionedThroughputDescription_readCapacityUnits' - The maximum number of strongly consistent reads consumed per second</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@. Eventually consistent</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- reads require less effort than strongly consistent reads, so a setting</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- @ReadCapacityUnits@ per second.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'writeCapacityUnits', 'provisionedThroughputDescription_writeCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- a @ThrottlingException@.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'lastDecreaseDateTime', 'provisionedThroughputDescription_lastDecreaseDateTime' - The date and time of the last provisioned throughput decrease for this</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- table.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'numberOfDecreasesToday', 'provisionedThroughputDescription_numberOfDecreasesToday' - The number of provisioned throughput decreases for this table during</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- this UTC calendar day. For current maximums on provisioned throughput</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- decreases, see</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas&gt;</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'readCapacityUnits', 'provisionedThroughputDescription_readCapacityUnits' - The maximum number of strongly consistent reads consumed per second</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@. Eventually consistent</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- reads require less effort than strongly consistent reads, so a setting</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- @ReadCapacityUnits@ per second.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'writeCapacityUnits', 'provisionedThroughputDescription_writeCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- a @ThrottlingException@.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'numberOfDecreasesToday', 'provisionedThroughputDescription_numberOfDecreasesToday' - The number of provisioned throughput decreases for this table during</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- this UTC calendar day. For current maximums on provisioned throughput</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- decreases, see</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas&gt;</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'lastIncreaseDateTime', 'provisionedThroughputDescription_lastIncreaseDateTime' - The date and time of the last provisioned throughput increase for this</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- table.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#newProvisionedThroughputDescription"><span class="hs-identifier hs-type">newProvisionedThroughputDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span>
 </span><span id="line-86"></span><span id="newProvisionedThroughputDescription"><span class="annot"><span class="annottext">newProvisionedThroughputDescription :: ProvisionedThroughputDescription
 </span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#newProvisionedThroughputDescription"><span class="hs-identifier hs-var hs-var">newProvisionedThroughputDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ProvisionedThroughputDescription' :: Maybe POSIX
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ProvisionedThroughputDescription' :: Maybe Natural
 -&gt; Maybe POSIX
 -&gt; Maybe Natural
 -&gt; Maybe Natural
--&gt; Maybe Natural
+-&gt; Maybe POSIX
 -&gt; ProvisionedThroughputDescription
 </span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastDecreaseDateTime:ProvisionedThroughputDescription' :: Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AlastDecreaseDateTime%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">lastDecreaseDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:readCapacityUnits:ProvisionedThroughputDescription' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AreadCapacityUnits%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">readCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastIncreaseDateTime:ProvisionedThroughputDescription' :: Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AlastIncreaseDateTime%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">lastIncreaseDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastDecreaseDateTime:ProvisionedThroughputDescription' :: Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AlastDecreaseDateTime%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">lastDecreaseDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:writeCapacityUnits:ProvisionedThroughputDescription' :: Maybe Natural
@@ -186,158 +186,19 @@ forall a. Maybe a
 </span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AnumberOfDecreasesToday%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">numberOfDecreasesToday</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:readCapacityUnits:ProvisionedThroughputDescription' :: Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AreadCapacityUnits%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">readCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastIncreaseDateTime:ProvisionedThroughputDescription' :: Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AlastIncreaseDateTime%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">lastIncreaseDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The date and time of the last provisioned throughput decrease for this</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- table.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_lastDecreaseDateTime"><span class="hs-identifier hs-type">provisionedThroughputDescription_lastDecreaseDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="provisionedThroughputDescription_lastDecreaseDateTime"><span class="annot"><span class="annottext">provisionedThroughputDescription_lastDecreaseDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ProvisionedThroughputDescription
--&gt; f ProvisionedThroughputDescription
-</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_lastDecreaseDateTime"><span class="hs-identifier hs-var hs-var">provisionedThroughputDescription_lastDecreaseDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedThroughputDescription -&gt; Maybe POSIX)
--&gt; (ProvisionedThroughputDescription
-    -&gt; Maybe POSIX -&gt; ProvisionedThroughputDescription)
--&gt; Lens
-     ProvisionedThroughputDescription
-     ProvisionedThroughputDescription
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375717"><span class="annot"><span class="annottext">Maybe POSIX
-lastDecreaseDateTime :: Maybe POSIX
-$sel:lastDecreaseDateTime:ProvisionedThroughputDescription' :: ProvisionedThroughputDescription -&gt; Maybe POSIX
-</span><a href="#local-6989586621679375717"><span class="hs-identifier hs-var hs-var">lastDecreaseDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679375717"><span class="hs-identifier hs-var">lastDecreaseDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375716"><span class="annot"><span class="annottext">s :: ProvisionedThroughputDescription
-</span><a href="#local-6989586621679375716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375715"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679375715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughputDescription
-</span><a href="#local-6989586621679375716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastDecreaseDateTime:ProvisionedThroughputDescription' :: Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AlastDecreaseDateTime%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">lastDecreaseDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679375715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; ProvisionedThroughputDescription
- -&gt; f ProvisionedThroughputDescription)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ProvisionedThroughputDescription
--&gt; f ProvisionedThroughputDescription
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The date and time of the last provisioned throughput increase for this</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- table.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_lastIncreaseDateTime"><span class="hs-identifier hs-type">provisionedThroughputDescription_lastIncreaseDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="provisionedThroughputDescription_lastIncreaseDateTime"><span class="annot"><span class="annottext">provisionedThroughputDescription_lastIncreaseDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ProvisionedThroughputDescription
--&gt; f ProvisionedThroughputDescription
-</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_lastIncreaseDateTime"><span class="hs-identifier hs-var hs-var">provisionedThroughputDescription_lastIncreaseDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedThroughputDescription -&gt; Maybe POSIX)
--&gt; (ProvisionedThroughputDescription
-    -&gt; Maybe POSIX -&gt; ProvisionedThroughputDescription)
--&gt; Lens
-     ProvisionedThroughputDescription
-     ProvisionedThroughputDescription
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375710"><span class="annot"><span class="annottext">Maybe POSIX
-lastIncreaseDateTime :: Maybe POSIX
-$sel:lastIncreaseDateTime:ProvisionedThroughputDescription' :: ProvisionedThroughputDescription -&gt; Maybe POSIX
-</span><a href="#local-6989586621679375710"><span class="hs-identifier hs-var hs-var">lastIncreaseDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679375710"><span class="hs-identifier hs-var">lastIncreaseDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375709"><span class="annot"><span class="annottext">s :: ProvisionedThroughputDescription
-</span><a href="#local-6989586621679375709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375708"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679375708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughputDescription
-</span><a href="#local-6989586621679375709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastIncreaseDateTime:ProvisionedThroughputDescription' :: Maybe POSIX
-</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AlastIncreaseDateTime%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">lastIncreaseDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679375708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; ProvisionedThroughputDescription
- -&gt; f ProvisionedThroughputDescription)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; ProvisionedThroughputDescription
--&gt; f ProvisionedThroughputDescription
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The maximum number of writes consumed per second before DynamoDB returns</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- a @ThrottlingException@.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_writeCapacityUnits"><span class="hs-identifier hs-type">provisionedThroughputDescription_writeCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="provisionedThroughputDescription_writeCapacityUnits"><span class="annot"><span class="annottext">provisionedThroughputDescription_writeCapacityUnits :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ProvisionedThroughputDescription
--&gt; f ProvisionedThroughputDescription
-</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_writeCapacityUnits"><span class="hs-identifier hs-var hs-var">provisionedThroughputDescription_writeCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedThroughputDescription -&gt; Maybe Natural)
--&gt; (ProvisionedThroughputDescription
-    -&gt; Maybe Natural -&gt; ProvisionedThroughputDescription)
--&gt; Lens
-     ProvisionedThroughputDescription
-     ProvisionedThroughputDescription
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375706"><span class="annot"><span class="annottext">Maybe Natural
-writeCapacityUnits :: Maybe Natural
-$sel:writeCapacityUnits:ProvisionedThroughputDescription' :: ProvisionedThroughputDescription -&gt; Maybe Natural
-</span><a href="#local-6989586621679375706"><span class="hs-identifier hs-var hs-var">writeCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679375706"><span class="hs-identifier hs-var">writeCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375705"><span class="annot"><span class="annottext">s :: ProvisionedThroughputDescription
-</span><a href="#local-6989586621679375705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375704"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679375704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughputDescription
-</span><a href="#local-6989586621679375705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:writeCapacityUnits:ProvisionedThroughputDescription' :: Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AwriteCapacityUnits%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">writeCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679375704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The number of provisioned throughput decreases for this table during</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- this UTC calendar day. For current maximums on provisioned throughput</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- decreases, see</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas&gt;</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_numberOfDecreasesToday"><span class="hs-identifier hs-type">provisionedThroughputDescription_numberOfDecreasesToday</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span id="provisionedThroughputDescription_numberOfDecreasesToday"><span class="annot"><span class="annottext">provisionedThroughputDescription_numberOfDecreasesToday :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; ProvisionedThroughputDescription
--&gt; f ProvisionedThroughputDescription
-</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_numberOfDecreasesToday"><span class="hs-identifier hs-var hs-var">provisionedThroughputDescription_numberOfDecreasesToday</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedThroughputDescription -&gt; Maybe Natural)
--&gt; (ProvisionedThroughputDescription
-    -&gt; Maybe Natural -&gt; ProvisionedThroughputDescription)
--&gt; Lens
-     ProvisionedThroughputDescription
-     ProvisionedThroughputDescription
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375702"><span class="annot"><span class="annottext">Maybe Natural
-numberOfDecreasesToday :: Maybe Natural
-$sel:numberOfDecreasesToday:ProvisionedThroughputDescription' :: ProvisionedThroughputDescription -&gt; Maybe Natural
-</span><a href="#local-6989586621679375702"><span class="hs-identifier hs-var hs-var">numberOfDecreasesToday</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679375702"><span class="hs-identifier hs-var">numberOfDecreasesToday</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375701"><span class="annot"><span class="annottext">s :: ProvisionedThroughputDescription
-</span><a href="#local-6989586621679375701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375700"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679375700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughputDescription
-</span><a href="#local-6989586621679375701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfDecreasesToday:ProvisionedThroughputDescription' :: Maybe Natural
-</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AnumberOfDecreasesToday%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">numberOfDecreasesToday</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679375700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The maximum number of strongly consistent reads consumed per second</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@. Eventually consistent</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- reads require less effort than strongly consistent reads, so a setting</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- @ReadCapacityUnits@ per second.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_readCapacityUnits"><span class="hs-identifier hs-type">provisionedThroughputDescription_readCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span id="provisionedThroughputDescription_readCapacityUnits"><span class="annot"><span class="annottext">provisionedThroughputDescription_readCapacityUnits :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><span id="line-96"></span><span class="hs-comment">-- | The maximum number of strongly consistent reads consumed per second</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- before DynamoDB returns a @ThrottlingException@. Eventually consistent</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- reads require less effort than strongly consistent reads, so a setting</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- of 50 @ReadCapacityUnits@ per second provides 100 eventually consistent</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- @ReadCapacityUnits@ per second.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_readCapacityUnits"><span class="hs-identifier hs-type">provisionedThroughputDescription_readCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="provisionedThroughputDescription_readCapacityUnits"><span class="annot"><span class="annottext">provisionedThroughputDescription_readCapacityUnits :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; ProvisionedThroughputDescription
 -&gt; f ProvisionedThroughputDescription
 </span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_readCapacityUnits"><span class="hs-identifier hs-var hs-var">provisionedThroughputDescription_readCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedThroughputDescription -&gt; Maybe Natural)
@@ -349,22 +210,161 @@ $sel:numberOfDecreasesToday:ProvisionedThroughputDescription' :: ProvisionedThro
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679375698"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376398"><span class="annot"><span class="annottext">Maybe Natural
 readCapacityUnits :: Maybe Natural
 $sel:readCapacityUnits:ProvisionedThroughputDescription' :: ProvisionedThroughputDescription -&gt; Maybe Natural
-</span><a href="#local-6989586621679375698"><span class="hs-identifier hs-var hs-var">readCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679375698"><span class="hs-identifier hs-var">readCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679375697"><span class="annot"><span class="annottext">s :: ProvisionedThroughputDescription
-</span><a href="#local-6989586621679375697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679375696"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679375696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughputDescription
-</span><a href="#local-6989586621679375697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readCapacityUnits:ProvisionedThroughputDescription' :: Maybe Natural
+</span><a href="#local-6989586621679376398"><span class="hs-identifier hs-var hs-var">readCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679376398"><span class="hs-identifier hs-var">readCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376397"><span class="annot"><span class="annottext">s :: ProvisionedThroughputDescription
+</span><a href="#local-6989586621679376397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376396"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679376396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughputDescription
+</span><a href="#local-6989586621679376397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:readCapacityUnits:ProvisionedThroughputDescription' :: Maybe Natural
 </span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AreadCapacityUnits%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">readCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679375696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679376396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The date and time of the last provisioned throughput decrease for this</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_lastDecreaseDateTime"><span class="hs-identifier hs-type">provisionedThroughputDescription_lastDecreaseDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="provisionedThroughputDescription_lastDecreaseDateTime"><span class="annot"><span class="annottext">provisionedThroughputDescription_lastDecreaseDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProvisionedThroughputDescription
+-&gt; f ProvisionedThroughputDescription
+</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_lastDecreaseDateTime"><span class="hs-identifier hs-var hs-var">provisionedThroughputDescription_lastDecreaseDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedThroughputDescription -&gt; Maybe POSIX)
+-&gt; (ProvisionedThroughputDescription
+    -&gt; Maybe POSIX -&gt; ProvisionedThroughputDescription)
+-&gt; Lens
+     ProvisionedThroughputDescription
+     ProvisionedThroughputDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376394"><span class="annot"><span class="annottext">Maybe POSIX
+lastDecreaseDateTime :: Maybe POSIX
+$sel:lastDecreaseDateTime:ProvisionedThroughputDescription' :: ProvisionedThroughputDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679376394"><span class="hs-identifier hs-var hs-var">lastDecreaseDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679376394"><span class="hs-identifier hs-var">lastDecreaseDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376393"><span class="annot"><span class="annottext">s :: ProvisionedThroughputDescription
+</span><a href="#local-6989586621679376393"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376392"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679376392"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughputDescription
+</span><a href="#local-6989586621679376393"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastDecreaseDateTime:ProvisionedThroughputDescription' :: Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AlastDecreaseDateTime%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">lastDecreaseDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679376392"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ProvisionedThroughputDescription
+ -&gt; f ProvisionedThroughputDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProvisionedThroughputDescription
+-&gt; f ProvisionedThroughputDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The maximum number of writes consumed per second before DynamoDB returns</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- a @ThrottlingException@.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_writeCapacityUnits"><span class="hs-identifier hs-type">provisionedThroughputDescription_writeCapacityUnits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="provisionedThroughputDescription_writeCapacityUnits"><span class="annot"><span class="annottext">provisionedThroughputDescription_writeCapacityUnits :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ProvisionedThroughputDescription
+-&gt; f ProvisionedThroughputDescription
+</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_writeCapacityUnits"><span class="hs-identifier hs-var hs-var">provisionedThroughputDescription_writeCapacityUnits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedThroughputDescription -&gt; Maybe Natural)
+-&gt; (ProvisionedThroughputDescription
+    -&gt; Maybe Natural -&gt; ProvisionedThroughputDescription)
+-&gt; Lens
+     ProvisionedThroughputDescription
+     ProvisionedThroughputDescription
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376387"><span class="annot"><span class="annottext">Maybe Natural
+writeCapacityUnits :: Maybe Natural
+$sel:writeCapacityUnits:ProvisionedThroughputDescription' :: ProvisionedThroughputDescription -&gt; Maybe Natural
+</span><a href="#local-6989586621679376387"><span class="hs-identifier hs-var hs-var">writeCapacityUnits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679376387"><span class="hs-identifier hs-var">writeCapacityUnits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376386"><span class="annot"><span class="annottext">s :: ProvisionedThroughputDescription
+</span><a href="#local-6989586621679376386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376385"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679376385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughputDescription
+</span><a href="#local-6989586621679376386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:writeCapacityUnits:ProvisionedThroughputDescription' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AwriteCapacityUnits%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">writeCapacityUnits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679376385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The number of provisioned throughput decreases for this table during</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- this UTC calendar day. For current maximums on provisioned throughput</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- decreases, see</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas&gt;</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- in the /Amazon DynamoDB Developer Guide/.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_numberOfDecreasesToday"><span class="hs-identifier hs-type">provisionedThroughputDescription_numberOfDecreasesToday</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="provisionedThroughputDescription_numberOfDecreasesToday"><span class="annot"><span class="annottext">provisionedThroughputDescription_numberOfDecreasesToday :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ProvisionedThroughputDescription
+-&gt; f ProvisionedThroughputDescription
+</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_numberOfDecreasesToday"><span class="hs-identifier hs-var hs-var">provisionedThroughputDescription_numberOfDecreasesToday</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedThroughputDescription -&gt; Maybe Natural)
+-&gt; (ProvisionedThroughputDescription
+    -&gt; Maybe Natural -&gt; ProvisionedThroughputDescription)
+-&gt; Lens
+     ProvisionedThroughputDescription
+     ProvisionedThroughputDescription
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376383"><span class="annot"><span class="annottext">Maybe Natural
+numberOfDecreasesToday :: Maybe Natural
+$sel:numberOfDecreasesToday:ProvisionedThroughputDescription' :: ProvisionedThroughputDescription -&gt; Maybe Natural
+</span><a href="#local-6989586621679376383"><span class="hs-identifier hs-var hs-var">numberOfDecreasesToday</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679376383"><span class="hs-identifier hs-var">numberOfDecreasesToday</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376382"><span class="annot"><span class="annottext">s :: ProvisionedThroughputDescription
+</span><a href="#local-6989586621679376382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376381"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679376381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughputDescription
+</span><a href="#local-6989586621679376382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numberOfDecreasesToday:ProvisionedThroughputDescription' :: Maybe Natural
+</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AnumberOfDecreasesToday%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">numberOfDecreasesToday</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679376381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The date and time of the last provisioned throughput increase for this</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_lastIncreaseDateTime"><span class="hs-identifier hs-type">provisionedThroughputDescription_lastIncreaseDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="provisionedThroughputDescription_lastIncreaseDateTime"><span class="annot"><span class="annottext">provisionedThroughputDescription_lastIncreaseDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProvisionedThroughputDescription
+-&gt; f ProvisionedThroughputDescription
+</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#provisionedThroughputDescription_lastIncreaseDateTime"><span class="hs-identifier hs-var hs-var">provisionedThroughputDescription_lastIncreaseDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProvisionedThroughputDescription -&gt; Maybe POSIX)
+-&gt; (ProvisionedThroughputDescription
+    -&gt; Maybe POSIX -&gt; ProvisionedThroughputDescription)
+-&gt; Lens
+     ProvisionedThroughputDescription
+     ProvisionedThroughputDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679376379"><span class="annot"><span class="annottext">Maybe POSIX
+lastIncreaseDateTime :: Maybe POSIX
+$sel:lastIncreaseDateTime:ProvisionedThroughputDescription' :: ProvisionedThroughputDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679376379"><span class="hs-identifier hs-var hs-var">lastIncreaseDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679376379"><span class="hs-identifier hs-var">lastIncreaseDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679376378"><span class="annot"><span class="annottext">s :: ProvisionedThroughputDescription
+</span><a href="#local-6989586621679376378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-type">ProvisionedThroughputDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679376377"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679376377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProvisionedThroughputDescription
+</span><a href="#local-6989586621679376378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastIncreaseDateTime:ProvisionedThroughputDescription' :: Maybe POSIX
+</span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#%24sel%3AlastIncreaseDateTime%3AProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">lastIncreaseDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679376377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ProvisionedThroughputDescription
+ -&gt; f ProvisionedThroughputDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ProvisionedThroughputDescription
+-&gt; f ProvisionedThroughputDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679375693"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679376374"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
 </span><span id="line-129"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679375691"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProvisionedThroughputDescription
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679376372"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProvisionedThroughputDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProvisionedThroughputDescription)
@@ -374,94 +374,91 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProvisionedThroughputDescription&quot;</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679375688"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679375688"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679376369"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679376369"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
 -&gt; Maybe POSIX
 -&gt; Maybe Natural
 -&gt; Maybe Natural
--&gt; Maybe Natural
+-&gt; Maybe POSIX
 -&gt; ProvisionedThroughputDescription
 </span><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription%27"><span class="hs-identifier hs-var">ProvisionedThroughputDescription'</span></a></span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
  -&gt; Maybe POSIX
  -&gt; Maybe Natural
  -&gt; Maybe Natural
- -&gt; Maybe Natural
+ -&gt; Maybe POSIX
  -&gt; ProvisionedThroughputDescription)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Natural)
 -&gt; Parser
      (Maybe POSIX
       -&gt; Maybe Natural
       -&gt; Maybe Natural
-      -&gt; Maybe Natural
+      -&gt; Maybe POSIX
       -&gt; ProvisionedThroughputDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679375688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679376369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastDecreaseDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;ReadCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
    -&gt; Maybe Natural
    -&gt; Maybe Natural
-   -&gt; Maybe Natural
+   -&gt; Maybe POSIX
    -&gt; ProvisionedThroughputDescription)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Natural
       -&gt; Maybe Natural
-      -&gt; Maybe Natural
+      -&gt; Maybe POSIX
       -&gt; ProvisionedThroughputDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679375688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679376369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastIncreaseDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastDecreaseDateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Natural
    -&gt; Maybe Natural
-   -&gt; Maybe Natural
+   -&gt; Maybe POSIX
    -&gt; ProvisionedThroughputDescription)
 -&gt; Parser (Maybe Natural)
 -&gt; Parser
-     (Maybe Natural
-      -&gt; Maybe Natural -&gt; ProvisionedThroughputDescription)
+     (Maybe Natural -&gt; Maybe POSIX -&gt; ProvisionedThroughputDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679375688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679376369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;WriteCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Natural
-   -&gt; Maybe Natural -&gt; ProvisionedThroughputDescription)
+  (Maybe Natural -&gt; Maybe POSIX -&gt; ProvisionedThroughputDescription)
 -&gt; Parser (Maybe Natural)
--&gt; Parser (Maybe Natural -&gt; ProvisionedThroughputDescription)
+-&gt; Parser (Maybe POSIX -&gt; ProvisionedThroughputDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679375688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679376369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NumberOfDecreasesToday&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; ProvisionedThroughputDescription)
--&gt; Parser (Maybe Natural)
--&gt; Parser ProvisionedThroughputDescription
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ProvisionedThroughputDescription)
+-&gt; Parser (Maybe POSIX) -&gt; Parser ProvisionedThroughputDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679375688"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679376369"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ReadCapacityUnits&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;LastIncreaseDateTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679375682"><span id="local-6989586621679375684"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679376363"><span id="local-6989586621679376365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span></span></span><span>
 </span><span id="line-146"></span><span>
 </span><span id="line-147"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679375679"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679376360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-149"></span><span>    </span><span class="annot"><a href="Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription.html#ProvisionedThroughputDescription"><span class="hs-identifier hs-type">ProvisionedThroughputDescription</span></a></span></span><span>
 </span><span id="line-150"></span></pre></body></html>

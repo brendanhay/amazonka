@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteUser' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679387458"><span id="local-6989586621679387459"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUser"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-var">DeleteUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUser%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-var">DeleteUser'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679387817"><span id="local-6989586621679387818"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUser"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-var">DeleteUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUser%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-var">DeleteUser'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the user to delete in the organization. Required.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AuserArn%3ADeleteUser%27"><span class="annot"><span class="annottext">DeleteUser -&gt; Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#%24sel%3AuserArn%3ADeleteUser%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AenrollmentId%3ADeleteUser%27"><span class="annot"><span class="annottext">DeleteUser -&gt; Text
 </span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#%24sel%3AenrollmentId%3ADeleteUser%27"><span class="hs-identifier hs-var hs-var">enrollmentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387451"><span id="local-6989586621679387453"><span class="annot"><span class="annottext">DeleteUser -&gt; DeleteUser -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387810"><span id="local-6989586621679387812"><span class="annot"><span class="annottext">DeleteUser -&gt; DeleteUser -&gt; Bool
 (DeleteUser -&gt; DeleteUser -&gt; Bool)
 -&gt; (DeleteUser -&gt; DeleteUser -&gt; Bool) -&gt; Eq DeleteUser
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUser -&gt; DeleteUser -&gt; Bool
 == :: DeleteUser -&gt; DeleteUser -&gt; Bool
 $c== :: DeleteUser -&gt; DeleteUser -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387442"><span id="local-6989586621679387444"><span id="local-6989586621679387446"><span id="local-6989586621679387448"><span class="annot"><span class="annottext">ReadPrec [DeleteUser]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387801"><span id="local-6989586621679387803"><span id="local-6989586621679387805"><span id="local-6989586621679387807"><span class="annot"><span class="annottext">ReadPrec [DeleteUser]
 ReadPrec DeleteUser
 Int -&gt; ReadS DeleteUser
 ReadS [DeleteUser]
@@ -83,7 +83,7 @@ readList :: ReadS [DeleteUser]
 $creadList :: ReadS [DeleteUser]
 readsPrec :: Int -&gt; ReadS DeleteUser
 $creadsPrec :: Int -&gt; ReadS DeleteUser
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387435"><span id="local-6989586621679387437"><span id="local-6989586621679387439"><span class="annot"><span class="annottext">Int -&gt; DeleteUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387794"><span id="local-6989586621679387796"><span id="local-6989586621679387798"><span class="annot"><span class="annottext">Int -&gt; DeleteUser -&gt; ShowS
 [DeleteUser] -&gt; ShowS
 DeleteUser -&gt; String
 (Int -&gt; DeleteUser -&gt; ShowS)
@@ -124,8 +124,8 @@ $cfrom :: forall x. DeleteUser -&gt; Rep DeleteUser x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span>
 </span><span id="line-73"></span><span id="newDeleteUser"><span class="annot"><span class="annottext">newDeleteUser :: Text -&gt; DeleteUser
-</span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#newDeleteUser"><span class="hs-identifier hs-var hs-var">newDeleteUser</span></a></span></span><span> </span><span id="local-6989586621679387430"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387430"><span class="hs-identifier hs-var">pEnrollmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#newDeleteUser"><span class="hs-identifier hs-var hs-var">newDeleteUser</span></a></span></span><span> </span><span id="local-6989586621679387789"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387789"><span class="hs-identifier hs-var">pEnrollmentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DeleteUser' :: Maybe Text -&gt; Text -&gt; DeleteUser
 </span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:userArn:DeleteUser' :: Maybe Text
@@ -134,7 +134,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:enrollmentId:DeleteUser' :: Text
 </span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#%24sel%3AenrollmentId%3ADeleteUser%27"><span class="hs-identifier hs-var">enrollmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387430"><span class="hs-identifier hs-var">pEnrollmentId_</span></a></span><span>
+</span><a href="#local-6989586621679387789"><span class="hs-identifier hs-var">pEnrollmentId_</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The ARN of the user to delete in the organization. Required.</span><span>
@@ -144,16 +144,16 @@ forall a. Maybe a
 -&gt; (DeleteUser -&gt; Maybe Text -&gt; DeleteUser)
 -&gt; Lens DeleteUser DeleteUser (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387427"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387786"><span class="annot"><span class="annottext">Maybe Text
 userArn :: Maybe Text
 $sel:userArn:DeleteUser' :: DeleteUser -&gt; Maybe Text
-</span><a href="#local-6989586621679387427"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387427"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387426"><span class="annot"><span class="annottext">s :: DeleteUser
-</span><a href="#local-6989586621679387426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387425"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUser
-</span><a href="#local-6989586621679387426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:DeleteUser' :: Maybe Text
+</span><a href="#local-6989586621679387786"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387786"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387785"><span class="annot"><span class="annottext">s :: DeleteUser
+</span><a href="#local-6989586621679387785"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387784"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387784"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUser
+</span><a href="#local-6989586621679387785"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:DeleteUser' :: Maybe Text
 </span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#%24sel%3AuserArn%3ADeleteUser%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387784"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The ARN of the user\'s enrollment in the organization. Required.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#deleteUser_enrollmentId"><span class="hs-identifier hs-type">deleteUser_enrollmentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -162,25 +162,25 @@ $sel:userArn:DeleteUser' :: DeleteUser -&gt; Maybe Text
 -&gt; (DeleteUser -&gt; Text -&gt; DeleteUser)
 -&gt; Lens DeleteUser DeleteUser Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387424"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387783"><span class="annot"><span class="annottext">Text
 enrollmentId :: Text
 $sel:enrollmentId:DeleteUser' :: DeleteUser -&gt; Text
-</span><a href="#local-6989586621679387424"><span class="hs-identifier hs-var hs-var">enrollmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387424"><span class="hs-identifier hs-var">enrollmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387423"><span class="annot"><span class="annottext">s :: DeleteUser
-</span><a href="#local-6989586621679387423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387422"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUser
-</span><a href="#local-6989586621679387423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enrollmentId:DeleteUser' :: Text
+</span><a href="#local-6989586621679387783"><span class="hs-identifier hs-var hs-var">enrollmentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387783"><span class="hs-identifier hs-var">enrollmentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387782"><span class="annot"><span class="annottext">s :: DeleteUser
+</span><a href="#local-6989586621679387782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387781"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUser
+</span><a href="#local-6989586621679387782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enrollmentId:DeleteUser' :: Text
 </span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#%24sel%3AenrollmentId%3ADeleteUser%27"><span class="hs-identifier hs-var">enrollmentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679387418"><span class="annot"><span class="annottext">request :: DeleteUser -&gt; Request DeleteUser
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679387777"><span class="annot"><span class="annottext">request :: DeleteUser -&gt; Request DeleteUser
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteUser -&gt; Request DeleteUser
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AlexaBusiness.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679387414"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679387773"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteUser
 -&gt; ClientResponse ClientBody
@@ -202,10 +202,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387411"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387411"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387410"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679387410"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387409"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679387409"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387770"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387770"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387769"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679387769"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387768"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679387768"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteUserResponse
 </span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-var">DeleteUserResponse'</span></a></span><span>
 </span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteUserResponse)
@@ -216,15 +216,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387411"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387770"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387402"><span id="local-6989586621679387404"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387761"><span id="local-6989586621679387763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387399"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-102"></span><span>  </span><span id="local-6989586621679387395"><span class="annot"><span class="annottext">toHeaders :: DeleteUser -&gt; ResponseHeaders
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679387754"><span class="annot"><span class="annottext">toHeaders :: DeleteUser -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteUser -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -251,15 +251,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387385"><span id="local-6989586621679387387"><span id="local-6989586621679387389"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679387383"><span class="annot"><span class="annottext">toJSON :: DeleteUser -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387380"><span id="local-6989586621679387381"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387744"><span id="local-6989586621679387746"><span id="local-6989586621679387748"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679387742"><span class="annot"><span class="annottext">toJSON :: DeleteUser -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser%27"><span class="hs-identifier hs-type">DeleteUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387739"><span id="local-6989586621679387740"><span class="annot"><span class="annottext">Maybe Text
 Text
 enrollmentId :: Text
 userArn :: Maybe Text
 $sel:enrollmentId:DeleteUser' :: DeleteUser -&gt; Text
 $sel:userArn:DeleteUser' :: DeleteUser -&gt; Maybe Text
-</span><a href="#local-6989586621679387380"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679387739"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -271,26 +271,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679387381"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679387740"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnrollmentId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679387380"><span class="hs-identifier hs-var">enrollmentId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387739"><span class="hs-identifier hs-var">enrollmentId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679387374"><span class="annot"><span class="annottext">toPath :: DeleteUser -&gt; ByteString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679387733"><span class="annot"><span class="annottext">toPath :: DeleteUser -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteUser -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUser"><span class="hs-identifier hs-type">DeleteUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679387370"><span class="annot"><span class="annottext">toQuery :: DeleteUser -&gt; QueryString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679387729"><span class="annot"><span class="annottext">toQuery :: DeleteUser -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteUser -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -298,12 +298,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | /See:/ 'newDeleteUserResponse' smart constructor.</span><span>
-</span><span id="line-132"></span><span id="local-6989586621679387367"><span id="local-6989586621679387368"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-var">DeleteUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-var">DeleteUserResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span id="local-6989586621679387726"><span id="local-6989586621679387727"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteUserResponse"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-var">DeleteUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteUserResponse%27"><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-var">DeleteUserResponse'</span></a></span></span><span>
 </span><span id="line-133"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteUserResponse%27"><span class="annot"><span class="annottext">DeleteUserResponse -&gt; Int
 </span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#%24sel%3AhttpStatus%3ADeleteUserResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387362"><span id="local-6989586621679387364"><span class="annot"><span class="annottext">DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387721"><span id="local-6989586621679387723"><span class="annot"><span class="annottext">DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
 (DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool)
 -&gt; (DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool)
 -&gt; Eq DeleteUserResponse
@@ -312,7 +312,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
 == :: DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
 $c== :: DeleteUserResponse -&gt; DeleteUserResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387354"><span id="local-6989586621679387356"><span id="local-6989586621679387358"><span id="local-6989586621679387360"><span class="annot"><span class="annottext">ReadPrec [DeleteUserResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387713"><span id="local-6989586621679387715"><span id="local-6989586621679387717"><span id="local-6989586621679387719"><span class="annot"><span class="annottext">ReadPrec [DeleteUserResponse]
 ReadPrec DeleteUserResponse
 Int -&gt; ReadS DeleteUserResponse
 ReadS [DeleteUserResponse]
@@ -332,7 +332,7 @@ readList :: ReadS [DeleteUserResponse]
 $creadList :: ReadS [DeleteUserResponse]
 readsPrec :: Int -&gt; ReadS DeleteUserResponse
 $creadsPrec :: Int -&gt; ReadS DeleteUserResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387348"><span id="local-6989586621679387350"><span id="local-6989586621679387352"><span class="annot"><span class="annottext">Int -&gt; DeleteUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387707"><span id="local-6989586621679387709"><span id="local-6989586621679387711"><span class="annot"><span class="annottext">Int -&gt; DeleteUserResponse -&gt; ShowS
 [DeleteUserResponse] -&gt; ShowS
 DeleteUserResponse -&gt; String
 (Int -&gt; DeleteUserResponse -&gt; ShowS)
@@ -372,12 +372,12 @@ $cfrom :: forall x. DeleteUserResponse -&gt; Rep DeleteUserResponse x
 </span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span><span>
 </span><span id="line-151"></span><span id="newDeleteUserResponse"><span class="annot"><span class="annottext">newDeleteUserResponse :: Int -&gt; DeleteUserResponse
-</span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#newDeleteUserResponse"><span class="hs-identifier hs-var hs-var">newDeleteUserResponse</span></a></span></span><span> </span><span id="local-6989586621679387345"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387345"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#newDeleteUserResponse"><span class="hs-identifier hs-var hs-var">newDeleteUserResponse</span></a></span></span><span> </span><span id="local-6989586621679387704"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387704"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">DeleteUserResponse' :: Int -&gt; DeleteUserResponse
 </span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-type">DeleteUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteUserResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#%24sel%3AhttpStatus%3ADeleteUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387345"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679387704"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#deleteUserResponse_httpStatus"><span class="hs-identifier hs-type">deleteUserResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -386,16 +386,16 @@ $cfrom :: forall x. DeleteUserResponse -&gt; Rep DeleteUserResponse x
 -&gt; (DeleteUserResponse -&gt; Int -&gt; DeleteUserResponse)
 -&gt; Lens DeleteUserResponse DeleteUserResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-type">DeleteUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387344"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-type">DeleteUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387703"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteUserResponse' :: DeleteUserResponse -&gt; Int
-</span><a href="#local-6989586621679387344"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387344"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387343"><span class="annot"><span class="annottext">s :: DeleteUserResponse
-</span><a href="#local-6989586621679387343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-type">DeleteUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387342"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserResponse
-</span><a href="#local-6989586621679387343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteUserResponse' :: Int
+</span><a href="#local-6989586621679387703"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387703"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387702"><span class="annot"><span class="annottext">s :: DeleteUserResponse
+</span><a href="#local-6989586621679387702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse%27"><span class="hs-identifier hs-type">DeleteUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387701"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteUserResponse
+</span><a href="#local-6989586621679387702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteUserResponse' :: Int
 </span><a href="Network.AWS.AlexaBusiness.DeleteUser.html#%24sel%3AhttpStatus%3ADeleteUserResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679387342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679387701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387340"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AlexaBusiness.DeleteUser.html#DeleteUserResponse"><span class="hs-identifier hs-type">DeleteUserResponse</span></a></span></span><span>
 </span><span id="line-159"></span></pre></body></html>

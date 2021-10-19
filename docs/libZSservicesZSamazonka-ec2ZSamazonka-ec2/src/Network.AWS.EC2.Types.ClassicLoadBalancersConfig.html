@@ -30,12 +30,12 @@
 </span><span id="line-30"></span><span class="hs-comment">-- Balancers.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newClassicLoadBalancersConfig' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621681059555"><span id="local-6989586621681059556"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClassicLoadBalancersConfig"><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-var">ClassicLoadBalancersConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClassicLoadBalancersConfig%27"><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-var">ClassicLoadBalancersConfig'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681093127"><span id="local-6989586621681093128"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClassicLoadBalancersConfig"><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-var">ClassicLoadBalancersConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClassicLoadBalancersConfig%27"><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-var">ClassicLoadBalancersConfig'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more Classic Load Balancers.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AclassicLoadBalancers%3AClassicLoadBalancersConfig%27"><span class="annot"><span class="annottext">ClassicLoadBalancersConfig -&gt; Maybe (NonEmpty ClassicLoadBalancer)
 </span><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#%24sel%3AclassicLoadBalancers%3AClassicLoadBalancersConfig%27"><span class="hs-identifier hs-var hs-var">classicLoadBalancers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancer.html#ClassicLoadBalancer"><span class="hs-identifier hs-type">ClassicLoadBalancer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681059549"><span id="local-6989586621681059551"><span class="annot"><span class="annottext">ClassicLoadBalancersConfig -&gt; ClassicLoadBalancersConfig -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681093121"><span id="local-6989586621681093123"><span class="annot"><span class="annottext">ClassicLoadBalancersConfig -&gt; ClassicLoadBalancersConfig -&gt; Bool
 (ClassicLoadBalancersConfig -&gt; ClassicLoadBalancersConfig -&gt; Bool)
 -&gt; (ClassicLoadBalancersConfig
     -&gt; ClassicLoadBalancersConfig -&gt; Bool)
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClassicLoadBalancersConfig -&gt; ClassicLoadBalancersConfig -&gt; Bool
 == :: ClassicLoadBalancersConfig -&gt; ClassicLoadBalancersConfig -&gt; Bool
 $c== :: ClassicLoadBalancersConfig -&gt; ClassicLoadBalancersConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681059540"><span id="local-6989586621681059542"><span id="local-6989586621681059544"><span id="local-6989586621681059546"><span class="annot"><span class="annottext">ReadPrec [ClassicLoadBalancersConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681093112"><span id="local-6989586621681093114"><span id="local-6989586621681093116"><span id="local-6989586621681093118"><span class="annot"><span class="annottext">ReadPrec [ClassicLoadBalancersConfig]
 ReadPrec ClassicLoadBalancersConfig
 Int -&gt; ReadS ClassicLoadBalancersConfig
 ReadS [ClassicLoadBalancersConfig]
@@ -65,7 +65,7 @@ readList :: ReadS [ClassicLoadBalancersConfig]
 $creadList :: ReadS [ClassicLoadBalancersConfig]
 readsPrec :: Int -&gt; ReadS ClassicLoadBalancersConfig
 $creadsPrec :: Int -&gt; ReadS ClassicLoadBalancersConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681059533"><span id="local-6989586621681059535"><span id="local-6989586621681059537"><span class="annot"><span class="annottext">Int -&gt; ClassicLoadBalancersConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681093105"><span id="local-6989586621681093107"><span id="local-6989586621681093109"><span class="annot"><span class="annottext">Int -&gt; ClassicLoadBalancersConfig -&gt; ShowS
 [ClassicLoadBalancersConfig] -&gt; ShowS
 ClassicLoadBalancersConfig -&gt; String
 (Int -&gt; ClassicLoadBalancersConfig -&gt; ShowS)
@@ -135,16 +135,16 @@ forall a. Maybe a
      (Maybe (NonEmpty ClassicLoadBalancer))
      (Maybe (NonEmpty ClassicLoadBalancer))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681059524"><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681093096"><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
 classicLoadBalancers :: Maybe (NonEmpty ClassicLoadBalancer)
 $sel:classicLoadBalancers:ClassicLoadBalancersConfig' :: ClassicLoadBalancersConfig -&gt; Maybe (NonEmpty ClassicLoadBalancer)
-</span><a href="#local-6989586621681059524"><span class="hs-identifier hs-var hs-var">classicLoadBalancers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
-</span><a href="#local-6989586621681059524"><span class="hs-identifier hs-var">classicLoadBalancers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681059523"><span class="annot"><span class="annottext">s :: ClassicLoadBalancersConfig
-</span><a href="#local-6989586621681059523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681059522"><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
-</span><a href="#local-6989586621681059522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassicLoadBalancersConfig
-</span><a href="#local-6989586621681059523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classicLoadBalancers:ClassicLoadBalancersConfig' :: Maybe (NonEmpty ClassicLoadBalancer)
+</span><a href="#local-6989586621681093096"><span class="hs-identifier hs-var hs-var">classicLoadBalancers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
+</span><a href="#local-6989586621681093096"><span class="hs-identifier hs-var">classicLoadBalancers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681093095"><span class="annot"><span class="annottext">s :: ClassicLoadBalancersConfig
+</span><a href="#local-6989586621681093095"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681093094"><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
+</span><a href="#local-6989586621681093094"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassicLoadBalancersConfig
+</span><a href="#local-6989586621681093095"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classicLoadBalancers:ClassicLoadBalancersConfig' :: Maybe (NonEmpty ClassicLoadBalancer)
 </span><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#%24sel%3AclassicLoadBalancers%3AClassicLoadBalancersConfig%27"><span class="hs-identifier hs-var">classicLoadBalancers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
-</span><a href="#local-6989586621681059522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ClassicLoadBalancer)
+</span><a href="#local-6989586621681093094"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ClassicLoadBalancer)
   -&gt; f (Maybe (NonEmpty ClassicLoadBalancer)))
  -&gt; ClassicLoadBalancersConfig -&gt; f ClassicLoadBalancersConfig)
 -&gt; ((Maybe (NonEmpty ClassicLoadBalancer)
@@ -174,13 +174,13 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (NonEmpty ClassicLoadBalancer)
   (NonEmpty ClassicLoadBalancer)
   (NonEmpty ClassicLoadBalancer)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-59"></span><span>
 </span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621681059516"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClassicLoadBalancersConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681059514"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681059514"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621681093088"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClassicLoadBalancersConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681093086"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681093086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer) -&gt; ClassicLoadBalancersConfig
 </span><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-var">ClassicLoadBalancersConfig'</span></a></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">(Maybe (NonEmpty ClassicLoadBalancer)
@@ -189,7 +189,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Either String ClassicLoadBalancersConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681059514"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681093086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;classicLoadBalancers&quot;</span></span><span>
@@ -213,16 +213,16 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String (NonEmpty a)
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681059505"><span id="local-6989586621681059507"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681093077"><span id="local-6989586621681093079"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681059502"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681093074"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621681059498"><span class="annot"><span class="annottext">toQuery :: ClassicLoadBalancersConfig -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681059496"><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621681093070"><span class="annot"><span class="annottext">toQuery :: ClassicLoadBalancersConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681093068"><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
 classicLoadBalancers :: Maybe (NonEmpty ClassicLoadBalancer)
 $sel:classicLoadBalancers:ClassicLoadBalancersConfig' :: ClassicLoadBalancersConfig -&gt; Maybe (NonEmpty ClassicLoadBalancer)
-</span><a href="#local-6989586621681059496"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681093068"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -239,7 +239,7 @@ ByteString -&gt; a -&gt; QueryString
 -&gt; Maybe (NonEmpty ClassicLoadBalancer) -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
-</span><a href="#local-6989586621681059496"><span class="hs-identifier hs-var">classicLoadBalancers</span></a></span><span>
+</span><a href="#local-6989586621681093068"><span class="hs-identifier hs-var">classicLoadBalancers</span></a></span><span>
 </span><span id="line-78"></span><span>          </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-80"></span></pre></body></html>

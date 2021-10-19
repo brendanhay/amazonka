@@ -32,44 +32,44 @@
 </span><span id="line-32"></span><span class="hs-comment">-- | Describes a usage limit object for a cluster.</span><span>
 </span><span id="line-33"></span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newUsageLimit' smart constructor.</span><span>
-</span><span id="line-35"></span><span id="local-6989586621679501728"><span id="local-6989586621679501729"></span></span><span class="hs-keyword">data</span><span> </span><span id="UsageLimit"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-var">UsageLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageLimit%27"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-var">UsageLimit'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679502403"><span id="local-6989586621679502404"></span></span><span class="hs-keyword">data</span><span> </span><span id="UsageLimit"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-var">UsageLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UsageLimit%27"><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-var">UsageLimit'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The limit amount. If time-based, this amount is in minutes. If</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- data-based, this amount is in terabytes (TB).</span><span>
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Aamount%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe Integer
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3Aamount%3AUsageLimit%27"><span class="hs-identifier hs-var hs-var">amount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Redshift feature to which the limit applies.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AfeatureType%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe UsageLimitFeatureType
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AfeatureType%3AUsageLimit%27"><span class="hs-identifier hs-var hs-var">featureType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitFeatureType.html#UsageLimitFeatureType"><span class="hs-identifier hs-type">UsageLimitFeatureType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The action that Amazon Redshift takes when the limit is reached.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Possible values are:</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   __log__ - To log an event in a system table. The default is log.</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   __emit-metric__ - To emit CloudWatch metrics.</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   __disable__ - To disable the feature until the next usage period</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     begins.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AbreachAction%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe UsageLimitBreachAction
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AbreachAction%3AUsageLimit%27"><span class="hs-identifier hs-var hs-var">breachAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitBreachAction.html#UsageLimitBreachAction"><span class="hs-identifier hs-type">UsageLimitBreachAction</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The type of limit. Depending on the feature type, this can be based on a</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- time duration or data size.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3AlimitType%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe UsageLimitLimitType
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The type of limit. Depending on the feature type, this can be based on a</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- time duration or data size.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AlimitType%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe UsageLimitLimitType
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AlimitType%3AUsageLimit%27"><span class="hs-identifier hs-var hs-var">limitType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitLimitType.html#UsageLimitLimitType"><span class="hs-identifier hs-type">UsageLimitLimitType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | A list of tag instances.</span><span>
-</span><span id="line-55"></span><span>    </span><span id="%24sel%3Atags%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe [Tag]
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3Atags%3AUsageLimit%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The identifier of the cluster with a usage limit.</span><span>
-</span><span id="line-57"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AclusterIdentifier%3AUsageLimit%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The time period that the amount applies to. A @weekly@ period begins on</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Sunday. The default is @monthly@.</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aperiod%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe UsageLimitPeriod
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The identifier of the usage limit.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AusageLimitId%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AusageLimitId%3AUsageLimit%27"><span class="hs-identifier hs-var hs-var">usageLimitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The time period that the amount applies to. A @weekly@ period begins on</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- Sunday. The default is @monthly@.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aperiod%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe UsageLimitPeriod
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3Aperiod%3AUsageLimit%27"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod"><span class="hs-identifier hs-type">UsageLimitPeriod</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The identifier of the usage limit.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AusageLimitId%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AusageLimitId%3AUsageLimit%27"><span class="hs-identifier hs-var hs-var">usageLimitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The identifier of the cluster with a usage limit.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AclusterIdentifier%3AUsageLimit%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The action that Amazon Redshift takes when the limit is reached.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- Possible values are:</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- -   __log__ - To log an event in a system table. The default is log.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   __emit-metric__ - To emit CloudWatch metrics.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   __disable__ - To disable the feature until the next usage period</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     begins.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AbreachAction%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe UsageLimitBreachAction
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AbreachAction%3AUsageLimit%27"><span class="hs-identifier hs-var hs-var">breachAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitBreachAction.html#UsageLimitBreachAction"><span class="hs-identifier hs-type">UsageLimitBreachAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The Amazon Redshift feature to which the limit applies.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AfeatureType%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe UsageLimitFeatureType
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AfeatureType%3AUsageLimit%27"><span class="hs-identifier hs-var hs-var">featureType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitFeatureType.html#UsageLimitFeatureType"><span class="hs-identifier hs-type">UsageLimitFeatureType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | A list of tag instances.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Atags%3AUsageLimit%27"><span class="annot"><span class="annottext">UsageLimit -&gt; Maybe [Tag]
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3Atags%3AUsageLimit%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679501715"><span id="local-6989586621679501717"><span class="annot"><span class="annottext">UsageLimit -&gt; UsageLimit -&gt; Bool
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679502390"><span id="local-6989586621679502392"><span class="annot"><span class="annottext">UsageLimit -&gt; UsageLimit -&gt; Bool
 (UsageLimit -&gt; UsageLimit -&gt; Bool)
 -&gt; (UsageLimit -&gt; UsageLimit -&gt; Bool) -&gt; Eq UsageLimit
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -77,7 +77,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UsageLimit -&gt; UsageLimit -&gt; Bool
 == :: UsageLimit -&gt; UsageLimit -&gt; Bool
 $c== :: UsageLimit -&gt; UsageLimit -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679501706"><span id="local-6989586621679501708"><span id="local-6989586621679501710"><span id="local-6989586621679501712"><span class="annot"><span class="annottext">ReadPrec [UsageLimit]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679502381"><span id="local-6989586621679502383"><span id="local-6989586621679502385"><span id="local-6989586621679502387"><span class="annot"><span class="annottext">ReadPrec [UsageLimit]
 ReadPrec UsageLimit
 Int -&gt; ReadS UsageLimit
 ReadS [UsageLimit]
@@ -97,7 +97,7 @@ readList :: ReadS [UsageLimit]
 $creadList :: ReadS [UsageLimit]
 readsPrec :: Int -&gt; ReadS UsageLimit
 $creadsPrec :: Int -&gt; ReadS UsageLimit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679501699"><span id="local-6989586621679501701"><span id="local-6989586621679501703"><span class="annot"><span class="annottext">Int -&gt; UsageLimit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679502374"><span id="local-6989586621679502376"><span id="local-6989586621679502378"><span class="annot"><span class="annottext">Int -&gt; UsageLimit -&gt; ShowS
 [UsageLimit] -&gt; ShowS
 UsageLimit -&gt; String
 (Int -&gt; UsageLimit -&gt; ShowS)
@@ -133,73 +133,73 @@ $cfrom :: forall x. UsageLimit -&gt; Rep UsageLimit x
 </span><span id="line-74"></span><span class="hs-comment">-- 'amount', 'usageLimit_amount' - The limit amount. If time-based, this amount is in minutes. If</span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- data-based, this amount is in terabytes (TB).</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'featureType', 'usageLimit_featureType' - The Amazon Redshift feature to which the limit applies.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'breachAction', 'usageLimit_breachAction' - The action that Amazon Redshift takes when the limit is reached.</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- Possible values are:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'limitType', 'usageLimit_limitType' - The type of limit. Depending on the feature type, this can be based on a</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- time duration or data size.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'usageLimitId', 'usageLimit_usageLimitId' - The identifier of the usage limit.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- -   __log__ - To log an event in a system table. The default is log.</span><span>
-</span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- -   __emit-metric__ - To emit CloudWatch metrics.</span><span>
-</span><span id="line-85"></span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- -   __disable__ - To disable the feature until the next usage period</span><span>
-</span><span id="line-87"></span><span class="hs-comment">--     begins.</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- 'limitType', 'usageLimit_limitType' - The type of limit. Depending on the feature type, this can be based on a</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- time duration or data size.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'period', 'usageLimit_period' - The time period that the amount applies to. A @weekly@ period begins on</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Sunday. The default is @monthly@.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'clusterIdentifier', 'usageLimit_clusterIdentifier' - The identifier of the cluster with a usage limit.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'breachAction', 'usageLimit_breachAction' - The action that Amazon Redshift takes when the limit is reached.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Possible values are:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   __log__ - To log an event in a system table. The default is log.</span><span>
 </span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- 'tags', 'usageLimit_tags' - A list of tag instances.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   __emit-metric__ - To emit CloudWatch metrics.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- 'clusterIdentifier', 'usageLimit_clusterIdentifier' - The identifier of the cluster with a usage limit.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- 'period', 'usageLimit_period' - The time period that the amount applies to. A @weekly@ period begins on</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- Sunday. The default is @monthly@.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   __disable__ - To disable the feature until the next usage period</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--     begins.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'featureType', 'usageLimit_featureType' - The Amazon Redshift feature to which the limit applies.</span><span>
 </span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- 'usageLimitId', 'usageLimit_usageLimitId' - The identifier of the usage limit.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'tags', 'usageLimit_tags' - A list of tag instances.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#newUsageLimit"><span class="hs-identifier hs-type">newUsageLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span>
 </span><span id="line-102"></span><span id="newUsageLimit"><span class="annot"><span class="annottext">newUsageLimit :: UsageLimit
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#newUsageLimit"><span class="hs-identifier hs-var hs-var">newUsageLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">UsageLimit' :: Maybe Integer
--&gt; Maybe UsageLimitFeatureType
--&gt; Maybe UsageLimitBreachAction
 -&gt; Maybe UsageLimitLimitType
--&gt; Maybe [Tag]
 -&gt; Maybe Text
 -&gt; Maybe UsageLimitPeriod
 -&gt; Maybe Text
+-&gt; Maybe UsageLimitBreachAction
+-&gt; Maybe UsageLimitFeatureType
+-&gt; Maybe [Tag]
 -&gt; UsageLimit
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span>
 </span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:amount:UsageLimit' :: Maybe Integer
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3Aamount%3AUsageLimit%27"><span class="hs-identifier hs-var">amount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:featureType:UsageLimit' :: Maybe UsageLimitFeatureType
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AfeatureType%3AUsageLimit%27"><span class="hs-identifier hs-var">featureType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:breachAction:UsageLimit' :: Maybe UsageLimitBreachAction
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AbreachAction%3AUsageLimit%27"><span class="hs-identifier hs-var">breachAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitBreachAction
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:limitType:UsageLimit' :: Maybe UsageLimitLimitType
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:limitType:UsageLimit' :: Maybe UsageLimitLimitType
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AlimitType%3AUsageLimit%27"><span class="hs-identifier hs-var">limitType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitLimitType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:UsageLimit' :: Maybe [Tag]
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3Atags%3AUsageLimit%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:usageLimitId:UsageLimit' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AusageLimitId%3AUsageLimit%27"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:UsageLimit' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AclusterIdentifier%3AUsageLimit%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:period:UsageLimit' :: Maybe UsageLimitPeriod
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:period:UsageLimit' :: Maybe UsageLimitPeriod
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3Aperiod%3AUsageLimit%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitPeriod
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:usageLimitId:UsageLimit' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AusageLimitId%3AUsageLimit%27"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:UsageLimit' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AclusterIdentifier%3AUsageLimit%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:breachAction:UsageLimit' :: Maybe UsageLimitBreachAction
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AbreachAction%3AUsageLimit%27"><span class="hs-identifier hs-var">breachAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitBreachAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:featureType:UsageLimit' :: Maybe UsageLimitFeatureType
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AfeatureType%3AUsageLimit%27"><span class="hs-identifier hs-var">featureType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:UsageLimit' :: Maybe [Tag]
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3Atags%3AUsageLimit%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-112"></span><span>    </span><span class="hs-special">}</span><span>
@@ -212,75 +212,21 @@ forall a. Maybe a
 -&gt; (UsageLimit -&gt; Maybe Integer -&gt; UsageLimit)
 -&gt; Lens UsageLimit UsageLimit (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679501690"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502365"><span class="annot"><span class="annottext">Maybe Integer
 amount :: Maybe Integer
 $sel:amount:UsageLimit' :: UsageLimit -&gt; Maybe Integer
-</span><a href="#local-6989586621679501690"><span class="hs-identifier hs-var hs-var">amount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679501690"><span class="hs-identifier hs-var">amount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679501689"><span class="annot"><span class="annottext">s :: UsageLimit
-</span><a href="#local-6989586621679501689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679501688"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679501688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
-</span><a href="#local-6989586621679501689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amount:UsageLimit' :: Maybe Integer
+</span><a href="#local-6989586621679502365"><span class="hs-identifier hs-var hs-var">amount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679502365"><span class="hs-identifier hs-var">amount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502364"><span class="annot"><span class="annottext">s :: UsageLimit
+</span><a href="#local-6989586621679502364"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502363"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679502363"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
+</span><a href="#local-6989586621679502364"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amount:UsageLimit' :: Maybe Integer
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3Aamount%3AUsageLimit%27"><span class="hs-identifier hs-var">amount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679501688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679502363"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The Amazon Redshift feature to which the limit applies.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_featureType"><span class="hs-identifier hs-type">usageLimit_featureType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitFeatureType.html#UsageLimitFeatureType"><span class="hs-identifier hs-type">UsageLimitFeatureType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span id="usageLimit_featureType"><span class="annot"><span class="annottext">usageLimit_featureType :: (Maybe UsageLimitFeatureType -&gt; f (Maybe UsageLimitFeatureType))
--&gt; UsageLimit -&gt; f UsageLimit
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_featureType"><span class="hs-identifier hs-var hs-var">usageLimit_featureType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageLimit -&gt; Maybe UsageLimitFeatureType)
--&gt; (UsageLimit -&gt; Maybe UsageLimitFeatureType -&gt; UsageLimit)
--&gt; Lens
-     UsageLimit
-     UsageLimit
-     (Maybe UsageLimitFeatureType)
-     (Maybe UsageLimitFeatureType)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679501686"><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
-featureType :: Maybe UsageLimitFeatureType
-$sel:featureType:UsageLimit' :: UsageLimit -&gt; Maybe UsageLimitFeatureType
-</span><a href="#local-6989586621679501686"><span class="hs-identifier hs-var hs-var">featureType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
-</span><a href="#local-6989586621679501686"><span class="hs-identifier hs-var">featureType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679501685"><span class="annot"><span class="annottext">s :: UsageLimit
-</span><a href="#local-6989586621679501685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679501684"><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
-</span><a href="#local-6989586621679501684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
-</span><a href="#local-6989586621679501685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureType:UsageLimit' :: Maybe UsageLimitFeatureType
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AfeatureType%3AUsageLimit%27"><span class="hs-identifier hs-var">featureType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
-</span><a href="#local-6989586621679501684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The action that Amazon Redshift takes when the limit is reached.</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- Possible values are:</span><span>
-</span><span id="line-125"></span><span class="hs-comment">--</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- -   __log__ - To log an event in a system table. The default is log.</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- -   __emit-metric__ - To emit CloudWatch metrics.</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- -   __disable__ - To disable the feature until the next usage period</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--     begins.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_breachAction"><span class="hs-identifier hs-type">usageLimit_breachAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitBreachAction.html#UsageLimitBreachAction"><span class="hs-identifier hs-type">UsageLimitBreachAction</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="usageLimit_breachAction"><span class="annot"><span class="annottext">usageLimit_breachAction :: (Maybe UsageLimitBreachAction -&gt; f (Maybe UsageLimitBreachAction))
--&gt; UsageLimit -&gt; f UsageLimit
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_breachAction"><span class="hs-identifier hs-var hs-var">usageLimit_breachAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageLimit -&gt; Maybe UsageLimitBreachAction)
--&gt; (UsageLimit -&gt; Maybe UsageLimitBreachAction -&gt; UsageLimit)
--&gt; Lens
-     UsageLimit
-     UsageLimit
-     (Maybe UsageLimitBreachAction)
-     (Maybe UsageLimitBreachAction)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679501682"><span class="annot"><span class="annottext">Maybe UsageLimitBreachAction
-breachAction :: Maybe UsageLimitBreachAction
-$sel:breachAction:UsageLimit' :: UsageLimit -&gt; Maybe UsageLimitBreachAction
-</span><a href="#local-6989586621679501682"><span class="hs-identifier hs-var hs-var">breachAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitBreachAction
-</span><a href="#local-6989586621679501682"><span class="hs-identifier hs-var">breachAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679501681"><span class="annot"><span class="annottext">s :: UsageLimit
-</span><a href="#local-6989586621679501681"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679501680"><span class="annot"><span class="annottext">Maybe UsageLimitBreachAction
-</span><a href="#local-6989586621679501680"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
-</span><a href="#local-6989586621679501681"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:breachAction:UsageLimit' :: Maybe UsageLimitBreachAction
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AbreachAction%3AUsageLimit%27"><span class="hs-identifier hs-var">breachAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitBreachAction
-</span><a href="#local-6989586621679501680"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The type of limit. Depending on the feature type, this can be based on a</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- time duration or data size.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_limitType"><span class="hs-identifier hs-type">usageLimit_limitType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitLimitType.html#UsageLimitLimitType"><span class="hs-identifier hs-type">UsageLimitLimitType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="usageLimit_limitType"><span class="annot"><span class="annottext">usageLimit_limitType :: (Maybe UsageLimitLimitType -&gt; f (Maybe UsageLimitLimitType))
+</span><span id="line-119"></span><span class="hs-comment">-- | The type of limit. Depending on the feature type, this can be based on a</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- time duration or data size.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_limitType"><span class="hs-identifier hs-type">usageLimit_limitType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitLimitType.html#UsageLimitLimitType"><span class="hs-identifier hs-type">UsageLimitLimitType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="usageLimit_limitType"><span class="annot"><span class="annottext">usageLimit_limitType :: (Maybe UsageLimitLimitType -&gt; f (Maybe UsageLimitLimitType))
 -&gt; UsageLimit -&gt; f UsageLimit
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_limitType"><span class="hs-identifier hs-var hs-var">usageLimit_limitType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageLimit -&gt; Maybe UsageLimitLimitType)
 -&gt; (UsageLimit -&gt; Maybe UsageLimitLimitType -&gt; UsageLimit)
@@ -290,34 +236,148 @@ $sel:breachAction:UsageLimit' :: UsageLimit -&gt; Maybe UsageLimitBreachAction
      (Maybe UsageLimitLimitType)
      (Maybe UsageLimitLimitType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679501678"><span class="annot"><span class="annottext">Maybe UsageLimitLimitType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502361"><span class="annot"><span class="annottext">Maybe UsageLimitLimitType
 limitType :: Maybe UsageLimitLimitType
 $sel:limitType:UsageLimit' :: UsageLimit -&gt; Maybe UsageLimitLimitType
-</span><a href="#local-6989586621679501678"><span class="hs-identifier hs-var hs-var">limitType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitLimitType
-</span><a href="#local-6989586621679501678"><span class="hs-identifier hs-var">limitType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679501677"><span class="annot"><span class="annottext">s :: UsageLimit
-</span><a href="#local-6989586621679501677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679501676"><span class="annot"><span class="annottext">Maybe UsageLimitLimitType
-</span><a href="#local-6989586621679501676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
-</span><a href="#local-6989586621679501677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limitType:UsageLimit' :: Maybe UsageLimitLimitType
+</span><a href="#local-6989586621679502361"><span class="hs-identifier hs-var hs-var">limitType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitLimitType
+</span><a href="#local-6989586621679502361"><span class="hs-identifier hs-var">limitType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502360"><span class="annot"><span class="annottext">s :: UsageLimit
+</span><a href="#local-6989586621679502360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502359"><span class="annot"><span class="annottext">Maybe UsageLimitLimitType
+</span><a href="#local-6989586621679502359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
+</span><a href="#local-6989586621679502360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limitType:UsageLimit' :: Maybe UsageLimitLimitType
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AlimitType%3AUsageLimit%27"><span class="hs-identifier hs-var">limitType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitLimitType
-</span><a href="#local-6989586621679501676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- | A list of tag instances.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_tags"><span class="hs-identifier hs-type">usageLimit_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="usageLimit_tags"><span class="annot"><span class="annottext">usageLimit_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; UsageLimit -&gt; f UsageLimit
+</span><a href="#local-6989586621679502359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The identifier of the usage limit.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_usageLimitId"><span class="hs-identifier hs-type">usageLimit_usageLimitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="usageLimit_usageLimitId"><span class="annot"><span class="annottext">usageLimit_usageLimitId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UsageLimit -&gt; f UsageLimit
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_usageLimitId"><span class="hs-identifier hs-var hs-var">usageLimit_usageLimitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageLimit -&gt; Maybe Text)
+-&gt; (UsageLimit -&gt; Maybe Text -&gt; UsageLimit)
+-&gt; Lens UsageLimit UsageLimit (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502357"><span class="annot"><span class="annottext">Maybe Text
+usageLimitId :: Maybe Text
+$sel:usageLimitId:UsageLimit' :: UsageLimit -&gt; Maybe Text
+</span><a href="#local-6989586621679502357"><span class="hs-identifier hs-var hs-var">usageLimitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502357"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502356"><span class="annot"><span class="annottext">s :: UsageLimit
+</span><a href="#local-6989586621679502356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502355"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
+</span><a href="#local-6989586621679502356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageLimitId:UsageLimit' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AusageLimitId%3AUsageLimit%27"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The time period that the amount applies to. A @weekly@ period begins on</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Sunday. The default is @monthly@.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_period"><span class="hs-identifier hs-type">usageLimit_period</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod"><span class="hs-identifier hs-type">UsageLimitPeriod</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="usageLimit_period"><span class="annot"><span class="annottext">usageLimit_period :: (Maybe UsageLimitPeriod -&gt; f (Maybe UsageLimitPeriod))
+-&gt; UsageLimit -&gt; f UsageLimit
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_period"><span class="hs-identifier hs-var hs-var">usageLimit_period</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageLimit -&gt; Maybe UsageLimitPeriod)
+-&gt; (UsageLimit -&gt; Maybe UsageLimitPeriod -&gt; UsageLimit)
+-&gt; Lens
+     UsageLimit
+     UsageLimit
+     (Maybe UsageLimitPeriod)
+     (Maybe UsageLimitPeriod)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502353"><span class="annot"><span class="annottext">Maybe UsageLimitPeriod
+period :: Maybe UsageLimitPeriod
+$sel:period:UsageLimit' :: UsageLimit -&gt; Maybe UsageLimitPeriod
+</span><a href="#local-6989586621679502353"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitPeriod
+</span><a href="#local-6989586621679502353"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502352"><span class="annot"><span class="annottext">s :: UsageLimit
+</span><a href="#local-6989586621679502352"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502351"><span class="annot"><span class="annottext">Maybe UsageLimitPeriod
+</span><a href="#local-6989586621679502351"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
+</span><a href="#local-6989586621679502352"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:period:UsageLimit' :: Maybe UsageLimitPeriod
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3Aperiod%3AUsageLimit%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitPeriod
+</span><a href="#local-6989586621679502351"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The identifier of the cluster with a usage limit.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_clusterIdentifier"><span class="hs-identifier hs-type">usageLimit_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="usageLimit_clusterIdentifier"><span class="annot"><span class="annottext">usageLimit_clusterIdentifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UsageLimit -&gt; f UsageLimit
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_clusterIdentifier"><span class="hs-identifier hs-var hs-var">usageLimit_clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageLimit -&gt; Maybe Text)
+-&gt; (UsageLimit -&gt; Maybe Text -&gt; UsageLimit)
+-&gt; Lens UsageLimit UsageLimit (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502349"><span class="annot"><span class="annottext">Maybe Text
+clusterIdentifier :: Maybe Text
+$sel:clusterIdentifier:UsageLimit' :: UsageLimit -&gt; Maybe Text
+</span><a href="#local-6989586621679502349"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502349"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502348"><span class="annot"><span class="annottext">s :: UsageLimit
+</span><a href="#local-6989586621679502348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502347"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
+</span><a href="#local-6989586621679502348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:UsageLimit' :: Maybe Text
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AclusterIdentifier%3AUsageLimit%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679502347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The action that Amazon Redshift takes when the limit is reached.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Possible values are:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   __log__ - To log an event in a system table. The default is log.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- -   __emit-metric__ - To emit CloudWatch metrics.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   __disable__ - To disable the feature until the next usage period</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     begins.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_breachAction"><span class="hs-identifier hs-type">usageLimit_breachAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitBreachAction.html#UsageLimitBreachAction"><span class="hs-identifier hs-type">UsageLimitBreachAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="usageLimit_breachAction"><span class="annot"><span class="annottext">usageLimit_breachAction :: (Maybe UsageLimitBreachAction -&gt; f (Maybe UsageLimitBreachAction))
+-&gt; UsageLimit -&gt; f UsageLimit
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_breachAction"><span class="hs-identifier hs-var hs-var">usageLimit_breachAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageLimit -&gt; Maybe UsageLimitBreachAction)
+-&gt; (UsageLimit -&gt; Maybe UsageLimitBreachAction -&gt; UsageLimit)
+-&gt; Lens
+     UsageLimit
+     UsageLimit
+     (Maybe UsageLimitBreachAction)
+     (Maybe UsageLimitBreachAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502345"><span class="annot"><span class="annottext">Maybe UsageLimitBreachAction
+breachAction :: Maybe UsageLimitBreachAction
+$sel:breachAction:UsageLimit' :: UsageLimit -&gt; Maybe UsageLimitBreachAction
+</span><a href="#local-6989586621679502345"><span class="hs-identifier hs-var hs-var">breachAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitBreachAction
+</span><a href="#local-6989586621679502345"><span class="hs-identifier hs-var">breachAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502344"><span class="annot"><span class="annottext">s :: UsageLimit
+</span><a href="#local-6989586621679502344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502343"><span class="annot"><span class="annottext">Maybe UsageLimitBreachAction
+</span><a href="#local-6989586621679502343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
+</span><a href="#local-6989586621679502344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:breachAction:UsageLimit' :: Maybe UsageLimitBreachAction
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AbreachAction%3AUsageLimit%27"><span class="hs-identifier hs-var">breachAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitBreachAction
+</span><a href="#local-6989586621679502343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The Amazon Redshift feature to which the limit applies.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_featureType"><span class="hs-identifier hs-type">usageLimit_featureType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitFeatureType.html#UsageLimitFeatureType"><span class="hs-identifier hs-type">UsageLimitFeatureType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="usageLimit_featureType"><span class="annot"><span class="annottext">usageLimit_featureType :: (Maybe UsageLimitFeatureType -&gt; f (Maybe UsageLimitFeatureType))
+-&gt; UsageLimit -&gt; f UsageLimit
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_featureType"><span class="hs-identifier hs-var hs-var">usageLimit_featureType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageLimit -&gt; Maybe UsageLimitFeatureType)
+-&gt; (UsageLimit -&gt; Maybe UsageLimitFeatureType -&gt; UsageLimit)
+-&gt; Lens
+     UsageLimit
+     UsageLimit
+     (Maybe UsageLimitFeatureType)
+     (Maybe UsageLimitFeatureType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502341"><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
+featureType :: Maybe UsageLimitFeatureType
+$sel:featureType:UsageLimit' :: UsageLimit -&gt; Maybe UsageLimitFeatureType
+</span><a href="#local-6989586621679502341"><span class="hs-identifier hs-var hs-var">featureType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
+</span><a href="#local-6989586621679502341"><span class="hs-identifier hs-var">featureType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502340"><span class="annot"><span class="annottext">s :: UsageLimit
+</span><a href="#local-6989586621679502340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502339"><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
+</span><a href="#local-6989586621679502339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
+</span><a href="#local-6989586621679502340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureType:UsageLimit' :: Maybe UsageLimitFeatureType
+</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AfeatureType%3AUsageLimit%27"><span class="hs-identifier hs-var">featureType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitFeatureType
+</span><a href="#local-6989586621679502339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | A list of tag instances.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_tags"><span class="hs-identifier hs-type">usageLimit_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="usageLimit_tags"><span class="annot"><span class="annottext">usageLimit_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; UsageLimit -&gt; f UsageLimit
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_tags"><span class="hs-identifier hs-var hs-var">usageLimit_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageLimit -&gt; Maybe [Tag])
 -&gt; (UsageLimit -&gt; Maybe [Tag] -&gt; UsageLimit)
 -&gt; Lens UsageLimit UsageLimit (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679501674"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679502337"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:UsageLimit' :: UsageLimit -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679501674"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679501674"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679501673"><span class="annot"><span class="annottext">s :: UsageLimit
-</span><a href="#local-6989586621679501673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679501672"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679501672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
-</span><a href="#local-6989586621679501673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UsageLimit' :: Maybe [Tag]
+</span><a href="#local-6989586621679502337"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679502337"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679502336"><span class="annot"><span class="annottext">s :: UsageLimit
+</span><a href="#local-6989586621679502336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679502335"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679502335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
+</span><a href="#local-6989586621679502336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:UsageLimit' :: Maybe [Tag]
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3Atags%3AUsageLimit%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679501672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; UsageLimit -&gt; f UsageLimit)
+</span><a href="#local-6989586621679502335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; UsageLimit -&gt; f UsageLimit)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -330,195 +390,167 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The identifier of the cluster with a usage limit.</span><span>
-</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_clusterIdentifier"><span class="hs-identifier hs-type">usageLimit_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span id="usageLimit_clusterIdentifier"><span class="annot"><span class="annottext">usageLimit_clusterIdentifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UsageLimit -&gt; f UsageLimit
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_clusterIdentifier"><span class="hs-identifier hs-var hs-var">usageLimit_clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageLimit -&gt; Maybe Text)
--&gt; (UsageLimit -&gt; Maybe Text -&gt; UsageLimit)
--&gt; Lens UsageLimit UsageLimit (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679501667"><span class="annot"><span class="annottext">Maybe Text
-clusterIdentifier :: Maybe Text
-$sel:clusterIdentifier:UsageLimit' :: UsageLimit -&gt; Maybe Text
-</span><a href="#local-6989586621679501667"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679501667"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679501666"><span class="annot"><span class="annottext">s :: UsageLimit
-</span><a href="#local-6989586621679501666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679501665"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679501665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
-</span><a href="#local-6989586621679501666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:UsageLimit' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AclusterIdentifier%3AUsageLimit%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679501665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- | The time period that the amount applies to. A @weekly@ period begins on</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- Sunday. The default is @monthly@.</span><span>
-</span><span id="line-150"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_period"><span class="hs-identifier hs-type">usageLimit_period</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimitPeriod.html#UsageLimitPeriod"><span class="hs-identifier hs-type">UsageLimitPeriod</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span id="usageLimit_period"><span class="annot"><span class="annottext">usageLimit_period :: (Maybe UsageLimitPeriod -&gt; f (Maybe UsageLimitPeriod))
--&gt; UsageLimit -&gt; f UsageLimit
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_period"><span class="hs-identifier hs-var hs-var">usageLimit_period</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageLimit -&gt; Maybe UsageLimitPeriod)
--&gt; (UsageLimit -&gt; Maybe UsageLimitPeriod -&gt; UsageLimit)
--&gt; Lens
-     UsageLimit
-     UsageLimit
-     (Maybe UsageLimitPeriod)
-     (Maybe UsageLimitPeriod)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679501663"><span class="annot"><span class="annottext">Maybe UsageLimitPeriod
-period :: Maybe UsageLimitPeriod
-$sel:period:UsageLimit' :: UsageLimit -&gt; Maybe UsageLimitPeriod
-</span><a href="#local-6989586621679501663"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitPeriod
-</span><a href="#local-6989586621679501663"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679501662"><span class="annot"><span class="annottext">s :: UsageLimit
-</span><a href="#local-6989586621679501662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679501661"><span class="annot"><span class="annottext">Maybe UsageLimitPeriod
-</span><a href="#local-6989586621679501661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
-</span><a href="#local-6989586621679501662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:period:UsageLimit' :: Maybe UsageLimitPeriod
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3Aperiod%3AUsageLimit%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UsageLimitPeriod
-</span><a href="#local-6989586621679501661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- | The identifier of the usage limit.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_usageLimitId"><span class="hs-identifier hs-type">usageLimit_usageLimitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="usageLimit_usageLimitId"><span class="annot"><span class="annottext">usageLimit_usageLimitId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UsageLimit -&gt; f UsageLimit
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#usageLimit_usageLimitId"><span class="hs-identifier hs-var hs-var">usageLimit_usageLimitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UsageLimit -&gt; Maybe Text)
--&gt; (UsageLimit -&gt; Maybe Text -&gt; UsageLimit)
--&gt; Lens UsageLimit UsageLimit (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679501659"><span class="annot"><span class="annottext">Maybe Text
-usageLimitId :: Maybe Text
-$sel:usageLimitId:UsageLimit' :: UsageLimit -&gt; Maybe Text
-</span><a href="#local-6989586621679501659"><span class="hs-identifier hs-var hs-var">usageLimitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679501659"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679501658"><span class="annot"><span class="annottext">s :: UsageLimit
-</span><a href="#local-6989586621679501658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-type">UsageLimit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679501657"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679501657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UsageLimit
-</span><a href="#local-6989586621679501658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usageLimitId:UsageLimit' :: Maybe Text
-</span><a href="Network.AWS.Redshift.Types.UsageLimit.html#%24sel%3AusageLimitId%3AUsageLimit%27"><span class="hs-identifier hs-var">usageLimitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679501657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679501654"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String UsageLimit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679501652"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679501652"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679502329"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String UsageLimit
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679502327"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502327"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer
--&gt; Maybe UsageLimitFeatureType
--&gt; Maybe UsageLimitBreachAction
 -&gt; Maybe UsageLimitLimitType
--&gt; Maybe [Tag]
 -&gt; Maybe Text
 -&gt; Maybe UsageLimitPeriod
 -&gt; Maybe Text
+-&gt; Maybe UsageLimitBreachAction
+-&gt; Maybe UsageLimitFeatureType
+-&gt; Maybe [Tag]
 -&gt; UsageLimit
 </span><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit%27"><span class="hs-identifier hs-var">UsageLimit'</span></a></span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Integer
- -&gt; Maybe UsageLimitFeatureType
- -&gt; Maybe UsageLimitBreachAction
  -&gt; Maybe UsageLimitLimitType
- -&gt; Maybe [Tag]
  -&gt; Maybe Text
  -&gt; Maybe UsageLimitPeriod
  -&gt; Maybe Text
+ -&gt; Maybe UsageLimitBreachAction
+ -&gt; Maybe UsageLimitFeatureType
+ -&gt; Maybe [Tag]
  -&gt; UsageLimit)
 -&gt; Either String (Maybe Integer)
 -&gt; Either
      String
-     (Maybe UsageLimitFeatureType
-      -&gt; Maybe UsageLimitBreachAction
-      -&gt; Maybe UsageLimitLimitType
-      -&gt; Maybe [Tag]
+     (Maybe UsageLimitLimitType
       -&gt; Maybe Text
       -&gt; Maybe UsageLimitPeriod
       -&gt; Maybe Text
+      -&gt; Maybe UsageLimitBreachAction
+      -&gt; Maybe UsageLimitFeatureType
+      -&gt; Maybe [Tag]
       -&gt; UsageLimit)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679501652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679502327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Amount&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe UsageLimitFeatureType
-   -&gt; Maybe UsageLimitBreachAction
-   -&gt; Maybe UsageLimitLimitType
-   -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; Maybe UsageLimitPeriod
-   -&gt; Maybe Text
-   -&gt; UsageLimit)
--&gt; Either String (Maybe UsageLimitFeatureType)
--&gt; Either
-     String
-     (Maybe UsageLimitBreachAction
-      -&gt; Maybe UsageLimitLimitType
-      -&gt; Maybe [Tag]
-      -&gt; Maybe Text
-      -&gt; Maybe UsageLimitPeriod
-      -&gt; Maybe Text
-      -&gt; UsageLimit)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679501652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe UsageLimitFeatureType)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FeatureType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe UsageLimitBreachAction
-   -&gt; Maybe UsageLimitLimitType
-   -&gt; Maybe [Tag]
-   -&gt; Maybe Text
-   -&gt; Maybe UsageLimitPeriod
-   -&gt; Maybe Text
-   -&gt; UsageLimit)
--&gt; Either String (Maybe UsageLimitBreachAction)
--&gt; Either
-     String
-     (Maybe UsageLimitLimitType
-      -&gt; Maybe [Tag]
-      -&gt; Maybe Text
-      -&gt; Maybe UsageLimitPeriod
-      -&gt; Maybe Text
-      -&gt; UsageLimit)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679501652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe UsageLimitBreachAction)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BreachAction&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
   (Maybe UsageLimitLimitType
-   -&gt; Maybe [Tag]
    -&gt; Maybe Text
    -&gt; Maybe UsageLimitPeriod
    -&gt; Maybe Text
+   -&gt; Maybe UsageLimitBreachAction
+   -&gt; Maybe UsageLimitFeatureType
+   -&gt; Maybe [Tag]
    -&gt; UsageLimit)
 -&gt; Either String (Maybe UsageLimitLimitType)
 -&gt; Either
      String
-     (Maybe [Tag]
-      -&gt; Maybe Text
+     (Maybe Text
       -&gt; Maybe UsageLimitPeriod
       -&gt; Maybe Text
+      -&gt; Maybe UsageLimitBreachAction
+      -&gt; Maybe UsageLimitFeatureType
+      -&gt; Maybe [Tag]
       -&gt; UsageLimit)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679501652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe UsageLimitLimitType)
+</span><a href="#local-6989586621679502327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe UsageLimitLimitType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LimitType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [Tag]
-   -&gt; Maybe Text
+  (Maybe Text
    -&gt; Maybe UsageLimitPeriod
    -&gt; Maybe Text
+   -&gt; Maybe UsageLimitBreachAction
+   -&gt; Maybe UsageLimitFeatureType
+   -&gt; Maybe [Tag]
    -&gt; UsageLimit)
--&gt; Either String (Maybe [Tag])
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text -&gt; Maybe UsageLimitPeriod -&gt; Maybe Text -&gt; UsageLimit)
+     (Maybe UsageLimitPeriod
+      -&gt; Maybe Text
+      -&gt; Maybe UsageLimitBreachAction
+      -&gt; Maybe UsageLimitFeatureType
+      -&gt; Maybe [Tag]
+      -&gt; UsageLimit)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UsageLimitId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe UsageLimitPeriod
+   -&gt; Maybe Text
+   -&gt; Maybe UsageLimitBreachAction
+   -&gt; Maybe UsageLimitFeatureType
+   -&gt; Maybe [Tag]
+   -&gt; UsageLimit)
+-&gt; Either String (Maybe UsageLimitPeriod)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe UsageLimitBreachAction
+      -&gt; Maybe UsageLimitFeatureType
+      -&gt; Maybe [Tag]
+      -&gt; UsageLimit)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe UsageLimitPeriod)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Period&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe UsageLimitBreachAction
+   -&gt; Maybe UsageLimitFeatureType
+   -&gt; Maybe [Tag]
+   -&gt; UsageLimit)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe UsageLimitBreachAction
+      -&gt; Maybe UsageLimitFeatureType -&gt; Maybe [Tag] -&gt; UsageLimit)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe UsageLimitBreachAction
+   -&gt; Maybe UsageLimitFeatureType -&gt; Maybe [Tag] -&gt; UsageLimit)
+-&gt; Either String (Maybe UsageLimitBreachAction)
+-&gt; Either
+     String (Maybe UsageLimitFeatureType -&gt; Maybe [Tag] -&gt; UsageLimit)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe UsageLimitBreachAction)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BreachAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe UsageLimitFeatureType -&gt; Maybe [Tag] -&gt; UsageLimit)
+-&gt; Either String (Maybe UsageLimitFeatureType)
+-&gt; Either String (Maybe [Tag] -&gt; UsageLimit)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679502327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe UsageLimitFeatureType)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeatureType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; UsageLimit)
+-&gt; Either String (Maybe [Tag]) -&gt; Either String UsageLimit
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679501652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679502327"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -526,7 +558,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-165"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-168"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -539,38 +571,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text -&gt; Maybe UsageLimitPeriod -&gt; Maybe Text -&gt; UsageLimit)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String (Maybe UsageLimitPeriod -&gt; Maybe Text -&gt; UsageLimit)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679501652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe UsageLimitPeriod -&gt; Maybe Text -&gt; UsageLimit)
--&gt; Either String (Maybe UsageLimitPeriod)
--&gt; Either String (Maybe Text -&gt; UsageLimit)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679501652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe UsageLimitPeriod)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Period&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; UsageLimit)
--&gt; Either String (Maybe Text) -&gt; Either String UsageLimit
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679501652"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UsageLimitId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679501643"><span id="local-6989586621679501645"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span></span></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679502318"><span id="local-6989586621679502320"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span></span></span><span>
 </span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679501640"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679502315"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.UsageLimit.html#UsageLimit"><span class="hs-identifier hs-type">UsageLimit</span></a></span></span><span>
 </span><span id="line-174"></span></pre></body></html>

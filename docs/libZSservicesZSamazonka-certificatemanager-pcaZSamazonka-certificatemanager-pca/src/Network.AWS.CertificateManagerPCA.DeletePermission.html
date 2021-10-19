@@ -74,7 +74,7 @@
 </span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | /See:/ 'newDeletePermission' smart constructor.</span><span>
-</span><span id="line-77"></span><span id="local-6989586621679217309"><span id="local-6989586621679217310"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePermission"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-var">DeletePermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePermission%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-var">DeletePermission'</span></a></span></span><span>
+</span><span id="line-77"></span><span id="local-6989586621679217378"><span id="local-6989586621679217379"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePermission"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-var">DeletePermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePermission%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-var">DeletePermission'</span></a></span></span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AWS account that calls this action.</span><span>
 </span><span id="line-79"></span><span>    </span><span id="%24sel%3AsourceAccount%3ADeletePermission%27"><span class="annot"><span class="annottext">DeletePermission -&gt; Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#%24sel%3AsourceAccount%3ADeletePermission%27"><span class="hs-identifier hs-var hs-var">sourceAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -91,7 +91,7 @@
 </span><span id="line-89"></span><span>    </span><span id="%24sel%3Aprincipal%3ADeletePermission%27"><span class="annot"><span class="annottext">DeletePermission -&gt; Text
 </span><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#%24sel%3Aprincipal%3ADeletePermission%27"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217301"><span id="local-6989586621679217303"><span class="annot"><span class="annottext">DeletePermission -&gt; DeletePermission -&gt; Bool
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217370"><span id="local-6989586621679217372"><span class="annot"><span class="annottext">DeletePermission -&gt; DeletePermission -&gt; Bool
 (DeletePermission -&gt; DeletePermission -&gt; Bool)
 -&gt; (DeletePermission -&gt; DeletePermission -&gt; Bool)
 -&gt; Eq DeletePermission
@@ -100,7 +100,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePermission -&gt; DeletePermission -&gt; Bool
 == :: DeletePermission -&gt; DeletePermission -&gt; Bool
 $c== :: DeletePermission -&gt; DeletePermission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217292"><span id="local-6989586621679217294"><span id="local-6989586621679217296"><span id="local-6989586621679217298"><span class="annot"><span class="annottext">ReadPrec [DeletePermission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217361"><span id="local-6989586621679217363"><span id="local-6989586621679217365"><span id="local-6989586621679217367"><span class="annot"><span class="annottext">ReadPrec [DeletePermission]
 ReadPrec DeletePermission
 Int -&gt; ReadS DeletePermission
 ReadS [DeletePermission]
@@ -120,7 +120,7 @@ readList :: ReadS [DeletePermission]
 $creadList :: ReadS [DeletePermission]
 readsPrec :: Int -&gt; ReadS DeletePermission
 $creadsPrec :: Int -&gt; ReadS DeletePermission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217285"><span id="local-6989586621679217287"><span id="local-6989586621679217289"><span class="annot"><span class="annottext">Int -&gt; DeletePermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217354"><span id="local-6989586621679217356"><span id="local-6989586621679217358"><span class="annot"><span class="annottext">Int -&gt; DeletePermission -&gt; ShowS
 [DeletePermission] -&gt; ShowS
 DeletePermission -&gt; String
 (Int -&gt; DeletePermission -&gt; ShowS)
@@ -173,10 +173,10 @@ $cfrom :: forall x. DeletePermission -&gt; Rep DeletePermission x
 </span><span id="line-117"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span><span>
 </span><span id="line-118"></span><span id="newDeletePermission"><span class="annot"><span class="annottext">newDeletePermission :: Text -&gt; Text -&gt; DeletePermission
 </span><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#newDeletePermission"><span class="hs-identifier hs-var hs-var">newDeletePermission</span></a></span></span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679217280"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217280"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679217279"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217279"><span class="hs-identifier hs-var">pPrincipal_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679217349"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217349"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679217348"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217348"><span class="hs-identifier hs-var">pPrincipal_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">DeletePermission' :: Maybe Text -&gt; Text -&gt; Text -&gt; DeletePermission
 </span><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceAccount:DeletePermission' :: Maybe Text
@@ -185,10 +185,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:DeletePermission' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#%24sel%3AcertificateAuthorityArn%3ADeletePermission%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217280"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679217349"><span class="hs-identifier hs-var">pCertificateAuthorityArn_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">$sel:principal:DeletePermission' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#%24sel%3Aprincipal%3ADeletePermission%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217279"><span class="hs-identifier hs-var">pPrincipal_</span></a></span><span>
+</span><a href="#local-6989586621679217348"><span class="hs-identifier hs-var">pPrincipal_</span></a></span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-comment">-- | The AWS account that calls this action.</span><span>
@@ -199,16 +199,16 @@ forall a. Maybe a
 -&gt; (DeletePermission -&gt; Maybe Text -&gt; DeletePermission)
 -&gt; Lens DeletePermission DeletePermission (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217276"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217345"><span class="annot"><span class="annottext">Maybe Text
 sourceAccount :: Maybe Text
 $sel:sourceAccount:DeletePermission' :: DeletePermission -&gt; Maybe Text
-</span><a href="#local-6989586621679217276"><span class="hs-identifier hs-var hs-var">sourceAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217276"><span class="hs-identifier hs-var">sourceAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217275"><span class="annot"><span class="annottext">s :: DeletePermission
-</span><a href="#local-6989586621679217275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217274"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePermission
-</span><a href="#local-6989586621679217275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceAccount:DeletePermission' :: Maybe Text
+</span><a href="#local-6989586621679217345"><span class="hs-identifier hs-var hs-var">sourceAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217345"><span class="hs-identifier hs-var">sourceAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217344"><span class="annot"><span class="annottext">s :: DeletePermission
+</span><a href="#local-6989586621679217344"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217343"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679217343"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePermission
+</span><a href="#local-6989586621679217344"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceAccount:DeletePermission' :: Maybe Text
 </span><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#%24sel%3AsourceAccount%3ADeletePermission%27"><span class="hs-identifier hs-var">sourceAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217343"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-comment">-- | The Amazon Resource Number (ARN) of the private CA that issued the</span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- permissions. You can find the CA\'s ARN by calling the</span><span>
@@ -222,16 +222,16 @@ $sel:sourceAccount:DeletePermission' :: DeletePermission -&gt; Maybe Text
 -&gt; (DeletePermission -&gt; Text -&gt; DeletePermission)
 -&gt; Lens DeletePermission DeletePermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217273"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217342"><span class="annot"><span class="annottext">Text
 certificateAuthorityArn :: Text
 $sel:certificateAuthorityArn:DeletePermission' :: DeletePermission -&gt; Text
-</span><a href="#local-6989586621679217273"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217273"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217272"><span class="annot"><span class="annottext">s :: DeletePermission
-</span><a href="#local-6989586621679217272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217271"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePermission
-</span><a href="#local-6989586621679217272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:DeletePermission' :: Text
+</span><a href="#local-6989586621679217342"><span class="hs-identifier hs-var hs-var">certificateAuthorityArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217342"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217341"><span class="annot"><span class="annottext">s :: DeletePermission
+</span><a href="#local-6989586621679217341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217340"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePermission
+</span><a href="#local-6989586621679217341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateAuthorityArn:DeletePermission' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#%24sel%3AcertificateAuthorityArn%3ADeletePermission%27"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>
 </span><span id="line-140"></span><span class="hs-comment">-- | The AWS service or identity that will have its CA permissions revoked.</span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- At this time, the only valid service principal is @acm.amazonaws.com@</span><span>
@@ -241,27 +241,27 @@ $sel:certificateAuthorityArn:DeletePermission' :: DeletePermission -&gt; Text
 -&gt; (DeletePermission -&gt; Text -&gt; DeletePermission)
 -&gt; Lens DeletePermission DeletePermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217270"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217339"><span class="annot"><span class="annottext">Text
 principal :: Text
 $sel:principal:DeletePermission' :: DeletePermission -&gt; Text
-</span><a href="#local-6989586621679217270"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217270"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217269"><span class="annot"><span class="annottext">s :: DeletePermission
-</span><a href="#local-6989586621679217269"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217268"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217268"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePermission
-</span><a href="#local-6989586621679217269"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:DeletePermission' :: Text
+</span><a href="#local-6989586621679217339"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217339"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217338"><span class="annot"><span class="annottext">s :: DeletePermission
+</span><a href="#local-6989586621679217338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217337"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeletePermission
+</span><a href="#local-6989586621679217338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:DeletePermission' :: Text
 </span><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#%24sel%3Aprincipal%3ADeletePermission%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217268"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
 </span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermissionResponse"><span class="hs-identifier hs-type">DeletePermissionResponse</span></a></span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679217264"><span class="annot"><span class="annottext">request :: DeletePermission -&gt; Request DeletePermission
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679217333"><span class="annot"><span class="annottext">request :: DeletePermission -&gt; Request DeletePermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeletePermission -&gt; Request DeletePermission
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CertificateManagerPCA.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-150"></span><span>  </span><span id="local-6989586621679217260"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679217329"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeletePermission
 -&gt; ClientResponse ClientBody
@@ -285,12 +285,12 @@ AWSResponse a
 DeletePermissionResponse
 </span><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermissionResponse%27"><span class="hs-identifier hs-var">DeletePermissionResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217253"><span id="local-6989586621679217255"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217322"><span id="local-6989586621679217324"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217250"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217319"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span></span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679217246"><span class="annot"><span class="annottext">toHeaders :: DeletePermission -&gt; [Header]
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679217315"><span class="annot"><span class="annottext">toHeaders :: DeletePermission -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeletePermission -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -317,9 +317,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217236"><span id="local-6989586621679217238"><span id="local-6989586621679217240"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679217234"><span class="annot"><span class="annottext">toJSON :: DeletePermission -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217230"><span id="local-6989586621679217231"><span id="local-6989586621679217232"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217305"><span id="local-6989586621679217307"><span id="local-6989586621679217309"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679217303"><span class="annot"><span class="annottext">toJSON :: DeletePermission -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission%27"><span class="hs-identifier hs-type">DeletePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217299"><span id="local-6989586621679217300"><span id="local-6989586621679217301"><span class="annot"><span class="annottext">Maybe Text
 Text
 principal :: Text
 certificateAuthorityArn :: Text
@@ -327,7 +327,7 @@ sourceAccount :: Maybe Text
 $sel:principal:DeletePermission' :: DeletePermission -&gt; Text
 $sel:certificateAuthorityArn:DeletePermission' :: DeletePermission -&gt; Text
 $sel:sourceAccount:DeletePermission' :: DeletePermission -&gt; Maybe Text
-</span><a href="#local-6989586621679217230"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679217299"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -339,7 +339,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679217232"><span class="hs-identifier hs-var">sourceAccount</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679217301"><span class="hs-identifier hs-var">sourceAccount</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -348,7 +348,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-179"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217231"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span>
+</span><a href="#local-6989586621679217300"><span class="hs-identifier hs-var">certificateAuthorityArn</span></a></span><span>
 </span><span id="line-180"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -356,19 +356,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Principal&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679217230"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679217299"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-182"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-183"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679217223"><span class="annot"><span class="annottext">toPath :: DeletePermission -&gt; ByteString
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679217292"><span class="annot"><span class="annottext">toPath :: DeletePermission -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeletePermission -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermission"><span class="hs-identifier hs-type">DeletePermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621679217219"><span class="annot"><span class="annottext">toQuery :: DeletePermission -&gt; QueryString
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679217288"><span class="annot"><span class="annottext">toQuery :: DeletePermission -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeletePermission -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -376,10 +376,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-comment">-- | /See:/ 'newDeletePermissionResponse' smart constructor.</span><span>
-</span><span id="line-192"></span><span id="local-6989586621679217216"><span id="local-6989586621679217217"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePermissionResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermissionResponse"><span class="hs-identifier hs-var">DeletePermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePermissionResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermissionResponse%27"><span class="hs-identifier hs-var">DeletePermissionResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span id="local-6989586621679217285"><span id="local-6989586621679217286"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeletePermissionResponse"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermissionResponse"><span class="hs-identifier hs-var">DeletePermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeletePermissionResponse%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermissionResponse%27"><span class="hs-identifier hs-var">DeletePermissionResponse'</span></a></span></span><span>
 </span><span id="line-193"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217212"><span id="local-6989586621679217214"><span class="annot"><span class="annottext">DeletePermissionResponse -&gt; DeletePermissionResponse -&gt; Bool
+</span><span id="line-195"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217281"><span id="local-6989586621679217283"><span class="annot"><span class="annottext">DeletePermissionResponse -&gt; DeletePermissionResponse -&gt; Bool
 (DeletePermissionResponse -&gt; DeletePermissionResponse -&gt; Bool)
 -&gt; (DeletePermissionResponse -&gt; DeletePermissionResponse -&gt; Bool)
 -&gt; Eq DeletePermissionResponse
@@ -388,7 +388,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeletePermissionResponse -&gt; DeletePermissionResponse -&gt; Bool
 == :: DeletePermissionResponse -&gt; DeletePermissionResponse -&gt; Bool
 $c== :: DeletePermissionResponse -&gt; DeletePermissionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217204"><span id="local-6989586621679217206"><span id="local-6989586621679217208"><span id="local-6989586621679217210"><span class="annot"><span class="annottext">ReadPrec [DeletePermissionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217273"><span id="local-6989586621679217275"><span id="local-6989586621679217277"><span id="local-6989586621679217279"><span class="annot"><span class="annottext">ReadPrec [DeletePermissionResponse]
 ReadPrec DeletePermissionResponse
 Int -&gt; ReadS DeletePermissionResponse
 ReadS [DeletePermissionResponse]
@@ -408,7 +408,7 @@ readList :: ReadS [DeletePermissionResponse]
 $creadList :: ReadS [DeletePermissionResponse]
 readsPrec :: Int -&gt; ReadS DeletePermissionResponse
 $creadsPrec :: Int -&gt; ReadS DeletePermissionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217198"><span id="local-6989586621679217200"><span id="local-6989586621679217202"><span class="annot"><span class="annottext">Int -&gt; DeletePermissionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217267"><span id="local-6989586621679217269"><span id="local-6989586621679217271"><span class="annot"><span class="annottext">Int -&gt; DeletePermissionResponse -&gt; ShowS
 [DeletePermissionResponse] -&gt; ShowS
 DeletePermissionResponse -&gt; String
 (Int -&gt; DeletePermissionResponse -&gt; ShowS)
@@ -451,5 +451,5 @@ DeletePermissionResponse -&gt; Rep DeletePermissionResponse x
 </span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">DeletePermissionResponse
 </span><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermissionResponse%27"><span class="hs-identifier hs-var">DeletePermissionResponse'</span></a></span><span>
 </span><span id="line-205"></span><span>
-</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217194"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermissionResponse"><span class="hs-identifier hs-type">DeletePermissionResponse</span></a></span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.DeletePermission.html#DeletePermissionResponse"><span class="hs-identifier hs-type">DeletePermissionResponse</span></a></span></span><span>
 </span><span id="line-207"></span></pre></body></html>

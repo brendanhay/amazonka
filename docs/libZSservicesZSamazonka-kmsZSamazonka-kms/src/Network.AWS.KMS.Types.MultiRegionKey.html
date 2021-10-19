@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Describes the primary or replica key in a multi-Region key.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMultiRegionKey' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679249288"><span id="local-6989586621679249289"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiRegionKey"><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey"><span class="hs-identifier hs-var">MultiRegionKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiRegionKey%27"><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey%27"><span class="hs-identifier hs-var">MultiRegionKey'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679249489"><span id="local-6989586621679249490"></span></span><span class="hs-keyword">data</span><span> </span><span id="MultiRegionKey"><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey"><span class="hs-identifier hs-var">MultiRegionKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MultiRegionKey%27"><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey%27"><span class="hs-identifier hs-var">MultiRegionKey'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Displays the key ARN of a primary or replica key of a multi-Region key.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3Aarn%3AMultiRegionKey%27"><span class="annot"><span class="annottext">MultiRegionKey -&gt; Maybe Text
 </span><a href="Network.AWS.KMS.Types.MultiRegionKey.html#%24sel%3Aarn%3AMultiRegionKey%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aregion%3AMultiRegionKey%27"><span class="annot"><span class="annottext">MultiRegionKey -&gt; Maybe Text
 </span><a href="Network.AWS.KMS.Types.MultiRegionKey.html#%24sel%3Aregion%3AMultiRegionKey%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249281"><span id="local-6989586621679249283"><span class="annot"><span class="annottext">MultiRegionKey -&gt; MultiRegionKey -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249482"><span id="local-6989586621679249484"><span class="annot"><span class="annottext">MultiRegionKey -&gt; MultiRegionKey -&gt; Bool
 (MultiRegionKey -&gt; MultiRegionKey -&gt; Bool)
 -&gt; (MultiRegionKey -&gt; MultiRegionKey -&gt; Bool) -&gt; Eq MultiRegionKey
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MultiRegionKey -&gt; MultiRegionKey -&gt; Bool
 == :: MultiRegionKey -&gt; MultiRegionKey -&gt; Bool
 $c== :: MultiRegionKey -&gt; MultiRegionKey -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249272"><span id="local-6989586621679249274"><span id="local-6989586621679249276"><span id="local-6989586621679249278"><span class="annot"><span class="annottext">ReadPrec [MultiRegionKey]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249473"><span id="local-6989586621679249475"><span id="local-6989586621679249477"><span id="local-6989586621679249479"><span class="annot"><span class="annottext">ReadPrec [MultiRegionKey]
 ReadPrec MultiRegionKey
 Int -&gt; ReadS MultiRegionKey
 ReadS [MultiRegionKey]
@@ -63,7 +63,7 @@ readList :: ReadS [MultiRegionKey]
 $creadList :: ReadS [MultiRegionKey]
 readsPrec :: Int -&gt; ReadS MultiRegionKey
 $creadsPrec :: Int -&gt; ReadS MultiRegionKey
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249265"><span id="local-6989586621679249267"><span id="local-6989586621679249269"><span class="annot"><span class="annottext">Int -&gt; MultiRegionKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249466"><span id="local-6989586621679249468"><span id="local-6989586621679249470"><span class="annot"><span class="annottext">Int -&gt; MultiRegionKey -&gt; ShowS
 [MultiRegionKey] -&gt; ShowS
 MultiRegionKey -&gt; String
 (Int -&gt; MultiRegionKey -&gt; ShowS)
@@ -125,16 +125,16 @@ forall a. Maybe a
 -&gt; (MultiRegionKey -&gt; Maybe Text -&gt; MultiRegionKey)
 -&gt; Lens MultiRegionKey MultiRegionKey (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey%27"><span class="hs-identifier hs-type">MultiRegionKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249256"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey%27"><span class="hs-identifier hs-type">MultiRegionKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249457"><span class="annot"><span class="annottext">Maybe Text
 arn :: Maybe Text
 $sel:arn:MultiRegionKey' :: MultiRegionKey -&gt; Maybe Text
-</span><a href="#local-6989586621679249256"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249256"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249255"><span class="annot"><span class="annottext">s :: MultiRegionKey
-</span><a href="#local-6989586621679249255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey%27"><span class="hs-identifier hs-type">MultiRegionKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249254"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiRegionKey
-</span><a href="#local-6989586621679249255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:MultiRegionKey' :: Maybe Text
+</span><a href="#local-6989586621679249457"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249457"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249456"><span class="annot"><span class="annottext">s :: MultiRegionKey
+</span><a href="#local-6989586621679249456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey%27"><span class="hs-identifier hs-type">MultiRegionKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249455"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiRegionKey
+</span><a href="#local-6989586621679249456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:MultiRegionKey' :: Maybe Text
 </span><a href="Network.AWS.KMS.Types.MultiRegionKey.html#%24sel%3Aarn%3AMultiRegionKey%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey"><span class="hs-identifier hs-type">MultiRegionKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey"><span class="hs-identifier hs-type">MultiRegionKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | Displays the Amazon Web Services Region of a primary or replica key in a</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- multi-Region key.</span><span>
@@ -145,19 +145,19 @@ $sel:arn:MultiRegionKey' :: MultiRegionKey -&gt; Maybe Text
 -&gt; (MultiRegionKey -&gt; Maybe Text -&gt; MultiRegionKey)
 -&gt; Lens MultiRegionKey MultiRegionKey (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey%27"><span class="hs-identifier hs-type">MultiRegionKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249252"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey%27"><span class="hs-identifier hs-type">MultiRegionKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249453"><span class="annot"><span class="annottext">Maybe Text
 region :: Maybe Text
 $sel:region:MultiRegionKey' :: MultiRegionKey -&gt; Maybe Text
-</span><a href="#local-6989586621679249252"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249252"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249251"><span class="annot"><span class="annottext">s :: MultiRegionKey
-</span><a href="#local-6989586621679249251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey%27"><span class="hs-identifier hs-type">MultiRegionKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249250"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiRegionKey
-</span><a href="#local-6989586621679249251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:MultiRegionKey' :: Maybe Text
+</span><a href="#local-6989586621679249453"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249453"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249452"><span class="annot"><span class="annottext">s :: MultiRegionKey
+</span><a href="#local-6989586621679249452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey%27"><span class="hs-identifier hs-type">MultiRegionKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249451"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MultiRegionKey
+</span><a href="#local-6989586621679249452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:MultiRegionKey' :: Maybe Text
 </span><a href="Network.AWS.KMS.Types.MultiRegionKey.html#%24sel%3Aregion%3AMultiRegionKey%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey"><span class="hs-identifier hs-type">MultiRegionKey</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey"><span class="hs-identifier hs-type">MultiRegionKey</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249247"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey"><span class="hs-identifier hs-type">MultiRegionKey</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-68"></span><span>  </span><span id="local-6989586621679249245"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiRegionKey
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249448"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey"><span class="hs-identifier hs-type">MultiRegionKey</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-68"></span><span>  </span><span id="local-6989586621679249446"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MultiRegionKey
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MultiRegionKey)
@@ -167,28 +167,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MultiRegionKey&quot;</span></span><span>
-</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249242"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249242"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249443"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249443"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; MultiRegionKey
 </span><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey%27"><span class="hs-identifier hs-var">MultiRegionKey'</span></a></span><span>
 </span><span id="line-73"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; MultiRegionKey)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; MultiRegionKey)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249242"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MultiRegionKey)
 -&gt; Parser (Maybe Text) -&gt; Parser MultiRegionKey
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249242"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679249443"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249236"><span id="local-6989586621679249238"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey"><span class="hs-identifier hs-type">MultiRegionKey</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249437"><span id="local-6989586621679249439"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey"><span class="hs-identifier hs-type">MultiRegionKey</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249233"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey"><span class="hs-identifier hs-type">MultiRegionKey</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.KMS.Types.MultiRegionKey.html#MultiRegionKey"><span class="hs-identifier hs-type">MultiRegionKey</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

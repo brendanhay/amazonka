@@ -49,7 +49,7 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newAddTagsToResource' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679315299"><span id="local-6989586621679315300"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToResource"><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-var">AddTagsToResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToResource%27"><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-var">AddTagsToResource'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679315530"><span id="local-6989586621679315531"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToResource"><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-var">AddTagsToResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToResource%27"><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-var">AddTagsToResource'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier (ID) for the directory to which to add the tag.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AresourceId%3AAddTagsToResource%27"><span class="annot"><span class="annottext">AddTagsToResource -&gt; Text
 </span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#%24sel%3AresourceId%3AAddTagsToResource%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Atags%3AAddTagsToResource%27"><span class="annot"><span class="annottext">AddTagsToResource -&gt; [Tag]
 </span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#%24sel%3Atags%3AAddTagsToResource%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315292"><span id="local-6989586621679315294"><span class="annot"><span class="annottext">AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315523"><span id="local-6989586621679315525"><span class="annot"><span class="annottext">AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
 (AddTagsToResource -&gt; AddTagsToResource -&gt; Bool)
 -&gt; (AddTagsToResource -&gt; AddTagsToResource -&gt; Bool)
 -&gt; Eq AddTagsToResource
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
 == :: AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
 $c== :: AddTagsToResource -&gt; AddTagsToResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315283"><span id="local-6989586621679315285"><span id="local-6989586621679315287"><span id="local-6989586621679315289"><span class="annot"><span class="annottext">ReadPrec [AddTagsToResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315514"><span id="local-6989586621679315516"><span id="local-6989586621679315518"><span id="local-6989586621679315520"><span class="annot"><span class="annottext">ReadPrec [AddTagsToResource]
 ReadPrec AddTagsToResource
 Int -&gt; ReadS AddTagsToResource
 ReadS [AddTagsToResource]
@@ -86,7 +86,7 @@ readList :: ReadS [AddTagsToResource]
 $creadList :: ReadS [AddTagsToResource]
 readsPrec :: Int -&gt; ReadS AddTagsToResource
 $creadsPrec :: Int -&gt; ReadS AddTagsToResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315276"><span id="local-6989586621679315278"><span id="local-6989586621679315280"><span class="annot"><span class="annottext">Int -&gt; AddTagsToResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315507"><span id="local-6989586621679315509"><span id="local-6989586621679315511"><span class="annot"><span class="annottext">Int -&gt; AddTagsToResource -&gt; ShowS
 [AddTagsToResource] -&gt; ShowS
 AddTagsToResource -&gt; String
 (Int -&gt; AddTagsToResource -&gt; ShowS)
@@ -128,13 +128,13 @@ $cfrom :: forall x. AddTagsToResource -&gt; Rep AddTagsToResource x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span>
 </span><span id="line-75"></span><span id="newAddTagsToResource"><span class="annot"><span class="annottext">newAddTagsToResource :: Text -&gt; AddTagsToResource
-</span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#newAddTagsToResource"><span class="hs-identifier hs-var hs-var">newAddTagsToResource</span></a></span></span><span> </span><span id="local-6989586621679315271"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315271"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#newAddTagsToResource"><span class="hs-identifier hs-var hs-var">newAddTagsToResource</span></a></span></span><span> </span><span id="local-6989586621679315502"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315502"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">AddTagsToResource' :: Text -&gt; [Tag] -&gt; AddTagsToResource
 </span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceId:AddTagsToResource' :: Text
 </span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#%24sel%3AresourceId%3AAddTagsToResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315271"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315502"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:AddTagsToResource' :: [Tag]
 </span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#%24sel%3Atags%3AAddTagsToResource%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
 forall a. Monoid a =&gt; a
@@ -148,16 +148,16 @@ forall a. Monoid a =&gt; a
 -&gt; (AddTagsToResource -&gt; Text -&gt; AddTagsToResource)
 -&gt; Lens AddTagsToResource AddTagsToResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315268"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315499"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:AddTagsToResource' :: AddTagsToResource -&gt; Text
-</span><a href="#local-6989586621679315268"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315268"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315267"><span class="annot"><span class="annottext">s :: AddTagsToResource
-</span><a href="#local-6989586621679315267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315266"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResource
-</span><a href="#local-6989586621679315267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:AddTagsToResource' :: Text
+</span><a href="#local-6989586621679315499"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315499"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315498"><span class="annot"><span class="annottext">s :: AddTagsToResource
+</span><a href="#local-6989586621679315498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315497"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679315497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResource
+</span><a href="#local-6989586621679315498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:AddTagsToResource' :: Text
 </span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#%24sel%3AresourceId%3AAddTagsToResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | The tags to be assigned to the directory.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#addTagsToResource_tags"><span class="hs-identifier hs-type">addTagsToResource_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectoryService.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
@@ -166,35 +166,35 @@ $sel:resourceId:AddTagsToResource' :: AddTagsToResource -&gt; Text
 -&gt; (AddTagsToResource -&gt; [Tag] -&gt; AddTagsToResource)
 -&gt; Lens AddTagsToResource AddTagsToResource [Tag] [Tag]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315265"><span class="annot"><span class="annottext">[Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315496"><span class="annot"><span class="annottext">[Tag]
 tags :: [Tag]
 $sel:tags:AddTagsToResource' :: AddTagsToResource -&gt; [Tag]
-</span><a href="#local-6989586621679315265"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679315265"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315264"><span class="annot"><span class="annottext">s :: AddTagsToResource
-</span><a href="#local-6989586621679315264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315263"><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679315263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResource
-</span><a href="#local-6989586621679315264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTagsToResource' :: [Tag]
+</span><a href="#local-6989586621679315496"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679315496"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315495"><span class="annot"><span class="annottext">s :: AddTagsToResource
+</span><a href="#local-6989586621679315495"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315494"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679315494"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResource
+</span><a href="#local-6989586621679315495"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:AddTagsToResource' :: [Tag]
 </span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#%24sel%3Atags%3AAddTagsToResource%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679315263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; AddTagsToResource -&gt; f AddTagsToResource)
+</span><a href="#local-6989586621679315494"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag]) -&gt; AddTagsToResource -&gt; f AddTagsToResource)
 -&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
 -&gt; ([Tag] -&gt; f [Tag])
 -&gt; AddTagsToResource
 -&gt; f AddTagsToResource
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679315257"><span class="annot"><span class="annottext">request :: AddTagsToResource -&gt; Request AddTagsToResource
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679315488"><span class="annot"><span class="annottext">request :: AddTagsToResource -&gt; Request AddTagsToResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; AddTagsToResource -&gt; Request AddTagsToResource
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679315253"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679315484"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AddTagsToResource
 -&gt; ClientResponse ClientBody
@@ -220,10 +220,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315250"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315250"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679315249"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679315249"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679315248"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679315248"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679315481"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315481"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679315480"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679315480"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679315479"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679315479"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; AddTagsToResourceResponse
 </span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-var">AddTagsToResourceResponse'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; AddTagsToResourceResponse)
@@ -234,15 +234,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315250"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315481"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315241"><span id="local-6989586621679315243"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315472"><span id="local-6989586621679315474"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679315234"><span class="annot"><span class="annottext">toHeaders :: AddTagsToResource -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679315465"><span class="annot"><span class="annottext">toHeaders :: AddTagsToResource -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddTagsToResource -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -269,15 +269,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315224"><span id="local-6989586621679315226"><span id="local-6989586621679315228"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679315222"><span class="annot"><span class="annottext">toJSON :: AddTagsToResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315219"><span id="local-6989586621679315220"><span class="annot"><span class="annottext">[Tag]
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315455"><span id="local-6989586621679315457"><span id="local-6989586621679315459"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679315453"><span class="annot"><span class="annottext">toJSON :: AddTagsToResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource%27"><span class="hs-identifier hs-type">AddTagsToResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315450"><span id="local-6989586621679315451"><span class="annot"><span class="annottext">[Tag]
 Text
 tags :: [Tag]
 resourceId :: Text
 $sel:tags:AddTagsToResource' :: AddTagsToResource -&gt; [Tag]
 $sel:resourceId:AddTagsToResource' :: AddTagsToResource -&gt; Text
-</span><a href="#local-6989586621679315219"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679315450"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -289,26 +289,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679315220"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679315451"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
-</span><a href="#local-6989586621679315219"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315450"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679315213"><span class="annot"><span class="annottext">toPath :: AddTagsToResource -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679315444"><span class="annot"><span class="annottext">toPath :: AddTagsToResource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AddTagsToResource -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResource"><span class="hs-identifier hs-type">AddTagsToResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679315209"><span class="annot"><span class="annottext">toQuery :: AddTagsToResource -&gt; QueryString
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679315440"><span class="annot"><span class="annottext">toQuery :: AddTagsToResource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AddTagsToResource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -316,12 +316,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newAddTagsToResourceResponse' smart constructor.</span><span>
-</span><span id="line-136"></span><span id="local-6989586621679315206"><span id="local-6989586621679315207"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToResourceResponse"><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-var">AddTagsToResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToResourceResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-var">AddTagsToResourceResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span id="local-6989586621679315437"><span id="local-6989586621679315438"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddTagsToResourceResponse"><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-var">AddTagsToResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddTagsToResourceResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-var">AddTagsToResourceResponse'</span></a></span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddTagsToResourceResponse%27"><span class="annot"><span class="annottext">AddTagsToResourceResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#%24sel%3AhttpStatus%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315201"><span id="local-6989586621679315203"><span class="annot"><span class="annottext">AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679315432"><span id="local-6989586621679315434"><span class="annot"><span class="annottext">AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
 (AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool)
 -&gt; (AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool)
 -&gt; Eq AddTagsToResourceResponse
@@ -330,7 +330,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
 == :: AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
 $c== :: AddTagsToResourceResponse -&gt; AddTagsToResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315193"><span id="local-6989586621679315195"><span id="local-6989586621679315197"><span id="local-6989586621679315199"><span class="annot"><span class="annottext">ReadPrec [AddTagsToResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315424"><span id="local-6989586621679315426"><span id="local-6989586621679315428"><span id="local-6989586621679315430"><span class="annot"><span class="annottext">ReadPrec [AddTagsToResourceResponse]
 ReadPrec AddTagsToResourceResponse
 Int -&gt; ReadS AddTagsToResourceResponse
 ReadS [AddTagsToResourceResponse]
@@ -350,7 +350,7 @@ readList :: ReadS [AddTagsToResourceResponse]
 $creadList :: ReadS [AddTagsToResourceResponse]
 readsPrec :: Int -&gt; ReadS AddTagsToResourceResponse
 $creadsPrec :: Int -&gt; ReadS AddTagsToResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315187"><span id="local-6989586621679315189"><span id="local-6989586621679315191"><span class="annot"><span class="annottext">Int -&gt; AddTagsToResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679315418"><span id="local-6989586621679315420"><span id="local-6989586621679315422"><span class="annot"><span class="annottext">Int -&gt; AddTagsToResourceResponse -&gt; ShowS
 [AddTagsToResourceResponse] -&gt; ShowS
 AddTagsToResourceResponse -&gt; String
 (Int -&gt; AddTagsToResourceResponse -&gt; ShowS)
@@ -396,14 +396,14 @@ AddTagsToResourceResponse -&gt; Rep AddTagsToResourceResponse x
 </span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span>
 </span><span id="line-155"></span><span id="newAddTagsToResourceResponse"><span class="annot"><span class="annottext">newAddTagsToResourceResponse :: Int -&gt; AddTagsToResourceResponse
-</span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#newAddTagsToResourceResponse"><span class="hs-identifier hs-var hs-var">newAddTagsToResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679315184"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315184"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#newAddTagsToResourceResponse"><span class="hs-identifier hs-var hs-var">newAddTagsToResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679315415"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315415"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">AddTagsToResourceResponse' :: Int -&gt; AddTagsToResourceResponse
 </span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsToResourceResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#%24sel%3AhttpStatus%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315184"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679315415"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -414,16 +414,16 @@ AddTagsToResourceResponse -&gt; Rep AddTagsToResourceResponse x
 -&gt; (AddTagsToResourceResponse -&gt; Int -&gt; AddTagsToResourceResponse)
 -&gt; Lens AddTagsToResourceResponse AddTagsToResourceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315183"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679315414"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AddTagsToResourceResponse' :: AddTagsToResourceResponse -&gt; Int
-</span><a href="#local-6989586621679315183"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315183"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315182"><span class="annot"><span class="annottext">s :: AddTagsToResourceResponse
-</span><a href="#local-6989586621679315182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315181"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResourceResponse
-</span><a href="#local-6989586621679315182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsToResourceResponse' :: Int
+</span><a href="#local-6989586621679315414"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315414"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679315413"><span class="annot"><span class="annottext">s :: AddTagsToResourceResponse
+</span><a href="#local-6989586621679315413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse%27"><span class="hs-identifier hs-type">AddTagsToResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679315412"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679315412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddTagsToResourceResponse
+</span><a href="#local-6989586621679315413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddTagsToResourceResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.AddTagsToResource.html#%24sel%3AhttpStatus%3AAddTagsToResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679315181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679315412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315179"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679315410"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.AddTagsToResource.html#AddTagsToResourceResponse"><span class="hs-identifier hs-type">AddTagsToResourceResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

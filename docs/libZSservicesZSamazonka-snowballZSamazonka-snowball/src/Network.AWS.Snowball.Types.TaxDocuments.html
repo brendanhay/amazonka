@@ -27,11 +27,11 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The tax documents required in your AWS Region.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTaxDocuments' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679226288"><span id="local-6989586621679226289"></span></span><span class="hs-keyword">data</span><span> </span><span id="TaxDocuments"><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-var">TaxDocuments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaxDocuments%27"><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments%27"><span class="hs-identifier hs-var">TaxDocuments'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679226348"><span id="local-6989586621679226349"></span></span><span class="hs-keyword">data</span><span> </span><span id="TaxDocuments"><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-var">TaxDocuments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaxDocuments%27"><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments%27"><span class="hs-identifier hs-var">TaxDocuments'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Aind%3ATaxDocuments%27"><span class="annot"><span class="annottext">TaxDocuments -&gt; Maybe INDTaxDocuments
 </span><a href="Network.AWS.Snowball.Types.TaxDocuments.html#%24sel%3Aind%3ATaxDocuments%27"><span class="hs-identifier hs-var hs-var">ind</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.INDTaxDocuments.html#INDTaxDocuments"><span class="hs-identifier hs-type">INDTaxDocuments</span></a></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226282"><span id="local-6989586621679226284"><span class="annot"><span class="annottext">TaxDocuments -&gt; TaxDocuments -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679226342"><span id="local-6989586621679226344"><span class="annot"><span class="annottext">TaxDocuments -&gt; TaxDocuments -&gt; Bool
 (TaxDocuments -&gt; TaxDocuments -&gt; Bool)
 -&gt; (TaxDocuments -&gt; TaxDocuments -&gt; Bool) -&gt; Eq TaxDocuments
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -39,7 +39,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: TaxDocuments -&gt; TaxDocuments -&gt; Bool
 == :: TaxDocuments -&gt; TaxDocuments -&gt; Bool
 $c== :: TaxDocuments -&gt; TaxDocuments -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226273"><span id="local-6989586621679226275"><span id="local-6989586621679226277"><span id="local-6989586621679226279"><span class="annot"><span class="annottext">ReadPrec [TaxDocuments]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226333"><span id="local-6989586621679226335"><span id="local-6989586621679226337"><span id="local-6989586621679226339"><span class="annot"><span class="annottext">ReadPrec [TaxDocuments]
 ReadPrec TaxDocuments
 Int -&gt; ReadS TaxDocuments
 ReadS [TaxDocuments]
@@ -59,7 +59,7 @@ readList :: ReadS [TaxDocuments]
 $creadList :: ReadS [TaxDocuments]
 readsPrec :: Int -&gt; ReadS TaxDocuments
 $creadsPrec :: Int -&gt; ReadS TaxDocuments
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226266"><span id="local-6989586621679226268"><span id="local-6989586621679226270"><span class="annot"><span class="annottext">Int -&gt; TaxDocuments -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679226326"><span id="local-6989586621679226328"><span id="local-6989586621679226330"><span class="annot"><span class="annottext">Int -&gt; TaxDocuments -&gt; ShowS
 [TaxDocuments] -&gt; ShowS
 TaxDocuments -&gt; String
 (Int -&gt; TaxDocuments -&gt; ShowS)
@@ -116,19 +116,19 @@ forall a. Maybe a
      (Maybe INDTaxDocuments)
      (Maybe INDTaxDocuments)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments%27"><span class="hs-identifier hs-type">TaxDocuments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226257"><span class="annot"><span class="annottext">Maybe INDTaxDocuments
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments%27"><span class="hs-identifier hs-type">TaxDocuments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226317"><span class="annot"><span class="annottext">Maybe INDTaxDocuments
 ind :: Maybe INDTaxDocuments
 $sel:ind:TaxDocuments' :: TaxDocuments -&gt; Maybe INDTaxDocuments
-</span><a href="#local-6989586621679226257"><span class="hs-identifier hs-var hs-var">ind</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe INDTaxDocuments
-</span><a href="#local-6989586621679226257"><span class="hs-identifier hs-var">ind</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226256"><span class="annot"><span class="annottext">s :: TaxDocuments
-</span><a href="#local-6989586621679226256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments%27"><span class="hs-identifier hs-type">TaxDocuments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226255"><span class="annot"><span class="annottext">Maybe INDTaxDocuments
-</span><a href="#local-6989586621679226255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaxDocuments
-</span><a href="#local-6989586621679226256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ind:TaxDocuments' :: Maybe INDTaxDocuments
+</span><a href="#local-6989586621679226317"><span class="hs-identifier hs-var hs-var">ind</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe INDTaxDocuments
+</span><a href="#local-6989586621679226317"><span class="hs-identifier hs-var">ind</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226316"><span class="annot"><span class="annottext">s :: TaxDocuments
+</span><a href="#local-6989586621679226316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments%27"><span class="hs-identifier hs-type">TaxDocuments'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679226315"><span class="annot"><span class="annottext">Maybe INDTaxDocuments
+</span><a href="#local-6989586621679226315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TaxDocuments
+</span><a href="#local-6989586621679226316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ind:TaxDocuments' :: Maybe INDTaxDocuments
 </span><a href="Network.AWS.Snowball.Types.TaxDocuments.html#%24sel%3Aind%3ATaxDocuments%27"><span class="hs-identifier hs-var">ind</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe INDTaxDocuments
-</span><a href="#local-6989586621679226255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-type">TaxDocuments</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-type">TaxDocuments</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-52"></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226252"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-type">TaxDocuments</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-54"></span><span>  </span><span id="local-6989586621679226250"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TaxDocuments
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226312"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-type">TaxDocuments</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679226310"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TaxDocuments
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser TaxDocuments) -&gt; Value -&gt; Parser TaxDocuments
@@ -136,27 +136,27 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;TaxDocuments&quot;</span></span><span>
-</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226247"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226247"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe INDTaxDocuments -&gt; TaxDocuments
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679226307"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679226307"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe INDTaxDocuments -&gt; TaxDocuments
 </span><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments%27"><span class="hs-identifier hs-var">TaxDocuments'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe INDTaxDocuments -&gt; TaxDocuments)
 -&gt; Parser (Maybe INDTaxDocuments) -&gt; Parser TaxDocuments
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679226247"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe INDTaxDocuments)
+</span><a href="#local-6989586621679226307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe INDTaxDocuments)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;IND&quot;</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-58"></span><span>
-</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226241"><span id="local-6989586621679226243"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-type">TaxDocuments</span></a></span></span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226301"><span id="local-6989586621679226303"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-type">TaxDocuments</span></a></span></span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-type">TaxDocuments</span></a></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226298"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-type">TaxDocuments</span></a></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226230"><span id="local-6989586621679226232"><span id="local-6989586621679226234"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-type">TaxDocuments</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621679226228"><span class="annot"><span class="annottext">toJSON :: TaxDocuments -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments%27"><span class="hs-identifier hs-type">TaxDocuments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226226"><span class="annot"><span class="annottext">Maybe INDTaxDocuments
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679226290"><span id="local-6989586621679226292"><span id="local-6989586621679226294"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments"><span class="hs-identifier hs-type">TaxDocuments</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679226288"><span class="annot"><span class="annottext">toJSON :: TaxDocuments -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Snowball.Types.TaxDocuments.html#TaxDocuments%27"><span class="hs-identifier hs-type">TaxDocuments'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679226286"><span class="annot"><span class="annottext">Maybe INDTaxDocuments
 ind :: Maybe INDTaxDocuments
 $sel:ind:TaxDocuments' :: TaxDocuments -&gt; Maybe INDTaxDocuments
-</span><a href="#local-6989586621679226226"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679226286"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-66"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -167,5 +167,5 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(INDTaxDocuments -&gt; Pair) -&gt; Maybe INDTaxDocuments -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe INDTaxDocuments
-</span><a href="#local-6989586621679226226"><span class="hs-identifier hs-var">ind</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679226286"><span class="hs-identifier hs-var">ind</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span></pre></body></html>

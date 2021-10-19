@@ -41,9 +41,9 @@
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#newListQualificationRequestsResponse"><span class="hs-identifier">newListQualificationRequestsResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_nextToken"><span class="hs-identifier">listQualificationRequestsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_numResults"><span class="hs-identifier">listQualificationRequestsResponse_numResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_qualificationRequests"><span class="hs-identifier">listQualificationRequestsResponse_qualificationRequests</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_qualificationRequests"><span class="hs-identifier">listQualificationRequestsResponse_qualificationRequests</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_nextToken"><span class="hs-identifier">listQualificationRequestsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_numResults"><span class="hs-identifier">listQualificationRequestsResponse_numResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_httpStatus"><span class="hs-identifier">listQualificationRequestsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListQualificationRequests' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679249724"><span id="local-6989586621679249725"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQualificationRequests"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-var">ListQualificationRequests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQualificationRequests%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-var">ListQualificationRequests'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679249852"><span id="local-6989586621679249853"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQualificationRequests"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-var">ListQualificationRequests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQualificationRequests%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-var">ListQualificationRequests'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3AListQualificationRequests%27"><span class="annot"><span class="annottext">ListQualificationRequests -&gt; Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AnextToken%3AListQualificationRequests%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ID of the QualificationType.</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AListQualificationRequests%27"><span class="annot"><span class="annottext">ListQualificationRequests -&gt; Maybe Natural
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AmaxResults%3AListQualificationRequests%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249716"><span id="local-6989586621679249718"><span class="annot"><span class="annottext">ListQualificationRequests -&gt; ListQualificationRequests -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249844"><span id="local-6989586621679249846"><span class="annot"><span class="annottext">ListQualificationRequests -&gt; ListQualificationRequests -&gt; Bool
 (ListQualificationRequests -&gt; ListQualificationRequests -&gt; Bool)
 -&gt; (ListQualificationRequests -&gt; ListQualificationRequests -&gt; Bool)
 -&gt; Eq ListQualificationRequests
@@ -75,7 +75,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ListQualificationRequests -&gt; ListQualificationRequests -&gt; Bool
 == :: ListQualificationRequests -&gt; ListQualificationRequests -&gt; Bool
 $c== :: ListQualificationRequests -&gt; ListQualificationRequests -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249707"><span id="local-6989586621679249709"><span id="local-6989586621679249711"><span id="local-6989586621679249713"><span class="annot"><span class="annottext">ReadPrec [ListQualificationRequests]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249835"><span id="local-6989586621679249837"><span id="local-6989586621679249839"><span id="local-6989586621679249841"><span class="annot"><span class="annottext">ReadPrec [ListQualificationRequests]
 ReadPrec ListQualificationRequests
 Int -&gt; ReadS ListQualificationRequests
 ReadS [ListQualificationRequests]
@@ -95,7 +95,7 @@ readList :: ReadS [ListQualificationRequests]
 $creadList :: ReadS [ListQualificationRequests]
 readsPrec :: Int -&gt; ReadS ListQualificationRequests
 $creadsPrec :: Int -&gt; ReadS ListQualificationRequests
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249700"><span id="local-6989586621679249702"><span id="local-6989586621679249704"><span class="annot"><span class="annottext">Int -&gt; ListQualificationRequests -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249828"><span id="local-6989586621679249830"><span id="local-6989586621679249832"><span class="annot"><span class="annottext">Int -&gt; ListQualificationRequests -&gt; ShowS
 [ListQualificationRequests] -&gt; ShowS
 ListQualificationRequests -&gt; String
 (Int -&gt; ListQualificationRequests -&gt; ShowS)
@@ -175,16 +175,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249694"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249822"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:ListQualificationRequests' :: ListQualificationRequests -&gt; Maybe Text
-</span><a href="#local-6989586621679249694"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249694"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249693"><span class="annot"><span class="annottext">s :: ListQualificationRequests
-</span><a href="#local-6989586621679249693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249692"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequests
-</span><a href="#local-6989586621679249693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQualificationRequests' :: Maybe Text
+</span><a href="#local-6989586621679249822"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249822"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249821"><span class="annot"><span class="annottext">s :: ListQualificationRequests
+</span><a href="#local-6989586621679249821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249820"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequests
+</span><a href="#local-6989586621679249821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQualificationRequests' :: Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AnextToken%3AListQualificationRequests%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The ID of the QualificationType.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequests_qualificationTypeId"><span class="hs-identifier hs-type">listQualificationRequests_qualificationTypeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -199,16 +199,16 @@ $sel:nextToken:ListQualificationRequests' :: ListQualificationRequests -&gt; May
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249691"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249819"><span class="annot"><span class="annottext">Maybe Text
 qualificationTypeId :: Maybe Text
 $sel:qualificationTypeId:ListQualificationRequests' :: ListQualificationRequests -&gt; Maybe Text
-</span><a href="#local-6989586621679249691"><span class="hs-identifier hs-var hs-var">qualificationTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249691"><span class="hs-identifier hs-var">qualificationTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249690"><span class="annot"><span class="annottext">s :: ListQualificationRequests
-</span><a href="#local-6989586621679249690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249689"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequests
-</span><a href="#local-6989586621679249690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualificationTypeId:ListQualificationRequests' :: Maybe Text
+</span><a href="#local-6989586621679249819"><span class="hs-identifier hs-var hs-var">qualificationTypeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249819"><span class="hs-identifier hs-var">qualificationTypeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249818"><span class="annot"><span class="annottext">s :: ListQualificationRequests
+</span><a href="#local-6989586621679249818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249817"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequests
+</span><a href="#local-6989586621679249818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualificationTypeId:ListQualificationRequests' :: Maybe Text
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AqualificationTypeId%3AListQualificationRequests%27"><span class="hs-identifier hs-var">qualificationTypeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- | The maximum number of results to return in a single call.</span><span>
 </span><span id="line-100"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequests_maxResults"><span class="hs-identifier hs-type">listQualificationRequests_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
@@ -223,30 +223,30 @@ $sel:qualificationTypeId:ListQualificationRequests' :: ListQualificationRequests
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249688"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249816"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:ListQualificationRequests' :: ListQualificationRequests -&gt; Maybe Natural
-</span><a href="#local-6989586621679249688"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679249688"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249687"><span class="annot"><span class="annottext">s :: ListQualificationRequests
-</span><a href="#local-6989586621679249687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249686"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679249686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequests
-</span><a href="#local-6989586621679249687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListQualificationRequests' :: Maybe Natural
+</span><a href="#local-6989586621679249816"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249816"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249815"><span class="annot"><span class="annottext">s :: ListQualificationRequests
+</span><a href="#local-6989586621679249815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249814"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequests
+</span><a href="#local-6989586621679249815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListQualificationRequests' :: Maybe Natural
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AmaxResults%3AListQualificationRequests%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679249686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679249682"><span class="annot"><span class="annottext">page :: ListQualificationRequests
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679249810"><span class="annot"><span class="annottext">page :: ListQualificationRequests
 -&gt; AWSResponse ListQualificationRequests
 -&gt; Maybe ListQualificationRequests
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679249680"><span class="annot"><span class="annottext">ListQualificationRequests
-</span><a href="#local-6989586621679249680"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679249679"><span class="annot"><span class="annottext">AWSResponse ListQualificationRequests
-</span><a href="#local-6989586621679249679"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679249808"><span class="annot"><span class="annottext">ListQualificationRequests
+</span><a href="#local-6989586621679249808"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679249807"><span class="annot"><span class="annottext">AWSResponse ListQualificationRequests
+</span><a href="#local-6989586621679249807"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-105"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-106"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListQualificationRequests
 ListQualificationRequestsResponse
-</span><a href="#local-6989586621679249679"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679249807"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">ListQualificationRequestsResponse
 -&gt; Getting (First Text) ListQualificationRequestsResponse Text
 -&gt; Maybe Text
@@ -276,7 +276,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-112"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListQualificationRequests
 ListQualificationRequestsResponse
-</span><a href="#local-6989586621679249679"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679249807"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">ListQualificationRequestsResponse
 -&gt; Getting
      (First [QualificationRequest])
@@ -329,7 +329,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ListQualificationRequests
-</span><a href="#local-6989586621679249680"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679249808"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">ListQualificationRequests
 -&gt; (ListQualificationRequests -&gt; ListQualificationRequests)
 -&gt; ListQualificationRequests
@@ -350,7 +350,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListQualificationRequests
 ListQualificationRequestsResponse
-</span><a href="#local-6989586621679249679"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679249807"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">ListQualificationRequestsResponse
 -&gt; Getting (First Text) ListQualificationRequestsResponse Text
 -&gt; Maybe Text
@@ -376,13 +376,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-126"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-127"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>      </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679249669"><span class="annot"><span class="annottext">request :: ListQualificationRequests -&gt; Request ListQualificationRequests
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679249797"><span class="annot"><span class="annottext">request :: ListQualificationRequests -&gt; Request ListQualificationRequests
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ListQualificationRequests -&gt; Request ListQualificationRequests
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.MechanicalTurk.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679249665"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679249793"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ListQualificationRequests
 -&gt; ClientResponse ClientBody
@@ -408,72 +408,64 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249662"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249662"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679249661"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679249661"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679249660"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249660"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249790"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249790"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679249789"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679249789"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679249788"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249788"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe [QualificationRequest]
+-&gt; Maybe Text
 -&gt; Maybe Int
--&gt; Maybe [QualificationRequest]
 -&gt; Int
 -&gt; ListQualificationRequestsResponse
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">ListQualificationRequestsResponse'</span></a></span><span>
-</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [QualificationRequest]
+ -&gt; Maybe Text
  -&gt; Maybe Int
- -&gt; Maybe [QualificationRequest]
  -&gt; Int
  -&gt; ListQualificationRequestsResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe Int
-      -&gt; Maybe [QualificationRequest]
-      -&gt; Int
-      -&gt; ListQualificationRequestsResponse)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Int
-   -&gt; Maybe [QualificationRequest]
-   -&gt; Int
-   -&gt; ListQualificationRequestsResponse)
--&gt; Either String (Maybe Int)
--&gt; Either
-     String
-     (Maybe [QualificationRequest]
-      -&gt; Int -&gt; ListQualificationRequestsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NumResults&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [QualificationRequest]
-   -&gt; Int -&gt; ListQualificationRequestsResponse)
 -&gt; Either String (Maybe [QualificationRequest])
--&gt; Either String (Int -&gt; ListQualificationRequestsResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679249660"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Int -&gt; Int -&gt; ListQualificationRequestsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text -&gt; Either String (Maybe (Maybe [QualificationRequest]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QualificationRequests&quot;</span></span><span>
-</span><span id="line-137"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [QualificationRequest]))
+</span><span id="line-135"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [QualificationRequest]))
 -&gt; Maybe [QualificationRequest]
 -&gt; Either String (Maybe [QualificationRequest])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [QualificationRequest]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-138"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Int -&gt; Int -&gt; ListQualificationRequestsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Int -&gt; Int -&gt; ListQualificationRequestsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Int -&gt; Int -&gt; ListQualificationRequestsResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Int -&gt; ListQualificationRequestsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249788"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NumResults&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListQualificationRequestsResponse)
 -&gt; Either String Int
 -&gt; Either String ListQualificationRequestsResponse
@@ -483,15 +475,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249662"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249790"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249651"><span id="local-6989586621679249653"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span></span></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249779"><span id="local-6989586621679249781"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span></span></span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249648"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249776"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679249644"><span class="annot"><span class="annottext">toHeaders :: ListQualificationRequests -&gt; ResponseHeaders
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679249772"><span class="annot"><span class="annottext">toHeaders :: ListQualificationRequests -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListQualificationRequests -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -518,9 +510,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-158"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249634"><span id="local-6989586621679249636"><span id="local-6989586621679249638"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679249632"><span class="annot"><span class="annottext">toJSON :: ListQualificationRequests -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249628"><span id="local-6989586621679249629"><span id="local-6989586621679249630"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249762"><span id="local-6989586621679249764"><span id="local-6989586621679249766"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679249760"><span class="annot"><span class="annottext">toJSON :: ListQualificationRequests -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests%27"><span class="hs-identifier hs-type">ListQualificationRequests'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249756"><span id="local-6989586621679249757"><span id="local-6989586621679249758"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 maxResults :: Maybe Natural
 qualificationTypeId :: Maybe Text
@@ -528,7 +520,7 @@ nextToken :: Maybe Text
 $sel:maxResults:ListQualificationRequests' :: ListQualificationRequests -&gt; Maybe Natural
 $sel:qualificationTypeId:ListQualificationRequests' :: ListQualificationRequests -&gt; Maybe Text
 $sel:nextToken:ListQualificationRequests' :: ListQualificationRequests -&gt; Maybe Text
-</span><a href="#local-6989586621679249628"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679249756"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -540,7 +532,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249630"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249758"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;QualificationTypeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -548,26 +540,26 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-167"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249629"><span class="hs-identifier hs-var">qualificationTypeId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679249757"><span class="hs-identifier hs-var">qualificationTypeId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679249628"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><a href="#local-6989586621679249756"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-169"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-170"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-173"></span><span>  </span><span id="local-6989586621679249622"><span class="annot"><span class="annottext">toPath :: ListQualificationRequests -&gt; ByteString
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679249750"><span class="annot"><span class="annottext">toPath :: ListQualificationRequests -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListQualificationRequests -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequests"><span class="hs-identifier hs-type">ListQualificationRequests</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679249618"><span class="annot"><span class="annottext">toQuery :: ListQualificationRequests -&gt; QueryString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679249746"><span class="annot"><span class="annottext">toQuery :: ListQualificationRequests -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListQualificationRequests -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -575,24 +567,24 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-comment">-- | /See:/ 'newListQualificationRequestsResponse' smart constructor.</span><span>
-</span><span id="line-179"></span><span id="local-6989586621679249615"><span id="local-6989586621679249616"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQualificationRequestsResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-var">ListQualificationRequestsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQualificationRequestsResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">ListQualificationRequestsResponse'</span></a></span></span><span>
-</span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AnextToken%3AListQualificationRequestsResponse%27"><span class="annot"><span class="annottext">ListQualificationRequestsResponse -&gt; Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AnextToken%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The number of Qualification requests on this page in the filtered</span><span>
-</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- results list, equivalent to the number of Qualification requests being</span><span>
-</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- returned by this call.</span><span>
-</span><span id="line-184"></span><span>    </span><span id="%24sel%3AnumResults%3AListQualificationRequestsResponse%27"><span class="annot"><span class="annottext">ListQualificationRequestsResponse -&gt; Maybe Int
-</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AnumResults%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The Qualification request. The response includes one</span><span>
-</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- QualificationRequest element for each Qualification request returned by</span><span>
-</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- the query.</span><span>
-</span><span id="line-188"></span><span>    </span><span id="%24sel%3AqualificationRequests%3AListQualificationRequestsResponse%27"><span class="annot"><span class="annottext">ListQualificationRequestsResponse -&gt; Maybe [QualificationRequest]
+</span><span id="line-179"></span><span id="local-6989586621679249743"><span id="local-6989586621679249744"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListQualificationRequestsResponse"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-var">ListQualificationRequestsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListQualificationRequestsResponse%27"><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">ListQualificationRequestsResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Qualification request. The response includes one</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- QualificationRequest element for each Qualification request returned by</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- the query.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AqualificationRequests%3AListQualificationRequestsResponse%27"><span class="annot"><span class="annottext">ListQualificationRequestsResponse -&gt; Maybe [QualificationRequest]
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AqualificationRequests%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var hs-var">qualificationRequests</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationRequest.html#QualificationRequest"><span class="hs-identifier hs-type">QualificationRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AnextToken%3AListQualificationRequestsResponse%27"><span class="annot"><span class="annottext">ListQualificationRequestsResponse -&gt; Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AnextToken%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The number of Qualification requests on this page in the filtered</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- results list, equivalent to the number of Qualification requests being</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- returned by this call.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AnumResults%3AListQualificationRequestsResponse%27"><span class="annot"><span class="annottext">ListQualificationRequestsResponse -&gt; Maybe Int
+</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AnumResults%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
 </span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListQualificationRequestsResponse%27"><span class="annot"><span class="annottext">ListQualificationRequestsResponse -&gt; Int
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AhttpStatus%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249607"><span id="local-6989586621679249609"><span class="annot"><span class="annottext">ListQualificationRequestsResponse
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249735"><span id="local-6989586621679249737"><span class="annot"><span class="annottext">ListQualificationRequestsResponse
 -&gt; ListQualificationRequestsResponse -&gt; Bool
 (ListQualificationRequestsResponse
  -&gt; ListQualificationRequestsResponse -&gt; Bool)
@@ -608,7 +600,7 @@ $c/= :: ListQualificationRequestsResponse
 -&gt; ListQualificationRequestsResponse -&gt; Bool
 $c== :: ListQualificationRequestsResponse
 -&gt; ListQualificationRequestsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249599"><span id="local-6989586621679249601"><span id="local-6989586621679249603"><span id="local-6989586621679249605"><span class="annot"><span class="annottext">ReadPrec [ListQualificationRequestsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249727"><span id="local-6989586621679249729"><span id="local-6989586621679249731"><span id="local-6989586621679249733"><span class="annot"><span class="annottext">ReadPrec [ListQualificationRequestsResponse]
 ReadPrec ListQualificationRequestsResponse
 Int -&gt; ReadS ListQualificationRequestsResponse
 ReadS [ListQualificationRequestsResponse]
@@ -628,7 +620,7 @@ readList :: ReadS [ListQualificationRequestsResponse]
 $creadList :: ReadS [ListQualificationRequestsResponse]
 readsPrec :: Int -&gt; ReadS ListQualificationRequestsResponse
 $creadsPrec :: Int -&gt; ReadS ListQualificationRequestsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249593"><span id="local-6989586621679249595"><span id="local-6989586621679249597"><span class="annot"><span class="annottext">Int -&gt; ListQualificationRequestsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249721"><span id="local-6989586621679249723"><span id="local-6989586621679249725"><span class="annot"><span class="annottext">Int -&gt; ListQualificationRequestsResponse -&gt; ShowS
 [ListQualificationRequestsResponse] -&gt; ShowS
 ListQualificationRequestsResponse -&gt; String
 (Int -&gt; ListQualificationRequestsResponse -&gt; ShowS)
@@ -674,15 +666,15 @@ ListQualificationRequestsResponse
 </span><span id="line-199"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-200"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-201"></span><span class="hs-comment">--</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- 'nextToken', 'listQualificationRequestsResponse_nextToken' - Undocumented member.</span><span>
-</span><span id="line-203"></span><span class="hs-comment">--</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- 'numResults', 'listQualificationRequestsResponse_numResults' - The number of Qualification requests on this page in the filtered</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- results list, equivalent to the number of Qualification requests being</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- returned by this call.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'qualificationRequests', 'listQualificationRequestsResponse_qualificationRequests' - The Qualification request. The response includes one</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- QualificationRequest element for each Qualification request returned by</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- the query.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'nextToken', 'listQualificationRequestsResponse_nextToken' - Undocumented member.</span><span>
 </span><span id="line-207"></span><span class="hs-comment">--</span><span>
-</span><span id="line-208"></span><span class="hs-comment">-- 'qualificationRequests', 'listQualificationRequestsResponse_qualificationRequests' - The Qualification request. The response includes one</span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- QualificationRequest element for each Qualification request returned by</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- the query.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'numResults', 'listQualificationRequestsResponse_numResults' - The number of Qualification requests on this page in the filtered</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- results list, equivalent to the number of Qualification requests being</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- returned by this call.</span><span>
 </span><span id="line-211"></span><span class="hs-comment">--</span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- 'httpStatus', 'listQualificationRequestsResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-213"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#newListQualificationRequestsResponse"><span class="hs-identifier hs-type">newListQualificationRequestsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -690,85 +682,37 @@ ListQualificationRequestsResponse
 </span><span id="line-215"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-216"></span><span>  </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span>
 </span><span id="line-217"></span><span id="newListQualificationRequestsResponse"><span class="annot"><span class="annottext">newListQualificationRequestsResponse :: Int -&gt; ListQualificationRequestsResponse
-</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#newListQualificationRequestsResponse"><span class="hs-identifier hs-var hs-var">newListQualificationRequestsResponse</span></a></span></span><span> </span><span id="local-6989586621679249590"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249590"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-218"></span><span>  </span><span class="annot"><span class="annottext">ListQualificationRequestsResponse' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#newListQualificationRequestsResponse"><span class="hs-identifier hs-var hs-var">newListQualificationRequestsResponse</span></a></span></span><span> </span><span id="local-6989586621679249718"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249718"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><span class="annottext">ListQualificationRequestsResponse' :: Maybe [QualificationRequest]
+-&gt; Maybe Text
 -&gt; Maybe Int
--&gt; Maybe [QualificationRequest]
 -&gt; Int
 -&gt; ListQualificationRequestsResponse
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span>
-</span><span id="line-219"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListQualificationRequestsResponse' :: Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AnextToken%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-219"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:qualificationRequests:ListQualificationRequestsResponse' :: Maybe [QualificationRequest]
+</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AqualificationRequests%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">qualificationRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">Maybe [QualificationRequest]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:numResults:ListQualificationRequestsResponse' :: Maybe Int
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListQualificationRequestsResponse' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AnextToken%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:numResults:ListQualificationRequestsResponse' :: Maybe Int
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AnumResults%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:qualificationRequests:ListQualificationRequestsResponse' :: Maybe [QualificationRequest]
-</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AqualificationRequests%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">qualificationRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QualificationRequest]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListQualificationRequestsResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AhttpStatus%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249590"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679249718"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-224"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-225"></span><span>
-</span><span id="line-226"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-227"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_nextToken"><span class="hs-identifier hs-type">listQualificationRequestsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-228"></span><span id="listQualificationRequestsResponse_nextToken"><span class="annot"><span class="annottext">listQualificationRequestsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ListQualificationRequestsResponse
--&gt; f ListQualificationRequestsResponse
-</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listQualificationRequestsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListQualificationRequestsResponse -&gt; Maybe Text)
--&gt; (ListQualificationRequestsResponse
-    -&gt; Maybe Text -&gt; ListQualificationRequestsResponse)
--&gt; Lens' ListQualificationRequestsResponse (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249589"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:ListQualificationRequestsResponse' :: ListQualificationRequestsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679249589"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249589"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249588"><span class="annot"><span class="annottext">s :: ListQualificationRequestsResponse
-</span><a href="#local-6989586621679249588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249587"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequestsResponse
-</span><a href="#local-6989586621679249588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQualificationRequestsResponse' :: Maybe Text
-</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AnextToken%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679249587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-229"></span><span>
-</span><span id="line-230"></span><span class="hs-comment">-- | The number of Qualification requests on this page in the filtered</span><span>
-</span><span id="line-231"></span><span class="hs-comment">-- results list, equivalent to the number of Qualification requests being</span><span>
-</span><span id="line-232"></span><span class="hs-comment">-- returned by this call.</span><span>
-</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_numResults"><span class="hs-identifier hs-type">listQualificationRequestsResponse_numResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-234"></span><span id="listQualificationRequestsResponse_numResults"><span class="annot"><span class="annottext">listQualificationRequestsResponse_numResults :: (Maybe Int -&gt; f (Maybe Int))
--&gt; ListQualificationRequestsResponse
--&gt; f ListQualificationRequestsResponse
-</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_numResults"><span class="hs-identifier hs-var hs-var">listQualificationRequestsResponse_numResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListQualificationRequestsResponse -&gt; Maybe Int)
--&gt; (ListQualificationRequestsResponse
-    -&gt; Maybe Int -&gt; ListQualificationRequestsResponse)
--&gt; Lens
-     ListQualificationRequestsResponse
-     ListQualificationRequestsResponse
-     (Maybe Int)
-     (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249586"><span class="annot"><span class="annottext">Maybe Int
-numResults :: Maybe Int
-$sel:numResults:ListQualificationRequestsResponse' :: ListQualificationRequestsResponse -&gt; Maybe Int
-</span><a href="#local-6989586621679249586"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679249586"><span class="hs-identifier hs-var">numResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249585"><span class="annot"><span class="annottext">s :: ListQualificationRequestsResponse
-</span><a href="#local-6989586621679249585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249584"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679249584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequestsResponse
-</span><a href="#local-6989586621679249585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numResults:ListQualificationRequestsResponse' :: Maybe Int
-</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AnumResults%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679249584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-235"></span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- | The Qualification request. The response includes one</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- QualificationRequest element for each Qualification request returned by</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- the query.</span><span>
-</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_qualificationRequests"><span class="hs-identifier hs-type">listQualificationRequestsResponse_qualificationRequests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationRequest.html#QualificationRequest"><span class="hs-identifier hs-type">QualificationRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-240"></span><span id="listQualificationRequestsResponse_qualificationRequests"><span class="annot"><span class="annottext">listQualificationRequestsResponse_qualificationRequests :: (Maybe [QualificationRequest] -&gt; f (Maybe [QualificationRequest]))
+</span><span id="line-226"></span><span class="hs-comment">-- | The Qualification request. The response includes one</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- QualificationRequest element for each Qualification request returned by</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- the query.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_qualificationRequests"><span class="hs-identifier hs-type">listQualificationRequestsResponse_qualificationRequests</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.MechanicalTurk.Types.QualificationRequest.html#QualificationRequest"><span class="hs-identifier hs-type">QualificationRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="listQualificationRequestsResponse_qualificationRequests"><span class="annot"><span class="annottext">listQualificationRequestsResponse_qualificationRequests :: (Maybe [QualificationRequest] -&gt; f (Maybe [QualificationRequest]))
 -&gt; ListQualificationRequestsResponse
 -&gt; f ListQualificationRequestsResponse
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_qualificationRequests"><span class="hs-identifier hs-var hs-var">listQualificationRequestsResponse_qualificationRequests</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListQualificationRequestsResponse -&gt; Maybe [QualificationRequest])
@@ -778,16 +722,16 @@ $sel:numResults:ListQualificationRequestsResponse' :: ListQualificationRequestsR
 -&gt; Lens'
      ListQualificationRequestsResponse (Maybe [QualificationRequest])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249583"><span class="annot"><span class="annottext">Maybe [QualificationRequest]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249717"><span class="annot"><span class="annottext">Maybe [QualificationRequest]
 qualificationRequests :: Maybe [QualificationRequest]
 $sel:qualificationRequests:ListQualificationRequestsResponse' :: ListQualificationRequestsResponse -&gt; Maybe [QualificationRequest]
-</span><a href="#local-6989586621679249583"><span class="hs-identifier hs-var hs-var">qualificationRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QualificationRequest]
-</span><a href="#local-6989586621679249583"><span class="hs-identifier hs-var">qualificationRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249582"><span class="annot"><span class="annottext">s :: ListQualificationRequestsResponse
-</span><a href="#local-6989586621679249582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249581"><span class="annot"><span class="annottext">Maybe [QualificationRequest]
-</span><a href="#local-6989586621679249581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequestsResponse
-</span><a href="#local-6989586621679249582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualificationRequests:ListQualificationRequestsResponse' :: Maybe [QualificationRequest]
+</span><a href="#local-6989586621679249717"><span class="hs-identifier hs-var hs-var">qualificationRequests</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [QualificationRequest]
+</span><a href="#local-6989586621679249717"><span class="hs-identifier hs-var">qualificationRequests</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249716"><span class="annot"><span class="annottext">s :: ListQualificationRequestsResponse
+</span><a href="#local-6989586621679249716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249715"><span class="annot"><span class="annottext">Maybe [QualificationRequest]
+</span><a href="#local-6989586621679249715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequestsResponse
+</span><a href="#local-6989586621679249716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:qualificationRequests:ListQualificationRequestsResponse' :: Maybe [QualificationRequest]
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AqualificationRequests%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">qualificationRequests</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [QualificationRequest]
-</span><a href="#local-6989586621679249581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QualificationRequest] -&gt; f (Maybe [QualificationRequest]))
+</span><a href="#local-6989586621679249715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [QualificationRequest] -&gt; f (Maybe [QualificationRequest]))
  -&gt; ListQualificationRequestsResponse
  -&gt; f ListQualificationRequestsResponse)
 -&gt; ((Maybe [QualificationRequest]
@@ -817,8 +761,56 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [QualificationRequest]
   [QualificationRequest]
   [QualificationRequest]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_nextToken"><span class="hs-identifier hs-type">listQualificationRequestsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="listQualificationRequestsResponse_nextToken"><span class="annot"><span class="annottext">listQualificationRequestsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListQualificationRequestsResponse
+-&gt; f ListQualificationRequestsResponse
+</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listQualificationRequestsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListQualificationRequestsResponse -&gt; Maybe Text)
+-&gt; (ListQualificationRequestsResponse
+    -&gt; Maybe Text -&gt; ListQualificationRequestsResponse)
+-&gt; Lens' ListQualificationRequestsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249712"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListQualificationRequestsResponse' :: ListQualificationRequestsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679249712"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249712"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249711"><span class="annot"><span class="annottext">s :: ListQualificationRequestsResponse
+</span><a href="#local-6989586621679249711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249710"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequestsResponse
+</span><a href="#local-6989586621679249711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListQualificationRequestsResponse' :: Maybe Text
+</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AnextToken%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The number of Qualification requests on this page in the filtered</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- results list, equivalent to the number of Qualification requests being</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- returned by this call.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_numResults"><span class="hs-identifier hs-type">listQualificationRequestsResponse_numResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="listQualificationRequestsResponse_numResults"><span class="annot"><span class="annottext">listQualificationRequestsResponse_numResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListQualificationRequestsResponse
+-&gt; f ListQualificationRequestsResponse
+</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_numResults"><span class="hs-identifier hs-var hs-var">listQualificationRequestsResponse_numResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListQualificationRequestsResponse -&gt; Maybe Int)
+-&gt; (ListQualificationRequestsResponse
+    -&gt; Maybe Int -&gt; ListQualificationRequestsResponse)
+-&gt; Lens
+     ListQualificationRequestsResponse
+     ListQualificationRequestsResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249709"><span class="annot"><span class="annottext">Maybe Int
+numResults :: Maybe Int
+$sel:numResults:ListQualificationRequestsResponse' :: ListQualificationRequestsResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679249709"><span class="hs-identifier hs-var hs-var">numResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679249709"><span class="hs-identifier hs-var">numResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249708"><span class="annot"><span class="annottext">s :: ListQualificationRequestsResponse
+</span><a href="#local-6989586621679249708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249707"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679249707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequestsResponse
+</span><a href="#local-6989586621679249708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:numResults:ListQualificationRequestsResponse' :: Maybe Int
+</span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AnumResults%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">numResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679249707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-241"></span><span>
 </span><span id="line-242"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-243"></span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#listQualificationRequestsResponse_httpStatus"><span class="hs-identifier hs-type">listQualificationRequestsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -834,18 +826,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249578"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249706"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ListQualificationRequestsResponse' :: ListQualificationRequestsResponse -&gt; Int
-</span><a href="#local-6989586621679249578"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249578"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249577"><span class="annot"><span class="annottext">s :: ListQualificationRequestsResponse
-</span><a href="#local-6989586621679249577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249576"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequestsResponse
-</span><a href="#local-6989586621679249577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListQualificationRequestsResponse' :: Int
+</span><a href="#local-6989586621679249706"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249706"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249705"><span class="annot"><span class="annottext">s :: ListQualificationRequestsResponse
+</span><a href="#local-6989586621679249705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse%27"><span class="hs-identifier hs-type">ListQualificationRequestsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249704"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListQualificationRequestsResponse
+</span><a href="#local-6989586621679249705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListQualificationRequestsResponse' :: Int
 </span><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#%24sel%3AhttpStatus%3AListQualificationRequestsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679249576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679249704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-245"></span><span>
 </span><span id="line-246"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-247"></span><span>  </span><span id="local-6989586621679249574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-247"></span><span>  </span><span id="local-6989586621679249702"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-248"></span><span>    </span><span class="annot"><a href="Network.AWS.MechanicalTurk.ListQualificationRequests.html#ListQualificationRequestsResponse"><span class="hs-identifier hs-type">ListQualificationRequestsResponse</span></a></span></span><span>
 </span><span id="line-249"></span></pre></body></html>

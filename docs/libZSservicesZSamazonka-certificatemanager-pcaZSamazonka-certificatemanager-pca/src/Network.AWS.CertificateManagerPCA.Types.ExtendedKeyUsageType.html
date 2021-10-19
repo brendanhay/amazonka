@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-38"></span><span>
-</span><span id="line-39"></span><span id="local-6989586621679209062"><span id="local-6989586621679209063"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExtendedKeyUsageType"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsageType.html#ExtendedKeyUsageType"><span class="hs-identifier hs-var">ExtendedKeyUsageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExtendedKeyUsageType%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsageType.html#ExtendedKeyUsageType%27"><span class="hs-identifier hs-var">ExtendedKeyUsageType'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679209121"><span id="local-6989586621679209122"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ExtendedKeyUsageType"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsageType.html#ExtendedKeyUsageType"><span class="hs-identifier hs-var">ExtendedKeyUsageType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExtendedKeyUsageType%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsageType.html#ExtendedKeyUsageType%27"><span class="hs-identifier hs-var">ExtendedKeyUsageType'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromExtendedKeyUsageType"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; Text
 </span><a href="Network.AWS.CertificateManagerPCA.Types.ExtendedKeyUsageType.html#fromExtendedKeyUsageType"><span class="hs-identifier hs-var hs-var">fromExtendedKeyUsageType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209054"><span id="local-6989586621679209056"><span id="local-6989586621679209058"><span class="annot"><span class="annottext">Int -&gt; ExtendedKeyUsageType -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209113"><span id="local-6989586621679209115"><span id="local-6989586621679209117"><span class="annot"><span class="annottext">Int -&gt; ExtendedKeyUsageType -&gt; ShowS
 [ExtendedKeyUsageType] -&gt; ShowS
 ExtendedKeyUsageType -&gt; String
 (Int -&gt; ExtendedKeyUsageType -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: ExtendedKeyUsageType -&gt; String
 showsPrec :: Int -&gt; ExtendedKeyUsageType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ExtendedKeyUsageType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679209045"><span id="local-6989586621679209047"><span id="local-6989586621679209049"><span id="local-6989586621679209051"><span class="annot"><span class="annottext">ReadPrec [ExtendedKeyUsageType]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679209104"><span id="local-6989586621679209106"><span id="local-6989586621679209108"><span id="local-6989586621679209110"><span class="annot"><span class="annottext">ReadPrec [ExtendedKeyUsageType]
 ReadPrec ExtendedKeyUsageType
 Int -&gt; ReadS ExtendedKeyUsageType
 ReadS [ExtendedKeyUsageType]
@@ -79,7 +79,7 @@ $creadList :: ReadS [ExtendedKeyUsageType]
 readsPrec :: Int -&gt; ReadS ExtendedKeyUsageType
 $creadsPrec :: Int -&gt; ReadS ExtendedKeyUsageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679209040"><span id="local-6989586621679209042"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; ExtendedKeyUsageType -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679209099"><span id="local-6989586621679209101"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; ExtendedKeyUsageType -&gt; Bool
 (ExtendedKeyUsageType -&gt; ExtendedKeyUsageType -&gt; Bool)
 -&gt; (ExtendedKeyUsageType -&gt; ExtendedKeyUsageType -&gt; Bool)
 -&gt; Eq ExtendedKeyUsageType
@@ -89,7 +89,7 @@ $c/= :: ExtendedKeyUsageType -&gt; ExtendedKeyUsageType -&gt; Bool
 == :: ExtendedKeyUsageType -&gt; ExtendedKeyUsageType -&gt; Bool
 $c== :: ExtendedKeyUsageType -&gt; ExtendedKeyUsageType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679209024"><span id="local-6989586621679209026"><span id="local-6989586621679209028"><span id="local-6989586621679209030"><span id="local-6989586621679209032"><span id="local-6989586621679209034"><span id="local-6989586621679209036"><span class="annot"><span class="annottext">Eq ExtendedKeyUsageType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679209083"><span id="local-6989586621679209085"><span id="local-6989586621679209087"><span id="local-6989586621679209089"><span id="local-6989586621679209091"><span id="local-6989586621679209093"><span id="local-6989586621679209095"><span class="annot"><span class="annottext">Eq ExtendedKeyUsageType
 Eq ExtendedKeyUsageType
 -&gt; (ExtendedKeyUsageType -&gt; ExtendedKeyUsageType -&gt; Ordering)
 -&gt; (ExtendedKeyUsageType -&gt; ExtendedKeyUsageType -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. ExtendedKeyUsageType -&gt; Rep ExtendedKeyUsageType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209016"><span id="local-6989586621679209018"><span class="annot"><span class="annottext">Int -&gt; ExtendedKeyUsageType -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679209075"><span id="local-6989586621679209077"><span class="annot"><span class="annottext">Int -&gt; ExtendedKeyUsageType -&gt; Int
 ExtendedKeyUsageType -&gt; Int
 (Int -&gt; ExtendedKeyUsageType -&gt; Int)
 -&gt; (ExtendedKeyUsageType -&gt; Int) -&gt; Hashable ExtendedKeyUsageType
@@ -157,54 +157,54 @@ $chash :: ExtendedKeyUsageType -&gt; Int
 hashWithSalt :: Int -&gt; ExtendedKeyUsageType -&gt; Int
 $chashWithSalt :: Int -&gt; ExtendedKeyUsageType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679209013"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679209072"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; ()
 (ExtendedKeyUsageType -&gt; ()) -&gt; NFData ExtendedKeyUsageType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ExtendedKeyUsageType -&gt; ()
 $crnf :: ExtendedKeyUsageType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679209010"><span class="annot"><span class="annottext">Text -&gt; Either String ExtendedKeyUsageType
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679209069"><span class="annot"><span class="annottext">Text -&gt; Either String ExtendedKeyUsageType
 (Text -&gt; Either String ExtendedKeyUsageType)
 -&gt; FromText ExtendedKeyUsageType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ExtendedKeyUsageType
 $cfromText :: Text -&gt; Either String ExtendedKeyUsageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679209007"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679209066"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; Text
 (ExtendedKeyUsageType -&gt; Text) -&gt; ToText ExtendedKeyUsageType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ExtendedKeyUsageType -&gt; Text
 $ctoText :: ExtendedKeyUsageType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679209004"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679209063"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; ByteString
 (ExtendedKeyUsageType -&gt; ByteString)
 -&gt; ToByteString ExtendedKeyUsageType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ExtendedKeyUsageType -&gt; ByteString
 $ctoBS :: ExtendedKeyUsageType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679209001"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679209060"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; ByteStringBuilder
 (ExtendedKeyUsageType -&gt; ByteStringBuilder)
 -&gt; ToLog ExtendedKeyUsageType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ExtendedKeyUsageType -&gt; ByteStringBuilder
 $cbuild :: ExtendedKeyUsageType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679208998"><span class="annot"><span class="annottext">HeaderName -&gt; ExtendedKeyUsageType -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679209057"><span class="annot"><span class="annottext">HeaderName -&gt; ExtendedKeyUsageType -&gt; [Header]
 (HeaderName -&gt; ExtendedKeyUsageType -&gt; [Header])
 -&gt; ToHeader ExtendedKeyUsageType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ExtendedKeyUsageType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ExtendedKeyUsageType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679208995"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679209054"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; QueryString
 (ExtendedKeyUsageType -&gt; QueryString)
 -&gt; ToQuery ExtendedKeyUsageType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ExtendedKeyUsageType -&gt; QueryString
 $ctoQuery :: ExtendedKeyUsageType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679208990"><span id="local-6989586621679208992"><span class="annot"><span class="annottext">Value -&gt; Parser [ExtendedKeyUsageType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679209049"><span id="local-6989586621679209051"><span class="annot"><span class="annottext">Value -&gt; Parser [ExtendedKeyUsageType]
 Value -&gt; Parser ExtendedKeyUsageType
 (Value -&gt; Parser ExtendedKeyUsageType)
 -&gt; (Value -&gt; Parser [ExtendedKeyUsageType])
@@ -216,7 +216,7 @@ $cparseJSONList :: Value -&gt; Parser [ExtendedKeyUsageType]
 parseJSON :: Value -&gt; Parser ExtendedKeyUsageType
 $cparseJSON :: Value -&gt; Parser ExtendedKeyUsageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679208985"><span id="local-6989586621679208987"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExtendedKeyUsageType]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679209044"><span id="local-6989586621679209046"><span class="annot"><span class="annottext">FromJSONKeyFunction [ExtendedKeyUsageType]
 FromJSONKeyFunction ExtendedKeyUsageType
 FromJSONKeyFunction ExtendedKeyUsageType
 -&gt; FromJSONKeyFunction [ExtendedKeyUsageType]
@@ -228,7 +228,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ExtendedKeyUsageType]
 fromJSONKey :: FromJSONKeyFunction ExtendedKeyUsageType
 $cfromJSONKey :: FromJSONKeyFunction ExtendedKeyUsageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679208976"><span id="local-6989586621679208978"><span id="local-6989586621679208980"><span id="local-6989586621679208982"><span class="annot"><span class="annottext">[ExtendedKeyUsageType] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679209035"><span id="local-6989586621679209037"><span id="local-6989586621679209039"><span id="local-6989586621679209041"><span class="annot"><span class="annottext">[ExtendedKeyUsageType] -&gt; Encoding
 [ExtendedKeyUsageType] -&gt; Value
 ExtendedKeyUsageType -&gt; Encoding
 ExtendedKeyUsageType -&gt; Value
@@ -252,7 +252,7 @@ $ctoEncoding :: ExtendedKeyUsageType -&gt; Encoding
 toJSON :: ExtendedKeyUsageType -&gt; Value
 $ctoJSON :: ExtendedKeyUsageType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679208971"><span id="local-6989586621679208973"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExtendedKeyUsageType]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679209030"><span id="local-6989586621679209032"><span class="annot"><span class="annottext">ToJSONKeyFunction [ExtendedKeyUsageType]
 ToJSONKeyFunction ExtendedKeyUsageType
 ToJSONKeyFunction ExtendedKeyUsageType
 -&gt; ToJSONKeyFunction [ExtendedKeyUsageType]
@@ -264,14 +264,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ExtendedKeyUsageType]
 toJSONKey :: ToJSONKeyFunction ExtendedKeyUsageType
 $ctoJSONKey :: ToJSONKeyFunction ExtendedKeyUsageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679208968"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExtendedKeyUsageType
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679209027"><span class="annot"><span class="annottext">[Node] -&gt; Either String ExtendedKeyUsageType
 ([Node] -&gt; Either String ExtendedKeyUsageType)
 -&gt; FromXML ExtendedKeyUsageType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ExtendedKeyUsageType
 $cparseXML :: [Node] -&gt; Either String ExtendedKeyUsageType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679208965"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679209024"><span class="annot"><span class="annottext">ExtendedKeyUsageType -&gt; XML
 (ExtendedKeyUsageType -&gt; XML) -&gt; ToXML ExtendedKeyUsageType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ExtendedKeyUsageType -&gt; XML

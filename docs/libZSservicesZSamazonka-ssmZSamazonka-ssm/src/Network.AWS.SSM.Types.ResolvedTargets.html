@@ -26,17 +26,17 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about targets that resolved during the Automation execution.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newResolvedTargets' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679810071"><span id="local-6989586621679810072"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResolvedTargets"><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-var">ResolvedTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolvedTargets%27"><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets%27"><span class="hs-identifier hs-var">ResolvedTargets'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of parameter values sent to targets that resolved during the</span><span>
-</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Automation execution.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AparameterValues%3AResolvedTargets%27"><span class="annot"><span class="annottext">ResolvedTargets -&gt; Maybe [Text]
-</span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#%24sel%3AparameterValues%3AResolvedTargets%27"><span class="hs-identifier hs-var hs-var">parameterValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A boolean value indicating whether the resolved target list is</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- truncated.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Atruncated%3AResolvedTargets%27"><span class="annot"><span class="annottext">ResolvedTargets -&gt; Maybe Bool
-</span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#%24sel%3Atruncated%3AResolvedTargets%27"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679811763"><span id="local-6989586621679811764"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResolvedTargets"><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-var">ResolvedTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResolvedTargets%27"><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets%27"><span class="hs-identifier hs-var">ResolvedTargets'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A boolean value indicating whether the resolved target list is</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- truncated.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Atruncated%3AResolvedTargets%27"><span class="annot"><span class="annottext">ResolvedTargets -&gt; Maybe Bool
+</span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#%24sel%3Atruncated%3AResolvedTargets%27"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A list of parameter values sent to targets that resolved during the</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Automation execution.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AparameterValues%3AResolvedTargets%27"><span class="annot"><span class="annottext">ResolvedTargets -&gt; Maybe [Text]
+</span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#%24sel%3AparameterValues%3AResolvedTargets%27"><span class="hs-identifier hs-var hs-var">parameterValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679810064"><span id="local-6989586621679810066"><span class="annot"><span class="annottext">ResolvedTargets -&gt; ResolvedTargets -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679811756"><span id="local-6989586621679811758"><span class="annot"><span class="annottext">ResolvedTargets -&gt; ResolvedTargets -&gt; Bool
 (ResolvedTargets -&gt; ResolvedTargets -&gt; Bool)
 -&gt; (ResolvedTargets -&gt; ResolvedTargets -&gt; Bool)
 -&gt; Eq ResolvedTargets
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResolvedTargets -&gt; ResolvedTargets -&gt; Bool
 == :: ResolvedTargets -&gt; ResolvedTargets -&gt; Bool
 $c== :: ResolvedTargets -&gt; ResolvedTargets -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810055"><span id="local-6989586621679810057"><span id="local-6989586621679810059"><span id="local-6989586621679810061"><span class="annot"><span class="annottext">ReadPrec [ResolvedTargets]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679811747"><span id="local-6989586621679811749"><span id="local-6989586621679811751"><span id="local-6989586621679811753"><span class="annot"><span class="annottext">ReadPrec [ResolvedTargets]
 ReadPrec ResolvedTargets
 Int -&gt; ReadS ResolvedTargets
 ReadS [ResolvedTargets]
@@ -65,7 +65,7 @@ readList :: ReadS [ResolvedTargets]
 $creadList :: ReadS [ResolvedTargets]
 readsPrec :: Int -&gt; ReadS ResolvedTargets
 $creadsPrec :: Int -&gt; ReadS ResolvedTargets
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679810048"><span id="local-6989586621679810050"><span id="local-6989586621679810052"><span class="annot"><span class="annottext">Int -&gt; ResolvedTargets -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679811740"><span id="local-6989586621679811742"><span id="local-6989586621679811744"><span class="annot"><span class="annottext">Int -&gt; ResolvedTargets -&gt; ShowS
 [ResolvedTargets] -&gt; ShowS
 ResolvedTargets -&gt; String
 (Int -&gt; ResolvedTargets -&gt; ShowS)
@@ -99,47 +99,67 @@ $cfrom :: forall x. ResolvedTargets -&gt; Rep ResolvedTargets x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'parameterValues', 'resolvedTargets_parameterValues' - A list of parameter values sent to targets that resolved during the</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- Automation execution.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'truncated', 'resolvedTargets_truncated' - A boolean value indicating whether the resolved target list is</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- truncated.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'truncated', 'resolvedTargets_truncated' - A boolean value indicating whether the resolved target list is</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- truncated.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'parameterValues', 'resolvedTargets_parameterValues' - A list of parameter values sent to targets that resolved during the</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Automation execution.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#newResolvedTargets"><span class="hs-identifier hs-type">newResolvedTargets</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-53"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span><span>
 </span><span id="line-54"></span><span id="newResolvedTargets"><span class="annot"><span class="annottext">newResolvedTargets :: ResolvedTargets
 </span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#newResolvedTargets"><span class="hs-identifier hs-var hs-var">newResolvedTargets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ResolvedTargets' :: Maybe [Text] -&gt; Maybe Bool -&gt; ResolvedTargets
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ResolvedTargets' :: Maybe Bool -&gt; Maybe [Text] -&gt; ResolvedTargets
 </span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets%27"><span class="hs-identifier hs-type">ResolvedTargets'</span></a></span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parameterValues:ResolvedTargets' :: Maybe [Text]
-</span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#%24sel%3AparameterValues%3AResolvedTargets%27"><span class="hs-identifier hs-var">parameterValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:truncated:ResolvedTargets' :: Maybe Bool
+</span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#%24sel%3Atruncated%3AResolvedTargets%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:truncated:ResolvedTargets' :: Maybe Bool
-</span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#%24sel%3Atruncated%3AResolvedTargets%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">$sel:parameterValues:ResolvedTargets' :: Maybe [Text]
+</span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#%24sel%3AparameterValues%3AResolvedTargets%27"><span class="hs-identifier hs-var">parameterValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- | A list of parameter values sent to targets that resolved during the</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- Automation execution.</span><span>
-</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#resolvedTargets_parameterValues"><span class="hs-identifier hs-type">resolvedTargets_parameterValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span id="resolvedTargets_parameterValues"><span class="annot"><span class="annottext">resolvedTargets_parameterValues :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-60"></span><span class="hs-comment">-- | A boolean value indicating whether the resolved target list is</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- truncated.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#resolvedTargets_truncated"><span class="hs-identifier hs-type">resolvedTargets_truncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="resolvedTargets_truncated"><span class="annot"><span class="annottext">resolvedTargets_truncated :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ResolvedTargets -&gt; f ResolvedTargets
+</span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#resolvedTargets_truncated"><span class="hs-identifier hs-var hs-var">resolvedTargets_truncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolvedTargets -&gt; Maybe Bool)
+-&gt; (ResolvedTargets -&gt; Maybe Bool -&gt; ResolvedTargets)
+-&gt; Lens ResolvedTargets ResolvedTargets (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets%27"><span class="hs-identifier hs-type">ResolvedTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811731"><span class="annot"><span class="annottext">Maybe Bool
+truncated :: Maybe Bool
+$sel:truncated:ResolvedTargets' :: ResolvedTargets -&gt; Maybe Bool
+</span><a href="#local-6989586621679811731"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679811731"><span class="hs-identifier hs-var">truncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811730"><span class="annot"><span class="annottext">s :: ResolvedTargets
+</span><a href="#local-6989586621679811730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets%27"><span class="hs-identifier hs-type">ResolvedTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811729"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679811729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolvedTargets
+</span><a href="#local-6989586621679811730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truncated:ResolvedTargets' :: Maybe Bool
+</span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#%24sel%3Atruncated%3AResolvedTargets%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679811729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | A list of parameter values sent to targets that resolved during the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Automation execution.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#resolvedTargets_parameterValues"><span class="hs-identifier hs-type">resolvedTargets_parameterValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="resolvedTargets_parameterValues"><span class="annot"><span class="annottext">resolvedTargets_parameterValues :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; ResolvedTargets -&gt; f ResolvedTargets
 </span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#resolvedTargets_parameterValues"><span class="hs-identifier hs-var hs-var">resolvedTargets_parameterValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolvedTargets -&gt; Maybe [Text])
 -&gt; (ResolvedTargets -&gt; Maybe [Text] -&gt; ResolvedTargets)
 -&gt; Lens
      ResolvedTargets ResolvedTargets (Maybe [Text]) (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets%27"><span class="hs-identifier hs-type">ResolvedTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810039"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets%27"><span class="hs-identifier hs-type">ResolvedTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679811727"><span class="annot"><span class="annottext">Maybe [Text]
 parameterValues :: Maybe [Text]
 $sel:parameterValues:ResolvedTargets' :: ResolvedTargets -&gt; Maybe [Text]
-</span><a href="#local-6989586621679810039"><span class="hs-identifier hs-var hs-var">parameterValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679810039"><span class="hs-identifier hs-var">parameterValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810038"><span class="annot"><span class="annottext">s :: ResolvedTargets
-</span><a href="#local-6989586621679810038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets%27"><span class="hs-identifier hs-type">ResolvedTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810037"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679810037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolvedTargets
-</span><a href="#local-6989586621679810038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterValues:ResolvedTargets' :: Maybe [Text]
+</span><a href="#local-6989586621679811727"><span class="hs-identifier hs-var hs-var">parameterValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679811727"><span class="hs-identifier hs-var">parameterValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679811726"><span class="annot"><span class="annottext">s :: ResolvedTargets
+</span><a href="#local-6989586621679811726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets%27"><span class="hs-identifier hs-type">ResolvedTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679811725"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679811725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolvedTargets
+</span><a href="#local-6989586621679811726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameterValues:ResolvedTargets' :: Maybe [Text]
 </span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#%24sel%3AparameterValues%3AResolvedTargets%27"><span class="hs-identifier hs-var">parameterValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679810037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679811725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ResolvedTargets -&gt; f ResolvedTargets)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -153,31 +173,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- | A boolean value indicating whether the resolved target list is</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- truncated.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#resolvedTargets_truncated"><span class="hs-identifier hs-type">resolvedTargets_truncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="resolvedTargets_truncated"><span class="annot"><span class="annottext">resolvedTargets_truncated :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ResolvedTargets -&gt; f ResolvedTargets
-</span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#resolvedTargets_truncated"><span class="hs-identifier hs-var hs-var">resolvedTargets_truncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResolvedTargets -&gt; Maybe Bool)
--&gt; (ResolvedTargets -&gt; Maybe Bool -&gt; ResolvedTargets)
--&gt; Lens ResolvedTargets ResolvedTargets (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets%27"><span class="hs-identifier hs-type">ResolvedTargets'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679810032"><span class="annot"><span class="annottext">Maybe Bool
-truncated :: Maybe Bool
-$sel:truncated:ResolvedTargets' :: ResolvedTargets -&gt; Maybe Bool
-</span><a href="#local-6989586621679810032"><span class="hs-identifier hs-var hs-var">truncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679810032"><span class="hs-identifier hs-var">truncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679810031"><span class="annot"><span class="annottext">s :: ResolvedTargets
-</span><a href="#local-6989586621679810031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets%27"><span class="hs-identifier hs-type">ResolvedTargets'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679810030"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679810030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResolvedTargets
-</span><a href="#local-6989586621679810031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:truncated:ResolvedTargets' :: Maybe Bool
-</span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#%24sel%3Atruncated%3AResolvedTargets%27"><span class="hs-identifier hs-var">truncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679810030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810027"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679810025"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResolvedTargets
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811719"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679811717"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResolvedTargets
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResolvedTargets)
@@ -187,36 +187,36 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResolvedTargets&quot;</span></span><span>
-</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679810022"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810022"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Bool -&gt; ResolvedTargets
+</span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679811714"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679811714"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Maybe [Text] -&gt; ResolvedTargets
 </span><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets%27"><span class="hs-identifier hs-var">ResolvedTargets'</span></a></span><span>
-</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Bool -&gt; ResolvedTargets)
--&gt; Parser (Maybe [Text]) -&gt; Parser (Maybe Bool -&gt; ResolvedTargets)
+</span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Maybe [Text] -&gt; ResolvedTargets)
+-&gt; Parser (Maybe Bool) -&gt; Parser (Maybe [Text] -&gt; ResolvedTargets)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679811714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Truncated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; ResolvedTargets)
+-&gt; Parser (Maybe [Text]) -&gt; Parser ResolvedTargets
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679811714"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ParameterValues&quot;</span></span><span>
-</span><span id="line-77"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+</span><span id="line-78"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
 -&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-78"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; ResolvedTargets)
--&gt; Parser (Maybe Bool) -&gt; Parser ResolvedTargets
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679810022"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Truncated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810015"><span id="local-6989586621679810017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811707"><span id="local-6989586621679811709"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679810012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679811704"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.ResolvedTargets.html#ResolvedTargets"><span class="hs-identifier hs-type">ResolvedTargets</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

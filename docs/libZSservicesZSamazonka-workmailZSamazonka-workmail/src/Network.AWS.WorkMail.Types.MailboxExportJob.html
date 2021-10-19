@@ -29,37 +29,37 @@
 </span><span id="line-29"></span><span class="hs-comment">-- are exported to.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMailboxExportJob' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679259387"><span id="local-6989586621679259388"></span></span><span class="hs-keyword">data</span><span> </span><span id="MailboxExportJob"><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-var">MailboxExportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MailboxExportJob%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-var">MailboxExportJob'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The estimated progress of the mailbox export job, in percentage points.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AestimatedProgress%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe Natural
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AestimatedProgress%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">estimatedProgress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The identifier of the user or resource associated with the mailbox.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AentityId%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AentityId%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">entityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The path to the S3 bucket and file that the mailbox export job exports</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- to.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3As3Path%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3As3Path%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">s3Path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The mailbox export job start timestamp.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AstartTime%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe POSIX
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AstartTime%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The mailbox export job end timestamp.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AendTime%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe POSIX
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AendTime%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The state of the mailbox export job.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Astate%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe MailboxExportJobState
+</span><span id="line-32"></span><span id="local-6989586621679279968"><span id="local-6989586621679279969"></span></span><span class="hs-keyword">data</span><span> </span><span id="MailboxExportJob"><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-var">MailboxExportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MailboxExportJob%27"><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-var">MailboxExportJob'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the mailbox export job.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astate%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe MailboxExportJobState
 </span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3Astate%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJobState.html#MailboxExportJobState"><span class="hs-identifier hs-type">MailboxExportJobState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3As3BucketName%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3As3BucketName%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The identifier of the mailbox export job.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AjobId%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AjobId%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The mailbox export job start timestamp.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstartTime%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe POSIX
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AstartTime%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The estimated progress of the mailbox export job, in percentage points.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AestimatedProgress%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe Natural
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AestimatedProgress%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">estimatedProgress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The mailbox export job end timestamp.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AendTime%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe POSIX
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AendTime%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The path to the S3 bucket and file that the mailbox export job exports</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3As3Path%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3As3Path%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">s3Path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The identifier of the user or resource associated with the mailbox.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AentityId%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AentityId%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">entityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The mailbox export job description.</span><span>
 </span><span id="line-49"></span><span>    </span><span id="%24sel%3Adescription%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe Text
 </span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3Adescription%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The identifier of the mailbox export job.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AjobId%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AjobId%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3As3BucketName%3AMailboxExportJob%27"><span class="annot"><span class="annottext">MailboxExportJob -&gt; Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3As3BucketName%3AMailboxExportJob%27"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259373"><span id="local-6989586621679259375"><span class="annot"><span class="annottext">MailboxExportJob -&gt; MailboxExportJob -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679279954"><span id="local-6989586621679279956"><span class="annot"><span class="annottext">MailboxExportJob -&gt; MailboxExportJob -&gt; Bool
 (MailboxExportJob -&gt; MailboxExportJob -&gt; Bool)
 -&gt; (MailboxExportJob -&gt; MailboxExportJob -&gt; Bool)
 -&gt; Eq MailboxExportJob
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MailboxExportJob -&gt; MailboxExportJob -&gt; Bool
 == :: MailboxExportJob -&gt; MailboxExportJob -&gt; Bool
 $c== :: MailboxExportJob -&gt; MailboxExportJob -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259364"><span id="local-6989586621679259366"><span id="local-6989586621679259368"><span id="local-6989586621679259370"><span class="annot"><span class="annottext">ReadPrec [MailboxExportJob]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279945"><span id="local-6989586621679279947"><span id="local-6989586621679279949"><span id="local-6989586621679279951"><span class="annot"><span class="annottext">ReadPrec [MailboxExportJob]
 ReadPrec MailboxExportJob
 Int -&gt; ReadS MailboxExportJob
 ReadS [MailboxExportJob]
@@ -88,7 +88,7 @@ readList :: ReadS [MailboxExportJob]
 $creadList :: ReadS [MailboxExportJob]
 readsPrec :: Int -&gt; ReadS MailboxExportJob
 $creadsPrec :: Int -&gt; ReadS MailboxExportJob
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259357"><span id="local-6989586621679259359"><span id="local-6989586621679259361"><span class="annot"><span class="annottext">Int -&gt; MailboxExportJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679279938"><span id="local-6989586621679279940"><span id="local-6989586621679279942"><span class="annot"><span class="annottext">Int -&gt; MailboxExportJob -&gt; ShowS
 [MailboxExportJob] -&gt; ShowS
 MailboxExportJob -&gt; String
 (Int -&gt; MailboxExportJob -&gt; ShowS)
@@ -122,210 +122,80 @@ $cfrom :: forall x. MailboxExportJob -&gt; Rep MailboxExportJob x
 </span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'estimatedProgress', 'mailboxExportJob_estimatedProgress' - The estimated progress of the mailbox export job, in percentage points.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'state', 'mailboxExportJob_state' - The state of the mailbox export job.</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'entityId', 'mailboxExportJob_entityId' - The identifier of the user or resource associated with the mailbox.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'jobId', 'mailboxExportJob_jobId' - The identifier of the mailbox export job.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 's3Path', 'mailboxExportJob_s3Path' - The path to the S3 bucket and file that the mailbox export job exports</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- to.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'startTime', 'mailboxExportJob_startTime' - The mailbox export job start timestamp.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'endTime', 'mailboxExportJob_endTime' - The mailbox export job end timestamp.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'state', 'mailboxExportJob_state' - The state of the mailbox export job.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'startTime', 'mailboxExportJob_startTime' - The mailbox export job start timestamp.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'estimatedProgress', 'mailboxExportJob_estimatedProgress' - The estimated progress of the mailbox export job, in percentage points.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'endTime', 'mailboxExportJob_endTime' - The mailbox export job end timestamp.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 's3Path', 'mailboxExportJob_s3Path' - The path to the S3 bucket and file that the mailbox export job exports</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- to.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 's3BucketName', 'mailboxExportJob_s3BucketName' - The name of the S3 bucket.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'entityId', 'mailboxExportJob_entityId' - The identifier of the user or resource associated with the mailbox.</span><span>
 </span><span id="line-77"></span><span class="hs-comment">--</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- 'description', 'mailboxExportJob_description' - The mailbox export job description.</span><span>
 </span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'jobId', 'mailboxExportJob_jobId' - The identifier of the mailbox export job.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 's3BucketName', 'mailboxExportJob_s3BucketName' - The name of the S3 bucket.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#newMailboxExportJob"><span class="hs-identifier hs-type">newMailboxExportJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span>
 </span><span id="line-83"></span><span id="newMailboxExportJob"><span class="annot"><span class="annottext">newMailboxExportJob :: MailboxExportJob
 </span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#newMailboxExportJob"><span class="hs-identifier hs-var hs-var">newMailboxExportJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">MailboxExportJob' :: Maybe Natural
--&gt; Maybe Text
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">MailboxExportJob' :: Maybe MailboxExportJobState
 -&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe Natural
 -&gt; Maybe POSIX
--&gt; Maybe MailboxExportJobState
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; MailboxExportJob
 </span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:estimatedProgress:MailboxExportJob' :: Maybe Natural
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AestimatedProgress%3AMailboxExportJob%27"><span class="hs-identifier hs-var">estimatedProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityId:MailboxExportJob' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AentityId%3AMailboxExportJob%27"><span class="hs-identifier hs-var">entityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Path:MailboxExportJob' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3As3Path%3AMailboxExportJob%27"><span class="hs-identifier hs-var">s3Path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:MailboxExportJob' :: Maybe POSIX
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AstartTime%3AMailboxExportJob%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:MailboxExportJob' :: Maybe POSIX
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AendTime%3AMailboxExportJob%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:MailboxExportJob' :: Maybe MailboxExportJobState
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:MailboxExportJob' :: Maybe MailboxExportJobState
 </span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3Astate%3AMailboxExportJob%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MailboxExportJobState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BucketName:MailboxExportJob' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3As3BucketName%3AMailboxExportJob%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:MailboxExportJob' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AjobId%3AMailboxExportJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:MailboxExportJob' :: Maybe Text
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:MailboxExportJob' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AstartTime%3AMailboxExportJob%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:estimatedProgress:MailboxExportJob' :: Maybe Natural
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AestimatedProgress%3AMailboxExportJob%27"><span class="hs-identifier hs-var">estimatedProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTime:MailboxExportJob' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AendTime%3AMailboxExportJob%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Path:MailboxExportJob' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3As3Path%3AMailboxExportJob%27"><span class="hs-identifier hs-var">s3Path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:entityId:MailboxExportJob' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AentityId%3AMailboxExportJob%27"><span class="hs-identifier hs-var">entityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:MailboxExportJob' :: Maybe Text
 </span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3Adescription%3AMailboxExportJob%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:jobId:MailboxExportJob' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AjobId%3AMailboxExportJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3BucketName:MailboxExportJob' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3As3BucketName%3AMailboxExportJob%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The estimated progress of the mailbox export job, in percentage points.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_estimatedProgress"><span class="hs-identifier hs-type">mailboxExportJob_estimatedProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="mailboxExportJob_estimatedProgress"><span class="annot"><span class="annottext">mailboxExportJob_estimatedProgress :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; MailboxExportJob -&gt; f MailboxExportJob
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_estimatedProgress"><span class="hs-identifier hs-var hs-var">mailboxExportJob_estimatedProgress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe Natural)
--&gt; (MailboxExportJob -&gt; Maybe Natural -&gt; MailboxExportJob)
--&gt; Lens
-     MailboxExportJob MailboxExportJob (Maybe Natural) (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259348"><span class="annot"><span class="annottext">Maybe Natural
-estimatedProgress :: Maybe Natural
-$sel:estimatedProgress:MailboxExportJob' :: MailboxExportJob -&gt; Maybe Natural
-</span><a href="#local-6989586621679259348"><span class="hs-identifier hs-var hs-var">estimatedProgress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679259348"><span class="hs-identifier hs-var">estimatedProgress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259347"><span class="annot"><span class="annottext">s :: MailboxExportJob
-</span><a href="#local-6989586621679259347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259346"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679259346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
-</span><a href="#local-6989586621679259347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:estimatedProgress:MailboxExportJob' :: Maybe Natural
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AestimatedProgress%3AMailboxExportJob%27"><span class="hs-identifier hs-var">estimatedProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679259346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The identifier of the user or resource associated with the mailbox.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_entityId"><span class="hs-identifier hs-type">mailboxExportJob_entityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="mailboxExportJob_entityId"><span class="annot"><span class="annottext">mailboxExportJob_entityId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MailboxExportJob -&gt; f MailboxExportJob
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_entityId"><span class="hs-identifier hs-var hs-var">mailboxExportJob_entityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe Text)
--&gt; (MailboxExportJob -&gt; Maybe Text -&gt; MailboxExportJob)
--&gt; Lens MailboxExportJob MailboxExportJob (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259344"><span class="annot"><span class="annottext">Maybe Text
-entityId :: Maybe Text
-$sel:entityId:MailboxExportJob' :: MailboxExportJob -&gt; Maybe Text
-</span><a href="#local-6989586621679259344"><span class="hs-identifier hs-var hs-var">entityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259344"><span class="hs-identifier hs-var">entityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259343"><span class="annot"><span class="annottext">s :: MailboxExportJob
-</span><a href="#local-6989586621679259343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259342"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
-</span><a href="#local-6989586621679259343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityId:MailboxExportJob' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AentityId%3AMailboxExportJob%27"><span class="hs-identifier hs-var">entityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The path to the S3 bucket and file that the mailbox export job exports</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- to.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_s3Path"><span class="hs-identifier hs-type">mailboxExportJob_s3Path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="mailboxExportJob_s3Path"><span class="annot"><span class="annottext">mailboxExportJob_s3Path :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MailboxExportJob -&gt; f MailboxExportJob
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_s3Path"><span class="hs-identifier hs-var hs-var">mailboxExportJob_s3Path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe Text)
--&gt; (MailboxExportJob -&gt; Maybe Text -&gt; MailboxExportJob)
--&gt; Lens MailboxExportJob MailboxExportJob (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259340"><span class="annot"><span class="annottext">Maybe Text
-s3Path :: Maybe Text
-$sel:s3Path:MailboxExportJob' :: MailboxExportJob -&gt; Maybe Text
-</span><a href="#local-6989586621679259340"><span class="hs-identifier hs-var hs-var">s3Path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259340"><span class="hs-identifier hs-var">s3Path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259339"><span class="annot"><span class="annottext">s :: MailboxExportJob
-</span><a href="#local-6989586621679259339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259338"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
-</span><a href="#local-6989586621679259339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Path:MailboxExportJob' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3As3Path%3AMailboxExportJob%27"><span class="hs-identifier hs-var">s3Path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The mailbox export job start timestamp.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_startTime"><span class="hs-identifier hs-type">mailboxExportJob_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="mailboxExportJob_startTime"><span class="annot"><span class="annottext">mailboxExportJob_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; MailboxExportJob -&gt; f MailboxExportJob
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_startTime"><span class="hs-identifier hs-var hs-var">mailboxExportJob_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe POSIX)
--&gt; (MailboxExportJob -&gt; Maybe POSIX -&gt; MailboxExportJob)
--&gt; Lens
-     MailboxExportJob MailboxExportJob (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259336"><span class="annot"><span class="annottext">Maybe POSIX
-startTime :: Maybe POSIX
-$sel:startTime:MailboxExportJob' :: MailboxExportJob -&gt; Maybe POSIX
-</span><a href="#local-6989586621679259336"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259336"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259335"><span class="annot"><span class="annottext">s :: MailboxExportJob
-</span><a href="#local-6989586621679259335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259334"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
-</span><a href="#local-6989586621679259335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:MailboxExportJob' :: Maybe POSIX
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AstartTime%3AMailboxExportJob%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; MailboxExportJob -&gt; f MailboxExportJob)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; MailboxExportJob
--&gt; f MailboxExportJob
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The mailbox export job end timestamp.</span><span>
-</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_endTime"><span class="hs-identifier hs-type">mailboxExportJob_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span id="mailboxExportJob_endTime"><span class="annot"><span class="annottext">mailboxExportJob_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; MailboxExportJob -&gt; f MailboxExportJob
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_endTime"><span class="hs-identifier hs-var hs-var">mailboxExportJob_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe POSIX)
--&gt; (MailboxExportJob -&gt; Maybe POSIX -&gt; MailboxExportJob)
--&gt; Lens
-     MailboxExportJob MailboxExportJob (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259329"><span class="annot"><span class="annottext">Maybe POSIX
-endTime :: Maybe POSIX
-$sel:endTime:MailboxExportJob' :: MailboxExportJob -&gt; Maybe POSIX
-</span><a href="#local-6989586621679259329"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259329"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259328"><span class="annot"><span class="annottext">s :: MailboxExportJob
-</span><a href="#local-6989586621679259328"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259327"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259327"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
-</span><a href="#local-6989586621679259328"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:MailboxExportJob' :: Maybe POSIX
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AendTime%3AMailboxExportJob%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679259327"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; MailboxExportJob -&gt; f MailboxExportJob)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; MailboxExportJob
--&gt; f MailboxExportJob
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- | The state of the mailbox export job.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_state"><span class="hs-identifier hs-type">mailboxExportJob_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJobState.html#MailboxExportJobState"><span class="hs-identifier hs-type">MailboxExportJobState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="mailboxExportJob_state"><span class="annot"><span class="annottext">mailboxExportJob_state :: (Maybe MailboxExportJobState -&gt; f (Maybe MailboxExportJobState))
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The state of the mailbox export job.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_state"><span class="hs-identifier hs-type">mailboxExportJob_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJobState.html#MailboxExportJobState"><span class="hs-identifier hs-type">MailboxExportJobState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="mailboxExportJob_state"><span class="annot"><span class="annottext">mailboxExportJob_state :: (Maybe MailboxExportJobState -&gt; f (Maybe MailboxExportJobState))
 -&gt; MailboxExportJob -&gt; f MailboxExportJob
 </span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_state"><span class="hs-identifier hs-var hs-var">mailboxExportJob_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe MailboxExportJobState)
 -&gt; (MailboxExportJob
@@ -336,156 +206,260 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe MailboxExportJobState)
      (Maybe MailboxExportJobState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259325"><span class="annot"><span class="annottext">Maybe MailboxExportJobState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279929"><span class="annot"><span class="annottext">Maybe MailboxExportJobState
 state :: Maybe MailboxExportJobState
 $sel:state:MailboxExportJob' :: MailboxExportJob -&gt; Maybe MailboxExportJobState
-</span><a href="#local-6989586621679259325"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MailboxExportJobState
-</span><a href="#local-6989586621679259325"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259324"><span class="annot"><span class="annottext">s :: MailboxExportJob
-</span><a href="#local-6989586621679259324"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259323"><span class="annot"><span class="annottext">Maybe MailboxExportJobState
-</span><a href="#local-6989586621679259323"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
-</span><a href="#local-6989586621679259324"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:MailboxExportJob' :: Maybe MailboxExportJobState
+</span><a href="#local-6989586621679279929"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MailboxExportJobState
+</span><a href="#local-6989586621679279929"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279928"><span class="annot"><span class="annottext">s :: MailboxExportJob
+</span><a href="#local-6989586621679279928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279927"><span class="annot"><span class="annottext">Maybe MailboxExportJobState
+</span><a href="#local-6989586621679279927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
+</span><a href="#local-6989586621679279928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:MailboxExportJob' :: Maybe MailboxExportJobState
 </span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3Astate%3AMailboxExportJob%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MailboxExportJobState
-</span><a href="#local-6989586621679259323"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_s3BucketName"><span class="hs-identifier hs-type">mailboxExportJob_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="mailboxExportJob_s3BucketName"><span class="annot"><span class="annottext">mailboxExportJob_s3BucketName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MailboxExportJob -&gt; f MailboxExportJob
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_s3BucketName"><span class="hs-identifier hs-var hs-var">mailboxExportJob_s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe Text)
--&gt; (MailboxExportJob -&gt; Maybe Text -&gt; MailboxExportJob)
--&gt; Lens MailboxExportJob MailboxExportJob (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259321"><span class="annot"><span class="annottext">Maybe Text
-s3BucketName :: Maybe Text
-$sel:s3BucketName:MailboxExportJob' :: MailboxExportJob -&gt; Maybe Text
-</span><a href="#local-6989586621679259321"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259321"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259320"><span class="annot"><span class="annottext">s :: MailboxExportJob
-</span><a href="#local-6989586621679259320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259319"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
-</span><a href="#local-6989586621679259320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:MailboxExportJob' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3As3BucketName%3AMailboxExportJob%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The mailbox export job description.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_description"><span class="hs-identifier hs-type">mailboxExportJob_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="mailboxExportJob_description"><span class="annot"><span class="annottext">mailboxExportJob_description :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MailboxExportJob -&gt; f MailboxExportJob
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_description"><span class="hs-identifier hs-var hs-var">mailboxExportJob_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe Text)
--&gt; (MailboxExportJob -&gt; Maybe Text -&gt; MailboxExportJob)
--&gt; Lens MailboxExportJob MailboxExportJob (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259317"><span class="annot"><span class="annottext">Maybe Text
-description :: Maybe Text
-$sel:description:MailboxExportJob' :: MailboxExportJob -&gt; Maybe Text
-</span><a href="#local-6989586621679259317"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259317"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259316"><span class="annot"><span class="annottext">s :: MailboxExportJob
-</span><a href="#local-6989586621679259316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259315"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
-</span><a href="#local-6989586621679259316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:MailboxExportJob' :: Maybe Text
-</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3Adescription%3AMailboxExportJob%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The identifier of the mailbox export job.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_jobId"><span class="hs-identifier hs-type">mailboxExportJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="mailboxExportJob_jobId"><span class="annot"><span class="annottext">mailboxExportJob_jobId :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679279927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The identifier of the mailbox export job.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_jobId"><span class="hs-identifier hs-type">mailboxExportJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="mailboxExportJob_jobId"><span class="annot"><span class="annottext">mailboxExportJob_jobId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; MailboxExportJob -&gt; f MailboxExportJob
 </span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_jobId"><span class="hs-identifier hs-var hs-var">mailboxExportJob_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe Text)
 -&gt; (MailboxExportJob -&gt; Maybe Text -&gt; MailboxExportJob)
 -&gt; Lens MailboxExportJob MailboxExportJob (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259313"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279925"><span class="annot"><span class="annottext">Maybe Text
 jobId :: Maybe Text
 $sel:jobId:MailboxExportJob' :: MailboxExportJob -&gt; Maybe Text
-</span><a href="#local-6989586621679259313"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259313"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259312"><span class="annot"><span class="annottext">s :: MailboxExportJob
-</span><a href="#local-6989586621679259312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259311"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
-</span><a href="#local-6989586621679259312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:MailboxExportJob' :: Maybe Text
+</span><a href="#local-6989586621679279925"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279925"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279924"><span class="annot"><span class="annottext">s :: MailboxExportJob
+</span><a href="#local-6989586621679279924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279923"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
+</span><a href="#local-6989586621679279924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:MailboxExportJob' :: Maybe Text
 </span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AjobId%3AMailboxExportJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679259311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259308"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679259306"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MailboxExportJob
+</span><a href="#local-6989586621679279923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The mailbox export job start timestamp.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_startTime"><span class="hs-identifier hs-type">mailboxExportJob_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="mailboxExportJob_startTime"><span class="annot"><span class="annottext">mailboxExportJob_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MailboxExportJob -&gt; f MailboxExportJob
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_startTime"><span class="hs-identifier hs-var hs-var">mailboxExportJob_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe POSIX)
+-&gt; (MailboxExportJob -&gt; Maybe POSIX -&gt; MailboxExportJob)
+-&gt; Lens
+     MailboxExportJob MailboxExportJob (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279921"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:MailboxExportJob' :: MailboxExportJob -&gt; Maybe POSIX
+</span><a href="#local-6989586621679279921"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679279921"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279920"><span class="annot"><span class="annottext">s :: MailboxExportJob
+</span><a href="#local-6989586621679279920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279919"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679279919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
+</span><a href="#local-6989586621679279920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:MailboxExportJob' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AstartTime%3AMailboxExportJob%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679279919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; MailboxExportJob -&gt; f MailboxExportJob)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MailboxExportJob
+-&gt; f MailboxExportJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The estimated progress of the mailbox export job, in percentage points.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_estimatedProgress"><span class="hs-identifier hs-type">mailboxExportJob_estimatedProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="mailboxExportJob_estimatedProgress"><span class="annot"><span class="annottext">mailboxExportJob_estimatedProgress :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; MailboxExportJob -&gt; f MailboxExportJob
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_estimatedProgress"><span class="hs-identifier hs-var hs-var">mailboxExportJob_estimatedProgress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe Natural)
+-&gt; (MailboxExportJob -&gt; Maybe Natural -&gt; MailboxExportJob)
+-&gt; Lens
+     MailboxExportJob MailboxExportJob (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279914"><span class="annot"><span class="annottext">Maybe Natural
+estimatedProgress :: Maybe Natural
+$sel:estimatedProgress:MailboxExportJob' :: MailboxExportJob -&gt; Maybe Natural
+</span><a href="#local-6989586621679279914"><span class="hs-identifier hs-var hs-var">estimatedProgress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679279914"><span class="hs-identifier hs-var">estimatedProgress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279913"><span class="annot"><span class="annottext">s :: MailboxExportJob
+</span><a href="#local-6989586621679279913"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279912"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679279912"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
+</span><a href="#local-6989586621679279913"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:estimatedProgress:MailboxExportJob' :: Maybe Natural
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AestimatedProgress%3AMailboxExportJob%27"><span class="hs-identifier hs-var">estimatedProgress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679279912"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The mailbox export job end timestamp.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_endTime"><span class="hs-identifier hs-type">mailboxExportJob_endTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="mailboxExportJob_endTime"><span class="annot"><span class="annottext">mailboxExportJob_endTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MailboxExportJob -&gt; f MailboxExportJob
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_endTime"><span class="hs-identifier hs-var hs-var">mailboxExportJob_endTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe POSIX)
+-&gt; (MailboxExportJob -&gt; Maybe POSIX -&gt; MailboxExportJob)
+-&gt; Lens
+     MailboxExportJob MailboxExportJob (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279910"><span class="annot"><span class="annottext">Maybe POSIX
+endTime :: Maybe POSIX
+$sel:endTime:MailboxExportJob' :: MailboxExportJob -&gt; Maybe POSIX
+</span><a href="#local-6989586621679279910"><span class="hs-identifier hs-var hs-var">endTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679279910"><span class="hs-identifier hs-var">endTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279909"><span class="annot"><span class="annottext">s :: MailboxExportJob
+</span><a href="#local-6989586621679279909"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279908"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679279908"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
+</span><a href="#local-6989586621679279909"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTime:MailboxExportJob' :: Maybe POSIX
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AendTime%3AMailboxExportJob%27"><span class="hs-identifier hs-var">endTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679279908"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; MailboxExportJob -&gt; f MailboxExportJob)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; MailboxExportJob
+-&gt; f MailboxExportJob
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The path to the S3 bucket and file that the mailbox export job exports</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- to.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_s3Path"><span class="hs-identifier hs-type">mailboxExportJob_s3Path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="mailboxExportJob_s3Path"><span class="annot"><span class="annottext">mailboxExportJob_s3Path :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MailboxExportJob -&gt; f MailboxExportJob
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_s3Path"><span class="hs-identifier hs-var hs-var">mailboxExportJob_s3Path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe Text)
+-&gt; (MailboxExportJob -&gt; Maybe Text -&gt; MailboxExportJob)
+-&gt; Lens MailboxExportJob MailboxExportJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279906"><span class="annot"><span class="annottext">Maybe Text
+s3Path :: Maybe Text
+$sel:s3Path:MailboxExportJob' :: MailboxExportJob -&gt; Maybe Text
+</span><a href="#local-6989586621679279906"><span class="hs-identifier hs-var hs-var">s3Path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279906"><span class="hs-identifier hs-var">s3Path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279905"><span class="annot"><span class="annottext">s :: MailboxExportJob
+</span><a href="#local-6989586621679279905"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279904"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279904"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
+</span><a href="#local-6989586621679279905"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Path:MailboxExportJob' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3As3Path%3AMailboxExportJob%27"><span class="hs-identifier hs-var">s3Path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279904"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The identifier of the user or resource associated with the mailbox.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_entityId"><span class="hs-identifier hs-type">mailboxExportJob_entityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="mailboxExportJob_entityId"><span class="annot"><span class="annottext">mailboxExportJob_entityId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MailboxExportJob -&gt; f MailboxExportJob
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_entityId"><span class="hs-identifier hs-var hs-var">mailboxExportJob_entityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe Text)
+-&gt; (MailboxExportJob -&gt; Maybe Text -&gt; MailboxExportJob)
+-&gt; Lens MailboxExportJob MailboxExportJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279902"><span class="annot"><span class="annottext">Maybe Text
+entityId :: Maybe Text
+$sel:entityId:MailboxExportJob' :: MailboxExportJob -&gt; Maybe Text
+</span><a href="#local-6989586621679279902"><span class="hs-identifier hs-var hs-var">entityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279902"><span class="hs-identifier hs-var">entityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279901"><span class="annot"><span class="annottext">s :: MailboxExportJob
+</span><a href="#local-6989586621679279901"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279900"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279900"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
+</span><a href="#local-6989586621679279901"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entityId:MailboxExportJob' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3AentityId%3AMailboxExportJob%27"><span class="hs-identifier hs-var">entityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279900"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The mailbox export job description.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_description"><span class="hs-identifier hs-type">mailboxExportJob_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="mailboxExportJob_description"><span class="annot"><span class="annottext">mailboxExportJob_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MailboxExportJob -&gt; f MailboxExportJob
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_description"><span class="hs-identifier hs-var hs-var">mailboxExportJob_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe Text)
+-&gt; (MailboxExportJob -&gt; Maybe Text -&gt; MailboxExportJob)
+-&gt; Lens MailboxExportJob MailboxExportJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279898"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:MailboxExportJob' :: MailboxExportJob -&gt; Maybe Text
+</span><a href="#local-6989586621679279898"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279898"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279897"><span class="annot"><span class="annottext">s :: MailboxExportJob
+</span><a href="#local-6989586621679279897"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279896"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279896"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
+</span><a href="#local-6989586621679279897"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:MailboxExportJob' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3Adescription%3AMailboxExportJob%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279896"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The name of the S3 bucket.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_s3BucketName"><span class="hs-identifier hs-type">mailboxExportJob_s3BucketName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="mailboxExportJob_s3BucketName"><span class="annot"><span class="annottext">mailboxExportJob_s3BucketName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MailboxExportJob -&gt; f MailboxExportJob
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#mailboxExportJob_s3BucketName"><span class="hs-identifier hs-var hs-var">mailboxExportJob_s3BucketName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MailboxExportJob -&gt; Maybe Text)
+-&gt; (MailboxExportJob -&gt; Maybe Text -&gt; MailboxExportJob)
+-&gt; Lens MailboxExportJob MailboxExportJob (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679279894"><span class="annot"><span class="annottext">Maybe Text
+s3BucketName :: Maybe Text
+$sel:s3BucketName:MailboxExportJob' :: MailboxExportJob -&gt; Maybe Text
+</span><a href="#local-6989586621679279894"><span class="hs-identifier hs-var hs-var">s3BucketName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279894"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679279893"><span class="annot"><span class="annottext">s :: MailboxExportJob
+</span><a href="#local-6989586621679279893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-type">MailboxExportJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679279892"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MailboxExportJob
+</span><a href="#local-6989586621679279893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3BucketName:MailboxExportJob' :: Maybe Text
+</span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#%24sel%3As3BucketName%3AMailboxExportJob%27"><span class="hs-identifier hs-var">s3BucketName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679279892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279889"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679279887"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MailboxExportJob
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MailboxExportJob)
 -&gt; Value
 -&gt; Parser MailboxExportJob
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MailboxExportJob&quot;</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259303"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259303"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
--&gt; Maybe Text
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679279884"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279884"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">Maybe MailboxExportJobState
 -&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe Natural
 -&gt; Maybe POSIX
--&gt; Maybe MailboxExportJobState
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; MailboxExportJob
 </span><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob%27"><span class="hs-identifier hs-var">MailboxExportJob'</span></a></span><span>
-</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
- -&gt; Maybe Text
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">(Maybe MailboxExportJobState
  -&gt; Maybe Text
  -&gt; Maybe POSIX
+ -&gt; Maybe Natural
  -&gt; Maybe POSIX
- -&gt; Maybe MailboxExportJobState
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; MailboxExportJob)
--&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe MailboxExportJobState)
 -&gt; Parser
      (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Natural
+      -&gt; Maybe POSIX
       -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
-      -&gt; Maybe MailboxExportJobState
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; MailboxExportJob)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+</span><a href="#local-6989586621679279884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MailboxExportJobState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EstimatedProgress&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Maybe POSIX
-   -&gt; Maybe MailboxExportJobState
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; MailboxExportJob)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Maybe POSIX
-      -&gt; Maybe MailboxExportJobState
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; MailboxExportJob)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EntityId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe POSIX
+   -&gt; Maybe Natural
    -&gt; Maybe POSIX
-   -&gt; Maybe MailboxExportJobState
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
@@ -493,97 +467,122 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe POSIX
+      -&gt; Maybe Natural
       -&gt; Maybe POSIX
-      -&gt; Maybe MailboxExportJobState
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; MailboxExportJob)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679279884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;S3Path&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
+   -&gt; Maybe Natural
    -&gt; Maybe POSIX
-   -&gt; Maybe MailboxExportJobState
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; MailboxExportJob)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe MailboxExportJobState
+     (Maybe Natural
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; MailboxExportJob)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679279884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; MailboxExportJob)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; MailboxExportJob)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679279884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EstimatedProgress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
-   -&gt; Maybe MailboxExportJobState
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; MailboxExportJob)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe MailboxExportJobState
+     (Maybe Text
       -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MailboxExportJob)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679279884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe MailboxExportJobState
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
    -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MailboxExportJob)
--&gt; Parser (Maybe MailboxExportJobState)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MailboxExportJob)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MailboxExportJobState)
+</span><a href="#local-6989586621679279884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MailboxExportJob)
+</span><span class="hs-string">&quot;S3Path&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; MailboxExportJob)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; MailboxExportJob)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679279884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; MailboxExportJob)
+</span><span class="hs-string">&quot;EntityId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; MailboxExportJob)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; MailboxExportJob)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679279884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MailboxExportJob)
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MailboxExportJob)
 -&gt; Parser (Maybe Text) -&gt; Parser MailboxExportJob
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259303"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679279884"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259297"><span id="local-6989586621679259299"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span></span></span><span>
-</span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259294"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span></span><span>
-</span><span id="line-154"></span></pre></body></html>
+</span><span class="hs-string">&quot;S3BucketName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279878"><span id="local-6989586621679279880"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679279875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkMail.Types.MailboxExportJob.html#MailboxExportJob"><span class="hs-identifier hs-type">MailboxExportJob</span></a></span></span><span>
+</span><span id="line-153"></span></pre></body></html>

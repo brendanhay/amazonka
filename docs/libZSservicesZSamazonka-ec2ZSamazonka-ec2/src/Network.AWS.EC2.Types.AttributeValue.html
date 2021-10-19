@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes a value for a resource attribute that is a String.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAttributeValue' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681054516"><span id="local-6989586621681054517"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributeValue"><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-var">AttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-var">AttributeValue'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681087714"><span id="local-6989586621681087715"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttributeValue"><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-var">AttributeValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttributeValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-var">AttributeValue'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The attribute value. The value is case-sensitive.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3Avalue%3AAttributeValue%27"><span class="annot"><span class="annottext">AttributeValue -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.AttributeValue.html#%24sel%3Avalue%3AAttributeValue%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681054510"><span id="local-6989586621681054512"><span class="annot"><span class="annottext">AttributeValue -&gt; AttributeValue -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681087708"><span id="local-6989586621681087710"><span class="annot"><span class="annottext">AttributeValue -&gt; AttributeValue -&gt; Bool
 (AttributeValue -&gt; AttributeValue -&gt; Bool)
 -&gt; (AttributeValue -&gt; AttributeValue -&gt; Bool) -&gt; Eq AttributeValue
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AttributeValue -&gt; AttributeValue -&gt; Bool
 == :: AttributeValue -&gt; AttributeValue -&gt; Bool
 $c== :: AttributeValue -&gt; AttributeValue -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681054501"><span id="local-6989586621681054503"><span id="local-6989586621681054505"><span id="local-6989586621681054507"><span class="annot"><span class="annottext">ReadPrec [AttributeValue]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681087699"><span id="local-6989586621681087701"><span id="local-6989586621681087703"><span id="local-6989586621681087705"><span class="annot"><span class="annottext">ReadPrec [AttributeValue]
 ReadPrec AttributeValue
 Int -&gt; ReadS AttributeValue
 ReadS [AttributeValue]
@@ -60,7 +60,7 @@ readList :: ReadS [AttributeValue]
 $creadList :: ReadS [AttributeValue]
 readsPrec :: Int -&gt; ReadS AttributeValue
 $creadsPrec :: Int -&gt; ReadS AttributeValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681054494"><span id="local-6989586621681054496"><span id="local-6989586621681054498"><span class="annot"><span class="annottext">Int -&gt; AttributeValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681087692"><span id="local-6989586621681087694"><span id="local-6989586621681087696"><span class="annot"><span class="annottext">Int -&gt; AttributeValue -&gt; ShowS
 [AttributeValue] -&gt; ShowS
 AttributeValue -&gt; String
 (Int -&gt; AttributeValue -&gt; ShowS)
@@ -113,46 +113,46 @@ forall a. Maybe a
 -&gt; (AttributeValue -&gt; Maybe Text -&gt; AttributeValue)
 -&gt; Lens AttributeValue AttributeValue (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681054485"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681087683"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:AttributeValue' :: AttributeValue -&gt; Maybe Text
-</span><a href="#local-6989586621681054485"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681054485"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681054484"><span class="annot"><span class="annottext">s :: AttributeValue
-</span><a href="#local-6989586621681054484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681054483"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681054483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
-</span><a href="#local-6989586621681054484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:AttributeValue' :: Maybe Text
+</span><a href="#local-6989586621681087683"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681087683"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681087682"><span class="annot"><span class="annottext">s :: AttributeValue
+</span><a href="#local-6989586621681087682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681087681"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681087681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttributeValue
+</span><a href="#local-6989586621681087682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:AttributeValue' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.AttributeValue.html#%24sel%3Avalue%3AAttributeValue%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681054483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681087681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621681054480"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AttributeValue
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681054478"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681054478"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621681087678"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AttributeValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681087676"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681087676"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; AttributeValue
 </span><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-var">AttributeValue'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; AttributeValue)
 -&gt; Either String (Maybe Text) -&gt; Either String AttributeValue
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681054478"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681087676"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681054472"><span id="local-6989586621681054474"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681087670"><span id="local-6989586621681087672"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span></span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681054469"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681087667"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-63"></span><span>  </span><span id="local-6989586621681054465"><span class="annot"><span class="annottext">toQuery :: AttributeValue -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681054463"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621681087663"><span class="annot"><span class="annottext">toQuery :: AttributeValue -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier hs-type">AttributeValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681087661"><span class="annot"><span class="annottext">Maybe Text
 value :: Maybe Text
 $sel:value:AttributeValue' :: AttributeValue -&gt; Maybe Text
-</span><a href="#local-6989586621681054463"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681087661"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681054463"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681087661"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-65"></span></pre></body></html>

@@ -36,13 +36,13 @@
 </span><span id="line-36"></span><span class="hs-comment">-- specify in the setting Language code (languageCode or</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- customLanguageCode). When you choose Use configured (USE_CONFIGURED),</span><span>
 </span><span id="line-38"></span><span class="hs-comment">-- the service uses the language code that you specify.</span><span>
-</span><span id="line-39"></span><span id="local-6989586621679935649"><span id="local-6989586621679935650"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioLanguageCodeControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioLanguageCodeControl.html#AudioLanguageCodeControl"><span class="hs-identifier hs-var">AudioLanguageCodeControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioLanguageCodeControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioLanguageCodeControl.html#AudioLanguageCodeControl%27"><span class="hs-identifier hs-var">AudioLanguageCodeControl'</span></a></span></span><span>
+</span><span id="line-39"></span><span id="local-6989586621679940270"><span id="local-6989586621679940271"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioLanguageCodeControl"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioLanguageCodeControl.html#AudioLanguageCodeControl"><span class="hs-identifier hs-var">AudioLanguageCodeControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioLanguageCodeControl%27"><span class="annot"><a href="Network.AWS.MediaConvert.Types.AudioLanguageCodeControl.html#AudioLanguageCodeControl%27"><span class="hs-identifier hs-var">AudioLanguageCodeControl'</span></a></span></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAudioLanguageCodeControl"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; Text
 </span><a href="Network.AWS.MediaConvert.Types.AudioLanguageCodeControl.html#fromAudioLanguageCodeControl"><span class="hs-identifier hs-var hs-var">fromAudioLanguageCodeControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679935641"><span id="local-6989586621679935643"><span id="local-6989586621679935645"><span class="annot"><span class="annottext">Int -&gt; AudioLanguageCodeControl -&gt; ShowS
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679940262"><span id="local-6989586621679940264"><span id="local-6989586621679940266"><span class="annot"><span class="annottext">Int -&gt; AudioLanguageCodeControl -&gt; ShowS
 [AudioLanguageCodeControl] -&gt; ShowS
 AudioLanguageCodeControl -&gt; String
 (Int -&gt; AudioLanguageCodeControl -&gt; ShowS)
@@ -58,7 +58,7 @@ $cshow :: AudioLanguageCodeControl -&gt; String
 showsPrec :: Int -&gt; AudioLanguageCodeControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; AudioLanguageCodeControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679935632"><span id="local-6989586621679935634"><span id="local-6989586621679935636"><span id="local-6989586621679935638"><span class="annot"><span class="annottext">ReadPrec [AudioLanguageCodeControl]
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679940253"><span id="local-6989586621679940255"><span id="local-6989586621679940257"><span id="local-6989586621679940259"><span class="annot"><span class="annottext">ReadPrec [AudioLanguageCodeControl]
 ReadPrec AudioLanguageCodeControl
 Int -&gt; ReadS AudioLanguageCodeControl
 ReadS [AudioLanguageCodeControl]
@@ -79,7 +79,7 @@ $creadList :: ReadS [AudioLanguageCodeControl]
 readsPrec :: Int -&gt; ReadS AudioLanguageCodeControl
 $creadsPrec :: Int -&gt; ReadS AudioLanguageCodeControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679935627"><span id="local-6989586621679935629"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; AudioLanguageCodeControl -&gt; Bool
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679940248"><span id="local-6989586621679940250"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; AudioLanguageCodeControl -&gt; Bool
 (AudioLanguageCodeControl -&gt; AudioLanguageCodeControl -&gt; Bool)
 -&gt; (AudioLanguageCodeControl -&gt; AudioLanguageCodeControl -&gt; Bool)
 -&gt; Eq AudioLanguageCodeControl
@@ -89,7 +89,7 @@ $c/= :: AudioLanguageCodeControl -&gt; AudioLanguageCodeControl -&gt; Bool
 == :: AudioLanguageCodeControl -&gt; AudioLanguageCodeControl -&gt; Bool
 $c== :: AudioLanguageCodeControl -&gt; AudioLanguageCodeControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679935611"><span id="local-6989586621679935613"><span id="local-6989586621679935615"><span id="local-6989586621679935617"><span id="local-6989586621679935619"><span id="local-6989586621679935621"><span id="local-6989586621679935623"><span class="annot"><span class="annottext">Eq AudioLanguageCodeControl
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679940232"><span id="local-6989586621679940234"><span id="local-6989586621679940236"><span id="local-6989586621679940238"><span id="local-6989586621679940240"><span id="local-6989586621679940242"><span id="local-6989586621679940244"><span class="annot"><span class="annottext">Eq AudioLanguageCodeControl
 Eq AudioLanguageCodeControl
 -&gt; (AudioLanguageCodeControl
     -&gt; AudioLanguageCodeControl -&gt; Ordering)
@@ -154,7 +154,7 @@ AudioLanguageCodeControl -&gt; Rep AudioLanguageCodeControl x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679935603"><span id="local-6989586621679935605"><span class="annot"><span class="annottext">Int -&gt; AudioLanguageCodeControl -&gt; Int
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679940224"><span id="local-6989586621679940226"><span class="annot"><span class="annottext">Int -&gt; AudioLanguageCodeControl -&gt; Int
 AudioLanguageCodeControl -&gt; Int
 (Int -&gt; AudioLanguageCodeControl -&gt; Int)
 -&gt; (AudioLanguageCodeControl -&gt; Int)
@@ -165,55 +165,55 @@ $chash :: AudioLanguageCodeControl -&gt; Int
 hashWithSalt :: Int -&gt; AudioLanguageCodeControl -&gt; Int
 $chashWithSalt :: Int -&gt; AudioLanguageCodeControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679935600"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; ()
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679940221"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; ()
 (AudioLanguageCodeControl -&gt; ()) -&gt; NFData AudioLanguageCodeControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AudioLanguageCodeControl -&gt; ()
 $crnf :: AudioLanguageCodeControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679935597"><span class="annot"><span class="annottext">Text -&gt; Either String AudioLanguageCodeControl
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679940218"><span class="annot"><span class="annottext">Text -&gt; Either String AudioLanguageCodeControl
 (Text -&gt; Either String AudioLanguageCodeControl)
 -&gt; FromText AudioLanguageCodeControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AudioLanguageCodeControl
 $cfromText :: Text -&gt; Either String AudioLanguageCodeControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679935594"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; Text
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679940215"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; Text
 (AudioLanguageCodeControl -&gt; Text)
 -&gt; ToText AudioLanguageCodeControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AudioLanguageCodeControl -&gt; Text
 $ctoText :: AudioLanguageCodeControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679935591"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; ByteString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679940212"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; ByteString
 (AudioLanguageCodeControl -&gt; ByteString)
 -&gt; ToByteString AudioLanguageCodeControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AudioLanguageCodeControl -&gt; ByteString
 $ctoBS :: AudioLanguageCodeControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679935588"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; ByteStringBuilder
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679940209"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; ByteStringBuilder
 (AudioLanguageCodeControl -&gt; ByteStringBuilder)
 -&gt; ToLog AudioLanguageCodeControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AudioLanguageCodeControl -&gt; ByteStringBuilder
 $cbuild :: AudioLanguageCodeControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679935585"><span class="annot"><span class="annottext">HeaderName -&gt; AudioLanguageCodeControl -&gt; [Header]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679940206"><span class="annot"><span class="annottext">HeaderName -&gt; AudioLanguageCodeControl -&gt; [Header]
 (HeaderName -&gt; AudioLanguageCodeControl -&gt; [Header])
 -&gt; ToHeader AudioLanguageCodeControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AudioLanguageCodeControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AudioLanguageCodeControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679935582"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; QueryString
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679940203"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; QueryString
 (AudioLanguageCodeControl -&gt; QueryString)
 -&gt; ToQuery AudioLanguageCodeControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AudioLanguageCodeControl -&gt; QueryString
 $ctoQuery :: AudioLanguageCodeControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679935577"><span id="local-6989586621679935579"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioLanguageCodeControl]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679940198"><span id="local-6989586621679940200"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioLanguageCodeControl]
 Value -&gt; Parser AudioLanguageCodeControl
 (Value -&gt; Parser AudioLanguageCodeControl)
 -&gt; (Value -&gt; Parser [AudioLanguageCodeControl])
@@ -225,7 +225,7 @@ $cparseJSONList :: Value -&gt; Parser [AudioLanguageCodeControl]
 parseJSON :: Value -&gt; Parser AudioLanguageCodeControl
 $cparseJSON :: Value -&gt; Parser AudioLanguageCodeControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679935572"><span id="local-6989586621679935574"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioLanguageCodeControl]
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679940193"><span id="local-6989586621679940195"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioLanguageCodeControl]
 FromJSONKeyFunction AudioLanguageCodeControl
 FromJSONKeyFunction AudioLanguageCodeControl
 -&gt; FromJSONKeyFunction [AudioLanguageCodeControl]
@@ -237,7 +237,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AudioLanguageCodeControl]
 fromJSONKey :: FromJSONKeyFunction AudioLanguageCodeControl
 $cfromJSONKey :: FromJSONKeyFunction AudioLanguageCodeControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679935563"><span id="local-6989586621679935565"><span id="local-6989586621679935567"><span id="local-6989586621679935569"><span class="annot"><span class="annottext">[AudioLanguageCodeControl] -&gt; Encoding
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679940184"><span id="local-6989586621679940186"><span id="local-6989586621679940188"><span id="local-6989586621679940190"><span class="annot"><span class="annottext">[AudioLanguageCodeControl] -&gt; Encoding
 [AudioLanguageCodeControl] -&gt; Value
 AudioLanguageCodeControl -&gt; Encoding
 AudioLanguageCodeControl -&gt; Value
@@ -261,7 +261,7 @@ $ctoEncoding :: AudioLanguageCodeControl -&gt; Encoding
 toJSON :: AudioLanguageCodeControl -&gt; Value
 $ctoJSON :: AudioLanguageCodeControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679935558"><span id="local-6989586621679935560"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioLanguageCodeControl]
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679940179"><span id="local-6989586621679940181"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioLanguageCodeControl]
 ToJSONKeyFunction AudioLanguageCodeControl
 ToJSONKeyFunction AudioLanguageCodeControl
 -&gt; ToJSONKeyFunction [AudioLanguageCodeControl]
@@ -273,14 +273,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AudioLanguageCodeControl]
 toJSONKey :: ToJSONKeyFunction AudioLanguageCodeControl
 $ctoJSONKey :: ToJSONKeyFunction AudioLanguageCodeControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679935555"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioLanguageCodeControl
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679940176"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioLanguageCodeControl
 ([Node] -&gt; Either String AudioLanguageCodeControl)
 -&gt; FromXML AudioLanguageCodeControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AudioLanguageCodeControl
 $cparseXML :: [Node] -&gt; Either String AudioLanguageCodeControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679935552"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; XML
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679940173"><span class="annot"><span class="annottext">AudioLanguageCodeControl -&gt; XML
 (AudioLanguageCodeControl -&gt; XML) -&gt; ToXML AudioLanguageCodeControl
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AudioLanguageCodeControl -&gt; XML

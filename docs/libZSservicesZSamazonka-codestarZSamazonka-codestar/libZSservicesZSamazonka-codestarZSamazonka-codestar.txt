@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-codestarZSamazonka-codestar
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.CodeStar.Types.CodeCommitCodeDestination
@@ -267,11 +267,11 @@ module Network.AWS.CodeStar.Types.ProjectSummary
 data ProjectSummary
 ProjectSummary' :: Maybe Text -> Maybe Text -> ProjectSummary
 
--- | The ID of the project.
-[$sel:projectId:ProjectSummary'] :: ProjectSummary -> Maybe Text
-
 -- | The Amazon Resource Name (ARN) of the project.
 [$sel:projectArn:ProjectSummary'] :: ProjectSummary -> Maybe Text
+
+-- | The ID of the project.
+[$sel:projectId:ProjectSummary'] :: ProjectSummary -> Maybe Text
 
 -- | Create a value of <a>ProjectSummary</a> with all optional fields
 --   omitted.
@@ -282,19 +282,19 @@ ProjectSummary' :: Maybe Text -> Maybe Text -> ProjectSummary
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:projectId:ProjectSummary'</a>, <a>projectSummary_projectId</a>
---   - The ID of the project.
---   
 --   <a>$sel:projectArn:ProjectSummary'</a>,
 --   <a>projectSummary_projectArn</a> - The Amazon Resource Name (ARN) of
 --   the project.
+--   
+--   <a>$sel:projectId:ProjectSummary'</a>, <a>projectSummary_projectId</a>
+--   - The ID of the project.
 newProjectSummary :: ProjectSummary
-
--- | The ID of the project.
-projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the project.
 projectSummary_projectArn :: Lens' ProjectSummary (Maybe Text)
+
+-- | The ID of the project.
+projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.CodeStar.Types.ProjectSummary.ProjectSummary
 instance GHC.Show.Show Network.AWS.CodeStar.Types.ProjectSummary.ProjectSummary
 instance GHC.Read.Read Network.AWS.CodeStar.Types.ProjectSummary.ProjectSummary
@@ -347,13 +347,13 @@ module Network.AWS.CodeStar.Types.S3Location
 data S3Location
 S3Location' :: Maybe Text -> Maybe Text -> S3Location
 
--- | The Amazon S3 bucket name where the source code files provided with
---   the project request are stored.
-[$sel:bucketName:S3Location'] :: S3Location -> Maybe Text
-
 -- | The Amazon S3 object key where the source code files provided with the
 --   project request are stored.
 [$sel:bucketKey:S3Location'] :: S3Location -> Maybe Text
+
+-- | The Amazon S3 bucket name where the source code files provided with
+--   the project request are stored.
+[$sel:bucketName:S3Location'] :: S3Location -> Maybe Text
 
 -- | Create a value of <a>S3Location</a> with all optional fields omitted.
 --   
@@ -363,22 +363,22 @@ S3Location' :: Maybe Text -> Maybe Text -> S3Location
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:bucketName:S3Location'</a>, <a>s3Location_bucketName</a> - The
---   Amazon S3 bucket name where the source code files provided with the
---   project request are stored.
---   
 --   <a>$sel:bucketKey:S3Location'</a>, <a>s3Location_bucketKey</a> - The
 --   Amazon S3 object key where the source code files provided with the
 --   project request are stored.
+--   
+--   <a>$sel:bucketName:S3Location'</a>, <a>s3Location_bucketName</a> - The
+--   Amazon S3 bucket name where the source code files provided with the
+--   project request are stored.
 newS3Location :: S3Location
-
--- | The Amazon S3 bucket name where the source code files provided with
---   the project request are stored.
-s3Location_bucketName :: Lens' S3Location (Maybe Text)
 
 -- | The Amazon S3 object key where the source code files provided with the
 --   project request are stored.
 s3Location_bucketKey :: Lens' S3Location (Maybe Text)
+
+-- | The Amazon S3 bucket name where the source code files provided with
+--   the project request are stored.
+s3Location_bucketName :: Lens' S3Location (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.CodeStar.Types.S3Location.S3Location
 instance GHC.Show.Show Network.AWS.CodeStar.Types.S3Location.S3Location
 instance GHC.Read.Read Network.AWS.CodeStar.Types.S3Location.S3Location
@@ -661,14 +661,17 @@ module Network.AWS.CodeStar.Types.UserProfileSummary
 data UserProfileSummary
 UserProfileSummary' :: Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> UserProfileSummary
 
--- | The Amazon Resource Name (ARN) of the user in IAM.
-[$sel:userArn:UserProfileSummary'] :: UserProfileSummary -> Maybe Text
-
 -- | The SSH public key associated with the user in AWS CodeStar. If a
 --   project owner allows the user remote access to project resources, this
 --   public key will be used along with the user's private key for SSH
 --   access.
 [$sel:sshPublicKey:UserProfileSummary'] :: UserProfileSummary -> Maybe Text
+
+-- | The Amazon Resource Name (ARN) of the user in IAM.
+[$sel:userArn:UserProfileSummary'] :: UserProfileSummary -> Maybe Text
+
+-- | The email address associated with the user.
+[$sel:emailAddress:UserProfileSummary'] :: UserProfileSummary -> Maybe (Sensitive Text)
 
 -- | The display name of a user in AWS CodeStar. For example, this could be
 --   set to both first and last name ("Mary Major") or a single name
@@ -682,9 +685,6 @@ UserProfileSummary' :: Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> May
 --   character after the space ("MJ", not "MM").
 [$sel:displayName:UserProfileSummary'] :: UserProfileSummary -> Maybe (Sensitive Text)
 
--- | The email address associated with the user.
-[$sel:emailAddress:UserProfileSummary'] :: UserProfileSummary -> Maybe (Sensitive Text)
-
 -- | Create a value of <a>UserProfileSummary</a> with all optional fields
 --   omitted.
 --   
@@ -694,15 +694,19 @@ UserProfileSummary' :: Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> May
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:userArn:UserProfileSummary'</a>,
---   <a>userProfileSummary_userArn</a> - The Amazon Resource Name (ARN) of
---   the user in IAM.
---   
 --   <a>$sel:sshPublicKey:UserProfileSummary'</a>,
 --   <a>userProfileSummary_sshPublicKey</a> - The SSH public key associated
 --   with the user in AWS CodeStar. If a project owner allows the user
 --   remote access to project resources, this public key will be used along
 --   with the user's private key for SSH access.
+--   
+--   <a>$sel:userArn:UserProfileSummary'</a>,
+--   <a>userProfileSummary_userArn</a> - The Amazon Resource Name (ARN) of
+--   the user in IAM.
+--   
+--   <a>$sel:emailAddress:UserProfileSummary'</a>,
+--   <a>userProfileSummary_emailAddress</a> - The email address associated
+--   with the user.
 --   
 --   <a>$sel:displayName:UserProfileSummary'</a>,
 --   <a>userProfileSummary_displayName</a> - The display name of a user in
@@ -716,20 +720,19 @@ UserProfileSummary' :: Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> May
 --   (for example "Mary Jane Major") would generate an initial icon using
 --   the first character and the first character after the space ("MJ", not
 --   "MM").
---   
---   <a>$sel:emailAddress:UserProfileSummary'</a>,
---   <a>userProfileSummary_emailAddress</a> - The email address associated
---   with the user.
 newUserProfileSummary :: UserProfileSummary
-
--- | The Amazon Resource Name (ARN) of the user in IAM.
-userProfileSummary_userArn :: Lens' UserProfileSummary (Maybe Text)
 
 -- | The SSH public key associated with the user in AWS CodeStar. If a
 --   project owner allows the user remote access to project resources, this
 --   public key will be used along with the user's private key for SSH
 --   access.
 userProfileSummary_sshPublicKey :: Lens' UserProfileSummary (Maybe Text)
+
+-- | The Amazon Resource Name (ARN) of the user in IAM.
+userProfileSummary_userArn :: Lens' UserProfileSummary (Maybe Text)
+
+-- | The email address associated with the user.
+userProfileSummary_emailAddress :: Lens' UserProfileSummary (Maybe Text)
 
 -- | The display name of a user in AWS CodeStar. For example, this could be
 --   set to both first and last name ("Mary Major") or a single name
@@ -742,9 +745,6 @@ userProfileSummary_sshPublicKey :: Lens' UserProfileSummary (Maybe Text)
 --   would generate an initial icon using the first character and the first
 --   character after the space ("MJ", not "MM").
 userProfileSummary_displayName :: Lens' UserProfileSummary (Maybe Text)
-
--- | The email address associated with the user.
-userProfileSummary_emailAddress :: Lens' UserProfileSummary (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.CodeStar.Types.UserProfileSummary.UserProfileSummary
 instance GHC.Show.Show Network.AWS.CodeStar.Types.UserProfileSummary.UserProfileSummary
 instance GHC.Classes.Eq Network.AWS.CodeStar.Types.UserProfileSummary.UserProfileSummary
@@ -762,21 +762,35 @@ defaultService :: Service
 -- | The team member is already associated with a role in this project.
 _TeamMemberAlreadyAssociatedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | An AWS CodeStar project with the same ID already exists in this region
---   for the AWS account. AWS CodeStar project IDs must be unique within a
---   region for the AWS account.
-_ProjectAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The specified input is either not valid, or it could not be validated.
+_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified AWS CodeStar project was not found.
-_ProjectNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The user profile was not found.
-_UserProfileNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The service role is not valid.
+_InvalidServiceRoleException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The project creation request was valid, but a nonspecific exception or
 --   error occurred during project creation. The project could not be
 --   created in AWS CodeStar.
 _ProjectCreationFailedException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | A user profile with that name already exists in this region for the
+--   AWS account. AWS CodeStar user profile names must be unique within a
+--   region for the AWS account.
+_UserProfileAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified AWS CodeStar project was not found.
+_ProjectNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified team member was not found.
+_TeamMemberNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | An AWS CodeStar project with the same ID already exists in this region
+--   for the AWS account. AWS CodeStar project IDs must be unique within a
+--   region for the AWS account.
+_ProjectAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Project configuration information is required but not specified.
+_ProjectConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Another modification is being made. That modification must complete
 --   before you can make your change.
@@ -785,25 +799,11 @@ _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a 
 -- | The next token is not valid.
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Project configuration information is required but not specified.
-_ProjectConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The service role is not valid.
-_InvalidServiceRoleException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The specified input is either not valid, or it could not be validated.
-_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The specified team member was not found.
-_TeamMemberNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The user profile was not found.
+_UserProfileNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | A resource limit has been exceeded.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | A user profile with that name already exists in this region for the
---   AWS account. AWS CodeStar user profile names must be unique within a
---   region for the AWS account.
-_UserProfileAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Location and destination information about the source code files
 --   provided with the project request. The source code is uploaded to the
@@ -1105,11 +1105,11 @@ projectStatus_state :: Lens' ProjectStatus Text
 data ProjectSummary
 ProjectSummary' :: Maybe Text -> Maybe Text -> ProjectSummary
 
--- | The ID of the project.
-[$sel:projectId:ProjectSummary'] :: ProjectSummary -> Maybe Text
-
 -- | The Amazon Resource Name (ARN) of the project.
 [$sel:projectArn:ProjectSummary'] :: ProjectSummary -> Maybe Text
+
+-- | The ID of the project.
+[$sel:projectId:ProjectSummary'] :: ProjectSummary -> Maybe Text
 
 -- | Create a value of <a>ProjectSummary</a> with all optional fields
 --   omitted.
@@ -1120,19 +1120,19 @@ ProjectSummary' :: Maybe Text -> Maybe Text -> ProjectSummary
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:projectId:ProjectSummary'</a>, <a>projectSummary_projectId</a>
---   - The ID of the project.
---   
 --   <a>$sel:projectArn:ProjectSummary'</a>,
 --   <a>projectSummary_projectArn</a> - The Amazon Resource Name (ARN) of
 --   the project.
+--   
+--   <a>$sel:projectId:ProjectSummary'</a>, <a>projectSummary_projectId</a>
+--   - The ID of the project.
 newProjectSummary :: ProjectSummary
-
--- | The ID of the project.
-projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the project.
 projectSummary_projectArn :: Lens' ProjectSummary (Maybe Text)
+
+-- | The ID of the project.
+projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
 
 -- | Information about a resource for a project.
 --   
@@ -1165,13 +1165,13 @@ resource_id :: Lens' Resource Text
 data S3Location
 S3Location' :: Maybe Text -> Maybe Text -> S3Location
 
--- | The Amazon S3 bucket name where the source code files provided with
---   the project request are stored.
-[$sel:bucketName:S3Location'] :: S3Location -> Maybe Text
-
 -- | The Amazon S3 object key where the source code files provided with the
 --   project request are stored.
 [$sel:bucketKey:S3Location'] :: S3Location -> Maybe Text
+
+-- | The Amazon S3 bucket name where the source code files provided with
+--   the project request are stored.
+[$sel:bucketName:S3Location'] :: S3Location -> Maybe Text
 
 -- | Create a value of <a>S3Location</a> with all optional fields omitted.
 --   
@@ -1181,22 +1181,22 @@ S3Location' :: Maybe Text -> Maybe Text -> S3Location
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:bucketName:S3Location'</a>, <a>s3Location_bucketName</a> - The
---   Amazon S3 bucket name where the source code files provided with the
---   project request are stored.
---   
 --   <a>$sel:bucketKey:S3Location'</a>, <a>s3Location_bucketKey</a> - The
 --   Amazon S3 object key where the source code files provided with the
 --   project request are stored.
+--   
+--   <a>$sel:bucketName:S3Location'</a>, <a>s3Location_bucketName</a> - The
+--   Amazon S3 bucket name where the source code files provided with the
+--   project request are stored.
 newS3Location :: S3Location
-
--- | The Amazon S3 bucket name where the source code files provided with
---   the project request are stored.
-s3Location_bucketName :: Lens' S3Location (Maybe Text)
 
 -- | The Amazon S3 object key where the source code files provided with the
 --   project request are stored.
 s3Location_bucketKey :: Lens' S3Location (Maybe Text)
+
+-- | The Amazon S3 bucket name where the source code files provided with
+--   the project request are stored.
+s3Location_bucketName :: Lens' S3Location (Maybe Text)
 
 -- | Information about a team member in a project.
 --   
@@ -1343,14 +1343,17 @@ toolchainSource_s3 :: Lens' ToolchainSource S3Location
 data UserProfileSummary
 UserProfileSummary' :: Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> UserProfileSummary
 
--- | The Amazon Resource Name (ARN) of the user in IAM.
-[$sel:userArn:UserProfileSummary'] :: UserProfileSummary -> Maybe Text
-
 -- | The SSH public key associated with the user in AWS CodeStar. If a
 --   project owner allows the user remote access to project resources, this
 --   public key will be used along with the user's private key for SSH
 --   access.
 [$sel:sshPublicKey:UserProfileSummary'] :: UserProfileSummary -> Maybe Text
+
+-- | The Amazon Resource Name (ARN) of the user in IAM.
+[$sel:userArn:UserProfileSummary'] :: UserProfileSummary -> Maybe Text
+
+-- | The email address associated with the user.
+[$sel:emailAddress:UserProfileSummary'] :: UserProfileSummary -> Maybe (Sensitive Text)
 
 -- | The display name of a user in AWS CodeStar. For example, this could be
 --   set to both first and last name ("Mary Major") or a single name
@@ -1364,9 +1367,6 @@ UserProfileSummary' :: Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> May
 --   character after the space ("MJ", not "MM").
 [$sel:displayName:UserProfileSummary'] :: UserProfileSummary -> Maybe (Sensitive Text)
 
--- | The email address associated with the user.
-[$sel:emailAddress:UserProfileSummary'] :: UserProfileSummary -> Maybe (Sensitive Text)
-
 -- | Create a value of <a>UserProfileSummary</a> with all optional fields
 --   omitted.
 --   
@@ -1376,15 +1376,19 @@ UserProfileSummary' :: Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> May
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:userArn:UserProfileSummary'</a>,
---   <a>userProfileSummary_userArn</a> - The Amazon Resource Name (ARN) of
---   the user in IAM.
---   
 --   <a>$sel:sshPublicKey:UserProfileSummary'</a>,
 --   <a>userProfileSummary_sshPublicKey</a> - The SSH public key associated
 --   with the user in AWS CodeStar. If a project owner allows the user
 --   remote access to project resources, this public key will be used along
 --   with the user's private key for SSH access.
+--   
+--   <a>$sel:userArn:UserProfileSummary'</a>,
+--   <a>userProfileSummary_userArn</a> - The Amazon Resource Name (ARN) of
+--   the user in IAM.
+--   
+--   <a>$sel:emailAddress:UserProfileSummary'</a>,
+--   <a>userProfileSummary_emailAddress</a> - The email address associated
+--   with the user.
 --   
 --   <a>$sel:displayName:UserProfileSummary'</a>,
 --   <a>userProfileSummary_displayName</a> - The display name of a user in
@@ -1398,20 +1402,19 @@ UserProfileSummary' :: Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> May
 --   (for example "Mary Jane Major") would generate an initial icon using
 --   the first character and the first character after the space ("MJ", not
 --   "MM").
---   
---   <a>$sel:emailAddress:UserProfileSummary'</a>,
---   <a>userProfileSummary_emailAddress</a> - The email address associated
---   with the user.
 newUserProfileSummary :: UserProfileSummary
-
--- | The Amazon Resource Name (ARN) of the user in IAM.
-userProfileSummary_userArn :: Lens' UserProfileSummary (Maybe Text)
 
 -- | The SSH public key associated with the user in AWS CodeStar. If a
 --   project owner allows the user remote access to project resources, this
 --   public key will be used along with the user's private key for SSH
 --   access.
 userProfileSummary_sshPublicKey :: Lens' UserProfileSummary (Maybe Text)
+
+-- | The Amazon Resource Name (ARN) of the user in IAM.
+userProfileSummary_userArn :: Lens' UserProfileSummary (Maybe Text)
+
+-- | The email address associated with the user.
+userProfileSummary_emailAddress :: Lens' UserProfileSummary (Maybe Text)
 
 -- | The display name of a user in AWS CodeStar. For example, this could be
 --   set to both first and last name ("Mary Major") or a single name
@@ -1424,9 +1427,6 @@ userProfileSummary_sshPublicKey :: Lens' UserProfileSummary (Maybe Text)
 --   would generate an initial icon using the first character and the first
 --   character after the space ("MJ", not "MM").
 userProfileSummary_displayName :: Lens' UserProfileSummary (Maybe Text)
-
--- | The email address associated with the user.
-userProfileSummary_emailAddress :: Lens' UserProfileSummary (Maybe Text)
 
 
 -- | Adds tags to a project.
@@ -1893,14 +1893,14 @@ listResources_projectId :: Lens' ListResources Text
 
 -- | <i>See:</i> <a>newListResourcesResponse</a> smart constructor.
 data ListResourcesResponse
-ListResourcesResponse' :: Maybe Text -> Maybe [Resource] -> Int -> ListResourcesResponse
+ListResourcesResponse' :: Maybe [Resource] -> Maybe Text -> Int -> ListResourcesResponse
+
+-- | An array of resources associated with the project.
+[$sel:resources:ListResourcesResponse'] :: ListResourcesResponse -> Maybe [Resource]
 
 -- | The continuation token to use when requesting the next set of results,
 --   if there are more results to be returned.
 [$sel:nextToken:ListResourcesResponse'] :: ListResourcesResponse -> Maybe Text
-
--- | An array of resources associated with the project.
-[$sel:resources:ListResourcesResponse'] :: ListResourcesResponse -> Maybe [Resource]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListResourcesResponse'] :: ListResourcesResponse -> Int
@@ -1914,26 +1914,26 @@ ListResourcesResponse' :: Maybe Text -> Maybe [Resource] -> Int -> ListResources
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:resources:ListResourcesResponse'</a>,
+--   <a>listResourcesResponse_resources</a> - An array of resources
+--   associated with the project.
+--   
 --   <a>$sel:nextToken:ListResources'</a>,
 --   <a>listResourcesResponse_nextToken</a> - The continuation token to use
 --   when requesting the next set of results, if there are more results to
 --   be returned.
---   
---   <a>$sel:resources:ListResourcesResponse'</a>,
---   <a>listResourcesResponse_resources</a> - An array of resources
---   associated with the project.
 --   
 --   <a>$sel:httpStatus:ListResourcesResponse'</a>,
 --   <a>listResourcesResponse_httpStatus</a> - The response's http status
 --   code.
 newListResourcesResponse :: Int -> ListResourcesResponse
 
+-- | An array of resources associated with the project.
+listResourcesResponse_resources :: Lens' ListResourcesResponse (Maybe [Resource])
+
 -- | The continuation token to use when requesting the next set of results,
 --   if there are more results to be returned.
 listResourcesResponse_nextToken :: Lens' ListResourcesResponse (Maybe Text)
-
--- | An array of resources associated with the project.
-listResourcesResponse_resources :: Lens' ListResourcesResponse (Maybe [Resource])
 
 -- | The response's http status code.
 listResourcesResponse_httpStatus :: Lens' ListResourcesResponse Int
@@ -2189,6 +2189,9 @@ DescribeUserProfileResponse' :: Maybe Text -> Maybe (Sensitive Text) -> Maybe (S
 --   resources.
 [$sel:sshPublicKey:DescribeUserProfileResponse'] :: DescribeUserProfileResponse -> Maybe Text
 
+-- | The email address for the user. Optional.
+[$sel:emailAddress:DescribeUserProfileResponse'] :: DescribeUserProfileResponse -> Maybe (Sensitive Text)
+
 -- | The display name shown for the user in AWS CodeStar projects. For
 --   example, this could be set to both first and last name ("Mary Major")
 --   or a single name ("Mary"). The display name is also used to generate
@@ -2200,9 +2203,6 @@ DescribeUserProfileResponse' :: Maybe Text -> Maybe (Sensitive Text) -> Maybe (S
 --   "Mary Jane Major") would generate an initial icon using the first
 --   character and the first character after the space ("MJ", not "MM").
 [$sel:displayName:DescribeUserProfileResponse'] :: DescribeUserProfileResponse -> Maybe (Sensitive Text)
-
--- | The email address for the user. Optional.
-[$sel:emailAddress:DescribeUserProfileResponse'] :: DescribeUserProfileResponse -> Maybe (Sensitive Text)
 
 -- | The response's http status code.
 [$sel:httpStatus:DescribeUserProfileResponse'] :: DescribeUserProfileResponse -> Int
@@ -2234,6 +2234,10 @@ DescribeUserProfileResponse' :: Maybe Text -> Maybe (Sensitive Text) -> Maybe (S
 --   private key for access to project resources, such as Amazon EC2
 --   instances, if a project owner grants remote access to those resources.
 --   
+--   <a>$sel:emailAddress:DescribeUserProfileResponse'</a>,
+--   <a>describeUserProfileResponse_emailAddress</a> - The email address
+--   for the user. Optional.
+--   
 --   <a>$sel:displayName:DescribeUserProfileResponse'</a>,
 --   <a>describeUserProfileResponse_displayName</a> - The display name
 --   shown for the user in AWS CodeStar projects. For example, this could
@@ -2246,10 +2250,6 @@ DescribeUserProfileResponse' :: Maybe Text -> Maybe (Sensitive Text) -> Maybe (S
 --   display name with more than one space (for example "Mary Jane Major")
 --   would generate an initial icon using the first character and the first
 --   character after the space ("MJ", not "MM").
---   
---   <a>$sel:emailAddress:DescribeUserProfileResponse'</a>,
---   <a>describeUserProfileResponse_emailAddress</a> - The email address
---   for the user. Optional.
 --   
 --   <a>$sel:httpStatus:DescribeUserProfileResponse'</a>,
 --   <a>describeUserProfileResponse_httpStatus</a> - The response's http
@@ -2276,6 +2276,9 @@ newDescribeUserProfileResponse :: Int -> Text -> UTCTime -> UTCTime -> DescribeU
 --   resources.
 describeUserProfileResponse_sshPublicKey :: Lens' DescribeUserProfileResponse (Maybe Text)
 
+-- | The email address for the user. Optional.
+describeUserProfileResponse_emailAddress :: Lens' DescribeUserProfileResponse (Maybe Text)
+
 -- | The display name shown for the user in AWS CodeStar projects. For
 --   example, this could be set to both first and last name ("Mary Major")
 --   or a single name ("Mary"). The display name is also used to generate
@@ -2287,9 +2290,6 @@ describeUserProfileResponse_sshPublicKey :: Lens' DescribeUserProfileResponse (M
 --   "Mary Jane Major") would generate an initial icon using the first
 --   character and the first character after the space ("MJ", not "MM").
 describeUserProfileResponse_displayName :: Lens' DescribeUserProfileResponse (Maybe Text)
-
--- | The email address for the user. Optional.
-describeUserProfileResponse_emailAddress :: Lens' DescribeUserProfileResponse (Maybe Text)
 
 -- | The response's http status code.
 describeUserProfileResponse_httpStatus :: Lens' DescribeUserProfileResponse Int
@@ -2349,37 +2349,37 @@ describeProject_id :: Lens' DescribeProject Text
 
 -- | <i>See:</i> <a>newDescribeProjectResponse</a> smart constructor.
 data DescribeProjectResponse
-DescribeProjectResponse' :: Maybe ProjectStatus -> Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Maybe Text -> Maybe Text -> Int -> DescribeProjectResponse
+DescribeProjectResponse' :: Maybe ProjectStatus -> Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe POSIX -> Maybe (Sensitive Text) -> Int -> DescribeProjectResponse
 
 -- | The project creation or deletion status.
 [$sel:status:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe ProjectStatus
 
--- | The date and time the project was created, in timestamp format.
-[$sel:createdTimeStamp:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe POSIX
+-- | The Amazon Resource Name (ARN) for the project.
+[$sel:arn:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe Text
+
+-- | The ID for the AWS CodeStar project template used to create the
+--   project.
+[$sel:projectTemplateId:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe Text
+
+-- | The display name for the project.
+[$sel:name:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe (Sensitive Text)
+
+-- | The ID of the project.
+[$sel:id:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe Text
 
 -- | The ID of the primary stack in AWS CloudFormation used to generate
 --   resources for the project.
 [$sel:stackId:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe Text
 
--- | The ID of the project.
-[$sel:id:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe Text
-
--- | The Amazon Resource Name (ARN) for the project.
-[$sel:arn:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe Text
-
--- | The display name for the project.
-[$sel:name:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe (Sensitive Text)
-
--- | The description of the project, if any.
-[$sel:description:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe (Sensitive Text)
-
 -- | A user- or system-generated token that identifies the entity that
 --   requested project creation.
 [$sel:clientRequestToken:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe Text
 
--- | The ID for the AWS CodeStar project template used to create the
---   project.
-[$sel:projectTemplateId:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe Text
+-- | The date and time the project was created, in timestamp format.
+[$sel:createdTimeStamp:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe POSIX
+
+-- | The description of the project, if any.
+[$sel:description:DescribeProjectResponse'] :: DescribeProjectResponse -> Maybe (Sensitive Text)
 
 -- | The response's http status code.
 [$sel:httpStatus:DescribeProjectResponse'] :: DescribeProjectResponse -> Int
@@ -2397,37 +2397,37 @@ DescribeProjectResponse' :: Maybe ProjectStatus -> Maybe POSIX -> Maybe Text -> 
 --   <a>describeProjectResponse_status</a> - The project creation or
 --   deletion status.
 --   
---   <a>$sel:createdTimeStamp:DescribeProjectResponse'</a>,
---   <a>describeProjectResponse_createdTimeStamp</a> - The date and time
---   the project was created, in timestamp format.
---   
---   <a>$sel:stackId:DescribeProjectResponse'</a>,
---   <a>describeProjectResponse_stackId</a> - The ID of the primary stack
---   in AWS CloudFormation used to generate resources for the project.
---   
---   <a>$sel:id:DescribeProject'</a>, <a>describeProjectResponse_id</a> -
---   The ID of the project.
---   
 --   <a>$sel:arn:DescribeProjectResponse'</a>,
 --   <a>describeProjectResponse_arn</a> - The Amazon Resource Name (ARN)
 --   for the project.
+--   
+--   <a>$sel:projectTemplateId:DescribeProjectResponse'</a>,
+--   <a>describeProjectResponse_projectTemplateId</a> - The ID for the AWS
+--   CodeStar project template used to create the project.
 --   
 --   <a>$sel:name:DescribeProjectResponse'</a>,
 --   <a>describeProjectResponse_name</a> - The display name for the
 --   project.
 --   
---   <a>$sel:description:DescribeProjectResponse'</a>,
---   <a>describeProjectResponse_description</a> - The description of the
---   project, if any.
+--   <a>$sel:id:DescribeProject'</a>, <a>describeProjectResponse_id</a> -
+--   The ID of the project.
+--   
+--   <a>$sel:stackId:DescribeProjectResponse'</a>,
+--   <a>describeProjectResponse_stackId</a> - The ID of the primary stack
+--   in AWS CloudFormation used to generate resources for the project.
 --   
 --   <a>$sel:clientRequestToken:DescribeProjectResponse'</a>,
 --   <a>describeProjectResponse_clientRequestToken</a> - A user- or
 --   system-generated token that identifies the entity that requested
 --   project creation.
 --   
---   <a>$sel:projectTemplateId:DescribeProjectResponse'</a>,
---   <a>describeProjectResponse_projectTemplateId</a> - The ID for the AWS
---   CodeStar project template used to create the project.
+--   <a>$sel:createdTimeStamp:DescribeProjectResponse'</a>,
+--   <a>describeProjectResponse_createdTimeStamp</a> - The date and time
+--   the project was created, in timestamp format.
+--   
+--   <a>$sel:description:DescribeProjectResponse'</a>,
+--   <a>describeProjectResponse_description</a> - The description of the
+--   project, if any.
 --   
 --   <a>$sel:httpStatus:DescribeProjectResponse'</a>,
 --   <a>describeProjectResponse_httpStatus</a> - The response's http status
@@ -2437,32 +2437,32 @@ newDescribeProjectResponse :: Int -> DescribeProjectResponse
 -- | The project creation or deletion status.
 describeProjectResponse_status :: Lens' DescribeProjectResponse (Maybe ProjectStatus)
 
--- | The date and time the project was created, in timestamp format.
-describeProjectResponse_createdTimeStamp :: Lens' DescribeProjectResponse (Maybe UTCTime)
+-- | The Amazon Resource Name (ARN) for the project.
+describeProjectResponse_arn :: Lens' DescribeProjectResponse (Maybe Text)
+
+-- | The ID for the AWS CodeStar project template used to create the
+--   project.
+describeProjectResponse_projectTemplateId :: Lens' DescribeProjectResponse (Maybe Text)
+
+-- | The display name for the project.
+describeProjectResponse_name :: Lens' DescribeProjectResponse (Maybe Text)
+
+-- | The ID of the project.
+describeProjectResponse_id :: Lens' DescribeProjectResponse (Maybe Text)
 
 -- | The ID of the primary stack in AWS CloudFormation used to generate
 --   resources for the project.
 describeProjectResponse_stackId :: Lens' DescribeProjectResponse (Maybe Text)
 
--- | The ID of the project.
-describeProjectResponse_id :: Lens' DescribeProjectResponse (Maybe Text)
-
--- | The Amazon Resource Name (ARN) for the project.
-describeProjectResponse_arn :: Lens' DescribeProjectResponse (Maybe Text)
-
--- | The display name for the project.
-describeProjectResponse_name :: Lens' DescribeProjectResponse (Maybe Text)
-
--- | The description of the project, if any.
-describeProjectResponse_description :: Lens' DescribeProjectResponse (Maybe Text)
-
 -- | A user- or system-generated token that identifies the entity that
 --   requested project creation.
 describeProjectResponse_clientRequestToken :: Lens' DescribeProjectResponse (Maybe Text)
 
--- | The ID for the AWS CodeStar project template used to create the
---   project.
-describeProjectResponse_projectTemplateId :: Lens' DescribeProjectResponse (Maybe Text)
+-- | The date and time the project was created, in timestamp format.
+describeProjectResponse_createdTimeStamp :: Lens' DescribeProjectResponse (Maybe UTCTime)
+
+-- | The description of the project, if any.
+describeProjectResponse_description :: Lens' DescribeProjectResponse (Maybe Text)
 
 -- | The response's http status code.
 describeProjectResponse_httpStatus :: Lens' DescribeProjectResponse Int
@@ -2634,12 +2634,12 @@ deleteProject_id :: Lens' DeleteProject Text
 data DeleteProjectResponse
 DeleteProjectResponse' :: Maybe Text -> Maybe Text -> Int -> DeleteProjectResponse
 
+-- | The Amazon Resource Name (ARN) of the deleted project.
+[$sel:projectArn:DeleteProjectResponse'] :: DeleteProjectResponse -> Maybe Text
+
 -- | The ID of the primary stack in AWS CloudFormation that will be deleted
 --   as part of deleting the project and its resources.
 [$sel:stackId:DeleteProjectResponse'] :: DeleteProjectResponse -> Maybe Text
-
--- | The Amazon Resource Name (ARN) of the deleted project.
-[$sel:projectArn:DeleteProjectResponse'] :: DeleteProjectResponse -> Maybe Text
 
 -- | The response's http status code.
 [$sel:httpStatus:DeleteProjectResponse'] :: DeleteProjectResponse -> Int
@@ -2653,26 +2653,26 @@ DeleteProjectResponse' :: Maybe Text -> Maybe Text -> Int -> DeleteProjectRespon
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:projectArn:DeleteProjectResponse'</a>,
+--   <a>deleteProjectResponse_projectArn</a> - The Amazon Resource Name
+--   (ARN) of the deleted project.
+--   
 --   <a>$sel:stackId:DeleteProjectResponse'</a>,
 --   <a>deleteProjectResponse_stackId</a> - The ID of the primary stack in
 --   AWS CloudFormation that will be deleted as part of deleting the
 --   project and its resources.
---   
---   <a>$sel:projectArn:DeleteProjectResponse'</a>,
---   <a>deleteProjectResponse_projectArn</a> - The Amazon Resource Name
---   (ARN) of the deleted project.
 --   
 --   <a>$sel:httpStatus:DeleteProjectResponse'</a>,
 --   <a>deleteProjectResponse_httpStatus</a> - The response's http status
 --   code.
 newDeleteProjectResponse :: Int -> DeleteProjectResponse
 
+-- | The Amazon Resource Name (ARN) of the deleted project.
+deleteProjectResponse_projectArn :: Lens' DeleteProjectResponse (Maybe Text)
+
 -- | The ID of the primary stack in AWS CloudFormation that will be deleted
 --   as part of deleting the project and its resources.
 deleteProjectResponse_stackId :: Lens' DeleteProjectResponse (Maybe Text)
-
--- | The Amazon Resource Name (ARN) of the deleted project.
-deleteProjectResponse_projectArn :: Lens' DeleteProjectResponse (Maybe Text)
 
 -- | The response's http status code.
 deleteProjectResponse_httpStatus :: Lens' DeleteProjectResponse Int
@@ -2769,10 +2769,7 @@ createUserProfile_emailAddress :: Lens' CreateUserProfile Text
 
 -- | <i>See:</i> <a>newCreateUserProfileResponse</a> smart constructor.
 data CreateUserProfileResponse
-CreateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Int -> Text -> CreateUserProfileResponse
-
--- | The date the user profile was created, in timestamp format.
-[$sel:createdTimestamp:CreateUserProfileResponse'] :: CreateUserProfileResponse -> Maybe POSIX
+CreateUserProfileResponse' :: Maybe POSIX -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Maybe POSIX -> Int -> Text -> CreateUserProfileResponse
 
 -- | The date the user profile was last modified, in timestamp format.
 [$sel:lastModifiedTimestamp:CreateUserProfileResponse'] :: CreateUserProfileResponse -> Maybe POSIX
@@ -2783,13 +2780,16 @@ CreateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe 
 --   access to those resources.
 [$sel:sshPublicKey:CreateUserProfileResponse'] :: CreateUserProfileResponse -> Maybe Text
 
+-- | The email address that is displayed as part of the user's profile in
+--   AWS CodeStar.
+[$sel:emailAddress:CreateUserProfileResponse'] :: CreateUserProfileResponse -> Maybe (Sensitive Text)
+
 -- | The name that is displayed as the friendly name for the user in AWS
 --   CodeStar.
 [$sel:displayName:CreateUserProfileResponse'] :: CreateUserProfileResponse -> Maybe (Sensitive Text)
 
--- | The email address that is displayed as part of the user's profile in
---   AWS CodeStar.
-[$sel:emailAddress:CreateUserProfileResponse'] :: CreateUserProfileResponse -> Maybe (Sensitive Text)
+-- | The date the user profile was created, in timestamp format.
+[$sel:createdTimestamp:CreateUserProfileResponse'] :: CreateUserProfileResponse -> Maybe POSIX
 
 -- | The response's http status code.
 [$sel:httpStatus:CreateUserProfileResponse'] :: CreateUserProfileResponse -> Int
@@ -2806,10 +2806,6 @@ CreateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:createdTimestamp:CreateUserProfileResponse'</a>,
---   <a>createUserProfileResponse_createdTimestamp</a> - The date the user
---   profile was created, in timestamp format.
---   
 --   <a>$sel:lastModifiedTimestamp:CreateUserProfileResponse'</a>,
 --   <a>createUserProfileResponse_lastModifiedTimestamp</a> - The date the
 --   user profile was last modified, in timestamp format.
@@ -2821,13 +2817,17 @@ CreateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe 
 --   resources if a project owner allows the user remote access to those
 --   resources.
 --   
+--   <a>$sel:emailAddress:CreateUserProfile'</a>,
+--   <a>createUserProfileResponse_emailAddress</a> - The email address that
+--   is displayed as part of the user's profile in AWS CodeStar.
+--   
 --   <a>$sel:displayName:CreateUserProfile'</a>,
 --   <a>createUserProfileResponse_displayName</a> - The name that is
 --   displayed as the friendly name for the user in AWS CodeStar.
 --   
---   <a>$sel:emailAddress:CreateUserProfile'</a>,
---   <a>createUserProfileResponse_emailAddress</a> - The email address that
---   is displayed as part of the user's profile in AWS CodeStar.
+--   <a>$sel:createdTimestamp:CreateUserProfileResponse'</a>,
+--   <a>createUserProfileResponse_createdTimestamp</a> - The date the user
+--   profile was created, in timestamp format.
 --   
 --   <a>$sel:httpStatus:CreateUserProfileResponse'</a>,
 --   <a>createUserProfileResponse_httpStatus</a> - The response's http
@@ -2838,9 +2838,6 @@ CreateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe 
 --   (ARN) of the user in IAM.
 newCreateUserProfileResponse :: Int -> Text -> CreateUserProfileResponse
 
--- | The date the user profile was created, in timestamp format.
-createUserProfileResponse_createdTimestamp :: Lens' CreateUserProfileResponse (Maybe UTCTime)
-
 -- | The date the user profile was last modified, in timestamp format.
 createUserProfileResponse_lastModifiedTimestamp :: Lens' CreateUserProfileResponse (Maybe UTCTime)
 
@@ -2850,13 +2847,16 @@ createUserProfileResponse_lastModifiedTimestamp :: Lens' CreateUserProfileRespon
 --   access to those resources.
 createUserProfileResponse_sshPublicKey :: Lens' CreateUserProfileResponse (Maybe Text)
 
+-- | The email address that is displayed as part of the user's profile in
+--   AWS CodeStar.
+createUserProfileResponse_emailAddress :: Lens' CreateUserProfileResponse (Maybe Text)
+
 -- | The name that is displayed as the friendly name for the user in AWS
 --   CodeStar.
 createUserProfileResponse_displayName :: Lens' CreateUserProfileResponse (Maybe Text)
 
--- | The email address that is displayed as part of the user's profile in
---   AWS CodeStar.
-createUserProfileResponse_emailAddress :: Lens' CreateUserProfileResponse (Maybe Text)
+-- | The date the user profile was created, in timestamp format.
+createUserProfileResponse_createdTimestamp :: Lens' CreateUserProfileResponse (Maybe UTCTime)
 
 -- | The response's http status code.
 createUserProfileResponse_httpStatus :: Lens' CreateUserProfileResponse Int
@@ -2887,28 +2887,28 @@ module Network.AWS.CodeStar.CreateProject
 
 -- | <i>See:</i> <a>newCreateProject</a> smart constructor.
 data CreateProject
-CreateProject' :: Maybe [Code] -> Maybe (HashMap Text Text) -> Maybe (Sensitive Text) -> Maybe Text -> Maybe Toolchain -> Sensitive Text -> Text -> CreateProject
+CreateProject' :: Maybe [Code] -> Maybe Toolchain -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (HashMap Text Text) -> Sensitive Text -> Text -> CreateProject
 
 -- | A list of the Code objects submitted with the project request. If this
 --   parameter is specified, the request must also include the toolchain
 --   parameter.
 [$sel:sourceCode:CreateProject'] :: CreateProject -> Maybe [Code]
 
--- | The tags created for the project.
-[$sel:tags:CreateProject'] :: CreateProject -> Maybe (HashMap Text Text)
-
--- | The description of the project, if any.
-[$sel:description:CreateProject'] :: CreateProject -> Maybe (Sensitive Text)
+-- | The name of the toolchain template file submitted with the project
+--   request. If this parameter is specified, the request must also include
+--   the sourceCode parameter.
+[$sel:toolchain:CreateProject'] :: CreateProject -> Maybe Toolchain
 
 -- | A user- or system-generated token that identifies the entity that
 --   requested project creation. This token can be used to repeat the
 --   request.
 [$sel:clientRequestToken:CreateProject'] :: CreateProject -> Maybe Text
 
--- | The name of the toolchain template file submitted with the project
---   request. If this parameter is specified, the request must also include
---   the sourceCode parameter.
-[$sel:toolchain:CreateProject'] :: CreateProject -> Maybe Toolchain
+-- | The description of the project, if any.
+[$sel:description:CreateProject'] :: CreateProject -> Maybe (Sensitive Text)
+
+-- | The tags created for the project.
+[$sel:tags:CreateProject'] :: CreateProject -> Maybe (HashMap Text Text)
 
 -- | The display name for the project to be created in AWS CodeStar.
 [$sel:name:CreateProject'] :: CreateProject -> Sensitive Text
@@ -2930,22 +2930,22 @@ CreateProject' :: Maybe [Code] -> Maybe (HashMap Text Text) -> Maybe (Sensitive 
 --   this parameter is specified, the request must also include the
 --   toolchain parameter.
 --   
---   <a>$sel:tags:CreateProject'</a>, <a>createProject_tags</a> - The tags
---   created for the project.
---   
---   <a>$sel:description:CreateProject'</a>,
---   <a>createProject_description</a> - The description of the project, if
---   any.
+--   <a>$sel:toolchain:CreateProject'</a>, <a>createProject_toolchain</a> -
+--   The name of the toolchain template file submitted with the project
+--   request. If this parameter is specified, the request must also include
+--   the sourceCode parameter.
 --   
 --   <a>$sel:clientRequestToken:CreateProject'</a>,
 --   <a>createProject_clientRequestToken</a> - A user- or system-generated
 --   token that identifies the entity that requested project creation. This
 --   token can be used to repeat the request.
 --   
---   <a>$sel:toolchain:CreateProject'</a>, <a>createProject_toolchain</a> -
---   The name of the toolchain template file submitted with the project
---   request. If this parameter is specified, the request must also include
---   the sourceCode parameter.
+--   <a>$sel:description:CreateProject'</a>,
+--   <a>createProject_description</a> - The description of the project, if
+--   any.
+--   
+--   <a>$sel:tags:CreateProject'</a>, <a>createProject_tags</a> - The tags
+--   created for the project.
 --   
 --   <a>$sel:name:CreateProject'</a>, <a>createProject_name</a> - The
 --   display name for the project to be created in AWS CodeStar.
@@ -2959,21 +2959,21 @@ newCreateProject :: Text -> Text -> CreateProject
 --   parameter.
 createProject_sourceCode :: Lens' CreateProject (Maybe [Code])
 
--- | The tags created for the project.
-createProject_tags :: Lens' CreateProject (Maybe (HashMap Text Text))
-
--- | The description of the project, if any.
-createProject_description :: Lens' CreateProject (Maybe Text)
+-- | The name of the toolchain template file submitted with the project
+--   request. If this parameter is specified, the request must also include
+--   the sourceCode parameter.
+createProject_toolchain :: Lens' CreateProject (Maybe Toolchain)
 
 -- | A user- or system-generated token that identifies the entity that
 --   requested project creation. This token can be used to repeat the
 --   request.
 createProject_clientRequestToken :: Lens' CreateProject (Maybe Text)
 
--- | The name of the toolchain template file submitted with the project
---   request. If this parameter is specified, the request must also include
---   the sourceCode parameter.
-createProject_toolchain :: Lens' CreateProject (Maybe Toolchain)
+-- | The description of the project, if any.
+createProject_description :: Lens' CreateProject (Maybe Text)
+
+-- | The tags created for the project.
+createProject_tags :: Lens' CreateProject (Maybe (HashMap Text Text))
 
 -- | The display name for the project to be created in AWS CodeStar.
 createProject_name :: Lens' CreateProject Text
@@ -2985,12 +2985,12 @@ createProject_id :: Lens' CreateProject Text
 data CreateProjectResponse
 CreateProjectResponse' :: Maybe Text -> Maybe Text -> Int -> Text -> Text -> CreateProjectResponse
 
+-- | Reserved for future use.
+[$sel:projectTemplateId:CreateProjectResponse'] :: CreateProjectResponse -> Maybe Text
+
 -- | A user- or system-generated token that identifies the entity that
 --   requested project creation.
 [$sel:clientRequestToken:CreateProjectResponse'] :: CreateProjectResponse -> Maybe Text
-
--- | Reserved for future use.
-[$sel:projectTemplateId:CreateProjectResponse'] :: CreateProjectResponse -> Maybe Text
 
 -- | The response's http status code.
 [$sel:httpStatus:CreateProjectResponse'] :: CreateProjectResponse -> Int
@@ -3010,14 +3010,14 @@ CreateProjectResponse' :: Maybe Text -> Maybe Text -> Int -> Text -> Text -> Cre
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:projectTemplateId:CreateProjectResponse'</a>,
+--   <a>createProjectResponse_projectTemplateId</a> - Reserved for future
+--   use.
+--   
 --   <a>$sel:clientRequestToken:CreateProject'</a>,
 --   <a>createProjectResponse_clientRequestToken</a> - A user- or
 --   system-generated token that identifies the entity that requested
 --   project creation.
---   
---   <a>$sel:projectTemplateId:CreateProjectResponse'</a>,
---   <a>createProjectResponse_projectTemplateId</a> - Reserved for future
---   use.
 --   
 --   <a>$sel:httpStatus:CreateProjectResponse'</a>,
 --   <a>createProjectResponse_httpStatus</a> - The response's http status
@@ -3031,12 +3031,12 @@ CreateProjectResponse' :: Maybe Text -> Maybe Text -> Int -> Text -> Text -> Cre
 --   the created project.
 newCreateProjectResponse :: Int -> Text -> Text -> CreateProjectResponse
 
+-- | Reserved for future use.
+createProjectResponse_projectTemplateId :: Lens' CreateProjectResponse (Maybe Text)
+
 -- | A user- or system-generated token that identifies the entity that
 --   requested project creation.
 createProjectResponse_clientRequestToken :: Lens' CreateProjectResponse (Maybe Text)
-
--- | Reserved for future use.
-createProjectResponse_projectTemplateId :: Lens' CreateProjectResponse (Maybe Text)
 
 -- | The response's http status code.
 createProjectResponse_httpStatus :: Lens' CreateProjectResponse Int
@@ -3368,18 +3368,18 @@ module Network.AWS.CodeStar.UpdateTeamMember
 
 -- | <i>See:</i> <a>newUpdateTeamMember</a> smart constructor.
 data UpdateTeamMember
-UpdateTeamMember' :: Maybe Text -> Maybe Bool -> Text -> Text -> UpdateTeamMember
-
--- | The role assigned to the user in the project. Project roles have
---   different levels of access. For more information, see <a>Working with
---   Teams</a> in the <i>AWS CodeStar User Guide</i>.
-[$sel:projectRole:UpdateTeamMember'] :: UpdateTeamMember -> Maybe Text
+UpdateTeamMember' :: Maybe Bool -> Maybe Text -> Text -> Text -> UpdateTeamMember
 
 -- | Whether a team member is allowed to remotely access project resources
 --   using the SSH public key associated with the user's profile. Even if
 --   this is set to True, the user must associate a public key with their
 --   profile before the user can access resources.
 [$sel:remoteAccessAllowed:UpdateTeamMember'] :: UpdateTeamMember -> Maybe Bool
+
+-- | The role assigned to the user in the project. Project roles have
+--   different levels of access. For more information, see <a>Working with
+--   Teams</a> in the <i>AWS CodeStar User Guide</i>.
+[$sel:projectRole:UpdateTeamMember'] :: UpdateTeamMember -> Maybe Text
 
 -- | The ID of the project.
 [$sel:projectId:UpdateTeamMember'] :: UpdateTeamMember -> Text
@@ -3397,18 +3397,18 @@ UpdateTeamMember' :: Maybe Text -> Maybe Bool -> Text -> Text -> UpdateTeamMembe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:projectRole:UpdateTeamMember'</a>,
---   <a>updateTeamMember_projectRole</a> - The role assigned to the user in
---   the project. Project roles have different levels of access. For more
---   information, see <a>Working with Teams</a> in the <i>AWS CodeStar User
---   Guide</i>.
---   
 --   <a>$sel:remoteAccessAllowed:UpdateTeamMember'</a>,
 --   <a>updateTeamMember_remoteAccessAllowed</a> - Whether a team member is
 --   allowed to remotely access project resources using the SSH public key
 --   associated with the user's profile. Even if this is set to True, the
 --   user must associate a public key with their profile before the user
 --   can access resources.
+--   
+--   <a>$sel:projectRole:UpdateTeamMember'</a>,
+--   <a>updateTeamMember_projectRole</a> - The role assigned to the user in
+--   the project. Project roles have different levels of access. For more
+--   information, see <a>Working with Teams</a> in the <i>AWS CodeStar User
+--   Guide</i>.
 --   
 --   <a>$sel:projectId:UpdateTeamMember'</a>,
 --   <a>updateTeamMember_projectId</a> - The ID of the project.
@@ -3418,16 +3418,16 @@ UpdateTeamMember' :: Maybe Text -> Maybe Bool -> Text -> Text -> UpdateTeamMembe
 --   change team membership attributes.
 newUpdateTeamMember :: Text -> Text -> UpdateTeamMember
 
--- | The role assigned to the user in the project. Project roles have
---   different levels of access. For more information, see <a>Working with
---   Teams</a> in the <i>AWS CodeStar User Guide</i>.
-updateTeamMember_projectRole :: Lens' UpdateTeamMember (Maybe Text)
-
 -- | Whether a team member is allowed to remotely access project resources
 --   using the SSH public key associated with the user's profile. Even if
 --   this is set to True, the user must associate a public key with their
 --   profile before the user can access resources.
 updateTeamMember_remoteAccessAllowed :: Lens' UpdateTeamMember (Maybe Bool)
+
+-- | The role assigned to the user in the project. Project roles have
+--   different levels of access. For more information, see <a>Working with
+--   Teams</a> in the <i>AWS CodeStar User Guide</i>.
+updateTeamMember_projectRole :: Lens' UpdateTeamMember (Maybe Text)
 
 -- | The ID of the project.
 updateTeamMember_projectId :: Lens' UpdateTeamMember Text
@@ -3438,18 +3438,18 @@ updateTeamMember_userArn :: Lens' UpdateTeamMember Text
 
 -- | <i>See:</i> <a>newUpdateTeamMemberResponse</a> smart constructor.
 data UpdateTeamMemberResponse
-UpdateTeamMemberResponse' :: Maybe Text -> Maybe Text -> Maybe Bool -> Int -> UpdateTeamMemberResponse
+UpdateTeamMemberResponse' :: Maybe Text -> Maybe Bool -> Maybe Text -> Int -> UpdateTeamMemberResponse
 
 -- | The Amazon Resource Name (ARN) of the user whose team membership
 --   attributes were updated.
 [$sel:userArn:UpdateTeamMemberResponse'] :: UpdateTeamMemberResponse -> Maybe Text
 
--- | The project role granted to the user.
-[$sel:projectRole:UpdateTeamMemberResponse'] :: UpdateTeamMemberResponse -> Maybe Text
-
 -- | Whether a team member is allowed to remotely access project resources
 --   using the SSH public key associated with the user's profile.
 [$sel:remoteAccessAllowed:UpdateTeamMemberResponse'] :: UpdateTeamMemberResponse -> Maybe Bool
+
+-- | The project role granted to the user.
+[$sel:projectRole:UpdateTeamMemberResponse'] :: UpdateTeamMemberResponse -> Maybe Text
 
 -- | The response's http status code.
 [$sel:httpStatus:UpdateTeamMemberResponse'] :: UpdateTeamMemberResponse -> Int
@@ -3467,14 +3467,14 @@ UpdateTeamMemberResponse' :: Maybe Text -> Maybe Text -> Maybe Bool -> Int -> Up
 --   <a>updateTeamMemberResponse_userArn</a> - The Amazon Resource Name
 --   (ARN) of the user whose team membership attributes were updated.
 --   
---   <a>$sel:projectRole:UpdateTeamMember'</a>,
---   <a>updateTeamMemberResponse_projectRole</a> - The project role granted
---   to the user.
---   
 --   <a>$sel:remoteAccessAllowed:UpdateTeamMember'</a>,
 --   <a>updateTeamMemberResponse_remoteAccessAllowed</a> - Whether a team
 --   member is allowed to remotely access project resources using the SSH
 --   public key associated with the user's profile.
+--   
+--   <a>$sel:projectRole:UpdateTeamMember'</a>,
+--   <a>updateTeamMemberResponse_projectRole</a> - The project role granted
+--   to the user.
 --   
 --   <a>$sel:httpStatus:UpdateTeamMemberResponse'</a>,
 --   <a>updateTeamMemberResponse_httpStatus</a> - The response's http
@@ -3485,12 +3485,12 @@ newUpdateTeamMemberResponse :: Int -> UpdateTeamMemberResponse
 --   attributes were updated.
 updateTeamMemberResponse_userArn :: Lens' UpdateTeamMemberResponse (Maybe Text)
 
--- | The project role granted to the user.
-updateTeamMemberResponse_projectRole :: Lens' UpdateTeamMemberResponse (Maybe Text)
-
 -- | Whether a team member is allowed to remotely access project resources
 --   using the SSH public key associated with the user's profile.
 updateTeamMemberResponse_remoteAccessAllowed :: Lens' UpdateTeamMemberResponse (Maybe Bool)
+
+-- | The project role granted to the user.
+updateTeamMemberResponse_projectRole :: Lens' UpdateTeamMemberResponse (Maybe Text)
 
 -- | The response's http status code.
 updateTeamMemberResponse_httpStatus :: Lens' UpdateTeamMemberResponse Int
@@ -3528,13 +3528,13 @@ UpdateUserProfile' :: Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive T
 --   access.
 [$sel:sshPublicKey:UpdateUserProfile'] :: UpdateUserProfile -> Maybe Text
 
--- | The name that is displayed as the friendly name for the user in AWS
---   CodeStar.
-[$sel:displayName:UpdateUserProfile'] :: UpdateUserProfile -> Maybe (Sensitive Text)
-
 -- | The email address that is displayed as part of the user's profile in
 --   AWS CodeStar.
 [$sel:emailAddress:UpdateUserProfile'] :: UpdateUserProfile -> Maybe (Sensitive Text)
+
+-- | The name that is displayed as the friendly name for the user in AWS
+--   CodeStar.
+[$sel:displayName:UpdateUserProfile'] :: UpdateUserProfile -> Maybe (Sensitive Text)
 
 -- | The name that will be displayed as the friendly name for the user in
 --   AWS CodeStar.
@@ -3555,13 +3555,13 @@ UpdateUserProfile' :: Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive T
 --   remote access to project resources, this public key will be used along
 --   with the user's private key for SSH access.
 --   
---   <a>$sel:displayName:UpdateUserProfile'</a>,
---   <a>updateUserProfile_displayName</a> - The name that is displayed as
---   the friendly name for the user in AWS CodeStar.
---   
 --   <a>$sel:emailAddress:UpdateUserProfile'</a>,
 --   <a>updateUserProfile_emailAddress</a> - The email address that is
 --   displayed as part of the user's profile in AWS CodeStar.
+--   
+--   <a>$sel:displayName:UpdateUserProfile'</a>,
+--   <a>updateUserProfile_displayName</a> - The name that is displayed as
+--   the friendly name for the user in AWS CodeStar.
 --   
 --   <a>$sel:userArn:UpdateUserProfile'</a>,
 --   <a>updateUserProfile_userArn</a> - The name that will be displayed as
@@ -3574,13 +3574,13 @@ newUpdateUserProfile :: Text -> UpdateUserProfile
 --   access.
 updateUserProfile_sshPublicKey :: Lens' UpdateUserProfile (Maybe Text)
 
--- | The name that is displayed as the friendly name for the user in AWS
---   CodeStar.
-updateUserProfile_displayName :: Lens' UpdateUserProfile (Maybe Text)
-
 -- | The email address that is displayed as part of the user's profile in
 --   AWS CodeStar.
 updateUserProfile_emailAddress :: Lens' UpdateUserProfile (Maybe Text)
+
+-- | The name that is displayed as the friendly name for the user in AWS
+--   CodeStar.
+updateUserProfile_displayName :: Lens' UpdateUserProfile (Maybe Text)
 
 -- | The name that will be displayed as the friendly name for the user in
 --   AWS CodeStar.
@@ -3588,10 +3588,7 @@ updateUserProfile_userArn :: Lens' UpdateUserProfile Text
 
 -- | <i>See:</i> <a>newUpdateUserProfileResponse</a> smart constructor.
 data UpdateUserProfileResponse
-UpdateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Int -> Text -> UpdateUserProfileResponse
-
--- | The date the user profile was created, in timestamp format.
-[$sel:createdTimestamp:UpdateUserProfileResponse'] :: UpdateUserProfileResponse -> Maybe POSIX
+UpdateUserProfileResponse' :: Maybe POSIX -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Maybe POSIX -> Int -> Text -> UpdateUserProfileResponse
 
 -- | The date the user profile was last modified, in timestamp format.
 [$sel:lastModifiedTimestamp:UpdateUserProfileResponse'] :: UpdateUserProfileResponse -> Maybe POSIX
@@ -3602,13 +3599,16 @@ UpdateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe 
 --   access to those resources.
 [$sel:sshPublicKey:UpdateUserProfileResponse'] :: UpdateUserProfileResponse -> Maybe Text
 
+-- | The email address that is displayed as part of the user's profile in
+--   AWS CodeStar.
+[$sel:emailAddress:UpdateUserProfileResponse'] :: UpdateUserProfileResponse -> Maybe (Sensitive Text)
+
 -- | The name that is displayed as the friendly name for the user in AWS
 --   CodeStar.
 [$sel:displayName:UpdateUserProfileResponse'] :: UpdateUserProfileResponse -> Maybe (Sensitive Text)
 
--- | The email address that is displayed as part of the user's profile in
---   AWS CodeStar.
-[$sel:emailAddress:UpdateUserProfileResponse'] :: UpdateUserProfileResponse -> Maybe (Sensitive Text)
+-- | The date the user profile was created, in timestamp format.
+[$sel:createdTimestamp:UpdateUserProfileResponse'] :: UpdateUserProfileResponse -> Maybe POSIX
 
 -- | The response's http status code.
 [$sel:httpStatus:UpdateUserProfileResponse'] :: UpdateUserProfileResponse -> Int
@@ -3625,10 +3625,6 @@ UpdateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:createdTimestamp:UpdateUserProfileResponse'</a>,
---   <a>updateUserProfileResponse_createdTimestamp</a> - The date the user
---   profile was created, in timestamp format.
---   
 --   <a>$sel:lastModifiedTimestamp:UpdateUserProfileResponse'</a>,
 --   <a>updateUserProfileResponse_lastModifiedTimestamp</a> - The date the
 --   user profile was last modified, in timestamp format.
@@ -3640,13 +3636,17 @@ UpdateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe 
 --   resources if a project owner allows the user remote access to those
 --   resources.
 --   
+--   <a>$sel:emailAddress:UpdateUserProfile'</a>,
+--   <a>updateUserProfileResponse_emailAddress</a> - The email address that
+--   is displayed as part of the user's profile in AWS CodeStar.
+--   
 --   <a>$sel:displayName:UpdateUserProfile'</a>,
 --   <a>updateUserProfileResponse_displayName</a> - The name that is
 --   displayed as the friendly name for the user in AWS CodeStar.
 --   
---   <a>$sel:emailAddress:UpdateUserProfile'</a>,
---   <a>updateUserProfileResponse_emailAddress</a> - The email address that
---   is displayed as part of the user's profile in AWS CodeStar.
+--   <a>$sel:createdTimestamp:UpdateUserProfileResponse'</a>,
+--   <a>updateUserProfileResponse_createdTimestamp</a> - The date the user
+--   profile was created, in timestamp format.
 --   
 --   <a>$sel:httpStatus:UpdateUserProfileResponse'</a>,
 --   <a>updateUserProfileResponse_httpStatus</a> - The response's http
@@ -3657,9 +3657,6 @@ UpdateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe 
 --   (ARN) of the user in IAM.
 newUpdateUserProfileResponse :: Int -> Text -> UpdateUserProfileResponse
 
--- | The date the user profile was created, in timestamp format.
-updateUserProfileResponse_createdTimestamp :: Lens' UpdateUserProfileResponse (Maybe UTCTime)
-
 -- | The date the user profile was last modified, in timestamp format.
 updateUserProfileResponse_lastModifiedTimestamp :: Lens' UpdateUserProfileResponse (Maybe UTCTime)
 
@@ -3669,13 +3666,16 @@ updateUserProfileResponse_lastModifiedTimestamp :: Lens' UpdateUserProfileRespon
 --   access to those resources.
 updateUserProfileResponse_sshPublicKey :: Lens' UpdateUserProfileResponse (Maybe Text)
 
+-- | The email address that is displayed as part of the user's profile in
+--   AWS CodeStar.
+updateUserProfileResponse_emailAddress :: Lens' UpdateUserProfileResponse (Maybe Text)
+
 -- | The name that is displayed as the friendly name for the user in AWS
 --   CodeStar.
 updateUserProfileResponse_displayName :: Lens' UpdateUserProfileResponse (Maybe Text)
 
--- | The email address that is displayed as part of the user's profile in
---   AWS CodeStar.
-updateUserProfileResponse_emailAddress :: Lens' UpdateUserProfileResponse (Maybe Text)
+-- | The date the user profile was created, in timestamp format.
+updateUserProfileResponse_createdTimestamp :: Lens' UpdateUserProfileResponse (Maybe UTCTime)
 
 -- | The response's http status code.
 updateUserProfileResponse_httpStatus :: Lens' UpdateUserProfileResponse Int
@@ -3700,68 +3700,6 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.UpdateUserProfile.U
 
 module Network.AWS.CodeStar.Lens
 
--- | The Amazon Resource Name (ARN) of the user.
-describeUserProfile_userArn :: Lens' DescribeUserProfile Text
-
--- | The SSH public key associated with the user. This SSH public key is
---   associated with the user profile, and can be used in conjunction with
---   the associated private key for access to project resources, such as
---   Amazon EC2 instances, if a project owner grants remote access to those
---   resources.
-describeUserProfileResponse_sshPublicKey :: Lens' DescribeUserProfileResponse (Maybe Text)
-
--- | The display name shown for the user in AWS CodeStar projects. For
---   example, this could be set to both first and last name ("Mary Major")
---   or a single name ("Mary"). The display name is also used to generate
---   the initial icon associated with the user in AWS CodeStar projects. If
---   spaces are included in the display name, the first character that
---   appears after the space will be used as the second character in the
---   user initial icon. The initial icon displays a maximum of two
---   characters, so a display name with more than one space (for example
---   "Mary Jane Major") would generate an initial icon using the first
---   character and the first character after the space ("MJ", not "MM").
-describeUserProfileResponse_displayName :: Lens' DescribeUserProfileResponse (Maybe Text)
-
--- | The email address for the user. Optional.
-describeUserProfileResponse_emailAddress :: Lens' DescribeUserProfileResponse (Maybe Text)
-
--- | The response's http status code.
-describeUserProfileResponse_httpStatus :: Lens' DescribeUserProfileResponse Int
-
--- | The Amazon Resource Name (ARN) of the user.
-describeUserProfileResponse_userArn :: Lens' DescribeUserProfileResponse Text
-
--- | The date and time when the user profile was created in AWS CodeStar,
---   in timestamp format.
-describeUserProfileResponse_createdTimestamp :: Lens' DescribeUserProfileResponse UTCTime
-
--- | The date and time when the user profile was last modified, in
---   timestamp format.
-describeUserProfileResponse_lastModifiedTimestamp :: Lens' DescribeUserProfileResponse UTCTime
-
--- | The ID of the project you want to add a tag to.
-tagProject_id :: Lens' TagProject Text
-
--- | The tags you want to add to the project.
-tagProject_tags :: Lens' TagProject (HashMap Text Text)
-
--- | The tags for the project.
-tagProjectResponse_tags :: Lens' TagProjectResponse (Maybe (HashMap Text Text))
-
--- | The response's http status code.
-tagProjectResponse_httpStatus :: Lens' TagProjectResponse Int
-
--- | The ID of the AWS CodeStar project from which you want to remove a
---   team member.
-disassociateTeamMember_projectId :: Lens' DisassociateTeamMember Text
-
--- | The Amazon Resource Name (ARN) of the IAM user or group whom you want
---   to remove from the project.
-disassociateTeamMember_userArn :: Lens' DisassociateTeamMember Text
-
--- | The response's http status code.
-disassociateTeamMemberResponse_httpStatus :: Lens' DisassociateTeamMemberResponse Int
-
 -- | The continuation token to be used to return the next set of results,
 --   if the results cannot be returned in one response.
 listProjects_nextToken :: Lens' ListProjects (Maybe Text)
@@ -3779,184 +3717,6 @@ listProjectsResponse_httpStatus :: Lens' ListProjectsResponse Int
 
 -- | A list of projects.
 listProjectsResponse_projects :: Lens' ListProjectsResponse [ProjectSummary]
-
--- | A list of the Code objects submitted with the project request. If this
---   parameter is specified, the request must also include the toolchain
---   parameter.
-createProject_sourceCode :: Lens' CreateProject (Maybe [Code])
-
--- | The tags created for the project.
-createProject_tags :: Lens' CreateProject (Maybe (HashMap Text Text))
-
--- | The description of the project, if any.
-createProject_description :: Lens' CreateProject (Maybe Text)
-
--- | A user- or system-generated token that identifies the entity that
---   requested project creation. This token can be used to repeat the
---   request.
-createProject_clientRequestToken :: Lens' CreateProject (Maybe Text)
-
--- | The name of the toolchain template file submitted with the project
---   request. If this parameter is specified, the request must also include
---   the sourceCode parameter.
-createProject_toolchain :: Lens' CreateProject (Maybe Toolchain)
-
--- | The display name for the project to be created in AWS CodeStar.
-createProject_name :: Lens' CreateProject Text
-
--- | The ID of the project to be created in AWS CodeStar.
-createProject_id :: Lens' CreateProject Text
-
--- | A user- or system-generated token that identifies the entity that
---   requested project creation.
-createProjectResponse_clientRequestToken :: Lens' CreateProjectResponse (Maybe Text)
-
--- | Reserved for future use.
-createProjectResponse_projectTemplateId :: Lens' CreateProjectResponse (Maybe Text)
-
--- | The response's http status code.
-createProjectResponse_httpStatus :: Lens' CreateProjectResponse Int
-
--- | The ID of the project.
-createProjectResponse_id :: Lens' CreateProjectResponse Text
-
--- | The Amazon Resource Name (ARN) of the created project.
-createProjectResponse_arn :: Lens' CreateProjectResponse Text
-
--- | The SSH public key associated with the user in AWS CodeStar. If a
---   project owner allows the user remote access to project resources, this
---   public key will be used along with the user's private key for SSH
---   access.
-updateUserProfile_sshPublicKey :: Lens' UpdateUserProfile (Maybe Text)
-
--- | The name that is displayed as the friendly name for the user in AWS
---   CodeStar.
-updateUserProfile_displayName :: Lens' UpdateUserProfile (Maybe Text)
-
--- | The email address that is displayed as part of the user's profile in
---   AWS CodeStar.
-updateUserProfile_emailAddress :: Lens' UpdateUserProfile (Maybe Text)
-
--- | The name that will be displayed as the friendly name for the user in
---   AWS CodeStar.
-updateUserProfile_userArn :: Lens' UpdateUserProfile Text
-
--- | The date the user profile was created, in timestamp format.
-updateUserProfileResponse_createdTimestamp :: Lens' UpdateUserProfileResponse (Maybe UTCTime)
-
--- | The date the user profile was last modified, in timestamp format.
-updateUserProfileResponse_lastModifiedTimestamp :: Lens' UpdateUserProfileResponse (Maybe UTCTime)
-
--- | The SSH public key associated with the user in AWS CodeStar. This is
---   the public portion of the public/private keypair the user can use to
---   access project resources if a project owner allows the user remote
---   access to those resources.
-updateUserProfileResponse_sshPublicKey :: Lens' UpdateUserProfileResponse (Maybe Text)
-
--- | The name that is displayed as the friendly name for the user in AWS
---   CodeStar.
-updateUserProfileResponse_displayName :: Lens' UpdateUserProfileResponse (Maybe Text)
-
--- | The email address that is displayed as part of the user's profile in
---   AWS CodeStar.
-updateUserProfileResponse_emailAddress :: Lens' UpdateUserProfileResponse (Maybe Text)
-
--- | The response's http status code.
-updateUserProfileResponse_httpStatus :: Lens' UpdateUserProfileResponse Int
-
--- | The Amazon Resource Name (ARN) of the user in IAM.
-updateUserProfileResponse_userArn :: Lens' UpdateUserProfileResponse Text
-
--- | The continuation token for the next set of results, if the results
---   cannot be returned in one response.
-listUserProfiles_nextToken :: Lens' ListUserProfiles (Maybe Text)
-
--- | The maximum number of results to return in a response.
-listUserProfiles_maxResults :: Lens' ListUserProfiles (Maybe Natural)
-
--- | The continuation token to use when requesting the next set of results,
---   if there are more results to be returned.
-listUserProfilesResponse_nextToken :: Lens' ListUserProfilesResponse (Maybe Text)
-
--- | The response's http status code.
-listUserProfilesResponse_httpStatus :: Lens' ListUserProfilesResponse Int
-
--- | All the user profiles configured in AWS CodeStar for an AWS account.
-listUserProfilesResponse_userProfiles :: Lens' ListUserProfilesResponse [UserProfileSummary]
-
--- | The Amazon Resource Name (ARN) of the user to delete from AWS
---   CodeStar.
-deleteUserProfile_userArn :: Lens' DeleteUserProfile Text
-
--- | The response's http status code.
-deleteUserProfileResponse_httpStatus :: Lens' DeleteUserProfileResponse Int
-
--- | The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
-deleteUserProfileResponse_userArn :: Lens' DeleteUserProfileResponse Text
-
--- | Reserved for future use.
-listTagsForProject_nextToken :: Lens' ListTagsForProject (Maybe Text)
-
--- | Reserved for future use.
-listTagsForProject_maxResults :: Lens' ListTagsForProject (Maybe Natural)
-
--- | The ID of the project to get tags for.
-listTagsForProject_id :: Lens' ListTagsForProject Text
-
--- | Reserved for future use.
-listTagsForProjectResponse_nextToken :: Lens' ListTagsForProjectResponse (Maybe Text)
-
--- | The tags for the project.
-listTagsForProjectResponse_tags :: Lens' ListTagsForProjectResponse (Maybe (HashMap Text Text))
-
--- | The response's http status code.
-listTagsForProjectResponse_httpStatus :: Lens' ListTagsForProjectResponse Int
-
--- | The name of the project you want to update.
-updateProject_name :: Lens' UpdateProject (Maybe Text)
-
--- | The description of the project, if any.
-updateProject_description :: Lens' UpdateProject (Maybe Text)
-
--- | The ID of the project you want to update.
-updateProject_id :: Lens' UpdateProject Text
-
--- | The response's http status code.
-updateProjectResponse_httpStatus :: Lens' UpdateProjectResponse Int
-
--- | Whether to send a delete request for the primary stack in AWS
---   CloudFormation originally used to generate the project and its
---   resources. This option will delete all AWS resources for the project
---   (except for any buckets in Amazon S3) as well as deleting the project
---   itself. Recommended for most use cases.
-deleteProject_deleteStack :: Lens' DeleteProject (Maybe Bool)
-
--- | A user- or system-generated token that identifies the entity that
---   requested project deletion. This token can be used to repeat the
---   request.
-deleteProject_clientRequestToken :: Lens' DeleteProject (Maybe Text)
-
--- | The ID of the project to be deleted in AWS CodeStar.
-deleteProject_id :: Lens' DeleteProject Text
-
--- | The ID of the primary stack in AWS CloudFormation that will be deleted
---   as part of deleting the project and its resources.
-deleteProjectResponse_stackId :: Lens' DeleteProjectResponse (Maybe Text)
-
--- | The Amazon Resource Name (ARN) of the deleted project.
-deleteProjectResponse_projectArn :: Lens' DeleteProjectResponse (Maybe Text)
-
--- | The response's http status code.
-deleteProjectResponse_httpStatus :: Lens' DeleteProjectResponse Int
-
--- | The ID of the project to remove tags from.
-untagProject_id :: Lens' UntagProject Text
-
--- | The tags to remove from the project.
-untagProject_tags :: Lens' UntagProject [Text]
-
--- | The response's http status code.
-untagProjectResponse_httpStatus :: Lens' UntagProjectResponse Int
 
 -- | The continuation token for the next set of results, if the results
 --   cannot be returned in one response.
@@ -3978,37 +3738,139 @@ listTeamMembersResponse_httpStatus :: Lens' ListTeamMembersResponse Int
 -- | A list of team member objects for the project.
 listTeamMembersResponse_teamMembers :: Lens' ListTeamMembersResponse [TeamMember]
 
--- | The role assigned to the user in the project. Project roles have
---   different levels of access. For more information, see <a>Working with
---   Teams</a> in the <i>AWS CodeStar User Guide</i>.
-updateTeamMember_projectRole :: Lens' UpdateTeamMember (Maybe Text)
+-- | Whether to send a delete request for the primary stack in AWS
+--   CloudFormation originally used to generate the project and its
+--   resources. This option will delete all AWS resources for the project
+--   (except for any buckets in Amazon S3) as well as deleting the project
+--   itself. Recommended for most use cases.
+deleteProject_deleteStack :: Lens' DeleteProject (Maybe Bool)
 
--- | Whether a team member is allowed to remotely access project resources
---   using the SSH public key associated with the user's profile. Even if
---   this is set to True, the user must associate a public key with their
---   profile before the user can access resources.
-updateTeamMember_remoteAccessAllowed :: Lens' UpdateTeamMember (Maybe Bool)
+-- | A user- or system-generated token that identifies the entity that
+--   requested project deletion. This token can be used to repeat the
+--   request.
+deleteProject_clientRequestToken :: Lens' DeleteProject (Maybe Text)
 
--- | The ID of the project.
-updateTeamMember_projectId :: Lens' UpdateTeamMember Text
+-- | The ID of the project to be deleted in AWS CodeStar.
+deleteProject_id :: Lens' DeleteProject Text
 
--- | The Amazon Resource Name (ARN) of the user for whom you want to change
---   team membership attributes.
-updateTeamMember_userArn :: Lens' UpdateTeamMember Text
+-- | The Amazon Resource Name (ARN) of the deleted project.
+deleteProjectResponse_projectArn :: Lens' DeleteProjectResponse (Maybe Text)
 
--- | The Amazon Resource Name (ARN) of the user whose team membership
---   attributes were updated.
-updateTeamMemberResponse_userArn :: Lens' UpdateTeamMemberResponse (Maybe Text)
-
--- | The project role granted to the user.
-updateTeamMemberResponse_projectRole :: Lens' UpdateTeamMemberResponse (Maybe Text)
-
--- | Whether a team member is allowed to remotely access project resources
---   using the SSH public key associated with the user's profile.
-updateTeamMemberResponse_remoteAccessAllowed :: Lens' UpdateTeamMemberResponse (Maybe Bool)
+-- | The ID of the primary stack in AWS CloudFormation that will be deleted
+--   as part of deleting the project and its resources.
+deleteProjectResponse_stackId :: Lens' DeleteProjectResponse (Maybe Text)
 
 -- | The response's http status code.
-updateTeamMemberResponse_httpStatus :: Lens' UpdateTeamMemberResponse Int
+deleteProjectResponse_httpStatus :: Lens' DeleteProjectResponse Int
+
+-- | The name of the project you want to update.
+updateProject_name :: Lens' UpdateProject (Maybe Text)
+
+-- | The description of the project, if any.
+updateProject_description :: Lens' UpdateProject (Maybe Text)
+
+-- | The ID of the project you want to update.
+updateProject_id :: Lens' UpdateProject Text
+
+-- | The response's http status code.
+updateProjectResponse_httpStatus :: Lens' UpdateProjectResponse Int
+
+-- | The ID of the AWS CodeStar project from which you want to remove a
+--   team member.
+disassociateTeamMember_projectId :: Lens' DisassociateTeamMember Text
+
+-- | The Amazon Resource Name (ARN) of the IAM user or group whom you want
+--   to remove from the project.
+disassociateTeamMember_userArn :: Lens' DisassociateTeamMember Text
+
+-- | The response's http status code.
+disassociateTeamMemberResponse_httpStatus :: Lens' DisassociateTeamMemberResponse Int
+
+-- | The ID of the project you want to add a tag to.
+tagProject_id :: Lens' TagProject Text
+
+-- | The tags you want to add to the project.
+tagProject_tags :: Lens' TagProject (HashMap Text Text)
+
+-- | The tags for the project.
+tagProjectResponse_tags :: Lens' TagProjectResponse (Maybe (HashMap Text Text))
+
+-- | The response's http status code.
+tagProjectResponse_httpStatus :: Lens' TagProjectResponse Int
+
+-- | The ID of the project.
+describeProject_id :: Lens' DescribeProject Text
+
+-- | The project creation or deletion status.
+describeProjectResponse_status :: Lens' DescribeProjectResponse (Maybe ProjectStatus)
+
+-- | The Amazon Resource Name (ARN) for the project.
+describeProjectResponse_arn :: Lens' DescribeProjectResponse (Maybe Text)
+
+-- | The ID for the AWS CodeStar project template used to create the
+--   project.
+describeProjectResponse_projectTemplateId :: Lens' DescribeProjectResponse (Maybe Text)
+
+-- | The display name for the project.
+describeProjectResponse_name :: Lens' DescribeProjectResponse (Maybe Text)
+
+-- | The ID of the project.
+describeProjectResponse_id :: Lens' DescribeProjectResponse (Maybe Text)
+
+-- | The ID of the primary stack in AWS CloudFormation used to generate
+--   resources for the project.
+describeProjectResponse_stackId :: Lens' DescribeProjectResponse (Maybe Text)
+
+-- | A user- or system-generated token that identifies the entity that
+--   requested project creation.
+describeProjectResponse_clientRequestToken :: Lens' DescribeProjectResponse (Maybe Text)
+
+-- | The date and time the project was created, in timestamp format.
+describeProjectResponse_createdTimeStamp :: Lens' DescribeProjectResponse (Maybe UTCTime)
+
+-- | The description of the project, if any.
+describeProjectResponse_description :: Lens' DescribeProjectResponse (Maybe Text)
+
+-- | The response's http status code.
+describeProjectResponse_httpStatus :: Lens' DescribeProjectResponse Int
+
+-- | The continuation token for the next set of results, if the results
+--   cannot be returned in one response.
+listUserProfiles_nextToken :: Lens' ListUserProfiles (Maybe Text)
+
+-- | The maximum number of results to return in a response.
+listUserProfiles_maxResults :: Lens' ListUserProfiles (Maybe Natural)
+
+-- | The continuation token to use when requesting the next set of results,
+--   if there are more results to be returned.
+listUserProfilesResponse_nextToken :: Lens' ListUserProfilesResponse (Maybe Text)
+
+-- | The response's http status code.
+listUserProfilesResponse_httpStatus :: Lens' ListUserProfilesResponse Int
+
+-- | All the user profiles configured in AWS CodeStar for an AWS account.
+listUserProfilesResponse_userProfiles :: Lens' ListUserProfilesResponse [UserProfileSummary]
+
+-- | The continuation token for the next set of results, if the results
+--   cannot be returned in one response.
+listResources_nextToken :: Lens' ListResources (Maybe Text)
+
+-- | The maximum amount of data that can be contained in a single set of
+--   results.
+listResources_maxResults :: Lens' ListResources (Maybe Natural)
+
+-- | The ID of the project.
+listResources_projectId :: Lens' ListResources Text
+
+-- | An array of resources associated with the project.
+listResourcesResponse_resources :: Lens' ListResourcesResponse (Maybe [Resource])
+
+-- | The continuation token to use when requesting the next set of results,
+--   if there are more results to be returned.
+listResourcesResponse_nextToken :: Lens' ListResourcesResponse (Maybe Text)
+
+-- | The response's http status code.
+listResourcesResponse_httpStatus :: Lens' ListResourcesResponse Int
 
 -- | Whether the team member is allowed to use an SSH public/private key
 --   pair to remotely access project resources, for example Amazon EC2
@@ -4038,6 +3900,158 @@ associateTeamMemberResponse_clientRequestToken :: Lens' AssociateTeamMemberRespo
 -- | The response's http status code.
 associateTeamMemberResponse_httpStatus :: Lens' AssociateTeamMemberResponse Int
 
+-- | The ID of the project to remove tags from.
+untagProject_id :: Lens' UntagProject Text
+
+-- | The tags to remove from the project.
+untagProject_tags :: Lens' UntagProject [Text]
+
+-- | The response's http status code.
+untagProjectResponse_httpStatus :: Lens' UntagProjectResponse Int
+
+-- | Whether a team member is allowed to remotely access project resources
+--   using the SSH public key associated with the user's profile. Even if
+--   this is set to True, the user must associate a public key with their
+--   profile before the user can access resources.
+updateTeamMember_remoteAccessAllowed :: Lens' UpdateTeamMember (Maybe Bool)
+
+-- | The role assigned to the user in the project. Project roles have
+--   different levels of access. For more information, see <a>Working with
+--   Teams</a> in the <i>AWS CodeStar User Guide</i>.
+updateTeamMember_projectRole :: Lens' UpdateTeamMember (Maybe Text)
+
+-- | The ID of the project.
+updateTeamMember_projectId :: Lens' UpdateTeamMember Text
+
+-- | The Amazon Resource Name (ARN) of the user for whom you want to change
+--   team membership attributes.
+updateTeamMember_userArn :: Lens' UpdateTeamMember Text
+
+-- | The Amazon Resource Name (ARN) of the user whose team membership
+--   attributes were updated.
+updateTeamMemberResponse_userArn :: Lens' UpdateTeamMemberResponse (Maybe Text)
+
+-- | Whether a team member is allowed to remotely access project resources
+--   using the SSH public key associated with the user's profile.
+updateTeamMemberResponse_remoteAccessAllowed :: Lens' UpdateTeamMemberResponse (Maybe Bool)
+
+-- | The project role granted to the user.
+updateTeamMemberResponse_projectRole :: Lens' UpdateTeamMemberResponse (Maybe Text)
+
+-- | The response's http status code.
+updateTeamMemberResponse_httpStatus :: Lens' UpdateTeamMemberResponse Int
+
+-- | The Amazon Resource Name (ARN) of the user.
+describeUserProfile_userArn :: Lens' DescribeUserProfile Text
+
+-- | The SSH public key associated with the user. This SSH public key is
+--   associated with the user profile, and can be used in conjunction with
+--   the associated private key for access to project resources, such as
+--   Amazon EC2 instances, if a project owner grants remote access to those
+--   resources.
+describeUserProfileResponse_sshPublicKey :: Lens' DescribeUserProfileResponse (Maybe Text)
+
+-- | The email address for the user. Optional.
+describeUserProfileResponse_emailAddress :: Lens' DescribeUserProfileResponse (Maybe Text)
+
+-- | The display name shown for the user in AWS CodeStar projects. For
+--   example, this could be set to both first and last name ("Mary Major")
+--   or a single name ("Mary"). The display name is also used to generate
+--   the initial icon associated with the user in AWS CodeStar projects. If
+--   spaces are included in the display name, the first character that
+--   appears after the space will be used as the second character in the
+--   user initial icon. The initial icon displays a maximum of two
+--   characters, so a display name with more than one space (for example
+--   "Mary Jane Major") would generate an initial icon using the first
+--   character and the first character after the space ("MJ", not "MM").
+describeUserProfileResponse_displayName :: Lens' DescribeUserProfileResponse (Maybe Text)
+
+-- | The response's http status code.
+describeUserProfileResponse_httpStatus :: Lens' DescribeUserProfileResponse Int
+
+-- | The Amazon Resource Name (ARN) of the user.
+describeUserProfileResponse_userArn :: Lens' DescribeUserProfileResponse Text
+
+-- | The date and time when the user profile was created in AWS CodeStar,
+--   in timestamp format.
+describeUserProfileResponse_createdTimestamp :: Lens' DescribeUserProfileResponse UTCTime
+
+-- | The date and time when the user profile was last modified, in
+--   timestamp format.
+describeUserProfileResponse_lastModifiedTimestamp :: Lens' DescribeUserProfileResponse UTCTime
+
+-- | Reserved for future use.
+listTagsForProject_nextToken :: Lens' ListTagsForProject (Maybe Text)
+
+-- | Reserved for future use.
+listTagsForProject_maxResults :: Lens' ListTagsForProject (Maybe Natural)
+
+-- | The ID of the project to get tags for.
+listTagsForProject_id :: Lens' ListTagsForProject Text
+
+-- | Reserved for future use.
+listTagsForProjectResponse_nextToken :: Lens' ListTagsForProjectResponse (Maybe Text)
+
+-- | The tags for the project.
+listTagsForProjectResponse_tags :: Lens' ListTagsForProjectResponse (Maybe (HashMap Text Text))
+
+-- | The response's http status code.
+listTagsForProjectResponse_httpStatus :: Lens' ListTagsForProjectResponse Int
+
+-- | The Amazon Resource Name (ARN) of the user to delete from AWS
+--   CodeStar.
+deleteUserProfile_userArn :: Lens' DeleteUserProfile Text
+
+-- | The response's http status code.
+deleteUserProfileResponse_httpStatus :: Lens' DeleteUserProfileResponse Int
+
+-- | The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
+deleteUserProfileResponse_userArn :: Lens' DeleteUserProfileResponse Text
+
+-- | The SSH public key associated with the user in AWS CodeStar. If a
+--   project owner allows the user remote access to project resources, this
+--   public key will be used along with the user's private key for SSH
+--   access.
+updateUserProfile_sshPublicKey :: Lens' UpdateUserProfile (Maybe Text)
+
+-- | The email address that is displayed as part of the user's profile in
+--   AWS CodeStar.
+updateUserProfile_emailAddress :: Lens' UpdateUserProfile (Maybe Text)
+
+-- | The name that is displayed as the friendly name for the user in AWS
+--   CodeStar.
+updateUserProfile_displayName :: Lens' UpdateUserProfile (Maybe Text)
+
+-- | The name that will be displayed as the friendly name for the user in
+--   AWS CodeStar.
+updateUserProfile_userArn :: Lens' UpdateUserProfile Text
+
+-- | The date the user profile was last modified, in timestamp format.
+updateUserProfileResponse_lastModifiedTimestamp :: Lens' UpdateUserProfileResponse (Maybe UTCTime)
+
+-- | The SSH public key associated with the user in AWS CodeStar. This is
+--   the public portion of the public/private keypair the user can use to
+--   access project resources if a project owner allows the user remote
+--   access to those resources.
+updateUserProfileResponse_sshPublicKey :: Lens' UpdateUserProfileResponse (Maybe Text)
+
+-- | The email address that is displayed as part of the user's profile in
+--   AWS CodeStar.
+updateUserProfileResponse_emailAddress :: Lens' UpdateUserProfileResponse (Maybe Text)
+
+-- | The name that is displayed as the friendly name for the user in AWS
+--   CodeStar.
+updateUserProfileResponse_displayName :: Lens' UpdateUserProfileResponse (Maybe Text)
+
+-- | The date the user profile was created, in timestamp format.
+updateUserProfileResponse_createdTimestamp :: Lens' UpdateUserProfileResponse (Maybe UTCTime)
+
+-- | The response's http status code.
+updateUserProfileResponse_httpStatus :: Lens' UpdateUserProfileResponse Int
+
+-- | The Amazon Resource Name (ARN) of the user in IAM.
+updateUserProfileResponse_userArn :: Lens' UpdateUserProfileResponse Text
+
 -- | The SSH public key associated with the user in AWS CodeStar. If a
 --   project owner allows the user remote access to project resources, this
 --   public key will be used along with the user's private key for SSH
@@ -4055,9 +4069,6 @@ createUserProfile_displayName :: Lens' CreateUserProfile Text
 --   in AWS CodeStar.
 createUserProfile_emailAddress :: Lens' CreateUserProfile Text
 
--- | The date the user profile was created, in timestamp format.
-createUserProfileResponse_createdTimestamp :: Lens' CreateUserProfileResponse (Maybe UTCTime)
-
 -- | The date the user profile was last modified, in timestamp format.
 createUserProfileResponse_lastModifiedTimestamp :: Lens' CreateUserProfileResponse (Maybe UTCTime)
 
@@ -4067,13 +4078,16 @@ createUserProfileResponse_lastModifiedTimestamp :: Lens' CreateUserProfileRespon
 --   access to those resources.
 createUserProfileResponse_sshPublicKey :: Lens' CreateUserProfileResponse (Maybe Text)
 
+-- | The email address that is displayed as part of the user's profile in
+--   AWS CodeStar.
+createUserProfileResponse_emailAddress :: Lens' CreateUserProfileResponse (Maybe Text)
+
 -- | The name that is displayed as the friendly name for the user in AWS
 --   CodeStar.
 createUserProfileResponse_displayName :: Lens' CreateUserProfileResponse (Maybe Text)
 
--- | The email address that is displayed as part of the user's profile in
---   AWS CodeStar.
-createUserProfileResponse_emailAddress :: Lens' CreateUserProfileResponse (Maybe Text)
+-- | The date the user profile was created, in timestamp format.
+createUserProfileResponse_createdTimestamp :: Lens' CreateUserProfileResponse (Maybe UTCTime)
 
 -- | The response's http status code.
 createUserProfileResponse_httpStatus :: Lens' CreateUserProfileResponse Int
@@ -4081,62 +4095,48 @@ createUserProfileResponse_httpStatus :: Lens' CreateUserProfileResponse Int
 -- | The Amazon Resource Name (ARN) of the user in IAM.
 createUserProfileResponse_userArn :: Lens' CreateUserProfileResponse Text
 
--- | The continuation token for the next set of results, if the results
---   cannot be returned in one response.
-listResources_nextToken :: Lens' ListResources (Maybe Text)
+-- | A list of the Code objects submitted with the project request. If this
+--   parameter is specified, the request must also include the toolchain
+--   parameter.
+createProject_sourceCode :: Lens' CreateProject (Maybe [Code])
 
--- | The maximum amount of data that can be contained in a single set of
---   results.
-listResources_maxResults :: Lens' ListResources (Maybe Natural)
+-- | The name of the toolchain template file submitted with the project
+--   request. If this parameter is specified, the request must also include
+--   the sourceCode parameter.
+createProject_toolchain :: Lens' CreateProject (Maybe Toolchain)
 
--- | The ID of the project.
-listResources_projectId :: Lens' ListResources Text
-
--- | The continuation token to use when requesting the next set of results,
---   if there are more results to be returned.
-listResourcesResponse_nextToken :: Lens' ListResourcesResponse (Maybe Text)
-
--- | An array of resources associated with the project.
-listResourcesResponse_resources :: Lens' ListResourcesResponse (Maybe [Resource])
-
--- | The response's http status code.
-listResourcesResponse_httpStatus :: Lens' ListResourcesResponse Int
-
--- | The ID of the project.
-describeProject_id :: Lens' DescribeProject Text
-
--- | The project creation or deletion status.
-describeProjectResponse_status :: Lens' DescribeProjectResponse (Maybe ProjectStatus)
-
--- | The date and time the project was created, in timestamp format.
-describeProjectResponse_createdTimeStamp :: Lens' DescribeProjectResponse (Maybe UTCTime)
-
--- | The ID of the primary stack in AWS CloudFormation used to generate
---   resources for the project.
-describeProjectResponse_stackId :: Lens' DescribeProjectResponse (Maybe Text)
-
--- | The ID of the project.
-describeProjectResponse_id :: Lens' DescribeProjectResponse (Maybe Text)
-
--- | The Amazon Resource Name (ARN) for the project.
-describeProjectResponse_arn :: Lens' DescribeProjectResponse (Maybe Text)
-
--- | The display name for the project.
-describeProjectResponse_name :: Lens' DescribeProjectResponse (Maybe Text)
+-- | A user- or system-generated token that identifies the entity that
+--   requested project creation. This token can be used to repeat the
+--   request.
+createProject_clientRequestToken :: Lens' CreateProject (Maybe Text)
 
 -- | The description of the project, if any.
-describeProjectResponse_description :: Lens' DescribeProjectResponse (Maybe Text)
+createProject_description :: Lens' CreateProject (Maybe Text)
+
+-- | The tags created for the project.
+createProject_tags :: Lens' CreateProject (Maybe (HashMap Text Text))
+
+-- | The display name for the project to be created in AWS CodeStar.
+createProject_name :: Lens' CreateProject Text
+
+-- | The ID of the project to be created in AWS CodeStar.
+createProject_id :: Lens' CreateProject Text
+
+-- | Reserved for future use.
+createProjectResponse_projectTemplateId :: Lens' CreateProjectResponse (Maybe Text)
 
 -- | A user- or system-generated token that identifies the entity that
 --   requested project creation.
-describeProjectResponse_clientRequestToken :: Lens' DescribeProjectResponse (Maybe Text)
-
--- | The ID for the AWS CodeStar project template used to create the
---   project.
-describeProjectResponse_projectTemplateId :: Lens' DescribeProjectResponse (Maybe Text)
+createProjectResponse_clientRequestToken :: Lens' CreateProjectResponse (Maybe Text)
 
 -- | The response's http status code.
-describeProjectResponse_httpStatus :: Lens' DescribeProjectResponse Int
+createProjectResponse_httpStatus :: Lens' CreateProjectResponse Int
+
+-- | The ID of the project.
+createProjectResponse_id :: Lens' CreateProjectResponse Text
+
+-- | The Amazon Resource Name (ARN) of the created project.
+createProjectResponse_arn :: Lens' CreateProjectResponse Text
 
 -- | The location where the source code files provided with the project
 --   request are stored. AWS CodeStar retrieves the files during project
@@ -4199,22 +4199,22 @@ projectStatus_reason :: Lens' ProjectStatus (Maybe Text)
 -- | The phase of completion for a project creation or deletion.
 projectStatus_state :: Lens' ProjectStatus Text
 
--- | The ID of the project.
-projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
-
 -- | The Amazon Resource Name (ARN) of the project.
 projectSummary_projectArn :: Lens' ProjectSummary (Maybe Text)
+
+-- | The ID of the project.
+projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
 
 -- | The Amazon Resource Name (ARN) of the resource.
 resource_id :: Lens' Resource Text
 
--- | The Amazon S3 bucket name where the source code files provided with
---   the project request are stored.
-s3Location_bucketName :: Lens' S3Location (Maybe Text)
-
 -- | The Amazon S3 object key where the source code files provided with the
 --   project request are stored.
 s3Location_bucketKey :: Lens' S3Location (Maybe Text)
+
+-- | The Amazon S3 bucket name where the source code files provided with
+--   the project request are stored.
+s3Location_bucketName :: Lens' S3Location (Maybe Text)
 
 -- | Whether the user is allowed to remotely access project resources using
 --   an SSH public/private key pair.
@@ -4245,14 +4245,17 @@ toolchain_source :: Lens' Toolchain ToolchainSource
 --   the project request is stored.
 toolchainSource_s3 :: Lens' ToolchainSource S3Location
 
--- | The Amazon Resource Name (ARN) of the user in IAM.
-userProfileSummary_userArn :: Lens' UserProfileSummary (Maybe Text)
-
 -- | The SSH public key associated with the user in AWS CodeStar. If a
 --   project owner allows the user remote access to project resources, this
 --   public key will be used along with the user's private key for SSH
 --   access.
 userProfileSummary_sshPublicKey :: Lens' UserProfileSummary (Maybe Text)
+
+-- | The Amazon Resource Name (ARN) of the user in IAM.
+userProfileSummary_userArn :: Lens' UserProfileSummary (Maybe Text)
+
+-- | The email address associated with the user.
+userProfileSummary_emailAddress :: Lens' UserProfileSummary (Maybe Text)
 
 -- | The display name of a user in AWS CodeStar. For example, this could be
 --   set to both first and last name ("Mary Major") or a single name
@@ -4265,9 +4268,6 @@ userProfileSummary_sshPublicKey :: Lens' UserProfileSummary (Maybe Text)
 --   would generate an initial icon using the first character and the first
 --   character after the space ("MJ", not "MM").
 userProfileSummary_displayName :: Lens' UserProfileSummary (Maybe Text)
-
--- | The email address associated with the user.
-userProfileSummary_emailAddress :: Lens' UserProfileSummary (Maybe Text)
 
 
 module Network.AWS.CodeStar.Waiters
@@ -4337,21 +4337,35 @@ defaultService :: Service
 -- | The team member is already associated with a role in this project.
 _TeamMemberAlreadyAssociatedException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | An AWS CodeStar project with the same ID already exists in this region
---   for the AWS account. AWS CodeStar project IDs must be unique within a
---   region for the AWS account.
-_ProjectAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The specified input is either not valid, or it could not be validated.
+_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified AWS CodeStar project was not found.
-_ProjectNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The user profile was not found.
-_UserProfileNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The service role is not valid.
+_InvalidServiceRoleException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The project creation request was valid, but a nonspecific exception or
 --   error occurred during project creation. The project could not be
 --   created in AWS CodeStar.
 _ProjectCreationFailedException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | A user profile with that name already exists in this region for the
+--   AWS account. AWS CodeStar user profile names must be unique within a
+--   region for the AWS account.
+_UserProfileAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified AWS CodeStar project was not found.
+_ProjectNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified team member was not found.
+_TeamMemberNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | An AWS CodeStar project with the same ID already exists in this region
+--   for the AWS account. AWS CodeStar project IDs must be unique within a
+--   region for the AWS account.
+_ProjectAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Project configuration information is required but not specified.
+_ProjectConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Another modification is being made. That modification must complete
 --   before you can make your change.
@@ -4360,179 +4374,11 @@ _ConcurrentModificationException :: AsError a => Getting (First ServiceError) a 
 -- | The next token is not valid.
 _InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Project configuration information is required but not specified.
-_ProjectConfigurationException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The service role is not valid.
-_InvalidServiceRoleException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The specified input is either not valid, or it could not be validated.
-_ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The specified team member was not found.
-_TeamMemberNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The user profile was not found.
+_UserProfileNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | A resource limit has been exceeded.
 _LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | A user profile with that name already exists in this region for the
---   AWS account. AWS CodeStar user profile names must be unique within a
---   region for the AWS account.
-_UserProfileAlreadyExistsException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | <i>See:</i> <a>newDescribeUserProfile</a> smart constructor.
-data DescribeUserProfile
-DescribeUserProfile' :: Text -> DescribeUserProfile
-
--- | Create a value of <a>DescribeUserProfile</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:userArn:DescribeUserProfile'</a>,
---   <a>describeUserProfile_userArn</a> - The Amazon Resource Name (ARN) of
---   the user.
-newDescribeUserProfile :: Text -> DescribeUserProfile
-
--- | <i>See:</i> <a>newDescribeUserProfileResponse</a> smart constructor.
-data DescribeUserProfileResponse
-DescribeUserProfileResponse' :: Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Int -> Text -> POSIX -> POSIX -> DescribeUserProfileResponse
-
--- | Create a value of <a>DescribeUserProfileResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:sshPublicKey:DescribeUserProfileResponse'</a>,
---   <a>describeUserProfileResponse_sshPublicKey</a> - The SSH public key
---   associated with the user. This SSH public key is associated with the
---   user profile, and can be used in conjunction with the associated
---   private key for access to project resources, such as Amazon EC2
---   instances, if a project owner grants remote access to those resources.
---   
---   <a>$sel:displayName:DescribeUserProfileResponse'</a>,
---   <a>describeUserProfileResponse_displayName</a> - The display name
---   shown for the user in AWS CodeStar projects. For example, this could
---   be set to both first and last name ("Mary Major") or a single name
---   ("Mary"). The display name is also used to generate the initial icon
---   associated with the user in AWS CodeStar projects. If spaces are
---   included in the display name, the first character that appears after
---   the space will be used as the second character in the user initial
---   icon. The initial icon displays a maximum of two characters, so a
---   display name with more than one space (for example "Mary Jane Major")
---   would generate an initial icon using the first character and the first
---   character after the space ("MJ", not "MM").
---   
---   <a>$sel:emailAddress:DescribeUserProfileResponse'</a>,
---   <a>describeUserProfileResponse_emailAddress</a> - The email address
---   for the user. Optional.
---   
---   <a>$sel:httpStatus:DescribeUserProfileResponse'</a>,
---   <a>describeUserProfileResponse_httpStatus</a> - The response's http
---   status code.
---   
---   <a>$sel:userArn:DescribeUserProfile'</a>,
---   <a>describeUserProfileResponse_userArn</a> - The Amazon Resource Name
---   (ARN) of the user.
---   
---   <a>$sel:createdTimestamp:DescribeUserProfileResponse'</a>,
---   <a>describeUserProfileResponse_createdTimestamp</a> - The date and
---   time when the user profile was created in AWS CodeStar, in timestamp
---   format.
---   
---   <a>$sel:lastModifiedTimestamp:DescribeUserProfileResponse'</a>,
---   <a>describeUserProfileResponse_lastModifiedTimestamp</a> - The date
---   and time when the user profile was last modified, in timestamp format.
-newDescribeUserProfileResponse :: Int -> Text -> UTCTime -> UTCTime -> DescribeUserProfileResponse
-
--- | <i>See:</i> <a>newTagProject</a> smart constructor.
-data TagProject
-TagProject' :: Text -> HashMap Text Text -> TagProject
-
--- | Create a value of <a>TagProject</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:id:TagProject'</a>, <a>tagProject_id</a> - The ID of the
---   project you want to add a tag to.
---   
---   <a>$sel:tags:TagProject'</a>, <a>tagProject_tags</a> - The tags you
---   want to add to the project.
-newTagProject :: Text -> TagProject
-
--- | <i>See:</i> <a>newTagProjectResponse</a> smart constructor.
-data TagProjectResponse
-TagProjectResponse' :: Maybe (HashMap Text Text) -> Int -> TagProjectResponse
-
--- | Create a value of <a>TagProjectResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:tags:TagProject'</a>, <a>tagProjectResponse_tags</a> - The
---   tags for the project.
---   
---   <a>$sel:httpStatus:TagProjectResponse'</a>,
---   <a>tagProjectResponse_httpStatus</a> - The response's http status
---   code.
-newTagProjectResponse :: Int -> TagProjectResponse
-
--- | <i>See:</i> <a>newDisassociateTeamMember</a> smart constructor.
-data DisassociateTeamMember
-DisassociateTeamMember' :: Text -> Text -> DisassociateTeamMember
-
--- | Create a value of <a>DisassociateTeamMember</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:projectId:DisassociateTeamMember'</a>,
---   <a>disassociateTeamMember_projectId</a> - The ID of the AWS CodeStar
---   project from which you want to remove a team member.
---   
---   <a>$sel:userArn:DisassociateTeamMember'</a>,
---   <a>disassociateTeamMember_userArn</a> - The Amazon Resource Name (ARN)
---   of the IAM user or group whom you want to remove from the project.
-newDisassociateTeamMember :: Text -> Text -> DisassociateTeamMember
-
--- | <i>See:</i> <a>newDisassociateTeamMemberResponse</a> smart
---   constructor.
-data DisassociateTeamMemberResponse
-DisassociateTeamMemberResponse' :: Int -> DisassociateTeamMemberResponse
-
--- | Create a value of <a>DisassociateTeamMemberResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:DisassociateTeamMemberResponse'</a>,
---   <a>disassociateTeamMemberResponse_httpStatus</a> - The response's http
---   status code.
-newDisassociateTeamMemberResponse :: Int -> DisassociateTeamMemberResponse
 
 -- | <i>See:</i> <a>newListProjects</a> smart constructor.
 data ListProjects
@@ -4581,432 +4427,6 @@ ListProjectsResponse' :: Maybe Text -> Int -> [ProjectSummary] -> ListProjectsRe
 --   <a>$sel:projects:ListProjectsResponse'</a>,
 --   <a>listProjectsResponse_projects</a> - A list of projects.
 newListProjectsResponse :: Int -> ListProjectsResponse
-
--- | <i>See:</i> <a>newCreateProject</a> smart constructor.
-data CreateProject
-CreateProject' :: Maybe [Code] -> Maybe (HashMap Text Text) -> Maybe (Sensitive Text) -> Maybe Text -> Maybe Toolchain -> Sensitive Text -> Text -> CreateProject
-
--- | Create a value of <a>CreateProject</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:sourceCode:CreateProject'</a>, <a>createProject_sourceCode</a>
---   - A list of the Code objects submitted with the project request. If
---   this parameter is specified, the request must also include the
---   toolchain parameter.
---   
---   <a>$sel:tags:CreateProject'</a>, <a>createProject_tags</a> - The tags
---   created for the project.
---   
---   <a>$sel:description:CreateProject'</a>,
---   <a>createProject_description</a> - The description of the project, if
---   any.
---   
---   <a>$sel:clientRequestToken:CreateProject'</a>,
---   <a>createProject_clientRequestToken</a> - A user- or system-generated
---   token that identifies the entity that requested project creation. This
---   token can be used to repeat the request.
---   
---   <a>$sel:toolchain:CreateProject'</a>, <a>createProject_toolchain</a> -
---   The name of the toolchain template file submitted with the project
---   request. If this parameter is specified, the request must also include
---   the sourceCode parameter.
---   
---   <a>$sel:name:CreateProject'</a>, <a>createProject_name</a> - The
---   display name for the project to be created in AWS CodeStar.
---   
---   <a>$sel:id:CreateProject'</a>, <a>createProject_id</a> - The ID of the
---   project to be created in AWS CodeStar.
-newCreateProject :: Text -> Text -> CreateProject
-
--- | <i>See:</i> <a>newCreateProjectResponse</a> smart constructor.
-data CreateProjectResponse
-CreateProjectResponse' :: Maybe Text -> Maybe Text -> Int -> Text -> Text -> CreateProjectResponse
-
--- | Create a value of <a>CreateProjectResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:clientRequestToken:CreateProject'</a>,
---   <a>createProjectResponse_clientRequestToken</a> - A user- or
---   system-generated token that identifies the entity that requested
---   project creation.
---   
---   <a>$sel:projectTemplateId:CreateProjectResponse'</a>,
---   <a>createProjectResponse_projectTemplateId</a> - Reserved for future
---   use.
---   
---   <a>$sel:httpStatus:CreateProjectResponse'</a>,
---   <a>createProjectResponse_httpStatus</a> - The response's http status
---   code.
---   
---   <a>$sel:id:CreateProject'</a>, <a>createProjectResponse_id</a> - The
---   ID of the project.
---   
---   <a>$sel:arn:CreateProjectResponse'</a>,
---   <a>createProjectResponse_arn</a> - The Amazon Resource Name (ARN) of
---   the created project.
-newCreateProjectResponse :: Int -> Text -> Text -> CreateProjectResponse
-
--- | <i>See:</i> <a>newUpdateUserProfile</a> smart constructor.
-data UpdateUserProfile
-UpdateUserProfile' :: Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Text -> UpdateUserProfile
-
--- | Create a value of <a>UpdateUserProfile</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:sshPublicKey:UpdateUserProfile'</a>,
---   <a>updateUserProfile_sshPublicKey</a> - The SSH public key associated
---   with the user in AWS CodeStar. If a project owner allows the user
---   remote access to project resources, this public key will be used along
---   with the user's private key for SSH access.
---   
---   <a>$sel:displayName:UpdateUserProfile'</a>,
---   <a>updateUserProfile_displayName</a> - The name that is displayed as
---   the friendly name for the user in AWS CodeStar.
---   
---   <a>$sel:emailAddress:UpdateUserProfile'</a>,
---   <a>updateUserProfile_emailAddress</a> - The email address that is
---   displayed as part of the user's profile in AWS CodeStar.
---   
---   <a>$sel:userArn:UpdateUserProfile'</a>,
---   <a>updateUserProfile_userArn</a> - The name that will be displayed as
---   the friendly name for the user in AWS CodeStar.
-newUpdateUserProfile :: Text -> UpdateUserProfile
-
--- | <i>See:</i> <a>newUpdateUserProfileResponse</a> smart constructor.
-data UpdateUserProfileResponse
-UpdateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Int -> Text -> UpdateUserProfileResponse
-
--- | Create a value of <a>UpdateUserProfileResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:createdTimestamp:UpdateUserProfileResponse'</a>,
---   <a>updateUserProfileResponse_createdTimestamp</a> - The date the user
---   profile was created, in timestamp format.
---   
---   <a>$sel:lastModifiedTimestamp:UpdateUserProfileResponse'</a>,
---   <a>updateUserProfileResponse_lastModifiedTimestamp</a> - The date the
---   user profile was last modified, in timestamp format.
---   
---   <a>$sel:sshPublicKey:UpdateUserProfile'</a>,
---   <a>updateUserProfileResponse_sshPublicKey</a> - The SSH public key
---   associated with the user in AWS CodeStar. This is the public portion
---   of the public/private keypair the user can use to access project
---   resources if a project owner allows the user remote access to those
---   resources.
---   
---   <a>$sel:displayName:UpdateUserProfile'</a>,
---   <a>updateUserProfileResponse_displayName</a> - The name that is
---   displayed as the friendly name for the user in AWS CodeStar.
---   
---   <a>$sel:emailAddress:UpdateUserProfile'</a>,
---   <a>updateUserProfileResponse_emailAddress</a> - The email address that
---   is displayed as part of the user's profile in AWS CodeStar.
---   
---   <a>$sel:httpStatus:UpdateUserProfileResponse'</a>,
---   <a>updateUserProfileResponse_httpStatus</a> - The response's http
---   status code.
---   
---   <a>$sel:userArn:UpdateUserProfile'</a>,
---   <a>updateUserProfileResponse_userArn</a> - The Amazon Resource Name
---   (ARN) of the user in IAM.
-newUpdateUserProfileResponse :: Int -> Text -> UpdateUserProfileResponse
-
--- | <i>See:</i> <a>newListUserProfiles</a> smart constructor.
-data ListUserProfiles
-ListUserProfiles' :: Maybe Text -> Maybe Natural -> ListUserProfiles
-
--- | Create a value of <a>ListUserProfiles</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListUserProfiles'</a>,
---   <a>listUserProfiles_nextToken</a> - The continuation token for the
---   next set of results, if the results cannot be returned in one
---   response.
---   
---   <a>$sel:maxResults:ListUserProfiles'</a>,
---   <a>listUserProfiles_maxResults</a> - The maximum number of results to
---   return in a response.
-newListUserProfiles :: ListUserProfiles
-
--- | <i>See:</i> <a>newListUserProfilesResponse</a> smart constructor.
-data ListUserProfilesResponse
-ListUserProfilesResponse' :: Maybe Text -> Int -> [UserProfileSummary] -> ListUserProfilesResponse
-
--- | Create a value of <a>ListUserProfilesResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListUserProfiles'</a>,
---   <a>listUserProfilesResponse_nextToken</a> - The continuation token to
---   use when requesting the next set of results, if there are more results
---   to be returned.
---   
---   <a>$sel:httpStatus:ListUserProfilesResponse'</a>,
---   <a>listUserProfilesResponse_httpStatus</a> - The response's http
---   status code.
---   
---   <a>$sel:userProfiles:ListUserProfilesResponse'</a>,
---   <a>listUserProfilesResponse_userProfiles</a> - All the user profiles
---   configured in AWS CodeStar for an AWS account.
-newListUserProfilesResponse :: Int -> ListUserProfilesResponse
-
--- | <i>See:</i> <a>newDeleteUserProfile</a> smart constructor.
-data DeleteUserProfile
-DeleteUserProfile' :: Text -> DeleteUserProfile
-
--- | Create a value of <a>DeleteUserProfile</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:userArn:DeleteUserProfile'</a>,
---   <a>deleteUserProfile_userArn</a> - The Amazon Resource Name (ARN) of
---   the user to delete from AWS CodeStar.
-newDeleteUserProfile :: Text -> DeleteUserProfile
-
--- | <i>See:</i> <a>newDeleteUserProfileResponse</a> smart constructor.
-data DeleteUserProfileResponse
-DeleteUserProfileResponse' :: Int -> Text -> DeleteUserProfileResponse
-
--- | Create a value of <a>DeleteUserProfileResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:DeleteUserProfileResponse'</a>,
---   <a>deleteUserProfileResponse_httpStatus</a> - The response's http
---   status code.
---   
---   <a>$sel:userArn:DeleteUserProfile'</a>,
---   <a>deleteUserProfileResponse_userArn</a> - The Amazon Resource Name
---   (ARN) of the user deleted from AWS CodeStar.
-newDeleteUserProfileResponse :: Int -> Text -> DeleteUserProfileResponse
-
--- | <i>See:</i> <a>newListTagsForProject</a> smart constructor.
-data ListTagsForProject
-ListTagsForProject' :: Maybe Text -> Maybe Natural -> Text -> ListTagsForProject
-
--- | Create a value of <a>ListTagsForProject</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListTagsForProject'</a>,
---   <a>listTagsForProject_nextToken</a> - Reserved for future use.
---   
---   <a>$sel:maxResults:ListTagsForProject'</a>,
---   <a>listTagsForProject_maxResults</a> - Reserved for future use.
---   
---   <a>$sel:id:ListTagsForProject'</a>, <a>listTagsForProject_id</a> - The
---   ID of the project to get tags for.
-newListTagsForProject :: Text -> ListTagsForProject
-
--- | <i>See:</i> <a>newListTagsForProjectResponse</a> smart constructor.
-data ListTagsForProjectResponse
-ListTagsForProjectResponse' :: Maybe Text -> Maybe (HashMap Text Text) -> Int -> ListTagsForProjectResponse
-
--- | Create a value of <a>ListTagsForProjectResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListTagsForProject'</a>,
---   <a>listTagsForProjectResponse_nextToken</a> - Reserved for future use.
---   
---   <a>$sel:tags:ListTagsForProjectResponse'</a>,
---   <a>listTagsForProjectResponse_tags</a> - The tags for the project.
---   
---   <a>$sel:httpStatus:ListTagsForProjectResponse'</a>,
---   <a>listTagsForProjectResponse_httpStatus</a> - The response's http
---   status code.
-newListTagsForProjectResponse :: Int -> ListTagsForProjectResponse
-
--- | <i>See:</i> <a>newUpdateProject</a> smart constructor.
-data UpdateProject
-UpdateProject' :: Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Text -> UpdateProject
-
--- | Create a value of <a>UpdateProject</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:name:UpdateProject'</a>, <a>updateProject_name</a> - The name
---   of the project you want to update.
---   
---   <a>$sel:description:UpdateProject'</a>,
---   <a>updateProject_description</a> - The description of the project, if
---   any.
---   
---   <a>$sel:id:UpdateProject'</a>, <a>updateProject_id</a> - The ID of the
---   project you want to update.
-newUpdateProject :: Text -> UpdateProject
-
--- | <i>See:</i> <a>newUpdateProjectResponse</a> smart constructor.
-data UpdateProjectResponse
-UpdateProjectResponse' :: Int -> UpdateProjectResponse
-
--- | Create a value of <a>UpdateProjectResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:UpdateProjectResponse'</a>,
---   <a>updateProjectResponse_httpStatus</a> - The response's http status
---   code.
-newUpdateProjectResponse :: Int -> UpdateProjectResponse
-
--- | <i>See:</i> <a>newDeleteProject</a> smart constructor.
-data DeleteProject
-DeleteProject' :: Maybe Bool -> Maybe Text -> Text -> DeleteProject
-
--- | Create a value of <a>DeleteProject</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:deleteStack:DeleteProject'</a>,
---   <a>deleteProject_deleteStack</a> - Whether to send a delete request
---   for the primary stack in AWS CloudFormation originally used to
---   generate the project and its resources. This option will delete all
---   AWS resources for the project (except for any buckets in Amazon S3) as
---   well as deleting the project itself. Recommended for most use cases.
---   
---   <a>$sel:clientRequestToken:DeleteProject'</a>,
---   <a>deleteProject_clientRequestToken</a> - A user- or system-generated
---   token that identifies the entity that requested project deletion. This
---   token can be used to repeat the request.
---   
---   <a>$sel:id:DeleteProject'</a>, <a>deleteProject_id</a> - The ID of the
---   project to be deleted in AWS CodeStar.
-newDeleteProject :: Text -> DeleteProject
-
--- | <i>See:</i> <a>newDeleteProjectResponse</a> smart constructor.
-data DeleteProjectResponse
-DeleteProjectResponse' :: Maybe Text -> Maybe Text -> Int -> DeleteProjectResponse
-
--- | Create a value of <a>DeleteProjectResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:stackId:DeleteProjectResponse'</a>,
---   <a>deleteProjectResponse_stackId</a> - The ID of the primary stack in
---   AWS CloudFormation that will be deleted as part of deleting the
---   project and its resources.
---   
---   <a>$sel:projectArn:DeleteProjectResponse'</a>,
---   <a>deleteProjectResponse_projectArn</a> - The Amazon Resource Name
---   (ARN) of the deleted project.
---   
---   <a>$sel:httpStatus:DeleteProjectResponse'</a>,
---   <a>deleteProjectResponse_httpStatus</a> - The response's http status
---   code.
-newDeleteProjectResponse :: Int -> DeleteProjectResponse
-
--- | <i>See:</i> <a>newUntagProject</a> smart constructor.
-data UntagProject
-UntagProject' :: Text -> [Text] -> UntagProject
-
--- | Create a value of <a>UntagProject</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:id:UntagProject'</a>, <a>untagProject_id</a> - The ID of the
---   project to remove tags from.
---   
---   <a>$sel:tags:UntagProject'</a>, <a>untagProject_tags</a> - The tags to
---   remove from the project.
-newUntagProject :: Text -> UntagProject
-
--- | <i>See:</i> <a>newUntagProjectResponse</a> smart constructor.
-data UntagProjectResponse
-UntagProjectResponse' :: Int -> UntagProjectResponse
-
--- | Create a value of <a>UntagProjectResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:UntagProjectResponse'</a>,
---   <a>untagProjectResponse_httpStatus</a> - The response's http status
---   code.
-newUntagProjectResponse :: Int -> UntagProjectResponse
 
 -- | <i>See:</i> <a>newListTeamMembers</a> smart constructor.
 data ListTeamMembers
@@ -5061,11 +4481,11 @@ ListTeamMembersResponse' :: Maybe Text -> Int -> [TeamMember] -> ListTeamMembers
 --   objects for the project.
 newListTeamMembersResponse :: Int -> ListTeamMembersResponse
 
--- | <i>See:</i> <a>newUpdateTeamMember</a> smart constructor.
-data UpdateTeamMember
-UpdateTeamMember' :: Maybe Text -> Maybe Bool -> Text -> Text -> UpdateTeamMember
+-- | <i>See:</i> <a>newDeleteProject</a> smart constructor.
+data DeleteProject
+DeleteProject' :: Maybe Bool -> Maybe Text -> Text -> DeleteProject
 
--- | Create a value of <a>UpdateTeamMember</a> with all optional fields
+-- | Create a value of <a>DeleteProject</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -5074,32 +4494,27 @@ UpdateTeamMember' :: Maybe Text -> Maybe Bool -> Text -> Text -> UpdateTeamMembe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:projectRole:UpdateTeamMember'</a>,
---   <a>updateTeamMember_projectRole</a> - The role assigned to the user in
---   the project. Project roles have different levels of access. For more
---   information, see <a>Working with Teams</a> in the <i>AWS CodeStar User
---   Guide</i>.
+--   <a>$sel:deleteStack:DeleteProject'</a>,
+--   <a>deleteProject_deleteStack</a> - Whether to send a delete request
+--   for the primary stack in AWS CloudFormation originally used to
+--   generate the project and its resources. This option will delete all
+--   AWS resources for the project (except for any buckets in Amazon S3) as
+--   well as deleting the project itself. Recommended for most use cases.
 --   
---   <a>$sel:remoteAccessAllowed:UpdateTeamMember'</a>,
---   <a>updateTeamMember_remoteAccessAllowed</a> - Whether a team member is
---   allowed to remotely access project resources using the SSH public key
---   associated with the user's profile. Even if this is set to True, the
---   user must associate a public key with their profile before the user
---   can access resources.
+--   <a>$sel:clientRequestToken:DeleteProject'</a>,
+--   <a>deleteProject_clientRequestToken</a> - A user- or system-generated
+--   token that identifies the entity that requested project deletion. This
+--   token can be used to repeat the request.
 --   
---   <a>$sel:projectId:UpdateTeamMember'</a>,
---   <a>updateTeamMember_projectId</a> - The ID of the project.
---   
---   <a>$sel:userArn:UpdateTeamMember'</a>, <a>updateTeamMember_userArn</a>
---   - The Amazon Resource Name (ARN) of the user for whom you want to
---   change team membership attributes.
-newUpdateTeamMember :: Text -> Text -> UpdateTeamMember
+--   <a>$sel:id:DeleteProject'</a>, <a>deleteProject_id</a> - The ID of the
+--   project to be deleted in AWS CodeStar.
+newDeleteProject :: Text -> DeleteProject
 
--- | <i>See:</i> <a>newUpdateTeamMemberResponse</a> smart constructor.
-data UpdateTeamMemberResponse
-UpdateTeamMemberResponse' :: Maybe Text -> Maybe Text -> Maybe Bool -> Int -> UpdateTeamMemberResponse
+-- | <i>See:</i> <a>newDeleteProjectResponse</a> smart constructor.
+data DeleteProjectResponse
+DeleteProjectResponse' :: Maybe Text -> Maybe Text -> Int -> DeleteProjectResponse
 
--- | Create a value of <a>UpdateTeamMemberResponse</a> with all optional
+-- | Create a value of <a>DeleteProjectResponse</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -5108,23 +4523,315 @@ UpdateTeamMemberResponse' :: Maybe Text -> Maybe Text -> Maybe Bool -> Int -> Up
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:userArn:UpdateTeamMember'</a>,
---   <a>updateTeamMemberResponse_userArn</a> - The Amazon Resource Name
---   (ARN) of the user whose team membership attributes were updated.
+--   <a>$sel:projectArn:DeleteProjectResponse'</a>,
+--   <a>deleteProjectResponse_projectArn</a> - The Amazon Resource Name
+--   (ARN) of the deleted project.
 --   
---   <a>$sel:projectRole:UpdateTeamMember'</a>,
---   <a>updateTeamMemberResponse_projectRole</a> - The project role granted
---   to the user.
+--   <a>$sel:stackId:DeleteProjectResponse'</a>,
+--   <a>deleteProjectResponse_stackId</a> - The ID of the primary stack in
+--   AWS CloudFormation that will be deleted as part of deleting the
+--   project and its resources.
 --   
---   <a>$sel:remoteAccessAllowed:UpdateTeamMember'</a>,
---   <a>updateTeamMemberResponse_remoteAccessAllowed</a> - Whether a team
---   member is allowed to remotely access project resources using the SSH
---   public key associated with the user's profile.
+--   <a>$sel:httpStatus:DeleteProjectResponse'</a>,
+--   <a>deleteProjectResponse_httpStatus</a> - The response's http status
+--   code.
+newDeleteProjectResponse :: Int -> DeleteProjectResponse
+
+-- | <i>See:</i> <a>newUpdateProject</a> smart constructor.
+data UpdateProject
+UpdateProject' :: Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Text -> UpdateProject
+
+-- | Create a value of <a>UpdateProject</a> with all optional fields
+--   omitted.
 --   
---   <a>$sel:httpStatus:UpdateTeamMemberResponse'</a>,
---   <a>updateTeamMemberResponse_httpStatus</a> - The response's http
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:name:UpdateProject'</a>, <a>updateProject_name</a> - The name
+--   of the project you want to update.
+--   
+--   <a>$sel:description:UpdateProject'</a>,
+--   <a>updateProject_description</a> - The description of the project, if
+--   any.
+--   
+--   <a>$sel:id:UpdateProject'</a>, <a>updateProject_id</a> - The ID of the
+--   project you want to update.
+newUpdateProject :: Text -> UpdateProject
+
+-- | <i>See:</i> <a>newUpdateProjectResponse</a> smart constructor.
+data UpdateProjectResponse
+UpdateProjectResponse' :: Int -> UpdateProjectResponse
+
+-- | Create a value of <a>UpdateProjectResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:UpdateProjectResponse'</a>,
+--   <a>updateProjectResponse_httpStatus</a> - The response's http status
+--   code.
+newUpdateProjectResponse :: Int -> UpdateProjectResponse
+
+-- | <i>See:</i> <a>newDisassociateTeamMember</a> smart constructor.
+data DisassociateTeamMember
+DisassociateTeamMember' :: Text -> Text -> DisassociateTeamMember
+
+-- | Create a value of <a>DisassociateTeamMember</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:projectId:DisassociateTeamMember'</a>,
+--   <a>disassociateTeamMember_projectId</a> - The ID of the AWS CodeStar
+--   project from which you want to remove a team member.
+--   
+--   <a>$sel:userArn:DisassociateTeamMember'</a>,
+--   <a>disassociateTeamMember_userArn</a> - The Amazon Resource Name (ARN)
+--   of the IAM user or group whom you want to remove from the project.
+newDisassociateTeamMember :: Text -> Text -> DisassociateTeamMember
+
+-- | <i>See:</i> <a>newDisassociateTeamMemberResponse</a> smart
+--   constructor.
+data DisassociateTeamMemberResponse
+DisassociateTeamMemberResponse' :: Int -> DisassociateTeamMemberResponse
+
+-- | Create a value of <a>DisassociateTeamMemberResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DisassociateTeamMemberResponse'</a>,
+--   <a>disassociateTeamMemberResponse_httpStatus</a> - The response's http
 --   status code.
-newUpdateTeamMemberResponse :: Int -> UpdateTeamMemberResponse
+newDisassociateTeamMemberResponse :: Int -> DisassociateTeamMemberResponse
+
+-- | <i>See:</i> <a>newTagProject</a> smart constructor.
+data TagProject
+TagProject' :: Text -> HashMap Text Text -> TagProject
+
+-- | Create a value of <a>TagProject</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:id:TagProject'</a>, <a>tagProject_id</a> - The ID of the
+--   project you want to add a tag to.
+--   
+--   <a>$sel:tags:TagProject'</a>, <a>tagProject_tags</a> - The tags you
+--   want to add to the project.
+newTagProject :: Text -> TagProject
+
+-- | <i>See:</i> <a>newTagProjectResponse</a> smart constructor.
+data TagProjectResponse
+TagProjectResponse' :: Maybe (HashMap Text Text) -> Int -> TagProjectResponse
+
+-- | Create a value of <a>TagProjectResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:tags:TagProject'</a>, <a>tagProjectResponse_tags</a> - The
+--   tags for the project.
+--   
+--   <a>$sel:httpStatus:TagProjectResponse'</a>,
+--   <a>tagProjectResponse_httpStatus</a> - The response's http status
+--   code.
+newTagProjectResponse :: Int -> TagProjectResponse
+
+-- | <i>See:</i> <a>newDescribeProject</a> smart constructor.
+data DescribeProject
+DescribeProject' :: Text -> DescribeProject
+
+-- | Create a value of <a>DescribeProject</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:id:DescribeProject'</a>, <a>describeProject_id</a> - The ID of
+--   the project.
+newDescribeProject :: Text -> DescribeProject
+
+-- | <i>See:</i> <a>newDescribeProjectResponse</a> smart constructor.
+data DescribeProjectResponse
+DescribeProjectResponse' :: Maybe ProjectStatus -> Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe POSIX -> Maybe (Sensitive Text) -> Int -> DescribeProjectResponse
+
+-- | Create a value of <a>DescribeProjectResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:status:DescribeProjectResponse'</a>,
+--   <a>describeProjectResponse_status</a> - The project creation or
+--   deletion status.
+--   
+--   <a>$sel:arn:DescribeProjectResponse'</a>,
+--   <a>describeProjectResponse_arn</a> - The Amazon Resource Name (ARN)
+--   for the project.
+--   
+--   <a>$sel:projectTemplateId:DescribeProjectResponse'</a>,
+--   <a>describeProjectResponse_projectTemplateId</a> - The ID for the AWS
+--   CodeStar project template used to create the project.
+--   
+--   <a>$sel:name:DescribeProjectResponse'</a>,
+--   <a>describeProjectResponse_name</a> - The display name for the
+--   project.
+--   
+--   <a>$sel:id:DescribeProject'</a>, <a>describeProjectResponse_id</a> -
+--   The ID of the project.
+--   
+--   <a>$sel:stackId:DescribeProjectResponse'</a>,
+--   <a>describeProjectResponse_stackId</a> - The ID of the primary stack
+--   in AWS CloudFormation used to generate resources for the project.
+--   
+--   <a>$sel:clientRequestToken:DescribeProjectResponse'</a>,
+--   <a>describeProjectResponse_clientRequestToken</a> - A user- or
+--   system-generated token that identifies the entity that requested
+--   project creation.
+--   
+--   <a>$sel:createdTimeStamp:DescribeProjectResponse'</a>,
+--   <a>describeProjectResponse_createdTimeStamp</a> - The date and time
+--   the project was created, in timestamp format.
+--   
+--   <a>$sel:description:DescribeProjectResponse'</a>,
+--   <a>describeProjectResponse_description</a> - The description of the
+--   project, if any.
+--   
+--   <a>$sel:httpStatus:DescribeProjectResponse'</a>,
+--   <a>describeProjectResponse_httpStatus</a> - The response's http status
+--   code.
+newDescribeProjectResponse :: Int -> DescribeProjectResponse
+
+-- | <i>See:</i> <a>newListUserProfiles</a> smart constructor.
+data ListUserProfiles
+ListUserProfiles' :: Maybe Text -> Maybe Natural -> ListUserProfiles
+
+-- | Create a value of <a>ListUserProfiles</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListUserProfiles'</a>,
+--   <a>listUserProfiles_nextToken</a> - The continuation token for the
+--   next set of results, if the results cannot be returned in one
+--   response.
+--   
+--   <a>$sel:maxResults:ListUserProfiles'</a>,
+--   <a>listUserProfiles_maxResults</a> - The maximum number of results to
+--   return in a response.
+newListUserProfiles :: ListUserProfiles
+
+-- | <i>See:</i> <a>newListUserProfilesResponse</a> smart constructor.
+data ListUserProfilesResponse
+ListUserProfilesResponse' :: Maybe Text -> Int -> [UserProfileSummary] -> ListUserProfilesResponse
+
+-- | Create a value of <a>ListUserProfilesResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListUserProfiles'</a>,
+--   <a>listUserProfilesResponse_nextToken</a> - The continuation token to
+--   use when requesting the next set of results, if there are more results
+--   to be returned.
+--   
+--   <a>$sel:httpStatus:ListUserProfilesResponse'</a>,
+--   <a>listUserProfilesResponse_httpStatus</a> - The response's http
+--   status code.
+--   
+--   <a>$sel:userProfiles:ListUserProfilesResponse'</a>,
+--   <a>listUserProfilesResponse_userProfiles</a> - All the user profiles
+--   configured in AWS CodeStar for an AWS account.
+newListUserProfilesResponse :: Int -> ListUserProfilesResponse
+
+-- | <i>See:</i> <a>newListResources</a> smart constructor.
+data ListResources
+ListResources' :: Maybe Text -> Maybe Natural -> Text -> ListResources
+
+-- | Create a value of <a>ListResources</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListResources'</a>, <a>listResources_nextToken</a> -
+--   The continuation token for the next set of results, if the results
+--   cannot be returned in one response.
+--   
+--   <a>$sel:maxResults:ListResources'</a>, <a>listResources_maxResults</a>
+--   - The maximum amount of data that can be contained in a single set of
+--   results.
+--   
+--   <a>$sel:projectId:ListResources'</a>, <a>listResources_projectId</a> -
+--   The ID of the project.
+newListResources :: Text -> ListResources
+
+-- | <i>See:</i> <a>newListResourcesResponse</a> smart constructor.
+data ListResourcesResponse
+ListResourcesResponse' :: Maybe [Resource] -> Maybe Text -> Int -> ListResourcesResponse
+
+-- | Create a value of <a>ListResourcesResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:resources:ListResourcesResponse'</a>,
+--   <a>listResourcesResponse_resources</a> - An array of resources
+--   associated with the project.
+--   
+--   <a>$sel:nextToken:ListResources'</a>,
+--   <a>listResourcesResponse_nextToken</a> - The continuation token to use
+--   when requesting the next set of results, if there are more results to
+--   be returned.
+--   
+--   <a>$sel:httpStatus:ListResourcesResponse'</a>,
+--   <a>listResourcesResponse_httpStatus</a> - The response's http status
+--   code.
+newListResourcesResponse :: Int -> ListResourcesResponse
 
 -- | <i>See:</i> <a>newAssociateTeamMember</a> smart constructor.
 data AssociateTeamMember
@@ -5187,6 +4894,346 @@ AssociateTeamMemberResponse' :: Maybe Text -> Int -> AssociateTeamMemberResponse
 --   status code.
 newAssociateTeamMemberResponse :: Int -> AssociateTeamMemberResponse
 
+-- | <i>See:</i> <a>newUntagProject</a> smart constructor.
+data UntagProject
+UntagProject' :: Text -> [Text] -> UntagProject
+
+-- | Create a value of <a>UntagProject</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:id:UntagProject'</a>, <a>untagProject_id</a> - The ID of the
+--   project to remove tags from.
+--   
+--   <a>$sel:tags:UntagProject'</a>, <a>untagProject_tags</a> - The tags to
+--   remove from the project.
+newUntagProject :: Text -> UntagProject
+
+-- | <i>See:</i> <a>newUntagProjectResponse</a> smart constructor.
+data UntagProjectResponse
+UntagProjectResponse' :: Int -> UntagProjectResponse
+
+-- | Create a value of <a>UntagProjectResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:UntagProjectResponse'</a>,
+--   <a>untagProjectResponse_httpStatus</a> - The response's http status
+--   code.
+newUntagProjectResponse :: Int -> UntagProjectResponse
+
+-- | <i>See:</i> <a>newUpdateTeamMember</a> smart constructor.
+data UpdateTeamMember
+UpdateTeamMember' :: Maybe Bool -> Maybe Text -> Text -> Text -> UpdateTeamMember
+
+-- | Create a value of <a>UpdateTeamMember</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:remoteAccessAllowed:UpdateTeamMember'</a>,
+--   <a>updateTeamMember_remoteAccessAllowed</a> - Whether a team member is
+--   allowed to remotely access project resources using the SSH public key
+--   associated with the user's profile. Even if this is set to True, the
+--   user must associate a public key with their profile before the user
+--   can access resources.
+--   
+--   <a>$sel:projectRole:UpdateTeamMember'</a>,
+--   <a>updateTeamMember_projectRole</a> - The role assigned to the user in
+--   the project. Project roles have different levels of access. For more
+--   information, see <a>Working with Teams</a> in the <i>AWS CodeStar User
+--   Guide</i>.
+--   
+--   <a>$sel:projectId:UpdateTeamMember'</a>,
+--   <a>updateTeamMember_projectId</a> - The ID of the project.
+--   
+--   <a>$sel:userArn:UpdateTeamMember'</a>, <a>updateTeamMember_userArn</a>
+--   - The Amazon Resource Name (ARN) of the user for whom you want to
+--   change team membership attributes.
+newUpdateTeamMember :: Text -> Text -> UpdateTeamMember
+
+-- | <i>See:</i> <a>newUpdateTeamMemberResponse</a> smart constructor.
+data UpdateTeamMemberResponse
+UpdateTeamMemberResponse' :: Maybe Text -> Maybe Bool -> Maybe Text -> Int -> UpdateTeamMemberResponse
+
+-- | Create a value of <a>UpdateTeamMemberResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:userArn:UpdateTeamMember'</a>,
+--   <a>updateTeamMemberResponse_userArn</a> - The Amazon Resource Name
+--   (ARN) of the user whose team membership attributes were updated.
+--   
+--   <a>$sel:remoteAccessAllowed:UpdateTeamMember'</a>,
+--   <a>updateTeamMemberResponse_remoteAccessAllowed</a> - Whether a team
+--   member is allowed to remotely access project resources using the SSH
+--   public key associated with the user's profile.
+--   
+--   <a>$sel:projectRole:UpdateTeamMember'</a>,
+--   <a>updateTeamMemberResponse_projectRole</a> - The project role granted
+--   to the user.
+--   
+--   <a>$sel:httpStatus:UpdateTeamMemberResponse'</a>,
+--   <a>updateTeamMemberResponse_httpStatus</a> - The response's http
+--   status code.
+newUpdateTeamMemberResponse :: Int -> UpdateTeamMemberResponse
+
+-- | <i>See:</i> <a>newDescribeUserProfile</a> smart constructor.
+data DescribeUserProfile
+DescribeUserProfile' :: Text -> DescribeUserProfile
+
+-- | Create a value of <a>DescribeUserProfile</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:userArn:DescribeUserProfile'</a>,
+--   <a>describeUserProfile_userArn</a> - The Amazon Resource Name (ARN) of
+--   the user.
+newDescribeUserProfile :: Text -> DescribeUserProfile
+
+-- | <i>See:</i> <a>newDescribeUserProfileResponse</a> smart constructor.
+data DescribeUserProfileResponse
+DescribeUserProfileResponse' :: Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Int -> Text -> POSIX -> POSIX -> DescribeUserProfileResponse
+
+-- | Create a value of <a>DescribeUserProfileResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:sshPublicKey:DescribeUserProfileResponse'</a>,
+--   <a>describeUserProfileResponse_sshPublicKey</a> - The SSH public key
+--   associated with the user. This SSH public key is associated with the
+--   user profile, and can be used in conjunction with the associated
+--   private key for access to project resources, such as Amazon EC2
+--   instances, if a project owner grants remote access to those resources.
+--   
+--   <a>$sel:emailAddress:DescribeUserProfileResponse'</a>,
+--   <a>describeUserProfileResponse_emailAddress</a> - The email address
+--   for the user. Optional.
+--   
+--   <a>$sel:displayName:DescribeUserProfileResponse'</a>,
+--   <a>describeUserProfileResponse_displayName</a> - The display name
+--   shown for the user in AWS CodeStar projects. For example, this could
+--   be set to both first and last name ("Mary Major") or a single name
+--   ("Mary"). The display name is also used to generate the initial icon
+--   associated with the user in AWS CodeStar projects. If spaces are
+--   included in the display name, the first character that appears after
+--   the space will be used as the second character in the user initial
+--   icon. The initial icon displays a maximum of two characters, so a
+--   display name with more than one space (for example "Mary Jane Major")
+--   would generate an initial icon using the first character and the first
+--   character after the space ("MJ", not "MM").
+--   
+--   <a>$sel:httpStatus:DescribeUserProfileResponse'</a>,
+--   <a>describeUserProfileResponse_httpStatus</a> - The response's http
+--   status code.
+--   
+--   <a>$sel:userArn:DescribeUserProfile'</a>,
+--   <a>describeUserProfileResponse_userArn</a> - The Amazon Resource Name
+--   (ARN) of the user.
+--   
+--   <a>$sel:createdTimestamp:DescribeUserProfileResponse'</a>,
+--   <a>describeUserProfileResponse_createdTimestamp</a> - The date and
+--   time when the user profile was created in AWS CodeStar, in timestamp
+--   format.
+--   
+--   <a>$sel:lastModifiedTimestamp:DescribeUserProfileResponse'</a>,
+--   <a>describeUserProfileResponse_lastModifiedTimestamp</a> - The date
+--   and time when the user profile was last modified, in timestamp format.
+newDescribeUserProfileResponse :: Int -> Text -> UTCTime -> UTCTime -> DescribeUserProfileResponse
+
+-- | <i>See:</i> <a>newListTagsForProject</a> smart constructor.
+data ListTagsForProject
+ListTagsForProject' :: Maybe Text -> Maybe Natural -> Text -> ListTagsForProject
+
+-- | Create a value of <a>ListTagsForProject</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListTagsForProject'</a>,
+--   <a>listTagsForProject_nextToken</a> - Reserved for future use.
+--   
+--   <a>$sel:maxResults:ListTagsForProject'</a>,
+--   <a>listTagsForProject_maxResults</a> - Reserved for future use.
+--   
+--   <a>$sel:id:ListTagsForProject'</a>, <a>listTagsForProject_id</a> - The
+--   ID of the project to get tags for.
+newListTagsForProject :: Text -> ListTagsForProject
+
+-- | <i>See:</i> <a>newListTagsForProjectResponse</a> smart constructor.
+data ListTagsForProjectResponse
+ListTagsForProjectResponse' :: Maybe Text -> Maybe (HashMap Text Text) -> Int -> ListTagsForProjectResponse
+
+-- | Create a value of <a>ListTagsForProjectResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:nextToken:ListTagsForProject'</a>,
+--   <a>listTagsForProjectResponse_nextToken</a> - Reserved for future use.
+--   
+--   <a>$sel:tags:ListTagsForProjectResponse'</a>,
+--   <a>listTagsForProjectResponse_tags</a> - The tags for the project.
+--   
+--   <a>$sel:httpStatus:ListTagsForProjectResponse'</a>,
+--   <a>listTagsForProjectResponse_httpStatus</a> - The response's http
+--   status code.
+newListTagsForProjectResponse :: Int -> ListTagsForProjectResponse
+
+-- | <i>See:</i> <a>newDeleteUserProfile</a> smart constructor.
+data DeleteUserProfile
+DeleteUserProfile' :: Text -> DeleteUserProfile
+
+-- | Create a value of <a>DeleteUserProfile</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:userArn:DeleteUserProfile'</a>,
+--   <a>deleteUserProfile_userArn</a> - The Amazon Resource Name (ARN) of
+--   the user to delete from AWS CodeStar.
+newDeleteUserProfile :: Text -> DeleteUserProfile
+
+-- | <i>See:</i> <a>newDeleteUserProfileResponse</a> smart constructor.
+data DeleteUserProfileResponse
+DeleteUserProfileResponse' :: Int -> Text -> DeleteUserProfileResponse
+
+-- | Create a value of <a>DeleteUserProfileResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DeleteUserProfileResponse'</a>,
+--   <a>deleteUserProfileResponse_httpStatus</a> - The response's http
+--   status code.
+--   
+--   <a>$sel:userArn:DeleteUserProfile'</a>,
+--   <a>deleteUserProfileResponse_userArn</a> - The Amazon Resource Name
+--   (ARN) of the user deleted from AWS CodeStar.
+newDeleteUserProfileResponse :: Int -> Text -> DeleteUserProfileResponse
+
+-- | <i>See:</i> <a>newUpdateUserProfile</a> smart constructor.
+data UpdateUserProfile
+UpdateUserProfile' :: Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Text -> UpdateUserProfile
+
+-- | Create a value of <a>UpdateUserProfile</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:sshPublicKey:UpdateUserProfile'</a>,
+--   <a>updateUserProfile_sshPublicKey</a> - The SSH public key associated
+--   with the user in AWS CodeStar. If a project owner allows the user
+--   remote access to project resources, this public key will be used along
+--   with the user's private key for SSH access.
+--   
+--   <a>$sel:emailAddress:UpdateUserProfile'</a>,
+--   <a>updateUserProfile_emailAddress</a> - The email address that is
+--   displayed as part of the user's profile in AWS CodeStar.
+--   
+--   <a>$sel:displayName:UpdateUserProfile'</a>,
+--   <a>updateUserProfile_displayName</a> - The name that is displayed as
+--   the friendly name for the user in AWS CodeStar.
+--   
+--   <a>$sel:userArn:UpdateUserProfile'</a>,
+--   <a>updateUserProfile_userArn</a> - The name that will be displayed as
+--   the friendly name for the user in AWS CodeStar.
+newUpdateUserProfile :: Text -> UpdateUserProfile
+
+-- | <i>See:</i> <a>newUpdateUserProfileResponse</a> smart constructor.
+data UpdateUserProfileResponse
+UpdateUserProfileResponse' :: Maybe POSIX -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Maybe POSIX -> Int -> Text -> UpdateUserProfileResponse
+
+-- | Create a value of <a>UpdateUserProfileResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:lastModifiedTimestamp:UpdateUserProfileResponse'</a>,
+--   <a>updateUserProfileResponse_lastModifiedTimestamp</a> - The date the
+--   user profile was last modified, in timestamp format.
+--   
+--   <a>$sel:sshPublicKey:UpdateUserProfile'</a>,
+--   <a>updateUserProfileResponse_sshPublicKey</a> - The SSH public key
+--   associated with the user in AWS CodeStar. This is the public portion
+--   of the public/private keypair the user can use to access project
+--   resources if a project owner allows the user remote access to those
+--   resources.
+--   
+--   <a>$sel:emailAddress:UpdateUserProfile'</a>,
+--   <a>updateUserProfileResponse_emailAddress</a> - The email address that
+--   is displayed as part of the user's profile in AWS CodeStar.
+--   
+--   <a>$sel:displayName:UpdateUserProfile'</a>,
+--   <a>updateUserProfileResponse_displayName</a> - The name that is
+--   displayed as the friendly name for the user in AWS CodeStar.
+--   
+--   <a>$sel:createdTimestamp:UpdateUserProfileResponse'</a>,
+--   <a>updateUserProfileResponse_createdTimestamp</a> - The date the user
+--   profile was created, in timestamp format.
+--   
+--   <a>$sel:httpStatus:UpdateUserProfileResponse'</a>,
+--   <a>updateUserProfileResponse_httpStatus</a> - The response's http
+--   status code.
+--   
+--   <a>$sel:userArn:UpdateUserProfile'</a>,
+--   <a>updateUserProfileResponse_userArn</a> - The Amazon Resource Name
+--   (ARN) of the user in IAM.
+newUpdateUserProfileResponse :: Int -> Text -> UpdateUserProfileResponse
+
 -- | <i>See:</i> <a>newCreateUserProfile</a> smart constructor.
 data CreateUserProfile
 CreateUserProfile' :: Maybe Text -> Text -> Sensitive Text -> Sensitive Text -> CreateUserProfile
@@ -5221,7 +5268,7 @@ newCreateUserProfile :: Text -> Text -> Text -> CreateUserProfile
 
 -- | <i>See:</i> <a>newCreateUserProfileResponse</a> smart constructor.
 data CreateUserProfileResponse
-CreateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Int -> Text -> CreateUserProfileResponse
+CreateUserProfileResponse' :: Maybe POSIX -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Maybe POSIX -> Int -> Text -> CreateUserProfileResponse
 
 -- | Create a value of <a>CreateUserProfileResponse</a> with all optional
 --   fields omitted.
@@ -5231,10 +5278,6 @@ CreateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe 
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
---   
---   <a>$sel:createdTimestamp:CreateUserProfileResponse'</a>,
---   <a>createUserProfileResponse_createdTimestamp</a> - The date the user
---   profile was created, in timestamp format.
 --   
 --   <a>$sel:lastModifiedTimestamp:CreateUserProfileResponse'</a>,
 --   <a>createUserProfileResponse_lastModifiedTimestamp</a> - The date the
@@ -5247,13 +5290,17 @@ CreateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe 
 --   resources if a project owner allows the user remote access to those
 --   resources.
 --   
+--   <a>$sel:emailAddress:CreateUserProfile'</a>,
+--   <a>createUserProfileResponse_emailAddress</a> - The email address that
+--   is displayed as part of the user's profile in AWS CodeStar.
+--   
 --   <a>$sel:displayName:CreateUserProfile'</a>,
 --   <a>createUserProfileResponse_displayName</a> - The name that is
 --   displayed as the friendly name for the user in AWS CodeStar.
 --   
---   <a>$sel:emailAddress:CreateUserProfile'</a>,
---   <a>createUserProfileResponse_emailAddress</a> - The email address that
---   is displayed as part of the user's profile in AWS CodeStar.
+--   <a>$sel:createdTimestamp:CreateUserProfileResponse'</a>,
+--   <a>createUserProfileResponse_createdTimestamp</a> - The date the user
+--   profile was created, in timestamp format.
 --   
 --   <a>$sel:httpStatus:CreateUserProfileResponse'</a>,
 --   <a>createUserProfileResponse_httpStatus</a> - The response's http
@@ -5264,11 +5311,11 @@ CreateUserProfileResponse' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Maybe 
 --   (ARN) of the user in IAM.
 newCreateUserProfileResponse :: Int -> Text -> CreateUserProfileResponse
 
--- | <i>See:</i> <a>newListResources</a> smart constructor.
-data ListResources
-ListResources' :: Maybe Text -> Maybe Natural -> Text -> ListResources
+-- | <i>See:</i> <a>newCreateProject</a> smart constructor.
+data CreateProject
+CreateProject' :: Maybe [Code] -> Maybe Toolchain -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (HashMap Text Text) -> Sensitive Text -> Text -> CreateProject
 
--- | Create a value of <a>ListResources</a> with all optional fields
+-- | Create a value of <a>CreateProject</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -5277,23 +5324,40 @@ ListResources' :: Maybe Text -> Maybe Natural -> Text -> ListResources
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListResources'</a>, <a>listResources_nextToken</a> -
---   The continuation token for the next set of results, if the results
---   cannot be returned in one response.
+--   <a>$sel:sourceCode:CreateProject'</a>, <a>createProject_sourceCode</a>
+--   - A list of the Code objects submitted with the project request. If
+--   this parameter is specified, the request must also include the
+--   toolchain parameter.
 --   
---   <a>$sel:maxResults:ListResources'</a>, <a>listResources_maxResults</a>
---   - The maximum amount of data that can be contained in a single set of
---   results.
+--   <a>$sel:toolchain:CreateProject'</a>, <a>createProject_toolchain</a> -
+--   The name of the toolchain template file submitted with the project
+--   request. If this parameter is specified, the request must also include
+--   the sourceCode parameter.
 --   
---   <a>$sel:projectId:ListResources'</a>, <a>listResources_projectId</a> -
---   The ID of the project.
-newListResources :: Text -> ListResources
+--   <a>$sel:clientRequestToken:CreateProject'</a>,
+--   <a>createProject_clientRequestToken</a> - A user- or system-generated
+--   token that identifies the entity that requested project creation. This
+--   token can be used to repeat the request.
+--   
+--   <a>$sel:description:CreateProject'</a>,
+--   <a>createProject_description</a> - The description of the project, if
+--   any.
+--   
+--   <a>$sel:tags:CreateProject'</a>, <a>createProject_tags</a> - The tags
+--   created for the project.
+--   
+--   <a>$sel:name:CreateProject'</a>, <a>createProject_name</a> - The
+--   display name for the project to be created in AWS CodeStar.
+--   
+--   <a>$sel:id:CreateProject'</a>, <a>createProject_id</a> - The ID of the
+--   project to be created in AWS CodeStar.
+newCreateProject :: Text -> Text -> CreateProject
 
--- | <i>See:</i> <a>newListResourcesResponse</a> smart constructor.
-data ListResourcesResponse
-ListResourcesResponse' :: Maybe Text -> Maybe [Resource] -> Int -> ListResourcesResponse
+-- | <i>See:</i> <a>newCreateProjectResponse</a> smart constructor.
+data CreateProjectResponse
+CreateProjectResponse' :: Maybe Text -> Maybe Text -> Int -> Text -> Text -> CreateProjectResponse
 
--- | Create a value of <a>ListResourcesResponse</a> with all optional
+-- | Create a value of <a>CreateProjectResponse</a> with all optional
 --   fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -5302,90 +5366,26 @@ ListResourcesResponse' :: Maybe Text -> Maybe [Resource] -> Int -> ListResources
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListResources'</a>,
---   <a>listResourcesResponse_nextToken</a> - The continuation token to use
---   when requesting the next set of results, if there are more results to
---   be returned.
+--   <a>$sel:projectTemplateId:CreateProjectResponse'</a>,
+--   <a>createProjectResponse_projectTemplateId</a> - Reserved for future
+--   use.
 --   
---   <a>$sel:resources:ListResourcesResponse'</a>,
---   <a>listResourcesResponse_resources</a> - An array of resources
---   associated with the project.
---   
---   <a>$sel:httpStatus:ListResourcesResponse'</a>,
---   <a>listResourcesResponse_httpStatus</a> - The response's http status
---   code.
-newListResourcesResponse :: Int -> ListResourcesResponse
-
--- | <i>See:</i> <a>newDescribeProject</a> smart constructor.
-data DescribeProject
-DescribeProject' :: Text -> DescribeProject
-
--- | Create a value of <a>DescribeProject</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:id:DescribeProject'</a>, <a>describeProject_id</a> - The ID of
---   the project.
-newDescribeProject :: Text -> DescribeProject
-
--- | <i>See:</i> <a>newDescribeProjectResponse</a> smart constructor.
-data DescribeProjectResponse
-DescribeProjectResponse' :: Maybe ProjectStatus -> Maybe POSIX -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> Maybe (Sensitive Text) -> Maybe Text -> Maybe Text -> Int -> DescribeProjectResponse
-
--- | Create a value of <a>DescribeProjectResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:status:DescribeProjectResponse'</a>,
---   <a>describeProjectResponse_status</a> - The project creation or
---   deletion status.
---   
---   <a>$sel:createdTimeStamp:DescribeProjectResponse'</a>,
---   <a>describeProjectResponse_createdTimeStamp</a> - The date and time
---   the project was created, in timestamp format.
---   
---   <a>$sel:stackId:DescribeProjectResponse'</a>,
---   <a>describeProjectResponse_stackId</a> - The ID of the primary stack
---   in AWS CloudFormation used to generate resources for the project.
---   
---   <a>$sel:id:DescribeProject'</a>, <a>describeProjectResponse_id</a> -
---   The ID of the project.
---   
---   <a>$sel:arn:DescribeProjectResponse'</a>,
---   <a>describeProjectResponse_arn</a> - The Amazon Resource Name (ARN)
---   for the project.
---   
---   <a>$sel:name:DescribeProjectResponse'</a>,
---   <a>describeProjectResponse_name</a> - The display name for the
---   project.
---   
---   <a>$sel:description:DescribeProjectResponse'</a>,
---   <a>describeProjectResponse_description</a> - The description of the
---   project, if any.
---   
---   <a>$sel:clientRequestToken:DescribeProjectResponse'</a>,
---   <a>describeProjectResponse_clientRequestToken</a> - A user- or
+--   <a>$sel:clientRequestToken:CreateProject'</a>,
+--   <a>createProjectResponse_clientRequestToken</a> - A user- or
 --   system-generated token that identifies the entity that requested
 --   project creation.
 --   
---   <a>$sel:projectTemplateId:DescribeProjectResponse'</a>,
---   <a>describeProjectResponse_projectTemplateId</a> - The ID for the AWS
---   CodeStar project template used to create the project.
---   
---   <a>$sel:httpStatus:DescribeProjectResponse'</a>,
---   <a>describeProjectResponse_httpStatus</a> - The response's http status
+--   <a>$sel:httpStatus:CreateProjectResponse'</a>,
+--   <a>createProjectResponse_httpStatus</a> - The response's http status
 --   code.
-newDescribeProjectResponse :: Int -> DescribeProjectResponse
+--   
+--   <a>$sel:id:CreateProject'</a>, <a>createProjectResponse_id</a> - The
+--   ID of the project.
+--   
+--   <a>$sel:arn:CreateProjectResponse'</a>,
+--   <a>createProjectResponse_arn</a> - The Amazon Resource Name (ARN) of
+--   the created project.
+newCreateProjectResponse :: Int -> Text -> Text -> CreateProjectResponse
 
 -- | Location and destination information about the source code files
 --   provided with the project request. The source code is uploaded to the
@@ -5574,12 +5574,12 @@ ProjectSummary' :: Maybe Text -> Maybe Text -> ProjectSummary
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:projectId:ProjectSummary'</a>, <a>projectSummary_projectId</a>
---   - The ID of the project.
---   
 --   <a>$sel:projectArn:ProjectSummary'</a>,
 --   <a>projectSummary_projectArn</a> - The Amazon Resource Name (ARN) of
 --   the project.
+--   
+--   <a>$sel:projectId:ProjectSummary'</a>, <a>projectSummary_projectId</a>
+--   - The ID of the project.
 newProjectSummary :: ProjectSummary
 
 -- | Information about a resource for a project.
@@ -5615,12 +5615,12 @@ S3Location' :: Maybe Text -> Maybe Text -> S3Location
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:bucketName:S3Location'</a>, <a>s3Location_bucketName</a> - The
---   Amazon S3 bucket name where the source code files provided with the
---   project request are stored.
---   
 --   <a>$sel:bucketKey:S3Location'</a>, <a>s3Location_bucketKey</a> - The
 --   Amazon S3 object key where the source code files provided with the
+--   project request are stored.
+--   
+--   <a>$sel:bucketName:S3Location'</a>, <a>s3Location_bucketName</a> - The
+--   Amazon S3 bucket name where the source code files provided with the
 --   project request are stored.
 newS3Location :: S3Location
 
@@ -5720,15 +5720,19 @@ UserProfileSummary' :: Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> May
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:userArn:UserProfileSummary'</a>,
---   <a>userProfileSummary_userArn</a> - The Amazon Resource Name (ARN) of
---   the user in IAM.
---   
 --   <a>$sel:sshPublicKey:UserProfileSummary'</a>,
 --   <a>userProfileSummary_sshPublicKey</a> - The SSH public key associated
 --   with the user in AWS CodeStar. If a project owner allows the user
 --   remote access to project resources, this public key will be used along
 --   with the user's private key for SSH access.
+--   
+--   <a>$sel:userArn:UserProfileSummary'</a>,
+--   <a>userProfileSummary_userArn</a> - The Amazon Resource Name (ARN) of
+--   the user in IAM.
+--   
+--   <a>$sel:emailAddress:UserProfileSummary'</a>,
+--   <a>userProfileSummary_emailAddress</a> - The email address associated
+--   with the user.
 --   
 --   <a>$sel:displayName:UserProfileSummary'</a>,
 --   <a>userProfileSummary_displayName</a> - The display name of a user in
@@ -5742,8 +5746,4 @@ UserProfileSummary' :: Maybe Text -> Maybe Text -> Maybe (Sensitive Text) -> May
 --   (for example "Mary Jane Major") would generate an initial icon using
 --   the first character and the first character after the space ("MJ", not
 --   "MM").
---   
---   <a>$sel:emailAddress:UserProfileSummary'</a>,
---   <a>userProfileSummary_emailAddress</a> - The email address associated
---   with the user.
 newUserProfileSummary :: UserProfileSummary

@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53.Internal.html"><span class="hs-identifier">Network.AWS.Route53.Internal</span></a></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679292386"><span id="local-6989586621679292387"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccountLimitType"><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimitType.html#AccountLimitType"><span class="hs-identifier hs-var">AccountLimitType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountLimitType%27"><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimitType.html#AccountLimitType%27"><span class="hs-identifier hs-var">AccountLimitType'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679292531"><span id="local-6989586621679292532"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccountLimitType"><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimitType.html#AccountLimitType"><span class="hs-identifier hs-var">AccountLimitType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccountLimitType%27"><span class="annot"><a href="Network.AWS.Route53.Types.AccountLimitType.html#AccountLimitType%27"><span class="hs-identifier hs-var">AccountLimitType'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccountLimitType"><span class="annot"><span class="annottext">AccountLimitType -&gt; Text
 </span><a href="Network.AWS.Route53.Types.AccountLimitType.html#fromAccountLimitType"><span class="hs-identifier hs-var hs-var">fromAccountLimitType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679292378"><span id="local-6989586621679292380"><span id="local-6989586621679292382"><span class="annot"><span class="annottext">Int -&gt; AccountLimitType -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679292523"><span id="local-6989586621679292525"><span id="local-6989586621679292527"><span class="annot"><span class="annottext">Int -&gt; AccountLimitType -&gt; ShowS
 [AccountLimitType] -&gt; ShowS
 AccountLimitType -&gt; String
 (Int -&gt; AccountLimitType -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: AccountLimitType -&gt; String
 showsPrec :: Int -&gt; AccountLimitType -&gt; ShowS
 $cshowsPrec :: Int -&gt; AccountLimitType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679292369"><span id="local-6989586621679292371"><span id="local-6989586621679292373"><span id="local-6989586621679292375"><span class="annot"><span class="annottext">ReadPrec [AccountLimitType]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679292514"><span id="local-6989586621679292516"><span id="local-6989586621679292518"><span id="local-6989586621679292520"><span class="annot"><span class="annottext">ReadPrec [AccountLimitType]
 ReadPrec AccountLimitType
 Int -&gt; ReadS AccountLimitType
 ReadS [AccountLimitType]
@@ -76,7 +76,7 @@ $creadList :: ReadS [AccountLimitType]
 readsPrec :: Int -&gt; ReadS AccountLimitType
 $creadsPrec :: Int -&gt; ReadS AccountLimitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679292364"><span id="local-6989586621679292366"><span class="annot"><span class="annottext">AccountLimitType -&gt; AccountLimitType -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679292509"><span id="local-6989586621679292511"><span class="annot"><span class="annottext">AccountLimitType -&gt; AccountLimitType -&gt; Bool
 (AccountLimitType -&gt; AccountLimitType -&gt; Bool)
 -&gt; (AccountLimitType -&gt; AccountLimitType -&gt; Bool)
 -&gt; Eq AccountLimitType
@@ -86,7 +86,7 @@ $c/= :: AccountLimitType -&gt; AccountLimitType -&gt; Bool
 == :: AccountLimitType -&gt; AccountLimitType -&gt; Bool
 $c== :: AccountLimitType -&gt; AccountLimitType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679292348"><span id="local-6989586621679292350"><span id="local-6989586621679292352"><span id="local-6989586621679292354"><span id="local-6989586621679292356"><span id="local-6989586621679292358"><span id="local-6989586621679292360"><span class="annot"><span class="annottext">Eq AccountLimitType
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679292493"><span id="local-6989586621679292495"><span id="local-6989586621679292497"><span id="local-6989586621679292499"><span id="local-6989586621679292501"><span id="local-6989586621679292503"><span id="local-6989586621679292505"><span class="annot"><span class="annottext">Eq AccountLimitType
 Eq AccountLimitType
 -&gt; (AccountLimitType -&gt; AccountLimitType -&gt; Ordering)
 -&gt; (AccountLimitType -&gt; AccountLimitType -&gt; Bool)
@@ -137,7 +137,7 @@ $cfrom :: forall x. AccountLimitType -&gt; Rep AccountLimitType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679292340"><span id="local-6989586621679292342"><span class="annot"><span class="annottext">Int -&gt; AccountLimitType -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679292485"><span id="local-6989586621679292487"><span class="annot"><span class="annottext">Int -&gt; AccountLimitType -&gt; Int
 AccountLimitType -&gt; Int
 (Int -&gt; AccountLimitType -&gt; Int)
 -&gt; (AccountLimitType -&gt; Int) -&gt; Hashable AccountLimitType
@@ -147,51 +147,51 @@ $chash :: AccountLimitType -&gt; Int
 hashWithSalt :: Int -&gt; AccountLimitType -&gt; Int
 $chashWithSalt :: Int -&gt; AccountLimitType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679292337"><span class="annot"><span class="annottext">AccountLimitType -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679292482"><span class="annot"><span class="annottext">AccountLimitType -&gt; ()
 (AccountLimitType -&gt; ()) -&gt; NFData AccountLimitType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: AccountLimitType -&gt; ()
 $crnf :: AccountLimitType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679292334"><span class="annot"><span class="annottext">Text -&gt; Either String AccountLimitType
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679292479"><span class="annot"><span class="annottext">Text -&gt; Either String AccountLimitType
 (Text -&gt; Either String AccountLimitType)
 -&gt; FromText AccountLimitType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String AccountLimitType
 $cfromText :: Text -&gt; Either String AccountLimitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679292331"><span class="annot"><span class="annottext">AccountLimitType -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679292476"><span class="annot"><span class="annottext">AccountLimitType -&gt; Text
 (AccountLimitType -&gt; Text) -&gt; ToText AccountLimitType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: AccountLimitType -&gt; Text
 $ctoText :: AccountLimitType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679292328"><span class="annot"><span class="annottext">AccountLimitType -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679292473"><span class="annot"><span class="annottext">AccountLimitType -&gt; ByteString
 (AccountLimitType -&gt; ByteString) -&gt; ToByteString AccountLimitType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: AccountLimitType -&gt; ByteString
 $ctoBS :: AccountLimitType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679292325"><span class="annot"><span class="annottext">AccountLimitType -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679292470"><span class="annot"><span class="annottext">AccountLimitType -&gt; ByteStringBuilder
 (AccountLimitType -&gt; ByteStringBuilder) -&gt; ToLog AccountLimitType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: AccountLimitType -&gt; ByteStringBuilder
 $cbuild :: AccountLimitType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679292322"><span class="annot"><span class="annottext">HeaderName -&gt; AccountLimitType -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679292467"><span class="annot"><span class="annottext">HeaderName -&gt; AccountLimitType -&gt; [Header]
 (HeaderName -&gt; AccountLimitType -&gt; [Header])
 -&gt; ToHeader AccountLimitType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; AccountLimitType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; AccountLimitType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679292319"><span class="annot"><span class="annottext">AccountLimitType -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679292464"><span class="annot"><span class="annottext">AccountLimitType -&gt; QueryString
 (AccountLimitType -&gt; QueryString) -&gt; ToQuery AccountLimitType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: AccountLimitType -&gt; QueryString
 $ctoQuery :: AccountLimitType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679292314"><span id="local-6989586621679292316"><span class="annot"><span class="annottext">Value -&gt; Parser [AccountLimitType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679292459"><span id="local-6989586621679292461"><span class="annot"><span class="annottext">Value -&gt; Parser [AccountLimitType]
 Value -&gt; Parser AccountLimitType
 (Value -&gt; Parser AccountLimitType)
 -&gt; (Value -&gt; Parser [AccountLimitType])
@@ -203,7 +203,7 @@ $cparseJSONList :: Value -&gt; Parser [AccountLimitType]
 parseJSON :: Value -&gt; Parser AccountLimitType
 $cparseJSON :: Value -&gt; Parser AccountLimitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679292309"><span id="local-6989586621679292311"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccountLimitType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679292454"><span id="local-6989586621679292456"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccountLimitType]
 FromJSONKeyFunction AccountLimitType
 FromJSONKeyFunction AccountLimitType
 -&gt; FromJSONKeyFunction [AccountLimitType]
@@ -215,7 +215,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [AccountLimitType]
 fromJSONKey :: FromJSONKeyFunction AccountLimitType
 $cfromJSONKey :: FromJSONKeyFunction AccountLimitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679292300"><span id="local-6989586621679292302"><span id="local-6989586621679292304"><span id="local-6989586621679292306"><span class="annot"><span class="annottext">[AccountLimitType] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679292445"><span id="local-6989586621679292447"><span id="local-6989586621679292449"><span id="local-6989586621679292451"><span class="annot"><span class="annottext">[AccountLimitType] -&gt; Encoding
 [AccountLimitType] -&gt; Value
 AccountLimitType -&gt; Encoding
 AccountLimitType -&gt; Value
@@ -239,7 +239,7 @@ $ctoEncoding :: AccountLimitType -&gt; Encoding
 toJSON :: AccountLimitType -&gt; Value
 $ctoJSON :: AccountLimitType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679292295"><span id="local-6989586621679292297"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccountLimitType]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679292440"><span id="local-6989586621679292442"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccountLimitType]
 ToJSONKeyFunction AccountLimitType
 ToJSONKeyFunction AccountLimitType
 -&gt; ToJSONKeyFunction [AccountLimitType]
@@ -251,14 +251,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [AccountLimitType]
 toJSONKey :: ToJSONKeyFunction AccountLimitType
 $ctoJSONKey :: ToJSONKeyFunction AccountLimitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679292292"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccountLimitType
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679292437"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccountLimitType
 ([Node] -&gt; Either String AccountLimitType)
 -&gt; FromXML AccountLimitType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String AccountLimitType
 $cparseXML :: [Node] -&gt; Either String AccountLimitType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679292289"><span class="annot"><span class="annottext">AccountLimitType -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679292434"><span class="annot"><span class="annottext">AccountLimitType -&gt; XML
 (AccountLimitType -&gt; XML) -&gt; ToXML AccountLimitType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: AccountLimitType -&gt; XML

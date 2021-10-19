@@ -211,6 +211,11 @@ _IOException :: AsIOException t => Prism' t IOException
 --   </pre>
 _last :: Snoc s s a a => Traversal' s a
 
+-- | Data types that are representationally equal are isomorphic.
+--   
+--   This is only available on GHC 7.8+
+coerced :: forall s t a b. (Coercible s a, Coercible t b) => Iso s t a b
+
 -- | If <tt>v</tt> is an element of a type <tt>a</tt>, and <tt>a'</tt> is
 --   <tt>a</tt> sans the element <tt>v</tt>, then <tt><a>non</a> v</tt> is
 --   an isomorphism from <tt><a>Maybe</a> a'</tt> to <tt>a</tt>.
@@ -1084,7 +1089,6 @@ type Fold s a = forall (f :: Type -> Type). (Contravariant f, Applicative f) => 
 --   type <a>Optic'</a> p f s a = <a>Simple</a> (<a>Optic</a> p f) s a
 --   </pre>
 type Optic' (p :: k -> k1 -> Type) (f :: k -> k1) (s :: k) (a :: k) = Optic p f s s a a
-_Coerce :: (Coercible a b, Coercible b a) => Iso' a b
 
 
 -- | An intentionally limited set of prelude exports to control backward
@@ -6956,8 +6960,7 @@ defaultEndpoint :: Service -> Region -> Endpoint
 
 
 -- | This module contains functions for retrieving various EC2 metadata
---   from an instance's local metadata endpoint using <a>MonadIO</a> and
---   not one of the AWS specific transformers.
+--   from an instance's local metadata endpoint.
 --   
 --   It is intended to be used when you need to make metadata calls prior
 --   to initialisation of the <a>Env</a>.

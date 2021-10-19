@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679279802"><span id="local-6989586621679279803"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HasLogicalRedundancy"><span class="annot"><a href="Network.AWS.DirectConnect.Types.HasLogicalRedundancy.html#HasLogicalRedundancy"><span class="hs-identifier hs-var">HasLogicalRedundancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HasLogicalRedundancy%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.HasLogicalRedundancy.html#HasLogicalRedundancy%27"><span class="hs-identifier hs-var">HasLogicalRedundancy'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679280025"><span id="local-6989586621679280026"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HasLogicalRedundancy"><span class="annot"><a href="Network.AWS.DirectConnect.Types.HasLogicalRedundancy.html#HasLogicalRedundancy"><span class="hs-identifier hs-var">HasLogicalRedundancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HasLogicalRedundancy%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.HasLogicalRedundancy.html#HasLogicalRedundancy%27"><span class="hs-identifier hs-var">HasLogicalRedundancy'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHasLogicalRedundancy"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; Text
 </span><a href="Network.AWS.DirectConnect.Types.HasLogicalRedundancy.html#fromHasLogicalRedundancy"><span class="hs-identifier hs-var hs-var">fromHasLogicalRedundancy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279794"><span id="local-6989586621679279796"><span id="local-6989586621679279798"><span class="annot"><span class="annottext">Int -&gt; HasLogicalRedundancy -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679280017"><span id="local-6989586621679280019"><span id="local-6989586621679280021"><span class="annot"><span class="annottext">Int -&gt; HasLogicalRedundancy -&gt; ShowS
 [HasLogicalRedundancy] -&gt; ShowS
 HasLogicalRedundancy -&gt; String
 (Int -&gt; HasLogicalRedundancy -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: HasLogicalRedundancy -&gt; String
 showsPrec :: Int -&gt; HasLogicalRedundancy -&gt; ShowS
 $cshowsPrec :: Int -&gt; HasLogicalRedundancy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679279785"><span id="local-6989586621679279787"><span id="local-6989586621679279789"><span id="local-6989586621679279791"><span class="annot"><span class="annottext">ReadPrec [HasLogicalRedundancy]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679280008"><span id="local-6989586621679280010"><span id="local-6989586621679280012"><span id="local-6989586621679280014"><span class="annot"><span class="annottext">ReadPrec [HasLogicalRedundancy]
 ReadPrec HasLogicalRedundancy
 Int -&gt; ReadS HasLogicalRedundancy
 ReadS [HasLogicalRedundancy]
@@ -73,7 +73,7 @@ $creadList :: ReadS [HasLogicalRedundancy]
 readsPrec :: Int -&gt; ReadS HasLogicalRedundancy
 $creadsPrec :: Int -&gt; ReadS HasLogicalRedundancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679279780"><span id="local-6989586621679279782"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; HasLogicalRedundancy -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679280003"><span id="local-6989586621679280005"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; HasLogicalRedundancy -&gt; Bool
 (HasLogicalRedundancy -&gt; HasLogicalRedundancy -&gt; Bool)
 -&gt; (HasLogicalRedundancy -&gt; HasLogicalRedundancy -&gt; Bool)
 -&gt; Eq HasLogicalRedundancy
@@ -83,7 +83,7 @@ $c/= :: HasLogicalRedundancy -&gt; HasLogicalRedundancy -&gt; Bool
 == :: HasLogicalRedundancy -&gt; HasLogicalRedundancy -&gt; Bool
 $c== :: HasLogicalRedundancy -&gt; HasLogicalRedundancy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679279764"><span id="local-6989586621679279766"><span id="local-6989586621679279768"><span id="local-6989586621679279770"><span id="local-6989586621679279772"><span id="local-6989586621679279774"><span id="local-6989586621679279776"><span class="annot"><span class="annottext">Eq HasLogicalRedundancy
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679279987"><span id="local-6989586621679279989"><span id="local-6989586621679279991"><span id="local-6989586621679279993"><span id="local-6989586621679279995"><span id="local-6989586621679279997"><span id="local-6989586621679279999"><span class="annot"><span class="annottext">Eq HasLogicalRedundancy
 Eq HasLogicalRedundancy
 -&gt; (HasLogicalRedundancy -&gt; HasLogicalRedundancy -&gt; Ordering)
 -&gt; (HasLogicalRedundancy -&gt; HasLogicalRedundancy -&gt; Bool)
@@ -141,7 +141,7 @@ $cfrom :: forall x. HasLogicalRedundancy -&gt; Rep HasLogicalRedundancy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279756"><span id="local-6989586621679279758"><span class="annot"><span class="annottext">Int -&gt; HasLogicalRedundancy -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679279979"><span id="local-6989586621679279981"><span class="annot"><span class="annottext">Int -&gt; HasLogicalRedundancy -&gt; Int
 HasLogicalRedundancy -&gt; Int
 (Int -&gt; HasLogicalRedundancy -&gt; Int)
 -&gt; (HasLogicalRedundancy -&gt; Int) -&gt; Hashable HasLogicalRedundancy
@@ -151,54 +151,54 @@ $chash :: HasLogicalRedundancy -&gt; Int
 hashWithSalt :: Int -&gt; HasLogicalRedundancy -&gt; Int
 $chashWithSalt :: Int -&gt; HasLogicalRedundancy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679279753"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679279976"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; ()
 (HasLogicalRedundancy -&gt; ()) -&gt; NFData HasLogicalRedundancy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: HasLogicalRedundancy -&gt; ()
 $crnf :: HasLogicalRedundancy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679279750"><span class="annot"><span class="annottext">Text -&gt; Either String HasLogicalRedundancy
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679279973"><span class="annot"><span class="annottext">Text -&gt; Either String HasLogicalRedundancy
 (Text -&gt; Either String HasLogicalRedundancy)
 -&gt; FromText HasLogicalRedundancy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String HasLogicalRedundancy
 $cfromText :: Text -&gt; Either String HasLogicalRedundancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679279747"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679279970"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; Text
 (HasLogicalRedundancy -&gt; Text) -&gt; ToText HasLogicalRedundancy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: HasLogicalRedundancy -&gt; Text
 $ctoText :: HasLogicalRedundancy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679279744"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679279967"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; ByteString
 (HasLogicalRedundancy -&gt; ByteString)
 -&gt; ToByteString HasLogicalRedundancy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: HasLogicalRedundancy -&gt; ByteString
 $ctoBS :: HasLogicalRedundancy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679279741"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679279964"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; ByteStringBuilder
 (HasLogicalRedundancy -&gt; ByteStringBuilder)
 -&gt; ToLog HasLogicalRedundancy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: HasLogicalRedundancy -&gt; ByteStringBuilder
 $cbuild :: HasLogicalRedundancy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679279738"><span class="annot"><span class="annottext">HeaderName -&gt; HasLogicalRedundancy -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679279961"><span class="annot"><span class="annottext">HeaderName -&gt; HasLogicalRedundancy -&gt; [Header]
 (HeaderName -&gt; HasLogicalRedundancy -&gt; [Header])
 -&gt; ToHeader HasLogicalRedundancy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; HasLogicalRedundancy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; HasLogicalRedundancy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679279735"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679279958"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; QueryString
 (HasLogicalRedundancy -&gt; QueryString)
 -&gt; ToQuery HasLogicalRedundancy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: HasLogicalRedundancy -&gt; QueryString
 $ctoQuery :: HasLogicalRedundancy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679279730"><span id="local-6989586621679279732"><span class="annot"><span class="annottext">Value -&gt; Parser [HasLogicalRedundancy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679279953"><span id="local-6989586621679279955"><span class="annot"><span class="annottext">Value -&gt; Parser [HasLogicalRedundancy]
 Value -&gt; Parser HasLogicalRedundancy
 (Value -&gt; Parser HasLogicalRedundancy)
 -&gt; (Value -&gt; Parser [HasLogicalRedundancy])
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [HasLogicalRedundancy]
 parseJSON :: Value -&gt; Parser HasLogicalRedundancy
 $cparseJSON :: Value -&gt; Parser HasLogicalRedundancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679279725"><span id="local-6989586621679279727"><span class="annot"><span class="annottext">FromJSONKeyFunction [HasLogicalRedundancy]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679279948"><span id="local-6989586621679279950"><span class="annot"><span class="annottext">FromJSONKeyFunction [HasLogicalRedundancy]
 FromJSONKeyFunction HasLogicalRedundancy
 FromJSONKeyFunction HasLogicalRedundancy
 -&gt; FromJSONKeyFunction [HasLogicalRedundancy]
@@ -222,7 +222,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [HasLogicalRedundancy]
 fromJSONKey :: FromJSONKeyFunction HasLogicalRedundancy
 $cfromJSONKey :: FromJSONKeyFunction HasLogicalRedundancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679279716"><span id="local-6989586621679279718"><span id="local-6989586621679279720"><span id="local-6989586621679279722"><span class="annot"><span class="annottext">[HasLogicalRedundancy] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679279939"><span id="local-6989586621679279941"><span id="local-6989586621679279943"><span id="local-6989586621679279945"><span class="annot"><span class="annottext">[HasLogicalRedundancy] -&gt; Encoding
 [HasLogicalRedundancy] -&gt; Value
 HasLogicalRedundancy -&gt; Encoding
 HasLogicalRedundancy -&gt; Value
@@ -246,7 +246,7 @@ $ctoEncoding :: HasLogicalRedundancy -&gt; Encoding
 toJSON :: HasLogicalRedundancy -&gt; Value
 $ctoJSON :: HasLogicalRedundancy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679279711"><span id="local-6989586621679279713"><span class="annot"><span class="annottext">ToJSONKeyFunction [HasLogicalRedundancy]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679279934"><span id="local-6989586621679279936"><span class="annot"><span class="annottext">ToJSONKeyFunction [HasLogicalRedundancy]
 ToJSONKeyFunction HasLogicalRedundancy
 ToJSONKeyFunction HasLogicalRedundancy
 -&gt; ToJSONKeyFunction [HasLogicalRedundancy]
@@ -258,14 +258,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [HasLogicalRedundancy]
 toJSONKey :: ToJSONKeyFunction HasLogicalRedundancy
 $ctoJSONKey :: ToJSONKeyFunction HasLogicalRedundancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679279708"><span class="annot"><span class="annottext">[Node] -&gt; Either String HasLogicalRedundancy
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679279931"><span class="annot"><span class="annottext">[Node] -&gt; Either String HasLogicalRedundancy
 ([Node] -&gt; Either String HasLogicalRedundancy)
 -&gt; FromXML HasLogicalRedundancy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String HasLogicalRedundancy
 $cparseXML :: [Node] -&gt; Either String HasLogicalRedundancy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679279705"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679279928"><span class="annot"><span class="annottext">HasLogicalRedundancy -&gt; XML
 (HasLogicalRedundancy -&gt; XML) -&gt; ToXML HasLogicalRedundancy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: HasLogicalRedundancy -&gt; XML

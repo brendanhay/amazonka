@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621681087482"><span id="local-6989586621681087483"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Ipv6SupportValue"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6SupportValue.html#Ipv6SupportValue"><span class="hs-identifier hs-var">Ipv6SupportValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ipv6SupportValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6SupportValue.html#Ipv6SupportValue%27"><span class="hs-identifier hs-var">Ipv6SupportValue'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621681122173"><span id="local-6989586621681122174"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Ipv6SupportValue"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6SupportValue.html#Ipv6SupportValue"><span class="hs-identifier hs-var">Ipv6SupportValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ipv6SupportValue%27"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv6SupportValue.html#Ipv6SupportValue%27"><span class="hs-identifier hs-var">Ipv6SupportValue'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromIpv6SupportValue"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; Text
 </span><a href="Network.AWS.EC2.Types.Ipv6SupportValue.html#fromIpv6SupportValue"><span class="hs-identifier hs-var hs-var">fromIpv6SupportValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681087474"><span id="local-6989586621681087476"><span id="local-6989586621681087478"><span class="annot"><span class="annottext">Int -&gt; Ipv6SupportValue -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681122165"><span id="local-6989586621681122167"><span id="local-6989586621681122169"><span class="annot"><span class="annottext">Int -&gt; Ipv6SupportValue -&gt; ShowS
 [Ipv6SupportValue] -&gt; ShowS
 Ipv6SupportValue -&gt; String
 (Int -&gt; Ipv6SupportValue -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Ipv6SupportValue -&gt; String
 showsPrec :: Int -&gt; Ipv6SupportValue -&gt; ShowS
 $cshowsPrec :: Int -&gt; Ipv6SupportValue -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621681087465"><span id="local-6989586621681087467"><span id="local-6989586621681087469"><span id="local-6989586621681087471"><span class="annot"><span class="annottext">ReadPrec [Ipv6SupportValue]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681122156"><span id="local-6989586621681122158"><span id="local-6989586621681122160"><span id="local-6989586621681122162"><span class="annot"><span class="annottext">ReadPrec [Ipv6SupportValue]
 ReadPrec Ipv6SupportValue
 Int -&gt; ReadS Ipv6SupportValue
 ReadS [Ipv6SupportValue]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Ipv6SupportValue]
 readsPrec :: Int -&gt; ReadS Ipv6SupportValue
 $creadsPrec :: Int -&gt; ReadS Ipv6SupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621681087460"><span id="local-6989586621681087462"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; Ipv6SupportValue -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681122151"><span id="local-6989586621681122153"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; Ipv6SupportValue -&gt; Bool
 (Ipv6SupportValue -&gt; Ipv6SupportValue -&gt; Bool)
 -&gt; (Ipv6SupportValue -&gt; Ipv6SupportValue -&gt; Bool)
 -&gt; Eq Ipv6SupportValue
@@ -83,7 +83,7 @@ $c/= :: Ipv6SupportValue -&gt; Ipv6SupportValue -&gt; Bool
 == :: Ipv6SupportValue -&gt; Ipv6SupportValue -&gt; Bool
 $c== :: Ipv6SupportValue -&gt; Ipv6SupportValue -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621681087444"><span id="local-6989586621681087446"><span id="local-6989586621681087448"><span id="local-6989586621681087450"><span id="local-6989586621681087452"><span id="local-6989586621681087454"><span id="local-6989586621681087456"><span class="annot"><span class="annottext">Eq Ipv6SupportValue
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621681122135"><span id="local-6989586621681122137"><span id="local-6989586621681122139"><span id="local-6989586621681122141"><span id="local-6989586621681122143"><span id="local-6989586621681122145"><span id="local-6989586621681122147"><span class="annot"><span class="annottext">Eq Ipv6SupportValue
 Eq Ipv6SupportValue
 -&gt; (Ipv6SupportValue -&gt; Ipv6SupportValue -&gt; Ordering)
 -&gt; (Ipv6SupportValue -&gt; Ipv6SupportValue -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. Ipv6SupportValue -&gt; Rep Ipv6SupportValue x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681087436"><span id="local-6989586621681087438"><span class="annot"><span class="annottext">Int -&gt; Ipv6SupportValue -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681122127"><span id="local-6989586621681122129"><span class="annot"><span class="annottext">Int -&gt; Ipv6SupportValue -&gt; Int
 Ipv6SupportValue -&gt; Int
 (Int -&gt; Ipv6SupportValue -&gt; Int)
 -&gt; (Ipv6SupportValue -&gt; Int) -&gt; Hashable Ipv6SupportValue
@@ -144,51 +144,51 @@ $chash :: Ipv6SupportValue -&gt; Int
 hashWithSalt :: Int -&gt; Ipv6SupportValue -&gt; Int
 $chashWithSalt :: Int -&gt; Ipv6SupportValue -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621681087433"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681122124"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; ()
 (Ipv6SupportValue -&gt; ()) -&gt; NFData Ipv6SupportValue
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Ipv6SupportValue -&gt; ()
 $crnf :: Ipv6SupportValue -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621681087430"><span class="annot"><span class="annottext">Text -&gt; Either String Ipv6SupportValue
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681122121"><span class="annot"><span class="annottext">Text -&gt; Either String Ipv6SupportValue
 (Text -&gt; Either String Ipv6SupportValue)
 -&gt; FromText Ipv6SupportValue
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Ipv6SupportValue
 $cfromText :: Text -&gt; Either String Ipv6SupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621681087427"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681122118"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; Text
 (Ipv6SupportValue -&gt; Text) -&gt; ToText Ipv6SupportValue
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Ipv6SupportValue -&gt; Text
 $ctoText :: Ipv6SupportValue -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681087424"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681122115"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; ByteString
 (Ipv6SupportValue -&gt; ByteString) -&gt; ToByteString Ipv6SupportValue
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Ipv6SupportValue -&gt; ByteString
 $ctoBS :: Ipv6SupportValue -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681087421"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681122112"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; ByteStringBuilder
 (Ipv6SupportValue -&gt; ByteStringBuilder) -&gt; ToLog Ipv6SupportValue
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Ipv6SupportValue -&gt; ByteStringBuilder
 $cbuild :: Ipv6SupportValue -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681087418"><span class="annot"><span class="annottext">HeaderName -&gt; Ipv6SupportValue -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681122109"><span class="annot"><span class="annottext">HeaderName -&gt; Ipv6SupportValue -&gt; [Header]
 (HeaderName -&gt; Ipv6SupportValue -&gt; [Header])
 -&gt; ToHeader Ipv6SupportValue
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Ipv6SupportValue -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Ipv6SupportValue -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681087415"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681122106"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; QueryString
 (Ipv6SupportValue -&gt; QueryString) -&gt; ToQuery Ipv6SupportValue
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Ipv6SupportValue -&gt; QueryString
 $ctoQuery :: Ipv6SupportValue -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681087410"><span id="local-6989586621681087412"><span class="annot"><span class="annottext">Value -&gt; Parser [Ipv6SupportValue]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681122101"><span id="local-6989586621681122103"><span class="annot"><span class="annottext">Value -&gt; Parser [Ipv6SupportValue]
 Value -&gt; Parser Ipv6SupportValue
 (Value -&gt; Parser Ipv6SupportValue)
 -&gt; (Value -&gt; Parser [Ipv6SupportValue])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [Ipv6SupportValue]
 parseJSON :: Value -&gt; Parser Ipv6SupportValue
 $cparseJSON :: Value -&gt; Parser Ipv6SupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681087405"><span id="local-6989586621681087407"><span class="annot"><span class="annottext">FromJSONKeyFunction [Ipv6SupportValue]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681122096"><span id="local-6989586621681122098"><span class="annot"><span class="annottext">FromJSONKeyFunction [Ipv6SupportValue]
 FromJSONKeyFunction Ipv6SupportValue
 FromJSONKeyFunction Ipv6SupportValue
 -&gt; FromJSONKeyFunction [Ipv6SupportValue]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Ipv6SupportValue]
 fromJSONKey :: FromJSONKeyFunction Ipv6SupportValue
 $cfromJSONKey :: FromJSONKeyFunction Ipv6SupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681087396"><span id="local-6989586621681087398"><span id="local-6989586621681087400"><span id="local-6989586621681087402"><span class="annot"><span class="annottext">[Ipv6SupportValue] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681122087"><span id="local-6989586621681122089"><span id="local-6989586621681122091"><span id="local-6989586621681122093"><span class="annot"><span class="annottext">[Ipv6SupportValue] -&gt; Encoding
 [Ipv6SupportValue] -&gt; Value
 Ipv6SupportValue -&gt; Encoding
 Ipv6SupportValue -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: Ipv6SupportValue -&gt; Encoding
 toJSON :: Ipv6SupportValue -&gt; Value
 $ctoJSON :: Ipv6SupportValue -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681087391"><span id="local-6989586621681087393"><span class="annot"><span class="annottext">ToJSONKeyFunction [Ipv6SupportValue]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681122082"><span id="local-6989586621681122084"><span class="annot"><span class="annottext">ToJSONKeyFunction [Ipv6SupportValue]
 ToJSONKeyFunction Ipv6SupportValue
 ToJSONKeyFunction Ipv6SupportValue
 -&gt; ToJSONKeyFunction [Ipv6SupportValue]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Ipv6SupportValue]
 toJSONKey :: ToJSONKeyFunction Ipv6SupportValue
 $ctoJSONKey :: ToJSONKeyFunction Ipv6SupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681087388"><span class="annot"><span class="annottext">[Node] -&gt; Either String Ipv6SupportValue
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681122079"><span class="annot"><span class="annottext">[Node] -&gt; Either String Ipv6SupportValue
 ([Node] -&gt; Either String Ipv6SupportValue)
 -&gt; FromXML Ipv6SupportValue
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Ipv6SupportValue
 $cparseXML :: [Node] -&gt; Either String Ipv6SupportValue
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681087385"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681122076"><span class="annot"><span class="annottext">Ipv6SupportValue -&gt; XML
 (Ipv6SupportValue -&gt; XML) -&gt; ToXML Ipv6SupportValue
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Ipv6SupportValue -&gt; XML

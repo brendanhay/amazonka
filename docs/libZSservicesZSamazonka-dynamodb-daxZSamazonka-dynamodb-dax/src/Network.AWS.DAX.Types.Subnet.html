@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- and used with DAX.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSubnet' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679196190"><span id="local-6989586621679196191"></span></span><span class="hs-keyword">data</span><span> </span><span id="Subnet"><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet"><span class="hs-identifier hs-var">Subnet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Subnet%27"><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet%27"><span class="hs-identifier hs-var">Subnet'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679196316"><span id="local-6989586621679196317"></span></span><span class="hs-keyword">data</span><span> </span><span id="Subnet"><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet"><span class="hs-identifier hs-var">Subnet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Subnet%27"><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet%27"><span class="hs-identifier hs-var">Subnet'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The system-assigned identifier for the subnet.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3AsubnetIdentifier%3ASubnet%27"><span class="annot"><span class="annottext">Subnet -&gt; Maybe Text
 </span><a href="Network.AWS.DAX.Types.Subnet.html#%24sel%3AsubnetIdentifier%3ASubnet%27"><span class="hs-identifier hs-var hs-var">subnetIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -36,7 +36,7 @@
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AsubnetAvailabilityZone%3ASubnet%27"><span class="annot"><span class="annottext">Subnet -&gt; Maybe Text
 </span><a href="Network.AWS.DAX.Types.Subnet.html#%24sel%3AsubnetAvailabilityZone%3ASubnet%27"><span class="hs-identifier hs-var hs-var">subnetAvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196183"><span id="local-6989586621679196185"><span class="annot"><span class="annottext">Subnet -&gt; Subnet -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196309"><span id="local-6989586621679196311"><span class="annot"><span class="annottext">Subnet -&gt; Subnet -&gt; Bool
 (Subnet -&gt; Subnet -&gt; Bool)
 -&gt; (Subnet -&gt; Subnet -&gt; Bool) -&gt; Eq Subnet
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Subnet -&gt; Subnet -&gt; Bool
 == :: Subnet -&gt; Subnet -&gt; Bool
 $c== :: Subnet -&gt; Subnet -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196174"><span id="local-6989586621679196176"><span id="local-6989586621679196178"><span id="local-6989586621679196180"><span class="annot"><span class="annottext">ReadPrec [Subnet]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196300"><span id="local-6989586621679196302"><span id="local-6989586621679196304"><span id="local-6989586621679196306"><span class="annot"><span class="annottext">ReadPrec [Subnet]
 ReadPrec Subnet
 Int -&gt; ReadS Subnet
 ReadS [Subnet]
@@ -64,7 +64,7 @@ readList :: ReadS [Subnet]
 $creadList :: ReadS [Subnet]
 readsPrec :: Int -&gt; ReadS Subnet
 $creadsPrec :: Int -&gt; ReadS Subnet
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196167"><span id="local-6989586621679196169"><span id="local-6989586621679196171"><span class="annot"><span class="annottext">Int -&gt; Subnet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196293"><span id="local-6989586621679196295"><span id="local-6989586621679196297"><span class="annot"><span class="annottext">Int -&gt; Subnet -&gt; ShowS
 [Subnet] -&gt; ShowS
 Subnet -&gt; String
 (Int -&gt; Subnet -&gt; ShowS)
@@ -121,16 +121,16 @@ forall a. Maybe a
 -&gt; (Subnet -&gt; Maybe Text -&gt; Subnet)
 -&gt; Lens Subnet Subnet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet%27"><span class="hs-identifier hs-type">Subnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196158"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet%27"><span class="hs-identifier hs-type">Subnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196284"><span class="annot"><span class="annottext">Maybe Text
 subnetIdentifier :: Maybe Text
 $sel:subnetIdentifier:Subnet' :: Subnet -&gt; Maybe Text
-</span><a href="#local-6989586621679196158"><span class="hs-identifier hs-var hs-var">subnetIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196158"><span class="hs-identifier hs-var">subnetIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196157"><span class="annot"><span class="annottext">s :: Subnet
-</span><a href="#local-6989586621679196157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet%27"><span class="hs-identifier hs-type">Subnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196156"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subnet
-</span><a href="#local-6989586621679196157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIdentifier:Subnet' :: Maybe Text
+</span><a href="#local-6989586621679196284"><span class="hs-identifier hs-var hs-var">subnetIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196284"><span class="hs-identifier hs-var">subnetIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196283"><span class="annot"><span class="annottext">s :: Subnet
+</span><a href="#local-6989586621679196283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet%27"><span class="hs-identifier hs-type">Subnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196282"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subnet
+</span><a href="#local-6989586621679196283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIdentifier:Subnet' :: Maybe Text
 </span><a href="Network.AWS.DAX.Types.Subnet.html#%24sel%3AsubnetIdentifier%3ASubnet%27"><span class="hs-identifier hs-var">subnetIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | The Availability Zone (AZ) for the subnet.</span><span>
 </span><span id="line-63"></span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#subnet_subnetAvailabilityZone"><span class="hs-identifier hs-type">subnet_subnetAvailabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -139,34 +139,34 @@ $sel:subnetIdentifier:Subnet' :: Subnet -&gt; Maybe Text
 -&gt; (Subnet -&gt; Maybe Text -&gt; Subnet)
 -&gt; Lens Subnet Subnet (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet%27"><span class="hs-identifier hs-type">Subnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196154"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet%27"><span class="hs-identifier hs-type">Subnet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196280"><span class="annot"><span class="annottext">Maybe Text
 subnetAvailabilityZone :: Maybe Text
 $sel:subnetAvailabilityZone:Subnet' :: Subnet -&gt; Maybe Text
-</span><a href="#local-6989586621679196154"><span class="hs-identifier hs-var hs-var">subnetAvailabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196154"><span class="hs-identifier hs-var">subnetAvailabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196153"><span class="annot"><span class="annottext">s :: Subnet
-</span><a href="#local-6989586621679196153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet%27"><span class="hs-identifier hs-type">Subnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196152"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subnet
-</span><a href="#local-6989586621679196153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetAvailabilityZone:Subnet' :: Maybe Text
+</span><a href="#local-6989586621679196280"><span class="hs-identifier hs-var hs-var">subnetAvailabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196280"><span class="hs-identifier hs-var">subnetAvailabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196279"><span class="annot"><span class="annottext">s :: Subnet
+</span><a href="#local-6989586621679196279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet%27"><span class="hs-identifier hs-type">Subnet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196278"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679196278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Subnet
+</span><a href="#local-6989586621679196279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetAvailabilityZone:Subnet' :: Maybe Text
 </span><a href="Network.AWS.DAX.Types.Subnet.html#%24sel%3AsubnetAvailabilityZone%3ASubnet%27"><span class="hs-identifier hs-var">subnetAvailabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679196152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196149"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621679196147"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Subnet
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196275"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679196273"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Subnet
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Subnet) -&gt; Value -&gt; Parser Subnet
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Subnet&quot;</span></span><span>
-</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196144"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196144"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196270"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Subnet
 </span><a href="Network.AWS.DAX.Types.Subnet.html#Subnet%27"><span class="hs-identifier hs-var">Subnet'</span></a></span><span>
 </span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Subnet)
 -&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Subnet)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679196270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubnetIdentifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -174,13 +174,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Text) -&gt; Parser Subnet
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196144"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679196270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SubnetAvailabilityZone&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
-</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196138"><span id="local-6989586621679196140"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span></span></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196264"><span id="local-6989586621679196266"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span></span></span><span>
 </span><span id="line-77"></span><span>
-</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196135"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DAX.Types.Subnet.html#Subnet"><span class="hs-identifier hs-type">Subnet</span></a></span></span><span>
 </span><span id="line-79"></span></pre></body></html>

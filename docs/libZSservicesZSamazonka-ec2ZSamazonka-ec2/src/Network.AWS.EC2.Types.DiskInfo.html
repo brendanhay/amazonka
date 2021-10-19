@@ -25,21 +25,21 @@
 </span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
 </span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-27"></span><span>
-</span><span id="line-28"></span><span class="hs-comment">-- | Describes the disk.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a disk.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDiskInfo' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681066902"><span id="local-6989586621681066903"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiskInfo"><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-var">DiskInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-var">DiskInfo'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The size of the disk in GB.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsizeInGB%3ADiskInfo%27"><span class="annot"><span class="annottext">DiskInfo -&gt; Maybe Integer
-</span><a href="Network.AWS.EC2.Types.DiskInfo.html#%24sel%3AsizeInGB%3ADiskInfo%27"><span class="hs-identifier hs-var hs-var">sizeInGB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The number of disks with this configuration.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Acount%3ADiskInfo%27"><span class="annot"><span class="annottext">DiskInfo -&gt; Maybe Int
+</span><span id="line-31"></span><span id="local-6989586621681100835"><span id="local-6989586621681100836"></span></span><span class="hs-keyword">data</span><span> </span><span id="DiskInfo"><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-var">DiskInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DiskInfo%27"><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-var">DiskInfo'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of disks with this configuration.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Acount%3ADiskInfo%27"><span class="annot"><span class="annottext">DiskInfo -&gt; Maybe Int
 </span><a href="Network.AWS.EC2.Types.DiskInfo.html#%24sel%3Acount%3ADiskInfo%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The size of the disk in GB.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsizeInGB%3ADiskInfo%27"><span class="annot"><span class="annottext">DiskInfo -&gt; Maybe Integer
+</span><a href="Network.AWS.EC2.Types.DiskInfo.html#%24sel%3AsizeInGB%3ADiskInfo%27"><span class="hs-identifier hs-var hs-var">sizeInGB</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
 </span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The type of disk.</span><span>
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Atype%27%3ADiskInfo%27"><span class="annot"><span class="annottext">DiskInfo -&gt; Maybe DiskType
 </span><a href="Network.AWS.EC2.Types.DiskInfo.html#%24sel%3Atype%27%3ADiskInfo%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskType.html#DiskType"><span class="hs-identifier hs-type">DiskType</span></a></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681066894"><span id="local-6989586621681066896"><span class="annot"><span class="annottext">DiskInfo -&gt; DiskInfo -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681100827"><span id="local-6989586621681100829"><span class="annot"><span class="annottext">DiskInfo -&gt; DiskInfo -&gt; Bool
 (DiskInfo -&gt; DiskInfo -&gt; Bool)
 -&gt; (DiskInfo -&gt; DiskInfo -&gt; Bool) -&gt; Eq DiskInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DiskInfo -&gt; DiskInfo -&gt; Bool
 == :: DiskInfo -&gt; DiskInfo -&gt; Bool
 $c== :: DiskInfo -&gt; DiskInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681066885"><span id="local-6989586621681066887"><span id="local-6989586621681066889"><span id="local-6989586621681066891"><span class="annot"><span class="annottext">ReadPrec [DiskInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681100818"><span id="local-6989586621681100820"><span id="local-6989586621681100822"><span id="local-6989586621681100824"><span class="annot"><span class="annottext">ReadPrec [DiskInfo]
 ReadPrec DiskInfo
 Int -&gt; ReadS DiskInfo
 ReadS [DiskInfo]
@@ -67,7 +67,7 @@ readList :: ReadS [DiskInfo]
 $creadList :: ReadS [DiskInfo]
 readsPrec :: Int -&gt; ReadS DiskInfo
 $creadsPrec :: Int -&gt; ReadS DiskInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681066878"><span id="local-6989586621681066880"><span id="local-6989586621681066882"><span class="annot"><span class="annottext">Int -&gt; DiskInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681100811"><span id="local-6989586621681100813"><span id="local-6989586621681100815"><span class="annot"><span class="annottext">Int -&gt; DiskInfo -&gt; ShowS
 [DiskInfo] -&gt; ShowS
 DiskInfo -&gt; String
 (Int -&gt; DiskInfo -&gt; ShowS)
@@ -98,23 +98,23 @@ $cfrom :: forall x. DiskInfo -&gt; Rep DiskInfo x
 </span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'sizeInGB', 'diskInfo_sizeInGB' - The size of the disk in GB.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'count', 'diskInfo_count' - The number of disks with this configuration.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- 'count', 'diskInfo_count' - The number of disks with this configuration.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'sizeInGB', 'diskInfo_sizeInGB' - The size of the disk in GB.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- 'type'', 'diskInfo_type' - The type of disk.</span><span>
 </span><span id="line-54"></span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#newDiskInfo"><span class="hs-identifier hs-type">newDiskInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-55"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span>
 </span><span id="line-56"></span><span id="newDiskInfo"><span class="annot"><span class="annottext">newDiskInfo :: DiskInfo
 </span><a href="Network.AWS.EC2.Types.DiskInfo.html#newDiskInfo"><span class="hs-identifier hs-var hs-var">newDiskInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">DiskInfo' :: Maybe Integer -&gt; Maybe Int -&gt; Maybe DiskType -&gt; DiskInfo
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">DiskInfo' :: Maybe Int -&gt; Maybe Integer -&gt; Maybe DiskType -&gt; DiskInfo
 </span><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sizeInGB:DiskInfo' :: Maybe Integer
-</span><a href="Network.AWS.EC2.Types.DiskInfo.html#%24sel%3AsizeInGB%3ADiskInfo%27"><span class="hs-identifier hs-var">sizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:count:DiskInfo' :: Maybe Int
+</span><a href="Network.AWS.EC2.Types.DiskInfo.html#%24sel%3Acount%3ADiskInfo%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:count:DiskInfo' :: Maybe Int
-</span><a href="Network.AWS.EC2.Types.DiskInfo.html#%24sel%3Acount%3ADiskInfo%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:sizeInGB:DiskInfo' :: Maybe Integer
+</span><a href="Network.AWS.EC2.Types.DiskInfo.html#%24sel%3AsizeInGB%3ADiskInfo%27"><span class="hs-identifier hs-var">sizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':DiskInfo' :: Maybe DiskType
@@ -123,41 +123,41 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- | The size of the disk in GB.</span><span>
-</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#diskInfo_sizeInGB"><span class="hs-identifier hs-type">diskInfo_sizeInGB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span id="diskInfo_sizeInGB"><span class="annot"><span class="annottext">diskInfo_sizeInGB :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; DiskInfo -&gt; f DiskInfo
-</span><a href="Network.AWS.EC2.Types.DiskInfo.html#diskInfo_sizeInGB"><span class="hs-identifier hs-var hs-var">diskInfo_sizeInGB</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DiskInfo -&gt; Maybe Integer)
--&gt; (DiskInfo -&gt; Maybe Integer -&gt; DiskInfo)
--&gt; Lens DiskInfo DiskInfo (Maybe Integer) (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681066869"><span class="annot"><span class="annottext">Maybe Integer
-sizeInGB :: Maybe Integer
-$sel:sizeInGB:DiskInfo' :: DiskInfo -&gt; Maybe Integer
-</span><a href="#local-6989586621681066869"><span class="hs-identifier hs-var hs-var">sizeInGB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681066869"><span class="hs-identifier hs-var">sizeInGB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681066868"><span class="annot"><span class="annottext">s :: DiskInfo
-</span><a href="#local-6989586621681066868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681066867"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681066867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
-</span><a href="#local-6989586621681066868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInGB:DiskInfo' :: Maybe Integer
-</span><a href="Network.AWS.EC2.Types.DiskInfo.html#%24sel%3AsizeInGB%3ADiskInfo%27"><span class="hs-identifier hs-var">sizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621681066867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- | The number of disks with this configuration.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#diskInfo_count"><span class="hs-identifier hs-type">diskInfo_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="diskInfo_count"><span class="annot"><span class="annottext">diskInfo_count :: (Maybe Int -&gt; f (Maybe Int)) -&gt; DiskInfo -&gt; f DiskInfo
+</span><span id="line-63"></span><span class="hs-comment">-- | The number of disks with this configuration.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#diskInfo_count"><span class="hs-identifier hs-type">diskInfo_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="diskInfo_count"><span class="annot"><span class="annottext">diskInfo_count :: (Maybe Int -&gt; f (Maybe Int)) -&gt; DiskInfo -&gt; f DiskInfo
 </span><a href="Network.AWS.EC2.Types.DiskInfo.html#diskInfo_count"><span class="hs-identifier hs-var hs-var">diskInfo_count</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DiskInfo -&gt; Maybe Int)
 -&gt; (DiskInfo -&gt; Maybe Int -&gt; DiskInfo)
 -&gt; Lens DiskInfo DiskInfo (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681066865"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100802"><span class="annot"><span class="annottext">Maybe Int
 count :: Maybe Int
 $sel:count:DiskInfo' :: DiskInfo -&gt; Maybe Int
-</span><a href="#local-6989586621681066865"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681066865"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681066864"><span class="annot"><span class="annottext">s :: DiskInfo
-</span><a href="#local-6989586621681066864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681066863"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681066863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
-</span><a href="#local-6989586621681066864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:DiskInfo' :: Maybe Int
+</span><a href="#local-6989586621681100802"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681100802"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100801"><span class="annot"><span class="annottext">s :: DiskInfo
+</span><a href="#local-6989586621681100801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100800"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681100800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
+</span><a href="#local-6989586621681100801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:DiskInfo' :: Maybe Int
 </span><a href="Network.AWS.EC2.Types.DiskInfo.html#%24sel%3Acount%3ADiskInfo%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681066863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681100800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The size of the disk in GB.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#diskInfo_sizeInGB"><span class="hs-identifier hs-type">diskInfo_sizeInGB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="diskInfo_sizeInGB"><span class="annot"><span class="annottext">diskInfo_sizeInGB :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; DiskInfo -&gt; f DiskInfo
+</span><a href="Network.AWS.EC2.Types.DiskInfo.html#diskInfo_sizeInGB"><span class="hs-identifier hs-var hs-var">diskInfo_sizeInGB</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DiskInfo -&gt; Maybe Integer)
+-&gt; (DiskInfo -&gt; Maybe Integer -&gt; DiskInfo)
+-&gt; Lens DiskInfo DiskInfo (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100798"><span class="annot"><span class="annottext">Maybe Integer
+sizeInGB :: Maybe Integer
+$sel:sizeInGB:DiskInfo' :: DiskInfo -&gt; Maybe Integer
+</span><a href="#local-6989586621681100798"><span class="hs-identifier hs-var hs-var">sizeInGB</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681100798"><span class="hs-identifier hs-var">sizeInGB</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100797"><span class="annot"><span class="annottext">s :: DiskInfo
+</span><a href="#local-6989586621681100797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100796"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681100796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
+</span><a href="#local-6989586621681100797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sizeInGB:DiskInfo' :: Maybe Integer
+</span><a href="Network.AWS.EC2.Types.DiskInfo.html#%24sel%3AsizeInGB%3ADiskInfo%27"><span class="hs-identifier hs-var">sizeInGB</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621681100796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The type of disk.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#diskInfo_type"><span class="hs-identifier hs-type">diskInfo_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskType.html#DiskType"><span class="hs-identifier hs-type">DiskType</span></a></span><span class="hs-special">)</span><span>
@@ -166,51 +166,51 @@ $sel:count:DiskInfo' :: DiskInfo -&gt; Maybe Int
 -&gt; (DiskInfo -&gt; Maybe DiskType -&gt; DiskInfo)
 -&gt; Lens DiskInfo DiskInfo (Maybe DiskType) (Maybe DiskType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681066861"><span class="annot"><span class="annottext">Maybe DiskType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681100794"><span class="annot"><span class="annottext">Maybe DiskType
 type' :: Maybe DiskType
 $sel:type':DiskInfo' :: DiskInfo -&gt; Maybe DiskType
-</span><a href="#local-6989586621681066861"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DiskType
-</span><a href="#local-6989586621681066861"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681066860"><span class="annot"><span class="annottext">s :: DiskInfo
-</span><a href="#local-6989586621681066860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681066859"><span class="annot"><span class="annottext">Maybe DiskType
-</span><a href="#local-6989586621681066859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
-</span><a href="#local-6989586621681066860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DiskInfo' :: Maybe DiskType
+</span><a href="#local-6989586621681100794"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DiskType
+</span><a href="#local-6989586621681100794"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681100793"><span class="annot"><span class="annottext">s :: DiskInfo
+</span><a href="#local-6989586621681100793"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-type">DiskInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681100792"><span class="annot"><span class="annottext">Maybe DiskType
+</span><a href="#local-6989586621681100792"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DiskInfo
+</span><a href="#local-6989586621681100793"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':DiskInfo' :: Maybe DiskType
 </span><a href="Network.AWS.EC2.Types.DiskInfo.html#%24sel%3Atype%27%3ADiskInfo%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskType
-</span><a href="#local-6989586621681066859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681100792"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621681066856"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DiskInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681066854"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681066854"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe Int -&gt; Maybe DiskType -&gt; DiskInfo
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621681100789"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DiskInfo
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681100787"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681100787"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe Int -&gt; Maybe Integer -&gt; Maybe DiskType -&gt; DiskInfo
 </span><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo%27"><span class="hs-identifier hs-var">DiskInfo'</span></a></span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Maybe Int -&gt; Maybe DiskType -&gt; DiskInfo)
--&gt; Either String (Maybe Integer)
--&gt; Either String (Maybe Int -&gt; Maybe DiskType -&gt; DiskInfo)
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Int -&gt; Maybe Integer -&gt; Maybe DiskType -&gt; DiskInfo)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Maybe Integer -&gt; Maybe DiskType -&gt; DiskInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681066854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;sizeInGB&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Int -&gt; Maybe DiskType -&gt; DiskInfo)
--&gt; Either String (Maybe Int)
--&gt; Either String (Maybe DiskType -&gt; DiskInfo)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681066854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+</span><a href="#local-6989586621681100787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Integer -&gt; Maybe DiskType -&gt; DiskInfo)
+-&gt; Either String (Maybe Integer)
+-&gt; Either String (Maybe DiskType -&gt; DiskInfo)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681100787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sizeInGB&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe DiskType -&gt; DiskInfo)
 -&gt; Either String (Maybe DiskType) -&gt; Either String DiskInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681066854"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DiskType)
+</span><a href="#local-6989586621681100787"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DiskType)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681066848"><span id="local-6989586621681066850"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681100781"><span id="local-6989586621681100783"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681066845"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681100778"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskInfo.html#DiskInfo"><span class="hs-identifier hs-type">DiskInfo</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

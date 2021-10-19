@@ -35,7 +35,7 @@
 </span><span id="line-35"></span><span class="hs-comment">-- Contains the identifier and the name of the @GeoMatchSet@.</span><span>
 </span><span id="line-36"></span><span class="hs-comment">--</span><span>
 </span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newGeoMatchSetSummary' smart constructor.</span><span>
-</span><span id="line-38"></span><span id="local-6989586621679304206"><span id="local-6989586621679304207"></span></span><span class="hs-keyword">data</span><span> </span><span id="GeoMatchSetSummary"><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary"><span class="hs-identifier hs-var">GeoMatchSetSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GeoMatchSetSummary%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary%27"><span class="hs-identifier hs-var">GeoMatchSetSummary'</span></a></span></span><span>
+</span><span id="line-38"></span><span id="local-6989586621679304440"><span id="local-6989586621679304441"></span></span><span class="hs-keyword">data</span><span> </span><span id="GeoMatchSetSummary"><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary"><span class="hs-identifier hs-var">GeoMatchSetSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GeoMatchSetSummary%27"><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary%27"><span class="hs-identifier hs-var">GeoMatchSetSummary'</span></a></span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @GeoMatchSetId@ for an GeoMatchSet. You can use @GeoMatchSetId@ in a</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- GetGeoMatchSet request to get detailed information about an GeoMatchSet.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AgeoMatchSetId%3AGeoMatchSetSummary%27"><span class="annot"><span class="annottext">GeoMatchSetSummary -&gt; Text
@@ -45,7 +45,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Aname%3AGeoMatchSetSummary%27"><span class="annot"><span class="annottext">GeoMatchSetSummary -&gt; Text
 </span><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#%24sel%3Aname%3AGeoMatchSetSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304199"><span id="local-6989586621679304201"><span class="annot"><span class="annottext">GeoMatchSetSummary -&gt; GeoMatchSetSummary -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304433"><span id="local-6989586621679304435"><span class="annot"><span class="annottext">GeoMatchSetSummary -&gt; GeoMatchSetSummary -&gt; Bool
 (GeoMatchSetSummary -&gt; GeoMatchSetSummary -&gt; Bool)
 -&gt; (GeoMatchSetSummary -&gt; GeoMatchSetSummary -&gt; Bool)
 -&gt; Eq GeoMatchSetSummary
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GeoMatchSetSummary -&gt; GeoMatchSetSummary -&gt; Bool
 == :: GeoMatchSetSummary -&gt; GeoMatchSetSummary -&gt; Bool
 $c== :: GeoMatchSetSummary -&gt; GeoMatchSetSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304190"><span id="local-6989586621679304192"><span id="local-6989586621679304194"><span id="local-6989586621679304196"><span class="annot"><span class="annottext">ReadPrec [GeoMatchSetSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304424"><span id="local-6989586621679304426"><span id="local-6989586621679304428"><span id="local-6989586621679304430"><span class="annot"><span class="annottext">ReadPrec [GeoMatchSetSummary]
 ReadPrec GeoMatchSetSummary
 Int -&gt; ReadS GeoMatchSetSummary
 ReadS [GeoMatchSetSummary]
@@ -74,7 +74,7 @@ readList :: ReadS [GeoMatchSetSummary]
 $creadList :: ReadS [GeoMatchSetSummary]
 readsPrec :: Int -&gt; ReadS GeoMatchSetSummary
 $creadsPrec :: Int -&gt; ReadS GeoMatchSetSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304183"><span id="local-6989586621679304185"><span id="local-6989586621679304187"><span class="annot"><span class="annottext">Int -&gt; GeoMatchSetSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304417"><span id="local-6989586621679304419"><span id="local-6989586621679304421"><span class="annot"><span class="annottext">Int -&gt; GeoMatchSetSummary -&gt; ShowS
 [GeoMatchSetSummary] -&gt; ShowS
 GeoMatchSetSummary -&gt; String
 (Int -&gt; GeoMatchSetSummary -&gt; ShowS)
@@ -120,18 +120,18 @@ $cfrom :: forall x. GeoMatchSetSummary -&gt; Rep GeoMatchSetSummary x
 </span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary"><span class="hs-identifier hs-type">GeoMatchSetSummary</span></a></span><span>
 </span><span id="line-67"></span><span id="newGeoMatchSetSummary"><span class="annot"><span class="annottext">newGeoMatchSetSummary :: Text -&gt; Text -&gt; GeoMatchSetSummary
-</span><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#newGeoMatchSetSummary"><span class="hs-identifier hs-var hs-var">newGeoMatchSetSummary</span></a></span></span><span> </span><span id="local-6989586621679304177"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304177"><span class="hs-identifier hs-var">pGeoMatchSetId_</span></a></span></span><span> </span><span id="local-6989586621679304176"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304176"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#newGeoMatchSetSummary"><span class="hs-identifier hs-var hs-var">newGeoMatchSetSummary</span></a></span></span><span> </span><span id="local-6989586621679304411"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304411"><span class="hs-identifier hs-var">pGeoMatchSetId_</span></a></span></span><span> </span><span id="local-6989586621679304410"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304410"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">GeoMatchSetSummary' :: Text -&gt; Text -&gt; GeoMatchSetSummary
 </span><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary%27"><span class="hs-identifier hs-type">GeoMatchSetSummary'</span></a></span><span>
 </span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:geoMatchSetId:GeoMatchSetSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#%24sel%3AgeoMatchSetId%3AGeoMatchSetSummary%27"><span class="hs-identifier hs-var">geoMatchSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304177"><span class="hs-identifier hs-var">pGeoMatchSetId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304411"><span class="hs-identifier hs-var">pGeoMatchSetId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:GeoMatchSetSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#%24sel%3Aname%3AGeoMatchSetSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304176"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><a href="#local-6989586621679304410"><span class="hs-identifier hs-var">pName_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The @GeoMatchSetId@ for an GeoMatchSet. You can use @GeoMatchSetId@ in a</span><span>
@@ -142,16 +142,16 @@ $cfrom :: forall x. GeoMatchSetSummary -&gt; Rep GeoMatchSetSummary x
 -&gt; (GeoMatchSetSummary -&gt; Text -&gt; GeoMatchSetSummary)
 -&gt; Lens GeoMatchSetSummary GeoMatchSetSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary%27"><span class="hs-identifier hs-type">GeoMatchSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304172"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary%27"><span class="hs-identifier hs-type">GeoMatchSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304406"><span class="annot"><span class="annottext">Text
 geoMatchSetId :: Text
 $sel:geoMatchSetId:GeoMatchSetSummary' :: GeoMatchSetSummary -&gt; Text
-</span><a href="#local-6989586621679304172"><span class="hs-identifier hs-var hs-var">geoMatchSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304172"><span class="hs-identifier hs-var">geoMatchSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304171"><span class="annot"><span class="annottext">s :: GeoMatchSetSummary
-</span><a href="#local-6989586621679304171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary%27"><span class="hs-identifier hs-type">GeoMatchSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304170"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoMatchSetSummary
-</span><a href="#local-6989586621679304171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geoMatchSetId:GeoMatchSetSummary' :: Text
+</span><a href="#local-6989586621679304406"><span class="hs-identifier hs-var hs-var">geoMatchSetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304406"><span class="hs-identifier hs-var">geoMatchSetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304405"><span class="annot"><span class="annottext">s :: GeoMatchSetSummary
+</span><a href="#local-6989586621679304405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary%27"><span class="hs-identifier hs-type">GeoMatchSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304404"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoMatchSetSummary
+</span><a href="#local-6989586621679304405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:geoMatchSetId:GeoMatchSetSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#%24sel%3AgeoMatchSetId%3AGeoMatchSetSummary%27"><span class="hs-identifier hs-var">geoMatchSetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary"><span class="hs-identifier hs-type">GeoMatchSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary"><span class="hs-identifier hs-type">GeoMatchSetSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | A friendly name or description of the GeoMatchSet. You can\'t change the</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- name of an @GeoMatchSet@ after you create it.</span><span>
@@ -161,19 +161,19 @@ $sel:geoMatchSetId:GeoMatchSetSummary' :: GeoMatchSetSummary -&gt; Text
 -&gt; (GeoMatchSetSummary -&gt; Text -&gt; GeoMatchSetSummary)
 -&gt; Lens GeoMatchSetSummary GeoMatchSetSummary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary%27"><span class="hs-identifier hs-type">GeoMatchSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304168"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary%27"><span class="hs-identifier hs-type">GeoMatchSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304402"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:GeoMatchSetSummary' :: GeoMatchSetSummary -&gt; Text
-</span><a href="#local-6989586621679304168"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304168"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304167"><span class="annot"><span class="annottext">s :: GeoMatchSetSummary
-</span><a href="#local-6989586621679304167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary%27"><span class="hs-identifier hs-type">GeoMatchSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304166"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoMatchSetSummary
-</span><a href="#local-6989586621679304167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GeoMatchSetSummary' :: Text
+</span><a href="#local-6989586621679304402"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304402"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304401"><span class="annot"><span class="annottext">s :: GeoMatchSetSummary
+</span><a href="#local-6989586621679304401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary%27"><span class="hs-identifier hs-type">GeoMatchSetSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304400"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GeoMatchSetSummary
+</span><a href="#local-6989586621679304401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:GeoMatchSetSummary' :: Text
 </span><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#%24sel%3Aname%3AGeoMatchSetSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679304166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary"><span class="hs-identifier hs-type">GeoMatchSetSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary"><span class="hs-identifier hs-type">GeoMatchSetSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304163"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary"><span class="hs-identifier hs-type">GeoMatchSetSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679304161"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GeoMatchSetSummary
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304397"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary"><span class="hs-identifier hs-type">GeoMatchSetSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679304395"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser GeoMatchSetSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser GeoMatchSetSummary)
@@ -183,15 +183,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;GeoMatchSetSummary&quot;</span></span><span>
-</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304158"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304158"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304392"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304392"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; GeoMatchSetSummary
 </span><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary%27"><span class="hs-identifier hs-var">GeoMatchSetSummary'</span></a></span><span>
 </span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; GeoMatchSetSummary)
 -&gt; Parser Text -&gt; Parser (Text -&gt; GeoMatchSetSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679304392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;GeoMatchSetId&quot;</span></span><span class="hs-special">)</span><span>
@@ -199,13 +199,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser GeoMatchSetSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679304158"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679304392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304152"><span id="local-6989586621679304154"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary"><span class="hs-identifier hs-type">GeoMatchSetSummary</span></a></span></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304386"><span id="local-6989586621679304388"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary"><span class="hs-identifier hs-type">GeoMatchSetSummary</span></a></span></span></span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304149"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary"><span class="hs-identifier hs-type">GeoMatchSetSummary</span></a></span></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304383"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WAFRegional.Types.GeoMatchSetSummary.html#GeoMatchSetSummary"><span class="hs-identifier hs-type">GeoMatchSetSummary</span></a></span></span><span>
 </span><span id="line-97"></span></pre></body></html>

@@ -26,13 +26,13 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Contains information about the member account.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newMember' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679297474"><span id="local-6989586621679297475"></span></span><span class="hs-keyword">data</span><span> </span><span id="Member"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-var">Member</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Member%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-var">Member'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The detector ID of the member account.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3AdetectorId%3AMember%27"><span class="annot"><span class="annottext">Member -&gt; Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AdetectorId%3AMember%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The timestamp when the invitation was sent.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AinvitedAt%3AMember%27"><span class="annot"><span class="annottext">Member -&gt; Maybe Text
+</span><span id="line-29"></span><span id="local-6989586621679297759"><span id="local-6989586621679297760"></span></span><span class="hs-keyword">data</span><span> </span><span id="Member"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-var">Member</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Member%27"><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-var">Member'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp when the invitation was sent.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AinvitedAt%3AMember%27"><span class="annot"><span class="annottext">Member -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AinvitedAt%3AMember%27"><span class="hs-identifier hs-var hs-var">invitedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The detector ID of the member account.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AdetectorId%3AMember%27"><span class="annot"><span class="annottext">Member -&gt; Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AdetectorId%3AMember%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the member account.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AaccountId%3AMember%27"><span class="annot"><span class="annottext">Member -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AaccountId%3AMember%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -49,7 +49,7 @@
 </span><span id="line-43"></span><span>    </span><span id="%24sel%3AupdatedAt%3AMember%27"><span class="annot"><span class="annottext">Member -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AupdatedAt%3AMember%27"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297462"><span id="local-6989586621679297464"><span class="annot"><span class="annottext">Member -&gt; Member -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297747"><span id="local-6989586621679297749"><span class="annot"><span class="annottext">Member -&gt; Member -&gt; Bool
 (Member -&gt; Member -&gt; Bool)
 -&gt; (Member -&gt; Member -&gt; Bool) -&gt; Eq Member
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Member -&gt; Member -&gt; Bool
 == :: Member -&gt; Member -&gt; Bool
 $c== :: Member -&gt; Member -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297453"><span id="local-6989586621679297455"><span id="local-6989586621679297457"><span id="local-6989586621679297459"><span class="annot"><span class="annottext">ReadPrec [Member]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297738"><span id="local-6989586621679297740"><span id="local-6989586621679297742"><span id="local-6989586621679297744"><span class="annot"><span class="annottext">ReadPrec [Member]
 ReadPrec Member
 Int -&gt; ReadS Member
 ReadS [Member]
@@ -77,7 +77,7 @@ readList :: ReadS [Member]
 $creadList :: ReadS [Member]
 readsPrec :: Int -&gt; ReadS Member
 $creadsPrec :: Int -&gt; ReadS Member
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297446"><span id="local-6989586621679297448"><span id="local-6989586621679297450"><span class="annot"><span class="annottext">Int -&gt; Member -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297731"><span id="local-6989586621679297733"><span id="local-6989586621679297735"><span class="annot"><span class="annottext">Int -&gt; Member -&gt; ShowS
 [Member] -&gt; ShowS
 Member -&gt; String
 (Int -&gt; Member -&gt; ShowS)
@@ -108,9 +108,9 @@ $cfrom :: forall x. Member -&gt; Rep Member x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'detectorId', 'member_detectorId' - The detector ID of the member account.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'invitedAt', 'member_invitedAt' - The timestamp when the invitation was sent.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'invitedAt', 'member_invitedAt' - The timestamp when the invitation was sent.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'detectorId', 'member_detectorId' - The detector ID of the member account.</span><span>
 </span><span id="line-58"></span><span class="hs-comment">--</span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- 'accountId', 'member_accountId' - The ID of the member account.</span><span>
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
@@ -135,79 +135,79 @@ $cfrom :: forall x. Member -&gt; Rep Member x
 </span><span id="line-79"></span><span>  </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span>
 </span><span id="line-80"></span><span id="newMember"><span class="annot"><span class="annottext">newMember :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Member
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#newMember"><span class="hs-identifier hs-var hs-var">newMember</span></a></span></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679297440"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297440"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679297439"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297439"><span class="hs-identifier hs-var">pMasterId_</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679297438"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297438"><span class="hs-identifier hs-var">pEmail_</span></a></span></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679297437"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297437"><span class="hs-identifier hs-var">pRelationshipStatus_</span></a></span></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679297436"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297436"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679297725"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297725"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679297724"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297724"><span class="hs-identifier hs-var">pMasterId_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679297723"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297723"><span class="hs-identifier hs-var">pEmail_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679297722"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297722"><span class="hs-identifier hs-var">pRelationshipStatus_</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679297721"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297721"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">Member' :: Maybe Text
 -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Member
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:detectorId:Member' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AdetectorId%3AMember%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-87"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:invitedAt:Member' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AinvitedAt%3AMember%27"><span class="hs-identifier hs-var">invitedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:invitedAt:Member' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AinvitedAt%3AMember%27"><span class="hs-identifier hs-var">invitedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:detectorId:Member' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AdetectorId%3AMember%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:accountId:Member' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AaccountId%3AMember%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297440"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297725"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:masterId:Member' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AmasterId%3AMember%27"><span class="hs-identifier hs-var">masterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297439"><span class="hs-identifier hs-var">pMasterId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297724"><span class="hs-identifier hs-var">pMasterId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:email:Member' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3Aemail%3AMember%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297438"><span class="hs-identifier hs-var">pEmail_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297723"><span class="hs-identifier hs-var">pEmail_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:relationshipStatus:Member' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3ArelationshipStatus%3AMember%27"><span class="hs-identifier hs-var">relationshipStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297437"><span class="hs-identifier hs-var">pRelationshipStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679297722"><span class="hs-identifier hs-var">pRelationshipStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:updatedAt:Member' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AupdatedAt%3AMember%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297436"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span><span>
+</span><a href="#local-6989586621679297721"><span class="hs-identifier hs-var">pUpdatedAt_</span></a></span><span>
 </span><span id="line-94"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- | The detector ID of the member account.</span><span>
-</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#member_detectorId"><span class="hs-identifier hs-type">member_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span id="member_detectorId"><span class="annot"><span class="annottext">member_detectorId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Member -&gt; f Member
-</span><a href="Network.AWS.GuardDuty.Types.Member.html#member_detectorId"><span class="hs-identifier hs-var hs-var">member_detectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Member -&gt; Maybe Text)
--&gt; (Member -&gt; Maybe Text -&gt; Member)
--&gt; Lens Member Member (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297432"><span class="annot"><span class="annottext">Maybe Text
-detectorId :: Maybe Text
-$sel:detectorId:Member' :: Member -&gt; Maybe Text
-</span><a href="#local-6989586621679297432"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297432"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297431"><span class="annot"><span class="annottext">s :: Member
-</span><a href="#local-6989586621679297431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297430"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
-</span><a href="#local-6989586621679297431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:Member' :: Maybe Text
-</span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AdetectorId%3AMember%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- | The timestamp when the invitation was sent.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#member_invitedAt"><span class="hs-identifier hs-type">member_invitedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="member_invitedAt"><span class="annot"><span class="annottext">member_invitedAt :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Member -&gt; f Member
+</span><span id="line-96"></span><span class="hs-comment">-- | The timestamp when the invitation was sent.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#member_invitedAt"><span class="hs-identifier hs-type">member_invitedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="member_invitedAt"><span class="annot"><span class="annottext">member_invitedAt :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Member -&gt; f Member
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#member_invitedAt"><span class="hs-identifier hs-var hs-var">member_invitedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Member -&gt; Maybe Text)
 -&gt; (Member -&gt; Maybe Text -&gt; Member)
 -&gt; Lens Member Member (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297428"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297717"><span class="annot"><span class="annottext">Maybe Text
 invitedAt :: Maybe Text
 $sel:invitedAt:Member' :: Member -&gt; Maybe Text
-</span><a href="#local-6989586621679297428"><span class="hs-identifier hs-var hs-var">invitedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297428"><span class="hs-identifier hs-var">invitedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297427"><span class="annot"><span class="annottext">s :: Member
-</span><a href="#local-6989586621679297427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297426"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
-</span><a href="#local-6989586621679297427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitedAt:Member' :: Maybe Text
+</span><a href="#local-6989586621679297717"><span class="hs-identifier hs-var hs-var">invitedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297717"><span class="hs-identifier hs-var">invitedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297716"><span class="annot"><span class="annottext">s :: Member
+</span><a href="#local-6989586621679297716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297715"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
+</span><a href="#local-6989586621679297716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitedAt:Member' :: Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AinvitedAt%3AMember%27"><span class="hs-identifier hs-var">invitedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679297426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The detector ID of the member account.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#member_detectorId"><span class="hs-identifier hs-type">member_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="member_detectorId"><span class="annot"><span class="annottext">member_detectorId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Member -&gt; f Member
+</span><a href="Network.AWS.GuardDuty.Types.Member.html#member_detectorId"><span class="hs-identifier hs-var hs-var">member_detectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Member -&gt; Maybe Text)
+-&gt; (Member -&gt; Maybe Text -&gt; Member)
+-&gt; Lens Member Member (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297713"><span class="annot"><span class="annottext">Maybe Text
+detectorId :: Maybe Text
+$sel:detectorId:Member' :: Member -&gt; Maybe Text
+</span><a href="#local-6989586621679297713"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297713"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297712"><span class="annot"><span class="annottext">s :: Member
+</span><a href="#local-6989586621679297712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297711"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
+</span><a href="#local-6989586621679297712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:Member' :: Maybe Text
+</span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AdetectorId%3AMember%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679297711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The ID of the member account.</span><span>
 </span><span id="line-105"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#member_accountId"><span class="hs-identifier hs-type">member_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -215,16 +215,16 @@ $sel:invitedAt:Member' :: Member -&gt; Maybe Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#member_accountId"><span class="hs-identifier hs-var hs-var">member_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Member -&gt; Text)
 -&gt; (Member -&gt; Text -&gt; Member) -&gt; Lens Member Member Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297424"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297709"><span class="annot"><span class="annottext">Text
 accountId :: Text
 $sel:accountId:Member' :: Member -&gt; Text
-</span><a href="#local-6989586621679297424"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297424"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297423"><span class="annot"><span class="annottext">s :: Member
-</span><a href="#local-6989586621679297423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297422"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
-</span><a href="#local-6989586621679297423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:Member' :: Text
+</span><a href="#local-6989586621679297709"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297709"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297708"><span class="annot"><span class="annottext">s :: Member
+</span><a href="#local-6989586621679297708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297707"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
+</span><a href="#local-6989586621679297708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:Member' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AaccountId%3AMember%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | The administrator account ID.</span><span>
 </span><span id="line-109"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#member_masterId"><span class="hs-identifier hs-type">member_masterId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -232,16 +232,16 @@ $sel:accountId:Member' :: Member -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#member_masterId"><span class="hs-identifier hs-var hs-var">member_masterId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Member -&gt; Text)
 -&gt; (Member -&gt; Text -&gt; Member) -&gt; Lens Member Member Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297420"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297705"><span class="annot"><span class="annottext">Text
 masterId :: Text
 $sel:masterId:Member' :: Member -&gt; Text
-</span><a href="#local-6989586621679297420"><span class="hs-identifier hs-var hs-var">masterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297420"><span class="hs-identifier hs-var">masterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297419"><span class="annot"><span class="annottext">s :: Member
-</span><a href="#local-6989586621679297419"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297418"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297418"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
-</span><a href="#local-6989586621679297419"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterId:Member' :: Text
+</span><a href="#local-6989586621679297705"><span class="hs-identifier hs-var hs-var">masterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297705"><span class="hs-identifier hs-var">masterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297704"><span class="annot"><span class="annottext">s :: Member
+</span><a href="#local-6989586621679297704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297703"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
+</span><a href="#local-6989586621679297704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:masterId:Member' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AmasterId%3AMember%27"><span class="hs-identifier hs-var">masterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297418"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- | The email address of the member account.</span><span>
 </span><span id="line-113"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#member_email"><span class="hs-identifier hs-type">member_email</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -249,16 +249,16 @@ $sel:masterId:Member' :: Member -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#member_email"><span class="hs-identifier hs-var hs-var">member_email</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Member -&gt; Text)
 -&gt; (Member -&gt; Text -&gt; Member) -&gt; Lens Member Member Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297416"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297701"><span class="annot"><span class="annottext">Text
 email :: Text
 $sel:email:Member' :: Member -&gt; Text
-</span><a href="#local-6989586621679297416"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297416"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297415"><span class="annot"><span class="annottext">s :: Member
-</span><a href="#local-6989586621679297415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297414"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
-</span><a href="#local-6989586621679297415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:Member' :: Text
+</span><a href="#local-6989586621679297701"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297701"><span class="hs-identifier hs-var">email</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297700"><span class="annot"><span class="annottext">s :: Member
+</span><a href="#local-6989586621679297700"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297699"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297699"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
+</span><a href="#local-6989586621679297700"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:email:Member' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3Aemail%3AMember%27"><span class="hs-identifier hs-var">email</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297699"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The status of the relationship between the member and the administrator.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#member_relationshipStatus"><span class="hs-identifier hs-type">member_relationshipStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -266,16 +266,16 @@ $sel:email:Member' :: Member -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#member_relationshipStatus"><span class="hs-identifier hs-var hs-var">member_relationshipStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Member -&gt; Text)
 -&gt; (Member -&gt; Text -&gt; Member) -&gt; Lens Member Member Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297412"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297697"><span class="annot"><span class="annottext">Text
 relationshipStatus :: Text
 $sel:relationshipStatus:Member' :: Member -&gt; Text
-</span><a href="#local-6989586621679297412"><span class="hs-identifier hs-var hs-var">relationshipStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297412"><span class="hs-identifier hs-var">relationshipStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297411"><span class="annot"><span class="annottext">s :: Member
-</span><a href="#local-6989586621679297411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297410"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
-</span><a href="#local-6989586621679297411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationshipStatus:Member' :: Text
+</span><a href="#local-6989586621679297697"><span class="hs-identifier hs-var hs-var">relationshipStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297697"><span class="hs-identifier hs-var">relationshipStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297696"><span class="annot"><span class="annottext">s :: Member
+</span><a href="#local-6989586621679297696"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297695"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297695"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
+</span><a href="#local-6989586621679297696"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relationshipStatus:Member' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3ArelationshipStatus%3AMember%27"><span class="hs-identifier hs-var">relationshipStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297695"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The last-updated timestamp of the member.</span><span>
 </span><span id="line-121"></span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#member_updatedAt"><span class="hs-identifier hs-type">member_updatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -283,27 +283,27 @@ $sel:relationshipStatus:Member' :: Member -&gt; Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#member_updatedAt"><span class="hs-identifier hs-var hs-var">member_updatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Member -&gt; Text)
 -&gt; (Member -&gt; Text -&gt; Member) -&gt; Lens Member Member Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297408"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297693"><span class="annot"><span class="annottext">Text
 updatedAt :: Text
 $sel:updatedAt:Member' :: Member -&gt; Text
-</span><a href="#local-6989586621679297408"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297408"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297407"><span class="annot"><span class="annottext">s :: Member
-</span><a href="#local-6989586621679297407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297406"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
-</span><a href="#local-6989586621679297407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:Member' :: Text
+</span><a href="#local-6989586621679297693"><span class="hs-identifier hs-var hs-var">updatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297693"><span class="hs-identifier hs-var">updatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297692"><span class="annot"><span class="annottext">s :: Member
+</span><a href="#local-6989586621679297692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-type">Member'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297691"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679297691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Member
+</span><a href="#local-6989586621679297692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updatedAt:Member' :: Text
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#%24sel%3AupdatedAt%3AMember%27"><span class="hs-identifier hs-var">updatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679297406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679297691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297403"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679297401"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Member
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297688"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679297686"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Member
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Member) -&gt; Value -&gt; Parser Member
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Member&quot;</span></span><span>
-</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297398"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297398"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297683"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297683"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Member
 </span><a href="Network.AWS.GuardDuty.Types.Member.html#Member%27"><span class="hs-identifier hs-var">Member'</span></a></span><span>
@@ -314,25 +314,25 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Member)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;detectorId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;invitedAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Member)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Member)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679297683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;invitedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;detectorId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; Text -&gt; Text -&gt; Text -&gt; Member)
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; Text -&gt; Member)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679297683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;accountId&quot;</span></span><span class="hs-special">)</span><span>
@@ -340,7 +340,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; Text -&gt; Member)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679297683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;masterId&quot;</span></span><span class="hs-special">)</span><span>
@@ -348,7 +348,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Text -&gt; Member)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679297683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;email&quot;</span></span><span class="hs-special">)</span><span>
@@ -356,20 +356,20 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser (Text -&gt; Member)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679297683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;relationshipStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Member) -&gt; Parser Text -&gt; Parser Member
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679297398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679297683"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;updatedAt&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297391"><span id="local-6989586621679297393"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297676"><span id="local-6989586621679297678"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span></span></span><span>
 </span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297388"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297673"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GuardDuty.Types.Member.html#Member"><span class="hs-identifier hs-type">Member</span></a></span></span><span>
 </span><span id="line-142"></span></pre></body></html>

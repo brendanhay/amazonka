@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- signed cookies.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSigner' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679401721"><span id="local-6989586621679401722"></span></span><span class="hs-keyword">data</span><span> </span><span id="Signer"><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer"><span class="hs-identifier hs-var">Signer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Signer%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer%27"><span class="hs-identifier hs-var">Signer'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679401983"><span id="local-6989586621679401984"></span></span><span class="hs-keyword">data</span><span> </span><span id="Signer"><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer"><span class="hs-identifier hs-var">Signer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Signer%27"><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer%27"><span class="hs-identifier hs-var">Signer'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An account number that contains active CloudFront key pairs that</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- CloudFront can use to verify the signatures of signed URLs and signed</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- cookies. If the account that owns the key pairs is the same account that</span><span>
@@ -40,7 +40,7 @@
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3AkeyPairIds%3ASigner%27"><span class="annot"><span class="annottext">Signer -&gt; Maybe KeyPairIds
 </span><a href="Network.AWS.CloudFront.Types.Signer.html#%24sel%3AkeyPairIds%3ASigner%27"><span class="hs-identifier hs-var hs-var">keyPairIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401714"><span id="local-6989586621679401716"><span class="annot"><span class="annottext">Signer -&gt; Signer -&gt; Bool
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401976"><span id="local-6989586621679401978"><span class="annot"><span class="annottext">Signer -&gt; Signer -&gt; Bool
 (Signer -&gt; Signer -&gt; Bool)
 -&gt; (Signer -&gt; Signer -&gt; Bool) -&gt; Eq Signer
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -48,7 +48,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Signer -&gt; Signer -&gt; Bool
 == :: Signer -&gt; Signer -&gt; Bool
 $c== :: Signer -&gt; Signer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401705"><span id="local-6989586621679401707"><span id="local-6989586621679401709"><span id="local-6989586621679401711"><span class="annot"><span class="annottext">ReadPrec [Signer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401967"><span id="local-6989586621679401969"><span id="local-6989586621679401971"><span id="local-6989586621679401973"><span class="annot"><span class="annottext">ReadPrec [Signer]
 ReadPrec Signer
 Int -&gt; ReadS Signer
 ReadS [Signer]
@@ -68,7 +68,7 @@ readList :: ReadS [Signer]
 $creadList :: ReadS [Signer]
 readsPrec :: Int -&gt; ReadS Signer
 $creadsPrec :: Int -&gt; ReadS Signer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401698"><span id="local-6989586621679401700"><span id="local-6989586621679401702"><span class="annot"><span class="annottext">Int -&gt; Signer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401960"><span id="local-6989586621679401962"><span id="local-6989586621679401964"><span class="annot"><span class="annottext">Int -&gt; Signer -&gt; ShowS
 [Signer] -&gt; ShowS
 Signer -&gt; String
 (Int -&gt; Signer -&gt; ShowS)
@@ -131,16 +131,16 @@ forall a. Maybe a
 -&gt; (Signer -&gt; Maybe Text -&gt; Signer)
 -&gt; Lens Signer Signer (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer%27"><span class="hs-identifier hs-type">Signer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401689"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer%27"><span class="hs-identifier hs-type">Signer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401951"><span class="annot"><span class="annottext">Maybe Text
 awsAccountNumber :: Maybe Text
 $sel:awsAccountNumber:Signer' :: Signer -&gt; Maybe Text
-</span><a href="#local-6989586621679401689"><span class="hs-identifier hs-var hs-var">awsAccountNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401689"><span class="hs-identifier hs-var">awsAccountNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401688"><span class="annot"><span class="annottext">s :: Signer
-</span><a href="#local-6989586621679401688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer%27"><span class="hs-identifier hs-type">Signer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401687"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Signer
-</span><a href="#local-6989586621679401688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountNumber:Signer' :: Maybe Text
+</span><a href="#local-6989586621679401951"><span class="hs-identifier hs-var hs-var">awsAccountNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401951"><span class="hs-identifier hs-var">awsAccountNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401950"><span class="annot"><span class="annottext">s :: Signer
+</span><a href="#local-6989586621679401950"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer%27"><span class="hs-identifier hs-type">Signer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401949"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679401949"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><a href="#local-6989586621679401950"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountNumber:Signer' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.Types.Signer.html#%24sel%3AawsAccountNumber%3ASigner%27"><span class="hs-identifier hs-var">awsAccountNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679401687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer"><span class="hs-identifier hs-type">Signer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401949"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer"><span class="hs-identifier hs-type">Signer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | A list of CloudFront key pair identifiers.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#signer_keyPairIds"><span class="hs-identifier hs-type">signer_keyPairIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer"><span class="hs-identifier hs-type">Signer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.KeyPairIds.html#KeyPairIds"><span class="hs-identifier hs-type">KeyPairIds</span></a></span><span class="hs-special">)</span><span>
@@ -149,21 +149,21 @@ $sel:awsAccountNumber:Signer' :: Signer -&gt; Maybe Text
 -&gt; (Signer -&gt; Maybe KeyPairIds -&gt; Signer)
 -&gt; Lens Signer Signer (Maybe KeyPairIds) (Maybe KeyPairIds)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer%27"><span class="hs-identifier hs-type">Signer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401685"><span class="annot"><span class="annottext">Maybe KeyPairIds
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer%27"><span class="hs-identifier hs-type">Signer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401947"><span class="annot"><span class="annottext">Maybe KeyPairIds
 keyPairIds :: Maybe KeyPairIds
 $sel:keyPairIds:Signer' :: Signer -&gt; Maybe KeyPairIds
-</span><a href="#local-6989586621679401685"><span class="hs-identifier hs-var hs-var">keyPairIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyPairIds
-</span><a href="#local-6989586621679401685"><span class="hs-identifier hs-var">keyPairIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401684"><span class="annot"><span class="annottext">s :: Signer
-</span><a href="#local-6989586621679401684"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer%27"><span class="hs-identifier hs-type">Signer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401683"><span class="annot"><span class="annottext">Maybe KeyPairIds
-</span><a href="#local-6989586621679401683"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Signer
-</span><a href="#local-6989586621679401684"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairIds:Signer' :: Maybe KeyPairIds
+</span><a href="#local-6989586621679401947"><span class="hs-identifier hs-var hs-var">keyPairIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KeyPairIds
+</span><a href="#local-6989586621679401947"><span class="hs-identifier hs-var">keyPairIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401946"><span class="annot"><span class="annottext">s :: Signer
+</span><a href="#local-6989586621679401946"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer%27"><span class="hs-identifier hs-type">Signer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401945"><span class="annot"><span class="annottext">Maybe KeyPairIds
+</span><a href="#local-6989586621679401945"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><a href="#local-6989586621679401946"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keyPairIds:Signer' :: Maybe KeyPairIds
 </span><a href="Network.AWS.CloudFront.Types.Signer.html#%24sel%3AkeyPairIds%3ASigner%27"><span class="hs-identifier hs-var">keyPairIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KeyPairIds
-</span><a href="#local-6989586621679401683"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer"><span class="hs-identifier hs-type">Signer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679401945"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer"><span class="hs-identifier hs-type">Signer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer"><span class="hs-identifier hs-type">Signer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679401680"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Signer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679401678"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401678"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679401942"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Signer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679401940"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401940"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe KeyPairIds -&gt; Signer
 </span><a href="Network.AWS.CloudFront.Types.Signer.html#Signer%27"><span class="hs-identifier hs-var">Signer'</span></a></span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe KeyPairIds -&gt; Signer)
@@ -171,7 +171,7 @@ $sel:keyPairIds:Signer' :: Signer -&gt; Maybe KeyPairIds
 -&gt; Either String (Maybe KeyPairIds -&gt; Signer)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401678"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679401940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AwsAccountNumber&quot;</span></span><span class="hs-special">)</span><span>
@@ -179,12 +179,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe KeyPairIds) -&gt; Either String Signer
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679401678"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe KeyPairIds)
+</span><a href="#local-6989586621679401940"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe KeyPairIds)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;KeyPairIds&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401672"><span id="local-6989586621679401674"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer"><span class="hs-identifier hs-type">Signer</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401934"><span id="local-6989586621679401936"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer"><span class="hs-identifier hs-type">Signer</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401669"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer"><span class="hs-identifier hs-type">Signer</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401931"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.Signer.html#Signer"><span class="hs-identifier hs-type">Signer</span></a></span></span><span>
 </span><span id="line-85"></span></pre></body></html>

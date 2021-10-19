@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679335809"><span id="local-6989586621679335810"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SavingsPlansDataType"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansDataType.html#SavingsPlansDataType"><span class="hs-identifier hs-var">SavingsPlansDataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SavingsPlansDataType%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansDataType.html#SavingsPlansDataType%27"><span class="hs-identifier hs-var">SavingsPlansDataType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679336148"><span id="local-6989586621679336149"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SavingsPlansDataType"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansDataType.html#SavingsPlansDataType"><span class="hs-identifier hs-var">SavingsPlansDataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SavingsPlansDataType%27"><span class="annot"><a href="Network.AWS.CostExplorer.Types.SavingsPlansDataType.html#SavingsPlansDataType%27"><span class="hs-identifier hs-var">SavingsPlansDataType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSavingsPlansDataType"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; Text
 </span><a href="Network.AWS.CostExplorer.Types.SavingsPlansDataType.html#fromSavingsPlansDataType"><span class="hs-identifier hs-var hs-var">fromSavingsPlansDataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335801"><span id="local-6989586621679335803"><span id="local-6989586621679335805"><span class="annot"><span class="annottext">Int -&gt; SavingsPlansDataType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679336140"><span id="local-6989586621679336142"><span id="local-6989586621679336144"><span class="annot"><span class="annottext">Int -&gt; SavingsPlansDataType -&gt; ShowS
 [SavingsPlansDataType] -&gt; ShowS
 SavingsPlansDataType -&gt; String
 (Int -&gt; SavingsPlansDataType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: SavingsPlansDataType -&gt; String
 showsPrec :: Int -&gt; SavingsPlansDataType -&gt; ShowS
 $cshowsPrec :: Int -&gt; SavingsPlansDataType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679335792"><span id="local-6989586621679335794"><span id="local-6989586621679335796"><span id="local-6989586621679335798"><span class="annot"><span class="annottext">ReadPrec [SavingsPlansDataType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679336131"><span id="local-6989586621679336133"><span id="local-6989586621679336135"><span id="local-6989586621679336137"><span class="annot"><span class="annottext">ReadPrec [SavingsPlansDataType]
 ReadPrec SavingsPlansDataType
 Int -&gt; ReadS SavingsPlansDataType
 ReadS [SavingsPlansDataType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [SavingsPlansDataType]
 readsPrec :: Int -&gt; ReadS SavingsPlansDataType
 $creadsPrec :: Int -&gt; ReadS SavingsPlansDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679335787"><span id="local-6989586621679335789"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; SavingsPlansDataType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679336126"><span id="local-6989586621679336128"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; SavingsPlansDataType -&gt; Bool
 (SavingsPlansDataType -&gt; SavingsPlansDataType -&gt; Bool)
 -&gt; (SavingsPlansDataType -&gt; SavingsPlansDataType -&gt; Bool)
 -&gt; Eq SavingsPlansDataType
@@ -84,7 +84,7 @@ $c/= :: SavingsPlansDataType -&gt; SavingsPlansDataType -&gt; Bool
 == :: SavingsPlansDataType -&gt; SavingsPlansDataType -&gt; Bool
 $c== :: SavingsPlansDataType -&gt; SavingsPlansDataType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679335771"><span id="local-6989586621679335773"><span id="local-6989586621679335775"><span id="local-6989586621679335777"><span id="local-6989586621679335779"><span id="local-6989586621679335781"><span id="local-6989586621679335783"><span class="annot"><span class="annottext">Eq SavingsPlansDataType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679336110"><span id="local-6989586621679336112"><span id="local-6989586621679336114"><span id="local-6989586621679336116"><span id="local-6989586621679336118"><span id="local-6989586621679336120"><span id="local-6989586621679336122"><span class="annot"><span class="annottext">Eq SavingsPlansDataType
 Eq SavingsPlansDataType
 -&gt; (SavingsPlansDataType -&gt; SavingsPlansDataType -&gt; Ordering)
 -&gt; (SavingsPlansDataType -&gt; SavingsPlansDataType -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. SavingsPlansDataType -&gt; Rep SavingsPlansDataType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679335763"><span id="local-6989586621679335765"><span class="annot"><span class="annottext">Int -&gt; SavingsPlansDataType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679336102"><span id="local-6989586621679336104"><span class="annot"><span class="annottext">Int -&gt; SavingsPlansDataType -&gt; Int
 SavingsPlansDataType -&gt; Int
 (Int -&gt; SavingsPlansDataType -&gt; Int)
 -&gt; (SavingsPlansDataType -&gt; Int) -&gt; Hashable SavingsPlansDataType
@@ -152,54 +152,54 @@ $chash :: SavingsPlansDataType -&gt; Int
 hashWithSalt :: Int -&gt; SavingsPlansDataType -&gt; Int
 $chashWithSalt :: Int -&gt; SavingsPlansDataType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679335760"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679336099"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; ()
 (SavingsPlansDataType -&gt; ()) -&gt; NFData SavingsPlansDataType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SavingsPlansDataType -&gt; ()
 $crnf :: SavingsPlansDataType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679335757"><span class="annot"><span class="annottext">Text -&gt; Either String SavingsPlansDataType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679336096"><span class="annot"><span class="annottext">Text -&gt; Either String SavingsPlansDataType
 (Text -&gt; Either String SavingsPlansDataType)
 -&gt; FromText SavingsPlansDataType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SavingsPlansDataType
 $cfromText :: Text -&gt; Either String SavingsPlansDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679335754"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679336093"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; Text
 (SavingsPlansDataType -&gt; Text) -&gt; ToText SavingsPlansDataType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SavingsPlansDataType -&gt; Text
 $ctoText :: SavingsPlansDataType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679335751"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679336090"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; ByteString
 (SavingsPlansDataType -&gt; ByteString)
 -&gt; ToByteString SavingsPlansDataType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SavingsPlansDataType -&gt; ByteString
 $ctoBS :: SavingsPlansDataType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679335748"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679336087"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; ByteStringBuilder
 (SavingsPlansDataType -&gt; ByteStringBuilder)
 -&gt; ToLog SavingsPlansDataType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SavingsPlansDataType -&gt; ByteStringBuilder
 $cbuild :: SavingsPlansDataType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679335745"><span class="annot"><span class="annottext">HeaderName -&gt; SavingsPlansDataType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679336084"><span class="annot"><span class="annottext">HeaderName -&gt; SavingsPlansDataType -&gt; [Header]
 (HeaderName -&gt; SavingsPlansDataType -&gt; [Header])
 -&gt; ToHeader SavingsPlansDataType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SavingsPlansDataType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SavingsPlansDataType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679335742"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679336081"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; QueryString
 (SavingsPlansDataType -&gt; QueryString)
 -&gt; ToQuery SavingsPlansDataType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SavingsPlansDataType -&gt; QueryString
 $ctoQuery :: SavingsPlansDataType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679335737"><span id="local-6989586621679335739"><span class="annot"><span class="annottext">Value -&gt; Parser [SavingsPlansDataType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679336076"><span id="local-6989586621679336078"><span class="annot"><span class="annottext">Value -&gt; Parser [SavingsPlansDataType]
 Value -&gt; Parser SavingsPlansDataType
 (Value -&gt; Parser SavingsPlansDataType)
 -&gt; (Value -&gt; Parser [SavingsPlansDataType])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [SavingsPlansDataType]
 parseJSON :: Value -&gt; Parser SavingsPlansDataType
 $cparseJSON :: Value -&gt; Parser SavingsPlansDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679335732"><span id="local-6989586621679335734"><span class="annot"><span class="annottext">FromJSONKeyFunction [SavingsPlansDataType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679336071"><span id="local-6989586621679336073"><span class="annot"><span class="annottext">FromJSONKeyFunction [SavingsPlansDataType]
 FromJSONKeyFunction SavingsPlansDataType
 FromJSONKeyFunction SavingsPlansDataType
 -&gt; FromJSONKeyFunction [SavingsPlansDataType]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SavingsPlansDataType]
 fromJSONKey :: FromJSONKeyFunction SavingsPlansDataType
 $cfromJSONKey :: FromJSONKeyFunction SavingsPlansDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679335723"><span id="local-6989586621679335725"><span id="local-6989586621679335727"><span id="local-6989586621679335729"><span class="annot"><span class="annottext">[SavingsPlansDataType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679336062"><span id="local-6989586621679336064"><span id="local-6989586621679336066"><span id="local-6989586621679336068"><span class="annot"><span class="annottext">[SavingsPlansDataType] -&gt; Encoding
 [SavingsPlansDataType] -&gt; Value
 SavingsPlansDataType -&gt; Encoding
 SavingsPlansDataType -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: SavingsPlansDataType -&gt; Encoding
 toJSON :: SavingsPlansDataType -&gt; Value
 $ctoJSON :: SavingsPlansDataType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679335718"><span id="local-6989586621679335720"><span class="annot"><span class="annottext">ToJSONKeyFunction [SavingsPlansDataType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679336057"><span id="local-6989586621679336059"><span class="annot"><span class="annottext">ToJSONKeyFunction [SavingsPlansDataType]
 ToJSONKeyFunction SavingsPlansDataType
 ToJSONKeyFunction SavingsPlansDataType
 -&gt; ToJSONKeyFunction [SavingsPlansDataType]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SavingsPlansDataType]
 toJSONKey :: ToJSONKeyFunction SavingsPlansDataType
 $ctoJSONKey :: ToJSONKeyFunction SavingsPlansDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679335715"><span class="annot"><span class="annottext">[Node] -&gt; Either String SavingsPlansDataType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679336054"><span class="annot"><span class="annottext">[Node] -&gt; Either String SavingsPlansDataType
 ([Node] -&gt; Either String SavingsPlansDataType)
 -&gt; FromXML SavingsPlansDataType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SavingsPlansDataType
 $cparseXML :: [Node] -&gt; Either String SavingsPlansDataType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679335712"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679336051"><span class="annot"><span class="annottext">SavingsPlansDataType -&gt; XML
 (SavingsPlansDataType -&gt; XML) -&gt; ToXML SavingsPlansDataType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SavingsPlansDataType -&gt; XML

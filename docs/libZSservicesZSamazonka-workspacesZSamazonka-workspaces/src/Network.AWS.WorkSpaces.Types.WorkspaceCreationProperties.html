@@ -28,56 +28,56 @@
 </span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/update-directory-details.html Update Directory Details for Your WorkSpaces&gt;.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newWorkspaceCreationProperties' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679272404"><span id="local-6989586621679272405"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspaceCreationProperties"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-var">WorkspaceCreationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceCreationProperties%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-var">WorkspaceCreationProperties'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates whether maintenance mode is enabled for your WorkSpaces. For</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance&gt;.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AenableMaintenanceMode%3AWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; Maybe Bool
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableMaintenanceMode%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">enableMaintenanceMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The default organizational unit (OU) for your WorkSpaces directories.</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- This string must be the full Lightweight Directory Access Protocol</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- (LDAP) distinguished name for the target domain and OU. It must be in</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- the form @\&quot;OU=value,DC=value,DC=value\&quot;@, where /value/ is any string</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- of characters, and the number of domain components (DCs) is two or more.</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- For example, @OU=WorkSpaces_machines,DC=machines,DC=example,DC=com@.</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   To avoid errors, certain characters in the distinguished name must</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     be escaped. For more information, see</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.microsoft.com/previous-versions/windows/desktop/ldap/distinguished-names Distinguished Names&gt;</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     in the Microsoft documentation.</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   The API doesn\'t validate whether the OU exists.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdefaultOu%3AWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AdefaultOu%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">defaultOu</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Indicates whether internet access is enabled for your WorkSpaces.</span><span>
-</span><span id="line-51"></span><span>    </span><span id="%24sel%3AenableInternetAccess%3AWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; Maybe Bool
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableInternetAccess%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">enableInternetAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- If WorkDocs is already enabled for a WorkSpaces directory and you</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- disable it, new WorkSpaces launched in the directory will not have</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- WorkDocs enabled. However, WorkDocs remains enabled for any existing</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- WorkSpaces, unless you either disable users\' access to WorkDocs or you</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- delete the WorkDocs site. To disable users\' access to WorkDocs, see</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workdocs/latest/adminguide/inactive-user.html Disabling Users&gt;</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- in the /Amazon WorkDocs Administration Guide/. To delete a WorkDocs</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- site, see</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workdocs/latest/adminguide/manage-sites.html Deleting a Site&gt;</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- in the /Amazon WorkDocs Administration Guide/.</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- If you enable WorkDocs on a directory that already has existing</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- WorkSpaces, the existing WorkSpaces and any new WorkSpaces that are</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- launched in the directory will have WorkDocs enabled.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3AenableWorkDocs%3AWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; Maybe Bool
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableWorkDocs%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">enableWorkDocs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The identifier of your custom security group.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AcustomSecurityGroupId%3AWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; Maybe Text
+</span><span id="line-31"></span><span id="local-6989586621679275232"><span id="local-6989586621679275233"></span></span><span class="hs-keyword">data</span><span> </span><span id="WorkspaceCreationProperties"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-var">WorkspaceCreationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WorkspaceCreationProperties%27"><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-var">WorkspaceCreationProperties'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of your custom security group.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcustomSecurityGroupId%3AWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AcustomSecurityGroupId%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">customSecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Indicates whether users are local administrators of their WorkSpaces.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AuserEnabledAsLocalAdministrator%3AWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; Maybe Bool
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AuserEnabledAsLocalAdministrator%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">userEnabledAsLocalAdministrator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Indicates whether users are local administrators of their WorkSpaces.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AuserEnabledAsLocalAdministrator%3AWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AuserEnabledAsLocalAdministrator%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">userEnabledAsLocalAdministrator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- If WorkDocs is already enabled for a WorkSpaces directory and you</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- disable it, new WorkSpaces launched in the directory will not have</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- WorkDocs enabled. However, WorkDocs remains enabled for any existing</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- WorkSpaces, unless you either disable users\' access to WorkDocs or you</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- delete the WorkDocs site. To disable users\' access to WorkDocs, see</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workdocs/latest/adminguide/inactive-user.html Disabling Users&gt;</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- in the /Amazon WorkDocs Administration Guide/. To delete a WorkDocs</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- site, see</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workdocs/latest/adminguide/manage-sites.html Deleting a Site&gt;</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- in the /Amazon WorkDocs Administration Guide/.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- If you enable WorkDocs on a directory that already has existing</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- WorkSpaces, the existing WorkSpaces and any new WorkSpaces that are</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- launched in the directory will have WorkDocs enabled.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AenableWorkDocs%3AWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableWorkDocs%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">enableWorkDocs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Indicates whether maintenance mode is enabled for your WorkSpaces. For</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance&gt;.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AenableMaintenanceMode%3AWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableMaintenanceMode%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">enableMaintenanceMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | Indicates whether internet access is enabled for your WorkSpaces.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AenableInternetAccess%3AWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableInternetAccess%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">enableInternetAccess</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The default organizational unit (OU) for your WorkSpaces directories.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- This string must be the full Lightweight Directory Access Protocol</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- (LDAP) distinguished name for the target domain and OU. It must be in</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the form @\&quot;OU=value,DC=value,DC=value\&quot;@, where /value/ is any string</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- of characters, and the number of domain components (DCs) is two or more.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- For example, @OU=WorkSpaces_machines,DC=machines,DC=example,DC=com@.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   To avoid errors, certain characters in the distinguished name must</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     be escaped. For more information, see</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.microsoft.com/previous-versions/windows/desktop/ldap/distinguished-names Distinguished Names&gt;</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     in the Microsoft documentation.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   The API doesn\'t validate whether the OU exists.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AdefaultOu%3AWorkspaceCreationProperties%27"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AdefaultOu%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var hs-var">defaultOu</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272393"><span id="local-6989586621679272395"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; WorkspaceCreationProperties -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275221"><span id="local-6989586621679275223"><span class="annot"><span class="annottext">WorkspaceCreationProperties -&gt; WorkspaceCreationProperties -&gt; Bool
 (WorkspaceCreationProperties
  -&gt; WorkspaceCreationProperties -&gt; Bool)
 -&gt; (WorkspaceCreationProperties
@@ -88,7 +88,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: WorkspaceCreationProperties -&gt; WorkspaceCreationProperties -&gt; Bool
 == :: WorkspaceCreationProperties -&gt; WorkspaceCreationProperties -&gt; Bool
 $c== :: WorkspaceCreationProperties -&gt; WorkspaceCreationProperties -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272384"><span id="local-6989586621679272386"><span id="local-6989586621679272388"><span id="local-6989586621679272390"><span class="annot"><span class="annottext">ReadPrec [WorkspaceCreationProperties]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275212"><span id="local-6989586621679275214"><span id="local-6989586621679275216"><span id="local-6989586621679275218"><span class="annot"><span class="annottext">ReadPrec [WorkspaceCreationProperties]
 ReadPrec WorkspaceCreationProperties
 Int -&gt; ReadS WorkspaceCreationProperties
 ReadS [WorkspaceCreationProperties]
@@ -108,7 +108,7 @@ readList :: ReadS [WorkspaceCreationProperties]
 $creadList :: ReadS [WorkspaceCreationProperties]
 readsPrec :: Int -&gt; ReadS WorkspaceCreationProperties
 $creadsPrec :: Int -&gt; ReadS WorkspaceCreationProperties
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272377"><span id="local-6989586621679272379"><span id="local-6989586621679272381"><span class="annot"><span class="annottext">Int -&gt; WorkspaceCreationProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275205"><span id="local-6989586621679275207"><span id="local-6989586621679275209"><span class="annot"><span class="annottext">Int -&gt; WorkspaceCreationProperties -&gt; ShowS
 [WorkspaceCreationProperties] -&gt; ShowS
 WorkspaceCreationProperties -&gt; String
 (Int -&gt; WorkspaceCreationProperties -&gt; ShowS)
@@ -148,214 +148,89 @@ WorkspaceCreationProperties -&gt; Rep WorkspaceCreationProperties x
 </span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'enableMaintenanceMode', 'workspaceCreationProperties_enableMaintenanceMode' - Indicates whether maintenance mode is enabled for your WorkSpaces. For</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- more information, see</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance&gt;.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'customSecurityGroupId', 'workspaceCreationProperties_customSecurityGroupId' - The identifier of your custom security group.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'userEnabledAsLocalAdministrator', 'workspaceCreationProperties_userEnabledAsLocalAdministrator' - Indicates whether users are local administrators of their WorkSpaces.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'defaultOu', 'workspaceCreationProperties_defaultOu' - The default organizational unit (OU) for your WorkSpaces directories.</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- This string must be the full Lightweight Directory Access Protocol</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- (LDAP) distinguished name for the target domain and OU. It must be in</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- the form @\&quot;OU=value,DC=value,DC=value\&quot;@, where /value/ is any string</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- of characters, and the number of domain components (DCs) is two or more.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- For example, @OU=WorkSpaces_machines,DC=machines,DC=example,DC=com@.</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- -   To avoid errors, certain characters in the distinguished name must</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--     be escaped. For more information, see</span><span>
-</span><span id="line-97"></span><span class="hs-comment">--     &lt;https://docs.microsoft.com/previous-versions/windows/desktop/ldap/distinguished-names Distinguished Names&gt;</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--     in the Microsoft documentation.</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- -   The API doesn\'t validate whether the OU exists.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'enableInternetAccess', 'workspaceCreationProperties_enableInternetAccess' - Indicates whether internet access is enabled for your WorkSpaces.</span><span>
-</span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- 'enableWorkDocs', 'workspaceCreationProperties_enableWorkDocs' - Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- If WorkDocs is already enabled for a WorkSpaces directory and you</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- disable it, new WorkSpaces launched in the directory will not have</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- WorkDocs enabled. However, WorkDocs remains enabled for any existing</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- WorkSpaces, unless you either disable users\' access to WorkDocs or you</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- delete the WorkDocs site. To disable users\' access to WorkDocs, see</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workdocs/latest/adminguide/inactive-user.html Disabling Users&gt;</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- in the /Amazon WorkDocs Administration Guide/. To delete a WorkDocs</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- site, see</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workdocs/latest/adminguide/manage-sites.html Deleting a Site&gt;</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- in the /Amazon WorkDocs Administration Guide/.</span><span>
-</span><span id="line-116"></span><span class="hs-comment">--</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- If you enable WorkDocs on a directory that already has existing</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- WorkSpaces, the existing WorkSpaces and any new WorkSpaces that are</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- launched in the directory will have WorkDocs enabled.</span><span>
-</span><span id="line-120"></span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- 'customSecurityGroupId', 'workspaceCreationProperties_customSecurityGroupId' - The identifier of your custom security group.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'enableWorkDocs', 'workspaceCreationProperties_enableWorkDocs' - Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- If WorkDocs is already enabled for a WorkSpaces directory and you</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- disable it, new WorkSpaces launched in the directory will not have</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- WorkDocs enabled. However, WorkDocs remains enabled for any existing</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- WorkSpaces, unless you either disable users\' access to WorkDocs or you</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- delete the WorkDocs site. To disable users\' access to WorkDocs, see</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workdocs/latest/adminguide/inactive-user.html Disabling Users&gt;</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- in the /Amazon WorkDocs Administration Guide/. To delete a WorkDocs</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- site, see</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workdocs/latest/adminguide/manage-sites.html Deleting a Site&gt;</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- in the /Amazon WorkDocs Administration Guide/.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- If you enable WorkDocs on a directory that already has existing</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- WorkSpaces, the existing WorkSpaces and any new WorkSpaces that are</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- launched in the directory will have WorkDocs enabled.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'enableMaintenanceMode', 'workspaceCreationProperties_enableMaintenanceMode' - Indicates whether maintenance mode is enabled for your WorkSpaces. For</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance&gt;.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'enableInternetAccess', 'workspaceCreationProperties_enableInternetAccess' - Indicates whether internet access is enabled for your WorkSpaces.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'defaultOu', 'workspaceCreationProperties_defaultOu' - The default organizational unit (OU) for your WorkSpaces directories.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- This string must be the full Lightweight Directory Access Protocol</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- (LDAP) distinguished name for the target domain and OU. It must be in</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- the form @\&quot;OU=value,DC=value,DC=value\&quot;@, where /value/ is any string</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- of characters, and the number of domain components (DCs) is two or more.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- For example, @OU=WorkSpaces_machines,DC=machines,DC=example,DC=com@.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   To avoid errors, certain characters in the distinguished name must</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     be escaped. For more information, see</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     &lt;https://docs.microsoft.com/previous-versions/windows/desktop/ldap/distinguished-names Distinguished Names&gt;</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--     in the Microsoft documentation.</span><span>
 </span><span id="line-122"></span><span class="hs-comment">--</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- 'userEnabledAsLocalAdministrator', 'workspaceCreationProperties_userEnabledAsLocalAdministrator' - Indicates whether users are local administrators of their WorkSpaces.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   The API doesn\'t validate whether the OU exists.</span><span>
 </span><span id="line-124"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#newWorkspaceCreationProperties"><span class="hs-identifier hs-type">newWorkspaceCreationProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span>
 </span><span id="line-126"></span><span id="newWorkspaceCreationProperties"><span class="annot"><span class="annottext">newWorkspaceCreationProperties :: WorkspaceCreationProperties
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#newWorkspaceCreationProperties"><span class="hs-identifier hs-var hs-var">newWorkspaceCreationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">WorkspaceCreationProperties' :: Maybe Bool
--&gt; Maybe Text
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">WorkspaceCreationProperties' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
 -&gt; Maybe Bool
 -&gt; Maybe Bool
 -&gt; Maybe Text
--&gt; Maybe Bool
 -&gt; WorkspaceCreationProperties
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enableMaintenanceMode:WorkspaceCreationProperties' :: Maybe Bool
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableMaintenanceMode%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableMaintenanceMode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customSecurityGroupId:WorkspaceCreationProperties' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AcustomSecurityGroupId%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">customSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultOu:WorkspaceCreationProperties' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AdefaultOu%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">defaultOu</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableInternetAccess:WorkspaceCreationProperties' :: Maybe Bool
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableInternetAccess%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableInternetAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:userEnabledAsLocalAdministrator:WorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AuserEnabledAsLocalAdministrator%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">userEnabledAsLocalAdministrator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableWorkDocs:WorkspaceCreationProperties' :: Maybe Bool
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableWorkDocs%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:customSecurityGroupId:WorkspaceCreationProperties' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AcustomSecurityGroupId%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">customSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableMaintenanceMode:WorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableMaintenanceMode%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableMaintenanceMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:userEnabledAsLocalAdministrator:WorkspaceCreationProperties' :: Maybe Bool
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AuserEnabledAsLocalAdministrator%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">userEnabledAsLocalAdministrator</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableInternetAccess:WorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableInternetAccess%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableInternetAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:defaultOu:WorkspaceCreationProperties' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AdefaultOu%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">defaultOu</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | Indicates whether maintenance mode is enabled for your WorkSpaces. For</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- more information, see</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance&gt;.</span><span>
-</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_enableMaintenanceMode"><span class="hs-identifier hs-type">workspaceCreationProperties_enableMaintenanceMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span id="workspaceCreationProperties_enableMaintenanceMode"><span class="annot"><span class="annottext">workspaceCreationProperties_enableMaintenanceMode :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; WorkspaceCreationProperties -&gt; f WorkspaceCreationProperties
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_enableMaintenanceMode"><span class="hs-identifier hs-var hs-var">workspaceCreationProperties_enableMaintenanceMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceCreationProperties -&gt; Maybe Bool)
--&gt; (WorkspaceCreationProperties
-    -&gt; Maybe Bool -&gt; WorkspaceCreationProperties)
--&gt; Lens
-     WorkspaceCreationProperties
-     WorkspaceCreationProperties
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272368"><span class="annot"><span class="annottext">Maybe Bool
-enableMaintenanceMode :: Maybe Bool
-$sel:enableMaintenanceMode:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
-</span><a href="#local-6989586621679272368"><span class="hs-identifier hs-var hs-var">enableMaintenanceMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272368"><span class="hs-identifier hs-var">enableMaintenanceMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272367"><span class="annot"><span class="annottext">s :: WorkspaceCreationProperties
-</span><a href="#local-6989586621679272367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272366"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceCreationProperties
-</span><a href="#local-6989586621679272367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableMaintenanceMode:WorkspaceCreationProperties' :: Maybe Bool
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableMaintenanceMode%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableMaintenanceMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-comment">-- | The default organizational unit (OU) for your WorkSpaces directories.</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- This string must be the full Lightweight Directory Access Protocol</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- (LDAP) distinguished name for the target domain and OU. It must be in</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- the form @\&quot;OU=value,DC=value,DC=value\&quot;@, where /value/ is any string</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- of characters, and the number of domain components (DCs) is two or more.</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- For example, @OU=WorkSpaces_machines,DC=machines,DC=example,DC=com@.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- -   To avoid errors, certain characters in the distinguished name must</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--     be escaped. For more information, see</span><span>
-</span><span id="line-153"></span><span class="hs-comment">--     &lt;https://docs.microsoft.com/previous-versions/windows/desktop/ldap/distinguished-names Distinguished Names&gt;</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--     in the Microsoft documentation.</span><span>
-</span><span id="line-155"></span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- -   The API doesn\'t validate whether the OU exists.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_defaultOu"><span class="hs-identifier hs-type">workspaceCreationProperties_defaultOu</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span id="workspaceCreationProperties_defaultOu"><span class="annot"><span class="annottext">workspaceCreationProperties_defaultOu :: (Maybe Text -&gt; f (Maybe Text))
--&gt; WorkspaceCreationProperties -&gt; f WorkspaceCreationProperties
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_defaultOu"><span class="hs-identifier hs-var hs-var">workspaceCreationProperties_defaultOu</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceCreationProperties -&gt; Maybe Text)
--&gt; (WorkspaceCreationProperties
-    -&gt; Maybe Text -&gt; WorkspaceCreationProperties)
--&gt; Lens
-     WorkspaceCreationProperties
-     WorkspaceCreationProperties
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272364"><span class="annot"><span class="annottext">Maybe Text
-defaultOu :: Maybe Text
-$sel:defaultOu:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679272364"><span class="hs-identifier hs-var hs-var">defaultOu</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272364"><span class="hs-identifier hs-var">defaultOu</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272363"><span class="annot"><span class="annottext">s :: WorkspaceCreationProperties
-</span><a href="#local-6989586621679272363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272362"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceCreationProperties
-</span><a href="#local-6989586621679272363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultOu:WorkspaceCreationProperties' :: Maybe Text
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AdefaultOu%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">defaultOu</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | Indicates whether internet access is enabled for your WorkSpaces.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_enableInternetAccess"><span class="hs-identifier hs-type">workspaceCreationProperties_enableInternetAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span id="workspaceCreationProperties_enableInternetAccess"><span class="annot"><span class="annottext">workspaceCreationProperties_enableInternetAccess :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; WorkspaceCreationProperties -&gt; f WorkspaceCreationProperties
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_enableInternetAccess"><span class="hs-identifier hs-var hs-var">workspaceCreationProperties_enableInternetAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceCreationProperties -&gt; Maybe Bool)
--&gt; (WorkspaceCreationProperties
-    -&gt; Maybe Bool -&gt; WorkspaceCreationProperties)
--&gt; Lens
-     WorkspaceCreationProperties
-     WorkspaceCreationProperties
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272360"><span class="annot"><span class="annottext">Maybe Bool
-enableInternetAccess :: Maybe Bool
-$sel:enableInternetAccess:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
-</span><a href="#local-6989586621679272360"><span class="hs-identifier hs-var hs-var">enableInternetAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272360"><span class="hs-identifier hs-var">enableInternetAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272359"><span class="annot"><span class="annottext">s :: WorkspaceCreationProperties
-</span><a href="#local-6989586621679272359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272358"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceCreationProperties
-</span><a href="#local-6989586621679272359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableInternetAccess:WorkspaceCreationProperties' :: Maybe Bool
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableInternetAccess%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableInternetAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- | Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- If WorkDocs is already enabled for a WorkSpaces directory and you</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- disable it, new WorkSpaces launched in the directory will not have</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- WorkDocs enabled. However, WorkDocs remains enabled for any existing</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- WorkSpaces, unless you either disable users\' access to WorkDocs or you</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- delete the WorkDocs site. To disable users\' access to WorkDocs, see</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workdocs/latest/adminguide/inactive-user.html Disabling Users&gt;</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- in the /Amazon WorkDocs Administration Guide/. To delete a WorkDocs</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- site, see</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workdocs/latest/adminguide/manage-sites.html Deleting a Site&gt;</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- in the /Amazon WorkDocs Administration Guide/.</span><span>
-</span><span id="line-176"></span><span class="hs-comment">--</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- If you enable WorkDocs on a directory that already has existing</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- WorkSpaces, the existing WorkSpaces and any new WorkSpaces that are</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- launched in the directory will have WorkDocs enabled.</span><span>
-</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_enableWorkDocs"><span class="hs-identifier hs-type">workspaceCreationProperties_enableWorkDocs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span id="workspaceCreationProperties_enableWorkDocs"><span class="annot"><span class="annottext">workspaceCreationProperties_enableWorkDocs :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; WorkspaceCreationProperties -&gt; f WorkspaceCreationProperties
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_enableWorkDocs"><span class="hs-identifier hs-var hs-var">workspaceCreationProperties_enableWorkDocs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceCreationProperties -&gt; Maybe Bool)
--&gt; (WorkspaceCreationProperties
-    -&gt; Maybe Bool -&gt; WorkspaceCreationProperties)
--&gt; Lens
-     WorkspaceCreationProperties
-     WorkspaceCreationProperties
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272356"><span class="annot"><span class="annottext">Maybe Bool
-enableWorkDocs :: Maybe Bool
-$sel:enableWorkDocs:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
-</span><a href="#local-6989586621679272356"><span class="hs-identifier hs-var hs-var">enableWorkDocs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272356"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272355"><span class="annot"><span class="annottext">s :: WorkspaceCreationProperties
-</span><a href="#local-6989586621679272355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272354"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceCreationProperties
-</span><a href="#local-6989586621679272355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableWorkDocs:WorkspaceCreationProperties' :: Maybe Bool
-</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableWorkDocs%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- | The identifier of your custom security group.</span><span>
-</span><span id="line-184"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_customSecurityGroupId"><span class="hs-identifier hs-type">workspaceCreationProperties_customSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span id="workspaceCreationProperties_customSecurityGroupId"><span class="annot"><span class="annottext">workspaceCreationProperties_customSecurityGroupId :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-138"></span><span class="hs-comment">-- | The identifier of your custom security group.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_customSecurityGroupId"><span class="hs-identifier hs-type">workspaceCreationProperties_customSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="workspaceCreationProperties_customSecurityGroupId"><span class="annot"><span class="annottext">workspaceCreationProperties_customSecurityGroupId :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; WorkspaceCreationProperties -&gt; f WorkspaceCreationProperties
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_customSecurityGroupId"><span class="hs-identifier hs-var hs-var">workspaceCreationProperties_customSecurityGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceCreationProperties -&gt; Maybe Text)
 -&gt; (WorkspaceCreationProperties
@@ -366,20 +241,20 @@ $sel:enableWorkDocs:WorkspaceCreationProperties' :: WorkspaceCreationProperties 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272352"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275196"><span class="annot"><span class="annottext">Maybe Text
 customSecurityGroupId :: Maybe Text
 $sel:customSecurityGroupId:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Text
-</span><a href="#local-6989586621679272352"><span class="hs-identifier hs-var hs-var">customSecurityGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272352"><span class="hs-identifier hs-var">customSecurityGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272351"><span class="annot"><span class="annottext">s :: WorkspaceCreationProperties
-</span><a href="#local-6989586621679272351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272350"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceCreationProperties
-</span><a href="#local-6989586621679272351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customSecurityGroupId:WorkspaceCreationProperties' :: Maybe Text
+</span><a href="#local-6989586621679275196"><span class="hs-identifier hs-var hs-var">customSecurityGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275196"><span class="hs-identifier hs-var">customSecurityGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275195"><span class="annot"><span class="annottext">s :: WorkspaceCreationProperties
+</span><a href="#local-6989586621679275195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275194"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceCreationProperties
+</span><a href="#local-6989586621679275195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customSecurityGroupId:WorkspaceCreationProperties' :: Maybe Text
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AcustomSecurityGroupId%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">customSecurityGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- | Indicates whether users are local administrators of their WorkSpaces.</span><span>
-</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_userEnabledAsLocalAdministrator"><span class="hs-identifier hs-type">workspaceCreationProperties_userEnabledAsLocalAdministrator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-189"></span><span id="workspaceCreationProperties_userEnabledAsLocalAdministrator"><span class="annot"><span class="annottext">workspaceCreationProperties_userEnabledAsLocalAdministrator :: (Maybe Bool -&gt; f (Maybe Bool))
+</span><a href="#local-6989586621679275194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Indicates whether users are local administrators of their WorkSpaces.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_userEnabledAsLocalAdministrator"><span class="hs-identifier hs-type">workspaceCreationProperties_userEnabledAsLocalAdministrator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="workspaceCreationProperties_userEnabledAsLocalAdministrator"><span class="annot"><span class="annottext">workspaceCreationProperties_userEnabledAsLocalAdministrator :: (Maybe Bool -&gt; f (Maybe Bool))
 -&gt; WorkspaceCreationProperties -&gt; f WorkspaceCreationProperties
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_userEnabledAsLocalAdministrator"><span class="hs-identifier hs-var hs-var">workspaceCreationProperties_userEnabledAsLocalAdministrator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceCreationProperties -&gt; Maybe Bool)
 -&gt; (WorkspaceCreationProperties
@@ -390,90 +265,215 @@ $sel:customSecurityGroupId:WorkspaceCreationProperties' :: WorkspaceCreationProp
      (Maybe Bool)
      (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272348"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275192"><span class="annot"><span class="annottext">Maybe Bool
 userEnabledAsLocalAdministrator :: Maybe Bool
 $sel:userEnabledAsLocalAdministrator:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
-</span><a href="#local-6989586621679272348"><span class="hs-identifier hs-var hs-var">userEnabledAsLocalAdministrator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272348"><span class="hs-identifier hs-var">userEnabledAsLocalAdministrator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272347"><span class="annot"><span class="annottext">s :: WorkspaceCreationProperties
-</span><a href="#local-6989586621679272347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272346"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceCreationProperties
-</span><a href="#local-6989586621679272347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userEnabledAsLocalAdministrator:WorkspaceCreationProperties' :: Maybe Bool
+</span><a href="#local-6989586621679275192"><span class="hs-identifier hs-var hs-var">userEnabledAsLocalAdministrator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275192"><span class="hs-identifier hs-var">userEnabledAsLocalAdministrator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275191"><span class="annot"><span class="annottext">s :: WorkspaceCreationProperties
+</span><a href="#local-6989586621679275191"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275190"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275190"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceCreationProperties
+</span><a href="#local-6989586621679275191"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userEnabledAsLocalAdministrator:WorkspaceCreationProperties' :: Maybe Bool
 </span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AuserEnabledAsLocalAdministrator%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">userEnabledAsLocalAdministrator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679275190"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- If WorkDocs is already enabled for a WorkSpaces directory and you</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- disable it, new WorkSpaces launched in the directory will not have</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- WorkDocs enabled. However, WorkDocs remains enabled for any existing</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- WorkSpaces, unless you either disable users\' access to WorkDocs or you</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- delete the WorkDocs site. To disable users\' access to WorkDocs, see</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workdocs/latest/adminguide/inactive-user.html Disabling Users&gt;</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- in the /Amazon WorkDocs Administration Guide/. To delete a WorkDocs</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- site, see</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workdocs/latest/adminguide/manage-sites.html Deleting a Site&gt;</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- in the /Amazon WorkDocs Administration Guide/.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- If you enable WorkDocs on a directory that already has existing</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- WorkSpaces, the existing WorkSpaces and any new WorkSpaces that are</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- launched in the directory will have WorkDocs enabled.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_enableWorkDocs"><span class="hs-identifier hs-type">workspaceCreationProperties_enableWorkDocs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="workspaceCreationProperties_enableWorkDocs"><span class="annot"><span class="annottext">workspaceCreationProperties_enableWorkDocs :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; WorkspaceCreationProperties -&gt; f WorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_enableWorkDocs"><span class="hs-identifier hs-var hs-var">workspaceCreationProperties_enableWorkDocs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceCreationProperties -&gt; Maybe Bool)
+-&gt; (WorkspaceCreationProperties
+    -&gt; Maybe Bool -&gt; WorkspaceCreationProperties)
+-&gt; Lens
+     WorkspaceCreationProperties
+     WorkspaceCreationProperties
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275188"><span class="annot"><span class="annottext">Maybe Bool
+enableWorkDocs :: Maybe Bool
+$sel:enableWorkDocs:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="#local-6989586621679275188"><span class="hs-identifier hs-var hs-var">enableWorkDocs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275188"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275187"><span class="annot"><span class="annottext">s :: WorkspaceCreationProperties
+</span><a href="#local-6989586621679275187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275186"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceCreationProperties
+</span><a href="#local-6989586621679275187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableWorkDocs:WorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableWorkDocs%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | Indicates whether maintenance mode is enabled for your WorkSpaces. For</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html WorkSpace Maintenance&gt;.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_enableMaintenanceMode"><span class="hs-identifier hs-type">workspaceCreationProperties_enableMaintenanceMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="workspaceCreationProperties_enableMaintenanceMode"><span class="annot"><span class="annottext">workspaceCreationProperties_enableMaintenanceMode :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; WorkspaceCreationProperties -&gt; f WorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_enableMaintenanceMode"><span class="hs-identifier hs-var hs-var">workspaceCreationProperties_enableMaintenanceMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceCreationProperties -&gt; Maybe Bool)
+-&gt; (WorkspaceCreationProperties
+    -&gt; Maybe Bool -&gt; WorkspaceCreationProperties)
+-&gt; Lens
+     WorkspaceCreationProperties
+     WorkspaceCreationProperties
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275184"><span class="annot"><span class="annottext">Maybe Bool
+enableMaintenanceMode :: Maybe Bool
+$sel:enableMaintenanceMode:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="#local-6989586621679275184"><span class="hs-identifier hs-var hs-var">enableMaintenanceMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275184"><span class="hs-identifier hs-var">enableMaintenanceMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275183"><span class="annot"><span class="annottext">s :: WorkspaceCreationProperties
+</span><a href="#local-6989586621679275183"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275182"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275182"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceCreationProperties
+</span><a href="#local-6989586621679275183"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableMaintenanceMode:WorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableMaintenanceMode%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableMaintenanceMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275182"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Indicates whether internet access is enabled for your WorkSpaces.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_enableInternetAccess"><span class="hs-identifier hs-type">workspaceCreationProperties_enableInternetAccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="workspaceCreationProperties_enableInternetAccess"><span class="annot"><span class="annottext">workspaceCreationProperties_enableInternetAccess :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; WorkspaceCreationProperties -&gt; f WorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_enableInternetAccess"><span class="hs-identifier hs-var hs-var">workspaceCreationProperties_enableInternetAccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceCreationProperties -&gt; Maybe Bool)
+-&gt; (WorkspaceCreationProperties
+    -&gt; Maybe Bool -&gt; WorkspaceCreationProperties)
+-&gt; Lens
+     WorkspaceCreationProperties
+     WorkspaceCreationProperties
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275180"><span class="annot"><span class="annottext">Maybe Bool
+enableInternetAccess :: Maybe Bool
+$sel:enableInternetAccess:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
+</span><a href="#local-6989586621679275180"><span class="hs-identifier hs-var hs-var">enableInternetAccess</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275180"><span class="hs-identifier hs-var">enableInternetAccess</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275179"><span class="annot"><span class="annottext">s :: WorkspaceCreationProperties
+</span><a href="#local-6989586621679275179"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275178"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275178"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceCreationProperties
+</span><a href="#local-6989586621679275179"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableInternetAccess:WorkspaceCreationProperties' :: Maybe Bool
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AenableInternetAccess%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">enableInternetAccess</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275178"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The default organizational unit (OU) for your WorkSpaces directories.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- This string must be the full Lightweight Directory Access Protocol</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- (LDAP) distinguished name for the target domain and OU. It must be in</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- the form @\&quot;OU=value,DC=value,DC=value\&quot;@, where /value/ is any string</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- of characters, and the number of domain components (DCs) is two or more.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- For example, @OU=WorkSpaces_machines,DC=machines,DC=example,DC=com@.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- -   To avoid errors, certain characters in the distinguished name must</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     be escaped. For more information, see</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     &lt;https://docs.microsoft.com/previous-versions/windows/desktop/ldap/distinguished-names Distinguished Names&gt;</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     in the Microsoft documentation.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- -   The API doesn\'t validate whether the OU exists.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_defaultOu"><span class="hs-identifier hs-type">workspaceCreationProperties_defaultOu</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="workspaceCreationProperties_defaultOu"><span class="annot"><span class="annottext">workspaceCreationProperties_defaultOu :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; WorkspaceCreationProperties -&gt; f WorkspaceCreationProperties
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#workspaceCreationProperties_defaultOu"><span class="hs-identifier hs-var hs-var">workspaceCreationProperties_defaultOu</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(WorkspaceCreationProperties -&gt; Maybe Text)
+-&gt; (WorkspaceCreationProperties
+    -&gt; Maybe Text -&gt; WorkspaceCreationProperties)
+-&gt; Lens
+     WorkspaceCreationProperties
+     WorkspaceCreationProperties
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275176"><span class="annot"><span class="annottext">Maybe Text
+defaultOu :: Maybe Text
+$sel:defaultOu:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Text
+</span><a href="#local-6989586621679275176"><span class="hs-identifier hs-var hs-var">defaultOu</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275176"><span class="hs-identifier hs-var">defaultOu</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275175"><span class="annot"><span class="annottext">s :: WorkspaceCreationProperties
+</span><a href="#local-6989586621679275175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275174"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">WorkspaceCreationProperties
+</span><a href="#local-6989586621679275175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultOu:WorkspaceCreationProperties' :: Maybe Text
+</span><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#%24sel%3AdefaultOu%3AWorkspaceCreationProperties%27"><span class="hs-identifier hs-var">defaultOu</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272342"><span id="local-6989586621679272344"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275170"><span id="local-6989586621679275172"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span></span></span><span>
 </span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272339"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275167"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span></span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272331"><span id="local-6989586621679272333"><span id="local-6989586621679272335"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679272329"><span class="annot"><span class="annottext">toJSON :: WorkspaceCreationProperties -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272322"><span id="local-6989586621679272323"><span id="local-6989586621679272324"><span id="local-6989586621679272325"><span id="local-6989586621679272326"><span id="local-6989586621679272327"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275159"><span id="local-6989586621679275161"><span id="local-6989586621679275163"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties"><span class="hs-identifier hs-type">WorkspaceCreationProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679275157"><span class="annot"><span class="annottext">toJSON :: WorkspaceCreationProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.WorkSpaces.Types.WorkspaceCreationProperties.html#WorkspaceCreationProperties%27"><span class="hs-identifier hs-type">WorkspaceCreationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275150"><span id="local-6989586621679275151"><span id="local-6989586621679275152"><span id="local-6989586621679275153"><span id="local-6989586621679275154"><span id="local-6989586621679275155"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Text
+defaultOu :: Maybe Text
+enableInternetAccess :: Maybe Bool
+enableMaintenanceMode :: Maybe Bool
+enableWorkDocs :: Maybe Bool
 userEnabledAsLocalAdministrator :: Maybe Bool
 customSecurityGroupId :: Maybe Text
-enableWorkDocs :: Maybe Bool
-enableInternetAccess :: Maybe Bool
-defaultOu :: Maybe Text
-enableMaintenanceMode :: Maybe Bool
+$sel:defaultOu:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Text
+$sel:enableInternetAccess:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
+$sel:enableMaintenanceMode:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
+$sel:enableWorkDocs:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
 $sel:userEnabledAsLocalAdministrator:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
 $sel:customSecurityGroupId:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Text
-$sel:enableWorkDocs:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
-$sel:enableInternetAccess:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
-$sel:defaultOu:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Text
-$sel:enableMaintenanceMode:WorkspaceCreationProperties' :: WorkspaceCreationProperties -&gt; Maybe Bool
-</span><a href="#local-6989586621679272322"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679275150"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-199"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomSecurityGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275155"><span class="hs-identifier hs-var">customSecurityGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserEnabledAsLocalAdministrator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275154"><span class="hs-identifier hs-var">userEnabledAsLocalAdministrator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableWorkDocs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275153"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EnableMaintenanceMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272327"><span class="hs-identifier hs-var">enableMaintenanceMode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275152"><span class="hs-identifier hs-var">enableMaintenanceMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableInternetAccess&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679275151"><span class="hs-identifier hs-var">enableInternetAccess</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DefaultOu&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272326"><span class="hs-identifier hs-var">defaultOu</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-202"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EnableInternetAccess&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272325"><span class="hs-identifier hs-var">enableInternetAccess</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-204"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;EnableWorkDocs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272324"><span class="hs-identifier hs-var">enableWorkDocs</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;CustomSecurityGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679272323"><span class="hs-identifier hs-var">customSecurityGroupId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-208"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;UserEnabledAsLocalAdministrator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679272322"><span class="hs-identifier hs-var">userEnabledAsLocalAdministrator</span></a></span><span>
+</span><a href="#local-6989586621679275150"><span class="hs-identifier hs-var">defaultOu</span></a></span><span>
 </span><span id="line-210"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span></pre></body></html>

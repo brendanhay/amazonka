@@ -29,24 +29,24 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Describes the format and location for the export task.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newExportToS3Task' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681071667"><span id="local-6989586621681071668"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportToS3Task"><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-var">ExportToS3Task</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportToS3Task%27"><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-var">ExportToS3Task'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The container format used to combine disk images with metadata (such as</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- OVF). If absent, only the disk image is exported.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcontainerFormat%3AExportToS3Task%27"><span class="annot"><span class="annottext">ExportToS3Task -&gt; Maybe ContainerFormat
+</span><span id="line-32"></span><span id="local-6989586621681105602"><span id="local-6989586621681105603"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportToS3Task"><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-var">ExportToS3Task</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportToS3Task%27"><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-var">ExportToS3Task'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption key for your S3 bucket.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3As3Key%3AExportToS3Task%27"><span class="annot"><span class="annottext">ExportToS3Task -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3As3Key%3AExportToS3Task%27"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The container format used to combine disk images with metadata (such as</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- OVF). If absent, only the disk image is exported.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcontainerFormat%3AExportToS3Task%27"><span class="annot"><span class="annottext">ExportToS3Task -&gt; Maybe ContainerFormat
 </span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3AcontainerFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var hs-var">containerFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat"><span class="hs-identifier hs-type">ContainerFormat</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The format for the exported image.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AdiskImageFormat%3AExportToS3Task%27"><span class="annot"><span class="annottext">ExportToS3Task -&gt; Maybe DiskImageFormat
-</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3AdiskImageFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var hs-var">diskImageFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier hs-type">DiskImageFormat</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 bucket for the destination image. The destination bucket</span><span>
 </span><span id="line-39"></span><span>    </span><span class="hs-comment">-- must exist and grant WRITE and READ_ACP permissions to the Amazon Web</span><span>
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Services account @vm-import-export\@amazon.com@.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3As3Bucket%3AExportToS3Task%27"><span class="annot"><span class="annottext">ExportToS3Task -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3As3Bucket%3AExportToS3Task%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The encryption key for your S3 bucket.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3As3Key%3AExportToS3Task%27"><span class="annot"><span class="annottext">ExportToS3Task -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3As3Key%3AExportToS3Task%27"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The format for the exported image.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AdiskImageFormat%3AExportToS3Task%27"><span class="annot"><span class="annottext">ExportToS3Task -&gt; Maybe DiskImageFormat
+</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3AdiskImageFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var hs-var">diskImageFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier hs-type">DiskImageFormat</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681071658"><span id="local-6989586621681071660"><span class="annot"><span class="annottext">ExportToS3Task -&gt; ExportToS3Task -&gt; Bool
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681105593"><span id="local-6989586621681105595"><span class="annot"><span class="annottext">ExportToS3Task -&gt; ExportToS3Task -&gt; Bool
 (ExportToS3Task -&gt; ExportToS3Task -&gt; Bool)
 -&gt; (ExportToS3Task -&gt; ExportToS3Task -&gt; Bool) -&gt; Eq ExportToS3Task
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -54,7 +54,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ExportToS3Task -&gt; ExportToS3Task -&gt; Bool
 == :: ExportToS3Task -&gt; ExportToS3Task -&gt; Bool
 $c== :: ExportToS3Task -&gt; ExportToS3Task -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681071649"><span id="local-6989586621681071651"><span id="local-6989586621681071653"><span id="local-6989586621681071655"><span class="annot"><span class="annottext">ReadPrec [ExportToS3Task]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681105584"><span id="local-6989586621681105586"><span id="local-6989586621681105588"><span id="local-6989586621681105590"><span class="annot"><span class="annottext">ReadPrec [ExportToS3Task]
 ReadPrec ExportToS3Task
 Int -&gt; ReadS ExportToS3Task
 ReadS [ExportToS3Task]
@@ -74,7 +74,7 @@ readList :: ReadS [ExportToS3Task]
 $creadList :: ReadS [ExportToS3Task]
 readsPrec :: Int -&gt; ReadS ExportToS3Task
 $creadsPrec :: Int -&gt; ReadS ExportToS3Task
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681071642"><span id="local-6989586621681071644"><span id="local-6989586621681071646"><span class="annot"><span class="annottext">Int -&gt; ExportToS3Task -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681105577"><span id="local-6989586621681105579"><span id="local-6989586621681105581"><span class="annot"><span class="annottext">Int -&gt; ExportToS3Task -&gt; ShowS
 [ExportToS3Task] -&gt; ShowS
 ExportToS3Task -&gt; String
 (Int -&gt; ExportToS3Task -&gt; ShowS)
@@ -108,48 +108,67 @@ $cfrom :: forall x. ExportToS3Task -&gt; Rep ExportToS3Task x
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'containerFormat', 'exportToS3Task_containerFormat' - The container format used to combine disk images with metadata (such as</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- OVF). If absent, only the disk image is exported.</span><span>
-</span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'diskImageFormat', 'exportToS3Task_diskImageFormat' - The format for the exported image.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 's3Key', 'exportToS3Task_s3Key' - The encryption key for your S3 bucket.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'containerFormat', 'exportToS3Task_containerFormat' - The container format used to combine disk images with metadata (such as</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- OVF). If absent, only the disk image is exported.</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- 's3Bucket', 'exportToS3Task_s3Bucket' - The Amazon S3 bucket for the destination image. The destination bucket</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- must exist and grant WRITE and READ_ACP permissions to the Amazon Web</span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- Services account @vm-import-export\@amazon.com@.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 's3Key', 'exportToS3Task_s3Key' - The encryption key for your S3 bucket.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'diskImageFormat', 'exportToS3Task_diskImageFormat' - The format for the exported image.</span><span>
 </span><span id="line-65"></span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#newExportToS3Task"><span class="hs-identifier hs-type">newExportToS3Task</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-66"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span>
 </span><span id="line-67"></span><span id="newExportToS3Task"><span class="annot"><span class="annottext">newExportToS3Task :: ExportToS3Task
 </span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#newExportToS3Task"><span class="hs-identifier hs-var hs-var">newExportToS3Task</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">ExportToS3Task' :: Maybe ContainerFormat
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">ExportToS3Task' :: Maybe Text
+-&gt; Maybe ContainerFormat
+-&gt; Maybe Text
 -&gt; Maybe DiskImageFormat
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; ExportToS3Task
 </span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerFormat:ExportToS3Task' :: Maybe ContainerFormat
-</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3AcontainerFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var">containerFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerFormat
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Key:ExportToS3Task' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3As3Key%3AExportToS3Task%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:diskImageFormat:ExportToS3Task' :: Maybe DiskImageFormat
-</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3AdiskImageFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var">diskImageFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageFormat
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerFormat:ExportToS3Task' :: Maybe ContainerFormat
+</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3AcontainerFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var">containerFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerFormat
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Bucket:ExportToS3Task' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3As3Bucket%3AExportToS3Task%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Key:ExportToS3Task' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3As3Key%3AExportToS3Task%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:diskImageFormat:ExportToS3Task' :: Maybe DiskImageFormat
+</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3AdiskImageFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var">diskImageFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageFormat
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The container format used to combine disk images with metadata (such as</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- OVF). If absent, only the disk image is exported.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#exportToS3Task_containerFormat"><span class="hs-identifier hs-type">exportToS3Task_containerFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat"><span class="hs-identifier hs-type">ContainerFormat</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="exportToS3Task_containerFormat"><span class="annot"><span class="annottext">exportToS3Task_containerFormat :: (Maybe ContainerFormat -&gt; f (Maybe ContainerFormat))
+</span><span id="line-75"></span><span class="hs-comment">-- | The encryption key for your S3 bucket.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#exportToS3Task_s3Key"><span class="hs-identifier hs-type">exportToS3Task_s3Key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="exportToS3Task_s3Key"><span class="annot"><span class="annottext">exportToS3Task_s3Key :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportToS3Task -&gt; f ExportToS3Task
+</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#exportToS3Task_s3Key"><span class="hs-identifier hs-var hs-var">exportToS3Task_s3Key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportToS3Task -&gt; Maybe Text)
+-&gt; (ExportToS3Task -&gt; Maybe Text -&gt; ExportToS3Task)
+-&gt; Lens ExportToS3Task ExportToS3Task (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681105568"><span class="annot"><span class="annottext">Maybe Text
+s3Key :: Maybe Text
+$sel:s3Key:ExportToS3Task' :: ExportToS3Task -&gt; Maybe Text
+</span><a href="#local-6989586621681105568"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105568"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681105567"><span class="annot"><span class="annottext">s :: ExportToS3Task
+</span><a href="#local-6989586621681105567"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681105566"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105566"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
+</span><a href="#local-6989586621681105567"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Key:ExportToS3Task' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3As3Key%3AExportToS3Task%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105566"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The container format used to combine disk images with metadata (such as</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- OVF). If absent, only the disk image is exported.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#exportToS3Task_containerFormat"><span class="hs-identifier hs-type">exportToS3Task_containerFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ContainerFormat.html#ContainerFormat"><span class="hs-identifier hs-type">ContainerFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="exportToS3Task_containerFormat"><span class="annot"><span class="annottext">exportToS3Task_containerFormat :: (Maybe ContainerFormat -&gt; f (Maybe ContainerFormat))
 -&gt; ExportToS3Task -&gt; f ExportToS3Task
 </span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#exportToS3Task_containerFormat"><span class="hs-identifier hs-var hs-var">exportToS3Task_containerFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportToS3Task -&gt; Maybe ContainerFormat)
 -&gt; (ExportToS3Task -&gt; Maybe ContainerFormat -&gt; ExportToS3Task)
@@ -159,39 +178,16 @@ forall a. Maybe a
      (Maybe ContainerFormat)
      (Maybe ContainerFormat)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681071633"><span class="annot"><span class="annottext">Maybe ContainerFormat
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681105564"><span class="annot"><span class="annottext">Maybe ContainerFormat
 containerFormat :: Maybe ContainerFormat
 $sel:containerFormat:ExportToS3Task' :: ExportToS3Task -&gt; Maybe ContainerFormat
-</span><a href="#local-6989586621681071633"><span class="hs-identifier hs-var hs-var">containerFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerFormat
-</span><a href="#local-6989586621681071633"><span class="hs-identifier hs-var">containerFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681071632"><span class="annot"><span class="annottext">s :: ExportToS3Task
-</span><a href="#local-6989586621681071632"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681071631"><span class="annot"><span class="annottext">Maybe ContainerFormat
-</span><a href="#local-6989586621681071631"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
-</span><a href="#local-6989586621681071632"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerFormat:ExportToS3Task' :: Maybe ContainerFormat
+</span><a href="#local-6989586621681105564"><span class="hs-identifier hs-var hs-var">containerFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerFormat
+</span><a href="#local-6989586621681105564"><span class="hs-identifier hs-var">containerFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681105563"><span class="annot"><span class="annottext">s :: ExportToS3Task
+</span><a href="#local-6989586621681105563"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681105562"><span class="annot"><span class="annottext">Maybe ContainerFormat
+</span><a href="#local-6989586621681105562"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
+</span><a href="#local-6989586621681105563"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerFormat:ExportToS3Task' :: Maybe ContainerFormat
 </span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3AcontainerFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var">containerFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerFormat
-</span><a href="#local-6989586621681071631"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- | The format for the exported image.</span><span>
-</span><span id="line-81"></span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#exportToS3Task_diskImageFormat"><span class="hs-identifier hs-type">exportToS3Task_diskImageFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier hs-type">DiskImageFormat</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-82"></span><span id="exportToS3Task_diskImageFormat"><span class="annot"><span class="annottext">exportToS3Task_diskImageFormat :: (Maybe DiskImageFormat -&gt; f (Maybe DiskImageFormat))
--&gt; ExportToS3Task -&gt; f ExportToS3Task
-</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#exportToS3Task_diskImageFormat"><span class="hs-identifier hs-var hs-var">exportToS3Task_diskImageFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportToS3Task -&gt; Maybe DiskImageFormat)
--&gt; (ExportToS3Task -&gt; Maybe DiskImageFormat -&gt; ExportToS3Task)
--&gt; Lens
-     ExportToS3Task
-     ExportToS3Task
-     (Maybe DiskImageFormat)
-     (Maybe DiskImageFormat)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681071629"><span class="annot"><span class="annottext">Maybe DiskImageFormat
-diskImageFormat :: Maybe DiskImageFormat
-$sel:diskImageFormat:ExportToS3Task' :: ExportToS3Task -&gt; Maybe DiskImageFormat
-</span><a href="#local-6989586621681071629"><span class="hs-identifier hs-var hs-var">diskImageFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageFormat
-</span><a href="#local-6989586621681071629"><span class="hs-identifier hs-var">diskImageFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681071628"><span class="annot"><span class="annottext">s :: ExportToS3Task
-</span><a href="#local-6989586621681071628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681071627"><span class="annot"><span class="annottext">Maybe DiskImageFormat
-</span><a href="#local-6989586621681071627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
-</span><a href="#local-6989586621681071628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskImageFormat:ExportToS3Task' :: Maybe DiskImageFormat
-</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3AdiskImageFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var">diskImageFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageFormat
-</span><a href="#local-6989586621681071627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681105562"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The Amazon S3 bucket for the destination image. The destination bucket</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- must exist and grant WRITE and READ_ACP permissions to the Amazon Web</span><span>
@@ -203,93 +199,100 @@ $sel:diskImageFormat:ExportToS3Task' :: ExportToS3Task -&gt; Maybe DiskImageForm
 -&gt; (ExportToS3Task -&gt; Maybe Text -&gt; ExportToS3Task)
 -&gt; Lens ExportToS3Task ExportToS3Task (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681071625"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681105560"><span class="annot"><span class="annottext">Maybe Text
 s3Bucket :: Maybe Text
 $sel:s3Bucket:ExportToS3Task' :: ExportToS3Task -&gt; Maybe Text
-</span><a href="#local-6989586621681071625"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681071625"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681071624"><span class="annot"><span class="annottext">s :: ExportToS3Task
-</span><a href="#local-6989586621681071624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681071623"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681071623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
-</span><a href="#local-6989586621681071624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:ExportToS3Task' :: Maybe Text
+</span><a href="#local-6989586621681105560"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105560"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681105559"><span class="annot"><span class="annottext">s :: ExportToS3Task
+</span><a href="#local-6989586621681105559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681105558"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
+</span><a href="#local-6989586621681105559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:ExportToS3Task' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3As3Bucket%3AExportToS3Task%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681071623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681105558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | The encryption key for your S3 bucket.</span><span>
-</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#exportToS3Task_s3Key"><span class="hs-identifier hs-type">exportToS3Task_s3Key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span id="exportToS3Task_s3Key"><span class="annot"><span class="annottext">exportToS3Task_s3Key :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-90"></span><span class="hs-comment">-- | The format for the exported image.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#exportToS3Task_diskImageFormat"><span class="hs-identifier hs-type">exportToS3Task_diskImageFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier hs-type">DiskImageFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="exportToS3Task_diskImageFormat"><span class="annot"><span class="annottext">exportToS3Task_diskImageFormat :: (Maybe DiskImageFormat -&gt; f (Maybe DiskImageFormat))
 -&gt; ExportToS3Task -&gt; f ExportToS3Task
-</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#exportToS3Task_s3Key"><span class="hs-identifier hs-var hs-var">exportToS3Task_s3Key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportToS3Task -&gt; Maybe Text)
--&gt; (ExportToS3Task -&gt; Maybe Text -&gt; ExportToS3Task)
--&gt; Lens ExportToS3Task ExportToS3Task (Maybe Text) (Maybe Text)
+</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#exportToS3Task_diskImageFormat"><span class="hs-identifier hs-var hs-var">exportToS3Task_diskImageFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportToS3Task -&gt; Maybe DiskImageFormat)
+-&gt; (ExportToS3Task -&gt; Maybe DiskImageFormat -&gt; ExportToS3Task)
+-&gt; Lens
+     ExportToS3Task
+     ExportToS3Task
+     (Maybe DiskImageFormat)
+     (Maybe DiskImageFormat)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681071621"><span class="annot"><span class="annottext">Maybe Text
-s3Key :: Maybe Text
-$sel:s3Key:ExportToS3Task' :: ExportToS3Task -&gt; Maybe Text
-</span><a href="#local-6989586621681071621"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681071621"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681071620"><span class="annot"><span class="annottext">s :: ExportToS3Task
-</span><a href="#local-6989586621681071620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681071619"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681071619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
-</span><a href="#local-6989586621681071620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Key:ExportToS3Task' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3As3Key%3AExportToS3Task%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681071619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span class="hs-special">)</span><span>
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681105556"><span class="annot"><span class="annottext">Maybe DiskImageFormat
+diskImageFormat :: Maybe DiskImageFormat
+$sel:diskImageFormat:ExportToS3Task' :: ExportToS3Task -&gt; Maybe DiskImageFormat
+</span><a href="#local-6989586621681105556"><span class="hs-identifier hs-var hs-var">diskImageFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageFormat
+</span><a href="#local-6989586621681105556"><span class="hs-identifier hs-var">diskImageFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681105555"><span class="annot"><span class="annottext">s :: ExportToS3Task
+</span><a href="#local-6989586621681105555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681105554"><span class="annot"><span class="annottext">Maybe DiskImageFormat
+</span><a href="#local-6989586621681105554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
+</span><a href="#local-6989586621681105555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskImageFormat:ExportToS3Task' :: Maybe DiskImageFormat
+</span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#%24sel%3AdiskImageFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var">diskImageFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageFormat
+</span><a href="#local-6989586621681105554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621681071616"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ExportToS3Task
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681071614"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681071614"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">Maybe ContainerFormat
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621681105551"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ExportToS3Task
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681105549"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105549"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ContainerFormat
+-&gt; Maybe Text
 -&gt; Maybe DiskImageFormat
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; ExportToS3Task
 </span><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-var">ExportToS3Task'</span></a></span><span>
-</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ContainerFormat
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ContainerFormat
+ -&gt; Maybe Text
  -&gt; Maybe DiskImageFormat
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; ExportToS3Task)
--&gt; Either String (Maybe ContainerFormat)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe DiskImageFormat
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; ExportToS3Task)
+     (Maybe ContainerFormat
+      -&gt; Maybe Text -&gt; Maybe DiskImageFormat -&gt; ExportToS3Task)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681071614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ContainerFormat)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;containerFormat&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe DiskImageFormat
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; ExportToS3Task)
--&gt; Either String (Maybe DiskImageFormat)
--&gt; Either String (Maybe Text -&gt; Maybe Text -&gt; ExportToS3Task)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681071614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DiskImageFormat)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;diskImageFormat&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Text -&gt; ExportToS3Task)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe Text -&gt; ExportToS3Task)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681071614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;s3Bucket&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ExportToS3Task)
--&gt; Either String (Maybe Text) -&gt; Either String ExportToS3Task
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681071614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681105549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;s3Key&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ContainerFormat
+   -&gt; Maybe Text -&gt; Maybe DiskImageFormat -&gt; ExportToS3Task)
+-&gt; Either String (Maybe ContainerFormat)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe DiskImageFormat -&gt; ExportToS3Task)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ContainerFormat)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerFormat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe DiskImageFormat -&gt; ExportToS3Task)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe DiskImageFormat -&gt; ExportToS3Task)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3Bucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe DiskImageFormat -&gt; ExportToS3Task)
+-&gt; Either String (Maybe DiskImageFormat)
+-&gt; Either String ExportToS3Task
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105549"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DiskImageFormat)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;diskImageFormat&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681071608"><span id="local-6989586621681071610"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681105543"><span id="local-6989586621681105545"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681071605"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681105540"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span></span><span>
 </span><span id="line-105"></span></pre></body></html>

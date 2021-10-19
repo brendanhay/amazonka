@@ -44,10 +44,10 @@
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#newUpdateRealtimeLogConfig"><span class="hs-identifier">newUpdateRealtimeLogConfig</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_samplingRate"><span class="hs-identifier">updateRealtimeLogConfig_samplingRate</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_endPoints"><span class="hs-identifier">updateRealtimeLogConfig_endPoints</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_arn"><span class="hs-identifier">updateRealtimeLogConfig_arn</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_name"><span class="hs-identifier">updateRealtimeLogConfig_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_arn"><span class="hs-identifier">updateRealtimeLogConfig_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_samplingRate"><span class="hs-identifier">updateRealtimeLogConfig_samplingRate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_name"><span class="hs-identifier">updateRealtimeLogConfig_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_endPoints"><span class="hs-identifier">updateRealtimeLogConfig_endPoints</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_fields"><span class="hs-identifier">updateRealtimeLogConfig_fields</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -68,23 +68,23 @@
 </span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-69"></span><span>
 </span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newUpdateRealtimeLogConfig' smart constructor.</span><span>
-</span><span id="line-71"></span><span id="local-6989586621679425170"><span id="local-6989586621679425171"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRealtimeLogConfig"><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-var">UpdateRealtimeLogConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRealtimeLogConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">UpdateRealtimeLogConfig'</span></a></span></span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The sampling rate for this real-time log configuration. The sampling</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- rate determines the percentage of viewer requests that are represented</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- in the real-time log data. You must provide an integer between 1 and</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- 100, inclusive.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3AsamplingRate%3AUpdateRealtimeLogConfig%27"><span class="annot"><span class="annottext">UpdateRealtimeLogConfig -&gt; Maybe Integer
-</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3AsamplingRate%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">samplingRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | Contains information about the Amazon Kinesis data stream where you are</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- sending real-time log data.</span><span>
-</span><span id="line-79"></span><span>    </span><span id="%24sel%3AendPoints%3AUpdateRealtimeLogConfig%27"><span class="annot"><span class="annottext">UpdateRealtimeLogConfig -&gt; Maybe [EndPoint]
-</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3AendPoints%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">endPoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for this real-time log configuration.</span><span>
-</span><span id="line-81"></span><span>    </span><span id="%24sel%3Aarn%3AUpdateRealtimeLogConfig%27"><span class="annot"><span class="annottext">UpdateRealtimeLogConfig -&gt; Maybe Text
+</span><span id="line-71"></span><span id="local-6989586621679425454"><span id="local-6989586621679425455"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRealtimeLogConfig"><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-var">UpdateRealtimeLogConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRealtimeLogConfig%27"><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">UpdateRealtimeLogConfig'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for this real-time log configuration.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Aarn%3AUpdateRealtimeLogConfig%27"><span class="annot"><span class="annottext">UpdateRealtimeLogConfig -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3Aarn%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The name for this real-time log configuration.</span><span>
-</span><span id="line-83"></span><span>    </span><span id="%24sel%3Aname%3AUpdateRealtimeLogConfig%27"><span class="annot"><span class="annottext">UpdateRealtimeLogConfig -&gt; Maybe Text
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The sampling rate for this real-time log configuration. The sampling</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- rate determines the percentage of viewer requests that are represented</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- in the real-time log data. You must provide an integer between 1 and</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- 100, inclusive.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AsamplingRate%3AUpdateRealtimeLogConfig%27"><span class="annot"><span class="annottext">UpdateRealtimeLogConfig -&gt; Maybe Integer
+</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3AsamplingRate%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">samplingRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The name for this real-time log configuration.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Aname%3AUpdateRealtimeLogConfig%27"><span class="annot"><span class="annottext">UpdateRealtimeLogConfig -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3Aname%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Contains information about the Amazon Kinesis data stream where you are</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- sending real-time log data.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AendPoints%3AUpdateRealtimeLogConfig%27"><span class="annot"><span class="annottext">UpdateRealtimeLogConfig -&gt; Maybe [EndPoint]
+</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3AendPoints%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">endPoints</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | A list of fields to include in each real-time log record.</span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-comment">-- For more information about fields, see</span><span>
@@ -93,7 +93,7 @@
 </span><span id="line-89"></span><span>    </span><span id="%24sel%3Afields%3AUpdateRealtimeLogConfig%27"><span class="annot"><span class="annottext">UpdateRealtimeLogConfig -&gt; Maybe [Text]
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3Afields%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425160"><span id="local-6989586621679425162"><span class="annot"><span class="annottext">UpdateRealtimeLogConfig -&gt; UpdateRealtimeLogConfig -&gt; Bool
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425444"><span id="local-6989586621679425446"><span class="annot"><span class="annottext">UpdateRealtimeLogConfig -&gt; UpdateRealtimeLogConfig -&gt; Bool
 (UpdateRealtimeLogConfig -&gt; UpdateRealtimeLogConfig -&gt; Bool)
 -&gt; (UpdateRealtimeLogConfig -&gt; UpdateRealtimeLogConfig -&gt; Bool)
 -&gt; Eq UpdateRealtimeLogConfig
@@ -102,7 +102,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: UpdateRealtimeLogConfig -&gt; UpdateRealtimeLogConfig -&gt; Bool
 == :: UpdateRealtimeLogConfig -&gt; UpdateRealtimeLogConfig -&gt; Bool
 $c== :: UpdateRealtimeLogConfig -&gt; UpdateRealtimeLogConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425151"><span id="local-6989586621679425153"><span id="local-6989586621679425155"><span id="local-6989586621679425157"><span class="annot"><span class="annottext">ReadPrec [UpdateRealtimeLogConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425435"><span id="local-6989586621679425437"><span id="local-6989586621679425439"><span id="local-6989586621679425441"><span class="annot"><span class="annottext">ReadPrec [UpdateRealtimeLogConfig]
 ReadPrec UpdateRealtimeLogConfig
 Int -&gt; ReadS UpdateRealtimeLogConfig
 ReadS [UpdateRealtimeLogConfig]
@@ -122,7 +122,7 @@ readList :: ReadS [UpdateRealtimeLogConfig]
 $creadList :: ReadS [UpdateRealtimeLogConfig]
 readsPrec :: Int -&gt; ReadS UpdateRealtimeLogConfig
 $creadsPrec :: Int -&gt; ReadS UpdateRealtimeLogConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425144"><span id="local-6989586621679425146"><span id="local-6989586621679425148"><span class="annot"><span class="annottext">Int -&gt; UpdateRealtimeLogConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425428"><span id="local-6989586621679425430"><span id="local-6989586621679425432"><span class="annot"><span class="annottext">Int -&gt; UpdateRealtimeLogConfig -&gt; ShowS
 [UpdateRealtimeLogConfig] -&gt; ShowS
 UpdateRealtimeLogConfig -&gt; String
 (Int -&gt; UpdateRealtimeLogConfig -&gt; ShowS)
@@ -158,17 +158,17 @@ $cfrom :: forall x. UpdateRealtimeLogConfig -&gt; Rep UpdateRealtimeLogConfig x
 </span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'samplingRate', 'updateRealtimeLogConfig_samplingRate' - The sampling rate for this real-time log configuration. The sampling</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- rate determines the percentage of viewer requests that are represented</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- in the real-time log data. You must provide an integer between 1 and</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- 100, inclusive.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- 'endPoints', 'updateRealtimeLogConfig_endPoints' - Contains information about the Amazon Kinesis data stream where you are</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- sending real-time log data.</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- 'arn', 'updateRealtimeLogConfig_arn' - The Amazon Resource Name (ARN) for this real-time log configuration.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'name', 'updateRealtimeLogConfig_name' - The name for this real-time log configuration.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'arn', 'updateRealtimeLogConfig_arn' - The Amazon Resource Name (ARN) for this real-time log configuration.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'samplingRate', 'updateRealtimeLogConfig_samplingRate' - The sampling rate for this real-time log configuration. The sampling</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- rate determines the percentage of viewer requests that are represented</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- in the real-time log data. You must provide an integer between 1 and</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 100, inclusive.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'name', 'updateRealtimeLogConfig_name' - The name for this real-time log configuration.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'endPoints', 'updateRealtimeLogConfig_endPoints' - Contains information about the Amazon Kinesis data stream where you are</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- sending real-time log data.</span><span>
 </span><span id="line-112"></span><span class="hs-comment">--</span><span>
 </span><span id="line-113"></span><span class="hs-comment">-- 'fields', 'updateRealtimeLogConfig_fields' - A list of fields to include in each real-time log record.</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
@@ -179,42 +179,65 @@ $cfrom :: forall x. UpdateRealtimeLogConfig -&gt; Rep UpdateRealtimeLogConfig x
 </span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span>
 </span><span id="line-120"></span><span id="newUpdateRealtimeLogConfig"><span class="annot"><span class="annottext">newUpdateRealtimeLogConfig :: UpdateRealtimeLogConfig
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#newUpdateRealtimeLogConfig"><span class="hs-identifier hs-var hs-var">newUpdateRealtimeLogConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfig' :: Maybe Integer
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfig' :: Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
 -&gt; Maybe [EndPoint]
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe [Text]
 -&gt; UpdateRealtimeLogConfig
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:samplingRate:UpdateRealtimeLogConfig' :: Maybe Integer
-</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3AsamplingRate%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">samplingRate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:endPoints:UpdateRealtimeLogConfig' :: Maybe [EndPoint]
-</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3AendPoints%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">endPoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EndPoint]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:UpdateRealtimeLogConfig' :: Maybe Text
+</span><span id="line-122"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:UpdateRealtimeLogConfig' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3Aarn%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateRealtimeLogConfig' :: Maybe Text
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:samplingRate:UpdateRealtimeLogConfig' :: Maybe Integer
+</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3AsamplingRate%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">samplingRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateRealtimeLogConfig' :: Maybe Text
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3Aname%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:fields:UpdateRealtimeLogConfig' :: Maybe [Text]
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:endPoints:UpdateRealtimeLogConfig' :: Maybe [EndPoint]
+</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3AendPoints%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">endPoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EndPoint]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:fields:UpdateRealtimeLogConfig' :: Maybe [Text]
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3Afields%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">fields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The sampling rate for this real-time log configuration. The sampling</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- rate determines the percentage of viewer requests that are represented</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- in the real-time log data. You must provide an integer between 1 and</span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- 100, inclusive.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_samplingRate"><span class="hs-identifier hs-type">updateRealtimeLogConfig_samplingRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="updateRealtimeLogConfig_samplingRate"><span class="annot"><span class="annottext">updateRealtimeLogConfig_samplingRate :: (Maybe Integer -&gt; f (Maybe Integer))
+</span><span id="line-127"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for this real-time log configuration.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_arn"><span class="hs-identifier hs-type">updateRealtimeLogConfig_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="updateRealtimeLogConfig_arn"><span class="annot"><span class="annottext">updateRealtimeLogConfig_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRealtimeLogConfig -&gt; f UpdateRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_arn"><span class="hs-identifier hs-var hs-var">updateRealtimeLogConfig_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRealtimeLogConfig -&gt; Maybe Text)
+-&gt; (UpdateRealtimeLogConfig
+    -&gt; Maybe Text -&gt; UpdateRealtimeLogConfig)
+-&gt; Lens
+     UpdateRealtimeLogConfig
+     UpdateRealtimeLogConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425421"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679425421"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425421"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425420"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfig
+</span><a href="#local-6989586621679425420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425419"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfig
+</span><a href="#local-6989586621679425420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateRealtimeLogConfig' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3Aarn%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The sampling rate for this real-time log configuration. The sampling</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- rate determines the percentage of viewer requests that are represented</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- in the real-time log data. You must provide an integer between 1 and</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 100, inclusive.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_samplingRate"><span class="hs-identifier hs-type">updateRealtimeLogConfig_samplingRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="updateRealtimeLogConfig_samplingRate"><span class="annot"><span class="annottext">updateRealtimeLogConfig_samplingRate :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; UpdateRealtimeLogConfig -&gt; f UpdateRealtimeLogConfig
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_samplingRate"><span class="hs-identifier hs-var hs-var">updateRealtimeLogConfig_samplingRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRealtimeLogConfig -&gt; Maybe Integer)
 -&gt; (UpdateRealtimeLogConfig
@@ -225,21 +248,45 @@ forall a. Maybe a
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425137"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425418"><span class="annot"><span class="annottext">Maybe Integer
 samplingRate :: Maybe Integer
 $sel:samplingRate:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe Integer
-</span><a href="#local-6989586621679425137"><span class="hs-identifier hs-var hs-var">samplingRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679425137"><span class="hs-identifier hs-var">samplingRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425136"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfig
-</span><a href="#local-6989586621679425136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425135"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679425135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfig
-</span><a href="#local-6989586621679425136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:samplingRate:UpdateRealtimeLogConfig' :: Maybe Integer
+</span><a href="#local-6989586621679425418"><span class="hs-identifier hs-var hs-var">samplingRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679425418"><span class="hs-identifier hs-var">samplingRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425417"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfig
+</span><a href="#local-6989586621679425417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425416"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679425416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfig
+</span><a href="#local-6989586621679425417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:samplingRate:UpdateRealtimeLogConfig' :: Maybe Integer
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3AsamplingRate%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">samplingRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679425135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | Contains information about the Amazon Kinesis data stream where you are</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- sending real-time log data.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_endPoints"><span class="hs-identifier hs-type">updateRealtimeLogConfig_endPoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="updateRealtimeLogConfig_endPoints"><span class="annot"><span class="annottext">updateRealtimeLogConfig_endPoints :: (Maybe [EndPoint] -&gt; f (Maybe [EndPoint]))
+</span><a href="#local-6989586621679425416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The name for this real-time log configuration.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_name"><span class="hs-identifier hs-type">updateRealtimeLogConfig_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="updateRealtimeLogConfig_name"><span class="annot"><span class="annottext">updateRealtimeLogConfig_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateRealtimeLogConfig -&gt; f UpdateRealtimeLogConfig
+</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_name"><span class="hs-identifier hs-var hs-var">updateRealtimeLogConfig_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRealtimeLogConfig -&gt; Maybe Text)
+-&gt; (UpdateRealtimeLogConfig
+    -&gt; Maybe Text -&gt; UpdateRealtimeLogConfig)
+-&gt; Lens
+     UpdateRealtimeLogConfig
+     UpdateRealtimeLogConfig
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425415"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679425415"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425415"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425414"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfig
+</span><a href="#local-6989586621679425414"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425413"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425413"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfig
+</span><a href="#local-6989586621679425414"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateRealtimeLogConfig' :: Maybe Text
+</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3Aname%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425413"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | Contains information about the Amazon Kinesis data stream where you are</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- sending real-time log data.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_endPoints"><span class="hs-identifier hs-type">updateRealtimeLogConfig_endPoints</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudFront.Types.EndPoint.html#EndPoint"><span class="hs-identifier hs-type">EndPoint</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="updateRealtimeLogConfig_endPoints"><span class="annot"><span class="annottext">updateRealtimeLogConfig_endPoints :: (Maybe [EndPoint] -&gt; f (Maybe [EndPoint]))
 -&gt; UpdateRealtimeLogConfig -&gt; f UpdateRealtimeLogConfig
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_endPoints"><span class="hs-identifier hs-var hs-var">updateRealtimeLogConfig_endPoints</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRealtimeLogConfig -&gt; Maybe [EndPoint])
 -&gt; (UpdateRealtimeLogConfig
@@ -250,16 +297,16 @@ $sel:samplingRate:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Mayb
      (Maybe [EndPoint])
      (Maybe [EndPoint])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425134"><span class="annot"><span class="annottext">Maybe [EndPoint]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425412"><span class="annot"><span class="annottext">Maybe [EndPoint]
 endPoints :: Maybe [EndPoint]
 $sel:endPoints:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe [EndPoint]
-</span><a href="#local-6989586621679425134"><span class="hs-identifier hs-var hs-var">endPoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EndPoint]
-</span><a href="#local-6989586621679425134"><span class="hs-identifier hs-var">endPoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425133"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfig
-</span><a href="#local-6989586621679425133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425132"><span class="annot"><span class="annottext">Maybe [EndPoint]
-</span><a href="#local-6989586621679425132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfig
-</span><a href="#local-6989586621679425133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endPoints:UpdateRealtimeLogConfig' :: Maybe [EndPoint]
+</span><a href="#local-6989586621679425412"><span class="hs-identifier hs-var hs-var">endPoints</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EndPoint]
+</span><a href="#local-6989586621679425412"><span class="hs-identifier hs-var">endPoints</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425411"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfig
+</span><a href="#local-6989586621679425411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425410"><span class="annot"><span class="annottext">Maybe [EndPoint]
+</span><a href="#local-6989586621679425410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfig
+</span><a href="#local-6989586621679425411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endPoints:UpdateRealtimeLogConfig' :: Maybe [EndPoint]
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3AendPoints%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">endPoints</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EndPoint]
-</span><a href="#local-6989586621679425132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EndPoint] -&gt; f (Maybe [EndPoint]))
+</span><a href="#local-6989586621679425410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EndPoint] -&gt; f (Maybe [EndPoint]))
  -&gt; UpdateRealtimeLogConfig -&gt; f UpdateRealtimeLogConfig)
 -&gt; ((Maybe [EndPoint] -&gt; f (Maybe [EndPoint]))
     -&gt; Maybe [EndPoint] -&gt; f (Maybe [EndPoint]))
@@ -277,64 +324,16 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [EndPoint] [EndPoint] [EndPoint] [EndPoint]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for this real-time log configuration.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_arn"><span class="hs-identifier hs-type">updateRealtimeLogConfig_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="updateRealtimeLogConfig_arn"><span class="annot"><span class="annottext">updateRealtimeLogConfig_arn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateRealtimeLogConfig -&gt; f UpdateRealtimeLogConfig
-</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_arn"><span class="hs-identifier hs-var hs-var">updateRealtimeLogConfig_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRealtimeLogConfig -&gt; Maybe Text)
--&gt; (UpdateRealtimeLogConfig
-    -&gt; Maybe Text -&gt; UpdateRealtimeLogConfig)
--&gt; Lens
-     UpdateRealtimeLogConfig
-     UpdateRealtimeLogConfig
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425128"><span class="annot"><span class="annottext">Maybe Text
-arn :: Maybe Text
-$sel:arn:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679425128"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425128"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425127"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfig
-</span><a href="#local-6989586621679425127"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425126"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425126"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfig
-</span><a href="#local-6989586621679425127"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:UpdateRealtimeLogConfig' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3Aarn%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425126"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | The name for this real-time log configuration.</span><span>
-</span><span id="line-147"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_name"><span class="hs-identifier hs-type">updateRealtimeLogConfig_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span id="updateRealtimeLogConfig_name"><span class="annot"><span class="annottext">updateRealtimeLogConfig_name :: (Maybe Text -&gt; f (Maybe Text))
--&gt; UpdateRealtimeLogConfig -&gt; f UpdateRealtimeLogConfig
-</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_name"><span class="hs-identifier hs-var hs-var">updateRealtimeLogConfig_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRealtimeLogConfig -&gt; Maybe Text)
--&gt; (UpdateRealtimeLogConfig
-    -&gt; Maybe Text -&gt; UpdateRealtimeLogConfig)
--&gt; Lens
-     UpdateRealtimeLogConfig
-     UpdateRealtimeLogConfig
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425125"><span class="annot"><span class="annottext">Maybe Text
-name :: Maybe Text
-$sel:name:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe Text
-</span><a href="#local-6989586621679425125"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425125"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425124"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfig
-</span><a href="#local-6989586621679425124"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425123"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425123"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfig
-</span><a href="#local-6989586621679425124"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateRealtimeLogConfig' :: Maybe Text
-</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3Aname%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425123"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- | A list of fields to include in each real-time log record.</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- For more information about fields, see</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields&gt;</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_fields"><span class="hs-identifier hs-type">updateRealtimeLogConfig_fields</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="updateRealtimeLogConfig_fields"><span class="annot"><span class="annottext">updateRealtimeLogConfig_fields :: (Maybe [Text] -&gt; f (Maybe [Text]))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | A list of fields to include in each real-time log record.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- For more information about fields, see</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields&gt;</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_fields"><span class="hs-identifier hs-type">updateRealtimeLogConfig_fields</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="updateRealtimeLogConfig_fields"><span class="annot"><span class="annottext">updateRealtimeLogConfig_fields :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; UpdateRealtimeLogConfig -&gt; f UpdateRealtimeLogConfig
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfig_fields"><span class="hs-identifier hs-var hs-var">updateRealtimeLogConfig_fields</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRealtimeLogConfig -&gt; Maybe [Text])
 -&gt; (UpdateRealtimeLogConfig
@@ -345,16 +344,16 @@ $sel:name:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe Text
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425122"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425406"><span class="annot"><span class="annottext">Maybe [Text]
 fields :: Maybe [Text]
 $sel:fields:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe [Text]
-</span><a href="#local-6989586621679425122"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425122"><span class="hs-identifier hs-var">fields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425121"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfig
-</span><a href="#local-6989586621679425121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425120"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfig
-</span><a href="#local-6989586621679425121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fields:UpdateRealtimeLogConfig' :: Maybe [Text]
+</span><a href="#local-6989586621679425406"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679425406"><span class="hs-identifier hs-var">fields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425405"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfig
+</span><a href="#local-6989586621679425405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425404"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679425404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfig
+</span><a href="#local-6989586621679425405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fields:UpdateRealtimeLogConfig' :: Maybe [Text]
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3Afields%3AUpdateRealtimeLogConfig%27"><span class="hs-identifier hs-var">fields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679425404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; UpdateRealtimeLogConfig -&gt; f UpdateRealtimeLogConfig)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -368,27 +367,27 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-160"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-161"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span><span>
-</span><span id="line-162"></span><span>  </span><span id="local-6989586621679425116"><span class="annot"><span class="annottext">request :: UpdateRealtimeLogConfig -&gt; Request UpdateRealtimeLogConfig
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-159"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679425400"><span class="annot"><span class="annottext">request :: UpdateRealtimeLogConfig -&gt; Request UpdateRealtimeLogConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; UpdateRealtimeLogConfig -&gt; Request UpdateRealtimeLogConfig
 forall a. (ToRequest a, ToElement a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putXML</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-163"></span><span>  </span><span id="local-6989586621679425112"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679425396"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy UpdateRealtimeLogConfig
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse UpdateRealtimeLogConfig)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; [Node]
  -&gt; Either String (AWSResponse UpdateRealtimeLogConfig))
@@ -407,22 +406,22 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-165"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679425109"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425109"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679425108"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679425108"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679425107"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679425107"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfig -&gt; Int -&gt; UpdateRealtimeLogConfigResponse
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679425393"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425393"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679425392"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679425392"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679425391"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679425391"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfig -&gt; Int -&gt; UpdateRealtimeLogConfigResponse
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">UpdateRealtimeLogConfigResponse'</span></a></span><span>
-</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RealtimeLogConfig -&gt; Int -&gt; UpdateRealtimeLogConfigResponse)
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RealtimeLogConfig -&gt; Int -&gt; UpdateRealtimeLogConfigResponse)
 -&gt; Either String (Maybe RealtimeLogConfig)
 -&gt; Either String (Int -&gt; UpdateRealtimeLogConfigResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679425107"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe RealtimeLogConfig)
+</span><a href="#local-6989586621679425391"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe RealtimeLogConfig)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RealtimeLogConfig&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateRealtimeLogConfigResponse)
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateRealtimeLogConfigResponse)
 -&gt; Either String Int
 -&gt; Either String UpdateRealtimeLogConfigResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -431,121 +430,121 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425109"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span>
-</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425099"><span id="local-6989586621679425101"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span></span></span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425096"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span></span><span>
-</span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679425092"><span class="annot"><span class="annottext">toElement :: UpdateRealtimeLogConfig -&gt; Element
+</span><a href="#local-6989586621679425393"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425383"><span id="local-6989586621679425385"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span></span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679425380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToElement</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679425376"><span class="annot"><span class="annottext">toElement :: UpdateRealtimeLogConfig -&gt; Element
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toElement</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; UpdateRealtimeLogConfig -&gt; Element
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">Name -&gt; UpdateRealtimeLogConfig -&gt; Element
 forall a. ToXML a =&gt; Name -&gt; a -&gt; Element
 </span><span class="hs-identifier hs-var">Core.mkElement</span></span><span>
-</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">Name
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;{http://cloudfront.amazonaws.com/doc/2020-05-31/}UpdateRealtimeLogConfigRequest&quot;</span></span><span>
-</span><span id="line-179"></span><span>
-</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679425087"><span class="annot"><span class="annottext">toHeaders :: UpdateRealtimeLogConfig -&gt; ResponseHeaders
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679425371"><span class="annot"><span class="annottext">toHeaders :: UpdateRealtimeLogConfig -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateRealtimeLogConfig -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-182"></span><span>
-</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679425082"><span class="annot"><span class="annottext">toPath :: UpdateRealtimeLogConfig -&gt; ByteString
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679425366"><span class="annot"><span class="annottext">toPath :: UpdateRealtimeLogConfig -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRealtimeLogConfig -&gt; ByteString
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateRealtimeLogConfig -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2020-05-31/realtime-log-config/&quot;</span></span><span>
-</span><span id="line-186"></span><span>
-</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-188"></span><span>  </span><span id="local-6989586621679425078"><span class="annot"><span class="annottext">toQuery :: UpdateRealtimeLogConfig -&gt; QueryString
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679425362"><span class="annot"><span class="annottext">toQuery :: UpdateRealtimeLogConfig -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateRealtimeLogConfig -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-189"></span><span>
-</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679425074"><span class="annot"><span class="annottext">toXML :: UpdateRealtimeLogConfig -&gt; XML
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425068"><span id="local-6989586621679425069"><span id="local-6989586621679425070"><span id="local-6989586621679425071"><span id="local-6989586621679425072"><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679425358"><span class="annot"><span class="annottext">toXML :: UpdateRealtimeLogConfig -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfig%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425352"><span id="local-6989586621679425353"><span id="local-6989586621679425354"><span id="local-6989586621679425355"><span id="local-6989586621679425356"><span class="annot"><span class="annottext">Maybe Integer
 Maybe [Text]
 Maybe [EndPoint]
 Maybe Text
 fields :: Maybe [Text]
-name :: Maybe Text
-arn :: Maybe Text
 endPoints :: Maybe [EndPoint]
+name :: Maybe Text
 samplingRate :: Maybe Integer
+arn :: Maybe Text
 $sel:fields:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe [Text]
-$sel:name:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe Text
-$sel:arn:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe Text
 $sel:endPoints:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe [EndPoint]
+$sel:name:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe Text
 $sel:samplingRate:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe Integer
-</span><a href="#local-6989586621679425068"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+$sel:arn:UpdateRealtimeLogConfig' :: UpdateRealtimeLogConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679425352"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-193"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span id="line-192"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;ARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425356"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;SamplingRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Integer -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679425072"><span class="hs-identifier hs-var">samplingRate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679425355"><span class="hs-identifier hs-var">samplingRate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425354"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;EndPoints&quot;</span></span><span>
-</span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
+</span><span id="line-196"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe XML -&gt; XML
 forall a. ToXML a =&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXML</span></span><span>
-</span><span id="line-196"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Name -&gt; [EndPoint] -&gt; XML
+</span><span id="line-197"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Name -&gt; [EndPoint] -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">([EndPoint] -&gt; XML) -&gt; Maybe [EndPoint] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EndPoint]
-</span><a href="#local-6989586621679425071"><span class="hs-identifier hs-var">endPoints</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;ARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425070"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679425353"><span class="hs-identifier hs-var">endPoints</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Name
-</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Maybe Text -&gt; XML
-forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
-</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679425069"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Fields&quot;</span></span><span>
-</span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
+</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; XML -&gt; XML
 forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe XML -&gt; XML
 forall a. ToXML a =&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXML</span></span><span>
-</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Name -&gt; [Text] -&gt; XML
+</span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Name -&gt; [Text] -&gt; XML
 forall a. (IsList a, ToXML (Item a)) =&gt; Name -&gt; a -&gt; XML
 </span><span class="hs-identifier hs-var">Core.toXMLList</span></span><span> </span><span class="annot"><span class="annottext">Name
 </span><span class="hs-string">&quot;Field&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; XML) -&gt; Maybe [Text] -&gt; Maybe XML
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679425068"><span class="hs-identifier hs-var">fields</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span>      </span><span class="hs-special">]</span><span>
-</span><span id="line-203"></span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- | /See:/ 'newUpdateRealtimeLogConfigResponse' smart constructor.</span><span>
-</span><span id="line-205"></span><span id="local-6989586621679425064"><span id="local-6989586621679425065"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRealtimeLogConfigResponse"><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-var">UpdateRealtimeLogConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRealtimeLogConfigResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">UpdateRealtimeLogConfigResponse'</span></a></span></span><span>
-</span><span id="line-206"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A real-time log configuration.</span><span>
-</span><span id="line-207"></span><span>    </span><span id="%24sel%3ArealtimeLogConfig%3AUpdateRealtimeLogConfigResponse%27"><span class="annot"><span class="annottext">UpdateRealtimeLogConfigResponse -&gt; Maybe RealtimeLogConfig
+</span><a href="#local-6989586621679425352"><span class="hs-identifier hs-var">fields</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | /See:/ 'newUpdateRealtimeLogConfigResponse' smart constructor.</span><span>
+</span><span id="line-204"></span><span id="local-6989586621679425348"><span id="local-6989586621679425349"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateRealtimeLogConfigResponse"><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-var">UpdateRealtimeLogConfigResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateRealtimeLogConfigResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">UpdateRealtimeLogConfigResponse'</span></a></span></span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A real-time log configuration.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3ArealtimeLogConfig%3AUpdateRealtimeLogConfigResponse%27"><span class="annot"><span class="annottext">UpdateRealtimeLogConfigResponse -&gt; Maybe RealtimeLogConfig
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3ArealtimeLogConfig%3AUpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var hs-var">realtimeLogConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeLogConfig.html#RealtimeLogConfig"><span class="hs-identifier hs-type">RealtimeLogConfig</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-209"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRealtimeLogConfigResponse%27"><span class="annot"><span class="annottext">UpdateRealtimeLogConfigResponse -&gt; Int
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateRealtimeLogConfigResponse%27"><span class="annot"><span class="annottext">UpdateRealtimeLogConfigResponse -&gt; Int
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3AhttpStatus%3AUpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-210"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-211"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425058"><span id="local-6989586621679425060"><span class="annot"><span class="annottext">UpdateRealtimeLogConfigResponse
+</span><span id="line-209"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425342"><span id="local-6989586621679425344"><span class="annot"><span class="annottext">UpdateRealtimeLogConfigResponse
 -&gt; UpdateRealtimeLogConfigResponse -&gt; Bool
 (UpdateRealtimeLogConfigResponse
  -&gt; UpdateRealtimeLogConfigResponse -&gt; Bool)
@@ -561,7 +560,7 @@ $c/= :: UpdateRealtimeLogConfigResponse
 -&gt; UpdateRealtimeLogConfigResponse -&gt; Bool
 $c== :: UpdateRealtimeLogConfigResponse
 -&gt; UpdateRealtimeLogConfigResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425050"><span id="local-6989586621679425052"><span id="local-6989586621679425054"><span id="local-6989586621679425056"><span class="annot"><span class="annottext">ReadPrec [UpdateRealtimeLogConfigResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425334"><span id="local-6989586621679425336"><span id="local-6989586621679425338"><span id="local-6989586621679425340"><span class="annot"><span class="annottext">ReadPrec [UpdateRealtimeLogConfigResponse]
 ReadPrec UpdateRealtimeLogConfigResponse
 Int -&gt; ReadS UpdateRealtimeLogConfigResponse
 ReadS [UpdateRealtimeLogConfigResponse]
@@ -581,7 +580,7 @@ readList :: ReadS [UpdateRealtimeLogConfigResponse]
 $creadList :: ReadS [UpdateRealtimeLogConfigResponse]
 readsPrec :: Int -&gt; ReadS UpdateRealtimeLogConfigResponse
 $creadsPrec :: Int -&gt; ReadS UpdateRealtimeLogConfigResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425044"><span id="local-6989586621679425046"><span id="local-6989586621679425048"><span class="annot"><span class="annottext">Int -&gt; UpdateRealtimeLogConfigResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425328"><span id="local-6989586621679425330"><span id="local-6989586621679425332"><span class="annot"><span class="annottext">Int -&gt; UpdateRealtimeLogConfigResponse -&gt; ShowS
 [UpdateRealtimeLogConfigResponse] -&gt; ShowS
 UpdateRealtimeLogConfigResponse -&gt; String
 (Int -&gt; UpdateRealtimeLogConfigResponse -&gt; ShowS)
@@ -618,40 +617,40 @@ $cfrom :: forall x.
 UpdateRealtimeLogConfigResponse
 -&gt; Rep UpdateRealtimeLogConfigResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- Create a value of 'UpdateRealtimeLogConfigResponse' with all optional fields omitted.</span><span>
-</span><span id="line-215"></span><span class="hs-comment">--</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-217"></span><span class="hs-comment">--</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-220"></span><span class="hs-comment">--</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- 'realtimeLogConfig', 'updateRealtimeLogConfigResponse_realtimeLogConfig' - A real-time log configuration.</span><span>
-</span><span id="line-222"></span><span class="hs-comment">--</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- 'httpStatus', 'updateRealtimeLogConfigResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-224"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#newUpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">newUpdateRealtimeLogConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-225"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-227"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span><span>
-</span><span id="line-228"></span><span id="newUpdateRealtimeLogConfigResponse"><span class="annot"><span class="annottext">newUpdateRealtimeLogConfigResponse :: Int -&gt; UpdateRealtimeLogConfigResponse
-</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#newUpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-var hs-var">newUpdateRealtimeLogConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679425041"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425041"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-229"></span><span>  </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfigResponse' :: Maybe RealtimeLogConfig -&gt; Int -&gt; UpdateRealtimeLogConfigResponse
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Create a value of 'UpdateRealtimeLogConfigResponse' with all optional fields omitted.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'realtimeLogConfig', 'updateRealtimeLogConfigResponse_realtimeLogConfig' - A real-time log configuration.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'httpStatus', 'updateRealtimeLogConfigResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#newUpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">newUpdateRealtimeLogConfigResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-224"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span><span>
+</span><span id="line-227"></span><span id="newUpdateRealtimeLogConfigResponse"><span class="annot"><span class="annottext">newUpdateRealtimeLogConfigResponse :: Int -&gt; UpdateRealtimeLogConfigResponse
+</span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#newUpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-var hs-var">newUpdateRealtimeLogConfigResponse</span></a></span></span><span> </span><span id="local-6989586621679425325"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfigResponse' :: Maybe RealtimeLogConfig -&gt; Int -&gt; UpdateRealtimeLogConfigResponse
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse'</span></a></span><span>
-</span><span id="line-230"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:realtimeLogConfig:UpdateRealtimeLogConfigResponse' :: Maybe RealtimeLogConfig
+</span><span id="line-229"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:realtimeLogConfig:UpdateRealtimeLogConfigResponse' :: Maybe RealtimeLogConfig
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3ArealtimeLogConfig%3AUpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">realtimeLogConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
+</span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRealtimeLogConfigResponse' :: Int
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRealtimeLogConfigResponse' :: Int
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3AhttpStatus%3AUpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425041"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-233"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- | A real-time log configuration.</span><span>
-</span><span id="line-236"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfigResponse_realtimeLogConfig"><span class="hs-identifier hs-type">updateRealtimeLogConfigResponse_realtimeLogConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeLogConfig.html#RealtimeLogConfig"><span class="hs-identifier hs-type">RealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-237"></span><span id="updateRealtimeLogConfigResponse_realtimeLogConfig"><span class="annot"><span class="annottext">updateRealtimeLogConfigResponse_realtimeLogConfig :: (Maybe RealtimeLogConfig -&gt; f (Maybe RealtimeLogConfig))
+</span><a href="#local-6989586621679425325"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | A real-time log configuration.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfigResponse_realtimeLogConfig"><span class="hs-identifier hs-type">updateRealtimeLogConfigResponse_realtimeLogConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.Types.RealtimeLogConfig.html#RealtimeLogConfig"><span class="hs-identifier hs-type">RealtimeLogConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="updateRealtimeLogConfigResponse_realtimeLogConfig"><span class="annot"><span class="annottext">updateRealtimeLogConfigResponse_realtimeLogConfig :: (Maybe RealtimeLogConfig -&gt; f (Maybe RealtimeLogConfig))
 -&gt; UpdateRealtimeLogConfigResponse
 -&gt; f UpdateRealtimeLogConfigResponse
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfigResponse_realtimeLogConfig"><span class="hs-identifier hs-var hs-var">updateRealtimeLogConfigResponse_realtimeLogConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRealtimeLogConfigResponse -&gt; Maybe RealtimeLogConfig)
@@ -663,20 +662,20 @@ forall a. Maybe a
      (Maybe RealtimeLogConfig)
      (Maybe RealtimeLogConfig)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425040"><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425324"><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
 realtimeLogConfig :: Maybe RealtimeLogConfig
 $sel:realtimeLogConfig:UpdateRealtimeLogConfigResponse' :: UpdateRealtimeLogConfigResponse -&gt; Maybe RealtimeLogConfig
-</span><a href="#local-6989586621679425040"><span class="hs-identifier hs-var hs-var">realtimeLogConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
-</span><a href="#local-6989586621679425040"><span class="hs-identifier hs-var">realtimeLogConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425039"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfigResponse
-</span><a href="#local-6989586621679425039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425038"><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
-</span><a href="#local-6989586621679425038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfigResponse
-</span><a href="#local-6989586621679425039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realtimeLogConfig:UpdateRealtimeLogConfigResponse' :: Maybe RealtimeLogConfig
+</span><a href="#local-6989586621679425324"><span class="hs-identifier hs-var hs-var">realtimeLogConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
+</span><a href="#local-6989586621679425324"><span class="hs-identifier hs-var">realtimeLogConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425323"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfigResponse
+</span><a href="#local-6989586621679425323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425322"><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
+</span><a href="#local-6989586621679425322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfigResponse
+</span><a href="#local-6989586621679425323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realtimeLogConfig:UpdateRealtimeLogConfigResponse' :: Maybe RealtimeLogConfig
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3ArealtimeLogConfig%3AUpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">realtimeLogConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeLogConfig
-</span><a href="#local-6989586621679425038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-238"></span><span>
-</span><span id="line-239"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-240"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfigResponse_httpStatus"><span class="hs-identifier hs-type">updateRealtimeLogConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-241"></span><span id="updateRealtimeLogConfigResponse_httpStatus"><span class="annot"><span class="annottext">updateRealtimeLogConfigResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679425322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfigResponse_httpStatus"><span class="hs-identifier hs-type">updateRealtimeLogConfigResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-240"></span><span id="updateRealtimeLogConfigResponse_httpStatus"><span class="annot"><span class="annottext">updateRealtimeLogConfigResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; UpdateRealtimeLogConfigResponse
 -&gt; f UpdateRealtimeLogConfigResponse
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#updateRealtimeLogConfigResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateRealtimeLogConfigResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateRealtimeLogConfigResponse -&gt; Int)
@@ -688,18 +687,18 @@ $sel:realtimeLogConfig:UpdateRealtimeLogConfigResponse' :: UpdateRealtimeLogConf
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425037"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425321"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:UpdateRealtimeLogConfigResponse' :: UpdateRealtimeLogConfigResponse -&gt; Int
-</span><a href="#local-6989586621679425037"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425037"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425036"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfigResponse
-</span><a href="#local-6989586621679425036"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425035"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425035"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfigResponse
-</span><a href="#local-6989586621679425036"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRealtimeLogConfigResponse' :: Int
+</span><a href="#local-6989586621679425321"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425321"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425320"><span class="annot"><span class="annottext">s :: UpdateRealtimeLogConfigResponse
+</span><a href="#local-6989586621679425320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425319"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679425319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateRealtimeLogConfigResponse
+</span><a href="#local-6989586621679425320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateRealtimeLogConfigResponse' :: Int
 </span><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#%24sel%3AhttpStatus%3AUpdateRealtimeLogConfigResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679425035"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-242"></span><span>
-</span><span id="line-243"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-244"></span><span>  </span><span id="local-6989586621679425033"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span></span><span>
-</span><span id="line-246"></span></pre></body></html>
+</span><a href="#local-6989586621679425319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679425317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.UpdateRealtimeLogConfig.html#UpdateRealtimeLogConfigResponse"><span class="hs-identifier hs-type">UpdateRealtimeLogConfigResponse</span></a></span></span><span>
+</span><span id="line-245"></span></pre></body></html>

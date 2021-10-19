@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- statistics, period, and units.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMetricStat' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679256388"><span id="local-6989586621679256389"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricStat"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-var">MetricStat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricStat%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-var">MetricStat'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679256718"><span id="local-6989586621679256719"></span></span><span class="hs-keyword">data</span><span> </span><span id="MetricStat"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-var">MetricStat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MetricStat%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-var">MetricStat'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When you are using a @Put@ operation, this defines what unit you want to</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- use when storing the metric.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3Astat%3AMetricStat%27"><span class="annot"><span class="annottext">MetricStat -&gt; Text
 </span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Astat%3AMetricStat%27"><span class="hs-identifier hs-var hs-var">stat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256379"><span id="local-6989586621679256381"><span class="annot"><span class="annottext">MetricStat -&gt; MetricStat -&gt; Bool
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256709"><span id="local-6989586621679256711"><span class="annot"><span class="annottext">MetricStat -&gt; MetricStat -&gt; Bool
 (MetricStat -&gt; MetricStat -&gt; Bool)
 -&gt; (MetricStat -&gt; MetricStat -&gt; Bool) -&gt; Eq MetricStat
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MetricStat -&gt; MetricStat -&gt; Bool
 == :: MetricStat -&gt; MetricStat -&gt; Bool
 $c== :: MetricStat -&gt; MetricStat -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256370"><span id="local-6989586621679256372"><span id="local-6989586621679256374"><span id="local-6989586621679256376"><span class="annot"><span class="annottext">ReadPrec [MetricStat]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256700"><span id="local-6989586621679256702"><span id="local-6989586621679256704"><span id="local-6989586621679256706"><span class="annot"><span class="annottext">ReadPrec [MetricStat]
 ReadPrec MetricStat
 Int -&gt; ReadS MetricStat
 ReadS [MetricStat]
@@ -101,7 +101,7 @@ readList :: ReadS [MetricStat]
 $creadList :: ReadS [MetricStat]
 readsPrec :: Int -&gt; ReadS MetricStat
 $creadsPrec :: Int -&gt; ReadS MetricStat
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256363"><span id="local-6989586621679256365"><span id="local-6989586621679256367"><span class="annot"><span class="annottext">Int -&gt; MetricStat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256693"><span id="local-6989586621679256695"><span id="local-6989586621679256697"><span class="annot"><span class="annottext">Int -&gt; MetricStat -&gt; ShowS
 [MetricStat] -&gt; ShowS
 MetricStat -&gt; String
 (Int -&gt; MetricStat -&gt; ShowS)
@@ -180,10 +180,10 @@ $cfrom :: forall x. MetricStat -&gt; Rep MetricStat x
 </span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-126"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span>
 </span><span id="line-127"></span><span id="newMetricStat"><span class="annot"><span class="annottext">newMetricStat :: Metric -&gt; Natural -&gt; Text -&gt; MetricStat
-</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#newMetricStat"><span class="hs-identifier hs-var hs-var">newMetricStat</span></a></span></span><span> </span><span id="local-6989586621679256357"><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679256357"><span class="hs-identifier hs-var">pMetric_</span></a></span></span><span> </span><span id="local-6989586621679256356"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679256356"><span class="hs-identifier hs-var">pPeriod_</span></a></span></span><span> </span><span id="local-6989586621679256355"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256355"><span class="hs-identifier hs-var">pStat_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#newMetricStat"><span class="hs-identifier hs-var hs-var">newMetricStat</span></a></span></span><span> </span><span id="local-6989586621679256687"><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679256687"><span class="hs-identifier hs-var">pMetric_</span></a></span></span><span> </span><span id="local-6989586621679256686"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679256686"><span class="hs-identifier hs-var">pPeriod_</span></a></span></span><span> </span><span id="local-6989586621679256685"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256685"><span class="hs-identifier hs-var">pStat_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">MetricStat' :: Maybe StandardUnit -&gt; Metric -&gt; Natural -&gt; Text -&gt; MetricStat
 </span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span>
 </span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unit:MetricStat' :: Maybe StandardUnit
@@ -192,13 +192,13 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:metric:MetricStat' :: Metric
 </span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Ametric%3AMetricStat%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679256357"><span class="hs-identifier hs-var">pMetric_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256687"><span class="hs-identifier hs-var">pMetric_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:period:MetricStat' :: Natural
 </span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Aperiod%3AMetricStat%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679256356"><span class="hs-identifier hs-var">pPeriod_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256686"><span class="hs-identifier hs-var">pPeriod_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:stat:MetricStat' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Astat%3AMetricStat%27"><span class="hs-identifier hs-var">stat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256355"><span class="hs-identifier hs-var">pStat_</span></a></span><span>
+</span><a href="#local-6989586621679256685"><span class="hs-identifier hs-var">pStat_</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | When you are using a @Put@ operation, this defines what unit you want to</span><span>
@@ -219,16 +219,16 @@ forall a. Maybe a
 -&gt; Lens
      MetricStat MetricStat (Maybe StandardUnit) (Maybe StandardUnit)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256351"><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256681"><span class="annot"><span class="annottext">Maybe StandardUnit
 unit :: Maybe StandardUnit
 $sel:unit:MetricStat' :: MetricStat -&gt; Maybe StandardUnit
-</span><a href="#local-6989586621679256351"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
-</span><a href="#local-6989586621679256351"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256350"><span class="annot"><span class="annottext">s :: MetricStat
-</span><a href="#local-6989586621679256350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256349"><span class="annot"><span class="annottext">Maybe StandardUnit
-</span><a href="#local-6989586621679256349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStat
-</span><a href="#local-6989586621679256350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:MetricStat' :: Maybe StandardUnit
+</span><a href="#local-6989586621679256681"><span class="hs-keyword hs-var hs-var">unit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679256681"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256680"><span class="annot"><span class="annottext">s :: MetricStat
+</span><a href="#local-6989586621679256680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256679"><span class="annot"><span class="annottext">Maybe StandardUnit
+</span><a href="#local-6989586621679256679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStat
+</span><a href="#local-6989586621679256680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unit:MetricStat' :: Maybe StandardUnit
 </span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Aunit%3AMetricStat%27"><span class="hs-keyword hs-var">unit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
-</span><a href="#local-6989586621679256349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- | The metric to return, including the metric name, namespace, and</span><span>
 </span><span id="line-149"></span><span class="hs-comment">-- dimensions.</span><span>
@@ -238,16 +238,16 @@ $sel:unit:MetricStat' :: MetricStat -&gt; Maybe StandardUnit
 -&gt; (MetricStat -&gt; Metric -&gt; MetricStat)
 -&gt; Lens MetricStat MetricStat Metric Metric
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256347"><span class="annot"><span class="annottext">Metric
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256677"><span class="annot"><span class="annottext">Metric
 metric :: Metric
 $sel:metric:MetricStat' :: MetricStat -&gt; Metric
-</span><a href="#local-6989586621679256347"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679256347"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256346"><span class="annot"><span class="annottext">s :: MetricStat
-</span><a href="#local-6989586621679256346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256345"><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679256345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStat
-</span><a href="#local-6989586621679256346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:MetricStat' :: Metric
+</span><a href="#local-6989586621679256677"><span class="hs-identifier hs-var hs-var">metric</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679256677"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256676"><span class="annot"><span class="annottext">s :: MetricStat
+</span><a href="#local-6989586621679256676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256675"><span class="annot"><span class="annottext">Metric
+</span><a href="#local-6989586621679256675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStat
+</span><a href="#local-6989586621679256676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metric:MetricStat' :: Metric
 </span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Ametric%3AMetricStat%27"><span class="hs-identifier hs-var">metric</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679256345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- | The granularity, in seconds, of the returned data points. For metrics</span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- with regular resolution, a period can be as short as one minute (60</span><span>
@@ -275,16 +275,16 @@ $sel:metric:MetricStat' :: MetricStat -&gt; Metric
 -&gt; (MetricStat -&gt; Natural -&gt; MetricStat)
 -&gt; Lens MetricStat MetricStat Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256343"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256673"><span class="annot"><span class="annottext">Natural
 period :: Natural
 $sel:period:MetricStat' :: MetricStat -&gt; Natural
-</span><a href="#local-6989586621679256343"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679256343"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256342"><span class="annot"><span class="annottext">s :: MetricStat
-</span><a href="#local-6989586621679256342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256341"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679256341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStat
-</span><a href="#local-6989586621679256342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:period:MetricStat' :: Natural
+</span><a href="#local-6989586621679256673"><span class="hs-identifier hs-var hs-var">period</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679256673"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256672"><span class="annot"><span class="annottext">s :: MetricStat
+</span><a href="#local-6989586621679256672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256671"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679256671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStat
+</span><a href="#local-6989586621679256672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:period:MetricStat' :: Natural
 </span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Aperiod%3AMetricStat%27"><span class="hs-identifier hs-var">period</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679256341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
 </span><span id="line-176"></span><span class="hs-comment">-- | The statistic to return. It can include any CloudWatch statistic or</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- extended statistic.</span><span>
@@ -294,21 +294,21 @@ $sel:period:MetricStat' :: MetricStat -&gt; Natural
 -&gt; (MetricStat -&gt; Text -&gt; MetricStat)
 -&gt; Lens MetricStat MetricStat Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256339"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256669"><span class="annot"><span class="annottext">Text
 stat :: Text
 $sel:stat:MetricStat' :: MetricStat -&gt; Text
-</span><a href="#local-6989586621679256339"><span class="hs-identifier hs-var hs-var">stat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256339"><span class="hs-identifier hs-var">stat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256338"><span class="annot"><span class="annottext">s :: MetricStat
-</span><a href="#local-6989586621679256338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256337"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStat
-</span><a href="#local-6989586621679256338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stat:MetricStat' :: Text
+</span><a href="#local-6989586621679256669"><span class="hs-identifier hs-var hs-var">stat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256669"><span class="hs-identifier hs-var">stat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256668"><span class="annot"><span class="annottext">s :: MetricStat
+</span><a href="#local-6989586621679256668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256667"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricStat
+</span><a href="#local-6989586621679256668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stat:MetricStat' :: Text
 </span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#%24sel%3Astat%3AMetricStat%27"><span class="hs-identifier hs-var">stat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679256667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621679256334"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MetricStat
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679256332"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679256332"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679256664"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MetricStat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679256662"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679256662"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">Maybe StandardUnit -&gt; Metric -&gt; Natural -&gt; Text -&gt; MetricStat
 </span><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-var">MetricStat'</span></a></span><span>
 </span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">(Maybe StandardUnit -&gt; Metric -&gt; Natural -&gt; Text -&gt; MetricStat)
@@ -316,7 +316,7 @@ $sel:stat:MetricStat' :: MetricStat -&gt; Text
 -&gt; Either String (Metric -&gt; Natural -&gt; Text -&gt; MetricStat)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679256332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StandardUnit)
+</span><a href="#local-6989586621679256662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe StandardUnit)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Unit&quot;</span></span><span class="hs-special">)</span><span>
@@ -325,7 +325,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Natural -&gt; Text -&gt; MetricStat)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679256332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Metric
+</span><a href="#local-6989586621679256662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Metric
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Metric&quot;</span></span><span class="hs-special">)</span><span>
@@ -333,7 +333,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Natural -&gt; Either String (Text -&gt; MetricStat)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679256332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
+</span><a href="#local-6989586621679256662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Natural
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Period&quot;</span></span><span class="hs-special">)</span><span>
@@ -341,18 +341,18 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String MetricStat
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679256332"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679256662"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Stat&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256325"><span id="local-6989586621679256327"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256655"><span id="local-6989586621679256657"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span></span></span><span>
 </span><span id="line-190"></span><span>
-</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256322"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256652"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat"><span class="hs-identifier hs-type">MetricStat</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679256318"><span class="annot"><span class="annottext">toQuery :: MetricStat -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256313"><span id="local-6989586621679256314"><span id="local-6989586621679256315"><span id="local-6989586621679256316"><span class="annot"><span class="annottext">Natural
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679256648"><span class="annot"><span class="annottext">toQuery :: MetricStat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.MetricStat.html#MetricStat%27"><span class="hs-identifier hs-type">MetricStat'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256643"><span id="local-6989586621679256644"><span id="local-6989586621679256645"><span id="local-6989586621679256646"><span class="annot"><span class="annottext">Natural
 Maybe StandardUnit
 Text
 Metric
@@ -364,7 +364,7 @@ $sel:stat:MetricStat' :: MetricStat -&gt; Text
 $sel:period:MetricStat' :: MetricStat -&gt; Natural
 $sel:metric:MetricStat' :: MetricStat -&gt; Metric
 $sel:unit:MetricStat' :: MetricStat -&gt; Maybe StandardUnit
-</span><a href="#local-6989586621679256313"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679256643"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -372,21 +372,21 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;Unit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe StandardUnit -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe StandardUnit
-</span><a href="#local-6989586621679256316"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256646"><span class="hs-keyword hs-var">unit</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Metric&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Metric -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Metric
-</span><a href="#local-6989586621679256315"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256645"><span class="hs-identifier hs-var">metric</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Period&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679256314"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679256644"><span class="hs-identifier hs-var">period</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Stat&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679256313"><span class="hs-identifier hs-var">stat</span></a></span><span>
+</span><a href="#local-6989586621679256643"><span class="hs-identifier hs-var">stat</span></a></span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-201"></span></pre></body></html>

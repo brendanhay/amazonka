@@ -56,12 +56,12 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newStartDBInstance' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679774098"><span id="local-6989586621679774099"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDBInstance"><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-var">StartDBInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDBInstance%27"><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-var">StartDBInstance'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679775184"><span id="local-6989586621679775185"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDBInstance"><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-var">StartDBInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDBInstance%27"><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-var">StartDBInstance'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The user-supplied instance identifier.</span><span>
 </span><span id="line-61"></span><span>    </span><span id="%24sel%3AdbInstanceIdentifier%3AStartDBInstance%27"><span class="annot"><span class="annottext">StartDBInstance -&gt; Text
 </span><a href="Network.AWS.RDS.StartDBInstance.html#%24sel%3AdbInstanceIdentifier%3AStartDBInstance%27"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774092"><span id="local-6989586621679774094"><span class="annot"><span class="annottext">StartDBInstance -&gt; StartDBInstance -&gt; Bool
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679775178"><span id="local-6989586621679775180"><span class="annot"><span class="annottext">StartDBInstance -&gt; StartDBInstance -&gt; Bool
 (StartDBInstance -&gt; StartDBInstance -&gt; Bool)
 -&gt; (StartDBInstance -&gt; StartDBInstance -&gt; Bool)
 -&gt; Eq StartDBInstance
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartDBInstance -&gt; StartDBInstance -&gt; Bool
 == :: StartDBInstance -&gt; StartDBInstance -&gt; Bool
 $c== :: StartDBInstance -&gt; StartDBInstance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774083"><span id="local-6989586621679774085"><span id="local-6989586621679774087"><span id="local-6989586621679774089"><span class="annot"><span class="annottext">ReadPrec [StartDBInstance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679775169"><span id="local-6989586621679775171"><span id="local-6989586621679775173"><span id="local-6989586621679775175"><span class="annot"><span class="annottext">ReadPrec [StartDBInstance]
 ReadPrec StartDBInstance
 Int -&gt; ReadS StartDBInstance
 ReadS [StartDBInstance]
@@ -90,7 +90,7 @@ readList :: ReadS [StartDBInstance]
 $creadList :: ReadS [StartDBInstance]
 readsPrec :: Int -&gt; ReadS StartDBInstance
 $creadsPrec :: Int -&gt; ReadS StartDBInstance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774076"><span id="local-6989586621679774078"><span id="local-6989586621679774080"><span class="annot"><span class="annottext">Int -&gt; StartDBInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679775162"><span id="local-6989586621679775164"><span id="local-6989586621679775166"><span class="annot"><span class="annottext">Int -&gt; StartDBInstance -&gt; ShowS
 [StartDBInstance] -&gt; ShowS
 StartDBInstance -&gt; String
 (Int -&gt; StartDBInstance -&gt; ShowS)
@@ -130,14 +130,14 @@ $cfrom :: forall x. StartDBInstance -&gt; Rep StartDBInstance x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span>
 </span><span id="line-78"></span><span id="newStartDBInstance"><span class="annot"><span class="annottext">newStartDBInstance :: Text -&gt; StartDBInstance
-</span><a href="Network.AWS.RDS.StartDBInstance.html#newStartDBInstance"><span class="hs-identifier hs-var hs-var">newStartDBInstance</span></a></span></span><span> </span><span id="local-6989586621679774071"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774071"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.StartDBInstance.html#newStartDBInstance"><span class="hs-identifier hs-var hs-var">newStartDBInstance</span></a></span></span><span> </span><span id="local-6989586621679775157"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775157"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">StartDBInstance' :: Text -&gt; StartDBInstance
 </span><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-type">StartDBInstance'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:StartDBInstance' :: Text
 </span><a href="Network.AWS.RDS.StartDBInstance.html#%24sel%3AdbInstanceIdentifier%3AStartDBInstance%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774071"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span><span>
+</span><a href="#local-6989586621679775157"><span class="hs-identifier hs-var">pDBInstanceIdentifier_</span></a></span><span>
 </span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- | The user-supplied instance identifier.</span><span>
@@ -147,27 +147,27 @@ $cfrom :: forall x. StartDBInstance -&gt; Rep StartDBInstance x
 -&gt; (StartDBInstance -&gt; Text -&gt; StartDBInstance)
 -&gt; Lens StartDBInstance StartDBInstance Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-type">StartDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774068"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-type">StartDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775154"><span class="annot"><span class="annottext">Text
 dbInstanceIdentifier :: Text
 $sel:dbInstanceIdentifier:StartDBInstance' :: StartDBInstance -&gt; Text
-</span><a href="#local-6989586621679774068"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774068"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774067"><span class="annot"><span class="annottext">s :: StartDBInstance
-</span><a href="#local-6989586621679774067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-type">StartDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774066"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDBInstance
-</span><a href="#local-6989586621679774067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:StartDBInstance' :: Text
+</span><a href="#local-6989586621679775154"><span class="hs-identifier hs-var hs-var">dbInstanceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775154"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775153"><span class="annot"><span class="annottext">s :: StartDBInstance
+</span><a href="#local-6989586621679775153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-type">StartDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775152"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679775152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDBInstance
+</span><a href="#local-6989586621679775153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstanceIdentifier:StartDBInstance' :: Text
 </span><a href="Network.AWS.RDS.StartDBInstance.html#%24sel%3AdbInstanceIdentifier%3AStartDBInstance%27"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679775152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-91"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679774062"><span class="annot"><span class="annottext">request :: StartDBInstance -&gt; Request StartDBInstance
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679775148"><span class="annot"><span class="annottext">request :: StartDBInstance -&gt; Request StartDBInstance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartDBInstance -&gt; Request StartDBInstance
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679774058"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679775144"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StartDBInstance
 -&gt; ClientResponse ClientBody
@@ -196,10 +196,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartDBInstanceResult&quot;</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679774055"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679774055"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679774054"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679774054"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679774053"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679774053"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679775141"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679775141"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679775140"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679775140"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679775139"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679775139"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe DBInstance -&gt; Int -&gt; StartDBInstanceResponse
 </span><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-var">StartDBInstanceResponse'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DBInstance -&gt; Int -&gt; StartDBInstanceResponse)
@@ -207,7 +207,7 @@ Text
 -&gt; Either String (Int -&gt; StartDBInstanceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679774053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBInstance)
+</span><a href="#local-6989586621679775139"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DBInstance)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DBInstance&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,15 +219,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679774055"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679775141"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774045"><span id="local-6989586621679774047"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679775131"><span id="local-6989586621679775133"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679775128"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679774038"><span class="annot"><span class="annottext">toHeaders :: StartDBInstance -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679775124"><span class="annot"><span class="annottext">toHeaders :: StartDBInstance -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartDBInstance -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -235,18 +235,18 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679774033"><span class="annot"><span class="annottext">toPath :: StartDBInstance -&gt; ByteString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679775119"><span class="annot"><span class="annottext">toPath :: StartDBInstance -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartDBInstance -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance"><span class="hs-identifier hs-type">StartDBInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679774029"><span class="annot"><span class="annottext">toQuery :: StartDBInstance -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-type">StartDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774027"><span class="annot"><span class="annottext">Text
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679775115"><span class="annot"><span class="annottext">toQuery :: StartDBInstance -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstance%27"><span class="hs-identifier hs-type">StartDBInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775113"><span class="annot"><span class="annottext">Text
 dbInstanceIdentifier :: Text
 $sel:dbInstanceIdentifier:StartDBInstance' :: StartDBInstance -&gt; Text
-</span><a href="#local-6989586621679774027"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679775113"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -266,18 +266,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;DBInstanceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679774027"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span>
+</span><a href="#local-6989586621679775113"><span class="hs-identifier hs-var">dbInstanceIdentifier</span></a></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newStartDBInstanceResponse' smart constructor.</span><span>
-</span><span id="line-123"></span><span id="local-6989586621679774024"><span id="local-6989586621679774025"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDBInstanceResponse"><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-var">StartDBInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDBInstanceResponse%27"><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-var">StartDBInstanceResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span id="local-6989586621679775110"><span id="local-6989586621679775111"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartDBInstanceResponse"><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-var">StartDBInstanceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartDBInstanceResponse%27"><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-var">StartDBInstanceResponse'</span></a></span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AdbInstance%3AStartDBInstanceResponse%27"><span class="annot"><span class="annottext">StartDBInstanceResponse -&gt; Maybe DBInstance
 </span><a href="Network.AWS.RDS.StartDBInstance.html#%24sel%3AdbInstance%3AStartDBInstanceResponse%27"><span class="hs-identifier hs-var hs-var">dbInstance</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.DBInstance.html#DBInstance"><span class="hs-identifier hs-type">DBInstance</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartDBInstanceResponse%27"><span class="annot"><span class="annottext">StartDBInstanceResponse -&gt; Int
 </span><a href="Network.AWS.RDS.StartDBInstance.html#%24sel%3AhttpStatus%3AStartDBInstanceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774018"><span id="local-6989586621679774020"><span class="annot"><span class="annottext">StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679775104"><span id="local-6989586621679775106"><span class="annot"><span class="annottext">StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool
 (StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool)
 -&gt; (StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool)
 -&gt; Eq StartDBInstanceResponse
@@ -286,7 +286,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool
 == :: StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool
 $c== :: StartDBInstanceResponse -&gt; StartDBInstanceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774010"><span id="local-6989586621679774012"><span id="local-6989586621679774014"><span id="local-6989586621679774016"><span class="annot"><span class="annottext">ReadPrec [StartDBInstanceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679775096"><span id="local-6989586621679775098"><span id="local-6989586621679775100"><span id="local-6989586621679775102"><span class="annot"><span class="annottext">ReadPrec [StartDBInstanceResponse]
 ReadPrec StartDBInstanceResponse
 Int -&gt; ReadS StartDBInstanceResponse
 ReadS [StartDBInstanceResponse]
@@ -306,7 +306,7 @@ readList :: ReadS [StartDBInstanceResponse]
 $creadList :: ReadS [StartDBInstanceResponse]
 readsPrec :: Int -&gt; ReadS StartDBInstanceResponse
 $creadsPrec :: Int -&gt; ReadS StartDBInstanceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774004"><span id="local-6989586621679774006"><span id="local-6989586621679774008"><span class="annot"><span class="annottext">Int -&gt; StartDBInstanceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679775090"><span id="local-6989586621679775092"><span id="local-6989586621679775094"><span class="annot"><span class="annottext">Int -&gt; StartDBInstanceResponse -&gt; ShowS
 [StartDBInstanceResponse] -&gt; ShowS
 StartDBInstanceResponse -&gt; String
 (Int -&gt; StartDBInstanceResponse -&gt; ShowS)
@@ -350,8 +350,8 @@ $cfrom :: forall x. StartDBInstanceResponse -&gt; Rep StartDBInstanceResponse x
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span><span>
 </span><span id="line-145"></span><span id="newStartDBInstanceResponse"><span class="annot"><span class="annottext">newStartDBInstanceResponse :: Int -&gt; StartDBInstanceResponse
-</span><a href="Network.AWS.RDS.StartDBInstance.html#newStartDBInstanceResponse"><span class="hs-identifier hs-var hs-var">newStartDBInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679774001"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679774001"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.StartDBInstance.html#newStartDBInstanceResponse"><span class="hs-identifier hs-var hs-var">newStartDBInstanceResponse</span></a></span></span><span> </span><span id="local-6989586621679775087"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679775087"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">StartDBInstanceResponse' :: Maybe DBInstance -&gt; Int -&gt; StartDBInstanceResponse
 </span><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dbInstance:StartDBInstanceResponse' :: Maybe DBInstance
@@ -361,7 +361,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartDBInstanceResponse' :: Int
 </span><a href="Network.AWS.RDS.StartDBInstance.html#%24sel%3AhttpStatus%3AStartDBInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679774001"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679775087"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -377,16 +377,16 @@ forall a. Maybe a
      (Maybe DBInstance)
      (Maybe DBInstance)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774000"><span class="annot"><span class="annottext">Maybe DBInstance
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775086"><span class="annot"><span class="annottext">Maybe DBInstance
 dbInstance :: Maybe DBInstance
 $sel:dbInstance:StartDBInstanceResponse' :: StartDBInstanceResponse -&gt; Maybe DBInstance
-</span><a href="#local-6989586621679774000"><span class="hs-identifier hs-var hs-var">dbInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstance
-</span><a href="#local-6989586621679774000"><span class="hs-identifier hs-var">dbInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773999"><span class="annot"><span class="annottext">s :: StartDBInstanceResponse
-</span><a href="#local-6989586621679773999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773998"><span class="annot"><span class="annottext">Maybe DBInstance
-</span><a href="#local-6989586621679773998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDBInstanceResponse
-</span><a href="#local-6989586621679773999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstance:StartDBInstanceResponse' :: Maybe DBInstance
+</span><a href="#local-6989586621679775086"><span class="hs-identifier hs-var hs-var">dbInstance</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstance
+</span><a href="#local-6989586621679775086"><span class="hs-identifier hs-var">dbInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775085"><span class="annot"><span class="annottext">s :: StartDBInstanceResponse
+</span><a href="#local-6989586621679775085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775084"><span class="annot"><span class="annottext">Maybe DBInstance
+</span><a href="#local-6989586621679775084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDBInstanceResponse
+</span><a href="#local-6989586621679775085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbInstance:StartDBInstanceResponse' :: Maybe DBInstance
 </span><a href="Network.AWS.RDS.StartDBInstance.html#%24sel%3AdbInstance%3AStartDBInstanceResponse%27"><span class="hs-identifier hs-var">dbInstance</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DBInstance
-</span><a href="#local-6989586621679773998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679775084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#startDBInstanceResponse_httpStatus"><span class="hs-identifier hs-type">startDBInstanceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -396,16 +396,16 @@ $sel:dbInstance:StartDBInstanceResponse' :: StartDBInstanceResponse -&gt; Maybe 
 -&gt; (StartDBInstanceResponse -&gt; Int -&gt; StartDBInstanceResponse)
 -&gt; Lens StartDBInstanceResponse StartDBInstanceResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773997"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679775083"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StartDBInstanceResponse' :: StartDBInstanceResponse -&gt; Int
-</span><a href="#local-6989586621679773997"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773997"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773996"><span class="annot"><span class="annottext">s :: StartDBInstanceResponse
-</span><a href="#local-6989586621679773996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773995"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDBInstanceResponse
-</span><a href="#local-6989586621679773996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartDBInstanceResponse' :: Int
+</span><a href="#local-6989586621679775083"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679775083"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679775082"><span class="annot"><span class="annottext">s :: StartDBInstanceResponse
+</span><a href="#local-6989586621679775082"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse%27"><span class="hs-identifier hs-type">StartDBInstanceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679775081"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679775081"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartDBInstanceResponse
+</span><a href="#local-6989586621679775082"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartDBInstanceResponse' :: Int
 </span><a href="Network.AWS.RDS.StartDBInstance.html#%24sel%3AhttpStatus%3AStartDBInstanceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679775081"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679775079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StartDBInstance.html#StartDBInstanceResponse"><span class="hs-identifier hs-type">StartDBInstanceResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

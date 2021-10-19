@@ -34,17 +34,17 @@
 </span><span id="line-34"></span><span class="hs-comment">-- bundle remains in S3 unless you configure the rule to delete it.</span><span>
 </span><span id="line-35"></span><span class="hs-comment">--</span><span>
 </span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newApplicationVersionLifecycleConfig' smart constructor.</span><span>
-</span><span id="line-37"></span><span id="local-6989586621679304113"><span id="local-6989586621679304114"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationVersionLifecycleConfig"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-var">ApplicationVersionLifecycleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationVersionLifecycleConfig%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var">ApplicationVersionLifecycleConfig'</span></a></span></span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify a max count rule to restrict the number of application versions</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- that are retained for an application.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AmaxCountRule%3AApplicationVersionLifecycleConfig%27"><span class="annot"><span class="annottext">ApplicationVersionLifecycleConfig -&gt; Maybe MaxCountRule
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#%24sel%3AmaxCountRule%3AApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var hs-var">maxCountRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.MaxCountRule.html#MaxCountRule"><span class="hs-identifier hs-type">MaxCountRule</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specify a max age rule to restrict the length of time that application</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- versions are retained for an application.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmaxAgeRule%3AApplicationVersionLifecycleConfig%27"><span class="annot"><span class="annottext">ApplicationVersionLifecycleConfig -&gt; Maybe MaxAgeRule
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#%24sel%3AmaxAgeRule%3AApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var hs-var">maxAgeRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.MaxAgeRule.html#MaxAgeRule"><span class="hs-identifier hs-type">MaxAgeRule</span></a></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679304396"><span id="local-6989586621679304397"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationVersionLifecycleConfig"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-var">ApplicationVersionLifecycleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationVersionLifecycleConfig%27"><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var">ApplicationVersionLifecycleConfig'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify a max age rule to restrict the length of time that application</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- versions are retained for an application.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AmaxAgeRule%3AApplicationVersionLifecycleConfig%27"><span class="annot"><span class="annottext">ApplicationVersionLifecycleConfig -&gt; Maybe MaxAgeRule
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#%24sel%3AmaxAgeRule%3AApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var hs-var">maxAgeRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.MaxAgeRule.html#MaxAgeRule"><span class="hs-identifier hs-type">MaxAgeRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Specify a max count rule to restrict the number of application versions</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- that are retained for an application.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmaxCountRule%3AApplicationVersionLifecycleConfig%27"><span class="annot"><span class="annottext">ApplicationVersionLifecycleConfig -&gt; Maybe MaxCountRule
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#%24sel%3AmaxCountRule%3AApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var hs-var">maxCountRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.MaxCountRule.html#MaxCountRule"><span class="hs-identifier hs-type">MaxCountRule</span></a></span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304106"><span id="local-6989586621679304108"><span class="annot"><span class="annottext">ApplicationVersionLifecycleConfig
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304389"><span id="local-6989586621679304391"><span class="annot"><span class="annottext">ApplicationVersionLifecycleConfig
 -&gt; ApplicationVersionLifecycleConfig -&gt; Bool
 (ApplicationVersionLifecycleConfig
  -&gt; ApplicationVersionLifecycleConfig -&gt; Bool)
@@ -60,7 +60,7 @@ $c/= :: ApplicationVersionLifecycleConfig
 -&gt; ApplicationVersionLifecycleConfig -&gt; Bool
 $c== :: ApplicationVersionLifecycleConfig
 -&gt; ApplicationVersionLifecycleConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304097"><span id="local-6989586621679304099"><span id="local-6989586621679304101"><span id="local-6989586621679304103"><span class="annot"><span class="annottext">ReadPrec [ApplicationVersionLifecycleConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304380"><span id="local-6989586621679304382"><span id="local-6989586621679304384"><span id="local-6989586621679304386"><span class="annot"><span class="annottext">ReadPrec [ApplicationVersionLifecycleConfig]
 ReadPrec ApplicationVersionLifecycleConfig
 Int -&gt; ReadS ApplicationVersionLifecycleConfig
 ReadS [ApplicationVersionLifecycleConfig]
@@ -80,7 +80,7 @@ readList :: ReadS [ApplicationVersionLifecycleConfig]
 $creadList :: ReadS [ApplicationVersionLifecycleConfig]
 readsPrec :: Int -&gt; ReadS ApplicationVersionLifecycleConfig
 $creadsPrec :: Int -&gt; ReadS ApplicationVersionLifecycleConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304090"><span id="local-6989586621679304092"><span id="local-6989586621679304094"><span class="annot"><span class="annottext">Int -&gt; ApplicationVersionLifecycleConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304373"><span id="local-6989586621679304375"><span id="local-6989586621679304377"><span class="annot"><span class="annottext">Int -&gt; ApplicationVersionLifecycleConfig -&gt; ShowS
 [ApplicationVersionLifecycleConfig] -&gt; ShowS
 ApplicationVersionLifecycleConfig -&gt; String
 (Int -&gt; ApplicationVersionLifecycleConfig -&gt; ShowS)
@@ -126,59 +126,33 @@ ApplicationVersionLifecycleConfig
 </span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'maxCountRule', 'applicationVersionLifecycleConfig_maxCountRule' - Specify a max count rule to restrict the number of application versions</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- that are retained for an application.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'maxAgeRule', 'applicationVersionLifecycleConfig_maxAgeRule' - Specify a max age rule to restrict the length of time that application</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- versions are retained for an application.</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'maxAgeRule', 'applicationVersionLifecycleConfig_maxAgeRule' - Specify a max age rule to restrict the length of time that application</span><span>
-</span><span id="line-59"></span><span class="hs-comment">-- versions are retained for an application.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'maxCountRule', 'applicationVersionLifecycleConfig_maxCountRule' - Specify a max count rule to restrict the number of application versions</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- that are retained for an application.</span><span>
 </span><span id="line-60"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#newApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">newApplicationVersionLifecycleConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span>
 </span><span id="line-62"></span><span id="newApplicationVersionLifecycleConfig"><span class="annot"><span class="annottext">newApplicationVersionLifecycleConfig :: ApplicationVersionLifecycleConfig
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#newApplicationVersionLifecycleConfig"><span class="hs-identifier hs-var hs-var">newApplicationVersionLifecycleConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">ApplicationVersionLifecycleConfig' :: Maybe MaxCountRule
--&gt; Maybe MaxAgeRule -&gt; ApplicationVersionLifecycleConfig
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">ApplicationVersionLifecycleConfig' :: Maybe MaxAgeRule
+-&gt; Maybe MaxCountRule -&gt; ApplicationVersionLifecycleConfig
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig'</span></a></span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxCountRule:ApplicationVersionLifecycleConfig' :: Maybe MaxCountRule
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#%24sel%3AmaxCountRule%3AApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var">maxCountRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe MaxCountRule
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:maxAgeRule:ApplicationVersionLifecycleConfig' :: Maybe MaxAgeRule
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#%24sel%3AmaxAgeRule%3AApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var">maxAgeRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>        </span><span class="annot"><span class="annottext">Maybe MaxAgeRule
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxAgeRule:ApplicationVersionLifecycleConfig' :: Maybe MaxAgeRule
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#%24sel%3AmaxAgeRule%3AApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var">maxAgeRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaxAgeRule
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxCountRule:ApplicationVersionLifecycleConfig' :: Maybe MaxCountRule
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#%24sel%3AmaxCountRule%3AApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var">maxCountRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaxCountRule
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- | Specify a max count rule to restrict the number of application versions</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- that are retained for an application.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#applicationVersionLifecycleConfig_maxCountRule"><span class="hs-identifier hs-type">applicationVersionLifecycleConfig_maxCountRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.MaxCountRule.html#MaxCountRule"><span class="hs-identifier hs-type">MaxCountRule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="applicationVersionLifecycleConfig_maxCountRule"><span class="annot"><span class="annottext">applicationVersionLifecycleConfig_maxCountRule :: (Maybe MaxCountRule -&gt; f (Maybe MaxCountRule))
--&gt; ApplicationVersionLifecycleConfig
--&gt; f ApplicationVersionLifecycleConfig
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#applicationVersionLifecycleConfig_maxCountRule"><span class="hs-identifier hs-var hs-var">applicationVersionLifecycleConfig_maxCountRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationVersionLifecycleConfig -&gt; Maybe MaxCountRule)
--&gt; (ApplicationVersionLifecycleConfig
-    -&gt; Maybe MaxCountRule -&gt; ApplicationVersionLifecycleConfig)
--&gt; Lens
-     ApplicationVersionLifecycleConfig
-     ApplicationVersionLifecycleConfig
-     (Maybe MaxCountRule)
-     (Maybe MaxCountRule)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304081"><span class="annot"><span class="annottext">Maybe MaxCountRule
-maxCountRule :: Maybe MaxCountRule
-$sel:maxCountRule:ApplicationVersionLifecycleConfig' :: ApplicationVersionLifecycleConfig -&gt; Maybe MaxCountRule
-</span><a href="#local-6989586621679304081"><span class="hs-identifier hs-var hs-var">maxCountRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MaxCountRule
-</span><a href="#local-6989586621679304081"><span class="hs-identifier hs-var">maxCountRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304080"><span class="annot"><span class="annottext">s :: ApplicationVersionLifecycleConfig
-</span><a href="#local-6989586621679304080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304079"><span class="annot"><span class="annottext">Maybe MaxCountRule
-</span><a href="#local-6989586621679304079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionLifecycleConfig
-</span><a href="#local-6989586621679304080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCountRule:ApplicationVersionLifecycleConfig' :: Maybe MaxCountRule
-</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#%24sel%3AmaxCountRule%3AApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var">maxCountRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaxCountRule
-</span><a href="#local-6989586621679304079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- | Specify a max age rule to restrict the length of time that application</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- versions are retained for an application.</span><span>
-</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#applicationVersionLifecycleConfig_maxAgeRule"><span class="hs-identifier hs-type">applicationVersionLifecycleConfig_maxAgeRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.MaxAgeRule.html#MaxAgeRule"><span class="hs-identifier hs-type">MaxAgeRule</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-77"></span><span id="applicationVersionLifecycleConfig_maxAgeRule"><span class="annot"><span class="annottext">applicationVersionLifecycleConfig_maxAgeRule :: (Maybe MaxAgeRule -&gt; f (Maybe MaxAgeRule))
+</span><span id="line-69"></span><span class="hs-comment">-- | Specify a max age rule to restrict the length of time that application</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- versions are retained for an application.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#applicationVersionLifecycleConfig_maxAgeRule"><span class="hs-identifier hs-type">applicationVersionLifecycleConfig_maxAgeRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.MaxAgeRule.html#MaxAgeRule"><span class="hs-identifier hs-type">MaxAgeRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="applicationVersionLifecycleConfig_maxAgeRule"><span class="annot"><span class="annottext">applicationVersionLifecycleConfig_maxAgeRule :: (Maybe MaxAgeRule -&gt; f (Maybe MaxAgeRule))
 -&gt; ApplicationVersionLifecycleConfig
 -&gt; f ApplicationVersionLifecycleConfig
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#applicationVersionLifecycleConfig_maxAgeRule"><span class="hs-identifier hs-var hs-var">applicationVersionLifecycleConfig_maxAgeRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationVersionLifecycleConfig -&gt; Maybe MaxAgeRule)
@@ -190,81 +164,107 @@ $sel:maxCountRule:ApplicationVersionLifecycleConfig' :: ApplicationVersionLifecy
      (Maybe MaxAgeRule)
      (Maybe MaxAgeRule)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304077"><span class="annot"><span class="annottext">Maybe MaxAgeRule
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304364"><span class="annot"><span class="annottext">Maybe MaxAgeRule
 maxAgeRule :: Maybe MaxAgeRule
 $sel:maxAgeRule:ApplicationVersionLifecycleConfig' :: ApplicationVersionLifecycleConfig -&gt; Maybe MaxAgeRule
-</span><a href="#local-6989586621679304077"><span class="hs-identifier hs-var hs-var">maxAgeRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MaxAgeRule
-</span><a href="#local-6989586621679304077"><span class="hs-identifier hs-var">maxAgeRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304076"><span class="annot"><span class="annottext">s :: ApplicationVersionLifecycleConfig
-</span><a href="#local-6989586621679304076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304075"><span class="annot"><span class="annottext">Maybe MaxAgeRule
-</span><a href="#local-6989586621679304075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionLifecycleConfig
-</span><a href="#local-6989586621679304076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAgeRule:ApplicationVersionLifecycleConfig' :: Maybe MaxAgeRule
+</span><a href="#local-6989586621679304364"><span class="hs-identifier hs-var hs-var">maxAgeRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MaxAgeRule
+</span><a href="#local-6989586621679304364"><span class="hs-identifier hs-var">maxAgeRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304363"><span class="annot"><span class="annottext">s :: ApplicationVersionLifecycleConfig
+</span><a href="#local-6989586621679304363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304362"><span class="annot"><span class="annottext">Maybe MaxAgeRule
+</span><a href="#local-6989586621679304362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionLifecycleConfig
+</span><a href="#local-6989586621679304363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxAgeRule:ApplicationVersionLifecycleConfig' :: Maybe MaxAgeRule
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#%24sel%3AmaxAgeRule%3AApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var">maxAgeRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaxAgeRule
-</span><a href="#local-6989586621679304075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | Specify a max count rule to restrict the number of application versions</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- that are retained for an application.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#applicationVersionLifecycleConfig_maxCountRule"><span class="hs-identifier hs-type">applicationVersionLifecycleConfig_maxCountRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.MaxCountRule.html#MaxCountRule"><span class="hs-identifier hs-type">MaxCountRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="applicationVersionLifecycleConfig_maxCountRule"><span class="annot"><span class="annottext">applicationVersionLifecycleConfig_maxCountRule :: (Maybe MaxCountRule -&gt; f (Maybe MaxCountRule))
+-&gt; ApplicationVersionLifecycleConfig
+-&gt; f ApplicationVersionLifecycleConfig
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#applicationVersionLifecycleConfig_maxCountRule"><span class="hs-identifier hs-var hs-var">applicationVersionLifecycleConfig_maxCountRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationVersionLifecycleConfig -&gt; Maybe MaxCountRule)
+-&gt; (ApplicationVersionLifecycleConfig
+    -&gt; Maybe MaxCountRule -&gt; ApplicationVersionLifecycleConfig)
+-&gt; Lens
+     ApplicationVersionLifecycleConfig
+     ApplicationVersionLifecycleConfig
+     (Maybe MaxCountRule)
+     (Maybe MaxCountRule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304360"><span class="annot"><span class="annottext">Maybe MaxCountRule
+maxCountRule :: Maybe MaxCountRule
+$sel:maxCountRule:ApplicationVersionLifecycleConfig' :: ApplicationVersionLifecycleConfig -&gt; Maybe MaxCountRule
+</span><a href="#local-6989586621679304360"><span class="hs-identifier hs-var hs-var">maxCountRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MaxCountRule
+</span><a href="#local-6989586621679304360"><span class="hs-identifier hs-var">maxCountRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304359"><span class="annot"><span class="annottext">s :: ApplicationVersionLifecycleConfig
+</span><a href="#local-6989586621679304359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304358"><span class="annot"><span class="annottext">Maybe MaxCountRule
+</span><a href="#local-6989586621679304358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationVersionLifecycleConfig
+</span><a href="#local-6989586621679304359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCountRule:ApplicationVersionLifecycleConfig' :: Maybe MaxCountRule
+</span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#%24sel%3AmaxCountRule%3AApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var">maxCountRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MaxCountRule
+</span><a href="#local-6989586621679304358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679304072"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ApplicationVersionLifecycleConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679304070"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679304070"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">Maybe MaxCountRule
--&gt; Maybe MaxAgeRule -&gt; ApplicationVersionLifecycleConfig
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679304355"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ApplicationVersionLifecycleConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679304353"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679304353"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">Maybe MaxAgeRule
+-&gt; Maybe MaxCountRule -&gt; ApplicationVersionLifecycleConfig
 </span><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-var">ApplicationVersionLifecycleConfig'</span></a></span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">(Maybe MaxCountRule
- -&gt; Maybe MaxAgeRule -&gt; ApplicationVersionLifecycleConfig)
--&gt; Either String (Maybe MaxCountRule)
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">(Maybe MaxAgeRule
+ -&gt; Maybe MaxCountRule -&gt; ApplicationVersionLifecycleConfig)
+-&gt; Either String (Maybe MaxAgeRule)
 -&gt; Either
-     String (Maybe MaxAgeRule -&gt; ApplicationVersionLifecycleConfig)
+     String (Maybe MaxCountRule -&gt; ApplicationVersionLifecycleConfig)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679304070"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MaxCountRule)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxCountRule&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe MaxAgeRule -&gt; ApplicationVersionLifecycleConfig)
--&gt; Either String (Maybe MaxAgeRule)
--&gt; Either String ApplicationVersionLifecycleConfig
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679304070"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MaxAgeRule)
+</span><a href="#local-6989586621679304353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MaxAgeRule)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MaxAgeRule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe MaxCountRule -&gt; ApplicationVersionLifecycleConfig)
+-&gt; Either String (Maybe MaxCountRule)
+-&gt; Either String ApplicationVersionLifecycleConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679304353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe MaxCountRule)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxCountRule&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679304064"><span id="local-6989586621679304066"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679304347"><span id="local-6989586621679304349"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-90"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679304061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679304344"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig</span></a></span><span>
 </span><span id="line-99"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679304057"><span class="annot"><span class="annottext">toQuery :: ApplicationVersionLifecycleConfig -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304054"><span id="local-6989586621679304055"><span class="annot"><span class="annottext">Maybe MaxAgeRule
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679304340"><span class="annot"><span class="annottext">toQuery :: ApplicationVersionLifecycleConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig.html#ApplicationVersionLifecycleConfig%27"><span class="hs-identifier hs-type">ApplicationVersionLifecycleConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304337"><span id="local-6989586621679304338"><span class="annot"><span class="annottext">Maybe MaxAgeRule
 Maybe MaxCountRule
-maxAgeRule :: Maybe MaxAgeRule
 maxCountRule :: Maybe MaxCountRule
-$sel:maxAgeRule:ApplicationVersionLifecycleConfig' :: ApplicationVersionLifecycleConfig -&gt; Maybe MaxAgeRule
+maxAgeRule :: Maybe MaxAgeRule
 $sel:maxCountRule:ApplicationVersionLifecycleConfig' :: ApplicationVersionLifecycleConfig -&gt; Maybe MaxCountRule
-</span><a href="#local-6989586621679304054"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:maxAgeRule:ApplicationVersionLifecycleConfig' :: ApplicationVersionLifecycleConfig -&gt; Maybe MaxAgeRule
+</span><a href="#local-6989586621679304337"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
 </span><span id="line-102"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxCountRule&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe MaxCountRule -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe MaxCountRule
-</span><a href="#local-6989586621679304055"><span class="hs-identifier hs-var">maxCountRule</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;MaxAgeRule&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe MaxAgeRule -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe MaxAgeRule
-</span><a href="#local-6989586621679304054"><span class="hs-identifier hs-var">maxAgeRule</span></a></span><span>
+</span><a href="#local-6989586621679304338"><span class="hs-identifier hs-var">maxAgeRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxCountRule&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe MaxCountRule -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe MaxCountRule
+</span><a href="#local-6989586621679304337"><span class="hs-identifier hs-var">maxCountRule</span></a></span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span></pre></body></html>

@@ -30,10 +30,10 @@
 </span><span id="line-30"></span><span>
 </span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_groups"><span class="hs-identifier">modifyNetworkInterfaceAttribute_groups</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_attachment"><span class="hs-identifier">modifyNetworkInterfaceAttribute_attachment</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_dryRun"><span class="hs-identifier">modifyNetworkInterfaceAttribute_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_sourceDestCheck"><span class="hs-identifier">modifyNetworkInterfaceAttribute_sourceDestCheck</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_description"><span class="hs-identifier">modifyNetworkInterfaceAttribute_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_sourceDestCheck"><span class="hs-identifier">modifyNetworkInterfaceAttribute_sourceDestCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_attachment"><span class="hs-identifier">modifyNetworkInterfaceAttribute_attachment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_description"><span class="hs-identifier">modifyNetworkInterfaceAttribute_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_dryRun"><span class="hs-identifier">modifyNetworkInterfaceAttribute_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_networkInterfaceId"><span class="hs-identifier">modifyNetworkInterfaceAttribute_networkInterfaceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -52,41 +52,41 @@
 </span><span id="line-52"></span><span class="hs-comment">-- | Contains the parameters for ModifyNetworkInterfaceAttribute.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newModifyNetworkInterfaceAttribute' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621681182896"><span id="local-6989586621681182897"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyNetworkInterfaceAttribute"><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-var">ModifyNetworkInterfaceAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyNetworkInterfaceAttribute%27"><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">ModifyNetworkInterfaceAttribute'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621681218288"><span id="local-6989586621681218289"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyNetworkInterfaceAttribute"><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-var">ModifyNetworkInterfaceAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyNetworkInterfaceAttribute%27"><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">ModifyNetworkInterfaceAttribute'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Changes the security groups for the network interface. The new set of</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- groups you specify replaces the current set. You must specify at least</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- one group, even if it\'s just the default security group in the VPC. You</span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-comment">-- must specify the ID of the security group, not the name.</span><span>
 </span><span id="line-60"></span><span>    </span><span id="%24sel%3Agroups%3AModifyNetworkInterfaceAttribute%27"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute -&gt; Maybe [Text]
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3Agroups%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Information about the interface attachment. If modifying the \'delete on</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- termination\' attribute, you must specify the ID of the interface</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- attachment.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aattachment%3AModifyNetworkInterfaceAttribute%27"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Enable or disable source\/destination checks, which ensure that the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- instance is either the source or the destination of any traffic that it</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- receives. If the value is @true@, source\/destination checks are</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- enabled; otherwise, they are disabled. The default value is @true@. You</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- must disable source\/destination checks if the instance runs services</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- such as network address translation, routing, or firewalls.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AsourceDestCheck%3AModifyNetworkInterfaceAttribute%27"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeBooleanValue
+</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AsourceDestCheck%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var hs-var">sourceDestCheck</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeBooleanValue.html#AttributeBooleanValue"><span class="hs-identifier hs-type">AttributeBooleanValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Information about the interface attachment. If modifying the \'delete on</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- termination\' attribute, you must specify the ID of the interface</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- attachment.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Aattachment%3AModifyNetworkInterfaceAttribute%27"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
 -&gt; Maybe NetworkInterfaceAttachmentChanges
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3Aattachment%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var hs-var">attachment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceAttachmentChanges.html#NetworkInterfaceAttachmentChanges"><span class="hs-identifier hs-type">NetworkInterfaceAttachmentChanges</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyNetworkInterfaceAttribute%27"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AdryRun%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Enable or disable source\/destination checks, which ensure that the</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- instance is either the source or the destination of any traffic that it</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- receives. If the value is @true@, source\/destination checks are</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- enabled; otherwise, they are disabled. The default value is @true@. You</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- must disable source\/destination checks if the instance runs services</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- such as network address translation, routing, or firewalls.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3AsourceDestCheck%3AModifyNetworkInterfaceAttribute%27"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeBooleanValue
-</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AsourceDestCheck%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var hs-var">sourceDestCheck</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeBooleanValue.html#AttributeBooleanValue"><span class="hs-identifier hs-type">AttributeBooleanValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | A description for the network interface.</span><span>
-</span><span id="line-78"></span><span>    </span><span id="%24sel%3Adescription%3AModifyNetworkInterfaceAttribute%27"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeValue
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A description for the network interface.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Adescription%3AModifyNetworkInterfaceAttribute%27"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeValue
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3Adescription%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AdryRun%3AModifyNetworkInterfaceAttribute%27"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AdryRun%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The ID of the network interface.</span><span>
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3AnetworkInterfaceId%3AModifyNetworkInterfaceAttribute%27"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute -&gt; Text
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AnetworkInterfaceId%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681182885"><span id="local-6989586621681182887"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681218277"><span id="local-6989586621681218279"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
 -&gt; ModifyNetworkInterfaceAttribute -&gt; Bool
 (ModifyNetworkInterfaceAttribute
  -&gt; ModifyNetworkInterfaceAttribute -&gt; Bool)
@@ -102,7 +102,7 @@ $c/= :: ModifyNetworkInterfaceAttribute
 -&gt; ModifyNetworkInterfaceAttribute -&gt; Bool
 $c== :: ModifyNetworkInterfaceAttribute
 -&gt; ModifyNetworkInterfaceAttribute -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681182876"><span id="local-6989586621681182878"><span id="local-6989586621681182880"><span id="local-6989586621681182882"><span class="annot"><span class="annottext">ReadPrec [ModifyNetworkInterfaceAttribute]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681218268"><span id="local-6989586621681218270"><span id="local-6989586621681218272"><span id="local-6989586621681218274"><span class="annot"><span class="annottext">ReadPrec [ModifyNetworkInterfaceAttribute]
 ReadPrec ModifyNetworkInterfaceAttribute
 Int -&gt; ReadS ModifyNetworkInterfaceAttribute
 ReadS [ModifyNetworkInterfaceAttribute]
@@ -122,7 +122,7 @@ readList :: ReadS [ModifyNetworkInterfaceAttribute]
 $creadList :: ReadS [ModifyNetworkInterfaceAttribute]
 readsPrec :: Int -&gt; ReadS ModifyNetworkInterfaceAttribute
 $creadsPrec :: Int -&gt; ReadS ModifyNetworkInterfaceAttribute
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681182869"><span id="local-6989586621681182871"><span id="local-6989586621681182873"><span class="annot"><span class="annottext">Int -&gt; ModifyNetworkInterfaceAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681218261"><span id="local-6989586621681218263"><span id="local-6989586621681218265"><span class="annot"><span class="annottext">Int -&gt; ModifyNetworkInterfaceAttribute -&gt; ShowS
 [ModifyNetworkInterfaceAttribute] -&gt; ShowS
 ModifyNetworkInterfaceAttribute -&gt; String
 (Int -&gt; ModifyNetworkInterfaceAttribute -&gt; ShowS)
@@ -173,23 +173,23 @@ ModifyNetworkInterfaceAttribute
 </span><span id="line-94"></span><span class="hs-comment">-- one group, even if it\'s just the default security group in the VPC. You</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- must specify the ID of the security group, not the name.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- 'attachment', 'modifyNetworkInterfaceAttribute_attachment' - Information about the interface attachment. If modifying the \'delete on</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- termination\' attribute, you must specify the ID of the interface</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- attachment.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'dryRun', 'modifyNetworkInterfaceAttribute_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- 'sourceDestCheck', 'modifyNetworkInterfaceAttribute_sourceDestCheck' - Enable or disable source\/destination checks, which ensure that the</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- instance is either the source or the destination of any traffic that it</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- receives. If the value is @true@, source\/destination checks are</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- enabled; otherwise, they are disabled. The default value is @true@. You</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- must disable source\/destination checks if the instance runs services</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- such as network address translation, routing, or firewalls.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 'description', 'modifyNetworkInterfaceAttribute_description' - A description for the network interface.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'sourceDestCheck', 'modifyNetworkInterfaceAttribute_sourceDestCheck' - Enable or disable source\/destination checks, which ensure that the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- instance is either the source or the destination of any traffic that it</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- receives. If the value is @true@, source\/destination checks are</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- enabled; otherwise, they are disabled. The default value is @true@. You</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- must disable source\/destination checks if the instance runs services</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- such as network address translation, routing, or firewalls.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'attachment', 'modifyNetworkInterfaceAttribute_attachment' - Information about the interface attachment. If modifying the \'delete on</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- termination\' attribute, you must specify the ID of the interface</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- attachment.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'description', 'modifyNetworkInterfaceAttribute_description' - A description for the network interface.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'dryRun', 'modifyNetworkInterfaceAttribute_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- 'networkInterfaceId', 'modifyNetworkInterfaceAttribute_networkInterfaceId' - The ID of the network interface.</span><span>
 </span><span id="line-116"></span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#newModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">newModifyNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -198,13 +198,13 @@ ModifyNetworkInterfaceAttribute
 </span><span id="line-119"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span>
 </span><span id="line-120"></span><span id="newModifyNetworkInterfaceAttribute"><span class="annot"><span class="annottext">newModifyNetworkInterfaceAttribute :: Text -&gt; ModifyNetworkInterfaceAttribute
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#newModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-var hs-var">newModifyNetworkInterfaceAttribute</span></a></span></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621681182864"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681182864"><span class="hs-identifier hs-var">pNetworkInterfaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621681218256"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681218256"><span class="hs-identifier hs-var">pNetworkInterfaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute' :: Maybe [Text]
--&gt; Maybe NetworkInterfaceAttachmentChanges
--&gt; Maybe Bool
 -&gt; Maybe AttributeBooleanValue
+-&gt; Maybe NetworkInterfaceAttachmentChanges
 -&gt; Maybe AttributeValue
+-&gt; Maybe Bool
 -&gt; Text
 -&gt; ModifyNetworkInterfaceAttribute
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span>
@@ -213,25 +213,25 @@ ModifyNetworkInterfaceAttribute
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:attachment:ModifyNetworkInterfaceAttribute' :: Maybe NetworkInterfaceAttachmentChanges
-</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3Aattachment%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">attachment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceAttachmentChanges
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyNetworkInterfaceAttribute' :: Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AdryRun%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceDestCheck:ModifyNetworkInterfaceAttribute' :: Maybe AttributeBooleanValue
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceDestCheck:ModifyNetworkInterfaceAttribute' :: Maybe AttributeBooleanValue
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AsourceDestCheck%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">sourceDestCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:ModifyNetworkInterfaceAttribute' :: Maybe AttributeValue
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:attachment:ModifyNetworkInterfaceAttribute' :: Maybe NetworkInterfaceAttachmentChanges
+</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3Aattachment%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">attachment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceAttachmentChanges
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:ModifyNetworkInterfaceAttribute' :: Maybe AttributeValue
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3Adescription%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeValue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:ModifyNetworkInterfaceAttribute' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AdryRun%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:networkInterfaceId:ModifyNetworkInterfaceAttribute' :: Text
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AnetworkInterfaceId%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681182864"><span class="hs-identifier hs-var">pNetworkInterfaceId_</span></a></span><span>
+</span><a href="#local-6989586621681218256"><span class="hs-identifier hs-var">pNetworkInterfaceId_</span></a></span><span>
 </span><span id="line-130"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-comment">-- | Changes the security groups for the network interface. The new set of</span><span>
@@ -251,16 +251,16 @@ forall a. Maybe a
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681182861"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218253"><span class="annot"><span class="annottext">Maybe [Text]
 groups :: Maybe [Text]
 $sel:groups:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Maybe [Text]
-</span><a href="#local-6989586621681182861"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681182861"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681182860"><span class="annot"><span class="annottext">s :: ModifyNetworkInterfaceAttribute
-</span><a href="#local-6989586621681182860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681182859"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681182859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
-</span><a href="#local-6989586621681182860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:ModifyNetworkInterfaceAttribute' :: Maybe [Text]
+</span><a href="#local-6989586621681218253"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681218253"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218252"><span class="annot"><span class="annottext">s :: ModifyNetworkInterfaceAttribute
+</span><a href="#local-6989586621681218252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218251"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681218251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
+</span><a href="#local-6989586621681218252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:ModifyNetworkInterfaceAttribute' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3Agroups%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681182859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621681218251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; ModifyNetworkInterfaceAttribute
  -&gt; f ModifyNetworkInterfaceAttribute)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
@@ -275,14 +275,44 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | Information about the interface attachment. If modifying the \'delete on</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- termination\' attribute, you must specify the ID of the interface</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- attachment.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_attachment"><span class="hs-identifier hs-type">modifyNetworkInterfaceAttribute_attachment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceAttachmentChanges.html#NetworkInterfaceAttachmentChanges"><span class="hs-identifier hs-type">NetworkInterfaceAttachmentChanges</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="modifyNetworkInterfaceAttribute_attachment"><span class="annot"><span class="annottext">modifyNetworkInterfaceAttribute_attachment :: (Maybe NetworkInterfaceAttachmentChanges
+</span><span id="line-139"></span><span class="hs-comment">-- | Enable or disable source\/destination checks, which ensure that the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- instance is either the source or the destination of any traffic that it</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- receives. If the value is @true@, source\/destination checks are</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- enabled; otherwise, they are disabled. The default value is @true@. You</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- must disable source\/destination checks if the instance runs services</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- such as network address translation, routing, or firewalls.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_sourceDestCheck"><span class="hs-identifier hs-type">modifyNetworkInterfaceAttribute_sourceDestCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeBooleanValue.html#AttributeBooleanValue"><span class="hs-identifier hs-type">AttributeBooleanValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="modifyNetworkInterfaceAttribute_sourceDestCheck"><span class="annot"><span class="annottext">modifyNetworkInterfaceAttribute_sourceDestCheck :: (Maybe AttributeBooleanValue -&gt; f (Maybe AttributeBooleanValue))
+-&gt; ModifyNetworkInterfaceAttribute
+-&gt; f ModifyNetworkInterfaceAttribute
+</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_sourceDestCheck"><span class="hs-identifier hs-var hs-var">modifyNetworkInterfaceAttribute_sourceDestCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeBooleanValue)
+-&gt; (ModifyNetworkInterfaceAttribute
+    -&gt; Maybe AttributeBooleanValue -&gt; ModifyNetworkInterfaceAttribute)
+-&gt; Lens
+     ModifyNetworkInterfaceAttribute
+     ModifyNetworkInterfaceAttribute
+     (Maybe AttributeBooleanValue)
+     (Maybe AttributeBooleanValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218247"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+sourceDestCheck :: Maybe AttributeBooleanValue
+$sel:sourceDestCheck:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681218247"><span class="hs-identifier hs-var hs-var">sourceDestCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681218247"><span class="hs-identifier hs-var">sourceDestCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218246"><span class="annot"><span class="annottext">s :: ModifyNetworkInterfaceAttribute
+</span><a href="#local-6989586621681218246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218245"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681218245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
+</span><a href="#local-6989586621681218246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceDestCheck:ModifyNetworkInterfaceAttribute' :: Maybe AttributeBooleanValue
+</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AsourceDestCheck%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">sourceDestCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681218245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | Information about the interface attachment. If modifying the \'delete on</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- termination\' attribute, you must specify the ID of the interface</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- attachment.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_attachment"><span class="hs-identifier hs-type">modifyNetworkInterfaceAttribute_attachment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInterfaceAttachmentChanges.html#NetworkInterfaceAttachmentChanges"><span class="hs-identifier hs-type">NetworkInterfaceAttachmentChanges</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="modifyNetworkInterfaceAttribute_attachment"><span class="annot"><span class="annottext">modifyNetworkInterfaceAttribute_attachment :: (Maybe NetworkInterfaceAttachmentChanges
  -&gt; f (Maybe NetworkInterfaceAttachmentChanges))
 -&gt; ModifyNetworkInterfaceAttribute
 -&gt; f ModifyNetworkInterfaceAttribute
@@ -297,79 +327,21 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe NetworkInterfaceAttachmentChanges)
      (Maybe NetworkInterfaceAttachmentChanges)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681182855"><span class="annot"><span class="annottext">Maybe NetworkInterfaceAttachmentChanges
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218244"><span class="annot"><span class="annottext">Maybe NetworkInterfaceAttachmentChanges
 attachment :: Maybe NetworkInterfaceAttachmentChanges
 $sel:attachment:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute
 -&gt; Maybe NetworkInterfaceAttachmentChanges
-</span><a href="#local-6989586621681182855"><span class="hs-identifier hs-var hs-var">attachment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceAttachmentChanges
-</span><a href="#local-6989586621681182855"><span class="hs-identifier hs-var">attachment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681182854"><span class="annot"><span class="annottext">s :: ModifyNetworkInterfaceAttribute
-</span><a href="#local-6989586621681182854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681182853"><span class="annot"><span class="annottext">Maybe NetworkInterfaceAttachmentChanges
-</span><a href="#local-6989586621681182853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
-</span><a href="#local-6989586621681182854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachment:ModifyNetworkInterfaceAttribute' :: Maybe NetworkInterfaceAttachmentChanges
+</span><a href="#local-6989586621681218244"><span class="hs-identifier hs-var hs-var">attachment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceAttachmentChanges
+</span><a href="#local-6989586621681218244"><span class="hs-identifier hs-var">attachment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218243"><span class="annot"><span class="annottext">s :: ModifyNetworkInterfaceAttribute
+</span><a href="#local-6989586621681218243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218242"><span class="annot"><span class="annottext">Maybe NetworkInterfaceAttachmentChanges
+</span><a href="#local-6989586621681218242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
+</span><a href="#local-6989586621681218243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachment:ModifyNetworkInterfaceAttribute' :: Maybe NetworkInterfaceAttachmentChanges
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3Aattachment%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">attachment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceAttachmentChanges
-</span><a href="#local-6989586621681182853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_dryRun"><span class="hs-identifier hs-type">modifyNetworkInterfaceAttribute_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="modifyNetworkInterfaceAttribute_dryRun"><span class="annot"><span class="annottext">modifyNetworkInterfaceAttribute_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; ModifyNetworkInterfaceAttribute
--&gt; f ModifyNetworkInterfaceAttribute
-</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_dryRun"><span class="hs-identifier hs-var hs-var">modifyNetworkInterfaceAttribute_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyNetworkInterfaceAttribute -&gt; Maybe Bool)
--&gt; (ModifyNetworkInterfaceAttribute
-    -&gt; Maybe Bool -&gt; ModifyNetworkInterfaceAttribute)
--&gt; Lens
-     ModifyNetworkInterfaceAttribute
-     ModifyNetworkInterfaceAttribute
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681182852"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Maybe Bool
-</span><a href="#local-6989586621681182852"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681182852"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681182851"><span class="annot"><span class="annottext">s :: ModifyNetworkInterfaceAttribute
-</span><a href="#local-6989586621681182851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681182850"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681182850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
-</span><a href="#local-6989586621681182851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyNetworkInterfaceAttribute' :: Maybe Bool
-</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AdryRun%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681182850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | Enable or disable source\/destination checks, which ensure that the</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- instance is either the source or the destination of any traffic that it</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- receives. If the value is @true@, source\/destination checks are</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- enabled; otherwise, they are disabled. The default value is @true@. You</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- must disable source\/destination checks if the instance runs services</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- such as network address translation, routing, or firewalls.</span><span>
-</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_sourceDestCheck"><span class="hs-identifier hs-type">modifyNetworkInterfaceAttribute_sourceDestCheck</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeBooleanValue.html#AttributeBooleanValue"><span class="hs-identifier hs-type">AttributeBooleanValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span id="modifyNetworkInterfaceAttribute_sourceDestCheck"><span class="annot"><span class="annottext">modifyNetworkInterfaceAttribute_sourceDestCheck :: (Maybe AttributeBooleanValue -&gt; f (Maybe AttributeBooleanValue))
--&gt; ModifyNetworkInterfaceAttribute
--&gt; f ModifyNetworkInterfaceAttribute
-</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_sourceDestCheck"><span class="hs-identifier hs-var hs-var">modifyNetworkInterfaceAttribute_sourceDestCheck</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeBooleanValue)
--&gt; (ModifyNetworkInterfaceAttribute
-    -&gt; Maybe AttributeBooleanValue -&gt; ModifyNetworkInterfaceAttribute)
--&gt; Lens
-     ModifyNetworkInterfaceAttribute
-     ModifyNetworkInterfaceAttribute
-     (Maybe AttributeBooleanValue)
-     (Maybe AttributeBooleanValue)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681182849"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-sourceDestCheck :: Maybe AttributeBooleanValue
-$sel:sourceDestCheck:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681182849"><span class="hs-identifier hs-var hs-var">sourceDestCheck</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681182849"><span class="hs-identifier hs-var">sourceDestCheck</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681182848"><span class="annot"><span class="annottext">s :: ModifyNetworkInterfaceAttribute
-</span><a href="#local-6989586621681182848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681182847"><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681182847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
-</span><a href="#local-6989586621681182848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceDestCheck:ModifyNetworkInterfaceAttribute' :: Maybe AttributeBooleanValue
-</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AsourceDestCheck%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">sourceDestCheck</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681182847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- | A description for the network interface.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_description"><span class="hs-identifier hs-type">modifyNetworkInterfaceAttribute_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span id="modifyNetworkInterfaceAttribute_description"><span class="annot"><span class="annottext">modifyNetworkInterfaceAttribute_description :: (Maybe AttributeValue -&gt; f (Maybe AttributeValue))
+</span><a href="#local-6989586621681218242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | A description for the network interface.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_description"><span class="hs-identifier hs-type">modifyNetworkInterfaceAttribute_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="modifyNetworkInterfaceAttribute_description"><span class="annot"><span class="annottext">modifyNetworkInterfaceAttribute_description :: (Maybe AttributeValue -&gt; f (Maybe AttributeValue))
 -&gt; ModifyNetworkInterfaceAttribute
 -&gt; f ModifyNetworkInterfaceAttribute
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_description"><span class="hs-identifier hs-var hs-var">modifyNetworkInterfaceAttribute_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeValue)
@@ -381,16 +353,44 @@ $sel:sourceDestCheck:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceA
      (Maybe AttributeValue)
      (Maybe AttributeValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681182846"><span class="annot"><span class="annottext">Maybe AttributeValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218241"><span class="annot"><span class="annottext">Maybe AttributeValue
 description :: Maybe AttributeValue
 $sel:description:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeValue
-</span><a href="#local-6989586621681182846"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeValue
-</span><a href="#local-6989586621681182846"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681182845"><span class="annot"><span class="annottext">s :: ModifyNetworkInterfaceAttribute
-</span><a href="#local-6989586621681182845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681182844"><span class="annot"><span class="annottext">Maybe AttributeValue
-</span><a href="#local-6989586621681182844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
-</span><a href="#local-6989586621681182845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ModifyNetworkInterfaceAttribute' :: Maybe AttributeValue
+</span><a href="#local-6989586621681218241"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeValue
+</span><a href="#local-6989586621681218241"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218240"><span class="annot"><span class="annottext">s :: ModifyNetworkInterfaceAttribute
+</span><a href="#local-6989586621681218240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218239"><span class="annot"><span class="annottext">Maybe AttributeValue
+</span><a href="#local-6989586621681218239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
+</span><a href="#local-6989586621681218240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:ModifyNetworkInterfaceAttribute' :: Maybe AttributeValue
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3Adescription%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AttributeValue
-</span><a href="#local-6989586621681182844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681218239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_dryRun"><span class="hs-identifier hs-type">modifyNetworkInterfaceAttribute_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="modifyNetworkInterfaceAttribute_dryRun"><span class="annot"><span class="annottext">modifyNetworkInterfaceAttribute_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ModifyNetworkInterfaceAttribute
+-&gt; f ModifyNetworkInterfaceAttribute
+</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_dryRun"><span class="hs-identifier hs-var hs-var">modifyNetworkInterfaceAttribute_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyNetworkInterfaceAttribute -&gt; Maybe Bool)
+-&gt; (ModifyNetworkInterfaceAttribute
+    -&gt; Maybe Bool -&gt; ModifyNetworkInterfaceAttribute)
+-&gt; Lens
+     ModifyNetworkInterfaceAttribute
+     ModifyNetworkInterfaceAttribute
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218238"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Maybe Bool
+</span><a href="#local-6989586621681218238"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681218238"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218237"><span class="annot"><span class="annottext">s :: ModifyNetworkInterfaceAttribute
+</span><a href="#local-6989586621681218237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218236"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681218236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
+</span><a href="#local-6989586621681218237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:ModifyNetworkInterfaceAttribute' :: Maybe Bool
+</span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AdryRun%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681218236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The ID of the network interface.</span><span>
 </span><span id="line-166"></span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#modifyNetworkInterfaceAttribute_networkInterfaceId"><span class="hs-identifier hs-type">modifyNetworkInterfaceAttribute_networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -406,16 +406,16 @@ $sel:description:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttri
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681182843"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218235"><span class="annot"><span class="annottext">Text
 networkInterfaceId :: Text
 $sel:networkInterfaceId:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Text
-</span><a href="#local-6989586621681182843"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681182843"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681182842"><span class="annot"><span class="annottext">s :: ModifyNetworkInterfaceAttribute
-</span><a href="#local-6989586621681182842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681182841"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681182841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
-</span><a href="#local-6989586621681182842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceId:ModifyNetworkInterfaceAttribute' :: Text
+</span><a href="#local-6989586621681218235"><span class="hs-identifier hs-var hs-var">networkInterfaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681218235"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681218234"><span class="annot"><span class="annottext">s :: ModifyNetworkInterfaceAttribute
+</span><a href="#local-6989586621681218234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681218233"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681218233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttribute
+</span><a href="#local-6989586621681218234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaceId:ModifyNetworkInterfaceAttribute' :: Text
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#%24sel%3AnetworkInterfaceId%3AModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681182841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681218233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
@@ -424,7 +424,7 @@ $sel:networkInterfaceId:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfa
 </span><span id="line-173"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-174"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-175"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttributeResponse"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttributeResponse</span></a></span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621681182837"><span class="annot"><span class="annottext">request :: ModifyNetworkInterfaceAttribute
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621681218229"><span class="annot"><span class="annottext">request :: ModifyNetworkInterfaceAttribute
 -&gt; Request ModifyNetworkInterfaceAttribute
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; ModifyNetworkInterfaceAttribute
@@ -432,7 +432,7 @@ $sel:networkInterfaceId:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfa
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-177"></span><span>  </span><span id="local-6989586621681182833"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621681218225"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyNetworkInterfaceAttribute
 -&gt; ClientResponse ClientBody
@@ -462,18 +462,18 @@ ModifyNetworkInterfaceAttributeResponse
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttributeResponse%27"><span class="hs-identifier hs-var">ModifyNetworkInterfaceAttributeResponse'</span></a></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-182"></span><span>  </span><span id="local-6989586621681182826"><span id="local-6989586621681182828"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621681218218"><span id="local-6989586621681218220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-183"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span></span></span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621681182823"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621681218215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span></span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
 </span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span>
 </span><span id="line-192"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-193"></span><span>  </span><span id="local-6989586621681182819"><span class="annot"><span class="annottext">toHeaders :: ModifyNetworkInterfaceAttribute -&gt; [Header]
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621681218211"><span class="annot"><span class="annottext">toHeaders :: ModifyNetworkInterfaceAttribute -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; ModifyNetworkInterfaceAttribute -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -481,34 +481,34 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621681182814"><span class="annot"><span class="annottext">toPath :: ModifyNetworkInterfaceAttribute -&gt; ByteString
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621681218206"><span class="annot"><span class="annottext">toPath :: ModifyNetworkInterfaceAttribute -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyNetworkInterfaceAttribute -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621681182810"><span class="annot"><span class="annottext">toQuery :: ModifyNetworkInterfaceAttribute -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681182803"><span id="local-6989586621681182804"><span id="local-6989586621681182805"><span id="local-6989586621681182806"><span id="local-6989586621681182807"><span id="local-6989586621681182808"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621681218202"><span class="annot"><span class="annottext">toQuery :: ModifyNetworkInterfaceAttribute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttribute%27"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681218195"><span id="local-6989586621681218196"><span id="local-6989586621681218197"><span id="local-6989586621681218198"><span id="local-6989586621681218199"><span id="local-6989586621681218200"><span class="annot"><span class="annottext">Maybe Bool
 Maybe [Text]
 Maybe AttributeBooleanValue
 Maybe AttributeValue
 Maybe NetworkInterfaceAttachmentChanges
 Text
 networkInterfaceId :: Text
-description :: Maybe AttributeValue
-sourceDestCheck :: Maybe AttributeBooleanValue
 dryRun :: Maybe Bool
+description :: Maybe AttributeValue
 attachment :: Maybe NetworkInterfaceAttachmentChanges
+sourceDestCheck :: Maybe AttributeBooleanValue
 groups :: Maybe [Text]
 $sel:networkInterfaceId:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Text
-$sel:description:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeValue
-$sel:sourceDestCheck:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeBooleanValue
 $sel:dryRun:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Maybe Bool
+$sel:description:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeValue
 $sel:attachment:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute
 -&gt; Maybe NetworkInterfaceAttachmentChanges
+$sel:sourceDestCheck:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Maybe AttributeBooleanValue
 $sel:groups:ModifyNetworkInterfaceAttribute' :: ModifyNetworkInterfaceAttribute -&gt; Maybe [Text]
-</span><a href="#local-6989586621681182803"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681218195"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -538,41 +538,41 @@ ByteString -&gt; a -&gt; QueryString
 </span><span id="line-209"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681182808"><span class="hs-identifier hs-var">groups</span></a></span><span>
+</span><a href="#local-6989586621681218200"><span class="hs-identifier hs-var">groups</span></a></span><span>
 </span><span id="line-210"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourceDestCheck&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe AttributeBooleanValue -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
+</span><a href="#local-6989586621681218199"><span class="hs-identifier hs-var">sourceDestCheck</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Attachment&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 -&gt; Maybe NetworkInterfaceAttachmentChanges -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInterfaceAttachmentChanges
-</span><a href="#local-6989586621681182807"><span class="hs-identifier hs-var">attachment</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-212"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681182806"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681218198"><span class="hs-identifier hs-var">attachment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;SourceDestCheck&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe AttributeBooleanValue -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe AttributeBooleanValue
-</span><a href="#local-6989586621681182805"><span class="hs-identifier hs-var">sourceDestCheck</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe AttributeValue -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe AttributeValue
-</span><a href="#local-6989586621681182804"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681218197"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681218196"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;NetworkInterfaceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681182803"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span>
+</span><a href="#local-6989586621681218195"><span class="hs-identifier hs-var">networkInterfaceId</span></a></span><span>
 </span><span id="line-216"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | /See:/ 'newModifyNetworkInterfaceAttributeResponse' smart constructor.</span><span>
-</span><span id="line-219"></span><span id="local-6989586621681182798"><span id="local-6989586621681182799"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyNetworkInterfaceAttributeResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttributeResponse"><span class="hs-identifier hs-var">ModifyNetworkInterfaceAttributeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyNetworkInterfaceAttributeResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttributeResponse%27"><span class="hs-identifier hs-var">ModifyNetworkInterfaceAttributeResponse'</span></a></span></span><span>
+</span><span id="line-219"></span><span id="local-6989586621681218190"><span id="local-6989586621681218191"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyNetworkInterfaceAttributeResponse"><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttributeResponse"><span class="hs-identifier hs-var">ModifyNetworkInterfaceAttributeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyNetworkInterfaceAttributeResponse%27"><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttributeResponse%27"><span class="hs-identifier hs-var">ModifyNetworkInterfaceAttributeResponse'</span></a></span></span><span>
 </span><span id="line-220"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-221"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681182794"><span id="local-6989586621681182796"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttributeResponse
+</span><span id="line-222"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681218186"><span id="local-6989586621681218188"><span class="annot"><span class="annottext">ModifyNetworkInterfaceAttributeResponse
 -&gt; ModifyNetworkInterfaceAttributeResponse -&gt; Bool
 (ModifyNetworkInterfaceAttributeResponse
  -&gt; ModifyNetworkInterfaceAttributeResponse -&gt; Bool)
@@ -588,7 +588,7 @@ $c/= :: ModifyNetworkInterfaceAttributeResponse
 -&gt; ModifyNetworkInterfaceAttributeResponse -&gt; Bool
 $c== :: ModifyNetworkInterfaceAttributeResponse
 -&gt; ModifyNetworkInterfaceAttributeResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681182786"><span id="local-6989586621681182788"><span id="local-6989586621681182790"><span id="local-6989586621681182792"><span class="annot"><span class="annottext">ReadPrec [ModifyNetworkInterfaceAttributeResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681218178"><span id="local-6989586621681218180"><span id="local-6989586621681218182"><span id="local-6989586621681218184"><span class="annot"><span class="annottext">ReadPrec [ModifyNetworkInterfaceAttributeResponse]
 ReadPrec ModifyNetworkInterfaceAttributeResponse
 Int -&gt; ReadS ModifyNetworkInterfaceAttributeResponse
 ReadS [ModifyNetworkInterfaceAttributeResponse]
@@ -608,7 +608,7 @@ readList :: ReadS [ModifyNetworkInterfaceAttributeResponse]
 $creadList :: ReadS [ModifyNetworkInterfaceAttributeResponse]
 readsPrec :: Int -&gt; ReadS ModifyNetworkInterfaceAttributeResponse
 $creadsPrec :: Int -&gt; ReadS ModifyNetworkInterfaceAttributeResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681182780"><span id="local-6989586621681182782"><span id="local-6989586621681182784"><span class="annot"><span class="annottext">Int -&gt; ModifyNetworkInterfaceAttributeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681218172"><span id="local-6989586621681218174"><span id="local-6989586621681218176"><span class="annot"><span class="annottext">Int -&gt; ModifyNetworkInterfaceAttributeResponse -&gt; ShowS
 [ModifyNetworkInterfaceAttributeResponse] -&gt; ShowS
 ModifyNetworkInterfaceAttributeResponse -&gt; String
 (Int -&gt; ModifyNetworkInterfaceAttributeResponse -&gt; ShowS)
@@ -658,6 +658,6 @@ ModifyNetworkInterfaceAttributeResponse
 </span><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttributeResponse%27"><span class="hs-identifier hs-var">ModifyNetworkInterfaceAttributeResponse'</span></a></span><span>
 </span><span id="line-232"></span><span>
 </span><span id="line-233"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-234"></span><span>  </span><span id="local-6989586621681182776"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621681218168"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-235"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.ModifyNetworkInterfaceAttribute.html#ModifyNetworkInterfaceAttributeResponse"><span class="hs-identifier hs-type">ModifyNetworkInterfaceAttributeResponse</span></a></span></span><span>
 </span><span id="line-236"></span></pre></body></html>

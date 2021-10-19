@@ -26,7 +26,7 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | A source identifier and its corresponding version.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newProjectSourceVersion' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679372270"><span id="local-6989586621679372271"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectSourceVersion"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-var">ProjectSourceVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectSourceVersion%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-var">ProjectSourceVersion'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679374152"><span id="local-6989586621679374153"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectSourceVersion"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-var">ProjectSourceVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectSourceVersion%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-var">ProjectSourceVersion'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier for a source in the build project. The identifier can only</span><span>
 </span><span id="line-31"></span><span>    </span><span class="hs-comment">-- contain alphanumeric characters and underscores, and must be less than</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- 128 characters in length.</span><span>
@@ -58,7 +58,7 @@
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3AsourceVersion%3AProjectSourceVersion%27"><span class="annot"><span class="annottext">ProjectSourceVersion -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#%24sel%3AsourceVersion%3AProjectSourceVersion%27"><span class="hs-identifier hs-var hs-var">sourceVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679372263"><span id="local-6989586621679372265"><span class="annot"><span class="annottext">ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374145"><span id="local-6989586621679374147"><span class="annot"><span class="annottext">ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool
 (ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool)
 -&gt; (ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool)
 -&gt; Eq ProjectSourceVersion
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool
 == :: ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool
 $c== :: ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372254"><span id="local-6989586621679372256"><span id="local-6989586621679372258"><span id="local-6989586621679372260"><span class="annot"><span class="annottext">ReadPrec [ProjectSourceVersion]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374136"><span id="local-6989586621679374138"><span id="local-6989586621679374140"><span id="local-6989586621679374142"><span class="annot"><span class="annottext">ReadPrec [ProjectSourceVersion]
 ReadPrec ProjectSourceVersion
 Int -&gt; ReadS ProjectSourceVersion
 ReadS [ProjectSourceVersion]
@@ -87,7 +87,7 @@ readList :: ReadS [ProjectSourceVersion]
 $creadList :: ReadS [ProjectSourceVersion]
 readsPrec :: Int -&gt; ReadS ProjectSourceVersion
 $creadsPrec :: Int -&gt; ReadS ProjectSourceVersion
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679372247"><span id="local-6989586621679372249"><span id="local-6989586621679372251"><span class="annot"><span class="annottext">Int -&gt; ProjectSourceVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374129"><span id="local-6989586621679374131"><span id="local-6989586621679374133"><span class="annot"><span class="annottext">Int -&gt; ProjectSourceVersion -&gt; ShowS
 [ProjectSourceVersion] -&gt; ShowS
 ProjectSourceVersion -&gt; String
 (Int -&gt; ProjectSourceVersion -&gt; ShowS)
@@ -156,19 +156,19 @@ $cfrom :: forall x. ProjectSourceVersion -&gt; Rep ProjectSourceVersion x
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span><span>
 </span><span id="line-102"></span><span id="newProjectSourceVersion"><span class="annot"><span class="annottext">newProjectSourceVersion :: Text -&gt; Text -&gt; ProjectSourceVersion
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#newProjectSourceVersion"><span class="hs-identifier hs-var hs-var">newProjectSourceVersion</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679372241"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372241"><span class="hs-identifier hs-var">pSourceIdentifier_</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679372240"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372240"><span class="hs-identifier hs-var">pSourceVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679374123"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374123"><span class="hs-identifier hs-var">pSourceIdentifier_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679374122"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374122"><span class="hs-identifier hs-var">pSourceVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ProjectSourceVersion' :: Text -&gt; Text -&gt; ProjectSourceVersion
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceIdentifier:ProjectSourceVersion' :: Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#%24sel%3AsourceIdentifier%3AProjectSourceVersion%27"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372241"><span class="hs-identifier hs-var">pSourceIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374123"><span class="hs-identifier hs-var">pSourceIdentifier_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceVersion:ProjectSourceVersion' :: Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#%24sel%3AsourceVersion%3AProjectSourceVersion%27"><span class="hs-identifier hs-var">sourceVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372240"><span class="hs-identifier hs-var">pSourceVersion_</span></a></span><span>
+</span><a href="#local-6989586621679374122"><span class="hs-identifier hs-var">pSourceVersion_</span></a></span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | An identifier for a source in the build project. The identifier can only</span><span>
@@ -180,16 +180,16 @@ $cfrom :: forall x. ProjectSourceVersion -&gt; Rep ProjectSourceVersion x
 -&gt; (ProjectSourceVersion -&gt; Text -&gt; ProjectSourceVersion)
 -&gt; Lens ProjectSourceVersion ProjectSourceVersion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372236"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374118"><span class="annot"><span class="annottext">Text
 sourceIdentifier :: Text
 $sel:sourceIdentifier:ProjectSourceVersion' :: ProjectSourceVersion -&gt; Text
-</span><a href="#local-6989586621679372236"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372236"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372235"><span class="annot"><span class="annottext">s :: ProjectSourceVersion
-</span><a href="#local-6989586621679372235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372234"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSourceVersion
-</span><a href="#local-6989586621679372235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentifier:ProjectSourceVersion' :: Text
+</span><a href="#local-6989586621679374118"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374118"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374117"><span class="annot"><span class="annottext">s :: ProjectSourceVersion
+</span><a href="#local-6989586621679374117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374116"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSourceVersion
+</span><a href="#local-6989586621679374117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentifier:ProjectSourceVersion' :: Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#%24sel%3AsourceIdentifier%3AProjectSourceVersion%27"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- | The source version for the corresponding source identifier. If</span><span>
 </span><span id="line-118"></span><span class="hs-comment">-- specified, must be one of:</span><span>
@@ -220,19 +220,19 @@ $sel:sourceIdentifier:ProjectSourceVersion' :: ProjectSourceVersion -&gt; Text
 -&gt; (ProjectSourceVersion -&gt; Text -&gt; ProjectSourceVersion)
 -&gt; Lens ProjectSourceVersion ProjectSourceVersion Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372232"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374114"><span class="annot"><span class="annottext">Text
 sourceVersion :: Text
 $sel:sourceVersion:ProjectSourceVersion' :: ProjectSourceVersion -&gt; Text
-</span><a href="#local-6989586621679372232"><span class="hs-identifier hs-var hs-var">sourceVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372232"><span class="hs-identifier hs-var">sourceVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679372231"><span class="annot"><span class="annottext">s :: ProjectSourceVersion
-</span><a href="#local-6989586621679372231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679372230"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSourceVersion
-</span><a href="#local-6989586621679372231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceVersion:ProjectSourceVersion' :: Text
+</span><a href="#local-6989586621679374114"><span class="hs-identifier hs-var hs-var">sourceVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374114"><span class="hs-identifier hs-var">sourceVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374113"><span class="annot"><span class="annottext">s :: ProjectSourceVersion
+</span><a href="#local-6989586621679374113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374112"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679374112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSourceVersion
+</span><a href="#local-6989586621679374113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceVersion:ProjectSourceVersion' :: Text
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#%24sel%3AsourceVersion%3AProjectSourceVersion%27"><span class="hs-identifier hs-var">sourceVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
-</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372227"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-144"></span><span>  </span><span id="local-6989586621679372225"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectSourceVersion
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374109"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679374107"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectSourceVersion
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ProjectSourceVersion)
@@ -242,15 +242,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ProjectSourceVersion&quot;</span></span><span>
-</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679372222"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372222"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374104"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374104"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; ProjectSourceVersion
 </span><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-var">ProjectSourceVersion'</span></a></span><span>
 </span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; ProjectSourceVersion)
 -&gt; Parser Text -&gt; Parser (Text -&gt; ProjectSourceVersion)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679374104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
@@ -258,24 +258,24 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser ProjectSourceVersion
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679372222"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679374104"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;sourceVersion&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372216"><span id="local-6989586621679372218"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374098"><span id="local-6989586621679374100"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372213"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374095"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679372205"><span id="local-6989586621679372207"><span id="local-6989586621679372209"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679372203"><span class="annot"><span class="annottext">toJSON :: ProjectSourceVersion -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679372200"><span id="local-6989586621679372201"><span class="annot"><span class="annottext">Text
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374087"><span id="local-6989586621679374089"><span id="local-6989586621679374091"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679374085"><span class="annot"><span class="annottext">toJSON :: ProjectSourceVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374082"><span id="local-6989586621679374083"><span class="annot"><span class="annottext">Text
 sourceVersion :: Text
 sourceIdentifier :: Text
 $sel:sourceVersion:ProjectSourceVersion' :: ProjectSourceVersion -&gt; Text
 $sel:sourceIdentifier:ProjectSourceVersion' :: ProjectSourceVersion -&gt; Text
-</span><a href="#local-6989586621679372200"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679374082"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -288,7 +288,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;sourceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372201"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679374083"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -296,7 +296,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;sourceVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679372200"><span class="hs-identifier hs-var">sourceVersion</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679374082"><span class="hs-identifier hs-var">sourceVersion</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span></pre></body></html>

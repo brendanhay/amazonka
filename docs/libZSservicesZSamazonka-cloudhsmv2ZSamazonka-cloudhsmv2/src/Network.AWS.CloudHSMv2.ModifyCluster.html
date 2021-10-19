@@ -48,7 +48,7 @@
 </span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-49"></span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newModifyCluster' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679175550"><span id="local-6989586621679175551"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyCluster"><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-var">ModifyCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyCluster%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-var">ModifyCluster'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679175619"><span id="local-6989586621679175620"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyCluster"><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-var">ModifyCluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyCluster%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-var">ModifyCluster'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A policy that defines how the service retains backups.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AbackupRetentionPolicy%3AModifyCluster%27"><span class="annot"><span class="annottext">ModifyCluster -&gt; BackupRetentionPolicy
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#%24sel%3AbackupRetentionPolicy%3AModifyCluster%27"><span class="hs-identifier hs-var hs-var">backupRetentionPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy.html#BackupRetentionPolicy"><span class="hs-identifier hs-type">BackupRetentionPolicy</span></a></span><span class="hs-special">,</span><span>
@@ -57,7 +57,7 @@
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AclusterId%3AModifyCluster%27"><span class="annot"><span class="annottext">ModifyCluster -&gt; Text
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#%24sel%3AclusterId%3AModifyCluster%27"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175543"><span id="local-6989586621679175545"><span class="annot"><span class="annottext">ModifyCluster -&gt; ModifyCluster -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175612"><span id="local-6989586621679175614"><span class="annot"><span class="annottext">ModifyCluster -&gt; ModifyCluster -&gt; Bool
 (ModifyCluster -&gt; ModifyCluster -&gt; Bool)
 -&gt; (ModifyCluster -&gt; ModifyCluster -&gt; Bool) -&gt; Eq ModifyCluster
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyCluster -&gt; ModifyCluster -&gt; Bool
 == :: ModifyCluster -&gt; ModifyCluster -&gt; Bool
 $c== :: ModifyCluster -&gt; ModifyCluster -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175534"><span id="local-6989586621679175536"><span id="local-6989586621679175538"><span id="local-6989586621679175540"><span class="annot"><span class="annottext">ReadPrec [ModifyCluster]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175603"><span id="local-6989586621679175605"><span id="local-6989586621679175607"><span id="local-6989586621679175609"><span class="annot"><span class="annottext">ReadPrec [ModifyCluster]
 ReadPrec ModifyCluster
 Int -&gt; ReadS ModifyCluster
 ReadS [ModifyCluster]
@@ -85,7 +85,7 @@ readList :: ReadS [ModifyCluster]
 $creadList :: ReadS [ModifyCluster]
 readsPrec :: Int -&gt; ReadS ModifyCluster
 $creadsPrec :: Int -&gt; ReadS ModifyCluster
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175527"><span id="local-6989586621679175529"><span id="local-6989586621679175531"><span class="annot"><span class="annottext">Int -&gt; ModifyCluster -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175596"><span id="local-6989586621679175598"><span id="local-6989586621679175600"><span class="annot"><span class="annottext">Int -&gt; ModifyCluster -&gt; ShowS
 [ModifyCluster] -&gt; ShowS
 ModifyCluster -&gt; String
 (Int -&gt; ModifyCluster -&gt; ShowS)
@@ -130,18 +130,18 @@ $cfrom :: forall x. ModifyCluster -&gt; Rep ModifyCluster x
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span>
 </span><span id="line-78"></span><span id="newModifyCluster"><span class="annot"><span class="annottext">newModifyCluster :: BackupRetentionPolicy -&gt; Text -&gt; ModifyCluster
-</span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#newModifyCluster"><span class="hs-identifier hs-var hs-var">newModifyCluster</span></a></span></span><span> </span><span id="local-6989586621679175522"><span class="annot"><span class="annottext">BackupRetentionPolicy
-</span><a href="#local-6989586621679175522"><span class="hs-identifier hs-var">pBackupRetentionPolicy_</span></a></span></span><span> </span><span id="local-6989586621679175521"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175521"><span class="hs-identifier hs-var">pClusterId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#newModifyCluster"><span class="hs-identifier hs-var hs-var">newModifyCluster</span></a></span></span><span> </span><span id="local-6989586621679175591"><span class="annot"><span class="annottext">BackupRetentionPolicy
+</span><a href="#local-6989586621679175591"><span class="hs-identifier hs-var">pBackupRetentionPolicy_</span></a></span></span><span> </span><span id="local-6989586621679175590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175590"><span class="hs-identifier hs-var">pClusterId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">ModifyCluster' :: BackupRetentionPolicy -&gt; Text -&gt; ModifyCluster
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span>
 </span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:backupRetentionPolicy:ModifyCluster' :: BackupRetentionPolicy
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#%24sel%3AbackupRetentionPolicy%3AModifyCluster%27"><span class="hs-identifier hs-var">backupRetentionPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">BackupRetentionPolicy
-</span><a href="#local-6989586621679175522"><span class="hs-identifier hs-var">pBackupRetentionPolicy_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679175591"><span class="hs-identifier hs-var">pBackupRetentionPolicy_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:clusterId:ModifyCluster' :: Text
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#%24sel%3AclusterId%3AModifyCluster%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175521"><span class="hs-identifier hs-var">pClusterId_</span></a></span><span>
+</span><a href="#local-6989586621679175590"><span class="hs-identifier hs-var">pClusterId_</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | A policy that defines how the service retains backups.</span><span>
@@ -156,16 +156,16 @@ $cfrom :: forall x. ModifyCluster -&gt; Rep ModifyCluster x
      BackupRetentionPolicy
      BackupRetentionPolicy
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175518"><span class="annot"><span class="annottext">BackupRetentionPolicy
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175587"><span class="annot"><span class="annottext">BackupRetentionPolicy
 backupRetentionPolicy :: BackupRetentionPolicy
 $sel:backupRetentionPolicy:ModifyCluster' :: ModifyCluster -&gt; BackupRetentionPolicy
-</span><a href="#local-6989586621679175518"><span class="hs-identifier hs-var hs-var">backupRetentionPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackupRetentionPolicy
-</span><a href="#local-6989586621679175518"><span class="hs-identifier hs-var">backupRetentionPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175517"><span class="annot"><span class="annottext">s :: ModifyCluster
-</span><a href="#local-6989586621679175517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175516"><span class="annot"><span class="annottext">BackupRetentionPolicy
-</span><a href="#local-6989586621679175516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCluster
-</span><a href="#local-6989586621679175517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupRetentionPolicy:ModifyCluster' :: BackupRetentionPolicy
+</span><a href="#local-6989586621679175587"><span class="hs-identifier hs-var hs-var">backupRetentionPolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BackupRetentionPolicy
+</span><a href="#local-6989586621679175587"><span class="hs-identifier hs-var">backupRetentionPolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175586"><span class="annot"><span class="annottext">s :: ModifyCluster
+</span><a href="#local-6989586621679175586"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175585"><span class="annot"><span class="annottext">BackupRetentionPolicy
+</span><a href="#local-6989586621679175585"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCluster
+</span><a href="#local-6989586621679175586"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:backupRetentionPolicy:ModifyCluster' :: BackupRetentionPolicy
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#%24sel%3AbackupRetentionPolicy%3AModifyCluster%27"><span class="hs-identifier hs-var">backupRetentionPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BackupRetentionPolicy
-</span><a href="#local-6989586621679175516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175585"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The identifier (ID) of the cluster that you want to modify. To find the</span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- cluster ID, use DescribeClusters.</span><span>
@@ -175,27 +175,27 @@ $sel:backupRetentionPolicy:ModifyCluster' :: ModifyCluster -&gt; BackupRetention
 -&gt; (ModifyCluster -&gt; Text -&gt; ModifyCluster)
 -&gt; Lens ModifyCluster ModifyCluster Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175515"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175584"><span class="annot"><span class="annottext">Text
 clusterId :: Text
 $sel:clusterId:ModifyCluster' :: ModifyCluster -&gt; Text
-</span><a href="#local-6989586621679175515"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175515"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175514"><span class="annot"><span class="annottext">s :: ModifyCluster
-</span><a href="#local-6989586621679175514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175513"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCluster
-</span><a href="#local-6989586621679175514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:ModifyCluster' :: Text
+</span><a href="#local-6989586621679175584"><span class="hs-identifier hs-var hs-var">clusterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175584"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175583"><span class="annot"><span class="annottext">s :: ModifyCluster
+</span><a href="#local-6989586621679175583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175582"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679175582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCluster
+</span><a href="#local-6989586621679175583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterId:ModifyCluster' :: Text
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#%24sel%3AclusterId%3AModifyCluster%27"><span class="hs-identifier hs-var">clusterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-95"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-96"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-97"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679175509"><span class="annot"><span class="annottext">request :: ModifyCluster -&gt; Request ModifyCluster
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679175578"><span class="annot"><span class="annottext">request :: ModifyCluster -&gt; Request ModifyCluster
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyCluster -&gt; Request ModifyCluster
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudHSMv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679175505"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679175574"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyCluster
 -&gt; ClientResponse ClientBody
@@ -219,10 +219,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175502"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175502"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175501"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679175501"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175500"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175500"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679175571"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175571"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679175570"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679175570"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679175569"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679175569"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; ModifyClusterResponse
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-var">ModifyClusterResponse'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; ModifyClusterResponse)
@@ -230,7 +230,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; ModifyClusterResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679175500"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
+</span><a href="#local-6989586621679175569"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Cluster)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Cluster&quot;</span></span><span class="hs-special">)</span><span>
@@ -242,15 +242,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175502"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175571"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175492"><span id="local-6989586621679175494"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span></span></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175561"><span id="local-6989586621679175563"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span></span></span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175489"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679175485"><span class="annot"><span class="annottext">toHeaders :: ModifyCluster -&gt; ResponseHeaders
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679175554"><span class="annot"><span class="annottext">toHeaders :: ModifyCluster -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyCluster -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -277,15 +277,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-123"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175475"><span id="local-6989586621679175477"><span id="local-6989586621679175479"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679175473"><span class="annot"><span class="annottext">toJSON :: ModifyCluster -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175470"><span id="local-6989586621679175471"><span class="annot"><span class="annottext">Text
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175544"><span id="local-6989586621679175546"><span id="local-6989586621679175548"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679175542"><span class="annot"><span class="annottext">toJSON :: ModifyCluster -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster%27"><span class="hs-identifier hs-type">ModifyCluster'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175539"><span id="local-6989586621679175540"><span class="annot"><span class="annottext">Text
 BackupRetentionPolicy
 clusterId :: Text
 backupRetentionPolicy :: BackupRetentionPolicy
 $sel:clusterId:ModifyCluster' :: ModifyCluster -&gt; Text
 $sel:backupRetentionPolicy:ModifyCluster' :: ModifyCluster -&gt; BackupRetentionPolicy
-</span><a href="#local-6989586621679175470"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679175539"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -299,7 +299,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-132"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; BackupRetentionPolicy -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">BackupRetentionPolicy
-</span><a href="#local-6989586621679175471"><span class="hs-identifier hs-var">backupRetentionPolicy</span></a></span><span>
+</span><a href="#local-6989586621679175540"><span class="hs-identifier hs-var">backupRetentionPolicy</span></a></span><span>
 </span><span id="line-133"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -307,19 +307,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ClusterId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679175470"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175539"><span class="hs-identifier hs-var">clusterId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
 </span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679175464"><span class="annot"><span class="annottext">toPath :: ModifyCluster -&gt; ByteString
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679175533"><span class="annot"><span class="annottext">toPath :: ModifyCluster -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyCluster -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyCluster"><span class="hs-identifier hs-type">ModifyCluster</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679175460"><span class="annot"><span class="annottext">toQuery :: ModifyCluster -&gt; QueryString
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679175529"><span class="annot"><span class="annottext">toQuery :: ModifyCluster -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ModifyCluster -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -327,14 +327,14 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-143"></span><span>
 </span><span id="line-144"></span><span class="hs-comment">-- | /See:/ 'newModifyClusterResponse' smart constructor.</span><span>
-</span><span id="line-145"></span><span id="local-6989586621679175457"><span id="local-6989586621679175458"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyClusterResponse"><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-var">ModifyClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyClusterResponse%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-var">ModifyClusterResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span id="local-6989586621679175526"><span id="local-6989586621679175527"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyClusterResponse"><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-var">ModifyClusterResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyClusterResponse%27"><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-var">ModifyClusterResponse'</span></a></span></span><span>
 </span><span id="line-146"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Acluster%3AModifyClusterResponse%27"><span class="annot"><span class="annottext">ModifyClusterResponse -&gt; Maybe Cluster
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#%24sel%3Acluster%3AModifyClusterResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-148"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyClusterResponse%27"><span class="annot"><span class="annottext">ModifyClusterResponse -&gt; Int
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#%24sel%3AhttpStatus%3AModifyClusterResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-149"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175451"><span id="local-6989586621679175453"><span class="annot"><span class="annottext">ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679175520"><span id="local-6989586621679175522"><span class="annot"><span class="annottext">ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool
 (ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool)
 -&gt; (ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool)
 -&gt; Eq ModifyClusterResponse
@@ -343,7 +343,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool
 == :: ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool
 $c== :: ModifyClusterResponse -&gt; ModifyClusterResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175443"><span id="local-6989586621679175445"><span id="local-6989586621679175447"><span id="local-6989586621679175449"><span class="annot"><span class="annottext">ReadPrec [ModifyClusterResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175512"><span id="local-6989586621679175514"><span id="local-6989586621679175516"><span id="local-6989586621679175518"><span class="annot"><span class="annottext">ReadPrec [ModifyClusterResponse]
 ReadPrec ModifyClusterResponse
 Int -&gt; ReadS ModifyClusterResponse
 ReadS [ModifyClusterResponse]
@@ -363,7 +363,7 @@ readList :: ReadS [ModifyClusterResponse]
 $creadList :: ReadS [ModifyClusterResponse]
 readsPrec :: Int -&gt; ReadS ModifyClusterResponse
 $creadsPrec :: Int -&gt; ReadS ModifyClusterResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175437"><span id="local-6989586621679175439"><span id="local-6989586621679175441"><span class="annot"><span class="annottext">Int -&gt; ModifyClusterResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679175506"><span id="local-6989586621679175508"><span id="local-6989586621679175510"><span class="annot"><span class="annottext">Int -&gt; ModifyClusterResponse -&gt; ShowS
 [ModifyClusterResponse] -&gt; ShowS
 ModifyClusterResponse -&gt; String
 (Int -&gt; ModifyClusterResponse -&gt; ShowS)
@@ -405,8 +405,8 @@ $cfrom :: forall x. ModifyClusterResponse -&gt; Rep ModifyClusterResponse x
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-166"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span><span>
 </span><span id="line-167"></span><span id="newModifyClusterResponse"><span class="annot"><span class="annottext">newModifyClusterResponse :: Int -&gt; ModifyClusterResponse
-</span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#newModifyClusterResponse"><span class="hs-identifier hs-var hs-var">newModifyClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679175434"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175434"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#newModifyClusterResponse"><span class="hs-identifier hs-var hs-var">newModifyClusterResponse</span></a></span></span><span> </span><span id="local-6989586621679175503"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175503"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">ModifyClusterResponse' :: Maybe Cluster -&gt; Int -&gt; ModifyClusterResponse
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span>
 </span><span id="line-169"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:ModifyClusterResponse' :: Maybe Cluster
@@ -415,7 +415,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyClusterResponse' :: Int
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#%24sel%3AhttpStatus%3AModifyClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175434"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679175503"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-171"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-172"></span><span>
 </span><span id="line-173"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -431,16 +431,16 @@ forall a. Maybe a
      (Maybe Cluster)
      (Maybe Cluster)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175433"><span class="annot"><span class="annottext">Maybe Cluster
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175502"><span class="annot"><span class="annottext">Maybe Cluster
 cluster :: Maybe Cluster
 $sel:cluster:ModifyClusterResponse' :: ModifyClusterResponse -&gt; Maybe Cluster
-</span><a href="#local-6989586621679175433"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679175433"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175432"><span class="annot"><span class="annottext">s :: ModifyClusterResponse
-</span><a href="#local-6989586621679175432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175431"><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679175431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyClusterResponse
-</span><a href="#local-6989586621679175432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:ModifyClusterResponse' :: Maybe Cluster
+</span><a href="#local-6989586621679175502"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679175502"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175501"><span class="annot"><span class="annottext">s :: ModifyClusterResponse
+</span><a href="#local-6989586621679175501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175500"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679175500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyClusterResponse
+</span><a href="#local-6989586621679175501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:ModifyClusterResponse' :: Maybe Cluster
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#%24sel%3Acluster%3AModifyClusterResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
-</span><a href="#local-6989586621679175431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#modifyClusterResponse_httpStatus"><span class="hs-identifier hs-type">modifyClusterResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -449,16 +449,16 @@ $sel:cluster:ModifyClusterResponse' :: ModifyClusterResponse -&gt; Maybe Cluster
 -&gt; (ModifyClusterResponse -&gt; Int -&gt; ModifyClusterResponse)
 -&gt; Lens ModifyClusterResponse ModifyClusterResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175430"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679175499"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyClusterResponse' :: ModifyClusterResponse -&gt; Int
-</span><a href="#local-6989586621679175430"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175430"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175429"><span class="annot"><span class="annottext">s :: ModifyClusterResponse
-</span><a href="#local-6989586621679175429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175428"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyClusterResponse
-</span><a href="#local-6989586621679175429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyClusterResponse' :: Int
+</span><a href="#local-6989586621679175499"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175499"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679175498"><span class="annot"><span class="annottext">s :: ModifyClusterResponse
+</span><a href="#local-6989586621679175498"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse%27"><span class="hs-identifier hs-type">ModifyClusterResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679175497"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679175497"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyClusterResponse
+</span><a href="#local-6989586621679175498"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyClusterResponse' :: Int
 </span><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#%24sel%3AhttpStatus%3AModifyClusterResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679175428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679175497"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175426"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679175495"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudHSMv2.ModifyCluster.html#ModifyClusterResponse"><span class="hs-identifier hs-type">ModifyClusterResponse</span></a></span></span><span>
 </span><span id="line-182"></span></pre></body></html>

@@ -48,33 +48,33 @@
 </span><span id="line-48"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-create-api.html Creating an API&gt;</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- /See:/ 'newMethodResponse' smart constructor.</span><span>
-</span><span id="line-51"></span><span id="local-6989586621679367261"><span id="local-6989586621679367262"></span></span><span class="hs-keyword">data</span><span> </span><span id="MethodResponse"><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-var">MethodResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MethodResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-var">MethodResponse'</span></a></span></span><span>
+</span><span id="line-51"></span><span id="local-6989586621679367761"><span id="local-6989586621679367762"></span></span><span class="hs-keyword">data</span><span> </span><span id="MethodResponse"><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-var">MethodResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MethodResponse%27"><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-var">MethodResponse'</span></a></span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the Model resources used for the response\'s content-type.</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Response models are represented as a key\/value map, with a content-type</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- as the key and a Model name as the value.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AresponseModels%3AMethodResponse%27"><span class="annot"><span class="annottext">MethodResponse -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AresponseModels%3AMethodResponse%27"><span class="hs-identifier hs-var hs-var">responseModels</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A key-value map specifying required or optional response parameters that</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- API Gateway can send back to the caller. A key defines a method response</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- header and the value specifies whether the associated method response</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- header is required or not. The expression of the key must match the</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- pattern @method.response.header.{name}@, where @name@ is a valid and</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- unique header name. API Gateway passes certain integration response data</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- to the method response headers specified here according to the mapping</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- you prescribe in the API\'s IntegrationResponse. The integration</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- response data that can be mapped include an integration response header</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- expressed in @integration.response.header.{name}@, a static value</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- enclosed within a pair of single quotes (e.g., @\'application\/json\'@),</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- or a JSON expression from the back-end response payload in the form of</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @integration.response.body.{JSON-expression}@, where @JSON-expression@</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- is a valid JSON expression without the @$@ prefix.)</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AresponseParameters%3AMethodResponse%27"><span class="annot"><span class="annottext">MethodResponse -&gt; Maybe (HashMap Text Bool)
-</span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AresponseParameters%3AMethodResponse%27"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The method response\'s status code.</span><span>
-</span><span id="line-72"></span><span>    </span><span id="%24sel%3AstatusCode%3AMethodResponse%27"><span class="annot"><span class="annottext">MethodResponse -&gt; Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AstatusCode%3AMethodResponse%27"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The method response\'s status code.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AstatusCode%3AMethodResponse%27"><span class="annot"><span class="annottext">MethodResponse -&gt; Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AstatusCode%3AMethodResponse%27"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | A key-value map specifying required or optional response parameters that</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- API Gateway can send back to the caller. A key defines a method response</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- header and the value specifies whether the associated method response</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- header is required or not. The expression of the key must match the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- pattern @method.response.header.{name}@, where @name@ is a valid and</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- unique header name. API Gateway passes certain integration response data</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- to the method response headers specified here according to the mapping</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- you prescribe in the API\'s IntegrationResponse. The integration</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- response data that can be mapped include an integration response header</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- expressed in @integration.response.header.{name}@, a static value</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- enclosed within a pair of single quotes (e.g., @\'application\/json\'@),</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- or a JSON expression from the back-end response payload in the form of</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @integration.response.body.{JSON-expression}@, where @JSON-expression@</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- is a valid JSON expression without the @$@ prefix.)</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AresponseParameters%3AMethodResponse%27"><span class="annot"><span class="annottext">MethodResponse -&gt; Maybe (HashMap Text Bool)
+</span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AresponseParameters%3AMethodResponse%27"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367253"><span id="local-6989586621679367255"><span class="annot"><span class="annottext">MethodResponse -&gt; MethodResponse -&gt; Bool
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367753"><span id="local-6989586621679367755"><span class="annot"><span class="annottext">MethodResponse -&gt; MethodResponse -&gt; Bool
 (MethodResponse -&gt; MethodResponse -&gt; Bool)
 -&gt; (MethodResponse -&gt; MethodResponse -&gt; Bool) -&gt; Eq MethodResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: MethodResponse -&gt; MethodResponse -&gt; Bool
 == :: MethodResponse -&gt; MethodResponse -&gt; Bool
 $c== :: MethodResponse -&gt; MethodResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367244"><span id="local-6989586621679367246"><span id="local-6989586621679367248"><span id="local-6989586621679367250"><span class="annot"><span class="annottext">ReadPrec [MethodResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367744"><span id="local-6989586621679367746"><span id="local-6989586621679367748"><span id="local-6989586621679367750"><span class="annot"><span class="annottext">ReadPrec [MethodResponse]
 ReadPrec MethodResponse
 Int -&gt; ReadS MethodResponse
 ReadS [MethodResponse]
@@ -102,7 +102,7 @@ readList :: ReadS [MethodResponse]
 $creadList :: ReadS [MethodResponse]
 readsPrec :: Int -&gt; ReadS MethodResponse
 $creadsPrec :: Int -&gt; ReadS MethodResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367237"><span id="local-6989586621679367239"><span id="local-6989586621679367241"><span class="annot"><span class="annottext">Int -&gt; MethodResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367737"><span id="local-6989586621679367739"><span id="local-6989586621679367741"><span class="annot"><span class="annottext">Int -&gt; MethodResponse -&gt; ShowS
 [MethodResponse] -&gt; ShowS
 MethodResponse -&gt; String
 (Int -&gt; MethodResponse -&gt; ShowS)
@@ -140,39 +140,39 @@ $cfrom :: forall x. MethodResponse -&gt; Rep MethodResponse x
 </span><span id="line-85"></span><span class="hs-comment">-- Response models are represented as a key\/value map, with a content-type</span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- as the key and a Model name as the value.</span><span>
 </span><span id="line-87"></span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- 'responseParameters', 'methodResponse_responseParameters' - A key-value map specifying required or optional response parameters that</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- API Gateway can send back to the caller. A key defines a method response</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- header and the value specifies whether the associated method response</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- header is required or not. The expression of the key must match the</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- pattern @method.response.header.{name}@, where @name@ is a valid and</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- unique header name. API Gateway passes certain integration response data</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- to the method response headers specified here according to the mapping</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- you prescribe in the API\'s IntegrationResponse. The integration</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- response data that can be mapped include an integration response header</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- expressed in @integration.response.header.{name}@, a static value</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- enclosed within a pair of single quotes (e.g., @\'application\/json\'@),</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- or a JSON expression from the back-end response payload in the form of</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- @integration.response.body.{JSON-expression}@, where @JSON-expression@</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- is a valid JSON expression without the @$@ prefix.)</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- 'statusCode', 'methodResponse_statusCode' - The method response\'s status code.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'statusCode', 'methodResponse_statusCode' - The method response\'s status code.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'responseParameters', 'methodResponse_responseParameters' - A key-value map specifying required or optional response parameters that</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- API Gateway can send back to the caller. A key defines a method response</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- header and the value specifies whether the associated method response</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- header is required or not. The expression of the key must match the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- pattern @method.response.header.{name}@, where @name@ is a valid and</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- unique header name. API Gateway passes certain integration response data</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- to the method response headers specified here according to the mapping</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- you prescribe in the API\'s IntegrationResponse. The integration</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- response data that can be mapped include an integration response header</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- expressed in @integration.response.header.{name}@, a static value</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- enclosed within a pair of single quotes (e.g., @\'application\/json\'@),</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- or a JSON expression from the back-end response payload in the form of</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- @integration.response.body.{JSON-expression}@, where @JSON-expression@</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- is a valid JSON expression without the @$@ prefix.)</span><span>
 </span><span id="line-104"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#newMethodResponse"><span class="hs-identifier hs-type">newMethodResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span>
 </span><span id="line-106"></span><span id="newMethodResponse"><span class="annot"><span class="annottext">newMethodResponse :: MethodResponse
 </span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#newMethodResponse"><span class="hs-identifier hs-var hs-var">newMethodResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">MethodResponse' :: Maybe (HashMap Text Text)
--&gt; Maybe (HashMap Text Bool) -&gt; Maybe Text -&gt; MethodResponse
+-&gt; Maybe Text -&gt; Maybe (HashMap Text Bool) -&gt; MethodResponse
 </span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span>
 </span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:responseModels:MethodResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AresponseModels%3AMethodResponse%27"><span class="hs-identifier hs-var">responseModels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:responseParameters:MethodResponse' :: Maybe (HashMap Text Bool)
-</span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AresponseParameters%3AMethodResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusCode:MethodResponse' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AstatusCode%3AMethodResponse%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusCode:MethodResponse' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AstatusCode%3AMethodResponse%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:responseParameters:MethodResponse' :: Maybe (HashMap Text Bool)
+</span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AresponseParameters%3AMethodResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-special">}</span><span>
@@ -191,16 +191,16 @@ forall a. Maybe a
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367228"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367728"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 responseModels :: Maybe (HashMap Text Text)
 $sel:responseModels:MethodResponse' :: MethodResponse -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679367228"><span class="hs-identifier hs-var hs-var">responseModels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679367228"><span class="hs-identifier hs-var">responseModels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367227"><span class="annot"><span class="annottext">s :: MethodResponse
-</span><a href="#local-6989586621679367227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367226"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679367226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodResponse
-</span><a href="#local-6989586621679367227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseModels:MethodResponse' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679367728"><span class="hs-identifier hs-var hs-var">responseModels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679367728"><span class="hs-identifier hs-var">responseModels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367727"><span class="annot"><span class="annottext">s :: MethodResponse
+</span><a href="#local-6989586621679367727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367726"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679367726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodResponse
+</span><a href="#local-6989586621679367727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseModels:MethodResponse' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AresponseModels%3AMethodResponse%27"><span class="hs-identifier hs-var">responseModels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679367226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679367726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; MethodResponse -&gt; f MethodResponse)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -226,25 +226,44 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | A key-value map specifying required or optional response parameters that</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- API Gateway can send back to the caller. A key defines a method response</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- header and the value specifies whether the associated method response</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- header is required or not. The expression of the key must match the</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- pattern @method.response.header.{name}@, where @name@ is a valid and</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- unique header name. API Gateway passes certain integration response data</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- to the method response headers specified here according to the mapping</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- you prescribe in the API\'s IntegrationResponse. The integration</span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- response data that can be mapped include an integration response header</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- expressed in @integration.response.header.{name}@, a static value</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- enclosed within a pair of single quotes (e.g., @\'application\/json\'@),</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- or a JSON expression from the back-end response payload in the form of</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- @integration.response.body.{JSON-expression}@, where @JSON-expression@</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- is a valid JSON expression without the @$@ prefix.)</span><span>
-</span><span id="line-133"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#methodResponse_responseParameters"><span class="hs-identifier hs-type">methodResponse_responseParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span id="methodResponse_responseParameters"><span class="annot"><span class="annottext">methodResponse_responseParameters :: (Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
+</span><span id="line-119"></span><span class="hs-comment">-- | The method response\'s status code.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#methodResponse_statusCode"><span class="hs-identifier hs-type">methodResponse_statusCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="methodResponse_statusCode"><span class="annot"><span class="annottext">methodResponse_statusCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; MethodResponse -&gt; f MethodResponse
+</span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#methodResponse_statusCode"><span class="hs-identifier hs-var hs-var">methodResponse_statusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MethodResponse -&gt; Maybe Text)
+-&gt; (MethodResponse -&gt; Maybe Text -&gt; MethodResponse)
+-&gt; Lens MethodResponse MethodResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367721"><span class="annot"><span class="annottext">Maybe Text
+statusCode :: Maybe Text
+$sel:statusCode:MethodResponse' :: MethodResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679367721"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367721"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367720"><span class="annot"><span class="annottext">s :: MethodResponse
+</span><a href="#local-6989586621679367720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367719"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodResponse
+</span><a href="#local-6989586621679367720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:MethodResponse' :: Maybe Text
+</span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AstatusCode%3AMethodResponse%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | A key-value map specifying required or optional response parameters that</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- API Gateway can send back to the caller. A key defines a method response</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- header and the value specifies whether the associated method response</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- header is required or not. The expression of the key must match the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- pattern @method.response.header.{name}@, where @name@ is a valid and</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- unique header name. API Gateway passes certain integration response data</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- to the method response headers specified here according to the mapping</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- you prescribe in the API\'s IntegrationResponse. The integration</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- response data that can be mapped include an integration response header</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- expressed in @integration.response.header.{name}@, a static value</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- enclosed within a pair of single quotes (e.g., @\'application\/json\'@),</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- or a JSON expression from the back-end response payload in the form of</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @integration.response.body.{JSON-expression}@, where @JSON-expression@</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- is a valid JSON expression without the @$@ prefix.)</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#methodResponse_responseParameters"><span class="hs-identifier hs-type">methodResponse_responseParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="methodResponse_responseParameters"><span class="annot"><span class="annottext">methodResponse_responseParameters :: (Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
 -&gt; MethodResponse -&gt; f MethodResponse
 </span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#methodResponse_responseParameters"><span class="hs-identifier hs-var hs-var">methodResponse_responseParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MethodResponse -&gt; Maybe (HashMap Text Bool))
 -&gt; (MethodResponse -&gt; Maybe (HashMap Text Bool) -&gt; MethodResponse)
@@ -254,16 +273,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (HashMap Text Bool))
      (Maybe (HashMap Text Bool))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367221"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367717"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
 responseParameters :: Maybe (HashMap Text Bool)
 $sel:responseParameters:MethodResponse' :: MethodResponse -&gt; Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679367221"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679367221"><span class="hs-identifier hs-var">responseParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367220"><span class="annot"><span class="annottext">s :: MethodResponse
-</span><a href="#local-6989586621679367220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367219"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679367219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodResponse
-</span><a href="#local-6989586621679367220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseParameters:MethodResponse' :: Maybe (HashMap Text Bool)
+</span><a href="#local-6989586621679367717"><span class="hs-identifier hs-var hs-var">responseParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
+</span><a href="#local-6989586621679367717"><span class="hs-identifier hs-var">responseParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367716"><span class="annot"><span class="annottext">s :: MethodResponse
+</span><a href="#local-6989586621679367716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367715"><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
+</span><a href="#local-6989586621679367715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodResponse
+</span><a href="#local-6989586621679367716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:responseParameters:MethodResponse' :: Maybe (HashMap Text Bool)
 </span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AresponseParameters%3AMethodResponse%27"><span class="hs-identifier hs-var">responseParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
-</span><a href="#local-6989586621679367219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
+</span><a href="#local-6989586621679367715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
  -&gt; MethodResponse -&gt; f MethodResponse)
 -&gt; ((Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
     -&gt; Maybe (HashMap Text Bool) -&gt; f (Maybe (HashMap Text Bool)))
@@ -289,30 +308,11 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Bool)
   (HashMap Text Bool)
   (HashMap Text Bool)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-135"></span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- | The method response\'s status code.</span><span>
-</span><span id="line-137"></span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#methodResponse_statusCode"><span class="hs-identifier hs-type">methodResponse_statusCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span id="methodResponse_statusCode"><span class="annot"><span class="annottext">methodResponse_statusCode :: (Maybe Text -&gt; f (Maybe Text))
--&gt; MethodResponse -&gt; f MethodResponse
-</span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#methodResponse_statusCode"><span class="hs-identifier hs-var hs-var">methodResponse_statusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MethodResponse -&gt; Maybe Text)
--&gt; (MethodResponse -&gt; Maybe Text -&gt; MethodResponse)
--&gt; Lens MethodResponse MethodResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367217"><span class="annot"><span class="annottext">Maybe Text
-statusCode :: Maybe Text
-$sel:statusCode:MethodResponse' :: MethodResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679367217"><span class="hs-identifier hs-var hs-var">statusCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367217"><span class="hs-identifier hs-var">statusCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367216"><span class="annot"><span class="annottext">s :: MethodResponse
-</span><a href="#local-6989586621679367216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-type">MethodResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367215"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MethodResponse
-</span><a href="#local-6989586621679367216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusCode:MethodResponse' :: Maybe Text
-</span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#%24sel%3AstatusCode%3AMethodResponse%27"><span class="hs-identifier hs-var">statusCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679367215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-139"></span><span>
-</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367212"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-141"></span><span>  </span><span id="local-6989586621679367210"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MethodResponse
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367712"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679367710"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MethodResponse
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser MethodResponse)
@@ -322,19 +322,19 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;MethodResponse&quot;</span></span><span>
-</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367207"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367207"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367707"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367707"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
--&gt; Maybe (HashMap Text Bool) -&gt; Maybe Text -&gt; MethodResponse
+-&gt; Maybe Text -&gt; Maybe (HashMap Text Bool) -&gt; MethodResponse
 </span><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse%27"><span class="hs-identifier hs-var">MethodResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
- -&gt; Maybe (HashMap Text Bool) -&gt; Maybe Text -&gt; MethodResponse)
+ -&gt; Maybe Text -&gt; Maybe (HashMap Text Bool) -&gt; MethodResponse)
 -&gt; Parser (Maybe (HashMap Text Text))
 -&gt; Parser
-     (Maybe (HashMap Text Bool) -&gt; Maybe Text -&gt; MethodResponse)
+     (Maybe Text -&gt; Maybe (HashMap Text Bool) -&gt; MethodResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679367707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;responseModels&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -343,33 +343,33 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Bool) -&gt; Maybe Text -&gt; MethodResponse)
--&gt; Parser (Maybe (HashMap Text Bool))
--&gt; Parser (Maybe Text -&gt; MethodResponse)
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe (HashMap Text Bool) -&gt; MethodResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text Bool) -&gt; MethodResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Bool) -&gt; MethodResponse)
+-&gt; Parser (Maybe (HashMap Text Bool)) -&gt; Parser MethodResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Bool)))
+</span><a href="#local-6989586621679367707"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Bool)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;responseParameters&quot;</span></span><span>
-</span><span id="line-148"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Bool)))
+</span><span id="line-149"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Bool)))
 -&gt; Maybe (HashMap Text Bool) -&gt; Parser (Maybe (HashMap Text Bool))
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Bool)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-149"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MethodResponse)
--&gt; Parser (Maybe Text) -&gt; Parser MethodResponse
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679367207"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;statusCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-152"></span><span>
-</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367200"><span id="local-6989586621679367202"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span></span></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367700"><span id="local-6989586621679367702"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span></span></span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367197"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.APIGateway.Types.MethodResponse.html#MethodResponse"><span class="hs-identifier hs-type">MethodResponse</span></a></span></span><span>
 </span><span id="line-156"></span></pre></body></html>

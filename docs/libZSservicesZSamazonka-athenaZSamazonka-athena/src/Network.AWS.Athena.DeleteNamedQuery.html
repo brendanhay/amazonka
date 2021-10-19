@@ -51,12 +51,12 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDeleteNamedQuery' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621679225738"><span id="local-6989586621679225739"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNamedQuery"><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-var">DeleteNamedQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNamedQuery%27"><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery%27"><span class="hs-identifier hs-var">DeleteNamedQuery'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621679225913"><span id="local-6989586621679225914"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNamedQuery"><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-var">DeleteNamedQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNamedQuery%27"><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery%27"><span class="hs-identifier hs-var">DeleteNamedQuery'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique ID of the query to delete.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3AnamedQueryId%3ADeleteNamedQuery%27"><span class="annot"><span class="annottext">DeleteNamedQuery -&gt; Text
 </span><a href="Network.AWS.Athena.DeleteNamedQuery.html#%24sel%3AnamedQueryId%3ADeleteNamedQuery%27"><span class="hs-identifier hs-var hs-var">namedQueryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225732"><span id="local-6989586621679225734"><span class="annot"><span class="annottext">DeleteNamedQuery -&gt; DeleteNamedQuery -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225907"><span id="local-6989586621679225909"><span class="annot"><span class="annottext">DeleteNamedQuery -&gt; DeleteNamedQuery -&gt; Bool
 (DeleteNamedQuery -&gt; DeleteNamedQuery -&gt; Bool)
 -&gt; (DeleteNamedQuery -&gt; DeleteNamedQuery -&gt; Bool)
 -&gt; Eq DeleteNamedQuery
@@ -65,7 +65,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteNamedQuery -&gt; DeleteNamedQuery -&gt; Bool
 == :: DeleteNamedQuery -&gt; DeleteNamedQuery -&gt; Bool
 $c== :: DeleteNamedQuery -&gt; DeleteNamedQuery -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225723"><span id="local-6989586621679225725"><span id="local-6989586621679225727"><span id="local-6989586621679225729"><span class="annot"><span class="annottext">ReadPrec [DeleteNamedQuery]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225898"><span id="local-6989586621679225900"><span id="local-6989586621679225902"><span id="local-6989586621679225904"><span class="annot"><span class="annottext">ReadPrec [DeleteNamedQuery]
 ReadPrec DeleteNamedQuery
 Int -&gt; ReadS DeleteNamedQuery
 ReadS [DeleteNamedQuery]
@@ -85,7 +85,7 @@ readList :: ReadS [DeleteNamedQuery]
 $creadList :: ReadS [DeleteNamedQuery]
 readsPrec :: Int -&gt; ReadS DeleteNamedQuery
 $creadsPrec :: Int -&gt; ReadS DeleteNamedQuery
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225716"><span id="local-6989586621679225718"><span id="local-6989586621679225720"><span class="annot"><span class="annottext">Int -&gt; DeleteNamedQuery -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225891"><span id="local-6989586621679225893"><span id="local-6989586621679225895"><span class="annot"><span class="annottext">Int -&gt; DeleteNamedQuery -&gt; ShowS
 [DeleteNamedQuery] -&gt; ShowS
 DeleteNamedQuery -&gt; String
 (Int -&gt; DeleteNamedQuery -&gt; ShowS)
@@ -125,12 +125,12 @@ $cfrom :: forall x. DeleteNamedQuery -&gt; Rep DeleteNamedQuery x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span><span>
 </span><span id="line-73"></span><span id="newDeleteNamedQuery"><span class="annot"><span class="annottext">newDeleteNamedQuery :: Text -&gt; DeleteNamedQuery
-</span><a href="Network.AWS.Athena.DeleteNamedQuery.html#newDeleteNamedQuery"><span class="hs-identifier hs-var hs-var">newDeleteNamedQuery</span></a></span></span><span> </span><span id="local-6989586621679225711"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225711"><span class="hs-identifier hs-var">pNamedQueryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.DeleteNamedQuery.html#newDeleteNamedQuery"><span class="hs-identifier hs-var hs-var">newDeleteNamedQuery</span></a></span></span><span> </span><span id="local-6989586621679225886"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225886"><span class="hs-identifier hs-var">pNamedQueryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">DeleteNamedQuery' :: Text -&gt; DeleteNamedQuery
 </span><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery%27"><span class="hs-identifier hs-type">DeleteNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namedQueryId:DeleteNamedQuery' :: Text
 </span><a href="Network.AWS.Athena.DeleteNamedQuery.html#%24sel%3AnamedQueryId%3ADeleteNamedQuery%27"><span class="hs-identifier hs-var">namedQueryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225711"><span class="hs-identifier hs-var">pNamedQueryId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679225886"><span class="hs-identifier hs-var">pNamedQueryId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- | The unique ID of the query to delete.</span><span>
 </span><span id="line-77"></span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#deleteNamedQuery_namedQueryId"><span class="hs-identifier hs-type">deleteNamedQuery_namedQueryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -139,27 +139,27 @@ $cfrom :: forall x. DeleteNamedQuery -&gt; Rep DeleteNamedQuery x
 -&gt; (DeleteNamedQuery -&gt; Text -&gt; DeleteNamedQuery)
 -&gt; Lens DeleteNamedQuery DeleteNamedQuery Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery%27"><span class="hs-identifier hs-type">DeleteNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225708"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery%27"><span class="hs-identifier hs-type">DeleteNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225883"><span class="annot"><span class="annottext">Text
 namedQueryId :: Text
 $sel:namedQueryId:DeleteNamedQuery' :: DeleteNamedQuery -&gt; Text
-</span><a href="#local-6989586621679225708"><span class="hs-identifier hs-var hs-var">namedQueryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225708"><span class="hs-identifier hs-var">namedQueryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225707"><span class="annot"><span class="annottext">s :: DeleteNamedQuery
-</span><a href="#local-6989586621679225707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery%27"><span class="hs-identifier hs-type">DeleteNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225706"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNamedQuery
-</span><a href="#local-6989586621679225707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namedQueryId:DeleteNamedQuery' :: Text
+</span><a href="#local-6989586621679225883"><span class="hs-identifier hs-var hs-var">namedQueryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225883"><span class="hs-identifier hs-var">namedQueryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225882"><span class="annot"><span class="annottext">s :: DeleteNamedQuery
+</span><a href="#local-6989586621679225882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery%27"><span class="hs-identifier hs-type">DeleteNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225881"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679225881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNamedQuery
+</span><a href="#local-6989586621679225882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namedQueryId:DeleteNamedQuery' :: Text
 </span><a href="Network.AWS.Athena.DeleteNamedQuery.html#%24sel%3AnamedQueryId%3ADeleteNamedQuery%27"><span class="hs-identifier hs-var">namedQueryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-81"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-82"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse"><span class="hs-identifier hs-type">DeleteNamedQueryResponse</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679225702"><span class="annot"><span class="annottext">request :: DeleteNamedQuery -&gt; Request DeleteNamedQuery
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679225877"><span class="annot"><span class="annottext">request :: DeleteNamedQuery -&gt; Request DeleteNamedQuery
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteNamedQuery -&gt; Request DeleteNamedQuery
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Athena.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-85"></span><span>  </span><span id="local-6989586621679225698"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679225873"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteNamedQuery
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225695"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225695"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679225694"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679225694"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679225693"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679225693"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679225870"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225870"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679225869"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679225869"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679225868"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679225868"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-88"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteNamedQueryResponse
 </span><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse%27"><span class="hs-identifier hs-var">DeleteNamedQueryResponse'</span></a></span><span>
 </span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteNamedQueryResponse)
@@ -197,15 +197,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225695"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225870"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225686"><span id="local-6989586621679225688"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225861"><span id="local-6989586621679225863"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225683"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225858"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679225679"><span class="annot"><span class="annottext">toHeaders :: DeleteNamedQuery -&gt; ResponseHeaders
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679225854"><span class="annot"><span class="annottext">toHeaders :: DeleteNamedQuery -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteNamedQuery -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -232,12 +232,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-108"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225669"><span id="local-6989586621679225671"><span id="local-6989586621679225673"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679225667"><span class="annot"><span class="annottext">toJSON :: DeleteNamedQuery -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery%27"><span class="hs-identifier hs-type">DeleteNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225665"><span class="annot"><span class="annottext">Text
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225844"><span id="local-6989586621679225846"><span id="local-6989586621679225848"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679225842"><span class="annot"><span class="annottext">toJSON :: DeleteNamedQuery -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery%27"><span class="hs-identifier hs-type">DeleteNamedQuery'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225840"><span class="annot"><span class="annottext">Text
 namedQueryId :: Text
 $sel:namedQueryId:DeleteNamedQuery' :: DeleteNamedQuery -&gt; Text
-</span><a href="#local-6989586621679225665"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679225840"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -249,18 +249,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;NamedQueryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679225665"><span class="hs-identifier hs-var">namedQueryId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679225840"><span class="hs-identifier hs-var">namedQueryId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679225659"><span class="annot"><span class="annottext">toPath :: DeleteNamedQuery -&gt; ByteString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679225834"><span class="annot"><span class="annottext">toPath :: DeleteNamedQuery -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteNamedQuery -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQuery"><span class="hs-identifier hs-type">DeleteNamedQuery</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-122"></span><span>  </span><span id="local-6989586621679225655"><span class="annot"><span class="annottext">toQuery :: DeleteNamedQuery -&gt; QueryString
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679225830"><span class="annot"><span class="annottext">toQuery :: DeleteNamedQuery -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteNamedQuery -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -268,12 +268,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-comment">-- | /See:/ 'newDeleteNamedQueryResponse' smart constructor.</span><span>
-</span><span id="line-125"></span><span id="local-6989586621679225652"><span id="local-6989586621679225653"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNamedQueryResponse"><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse"><span class="hs-identifier hs-var">DeleteNamedQueryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNamedQueryResponse%27"><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse%27"><span class="hs-identifier hs-var">DeleteNamedQueryResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span id="local-6989586621679225827"><span id="local-6989586621679225828"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteNamedQueryResponse"><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse"><span class="hs-identifier hs-var">DeleteNamedQueryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteNamedQueryResponse%27"><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse%27"><span class="hs-identifier hs-var">DeleteNamedQueryResponse'</span></a></span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteNamedQueryResponse%27"><span class="annot"><span class="annottext">DeleteNamedQueryResponse -&gt; Int
 </span><a href="Network.AWS.Athena.DeleteNamedQuery.html#%24sel%3AhttpStatus%3ADeleteNamedQueryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225647"><span id="local-6989586621679225649"><span class="annot"><span class="annottext">DeleteNamedQueryResponse -&gt; DeleteNamedQueryResponse -&gt; Bool
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679225822"><span id="local-6989586621679225824"><span class="annot"><span class="annottext">DeleteNamedQueryResponse -&gt; DeleteNamedQueryResponse -&gt; Bool
 (DeleteNamedQueryResponse -&gt; DeleteNamedQueryResponse -&gt; Bool)
 -&gt; (DeleteNamedQueryResponse -&gt; DeleteNamedQueryResponse -&gt; Bool)
 -&gt; Eq DeleteNamedQueryResponse
@@ -282,7 +282,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteNamedQueryResponse -&gt; DeleteNamedQueryResponse -&gt; Bool
 == :: DeleteNamedQueryResponse -&gt; DeleteNamedQueryResponse -&gt; Bool
 $c== :: DeleteNamedQueryResponse -&gt; DeleteNamedQueryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225639"><span id="local-6989586621679225641"><span id="local-6989586621679225643"><span id="local-6989586621679225645"><span class="annot"><span class="annottext">ReadPrec [DeleteNamedQueryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225814"><span id="local-6989586621679225816"><span id="local-6989586621679225818"><span id="local-6989586621679225820"><span class="annot"><span class="annottext">ReadPrec [DeleteNamedQueryResponse]
 ReadPrec DeleteNamedQueryResponse
 Int -&gt; ReadS DeleteNamedQueryResponse
 ReadS [DeleteNamedQueryResponse]
@@ -302,7 +302,7 @@ readList :: ReadS [DeleteNamedQueryResponse]
 $creadList :: ReadS [DeleteNamedQueryResponse]
 readsPrec :: Int -&gt; ReadS DeleteNamedQueryResponse
 $creadsPrec :: Int -&gt; ReadS DeleteNamedQueryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225633"><span id="local-6989586621679225635"><span id="local-6989586621679225637"><span class="annot"><span class="annottext">Int -&gt; DeleteNamedQueryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679225808"><span id="local-6989586621679225810"><span id="local-6989586621679225812"><span class="annot"><span class="annottext">Int -&gt; DeleteNamedQueryResponse -&gt; ShowS
 [DeleteNamedQueryResponse] -&gt; ShowS
 DeleteNamedQueryResponse -&gt; String
 (Int -&gt; DeleteNamedQueryResponse -&gt; ShowS)
@@ -348,14 +348,14 @@ DeleteNamedQueryResponse -&gt; Rep DeleteNamedQueryResponse x
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse"><span class="hs-identifier hs-type">DeleteNamedQueryResponse</span></a></span><span>
 </span><span id="line-144"></span><span id="newDeleteNamedQueryResponse"><span class="annot"><span class="annottext">newDeleteNamedQueryResponse :: Int -&gt; DeleteNamedQueryResponse
-</span><a href="Network.AWS.Athena.DeleteNamedQuery.html#newDeleteNamedQueryResponse"><span class="hs-identifier hs-var hs-var">newDeleteNamedQueryResponse</span></a></span></span><span> </span><span id="local-6989586621679225630"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225630"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Athena.DeleteNamedQuery.html#newDeleteNamedQueryResponse"><span class="hs-identifier hs-var hs-var">newDeleteNamedQueryResponse</span></a></span></span><span> </span><span id="local-6989586621679225805"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225805"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">DeleteNamedQueryResponse' :: Int -&gt; DeleteNamedQueryResponse
 </span><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse%27"><span class="hs-identifier hs-type">DeleteNamedQueryResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteNamedQueryResponse' :: Int
 </span><a href="Network.AWS.Athena.DeleteNamedQuery.html#%24sel%3AhttpStatus%3ADeleteNamedQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225630"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679225805"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -366,16 +366,16 @@ DeleteNamedQueryResponse -&gt; Rep DeleteNamedQueryResponse x
 -&gt; (DeleteNamedQueryResponse -&gt; Int -&gt; DeleteNamedQueryResponse)
 -&gt; Lens DeleteNamedQueryResponse DeleteNamedQueryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse%27"><span class="hs-identifier hs-type">DeleteNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225629"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse%27"><span class="hs-identifier hs-type">DeleteNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679225804"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteNamedQueryResponse' :: DeleteNamedQueryResponse -&gt; Int
-</span><a href="#local-6989586621679225629"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225629"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225628"><span class="annot"><span class="annottext">s :: DeleteNamedQueryResponse
-</span><a href="#local-6989586621679225628"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse%27"><span class="hs-identifier hs-type">DeleteNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225627"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225627"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNamedQueryResponse
-</span><a href="#local-6989586621679225628"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteNamedQueryResponse' :: Int
+</span><a href="#local-6989586621679225804"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225804"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679225803"><span class="annot"><span class="annottext">s :: DeleteNamedQueryResponse
+</span><a href="#local-6989586621679225803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse%27"><span class="hs-identifier hs-type">DeleteNamedQueryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679225802"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679225802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteNamedQueryResponse
+</span><a href="#local-6989586621679225803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteNamedQueryResponse' :: Int
 </span><a href="Network.AWS.Athena.DeleteNamedQuery.html#%24sel%3AhttpStatus%3ADeleteNamedQueryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679225627"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse"><span class="hs-identifier hs-type">DeleteNamedQueryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679225802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse"><span class="hs-identifier hs-type">DeleteNamedQueryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse"><span class="hs-identifier hs-type">DeleteNamedQueryResponse</span></a></span></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679225800"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Athena.DeleteNamedQuery.html#DeleteNamedQueryResponse"><span class="hs-identifier hs-type">DeleteNamedQueryResponse</span></a></span></span><span>
 </span><span id="line-155"></span></pre></body></html>

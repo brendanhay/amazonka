@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-30"></span><span>
-</span><span id="line-31"></span><span id="local-6989586621679457446"><span id="local-6989586621679457447"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlatformDeviceType"><span class="annot"><a href="Network.AWS.ECS.Types.PlatformDeviceType.html#PlatformDeviceType"><span class="hs-identifier hs-var">PlatformDeviceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlatformDeviceType%27"><span class="annot"><a href="Network.AWS.ECS.Types.PlatformDeviceType.html#PlatformDeviceType%27"><span class="hs-identifier hs-var">PlatformDeviceType'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679458165"><span id="local-6989586621679458166"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlatformDeviceType"><span class="annot"><a href="Network.AWS.ECS.Types.PlatformDeviceType.html#PlatformDeviceType"><span class="hs-identifier hs-var">PlatformDeviceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlatformDeviceType%27"><span class="annot"><a href="Network.AWS.ECS.Types.PlatformDeviceType.html#PlatformDeviceType%27"><span class="hs-identifier hs-var">PlatformDeviceType'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPlatformDeviceType"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; Text
 </span><a href="Network.AWS.ECS.Types.PlatformDeviceType.html#fromPlatformDeviceType"><span class="hs-identifier hs-var hs-var">fromPlatformDeviceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679457438"><span id="local-6989586621679457440"><span id="local-6989586621679457442"><span class="annot"><span class="annottext">Int -&gt; PlatformDeviceType -&gt; ShowS
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679458157"><span id="local-6989586621679458159"><span id="local-6989586621679458161"><span class="annot"><span class="annottext">Int -&gt; PlatformDeviceType -&gt; ShowS
 [PlatformDeviceType] -&gt; ShowS
 PlatformDeviceType -&gt; String
 (Int -&gt; PlatformDeviceType -&gt; ShowS)
@@ -50,7 +50,7 @@ $cshow :: PlatformDeviceType -&gt; String
 showsPrec :: Int -&gt; PlatformDeviceType -&gt; ShowS
 $cshowsPrec :: Int -&gt; PlatformDeviceType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>      </span><span id="local-6989586621679457429"><span id="local-6989586621679457431"><span id="local-6989586621679457433"><span id="local-6989586621679457435"><span class="annot"><span class="annottext">ReadPrec [PlatformDeviceType]
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679458148"><span id="local-6989586621679458150"><span id="local-6989586621679458152"><span id="local-6989586621679458154"><span class="annot"><span class="annottext">ReadPrec [PlatformDeviceType]
 ReadPrec PlatformDeviceType
 Int -&gt; ReadS PlatformDeviceType
 ReadS [PlatformDeviceType]
@@ -71,7 +71,7 @@ $creadList :: ReadS [PlatformDeviceType]
 readsPrec :: Int -&gt; ReadS PlatformDeviceType
 $creadsPrec :: Int -&gt; ReadS PlatformDeviceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679457424"><span id="local-6989586621679457426"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; PlatformDeviceType -&gt; Bool
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679458143"><span id="local-6989586621679458145"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; PlatformDeviceType -&gt; Bool
 (PlatformDeviceType -&gt; PlatformDeviceType -&gt; Bool)
 -&gt; (PlatformDeviceType -&gt; PlatformDeviceType -&gt; Bool)
 -&gt; Eq PlatformDeviceType
@@ -81,7 +81,7 @@ $c/= :: PlatformDeviceType -&gt; PlatformDeviceType -&gt; Bool
 == :: PlatformDeviceType -&gt; PlatformDeviceType -&gt; Bool
 $c== :: PlatformDeviceType -&gt; PlatformDeviceType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679457408"><span id="local-6989586621679457410"><span id="local-6989586621679457412"><span id="local-6989586621679457414"><span id="local-6989586621679457416"><span id="local-6989586621679457418"><span id="local-6989586621679457420"><span class="annot"><span class="annottext">Eq PlatformDeviceType
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679458127"><span id="local-6989586621679458129"><span id="local-6989586621679458131"><span id="local-6989586621679458133"><span id="local-6989586621679458135"><span id="local-6989586621679458137"><span id="local-6989586621679458139"><span class="annot"><span class="annottext">Eq PlatformDeviceType
 Eq PlatformDeviceType
 -&gt; (PlatformDeviceType -&gt; PlatformDeviceType -&gt; Ordering)
 -&gt; (PlatformDeviceType -&gt; PlatformDeviceType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. PlatformDeviceType -&gt; Rep PlatformDeviceType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679457400"><span id="local-6989586621679457402"><span class="annot"><span class="annottext">Int -&gt; PlatformDeviceType -&gt; Int
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679458119"><span id="local-6989586621679458121"><span class="annot"><span class="annottext">Int -&gt; PlatformDeviceType -&gt; Int
 PlatformDeviceType -&gt; Int
 (Int -&gt; PlatformDeviceType -&gt; Int)
 -&gt; (PlatformDeviceType -&gt; Int) -&gt; Hashable PlatformDeviceType
@@ -142,53 +142,53 @@ $chash :: PlatformDeviceType -&gt; Int
 hashWithSalt :: Int -&gt; PlatformDeviceType -&gt; Int
 $chashWithSalt :: Int -&gt; PlatformDeviceType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679457397"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; ()
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679458116"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; ()
 (PlatformDeviceType -&gt; ()) -&gt; NFData PlatformDeviceType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PlatformDeviceType -&gt; ()
 $crnf :: PlatformDeviceType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679457394"><span class="annot"><span class="annottext">Text -&gt; Either String PlatformDeviceType
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679458113"><span class="annot"><span class="annottext">Text -&gt; Either String PlatformDeviceType
 (Text -&gt; Either String PlatformDeviceType)
 -&gt; FromText PlatformDeviceType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PlatformDeviceType
 $cfromText :: Text -&gt; Either String PlatformDeviceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679457391"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; Text
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679458110"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; Text
 (PlatformDeviceType -&gt; Text) -&gt; ToText PlatformDeviceType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PlatformDeviceType -&gt; Text
 $ctoText :: PlatformDeviceType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679457388"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; ByteString
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679458107"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; ByteString
 (PlatformDeviceType -&gt; ByteString)
 -&gt; ToByteString PlatformDeviceType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PlatformDeviceType -&gt; ByteString
 $ctoBS :: PlatformDeviceType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679457385"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; ByteStringBuilder
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679458104"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; ByteStringBuilder
 (PlatformDeviceType -&gt; ByteStringBuilder)
 -&gt; ToLog PlatformDeviceType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PlatformDeviceType -&gt; ByteStringBuilder
 $cbuild :: PlatformDeviceType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679457382"><span class="annot"><span class="annottext">HeaderName -&gt; PlatformDeviceType -&gt; [Header]
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679458101"><span class="annot"><span class="annottext">HeaderName -&gt; PlatformDeviceType -&gt; [Header]
 (HeaderName -&gt; PlatformDeviceType -&gt; [Header])
 -&gt; ToHeader PlatformDeviceType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PlatformDeviceType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PlatformDeviceType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679457379"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; QueryString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679458098"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; QueryString
 (PlatformDeviceType -&gt; QueryString) -&gt; ToQuery PlatformDeviceType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PlatformDeviceType -&gt; QueryString
 $ctoQuery :: PlatformDeviceType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679457374"><span id="local-6989586621679457376"><span class="annot"><span class="annottext">Value -&gt; Parser [PlatformDeviceType]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679458093"><span id="local-6989586621679458095"><span class="annot"><span class="annottext">Value -&gt; Parser [PlatformDeviceType]
 Value -&gt; Parser PlatformDeviceType
 (Value -&gt; Parser PlatformDeviceType)
 -&gt; (Value -&gt; Parser [PlatformDeviceType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [PlatformDeviceType]
 parseJSON :: Value -&gt; Parser PlatformDeviceType
 $cparseJSON :: Value -&gt; Parser PlatformDeviceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679457369"><span id="local-6989586621679457371"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlatformDeviceType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679458088"><span id="local-6989586621679458090"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlatformDeviceType]
 FromJSONKeyFunction PlatformDeviceType
 FromJSONKeyFunction PlatformDeviceType
 -&gt; FromJSONKeyFunction [PlatformDeviceType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PlatformDeviceType]
 fromJSONKey :: FromJSONKeyFunction PlatformDeviceType
 $cfromJSONKey :: FromJSONKeyFunction PlatformDeviceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679457360"><span id="local-6989586621679457362"><span id="local-6989586621679457364"><span id="local-6989586621679457366"><span class="annot"><span class="annottext">[PlatformDeviceType] -&gt; Encoding
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679458079"><span id="local-6989586621679458081"><span id="local-6989586621679458083"><span id="local-6989586621679458085"><span class="annot"><span class="annottext">[PlatformDeviceType] -&gt; Encoding
 [PlatformDeviceType] -&gt; Value
 PlatformDeviceType -&gt; Encoding
 PlatformDeviceType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: PlatformDeviceType -&gt; Encoding
 toJSON :: PlatformDeviceType -&gt; Value
 $ctoJSON :: PlatformDeviceType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679457355"><span id="local-6989586621679457357"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlatformDeviceType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679458074"><span id="local-6989586621679458076"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlatformDeviceType]
 ToJSONKeyFunction PlatformDeviceType
 ToJSONKeyFunction PlatformDeviceType
 -&gt; ToJSONKeyFunction [PlatformDeviceType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PlatformDeviceType]
 toJSONKey :: ToJSONKeyFunction PlatformDeviceType
 $ctoJSONKey :: ToJSONKeyFunction PlatformDeviceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679457352"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlatformDeviceType
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679458071"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlatformDeviceType
 ([Node] -&gt; Either String PlatformDeviceType)
 -&gt; FromXML PlatformDeviceType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PlatformDeviceType
 $cparseXML :: [Node] -&gt; Either String PlatformDeviceType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679457349"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; XML
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679458068"><span class="annot"><span class="annottext">PlatformDeviceType -&gt; XML
 (PlatformDeviceType -&gt; XML) -&gt; ToXML PlatformDeviceType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PlatformDeviceType -&gt; XML

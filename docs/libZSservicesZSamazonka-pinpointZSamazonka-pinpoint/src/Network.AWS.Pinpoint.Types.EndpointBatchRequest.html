@@ -28,14 +28,14 @@
 </span><span id="line-28"></span><span class="hs-comment">-- attributes to set or change for each endpoint.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEndpointBatchRequest' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679597709"><span id="local-6989586621679597710"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndpointBatchRequest"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest"><span class="hs-identifier hs-var">EndpointBatchRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointBatchRequest%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest%27"><span class="hs-identifier hs-var">EndpointBatchRequest'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679598157"><span id="local-6989586621679598158"></span></span><span class="hs-keyword">data</span><span> </span><span id="EndpointBatchRequest"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest"><span class="hs-identifier hs-var">EndpointBatchRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EndpointBatchRequest%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest%27"><span class="hs-identifier hs-var">EndpointBatchRequest'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array that defines the endpoints to create or update and, for each</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- endpoint, the property values to set or change. An array can contain a</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- maximum of 100 items.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3Aitem%3AEndpointBatchRequest%27"><span class="annot"><span class="annottext">EndpointBatchRequest -&gt; [EndpointBatchItem]
 </span><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#%24sel%3Aitem%3AEndpointBatchRequest%27"><span class="hs-identifier hs-var hs-var">item</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchItem.html#EndpointBatchItem"><span class="hs-identifier hs-type">EndpointBatchItem</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679597703"><span id="local-6989586621679597705"><span class="annot"><span class="annottext">EndpointBatchRequest -&gt; EndpointBatchRequest -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679598151"><span id="local-6989586621679598153"><span class="annot"><span class="annottext">EndpointBatchRequest -&gt; EndpointBatchRequest -&gt; Bool
 (EndpointBatchRequest -&gt; EndpointBatchRequest -&gt; Bool)
 -&gt; (EndpointBatchRequest -&gt; EndpointBatchRequest -&gt; Bool)
 -&gt; Eq EndpointBatchRequest
@@ -44,7 +44,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EndpointBatchRequest -&gt; EndpointBatchRequest -&gt; Bool
 == :: EndpointBatchRequest -&gt; EndpointBatchRequest -&gt; Bool
 $c== :: EndpointBatchRequest -&gt; EndpointBatchRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679597694"><span id="local-6989586621679597696"><span id="local-6989586621679597698"><span id="local-6989586621679597700"><span class="annot"><span class="annottext">ReadPrec [EndpointBatchRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679598142"><span id="local-6989586621679598144"><span id="local-6989586621679598146"><span id="local-6989586621679598148"><span class="annot"><span class="annottext">ReadPrec [EndpointBatchRequest]
 ReadPrec EndpointBatchRequest
 Int -&gt; ReadS EndpointBatchRequest
 ReadS [EndpointBatchRequest]
@@ -64,7 +64,7 @@ readList :: ReadS [EndpointBatchRequest]
 $creadList :: ReadS [EndpointBatchRequest]
 readsPrec :: Int -&gt; ReadS EndpointBatchRequest
 $creadsPrec :: Int -&gt; ReadS EndpointBatchRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679597687"><span id="local-6989586621679597689"><span id="local-6989586621679597691"><span class="annot"><span class="annottext">Int -&gt; EndpointBatchRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679598135"><span id="local-6989586621679598137"><span id="local-6989586621679598139"><span class="annot"><span class="annottext">Int -&gt; EndpointBatchRequest -&gt; ShowS
 [EndpointBatchRequest] -&gt; ShowS
 EndpointBatchRequest -&gt; String
 (Int -&gt; EndpointBatchRequest -&gt; ShowS)
@@ -126,16 +126,16 @@ forall a. Monoid a =&gt; a
      [EndpointBatchItem]
      [EndpointBatchItem]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest%27"><span class="hs-identifier hs-type">EndpointBatchRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679597678"><span class="annot"><span class="annottext">[EndpointBatchItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest%27"><span class="hs-identifier hs-type">EndpointBatchRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598126"><span class="annot"><span class="annottext">[EndpointBatchItem]
 item :: [EndpointBatchItem]
 $sel:item:EndpointBatchRequest' :: EndpointBatchRequest -&gt; [EndpointBatchItem]
-</span><a href="#local-6989586621679597678"><span class="hs-identifier hs-var hs-var">item</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EndpointBatchItem]
-</span><a href="#local-6989586621679597678"><span class="hs-identifier hs-var">item</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679597677"><span class="annot"><span class="annottext">s :: EndpointBatchRequest
-</span><a href="#local-6989586621679597677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest%27"><span class="hs-identifier hs-type">EndpointBatchRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679597676"><span class="annot"><span class="annottext">[EndpointBatchItem]
-</span><a href="#local-6989586621679597676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointBatchRequest
-</span><a href="#local-6989586621679597677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:item:EndpointBatchRequest' :: [EndpointBatchItem]
+</span><a href="#local-6989586621679598126"><span class="hs-identifier hs-var hs-var">item</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[EndpointBatchItem]
+</span><a href="#local-6989586621679598126"><span class="hs-identifier hs-var">item</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679598125"><span class="annot"><span class="annottext">s :: EndpointBatchRequest
+</span><a href="#local-6989586621679598125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest%27"><span class="hs-identifier hs-type">EndpointBatchRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679598124"><span class="annot"><span class="annottext">[EndpointBatchItem]
+</span><a href="#local-6989586621679598124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EndpointBatchRequest
+</span><a href="#local-6989586621679598125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:item:EndpointBatchRequest' :: [EndpointBatchItem]
 </span><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#%24sel%3Aitem%3AEndpointBatchRequest%27"><span class="hs-identifier hs-var">item</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[EndpointBatchItem]
-</span><a href="#local-6989586621679597676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest"><span class="hs-identifier hs-type">EndpointBatchRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EndpointBatchItem] -&gt; f [EndpointBatchItem])
+</span><a href="#local-6989586621679598124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest"><span class="hs-identifier hs-type">EndpointBatchRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([EndpointBatchItem] -&gt; f [EndpointBatchItem])
  -&gt; EndpointBatchRequest -&gt; f EndpointBatchRequest)
 -&gt; (([EndpointBatchItem] -&gt; f [EndpointBatchItem])
     -&gt; [EndpointBatchItem] -&gt; f [EndpointBatchItem])
@@ -145,19 +145,19 @@ $sel:item:EndpointBatchRequest' :: EndpointBatchRequest -&gt; [EndpointBatchItem
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([EndpointBatchItem] -&gt; f [EndpointBatchItem])
 -&gt; [EndpointBatchItem] -&gt; f [EndpointBatchItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679597670"><span id="local-6989586621679597672"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest"><span class="hs-identifier hs-type">EndpointBatchRequest</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679598118"><span id="local-6989586621679598120"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest"><span class="hs-identifier hs-type">EndpointBatchRequest</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679597667"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest"><span class="hs-identifier hs-type">EndpointBatchRequest</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679598115"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest"><span class="hs-identifier hs-type">EndpointBatchRequest</span></a></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679597659"><span id="local-6989586621679597661"><span id="local-6989586621679597663"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest"><span class="hs-identifier hs-type">EndpointBatchRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679597657"><span class="annot"><span class="annottext">toJSON :: EndpointBatchRequest -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest%27"><span class="hs-identifier hs-type">EndpointBatchRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679597655"><span class="annot"><span class="annottext">[EndpointBatchItem]
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679598107"><span id="local-6989586621679598109"><span id="local-6989586621679598111"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest"><span class="hs-identifier hs-type">EndpointBatchRequest</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679598105"><span class="annot"><span class="annottext">toJSON :: EndpointBatchRequest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.EndpointBatchRequest.html#EndpointBatchRequest%27"><span class="hs-identifier hs-type">EndpointBatchRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679598103"><span class="annot"><span class="annottext">[EndpointBatchItem]
 item :: [EndpointBatchItem]
 $sel:item:EndpointBatchRequest' :: EndpointBatchRequest -&gt; [EndpointBatchItem]
-</span><a href="#local-6989586621679597655"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679598103"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -169,6 +169,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Item&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [EndpointBatchItem] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[EndpointBatchItem]
-</span><a href="#local-6989586621679597655"><span class="hs-identifier hs-var">item</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679598103"><span class="hs-identifier hs-var">item</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-70"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span></pre></body></html>

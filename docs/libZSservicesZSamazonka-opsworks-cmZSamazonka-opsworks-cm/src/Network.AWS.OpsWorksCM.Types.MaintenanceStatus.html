@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679190545"><span id="local-6989586621679190546"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MaintenanceStatus"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.MaintenanceStatus.html#MaintenanceStatus"><span class="hs-identifier hs-var">MaintenanceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaintenanceStatus%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.MaintenanceStatus.html#MaintenanceStatus%27"><span class="hs-identifier hs-var">MaintenanceStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679190638"><span id="local-6989586621679190639"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MaintenanceStatus"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.MaintenanceStatus.html#MaintenanceStatus"><span class="hs-identifier hs-var">MaintenanceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MaintenanceStatus%27"><span class="annot"><a href="Network.AWS.OpsWorksCM.Types.MaintenanceStatus.html#MaintenanceStatus%27"><span class="hs-identifier hs-var">MaintenanceStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMaintenanceStatus"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; Text
 </span><a href="Network.AWS.OpsWorksCM.Types.MaintenanceStatus.html#fromMaintenanceStatus"><span class="hs-identifier hs-var hs-var">fromMaintenanceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190537"><span id="local-6989586621679190539"><span id="local-6989586621679190541"><span class="annot"><span class="annottext">Int -&gt; MaintenanceStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190630"><span id="local-6989586621679190632"><span id="local-6989586621679190634"><span class="annot"><span class="annottext">Int -&gt; MaintenanceStatus -&gt; ShowS
 [MaintenanceStatus] -&gt; ShowS
 MaintenanceStatus -&gt; String
 (Int -&gt; MaintenanceStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: MaintenanceStatus -&gt; String
 showsPrec :: Int -&gt; MaintenanceStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; MaintenanceStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679190528"><span id="local-6989586621679190530"><span id="local-6989586621679190532"><span id="local-6989586621679190534"><span class="annot"><span class="annottext">ReadPrec [MaintenanceStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679190621"><span id="local-6989586621679190623"><span id="local-6989586621679190625"><span id="local-6989586621679190627"><span class="annot"><span class="annottext">ReadPrec [MaintenanceStatus]
 ReadPrec MaintenanceStatus
 Int -&gt; ReadS MaintenanceStatus
 ReadS [MaintenanceStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [MaintenanceStatus]
 readsPrec :: Int -&gt; ReadS MaintenanceStatus
 $creadsPrec :: Int -&gt; ReadS MaintenanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679190523"><span id="local-6989586621679190525"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; MaintenanceStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679190616"><span id="local-6989586621679190618"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; MaintenanceStatus -&gt; Bool
 (MaintenanceStatus -&gt; MaintenanceStatus -&gt; Bool)
 -&gt; (MaintenanceStatus -&gt; MaintenanceStatus -&gt; Bool)
 -&gt; Eq MaintenanceStatus
@@ -82,7 +82,7 @@ $c/= :: MaintenanceStatus -&gt; MaintenanceStatus -&gt; Bool
 == :: MaintenanceStatus -&gt; MaintenanceStatus -&gt; Bool
 $c== :: MaintenanceStatus -&gt; MaintenanceStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679190507"><span id="local-6989586621679190509"><span id="local-6989586621679190511"><span id="local-6989586621679190513"><span id="local-6989586621679190515"><span id="local-6989586621679190517"><span id="local-6989586621679190519"><span class="annot"><span class="annottext">Eq MaintenanceStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679190600"><span id="local-6989586621679190602"><span id="local-6989586621679190604"><span id="local-6989586621679190606"><span id="local-6989586621679190608"><span id="local-6989586621679190610"><span id="local-6989586621679190612"><span class="annot"><span class="annottext">Eq MaintenanceStatus
 Eq MaintenanceStatus
 -&gt; (MaintenanceStatus -&gt; MaintenanceStatus -&gt; Ordering)
 -&gt; (MaintenanceStatus -&gt; MaintenanceStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. MaintenanceStatus -&gt; Rep MaintenanceStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190499"><span id="local-6989586621679190501"><span class="annot"><span class="annottext">Int -&gt; MaintenanceStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679190592"><span id="local-6989586621679190594"><span class="annot"><span class="annottext">Int -&gt; MaintenanceStatus -&gt; Int
 MaintenanceStatus -&gt; Int
 (Int -&gt; MaintenanceStatus -&gt; Int)
 -&gt; (MaintenanceStatus -&gt; Int) -&gt; Hashable MaintenanceStatus
@@ -143,51 +143,51 @@ $chash :: MaintenanceStatus -&gt; Int
 hashWithSalt :: Int -&gt; MaintenanceStatus -&gt; Int
 $chashWithSalt :: Int -&gt; MaintenanceStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679190496"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679190589"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; ()
 (MaintenanceStatus -&gt; ()) -&gt; NFData MaintenanceStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: MaintenanceStatus -&gt; ()
 $crnf :: MaintenanceStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679190493"><span class="annot"><span class="annottext">Text -&gt; Either String MaintenanceStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679190586"><span class="annot"><span class="annottext">Text -&gt; Either String MaintenanceStatus
 (Text -&gt; Either String MaintenanceStatus)
 -&gt; FromText MaintenanceStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String MaintenanceStatus
 $cfromText :: Text -&gt; Either String MaintenanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679190490"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679190583"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; Text
 (MaintenanceStatus -&gt; Text) -&gt; ToText MaintenanceStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: MaintenanceStatus -&gt; Text
 $ctoText :: MaintenanceStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679190487"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679190580"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; ByteString
 (MaintenanceStatus -&gt; ByteString) -&gt; ToByteString MaintenanceStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: MaintenanceStatus -&gt; ByteString
 $ctoBS :: MaintenanceStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679190484"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679190577"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; ByteStringBuilder
 (MaintenanceStatus -&gt; ByteStringBuilder) -&gt; ToLog MaintenanceStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: MaintenanceStatus -&gt; ByteStringBuilder
 $cbuild :: MaintenanceStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679190481"><span class="annot"><span class="annottext">HeaderName -&gt; MaintenanceStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679190574"><span class="annot"><span class="annottext">HeaderName -&gt; MaintenanceStatus -&gt; [Header]
 (HeaderName -&gt; MaintenanceStatus -&gt; [Header])
 -&gt; ToHeader MaintenanceStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; MaintenanceStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; MaintenanceStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679190478"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679190571"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; QueryString
 (MaintenanceStatus -&gt; QueryString) -&gt; ToQuery MaintenanceStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: MaintenanceStatus -&gt; QueryString
 $ctoQuery :: MaintenanceStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679190473"><span id="local-6989586621679190475"><span class="annot"><span class="annottext">Value -&gt; Parser [MaintenanceStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679190566"><span id="local-6989586621679190568"><span class="annot"><span class="annottext">Value -&gt; Parser [MaintenanceStatus]
 Value -&gt; Parser MaintenanceStatus
 (Value -&gt; Parser MaintenanceStatus)
 -&gt; (Value -&gt; Parser [MaintenanceStatus])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [MaintenanceStatus]
 parseJSON :: Value -&gt; Parser MaintenanceStatus
 $cparseJSON :: Value -&gt; Parser MaintenanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679190468"><span id="local-6989586621679190470"><span class="annot"><span class="annottext">FromJSONKeyFunction [MaintenanceStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679190561"><span id="local-6989586621679190563"><span class="annot"><span class="annottext">FromJSONKeyFunction [MaintenanceStatus]
 FromJSONKeyFunction MaintenanceStatus
 FromJSONKeyFunction MaintenanceStatus
 -&gt; FromJSONKeyFunction [MaintenanceStatus]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [MaintenanceStatus]
 fromJSONKey :: FromJSONKeyFunction MaintenanceStatus
 $cfromJSONKey :: FromJSONKeyFunction MaintenanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679190459"><span id="local-6989586621679190461"><span id="local-6989586621679190463"><span id="local-6989586621679190465"><span class="annot"><span class="annottext">[MaintenanceStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679190552"><span id="local-6989586621679190554"><span id="local-6989586621679190556"><span id="local-6989586621679190558"><span class="annot"><span class="annottext">[MaintenanceStatus] -&gt; Encoding
 [MaintenanceStatus] -&gt; Value
 MaintenanceStatus -&gt; Encoding
 MaintenanceStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: MaintenanceStatus -&gt; Encoding
 toJSON :: MaintenanceStatus -&gt; Value
 $ctoJSON :: MaintenanceStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679190454"><span id="local-6989586621679190456"><span class="annot"><span class="annottext">ToJSONKeyFunction [MaintenanceStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679190547"><span id="local-6989586621679190549"><span class="annot"><span class="annottext">ToJSONKeyFunction [MaintenanceStatus]
 ToJSONKeyFunction MaintenanceStatus
 ToJSONKeyFunction MaintenanceStatus
 -&gt; ToJSONKeyFunction [MaintenanceStatus]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [MaintenanceStatus]
 toJSONKey :: ToJSONKeyFunction MaintenanceStatus
 $ctoJSONKey :: ToJSONKeyFunction MaintenanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679190451"><span class="annot"><span class="annottext">[Node] -&gt; Either String MaintenanceStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679190544"><span class="annot"><span class="annottext">[Node] -&gt; Either String MaintenanceStatus
 ([Node] -&gt; Either String MaintenanceStatus)
 -&gt; FromXML MaintenanceStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String MaintenanceStatus
 $cparseXML :: [Node] -&gt; Either String MaintenanceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679190448"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679190541"><span class="annot"><span class="annottext">MaintenanceStatus -&gt; XML
 (MaintenanceStatus -&gt; XML) -&gt; ToXML MaintenanceStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: MaintenanceStatus -&gt; XML

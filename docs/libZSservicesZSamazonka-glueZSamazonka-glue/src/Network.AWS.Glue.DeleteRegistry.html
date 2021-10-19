@@ -53,13 +53,13 @@
 </span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-54"></span><span>
 </span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newDeleteRegistry' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679733104"><span id="local-6989586621679733105"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRegistry"><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-var">DeleteRegistry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRegistry%27"><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry%27"><span class="hs-identifier hs-var">DeleteRegistry'</span></a></span></span><span>
+</span><span id="line-56"></span><span id="local-6989586621679734892"><span id="local-6989586621679734893"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRegistry"><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-var">DeleteRegistry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRegistry%27"><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry%27"><span class="hs-identifier hs-var">DeleteRegistry'</span></a></span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | This is a wrapper structure that may contain the registry name and</span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Amazon Resource Name (ARN).</span><span>
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AregistryId%3ADeleteRegistry%27"><span class="annot"><span class="annottext">DeleteRegistry -&gt; RegistryId
 </span><a href="Network.AWS.Glue.DeleteRegistry.html#%24sel%3AregistryId%3ADeleteRegistry%27"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-type">RegistryId</span></a></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679733098"><span id="local-6989586621679733100"><span class="annot"><span class="annottext">DeleteRegistry -&gt; DeleteRegistry -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679734886"><span id="local-6989586621679734888"><span class="annot"><span class="annottext">DeleteRegistry -&gt; DeleteRegistry -&gt; Bool
 (DeleteRegistry -&gt; DeleteRegistry -&gt; Bool)
 -&gt; (DeleteRegistry -&gt; DeleteRegistry -&gt; Bool) -&gt; Eq DeleteRegistry
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteRegistry -&gt; DeleteRegistry -&gt; Bool
 == :: DeleteRegistry -&gt; DeleteRegistry -&gt; Bool
 $c== :: DeleteRegistry -&gt; DeleteRegistry -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679733089"><span id="local-6989586621679733091"><span id="local-6989586621679733093"><span id="local-6989586621679733095"><span class="annot"><span class="annottext">ReadPrec [DeleteRegistry]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679734877"><span id="local-6989586621679734879"><span id="local-6989586621679734881"><span id="local-6989586621679734883"><span class="annot"><span class="annottext">ReadPrec [DeleteRegistry]
 ReadPrec DeleteRegistry
 Int -&gt; ReadS DeleteRegistry
 ReadS [DeleteRegistry]
@@ -87,7 +87,7 @@ readList :: ReadS [DeleteRegistry]
 $creadList :: ReadS [DeleteRegistry]
 readsPrec :: Int -&gt; ReadS DeleteRegistry
 $creadsPrec :: Int -&gt; ReadS DeleteRegistry
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679733082"><span id="local-6989586621679733084"><span id="local-6989586621679733086"><span class="annot"><span class="annottext">Int -&gt; DeleteRegistry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679734870"><span id="local-6989586621679734872"><span id="local-6989586621679734874"><span class="annot"><span class="annottext">Int -&gt; DeleteRegistry -&gt; ShowS
 [DeleteRegistry] -&gt; ShowS
 DeleteRegistry -&gt; String
 (Int -&gt; DeleteRegistry -&gt; ShowS)
@@ -128,12 +128,12 @@ $cfrom :: forall x. DeleteRegistry -&gt; Rep DeleteRegistry x
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.Types.RegistryId.html#RegistryId"><span class="hs-identifier hs-type">RegistryId</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span><span>
 </span><span id="line-77"></span><span id="newDeleteRegistry"><span class="annot"><span class="annottext">newDeleteRegistry :: RegistryId -&gt; DeleteRegistry
-</span><a href="Network.AWS.Glue.DeleteRegistry.html#newDeleteRegistry"><span class="hs-identifier hs-var hs-var">newDeleteRegistry</span></a></span></span><span> </span><span id="local-6989586621679733077"><span class="annot"><span class="annottext">RegistryId
-</span><a href="#local-6989586621679733077"><span class="hs-identifier hs-var">pRegistryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.DeleteRegistry.html#newDeleteRegistry"><span class="hs-identifier hs-var hs-var">newDeleteRegistry</span></a></span></span><span> </span><span id="local-6989586621679734865"><span class="annot"><span class="annottext">RegistryId
+</span><a href="#local-6989586621679734865"><span class="hs-identifier hs-var">pRegistryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DeleteRegistry' :: RegistryId -&gt; DeleteRegistry
 </span><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry%27"><span class="hs-identifier hs-type">DeleteRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:DeleteRegistry' :: RegistryId
 </span><a href="Network.AWS.Glue.DeleteRegistry.html#%24sel%3AregistryId%3ADeleteRegistry%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegistryId
-</span><a href="#local-6989586621679733077"><span class="hs-identifier hs-var">pRegistryId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679734865"><span class="hs-identifier hs-var">pRegistryId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-79"></span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- | This is a wrapper structure that may contain the registry name and</span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- Amazon Resource Name (ARN).</span><span>
@@ -143,27 +143,27 @@ $cfrom :: forall x. DeleteRegistry -&gt; Rep DeleteRegistry x
 -&gt; (DeleteRegistry -&gt; RegistryId -&gt; DeleteRegistry)
 -&gt; Lens DeleteRegistry DeleteRegistry RegistryId RegistryId
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry%27"><span class="hs-identifier hs-type">DeleteRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679733074"><span class="annot"><span class="annottext">RegistryId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry%27"><span class="hs-identifier hs-type">DeleteRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734862"><span class="annot"><span class="annottext">RegistryId
 registryId :: RegistryId
 $sel:registryId:DeleteRegistry' :: DeleteRegistry -&gt; RegistryId
-</span><a href="#local-6989586621679733074"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistryId
-</span><a href="#local-6989586621679733074"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679733073"><span class="annot"><span class="annottext">s :: DeleteRegistry
-</span><a href="#local-6989586621679733073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry%27"><span class="hs-identifier hs-type">DeleteRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679733072"><span class="annot"><span class="annottext">RegistryId
-</span><a href="#local-6989586621679733072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRegistry
-</span><a href="#local-6989586621679733073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:DeleteRegistry' :: RegistryId
+</span><a href="#local-6989586621679734862"><span class="hs-identifier hs-var hs-var">registryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegistryId
+</span><a href="#local-6989586621679734862"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734861"><span class="annot"><span class="annottext">s :: DeleteRegistry
+</span><a href="#local-6989586621679734861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry%27"><span class="hs-identifier hs-type">DeleteRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734860"><span class="annot"><span class="annottext">RegistryId
+</span><a href="#local-6989586621679734860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRegistry
+</span><a href="#local-6989586621679734861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryId:DeleteRegistry' :: RegistryId
 </span><a href="Network.AWS.Glue.DeleteRegistry.html#%24sel%3AregistryId%3ADeleteRegistry%27"><span class="hs-identifier hs-var">registryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RegistryId
-</span><a href="#local-6989586621679733072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679734860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-86"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-87"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679733068"><span class="annot"><span class="annottext">request :: DeleteRegistry -&gt; Request DeleteRegistry
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679734856"><span class="annot"><span class="annottext">request :: DeleteRegistry -&gt; Request DeleteRegistry
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteRegistry -&gt; Request DeleteRegistry
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Glue.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-90"></span><span>  </span><span id="local-6989586621679733064"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679734852"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteRegistry
 -&gt; ClientResponse ClientBody
@@ -187,10 +187,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679733061"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679733061"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679733060"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679733060"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679733059"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679733059"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679734849"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679734849"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679734848"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679734848"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679734847"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679734847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe RegistryStatus
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteRegistryResponse
 </span><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-var">DeleteRegistryResponse'</span></a></span><span>
@@ -201,7 +201,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteRegistryResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679733059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RegistryStatus)
+</span><a href="#local-6989586621679734847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RegistryStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -211,7 +211,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; DeleteRegistryResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679733059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679734847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegistryName&quot;</span></span><span class="hs-special">)</span><span>
@@ -220,7 +220,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DeleteRegistryResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679733059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679734847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;RegistryArn&quot;</span></span><span class="hs-special">)</span><span>
@@ -232,15 +232,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679733061"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679734849"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
-</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679733051"><span id="local-6989586621679733053"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span></span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734839"><span id="local-6989586621679734841"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span></span></span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679733048"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734836"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span></span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679733044"><span class="annot"><span class="annottext">toHeaders :: DeleteRegistry -&gt; ResponseHeaders
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679734832"><span class="annot"><span class="annottext">toHeaders :: DeleteRegistry -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteRegistry -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -265,12 +265,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679733034"><span id="local-6989586621679733036"><span id="local-6989586621679733038"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679733032"><span class="annot"><span class="annottext">toJSON :: DeleteRegistry -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry%27"><span class="hs-identifier hs-type">DeleteRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679733030"><span class="annot"><span class="annottext">RegistryId
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734822"><span id="local-6989586621679734824"><span id="local-6989586621679734826"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679734820"><span class="annot"><span class="annottext">toJSON :: DeleteRegistry -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry%27"><span class="hs-identifier hs-type">DeleteRegistry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734818"><span class="annot"><span class="annottext">RegistryId
 registryId :: RegistryId
 $sel:registryId:DeleteRegistry' :: DeleteRegistry -&gt; RegistryId
-</span><a href="#local-6989586621679733030"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679734818"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -282,18 +282,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;RegistryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RegistryId -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">RegistryId
-</span><a href="#local-6989586621679733030"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679734818"><span class="hs-identifier hs-var">registryId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679733024"><span class="annot"><span class="annottext">toPath :: DeleteRegistry -&gt; ByteString
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679734812"><span class="annot"><span class="annottext">toPath :: DeleteRegistry -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteRegistry -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistry"><span class="hs-identifier hs-type">DeleteRegistry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679733020"><span class="annot"><span class="annottext">toQuery :: DeleteRegistry -&gt; QueryString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679734808"><span class="annot"><span class="annottext">toQuery :: DeleteRegistry -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteRegistry -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -301,7 +301,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newDeleteRegistryResponse' smart constructor.</span><span>
-</span><span id="line-131"></span><span id="local-6989586621679733017"><span id="local-6989586621679733018"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRegistryResponse"><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-var">DeleteRegistryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRegistryResponse%27"><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-var">DeleteRegistryResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span id="local-6989586621679734805"><span id="local-6989586621679734806"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRegistryResponse"><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-var">DeleteRegistryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRegistryResponse%27"><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-var">DeleteRegistryResponse'</span></a></span></span><span>
 </span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the registry. A successful operation will return the</span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-comment">-- @Deleting@ status.</span><span>
 </span><span id="line-134"></span><span>    </span><span id="%24sel%3Astatus%3ADeleteRegistryResponse%27"><span class="annot"><span class="annottext">DeleteRegistryResponse -&gt; Maybe RegistryStatus
@@ -316,7 +316,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-140"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteRegistryResponse%27"><span class="annot"><span class="annottext">DeleteRegistryResponse -&gt; Int
 </span><a href="Network.AWS.Glue.DeleteRegistry.html#%24sel%3AhttpStatus%3ADeleteRegistryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-141"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679733009"><span id="local-6989586621679733011"><span class="annot"><span class="annottext">DeleteRegistryResponse -&gt; DeleteRegistryResponse -&gt; Bool
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679734797"><span id="local-6989586621679734799"><span class="annot"><span class="annottext">DeleteRegistryResponse -&gt; DeleteRegistryResponse -&gt; Bool
 (DeleteRegistryResponse -&gt; DeleteRegistryResponse -&gt; Bool)
 -&gt; (DeleteRegistryResponse -&gt; DeleteRegistryResponse -&gt; Bool)
 -&gt; Eq DeleteRegistryResponse
@@ -325,7 +325,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteRegistryResponse -&gt; DeleteRegistryResponse -&gt; Bool
 == :: DeleteRegistryResponse -&gt; DeleteRegistryResponse -&gt; Bool
 $c== :: DeleteRegistryResponse -&gt; DeleteRegistryResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679733001"><span id="local-6989586621679733003"><span id="local-6989586621679733005"><span id="local-6989586621679733007"><span class="annot"><span class="annottext">ReadPrec [DeleteRegistryResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679734789"><span id="local-6989586621679734791"><span id="local-6989586621679734793"><span id="local-6989586621679734795"><span class="annot"><span class="annottext">ReadPrec [DeleteRegistryResponse]
 ReadPrec DeleteRegistryResponse
 Int -&gt; ReadS DeleteRegistryResponse
 ReadS [DeleteRegistryResponse]
@@ -345,7 +345,7 @@ readList :: ReadS [DeleteRegistryResponse]
 $creadList :: ReadS [DeleteRegistryResponse]
 readsPrec :: Int -&gt; ReadS DeleteRegistryResponse
 $creadsPrec :: Int -&gt; ReadS DeleteRegistryResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679732995"><span id="local-6989586621679732997"><span id="local-6989586621679732999"><span class="annot"><span class="annottext">Int -&gt; DeleteRegistryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679734783"><span id="local-6989586621679734785"><span id="local-6989586621679734787"><span class="annot"><span class="annottext">Int -&gt; DeleteRegistryResponse -&gt; ShowS
 [DeleteRegistryResponse] -&gt; ShowS
 DeleteRegistryResponse -&gt; String
 (Int -&gt; DeleteRegistryResponse -&gt; ShowS)
@@ -393,8 +393,8 @@ $cfrom :: forall x. DeleteRegistryResponse -&gt; Rep DeleteRegistryResponse x
 </span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-163"></span><span>  </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span><span>
 </span><span id="line-164"></span><span id="newDeleteRegistryResponse"><span class="annot"><span class="annottext">newDeleteRegistryResponse :: Int -&gt; DeleteRegistryResponse
-</span><a href="Network.AWS.Glue.DeleteRegistry.html#newDeleteRegistryResponse"><span class="hs-identifier hs-var hs-var">newDeleteRegistryResponse</span></a></span></span><span> </span><span id="local-6989586621679732992"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Glue.DeleteRegistry.html#newDeleteRegistryResponse"><span class="hs-identifier hs-var hs-var">newDeleteRegistryResponse</span></a></span></span><span> </span><span id="local-6989586621679734780"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679734780"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">DeleteRegistryResponse' :: Maybe RegistryStatus
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; DeleteRegistryResponse
 </span><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span>
@@ -412,7 +412,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRegistryResponse' :: Int
 </span><a href="Network.AWS.Glue.DeleteRegistry.html#%24sel%3AhttpStatus%3ADeleteRegistryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732992"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679734780"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-170"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-171"></span><span>
 </span><span id="line-172"></span><span class="hs-comment">-- | The status of the registry. A successful operation will return the</span><span>
@@ -429,16 +429,16 @@ forall a. Maybe a
      (Maybe RegistryStatus)
      (Maybe RegistryStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732991"><span class="annot"><span class="annottext">Maybe RegistryStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734779"><span class="annot"><span class="annottext">Maybe RegistryStatus
 status :: Maybe RegistryStatus
 $sel:status:DeleteRegistryResponse' :: DeleteRegistryResponse -&gt; Maybe RegistryStatus
-</span><a href="#local-6989586621679732991"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryStatus
-</span><a href="#local-6989586621679732991"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732990"><span class="annot"><span class="annottext">s :: DeleteRegistryResponse
-</span><a href="#local-6989586621679732990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732989"><span class="annot"><span class="annottext">Maybe RegistryStatus
-</span><a href="#local-6989586621679732989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRegistryResponse
-</span><a href="#local-6989586621679732990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DeleteRegistryResponse' :: Maybe RegistryStatus
+</span><a href="#local-6989586621679734779"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryStatus
+</span><a href="#local-6989586621679734779"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734778"><span class="annot"><span class="annottext">s :: DeleteRegistryResponse
+</span><a href="#local-6989586621679734778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734777"><span class="annot"><span class="annottext">Maybe RegistryStatus
+</span><a href="#local-6989586621679734777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRegistryResponse
+</span><a href="#local-6989586621679734778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DeleteRegistryResponse' :: Maybe RegistryStatus
 </span><a href="Network.AWS.Glue.DeleteRegistry.html#%24sel%3Astatus%3ADeleteRegistryResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RegistryStatus
-</span><a href="#local-6989586621679732989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679734777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The name of the registry being deleted.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#deleteRegistryResponse_registryName"><span class="hs-identifier hs-type">deleteRegistryResponse_registryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -452,16 +452,16 @@ $sel:status:DeleteRegistryResponse' :: DeleteRegistryResponse -&gt; Maybe Regist
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732988"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734776"><span class="annot"><span class="annottext">Maybe Text
 registryName :: Maybe Text
 $sel:registryName:DeleteRegistryResponse' :: DeleteRegistryResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679732988"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732988"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732987"><span class="annot"><span class="annottext">s :: DeleteRegistryResponse
-</span><a href="#local-6989586621679732987"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732986"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732986"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRegistryResponse
-</span><a href="#local-6989586621679732987"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryName:DeleteRegistryResponse' :: Maybe Text
+</span><a href="#local-6989586621679734776"><span class="hs-identifier hs-var hs-var">registryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679734776"><span class="hs-identifier hs-var">registryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734775"><span class="annot"><span class="annottext">s :: DeleteRegistryResponse
+</span><a href="#local-6989586621679734775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734774"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679734774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRegistryResponse
+</span><a href="#local-6989586621679734775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryName:DeleteRegistryResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.DeleteRegistry.html#%24sel%3AregistryName%3ADeleteRegistryResponse%27"><span class="hs-identifier hs-var">registryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732986"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679734774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the registry being deleted.</span><span>
 </span><span id="line-182"></span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#deleteRegistryResponse_registryArn"><span class="hs-identifier hs-type">deleteRegistryResponse_registryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -475,16 +475,16 @@ $sel:registryName:DeleteRegistryResponse' :: DeleteRegistryResponse -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732985"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734773"><span class="annot"><span class="annottext">Maybe Text
 registryArn :: Maybe Text
 $sel:registryArn:DeleteRegistryResponse' :: DeleteRegistryResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679732985"><span class="hs-identifier hs-var hs-var">registryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732985"><span class="hs-identifier hs-var">registryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732984"><span class="annot"><span class="annottext">s :: DeleteRegistryResponse
-</span><a href="#local-6989586621679732984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732983"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRegistryResponse
-</span><a href="#local-6989586621679732984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryArn:DeleteRegistryResponse' :: Maybe Text
+</span><a href="#local-6989586621679734773"><span class="hs-identifier hs-var hs-var">registryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679734773"><span class="hs-identifier hs-var">registryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734772"><span class="annot"><span class="annottext">s :: DeleteRegistryResponse
+</span><a href="#local-6989586621679734772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734771"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679734771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRegistryResponse
+</span><a href="#local-6989586621679734772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:registryArn:DeleteRegistryResponse' :: Maybe Text
 </span><a href="Network.AWS.Glue.DeleteRegistry.html#%24sel%3AregistryArn%3ADeleteRegistryResponse%27"><span class="hs-identifier hs-var">registryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679732983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679734771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#deleteRegistryResponse_httpStatus"><span class="hs-identifier hs-type">deleteRegistryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -494,16 +494,16 @@ $sel:registryArn:DeleteRegistryResponse' :: DeleteRegistryResponse -&gt; Maybe T
 -&gt; (DeleteRegistryResponse -&gt; Int -&gt; DeleteRegistryResponse)
 -&gt; Lens DeleteRegistryResponse DeleteRegistryResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679732982"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679734770"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteRegistryResponse' :: DeleteRegistryResponse -&gt; Int
-</span><a href="#local-6989586621679732982"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732982"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679732981"><span class="annot"><span class="annottext">s :: DeleteRegistryResponse
-</span><a href="#local-6989586621679732981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679732980"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRegistryResponse
-</span><a href="#local-6989586621679732981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRegistryResponse' :: Int
+</span><a href="#local-6989586621679734770"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679734770"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679734769"><span class="annot"><span class="annottext">s :: DeleteRegistryResponse
+</span><a href="#local-6989586621679734769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse%27"><span class="hs-identifier hs-type">DeleteRegistryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679734768"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679734768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRegistryResponse
+</span><a href="#local-6989586621679734769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRegistryResponse' :: Int
 </span><a href="Network.AWS.Glue.DeleteRegistry.html#%24sel%3AhttpStatus%3ADeleteRegistryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679732980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679734768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679732978"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679734766"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Glue.DeleteRegistry.html#DeleteRegistryResponse"><span class="hs-identifier hs-type">DeleteRegistryResponse</span></a></span></span><span>
 </span><span id="line-190"></span></pre></body></html>

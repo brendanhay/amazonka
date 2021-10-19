@@ -69,11 +69,11 @@
 </span><span id="line-69"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#newDescribeVolumeStatus"><span class="hs-identifier">newDescribeVolumeStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_nextToken"><span class="hs-identifier">describeVolumeStatus_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_maxResults"><span class="hs-identifier">describeVolumeStatus_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_volumeIds"><span class="hs-identifier">describeVolumeStatus_volumeIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_filters"><span class="hs-identifier">describeVolumeStatus_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_volumeIds"><span class="hs-identifier">describeVolumeStatus_volumeIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_nextToken"><span class="hs-identifier">describeVolumeStatus_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_dryRun"><span class="hs-identifier">describeVolumeStatus_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_filters"><span class="hs-identifier">describeVolumeStatus_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_maxResults"><span class="hs-identifier">describeVolumeStatus_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier">DescribeVolumeStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -94,72 +94,72 @@
 </span><span id="line-94"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-comment">-- | /See:/ 'newDescribeVolumeStatus' smart constructor.</span><span>
-</span><span id="line-97"></span><span id="local-6989586621681207031"><span id="local-6989586621681207032"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVolumeStatus"><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-var">DescribeVolumeStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVolumeStatus%27"><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-var">DescribeVolumeStatus'</span></a></span></span><span>
-</span><span id="line-98"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @NextToken@ value to include in a future @DescribeVolumeStatus@</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- request. When the results of the request exceed @MaxResults@, this value</span><span>
-</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- can be used to retrieve the next page of results. This value is @null@</span><span>
-</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- when there are no more results to return.</span><span>
-</span><span id="line-102"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeVolumeStatus%27"><span class="annot"><span class="annottext">DescribeVolumeStatus -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AnextToken%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The maximum number of volume results returned by @DescribeVolumeStatus@</span><span>
-</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- in paginated output. When this parameter is used, the request only</span><span>
-</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- returns @MaxResults@ results in a single page along with a @NextToken@</span><span>
-</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- response element. The remaining results of the initial request can be</span><span>
-</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- seen by sending another request with the returned @NextToken@ value.</span><span>
-</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- This value can be between 5 and 1,000; if @MaxResults@ is given a value</span><span>
-</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- larger than 1,000, only 1,000 results are returned. If this parameter is</span><span>
-</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- not used, then @DescribeVolumeStatus@ returns all results. You cannot</span><span>
-</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- specify this parameter and the volume IDs parameter in the same request.</span><span>
-</span><span id="line-112"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeVolumeStatus%27"><span class="annot"><span class="annottext">DescribeVolumeStatus -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AmaxResults%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | The IDs of the volumes.</span><span>
-</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- Default: Describes all your volumes.</span><span>
-</span><span id="line-116"></span><span>    </span><span id="%24sel%3AvolumeIds%3ADescribeVolumeStatus%27"><span class="annot"><span class="annottext">DescribeVolumeStatus -&gt; Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AvolumeIds%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var hs-var">volumeIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-121"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeVolumeStatus%27"><span class="annot"><span class="annottext">DescribeVolumeStatus -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AdryRun%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- | The filters.</span><span>
+</span><span id="line-97"></span><span id="local-6989586621681242705"><span id="local-6989586621681242706"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVolumeStatus"><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-var">DescribeVolumeStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVolumeStatus%27"><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-var">DescribeVolumeStatus'</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The filters.</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- -   @action.code@ - The action code for the event (for example,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     @enable-volume-io@).</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   @action.description@ - A description of the action.</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- -   @action.event-id@ - The event ID associated with the action.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- -   @availability-zone@ - The Availability Zone of the instance.</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- -   @event.description@ - A description of the event.</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- -   @event.event-id@ - The event ID.</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- -   @event.event-type@ - The event type (for @io-enabled@: @passed@ |</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--     @failed@; for @io-performance@: @io-performance:degraded@ |</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--     @io-performance:severely-degraded@ | @io-performance:stalled@).</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- -   @event.not-after@ - The latest end time for the event.</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- -   @event.not-before@ - The earliest start time for the event.</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- -   @volume-status.details-name@ - The cause for @volume-status.status@</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">--     (@io-enabled@ | @io-performance@).</span><span>
 </span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   @action.code@ - The action code for the event (for example,</span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-comment">--     @enable-volume-io@).</span><span>
-</span><span id="line-126"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- -   @action.description@ - A description of the action.</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   @volume-status.details-status@ - The status of</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--     @volume-status.details-name@ (for @io-enabled@: @passed@ | @failed@;</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--     for @io-performance@: @normal@ | @degraded@ | @severely-degraded@ |</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">--     @stalled@).</span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- -   @action.event-id@ - The event ID associated with the action.</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- -   @availability-zone@ - The Availability Zone of the instance.</span><span>
-</span><span id="line-132"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- -   @event.description@ - A description of the event.</span><span>
-</span><span id="line-134"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- -   @event.event-id@ - The event ID.</span><span>
-</span><span id="line-136"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- -   @event.event-type@ - The event type (for @io-enabled@: @passed@ |</span><span>
-</span><span id="line-138"></span><span>    </span><span class="hs-comment">--     @failed@; for @io-performance@: @io-performance:degraded@ |</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">--     @io-performance:severely-degraded@ | @io-performance:stalled@).</span><span>
-</span><span id="line-140"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- -   @event.not-after@ - The latest end time for the event.</span><span>
-</span><span id="line-142"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- -   @event.not-before@ - The earliest start time for the event.</span><span>
-</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- -   @volume-status.details-name@ - The cause for @volume-status.status@</span><span>
-</span><span id="line-146"></span><span>    </span><span class="hs-comment">--     (@io-enabled@ | @io-performance@).</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- -   @volume-status.details-status@ - The status of</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">--     @volume-status.details-name@ (for @io-enabled@: @passed@ | @failed@;</span><span>
-</span><span id="line-150"></span><span>    </span><span class="hs-comment">--     for @io-performance@: @normal@ | @degraded@ | @severely-degraded@ |</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">--     @stalled@).</span><span>
-</span><span id="line-152"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@</span><span>
-</span><span id="line-154"></span><span>    </span><span class="hs-comment">--     | @warning@ | @insufficient-data@).</span><span>
-</span><span id="line-155"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeVolumeStatus%27"><span class="annot"><span class="annottext">DescribeVolumeStatus -&gt; Maybe [Filter]
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3Afilters%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">--     | @warning@ | @insufficient-data@).</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeVolumeStatus%27"><span class="annot"><span class="annottext">DescribeVolumeStatus -&gt; Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3Afilters%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The IDs of the volumes.</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- Default: Describes all your volumes.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AvolumeIds%3ADescribeVolumeStatus%27"><span class="annot"><span class="annottext">DescribeVolumeStatus -&gt; Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AvolumeIds%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var hs-var">volumeIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | The @NextToken@ value to include in a future @DescribeVolumeStatus@</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- request. When the results of the request exceed @MaxResults@, this value</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- can be used to retrieve the next page of results. This value is @null@</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- when there are no more results to return.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeVolumeStatus%27"><span class="annot"><span class="annottext">DescribeVolumeStatus -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AnextToken%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeVolumeStatus%27"><span class="annot"><span class="annottext">DescribeVolumeStatus -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AdryRun%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The maximum number of volume results returned by @DescribeVolumeStatus@</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- in paginated output. When this parameter is used, the request only</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- returns @MaxResults@ results in a single page along with a @NextToken@</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- response element. The remaining results of the initial request can be</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- seen by sending another request with the returned @NextToken@ value.</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- This value can be between 5 and 1,000; if @MaxResults@ is given a value</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- larger than 1,000, only 1,000 results are returned. If this parameter is</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- not used, then @DescribeVolumeStatus@ returns all results. You cannot</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- specify this parameter and the volume IDs parameter in the same request.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeVolumeStatus%27"><span class="annot"><span class="annottext">DescribeVolumeStatus -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AmaxResults%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681207021"><span id="local-6989586621681207023"><span class="annot"><span class="annottext">DescribeVolumeStatus -&gt; DescribeVolumeStatus -&gt; Bool
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681242695"><span id="local-6989586621681242697"><span class="annot"><span class="annottext">DescribeVolumeStatus -&gt; DescribeVolumeStatus -&gt; Bool
 (DescribeVolumeStatus -&gt; DescribeVolumeStatus -&gt; Bool)
 -&gt; (DescribeVolumeStatus -&gt; DescribeVolumeStatus -&gt; Bool)
 -&gt; Eq DescribeVolumeStatus
@@ -168,7 +168,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeVolumeStatus -&gt; DescribeVolumeStatus -&gt; Bool
 == :: DescribeVolumeStatus -&gt; DescribeVolumeStatus -&gt; Bool
 $c== :: DescribeVolumeStatus -&gt; DescribeVolumeStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681207012"><span id="local-6989586621681207014"><span id="local-6989586621681207016"><span id="local-6989586621681207018"><span class="annot"><span class="annottext">ReadPrec [DescribeVolumeStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681242686"><span id="local-6989586621681242688"><span id="local-6989586621681242690"><span id="local-6989586621681242692"><span class="annot"><span class="annottext">ReadPrec [DescribeVolumeStatus]
 ReadPrec DescribeVolumeStatus
 Int -&gt; ReadS DescribeVolumeStatus
 ReadS [DescribeVolumeStatus]
@@ -188,7 +188,7 @@ readList :: ReadS [DescribeVolumeStatus]
 $creadList :: ReadS [DescribeVolumeStatus]
 readsPrec :: Int -&gt; ReadS DescribeVolumeStatus
 $creadsPrec :: Int -&gt; ReadS DescribeVolumeStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681207005"><span id="local-6989586621681207007"><span id="local-6989586621681207009"><span class="annot"><span class="annottext">Int -&gt; DescribeVolumeStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681242679"><span id="local-6989586621681242681"><span id="local-6989586621681242683"><span class="annot"><span class="annottext">Int -&gt; DescribeVolumeStatus -&gt; ShowS
 [DescribeVolumeStatus] -&gt; ShowS
 DescribeVolumeStatus -&gt; String
 (Int -&gt; DescribeVolumeStatus -&gt; ShowS)
@@ -222,245 +222,131 @@ $cfrom :: forall x. DescribeVolumeStatus -&gt; Rep DescribeVolumeStatus x
 </span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-166"></span><span class="hs-comment">--</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- 'nextToken', 'describeVolumeStatus_nextToken' - The @NextToken@ value to include in a future @DescribeVolumeStatus@</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- request. When the results of the request exceed @MaxResults@, this value</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- can be used to retrieve the next page of results. This value is @null@</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- when there are no more results to return.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'filters', 'describeVolumeStatus_filters' - The filters.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- -   @action.code@ - The action code for the event (for example,</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--     @enable-volume-io@).</span><span>
 </span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- 'maxResults', 'describeVolumeStatus_maxResults' - The maximum number of volume results returned by @DescribeVolumeStatus@</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- in paginated output. When this parameter is used, the request only</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- returns @MaxResults@ results in a single page along with a @NextToken@</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- response element. The remaining results of the initial request can be</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- seen by sending another request with the returned @NextToken@ value.</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- This value can be between 5 and 1,000; if @MaxResults@ is given a value</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- larger than 1,000, only 1,000 results are returned. If this parameter is</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- not used, then @DescribeVolumeStatus@ returns all results. You cannot</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- specify this parameter and the volume IDs parameter in the same request.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   @action.description@ - A description of the action.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- -   @action.event-id@ - The event ID associated with the action.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   @availability-zone@ - The Availability Zone of the instance.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- -   @event.description@ - A description of the event.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- -   @event.event-id@ - The event ID.</span><span>
 </span><span id="line-181"></span><span class="hs-comment">--</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- 'volumeIds', 'describeVolumeStatus_volumeIds' - The IDs of the volumes.</span><span>
-</span><span id="line-183"></span><span class="hs-comment">--</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- Default: Describes all your volumes.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- -   @event.event-type@ - The event type (for @io-enabled@: @passed@ |</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     @failed@; for @io-performance@: @io-performance:degraded@ |</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     @io-performance:severely-degraded@ | @io-performance:stalled@).</span><span>
 </span><span id="line-185"></span><span class="hs-comment">--</span><span>
-</span><span id="line-186"></span><span class="hs-comment">-- 'dryRun', 'describeVolumeStatus_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-188"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-190"></span><span class="hs-comment">--</span><span>
-</span><span id="line-191"></span><span class="hs-comment">-- 'filters', 'describeVolumeStatus_filters' - The filters.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- -   @event.not-after@ - The latest end time for the event.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   @event.not-before@ - The earliest start time for the event.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -   @volume-status.details-name@ - The cause for @volume-status.status@</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     (@io-enabled@ | @io-performance@).</span><span>
 </span><span id="line-192"></span><span class="hs-comment">--</span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- -   @action.code@ - The action code for the event (for example,</span><span>
-</span><span id="line-194"></span><span class="hs-comment">--     @enable-volume-io@).</span><span>
-</span><span id="line-195"></span><span class="hs-comment">--</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- -   @action.description@ - A description of the action.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   @volume-status.details-status@ - The status of</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     @volume-status.details-name@ (for @io-enabled@: @passed@ | @failed@;</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     for @io-performance@: @normal@ | @degraded@ | @severely-degraded@ |</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     @stalled@).</span><span>
 </span><span id="line-197"></span><span class="hs-comment">--</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- -   @action.event-id@ - The event ID associated with the action.</span><span>
-</span><span id="line-199"></span><span class="hs-comment">--</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- -   @availability-zone@ - The Availability Zone of the instance.</span><span>
-</span><span id="line-201"></span><span class="hs-comment">--</span><span>
-</span><span id="line-202"></span><span class="hs-comment">-- -   @event.description@ - A description of the event.</span><span>
-</span><span id="line-203"></span><span class="hs-comment">--</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- -   @event.event-id@ - The event ID.</span><span>
-</span><span id="line-205"></span><span class="hs-comment">--</span><span>
-</span><span id="line-206"></span><span class="hs-comment">-- -   @event.event-type@ - The event type (for @io-enabled@: @passed@ |</span><span>
-</span><span id="line-207"></span><span class="hs-comment">--     @failed@; for @io-performance@: @io-performance:degraded@ |</span><span>
-</span><span id="line-208"></span><span class="hs-comment">--     @io-performance:severely-degraded@ | @io-performance:stalled@).</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     | @warning@ | @insufficient-data@).</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'volumeIds', 'describeVolumeStatus_volumeIds' - The IDs of the volumes.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Default: Describes all your volumes.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'nextToken', 'describeVolumeStatus_nextToken' - The @NextToken@ value to include in a future @DescribeVolumeStatus@</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- request. When the results of the request exceed @MaxResults@, this value</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- can be used to retrieve the next page of results. This value is @null@</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- when there are no more results to return.</span><span>
 </span><span id="line-209"></span><span class="hs-comment">--</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- -   @event.not-after@ - The latest end time for the event.</span><span>
-</span><span id="line-211"></span><span class="hs-comment">--</span><span>
-</span><span id="line-212"></span><span class="hs-comment">-- -   @event.not-before@ - The earliest start time for the event.</span><span>
-</span><span id="line-213"></span><span class="hs-comment">--</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- -   @volume-status.details-name@ - The cause for @volume-status.status@</span><span>
-</span><span id="line-215"></span><span class="hs-comment">--     (@io-enabled@ | @io-performance@).</span><span>
-</span><span id="line-216"></span><span class="hs-comment">--</span><span>
-</span><span id="line-217"></span><span class="hs-comment">-- -   @volume-status.details-status@ - The status of</span><span>
-</span><span id="line-218"></span><span class="hs-comment">--     @volume-status.details-name@ (for @io-enabled@: @passed@ | @failed@;</span><span>
-</span><span id="line-219"></span><span class="hs-comment">--     for @io-performance@: @normal@ | @degraded@ | @severely-degraded@ |</span><span>
-</span><span id="line-220"></span><span class="hs-comment">--     @stalled@).</span><span>
-</span><span id="line-221"></span><span class="hs-comment">--</span><span>
-</span><span id="line-222"></span><span class="hs-comment">-- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@</span><span>
-</span><span id="line-223"></span><span class="hs-comment">--     | @warning@ | @insufficient-data@).</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'dryRun', 'describeVolumeStatus_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'maxResults', 'describeVolumeStatus_maxResults' - The maximum number of volume results returned by @DescribeVolumeStatus@</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- in paginated output. When this parameter is used, the request only</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- returns @MaxResults@ results in a single page along with a @NextToken@</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- response element. The remaining results of the initial request can be</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- seen by sending another request with the returned @NextToken@ value.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- This value can be between 5 and 1,000; if @MaxResults@ is given a value</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- larger than 1,000, only 1,000 results are returned. If this parameter is</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- not used, then @DescribeVolumeStatus@ returns all results. You cannot</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- specify this parameter and the volume IDs parameter in the same request.</span><span>
 </span><span id="line-224"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#newDescribeVolumeStatus"><span class="hs-identifier hs-type">newDescribeVolumeStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-225"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span>
 </span><span id="line-226"></span><span id="newDescribeVolumeStatus"><span class="annot"><span class="annottext">newDescribeVolumeStatus :: DescribeVolumeStatus
 </span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#newDescribeVolumeStatus"><span class="hs-identifier hs-var hs-var">newDescribeVolumeStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-227"></span><span>  </span><span class="annot"><span class="annottext">DescribeVolumeStatus' :: Maybe Text
--&gt; Maybe Int
+</span><span id="line-227"></span><span>  </span><span class="annot"><span class="annottext">DescribeVolumeStatus' :: Maybe [Filter]
 -&gt; Maybe [Text]
+-&gt; Maybe Text
 -&gt; Maybe Bool
--&gt; Maybe [Filter]
+-&gt; Maybe Int
 -&gt; DescribeVolumeStatus
 </span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span>
-</span><span id="line-228"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVolumeStatus' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AnextToken%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-228"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeVolumeStatus' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3Afilters%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeVolumeStatus' :: Maybe Int
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AmaxResults%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeIds:DescribeVolumeStatus' :: Maybe [Text]
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeIds:DescribeVolumeStatus' :: Maybe [Text]
 </span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AvolumeIds%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">volumeIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVolumeStatus' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AnextToken%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeVolumeStatus' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AdryRun%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeVolumeStatus' :: Maybe [Filter]
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3Afilters%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeVolumeStatus' :: Maybe Int
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AmaxResults%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-233"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-234"></span><span>
-</span><span id="line-235"></span><span class="hs-comment">-- | The @NextToken@ value to include in a future @DescribeVolumeStatus@</span><span>
-</span><span id="line-236"></span><span class="hs-comment">-- request. When the results of the request exceed @MaxResults@, this value</span><span>
-</span><span id="line-237"></span><span class="hs-comment">-- can be used to retrieve the next page of results. This value is @null@</span><span>
-</span><span id="line-238"></span><span class="hs-comment">-- when there are no more results to return.</span><span>
-</span><span id="line-239"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_nextToken"><span class="hs-identifier hs-type">describeVolumeStatus_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-240"></span><span id="describeVolumeStatus_nextToken"><span class="annot"><span class="annottext">describeVolumeStatus_nextToken :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeVolumeStatus -&gt; f DescribeVolumeStatus
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_nextToken"><span class="hs-identifier hs-var hs-var">describeVolumeStatus_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVolumeStatus -&gt; Maybe Text)
--&gt; (DescribeVolumeStatus -&gt; Maybe Text -&gt; DescribeVolumeStatus)
--&gt; Lens
-     DescribeVolumeStatus DescribeVolumeStatus (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681206999"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe Text
-</span><a href="#local-6989586621681206999"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681206999"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681206998"><span class="annot"><span class="annottext">s :: DescribeVolumeStatus
-</span><a href="#local-6989586621681206998"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681206997"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681206997"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatus
-</span><a href="#local-6989586621681206998"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVolumeStatus' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AnextToken%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681206997"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-241"></span><span>
-</span><span id="line-242"></span><span class="hs-comment">-- | The maximum number of volume results returned by @DescribeVolumeStatus@</span><span>
-</span><span id="line-243"></span><span class="hs-comment">-- in paginated output. When this parameter is used, the request only</span><span>
-</span><span id="line-244"></span><span class="hs-comment">-- returns @MaxResults@ results in a single page along with a @NextToken@</span><span>
-</span><span id="line-245"></span><span class="hs-comment">-- response element. The remaining results of the initial request can be</span><span>
-</span><span id="line-246"></span><span class="hs-comment">-- seen by sending another request with the returned @NextToken@ value.</span><span>
-</span><span id="line-247"></span><span class="hs-comment">-- This value can be between 5 and 1,000; if @MaxResults@ is given a value</span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- larger than 1,000, only 1,000 results are returned. If this parameter is</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- not used, then @DescribeVolumeStatus@ returns all results. You cannot</span><span>
-</span><span id="line-250"></span><span class="hs-comment">-- specify this parameter and the volume IDs parameter in the same request.</span><span>
-</span><span id="line-251"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_maxResults"><span class="hs-identifier hs-type">describeVolumeStatus_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-252"></span><span id="describeVolumeStatus_maxResults"><span class="annot"><span class="annottext">describeVolumeStatus_maxResults :: (Maybe Int -&gt; f (Maybe Int))
--&gt; DescribeVolumeStatus -&gt; f DescribeVolumeStatus
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_maxResults"><span class="hs-identifier hs-var hs-var">describeVolumeStatus_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVolumeStatus -&gt; Maybe Int)
--&gt; (DescribeVolumeStatus -&gt; Maybe Int -&gt; DescribeVolumeStatus)
--&gt; Lens
-     DescribeVolumeStatus DescribeVolumeStatus (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681206996"><span class="annot"><span class="annottext">Maybe Int
-maxResults :: Maybe Int
-$sel:maxResults:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe Int
-</span><a href="#local-6989586621681206996"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681206996"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681206995"><span class="annot"><span class="annottext">s :: DescribeVolumeStatus
-</span><a href="#local-6989586621681206995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681206994"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681206994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatus
-</span><a href="#local-6989586621681206995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeVolumeStatus' :: Maybe Int
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AmaxResults%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681206994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- | The IDs of the volumes.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The filters.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- -   @action.code@ - The action code for the event (for example,</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     @enable-volume-io@).</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- -   @action.description@ - A description of the action.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- -   @action.event-id@ - The event ID associated with the action.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- -   @availability-zone@ - The Availability Zone of the instance.</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- -   @event.description@ - A description of the event.</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- -   @event.event-id@ - The event ID.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- -   @event.event-type@ - The event type (for @io-enabled@: @passed@ |</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     @failed@; for @io-performance@: @io-performance:degraded@ |</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     @io-performance:severely-degraded@ | @io-performance:stalled@).</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- -   @event.not-after@ - The latest end time for the event.</span><span>
 </span><span id="line-255"></span><span class="hs-comment">--</span><span>
-</span><span id="line-256"></span><span class="hs-comment">-- Default: Describes all your volumes.</span><span>
-</span><span id="line-257"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_volumeIds"><span class="hs-identifier hs-type">describeVolumeStatus_volumeIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-258"></span><span id="describeVolumeStatus_volumeIds"><span class="annot"><span class="annottext">describeVolumeStatus_volumeIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeVolumeStatus -&gt; f DescribeVolumeStatus
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_volumeIds"><span class="hs-identifier hs-var hs-var">describeVolumeStatus_volumeIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVolumeStatus -&gt; Maybe [Text])
--&gt; (DescribeVolumeStatus -&gt; Maybe [Text] -&gt; DescribeVolumeStatus)
--&gt; Lens
-     DescribeVolumeStatus
-     DescribeVolumeStatus
-     (Maybe [Text])
-     (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681206993"><span class="annot"><span class="annottext">Maybe [Text]
-volumeIds :: Maybe [Text]
-$sel:volumeIds:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe [Text]
-</span><a href="#local-6989586621681206993"><span class="hs-identifier hs-var hs-var">volumeIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681206993"><span class="hs-identifier hs-var">volumeIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681206992"><span class="annot"><span class="annottext">s :: DescribeVolumeStatus
-</span><a href="#local-6989586621681206992"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681206991"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681206991"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatus
-</span><a href="#local-6989586621681206992"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeIds:DescribeVolumeStatus' :: Maybe [Text]
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AvolumeIds%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">volumeIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681206991"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; DescribeVolumeStatus -&gt; f DescribeVolumeStatus)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeVolumeStatus
--&gt; f DescribeVolumeStatus
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-259"></span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_dryRun"><span class="hs-identifier hs-type">describeVolumeStatus_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-265"></span><span id="describeVolumeStatus_dryRun"><span class="annot"><span class="annottext">describeVolumeStatus_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; DescribeVolumeStatus -&gt; f DescribeVolumeStatus
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_dryRun"><span class="hs-identifier hs-var hs-var">describeVolumeStatus_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVolumeStatus -&gt; Maybe Bool)
--&gt; (DescribeVolumeStatus -&gt; Maybe Bool -&gt; DescribeVolumeStatus)
--&gt; Lens
-     DescribeVolumeStatus DescribeVolumeStatus (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681206987"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe Bool
-</span><a href="#local-6989586621681206987"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681206987"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681206986"><span class="annot"><span class="annottext">s :: DescribeVolumeStatus
-</span><a href="#local-6989586621681206986"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681206985"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681206985"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatus
-</span><a href="#local-6989586621681206986"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeVolumeStatus' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AdryRun%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681206985"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-266"></span><span>
-</span><span id="line-267"></span><span class="hs-comment">-- | The filters.</span><span>
-</span><span id="line-268"></span><span class="hs-comment">--</span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- -   @action.code@ - The action code for the event (for example,</span><span>
-</span><span id="line-270"></span><span class="hs-comment">--     @enable-volume-io@).</span><span>
-</span><span id="line-271"></span><span class="hs-comment">--</span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- -   @action.description@ - A description of the action.</span><span>
-</span><span id="line-273"></span><span class="hs-comment">--</span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- -   @action.event-id@ - The event ID associated with the action.</span><span>
-</span><span id="line-275"></span><span class="hs-comment">--</span><span>
-</span><span id="line-276"></span><span class="hs-comment">-- -   @availability-zone@ - The Availability Zone of the instance.</span><span>
-</span><span id="line-277"></span><span class="hs-comment">--</span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- -   @event.description@ - A description of the event.</span><span>
-</span><span id="line-279"></span><span class="hs-comment">--</span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- -   @event.event-id@ - The event ID.</span><span>
-</span><span id="line-281"></span><span class="hs-comment">--</span><span>
-</span><span id="line-282"></span><span class="hs-comment">-- -   @event.event-type@ - The event type (for @io-enabled@: @passed@ |</span><span>
-</span><span id="line-283"></span><span class="hs-comment">--     @failed@; for @io-performance@: @io-performance:degraded@ |</span><span>
-</span><span id="line-284"></span><span class="hs-comment">--     @io-performance:severely-degraded@ | @io-performance:stalled@).</span><span>
-</span><span id="line-285"></span><span class="hs-comment">--</span><span>
-</span><span id="line-286"></span><span class="hs-comment">-- -   @event.not-after@ - The latest end time for the event.</span><span>
-</span><span id="line-287"></span><span class="hs-comment">--</span><span>
-</span><span id="line-288"></span><span class="hs-comment">-- -   @event.not-before@ - The earliest start time for the event.</span><span>
-</span><span id="line-289"></span><span class="hs-comment">--</span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- -   @volume-status.details-name@ - The cause for @volume-status.status@</span><span>
-</span><span id="line-291"></span><span class="hs-comment">--     (@io-enabled@ | @io-performance@).</span><span>
-</span><span id="line-292"></span><span class="hs-comment">--</span><span>
-</span><span id="line-293"></span><span class="hs-comment">-- -   @volume-status.details-status@ - The status of</span><span>
-</span><span id="line-294"></span><span class="hs-comment">--     @volume-status.details-name@ (for @io-enabled@: @passed@ | @failed@;</span><span>
-</span><span id="line-295"></span><span class="hs-comment">--     for @io-performance@: @normal@ | @degraded@ | @severely-degraded@ |</span><span>
-</span><span id="line-296"></span><span class="hs-comment">--     @stalled@).</span><span>
-</span><span id="line-297"></span><span class="hs-comment">--</span><span>
-</span><span id="line-298"></span><span class="hs-comment">-- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@</span><span>
-</span><span id="line-299"></span><span class="hs-comment">--     | @warning@ | @insufficient-data@).</span><span>
-</span><span id="line-300"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_filters"><span class="hs-identifier hs-type">describeVolumeStatus_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-301"></span><span id="describeVolumeStatus_filters"><span class="annot"><span class="annottext">describeVolumeStatus_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><span id="line-256"></span><span class="hs-comment">-- -   @event.not-before@ - The earliest start time for the event.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- -   @volume-status.details-name@ - The cause for @volume-status.status@</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     (@io-enabled@ | @io-performance@).</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- -   @volume-status.details-status@ - The status of</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--     @volume-status.details-name@ (for @io-enabled@: @passed@ | @failed@;</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     for @io-performance@: @normal@ | @degraded@ | @severely-degraded@ |</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--     @stalled@).</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--     | @warning@ | @insufficient-data@).</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_filters"><span class="hs-identifier hs-type">describeVolumeStatus_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="describeVolumeStatus_filters"><span class="annot"><span class="annottext">describeVolumeStatus_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
 -&gt; DescribeVolumeStatus -&gt; f DescribeVolumeStatus
 </span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_filters"><span class="hs-identifier hs-var hs-var">describeVolumeStatus_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVolumeStatus -&gt; Maybe [Filter])
 -&gt; (DescribeVolumeStatus -&gt; Maybe [Filter] -&gt; DescribeVolumeStatus)
@@ -470,16 +356,16 @@ $sel:dryRun:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe Bool
      (Maybe [Filter])
      (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681206984"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681242673"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681206984"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681206984"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681206983"><span class="annot"><span class="annottext">s :: DescribeVolumeStatus
-</span><a href="#local-6989586621681206983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681206982"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681206982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatus
-</span><a href="#local-6989586621681206983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeVolumeStatus' :: Maybe [Filter]
+</span><a href="#local-6989586621681242673"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681242673"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681242672"><span class="annot"><span class="annottext">s :: DescribeVolumeStatus
+</span><a href="#local-6989586621681242672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681242671"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681242671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatus
+</span><a href="#local-6989586621681242672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeVolumeStatus' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3Afilters%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681206982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681242671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeVolumeStatus -&gt; f DescribeVolumeStatus)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -494,21 +380,135 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The IDs of the volumes.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- Default: Describes all your volumes.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_volumeIds"><span class="hs-identifier hs-type">describeVolumeStatus_volumeIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="describeVolumeStatus_volumeIds"><span class="annot"><span class="annottext">describeVolumeStatus_volumeIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeVolumeStatus -&gt; f DescribeVolumeStatus
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_volumeIds"><span class="hs-identifier hs-var hs-var">describeVolumeStatus_volumeIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVolumeStatus -&gt; Maybe [Text])
+-&gt; (DescribeVolumeStatus -&gt; Maybe [Text] -&gt; DescribeVolumeStatus)
+-&gt; Lens
+     DescribeVolumeStatus
+     DescribeVolumeStatus
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681242667"><span class="annot"><span class="annottext">Maybe [Text]
+volumeIds :: Maybe [Text]
+$sel:volumeIds:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe [Text]
+</span><a href="#local-6989586621681242667"><span class="hs-identifier hs-var hs-var">volumeIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681242667"><span class="hs-identifier hs-var">volumeIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681242666"><span class="annot"><span class="annottext">s :: DescribeVolumeStatus
+</span><a href="#local-6989586621681242666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681242665"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681242665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatus
+</span><a href="#local-6989586621681242666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeIds:DescribeVolumeStatus' :: Maybe [Text]
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AvolumeIds%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">volumeIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681242665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeVolumeStatus -&gt; f DescribeVolumeStatus)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeVolumeStatus
+-&gt; f DescribeVolumeStatus
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The @NextToken@ value to include in a future @DescribeVolumeStatus@</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- request. When the results of the request exceed @MaxResults@, this value</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- can be used to retrieve the next page of results. This value is @null@</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- when there are no more results to return.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_nextToken"><span class="hs-identifier hs-type">describeVolumeStatus_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span id="describeVolumeStatus_nextToken"><span class="annot"><span class="annottext">describeVolumeStatus_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeVolumeStatus -&gt; f DescribeVolumeStatus
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_nextToken"><span class="hs-identifier hs-var hs-var">describeVolumeStatus_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVolumeStatus -&gt; Maybe Text)
+-&gt; (DescribeVolumeStatus -&gt; Maybe Text -&gt; DescribeVolumeStatus)
+-&gt; Lens
+     DescribeVolumeStatus DescribeVolumeStatus (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681242664"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe Text
+</span><a href="#local-6989586621681242664"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681242664"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681242663"><span class="annot"><span class="annottext">s :: DescribeVolumeStatus
+</span><a href="#local-6989586621681242663"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681242662"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681242662"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatus
+</span><a href="#local-6989586621681242663"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVolumeStatus' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AnextToken%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681242662"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_dryRun"><span class="hs-identifier hs-type">describeVolumeStatus_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span id="describeVolumeStatus_dryRun"><span class="annot"><span class="annottext">describeVolumeStatus_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeVolumeStatus -&gt; f DescribeVolumeStatus
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_dryRun"><span class="hs-identifier hs-var hs-var">describeVolumeStatus_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVolumeStatus -&gt; Maybe Bool)
+-&gt; (DescribeVolumeStatus -&gt; Maybe Bool -&gt; DescribeVolumeStatus)
+-&gt; Lens
+     DescribeVolumeStatus DescribeVolumeStatus (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681242661"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe Bool
+</span><a href="#local-6989586621681242661"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681242661"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681242660"><span class="annot"><span class="annottext">s :: DescribeVolumeStatus
+</span><a href="#local-6989586621681242660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681242659"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681242659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatus
+</span><a href="#local-6989586621681242660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeVolumeStatus' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AdryRun%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681242659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- | The maximum number of volume results returned by @DescribeVolumeStatus@</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- in paginated output. When this parameter is used, the request only</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- returns @MaxResults@ results in a single page along with a @NextToken@</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- response element. The remaining results of the initial request can be</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- seen by sending another request with the returned @NextToken@ value.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- This value can be between 5 and 1,000; if @MaxResults@ is given a value</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- larger than 1,000, only 1,000 results are returned. If this parameter is</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- not used, then @DescribeVolumeStatus@ returns all results. You cannot</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- specify this parameter and the volume IDs parameter in the same request.</span><span>
+</span><span id="line-300"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_maxResults"><span class="hs-identifier hs-type">describeVolumeStatus_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span id="describeVolumeStatus_maxResults"><span class="annot"><span class="annottext">describeVolumeStatus_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeVolumeStatus -&gt; f DescribeVolumeStatus
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatus_maxResults"><span class="hs-identifier hs-var hs-var">describeVolumeStatus_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeVolumeStatus -&gt; Maybe Int)
+-&gt; (DescribeVolumeStatus -&gt; Maybe Int -&gt; DescribeVolumeStatus)
+-&gt; Lens
+     DescribeVolumeStatus DescribeVolumeStatus (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681242658"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe Int
+</span><a href="#local-6989586621681242658"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681242658"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681242657"><span class="annot"><span class="annottext">s :: DescribeVolumeStatus
+</span><a href="#local-6989586621681242657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681242656"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681242656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatus
+</span><a href="#local-6989586621681242657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeVolumeStatus' :: Maybe Int
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AmaxResults%3ADescribeVolumeStatus%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681242656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-302"></span><span>
 </span><span id="line-303"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-304"></span><span>  </span><span id="local-6989586621681206978"><span class="annot"><span class="annottext">page :: DescribeVolumeStatus
+</span><span id="line-304"></span><span>  </span><span id="local-6989586621681242652"><span class="annot"><span class="annottext">page :: DescribeVolumeStatus
 -&gt; AWSResponse DescribeVolumeStatus -&gt; Maybe DescribeVolumeStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681206976"><span class="annot"><span class="annottext">DescribeVolumeStatus
-</span><a href="#local-6989586621681206976"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681206975"><span class="annot"><span class="annottext">AWSResponse DescribeVolumeStatus
-</span><a href="#local-6989586621681206975"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681242650"><span class="annot"><span class="annottext">DescribeVolumeStatus
+</span><a href="#local-6989586621681242650"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681242649"><span class="annot"><span class="annottext">AWSResponse DescribeVolumeStatus
+</span><a href="#local-6989586621681242649"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-305"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-306"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeVolumeStatus
 DescribeVolumeStatusResponse
-</span><a href="#local-6989586621681206975"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681242649"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-307"></span><span>            </span><span class="annot"><span class="annottext">DescribeVolumeStatusResponse
 -&gt; Getting (First Text) DescribeVolumeStatusResponse Text
 -&gt; Maybe Text
@@ -538,7 +538,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-312"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeVolumeStatus
 DescribeVolumeStatusResponse
-</span><a href="#local-6989586621681206975"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681242649"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-313"></span><span>            </span><span class="annot"><span class="annottext">DescribeVolumeStatusResponse
 -&gt; Getting
      (First [VolumeStatusItem])
@@ -584,7 +584,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-319"></span><span>        </span><span class="annot"><span class="annottext">DescribeVolumeStatus
-</span><a href="#local-6989586621681206976"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681242650"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-320"></span><span>          </span><span class="annot"><span class="annottext">DescribeVolumeStatus
 -&gt; (DescribeVolumeStatus -&gt; DescribeVolumeStatus)
 -&gt; DescribeVolumeStatus
@@ -600,7 +600,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeVolumeStatus
 DescribeVolumeStatusResponse
-</span><a href="#local-6989586621681206975"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681242649"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-322"></span><span>          </span><span class="annot"><span class="annottext">DescribeVolumeStatusResponse
 -&gt; Getting (First Text) DescribeVolumeStatusResponse Text
 -&gt; Maybe Text
@@ -626,12 +626,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-326"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-327"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-328"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse</span></a></span><span>
-</span><span id="line-329"></span><span>  </span><span id="local-6989586621681206966"><span class="annot"><span class="annottext">request :: DescribeVolumeStatus -&gt; Request DescribeVolumeStatus
+</span><span id="line-329"></span><span>  </span><span id="local-6989586621681242640"><span class="annot"><span class="annottext">request :: DescribeVolumeStatus -&gt; Request DescribeVolumeStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeVolumeStatus -&gt; Request DescribeVolumeStatus
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-330"></span><span>  </span><span id="local-6989586621681206962"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-330"></span><span>  </span><span id="local-6989586621681242636"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeVolumeStatus
 -&gt; ClientResponse ClientBody
@@ -657,10 +657,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-332"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681206959"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681206959"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681206958"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681206958"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681206957"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681206957"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-332"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681242633"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681242633"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681242632"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681242632"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681242631"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681242631"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-333"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [VolumeStatusItem] -&gt; Int -&gt; DescribeVolumeStatusResponse
 </span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-var">DescribeVolumeStatusResponse'</span></a></span><span>
@@ -672,7 +672,7 @@ MonadResource m =&gt;
      (Maybe [VolumeStatusItem] -&gt; Int -&gt; DescribeVolumeStatusResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681206957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681242631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -683,7 +683,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeVolumeStatusResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681206957"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681242631"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;volumeStatusSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -713,15 +713,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681206959"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681242633"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-339"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-340"></span><span>
-</span><span id="line-341"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681206946"><span id="local-6989586621681206948"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span></span></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681242620"><span id="local-6989586621681242622"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span></span></span><span>
 </span><span id="line-342"></span><span>
-</span><span id="line-343"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681206943"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span></span><span>
+</span><span id="line-343"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681242617"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span></span><span>
 </span><span id="line-344"></span><span>
 </span><span id="line-345"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-346"></span><span>  </span><span id="local-6989586621681206939"><span class="annot"><span class="annottext">toHeaders :: DescribeVolumeStatus -&gt; ResponseHeaders
+</span><span id="line-346"></span><span>  </span><span id="local-6989586621681242613"><span class="annot"><span class="annottext">toHeaders :: DescribeVolumeStatus -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeVolumeStatus -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -729,30 +729,30 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-347"></span><span>
 </span><span id="line-348"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-349"></span><span>  </span><span id="local-6989586621681206934"><span class="annot"><span class="annottext">toPath :: DescribeVolumeStatus -&gt; ByteString
+</span><span id="line-349"></span><span>  </span><span id="local-6989586621681242608"><span class="annot"><span class="annottext">toPath :: DescribeVolumeStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeVolumeStatus -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-350"></span><span>
 </span><span id="line-351"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus"><span class="hs-identifier hs-type">DescribeVolumeStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-352"></span><span>  </span><span id="local-6989586621681206930"><span class="annot"><span class="annottext">toQuery :: DescribeVolumeStatus -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681206924"><span id="local-6989586621681206925"><span id="local-6989586621681206926"><span id="local-6989586621681206927"><span id="local-6989586621681206928"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-352"></span><span>  </span><span id="local-6989586621681242604"><span class="annot"><span class="annottext">toQuery :: DescribeVolumeStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatus%27"><span class="hs-identifier hs-type">DescribeVolumeStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681242598"><span id="local-6989586621681242599"><span id="local-6989586621681242600"><span id="local-6989586621681242601"><span id="local-6989586621681242602"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe [Text]
 Maybe [Filter]
 Maybe Text
-filters :: Maybe [Filter]
-dryRun :: Maybe Bool
-volumeIds :: Maybe [Text]
 maxResults :: Maybe Int
+dryRun :: Maybe Bool
 nextToken :: Maybe Text
-$sel:filters:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe [Filter]
-$sel:dryRun:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe Bool
-$sel:volumeIds:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe [Text]
+volumeIds :: Maybe [Text]
+filters :: Maybe [Filter]
 $sel:maxResults:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe Int
+$sel:dryRun:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe Bool
 $sel:nextToken:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe Text
-</span><a href="#local-6989586621681206924"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:volumeIds:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe [Text]
+$sel:filters:DescribeVolumeStatus' :: DescribeVolumeStatus -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681242598"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-353"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -768,16 +768,18 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-358"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681206928"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-359"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681206927"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-358"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-359"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681242602"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-360"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
@@ -789,28 +791,26 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;VolumeId&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621681206926"><span class="hs-identifier hs-var">volumeIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681242601"><span class="hs-identifier hs-var">volumeIds</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-362"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681242600"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-363"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681206925"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-363"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
-forall a. ToQuery a =&gt; a -&gt; QueryString
-</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-364"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
-forall a.
-(IsList a, ToQuery (Item a)) =&gt;
-ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681206924"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681242599"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681242598"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-365"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-366"></span><span>
 </span><span id="line-367"></span><span class="hs-comment">-- | /See:/ 'newDescribeVolumeStatusResponse' smart constructor.</span><span>
-</span><span id="line-368"></span><span id="local-6989586621681206920"><span id="local-6989586621681206921"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVolumeStatusResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-var">DescribeVolumeStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVolumeStatusResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-var">DescribeVolumeStatusResponse'</span></a></span></span><span>
+</span><span id="line-368"></span><span id="local-6989586621681242594"><span id="local-6989586621681242595"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeVolumeStatusResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-var">DescribeVolumeStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeVolumeStatusResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-var">DescribeVolumeStatusResponse'</span></a></span></span><span>
 </span><span id="line-369"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
 </span><span id="line-370"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
 </span><span id="line-371"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeVolumeStatusResponse%27"><span class="annot"><span class="annottext">DescribeVolumeStatusResponse -&gt; Maybe Text
@@ -822,7 +822,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-375"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeVolumeStatusResponse%27"><span class="annot"><span class="annottext">DescribeVolumeStatusResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AhttpStatus%3ADescribeVolumeStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-376"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-377"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681206913"><span id="local-6989586621681206915"><span class="annot"><span class="annottext">DescribeVolumeStatusResponse
+</span><span id="line-377"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681242587"><span id="local-6989586621681242589"><span class="annot"><span class="annottext">DescribeVolumeStatusResponse
 -&gt; DescribeVolumeStatusResponse -&gt; Bool
 (DescribeVolumeStatusResponse
  -&gt; DescribeVolumeStatusResponse -&gt; Bool)
@@ -838,7 +838,7 @@ $c/= :: DescribeVolumeStatusResponse
 -&gt; DescribeVolumeStatusResponse -&gt; Bool
 $c== :: DescribeVolumeStatusResponse
 -&gt; DescribeVolumeStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681206905"><span id="local-6989586621681206907"><span id="local-6989586621681206909"><span id="local-6989586621681206911"><span class="annot"><span class="annottext">ReadPrec [DescribeVolumeStatusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681242579"><span id="local-6989586621681242581"><span id="local-6989586621681242583"><span id="local-6989586621681242585"><span class="annot"><span class="annottext">ReadPrec [DescribeVolumeStatusResponse]
 ReadPrec DescribeVolumeStatusResponse
 Int -&gt; ReadS DescribeVolumeStatusResponse
 ReadS [DescribeVolumeStatusResponse]
@@ -858,7 +858,7 @@ readList :: ReadS [DescribeVolumeStatusResponse]
 $creadList :: ReadS [DescribeVolumeStatusResponse]
 readsPrec :: Int -&gt; ReadS DescribeVolumeStatusResponse
 $creadsPrec :: Int -&gt; ReadS DescribeVolumeStatusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681206899"><span id="local-6989586621681206901"><span id="local-6989586621681206903"><span class="annot"><span class="annottext">Int -&gt; DescribeVolumeStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681242573"><span id="local-6989586621681242575"><span id="local-6989586621681242577"><span class="annot"><span class="annottext">Int -&gt; DescribeVolumeStatusResponse -&gt; ShowS
 [DescribeVolumeStatusResponse] -&gt; ShowS
 DescribeVolumeStatusResponse -&gt; String
 (Int -&gt; DescribeVolumeStatusResponse -&gt; ShowS)
@@ -909,8 +909,8 @@ DescribeVolumeStatusResponse -&gt; Rep DescribeVolumeStatusResponse x
 </span><span id="line-395"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-396"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse</span></a></span><span>
 </span><span id="line-397"></span><span id="newDescribeVolumeStatusResponse"><span class="annot"><span class="annottext">newDescribeVolumeStatusResponse :: Int -&gt; DescribeVolumeStatusResponse
-</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#newDescribeVolumeStatusResponse"><span class="hs-identifier hs-var hs-var">newDescribeVolumeStatusResponse</span></a></span></span><span> </span><span id="local-6989586621681206896"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681206896"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#newDescribeVolumeStatusResponse"><span class="hs-identifier hs-var hs-var">newDescribeVolumeStatusResponse</span></a></span></span><span> </span><span id="local-6989586621681242570"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681242570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-398"></span><span>  </span><span class="annot"><span class="annottext">DescribeVolumeStatusResponse' :: Maybe Text
 -&gt; Maybe [VolumeStatusItem] -&gt; Int -&gt; DescribeVolumeStatusResponse
 </span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse'</span></a></span><span>
@@ -925,7 +925,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-402"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVolumeStatusResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AhttpStatus%3ADescribeVolumeStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681206896"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681242570"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-403"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-404"></span><span>
 </span><span id="line-405"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
@@ -938,16 +938,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeVolumeStatusResponse)
 -&gt; Lens' DescribeVolumeStatusResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681206895"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681242569"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeVolumeStatusResponse' :: DescribeVolumeStatusResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681206895"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681206895"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681206894"><span class="annot"><span class="annottext">s :: DescribeVolumeStatusResponse
-</span><a href="#local-6989586621681206894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681206893"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681206893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatusResponse
-</span><a href="#local-6989586621681206894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVolumeStatusResponse' :: Maybe Text
+</span><a href="#local-6989586621681242569"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681242569"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681242568"><span class="annot"><span class="annottext">s :: DescribeVolumeStatusResponse
+</span><a href="#local-6989586621681242568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681242567"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681242567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatusResponse
+</span><a href="#local-6989586621681242568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeVolumeStatusResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AnextToken%3ADescribeVolumeStatusResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681206893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681242567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-409"></span><span>
 </span><span id="line-410"></span><span class="hs-comment">-- | Information about the status of the volumes.</span><span>
 </span><span id="line-411"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatusResponse_volumeStatuses"><span class="hs-identifier hs-type">describeVolumeStatusResponse_volumeStatuses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.VolumeStatusItem.html#VolumeStatusItem"><span class="hs-identifier hs-type">VolumeStatusItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -958,16 +958,16 @@ $sel:nextToken:DescribeVolumeStatusResponse' :: DescribeVolumeStatusResponse -&g
     -&gt; Maybe [VolumeStatusItem] -&gt; DescribeVolumeStatusResponse)
 -&gt; Lens' DescribeVolumeStatusResponse (Maybe [VolumeStatusItem])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681206892"><span class="annot"><span class="annottext">Maybe [VolumeStatusItem]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681242566"><span class="annot"><span class="annottext">Maybe [VolumeStatusItem]
 volumeStatuses :: Maybe [VolumeStatusItem]
 $sel:volumeStatuses:DescribeVolumeStatusResponse' :: DescribeVolumeStatusResponse -&gt; Maybe [VolumeStatusItem]
-</span><a href="#local-6989586621681206892"><span class="hs-identifier hs-var hs-var">volumeStatuses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeStatusItem]
-</span><a href="#local-6989586621681206892"><span class="hs-identifier hs-var">volumeStatuses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681206891"><span class="annot"><span class="annottext">s :: DescribeVolumeStatusResponse
-</span><a href="#local-6989586621681206891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681206890"><span class="annot"><span class="annottext">Maybe [VolumeStatusItem]
-</span><a href="#local-6989586621681206890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatusResponse
-</span><a href="#local-6989586621681206891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeStatuses:DescribeVolumeStatusResponse' :: Maybe [VolumeStatusItem]
+</span><a href="#local-6989586621681242566"><span class="hs-identifier hs-var hs-var">volumeStatuses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeStatusItem]
+</span><a href="#local-6989586621681242566"><span class="hs-identifier hs-var">volumeStatuses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681242565"><span class="annot"><span class="annottext">s :: DescribeVolumeStatusResponse
+</span><a href="#local-6989586621681242565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681242564"><span class="annot"><span class="annottext">Maybe [VolumeStatusItem]
+</span><a href="#local-6989586621681242564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatusResponse
+</span><a href="#local-6989586621681242565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeStatuses:DescribeVolumeStatusResponse' :: Maybe [VolumeStatusItem]
 </span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AvolumeStatuses%3ADescribeVolumeStatusResponse%27"><span class="hs-identifier hs-var">volumeStatuses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeStatusItem]
-</span><a href="#local-6989586621681206890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VolumeStatusItem] -&gt; f (Maybe [VolumeStatusItem]))
+</span><a href="#local-6989586621681242564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VolumeStatusItem] -&gt; f (Maybe [VolumeStatusItem]))
  -&gt; DescribeVolumeStatusResponse -&gt; f DescribeVolumeStatusResponse)
 -&gt; ((Maybe [VolumeStatusItem] -&gt; f (Maybe [VolumeStatusItem]))
     -&gt; Maybe [VolumeStatusItem] -&gt; f (Maybe [VolumeStatusItem]))
@@ -993,8 +993,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [VolumeStatusItem]
   [VolumeStatusItem]
   [VolumeStatusItem]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-413"></span><span>
 </span><span id="line-414"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-415"></span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#describeVolumeStatusResponse_httpStatus"><span class="hs-identifier hs-type">describeVolumeStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -1006,16 +1006,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Lens
      DescribeVolumeStatusResponse DescribeVolumeStatusResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681206889"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681242563"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeVolumeStatusResponse' :: DescribeVolumeStatusResponse -&gt; Int
-</span><a href="#local-6989586621681206889"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681206889"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681206888"><span class="annot"><span class="annottext">s :: DescribeVolumeStatusResponse
-</span><a href="#local-6989586621681206888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681206887"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681206887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatusResponse
-</span><a href="#local-6989586621681206888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVolumeStatusResponse' :: Int
+</span><a href="#local-6989586621681242563"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681242563"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681242562"><span class="annot"><span class="annottext">s :: DescribeVolumeStatusResponse
+</span><a href="#local-6989586621681242562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse%27"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681242561"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681242561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeVolumeStatusResponse
+</span><a href="#local-6989586621681242562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeVolumeStatusResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeVolumeStatus.html#%24sel%3AhttpStatus%3ADescribeVolumeStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681206887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681242561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-417"></span><span>
-</span><span id="line-418"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681206885"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse</span></a></span></span><span>
+</span><span id="line-418"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681242559"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeVolumeStatus.html#DescribeVolumeStatusResponse"><span class="hs-identifier hs-type">DescribeVolumeStatusResponse</span></a></span></span><span>
 </span><span id="line-419"></span></pre></body></html>

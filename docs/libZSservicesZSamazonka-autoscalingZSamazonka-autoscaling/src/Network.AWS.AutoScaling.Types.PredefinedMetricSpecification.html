@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- use with Amazon EC2 Auto Scaling.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newPredefinedMetricSpecification' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679329698"><span id="local-6989586621679329699"></span></span><span class="hs-keyword">data</span><span> </span><span id="PredefinedMetricSpecification"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification"><span class="hs-identifier hs-var">PredefinedMetricSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredefinedMetricSpecification%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-var">PredefinedMetricSpecification'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679330354"><span id="local-6989586621679330355"></span></span><span class="hs-keyword">data</span><span> </span><span id="PredefinedMetricSpecification"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification"><span class="hs-identifier hs-var">PredefinedMetricSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PredefinedMetricSpecification%27"><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-var">PredefinedMetricSpecification'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A label that uniquely identifies a specific Application Load Balancer</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- target group from which to determine the average request count served by</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- your Auto Scaling group. You can\'t specify a resource label unless the</span><span>
@@ -72,7 +72,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3ApredefinedMetricType%3APredefinedMetricSpecification%27"><span class="annot"><span class="annottext">PredefinedMetricSpecification -&gt; MetricType
 </span><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#%24sel%3ApredefinedMetricType%3APredefinedMetricSpecification%27"><span class="hs-identifier hs-var hs-var">predefinedMetricType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.MetricType.html#MetricType"><span class="hs-identifier hs-type">MetricType</span></a></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679329691"><span id="local-6989586621679329693"><span class="annot"><span class="annottext">PredefinedMetricSpecification
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330347"><span id="local-6989586621679330349"><span class="annot"><span class="annottext">PredefinedMetricSpecification
 -&gt; PredefinedMetricSpecification -&gt; Bool
 (PredefinedMetricSpecification
  -&gt; PredefinedMetricSpecification -&gt; Bool)
@@ -88,7 +88,7 @@ $c/= :: PredefinedMetricSpecification
 -&gt; PredefinedMetricSpecification -&gt; Bool
 $c== :: PredefinedMetricSpecification
 -&gt; PredefinedMetricSpecification -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329682"><span id="local-6989586621679329684"><span id="local-6989586621679329686"><span id="local-6989586621679329688"><span class="annot"><span class="annottext">ReadPrec [PredefinedMetricSpecification]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330338"><span id="local-6989586621679330340"><span id="local-6989586621679330342"><span id="local-6989586621679330344"><span class="annot"><span class="annottext">ReadPrec [PredefinedMetricSpecification]
 ReadPrec PredefinedMetricSpecification
 Int -&gt; ReadS PredefinedMetricSpecification
 ReadS [PredefinedMetricSpecification]
@@ -108,7 +108,7 @@ readList :: ReadS [PredefinedMetricSpecification]
 $creadList :: ReadS [PredefinedMetricSpecification]
 readsPrec :: Int -&gt; ReadS PredefinedMetricSpecification
 $creadsPrec :: Int -&gt; ReadS PredefinedMetricSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679329675"><span id="local-6989586621679329677"><span id="local-6989586621679329679"><span class="annot"><span class="annottext">Int -&gt; PredefinedMetricSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330331"><span id="local-6989586621679330333"><span id="local-6989586621679330335"><span class="annot"><span class="annottext">Int -&gt; PredefinedMetricSpecification -&gt; ShowS
 [PredefinedMetricSpecification] -&gt; ShowS
 PredefinedMetricSpecification -&gt; String
 (Int -&gt; PredefinedMetricSpecification -&gt; ShowS)
@@ -199,8 +199,8 @@ PredefinedMetricSpecification
 </span><span id="line-125"></span><span>  </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification"><span class="hs-identifier hs-type">PredefinedMetricSpecification</span></a></span><span>
 </span><span id="line-126"></span><span id="newPredefinedMetricSpecification"><span class="annot"><span class="annottext">newPredefinedMetricSpecification :: MetricType -&gt; PredefinedMetricSpecification
 </span><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#newPredefinedMetricSpecification"><span class="hs-identifier hs-var hs-var">newPredefinedMetricSpecification</span></a></span></span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679329669"><span class="annot"><span class="annottext">MetricType
-</span><a href="#local-6989586621679329669"><span class="hs-identifier hs-var">pPredefinedMetricType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679330325"><span class="annot"><span class="annottext">MetricType
+</span><a href="#local-6989586621679330325"><span class="hs-identifier hs-var">pPredefinedMetricType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">PredefinedMetricSpecification' :: Maybe Text -&gt; MetricType -&gt; PredefinedMetricSpecification
 </span><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-type">PredefinedMetricSpecification'</span></a></span><span>
 </span><span id="line-129"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceLabel:PredefinedMetricSpecification' :: Maybe Text
@@ -211,7 +211,7 @@ forall a. Maybe a
 </span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:predefinedMetricType:PredefinedMetricSpecification' :: MetricType
 </span><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#%24sel%3ApredefinedMetricType%3APredefinedMetricSpecification%27"><span class="hs-identifier hs-var">predefinedMetricType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">MetricType
-</span><a href="#local-6989586621679329669"><span class="hs-identifier hs-var">pPredefinedMetricType_</span></a></span><span>
+</span><a href="#local-6989586621679330325"><span class="hs-identifier hs-var">pPredefinedMetricType_</span></a></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | A label that uniquely identifies a specific Application Load Balancer</span><span>
@@ -251,16 +251,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-type">PredefinedMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329665"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-type">PredefinedMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330321"><span class="annot"><span class="annottext">Maybe Text
 resourceLabel :: Maybe Text
 $sel:resourceLabel:PredefinedMetricSpecification' :: PredefinedMetricSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621679329665"><span class="hs-identifier hs-var hs-var">resourceLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329665"><span class="hs-identifier hs-var">resourceLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329664"><span class="annot"><span class="annottext">s :: PredefinedMetricSpecification
-</span><a href="#local-6989586621679329664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-type">PredefinedMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329663"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredefinedMetricSpecification
-</span><a href="#local-6989586621679329664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceLabel:PredefinedMetricSpecification' :: Maybe Text
+</span><a href="#local-6989586621679330321"><span class="hs-identifier hs-var hs-var">resourceLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330321"><span class="hs-identifier hs-var">resourceLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330320"><span class="annot"><span class="annottext">s :: PredefinedMetricSpecification
+</span><a href="#local-6989586621679330320"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-type">PredefinedMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330319"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679330319"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredefinedMetricSpecification
+</span><a href="#local-6989586621679330320"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceLabel:PredefinedMetricSpecification' :: Maybe Text
 </span><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#%24sel%3AresourceLabel%3APredefinedMetricSpecification%27"><span class="hs-identifier hs-var">resourceLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification"><span class="hs-identifier hs-type">PredefinedMetricSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679330319"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification"><span class="hs-identifier hs-type">PredefinedMetricSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The metric type. The following predefined metrics are available:</span><span>
 </span><span id="line-164"></span><span class="hs-comment">--</span><span>
@@ -287,21 +287,21 @@ $sel:resourceLabel:PredefinedMetricSpecification' :: PredefinedMetricSpecificati
      MetricType
      MetricType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-type">PredefinedMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329661"><span class="annot"><span class="annottext">MetricType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-type">PredefinedMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330317"><span class="annot"><span class="annottext">MetricType
 predefinedMetricType :: MetricType
 $sel:predefinedMetricType:PredefinedMetricSpecification' :: PredefinedMetricSpecification -&gt; MetricType
-</span><a href="#local-6989586621679329661"><span class="hs-identifier hs-var hs-var">predefinedMetricType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricType
-</span><a href="#local-6989586621679329661"><span class="hs-identifier hs-var">predefinedMetricType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679329660"><span class="annot"><span class="annottext">s :: PredefinedMetricSpecification
-</span><a href="#local-6989586621679329660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-type">PredefinedMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679329659"><span class="annot"><span class="annottext">MetricType
-</span><a href="#local-6989586621679329659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredefinedMetricSpecification
-</span><a href="#local-6989586621679329660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predefinedMetricType:PredefinedMetricSpecification' :: MetricType
+</span><a href="#local-6989586621679330317"><span class="hs-identifier hs-var hs-var">predefinedMetricType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MetricType
+</span><a href="#local-6989586621679330317"><span class="hs-identifier hs-var">predefinedMetricType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330316"><span class="annot"><span class="annottext">s :: PredefinedMetricSpecification
+</span><a href="#local-6989586621679330316"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-type">PredefinedMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330315"><span class="annot"><span class="annottext">MetricType
+</span><a href="#local-6989586621679330315"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PredefinedMetricSpecification
+</span><a href="#local-6989586621679330316"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:predefinedMetricType:PredefinedMetricSpecification' :: MetricType
 </span><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#%24sel%3ApredefinedMetricType%3APredefinedMetricSpecification%27"><span class="hs-identifier hs-var">predefinedMetricType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MetricType
-</span><a href="#local-6989586621679329659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification"><span class="hs-identifier hs-type">PredefinedMetricSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679330315"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification"><span class="hs-identifier hs-type">PredefinedMetricSpecification</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification"><span class="hs-identifier hs-type">PredefinedMetricSpecification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679329656"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PredefinedMetricSpecification
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679329654"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679329654"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679330312"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String PredefinedMetricSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679330310"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679330310"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; MetricType -&gt; PredefinedMetricSpecification
 </span><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-var">PredefinedMetricSpecification'</span></a></span><span>
 </span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; MetricType -&gt; PredefinedMetricSpecification)
@@ -309,7 +309,7 @@ $sel:predefinedMetricType:PredefinedMetricSpecification' :: PredefinedMetricSpec
 -&gt; Either String (MetricType -&gt; PredefinedMetricSpecification)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679329654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679330310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceLabel&quot;</span></span><span class="hs-special">)</span><span>
@@ -318,26 +318,26 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String PredefinedMetricSpecification
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679329654"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String MetricType
+</span><a href="#local-6989586621679330310"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String MetricType
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PredefinedMetricType&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-186"></span><span>  </span><span id="local-6989586621679329647"><span id="local-6989586621679329649"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679330303"><span id="local-6989586621679330305"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-187"></span><span>    </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification"><span class="hs-identifier hs-type">PredefinedMetricSpecification</span></a></span></span></span><span>
 </span><span id="line-188"></span><span>
-</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679329644"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification"><span class="hs-identifier hs-type">PredefinedMetricSpecification</span></a></span></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification"><span class="hs-identifier hs-type">PredefinedMetricSpecification</span></a></span></span><span>
 </span><span id="line-190"></span><span>
 </span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification"><span class="hs-identifier hs-type">PredefinedMetricSpecification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679329640"><span class="annot"><span class="annottext">toQuery :: PredefinedMetricSpecification -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-type">PredefinedMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679329637"><span id="local-6989586621679329638"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679330296"><span class="annot"><span class="annottext">toQuery :: PredefinedMetricSpecification -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AutoScaling.Types.PredefinedMetricSpecification.html#PredefinedMetricSpecification%27"><span class="hs-identifier hs-type">PredefinedMetricSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330293"><span id="local-6989586621679330294"><span class="annot"><span class="annottext">Maybe Text
 MetricType
 predefinedMetricType :: MetricType
 resourceLabel :: Maybe Text
 $sel:predefinedMetricType:PredefinedMetricSpecification' :: PredefinedMetricSpecification -&gt; MetricType
 $sel:resourceLabel:PredefinedMetricSpecification' :: PredefinedMetricSpecification -&gt; Maybe Text
-</span><a href="#local-6989586621679329637"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679330293"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -345,11 +345,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-string">&quot;ResourceLabel&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679329638"><span class="hs-identifier hs-var">resourceLabel</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679330294"><span class="hs-identifier hs-var">resourceLabel</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;PredefinedMetricType&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; MetricType -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">MetricType
-</span><a href="#local-6989586621679329637"><span class="hs-identifier hs-var">predefinedMetricType</span></a></span><span>
+</span><a href="#local-6989586621679330293"><span class="hs-identifier hs-var">predefinedMetricType</span></a></span><span>
 </span><span id="line-196"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-197"></span></pre></body></html>

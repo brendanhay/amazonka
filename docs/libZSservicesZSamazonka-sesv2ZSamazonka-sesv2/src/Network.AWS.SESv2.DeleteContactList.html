@@ -46,12 +46,12 @@
 </span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.Types.html"><span class="hs-identifier">Network.AWS.SESv2.Types</span></a></span><span>
 </span><span id="line-47"></span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- | /See:/ 'newDeleteContactList' smart constructor.</span><span>
-</span><span id="line-49"></span><span id="local-6989586621679347025"><span id="local-6989586621679347026"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteContactList"><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-var">DeleteContactList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteContactList%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList%27"><span class="hs-identifier hs-var">DeleteContactList'</span></a></span></span><span>
+</span><span id="line-49"></span><span id="local-6989586621679349603"><span id="local-6989586621679349604"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteContactList"><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-var">DeleteContactList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteContactList%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList%27"><span class="hs-identifier hs-var">DeleteContactList'</span></a></span></span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the contact list.</span><span>
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AcontactListName%3ADeleteContactList%27"><span class="annot"><span class="annottext">DeleteContactList -&gt; Text
 </span><a href="Network.AWS.SESv2.DeleteContactList.html#%24sel%3AcontactListName%3ADeleteContactList%27"><span class="hs-identifier hs-var hs-var">contactListName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679347019"><span id="local-6989586621679347021"><span class="annot"><span class="annottext">DeleteContactList -&gt; DeleteContactList -&gt; Bool
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349597"><span id="local-6989586621679349599"><span class="annot"><span class="annottext">DeleteContactList -&gt; DeleteContactList -&gt; Bool
 (DeleteContactList -&gt; DeleteContactList -&gt; Bool)
 -&gt; (DeleteContactList -&gt; DeleteContactList -&gt; Bool)
 -&gt; Eq DeleteContactList
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteContactList -&gt; DeleteContactList -&gt; Bool
 == :: DeleteContactList -&gt; DeleteContactList -&gt; Bool
 $c== :: DeleteContactList -&gt; DeleteContactList -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347010"><span id="local-6989586621679347012"><span id="local-6989586621679347014"><span id="local-6989586621679347016"><span class="annot"><span class="annottext">ReadPrec [DeleteContactList]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349588"><span id="local-6989586621679349590"><span id="local-6989586621679349592"><span id="local-6989586621679349594"><span class="annot"><span class="annottext">ReadPrec [DeleteContactList]
 ReadPrec DeleteContactList
 Int -&gt; ReadS DeleteContactList
 ReadS [DeleteContactList]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteContactList]
 $creadList :: ReadS [DeleteContactList]
 readsPrec :: Int -&gt; ReadS DeleteContactList
 $creadsPrec :: Int -&gt; ReadS DeleteContactList
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679347003"><span id="local-6989586621679347005"><span id="local-6989586621679347007"><span class="annot"><span class="annottext">Int -&gt; DeleteContactList -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349581"><span id="local-6989586621679349583"><span id="local-6989586621679349585"><span class="annot"><span class="annottext">Int -&gt; DeleteContactList -&gt; ShowS
 [DeleteContactList] -&gt; ShowS
 DeleteContactList -&gt; String
 (Int -&gt; DeleteContactList -&gt; ShowS)
@@ -120,14 +120,14 @@ $cfrom :: forall x. DeleteContactList -&gt; Rep DeleteContactList x
 </span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-67"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-type">DeleteContactList</span></a></span><span>
 </span><span id="line-68"></span><span id="newDeleteContactList"><span class="annot"><span class="annottext">newDeleteContactList :: Text -&gt; DeleteContactList
-</span><a href="Network.AWS.SESv2.DeleteContactList.html#newDeleteContactList"><span class="hs-identifier hs-var hs-var">newDeleteContactList</span></a></span></span><span> </span><span id="local-6989586621679346998"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346998"><span class="hs-identifier hs-var">pContactListName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.DeleteContactList.html#newDeleteContactList"><span class="hs-identifier hs-var hs-var">newDeleteContactList</span></a></span></span><span> </span><span id="local-6989586621679349576"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349576"><span class="hs-identifier hs-var">pContactListName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">DeleteContactList' :: Text -&gt; DeleteContactList
 </span><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList%27"><span class="hs-identifier hs-type">DeleteContactList'</span></a></span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:contactListName:DeleteContactList' :: Text
 </span><a href="Network.AWS.SESv2.DeleteContactList.html#%24sel%3AcontactListName%3ADeleteContactList%27"><span class="hs-identifier hs-var">contactListName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346998"><span class="hs-identifier hs-var">pContactListName_</span></a></span><span>
+</span><a href="#local-6989586621679349576"><span class="hs-identifier hs-var">pContactListName_</span></a></span><span>
 </span><span id="line-72"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The name of the contact list.</span><span>
@@ -137,27 +137,27 @@ $cfrom :: forall x. DeleteContactList -&gt; Rep DeleteContactList x
 -&gt; (DeleteContactList -&gt; Text -&gt; DeleteContactList)
 -&gt; Lens DeleteContactList DeleteContactList Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList%27"><span class="hs-identifier hs-type">DeleteContactList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346995"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList%27"><span class="hs-identifier hs-type">DeleteContactList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349573"><span class="annot"><span class="annottext">Text
 contactListName :: Text
 $sel:contactListName:DeleteContactList' :: DeleteContactList -&gt; Text
-</span><a href="#local-6989586621679346995"><span class="hs-identifier hs-var hs-var">contactListName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346995"><span class="hs-identifier hs-var">contactListName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346994"><span class="annot"><span class="annottext">s :: DeleteContactList
-</span><a href="#local-6989586621679346994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList%27"><span class="hs-identifier hs-type">DeleteContactList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346993"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteContactList
-</span><a href="#local-6989586621679346994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactListName:DeleteContactList' :: Text
+</span><a href="#local-6989586621679349573"><span class="hs-identifier hs-var hs-var">contactListName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349573"><span class="hs-identifier hs-var">contactListName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349572"><span class="annot"><span class="annottext">s :: DeleteContactList
+</span><a href="#local-6989586621679349572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList%27"><span class="hs-identifier hs-type">DeleteContactList'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349571"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679349571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteContactList
+</span><a href="#local-6989586621679349572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contactListName:DeleteContactList' :: Text
 </span><a href="Network.AWS.SESv2.DeleteContactList.html#%24sel%3AcontactListName%3ADeleteContactList%27"><span class="hs-identifier hs-var">contactListName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-type">DeleteContactList</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-type">DeleteContactList</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-type">DeleteContactList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-80"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-type">DeleteContactList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse"><span class="hs-identifier hs-type">DeleteContactListResponse</span></a></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679346989"><span class="annot"><span class="annottext">request :: DeleteContactList -&gt; Request DeleteContactList
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679349567"><span class="annot"><span class="annottext">request :: DeleteContactList -&gt; Request DeleteContactList
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteContactList -&gt; Request DeleteContactList
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679346985"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679349563"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteContactList
 -&gt; ClientResponse ClientBody
@@ -183,10 +183,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679346982"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346982"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679346981"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679346981"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679346980"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679346980"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679349560"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349560"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679349559"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679349559"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679349558"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679349558"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteContactListResponse
 </span><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse%27"><span class="hs-identifier hs-var">DeleteContactListResponse'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteContactListResponse)
@@ -197,15 +197,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346982"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349560"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346973"><span id="local-6989586621679346975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-type">DeleteContactList</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349551"><span id="local-6989586621679349553"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-type">DeleteContactList</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-type">DeleteContactList</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349548"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-type">DeleteContactList</span></a></span></span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-type">DeleteContactList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679346966"><span class="annot"><span class="annottext">toHeaders :: DeleteContactList -&gt; ResponseHeaders
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679349544"><span class="annot"><span class="annottext">toHeaders :: DeleteContactList -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteContactList -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -225,11 +225,11 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-type">DeleteContactList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679346960"><span class="annot"><span class="annottext">toPath :: DeleteContactList -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList%27"><span class="hs-identifier hs-type">DeleteContactList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346958"><span class="annot"><span class="annottext">Text
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679349538"><span class="annot"><span class="annottext">toPath :: DeleteContactList -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList%27"><span class="hs-identifier hs-type">DeleteContactList'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349536"><span class="annot"><span class="annottext">Text
 contactListName :: Text
 $sel:contactListName:DeleteContactList' :: DeleteContactList -&gt; Text
-</span><a href="#local-6989586621679346958"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679349536"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -238,11 +238,11 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679346958"><span class="hs-identifier hs-var">contactListName</span></a></span><span>
+</span><a href="#local-6989586621679349536"><span class="hs-identifier hs-var">contactListName</span></a></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactList"><span class="hs-identifier hs-type">DeleteContactList</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679346954"><span class="annot"><span class="annottext">toQuery :: DeleteContactList -&gt; QueryString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679349532"><span class="annot"><span class="annottext">toQuery :: DeleteContactList -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteContactList -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -250,12 +250,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newDeleteContactListResponse' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679346951"><span id="local-6989586621679346952"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteContactListResponse"><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse"><span class="hs-identifier hs-var">DeleteContactListResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteContactListResponse%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse%27"><span class="hs-identifier hs-var">DeleteContactListResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679349529"><span id="local-6989586621679349530"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteContactListResponse"><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse"><span class="hs-identifier hs-var">DeleteContactListResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteContactListResponse%27"><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse%27"><span class="hs-identifier hs-var">DeleteContactListResponse'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-118"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteContactListResponse%27"><span class="annot"><span class="annottext">DeleteContactListResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.DeleteContactList.html#%24sel%3AhttpStatus%3ADeleteContactListResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679346946"><span id="local-6989586621679346948"><span class="annot"><span class="annottext">DeleteContactListResponse -&gt; DeleteContactListResponse -&gt; Bool
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679349524"><span id="local-6989586621679349526"><span class="annot"><span class="annottext">DeleteContactListResponse -&gt; DeleteContactListResponse -&gt; Bool
 (DeleteContactListResponse -&gt; DeleteContactListResponse -&gt; Bool)
 -&gt; (DeleteContactListResponse -&gt; DeleteContactListResponse -&gt; Bool)
 -&gt; Eq DeleteContactListResponse
@@ -264,7 +264,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteContactListResponse -&gt; DeleteContactListResponse -&gt; Bool
 == :: DeleteContactListResponse -&gt; DeleteContactListResponse -&gt; Bool
 $c== :: DeleteContactListResponse -&gt; DeleteContactListResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346938"><span id="local-6989586621679346940"><span id="local-6989586621679346942"><span id="local-6989586621679346944"><span class="annot"><span class="annottext">ReadPrec [DeleteContactListResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349516"><span id="local-6989586621679349518"><span id="local-6989586621679349520"><span id="local-6989586621679349522"><span class="annot"><span class="annottext">ReadPrec [DeleteContactListResponse]
 ReadPrec DeleteContactListResponse
 Int -&gt; ReadS DeleteContactListResponse
 ReadS [DeleteContactListResponse]
@@ -284,7 +284,7 @@ readList :: ReadS [DeleteContactListResponse]
 $creadList :: ReadS [DeleteContactListResponse]
 readsPrec :: Int -&gt; ReadS DeleteContactListResponse
 $creadsPrec :: Int -&gt; ReadS DeleteContactListResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679346932"><span id="local-6989586621679346934"><span id="local-6989586621679346936"><span class="annot"><span class="annottext">Int -&gt; DeleteContactListResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679349510"><span id="local-6989586621679349512"><span id="local-6989586621679349514"><span class="annot"><span class="annottext">Int -&gt; DeleteContactListResponse -&gt; ShowS
 [DeleteContactListResponse] -&gt; ShowS
 DeleteContactListResponse -&gt; String
 (Int -&gt; DeleteContactListResponse -&gt; ShowS)
@@ -330,14 +330,14 @@ DeleteContactListResponse -&gt; Rep DeleteContactListResponse x
 </span><span id="line-133"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-134"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse"><span class="hs-identifier hs-type">DeleteContactListResponse</span></a></span><span>
 </span><span id="line-135"></span><span id="newDeleteContactListResponse"><span class="annot"><span class="annottext">newDeleteContactListResponse :: Int -&gt; DeleteContactListResponse
-</span><a href="Network.AWS.SESv2.DeleteContactList.html#newDeleteContactListResponse"><span class="hs-identifier hs-var hs-var">newDeleteContactListResponse</span></a></span></span><span> </span><span id="local-6989586621679346929"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346929"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.DeleteContactList.html#newDeleteContactListResponse"><span class="hs-identifier hs-var hs-var">newDeleteContactListResponse</span></a></span></span><span> </span><span id="local-6989586621679349507"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349507"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-136"></span><span>  </span><span class="annot"><span class="annottext">DeleteContactListResponse' :: Int -&gt; DeleteContactListResponse
 </span><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse%27"><span class="hs-identifier hs-type">DeleteContactListResponse'</span></a></span><span>
 </span><span id="line-137"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteContactListResponse' :: Int
 </span><a href="Network.AWS.SESv2.DeleteContactList.html#%24sel%3AhttpStatus%3ADeleteContactListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346929"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679349507"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-139"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -348,16 +348,16 @@ DeleteContactListResponse -&gt; Rep DeleteContactListResponse x
 -&gt; (DeleteContactListResponse -&gt; Int -&gt; DeleteContactListResponse)
 -&gt; Lens DeleteContactListResponse DeleteContactListResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse%27"><span class="hs-identifier hs-type">DeleteContactListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679346928"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse%27"><span class="hs-identifier hs-type">DeleteContactListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679349506"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteContactListResponse' :: DeleteContactListResponse -&gt; Int
-</span><a href="#local-6989586621679346928"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346928"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679346927"><span class="annot"><span class="annottext">s :: DeleteContactListResponse
-</span><a href="#local-6989586621679346927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse%27"><span class="hs-identifier hs-type">DeleteContactListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679346926"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteContactListResponse
-</span><a href="#local-6989586621679346927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteContactListResponse' :: Int
+</span><a href="#local-6989586621679349506"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349506"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679349505"><span class="annot"><span class="annottext">s :: DeleteContactListResponse
+</span><a href="#local-6989586621679349505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse%27"><span class="hs-identifier hs-type">DeleteContactListResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679349504"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679349504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteContactListResponse
+</span><a href="#local-6989586621679349505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteContactListResponse' :: Int
 </span><a href="Network.AWS.SESv2.DeleteContactList.html#%24sel%3AhttpStatus%3ADeleteContactListResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679346926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse"><span class="hs-identifier hs-type">DeleteContactListResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679349504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse"><span class="hs-identifier hs-type">DeleteContactListResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679346924"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse"><span class="hs-identifier hs-type">DeleteContactListResponse</span></a></span></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679349502"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.DeleteContactList.html#DeleteContactListResponse"><span class="hs-identifier hs-type">DeleteContactListResponse</span></a></span></span><span>
 </span><span id="line-146"></span></pre></body></html>

@@ -28,13 +28,13 @@
 </span><span id="line-28"></span><span class="hs-comment">-- strategy defined in the job definition.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBatchRetryStrategy' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679299345"><span id="local-6989586621679299346"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchRetryStrategy"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-var">BatchRetryStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchRetryStrategy%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy%27"><span class="hs-identifier hs-var">BatchRetryStrategy'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679299524"><span id="local-6989586621679299525"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchRetryStrategy"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-var">BatchRetryStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchRetryStrategy%27"><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy%27"><span class="hs-identifier hs-var">BatchRetryStrategy'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of times to attempt to retry, if the job fails. Valid values</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- are 1&#8211;10.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aattempts%3ABatchRetryStrategy%27"><span class="annot"><span class="annottext">BatchRetryStrategy -&gt; Maybe Int
 </span><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#%24sel%3Aattempts%3ABatchRetryStrategy%27"><span class="hs-identifier hs-var hs-var">attempts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299339"><span id="local-6989586621679299341"><span class="annot"><span class="annottext">BatchRetryStrategy -&gt; BatchRetryStrategy -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299518"><span id="local-6989586621679299520"><span class="annot"><span class="annottext">BatchRetryStrategy -&gt; BatchRetryStrategy -&gt; Bool
 (BatchRetryStrategy -&gt; BatchRetryStrategy -&gt; Bool)
 -&gt; (BatchRetryStrategy -&gt; BatchRetryStrategy -&gt; Bool)
 -&gt; Eq BatchRetryStrategy
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BatchRetryStrategy -&gt; BatchRetryStrategy -&gt; Bool
 == :: BatchRetryStrategy -&gt; BatchRetryStrategy -&gt; Bool
 $c== :: BatchRetryStrategy -&gt; BatchRetryStrategy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299330"><span id="local-6989586621679299332"><span id="local-6989586621679299334"><span id="local-6989586621679299336"><span class="annot"><span class="annottext">ReadPrec [BatchRetryStrategy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299509"><span id="local-6989586621679299511"><span id="local-6989586621679299513"><span id="local-6989586621679299515"><span class="annot"><span class="annottext">ReadPrec [BatchRetryStrategy]
 ReadPrec BatchRetryStrategy
 Int -&gt; ReadS BatchRetryStrategy
 ReadS [BatchRetryStrategy]
@@ -63,7 +63,7 @@ readList :: ReadS [BatchRetryStrategy]
 $creadList :: ReadS [BatchRetryStrategy]
 readsPrec :: Int -&gt; ReadS BatchRetryStrategy
 $creadsPrec :: Int -&gt; ReadS BatchRetryStrategy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299323"><span id="local-6989586621679299325"><span id="local-6989586621679299327"><span class="annot"><span class="annottext">Int -&gt; BatchRetryStrategy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299502"><span id="local-6989586621679299504"><span id="local-6989586621679299506"><span class="annot"><span class="annottext">Int -&gt; BatchRetryStrategy -&gt; ShowS
 [BatchRetryStrategy] -&gt; ShowS
 BatchRetryStrategy -&gt; String
 (Int -&gt; BatchRetryStrategy -&gt; ShowS)
@@ -119,19 +119,19 @@ forall a. Maybe a
 -&gt; Lens
      BatchRetryStrategy BatchRetryStrategy (Maybe Int) (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy%27"><span class="hs-identifier hs-type">BatchRetryStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299314"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy%27"><span class="hs-identifier hs-type">BatchRetryStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299493"><span class="annot"><span class="annottext">Maybe Int
 attempts :: Maybe Int
 $sel:attempts:BatchRetryStrategy' :: BatchRetryStrategy -&gt; Maybe Int
-</span><a href="#local-6989586621679299314"><span class="hs-identifier hs-var hs-var">attempts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679299314"><span class="hs-identifier hs-var">attempts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299313"><span class="annot"><span class="annottext">s :: BatchRetryStrategy
-</span><a href="#local-6989586621679299313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy%27"><span class="hs-identifier hs-type">BatchRetryStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299312"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679299312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchRetryStrategy
-</span><a href="#local-6989586621679299313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attempts:BatchRetryStrategy' :: Maybe Int
+</span><a href="#local-6989586621679299493"><span class="hs-identifier hs-var hs-var">attempts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679299493"><span class="hs-identifier hs-var">attempts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299492"><span class="annot"><span class="annottext">s :: BatchRetryStrategy
+</span><a href="#local-6989586621679299492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy%27"><span class="hs-identifier hs-type">BatchRetryStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299491"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679299491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchRetryStrategy
+</span><a href="#local-6989586621679299492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attempts:BatchRetryStrategy' :: Maybe Int
 </span><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#%24sel%3Aattempts%3ABatchRetryStrategy%27"><span class="hs-identifier hs-var">attempts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679299312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-type">BatchRetryStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679299491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-type">BatchRetryStrategy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299309"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-type">BatchRetryStrategy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-59"></span><span>  </span><span id="local-6989586621679299307"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchRetryStrategy
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299488"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-type">BatchRetryStrategy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>  </span><span id="local-6989586621679299486"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchRetryStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BatchRetryStrategy)
@@ -141,30 +141,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BatchRetryStrategy&quot;</span></span><span>
-</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299304"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299304"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299483"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299483"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-63"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int -&gt; BatchRetryStrategy
 </span><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy%27"><span class="hs-identifier hs-var">BatchRetryStrategy'</span></a></span><span>
 </span><span id="line-64"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int -&gt; BatchRetryStrategy)
 -&gt; Parser (Maybe Int) -&gt; Parser BatchRetryStrategy
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679299304"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679299483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attempts&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
-</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299298"><span id="local-6989586621679299300"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-type">BatchRetryStrategy</span></a></span></span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299477"><span id="local-6989586621679299479"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-type">BatchRetryStrategy</span></a></span></span></span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299295"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-type">BatchRetryStrategy</span></a></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299474"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-type">BatchRetryStrategy</span></a></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299287"><span id="local-6989586621679299289"><span id="local-6989586621679299291"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-type">BatchRetryStrategy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-72"></span><span>  </span><span id="local-6989586621679299285"><span class="annot"><span class="annottext">toJSON :: BatchRetryStrategy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy%27"><span class="hs-identifier hs-type">BatchRetryStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299283"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679299466"><span id="local-6989586621679299468"><span id="local-6989586621679299470"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy"><span class="hs-identifier hs-type">BatchRetryStrategy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679299464"><span class="annot"><span class="annottext">toJSON :: BatchRetryStrategy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy.html#BatchRetryStrategy%27"><span class="hs-identifier hs-type">BatchRetryStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299462"><span class="annot"><span class="annottext">Maybe Int
 attempts :: Maybe Int
 $sel:attempts:BatchRetryStrategy' :: BatchRetryStrategy -&gt; Maybe Int
-</span><a href="#local-6989586621679299283"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679299462"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-74"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -176,6 +176,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679299283"><span class="hs-identifier hs-var">attempts</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679299462"><span class="hs-identifier hs-var">attempts</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span></pre></body></html>

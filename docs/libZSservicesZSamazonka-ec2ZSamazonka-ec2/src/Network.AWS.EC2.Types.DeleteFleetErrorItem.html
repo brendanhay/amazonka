@@ -28,15 +28,15 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes an EC2 Fleet that was not successfully deleted.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDeleteFleetErrorItem' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621681064966"><span id="local-6989586621681064967"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFleetErrorItem"><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-var">DeleteFleetErrorItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFleetErrorItem%27"><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem%27"><span class="hs-identifier hs-var">DeleteFleetErrorItem'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the EC2 Fleet.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AfleetId%3ADeleteFleetErrorItem%27"><span class="annot"><span class="annottext">DeleteFleetErrorItem -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#%24sel%3AfleetId%3ADeleteFleetErrorItem%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The error.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aerror%3ADeleteFleetErrorItem%27"><span class="annot"><span class="annottext">DeleteFleetErrorItem -&gt; Maybe DeleteFleetError
-</span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#%24sel%3Aerror%3ADeleteFleetErrorItem%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetError.html#DeleteFleetError"><span class="hs-identifier hs-type">DeleteFleetError</span></a></span><span>
+</span><span id="line-31"></span><span id="local-6989586621681098541"><span id="local-6989586621681098542"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFleetErrorItem"><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-var">DeleteFleetErrorItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFleetErrorItem%27"><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem%27"><span class="hs-identifier hs-var">DeleteFleetErrorItem'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The error.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aerror%3ADeleteFleetErrorItem%27"><span class="annot"><span class="annottext">DeleteFleetErrorItem -&gt; Maybe DeleteFleetError
+</span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#%24sel%3Aerror%3ADeleteFleetErrorItem%27"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetError.html#DeleteFleetError"><span class="hs-identifier hs-type">DeleteFleetError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the EC2 Fleet.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AfleetId%3ADeleteFleetErrorItem%27"><span class="annot"><span class="annottext">DeleteFleetErrorItem -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#%24sel%3AfleetId%3ADeleteFleetErrorItem%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681064959"><span id="local-6989586621681064961"><span class="annot"><span class="annottext">DeleteFleetErrorItem -&gt; DeleteFleetErrorItem -&gt; Bool
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681098534"><span id="local-6989586621681098536"><span class="annot"><span class="annottext">DeleteFleetErrorItem -&gt; DeleteFleetErrorItem -&gt; Bool
 (DeleteFleetErrorItem -&gt; DeleteFleetErrorItem -&gt; Bool)
 -&gt; (DeleteFleetErrorItem -&gt; DeleteFleetErrorItem -&gt; Bool)
 -&gt; Eq DeleteFleetErrorItem
@@ -45,7 +45,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteFleetErrorItem -&gt; DeleteFleetErrorItem -&gt; Bool
 == :: DeleteFleetErrorItem -&gt; DeleteFleetErrorItem -&gt; Bool
 $c== :: DeleteFleetErrorItem -&gt; DeleteFleetErrorItem -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681064950"><span id="local-6989586621681064952"><span id="local-6989586621681064954"><span id="local-6989586621681064956"><span class="annot"><span class="annottext">ReadPrec [DeleteFleetErrorItem]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681098525"><span id="local-6989586621681098527"><span id="local-6989586621681098529"><span id="local-6989586621681098531"><span class="annot"><span class="annottext">ReadPrec [DeleteFleetErrorItem]
 ReadPrec DeleteFleetErrorItem
 Int -&gt; ReadS DeleteFleetErrorItem
 ReadS [DeleteFleetErrorItem]
@@ -65,7 +65,7 @@ readList :: ReadS [DeleteFleetErrorItem]
 $creadList :: ReadS [DeleteFleetErrorItem]
 readsPrec :: Int -&gt; ReadS DeleteFleetErrorItem
 $creadsPrec :: Int -&gt; ReadS DeleteFleetErrorItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681064943"><span id="local-6989586621681064945"><span id="local-6989586621681064947"><span class="annot"><span class="annottext">Int -&gt; DeleteFleetErrorItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681098518"><span id="local-6989586621681098520"><span id="local-6989586621681098522"><span class="annot"><span class="annottext">Int -&gt; DeleteFleetErrorItem -&gt; ShowS
 [DeleteFleetErrorItem] -&gt; ShowS
 DeleteFleetErrorItem -&gt; String
 (Int -&gt; DeleteFleetErrorItem -&gt; ShowS)
@@ -99,48 +99,28 @@ $cfrom :: forall x. DeleteFleetErrorItem -&gt; Rep DeleteFleetErrorItem x
 </span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-46"></span><span class="hs-comment">--</span><span>
-</span><span id="line-47"></span><span class="hs-comment">-- 'fleetId', 'deleteFleetErrorItem_fleetId' - The ID of the EC2 Fleet.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'error', 'deleteFleetErrorItem_error' - The error.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span class="hs-comment">-- 'error', 'deleteFleetErrorItem_error' - The error.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'fleetId', 'deleteFleetErrorItem_fleetId' - The ID of the EC2 Fleet.</span><span>
 </span><span id="line-50"></span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#newDeleteFleetErrorItem"><span class="hs-identifier hs-type">newDeleteFleetErrorItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-51"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span><span>
 </span><span id="line-52"></span><span id="newDeleteFleetErrorItem"><span class="annot"><span class="annottext">newDeleteFleetErrorItem :: DeleteFleetErrorItem
 </span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#newDeleteFleetErrorItem"><span class="hs-identifier hs-var hs-var">newDeleteFleetErrorItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">DeleteFleetErrorItem' :: Maybe Text -&gt; Maybe DeleteFleetError -&gt; DeleteFleetErrorItem
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="annottext">DeleteFleetErrorItem' :: Maybe DeleteFleetError -&gt; Maybe Text -&gt; DeleteFleetErrorItem
 </span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem%27"><span class="hs-identifier hs-type">DeleteFleetErrorItem'</span></a></span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fleetId:DeleteFleetErrorItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#%24sel%3AfleetId%3ADeleteFleetErrorItem%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-54"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:error:DeleteFleetErrorItem' :: Maybe DeleteFleetError
+</span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#%24sel%3Aerror%3ADeleteFleetErrorItem%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteFleetError
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:error:DeleteFleetErrorItem' :: Maybe DeleteFleetError
-</span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#%24sel%3Aerror%3ADeleteFleetErrorItem%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteFleetError
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:DeleteFleetErrorItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#%24sel%3AfleetId%3ADeleteFleetErrorItem%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-57"></span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- | The ID of the EC2 Fleet.</span><span>
-</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#deleteFleetErrorItem_fleetId"><span class="hs-identifier hs-type">deleteFleetErrorItem_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-60"></span><span id="deleteFleetErrorItem_fleetId"><span class="annot"><span class="annottext">deleteFleetErrorItem_fleetId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DeleteFleetErrorItem -&gt; f DeleteFleetErrorItem
-</span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#deleteFleetErrorItem_fleetId"><span class="hs-identifier hs-var hs-var">deleteFleetErrorItem_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFleetErrorItem -&gt; Maybe Text)
--&gt; (DeleteFleetErrorItem -&gt; Maybe Text -&gt; DeleteFleetErrorItem)
--&gt; Lens
-     DeleteFleetErrorItem DeleteFleetErrorItem (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem%27"><span class="hs-identifier hs-type">DeleteFleetErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681064934"><span class="annot"><span class="annottext">Maybe Text
-fleetId :: Maybe Text
-$sel:fleetId:DeleteFleetErrorItem' :: DeleteFleetErrorItem -&gt; Maybe Text
-</span><a href="#local-6989586621681064934"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681064934"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681064933"><span class="annot"><span class="annottext">s :: DeleteFleetErrorItem
-</span><a href="#local-6989586621681064933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem%27"><span class="hs-identifier hs-type">DeleteFleetErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681064932"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681064932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFleetErrorItem
-</span><a href="#local-6989586621681064933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:DeleteFleetErrorItem' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#%24sel%3AfleetId%3ADeleteFleetErrorItem%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681064932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The error.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#deleteFleetErrorItem_error"><span class="hs-identifier hs-type">deleteFleetErrorItem_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetError.html#DeleteFleetError"><span class="hs-identifier hs-type">DeleteFleetError</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="deleteFleetErrorItem_error"><span class="annot"><span class="annottext">deleteFleetErrorItem_error :: (Maybe DeleteFleetError -&gt; f (Maybe DeleteFleetError))
+</span><span id="line-58"></span><span class="hs-comment">-- | The error.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#deleteFleetErrorItem_error"><span class="hs-identifier hs-type">deleteFleetErrorItem_error</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetError.html#DeleteFleetError"><span class="hs-identifier hs-type">DeleteFleetError</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="deleteFleetErrorItem_error"><span class="annot"><span class="annottext">deleteFleetErrorItem_error :: (Maybe DeleteFleetError -&gt; f (Maybe DeleteFleetError))
 -&gt; DeleteFleetErrorItem -&gt; f DeleteFleetErrorItem
 </span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#deleteFleetErrorItem_error"><span class="hs-identifier hs-var hs-var">deleteFleetErrorItem_error</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFleetErrorItem -&gt; Maybe DeleteFleetError)
 -&gt; (DeleteFleetErrorItem
@@ -151,43 +131,62 @@ $sel:fleetId:DeleteFleetErrorItem' :: DeleteFleetErrorItem -&gt; Maybe Text
      (Maybe DeleteFleetError)
      (Maybe DeleteFleetError)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem%27"><span class="hs-identifier hs-type">DeleteFleetErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681064930"><span class="annot"><span class="annottext">Maybe DeleteFleetError
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem%27"><span class="hs-identifier hs-type">DeleteFleetErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681098509"><span class="annot"><span class="annottext">Maybe DeleteFleetError
 error :: Maybe DeleteFleetError
 $sel:error:DeleteFleetErrorItem' :: DeleteFleetErrorItem -&gt; Maybe DeleteFleetError
-</span><a href="#local-6989586621681064930"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteFleetError
-</span><a href="#local-6989586621681064930"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681064929"><span class="annot"><span class="annottext">s :: DeleteFleetErrorItem
-</span><a href="#local-6989586621681064929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem%27"><span class="hs-identifier hs-type">DeleteFleetErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681064928"><span class="annot"><span class="annottext">Maybe DeleteFleetError
-</span><a href="#local-6989586621681064928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFleetErrorItem
-</span><a href="#local-6989586621681064929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:DeleteFleetErrorItem' :: Maybe DeleteFleetError
+</span><a href="#local-6989586621681098509"><span class="hs-identifier hs-var hs-var">error</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteFleetError
+</span><a href="#local-6989586621681098509"><span class="hs-identifier hs-var">error</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681098508"><span class="annot"><span class="annottext">s :: DeleteFleetErrorItem
+</span><a href="#local-6989586621681098508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem%27"><span class="hs-identifier hs-type">DeleteFleetErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681098507"><span class="annot"><span class="annottext">Maybe DeleteFleetError
+</span><a href="#local-6989586621681098507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFleetErrorItem
+</span><a href="#local-6989586621681098508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:error:DeleteFleetErrorItem' :: Maybe DeleteFleetError
 </span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#%24sel%3Aerror%3ADeleteFleetErrorItem%27"><span class="hs-identifier hs-var">error</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeleteFleetError
-</span><a href="#local-6989586621681064928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681098507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The ID of the EC2 Fleet.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#deleteFleetErrorItem_fleetId"><span class="hs-identifier hs-type">deleteFleetErrorItem_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="deleteFleetErrorItem_fleetId"><span class="annot"><span class="annottext">deleteFleetErrorItem_fleetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteFleetErrorItem -&gt; f DeleteFleetErrorItem
+</span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#deleteFleetErrorItem_fleetId"><span class="hs-identifier hs-var hs-var">deleteFleetErrorItem_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFleetErrorItem -&gt; Maybe Text)
+-&gt; (DeleteFleetErrorItem -&gt; Maybe Text -&gt; DeleteFleetErrorItem)
+-&gt; Lens
+     DeleteFleetErrorItem DeleteFleetErrorItem (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem%27"><span class="hs-identifier hs-type">DeleteFleetErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681098505"><span class="annot"><span class="annottext">Maybe Text
+fleetId :: Maybe Text
+$sel:fleetId:DeleteFleetErrorItem' :: DeleteFleetErrorItem -&gt; Maybe Text
+</span><a href="#local-6989586621681098505"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681098505"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681098504"><span class="annot"><span class="annottext">s :: DeleteFleetErrorItem
+</span><a href="#local-6989586621681098504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem%27"><span class="hs-identifier hs-type">DeleteFleetErrorItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681098503"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681098503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFleetErrorItem
+</span><a href="#local-6989586621681098504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:DeleteFleetErrorItem' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#%24sel%3AfleetId%3ADeleteFleetErrorItem%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681098503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
 </span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-67"></span><span>  </span><span id="local-6989586621681064925"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DeleteFleetErrorItem
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681064923"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681064923"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe DeleteFleetError -&gt; DeleteFleetErrorItem
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621681098500"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DeleteFleetErrorItem
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681098498"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681098498"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">Maybe DeleteFleetError -&gt; Maybe Text -&gt; DeleteFleetErrorItem
 </span><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem%27"><span class="hs-identifier hs-var">DeleteFleetErrorItem'</span></a></span><span>
-</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe DeleteFleetError -&gt; DeleteFleetErrorItem)
--&gt; Either String (Maybe Text)
--&gt; Either String (Maybe DeleteFleetError -&gt; DeleteFleetErrorItem)
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">(Maybe DeleteFleetError -&gt; Maybe Text -&gt; DeleteFleetErrorItem)
+-&gt; Either String (Maybe DeleteFleetError)
+-&gt; Either String (Maybe Text -&gt; DeleteFleetErrorItem)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681064923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;fleetId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe DeleteFleetError -&gt; DeleteFleetErrorItem)
--&gt; Either String (Maybe DeleteFleetError)
--&gt; Either String DeleteFleetErrorItem
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681064923"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DeleteFleetError)
+</span><a href="#local-6989586621681098498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DeleteFleetError)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;error&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; DeleteFleetErrorItem)
+-&gt; Either String (Maybe Text) -&gt; Either String DeleteFleetErrorItem
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681098498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fleetId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681064917"><span id="local-6989586621681064919"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span></span></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681098492"><span id="local-6989586621681098494"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span></span></span><span>
 </span><span id="line-73"></span><span>
-</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681064914"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681098489"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.DeleteFleetErrorItem.html#DeleteFleetErrorItem"><span class="hs-identifier hs-type">DeleteFleetErrorItem</span></a></span></span><span>
 </span><span id="line-75"></span></pre></body></html>

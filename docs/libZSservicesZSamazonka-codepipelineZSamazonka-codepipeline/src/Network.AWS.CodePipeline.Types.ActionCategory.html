@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621679273104"><span id="local-6989586621679273105"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionCategory"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionCategory.html#ActionCategory"><span class="hs-identifier hs-var">ActionCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionCategory%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionCategory.html#ActionCategory%27"><span class="hs-identifier hs-var">ActionCategory'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679273300"><span id="local-6989586621679273301"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ActionCategory"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionCategory.html#ActionCategory"><span class="hs-identifier hs-var">ActionCategory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ActionCategory%27"><span class="annot"><a href="Network.AWS.CodePipeline.Types.ActionCategory.html#ActionCategory%27"><span class="hs-identifier hs-var">ActionCategory'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromActionCategory"><span class="annot"><span class="annottext">ActionCategory -&gt; Text
 </span><a href="Network.AWS.CodePipeline.Types.ActionCategory.html#fromActionCategory"><span class="hs-identifier hs-var hs-var">fromActionCategory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273096"><span id="local-6989586621679273098"><span id="local-6989586621679273100"><span class="annot"><span class="annottext">Int -&gt; ActionCategory -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273292"><span id="local-6989586621679273294"><span id="local-6989586621679273296"><span class="annot"><span class="annottext">Int -&gt; ActionCategory -&gt; ShowS
 [ActionCategory] -&gt; ShowS
 ActionCategory -&gt; String
 (Int -&gt; ActionCategory -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: ActionCategory -&gt; String
 showsPrec :: Int -&gt; ActionCategory -&gt; ShowS
 $cshowsPrec :: Int -&gt; ActionCategory -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679273087"><span id="local-6989586621679273089"><span id="local-6989586621679273091"><span id="local-6989586621679273093"><span class="annot"><span class="annottext">ReadPrec [ActionCategory]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679273283"><span id="local-6989586621679273285"><span id="local-6989586621679273287"><span id="local-6989586621679273289"><span class="annot"><span class="annottext">ReadPrec [ActionCategory]
 ReadPrec ActionCategory
 Int -&gt; ReadS ActionCategory
 ReadS [ActionCategory]
@@ -76,7 +76,7 @@ $creadList :: ReadS [ActionCategory]
 readsPrec :: Int -&gt; ReadS ActionCategory
 $creadsPrec :: Int -&gt; ReadS ActionCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621679273082"><span id="local-6989586621679273084"><span class="annot"><span class="annottext">ActionCategory -&gt; ActionCategory -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679273278"><span id="local-6989586621679273280"><span class="annot"><span class="annottext">ActionCategory -&gt; ActionCategory -&gt; Bool
 (ActionCategory -&gt; ActionCategory -&gt; Bool)
 -&gt; (ActionCategory -&gt; ActionCategory -&gt; Bool) -&gt; Eq ActionCategory
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -85,7 +85,7 @@ $c/= :: ActionCategory -&gt; ActionCategory -&gt; Bool
 == :: ActionCategory -&gt; ActionCategory -&gt; Bool
 $c== :: ActionCategory -&gt; ActionCategory -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621679273066"><span id="local-6989586621679273068"><span id="local-6989586621679273070"><span id="local-6989586621679273072"><span id="local-6989586621679273074"><span id="local-6989586621679273076"><span id="local-6989586621679273078"><span class="annot"><span class="annottext">Eq ActionCategory
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679273262"><span id="local-6989586621679273264"><span id="local-6989586621679273266"><span id="local-6989586621679273268"><span id="local-6989586621679273270"><span id="local-6989586621679273272"><span id="local-6989586621679273274"><span class="annot"><span class="annottext">Eq ActionCategory
 Eq ActionCategory
 -&gt; (ActionCategory -&gt; ActionCategory -&gt; Ordering)
 -&gt; (ActionCategory -&gt; ActionCategory -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. ActionCategory -&gt; Rep ActionCategory x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273058"><span id="local-6989586621679273060"><span class="annot"><span class="annottext">Int -&gt; ActionCategory -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679273254"><span id="local-6989586621679273256"><span class="annot"><span class="annottext">Int -&gt; ActionCategory -&gt; Int
 ActionCategory -&gt; Int
 (Int -&gt; ActionCategory -&gt; Int)
 -&gt; (ActionCategory -&gt; Int) -&gt; Hashable ActionCategory
@@ -146,50 +146,50 @@ $chash :: ActionCategory -&gt; Int
 hashWithSalt :: Int -&gt; ActionCategory -&gt; Int
 $chashWithSalt :: Int -&gt; ActionCategory -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273055"><span class="annot"><span class="annottext">ActionCategory -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679273251"><span class="annot"><span class="annottext">ActionCategory -&gt; ()
 (ActionCategory -&gt; ()) -&gt; NFData ActionCategory
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ActionCategory -&gt; ()
 $crnf :: ActionCategory -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273052"><span class="annot"><span class="annottext">Text -&gt; Either String ActionCategory
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679273248"><span class="annot"><span class="annottext">Text -&gt; Either String ActionCategory
 (Text -&gt; Either String ActionCategory) -&gt; FromText ActionCategory
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ActionCategory
 $cfromText :: Text -&gt; Either String ActionCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273049"><span class="annot"><span class="annottext">ActionCategory -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679273245"><span class="annot"><span class="annottext">ActionCategory -&gt; Text
 (ActionCategory -&gt; Text) -&gt; ToText ActionCategory
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ActionCategory -&gt; Text
 $ctoText :: ActionCategory -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273046"><span class="annot"><span class="annottext">ActionCategory -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679273242"><span class="annot"><span class="annottext">ActionCategory -&gt; ByteString
 (ActionCategory -&gt; ByteString) -&gt; ToByteString ActionCategory
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ActionCategory -&gt; ByteString
 $ctoBS :: ActionCategory -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273043"><span class="annot"><span class="annottext">ActionCategory -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679273239"><span class="annot"><span class="annottext">ActionCategory -&gt; ByteStringBuilder
 (ActionCategory -&gt; ByteStringBuilder) -&gt; ToLog ActionCategory
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ActionCategory -&gt; ByteStringBuilder
 $cbuild :: ActionCategory -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273040"><span class="annot"><span class="annottext">HeaderName -&gt; ActionCategory -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679273236"><span class="annot"><span class="annottext">HeaderName -&gt; ActionCategory -&gt; [Header]
 (HeaderName -&gt; ActionCategory -&gt; [Header])
 -&gt; ToHeader ActionCategory
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ActionCategory -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ActionCategory -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273037"><span class="annot"><span class="annottext">ActionCategory -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679273233"><span class="annot"><span class="annottext">ActionCategory -&gt; QueryString
 (ActionCategory -&gt; QueryString) -&gt; ToQuery ActionCategory
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ActionCategory -&gt; QueryString
 $ctoQuery :: ActionCategory -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273032"><span id="local-6989586621679273034"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionCategory]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679273228"><span id="local-6989586621679273230"><span class="annot"><span class="annottext">Value -&gt; Parser [ActionCategory]
 Value -&gt; Parser ActionCategory
 (Value -&gt; Parser ActionCategory)
 -&gt; (Value -&gt; Parser [ActionCategory]) -&gt; FromJSON ActionCategory
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [ActionCategory]
 parseJSON :: Value -&gt; Parser ActionCategory
 $cparseJSON :: Value -&gt; Parser ActionCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273027"><span id="local-6989586621679273029"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionCategory]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679273223"><span id="local-6989586621679273225"><span class="annot"><span class="annottext">FromJSONKeyFunction [ActionCategory]
 FromJSONKeyFunction ActionCategory
 FromJSONKeyFunction ActionCategory
 -&gt; FromJSONKeyFunction [ActionCategory]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ActionCategory]
 fromJSONKey :: FromJSONKeyFunction ActionCategory
 $cfromJSONKey :: FromJSONKeyFunction ActionCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679273018"><span id="local-6989586621679273020"><span id="local-6989586621679273022"><span id="local-6989586621679273024"><span class="annot"><span class="annottext">[ActionCategory] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679273214"><span id="local-6989586621679273216"><span id="local-6989586621679273218"><span id="local-6989586621679273220"><span class="annot"><span class="annottext">[ActionCategory] -&gt; Encoding
 [ActionCategory] -&gt; Value
 ActionCategory -&gt; Encoding
 ActionCategory -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: ActionCategory -&gt; Encoding
 toJSON :: ActionCategory -&gt; Value
 $ctoJSON :: ActionCategory -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679273013"><span id="local-6989586621679273015"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionCategory]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679273209"><span id="local-6989586621679273211"><span class="annot"><span class="annottext">ToJSONKeyFunction [ActionCategory]
 ToJSONKeyFunction ActionCategory
 ToJSONKeyFunction ActionCategory
 -&gt; ToJSONKeyFunction [ActionCategory] -&gt; ToJSONKey ActionCategory
@@ -247,13 +247,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ActionCategory]
 toJSONKey :: ToJSONKeyFunction ActionCategory
 $ctoJSONKey :: ToJSONKeyFunction ActionCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621679273010"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionCategory
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679273206"><span class="annot"><span class="annottext">[Node] -&gt; Either String ActionCategory
 ([Node] -&gt; Either String ActionCategory) -&gt; FromXML ActionCategory
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ActionCategory
 $cparseXML :: [Node] -&gt; Either String ActionCategory
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679273007"><span class="annot"><span class="annottext">ActionCategory -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679273203"><span class="annot"><span class="annottext">ActionCategory -&gt; XML
 (ActionCategory -&gt; XML) -&gt; ToXML ActionCategory
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ActionCategory -&gt; XML

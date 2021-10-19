@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-32"></span><span>
-</span><span id="line-33"></span><span id="local-6989586621679260842"><span id="local-6989586621679260843"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FolderContentType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.FolderContentType.html#FolderContentType"><span class="hs-identifier hs-var">FolderContentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FolderContentType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.FolderContentType.html#FolderContentType%27"><span class="hs-identifier hs-var">FolderContentType'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679260962"><span id="local-6989586621679260963"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FolderContentType"><span class="annot"><a href="Network.AWS.WorkDocs.Types.FolderContentType.html#FolderContentType"><span class="hs-identifier hs-var">FolderContentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FolderContentType%27"><span class="annot"><a href="Network.AWS.WorkDocs.Types.FolderContentType.html#FolderContentType%27"><span class="hs-identifier hs-var">FolderContentType'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFolderContentType"><span class="annot"><span class="annottext">FolderContentType -&gt; Text
 </span><a href="Network.AWS.WorkDocs.Types.FolderContentType.html#fromFolderContentType"><span class="hs-identifier hs-var hs-var">fromFolderContentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260834"><span id="local-6989586621679260836"><span id="local-6989586621679260838"><span class="annot"><span class="annottext">Int -&gt; FolderContentType -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260954"><span id="local-6989586621679260956"><span id="local-6989586621679260958"><span class="annot"><span class="annottext">Int -&gt; FolderContentType -&gt; ShowS
 [FolderContentType] -&gt; ShowS
 FolderContentType -&gt; String
 (Int -&gt; FolderContentType -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: FolderContentType -&gt; String
 showsPrec :: Int -&gt; FolderContentType -&gt; ShowS
 $cshowsPrec :: Int -&gt; FolderContentType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679260825"><span id="local-6989586621679260827"><span id="local-6989586621679260829"><span id="local-6989586621679260831"><span class="annot"><span class="annottext">ReadPrec [FolderContentType]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679260945"><span id="local-6989586621679260947"><span id="local-6989586621679260949"><span id="local-6989586621679260951"><span class="annot"><span class="annottext">ReadPrec [FolderContentType]
 ReadPrec FolderContentType
 Int -&gt; ReadS FolderContentType
 ReadS [FolderContentType]
@@ -73,7 +73,7 @@ $creadList :: ReadS [FolderContentType]
 readsPrec :: Int -&gt; ReadS FolderContentType
 $creadsPrec :: Int -&gt; ReadS FolderContentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679260820"><span id="local-6989586621679260822"><span class="annot"><span class="annottext">FolderContentType -&gt; FolderContentType -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679260940"><span id="local-6989586621679260942"><span class="annot"><span class="annottext">FolderContentType -&gt; FolderContentType -&gt; Bool
 (FolderContentType -&gt; FolderContentType -&gt; Bool)
 -&gt; (FolderContentType -&gt; FolderContentType -&gt; Bool)
 -&gt; Eq FolderContentType
@@ -83,7 +83,7 @@ $c/= :: FolderContentType -&gt; FolderContentType -&gt; Bool
 == :: FolderContentType -&gt; FolderContentType -&gt; Bool
 $c== :: FolderContentType -&gt; FolderContentType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679260804"><span id="local-6989586621679260806"><span id="local-6989586621679260808"><span id="local-6989586621679260810"><span id="local-6989586621679260812"><span id="local-6989586621679260814"><span id="local-6989586621679260816"><span class="annot"><span class="annottext">Eq FolderContentType
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679260924"><span id="local-6989586621679260926"><span id="local-6989586621679260928"><span id="local-6989586621679260930"><span id="local-6989586621679260932"><span id="local-6989586621679260934"><span id="local-6989586621679260936"><span class="annot"><span class="annottext">Eq FolderContentType
 Eq FolderContentType
 -&gt; (FolderContentType -&gt; FolderContentType -&gt; Ordering)
 -&gt; (FolderContentType -&gt; FolderContentType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. FolderContentType -&gt; Rep FolderContentType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260796"><span id="local-6989586621679260798"><span class="annot"><span class="annottext">Int -&gt; FolderContentType -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679260916"><span id="local-6989586621679260918"><span class="annot"><span class="annottext">Int -&gt; FolderContentType -&gt; Int
 FolderContentType -&gt; Int
 (Int -&gt; FolderContentType -&gt; Int)
 -&gt; (FolderContentType -&gt; Int) -&gt; Hashable FolderContentType
@@ -144,51 +144,51 @@ $chash :: FolderContentType -&gt; Int
 hashWithSalt :: Int -&gt; FolderContentType -&gt; Int
 $chashWithSalt :: Int -&gt; FolderContentType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679260793"><span class="annot"><span class="annottext">FolderContentType -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679260913"><span class="annot"><span class="annottext">FolderContentType -&gt; ()
 (FolderContentType -&gt; ()) -&gt; NFData FolderContentType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FolderContentType -&gt; ()
 $crnf :: FolderContentType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679260790"><span class="annot"><span class="annottext">Text -&gt; Either String FolderContentType
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679260910"><span class="annot"><span class="annottext">Text -&gt; Either String FolderContentType
 (Text -&gt; Either String FolderContentType)
 -&gt; FromText FolderContentType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FolderContentType
 $cfromText :: Text -&gt; Either String FolderContentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679260787"><span class="annot"><span class="annottext">FolderContentType -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679260907"><span class="annot"><span class="annottext">FolderContentType -&gt; Text
 (FolderContentType -&gt; Text) -&gt; ToText FolderContentType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FolderContentType -&gt; Text
 $ctoText :: FolderContentType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679260784"><span class="annot"><span class="annottext">FolderContentType -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679260904"><span class="annot"><span class="annottext">FolderContentType -&gt; ByteString
 (FolderContentType -&gt; ByteString) -&gt; ToByteString FolderContentType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FolderContentType -&gt; ByteString
 $ctoBS :: FolderContentType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679260781"><span class="annot"><span class="annottext">FolderContentType -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679260901"><span class="annot"><span class="annottext">FolderContentType -&gt; ByteStringBuilder
 (FolderContentType -&gt; ByteStringBuilder) -&gt; ToLog FolderContentType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FolderContentType -&gt; ByteStringBuilder
 $cbuild :: FolderContentType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679260778"><span class="annot"><span class="annottext">HeaderName -&gt; FolderContentType -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679260898"><span class="annot"><span class="annottext">HeaderName -&gt; FolderContentType -&gt; [Header]
 (HeaderName -&gt; FolderContentType -&gt; [Header])
 -&gt; ToHeader FolderContentType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FolderContentType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FolderContentType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679260775"><span class="annot"><span class="annottext">FolderContentType -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679260895"><span class="annot"><span class="annottext">FolderContentType -&gt; QueryString
 (FolderContentType -&gt; QueryString) -&gt; ToQuery FolderContentType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FolderContentType -&gt; QueryString
 $ctoQuery :: FolderContentType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679260770"><span id="local-6989586621679260772"><span class="annot"><span class="annottext">Value -&gt; Parser [FolderContentType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679260890"><span id="local-6989586621679260892"><span class="annot"><span class="annottext">Value -&gt; Parser [FolderContentType]
 Value -&gt; Parser FolderContentType
 (Value -&gt; Parser FolderContentType)
 -&gt; (Value -&gt; Parser [FolderContentType])
@@ -200,7 +200,7 @@ $cparseJSONList :: Value -&gt; Parser [FolderContentType]
 parseJSON :: Value -&gt; Parser FolderContentType
 $cparseJSON :: Value -&gt; Parser FolderContentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679260765"><span id="local-6989586621679260767"><span class="annot"><span class="annottext">FromJSONKeyFunction [FolderContentType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679260885"><span id="local-6989586621679260887"><span class="annot"><span class="annottext">FromJSONKeyFunction [FolderContentType]
 FromJSONKeyFunction FolderContentType
 FromJSONKeyFunction FolderContentType
 -&gt; FromJSONKeyFunction [FolderContentType]
@@ -212,7 +212,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FolderContentType]
 fromJSONKey :: FromJSONKeyFunction FolderContentType
 $cfromJSONKey :: FromJSONKeyFunction FolderContentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679260756"><span id="local-6989586621679260758"><span id="local-6989586621679260760"><span id="local-6989586621679260762"><span class="annot"><span class="annottext">[FolderContentType] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679260876"><span id="local-6989586621679260878"><span id="local-6989586621679260880"><span id="local-6989586621679260882"><span class="annot"><span class="annottext">[FolderContentType] -&gt; Encoding
 [FolderContentType] -&gt; Value
 FolderContentType -&gt; Encoding
 FolderContentType -&gt; Value
@@ -236,7 +236,7 @@ $ctoEncoding :: FolderContentType -&gt; Encoding
 toJSON :: FolderContentType -&gt; Value
 $ctoJSON :: FolderContentType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679260751"><span id="local-6989586621679260753"><span class="annot"><span class="annottext">ToJSONKeyFunction [FolderContentType]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679260871"><span id="local-6989586621679260873"><span class="annot"><span class="annottext">ToJSONKeyFunction [FolderContentType]
 ToJSONKeyFunction FolderContentType
 ToJSONKeyFunction FolderContentType
 -&gt; ToJSONKeyFunction [FolderContentType]
@@ -248,14 +248,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FolderContentType]
 toJSONKey :: ToJSONKeyFunction FolderContentType
 $ctoJSONKey :: ToJSONKeyFunction FolderContentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679260748"><span class="annot"><span class="annottext">[Node] -&gt; Either String FolderContentType
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679260868"><span class="annot"><span class="annottext">[Node] -&gt; Either String FolderContentType
 ([Node] -&gt; Either String FolderContentType)
 -&gt; FromXML FolderContentType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FolderContentType
 $cparseXML :: [Node] -&gt; Either String FolderContentType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679260745"><span class="annot"><span class="annottext">FolderContentType -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679260865"><span class="annot"><span class="annottext">FolderContentType -&gt; XML
 (FolderContentType -&gt; XML) -&gt; ToXML FolderContentType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FolderContentType -&gt; XML

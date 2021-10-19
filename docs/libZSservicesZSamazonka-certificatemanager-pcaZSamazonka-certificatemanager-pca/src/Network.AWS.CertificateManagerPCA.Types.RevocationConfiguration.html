@@ -42,20 +42,20 @@
 </span><span id="line-42"></span><span class="hs-comment">-- Guide/.</span><span>
 </span><span id="line-43"></span><span class="hs-comment">--</span><span>
 </span><span id="line-44"></span><span class="hs-comment">-- /See:/ 'newRevocationConfiguration' smart constructor.</span><span>
-</span><span id="line-45"></span><span id="local-6989586621679212163"><span id="local-6989586621679212164"></span></span><span class="hs-keyword">data</span><span> </span><span id="RevocationConfiguration"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-var">RevocationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevocationConfiguration%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-var">RevocationConfiguration'</span></a></span></span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configuration of Online Certificate Status Protocol (OCSP) support, if</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- any, maintained by your private CA. When you revoke a certificate, OCSP</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- responses may take up to 60 minutes to reflect the new status.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3AocspConfiguration%3ARevocationConfiguration%27"><span class="annot"><span class="annottext">RevocationConfiguration -&gt; Maybe OcspConfiguration
-</span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#%24sel%3AocspConfiguration%3ARevocationConfiguration%27"><span class="hs-identifier hs-var hs-var">ocspConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.OcspConfiguration.html#OcspConfiguration"><span class="hs-identifier hs-type">OcspConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Configuration of the certificate revocation list (CRL), if any,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- maintained by your private CA. A CRL is typically updated approximately</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- 30 minutes after a certificate is revoked. If for any reason a CRL</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- update fails, ACM Private CA makes further attempts every 15 minutes.</span><span>
-</span><span id="line-54"></span><span>    </span><span id="%24sel%3AcrlConfiguration%3ARevocationConfiguration%27"><span class="annot"><span class="annottext">RevocationConfiguration -&gt; Maybe CrlConfiguration
-</span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#%24sel%3AcrlConfiguration%3ARevocationConfiguration%27"><span class="hs-identifier hs-var hs-var">crlConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span>
+</span><span id="line-45"></span><span id="local-6989586621679212227"><span id="local-6989586621679212228"></span></span><span class="hs-keyword">data</span><span> </span><span id="RevocationConfiguration"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-var">RevocationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RevocationConfiguration%27"><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-var">RevocationConfiguration'</span></a></span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configuration of the certificate revocation list (CRL), if any,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- maintained by your private CA. A CRL is typically updated approximately</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- 30 minutes after a certificate is revoked. If for any reason a CRL</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- update fails, ACM Private CA makes further attempts every 15 minutes.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AcrlConfiguration%3ARevocationConfiguration%27"><span class="annot"><span class="annottext">RevocationConfiguration -&gt; Maybe CrlConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#%24sel%3AcrlConfiguration%3ARevocationConfiguration%27"><span class="hs-identifier hs-var hs-var">crlConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | Configuration of Online Certificate Status Protocol (OCSP) support, if</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- any, maintained by your private CA. When you revoke a certificate, OCSP</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- responses may take up to 60 minutes to reflect the new status.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AocspConfiguration%3ARevocationConfiguration%27"><span class="annot"><span class="annottext">RevocationConfiguration -&gt; Maybe OcspConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#%24sel%3AocspConfiguration%3ARevocationConfiguration%27"><span class="hs-identifier hs-var hs-var">ocspConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.OcspConfiguration.html#OcspConfiguration"><span class="hs-identifier hs-type">OcspConfiguration</span></a></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212156"><span id="local-6989586621679212158"><span class="annot"><span class="annottext">RevocationConfiguration -&gt; RevocationConfiguration -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212220"><span id="local-6989586621679212222"><span class="annot"><span class="annottext">RevocationConfiguration -&gt; RevocationConfiguration -&gt; Bool
 (RevocationConfiguration -&gt; RevocationConfiguration -&gt; Bool)
 -&gt; (RevocationConfiguration -&gt; RevocationConfiguration -&gt; Bool)
 -&gt; Eq RevocationConfiguration
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RevocationConfiguration -&gt; RevocationConfiguration -&gt; Bool
 == :: RevocationConfiguration -&gt; RevocationConfiguration -&gt; Bool
 $c== :: RevocationConfiguration -&gt; RevocationConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212147"><span id="local-6989586621679212149"><span id="local-6989586621679212151"><span id="local-6989586621679212153"><span class="annot"><span class="annottext">ReadPrec [RevocationConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212211"><span id="local-6989586621679212213"><span id="local-6989586621679212215"><span id="local-6989586621679212217"><span class="annot"><span class="annottext">ReadPrec [RevocationConfiguration]
 ReadPrec RevocationConfiguration
 Int -&gt; ReadS RevocationConfiguration
 ReadS [RevocationConfiguration]
@@ -84,7 +84,7 @@ readList :: ReadS [RevocationConfiguration]
 $creadList :: ReadS [RevocationConfiguration]
 readsPrec :: Int -&gt; ReadS RevocationConfiguration
 $creadsPrec :: Int -&gt; ReadS RevocationConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212140"><span id="local-6989586621679212142"><span id="local-6989586621679212144"><span class="annot"><span class="annottext">Int -&gt; RevocationConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212204"><span id="local-6989586621679212206"><span id="local-6989586621679212208"><span class="annot"><span class="annottext">Int -&gt; RevocationConfiguration -&gt; ShowS
 [RevocationConfiguration] -&gt; ShowS
 RevocationConfiguration -&gt; String
 (Int -&gt; RevocationConfiguration -&gt; ShowS)
@@ -120,64 +120,38 @@ $cfrom :: forall x. RevocationConfiguration -&gt; Rep RevocationConfiguration x
 </span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'ocspConfiguration', 'revocationConfiguration_ocspConfiguration' - Configuration of Online Certificate Status Protocol (OCSP) support, if</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- any, maintained by your private CA. When you revoke a certificate, OCSP</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- responses may take up to 60 minutes to reflect the new status.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'crlConfiguration', 'revocationConfiguration_crlConfiguration' - Configuration of the certificate revocation list (CRL), if any,</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- maintained by your private CA. A CRL is typically updated approximately</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 30 minutes after a certificate is revoked. If for any reason a CRL</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- update fails, ACM Private CA makes further attempts every 15 minutes.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'crlConfiguration', 'revocationConfiguration_crlConfiguration' - Configuration of the certificate revocation list (CRL), if any,</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- maintained by your private CA. A CRL is typically updated approximately</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 30 minutes after a certificate is revoked. If for any reason a CRL</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- update fails, ACM Private CA makes further attempts every 15 minutes.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'ocspConfiguration', 'revocationConfiguration_ocspConfiguration' - Configuration of Online Certificate Status Protocol (OCSP) support, if</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- any, maintained by your private CA. When you revoke a certificate, OCSP</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- responses may take up to 60 minutes to reflect the new status.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#newRevocationConfiguration"><span class="hs-identifier hs-type">newRevocationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span><span>
 </span><span id="line-76"></span><span id="newRevocationConfiguration"><span class="annot"><span class="annottext">newRevocationConfiguration :: RevocationConfiguration
 </span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#newRevocationConfiguration"><span class="hs-identifier hs-var hs-var">newRevocationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">RevocationConfiguration' :: Maybe OcspConfiguration
--&gt; Maybe CrlConfiguration -&gt; RevocationConfiguration
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">RevocationConfiguration' :: Maybe CrlConfiguration
+-&gt; Maybe OcspConfiguration -&gt; RevocationConfiguration
 </span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-type">RevocationConfiguration'</span></a></span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ocspConfiguration:RevocationConfiguration' :: Maybe OcspConfiguration
-</span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#%24sel%3AocspConfiguration%3ARevocationConfiguration%27"><span class="hs-identifier hs-var">ocspConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe OcspConfiguration
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:crlConfiguration:RevocationConfiguration' :: Maybe CrlConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#%24sel%3AcrlConfiguration%3ARevocationConfiguration%27"><span class="hs-identifier hs-var">crlConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe CrlConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:crlConfiguration:RevocationConfiguration' :: Maybe CrlConfiguration
-</span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#%24sel%3AcrlConfiguration%3ARevocationConfiguration%27"><span class="hs-identifier hs-var">crlConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CrlConfiguration
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:ocspConfiguration:RevocationConfiguration' :: Maybe OcspConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#%24sel%3AocspConfiguration%3ARevocationConfiguration%27"><span class="hs-identifier hs-var">ocspConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OcspConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | Configuration of Online Certificate Status Protocol (OCSP) support, if</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- any, maintained by your private CA. When you revoke a certificate, OCSP</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- responses may take up to 60 minutes to reflect the new status.</span><span>
-</span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#revocationConfiguration_ocspConfiguration"><span class="hs-identifier hs-type">revocationConfiguration_ocspConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.OcspConfiguration.html#OcspConfiguration"><span class="hs-identifier hs-type">OcspConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-87"></span><span id="revocationConfiguration_ocspConfiguration"><span class="annot"><span class="annottext">revocationConfiguration_ocspConfiguration :: (Maybe OcspConfiguration -&gt; f (Maybe OcspConfiguration))
--&gt; RevocationConfiguration -&gt; f RevocationConfiguration
-</span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#revocationConfiguration_ocspConfiguration"><span class="hs-identifier hs-var hs-var">revocationConfiguration_ocspConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevocationConfiguration -&gt; Maybe OcspConfiguration)
--&gt; (RevocationConfiguration
-    -&gt; Maybe OcspConfiguration -&gt; RevocationConfiguration)
--&gt; Lens
-     RevocationConfiguration
-     RevocationConfiguration
-     (Maybe OcspConfiguration)
-     (Maybe OcspConfiguration)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-type">RevocationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212131"><span class="annot"><span class="annottext">Maybe OcspConfiguration
-ocspConfiguration :: Maybe OcspConfiguration
-$sel:ocspConfiguration:RevocationConfiguration' :: RevocationConfiguration -&gt; Maybe OcspConfiguration
-</span><a href="#local-6989586621679212131"><span class="hs-identifier hs-var hs-var">ocspConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OcspConfiguration
-</span><a href="#local-6989586621679212131"><span class="hs-identifier hs-var">ocspConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212130"><span class="annot"><span class="annottext">s :: RevocationConfiguration
-</span><a href="#local-6989586621679212130"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-type">RevocationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212129"><span class="annot"><span class="annottext">Maybe OcspConfiguration
-</span><a href="#local-6989586621679212129"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevocationConfiguration
-</span><a href="#local-6989586621679212130"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ocspConfiguration:RevocationConfiguration' :: Maybe OcspConfiguration
-</span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#%24sel%3AocspConfiguration%3ARevocationConfiguration%27"><span class="hs-identifier hs-var">ocspConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OcspConfiguration
-</span><a href="#local-6989586621679212129"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- | Configuration of the certificate revocation list (CRL), if any,</span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- maintained by your private CA. A CRL is typically updated approximately</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- 30 minutes after a certificate is revoked. If for any reason a CRL</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- update fails, ACM Private CA makes further attempts every 15 minutes.</span><span>
-</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#revocationConfiguration_crlConfiguration"><span class="hs-identifier hs-type">revocationConfiguration_crlConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span id="revocationConfiguration_crlConfiguration"><span class="annot"><span class="annottext">revocationConfiguration_crlConfiguration :: (Maybe CrlConfiguration -&gt; f (Maybe CrlConfiguration))
+</span><span id="line-83"></span><span class="hs-comment">-- | Configuration of the certificate revocation list (CRL), if any,</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- maintained by your private CA. A CRL is typically updated approximately</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 30 minutes after a certificate is revoked. If for any reason a CRL</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- update fails, ACM Private CA makes further attempts every 15 minutes.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#revocationConfiguration_crlConfiguration"><span class="hs-identifier hs-type">revocationConfiguration_crlConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.CrlConfiguration.html#CrlConfiguration"><span class="hs-identifier hs-type">CrlConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="revocationConfiguration_crlConfiguration"><span class="annot"><span class="annottext">revocationConfiguration_crlConfiguration :: (Maybe CrlConfiguration -&gt; f (Maybe CrlConfiguration))
 -&gt; RevocationConfiguration -&gt; f RevocationConfiguration
 </span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#revocationConfiguration_crlConfiguration"><span class="hs-identifier hs-var hs-var">revocationConfiguration_crlConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevocationConfiguration -&gt; Maybe CrlConfiguration)
 -&gt; (RevocationConfiguration
@@ -188,19 +162,45 @@ $sel:ocspConfiguration:RevocationConfiguration' :: RevocationConfiguration -&gt;
      (Maybe CrlConfiguration)
      (Maybe CrlConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-type">RevocationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212127"><span class="annot"><span class="annottext">Maybe CrlConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-type">RevocationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212195"><span class="annot"><span class="annottext">Maybe CrlConfiguration
 crlConfiguration :: Maybe CrlConfiguration
 $sel:crlConfiguration:RevocationConfiguration' :: RevocationConfiguration -&gt; Maybe CrlConfiguration
-</span><a href="#local-6989586621679212127"><span class="hs-identifier hs-var hs-var">crlConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CrlConfiguration
-</span><a href="#local-6989586621679212127"><span class="hs-identifier hs-var">crlConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212126"><span class="annot"><span class="annottext">s :: RevocationConfiguration
-</span><a href="#local-6989586621679212126"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-type">RevocationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212125"><span class="annot"><span class="annottext">Maybe CrlConfiguration
-</span><a href="#local-6989586621679212125"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevocationConfiguration
-</span><a href="#local-6989586621679212126"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crlConfiguration:RevocationConfiguration' :: Maybe CrlConfiguration
+</span><a href="#local-6989586621679212195"><span class="hs-identifier hs-var hs-var">crlConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CrlConfiguration
+</span><a href="#local-6989586621679212195"><span class="hs-identifier hs-var">crlConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212194"><span class="annot"><span class="annottext">s :: RevocationConfiguration
+</span><a href="#local-6989586621679212194"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-type">RevocationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212193"><span class="annot"><span class="annottext">Maybe CrlConfiguration
+</span><a href="#local-6989586621679212193"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevocationConfiguration
+</span><a href="#local-6989586621679212194"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:crlConfiguration:RevocationConfiguration' :: Maybe CrlConfiguration
 </span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#%24sel%3AcrlConfiguration%3ARevocationConfiguration%27"><span class="hs-identifier hs-var">crlConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CrlConfiguration
-</span><a href="#local-6989586621679212125"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679212193"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Configuration of Online Certificate Status Protocol (OCSP) support, if</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- any, maintained by your private CA. When you revoke a certificate, OCSP</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- responses may take up to 60 minutes to reflect the new status.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#revocationConfiguration_ocspConfiguration"><span class="hs-identifier hs-type">revocationConfiguration_ocspConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.OcspConfiguration.html#OcspConfiguration"><span class="hs-identifier hs-type">OcspConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="revocationConfiguration_ocspConfiguration"><span class="annot"><span class="annottext">revocationConfiguration_ocspConfiguration :: (Maybe OcspConfiguration -&gt; f (Maybe OcspConfiguration))
+-&gt; RevocationConfiguration -&gt; f RevocationConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#revocationConfiguration_ocspConfiguration"><span class="hs-identifier hs-var hs-var">revocationConfiguration_ocspConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RevocationConfiguration -&gt; Maybe OcspConfiguration)
+-&gt; (RevocationConfiguration
+    -&gt; Maybe OcspConfiguration -&gt; RevocationConfiguration)
+-&gt; Lens
+     RevocationConfiguration
+     RevocationConfiguration
+     (Maybe OcspConfiguration)
+     (Maybe OcspConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-type">RevocationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212191"><span class="annot"><span class="annottext">Maybe OcspConfiguration
+ocspConfiguration :: Maybe OcspConfiguration
+$sel:ocspConfiguration:RevocationConfiguration' :: RevocationConfiguration -&gt; Maybe OcspConfiguration
+</span><a href="#local-6989586621679212191"><span class="hs-identifier hs-var hs-var">ocspConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OcspConfiguration
+</span><a href="#local-6989586621679212191"><span class="hs-identifier hs-var">ocspConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212190"><span class="annot"><span class="annottext">s :: RevocationConfiguration
+</span><a href="#local-6989586621679212190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-type">RevocationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212189"><span class="annot"><span class="annottext">Maybe OcspConfiguration
+</span><a href="#local-6989586621679212189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RevocationConfiguration
+</span><a href="#local-6989586621679212190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ocspConfiguration:RevocationConfiguration' :: Maybe OcspConfiguration
+</span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#%24sel%3AocspConfiguration%3ARevocationConfiguration%27"><span class="hs-identifier hs-var">ocspConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OcspConfiguration
+</span><a href="#local-6989586621679212189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>
-</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212122"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-97"></span><span>  </span><span id="local-6989586621679212120"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RevocationConfiguration
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212186"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679212184"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RevocationConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RevocationConfiguration)
@@ -210,67 +210,67 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RevocationConfiguration&quot;</span></span><span>
-</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212117"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212117"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe OcspConfiguration
--&gt; Maybe CrlConfiguration -&gt; RevocationConfiguration
+</span><span id="line-100"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212181"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212181"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>          </span><span class="annot"><span class="annottext">Maybe CrlConfiguration
+-&gt; Maybe OcspConfiguration -&gt; RevocationConfiguration
 </span><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-var">RevocationConfiguration'</span></a></span><span>
-</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe OcspConfiguration
- -&gt; Maybe CrlConfiguration -&gt; RevocationConfiguration)
--&gt; Parser (Maybe OcspConfiguration)
--&gt; Parser (Maybe CrlConfiguration -&gt; RevocationConfiguration)
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CrlConfiguration
+ -&gt; Maybe OcspConfiguration -&gt; RevocationConfiguration)
+-&gt; Parser (Maybe CrlConfiguration)
+-&gt; Parser (Maybe OcspConfiguration -&gt; RevocationConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OcspConfiguration)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OcspConfiguration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe CrlConfiguration -&gt; RevocationConfiguration)
--&gt; Parser (Maybe CrlConfiguration)
--&gt; Parser RevocationConfiguration
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679212117"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CrlConfiguration)
+</span><a href="#local-6989586621679212181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CrlConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CrlConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe OcspConfiguration -&gt; RevocationConfiguration)
+-&gt; Parser (Maybe OcspConfiguration)
+-&gt; Parser RevocationConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212181"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe OcspConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OcspConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212111"><span id="local-6989586621679212113"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span></span></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212175"><span id="local-6989586621679212177"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span></span></span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212108"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212172"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212100"><span id="local-6989586621679212102"><span id="local-6989586621679212104"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679212098"><span class="annot"><span class="annottext">toJSON :: RevocationConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-type">RevocationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212095"><span id="local-6989586621679212096"><span class="annot"><span class="annottext">Maybe OcspConfiguration
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212164"><span id="local-6989586621679212166"><span id="local-6989586621679212168"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration"><span class="hs-identifier hs-type">RevocationConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679212162"><span class="annot"><span class="annottext">toJSON :: RevocationConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration.html#RevocationConfiguration%27"><span class="hs-identifier hs-type">RevocationConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212159"><span id="local-6989586621679212160"><span class="annot"><span class="annottext">Maybe OcspConfiguration
 Maybe CrlConfiguration
-crlConfiguration :: Maybe CrlConfiguration
 ocspConfiguration :: Maybe OcspConfiguration
-$sel:crlConfiguration:RevocationConfiguration' :: RevocationConfiguration -&gt; Maybe CrlConfiguration
+crlConfiguration :: Maybe CrlConfiguration
 $sel:ocspConfiguration:RevocationConfiguration' :: RevocationConfiguration -&gt; Maybe OcspConfiguration
-</span><a href="#local-6989586621679212095"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:crlConfiguration:RevocationConfiguration' :: RevocationConfiguration -&gt; Maybe CrlConfiguration
+</span><a href="#local-6989586621679212159"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OcspConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OcspConfiguration -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">(OcspConfiguration -&gt; Pair)
--&gt; Maybe OcspConfiguration -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OcspConfiguration
-</span><a href="#local-6989586621679212096"><span class="hs-identifier hs-var">ocspConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CrlConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CrlConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">(CrlConfiguration -&gt; Pair) -&gt; Maybe CrlConfiguration -&gt; Maybe Pair
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">(CrlConfiguration -&gt; Pair) -&gt; Maybe CrlConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CrlConfiguration
-</span><a href="#local-6989586621679212095"><span class="hs-identifier hs-var">crlConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679212160"><span class="hs-identifier hs-var">crlConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OcspConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OcspConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">(OcspConfiguration -&gt; Pair)
+-&gt; Maybe OcspConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe OcspConfiguration
+</span><a href="#local-6989586621679212159"><span class="hs-identifier hs-var">ocspConfiguration</span></a></span><span>
 </span><span id="line-118"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span></pre></body></html>

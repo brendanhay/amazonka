@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-comment">-- | Contains the output from the @DeleteTags@ action.</span><span>
 </span><span id="line-48"></span><span class="hs-comment">--</span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- /See:/ 'newDeleteTags' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679521513"><span id="local-6989586621679521514"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTags"><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-var">DeleteTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTags%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-var">DeleteTags'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679522246"><span id="local-6989586621679522247"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTags"><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-var">DeleteTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTags%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-var">DeleteTags'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) from which you want to remove the tag or</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">-- tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@.</span><span>
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3AresourceName%3ADeleteTags%27"><span class="annot"><span class="annottext">DeleteTags -&gt; Text
@@ -56,7 +56,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AtagKeys%3ADeleteTags%27"><span class="annot"><span class="annottext">DeleteTags -&gt; [Text]
 </span><a href="Network.AWS.Redshift.DeleteTags.html#%24sel%3AtagKeys%3ADeleteTags%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521506"><span id="local-6989586621679521508"><span class="annot"><span class="annottext">DeleteTags -&gt; DeleteTags -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679522239"><span id="local-6989586621679522241"><span class="annot"><span class="annottext">DeleteTags -&gt; DeleteTags -&gt; Bool
 (DeleteTags -&gt; DeleteTags -&gt; Bool)
 -&gt; (DeleteTags -&gt; DeleteTags -&gt; Bool) -&gt; Eq DeleteTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTags -&gt; DeleteTags -&gt; Bool
 == :: DeleteTags -&gt; DeleteTags -&gt; Bool
 $c== :: DeleteTags -&gt; DeleteTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521497"><span id="local-6989586621679521499"><span id="local-6989586621679521501"><span id="local-6989586621679521503"><span class="annot"><span class="annottext">ReadPrec [DeleteTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522230"><span id="local-6989586621679522232"><span id="local-6989586621679522234"><span id="local-6989586621679522236"><span class="annot"><span class="annottext">ReadPrec [DeleteTags]
 ReadPrec DeleteTags
 Int -&gt; ReadS DeleteTags
 ReadS [DeleteTags]
@@ -84,7 +84,7 @@ readList :: ReadS [DeleteTags]
 $creadList :: ReadS [DeleteTags]
 readsPrec :: Int -&gt; ReadS DeleteTags
 $creadsPrec :: Int -&gt; ReadS DeleteTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521490"><span id="local-6989586621679521492"><span id="local-6989586621679521494"><span class="annot"><span class="annottext">Int -&gt; DeleteTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522223"><span id="local-6989586621679522225"><span id="local-6989586621679522227"><span class="annot"><span class="annottext">Int -&gt; DeleteTags -&gt; ShowS
 [DeleteTags] -&gt; ShowS
 DeleteTags -&gt; String
 (Int -&gt; DeleteTags -&gt; ShowS)
@@ -126,13 +126,13 @@ $cfrom :: forall x. DeleteTags -&gt; Rep DeleteTags x
 </span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span>
 </span><span id="line-75"></span><span id="newDeleteTags"><span class="annot"><span class="annottext">newDeleteTags :: Text -&gt; DeleteTags
-</span><a href="Network.AWS.Redshift.DeleteTags.html#newDeleteTags"><span class="hs-identifier hs-var hs-var">newDeleteTags</span></a></span></span><span> </span><span id="local-6989586621679521485"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521485"><span class="hs-identifier hs-var">pResourceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DeleteTags.html#newDeleteTags"><span class="hs-identifier hs-var hs-var">newDeleteTags</span></a></span></span><span> </span><span id="local-6989586621679522218"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522218"><span class="hs-identifier hs-var">pResourceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">DeleteTags' :: Text -&gt; [Text] -&gt; DeleteTags
 </span><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span>
 </span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceName:DeleteTags' :: Text
 </span><a href="Network.AWS.Redshift.DeleteTags.html#%24sel%3AresourceName%3ADeleteTags%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521485"><span class="hs-identifier hs-var">pResourceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679522218"><span class="hs-identifier hs-var">pResourceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:DeleteTags' :: [Text]
 </span><a href="Network.AWS.Redshift.DeleteTags.html#%24sel%3AtagKeys%3ADeleteTags%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -147,16 +147,16 @@ forall a. Monoid a =&gt; a
 -&gt; (DeleteTags -&gt; Text -&gt; DeleteTags)
 -&gt; Lens DeleteTags DeleteTags Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521482"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679522215"><span class="annot"><span class="annottext">Text
 resourceName :: Text
 $sel:resourceName:DeleteTags' :: DeleteTags -&gt; Text
-</span><a href="#local-6989586621679521482"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521482"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521481"><span class="annot"><span class="annottext">s :: DeleteTags
-</span><a href="#local-6989586621679521481"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521480"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521480"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
-</span><a href="#local-6989586621679521481"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:DeleteTags' :: Text
+</span><a href="#local-6989586621679522215"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522215"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679522214"><span class="annot"><span class="annottext">s :: DeleteTags
+</span><a href="#local-6989586621679522214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679522213"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679522213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
+</span><a href="#local-6989586621679522214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:DeleteTags' :: Text
 </span><a href="Network.AWS.Redshift.DeleteTags.html#%24sel%3AresourceName%3ADeleteTags%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521480"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679522213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-85"></span><span>
 </span><span id="line-86"></span><span class="hs-comment">-- | The tag key that you want to delete.</span><span>
 </span><span id="line-87"></span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#deleteTags_tagKeys"><span class="hs-identifier hs-type">deleteTags_tagKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -165,33 +165,33 @@ $sel:resourceName:DeleteTags' :: DeleteTags -&gt; Text
 -&gt; (DeleteTags -&gt; [Text] -&gt; DeleteTags)
 -&gt; Lens DeleteTags DeleteTags [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521479"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679522212"><span class="annot"><span class="annottext">[Text]
 tagKeys :: [Text]
 $sel:tagKeys:DeleteTags' :: DeleteTags -&gt; [Text]
-</span><a href="#local-6989586621679521479"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679521479"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521478"><span class="annot"><span class="annottext">s :: DeleteTags
-</span><a href="#local-6989586621679521478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521477"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679521477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
-</span><a href="#local-6989586621679521478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:DeleteTags' :: [Text]
+</span><a href="#local-6989586621679522212"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679522212"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679522211"><span class="annot"><span class="annottext">s :: DeleteTags
+</span><a href="#local-6989586621679522211"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679522210"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679522210"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteTags
+</span><a href="#local-6989586621679522211"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:DeleteTags' :: [Text]
 </span><a href="Network.AWS.Redshift.DeleteTags.html#%24sel%3AtagKeys%3ADeleteTags%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679521477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DeleteTags -&gt; f DeleteTags)
+</span><a href="#local-6989586621679522210"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; DeleteTags -&gt; f DeleteTags)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
 -&gt; DeleteTags
 -&gt; f DeleteTags
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679521471"><span class="annot"><span class="annottext">request :: DeleteTags -&gt; Request DeleteTags
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679522204"><span class="annot"><span class="annottext">request :: DeleteTags -&gt; Request DeleteTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteTags -&gt; Request DeleteTags
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679521467"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679522200"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteTags
 -&gt; ClientResponse ClientBody
@@ -214,12 +214,12 @@ AWSResponse a
 DeleteTagsResponse
 </span><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521460"><span id="local-6989586621679521462"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679522193"><span id="local-6989586621679522195"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span></span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521457"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679522190"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span></span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-100"></span><span>  </span><span id="local-6989586621679521453"><span class="annot"><span class="annottext">toHeaders :: DeleteTags -&gt; [Header]
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679522186"><span class="annot"><span class="annottext">toHeaders :: DeleteTags -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteTags -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
@@ -227,21 +227,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-101"></span><span>
 </span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679521448"><span class="annot"><span class="annottext">toPath :: DeleteTags -&gt; ByteString
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679522181"><span class="annot"><span class="annottext">toPath :: DeleteTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags"><span class="hs-identifier hs-type">DeleteTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679521444"><span class="annot"><span class="annottext">toQuery :: DeleteTags -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521441"><span id="local-6989586621679521442"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679522177"><span class="annot"><span class="annottext">toQuery :: DeleteTags -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTags%27"><span class="hs-identifier hs-type">DeleteTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679522174"><span id="local-6989586621679522175"><span class="annot"><span class="annottext">[Text]
 Text
 tagKeys :: [Text]
 resourceName :: Text
 $sel:tagKeys:DeleteTags' :: DeleteTags -&gt; [Text]
 $sel:resourceName:DeleteTags' :: DeleteTags -&gt; Text
-</span><a href="#local-6989586621679521441"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679522174"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -261,7 +261,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ResourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679521442"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679522175"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TagKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
@@ -271,14 +271,14 @@ forall a.
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TagKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679521441"><span class="hs-identifier hs-var">tagKeys</span></a></span><span>
+</span><a href="#local-6989586621679522174"><span class="hs-identifier hs-var">tagKeys</span></a></span><span>
 </span><span id="line-114"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | /See:/ 'newDeleteTagsResponse' smart constructor.</span><span>
-</span><span id="line-117"></span><span id="local-6989586621679521437"><span id="local-6989586621679521438"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTagsResponse"><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-var">DeleteTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTagsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span id="local-6989586621679522170"><span id="local-6989586621679522171"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteTagsResponse"><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-var">DeleteTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteTagsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span></span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521433"><span id="local-6989586621679521435"><span class="annot"><span class="annottext">DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679522166"><span id="local-6989586621679522168"><span class="annot"><span class="annottext">DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
 (DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool)
 -&gt; (DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool)
 -&gt; Eq DeleteTagsResponse
@@ -287,7 +287,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
 == :: DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
 $c== :: DeleteTagsResponse -&gt; DeleteTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521425"><span id="local-6989586621679521427"><span id="local-6989586621679521429"><span id="local-6989586621679521431"><span class="annot"><span class="annottext">ReadPrec [DeleteTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522158"><span id="local-6989586621679522160"><span id="local-6989586621679522162"><span id="local-6989586621679522164"><span class="annot"><span class="annottext">ReadPrec [DeleteTagsResponse]
 ReadPrec DeleteTagsResponse
 Int -&gt; ReadS DeleteTagsResponse
 ReadS [DeleteTagsResponse]
@@ -307,7 +307,7 @@ readList :: ReadS [DeleteTagsResponse]
 $creadList :: ReadS [DeleteTagsResponse]
 readsPrec :: Int -&gt; ReadS DeleteTagsResponse
 $creadsPrec :: Int -&gt; ReadS DeleteTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521419"><span id="local-6989586621679521421"><span id="local-6989586621679521423"><span class="annot"><span class="annottext">Int -&gt; DeleteTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679522152"><span id="local-6989586621679522154"><span id="local-6989586621679522156"><span class="annot"><span class="annottext">Int -&gt; DeleteTagsResponse -&gt; ShowS
 [DeleteTagsResponse] -&gt; ShowS
 DeleteTagsResponse -&gt; String
 (Int -&gt; DeleteTagsResponse -&gt; ShowS)
@@ -343,5 +343,5 @@ $cfrom :: forall x. DeleteTagsResponse -&gt; Rep DeleteTagsResponse x
 </span><a href="Network.AWS.Redshift.DeleteTags.html#newDeleteTagsResponse"><span class="hs-identifier hs-var hs-var">newDeleteTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DeleteTagsResponse
 </span><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTagsResponse%27"><span class="hs-identifier hs-var">DeleteTagsResponse'</span></a></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521415"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679522148"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DeleteTags.html#DeleteTagsResponse"><span class="hs-identifier hs-type">DeleteTagsResponse</span></a></span></span><span>
 </span><span id="line-131"></span></pre></body></html>

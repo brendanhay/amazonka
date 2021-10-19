@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679329822"><span id="local-6989586621679329823"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubscriptionStatus"><span class="annot"><a href="Network.AWS.SESv2.Types.SubscriptionStatus.html#SubscriptionStatus"><span class="hs-identifier hs-var">SubscriptionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscriptionStatus%27"><span class="annot"><a href="Network.AWS.SESv2.Types.SubscriptionStatus.html#SubscriptionStatus%27"><span class="hs-identifier hs-var">SubscriptionStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679332336"><span id="local-6989586621679332337"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SubscriptionStatus"><span class="annot"><a href="Network.AWS.SESv2.Types.SubscriptionStatus.html#SubscriptionStatus"><span class="hs-identifier hs-var">SubscriptionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubscriptionStatus%27"><span class="annot"><a href="Network.AWS.SESv2.Types.SubscriptionStatus.html#SubscriptionStatus%27"><span class="hs-identifier hs-var">SubscriptionStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSubscriptionStatus"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; Text
 </span><a href="Network.AWS.SESv2.Types.SubscriptionStatus.html#fromSubscriptionStatus"><span class="hs-identifier hs-var hs-var">fromSubscriptionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329814"><span id="local-6989586621679329816"><span id="local-6989586621679329818"><span class="annot"><span class="annottext">Int -&gt; SubscriptionStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332328"><span id="local-6989586621679332330"><span id="local-6989586621679332332"><span class="annot"><span class="annottext">Int -&gt; SubscriptionStatus -&gt; ShowS
 [SubscriptionStatus] -&gt; ShowS
 SubscriptionStatus -&gt; String
 (Int -&gt; SubscriptionStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: SubscriptionStatus -&gt; String
 showsPrec :: Int -&gt; SubscriptionStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; SubscriptionStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679329805"><span id="local-6989586621679329807"><span id="local-6989586621679329809"><span id="local-6989586621679329811"><span class="annot"><span class="annottext">ReadPrec [SubscriptionStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679332319"><span id="local-6989586621679332321"><span id="local-6989586621679332323"><span id="local-6989586621679332325"><span class="annot"><span class="annottext">ReadPrec [SubscriptionStatus]
 ReadPrec SubscriptionStatus
 Int -&gt; ReadS SubscriptionStatus
 ReadS [SubscriptionStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [SubscriptionStatus]
 readsPrec :: Int -&gt; ReadS SubscriptionStatus
 $creadsPrec :: Int -&gt; ReadS SubscriptionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679329800"><span id="local-6989586621679329802"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; SubscriptionStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679332314"><span id="local-6989586621679332316"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; SubscriptionStatus -&gt; Bool
 (SubscriptionStatus -&gt; SubscriptionStatus -&gt; Bool)
 -&gt; (SubscriptionStatus -&gt; SubscriptionStatus -&gt; Bool)
 -&gt; Eq SubscriptionStatus
@@ -82,7 +82,7 @@ $c/= :: SubscriptionStatus -&gt; SubscriptionStatus -&gt; Bool
 == :: SubscriptionStatus -&gt; SubscriptionStatus -&gt; Bool
 $c== :: SubscriptionStatus -&gt; SubscriptionStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679329784"><span id="local-6989586621679329786"><span id="local-6989586621679329788"><span id="local-6989586621679329790"><span id="local-6989586621679329792"><span id="local-6989586621679329794"><span id="local-6989586621679329796"><span class="annot"><span class="annottext">Eq SubscriptionStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679332298"><span id="local-6989586621679332300"><span id="local-6989586621679332302"><span id="local-6989586621679332304"><span id="local-6989586621679332306"><span id="local-6989586621679332308"><span id="local-6989586621679332310"><span class="annot"><span class="annottext">Eq SubscriptionStatus
 Eq SubscriptionStatus
 -&gt; (SubscriptionStatus -&gt; SubscriptionStatus -&gt; Ordering)
 -&gt; (SubscriptionStatus -&gt; SubscriptionStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. SubscriptionStatus -&gt; Rep SubscriptionStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329776"><span id="local-6989586621679329778"><span class="annot"><span class="annottext">Int -&gt; SubscriptionStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679332290"><span id="local-6989586621679332292"><span class="annot"><span class="annottext">Int -&gt; SubscriptionStatus -&gt; Int
 SubscriptionStatus -&gt; Int
 (Int -&gt; SubscriptionStatus -&gt; Int)
 -&gt; (SubscriptionStatus -&gt; Int) -&gt; Hashable SubscriptionStatus
@@ -143,53 +143,53 @@ $chash :: SubscriptionStatus -&gt; Int
 hashWithSalt :: Int -&gt; SubscriptionStatus -&gt; Int
 $chashWithSalt :: Int -&gt; SubscriptionStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679329773"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679332287"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; ()
 (SubscriptionStatus -&gt; ()) -&gt; NFData SubscriptionStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: SubscriptionStatus -&gt; ()
 $crnf :: SubscriptionStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679329770"><span class="annot"><span class="annottext">Text -&gt; Either String SubscriptionStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679332284"><span class="annot"><span class="annottext">Text -&gt; Either String SubscriptionStatus
 (Text -&gt; Either String SubscriptionStatus)
 -&gt; FromText SubscriptionStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String SubscriptionStatus
 $cfromText :: Text -&gt; Either String SubscriptionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679329767"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679332281"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; Text
 (SubscriptionStatus -&gt; Text) -&gt; ToText SubscriptionStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: SubscriptionStatus -&gt; Text
 $ctoText :: SubscriptionStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679329764"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679332278"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; ByteString
 (SubscriptionStatus -&gt; ByteString)
 -&gt; ToByteString SubscriptionStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: SubscriptionStatus -&gt; ByteString
 $ctoBS :: SubscriptionStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679329761"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679332275"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; ByteStringBuilder
 (SubscriptionStatus -&gt; ByteStringBuilder)
 -&gt; ToLog SubscriptionStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: SubscriptionStatus -&gt; ByteStringBuilder
 $cbuild :: SubscriptionStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679329758"><span class="annot"><span class="annottext">HeaderName -&gt; SubscriptionStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679332272"><span class="annot"><span class="annottext">HeaderName -&gt; SubscriptionStatus -&gt; [Header]
 (HeaderName -&gt; SubscriptionStatus -&gt; [Header])
 -&gt; ToHeader SubscriptionStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; SubscriptionStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; SubscriptionStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679329755"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679332269"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; QueryString
 (SubscriptionStatus -&gt; QueryString) -&gt; ToQuery SubscriptionStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: SubscriptionStatus -&gt; QueryString
 $ctoQuery :: SubscriptionStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329750"><span id="local-6989586621679329752"><span class="annot"><span class="annottext">Value -&gt; Parser [SubscriptionStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679332264"><span id="local-6989586621679332266"><span class="annot"><span class="annottext">Value -&gt; Parser [SubscriptionStatus]
 Value -&gt; Parser SubscriptionStatus
 (Value -&gt; Parser SubscriptionStatus)
 -&gt; (Value -&gt; Parser [SubscriptionStatus])
@@ -201,7 +201,7 @@ $cparseJSONList :: Value -&gt; Parser [SubscriptionStatus]
 parseJSON :: Value -&gt; Parser SubscriptionStatus
 $cparseJSON :: Value -&gt; Parser SubscriptionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329745"><span id="local-6989586621679329747"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubscriptionStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679332259"><span id="local-6989586621679332261"><span class="annot"><span class="annottext">FromJSONKeyFunction [SubscriptionStatus]
 FromJSONKeyFunction SubscriptionStatus
 FromJSONKeyFunction SubscriptionStatus
 -&gt; FromJSONKeyFunction [SubscriptionStatus]
@@ -213,7 +213,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [SubscriptionStatus]
 fromJSONKey :: FromJSONKeyFunction SubscriptionStatus
 $cfromJSONKey :: FromJSONKeyFunction SubscriptionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329736"><span id="local-6989586621679329738"><span id="local-6989586621679329740"><span id="local-6989586621679329742"><span class="annot"><span class="annottext">[SubscriptionStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679332250"><span id="local-6989586621679332252"><span id="local-6989586621679332254"><span id="local-6989586621679332256"><span class="annot"><span class="annottext">[SubscriptionStatus] -&gt; Encoding
 [SubscriptionStatus] -&gt; Value
 SubscriptionStatus -&gt; Encoding
 SubscriptionStatus -&gt; Value
@@ -237,7 +237,7 @@ $ctoEncoding :: SubscriptionStatus -&gt; Encoding
 toJSON :: SubscriptionStatus -&gt; Value
 $ctoJSON :: SubscriptionStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329731"><span id="local-6989586621679329733"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubscriptionStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679332245"><span id="local-6989586621679332247"><span class="annot"><span class="annottext">ToJSONKeyFunction [SubscriptionStatus]
 ToJSONKeyFunction SubscriptionStatus
 ToJSONKeyFunction SubscriptionStatus
 -&gt; ToJSONKeyFunction [SubscriptionStatus]
@@ -249,14 +249,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [SubscriptionStatus]
 toJSONKey :: ToJSONKeyFunction SubscriptionStatus
 $ctoJSONKey :: ToJSONKeyFunction SubscriptionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329728"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubscriptionStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679332242"><span class="annot"><span class="annottext">[Node] -&gt; Either String SubscriptionStatus
 ([Node] -&gt; Either String SubscriptionStatus)
 -&gt; FromXML SubscriptionStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String SubscriptionStatus
 $cparseXML :: [Node] -&gt; Either String SubscriptionStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679329725"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679332239"><span class="annot"><span class="annottext">SubscriptionStatus -&gt; XML
 (SubscriptionStatus -&gt; XML) -&gt; ToXML SubscriptionStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: SubscriptionStatus -&gt; XML

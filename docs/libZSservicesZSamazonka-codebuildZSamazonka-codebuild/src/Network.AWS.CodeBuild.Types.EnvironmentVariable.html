@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- build.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEnvironmentVariable' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679369657"><span id="local-6989586621679369658"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnvironmentVariable"><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-var">EnvironmentVariable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentVariable%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-var">EnvironmentVariable'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679371528"><span id="local-6989586621679371529"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnvironmentVariable"><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-var">EnvironmentVariable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnvironmentVariable%27"><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-var">EnvironmentVariable'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of environment variable. Valid values include:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   @PARAMETER_STORE@: An environment variable stored in Systems Manager</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3Avalue%3AEnvironmentVariable%27"><span class="annot"><span class="annottext">EnvironmentVariable -&gt; Text
 </span><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#%24sel%3Avalue%3AEnvironmentVariable%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679369649"><span id="local-6989586621679369651"><span class="annot"><span class="annottext">EnvironmentVariable -&gt; EnvironmentVariable -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371520"><span id="local-6989586621679371522"><span class="annot"><span class="annottext">EnvironmentVariable -&gt; EnvironmentVariable -&gt; Bool
 (EnvironmentVariable -&gt; EnvironmentVariable -&gt; Bool)
 -&gt; (EnvironmentVariable -&gt; EnvironmentVariable -&gt; Bool)
 -&gt; Eq EnvironmentVariable
@@ -70,7 +70,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnvironmentVariable -&gt; EnvironmentVariable -&gt; Bool
 == :: EnvironmentVariable -&gt; EnvironmentVariable -&gt; Bool
 $c== :: EnvironmentVariable -&gt; EnvironmentVariable -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369640"><span id="local-6989586621679369642"><span id="local-6989586621679369644"><span id="local-6989586621679369646"><span class="annot"><span class="annottext">ReadPrec [EnvironmentVariable]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371511"><span id="local-6989586621679371513"><span id="local-6989586621679371515"><span id="local-6989586621679371517"><span class="annot"><span class="annottext">ReadPrec [EnvironmentVariable]
 ReadPrec EnvironmentVariable
 Int -&gt; ReadS EnvironmentVariable
 ReadS [EnvironmentVariable]
@@ -90,7 +90,7 @@ readList :: ReadS [EnvironmentVariable]
 $creadList :: ReadS [EnvironmentVariable]
 readsPrec :: Int -&gt; ReadS EnvironmentVariable
 $creadsPrec :: Int -&gt; ReadS EnvironmentVariable
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679369633"><span id="local-6989586621679369635"><span id="local-6989586621679369637"><span class="annot"><span class="annottext">Int -&gt; EnvironmentVariable -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371504"><span id="local-6989586621679371506"><span id="local-6989586621679371508"><span class="annot"><span class="annottext">Int -&gt; EnvironmentVariable -&gt; ShowS
 [EnvironmentVariable] -&gt; ShowS
 EnvironmentVariable -&gt; String
 (Int -&gt; EnvironmentVariable -&gt; ShowS)
@@ -158,9 +158,9 @@ $cfrom :: forall x. EnvironmentVariable -&gt; Rep EnvironmentVariable x
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-103"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span><span>
 </span><span id="line-104"></span><span id="newEnvironmentVariable"><span class="annot"><span class="annottext">newEnvironmentVariable :: Text -&gt; Text -&gt; EnvironmentVariable
-</span><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#newEnvironmentVariable"><span class="hs-identifier hs-var hs-var">newEnvironmentVariable</span></a></span></span><span> </span><span id="local-6989586621679369627"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369627"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679369626"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369626"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#newEnvironmentVariable"><span class="hs-identifier hs-var hs-var">newEnvironmentVariable</span></a></span></span><span> </span><span id="local-6989586621679371498"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371498"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span id="local-6989586621679371497"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371497"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">EnvironmentVariable' :: Maybe EnvironmentVariableType
 -&gt; Text -&gt; Text -&gt; EnvironmentVariable
 </span><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span>
@@ -170,10 +170,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:EnvironmentVariable' :: Text
 </span><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#%24sel%3Aname%3AEnvironmentVariable%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369627"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679371498"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:EnvironmentVariable' :: Text
 </span><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#%24sel%3Avalue%3AEnvironmentVariable%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369626"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
+</span><a href="#local-6989586621679371497"><span class="hs-identifier hs-var">pValue_</span></a></span><span>
 </span><span id="line-109"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | The type of environment variable. Valid values include:</span><span>
@@ -205,16 +205,16 @@ forall a. Maybe a
      (Maybe EnvironmentVariableType)
      (Maybe EnvironmentVariableType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369622"><span class="annot"><span class="annottext">Maybe EnvironmentVariableType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371493"><span class="annot"><span class="annottext">Maybe EnvironmentVariableType
 type' :: Maybe EnvironmentVariableType
 $sel:type':EnvironmentVariable' :: EnvironmentVariable -&gt; Maybe EnvironmentVariableType
-</span><a href="#local-6989586621679369622"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentVariableType
-</span><a href="#local-6989586621679369622"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369621"><span class="annot"><span class="annottext">s :: EnvironmentVariable
-</span><a href="#local-6989586621679369621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369620"><span class="annot"><span class="annottext">Maybe EnvironmentVariableType
-</span><a href="#local-6989586621679369620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentVariable
-</span><a href="#local-6989586621679369621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':EnvironmentVariable' :: Maybe EnvironmentVariableType
+</span><a href="#local-6989586621679371493"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentVariableType
+</span><a href="#local-6989586621679371493"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371492"><span class="annot"><span class="annottext">s :: EnvironmentVariable
+</span><a href="#local-6989586621679371492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371491"><span class="annot"><span class="annottext">Maybe EnvironmentVariableType
+</span><a href="#local-6989586621679371491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentVariable
+</span><a href="#local-6989586621679371492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':EnvironmentVariable' :: Maybe EnvironmentVariableType
 </span><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#%24sel%3Atype%27%3AEnvironmentVariable%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentVariableType
-</span><a href="#local-6989586621679369620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | The name or key of the environment variable.</span><span>
 </span><span id="line-131"></span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#environmentVariable_name"><span class="hs-identifier hs-type">environmentVariable_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -223,16 +223,16 @@ $sel:type':EnvironmentVariable' :: EnvironmentVariable -&gt; Maybe EnvironmentVa
 -&gt; (EnvironmentVariable -&gt; Text -&gt; EnvironmentVariable)
 -&gt; Lens EnvironmentVariable EnvironmentVariable Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369618"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371489"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:EnvironmentVariable' :: EnvironmentVariable -&gt; Text
-</span><a href="#local-6989586621679369618"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369618"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369617"><span class="annot"><span class="annottext">s :: EnvironmentVariable
-</span><a href="#local-6989586621679369617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369616"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentVariable
-</span><a href="#local-6989586621679369617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EnvironmentVariable' :: Text
+</span><a href="#local-6989586621679371489"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371489"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371488"><span class="annot"><span class="annottext">s :: EnvironmentVariable
+</span><a href="#local-6989586621679371488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371487"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentVariable
+</span><a href="#local-6989586621679371488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:EnvironmentVariable' :: Text
 </span><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#%24sel%3Aname%3AEnvironmentVariable%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | The value of the environment variable.</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
@@ -248,19 +248,19 @@ $sel:name:EnvironmentVariable' :: EnvironmentVariable -&gt; Text
 -&gt; (EnvironmentVariable -&gt; Text -&gt; EnvironmentVariable)
 -&gt; Lens EnvironmentVariable EnvironmentVariable Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369614"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371485"><span class="annot"><span class="annottext">Text
 value :: Text
 $sel:value:EnvironmentVariable' :: EnvironmentVariable -&gt; Text
-</span><a href="#local-6989586621679369614"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369614"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679369613"><span class="annot"><span class="annottext">s :: EnvironmentVariable
-</span><a href="#local-6989586621679369613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679369612"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentVariable
-</span><a href="#local-6989586621679369613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:EnvironmentVariable' :: Text
+</span><a href="#local-6989586621679371485"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371485"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371484"><span class="annot"><span class="annottext">s :: EnvironmentVariable
+</span><a href="#local-6989586621679371484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371483"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679371483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentVariable
+</span><a href="#local-6989586621679371484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:EnvironmentVariable' :: Text
 </span><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#%24sel%3Avalue%3AEnvironmentVariable%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369609"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-146"></span><span>  </span><span id="local-6989586621679369607"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnvironmentVariable
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371480"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679371478"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnvironmentVariable
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EnvironmentVariable)
@@ -270,8 +270,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EnvironmentVariable&quot;</span></span><span>
-</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679369604"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369604"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679371475"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679371475"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">Maybe EnvironmentVariableType
 -&gt; Text -&gt; Text -&gt; EnvironmentVariable
 </span><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-var">EnvironmentVariable'</span></a></span><span>
@@ -281,7 +281,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Text -&gt; Text -&gt; EnvironmentVariable)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EnvironmentVariableType)
+</span><a href="#local-6989586621679371475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EnvironmentVariableType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
@@ -289,7 +289,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser Text -&gt; Parser (Text -&gt; EnvironmentVariable)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679371475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
@@ -297,19 +297,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Text -&gt; Parser EnvironmentVariable
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679369604"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679371475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369597"><span id="local-6989586621679369599"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span></span></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371468"><span id="local-6989586621679371470"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span></span></span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369594"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371465"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span></span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679369586"><span id="local-6989586621679369588"><span id="local-6989586621679369590"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679369584"><span class="annot"><span class="annottext">toJSON :: EnvironmentVariable -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679369580"><span id="local-6989586621679369581"><span id="local-6989586621679369582"><span class="annot"><span class="annottext">Maybe EnvironmentVariableType
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371457"><span id="local-6989586621679371459"><span id="local-6989586621679371461"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable"><span class="hs-identifier hs-type">EnvironmentVariable</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679371455"><span class="annot"><span class="annottext">toJSON :: EnvironmentVariable -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.Types.EnvironmentVariable.html#EnvironmentVariable%27"><span class="hs-identifier hs-type">EnvironmentVariable'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371451"><span id="local-6989586621679371452"><span id="local-6989586621679371453"><span class="annot"><span class="annottext">Maybe EnvironmentVariableType
 Text
 value :: Text
 name :: Text
@@ -317,7 +317,7 @@ type' :: Maybe EnvironmentVariableType
 $sel:value:EnvironmentVariable' :: EnvironmentVariable -&gt; Text
 $sel:name:EnvironmentVariable' :: EnvironmentVariable -&gt; Text
 $sel:type':EnvironmentVariable' :: EnvironmentVariable -&gt; Maybe EnvironmentVariableType
-</span><a href="#local-6989586621679369580"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679371451"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-163"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -330,21 +330,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe EnvironmentVariableType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe EnvironmentVariableType
-</span><a href="#local-6989586621679369582"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679371453"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-165"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369581"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679371452"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679369580"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679371451"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span></pre></body></html>

@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Parameters required for transcoding audio.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAudioParameters' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679209787"><span id="local-6989586621679209788"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioParameters"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-var">AudioParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioParameters%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-var">AudioParameters'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679209902"><span id="local-6989586621679209903"></span></span><span class="hs-keyword">data</span><span> </span><span id="AudioParameters"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-var">AudioParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioParameters%27"><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-var">AudioParameters'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of audio channels in the output file. The following values</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- are valid:</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -199,7 +199,7 @@
 </span><span id="line-194"></span><span>    </span><span id="%24sel%3AcodecOptions%3AAudioParameters%27"><span class="annot"><span class="annottext">AudioParameters -&gt; Maybe AudioCodecOptions
 </span><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#%24sel%3AcodecOptions%3AAudioParameters%27"><span class="hs-identifier hs-var hs-var">codecOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioCodecOptions.html#AudioCodecOptions"><span class="hs-identifier hs-type">AudioCodecOptions</span></a></span><span>
 </span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209776"><span id="local-6989586621679209778"><span class="annot"><span class="annottext">AudioParameters -&gt; AudioParameters -&gt; Bool
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209891"><span id="local-6989586621679209893"><span class="annot"><span class="annottext">AudioParameters -&gt; AudioParameters -&gt; Bool
 (AudioParameters -&gt; AudioParameters -&gt; Bool)
 -&gt; (AudioParameters -&gt; AudioParameters -&gt; Bool)
 -&gt; Eq AudioParameters
@@ -208,7 +208,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AudioParameters -&gt; AudioParameters -&gt; Bool
 == :: AudioParameters -&gt; AudioParameters -&gt; Bool
 $c== :: AudioParameters -&gt; AudioParameters -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209767"><span id="local-6989586621679209769"><span id="local-6989586621679209771"><span id="local-6989586621679209773"><span class="annot"><span class="annottext">ReadPrec [AudioParameters]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209882"><span id="local-6989586621679209884"><span id="local-6989586621679209886"><span id="local-6989586621679209888"><span class="annot"><span class="annottext">ReadPrec [AudioParameters]
 ReadPrec AudioParameters
 Int -&gt; ReadS AudioParameters
 ReadS [AudioParameters]
@@ -228,7 +228,7 @@ readList :: ReadS [AudioParameters]
 $creadList :: ReadS [AudioParameters]
 readsPrec :: Int -&gt; ReadS AudioParameters
 $creadsPrec :: Int -&gt; ReadS AudioParameters
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209760"><span id="local-6989586621679209762"><span id="local-6989586621679209764"><span class="annot"><span class="annottext">Int -&gt; AudioParameters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209875"><span id="local-6989586621679209877"><span id="local-6989586621679209879"><span class="annot"><span class="annottext">Int -&gt; AudioParameters -&gt; ShowS
 [AudioParameters] -&gt; ShowS
 AudioParameters -&gt; String
 (Int -&gt; AudioParameters -&gt; ShowS)
@@ -499,16 +499,16 @@ forall a. Maybe a
 -&gt; (AudioParameters -&gt; Maybe Text -&gt; AudioParameters)
 -&gt; Lens AudioParameters AudioParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209751"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209866"><span class="annot"><span class="annottext">Maybe Text
 channels :: Maybe Text
 $sel:channels:AudioParameters' :: AudioParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679209751"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209751"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209750"><span class="annot"><span class="annottext">s :: AudioParameters
-</span><a href="#local-6989586621679209750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209749"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioParameters
-</span><a href="#local-6989586621679209750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:AudioParameters' :: Maybe Text
+</span><a href="#local-6989586621679209866"><span class="hs-identifier hs-var hs-var">channels</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209866"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209865"><span class="annot"><span class="annottext">s :: AudioParameters
+</span><a href="#local-6989586621679209865"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209864"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209864"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioParameters
+</span><a href="#local-6989586621679209865"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channels:AudioParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#%24sel%3Achannels%3AAudioParameters%27"><span class="hs-identifier hs-var">channels</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209864"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-412"></span><span>
 </span><span id="line-413"></span><span class="hs-comment">-- | The audio codec for the output file. Valid values include @aac@, @flac@,</span><span>
 </span><span id="line-414"></span><span class="hs-comment">-- @mp2@, @mp3@, @pcm@, and @vorbis@.</span><span>
@@ -519,16 +519,16 @@ $sel:channels:AudioParameters' :: AudioParameters -&gt; Maybe Text
 -&gt; (AudioParameters -&gt; Maybe Text -&gt; AudioParameters)
 -&gt; Lens AudioParameters AudioParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209747"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209862"><span class="annot"><span class="annottext">Maybe Text
 codec :: Maybe Text
 $sel:codec:AudioParameters' :: AudioParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679209747"><span class="hs-identifier hs-var hs-var">codec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209747"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209746"><span class="annot"><span class="annottext">s :: AudioParameters
-</span><a href="#local-6989586621679209746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209745"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioParameters
-</span><a href="#local-6989586621679209746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codec:AudioParameters' :: Maybe Text
+</span><a href="#local-6989586621679209862"><span class="hs-identifier hs-var hs-var">codec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209862"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209861"><span class="annot"><span class="annottext">s :: AudioParameters
+</span><a href="#local-6989586621679209861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209860"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioParameters
+</span><a href="#local-6989586621679209861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codec:AudioParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#%24sel%3Acodec%3AAudioParameters%27"><span class="hs-identifier hs-var">codec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-417"></span><span>
 </span><span id="line-418"></span><span class="hs-comment">-- | The method of organizing audio channels and tracks. Use @Audio:Channels@</span><span>
 </span><span id="line-419"></span><span class="hs-comment">-- to specify the number of channels in your output, and</span><span>
@@ -648,16 +648,16 @@ $sel:codec:AudioParameters' :: AudioParameters -&gt; Maybe Text
 -&gt; (AudioParameters -&gt; Maybe Text -&gt; AudioParameters)
 -&gt; Lens AudioParameters AudioParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209743"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209858"><span class="annot"><span class="annottext">Maybe Text
 audioPackingMode :: Maybe Text
 $sel:audioPackingMode:AudioParameters' :: AudioParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679209743"><span class="hs-identifier hs-var hs-var">audioPackingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209743"><span class="hs-identifier hs-var">audioPackingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209742"><span class="annot"><span class="annottext">s :: AudioParameters
-</span><a href="#local-6989586621679209742"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209741"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209741"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioParameters
-</span><a href="#local-6989586621679209742"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioPackingMode:AudioParameters' :: Maybe Text
+</span><a href="#local-6989586621679209858"><span class="hs-identifier hs-var hs-var">audioPackingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209858"><span class="hs-identifier hs-var">audioPackingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209857"><span class="annot"><span class="annottext">s :: AudioParameters
+</span><a href="#local-6989586621679209857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209856"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioParameters
+</span><a href="#local-6989586621679209857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioPackingMode:AudioParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#%24sel%3AaudioPackingMode%3AAudioParameters%27"><span class="hs-identifier hs-var">audioPackingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209741"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-531"></span><span>
 </span><span id="line-532"></span><span class="hs-comment">-- | The sample rate of the audio stream in the output file, in Hertz. Valid</span><span>
 </span><span id="line-533"></span><span class="hs-comment">-- values include:</span><span>
@@ -673,16 +673,16 @@ $sel:audioPackingMode:AudioParameters' :: AudioParameters -&gt; Maybe Text
 -&gt; (AudioParameters -&gt; Maybe Text -&gt; AudioParameters)
 -&gt; Lens AudioParameters AudioParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209739"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209854"><span class="annot"><span class="annottext">Maybe Text
 sampleRate :: Maybe Text
 $sel:sampleRate:AudioParameters' :: AudioParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679209739"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209739"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209738"><span class="annot"><span class="annottext">s :: AudioParameters
-</span><a href="#local-6989586621679209738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209737"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioParameters
-</span><a href="#local-6989586621679209738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:AudioParameters' :: Maybe Text
+</span><a href="#local-6989586621679209854"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209854"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209853"><span class="annot"><span class="annottext">s :: AudioParameters
+</span><a href="#local-6989586621679209853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209852"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioParameters
+</span><a href="#local-6989586621679209853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:AudioParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#%24sel%3AsampleRate%3AAudioParameters%27"><span class="hs-identifier hs-var">sampleRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-541"></span><span>
 </span><span id="line-542"></span><span class="hs-comment">-- | The bit rate of the audio stream in the output file, in</span><span>
 </span><span id="line-543"></span><span class="hs-comment">-- kilobits\/second. Enter an integer between 64 and 320, inclusive.</span><span>
@@ -693,16 +693,16 @@ $sel:sampleRate:AudioParameters' :: AudioParameters -&gt; Maybe Text
 -&gt; (AudioParameters -&gt; Maybe Text -&gt; AudioParameters)
 -&gt; Lens AudioParameters AudioParameters (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209735"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209850"><span class="annot"><span class="annottext">Maybe Text
 bitRate :: Maybe Text
 $sel:bitRate:AudioParameters' :: AudioParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679209735"><span class="hs-identifier hs-var hs-var">bitRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209735"><span class="hs-identifier hs-var">bitRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209734"><span class="annot"><span class="annottext">s :: AudioParameters
-</span><a href="#local-6989586621679209734"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209733"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209733"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioParameters
-</span><a href="#local-6989586621679209734"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitRate:AudioParameters' :: Maybe Text
+</span><a href="#local-6989586621679209850"><span class="hs-identifier hs-var hs-var">bitRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209850"><span class="hs-identifier hs-var">bitRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209849"><span class="annot"><span class="annottext">s :: AudioParameters
+</span><a href="#local-6989586621679209849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209848"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioParameters
+</span><a href="#local-6989586621679209849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitRate:AudioParameters' :: Maybe Text
 </span><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#%24sel%3AbitRate%3AAudioParameters%27"><span class="hs-identifier hs-var">bitRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209733"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-546"></span><span>
 </span><span id="line-547"></span><span class="hs-comment">-- | If you specified @AAC@ for @Audio:Codec@, this is the @AAC@ compression</span><span>
 </span><span id="line-548"></span><span class="hs-comment">-- profile to use. Valid values include:</span><span>
@@ -722,19 +722,19 @@ $sel:bitRate:AudioParameters' :: AudioParameters -&gt; Maybe Text
      (Maybe AudioCodecOptions)
      (Maybe AudioCodecOptions)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209731"><span class="annot"><span class="annottext">Maybe AudioCodecOptions
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209846"><span class="annot"><span class="annottext">Maybe AudioCodecOptions
 codecOptions :: Maybe AudioCodecOptions
 $sel:codecOptions:AudioParameters' :: AudioParameters -&gt; Maybe AudioCodecOptions
-</span><a href="#local-6989586621679209731"><span class="hs-identifier hs-var hs-var">codecOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioCodecOptions
-</span><a href="#local-6989586621679209731"><span class="hs-identifier hs-var">codecOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209730"><span class="annot"><span class="annottext">s :: AudioParameters
-</span><a href="#local-6989586621679209730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209729"><span class="annot"><span class="annottext">Maybe AudioCodecOptions
-</span><a href="#local-6989586621679209729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioParameters
-</span><a href="#local-6989586621679209730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codecOptions:AudioParameters' :: Maybe AudioCodecOptions
+</span><a href="#local-6989586621679209846"><span class="hs-identifier hs-var hs-var">codecOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AudioCodecOptions
+</span><a href="#local-6989586621679209846"><span class="hs-identifier hs-var">codecOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209845"><span class="annot"><span class="annottext">s :: AudioParameters
+</span><a href="#local-6989586621679209845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209844"><span class="annot"><span class="annottext">Maybe AudioCodecOptions
+</span><a href="#local-6989586621679209844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AudioParameters
+</span><a href="#local-6989586621679209845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codecOptions:AudioParameters' :: Maybe AudioCodecOptions
 </span><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#%24sel%3AcodecOptions%3AAudioParameters%27"><span class="hs-identifier hs-var">codecOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AudioCodecOptions
-</span><a href="#local-6989586621679209729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679209844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-556"></span><span>
-</span><span id="line-557"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209726"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-558"></span><span>  </span><span id="local-6989586621679209724"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioParameters
+</span><span id="line-557"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209841"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-558"></span><span>  </span><span id="local-6989586621679209839"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AudioParameters
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-559"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AudioParameters)
@@ -744,8 +744,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-560"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AudioParameters&quot;</span></span><span>
-</span><span id="line-561"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209721"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209721"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-561"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679209836"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679209836"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-562"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
@@ -771,7 +771,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; AudioParameters)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679209836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Channels&quot;</span></span><span class="hs-special">)</span><span>
@@ -791,7 +791,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; AudioParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679209836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Codec&quot;</span></span><span class="hs-special">)</span><span>
@@ -807,7 +807,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
       -&gt; Maybe Text -&gt; Maybe AudioCodecOptions -&gt; AudioParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679209836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AudioPackingMode&quot;</span></span><span class="hs-special">)</span><span>
@@ -819,7 +819,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
      (Maybe Text -&gt; Maybe AudioCodecOptions -&gt; AudioParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679209836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SampleRate&quot;</span></span><span class="hs-special">)</span><span>
@@ -828,7 +828,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe AudioCodecOptions -&gt; AudioParameters)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679209836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BitRate&quot;</span></span><span class="hs-special">)</span><span>
@@ -836,19 +836,19 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe AudioCodecOptions) -&gt; Parser AudioParameters
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679209721"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioCodecOptions)
+</span><a href="#local-6989586621679209836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AudioCodecOptions)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CodecOptions&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-569"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-570"></span><span>
-</span><span id="line-571"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209715"><span id="local-6989586621679209717"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span></span></span><span>
+</span><span id="line-571"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209830"><span id="local-6989586621679209832"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span></span></span><span>
 </span><span id="line-572"></span><span>
-</span><span id="line-573"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209712"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span></span><span>
+</span><span id="line-573"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209827"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span></span><span>
 </span><span id="line-574"></span><span>
-</span><span id="line-575"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209704"><span id="local-6989586621679209706"><span id="local-6989586621679209708"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-576"></span><span>  </span><span id="local-6989586621679209702"><span class="annot"><span class="annottext">toJSON :: AudioParameters -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209695"><span id="local-6989586621679209696"><span id="local-6989586621679209697"><span id="local-6989586621679209698"><span id="local-6989586621679209699"><span id="local-6989586621679209700"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-575"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209819"><span id="local-6989586621679209821"><span id="local-6989586621679209823"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters"><span class="hs-identifier hs-type">AudioParameters</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-576"></span><span>  </span><span id="local-6989586621679209817"><span class="annot"><span class="annottext">toJSON :: AudioParameters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ElasticTranscoder.Types.AudioParameters.html#AudioParameters%27"><span class="hs-identifier hs-type">AudioParameters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209810"><span id="local-6989586621679209811"><span id="local-6989586621679209812"><span id="local-6989586621679209813"><span id="local-6989586621679209814"><span id="local-6989586621679209815"><span class="annot"><span class="annottext">Maybe Text
 Maybe AudioCodecOptions
 codecOptions :: Maybe AudioCodecOptions
 bitRate :: Maybe Text
@@ -862,7 +862,7 @@ $sel:sampleRate:AudioParameters' :: AudioParameters -&gt; Maybe Text
 $sel:audioPackingMode:AudioParameters' :: AudioParameters -&gt; Maybe Text
 $sel:codec:AudioParameters' :: AudioParameters -&gt; Maybe Text
 $sel:channels:AudioParameters' :: AudioParameters -&gt; Maybe Text
-</span><a href="#local-6989586621679209695"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679209810"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-577"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-578"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -874,14 +874,14 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209700"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209815"><span class="hs-identifier hs-var">channels</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-580"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Codec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209699"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209814"><span class="hs-identifier hs-var">codec</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-581"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;AudioPackingMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -889,21 +889,21 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-582"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209698"><span class="hs-identifier hs-var">audioPackingMode</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209813"><span class="hs-identifier hs-var">audioPackingMode</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-583"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SampleRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209697"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209812"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-584"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;BitRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679209696"><span class="hs-identifier hs-var">bitRate</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679209811"><span class="hs-identifier hs-var">bitRate</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-585"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CodecOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AudioCodecOptions -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -911,7 +911,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe AudioCodecOptions -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AudioCodecOptions
-</span><a href="#local-6989586621679209695"><span class="hs-identifier hs-var">codecOptions</span></a></span><span>
+</span><a href="#local-6989586621679209810"><span class="hs-identifier hs-var">codecOptions</span></a></span><span>
 </span><span id="line-586"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-587"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-588"></span></pre></body></html>

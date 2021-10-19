@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679806762"><span id="local-6989586621679806763"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PatchDeploymentStatus"><span class="annot"><a href="Network.AWS.SSM.Types.PatchDeploymentStatus.html#PatchDeploymentStatus"><span class="hs-identifier hs-var">PatchDeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchDeploymentStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchDeploymentStatus.html#PatchDeploymentStatus%27"><span class="hs-identifier hs-var">PatchDeploymentStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679808441"><span id="local-6989586621679808442"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PatchDeploymentStatus"><span class="annot"><a href="Network.AWS.SSM.Types.PatchDeploymentStatus.html#PatchDeploymentStatus"><span class="hs-identifier hs-var">PatchDeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchDeploymentStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.PatchDeploymentStatus.html#PatchDeploymentStatus%27"><span class="hs-identifier hs-var">PatchDeploymentStatus'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPatchDeploymentStatus"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; Text
 </span><a href="Network.AWS.SSM.Types.PatchDeploymentStatus.html#fromPatchDeploymentStatus"><span class="hs-identifier hs-var hs-var">fromPatchDeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679806754"><span id="local-6989586621679806756"><span id="local-6989586621679806758"><span class="annot"><span class="annottext">Int -&gt; PatchDeploymentStatus -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679808433"><span id="local-6989586621679808435"><span id="local-6989586621679808437"><span class="annot"><span class="annottext">Int -&gt; PatchDeploymentStatus -&gt; ShowS
 [PatchDeploymentStatus] -&gt; ShowS
 PatchDeploymentStatus -&gt; String
 (Int -&gt; PatchDeploymentStatus -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: PatchDeploymentStatus -&gt; String
 showsPrec :: Int -&gt; PatchDeploymentStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; PatchDeploymentStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679806745"><span id="local-6989586621679806747"><span id="local-6989586621679806749"><span id="local-6989586621679806751"><span class="annot"><span class="annottext">ReadPrec [PatchDeploymentStatus]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679808424"><span id="local-6989586621679808426"><span id="local-6989586621679808428"><span id="local-6989586621679808430"><span class="annot"><span class="annottext">ReadPrec [PatchDeploymentStatus]
 ReadPrec PatchDeploymentStatus
 Int -&gt; ReadS PatchDeploymentStatus
 ReadS [PatchDeploymentStatus]
@@ -74,7 +74,7 @@ $creadList :: ReadS [PatchDeploymentStatus]
 readsPrec :: Int -&gt; ReadS PatchDeploymentStatus
 $creadsPrec :: Int -&gt; ReadS PatchDeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679806740"><span id="local-6989586621679806742"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; PatchDeploymentStatus -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679808419"><span id="local-6989586621679808421"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; PatchDeploymentStatus -&gt; Bool
 (PatchDeploymentStatus -&gt; PatchDeploymentStatus -&gt; Bool)
 -&gt; (PatchDeploymentStatus -&gt; PatchDeploymentStatus -&gt; Bool)
 -&gt; Eq PatchDeploymentStatus
@@ -84,7 +84,7 @@ $c/= :: PatchDeploymentStatus -&gt; PatchDeploymentStatus -&gt; Bool
 == :: PatchDeploymentStatus -&gt; PatchDeploymentStatus -&gt; Bool
 $c== :: PatchDeploymentStatus -&gt; PatchDeploymentStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679806724"><span id="local-6989586621679806726"><span id="local-6989586621679806728"><span id="local-6989586621679806730"><span id="local-6989586621679806732"><span id="local-6989586621679806734"><span id="local-6989586621679806736"><span class="annot"><span class="annottext">Eq PatchDeploymentStatus
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679808403"><span id="local-6989586621679808405"><span id="local-6989586621679808407"><span id="local-6989586621679808409"><span id="local-6989586621679808411"><span id="local-6989586621679808413"><span id="local-6989586621679808415"><span class="annot"><span class="annottext">Eq PatchDeploymentStatus
 Eq PatchDeploymentStatus
 -&gt; (PatchDeploymentStatus -&gt; PatchDeploymentStatus -&gt; Ordering)
 -&gt; (PatchDeploymentStatus -&gt; PatchDeploymentStatus -&gt; Bool)
@@ -142,7 +142,7 @@ $cfrom :: forall x. PatchDeploymentStatus -&gt; Rep PatchDeploymentStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679806716"><span id="local-6989586621679806718"><span class="annot"><span class="annottext">Int -&gt; PatchDeploymentStatus -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679808395"><span id="local-6989586621679808397"><span class="annot"><span class="annottext">Int -&gt; PatchDeploymentStatus -&gt; Int
 PatchDeploymentStatus -&gt; Int
 (Int -&gt; PatchDeploymentStatus -&gt; Int)
 -&gt; (PatchDeploymentStatus -&gt; Int) -&gt; Hashable PatchDeploymentStatus
@@ -152,54 +152,54 @@ $chash :: PatchDeploymentStatus -&gt; Int
 hashWithSalt :: Int -&gt; PatchDeploymentStatus -&gt; Int
 $chashWithSalt :: Int -&gt; PatchDeploymentStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679806713"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679808392"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; ()
 (PatchDeploymentStatus -&gt; ()) -&gt; NFData PatchDeploymentStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: PatchDeploymentStatus -&gt; ()
 $crnf :: PatchDeploymentStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679806710"><span class="annot"><span class="annottext">Text -&gt; Either String PatchDeploymentStatus
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679808389"><span class="annot"><span class="annottext">Text -&gt; Either String PatchDeploymentStatus
 (Text -&gt; Either String PatchDeploymentStatus)
 -&gt; FromText PatchDeploymentStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String PatchDeploymentStatus
 $cfromText :: Text -&gt; Either String PatchDeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679806707"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679808386"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; Text
 (PatchDeploymentStatus -&gt; Text) -&gt; ToText PatchDeploymentStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: PatchDeploymentStatus -&gt; Text
 $ctoText :: PatchDeploymentStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679806704"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679808383"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; ByteString
 (PatchDeploymentStatus -&gt; ByteString)
 -&gt; ToByteString PatchDeploymentStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: PatchDeploymentStatus -&gt; ByteString
 $ctoBS :: PatchDeploymentStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679806701"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679808380"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; ByteStringBuilder
 (PatchDeploymentStatus -&gt; ByteStringBuilder)
 -&gt; ToLog PatchDeploymentStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: PatchDeploymentStatus -&gt; ByteStringBuilder
 $cbuild :: PatchDeploymentStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679806698"><span class="annot"><span class="annottext">HeaderName -&gt; PatchDeploymentStatus -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679808377"><span class="annot"><span class="annottext">HeaderName -&gt; PatchDeploymentStatus -&gt; [Header]
 (HeaderName -&gt; PatchDeploymentStatus -&gt; [Header])
 -&gt; ToHeader PatchDeploymentStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; PatchDeploymentStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; PatchDeploymentStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679806695"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679808374"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; QueryString
 (PatchDeploymentStatus -&gt; QueryString)
 -&gt; ToQuery PatchDeploymentStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: PatchDeploymentStatus -&gt; QueryString
 $ctoQuery :: PatchDeploymentStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679806690"><span id="local-6989586621679806692"><span class="annot"><span class="annottext">Value -&gt; Parser [PatchDeploymentStatus]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679808369"><span id="local-6989586621679808371"><span class="annot"><span class="annottext">Value -&gt; Parser [PatchDeploymentStatus]
 Value -&gt; Parser PatchDeploymentStatus
 (Value -&gt; Parser PatchDeploymentStatus)
 -&gt; (Value -&gt; Parser [PatchDeploymentStatus])
@@ -211,7 +211,7 @@ $cparseJSONList :: Value -&gt; Parser [PatchDeploymentStatus]
 parseJSON :: Value -&gt; Parser PatchDeploymentStatus
 $cparseJSON :: Value -&gt; Parser PatchDeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679806685"><span id="local-6989586621679806687"><span class="annot"><span class="annottext">FromJSONKeyFunction [PatchDeploymentStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679808364"><span id="local-6989586621679808366"><span class="annot"><span class="annottext">FromJSONKeyFunction [PatchDeploymentStatus]
 FromJSONKeyFunction PatchDeploymentStatus
 FromJSONKeyFunction PatchDeploymentStatus
 -&gt; FromJSONKeyFunction [PatchDeploymentStatus]
@@ -223,7 +223,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [PatchDeploymentStatus]
 fromJSONKey :: FromJSONKeyFunction PatchDeploymentStatus
 $cfromJSONKey :: FromJSONKeyFunction PatchDeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679806676"><span id="local-6989586621679806678"><span id="local-6989586621679806680"><span id="local-6989586621679806682"><span class="annot"><span class="annottext">[PatchDeploymentStatus] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679808355"><span id="local-6989586621679808357"><span id="local-6989586621679808359"><span id="local-6989586621679808361"><span class="annot"><span class="annottext">[PatchDeploymentStatus] -&gt; Encoding
 [PatchDeploymentStatus] -&gt; Value
 PatchDeploymentStatus -&gt; Encoding
 PatchDeploymentStatus -&gt; Value
@@ -247,7 +247,7 @@ $ctoEncoding :: PatchDeploymentStatus -&gt; Encoding
 toJSON :: PatchDeploymentStatus -&gt; Value
 $ctoJSON :: PatchDeploymentStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679806671"><span id="local-6989586621679806673"><span class="annot"><span class="annottext">ToJSONKeyFunction [PatchDeploymentStatus]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679808350"><span id="local-6989586621679808352"><span class="annot"><span class="annottext">ToJSONKeyFunction [PatchDeploymentStatus]
 ToJSONKeyFunction PatchDeploymentStatus
 ToJSONKeyFunction PatchDeploymentStatus
 -&gt; ToJSONKeyFunction [PatchDeploymentStatus]
@@ -259,14 +259,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [PatchDeploymentStatus]
 toJSONKey :: ToJSONKeyFunction PatchDeploymentStatus
 $ctoJSONKey :: ToJSONKeyFunction PatchDeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679806668"><span class="annot"><span class="annottext">[Node] -&gt; Either String PatchDeploymentStatus
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679808347"><span class="annot"><span class="annottext">[Node] -&gt; Either String PatchDeploymentStatus
 ([Node] -&gt; Either String PatchDeploymentStatus)
 -&gt; FromXML PatchDeploymentStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String PatchDeploymentStatus
 $cparseXML :: [Node] -&gt; Either String PatchDeploymentStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679806665"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679808344"><span class="annot"><span class="annottext">PatchDeploymentStatus -&gt; XML
 (PatchDeploymentStatus -&gt; XML) -&gt; ToXML PatchDeploymentStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: PatchDeploymentStatus -&gt; XML

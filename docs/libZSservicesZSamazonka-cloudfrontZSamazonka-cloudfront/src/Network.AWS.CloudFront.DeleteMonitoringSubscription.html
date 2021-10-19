@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteMonitoringSubscription' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679418198"><span id="local-6989586621679418199"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMonitoringSubscription"><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription"><span class="hs-identifier hs-var">DeleteMonitoringSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMonitoringSubscription%27"><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription%27"><span class="hs-identifier hs-var">DeleteMonitoringSubscription'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679418480"><span id="local-6989586621679418481"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMonitoringSubscription"><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription"><span class="hs-identifier hs-var">DeleteMonitoringSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMonitoringSubscription%27"><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription%27"><span class="hs-identifier hs-var">DeleteMonitoringSubscription'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the distribution that you are disabling metrics for.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AdistributionId%3ADeleteMonitoringSubscription%27"><span class="annot"><span class="annottext">DeleteMonitoringSubscription -&gt; Text
 </span><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#%24sel%3AdistributionId%3ADeleteMonitoringSubscription%27"><span class="hs-identifier hs-var hs-var">distributionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418192"><span id="local-6989586621679418194"><span class="annot"><span class="annottext">DeleteMonitoringSubscription
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418474"><span id="local-6989586621679418476"><span class="annot"><span class="annottext">DeleteMonitoringSubscription
 -&gt; DeleteMonitoringSubscription -&gt; Bool
 (DeleteMonitoringSubscription
  -&gt; DeleteMonitoringSubscription -&gt; Bool)
@@ -68,7 +68,7 @@ $c/= :: DeleteMonitoringSubscription
 -&gt; DeleteMonitoringSubscription -&gt; Bool
 $c== :: DeleteMonitoringSubscription
 -&gt; DeleteMonitoringSubscription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418183"><span id="local-6989586621679418185"><span id="local-6989586621679418187"><span id="local-6989586621679418189"><span class="annot"><span class="annottext">ReadPrec [DeleteMonitoringSubscription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418465"><span id="local-6989586621679418467"><span id="local-6989586621679418469"><span id="local-6989586621679418471"><span class="annot"><span class="annottext">ReadPrec [DeleteMonitoringSubscription]
 ReadPrec DeleteMonitoringSubscription
 Int -&gt; ReadS DeleteMonitoringSubscription
 ReadS [DeleteMonitoringSubscription]
@@ -88,7 +88,7 @@ readList :: ReadS [DeleteMonitoringSubscription]
 $creadList :: ReadS [DeleteMonitoringSubscription]
 readsPrec :: Int -&gt; ReadS DeleteMonitoringSubscription
 $creadsPrec :: Int -&gt; ReadS DeleteMonitoringSubscription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418176"><span id="local-6989586621679418178"><span id="local-6989586621679418180"><span class="annot"><span class="annottext">Int -&gt; DeleteMonitoringSubscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418458"><span id="local-6989586621679418460"><span id="local-6989586621679418462"><span class="annot"><span class="annottext">Int -&gt; DeleteMonitoringSubscription -&gt; ShowS
 [DeleteMonitoringSubscription] -&gt; ShowS
 DeleteMonitoringSubscription -&gt; String
 (Int -&gt; DeleteMonitoringSubscription -&gt; ShowS)
@@ -134,14 +134,14 @@ DeleteMonitoringSubscription -&gt; Rep DeleteMonitoringSubscription x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription"><span class="hs-identifier hs-type">DeleteMonitoringSubscription</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteMonitoringSubscription"><span class="annot"><span class="annottext">newDeleteMonitoringSubscription :: Text -&gt; DeleteMonitoringSubscription
-</span><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#newDeleteMonitoringSubscription"><span class="hs-identifier hs-var hs-var">newDeleteMonitoringSubscription</span></a></span></span><span> </span><span id="local-6989586621679418171"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418171"><span class="hs-identifier hs-var">pDistributionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#newDeleteMonitoringSubscription"><span class="hs-identifier hs-var hs-var">newDeleteMonitoringSubscription</span></a></span></span><span> </span><span id="local-6989586621679418453"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418453"><span class="hs-identifier hs-var">pDistributionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteMonitoringSubscription' :: Text -&gt; DeleteMonitoringSubscription
 </span><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription%27"><span class="hs-identifier hs-type">DeleteMonitoringSubscription'</span></a></span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:distributionId:DeleteMonitoringSubscription' :: Text
 </span><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#%24sel%3AdistributionId%3ADeleteMonitoringSubscription%27"><span class="hs-identifier hs-var">distributionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>        </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418171"><span class="hs-identifier hs-var">pDistributionId_</span></a></span><span>
+</span><a href="#local-6989586621679418453"><span class="hs-identifier hs-var">pDistributionId_</span></a></span><span>
 </span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-comment">-- | The ID of the distribution that you are disabling metrics for.</span><span>
@@ -154,22 +154,22 @@ DeleteMonitoringSubscription -&gt; Rep DeleteMonitoringSubscription x
 -&gt; Lens
      DeleteMonitoringSubscription DeleteMonitoringSubscription Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription%27"><span class="hs-identifier hs-type">DeleteMonitoringSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418168"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription%27"><span class="hs-identifier hs-type">DeleteMonitoringSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418450"><span class="annot"><span class="annottext">Text
 distributionId :: Text
 $sel:distributionId:DeleteMonitoringSubscription' :: DeleteMonitoringSubscription -&gt; Text
-</span><a href="#local-6989586621679418168"><span class="hs-identifier hs-var hs-var">distributionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418168"><span class="hs-identifier hs-var">distributionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418167"><span class="annot"><span class="annottext">s :: DeleteMonitoringSubscription
-</span><a href="#local-6989586621679418167"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription%27"><span class="hs-identifier hs-type">DeleteMonitoringSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418166"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418166"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMonitoringSubscription
-</span><a href="#local-6989586621679418167"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionId:DeleteMonitoringSubscription' :: Text
+</span><a href="#local-6989586621679418450"><span class="hs-identifier hs-var hs-var">distributionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418450"><span class="hs-identifier hs-var">distributionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418449"><span class="annot"><span class="annottext">s :: DeleteMonitoringSubscription
+</span><a href="#local-6989586621679418449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription%27"><span class="hs-identifier hs-type">DeleteMonitoringSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418448"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679418448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMonitoringSubscription
+</span><a href="#local-6989586621679418449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionId:DeleteMonitoringSubscription' :: Text
 </span><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#%24sel%3AdistributionId%3ADeleteMonitoringSubscription%27"><span class="hs-identifier hs-var">distributionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418166"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription"><span class="hs-identifier hs-type">DeleteMonitoringSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription"><span class="hs-identifier hs-type">DeleteMonitoringSubscription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription"><span class="hs-identifier hs-type">DeleteMonitoringSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription"><span class="hs-identifier hs-type">DeleteMonitoringSubscription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>      </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse"><span class="hs-identifier hs-type">DeleteMonitoringSubscriptionResponse</span></a></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621679418162"><span class="annot"><span class="annottext">request :: DeleteMonitoringSubscription
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679418444"><span class="annot"><span class="annottext">request :: DeleteMonitoringSubscription
 -&gt; Request DeleteMonitoringSubscription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DeleteMonitoringSubscription
@@ -177,7 +177,7 @@ $sel:distributionId:DeleteMonitoringSubscription' :: DeleteMonitoringSubscriptio
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CloudFront.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-84"></span><span>  </span><span id="local-6989586621679418158"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679418440"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteMonitoringSubscription
 -&gt; ClientResponse ClientBody
@@ -203,10 +203,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679418155"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679418155"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679418154"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679418154"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679418153"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679418153"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679418437"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418437"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679418436"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679418436"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679418435"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679418435"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteMonitoringSubscriptionResponse
 </span><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse%27"><span class="hs-identifier hs-var">DeleteMonitoringSubscriptionResponse'</span></a></span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteMonitoringSubscriptionResponse)
@@ -218,17 +218,17 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679418155"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418437"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
 </span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679418146"><span id="local-6989586621679418148"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679418428"><span id="local-6989586621679418430"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-93"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription"><span class="hs-identifier hs-type">DeleteMonitoringSubscription</span></a></span></span></span><span>
 </span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418143"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription"><span class="hs-identifier hs-type">DeleteMonitoringSubscription</span></a></span></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679418425"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription"><span class="hs-identifier hs-type">DeleteMonitoringSubscription</span></a></span></span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription"><span class="hs-identifier hs-type">DeleteMonitoringSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679418139"><span class="annot"><span class="annottext">toHeaders :: DeleteMonitoringSubscription -&gt; ResponseHeaders
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679418421"><span class="annot"><span class="annottext">toHeaders :: DeleteMonitoringSubscription -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteMonitoringSubscription -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -236,11 +236,11 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription"><span class="hs-identifier hs-type">DeleteMonitoringSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-101"></span><span>  </span><span id="local-6989586621679418134"><span class="annot"><span class="annottext">toPath :: DeleteMonitoringSubscription -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription%27"><span class="hs-identifier hs-type">DeleteMonitoringSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418132"><span class="annot"><span class="annottext">Text
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679418416"><span class="annot"><span class="annottext">toPath :: DeleteMonitoringSubscription -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription%27"><span class="hs-identifier hs-type">DeleteMonitoringSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418414"><span class="annot"><span class="annottext">Text
 distributionId :: Text
 $sel:distributionId:DeleteMonitoringSubscription' :: DeleteMonitoringSubscription -&gt; Text
-</span><a href="#local-6989586621679418132"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679418414"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -249,13 +249,13 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679418132"><span class="hs-identifier hs-var">distributionId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679418414"><span class="hs-identifier hs-var">distributionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/monitoring-subscription&quot;</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscription"><span class="hs-identifier hs-type">DeleteMonitoringSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679418128"><span class="annot"><span class="annottext">toQuery :: DeleteMonitoringSubscription -&gt; QueryString
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679418410"><span class="annot"><span class="annottext">toQuery :: DeleteMonitoringSubscription -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteMonitoringSubscription -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -263,12 +263,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | /See:/ 'newDeleteMonitoringSubscriptionResponse' smart constructor.</span><span>
-</span><span id="line-112"></span><span id="local-6989586621679418125"><span id="local-6989586621679418126"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMonitoringSubscriptionResponse"><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse"><span class="hs-identifier hs-var">DeleteMonitoringSubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMonitoringSubscriptionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse%27"><span class="hs-identifier hs-var">DeleteMonitoringSubscriptionResponse'</span></a></span></span><span>
+</span><span id="line-112"></span><span id="local-6989586621679418407"><span id="local-6989586621679418408"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteMonitoringSubscriptionResponse"><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse"><span class="hs-identifier hs-var">DeleteMonitoringSubscriptionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteMonitoringSubscriptionResponse%27"><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse%27"><span class="hs-identifier hs-var">DeleteMonitoringSubscriptionResponse'</span></a></span></span><span>
 </span><span id="line-113"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-114"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteMonitoringSubscriptionResponse%27"><span class="annot"><span class="annottext">DeleteMonitoringSubscriptionResponse -&gt; Int
 </span><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#%24sel%3AhttpStatus%3ADeleteMonitoringSubscriptionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418120"><span id="local-6989586621679418122"><span class="annot"><span class="annottext">DeleteMonitoringSubscriptionResponse
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679418402"><span id="local-6989586621679418404"><span class="annot"><span class="annottext">DeleteMonitoringSubscriptionResponse
 -&gt; DeleteMonitoringSubscriptionResponse -&gt; Bool
 (DeleteMonitoringSubscriptionResponse
  -&gt; DeleteMonitoringSubscriptionResponse -&gt; Bool)
@@ -284,7 +284,7 @@ $c/= :: DeleteMonitoringSubscriptionResponse
 -&gt; DeleteMonitoringSubscriptionResponse -&gt; Bool
 $c== :: DeleteMonitoringSubscriptionResponse
 -&gt; DeleteMonitoringSubscriptionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418112"><span id="local-6989586621679418114"><span id="local-6989586621679418116"><span id="local-6989586621679418118"><span class="annot"><span class="annottext">ReadPrec [DeleteMonitoringSubscriptionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418394"><span id="local-6989586621679418396"><span id="local-6989586621679418398"><span id="local-6989586621679418400"><span class="annot"><span class="annottext">ReadPrec [DeleteMonitoringSubscriptionResponse]
 ReadPrec DeleteMonitoringSubscriptionResponse
 Int -&gt; ReadS DeleteMonitoringSubscriptionResponse
 ReadS [DeleteMonitoringSubscriptionResponse]
@@ -304,7 +304,7 @@ readList :: ReadS [DeleteMonitoringSubscriptionResponse]
 $creadList :: ReadS [DeleteMonitoringSubscriptionResponse]
 readsPrec :: Int -&gt; ReadS DeleteMonitoringSubscriptionResponse
 $creadsPrec :: Int -&gt; ReadS DeleteMonitoringSubscriptionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418106"><span id="local-6989586621679418108"><span id="local-6989586621679418110"><span class="annot"><span class="annottext">Int -&gt; DeleteMonitoringSubscriptionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679418388"><span id="local-6989586621679418390"><span id="local-6989586621679418392"><span class="annot"><span class="annottext">Int -&gt; DeleteMonitoringSubscriptionResponse -&gt; ShowS
 [DeleteMonitoringSubscriptionResponse] -&gt; ShowS
 DeleteMonitoringSubscriptionResponse -&gt; String
 (Int -&gt; DeleteMonitoringSubscriptionResponse -&gt; ShowS)
@@ -356,14 +356,14 @@ DeleteMonitoringSubscriptionResponse
 </span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-130"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse"><span class="hs-identifier hs-type">DeleteMonitoringSubscriptionResponse</span></a></span><span>
 </span><span id="line-131"></span><span id="newDeleteMonitoringSubscriptionResponse"><span class="annot"><span class="annottext">newDeleteMonitoringSubscriptionResponse :: Int -&gt; DeleteMonitoringSubscriptionResponse
-</span><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#newDeleteMonitoringSubscriptionResponse"><span class="hs-identifier hs-var hs-var">newDeleteMonitoringSubscriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679418103"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679418103"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#newDeleteMonitoringSubscriptionResponse"><span class="hs-identifier hs-var hs-var">newDeleteMonitoringSubscriptionResponse</span></a></span></span><span> </span><span id="local-6989586621679418385"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418385"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">DeleteMonitoringSubscriptionResponse' :: Int -&gt; DeleteMonitoringSubscriptionResponse
 </span><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteMonitoringSubscriptionResponse'</span></a></span><span>
 </span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMonitoringSubscriptionResponse' :: Int
 </span><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#%24sel%3AhttpStatus%3ADeleteMonitoringSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679418103"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679418385"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-135"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-136"></span><span>
 </span><span id="line-137"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -380,18 +380,18 @@ DeleteMonitoringSubscriptionResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteMonitoringSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418102"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteMonitoringSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679418384"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteMonitoringSubscriptionResponse' :: DeleteMonitoringSubscriptionResponse -&gt; Int
-</span><a href="#local-6989586621679418102"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679418102"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418101"><span class="annot"><span class="annottext">s :: DeleteMonitoringSubscriptionResponse
-</span><a href="#local-6989586621679418101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteMonitoringSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418100"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679418100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMonitoringSubscriptionResponse
-</span><a href="#local-6989586621679418101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMonitoringSubscriptionResponse' :: Int
+</span><a href="#local-6989586621679418384"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418384"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679418383"><span class="annot"><span class="annottext">s :: DeleteMonitoringSubscriptionResponse
+</span><a href="#local-6989586621679418383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse%27"><span class="hs-identifier hs-type">DeleteMonitoringSubscriptionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679418382"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679418382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteMonitoringSubscriptionResponse
+</span><a href="#local-6989586621679418383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteMonitoringSubscriptionResponse' :: Int
 </span><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#%24sel%3AhttpStatus%3ADeleteMonitoringSubscriptionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679418100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse"><span class="hs-identifier hs-type">DeleteMonitoringSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679418382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse"><span class="hs-identifier hs-type">DeleteMonitoringSubscriptionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>
 </span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-142"></span><span>  </span><span id="local-6989586621679418098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679418380"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-143"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFront.DeleteMonitoringSubscription.html#DeleteMonitoringSubscriptionResponse"><span class="hs-identifier hs-type">DeleteMonitoringSubscriptionResponse</span></a></span></span><span>
 </span><span id="line-144"></span></pre></body></html>

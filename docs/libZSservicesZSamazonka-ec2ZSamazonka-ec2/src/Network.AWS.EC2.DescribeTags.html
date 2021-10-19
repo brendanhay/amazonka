@@ -33,10 +33,10 @@
 </span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#newDescribeTags"><span class="hs-identifier">newDescribeTags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-34"></span><span>
 </span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_nextToken"><span class="hs-identifier">describeTags_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_maxResults"><span class="hs-identifier">describeTags_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_filters"><span class="hs-identifier">describeTags_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_nextToken"><span class="hs-identifier">describeTags_nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_dryRun"><span class="hs-identifier">describeTags_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_filters"><span class="hs-identifier">describeTags_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_maxResults"><span class="hs-identifier">describeTags_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier">DescribeTagsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -57,46 +57,46 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDescribeTags' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621681210973"><span id="local-6989586621681210974"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTags"><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-var">DescribeTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTags%27"><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-var">DescribeTags'</span></a></span></span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to retrieve the next page of results.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeTags%27"><span class="annot"><span class="annottext">DescribeTags -&gt; Maybe Text
+</span><span id="line-60"></span><span id="local-6989586621681246661"><span id="local-6989586621681246662"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTags"><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-var">DescribeTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTags%27"><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-var">DescribeTags'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The filters.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @key@ - The tag key.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   @resource-type@ - The resource type (@customer-gateway@ |</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     @dedicated-host@ | @dhcp-options@ | @elastic-ip@ | @fleet@ |</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     @fpga-image@ | @host-reservation@ | @image@ | @instance@ |</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     @internet-gateway@ | @key-pair@ | @launch-template@ | @natgateway@ |</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     @network-acl@ | @network-interface@ | @placement-group@ |</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ |</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     @vpc-endpoint@ | @vpc-endpoint-service@ | @vpc-peering-connection@ |</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     @vpn-connection@ | @vpn-gateway@).</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of the tag. For example,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     specify \&quot;tag:Owner\&quot; for the filter name and \&quot;TeamA\&quot; for the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     filter value to find resources with the tag \&quot;Owner=TeamA\&quot;.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   @value@ - The tag value.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeTags%27"><span class="annot"><span class="annottext">DescribeTags -&gt; Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3Afilters%3ADescribeTags%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The token to retrieve the next page of results.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeTags%27"><span class="annot"><span class="annottext">DescribeTags -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AnextToken%3ADescribeTags%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in a single call. This value can</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- be between 5 and 1000. To retrieve the remaining results, make another</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- call with the returned @NextToken@ value.</span><span>
-</span><span id="line-66"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeTags%27"><span class="annot"><span class="annottext">DescribeTags -&gt; Maybe Int
-</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AmaxResults%3ADescribeTags%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeTags%27"><span class="annot"><span class="annottext">DescribeTags -&gt; Maybe Bool
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeTags%27"><span class="annot"><span class="annottext">DescribeTags -&gt; Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AdryRun%3ADescribeTags%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The filters.</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @key@ - The tag key.</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- -   @resource-type@ - The resource type (@customer-gateway@ |</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     @dedicated-host@ | @dhcp-options@ | @elastic-ip@ | @fleet@ |</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     @fpga-image@ | @host-reservation@ | @image@ | @instance@ |</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     @internet-gateway@ | @key-pair@ | @launch-template@ | @natgateway@ |</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     @network-acl@ | @network-interface@ | @placement-group@ |</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ |</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     @vpc-endpoint@ | @vpc-endpoint-service@ | @vpc-peering-connection@ |</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     @vpn-connection@ | @vpn-gateway@).</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of the tag. For example,</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     specify \&quot;tag:Owner\&quot; for the filter name and \&quot;TeamA\&quot; for the</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     filter value to find resources with the tag \&quot;Owner=TeamA\&quot;.</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   @value@ - The tag value.</span><span>
-</span><span id="line-93"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeTags%27"><span class="annot"><span class="annottext">DescribeTags -&gt; Maybe [Filter]
-</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3Afilters%3ADescribeTags%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in a single call. This value can</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- be between 5 and 1000. To retrieve the remaining results, make another</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- call with the returned @NextToken@ value.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeTags%27"><span class="annot"><span class="annottext">DescribeTags -&gt; Maybe Int
+</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AmaxResults%3ADescribeTags%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681210964"><span id="local-6989586621681210966"><span class="annot"><span class="annottext">DescribeTags -&gt; DescribeTags -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681246652"><span id="local-6989586621681246654"><span class="annot"><span class="annottext">DescribeTags -&gt; DescribeTags -&gt; Bool
 (DescribeTags -&gt; DescribeTags -&gt; Bool)
 -&gt; (DescribeTags -&gt; DescribeTags -&gt; Bool) -&gt; Eq DescribeTags
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -104,7 +104,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeTags -&gt; DescribeTags -&gt; Bool
 == :: DescribeTags -&gt; DescribeTags -&gt; Bool
 $c== :: DescribeTags -&gt; DescribeTags -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681210955"><span id="local-6989586621681210957"><span id="local-6989586621681210959"><span id="local-6989586621681210961"><span class="annot"><span class="annottext">ReadPrec [DescribeTags]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681246643"><span id="local-6989586621681246645"><span id="local-6989586621681246647"><span id="local-6989586621681246649"><span class="annot"><span class="annottext">ReadPrec [DescribeTags]
 ReadPrec DescribeTags
 Int -&gt; ReadS DescribeTags
 ReadS [DescribeTags]
@@ -124,7 +124,7 @@ readList :: ReadS [DescribeTags]
 $creadList :: ReadS [DescribeTags]
 readsPrec :: Int -&gt; ReadS DescribeTags
 $creadsPrec :: Int -&gt; ReadS DescribeTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681210948"><span id="local-6989586621681210950"><span id="local-6989586621681210952"><span class="annot"><span class="annottext">Int -&gt; DescribeTags -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681246636"><span id="local-6989586621681246638"><span id="local-6989586621681246640"><span class="annot"><span class="annottext">Int -&gt; DescribeTags -&gt; ShowS
 [DescribeTags] -&gt; ShowS
 DescribeTags -&gt; String
 (Int -&gt; DescribeTags -&gt; ShowS)
@@ -158,160 +158,101 @@ $cfrom :: forall x. DescribeTags -&gt; Rep DescribeTags x
 </span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'nextToken', 'describeTags_nextToken' - The token to retrieve the next page of results.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'filters', 'describeTags_filters' - The filters.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'maxResults', 'describeTags_maxResults' - The maximum number of results to return in a single call. This value can</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- be between 5 and 1000. To retrieve the remaining results, make another</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- call with the returned @NextToken@ value.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- -   @key@ - The tag key.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'dryRun', 'describeTags_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-115"></span><span class="hs-comment">--</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- 'filters', 'describeTags_filters' - The filters.</span><span>
-</span><span id="line-117"></span><span class="hs-comment">--</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- -   @key@ - The tag key.</span><span>
-</span><span id="line-119"></span><span class="hs-comment">--</span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
-</span><span id="line-121"></span><span class="hs-comment">--</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- -   @resource-type@ - The resource type (@customer-gateway@ |</span><span>
-</span><span id="line-123"></span><span class="hs-comment">--     @dedicated-host@ | @dhcp-options@ | @elastic-ip@ | @fleet@ |</span><span>
-</span><span id="line-124"></span><span class="hs-comment">--     @fpga-image@ | @host-reservation@ | @image@ | @instance@ |</span><span>
-</span><span id="line-125"></span><span class="hs-comment">--     @internet-gateway@ | @key-pair@ | @launch-template@ | @natgateway@ |</span><span>
-</span><span id="line-126"></span><span class="hs-comment">--     @network-acl@ | @network-interface@ | @placement-group@ |</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--     @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@</span><span>
-</span><span id="line-128"></span><span class="hs-comment">--     | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ |</span><span>
-</span><span id="line-129"></span><span class="hs-comment">--     @vpc-endpoint@ | @vpc-endpoint-service@ | @vpc-peering-connection@ |</span><span>
-</span><span id="line-130"></span><span class="hs-comment">--     @vpn-connection@ | @vpn-gateway@).</span><span>
-</span><span id="line-131"></span><span class="hs-comment">--</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of the tag. For example,</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--     specify \&quot;tag:Owner\&quot; for the filter name and \&quot;TeamA\&quot; for the</span><span>
-</span><span id="line-134"></span><span class="hs-comment">--     filter value to find resources with the tag \&quot;Owner=TeamA\&quot;.</span><span>
-</span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- -   @value@ - The tag value.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   @resource-type@ - The resource type (@customer-gateway@ |</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--     @dedicated-host@ | @dhcp-options@ | @elastic-ip@ | @fleet@ |</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     @fpga-image@ | @host-reservation@ | @image@ | @instance@ |</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     @internet-gateway@ | @key-pair@ | @launch-template@ | @natgateway@ |</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--     @network-acl@ | @network-interface@ | @placement-group@ |</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--     | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ |</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     @vpc-endpoint@ | @vpc-endpoint-service@ | @vpc-peering-connection@ |</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     @vpn-connection@ | @vpn-gateway@).</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of the tag. For example,</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     specify \&quot;tag:Owner\&quot; for the filter name and \&quot;TeamA\&quot; for the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     filter value to find resources with the tag \&quot;Owner=TeamA\&quot;.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   @value@ - The tag value.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'nextToken', 'describeTags_nextToken' - The token to retrieve the next page of results.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'dryRun', 'describeTags_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'maxResults', 'describeTags_maxResults' - The maximum number of results to return in a single call. This value can</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- be between 5 and 1000. To retrieve the remaining results, make another</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- call with the returned @NextToken@ value.</span><span>
 </span><span id="line-137"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#newDescribeTags"><span class="hs-identifier hs-type">newDescribeTags</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-138"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span>
 </span><span id="line-139"></span><span id="newDescribeTags"><span class="annot"><span class="annottext">newDescribeTags :: DescribeTags
 </span><a href="Network.AWS.EC2.DescribeTags.html#newDescribeTags"><span class="hs-identifier hs-var hs-var">newDescribeTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DescribeTags' :: Maybe Text
--&gt; Maybe Int -&gt; Maybe Bool -&gt; Maybe [Filter] -&gt; DescribeTags
+</span><span id="line-140"></span><span>  </span><span class="annot"><span class="annottext">DescribeTags' :: Maybe [Filter]
+-&gt; Maybe Text -&gt; Maybe Bool -&gt; Maybe Int -&gt; DescribeTags
 </span><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeTags' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AnextToken%3ADescribeTags%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-141"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeTags' :: Maybe [Filter]
+</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3Afilters%3ADescribeTags%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeTags' :: Maybe Int
-</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AmaxResults%3ADescribeTags%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeTags' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AnextToken%3ADescribeTags%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeTags' :: Maybe Bool
 </span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AdryRun%3ADescribeTags%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeTags' :: Maybe [Filter]
-</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3Afilters%3ADescribeTags%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeTags' :: Maybe Int
+</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AmaxResults%3ADescribeTags%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-145"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- | The token to retrieve the next page of results.</span><span>
-</span><span id="line-148"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_nextToken"><span class="hs-identifier hs-type">describeTags_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span id="describeTags_nextToken"><span class="annot"><span class="annottext">describeTags_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DescribeTags -&gt; f DescribeTags
-</span><a href="Network.AWS.EC2.DescribeTags.html#describeTags_nextToken"><span class="hs-identifier hs-var hs-var">describeTags_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTags -&gt; Maybe Text)
--&gt; (DescribeTags -&gt; Maybe Text -&gt; DescribeTags)
--&gt; Lens DescribeTags DescribeTags (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210942"><span class="annot"><span class="annottext">Maybe Text
-nextToken :: Maybe Text
-$sel:nextToken:DescribeTags' :: DescribeTags -&gt; Maybe Text
-</span><a href="#local-6989586621681210942"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681210942"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681210941"><span class="annot"><span class="annottext">s :: DescribeTags
-</span><a href="#local-6989586621681210941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681210940"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681210940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTags
-</span><a href="#local-6989586621681210941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeTags' :: Maybe Text
-</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AnextToken%3ADescribeTags%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681210940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- | The maximum number of results to return in a single call. This value can</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- be between 5 and 1000. To retrieve the remaining results, make another</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- call with the returned @NextToken@ value.</span><span>
-</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_maxResults"><span class="hs-identifier hs-type">describeTags_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-155"></span><span id="describeTags_maxResults"><span class="annot"><span class="annottext">describeTags_maxResults :: (Maybe Int -&gt; f (Maybe Int)) -&gt; DescribeTags -&gt; f DescribeTags
-</span><a href="Network.AWS.EC2.DescribeTags.html#describeTags_maxResults"><span class="hs-identifier hs-var hs-var">describeTags_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTags -&gt; Maybe Int)
--&gt; (DescribeTags -&gt; Maybe Int -&gt; DescribeTags)
--&gt; Lens DescribeTags DescribeTags (Maybe Int) (Maybe Int)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210939"><span class="annot"><span class="annottext">Maybe Int
-maxResults :: Maybe Int
-$sel:maxResults:DescribeTags' :: DescribeTags -&gt; Maybe Int
-</span><a href="#local-6989586621681210939"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681210939"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681210938"><span class="annot"><span class="annottext">s :: DescribeTags
-</span><a href="#local-6989586621681210938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681210937"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681210937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTags
-</span><a href="#local-6989586621681210938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeTags' :: Maybe Int
-</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AmaxResults%3ADescribeTags%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681210937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_dryRun"><span class="hs-identifier hs-type">describeTags_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span id="describeTags_dryRun"><span class="annot"><span class="annottext">describeTags_dryRun :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DescribeTags -&gt; f DescribeTags
-</span><a href="Network.AWS.EC2.DescribeTags.html#describeTags_dryRun"><span class="hs-identifier hs-var hs-var">describeTags_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTags -&gt; Maybe Bool)
--&gt; (DescribeTags -&gt; Maybe Bool -&gt; DescribeTags)
--&gt; Lens DescribeTags DescribeTags (Maybe Bool) (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210936"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:DescribeTags' :: DescribeTags -&gt; Maybe Bool
-</span><a href="#local-6989586621681210936"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681210936"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681210935"><span class="annot"><span class="annottext">s :: DescribeTags
-</span><a href="#local-6989586621681210935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681210934"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681210934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTags
-</span><a href="#local-6989586621681210935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeTags' :: Maybe Bool
-</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AdryRun%3ADescribeTags%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681210934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-163"></span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- | The filters.</span><span>
-</span><span id="line-165"></span><span class="hs-comment">--</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- -   @key@ - The tag key.</span><span>
-</span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- -   @resource-type@ - The resource type (@customer-gateway@ |</span><span>
-</span><span id="line-171"></span><span class="hs-comment">--     @dedicated-host@ | @dhcp-options@ | @elastic-ip@ | @fleet@ |</span><span>
-</span><span id="line-172"></span><span class="hs-comment">--     @fpga-image@ | @host-reservation@ | @image@ | @instance@ |</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--     @internet-gateway@ | @key-pair@ | @launch-template@ | @natgateway@ |</span><span>
-</span><span id="line-174"></span><span class="hs-comment">--     @network-acl@ | @network-interface@ | @placement-group@ |</span><span>
-</span><span id="line-175"></span><span class="hs-comment">--     @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@</span><span>
-</span><span id="line-176"></span><span class="hs-comment">--     | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ |</span><span>
-</span><span id="line-177"></span><span class="hs-comment">--     @vpc-endpoint@ | @vpc-endpoint-service@ | @vpc-peering-connection@ |</span><span>
-</span><span id="line-178"></span><span class="hs-comment">--     @vpn-connection@ | @vpn-gateway@).</span><span>
-</span><span id="line-179"></span><span class="hs-comment">--</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of the tag. For example,</span><span>
-</span><span id="line-181"></span><span class="hs-comment">--     specify \&quot;tag:Owner\&quot; for the filter name and \&quot;TeamA\&quot; for the</span><span>
-</span><span id="line-182"></span><span class="hs-comment">--     filter value to find resources with the tag \&quot;Owner=TeamA\&quot;.</span><span>
-</span><span id="line-183"></span><span class="hs-comment">--</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- -   @value@ - The tag value.</span><span>
-</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_filters"><span class="hs-identifier hs-type">describeTags_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-186"></span><span id="describeTags_filters"><span class="annot"><span class="annottext">describeTags_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><span id="line-147"></span><span class="hs-comment">-- | The filters.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   @key@ - The tag key.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @resource-id@ - The ID of the resource.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   @resource-type@ - The resource type (@customer-gateway@ |</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     @dedicated-host@ | @dhcp-options@ | @elastic-ip@ | @fleet@ |</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     @fpga-image@ | @host-reservation@ | @image@ | @instance@ |</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     @internet-gateway@ | @key-pair@ | @launch-template@ | @natgateway@ |</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     @network-acl@ | @network-interface@ | @placement-group@ |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     @reserved-instances@ | @route-table@ | @security-group@ | @snapshot@</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     | @spot-instances-request@ | @subnet@ | @volume@ | @vpc@ |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     @vpc-endpoint@ | @vpc-endpoint-service@ | @vpc-peering-connection@ |</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     @vpn-connection@ | @vpn-gateway@).</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of the tag. For example,</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--     specify \&quot;tag:Owner\&quot; for the filter name and \&quot;TeamA\&quot; for the</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--     filter value to find resources with the tag \&quot;Owner=TeamA\&quot;.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- -   @value@ - The tag value.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_filters"><span class="hs-identifier hs-type">describeTags_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="describeTags_filters"><span class="annot"><span class="annottext">describeTags_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
 -&gt; DescribeTags -&gt; f DescribeTags
 </span><a href="Network.AWS.EC2.DescribeTags.html#describeTags_filters"><span class="hs-identifier hs-var hs-var">describeTags_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTags -&gt; Maybe [Filter])
 -&gt; (DescribeTags -&gt; Maybe [Filter] -&gt; DescribeTags)
 -&gt; Lens DescribeTags DescribeTags (Maybe [Filter]) (Maybe [Filter])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210933"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246630"><span class="annot"><span class="annottext">Maybe [Filter]
 filters :: Maybe [Filter]
 $sel:filters:DescribeTags' :: DescribeTags -&gt; Maybe [Filter]
-</span><a href="#local-6989586621681210933"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681210933"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681210932"><span class="annot"><span class="annottext">s :: DescribeTags
-</span><a href="#local-6989586621681210932"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681210931"><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681210931"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTags
-</span><a href="#local-6989586621681210932"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeTags' :: Maybe [Filter]
+</span><a href="#local-6989586621681246630"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681246630"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246629"><span class="annot"><span class="annottext">s :: DescribeTags
+</span><a href="#local-6989586621681246629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246628"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681246628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTags
+</span><a href="#local-6989586621681246629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeTags' :: Maybe [Filter]
 </span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3Afilters%3ADescribeTags%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681210931"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+</span><a href="#local-6989586621681246628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
  -&gt; DescribeTags -&gt; f DescribeTags)
 -&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
     -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
@@ -326,20 +267,79 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The token to retrieve the next page of results.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_nextToken"><span class="hs-identifier hs-type">describeTags_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="describeTags_nextToken"><span class="annot"><span class="annottext">describeTags_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DescribeTags -&gt; f DescribeTags
+</span><a href="Network.AWS.EC2.DescribeTags.html#describeTags_nextToken"><span class="hs-identifier hs-var hs-var">describeTags_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTags -&gt; Maybe Text)
+-&gt; (DescribeTags -&gt; Maybe Text -&gt; DescribeTags)
+-&gt; Lens DescribeTags DescribeTags (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246624"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeTags' :: DescribeTags -&gt; Maybe Text
+</span><a href="#local-6989586621681246624"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681246624"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246623"><span class="annot"><span class="annottext">s :: DescribeTags
+</span><a href="#local-6989586621681246623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246622"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681246622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTags
+</span><a href="#local-6989586621681246623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeTags' :: Maybe Text
+</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AnextToken%3ADescribeTags%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681246622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_dryRun"><span class="hs-identifier hs-type">describeTags_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="describeTags_dryRun"><span class="annot"><span class="annottext">describeTags_dryRun :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DescribeTags -&gt; f DescribeTags
+</span><a href="Network.AWS.EC2.DescribeTags.html#describeTags_dryRun"><span class="hs-identifier hs-var hs-var">describeTags_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTags -&gt; Maybe Bool)
+-&gt; (DescribeTags -&gt; Maybe Bool -&gt; DescribeTags)
+-&gt; Lens DescribeTags DescribeTags (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246621"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribeTags' :: DescribeTags -&gt; Maybe Bool
+</span><a href="#local-6989586621681246621"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681246621"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246620"><span class="annot"><span class="annottext">s :: DescribeTags
+</span><a href="#local-6989586621681246620"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246619"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681246619"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTags
+</span><a href="#local-6989586621681246620"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeTags' :: Maybe Bool
+</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AdryRun%3ADescribeTags%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681246619"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The maximum number of results to return in a single call. This value can</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- be between 5 and 1000. To retrieve the remaining results, make another</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- call with the returned @NextToken@ value.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTags_maxResults"><span class="hs-identifier hs-type">describeTags_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="describeTags_maxResults"><span class="annot"><span class="annottext">describeTags_maxResults :: (Maybe Int -&gt; f (Maybe Int)) -&gt; DescribeTags -&gt; f DescribeTags
+</span><a href="Network.AWS.EC2.DescribeTags.html#describeTags_maxResults"><span class="hs-identifier hs-var hs-var">describeTags_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeTags -&gt; Maybe Int)
+-&gt; (DescribeTags -&gt; Maybe Int -&gt; DescribeTags)
+-&gt; Lens DescribeTags DescribeTags (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246618"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:DescribeTags' :: DescribeTags -&gt; Maybe Int
+</span><a href="#local-6989586621681246618"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681246618"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246617"><span class="annot"><span class="annottext">s :: DescribeTags
+</span><a href="#local-6989586621681246617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246616"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681246616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTags
+</span><a href="#local-6989586621681246617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeTags' :: Maybe Int
+</span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AmaxResults%3ADescribeTags%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681246616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-187"></span><span>
 </span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-189"></span><span>  </span><span id="local-6989586621681210924"><span class="annot"><span class="annottext">page :: DescribeTags -&gt; AWSResponse DescribeTags -&gt; Maybe DescribeTags
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681210922"><span class="annot"><span class="annottext">DescribeTags
-</span><a href="#local-6989586621681210922"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681210921"><span class="annot"><span class="annottext">AWSResponse DescribeTags
-</span><a href="#local-6989586621681210921"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621681246612"><span class="annot"><span class="annottext">page :: DescribeTags -&gt; AWSResponse DescribeTags -&gt; Maybe DescribeTags
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681246610"><span class="annot"><span class="annottext">DescribeTags
+</span><a href="#local-6989586621681246610"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681246609"><span class="annot"><span class="annottext">AWSResponse DescribeTags
+</span><a href="#local-6989586621681246609"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-190"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-191"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeTags
 DescribeTagsResponse
-</span><a href="#local-6989586621681210921"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681246609"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">DescribeTagsResponse
 -&gt; Getting (First Text) DescribeTagsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -365,7 +365,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-196"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeTags
 DescribeTagsResponse
-</span><a href="#local-6989586621681210921"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681246609"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">DescribeTagsResponse
 -&gt; Getting
      (First [TagDescription]) DescribeTagsResponse [TagDescription]
@@ -406,7 +406,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">DescribeTags
-</span><a href="#local-6989586621681210922"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621681246610"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">DescribeTags -&gt; (DescribeTags -&gt; DescribeTags) -&gt; DescribeTags
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -419,7 +419,7 @@ Lens DescribeTags DescribeTags (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeTags
 DescribeTagsResponse
-</span><a href="#local-6989586621681210921"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621681246609"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-205"></span><span>          </span><span class="annot"><span class="annottext">DescribeTagsResponse
 -&gt; Getting (First Text) DescribeTagsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -439,12 +439,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-206"></span><span>
 </span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-208"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-type">DescribeTagsResponse</span></a></span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621681210912"><span class="annot"><span class="annottext">request :: DescribeTags -&gt; Request DescribeTags
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621681246600"><span class="annot"><span class="annottext">request :: DescribeTags -&gt; Request DescribeTags
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeTags -&gt; Request DescribeTags
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621681210908"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621681246596"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeTags
 -&gt; ClientResponse ClientBody
@@ -468,10 +468,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-212"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681210905"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681210905"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681210904"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681210904"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681210903"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681210903"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681246593"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681246593"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681246592"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681246592"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681246591"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681246591"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-213"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [TagDescription] -&gt; Int -&gt; DescribeTagsResponse
 </span><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-var">DescribeTagsResponse'</span></a></span><span>
 </span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
@@ -481,7 +481,7 @@ MonadResource m =&gt;
      String (Maybe [TagDescription] -&gt; Int -&gt; DescribeTagsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681210903"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681246591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -491,7 +491,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeTagsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681210903"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681246591"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -521,15 +521,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681210905"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681246593"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-220"></span><span>
-</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681210892"><span id="local-6989586621681210894"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span></span></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681246580"><span id="local-6989586621681246582"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span></span></span><span>
 </span><span id="line-222"></span><span>
-</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681210889"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681246577"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span></span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621681210885"><span class="annot"><span class="annottext">toHeaders :: DescribeTags -&gt; ResponseHeaders
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621681246573"><span class="annot"><span class="annottext">toHeaders :: DescribeTags -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeTags -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -537,27 +537,27 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621681210880"><span class="annot"><span class="annottext">toPath :: DescribeTags -&gt; ByteString
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621681246568"><span class="annot"><span class="annottext">toPath :: DescribeTags -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeTags -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-230"></span><span>
 </span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags"><span class="hs-identifier hs-type">DescribeTags</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621681210876"><span class="annot"><span class="annottext">toQuery :: DescribeTags -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210871"><span id="local-6989586621681210872"><span id="local-6989586621681210873"><span id="local-6989586621681210874"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621681246564"><span class="annot"><span class="annottext">toQuery :: DescribeTags -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTags%27"><span class="hs-identifier hs-type">DescribeTags'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246559"><span id="local-6989586621681246560"><span id="local-6989586621681246561"><span id="local-6989586621681246562"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Int
 Maybe [Filter]
 Maybe Text
-filters :: Maybe [Filter]
-dryRun :: Maybe Bool
 maxResults :: Maybe Int
+dryRun :: Maybe Bool
 nextToken :: Maybe Text
-$sel:filters:DescribeTags' :: DescribeTags -&gt; Maybe [Filter]
-$sel:dryRun:DescribeTags' :: DescribeTags -&gt; Maybe Bool
+filters :: Maybe [Filter]
 $sel:maxResults:DescribeTags' :: DescribeTags -&gt; Maybe Int
+$sel:dryRun:DescribeTags' :: DescribeTags -&gt; Maybe Bool
 $sel:nextToken:DescribeTags' :: DescribeTags -&gt; Maybe Text
-</span><a href="#local-6989586621681210871"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:filters:DescribeTags' :: DescribeTags -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681246559"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-233"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -573,25 +573,10 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681210874"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621681210873"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681210872"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-242"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+</span><span id="line-239"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
@@ -599,11 +584,26 @@ ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
-</span><a href="#local-6989586621681210871"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681246562"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681246561"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681246560"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681246559"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
 </span><span id="line-243"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-244"></span><span>
 </span><span id="line-245"></span><span class="hs-comment">-- | /See:/ 'newDescribeTagsResponse' smart constructor.</span><span>
-</span><span id="line-246"></span><span id="local-6989586621681210867"><span id="local-6989586621681210868"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTagsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-var">DescribeTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTagsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-var">DescribeTagsResponse'</span></a></span></span><span>
+</span><span id="line-246"></span><span id="local-6989586621681246555"><span id="local-6989586621681246556"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeTagsResponse"><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-var">DescribeTagsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeTagsResponse%27"><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-var">DescribeTagsResponse'</span></a></span></span><span>
 </span><span id="line-247"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
 </span><span id="line-248"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
 </span><span id="line-249"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeTagsResponse%27"><span class="annot"><span class="annottext">DescribeTagsResponse -&gt; Maybe Text
@@ -615,7 +615,7 @@ forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span id="line-253"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeTagsResponse%27"><span class="annot"><span class="annottext">DescribeTagsResponse -&gt; Int
 </span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AhttpStatus%3ADescribeTagsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-254"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-255"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681210860"><span id="local-6989586621681210862"><span class="annot"><span class="annottext">DescribeTagsResponse -&gt; DescribeTagsResponse -&gt; Bool
+</span><span id="line-255"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681246548"><span id="local-6989586621681246550"><span class="annot"><span class="annottext">DescribeTagsResponse -&gt; DescribeTagsResponse -&gt; Bool
 (DescribeTagsResponse -&gt; DescribeTagsResponse -&gt; Bool)
 -&gt; (DescribeTagsResponse -&gt; DescribeTagsResponse -&gt; Bool)
 -&gt; Eq DescribeTagsResponse
@@ -624,7 +624,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeTagsResponse -&gt; DescribeTagsResponse -&gt; Bool
 == :: DescribeTagsResponse -&gt; DescribeTagsResponse -&gt; Bool
 $c== :: DescribeTagsResponse -&gt; DescribeTagsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681210852"><span id="local-6989586621681210854"><span id="local-6989586621681210856"><span id="local-6989586621681210858"><span class="annot"><span class="annottext">ReadPrec [DescribeTagsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681246540"><span id="local-6989586621681246542"><span id="local-6989586621681246544"><span id="local-6989586621681246546"><span class="annot"><span class="annottext">ReadPrec [DescribeTagsResponse]
 ReadPrec DescribeTagsResponse
 Int -&gt; ReadS DescribeTagsResponse
 ReadS [DescribeTagsResponse]
@@ -644,7 +644,7 @@ readList :: ReadS [DescribeTagsResponse]
 $creadList :: ReadS [DescribeTagsResponse]
 readsPrec :: Int -&gt; ReadS DescribeTagsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeTagsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681210846"><span id="local-6989586621681210848"><span id="local-6989586621681210850"><span class="annot"><span class="annottext">Int -&gt; DescribeTagsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681246534"><span id="local-6989586621681246536"><span id="local-6989586621681246538"><span class="annot"><span class="annottext">Int -&gt; DescribeTagsResponse -&gt; ShowS
 [DescribeTagsResponse] -&gt; ShowS
 DescribeTagsResponse -&gt; String
 (Int -&gt; DescribeTagsResponse -&gt; ShowS)
@@ -689,8 +689,8 @@ $cfrom :: forall x. DescribeTagsResponse -&gt; Rep DescribeTagsResponse x
 </span><span id="line-273"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-274"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-type">DescribeTagsResponse</span></a></span><span>
 </span><span id="line-275"></span><span id="newDescribeTagsResponse"><span class="annot"><span class="annottext">newDescribeTagsResponse :: Int -&gt; DescribeTagsResponse
-</span><a href="Network.AWS.EC2.DescribeTags.html#newDescribeTagsResponse"><span class="hs-identifier hs-var hs-var">newDescribeTagsResponse</span></a></span></span><span> </span><span id="local-6989586621681210843"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681210843"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.DescribeTags.html#newDescribeTagsResponse"><span class="hs-identifier hs-var hs-var">newDescribeTagsResponse</span></a></span></span><span> </span><span id="local-6989586621681246531"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681246531"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-276"></span><span>  </span><span class="annot"><span class="annottext">DescribeTagsResponse' :: Maybe Text -&gt; Maybe [TagDescription] -&gt; Int -&gt; DescribeTagsResponse
 </span><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-type">DescribeTagsResponse'</span></a></span><span>
 </span><span id="line-277"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeTagsResponse' :: Maybe Text
@@ -703,7 +703,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-279"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTagsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AhttpStatus%3ADescribeTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681210843"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681246531"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-280"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
@@ -715,16 +715,16 @@ forall a. Maybe a
 -&gt; (DescribeTagsResponse -&gt; Maybe Text -&gt; DescribeTagsResponse)
 -&gt; Lens' DescribeTagsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-type">DescribeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210842"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-type">DescribeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246530"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeTagsResponse' :: DescribeTagsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681210842"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681210842"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681210841"><span class="annot"><span class="annottext">s :: DescribeTagsResponse
-</span><a href="#local-6989586621681210841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-type">DescribeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681210840"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681210840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTagsResponse
-</span><a href="#local-6989586621681210841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeTagsResponse' :: Maybe Text
+</span><a href="#local-6989586621681246530"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681246530"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246529"><span class="annot"><span class="annottext">s :: DescribeTagsResponse
+</span><a href="#local-6989586621681246529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-type">DescribeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246528"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681246528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTagsResponse
+</span><a href="#local-6989586621681246529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeTagsResponse' :: Maybe Text
 </span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AnextToken%3ADescribeTagsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681210840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-type">DescribeTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681246528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-type">DescribeTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-286"></span><span>
 </span><span id="line-287"></span><span class="hs-comment">-- | The tags.</span><span>
 </span><span id="line-288"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTagsResponse_tags"><span class="hs-identifier hs-type">describeTagsResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-type">DescribeTagsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagDescription.html#TagDescription"><span class="hs-identifier hs-type">TagDescription</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -735,16 +735,16 @@ $sel:nextToken:DescribeTagsResponse' :: DescribeTagsResponse -&gt; Maybe Text
     -&gt; Maybe [TagDescription] -&gt; DescribeTagsResponse)
 -&gt; Lens' DescribeTagsResponse (Maybe [TagDescription])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-type">DescribeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210839"><span class="annot"><span class="annottext">Maybe [TagDescription]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-type">DescribeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246527"><span class="annot"><span class="annottext">Maybe [TagDescription]
 tags :: Maybe [TagDescription]
 $sel:tags:DescribeTagsResponse' :: DescribeTagsResponse -&gt; Maybe [TagDescription]
-</span><a href="#local-6989586621681210839"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagDescription]
-</span><a href="#local-6989586621681210839"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681210838"><span class="annot"><span class="annottext">s :: DescribeTagsResponse
-</span><a href="#local-6989586621681210838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-type">DescribeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681210837"><span class="annot"><span class="annottext">Maybe [TagDescription]
-</span><a href="#local-6989586621681210837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTagsResponse
-</span><a href="#local-6989586621681210838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DescribeTagsResponse' :: Maybe [TagDescription]
+</span><a href="#local-6989586621681246527"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagDescription]
+</span><a href="#local-6989586621681246527"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246526"><span class="annot"><span class="annottext">s :: DescribeTagsResponse
+</span><a href="#local-6989586621681246526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-type">DescribeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246525"><span class="annot"><span class="annottext">Maybe [TagDescription]
+</span><a href="#local-6989586621681246525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTagsResponse
+</span><a href="#local-6989586621681246526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DescribeTagsResponse' :: Maybe [TagDescription]
 </span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3Atags%3ADescribeTagsResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagDescription]
-</span><a href="#local-6989586621681210837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-type">DescribeTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagDescription] -&gt; f (Maybe [TagDescription]))
+</span><a href="#local-6989586621681246525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-type">DescribeTagsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagDescription] -&gt; f (Maybe [TagDescription]))
  -&gt; DescribeTagsResponse -&gt; f DescribeTagsResponse)
 -&gt; ((Maybe [TagDescription] -&gt; f (Maybe [TagDescription]))
     -&gt; Maybe [TagDescription] -&gt; f (Maybe [TagDescription]))
@@ -764,8 +764,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [TagDescription] [TagDescription] [TagDescription] [TagDescription]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-290"></span><span>
 </span><span id="line-291"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-292"></span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#describeTagsResponse_httpStatus"><span class="hs-identifier hs-type">describeTagsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-type">DescribeTagsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -774,16 +774,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (DescribeTagsResponse -&gt; Int -&gt; DescribeTagsResponse)
 -&gt; Lens DescribeTagsResponse DescribeTagsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-type">DescribeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681210836"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-type">DescribeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681246524"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeTagsResponse' :: DescribeTagsResponse -&gt; Int
-</span><a href="#local-6989586621681210836"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681210836"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681210835"><span class="annot"><span class="annottext">s :: DescribeTagsResponse
-</span><a href="#local-6989586621681210835"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-type">DescribeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681210834"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681210834"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTagsResponse
-</span><a href="#local-6989586621681210835"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTagsResponse' :: Int
+</span><a href="#local-6989586621681246524"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681246524"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681246523"><span class="annot"><span class="annottext">s :: DescribeTagsResponse
+</span><a href="#local-6989586621681246523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse%27"><span class="hs-identifier hs-type">DescribeTagsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681246522"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681246522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeTagsResponse
+</span><a href="#local-6989586621681246523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeTagsResponse' :: Int
 </span><a href="Network.AWS.EC2.DescribeTags.html#%24sel%3AhttpStatus%3ADescribeTagsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681210834"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-type">DescribeTagsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681246522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-type">DescribeTagsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-294"></span><span>
-</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681210832"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-type">DescribeTagsResponse</span></a></span></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681246520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.DescribeTags.html#DescribeTagsResponse"><span class="hs-identifier hs-type">DescribeTagsResponse</span></a></span></span><span>
 </span><span id="line-296"></span></pre></body></html>

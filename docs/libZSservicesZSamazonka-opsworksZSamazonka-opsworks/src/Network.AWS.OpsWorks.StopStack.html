@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newStopStack' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679381803"><span id="local-6989586621679381804"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopStack"><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-var">StopStack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopStack%27"><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack%27"><span class="hs-identifier hs-var">StopStack'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679382208"><span id="local-6989586621679382209"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopStack"><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-var">StopStack</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopStack%27"><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack%27"><span class="hs-identifier hs-var">StopStack'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The stack ID.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AstackId%3AStopStack%27"><span class="annot"><span class="annottext">StopStack -&gt; Text
 </span><a href="Network.AWS.OpsWorks.StopStack.html#%24sel%3AstackId%3AStopStack%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381797"><span id="local-6989586621679381799"><span class="annot"><span class="annottext">StopStack -&gt; StopStack -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382202"><span id="local-6989586621679382204"><span class="annot"><span class="annottext">StopStack -&gt; StopStack -&gt; Bool
 (StopStack -&gt; StopStack -&gt; Bool)
 -&gt; (StopStack -&gt; StopStack -&gt; Bool) -&gt; Eq StopStack
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopStack -&gt; StopStack -&gt; Bool
 == :: StopStack -&gt; StopStack -&gt; Bool
 $c== :: StopStack -&gt; StopStack -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381788"><span id="local-6989586621679381790"><span id="local-6989586621679381792"><span id="local-6989586621679381794"><span class="annot"><span class="annottext">ReadPrec [StopStack]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382193"><span id="local-6989586621679382195"><span id="local-6989586621679382197"><span id="local-6989586621679382199"><span class="annot"><span class="annottext">ReadPrec [StopStack]
 ReadPrec StopStack
 Int -&gt; ReadS StopStack
 ReadS [StopStack]
@@ -82,7 +82,7 @@ readList :: ReadS [StopStack]
 $creadList :: ReadS [StopStack]
 readsPrec :: Int -&gt; ReadS StopStack
 $creadsPrec :: Int -&gt; ReadS StopStack
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381781"><span id="local-6989586621679381783"><span id="local-6989586621679381785"><span class="annot"><span class="annottext">Int -&gt; StopStack -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382186"><span id="local-6989586621679382188"><span id="local-6989586621679382190"><span class="annot"><span class="annottext">Int -&gt; StopStack -&gt; ShowS
 [StopStack] -&gt; ShowS
 StopStack -&gt; String
 (Int -&gt; StopStack -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. StopStack -&gt; Rep StopStack x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span><span>
 </span><span id="line-71"></span><span id="newStopStack"><span class="annot"><span class="annottext">newStopStack :: Text -&gt; StopStack
-</span><a href="Network.AWS.OpsWorks.StopStack.html#newStopStack"><span class="hs-identifier hs-var hs-var">newStopStack</span></a></span></span><span> </span><span id="local-6989586621679381776"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381776"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.OpsWorks.StopStack.html#newStopStack"><span class="hs-identifier hs-var hs-var">newStopStack</span></a></span></span><span> </span><span id="local-6989586621679382181"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382181"><span class="hs-identifier hs-var">pStackId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">StopStack' :: Text -&gt; StopStack
 </span><a href="Network.AWS.OpsWorks.StopStack.html#StopStack%27"><span class="hs-identifier hs-type">StopStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:StopStack' :: Text
 </span><a href="Network.AWS.OpsWorks.StopStack.html#%24sel%3AstackId%3AStopStack%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381776"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679382181"><span class="hs-identifier hs-var">pStackId_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-comment">-- | The stack ID.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#stopStack_stackId"><span class="hs-identifier hs-type">stopStack_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,25 +135,25 @@ $cfrom :: forall x. StopStack -&gt; Rep StopStack x
 -&gt; (StopStack -&gt; Text -&gt; StopStack)
 -&gt; Lens StopStack StopStack Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack%27"><span class="hs-identifier hs-type">StopStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381773"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack%27"><span class="hs-identifier hs-type">StopStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382178"><span class="annot"><span class="annottext">Text
 stackId :: Text
 $sel:stackId:StopStack' :: StopStack -&gt; Text
-</span><a href="#local-6989586621679381773"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381773"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679381772"><span class="annot"><span class="annottext">s :: StopStack
-</span><a href="#local-6989586621679381772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack%27"><span class="hs-identifier hs-type">StopStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679381771"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopStack
-</span><a href="#local-6989586621679381772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:StopStack' :: Text
+</span><a href="#local-6989586621679382178"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382178"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382177"><span class="annot"><span class="annottext">s :: StopStack
+</span><a href="#local-6989586621679382177"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack%27"><span class="hs-identifier hs-type">StopStack'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382176"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382176"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopStack
+</span><a href="#local-6989586621679382177"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:StopStack' :: Text
 </span><a href="Network.AWS.OpsWorks.StopStack.html#%24sel%3AstackId%3AStopStack%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382176"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>
 </span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-79"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStackResponse"><span class="hs-identifier hs-type">StopStackResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679381767"><span class="annot"><span class="annottext">request :: StopStack -&gt; Request StopStack
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679382172"><span class="annot"><span class="annottext">request :: StopStack -&gt; Request StopStack
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopStack -&gt; Request StopStack
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679381763"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679382168"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopStack
 -&gt; ClientResponse ClientBody
@@ -176,12 +176,12 @@ AWSResponse a
 StopStackResponse
 </span><a href="Network.AWS.OpsWorks.StopStack.html#StopStackResponse%27"><span class="hs-identifier hs-var">StopStackResponse'</span></a></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381756"><span id="local-6989586621679381758"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382161"><span id="local-6989586621679382163"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span></span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382158"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679381749"><span class="annot"><span class="annottext">toHeaders :: StopStack -&gt; [Header]
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679382154"><span class="annot"><span class="annottext">toHeaders :: StopStack -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; StopStack -&gt; [Header]
 forall a b. a -&gt; b -&gt; a
@@ -208,12 +208,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
 </span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381739"><span id="local-6989586621679381741"><span id="local-6989586621679381743"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679381737"><span class="annot"><span class="annottext">toJSON :: StopStack -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack%27"><span class="hs-identifier hs-type">StopStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679381735"><span class="annot"><span class="annottext">Text
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382144"><span id="local-6989586621679382146"><span id="local-6989586621679382148"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679382142"><span class="annot"><span class="annottext">toJSON :: StopStack -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack%27"><span class="hs-identifier hs-type">StopStack'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382140"><span class="annot"><span class="annottext">Text
 stackId :: Text
 $sel:stackId:StopStack' :: StopStack -&gt; Text
-</span><a href="#local-6989586621679381735"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679382140"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -225,18 +225,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StackId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679381735"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679382140"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
 </span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679381729"><span class="annot"><span class="annottext">toPath :: StopStack -&gt; ByteString
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679382134"><span class="annot"><span class="annottext">toPath :: StopStack -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopStack -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStack"><span class="hs-identifier hs-type">StopStack</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679381725"><span class="annot"><span class="annottext">toQuery :: StopStack -&gt; QueryString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679382130"><span class="annot"><span class="annottext">toQuery :: StopStack -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopStack -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -244,10 +244,10 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newStopStackResponse' smart constructor.</span><span>
-</span><span id="line-116"></span><span id="local-6989586621679381722"><span id="local-6989586621679381723"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopStackResponse"><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStackResponse"><span class="hs-identifier hs-var">StopStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopStackResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStackResponse%27"><span class="hs-identifier hs-var">StopStackResponse'</span></a></span></span><span>
+</span><span id="line-116"></span><span id="local-6989586621679382127"><span id="local-6989586621679382128"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopStackResponse"><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStackResponse"><span class="hs-identifier hs-var">StopStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopStackResponse%27"><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStackResponse%27"><span class="hs-identifier hs-var">StopStackResponse'</span></a></span></span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span>
 </span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679381718"><span id="local-6989586621679381720"><span class="annot"><span class="annottext">StopStackResponse -&gt; StopStackResponse -&gt; Bool
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382123"><span id="local-6989586621679382125"><span class="annot"><span class="annottext">StopStackResponse -&gt; StopStackResponse -&gt; Bool
 (StopStackResponse -&gt; StopStackResponse -&gt; Bool)
 -&gt; (StopStackResponse -&gt; StopStackResponse -&gt; Bool)
 -&gt; Eq StopStackResponse
@@ -256,7 +256,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopStackResponse -&gt; StopStackResponse -&gt; Bool
 == :: StopStackResponse -&gt; StopStackResponse -&gt; Bool
 $c== :: StopStackResponse -&gt; StopStackResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381710"><span id="local-6989586621679381712"><span id="local-6989586621679381714"><span id="local-6989586621679381716"><span class="annot"><span class="annottext">ReadPrec [StopStackResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382115"><span id="local-6989586621679382117"><span id="local-6989586621679382119"><span id="local-6989586621679382121"><span class="annot"><span class="annottext">ReadPrec [StopStackResponse]
 ReadPrec StopStackResponse
 Int -&gt; ReadS StopStackResponse
 ReadS [StopStackResponse]
@@ -276,7 +276,7 @@ readList :: ReadS [StopStackResponse]
 $creadList :: ReadS [StopStackResponse]
 readsPrec :: Int -&gt; ReadS StopStackResponse
 $creadsPrec :: Int -&gt; ReadS StopStackResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679381704"><span id="local-6989586621679381706"><span id="local-6989586621679381708"><span class="annot"><span class="annottext">Int -&gt; StopStackResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382109"><span id="local-6989586621679382111"><span id="local-6989586621679382113"><span class="annot"><span class="annottext">Int -&gt; StopStackResponse -&gt; ShowS
 [StopStackResponse] -&gt; ShowS
 StopStackResponse -&gt; String
 (Int -&gt; StopStackResponse -&gt; ShowS)
@@ -312,5 +312,5 @@ $cfrom :: forall x. StopStackResponse -&gt; Rep StopStackResponse x
 </span><a href="Network.AWS.OpsWorks.StopStack.html#newStopStackResponse"><span class="hs-identifier hs-var hs-var">newStopStackResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StopStackResponse
 </span><a href="Network.AWS.OpsWorks.StopStack.html#StopStackResponse%27"><span class="hs-identifier hs-var">StopStackResponse'</span></a></span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679381700"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStackResponse"><span class="hs-identifier hs-type">StopStackResponse</span></a></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382105"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.OpsWorks.StopStack.html#StopStackResponse"><span class="hs-identifier hs-type">StopStackResponse</span></a></span></span><span>
 </span><span id="line-130"></span></pre></body></html>

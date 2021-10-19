@@ -26,12 +26,12 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Configuration information of a Kinesis data stream.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newKinesisStreamConfig' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679399217"><span id="local-6989586621679399218"></span></span><span class="hs-keyword">data</span><span> </span><span id="KinesisStreamConfig"><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-var">KinesisStreamConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KinesisStreamConfig%27"><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig%27"><span class="hs-identifier hs-var">KinesisStreamConfig'</span></a></span></span><span>
+</span><span id="line-29"></span><span id="local-6989586621679399499"><span id="local-6989586621679399500"></span></span><span class="hs-keyword">data</span><span> </span><span id="KinesisStreamConfig"><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-var">KinesisStreamConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="KinesisStreamConfig%27"><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig%27"><span class="hs-identifier hs-var">KinesisStreamConfig'</span></a></span></span><span>
 </span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the data stream.</span><span>
 </span><span id="line-31"></span><span>    </span><span id="%24sel%3AstreamArn%3AKinesisStreamConfig%27"><span class="annot"><span class="annottext">KinesisStreamConfig -&gt; Text
 </span><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#%24sel%3AstreamArn%3AKinesisStreamConfig%27"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399211"><span id="local-6989586621679399213"><span class="annot"><span class="annottext">KinesisStreamConfig -&gt; KinesisStreamConfig -&gt; Bool
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679399493"><span id="local-6989586621679399495"><span class="annot"><span class="annottext">KinesisStreamConfig -&gt; KinesisStreamConfig -&gt; Bool
 (KinesisStreamConfig -&gt; KinesisStreamConfig -&gt; Bool)
 -&gt; (KinesisStreamConfig -&gt; KinesisStreamConfig -&gt; Bool)
 -&gt; Eq KinesisStreamConfig
@@ -40,7 +40,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: KinesisStreamConfig -&gt; KinesisStreamConfig -&gt; Bool
 == :: KinesisStreamConfig -&gt; KinesisStreamConfig -&gt; Bool
 $c== :: KinesisStreamConfig -&gt; KinesisStreamConfig -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399202"><span id="local-6989586621679399204"><span id="local-6989586621679399206"><span id="local-6989586621679399208"><span class="annot"><span class="annottext">ReadPrec [KinesisStreamConfig]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399484"><span id="local-6989586621679399486"><span id="local-6989586621679399488"><span id="local-6989586621679399490"><span class="annot"><span class="annottext">ReadPrec [KinesisStreamConfig]
 ReadPrec KinesisStreamConfig
 Int -&gt; ReadS KinesisStreamConfig
 ReadS [KinesisStreamConfig]
@@ -60,7 +60,7 @@ readList :: ReadS [KinesisStreamConfig]
 $creadList :: ReadS [KinesisStreamConfig]
 readsPrec :: Int -&gt; ReadS KinesisStreamConfig
 $creadsPrec :: Int -&gt; ReadS KinesisStreamConfig
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399195"><span id="local-6989586621679399197"><span id="local-6989586621679399199"><span class="annot"><span class="annottext">Int -&gt; KinesisStreamConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399477"><span id="local-6989586621679399479"><span id="local-6989586621679399481"><span class="annot"><span class="annottext">Int -&gt; KinesisStreamConfig -&gt; ShowS
 [KinesisStreamConfig] -&gt; ShowS
 KinesisStreamConfig -&gt; String
 (Int -&gt; KinesisStreamConfig -&gt; ShowS)
@@ -100,12 +100,12 @@ $cfrom :: forall x. KinesisStreamConfig -&gt; Rep KinesisStreamConfig x
 </span><span id="line-46"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-47"></span><span>  </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-type">KinesisStreamConfig</span></a></span><span>
 </span><span id="line-48"></span><span id="newKinesisStreamConfig"><span class="annot"><span class="annottext">newKinesisStreamConfig :: Text -&gt; KinesisStreamConfig
-</span><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#newKinesisStreamConfig"><span class="hs-identifier hs-var hs-var">newKinesisStreamConfig</span></a></span></span><span> </span><span id="local-6989586621679399189"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399189"><span class="hs-identifier hs-var">pStreamArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#newKinesisStreamConfig"><span class="hs-identifier hs-var hs-var">newKinesisStreamConfig</span></a></span></span><span> </span><span id="local-6989586621679399471"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399471"><span class="hs-identifier hs-var">pStreamArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-49"></span><span>  </span><span class="annot"><span class="annottext">KinesisStreamConfig' :: Text -&gt; KinesisStreamConfig
 </span><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig%27"><span class="hs-identifier hs-type">KinesisStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:KinesisStreamConfig' :: Text
 </span><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#%24sel%3AstreamArn%3AKinesisStreamConfig%27"><span class="hs-identifier hs-var">streamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399189"><span class="hs-identifier hs-var">pStreamArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679399471"><span class="hs-identifier hs-var">pStreamArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-50"></span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the data stream.</span><span>
 </span><span id="line-52"></span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#kinesisStreamConfig_streamArn"><span class="hs-identifier hs-type">kinesisStreamConfig_streamArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-type">KinesisStreamConfig</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -114,19 +114,19 @@ $cfrom :: forall x. KinesisStreamConfig -&gt; Rep KinesisStreamConfig x
 -&gt; (KinesisStreamConfig -&gt; Text -&gt; KinesisStreamConfig)
 -&gt; Lens KinesisStreamConfig KinesisStreamConfig Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig%27"><span class="hs-identifier hs-type">KinesisStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399185"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig%27"><span class="hs-identifier hs-type">KinesisStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399467"><span class="annot"><span class="annottext">Text
 streamArn :: Text
 $sel:streamArn:KinesisStreamConfig' :: KinesisStreamConfig -&gt; Text
-</span><a href="#local-6989586621679399185"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399185"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399184"><span class="annot"><span class="annottext">s :: KinesisStreamConfig
-</span><a href="#local-6989586621679399184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig%27"><span class="hs-identifier hs-type">KinesisStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399183"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisStreamConfig
-</span><a href="#local-6989586621679399184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:KinesisStreamConfig' :: Text
+</span><a href="#local-6989586621679399467"><span class="hs-identifier hs-var hs-var">streamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399467"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399466"><span class="annot"><span class="annottext">s :: KinesisStreamConfig
+</span><a href="#local-6989586621679399466"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig%27"><span class="hs-identifier hs-type">KinesisStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399465"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679399465"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">KinesisStreamConfig
+</span><a href="#local-6989586621679399466"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamArn:KinesisStreamConfig' :: Text
 </span><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#%24sel%3AstreamArn%3AKinesisStreamConfig%27"><span class="hs-identifier hs-var">streamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-type">KinesisStreamConfig</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679399465"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-type">KinesisStreamConfig</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399180"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-type">KinesisStreamConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-56"></span><span>  </span><span id="local-6989586621679399178"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KinesisStreamConfig
+</span><span id="line-55"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399462"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-type">KinesisStreamConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>  </span><span id="local-6989586621679399460"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser KinesisStreamConfig
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser KinesisStreamConfig)
@@ -136,30 +136,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;KinesisStreamConfig&quot;</span></span><span>
-</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399175"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399175"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679399457"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679399457"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-60"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; KinesisStreamConfig
 </span><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig%27"><span class="hs-identifier hs-var">KinesisStreamConfig'</span></a></span><span>
 </span><span id="line-61"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; KinesisStreamConfig)
 -&gt; Parser Text -&gt; Parser KinesisStreamConfig
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679399175"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679399457"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StreamArn&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399169"><span id="local-6989586621679399171"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-type">KinesisStreamConfig</span></a></span></span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399451"><span id="local-6989586621679399453"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-type">KinesisStreamConfig</span></a></span></span></span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399166"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-type">KinesisStreamConfig</span></a></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399448"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-type">KinesisStreamConfig</span></a></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399158"><span id="local-6989586621679399160"><span id="local-6989586621679399162"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-type">KinesisStreamConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621679399156"><span class="annot"><span class="annottext">toJSON :: KinesisStreamConfig -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig%27"><span class="hs-identifier hs-type">KinesisStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399154"><span class="annot"><span class="annottext">Text
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679399440"><span id="local-6989586621679399442"><span id="local-6989586621679399444"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig"><span class="hs-identifier hs-type">KinesisStreamConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679399438"><span class="annot"><span class="annottext">toJSON :: KinesisStreamConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Connect.Types.KinesisStreamConfig.html#KinesisStreamConfig%27"><span class="hs-identifier hs-type">KinesisStreamConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399436"><span class="annot"><span class="annottext">Text
 streamArn :: Text
 $sel:streamArn:KinesisStreamConfig' :: KinesisStreamConfig -&gt; Text
-</span><a href="#local-6989586621679399154"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679399436"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -171,6 +171,6 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StreamArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679399154"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679399436"><span class="hs-identifier hs-var">streamArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span></pre></body></html>

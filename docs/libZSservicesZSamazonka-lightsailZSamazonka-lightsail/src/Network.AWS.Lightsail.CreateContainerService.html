@@ -32,9 +32,9 @@
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#newCreateContainerService"><span class="hs-identifier">newCreateContainerService</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_tags"><span class="hs-identifier">createContainerService_tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_deployment"><span class="hs-identifier">createContainerService_deployment</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_publicDomainNames"><span class="hs-identifier">createContainerService_publicDomainNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_publicDomainNames"><span class="hs-identifier">createContainerService_publicDomainNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_tags"><span class="hs-identifier">createContainerService_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_deployment"><span class="hs-identifier">createContainerService_deployment</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_serviceName"><span class="hs-identifier">createContainerService_serviceName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_power"><span class="hs-identifier">createContainerService_power</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_scale"><span class="hs-identifier">createContainerService_scale</span></a></span><span class="hs-special">,</span><span>
@@ -57,46 +57,46 @@
 </span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newCreateContainerService' smart constructor.</span><span>
-</span><span id="line-60"></span><span id="local-6989586621679659847"><span id="local-6989586621679659848"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContainerService"><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-var">CreateContainerService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContainerService%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-var">CreateContainerService'</span></a></span></span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tag keys and optional values to add to the certificate during</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- create.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679660898"><span id="local-6989586621679660899"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContainerService"><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-var">CreateContainerService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContainerService%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-var">CreateContainerService'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The public domain names to use with the container service, such as</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @example.com@ and @www.example.com@.</span><span>
 </span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Use the @TagResource@ action to tag a resource after it\'s created.</span><span>
-</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- For more information about tags in Lightsail, see the</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide&gt;.</span><span>
-</span><span id="line-68"></span><span>    </span><span id="%24sel%3Atags%3ACreateContainerService%27"><span class="annot"><span class="annottext">CreateContainerService -&gt; Maybe [Tag]
-</span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Atags%3ACreateContainerService%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | An object that describes a deployment for the container service.</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- A deployment specifies the containers that will be launched on the</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- container service and their settings, such as the ports to open, the</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- environment variables to apply, and the launch command to run. It also</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- specifies the container that will serve as the public endpoint of the</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- deployment and its settings, such as the HTTP or HTTPS port to use, and</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the health check configuration.</span><span>
-</span><span id="line-77"></span><span>    </span><span id="%24sel%3Adeployment%3ACreateContainerService%27"><span class="annot"><span class="annottext">CreateContainerService -&gt; Maybe ContainerServiceDeploymentRequest
-</span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Adeployment%3ACreateContainerService%27"><span class="hs-identifier hs-var hs-var">deployment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The public domain names to use with the container service, such as</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @example.com@ and @www.example.com@.</span><span>
-</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- You can specify up to four public domain names for a container service.</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- The domain names that you specify are used when you create a deployment</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- with a container configured as the public endpoint of your container</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- service.</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- If you don\'t specify public domain names, then you can use the default</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- domain of the container service.</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- You must create and validate an SSL\/TLS certificate before you can use</span><span>
-</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- public domain names with your container service. Use the</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- @CreateCertificate@ action to create a certificate for the public domain</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- names you want to use with your container service.</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- You can specify public domain names using a string to array map as shown</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- in the example later on this page.</span><span>
-</span><span id="line-96"></span><span>    </span><span id="%24sel%3ApublicDomainNames%3ACreateContainerService%27"><span class="annot"><span class="annottext">CreateContainerService -&gt; Maybe (HashMap Text [Text])
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- You can specify up to four public domain names for a container service.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- The domain names that you specify are used when you create a deployment</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- with a container configured as the public endpoint of your container</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- If you don\'t specify public domain names, then you can use the default</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- domain of the container service.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- You must create and validate an SSL\/TLS certificate before you can use</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- public domain names with your container service. Use the</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @CreateCertificate@ action to create a certificate for the public domain</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- names you want to use with your container service.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- You can specify public domain names using a string to array map as shown</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- in the example later on this page.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3ApublicDomainNames%3ACreateContainerService%27"><span class="annot"><span class="annottext">CreateContainerService -&gt; Maybe (HashMap Text [Text])
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3ApublicDomainNames%3ACreateContainerService%27"><span class="hs-identifier hs-var hs-var">publicDomainNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The tag keys and optional values to add to the certificate during</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- create.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- Use the @TagResource@ action to tag a resource after it\'s created.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- For more information about tags in Lightsail, see the</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide&gt;.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Atags%3ACreateContainerService%27"><span class="annot"><span class="annottext">CreateContainerService -&gt; Maybe [Tag]
+</span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Atags%3ACreateContainerService%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | An object that describes a deployment for the container service.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- A deployment specifies the containers that will be launched on the</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- container service and their settings, such as the ports to open, the</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- environment variables to apply, and the launch command to run. It also</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- specifies the container that will serve as the public endpoint of the</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- deployment and its settings, such as the HTTP or HTTPS port to use, and</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- the health check configuration.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3Adeployment%3ACreateContainerService%27"><span class="annot"><span class="annottext">CreateContainerService -&gt; Maybe ContainerServiceDeploymentRequest
+</span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Adeployment%3ACreateContainerService%27"><span class="hs-identifier hs-var hs-var">deployment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The name for the container service.</span><span>
 </span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-99"></span><span>    </span><span class="hs-comment">-- The name that you specify for your container service will make up part</span><span>
@@ -143,7 +143,7 @@
 </span><span id="line-138"></span><span>    </span><span id="%24sel%3Ascale%3ACreateContainerService%27"><span class="annot"><span class="annottext">CreateContainerService -&gt; Natural
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Ascale%3ACreateContainerService%27"><span class="hs-identifier hs-var hs-var">scale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
 </span><span id="line-139"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679659836"><span id="local-6989586621679659838"><span class="annot"><span class="annottext">CreateContainerService -&gt; CreateContainerService -&gt; Bool
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679660887"><span id="local-6989586621679660889"><span class="annot"><span class="annottext">CreateContainerService -&gt; CreateContainerService -&gt; Bool
 (CreateContainerService -&gt; CreateContainerService -&gt; Bool)
 -&gt; (CreateContainerService -&gt; CreateContainerService -&gt; Bool)
 -&gt; Eq CreateContainerService
@@ -152,7 +152,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateContainerService -&gt; CreateContainerService -&gt; Bool
 == :: CreateContainerService -&gt; CreateContainerService -&gt; Bool
 $c== :: CreateContainerService -&gt; CreateContainerService -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679659827"><span id="local-6989586621679659829"><span id="local-6989586621679659831"><span id="local-6989586621679659833"><span class="annot"><span class="annottext">ReadPrec [CreateContainerService]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679660878"><span id="local-6989586621679660880"><span id="local-6989586621679660882"><span id="local-6989586621679660884"><span class="annot"><span class="annottext">ReadPrec [CreateContainerService]
 ReadPrec CreateContainerService
 Int -&gt; ReadS CreateContainerService
 ReadS [CreateContainerService]
@@ -172,7 +172,7 @@ readList :: ReadS [CreateContainerService]
 $creadList :: ReadS [CreateContainerService]
 readsPrec :: Int -&gt; ReadS CreateContainerService
 $creadsPrec :: Int -&gt; ReadS CreateContainerService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679659820"><span id="local-6989586621679659822"><span id="local-6989586621679659824"><span class="annot"><span class="annottext">Int -&gt; CreateContainerService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679660871"><span id="local-6989586621679660873"><span id="local-6989586621679660875"><span class="annot"><span class="annottext">Int -&gt; CreateContainerService -&gt; ShowS
 [CreateContainerService] -&gt; ShowS
 CreateContainerService -&gt; String
 (Int -&gt; CreateContainerService -&gt; ShowS)
@@ -207,41 +207,41 @@ $cfrom :: forall x. CreateContainerService -&gt; Rep CreateContainerService x
 </span><span id="line-147"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-148"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-149"></span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span class="hs-comment">-- 'tags', 'createContainerService_tags' - The tag keys and optional values to add to the certificate during</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- create.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'publicDomainNames', 'createContainerService_publicDomainNames' - The public domain names to use with the container service, such as</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- @example.com@ and @www.example.com@.</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- Use the @TagResource@ action to tag a resource after it\'s created.</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- For more information about tags in Lightsail, see the</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide&gt;.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- You can specify up to four public domain names for a container service.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- The domain names that you specify are used when you create a deployment</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- with a container configured as the public endpoint of your container</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- service.</span><span>
 </span><span id="line-157"></span><span class="hs-comment">--</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- 'deployment', 'createContainerService_deployment' - An object that describes a deployment for the container service.</span><span>
-</span><span id="line-159"></span><span class="hs-comment">--</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- A deployment specifies the containers that will be launched on the</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- container service and their settings, such as the ports to open, the</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- environment variables to apply, and the launch command to run. It also</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- specifies the container that will serve as the public endpoint of the</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- deployment and its settings, such as the HTTP or HTTPS port to use, and</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- the health check configuration.</span><span>
-</span><span id="line-166"></span><span class="hs-comment">--</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- 'publicDomainNames', 'createContainerService_publicDomainNames' - The public domain names to use with the container service, such as</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- @example.com@ and @www.example.com@.</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- You can specify up to four public domain names for a container service.</span><span>
-</span><span id="line-171"></span><span class="hs-comment">-- The domain names that you specify are used when you create a deployment</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- with a container configured as the public endpoint of your container</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- service.</span><span>
-</span><span id="line-174"></span><span class="hs-comment">--</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- If you don\'t specify public domain names, then you can use the default</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- domain of the container service.</span><span>
-</span><span id="line-177"></span><span class="hs-comment">--</span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- You must create and validate an SSL\/TLS certificate before you can use</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- public domain names with your container service. Use the</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- @CreateCertificate@ action to create a certificate for the public domain</span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- names you want to use with your container service.</span><span>
-</span><span id="line-182"></span><span class="hs-comment">--</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- You can specify public domain names using a string to array map as shown</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- in the example later on this page.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- If you don\'t specify public domain names, then you can use the default</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- domain of the container service.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- You must create and validate an SSL\/TLS certificate before you can use</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- public domain names with your container service. Use the</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- @CreateCertificate@ action to create a certificate for the public domain</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- names you want to use with your container service.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- You can specify public domain names using a string to array map as shown</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- in the example later on this page.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'tags', 'createContainerService_tags' - The tag keys and optional values to add to the certificate during</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- create.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Use the @TagResource@ action to tag a resource after it\'s created.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- For more information about tags in Lightsail, see the</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide&gt;.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'deployment', 'createContainerService_deployment' - An object that describes a deployment for the container service.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- A deployment specifies the containers that will be launched on the</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- container service and their settings, such as the ports to open, the</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- environment variables to apply, and the launch command to run. It also</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- specifies the container that will serve as the public endpoint of the</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- deployment and its settings, such as the HTTP or HTTPS port to use, and</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- the health check configuration.</span><span>
 </span><span id="line-185"></span><span class="hs-comment">--</span><span>
 </span><span id="line-186"></span><span class="hs-comment">-- 'serviceName', 'createContainerService_serviceName' - The name for the container service.</span><span>
 </span><span id="line-187"></span><span class="hs-comment">--</span><span>
@@ -295,141 +295,64 @@ $cfrom :: forall x. CreateContainerService -&gt; Rep CreateContainerService x
 </span><span id="line-235"></span><span id="newCreateContainerService"><span class="annot"><span class="annottext">newCreateContainerService :: Text
 -&gt; ContainerServicePowerName -&gt; Natural -&gt; CreateContainerService
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#newCreateContainerService"><span class="hs-identifier hs-var hs-var">newCreateContainerService</span></a></span></span><span>
-</span><span id="line-236"></span><span>  </span><span id="local-6989586621679659815"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679659815"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span>
-</span><span id="line-237"></span><span>  </span><span id="local-6989586621679659814"><span class="annot"><span class="annottext">ContainerServicePowerName
-</span><a href="#local-6989586621679659814"><span class="hs-identifier hs-var">pPower_</span></a></span></span><span>
-</span><span id="line-238"></span><span>  </span><span id="local-6989586621679659813"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679659813"><span class="hs-identifier hs-var">pScale_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">CreateContainerService' :: Maybe [Tag]
+</span><span id="line-236"></span><span>  </span><span id="local-6989586621679660866"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679660866"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621679660865"><span class="annot"><span class="annottext">ContainerServicePowerName
+</span><a href="#local-6989586621679660865"><span class="hs-identifier hs-var">pPower_</span></a></span></span><span>
+</span><span id="line-238"></span><span>  </span><span id="local-6989586621679660864"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679660864"><span class="hs-identifier hs-var">pScale_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><span class="annottext">CreateContainerService' :: Maybe (HashMap Text [Text])
+-&gt; Maybe [Tag]
 -&gt; Maybe ContainerServiceDeploymentRequest
--&gt; Maybe (HashMap Text [Text])
 -&gt; Text
 -&gt; ContainerServicePowerName
 -&gt; Natural
 -&gt; CreateContainerService
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span>
-</span><span id="line-240"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateContainerService' :: Maybe [Tag]
+</span><span id="line-240"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:publicDomainNames:CreateContainerService' :: Maybe (HashMap Text [Text])
+</span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3ApublicDomainNames%3ACreateContainerService%27"><span class="hs-identifier hs-var">publicDomainNames</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateContainerService' :: Maybe [Tag]
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Atags%3ACreateContainerService%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">$sel:deployment:CreateContainerService' :: Maybe ContainerServiceDeploymentRequest
+</span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">$sel:deployment:CreateContainerService' :: Maybe ContainerServiceDeploymentRequest
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Adeployment%3ACreateContainerService%27"><span class="hs-identifier hs-var">deployment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceDeploymentRequest
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">$sel:publicDomainNames:CreateContainerService' :: Maybe (HashMap Text [Text])
-</span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3ApublicDomainNames%3ACreateContainerService%27"><span class="hs-identifier hs-var">publicDomainNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceName:CreateContainerService' :: Text
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceName:CreateContainerService' :: Text
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3AserviceName%3ACreateContainerService%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679659815"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">$sel:power:CreateContainerService' :: ContainerServicePowerName
+</span><a href="#local-6989586621679660866"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">$sel:power:CreateContainerService' :: ContainerServicePowerName
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Apower%3ACreateContainerService%27"><span class="hs-identifier hs-var">power</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContainerServicePowerName
-</span><a href="#local-6989586621679659814"><span class="hs-identifier hs-var">pPower_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">$sel:scale:CreateContainerService' :: Natural
+</span><a href="#local-6989586621679660865"><span class="hs-identifier hs-var">pPower_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">$sel:scale:CreateContainerService' :: Natural
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Ascale%3ACreateContainerService%27"><span class="hs-identifier hs-var">scale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679659813"><span class="hs-identifier hs-var">pScale_</span></a></span><span>
-</span><span id="line-246"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-247"></span><span>
-</span><span id="line-248"></span><span class="hs-comment">-- | The tag keys and optional values to add to the certificate during</span><span>
-</span><span id="line-249"></span><span class="hs-comment">-- create.</span><span>
-</span><span id="line-250"></span><span class="hs-comment">--</span><span>
-</span><span id="line-251"></span><span class="hs-comment">-- Use the @TagResource@ action to tag a resource after it\'s created.</span><span>
-</span><span id="line-252"></span><span class="hs-comment">--</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- For more information about tags in Lightsail, see the</span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide&gt;.</span><span>
-</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_tags"><span class="hs-identifier hs-type">createContainerService_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-256"></span><span id="createContainerService_tags"><span class="annot"><span class="annottext">createContainerService_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; CreateContainerService -&gt; f CreateContainerService
-</span><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_tags"><span class="hs-identifier hs-var hs-var">createContainerService_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContainerService -&gt; Maybe [Tag])
--&gt; (CreateContainerService
-    -&gt; Maybe [Tag] -&gt; CreateContainerService)
--&gt; Lens
-     CreateContainerService
-     CreateContainerService
-     (Maybe [Tag])
-     (Maybe [Tag])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659810"><span class="annot"><span class="annottext">Maybe [Tag]
-tags :: Maybe [Tag]
-$sel:tags:CreateContainerService' :: CreateContainerService -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679659810"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679659810"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659809"><span class="annot"><span class="annottext">s :: CreateContainerService
-</span><a href="#local-6989586621679659809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659808"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679659808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerService
-</span><a href="#local-6989586621679659809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateContainerService' :: Maybe [Tag]
-</span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Atags%3ACreateContainerService%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679659808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
- -&gt; CreateContainerService -&gt; f CreateContainerService)
--&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
-    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
--&gt; CreateContainerService
--&gt; f CreateContainerService
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
--&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-257"></span><span>
-</span><span id="line-258"></span><span class="hs-comment">-- | An object that describes a deployment for the container service.</span><span>
+</span><a href="#local-6989586621679660864"><span class="hs-identifier hs-var">pScale_</span></a></span><span>
+</span><span id="line-247"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | The public domain names to use with the container service, such as</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- @example.com@ and @www.example.com@.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- You can specify up to four public domain names for a container service.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- The domain names that you specify are used when you create a deployment</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- with a container configured as the public endpoint of your container</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- If you don\'t specify public domain names, then you can use the default</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- domain of the container service.</span><span>
 </span><span id="line-259"></span><span class="hs-comment">--</span><span>
-</span><span id="line-260"></span><span class="hs-comment">-- A deployment specifies the containers that will be launched on the</span><span>
-</span><span id="line-261"></span><span class="hs-comment">-- container service and their settings, such as the ports to open, the</span><span>
-</span><span id="line-262"></span><span class="hs-comment">-- environment variables to apply, and the launch command to run. It also</span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- specifies the container that will serve as the public endpoint of the</span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- deployment and its settings, such as the HTTP or HTTPS port to use, and</span><span>
-</span><span id="line-265"></span><span class="hs-comment">-- the health check configuration.</span><span>
-</span><span id="line-266"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_deployment"><span class="hs-identifier hs-type">createContainerService_deployment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-267"></span><span id="createContainerService_deployment"><span class="annot"><span class="annottext">createContainerService_deployment :: (Maybe ContainerServiceDeploymentRequest
- -&gt; f (Maybe ContainerServiceDeploymentRequest))
--&gt; CreateContainerService -&gt; f CreateContainerService
-</span><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_deployment"><span class="hs-identifier hs-var hs-var">createContainerService_deployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContainerService -&gt; Maybe ContainerServiceDeploymentRequest)
--&gt; (CreateContainerService
-    -&gt; Maybe ContainerServiceDeploymentRequest
-    -&gt; CreateContainerService)
--&gt; Lens
-     CreateContainerService
-     CreateContainerService
-     (Maybe ContainerServiceDeploymentRequest)
-     (Maybe ContainerServiceDeploymentRequest)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659804"><span class="annot"><span class="annottext">Maybe ContainerServiceDeploymentRequest
-deployment :: Maybe ContainerServiceDeploymentRequest
-$sel:deployment:CreateContainerService' :: CreateContainerService -&gt; Maybe ContainerServiceDeploymentRequest
-</span><a href="#local-6989586621679659804"><span class="hs-identifier hs-var hs-var">deployment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceDeploymentRequest
-</span><a href="#local-6989586621679659804"><span class="hs-identifier hs-var">deployment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659803"><span class="annot"><span class="annottext">s :: CreateContainerService
-</span><a href="#local-6989586621679659803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659802"><span class="annot"><span class="annottext">Maybe ContainerServiceDeploymentRequest
-</span><a href="#local-6989586621679659802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerService
-</span><a href="#local-6989586621679659803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deployment:CreateContainerService' :: Maybe ContainerServiceDeploymentRequest
-</span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Adeployment%3ACreateContainerService%27"><span class="hs-identifier hs-var">deployment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceDeploymentRequest
-</span><a href="#local-6989586621679659802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-268"></span><span>
-</span><span id="line-269"></span><span class="hs-comment">-- | The public domain names to use with the container service, such as</span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- @example.com@ and @www.example.com@.</span><span>
-</span><span id="line-271"></span><span class="hs-comment">--</span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- You can specify up to four public domain names for a container service.</span><span>
-</span><span id="line-273"></span><span class="hs-comment">-- The domain names that you specify are used when you create a deployment</span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- with a container configured as the public endpoint of your container</span><span>
-</span><span id="line-275"></span><span class="hs-comment">-- service.</span><span>
-</span><span id="line-276"></span><span class="hs-comment">--</span><span>
-</span><span id="line-277"></span><span class="hs-comment">-- If you don\'t specify public domain names, then you can use the default</span><span>
-</span><span id="line-278"></span><span class="hs-comment">-- domain of the container service.</span><span>
-</span><span id="line-279"></span><span class="hs-comment">--</span><span>
-</span><span id="line-280"></span><span class="hs-comment">-- You must create and validate an SSL\/TLS certificate before you can use</span><span>
-</span><span id="line-281"></span><span class="hs-comment">-- public domain names with your container service. Use the</span><span>
-</span><span id="line-282"></span><span class="hs-comment">-- @CreateCertificate@ action to create a certificate for the public domain</span><span>
-</span><span id="line-283"></span><span class="hs-comment">-- names you want to use with your container service.</span><span>
-</span><span id="line-284"></span><span class="hs-comment">--</span><span>
-</span><span id="line-285"></span><span class="hs-comment">-- You can specify public domain names using a string to array map as shown</span><span>
-</span><span id="line-286"></span><span class="hs-comment">-- in the example later on this page.</span><span>
-</span><span id="line-287"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_publicDomainNames"><span class="hs-identifier hs-type">createContainerService_publicDomainNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-288"></span><span id="createContainerService_publicDomainNames"><span class="annot"><span class="annottext">createContainerService_publicDomainNames :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+</span><span id="line-260"></span><span class="hs-comment">-- You must create and validate an SSL\/TLS certificate before you can use</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- public domain names with your container service. Use the</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- @CreateCertificate@ action to create a certificate for the public domain</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- names you want to use with your container service.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- You can specify public domain names using a string to array map as shown</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- in the example later on this page.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_publicDomainNames"><span class="hs-identifier hs-type">createContainerService_publicDomainNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="createContainerService_publicDomainNames"><span class="annot"><span class="annottext">createContainerService_publicDomainNames :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
 -&gt; CreateContainerService -&gt; f CreateContainerService
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_publicDomainNames"><span class="hs-identifier hs-var hs-var">createContainerService_publicDomainNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContainerService -&gt; Maybe (HashMap Text [Text]))
 -&gt; (CreateContainerService
@@ -440,16 +363,16 @@ $sel:deployment:CreateContainerService' :: CreateContainerService -&gt; Maybe Co
      (Maybe (HashMap Text [Text]))
      (Maybe (HashMap Text [Text]))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659801"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660861"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 publicDomainNames :: Maybe (HashMap Text [Text])
 $sel:publicDomainNames:CreateContainerService' :: CreateContainerService -&gt; Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679659801"><span class="hs-identifier hs-var hs-var">publicDomainNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679659801"><span class="hs-identifier hs-var">publicDomainNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659800"><span class="annot"><span class="annottext">s :: CreateContainerService
-</span><a href="#local-6989586621679659800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659799"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679659799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerService
-</span><a href="#local-6989586621679659800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicDomainNames:CreateContainerService' :: Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679660861"><span class="hs-identifier hs-var hs-var">publicDomainNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679660861"><span class="hs-identifier hs-var">publicDomainNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660860"><span class="annot"><span class="annottext">s :: CreateContainerService
+</span><a href="#local-6989586621679660860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660859"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679660859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerService
+</span><a href="#local-6989586621679660860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicDomainNames:CreateContainerService' :: Maybe (HashMap Text [Text])
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3ApublicDomainNames%3ACreateContainerService%27"><span class="hs-identifier hs-var">publicDomainNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679659799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+</span><a href="#local-6989586621679660859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
  -&gt; CreateContainerService -&gt; f CreateContainerService)
 -&gt; ((Maybe (HashMap Text [Text])
      -&gt; f (Maybe (HashMap Text [Text])))
@@ -476,61 +399,139 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text [Text])
   (HashMap Text [Text])
   (HashMap Text [Text])
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-289"></span><span>
-</span><span id="line-290"></span><span class="hs-comment">-- | The name for the container service.</span><span>
-</span><span id="line-291"></span><span class="hs-comment">--</span><span>
-</span><span id="line-292"></span><span class="hs-comment">-- The name that you specify for your container service will make up part</span><span>
-</span><span id="line-293"></span><span class="hs-comment">-- of its default domain. The default domain of a container service is</span><span>
-</span><span id="line-294"></span><span class="hs-comment">-- typically</span><span>
-</span><span id="line-295"></span><span class="hs-comment">-- @https:\/\/\&lt;ServiceName&gt;.\&lt;RandomGUID&gt;.\&lt;AWSRegion&gt;.cs.amazonlightsail.com@.</span><span>
-</span><span id="line-296"></span><span class="hs-comment">-- If the name of your container service is @container-service-1@, and</span><span>
-</span><span id="line-297"></span><span class="hs-comment">-- it\'s located in the US East (Ohio) AWS region (@us-east-2@), then the</span><span>
-</span><span id="line-298"></span><span class="hs-comment">-- domain for your container service will be like the following example:</span><span>
-</span><span id="line-299"></span><span class="hs-comment">-- @https:\/\/container-service-1.ur4EXAMPLE2uq.us-east-2.cs.amazonlightsail.com@</span><span>
-</span><span id="line-300"></span><span class="hs-comment">--</span><span>
-</span><span id="line-301"></span><span class="hs-comment">-- The following are the requirements for container service names:</span><span>
-</span><span id="line-302"></span><span class="hs-comment">--</span><span>
-</span><span id="line-303"></span><span class="hs-comment">-- -   Must be unique within each AWS Region in your Lightsail account.</span><span>
-</span><span id="line-304"></span><span class="hs-comment">--</span><span>
-</span><span id="line-305"></span><span class="hs-comment">-- -   Must contain 1 to 63 characters.</span><span>
-</span><span id="line-306"></span><span class="hs-comment">--</span><span>
-</span><span id="line-307"></span><span class="hs-comment">-- -   Must contain only alphanumeric characters and hyphens.</span><span>
-</span><span id="line-308"></span><span class="hs-comment">--</span><span>
-</span><span id="line-309"></span><span class="hs-comment">-- -   A hyphen (-) can separate words but cannot be at the start or end of</span><span>
-</span><span id="line-310"></span><span class="hs-comment">--     the name.</span><span>
-</span><span id="line-311"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_serviceName"><span class="hs-identifier hs-type">createContainerService_serviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-312"></span><span id="createContainerService_serviceName"><span class="annot"><span class="annottext">createContainerService_serviceName :: (Text -&gt; f Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | The tag keys and optional values to add to the certificate during</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- create.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- Use the @TagResource@ action to tag a resource after it\'s created.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- For more information about tags in Lightsail, see the</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-tags Amazon Lightsail Developer Guide&gt;.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_tags"><span class="hs-identifier hs-type">createContainerService_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Lightsail.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="createContainerService_tags"><span class="annot"><span class="annottext">createContainerService_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateContainerService -&gt; f CreateContainerService
+</span><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_tags"><span class="hs-identifier hs-var hs-var">createContainerService_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContainerService -&gt; Maybe [Tag])
+-&gt; (CreateContainerService
+    -&gt; Maybe [Tag] -&gt; CreateContainerService)
+-&gt; Lens
+     CreateContainerService
+     CreateContainerService
+     (Maybe [Tag])
+     (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660855"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateContainerService' :: CreateContainerService -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679660855"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679660855"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660854"><span class="annot"><span class="annottext">s :: CreateContainerService
+</span><a href="#local-6989586621679660854"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660853"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679660853"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerService
+</span><a href="#local-6989586621679660854"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateContainerService' :: Maybe [Tag]
+</span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Atags%3ACreateContainerService%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679660853"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateContainerService -&gt; f CreateContainerService)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateContainerService
+-&gt; f CreateContainerService
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | An object that describes a deployment for the container service.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- A deployment specifies the containers that will be launched on the</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- container service and their settings, such as the ports to open, the</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- environment variables to apply, and the launch command to run. It also</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- specifies the container that will serve as the public endpoint of the</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- deployment and its settings, such as the HTTP or HTTPS port to use, and</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- the health check configuration.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_deployment"><span class="hs-identifier hs-type">createContainerService_deployment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServiceDeploymentRequest.html#ContainerServiceDeploymentRequest"><span class="hs-identifier hs-type">ContainerServiceDeploymentRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span id="createContainerService_deployment"><span class="annot"><span class="annottext">createContainerService_deployment :: (Maybe ContainerServiceDeploymentRequest
+ -&gt; f (Maybe ContainerServiceDeploymentRequest))
+-&gt; CreateContainerService -&gt; f CreateContainerService
+</span><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_deployment"><span class="hs-identifier hs-var hs-var">createContainerService_deployment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContainerService -&gt; Maybe ContainerServiceDeploymentRequest)
+-&gt; (CreateContainerService
+    -&gt; Maybe ContainerServiceDeploymentRequest
+    -&gt; CreateContainerService)
+-&gt; Lens
+     CreateContainerService
+     CreateContainerService
+     (Maybe ContainerServiceDeploymentRequest)
+     (Maybe ContainerServiceDeploymentRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660852"><span class="annot"><span class="annottext">Maybe ContainerServiceDeploymentRequest
+deployment :: Maybe ContainerServiceDeploymentRequest
+$sel:deployment:CreateContainerService' :: CreateContainerService -&gt; Maybe ContainerServiceDeploymentRequest
+</span><a href="#local-6989586621679660852"><span class="hs-identifier hs-var hs-var">deployment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceDeploymentRequest
+</span><a href="#local-6989586621679660852"><span class="hs-identifier hs-var">deployment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660851"><span class="annot"><span class="annottext">s :: CreateContainerService
+</span><a href="#local-6989586621679660851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660850"><span class="annot"><span class="annottext">Maybe ContainerServiceDeploymentRequest
+</span><a href="#local-6989586621679660850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerService
+</span><a href="#local-6989586621679660851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deployment:CreateContainerService' :: Maybe ContainerServiceDeploymentRequest
+</span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Adeployment%3ACreateContainerService%27"><span class="hs-identifier hs-var">deployment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceDeploymentRequest
+</span><a href="#local-6989586621679660850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- | The name for the container service.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- The name that you specify for your container service will make up part</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- of its default domain. The default domain of a container service is</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- typically</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- @https:\/\/\&lt;ServiceName&gt;.\&lt;RandomGUID&gt;.\&lt;AWSRegion&gt;.cs.amazonlightsail.com@.</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- If the name of your container service is @container-service-1@, and</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- it\'s located in the US East (Ohio) AWS region (@us-east-2@), then the</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- domain for your container service will be like the following example:</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- @https:\/\/container-service-1.ur4EXAMPLE2uq.us-east-2.cs.amazonlightsail.com@</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- The following are the requirements for container service names:</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- -   Must be unique within each AWS Region in your Lightsail account.</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--</span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- -   Must contain 1 to 63 characters.</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- -   Must contain only alphanumeric characters and hyphens.</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- -   A hyphen (-) can separate words but cannot be at the start or end of</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--     the name.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_serviceName"><span class="hs-identifier hs-type">createContainerService_serviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-313"></span><span id="createContainerService_serviceName"><span class="annot"><span class="annottext">createContainerService_serviceName :: (Text -&gt; f Text)
 -&gt; CreateContainerService -&gt; f CreateContainerService
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_serviceName"><span class="hs-identifier hs-var hs-var">createContainerService_serviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContainerService -&gt; Text)
 -&gt; (CreateContainerService -&gt; Text -&gt; CreateContainerService)
 -&gt; Lens CreateContainerService CreateContainerService Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659798"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660849"><span class="annot"><span class="annottext">Text
 serviceName :: Text
 $sel:serviceName:CreateContainerService' :: CreateContainerService -&gt; Text
-</span><a href="#local-6989586621679659798"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679659798"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659797"><span class="annot"><span class="annottext">s :: CreateContainerService
-</span><a href="#local-6989586621679659797"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659796"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679659796"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerService
-</span><a href="#local-6989586621679659797"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:CreateContainerService' :: Text
+</span><a href="#local-6989586621679660849"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679660849"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660848"><span class="annot"><span class="annottext">s :: CreateContainerService
+</span><a href="#local-6989586621679660848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660847"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679660847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerService
+</span><a href="#local-6989586621679660848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:CreateContainerService' :: Text
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3AserviceName%3ACreateContainerService%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679659796"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-313"></span><span>
-</span><span id="line-314"></span><span class="hs-comment">-- | The power specification for the container service.</span><span>
-</span><span id="line-315"></span><span class="hs-comment">--</span><span>
-</span><span id="line-316"></span><span class="hs-comment">-- The power specifies the amount of memory, vCPUs, and base monthly cost</span><span>
-</span><span id="line-317"></span><span class="hs-comment">-- of each node of the container service. The @power@ and @scale@ of a</span><span>
-</span><span id="line-318"></span><span class="hs-comment">-- container service makes up its configured capacity. To determine the</span><span>
-</span><span id="line-319"></span><span class="hs-comment">-- monthly price of your container service, multiply the base price of the</span><span>
-</span><span id="line-320"></span><span class="hs-comment">-- @power@ with the @scale@ (the number of nodes) of the service.</span><span>
-</span><span id="line-321"></span><span class="hs-comment">--</span><span>
-</span><span id="line-322"></span><span class="hs-comment">-- Use the @GetContainerServicePowers@ action to get a list of power</span><span>
-</span><span id="line-323"></span><span class="hs-comment">-- options that you can specify using this parameter, and their base</span><span>
-</span><span id="line-324"></span><span class="hs-comment">-- monthly cost.</span><span>
-</span><span id="line-325"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_power"><span class="hs-identifier hs-type">createContainerService_power</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePowerName.html#ContainerServicePowerName"><span class="hs-identifier hs-type">ContainerServicePowerName</span></a></span><span>
-</span><span id="line-326"></span><span id="createContainerService_power"><span class="annot"><span class="annottext">createContainerService_power :: (ContainerServicePowerName -&gt; f ContainerServicePowerName)
+</span><a href="#local-6989586621679660847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | The power specification for the container service.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- The power specifies the amount of memory, vCPUs, and base monthly cost</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- of each node of the container service. The @power@ and @scale@ of a</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- container service makes up its configured capacity. To determine the</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- monthly price of your container service, multiply the base price of the</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- @power@ with the @scale@ (the number of nodes) of the service.</span><span>
+</span><span id="line-322"></span><span class="hs-comment">--</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- Use the @GetContainerServicePowers@ action to get a list of power</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- options that you can specify using this parameter, and their base</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- monthly cost.</span><span>
+</span><span id="line-326"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_power"><span class="hs-identifier hs-type">createContainerService_power</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerServicePowerName.html#ContainerServicePowerName"><span class="hs-identifier hs-type">ContainerServicePowerName</span></a></span><span>
+</span><span id="line-327"></span><span id="createContainerService_power"><span class="annot"><span class="annottext">createContainerService_power :: (ContainerServicePowerName -&gt; f ContainerServicePowerName)
 -&gt; CreateContainerService -&gt; f CreateContainerService
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_power"><span class="hs-identifier hs-var hs-var">createContainerService_power</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContainerService -&gt; ContainerServicePowerName)
 -&gt; (CreateContainerService
@@ -541,60 +542,60 @@ $sel:serviceName:CreateContainerService' :: CreateContainerService -&gt; Text
      ContainerServicePowerName
      ContainerServicePowerName
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659795"><span class="annot"><span class="annottext">ContainerServicePowerName
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660846"><span class="annot"><span class="annottext">ContainerServicePowerName
 power :: ContainerServicePowerName
 $sel:power:CreateContainerService' :: CreateContainerService -&gt; ContainerServicePowerName
-</span><a href="#local-6989586621679659795"><span class="hs-identifier hs-var hs-var">power</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePowerName
-</span><a href="#local-6989586621679659795"><span class="hs-identifier hs-var">power</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659794"><span class="annot"><span class="annottext">s :: CreateContainerService
-</span><a href="#local-6989586621679659794"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659793"><span class="annot"><span class="annottext">ContainerServicePowerName
-</span><a href="#local-6989586621679659793"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerService
-</span><a href="#local-6989586621679659794"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:power:CreateContainerService' :: ContainerServicePowerName
+</span><a href="#local-6989586621679660846"><span class="hs-identifier hs-var hs-var">power</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContainerServicePowerName
+</span><a href="#local-6989586621679660846"><span class="hs-identifier hs-var">power</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660845"><span class="annot"><span class="annottext">s :: CreateContainerService
+</span><a href="#local-6989586621679660845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660844"><span class="annot"><span class="annottext">ContainerServicePowerName
+</span><a href="#local-6989586621679660844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerService
+</span><a href="#local-6989586621679660845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:power:CreateContainerService' :: ContainerServicePowerName
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Apower%3ACreateContainerService%27"><span class="hs-identifier hs-var">power</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ContainerServicePowerName
-</span><a href="#local-6989586621679659793"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-327"></span><span>
-</span><span id="line-328"></span><span class="hs-comment">-- | The scale specification for the container service.</span><span>
-</span><span id="line-329"></span><span class="hs-comment">--</span><span>
-</span><span id="line-330"></span><span class="hs-comment">-- The scale specifies the allocated compute nodes of the container</span><span>
-</span><span id="line-331"></span><span class="hs-comment">-- service. The @power@ and @scale@ of a container service makes up its</span><span>
-</span><span id="line-332"></span><span class="hs-comment">-- configured capacity. To determine the monthly price of your container</span><span>
-</span><span id="line-333"></span><span class="hs-comment">-- service, multiply the base price of the @power@ with the @scale@ (the</span><span>
-</span><span id="line-334"></span><span class="hs-comment">-- number of nodes) of the service.</span><span>
-</span><span id="line-335"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_scale"><span class="hs-identifier hs-type">createContainerService_scale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
-</span><span id="line-336"></span><span id="createContainerService_scale"><span class="annot"><span class="annottext">createContainerService_scale :: (Natural -&gt; f Natural)
+</span><a href="#local-6989586621679660844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- | The scale specification for the container service.</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- The scale specifies the allocated compute nodes of the container</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- service. The @power@ and @scale@ of a container service makes up its</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- configured capacity. To determine the monthly price of your container</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- service, multiply the base price of the @power@ with the @scale@ (the</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- number of nodes) of the service.</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_scale"><span class="hs-identifier hs-type">createContainerService_scale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-337"></span><span id="createContainerService_scale"><span class="annot"><span class="annottext">createContainerService_scale :: (Natural -&gt; f Natural)
 -&gt; CreateContainerService -&gt; f CreateContainerService
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerService_scale"><span class="hs-identifier hs-var hs-var">createContainerService_scale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContainerService -&gt; Natural)
 -&gt; (CreateContainerService -&gt; Natural -&gt; CreateContainerService)
 -&gt; Lens
      CreateContainerService CreateContainerService Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659792"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660843"><span class="annot"><span class="annottext">Natural
 scale :: Natural
 $sel:scale:CreateContainerService' :: CreateContainerService -&gt; Natural
-</span><a href="#local-6989586621679659792"><span class="hs-identifier hs-var hs-var">scale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679659792"><span class="hs-identifier hs-var">scale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659791"><span class="annot"><span class="annottext">s :: CreateContainerService
-</span><a href="#local-6989586621679659791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659790"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679659790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerService
-</span><a href="#local-6989586621679659791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scale:CreateContainerService' :: Natural
+</span><a href="#local-6989586621679660843"><span class="hs-identifier hs-var hs-var">scale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679660843"><span class="hs-identifier hs-var">scale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660842"><span class="annot"><span class="annottext">s :: CreateContainerService
+</span><a href="#local-6989586621679660842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660841"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679660841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerService
+</span><a href="#local-6989586621679660842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scale:CreateContainerService' :: Natural
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3Ascale%3ACreateContainerService%27"><span class="hs-identifier hs-var">scale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679659790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-337"></span><span>
-</span><span id="line-338"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-339"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-340"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-341"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span><span>
-</span><span id="line-342"></span><span>  </span><span id="local-6989586621679659786"><span class="annot"><span class="annottext">request :: CreateContainerService -&gt; Request CreateContainerService
+</span><a href="#local-6989586621679660841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-340"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-341"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-342"></span><span>      </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span><span>
+</span><span id="line-343"></span><span>  </span><span id="local-6989586621679660837"><span class="annot"><span class="annottext">request :: CreateContainerService -&gt; Request CreateContainerService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateContainerService -&gt; Request CreateContainerService
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-343"></span><span>  </span><span id="local-6989586621679659782"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-344"></span><span>  </span><span id="local-6989586621679660833"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateContainerService
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse CreateContainerService)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-344"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-345"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; Object
  -&gt; Either String (AWSResponse CreateContainerService))
@@ -613,22 +614,22 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-345"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679659779"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679659779"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679659778"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679659778"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679659777"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679659777"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-346"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContainerService -&gt; Int -&gt; CreateContainerServiceResponse
+</span><span id="line-346"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679660830"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679660830"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679660829"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679660829"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679660828"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679660828"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-347"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContainerService -&gt; Int -&gt; CreateContainerServiceResponse
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse%27"><span class="hs-identifier hs-var">CreateContainerServiceResponse'</span></a></span><span>
-</span><span id="line-347"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContainerService -&gt; Int -&gt; CreateContainerServiceResponse)
+</span><span id="line-348"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContainerService -&gt; Int -&gt; CreateContainerServiceResponse)
 -&gt; Either String (Maybe ContainerService)
 -&gt; Either String (Int -&gt; CreateContainerServiceResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679659777"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ContainerService)
+</span><a href="#local-6989586621679660828"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ContainerService)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;containerService&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-348"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateContainerServiceResponse)
+</span><span id="line-349"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateContainerServiceResponse)
 -&gt; Either String Int
 -&gt; Either String CreateContainerServiceResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -637,44 +638,44 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679659779"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-349"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-350"></span><span>
-</span><span id="line-351"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679659769"><span id="local-6989586621679659771"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span></span></span><span>
-</span><span id="line-352"></span><span>
-</span><span id="line-353"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679659766"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span></span><span>
-</span><span id="line-354"></span><span>
-</span><span id="line-355"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-356"></span><span>  </span><span id="local-6989586621679659762"><span class="annot"><span class="annottext">toHeaders :: CreateContainerService -&gt; ResponseHeaders
+</span><a href="#local-6989586621679660830"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679660820"><span id="local-6989586621679660822"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span></span></span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679660817"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span></span><span>
+</span><span id="line-355"></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-357"></span><span>  </span><span id="local-6989586621679660813"><span class="annot"><span class="annottext">toHeaders :: CreateContainerService -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-357"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateContainerService -&gt; ResponseHeaders
+</span><span id="line-358"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateContainerService -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
-</span><span id="line-358"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+</span><span id="line-359"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
-</span><span id="line-359"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-360"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
-</span><span id="line-360"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-361"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Lightsail_20161128.CreateContainerService&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-361"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-362"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-363"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span id="line-362"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-363"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
 </span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
-</span><span id="line-364"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+</span><span id="line-365"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
 forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-365"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
-</span><span id="line-366"></span><span>                      </span><span class="hs-special">)</span><span>
-</span><span id="line-367"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-368"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-369"></span><span>
-</span><span id="line-370"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679659752"><span id="local-6989586621679659754"><span id="local-6989586621679659756"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-371"></span><span>  </span><span id="local-6989586621679659750"><span class="annot"><span class="annottext">toJSON :: CreateContainerService -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659743"><span id="local-6989586621679659744"><span id="local-6989586621679659745"><span id="local-6989586621679659746"><span id="local-6989586621679659747"><span id="local-6989586621679659748"><span class="annot"><span class="annottext">Natural
+</span><span id="line-366"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-367"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-368"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-369"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-370"></span><span>
+</span><span id="line-371"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679660803"><span id="local-6989586621679660805"><span id="local-6989586621679660807"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-372"></span><span>  </span><span id="local-6989586621679660801"><span class="annot"><span class="annottext">toJSON :: CreateContainerService -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService%27"><span class="hs-identifier hs-type">CreateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660794"><span id="local-6989586621679660795"><span id="local-6989586621679660796"><span id="local-6989586621679660797"><span id="local-6989586621679660798"><span id="local-6989586621679660799"><span class="annot"><span class="annottext">Natural
 Maybe [Tag]
 Maybe (HashMap Text [Text])
 Maybe ContainerServiceDeploymentRequest
@@ -683,94 +684,94 @@ ContainerServicePowerName
 scale :: Natural
 power :: ContainerServicePowerName
 serviceName :: Text
-publicDomainNames :: Maybe (HashMap Text [Text])
 deployment :: Maybe ContainerServiceDeploymentRequest
 tags :: Maybe [Tag]
+publicDomainNames :: Maybe (HashMap Text [Text])
 $sel:scale:CreateContainerService' :: CreateContainerService -&gt; Natural
 $sel:power:CreateContainerService' :: CreateContainerService -&gt; ContainerServicePowerName
 $sel:serviceName:CreateContainerService' :: CreateContainerService -&gt; Text
-$sel:publicDomainNames:CreateContainerService' :: CreateContainerService -&gt; Maybe (HashMap Text [Text])
 $sel:deployment:CreateContainerService' :: CreateContainerService -&gt; Maybe ContainerServiceDeploymentRequest
 $sel:tags:CreateContainerService' :: CreateContainerService -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679659743"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-372"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+$sel:publicDomainNames:CreateContainerService' :: CreateContainerService -&gt; Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679660794"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-373"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-373"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-374"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-374"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-375"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publicDomainNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-376"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text [Text] -&gt; Pair)
+-&gt; Maybe (HashMap Text [Text]) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679660799"><span class="hs-identifier hs-var">publicDomainNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679659748"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-375"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679660798"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;deployment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContainerServiceDeploymentRequest -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ContainerServiceDeploymentRequest -&gt; Pair)
 -&gt; Maybe ContainerServiceDeploymentRequest -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServiceDeploymentRequest
-</span><a href="#local-6989586621679659747"><span class="hs-identifier hs-var">deployment</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-376"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;publicDomainNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text [Text] -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-377"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text [Text] -&gt; Pair)
--&gt; Maybe (HashMap Text [Text]) -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679659746"><span class="hs-identifier hs-var">publicDomainNames</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-378"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679660797"><span class="hs-identifier hs-var">deployment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;serviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679659745"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-379"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679660796"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-380"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;power&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContainerServicePowerName -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ContainerServicePowerName
-</span><a href="#local-6989586621679659744"><span class="hs-identifier hs-var">power</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-380"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><a href="#local-6989586621679660795"><span class="hs-identifier hs-var">power</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scale&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679659743"><span class="hs-identifier hs-var">scale</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-381"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-382"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-383"></span><span>
-</span><span id="line-384"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-385"></span><span>  </span><span id="local-6989586621679659737"><span class="annot"><span class="annottext">toPath :: CreateContainerService -&gt; ByteString
+</span><a href="#local-6989586621679660794"><span class="hs-identifier hs-var">scale</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-382"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-383"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-384"></span><span>
+</span><span id="line-385"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-386"></span><span>  </span><span id="local-6989586621679660788"><span class="annot"><span class="annottext">toPath :: CreateContainerService -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateContainerService -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
-</span><span id="line-386"></span><span>
-</span><span id="line-387"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-388"></span><span>  </span><span id="local-6989586621679659733"><span class="annot"><span class="annottext">toQuery :: CreateContainerService -&gt; QueryString
+</span><span id="line-387"></span><span>
+</span><span id="line-388"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerService"><span class="hs-identifier hs-type">CreateContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-389"></span><span>  </span><span id="local-6989586621679660784"><span class="annot"><span class="annottext">toQuery :: CreateContainerService -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateContainerService -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-389"></span><span>
-</span><span id="line-390"></span><span class="hs-comment">-- | /See:/ 'newCreateContainerServiceResponse' smart constructor.</span><span>
-</span><span id="line-391"></span><span id="local-6989586621679659730"><span id="local-6989586621679659731"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContainerServiceResponse"><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-var">CreateContainerServiceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContainerServiceResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse%27"><span class="hs-identifier hs-var">CreateContainerServiceResponse'</span></a></span></span><span>
-</span><span id="line-392"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that describes a container service.</span><span>
-</span><span id="line-393"></span><span>    </span><span id="%24sel%3AcontainerService%3ACreateContainerServiceResponse%27"><span class="annot"><span class="annottext">CreateContainerServiceResponse -&gt; Maybe ContainerService
+</span><span id="line-390"></span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- | /See:/ 'newCreateContainerServiceResponse' smart constructor.</span><span>
+</span><span id="line-392"></span><span id="local-6989586621679660781"><span id="local-6989586621679660782"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateContainerServiceResponse"><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-var">CreateContainerServiceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateContainerServiceResponse%27"><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse%27"><span class="hs-identifier hs-var">CreateContainerServiceResponse'</span></a></span></span><span>
+</span><span id="line-393"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that describes a container service.</span><span>
+</span><span id="line-394"></span><span>    </span><span id="%24sel%3AcontainerService%3ACreateContainerServiceResponse%27"><span class="annot"><span class="annottext">CreateContainerServiceResponse -&gt; Maybe ContainerService
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3AcontainerService%3ACreateContainerServiceResponse%27"><span class="hs-identifier hs-var hs-var">containerService</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerService.html#ContainerService"><span class="hs-identifier hs-type">ContainerService</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-394"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-395"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateContainerServiceResponse%27"><span class="annot"><span class="annottext">CreateContainerServiceResponse -&gt; Int
+</span><span id="line-395"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-396"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateContainerServiceResponse%27"><span class="annot"><span class="annottext">CreateContainerServiceResponse -&gt; Int
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3AhttpStatus%3ACreateContainerServiceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-396"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-397"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679659724"><span id="local-6989586621679659726"><span class="annot"><span class="annottext">CreateContainerServiceResponse
+</span><span id="line-397"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-398"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679660775"><span id="local-6989586621679660777"><span class="annot"><span class="annottext">CreateContainerServiceResponse
 -&gt; CreateContainerServiceResponse -&gt; Bool
 (CreateContainerServiceResponse
  -&gt; CreateContainerServiceResponse -&gt; Bool)
@@ -786,7 +787,7 @@ $c/= :: CreateContainerServiceResponse
 -&gt; CreateContainerServiceResponse -&gt; Bool
 $c== :: CreateContainerServiceResponse
 -&gt; CreateContainerServiceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679659716"><span id="local-6989586621679659718"><span id="local-6989586621679659720"><span id="local-6989586621679659722"><span class="annot"><span class="annottext">ReadPrec [CreateContainerServiceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679660767"><span id="local-6989586621679660769"><span id="local-6989586621679660771"><span id="local-6989586621679660773"><span class="annot"><span class="annottext">ReadPrec [CreateContainerServiceResponse]
 ReadPrec CreateContainerServiceResponse
 Int -&gt; ReadS CreateContainerServiceResponse
 ReadS [CreateContainerServiceResponse]
@@ -806,7 +807,7 @@ readList :: ReadS [CreateContainerServiceResponse]
 $creadList :: ReadS [CreateContainerServiceResponse]
 readsPrec :: Int -&gt; ReadS CreateContainerServiceResponse
 $creadsPrec :: Int -&gt; ReadS CreateContainerServiceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679659710"><span id="local-6989586621679659712"><span id="local-6989586621679659714"><span class="annot"><span class="annottext">Int -&gt; CreateContainerServiceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679660761"><span id="local-6989586621679660763"><span id="local-6989586621679660765"><span class="annot"><span class="annottext">Int -&gt; CreateContainerServiceResponse -&gt; ShowS
 [CreateContainerServiceResponse] -&gt; ShowS
 CreateContainerServiceResponse -&gt; String
 (Int -&gt; CreateContainerServiceResponse -&gt; ShowS)
@@ -843,40 +844,40 @@ $cfrom :: forall x.
 CreateContainerServiceResponse
 -&gt; Rep CreateContainerServiceResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-398"></span><span>
-</span><span id="line-399"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-400"></span><span class="hs-comment">-- Create a value of 'CreateContainerServiceResponse' with all optional fields omitted.</span><span>
-</span><span id="line-401"></span><span class="hs-comment">--</span><span>
-</span><span id="line-402"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-403"></span><span class="hs-comment">--</span><span>
-</span><span id="line-404"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-405"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-406"></span><span class="hs-comment">--</span><span>
-</span><span id="line-407"></span><span class="hs-comment">-- 'containerService', 'createContainerServiceResponse_containerService' - An object that describes a container service.</span><span>
-</span><span id="line-408"></span><span class="hs-comment">--</span><span>
-</span><span id="line-409"></span><span class="hs-comment">-- 'httpStatus', 'createContainerServiceResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-410"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#newCreateContainerServiceResponse"><span class="hs-identifier hs-type">newCreateContainerServiceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-411"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-412"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-413"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span><span>
-</span><span id="line-414"></span><span id="newCreateContainerServiceResponse"><span class="annot"><span class="annottext">newCreateContainerServiceResponse :: Int -&gt; CreateContainerServiceResponse
-</span><a href="Network.AWS.Lightsail.CreateContainerService.html#newCreateContainerServiceResponse"><span class="hs-identifier hs-var hs-var">newCreateContainerServiceResponse</span></a></span></span><span> </span><span id="local-6989586621679659707"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679659707"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-415"></span><span>  </span><span class="annot"><span class="annottext">CreateContainerServiceResponse' :: Maybe ContainerService -&gt; Int -&gt; CreateContainerServiceResponse
+</span><span id="line-399"></span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- Create a value of 'CreateContainerServiceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-402"></span><span class="hs-comment">--</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-407"></span><span class="hs-comment">--</span><span>
+</span><span id="line-408"></span><span class="hs-comment">-- 'containerService', 'createContainerServiceResponse_containerService' - An object that describes a container service.</span><span>
+</span><span id="line-409"></span><span class="hs-comment">--</span><span>
+</span><span id="line-410"></span><span class="hs-comment">-- 'httpStatus', 'createContainerServiceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-411"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#newCreateContainerServiceResponse"><span class="hs-identifier hs-type">newCreateContainerServiceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-412"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-413"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-414"></span><span>  </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span><span>
+</span><span id="line-415"></span><span id="newCreateContainerServiceResponse"><span class="annot"><span class="annottext">newCreateContainerServiceResponse :: Int -&gt; CreateContainerServiceResponse
+</span><a href="Network.AWS.Lightsail.CreateContainerService.html#newCreateContainerServiceResponse"><span class="hs-identifier hs-var hs-var">newCreateContainerServiceResponse</span></a></span></span><span> </span><span id="local-6989586621679660758"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679660758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-416"></span><span>  </span><span class="annot"><span class="annottext">CreateContainerServiceResponse' :: Maybe ContainerService -&gt; Int -&gt; CreateContainerServiceResponse
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceResponse'</span></a></span><span>
-</span><span id="line-416"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerService:CreateContainerServiceResponse' :: Maybe ContainerService
+</span><span id="line-417"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerService:CreateContainerServiceResponse' :: Maybe ContainerService
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3AcontainerService%3ACreateContainerServiceResponse%27"><span class="hs-identifier hs-var">containerService</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-417"></span><span>        </span><span class="annot"><span class="annottext">Maybe ContainerService
+</span><span id="line-418"></span><span>        </span><span class="annot"><span class="annottext">Maybe ContainerService
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-418"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContainerServiceResponse' :: Int
+</span><span id="line-419"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContainerServiceResponse' :: Int
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3AhttpStatus%3ACreateContainerServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679659707"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-419"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-420"></span><span>
-</span><span id="line-421"></span><span class="hs-comment">-- | An object that describes a container service.</span><span>
-</span><span id="line-422"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerServiceResponse_containerService"><span class="hs-identifier hs-type">createContainerServiceResponse_containerService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerService.html#ContainerService"><span class="hs-identifier hs-type">ContainerService</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-423"></span><span id="createContainerServiceResponse_containerService"><span class="annot"><span class="annottext">createContainerServiceResponse_containerService :: (Maybe ContainerService -&gt; f (Maybe ContainerService))
+</span><a href="#local-6989586621679660758"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-420"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-421"></span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- | An object that describes a container service.</span><span>
+</span><span id="line-423"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerServiceResponse_containerService"><span class="hs-identifier hs-type">createContainerServiceResponse_containerService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.Types.ContainerService.html#ContainerService"><span class="hs-identifier hs-type">ContainerService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-424"></span><span id="createContainerServiceResponse_containerService"><span class="annot"><span class="annottext">createContainerServiceResponse_containerService :: (Maybe ContainerService -&gt; f (Maybe ContainerService))
 -&gt; CreateContainerServiceResponse
 -&gt; f CreateContainerServiceResponse
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerServiceResponse_containerService"><span class="hs-identifier hs-var hs-var">createContainerServiceResponse_containerService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContainerServiceResponse -&gt; Maybe ContainerService)
@@ -888,20 +889,20 @@ forall a. Maybe a
      (Maybe ContainerService)
      (Maybe ContainerService)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659706"><span class="annot"><span class="annottext">Maybe ContainerService
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660757"><span class="annot"><span class="annottext">Maybe ContainerService
 containerService :: Maybe ContainerService
 $sel:containerService:CreateContainerServiceResponse' :: CreateContainerServiceResponse -&gt; Maybe ContainerService
-</span><a href="#local-6989586621679659706"><span class="hs-identifier hs-var hs-var">containerService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerService
-</span><a href="#local-6989586621679659706"><span class="hs-identifier hs-var">containerService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659705"><span class="annot"><span class="annottext">s :: CreateContainerServiceResponse
-</span><a href="#local-6989586621679659705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659704"><span class="annot"><span class="annottext">Maybe ContainerService
-</span><a href="#local-6989586621679659704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerServiceResponse
-</span><a href="#local-6989586621679659705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerService:CreateContainerServiceResponse' :: Maybe ContainerService
+</span><a href="#local-6989586621679660757"><span class="hs-identifier hs-var hs-var">containerService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerService
+</span><a href="#local-6989586621679660757"><span class="hs-identifier hs-var">containerService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660756"><span class="annot"><span class="annottext">s :: CreateContainerServiceResponse
+</span><a href="#local-6989586621679660756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660755"><span class="annot"><span class="annottext">Maybe ContainerService
+</span><a href="#local-6989586621679660755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerServiceResponse
+</span><a href="#local-6989586621679660756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerService:CreateContainerServiceResponse' :: Maybe ContainerService
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3AcontainerService%3ACreateContainerServiceResponse%27"><span class="hs-identifier hs-var">containerService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerService
-</span><a href="#local-6989586621679659704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-424"></span><span>
-</span><span id="line-425"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-426"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerServiceResponse_httpStatus"><span class="hs-identifier hs-type">createContainerServiceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-427"></span><span id="createContainerServiceResponse_httpStatus"><span class="annot"><span class="annottext">createContainerServiceResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679660755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-425"></span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-427"></span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerServiceResponse_httpStatus"><span class="hs-identifier hs-type">createContainerServiceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-428"></span><span id="createContainerServiceResponse_httpStatus"><span class="annot"><span class="annottext">createContainerServiceResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; CreateContainerServiceResponse
 -&gt; f CreateContainerServiceResponse
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#createContainerServiceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createContainerServiceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateContainerServiceResponse -&gt; Int)
@@ -913,18 +914,18 @@ $sel:containerService:CreateContainerServiceResponse' :: CreateContainerServiceR
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679659703"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679660754"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateContainerServiceResponse' :: CreateContainerServiceResponse -&gt; Int
-</span><a href="#local-6989586621679659703"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679659703"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679659702"><span class="annot"><span class="annottext">s :: CreateContainerServiceResponse
-</span><a href="#local-6989586621679659702"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679659701"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679659701"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerServiceResponse
-</span><a href="#local-6989586621679659702"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContainerServiceResponse' :: Int
+</span><a href="#local-6989586621679660754"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679660754"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679660753"><span class="annot"><span class="annottext">s :: CreateContainerServiceResponse
+</span><a href="#local-6989586621679660753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse%27"><span class="hs-identifier hs-type">CreateContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679660752"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679660752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateContainerServiceResponse
+</span><a href="#local-6989586621679660753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateContainerServiceResponse' :: Int
 </span><a href="Network.AWS.Lightsail.CreateContainerService.html#%24sel%3AhttpStatus%3ACreateContainerServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679659701"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-428"></span><span>
-</span><span id="line-429"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-430"></span><span>  </span><span id="local-6989586621679659699"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-431"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span></span><span>
-</span><span id="line-432"></span></pre></body></html>
+</span><a href="#local-6989586621679660752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-429"></span><span>
+</span><span id="line-430"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-431"></span><span>  </span><span id="local-6989586621679660750"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-432"></span><span>    </span><span class="annot"><a href="Network.AWS.Lightsail.CreateContainerService.html#CreateContainerServiceResponse"><span class="hs-identifier hs-type">CreateContainerServiceResponse</span></a></span></span><span>
+</span><span id="line-433"></span></pre></body></html>

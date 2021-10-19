@@ -27,25 +27,25 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Container for the stats details.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newStats' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679553267"><span id="local-6989586621679553268"></span></span><span class="hs-keyword">data</span><span> </span><span id="Stats"><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-var">Stats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Stats%27"><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-var">Stats'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of object bytes scanned.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AbytesScanned%3AStats%27"><span class="annot"><span class="annottext">Stats -&gt; Maybe Integer
+</span><span id="line-30"></span><span id="local-6989586621679553908"><span id="local-6989586621679553909"></span></span><span class="hs-keyword">data</span><span> </span><span id="Stats"><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-var">Stats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Stats%27"><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-var">Stats'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of bytes of records payload data returned.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AbytesReturned%3AStats%27"><span class="annot"><span class="annottext">Stats -&gt; Maybe Integer
+</span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesReturned%3AStats%27"><span class="hs-identifier hs-var hs-var">bytesReturned</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The total number of object bytes scanned.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbytesScanned%3AStats%27"><span class="annot"><span class="annottext">Stats -&gt; Maybe Integer
 </span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesScanned%3AStats%27"><span class="hs-identifier hs-var hs-var">bytesScanned</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The total number of uncompressed object bytes processed.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbytesProcessed%3AStats%27"><span class="annot"><span class="annottext">Stats -&gt; Maybe Integer
-</span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesProcessed%3AStats%27"><span class="hs-identifier hs-var hs-var">bytesProcessed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The total number of bytes of records payload data returned.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AbytesReturned%3AStats%27"><span class="annot"><span class="annottext">Stats -&gt; Maybe Integer
-</span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesReturned%3AStats%27"><span class="hs-identifier hs-var hs-var">bytesReturned</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The total number of uncompressed object bytes processed.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AbytesProcessed%3AStats%27"><span class="annot"><span class="annottext">Stats -&gt; Maybe Integer
+</span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesProcessed%3AStats%27"><span class="hs-identifier hs-var hs-var">bytesProcessed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553259"><span id="local-6989586621679553261"><span class="annot"><span class="annottext">Stats -&gt; Stats -&gt; Bool
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679553900"><span id="local-6989586621679553902"><span class="annot"><span class="annottext">Stats -&gt; Stats -&gt; Bool
 (Stats -&gt; Stats -&gt; Bool) -&gt; (Stats -&gt; Stats -&gt; Bool) -&gt; Eq Stats
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Stats -&gt; Stats -&gt; Bool
 $c/= :: Stats -&gt; Stats -&gt; Bool
 == :: Stats -&gt; Stats -&gt; Bool
 $c== :: Stats -&gt; Stats -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553250"><span id="local-6989586621679553252"><span id="local-6989586621679553254"><span id="local-6989586621679553256"><span class="annot"><span class="annottext">ReadPrec [Stats]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553891"><span id="local-6989586621679553893"><span id="local-6989586621679553895"><span id="local-6989586621679553897"><span class="annot"><span class="annottext">ReadPrec [Stats]
 ReadPrec Stats
 Int -&gt; ReadS Stats
 ReadS [Stats]
@@ -65,7 +65,7 @@ readList :: ReadS [Stats]
 $creadList :: ReadS [Stats]
 readsPrec :: Int -&gt; ReadS Stats
 $creadsPrec :: Int -&gt; ReadS Stats
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553243"><span id="local-6989586621679553245"><span id="local-6989586621679553247"><span class="annot"><span class="annottext">Int -&gt; Stats -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679553884"><span id="local-6989586621679553886"><span id="local-6989586621679553888"><span class="annot"><span class="annottext">Int -&gt; Stats -&gt; ShowS
 [Stats] -&gt; ShowS
 Stats -&gt; String
 (Int -&gt; Stats -&gt; ShowS)
@@ -96,89 +96,89 @@ $cfrom :: forall x. Stats -&gt; Rep Stats x
 </span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-47"></span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span class="hs-comment">-- 'bytesScanned', 'stats_bytesScanned' - The total number of object bytes scanned.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'bytesReturned', 'stats_bytesReturned' - The total number of bytes of records payload data returned.</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'bytesProcessed', 'stats_bytesProcessed' - The total number of uncompressed object bytes processed.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'bytesScanned', 'stats_bytesScanned' - The total number of object bytes scanned.</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'bytesReturned', 'stats_bytesReturned' - The total number of bytes of records payload data returned.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'bytesProcessed', 'stats_bytesProcessed' - The total number of uncompressed object bytes processed.</span><span>
 </span><span id="line-53"></span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#newStats"><span class="hs-identifier hs-type">newStats</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span>
 </span><span id="line-55"></span><span id="newStats"><span class="annot"><span class="annottext">newStats :: Stats
 </span><a href="Network.AWS.S3.Types.Stats.html#newStats"><span class="hs-identifier hs-var hs-var">newStats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">Stats' :: Maybe Integer -&gt; Maybe Integer -&gt; Maybe Integer -&gt; Stats
 </span><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-type">Stats'</span></a></span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bytesScanned:Stats' :: Maybe Integer
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bytesReturned:Stats' :: Maybe Integer
+</span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesReturned%3AStats%27"><span class="hs-identifier hs-var">bytesReturned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:bytesScanned:Stats' :: Maybe Integer
 </span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesScanned%3AStats%27"><span class="hs-identifier hs-var">bytesScanned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:bytesProcessed:Stats' :: Maybe Integer
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:bytesProcessed:Stats' :: Maybe Integer
 </span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesProcessed%3AStats%27"><span class="hs-identifier hs-var">bytesProcessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:bytesReturned:Stats' :: Maybe Integer
-</span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesReturned%3AStats%27"><span class="hs-identifier hs-var">bytesReturned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-61"></span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- | The total number of object bytes scanned.</span><span>
-</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#stats_bytesScanned"><span class="hs-identifier hs-type">stats_bytesScanned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-64"></span><span id="stats_bytesScanned"><span class="annot"><span class="annottext">stats_bytesScanned :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Stats -&gt; f Stats
-</span><a href="Network.AWS.S3.Types.Stats.html#stats_bytesScanned"><span class="hs-identifier hs-var hs-var">stats_bytesScanned</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Stats -&gt; Maybe Integer)
--&gt; (Stats -&gt; Maybe Integer -&gt; Stats)
--&gt; Lens Stats Stats (Maybe Integer) (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-type">Stats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553234"><span class="annot"><span class="annottext">Maybe Integer
-bytesScanned :: Maybe Integer
-$sel:bytesScanned:Stats' :: Stats -&gt; Maybe Integer
-</span><a href="#local-6989586621679553234"><span class="hs-identifier hs-var hs-var">bytesScanned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679553234"><span class="hs-identifier hs-var">bytesScanned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553233"><span class="annot"><span class="annottext">s :: Stats
-</span><a href="#local-6989586621679553233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-type">Stats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553232"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679553232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Stats
-</span><a href="#local-6989586621679553233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesScanned:Stats' :: Maybe Integer
-</span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesScanned%3AStats%27"><span class="hs-identifier hs-var">bytesScanned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679553232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The total number of uncompressed object bytes processed.</span><span>
-</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#stats_bytesProcessed"><span class="hs-identifier hs-type">stats_bytesProcessed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-68"></span><span id="stats_bytesProcessed"><span class="annot"><span class="annottext">stats_bytesProcessed :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Stats -&gt; f Stats
-</span><a href="Network.AWS.S3.Types.Stats.html#stats_bytesProcessed"><span class="hs-identifier hs-var hs-var">stats_bytesProcessed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Stats -&gt; Maybe Integer)
--&gt; (Stats -&gt; Maybe Integer -&gt; Stats)
--&gt; Lens Stats Stats (Maybe Integer) (Maybe Integer)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-type">Stats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553230"><span class="annot"><span class="annottext">Maybe Integer
-bytesProcessed :: Maybe Integer
-$sel:bytesProcessed:Stats' :: Stats -&gt; Maybe Integer
-</span><a href="#local-6989586621679553230"><span class="hs-identifier hs-var hs-var">bytesProcessed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679553230"><span class="hs-identifier hs-var">bytesProcessed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553229"><span class="annot"><span class="annottext">s :: Stats
-</span><a href="#local-6989586621679553229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-type">Stats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553228"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679553228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Stats
-</span><a href="#local-6989586621679553229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesProcessed:Stats' :: Maybe Integer
-</span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesProcessed%3AStats%27"><span class="hs-identifier hs-var">bytesProcessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679553228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- | The total number of bytes of records payload data returned.</span><span>
-</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#stats_bytesReturned"><span class="hs-identifier hs-type">stats_bytesReturned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-72"></span><span id="stats_bytesReturned"><span class="annot"><span class="annottext">stats_bytesReturned :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Stats -&gt; f Stats
+</span><span id="line-62"></span><span class="hs-comment">-- | The total number of bytes of records payload data returned.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#stats_bytesReturned"><span class="hs-identifier hs-type">stats_bytesReturned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="stats_bytesReturned"><span class="annot"><span class="annottext">stats_bytesReturned :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Stats -&gt; f Stats
 </span><a href="Network.AWS.S3.Types.Stats.html#stats_bytesReturned"><span class="hs-identifier hs-var hs-var">stats_bytesReturned</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Stats -&gt; Maybe Integer)
 -&gt; (Stats -&gt; Maybe Integer -&gt; Stats)
 -&gt; Lens Stats Stats (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-type">Stats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553226"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-type">Stats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553875"><span class="annot"><span class="annottext">Maybe Integer
 bytesReturned :: Maybe Integer
 $sel:bytesReturned:Stats' :: Stats -&gt; Maybe Integer
-</span><a href="#local-6989586621679553226"><span class="hs-identifier hs-var hs-var">bytesReturned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679553226"><span class="hs-identifier hs-var">bytesReturned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553225"><span class="annot"><span class="annottext">s :: Stats
-</span><a href="#local-6989586621679553225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-type">Stats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553224"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679553224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Stats
-</span><a href="#local-6989586621679553225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesReturned:Stats' :: Maybe Integer
+</span><a href="#local-6989586621679553875"><span class="hs-identifier hs-var hs-var">bytesReturned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679553875"><span class="hs-identifier hs-var">bytesReturned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553874"><span class="annot"><span class="annottext">s :: Stats
+</span><a href="#local-6989586621679553874"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-type">Stats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553873"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679553873"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Stats
+</span><a href="#local-6989586621679553874"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesReturned:Stats' :: Maybe Integer
 </span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesReturned%3AStats%27"><span class="hs-identifier hs-var">bytesReturned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679553224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679553873"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The total number of object bytes scanned.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#stats_bytesScanned"><span class="hs-identifier hs-type">stats_bytesScanned</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="stats_bytesScanned"><span class="annot"><span class="annottext">stats_bytesScanned :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Stats -&gt; f Stats
+</span><a href="Network.AWS.S3.Types.Stats.html#stats_bytesScanned"><span class="hs-identifier hs-var hs-var">stats_bytesScanned</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Stats -&gt; Maybe Integer)
+-&gt; (Stats -&gt; Maybe Integer -&gt; Stats)
+-&gt; Lens Stats Stats (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-type">Stats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553871"><span class="annot"><span class="annottext">Maybe Integer
+bytesScanned :: Maybe Integer
+$sel:bytesScanned:Stats' :: Stats -&gt; Maybe Integer
+</span><a href="#local-6989586621679553871"><span class="hs-identifier hs-var hs-var">bytesScanned</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679553871"><span class="hs-identifier hs-var">bytesScanned</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553870"><span class="annot"><span class="annottext">s :: Stats
+</span><a href="#local-6989586621679553870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-type">Stats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553869"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679553869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Stats
+</span><a href="#local-6989586621679553870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesScanned:Stats' :: Maybe Integer
+</span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesScanned%3AStats%27"><span class="hs-identifier hs-var">bytesScanned</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679553869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The total number of uncompressed object bytes processed.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#stats_bytesProcessed"><span class="hs-identifier hs-type">stats_bytesProcessed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="stats_bytesProcessed"><span class="annot"><span class="annottext">stats_bytesProcessed :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; Stats -&gt; f Stats
+</span><a href="Network.AWS.S3.Types.Stats.html#stats_bytesProcessed"><span class="hs-identifier hs-var hs-var">stats_bytesProcessed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Stats -&gt; Maybe Integer)
+-&gt; (Stats -&gt; Maybe Integer -&gt; Stats)
+-&gt; Lens Stats Stats (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-type">Stats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679553867"><span class="annot"><span class="annottext">Maybe Integer
+bytesProcessed :: Maybe Integer
+$sel:bytesProcessed:Stats' :: Stats -&gt; Maybe Integer
+</span><a href="#local-6989586621679553867"><span class="hs-identifier hs-var hs-var">bytesProcessed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679553867"><span class="hs-identifier hs-var">bytesProcessed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679553866"><span class="annot"><span class="annottext">s :: Stats
+</span><a href="#local-6989586621679553866"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-type">Stats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679553865"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679553865"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Stats
+</span><a href="#local-6989586621679553866"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bytesProcessed:Stats' :: Maybe Integer
+</span><a href="Network.AWS.S3.Types.Stats.html#%24sel%3AbytesProcessed%3AStats%27"><span class="hs-identifier hs-var">bytesProcessed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679553865"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>
 </span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679553221"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Stats
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553219"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553219"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679553862"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Stats
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679553860"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679553860"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">Maybe Integer -&gt; Maybe Integer -&gt; Maybe Integer -&gt; Stats
 </span><a href="Network.AWS.S3.Types.Stats.html#Stats%27"><span class="hs-identifier hs-var">Stats'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Integer -&gt; Maybe Integer -&gt; Maybe Integer -&gt; Stats)
@@ -186,29 +186,29 @@ $sel:bytesReturned:Stats' :: Stats -&gt; Maybe Integer
 -&gt; Either String (Maybe Integer -&gt; Maybe Integer -&gt; Stats)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679553860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BytesScanned&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;BytesReturned&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Integer -&gt; Maybe Integer -&gt; Stats)
 -&gt; Either String (Maybe Integer)
 -&gt; Either String (Maybe Integer -&gt; Stats)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679553860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BytesProcessed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;BytesScanned&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Integer -&gt; Stats)
 -&gt; Either String (Maybe Integer) -&gt; Either String Stats
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679553219"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
+</span><a href="#local-6989586621679553860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Integer)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;BytesReturned&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;BytesProcessed&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553213"><span id="local-6989586621679553215"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553854"><span id="local-6989586621679553856"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span></span></span><span>
 </span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553210"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679553851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.S3.Types.Stats.html#Stats"><span class="hs-identifier hs-type">Stats</span></a></span></span><span>
 </span><span id="line-84"></span></pre></body></html>

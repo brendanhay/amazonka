@@ -50,10 +50,10 @@
 </span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#newDescribeCommunications"><span class="hs-identifier">newDescribeCommunications</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_nextToken"><span class="hs-identifier">describeCommunications_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_maxResults"><span class="hs-identifier">describeCommunications_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_beforeTime"><span class="hs-identifier">describeCommunications_beforeTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_afterTime"><span class="hs-identifier">describeCommunications_afterTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_afterTime"><span class="hs-identifier">describeCommunications_afterTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_beforeTime"><span class="hs-identifier">describeCommunications_beforeTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_nextToken"><span class="hs-identifier">describeCommunications_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_maxResults"><span class="hs-identifier">describeCommunications_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-57"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_caseId"><span class="hs-identifier">describeCommunications_caseId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -75,29 +75,29 @@
 </span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Support.Types.html"><span class="hs-identifier">Network.AWS.Support.Types</span></a></span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- | /See:/ 'newDescribeCommunications' smart constructor.</span><span>
-</span><span id="line-78"></span><span id="local-6989586621679174385"><span id="local-6989586621679174386"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCommunications"><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-var">DescribeCommunications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCommunications%27"><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-var">DescribeCommunications'</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A resumption point for pagination.</span><span>
-</span><span id="line-80"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeCommunications%27"><span class="annot"><span class="annottext">DescribeCommunications -&gt; Maybe Text
-</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AnextToken%3ADescribeCommunications%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return before paginating.</span><span>
-</span><span id="line-82"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeCommunications%27"><span class="annot"><span class="annottext">DescribeCommunications -&gt; Maybe Natural
-</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AmaxResults%3ADescribeCommunications%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span id="local-6989586621679174489"><span id="local-6989586621679174490"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCommunications"><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-var">DescribeCommunications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCommunications%27"><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-var">DescribeCommunications'</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start date for a filtered date search on support case</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- communications. Case communications are available for 12 months after</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- creation.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AafterTime%3ADescribeCommunications%27"><span class="annot"><span class="annottext">DescribeCommunications -&gt; Maybe Text
+</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AafterTime%3ADescribeCommunications%27"><span class="hs-identifier hs-var hs-var">afterTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The end date for a filtered date search on support case communications.</span><span>
 </span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Case communications are available for 12 months after creation.</span><span>
 </span><span id="line-85"></span><span>    </span><span id="%24sel%3AbeforeTime%3ADescribeCommunications%27"><span class="annot"><span class="annottext">DescribeCommunications -&gt; Maybe Text
 </span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AbeforeTime%3ADescribeCommunications%27"><span class="hs-identifier hs-var hs-var">beforeTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The start date for a filtered date search on support case</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- communications. Case communications are available for 12 months after</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- creation.</span><span>
-</span><span id="line-89"></span><span>    </span><span id="%24sel%3AafterTime%3ADescribeCommunications%27"><span class="annot"><span class="annottext">DescribeCommunications -&gt; Maybe Text
-</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AafterTime%3ADescribeCommunications%27"><span class="hs-identifier hs-var hs-var">afterTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | A resumption point for pagination.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeCommunications%27"><span class="annot"><span class="annottext">DescribeCommunications -&gt; Maybe Text
+</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AnextToken%3ADescribeCommunications%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return before paginating.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeCommunications%27"><span class="annot"><span class="annottext">DescribeCommunications -&gt; Maybe Natural
+</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AmaxResults%3ADescribeCommunications%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The support case ID requested or returned in the call. The case ID is an</span><span>
 </span><span id="line-91"></span><span>    </span><span class="hs-comment">-- alphanumeric string formatted as shown in this example:</span><span>
 </span><span id="line-92"></span><span>    </span><span class="hs-comment">-- case-/12345678910-2013-c4c1d2bf33c5cf47/</span><span>
 </span><span id="line-93"></span><span>    </span><span id="%24sel%3AcaseId%3ADescribeCommunications%27"><span class="annot"><span class="annottext">DescribeCommunications -&gt; Text
 </span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AcaseId%3ADescribeCommunications%27"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174375"><span id="local-6989586621679174377"><span class="annot"><span class="annottext">DescribeCommunications -&gt; DescribeCommunications -&gt; Bool
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174479"><span id="local-6989586621679174481"><span class="annot"><span class="annottext">DescribeCommunications -&gt; DescribeCommunications -&gt; Bool
 (DescribeCommunications -&gt; DescribeCommunications -&gt; Bool)
 -&gt; (DescribeCommunications -&gt; DescribeCommunications -&gt; Bool)
 -&gt; Eq DescribeCommunications
@@ -106,7 +106,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeCommunications -&gt; DescribeCommunications -&gt; Bool
 == :: DescribeCommunications -&gt; DescribeCommunications -&gt; Bool
 $c== :: DescribeCommunications -&gt; DescribeCommunications -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174366"><span id="local-6989586621679174368"><span id="local-6989586621679174370"><span id="local-6989586621679174372"><span class="annot"><span class="annottext">ReadPrec [DescribeCommunications]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174470"><span id="local-6989586621679174472"><span id="local-6989586621679174474"><span id="local-6989586621679174476"><span class="annot"><span class="annottext">ReadPrec [DescribeCommunications]
 ReadPrec DescribeCommunications
 Int -&gt; ReadS DescribeCommunications
 ReadS [DescribeCommunications]
@@ -126,7 +126,7 @@ readList :: ReadS [DescribeCommunications]
 $creadList :: ReadS [DescribeCommunications]
 readsPrec :: Int -&gt; ReadS DescribeCommunications
 $creadsPrec :: Int -&gt; ReadS DescribeCommunications
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174359"><span id="local-6989586621679174361"><span id="local-6989586621679174363"><span class="annot"><span class="annottext">Int -&gt; DescribeCommunications -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174463"><span id="local-6989586621679174465"><span id="local-6989586621679174467"><span class="annot"><span class="annottext">Int -&gt; DescribeCommunications -&gt; ShowS
 [DescribeCommunications] -&gt; ShowS
 DescribeCommunications -&gt; String
 (Int -&gt; DescribeCommunications -&gt; ShowS)
@@ -161,16 +161,16 @@ $cfrom :: forall x. DescribeCommunications -&gt; Rep DescribeCommunications x
 </span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'nextToken', 'describeCommunications_nextToken' - A resumption point for pagination.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'maxResults', 'describeCommunications_maxResults' - The maximum number of results to return before paginating.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'afterTime', 'describeCommunications_afterTime' - The start date for a filtered date search on support case</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- communications. Case communications are available for 12 months after</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- creation.</span><span>
 </span><span id="line-108"></span><span class="hs-comment">--</span><span>
 </span><span id="line-109"></span><span class="hs-comment">-- 'beforeTime', 'describeCommunications_beforeTime' - The end date for a filtered date search on support case communications.</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- Case communications are available for 12 months after creation.</span><span>
 </span><span id="line-111"></span><span class="hs-comment">--</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- 'afterTime', 'describeCommunications_afterTime' - The start date for a filtered date search on support case</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- communications. Case communications are available for 12 months after</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- creation.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'nextToken', 'describeCommunications_nextToken' - A resumption point for pagination.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'maxResults', 'describeCommunications_maxResults' - The maximum number of results to return before paginating.</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- 'caseId', 'describeCommunications_caseId' - The support case ID requested or returned in the call. The case ID is an</span><span>
 </span><span id="line-117"></span><span class="hs-comment">-- alphanumeric string formatted as shown in this example:</span><span>
@@ -180,40 +180,89 @@ $cfrom :: forall x. DescribeCommunications -&gt; Rep DescribeCommunications x
 </span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span>
 </span><span id="line-123"></span><span id="newDescribeCommunications"><span class="annot"><span class="annottext">newDescribeCommunications :: Text -&gt; DescribeCommunications
-</span><a href="Network.AWS.Support.DescribeCommunications.html#newDescribeCommunications"><span class="hs-identifier hs-var hs-var">newDescribeCommunications</span></a></span></span><span> </span><span id="local-6989586621679174354"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174354"><span class="hs-identifier hs-var">pCaseId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Support.DescribeCommunications.html#newDescribeCommunications"><span class="hs-identifier hs-var hs-var">newDescribeCommunications</span></a></span></span><span> </span><span id="local-6989586621679174458"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174458"><span class="hs-identifier hs-var">pCaseId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">DescribeCommunications' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Maybe Natural
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Text
 -&gt; DescribeCommunications
 </span><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span>
-</span><span id="line-125"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCommunications' :: Maybe Text
-</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AnextToken%3ADescribeCommunications%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:afterTime:DescribeCommunications' :: Maybe Text
+</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AafterTime%3ADescribeCommunications%27"><span class="hs-identifier hs-var">afterTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeCommunications' :: Maybe Natural
-</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AmaxResults%3ADescribeCommunications%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:beforeTime:DescribeCommunications' :: Maybe Text
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:beforeTime:DescribeCommunications' :: Maybe Text
 </span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AbeforeTime%3ADescribeCommunications%27"><span class="hs-identifier hs-var">beforeTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:afterTime:DescribeCommunications' :: Maybe Text
-</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AafterTime%3ADescribeCommunications%27"><span class="hs-identifier hs-var">afterTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCommunications' :: Maybe Text
+</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AnextToken%3ADescribeCommunications%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeCommunications' :: Maybe Natural
+</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AmaxResults%3ADescribeCommunications%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:caseId:DescribeCommunications' :: Text
 </span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AcaseId%3ADescribeCommunications%27"><span class="hs-identifier hs-var">caseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174354"><span class="hs-identifier hs-var">pCaseId_</span></a></span><span>
+</span><a href="#local-6989586621679174458"><span class="hs-identifier hs-var">pCaseId_</span></a></span><span>
 </span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | A resumption point for pagination.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_nextToken"><span class="hs-identifier hs-type">describeCommunications_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="describeCommunications_nextToken"><span class="annot"><span class="annottext">describeCommunications_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-133"></span><span class="hs-comment">-- | The start date for a filtered date search on support case</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- communications. Case communications are available for 12 months after</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- creation.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_afterTime"><span class="hs-identifier hs-type">describeCommunications_afterTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="describeCommunications_afterTime"><span class="annot"><span class="annottext">describeCommunications_afterTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeCommunications -&gt; f DescribeCommunications
+</span><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_afterTime"><span class="hs-identifier hs-var hs-var">describeCommunications_afterTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCommunications -&gt; Maybe Text)
+-&gt; (DescribeCommunications -&gt; Maybe Text -&gt; DescribeCommunications)
+-&gt; Lens
+     DescribeCommunications
+     DescribeCommunications
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174456"><span class="annot"><span class="annottext">Maybe Text
+afterTime :: Maybe Text
+$sel:afterTime:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Text
+</span><a href="#local-6989586621679174456"><span class="hs-identifier hs-var hs-var">afterTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174456"><span class="hs-identifier hs-var">afterTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174455"><span class="annot"><span class="annottext">s :: DescribeCommunications
+</span><a href="#local-6989586621679174455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174454"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunications
+</span><a href="#local-6989586621679174455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterTime:DescribeCommunications' :: Maybe Text
+</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AafterTime%3ADescribeCommunications%27"><span class="hs-identifier hs-var">afterTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The end date for a filtered date search on support case communications.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Case communications are available for 12 months after creation.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_beforeTime"><span class="hs-identifier hs-type">describeCommunications_beforeTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="describeCommunications_beforeTime"><span class="annot"><span class="annottext">describeCommunications_beforeTime :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeCommunications -&gt; f DescribeCommunications
+</span><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_beforeTime"><span class="hs-identifier hs-var hs-var">describeCommunications_beforeTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCommunications -&gt; Maybe Text)
+-&gt; (DescribeCommunications -&gt; Maybe Text -&gt; DescribeCommunications)
+-&gt; Lens
+     DescribeCommunications
+     DescribeCommunications
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174453"><span class="annot"><span class="annottext">Maybe Text
+beforeTime :: Maybe Text
+$sel:beforeTime:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Text
+</span><a href="#local-6989586621679174453"><span class="hs-identifier hs-var hs-var">beforeTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174453"><span class="hs-identifier hs-var">beforeTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174452"><span class="annot"><span class="annottext">s :: DescribeCommunications
+</span><a href="#local-6989586621679174452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174451"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunications
+</span><a href="#local-6989586621679174452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beforeTime:DescribeCommunications' :: Maybe Text
+</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AbeforeTime%3ADescribeCommunications%27"><span class="hs-identifier hs-var">beforeTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | A resumption point for pagination.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_nextToken"><span class="hs-identifier hs-type">describeCommunications_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="describeCommunications_nextToken"><span class="annot"><span class="annottext">describeCommunications_nextToken :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeCommunications -&gt; f DescribeCommunications
 </span><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_nextToken"><span class="hs-identifier hs-var hs-var">describeCommunications_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCommunications -&gt; Maybe Text)
 -&gt; (DescribeCommunications -&gt; Maybe Text -&gt; DescribeCommunications)
@@ -223,20 +272,20 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174352"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174450"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Text
-</span><a href="#local-6989586621679174352"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174352"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174351"><span class="annot"><span class="annottext">s :: DescribeCommunications
-</span><a href="#local-6989586621679174351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174350"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunications
-</span><a href="#local-6989586621679174351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCommunications' :: Maybe Text
+</span><a href="#local-6989586621679174450"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174450"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174449"><span class="annot"><span class="annottext">s :: DescribeCommunications
+</span><a href="#local-6989586621679174449"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174448"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174448"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunications
+</span><a href="#local-6989586621679174449"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCommunications' :: Maybe Text
 </span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AnextToken%3ADescribeCommunications%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | The maximum number of results to return before paginating.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_maxResults"><span class="hs-identifier hs-type">describeCommunications_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="describeCommunications_maxResults"><span class="annot"><span class="annottext">describeCommunications_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621679174448"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The maximum number of results to return before paginating.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_maxResults"><span class="hs-identifier hs-type">describeCommunications_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="describeCommunications_maxResults"><span class="annot"><span class="annottext">describeCommunications_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; DescribeCommunications -&gt; f DescribeCommunications
 </span><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_maxResults"><span class="hs-identifier hs-var hs-var">describeCommunications_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCommunications -&gt; Maybe Natural)
 -&gt; (DescribeCommunications
@@ -247,65 +296,16 @@ $sel:nextToken:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Tex
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174349"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174447"><span class="annot"><span class="annottext">Maybe Natural
 maxResults :: Maybe Natural
 $sel:maxResults:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Natural
-</span><a href="#local-6989586621679174349"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679174349"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174348"><span class="annot"><span class="annottext">s :: DescribeCommunications
-</span><a href="#local-6989586621679174348"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174347"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679174347"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunications
-</span><a href="#local-6989586621679174348"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeCommunications' :: Maybe Natural
+</span><a href="#local-6989586621679174447"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679174447"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174446"><span class="annot"><span class="annottext">s :: DescribeCommunications
+</span><a href="#local-6989586621679174446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174445"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679174445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunications
+</span><a href="#local-6989586621679174446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeCommunications' :: Maybe Natural
 </span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AmaxResults%3ADescribeCommunications%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679174347"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The end date for a filtered date search on support case communications.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- Case communications are available for 12 months after creation.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_beforeTime"><span class="hs-identifier hs-type">describeCommunications_beforeTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="describeCommunications_beforeTime"><span class="annot"><span class="annottext">describeCommunications_beforeTime :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeCommunications -&gt; f DescribeCommunications
-</span><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_beforeTime"><span class="hs-identifier hs-var hs-var">describeCommunications_beforeTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCommunications -&gt; Maybe Text)
--&gt; (DescribeCommunications -&gt; Maybe Text -&gt; DescribeCommunications)
--&gt; Lens
-     DescribeCommunications
-     DescribeCommunications
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174346"><span class="annot"><span class="annottext">Maybe Text
-beforeTime :: Maybe Text
-$sel:beforeTime:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Text
-</span><a href="#local-6989586621679174346"><span class="hs-identifier hs-var hs-var">beforeTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174346"><span class="hs-identifier hs-var">beforeTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174345"><span class="annot"><span class="annottext">s :: DescribeCommunications
-</span><a href="#local-6989586621679174345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174344"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunications
-</span><a href="#local-6989586621679174345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:beforeTime:DescribeCommunications' :: Maybe Text
-</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AbeforeTime%3ADescribeCommunications%27"><span class="hs-identifier hs-var">beforeTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- | The start date for a filtered date search on support case</span><span>
-</span><span id="line-147"></span><span class="hs-comment">-- communications. Case communications are available for 12 months after</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- creation.</span><span>
-</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_afterTime"><span class="hs-identifier hs-type">describeCommunications_afterTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span id="describeCommunications_afterTime"><span class="annot"><span class="annottext">describeCommunications_afterTime :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeCommunications -&gt; f DescribeCommunications
-</span><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunications_afterTime"><span class="hs-identifier hs-var hs-var">describeCommunications_afterTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeCommunications -&gt; Maybe Text)
--&gt; (DescribeCommunications -&gt; Maybe Text -&gt; DescribeCommunications)
--&gt; Lens
-     DescribeCommunications
-     DescribeCommunications
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174343"><span class="annot"><span class="annottext">Maybe Text
-afterTime :: Maybe Text
-$sel:afterTime:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Text
-</span><a href="#local-6989586621679174343"><span class="hs-identifier hs-var hs-var">afterTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174343"><span class="hs-identifier hs-var">afterTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174342"><span class="annot"><span class="annottext">s :: DescribeCommunications
-</span><a href="#local-6989586621679174342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174341"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunications
-</span><a href="#local-6989586621679174342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:afterTime:DescribeCommunications' :: Maybe Text
-</span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AafterTime%3ADescribeCommunications%27"><span class="hs-identifier hs-var">afterTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The support case ID requested or returned in the call. The case ID is an</span><span>
 </span><span id="line-153"></span><span class="hs-comment">-- alphanumeric string formatted as shown in this example:</span><span>
@@ -317,30 +317,30 @@ $sel:afterTime:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Tex
 -&gt; (DescribeCommunications -&gt; Text -&gt; DescribeCommunications)
 -&gt; Lens DescribeCommunications DescribeCommunications Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174340"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174444"><span class="annot"><span class="annottext">Text
 caseId :: Text
 $sel:caseId:DescribeCommunications' :: DescribeCommunications -&gt; Text
-</span><a href="#local-6989586621679174340"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174340"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174339"><span class="annot"><span class="annottext">s :: DescribeCommunications
-</span><a href="#local-6989586621679174339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174338"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunications
-</span><a href="#local-6989586621679174339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseId:DescribeCommunications' :: Text
+</span><a href="#local-6989586621679174444"><span class="hs-identifier hs-var hs-var">caseId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174444"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174443"><span class="annot"><span class="annottext">s :: DescribeCommunications
+</span><a href="#local-6989586621679174443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174442"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunications
+</span><a href="#local-6989586621679174443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:caseId:DescribeCommunications' :: Text
 </span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AcaseId%3ADescribeCommunications%27"><span class="hs-identifier hs-var">caseId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-159"></span><span>  </span><span id="local-6989586621679174334"><span class="annot"><span class="annottext">page :: DescribeCommunications
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679174438"><span class="annot"><span class="annottext">page :: DescribeCommunications
 -&gt; AWSResponse DescribeCommunications
 -&gt; Maybe DescribeCommunications
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679174332"><span class="annot"><span class="annottext">DescribeCommunications
-</span><a href="#local-6989586621679174332"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679174331"><span class="annot"><span class="annottext">AWSResponse DescribeCommunications
-</span><a href="#local-6989586621679174331"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679174436"><span class="annot"><span class="annottext">DescribeCommunications
+</span><a href="#local-6989586621679174436"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679174435"><span class="annot"><span class="annottext">AWSResponse DescribeCommunications
+</span><a href="#local-6989586621679174435"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-161"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeCommunications
 DescribeCommunicationsResponse
-</span><a href="#local-6989586621679174331"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679174435"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">DescribeCommunicationsResponse
 -&gt; Getting (First Text) DescribeCommunicationsResponse Text
 -&gt; Maybe Text
@@ -370,7 +370,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-167"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeCommunications
 DescribeCommunicationsResponse
-</span><a href="#local-6989586621679174331"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679174435"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">DescribeCommunicationsResponse
 -&gt; Getting
      (First [Communication])
@@ -415,7 +415,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">DescribeCommunications
-</span><a href="#local-6989586621679174332"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679174436"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">DescribeCommunications
 -&gt; (DescribeCommunications -&gt; DescribeCommunications)
 -&gt; DescribeCommunications
@@ -434,7 +434,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeCommunications
 DescribeCommunicationsResponse
-</span><a href="#local-6989586621679174331"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679174435"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-177"></span><span>          </span><span class="annot"><span class="annottext">DescribeCommunicationsResponse
 -&gt; Getting (First Text) DescribeCommunicationsResponse Text
 -&gt; Maybe Text
@@ -460,12 +460,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-181"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-182"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-183"></span><span>      </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse"><span class="hs-identifier hs-type">DescribeCommunicationsResponse</span></a></span><span>
-</span><span id="line-184"></span><span>  </span><span id="local-6989586621679174321"><span class="annot"><span class="annottext">request :: DescribeCommunications -&gt; Request DescribeCommunications
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679174425"><span class="annot"><span class="annottext">request :: DescribeCommunications -&gt; Request DescribeCommunications
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeCommunications -&gt; Request DescribeCommunications
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Support.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-185"></span><span>  </span><span id="local-6989586621679174317"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679174421"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeCommunications
 -&gt; ClientResponse ClientBody
@@ -491,10 +491,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174314"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174314"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679174313"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679174313"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679174312"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174312"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174418"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174418"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679174417"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679174417"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679174416"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174416"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe [Communication] -&gt; Int -&gt; DescribeCommunicationsResponse
 </span><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-var">DescribeCommunicationsResponse'</span></a></span><span>
@@ -506,7 +506,7 @@ MonadResource m =&gt;
      (Maybe [Communication] -&gt; Int -&gt; DescribeCommunicationsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679174416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -517,7 +517,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Int -&gt; DescribeCommunicationsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174312"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Communication]))
+</span><a href="#local-6989586621679174416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Communication]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;communications&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Communication]))
@@ -535,15 +535,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174314"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174418"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174303"><span id="local-6989586621679174305"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span></span></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174407"><span id="local-6989586621679174409"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span></span></span><span>
 </span><span id="line-195"></span><span>
-</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174300"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174404"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span></span><span>
 </span><span id="line-197"></span><span>
 </span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621679174296"><span class="annot"><span class="annottext">toHeaders :: DescribeCommunications -&gt; ResponseHeaders
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679174400"><span class="annot"><span class="annottext">toHeaders :: DescribeCommunications -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeCommunications -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -570,74 +570,74 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-210"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-211"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-212"></span><span>
-</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174286"><span id="local-6989586621679174288"><span id="local-6989586621679174290"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-214"></span><span>  </span><span id="local-6989586621679174284"><span class="annot"><span class="annottext">toJSON :: DescribeCommunications -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174278"><span id="local-6989586621679174279"><span id="local-6989586621679174280"><span id="local-6989586621679174281"><span id="local-6989586621679174282"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174390"><span id="local-6989586621679174392"><span id="local-6989586621679174394"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679174388"><span class="annot"><span class="annottext">toJSON :: DescribeCommunications -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications%27"><span class="hs-identifier hs-type">DescribeCommunications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174382"><span id="local-6989586621679174383"><span id="local-6989586621679174384"><span id="local-6989586621679174385"><span id="local-6989586621679174386"><span class="annot"><span class="annottext">Maybe Natural
 Maybe Text
 Text
 caseId :: Text
-afterTime :: Maybe Text
-beforeTime :: Maybe Text
 maxResults :: Maybe Natural
 nextToken :: Maybe Text
+beforeTime :: Maybe Text
+afterTime :: Maybe Text
 $sel:caseId:DescribeCommunications' :: DescribeCommunications -&gt; Text
-$sel:afterTime:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Text
-$sel:beforeTime:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Text
 $sel:maxResults:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Natural
 $sel:nextToken:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Text
-</span><a href="#local-6989586621679174278"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:beforeTime:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Text
+$sel:afterTime:DescribeCommunications' :: DescribeCommunications -&gt; Maybe Text
+</span><a href="#local-6989586621679174382"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-216"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-217"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174282"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679174281"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;beforeTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174280"><span class="hs-identifier hs-var">beforeTime</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;afterTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174279"><span class="hs-identifier hs-var">afterTime</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679174386"><span class="hs-identifier hs-var">afterTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;beforeTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174385"><span class="hs-identifier hs-var">beforeTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174384"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679174383"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;caseId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679174278"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174382"><span class="hs-identifier hs-var">caseId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-222"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-224"></span><span>
 </span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-226"></span><span>  </span><span id="local-6989586621679174272"><span class="annot"><span class="annottext">toPath :: DescribeCommunications -&gt; ByteString
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679174376"><span class="annot"><span class="annottext">toPath :: DescribeCommunications -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeCommunications -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-227"></span><span>
 </span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunications"><span class="hs-identifier hs-type">DescribeCommunications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-229"></span><span>  </span><span id="local-6989586621679174268"><span class="annot"><span class="annottext">toQuery :: DescribeCommunications -&gt; QueryString
+</span><span id="line-229"></span><span>  </span><span id="local-6989586621679174372"><span class="annot"><span class="annottext">toQuery :: DescribeCommunications -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeCommunications -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -647,7 +647,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-231"></span><span class="hs-comment">-- | The communications returned by the DescribeCommunications operation.</span><span>
 </span><span id="line-232"></span><span class="hs-comment">--</span><span>
 </span><span id="line-233"></span><span class="hs-comment">-- /See:/ 'newDescribeCommunicationsResponse' smart constructor.</span><span>
-</span><span id="line-234"></span><span id="local-6989586621679174265"><span id="local-6989586621679174266"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCommunicationsResponse"><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse"><span class="hs-identifier hs-var">DescribeCommunicationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCommunicationsResponse%27"><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-var">DescribeCommunicationsResponse'</span></a></span></span><span>
+</span><span id="line-234"></span><span id="local-6989586621679174369"><span id="local-6989586621679174370"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeCommunicationsResponse"><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse"><span class="hs-identifier hs-var">DescribeCommunicationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeCommunicationsResponse%27"><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-var">DescribeCommunicationsResponse'</span></a></span></span><span>
 </span><span id="line-235"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A resumption point for pagination.</span><span>
 </span><span id="line-236"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeCommunicationsResponse%27"><span class="annot"><span class="annottext">DescribeCommunicationsResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AnextToken%3ADescribeCommunicationsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -658,7 +658,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-240"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeCommunicationsResponse%27"><span class="annot"><span class="annottext">DescribeCommunicationsResponse -&gt; Int
 </span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AhttpStatus%3ADescribeCommunicationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-241"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174258"><span id="local-6989586621679174260"><span class="annot"><span class="annottext">DescribeCommunicationsResponse
+</span><span id="line-242"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174362"><span id="local-6989586621679174364"><span class="annot"><span class="annottext">DescribeCommunicationsResponse
 -&gt; DescribeCommunicationsResponse -&gt; Bool
 (DescribeCommunicationsResponse
  -&gt; DescribeCommunicationsResponse -&gt; Bool)
@@ -674,7 +674,7 @@ $c/= :: DescribeCommunicationsResponse
 -&gt; DescribeCommunicationsResponse -&gt; Bool
 $c== :: DescribeCommunicationsResponse
 -&gt; DescribeCommunicationsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174250"><span id="local-6989586621679174252"><span id="local-6989586621679174254"><span id="local-6989586621679174256"><span class="annot"><span class="annottext">ReadPrec [DescribeCommunicationsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174354"><span id="local-6989586621679174356"><span id="local-6989586621679174358"><span id="local-6989586621679174360"><span class="annot"><span class="annottext">ReadPrec [DescribeCommunicationsResponse]
 ReadPrec DescribeCommunicationsResponse
 Int -&gt; ReadS DescribeCommunicationsResponse
 ReadS [DescribeCommunicationsResponse]
@@ -694,7 +694,7 @@ readList :: ReadS [DescribeCommunicationsResponse]
 $creadList :: ReadS [DescribeCommunicationsResponse]
 readsPrec :: Int -&gt; ReadS DescribeCommunicationsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeCommunicationsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174244"><span id="local-6989586621679174246"><span id="local-6989586621679174248"><span class="annot"><span class="annottext">Int -&gt; DescribeCommunicationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174348"><span id="local-6989586621679174350"><span id="local-6989586621679174352"><span class="annot"><span class="annottext">Int -&gt; DescribeCommunicationsResponse -&gt; ShowS
 [DescribeCommunicationsResponse] -&gt; ShowS
 DescribeCommunicationsResponse -&gt; String
 (Int -&gt; DescribeCommunicationsResponse -&gt; ShowS)
@@ -750,8 +750,8 @@ DescribeCommunicationsResponse
 </span><span id="line-259"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-260"></span><span>  </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse"><span class="hs-identifier hs-type">DescribeCommunicationsResponse</span></a></span><span>
 </span><span id="line-261"></span><span id="newDescribeCommunicationsResponse"><span class="annot"><span class="annottext">newDescribeCommunicationsResponse :: Int -&gt; DescribeCommunicationsResponse
-</span><a href="Network.AWS.Support.DescribeCommunications.html#newDescribeCommunicationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeCommunicationsResponse</span></a></span></span><span> </span><span id="local-6989586621679174241"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174241"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Support.DescribeCommunications.html#newDescribeCommunicationsResponse"><span class="hs-identifier hs-var hs-var">newDescribeCommunicationsResponse</span></a></span></span><span> </span><span id="local-6989586621679174345"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174345"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-262"></span><span>  </span><span class="annot"><span class="annottext">DescribeCommunicationsResponse' :: Maybe Text
 -&gt; Maybe [Communication] -&gt; Int -&gt; DescribeCommunicationsResponse
 </span><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-type">DescribeCommunicationsResponse'</span></a></span><span>
@@ -766,7 +766,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCommunicationsResponse' :: Int
 </span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AhttpStatus%3ADescribeCommunicationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174241"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679174345"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-267"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-268"></span><span>
 </span><span id="line-269"></span><span class="hs-comment">-- | A resumption point for pagination.</span><span>
@@ -779,16 +779,16 @@ forall a. Maybe a
     -&gt; Maybe Text -&gt; DescribeCommunicationsResponse)
 -&gt; Lens' DescribeCommunicationsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-type">DescribeCommunicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174240"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-type">DescribeCommunicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174344"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:DescribeCommunicationsResponse' :: DescribeCommunicationsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679174240"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174240"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174239"><span class="annot"><span class="annottext">s :: DescribeCommunicationsResponse
-</span><a href="#local-6989586621679174239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-type">DescribeCommunicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174238"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunicationsResponse
-</span><a href="#local-6989586621679174239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCommunicationsResponse' :: Maybe Text
+</span><a href="#local-6989586621679174344"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174344"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174343"><span class="annot"><span class="annottext">s :: DescribeCommunicationsResponse
+</span><a href="#local-6989586621679174343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-type">DescribeCommunicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174342"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunicationsResponse
+</span><a href="#local-6989586621679174343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeCommunicationsResponse' :: Maybe Text
 </span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AnextToken%3ADescribeCommunicationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679174238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse"><span class="hs-identifier hs-type">DescribeCommunicationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse"><span class="hs-identifier hs-type">DescribeCommunicationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-272"></span><span>
 </span><span id="line-273"></span><span class="hs-comment">-- | The communications for the case.</span><span>
 </span><span id="line-274"></span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunicationsResponse_communications"><span class="hs-identifier hs-type">describeCommunicationsResponse_communications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse"><span class="hs-identifier hs-type">DescribeCommunicationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Support.Types.Communication.html#Communication"><span class="hs-identifier hs-type">Communication</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -800,16 +800,16 @@ $sel:nextToken:DescribeCommunicationsResponse' :: DescribeCommunicationsResponse
     -&gt; Maybe [Communication] -&gt; DescribeCommunicationsResponse)
 -&gt; Lens' DescribeCommunicationsResponse (Maybe [Communication])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-type">DescribeCommunicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174237"><span class="annot"><span class="annottext">Maybe [Communication]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-type">DescribeCommunicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174341"><span class="annot"><span class="annottext">Maybe [Communication]
 communications :: Maybe [Communication]
 $sel:communications:DescribeCommunicationsResponse' :: DescribeCommunicationsResponse -&gt; Maybe [Communication]
-</span><a href="#local-6989586621679174237"><span class="hs-identifier hs-var hs-var">communications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Communication]
-</span><a href="#local-6989586621679174237"><span class="hs-identifier hs-var">communications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174236"><span class="annot"><span class="annottext">s :: DescribeCommunicationsResponse
-</span><a href="#local-6989586621679174236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-type">DescribeCommunicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174235"><span class="annot"><span class="annottext">Maybe [Communication]
-</span><a href="#local-6989586621679174235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunicationsResponse
-</span><a href="#local-6989586621679174236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:communications:DescribeCommunicationsResponse' :: Maybe [Communication]
+</span><a href="#local-6989586621679174341"><span class="hs-identifier hs-var hs-var">communications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Communication]
+</span><a href="#local-6989586621679174341"><span class="hs-identifier hs-var">communications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174340"><span class="annot"><span class="annottext">s :: DescribeCommunicationsResponse
+</span><a href="#local-6989586621679174340"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-type">DescribeCommunicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174339"><span class="annot"><span class="annottext">Maybe [Communication]
+</span><a href="#local-6989586621679174339"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunicationsResponse
+</span><a href="#local-6989586621679174340"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:communications:DescribeCommunicationsResponse' :: Maybe [Communication]
 </span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3Acommunications%3ADescribeCommunicationsResponse%27"><span class="hs-identifier hs-var">communications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Communication]
-</span><a href="#local-6989586621679174235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse"><span class="hs-identifier hs-type">DescribeCommunicationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Communication] -&gt; f (Maybe [Communication]))
+</span><a href="#local-6989586621679174339"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse"><span class="hs-identifier hs-type">DescribeCommunicationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Communication] -&gt; f (Maybe [Communication]))
  -&gt; DescribeCommunicationsResponse
  -&gt; f DescribeCommunicationsResponse)
 -&gt; ((Maybe [Communication] -&gt; f (Maybe [Communication]))
@@ -830,8 +830,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   [Communication] [Communication] [Communication] [Communication]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-276"></span><span>
 </span><span id="line-277"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-278"></span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#describeCommunicationsResponse_httpStatus"><span class="hs-identifier hs-type">describeCommunicationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse"><span class="hs-identifier hs-type">DescribeCommunicationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -847,18 +847,18 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-type">DescribeCommunicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174232"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-type">DescribeCommunicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174336"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeCommunicationsResponse' :: DescribeCommunicationsResponse -&gt; Int
-</span><a href="#local-6989586621679174232"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174232"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174231"><span class="annot"><span class="annottext">s :: DescribeCommunicationsResponse
-</span><a href="#local-6989586621679174231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-type">DescribeCommunicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174230"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunicationsResponse
-</span><a href="#local-6989586621679174231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCommunicationsResponse' :: Int
+</span><a href="#local-6989586621679174336"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174336"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174335"><span class="annot"><span class="annottext">s :: DescribeCommunicationsResponse
+</span><a href="#local-6989586621679174335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse%27"><span class="hs-identifier hs-type">DescribeCommunicationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174334"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679174334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeCommunicationsResponse
+</span><a href="#local-6989586621679174335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeCommunicationsResponse' :: Int
 </span><a href="Network.AWS.Support.DescribeCommunications.html#%24sel%3AhttpStatus%3ADescribeCommunicationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679174230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse"><span class="hs-identifier hs-type">DescribeCommunicationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse"><span class="hs-identifier hs-type">DescribeCommunicationsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-280"></span><span>
 </span><span id="line-281"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-282"></span><span>  </span><span id="local-6989586621679174228"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-282"></span><span>  </span><span id="local-6989586621679174332"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-283"></span><span>    </span><span class="annot"><a href="Network.AWS.Support.DescribeCommunications.html#DescribeCommunicationsResponse"><span class="hs-identifier hs-type">DescribeCommunicationsResponse</span></a></span></span><span>
 </span><span id="line-284"></span></pre></body></html>

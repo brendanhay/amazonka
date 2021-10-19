@@ -28,39 +28,39 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Information about a Session Manager connection to an instance.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSession' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679814263"><span id="local-6989586621679814264"></span></span><span class="hs-keyword">data</span><span> </span><span id="Session"><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-var">Session</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Session%27"><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-var">Session'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679815963"><span id="local-6989586621679815964"></span></span><span class="hs-keyword">data</span><span> </span><span id="Session"><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-var">Session</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Session%27"><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-var">Session'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the session. For example, \&quot;Connected\&quot; or \&quot;Terminated\&quot;.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe SessionStatus
 </span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Astatus%3ASession%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionStatus.html#SessionStatus"><span class="hs-identifier hs-type">SessionStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, when the session began.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AstartDate%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe POSIX
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AstartDate%3ASession%27"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the session.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsessionId%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AsessionId%3ASession%27"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The name of the Session Manager SSM document used to define the</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- parameters and plugin settings for the session. For example,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @SSM-SessionManagerRunShell@.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdocumentName%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AdocumentName%3ASession%27"><span class="hs-identifier hs-var hs-var">documentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Reserved for future use.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Adetails%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Adetails%3ASession%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Reserved for future use.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AoutputUrl%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe SessionManagerOutputUrl
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AoutputUrl%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe SessionManagerOutputUrl
 </span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AoutputUrl%3ASession%27"><span class="hs-identifier hs-var hs-var">outputUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionManagerOutputUrl.html#SessionManagerOutputUrl"><span class="hs-identifier hs-type">SessionManagerOutputUrl</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services user account that started the session.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aowner%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe Text
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The name of the Session Manager SSM document used to define the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- parameters and plugin settings for the session. For example,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- @SSM-SessionManagerRunShell@.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdocumentName%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AdocumentName%3ASession%27"><span class="hs-identifier hs-var hs-var">documentName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, when the session was</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- terminated.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AendDate%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AendDate%3ASession%27"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services user account that started the session.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aowner%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe Text
 </span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Aowner%3ASession%27"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The instance that the Session Manager session connected to.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3Atarget%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe Text
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Atarget%3ASession%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, when the session was</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- terminated.</span><span>
-</span><span id="line-52"></span><span>    </span><span id="%24sel%3AendDate%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe POSIX
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AendDate%3ASession%27"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, when the session began.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AstartDate%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AstartDate%3ASession%27"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Adetails%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Adetails%3ASession%27"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The ID of the session.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AsessionId%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AsessionId%3ASession%27"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The instance that the Session Manager session connected to.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Atarget%3ASession%27"><span class="annot"><span class="annottext">Session -&gt; Maybe Text
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Atarget%3ASession%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679814249"><span id="local-6989586621679814251"><span class="annot"><span class="annottext">Session -&gt; Session -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679815949"><span id="local-6989586621679815951"><span class="annot"><span class="annottext">Session -&gt; Session -&gt; Bool
 (Session -&gt; Session -&gt; Bool)
 -&gt; (Session -&gt; Session -&gt; Bool) -&gt; Eq Session
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -68,7 +68,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Session -&gt; Session -&gt; Bool
 == :: Session -&gt; Session -&gt; Bool
 $c== :: Session -&gt; Session -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814240"><span id="local-6989586621679814242"><span id="local-6989586621679814244"><span id="local-6989586621679814246"><span class="annot"><span class="annottext">ReadPrec [Session]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815940"><span id="local-6989586621679815942"><span id="local-6989586621679815944"><span id="local-6989586621679815946"><span class="annot"><span class="annottext">ReadPrec [Session]
 ReadPrec Session
 Int -&gt; ReadS Session
 ReadS [Session]
@@ -88,7 +88,7 @@ readList :: ReadS [Session]
 $creadList :: ReadS [Session]
 readsPrec :: Int -&gt; ReadS Session
 $creadsPrec :: Int -&gt; ReadS Session
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679814233"><span id="local-6989586621679814235"><span id="local-6989586621679814237"><span class="annot"><span class="annottext">Int -&gt; Session -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679815933"><span id="local-6989586621679815935"><span id="local-6989586621679815937"><span class="annot"><span class="annottext">Int -&gt; Session -&gt; ShowS
 [Session] -&gt; ShowS
 Session -&gt; String
 (Int -&gt; Session -&gt; ShowS)
@@ -121,73 +121,73 @@ $cfrom :: forall x. Session -&gt; Rep Session x
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'status', 'session_status' - The status of the session. For example, \&quot;Connected\&quot; or \&quot;Terminated\&quot;.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'startDate', 'session_startDate' - The date and time, in ISO-8601 Extended format, when the session began.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'outputUrl', 'session_outputUrl' - Reserved for future use.</span><span>
 </span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'sessionId', 'session_sessionId' - The ID of the session.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'documentName', 'session_documentName' - The name of the Session Manager SSM document used to define the</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- parameters and plugin settings for the session. For example,</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- @SSM-SessionManagerRunShell@.</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'details', 'session_details' - Reserved for future use.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'outputUrl', 'session_outputUrl' - Reserved for future use.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'owner', 'session_owner' - The ID of the Amazon Web Services user account that started the session.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'target', 'session_target' - The instance that the Session Manager session connected to.</span><span>
-</span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'endDate', 'session_endDate' - The date and time, in ISO-8601 Extended format, when the session was</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- terminated.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'documentName', 'session_documentName' - The name of the Session Manager SSM document used to define the</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- parameters and plugin settings for the session. For example,</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- @SSM-SessionManagerRunShell@.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'endDate', 'session_endDate' - The date and time, in ISO-8601 Extended format, when the session was</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- terminated.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'owner', 'session_owner' - The ID of the Amazon Web Services user account that started the session.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'startDate', 'session_startDate' - The date and time, in ISO-8601 Extended format, when the session began.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'details', 'session_details' - Reserved for future use.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'sessionId', 'session_sessionId' - The ID of the session.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'target', 'session_target' - The instance that the Session Manager session connected to.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#newSession"><span class="hs-identifier hs-type">newSession</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-85"></span><span>  </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span>
 </span><span id="line-86"></span><span id="newSession"><span class="annot"><span class="annottext">newSession :: Session
 </span><a href="Network.AWS.SSM.Types.Session.html#newSession"><span class="hs-identifier hs-var hs-var">newSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">Session' :: Maybe SessionStatus
--&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe SessionManagerOutputUrl
 -&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Session
 </span><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:Session' :: Maybe SessionStatus
 </span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Astatus%3ASession%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SessionStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:startDate:Session' :: Maybe POSIX
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AstartDate%3ASession%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:sessionId:Session' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AsessionId%3ASession%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentName:Session' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AdocumentName%3ASession%27"><span class="hs-identifier hs-var">documentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:details:Session' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Adetails%3ASession%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputUrl:Session' :: Maybe SessionManagerOutputUrl
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputUrl:Session' :: Maybe SessionManagerOutputUrl
 </span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AoutputUrl%3ASession%27"><span class="hs-identifier hs-var">outputUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SessionManagerOutputUrl
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:Session' :: Maybe Text
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:documentName:Session' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AdocumentName%3ASession%27"><span class="hs-identifier hs-var">documentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:endDate:Session' :: Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AendDate%3ASession%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:owner:Session' :: Maybe Text
 </span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Aowner%3ASession%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:Session' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Atarget%3ASession%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:startDate:Session' :: Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AstartDate%3ASession%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:endDate:Session' :: Maybe POSIX
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AendDate%3ASession%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:details:Session' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Adetails%3ASession%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:sessionId:Session' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AsessionId%3ASession%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:Session' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Atarget%3ASession%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
@@ -200,108 +200,20 @@ forall a. Maybe a
 -&gt; (Session -&gt; Maybe SessionStatus -&gt; Session)
 -&gt; Lens Session Session (Maybe SessionStatus) (Maybe SessionStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814224"><span class="annot"><span class="annottext">Maybe SessionStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815924"><span class="annot"><span class="annottext">Maybe SessionStatus
 status :: Maybe SessionStatus
 $sel:status:Session' :: Session -&gt; Maybe SessionStatus
-</span><a href="#local-6989586621679814224"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SessionStatus
-</span><a href="#local-6989586621679814224"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814223"><span class="annot"><span class="annottext">s :: Session
-</span><a href="#local-6989586621679814223"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814222"><span class="annot"><span class="annottext">Maybe SessionStatus
-</span><a href="#local-6989586621679814222"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
-</span><a href="#local-6989586621679814223"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Session' :: Maybe SessionStatus
+</span><a href="#local-6989586621679815924"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SessionStatus
+</span><a href="#local-6989586621679815924"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815923"><span class="annot"><span class="annottext">s :: Session
+</span><a href="#local-6989586621679815923"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815922"><span class="annot"><span class="annottext">Maybe SessionStatus
+</span><a href="#local-6989586621679815922"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
+</span><a href="#local-6989586621679815923"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Session' :: Maybe SessionStatus
 </span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Astatus%3ASession%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SessionStatus
-</span><a href="#local-6989586621679814222"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679815922"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, when the session began.</span><span>
-</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_startDate"><span class="hs-identifier hs-type">session_startDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span id="session_startDate"><span class="annot"><span class="annottext">session_startDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Session -&gt; f Session
-</span><a href="Network.AWS.SSM.Types.Session.html#session_startDate"><span class="hs-identifier hs-var hs-var">session_startDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe POSIX)
--&gt; (Session -&gt; Maybe POSIX -&gt; Session)
--&gt; Lens Session Session (Maybe POSIX) (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814220"><span class="annot"><span class="annottext">Maybe POSIX
-startDate :: Maybe POSIX
-$sel:startDate:Session' :: Session -&gt; Maybe POSIX
-</span><a href="#local-6989586621679814220"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679814220"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814219"><span class="annot"><span class="annottext">s :: Session
-</span><a href="#local-6989586621679814219"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814218"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679814218"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
-</span><a href="#local-6989586621679814219"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:Session' :: Maybe POSIX
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AstartDate%3ASession%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679814218"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Session -&gt; f Session)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; Session
--&gt; f Session
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- | The ID of the session.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_sessionId"><span class="hs-identifier hs-type">session_sessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="session_sessionId"><span class="annot"><span class="annottext">session_sessionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Session -&gt; f Session
-</span><a href="Network.AWS.SSM.Types.Session.html#session_sessionId"><span class="hs-identifier hs-var hs-var">session_sessionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe Text)
--&gt; (Session -&gt; Maybe Text -&gt; Session)
--&gt; Lens Session Session (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814213"><span class="annot"><span class="annottext">Maybe Text
-sessionId :: Maybe Text
-$sel:sessionId:Session' :: Session -&gt; Maybe Text
-</span><a href="#local-6989586621679814213"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814213"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814212"><span class="annot"><span class="annottext">s :: Session
-</span><a href="#local-6989586621679814212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814211"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
-</span><a href="#local-6989586621679814212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:Session' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AsessionId%3ASession%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- | The name of the Session Manager SSM document used to define the</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- parameters and plugin settings for the session. For example,</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- @SSM-SessionManagerRunShell@.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_documentName"><span class="hs-identifier hs-type">session_documentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="session_documentName"><span class="annot"><span class="annottext">session_documentName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Session -&gt; f Session
-</span><a href="Network.AWS.SSM.Types.Session.html#session_documentName"><span class="hs-identifier hs-var hs-var">session_documentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe Text)
--&gt; (Session -&gt; Maybe Text -&gt; Session)
--&gt; Lens Session Session (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814209"><span class="annot"><span class="annottext">Maybe Text
-documentName :: Maybe Text
-$sel:documentName:Session' :: Session -&gt; Maybe Text
-</span><a href="#local-6989586621679814209"><span class="hs-identifier hs-var hs-var">documentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814209"><span class="hs-identifier hs-var">documentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814208"><span class="annot"><span class="annottext">s :: Session
-</span><a href="#local-6989586621679814208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814207"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
-</span><a href="#local-6989586621679814208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentName:Session' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AdocumentName%3ASession%27"><span class="hs-identifier hs-var">documentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
-</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_details"><span class="hs-identifier hs-type">session_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span id="session_details"><span class="annot"><span class="annottext">session_details :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Session -&gt; f Session
-</span><a href="Network.AWS.SSM.Types.Session.html#session_details"><span class="hs-identifier hs-var hs-var">session_details</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe Text)
--&gt; (Session -&gt; Maybe Text -&gt; Session)
--&gt; Lens Session Session (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814205"><span class="annot"><span class="annottext">Maybe Text
-details :: Maybe Text
-$sel:details:Session' :: Session -&gt; Maybe Text
-</span><a href="#local-6989586621679814205"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814205"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814204"><span class="annot"><span class="annottext">s :: Session
-</span><a href="#local-6989586621679814204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814203"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
-</span><a href="#local-6989586621679814204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:Session' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Adetails%3ASession%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_outputUrl"><span class="hs-identifier hs-type">session_outputUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionManagerOutputUrl.html#SessionManagerOutputUrl"><span class="hs-identifier hs-type">SessionManagerOutputUrl</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="session_outputUrl"><span class="annot"><span class="annottext">session_outputUrl :: (Maybe SessionManagerOutputUrl
+</span><span id="line-103"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_outputUrl"><span class="hs-identifier hs-type">session_outputUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.SessionManagerOutputUrl.html#SessionManagerOutputUrl"><span class="hs-identifier hs-type">SessionManagerOutputUrl</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="session_outputUrl"><span class="annot"><span class="annottext">session_outputUrl :: (Maybe SessionManagerOutputUrl
  -&gt; f (Maybe SessionManagerOutputUrl))
 -&gt; Session -&gt; f Session
 </span><a href="Network.AWS.SSM.Types.Session.html#session_outputUrl"><span class="hs-identifier hs-var hs-var">session_outputUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe SessionManagerOutputUrl)
@@ -312,71 +224,55 @@ $sel:details:Session' :: Session -&gt; Maybe Text
      (Maybe SessionManagerOutputUrl)
      (Maybe SessionManagerOutputUrl)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814201"><span class="annot"><span class="annottext">Maybe SessionManagerOutputUrl
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815920"><span class="annot"><span class="annottext">Maybe SessionManagerOutputUrl
 outputUrl :: Maybe SessionManagerOutputUrl
 $sel:outputUrl:Session' :: Session -&gt; Maybe SessionManagerOutputUrl
-</span><a href="#local-6989586621679814201"><span class="hs-identifier hs-var hs-var">outputUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SessionManagerOutputUrl
-</span><a href="#local-6989586621679814201"><span class="hs-identifier hs-var">outputUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814200"><span class="annot"><span class="annottext">s :: Session
-</span><a href="#local-6989586621679814200"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814199"><span class="annot"><span class="annottext">Maybe SessionManagerOutputUrl
-</span><a href="#local-6989586621679814199"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
-</span><a href="#local-6989586621679814200"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputUrl:Session' :: Maybe SessionManagerOutputUrl
+</span><a href="#local-6989586621679815920"><span class="hs-identifier hs-var hs-var">outputUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SessionManagerOutputUrl
+</span><a href="#local-6989586621679815920"><span class="hs-identifier hs-var">outputUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815919"><span class="annot"><span class="annottext">s :: Session
+</span><a href="#local-6989586621679815919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815918"><span class="annot"><span class="annottext">Maybe SessionManagerOutputUrl
+</span><a href="#local-6989586621679815918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
+</span><a href="#local-6989586621679815919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputUrl:Session' :: Maybe SessionManagerOutputUrl
 </span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AoutputUrl%3ASession%27"><span class="hs-identifier hs-var">outputUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SessionManagerOutputUrl
-</span><a href="#local-6989586621679814199"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The ID of the Amazon Web Services user account that started the session.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_owner"><span class="hs-identifier hs-type">session_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="session_owner"><span class="annot"><span class="annottext">session_owner :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Session -&gt; f Session
-</span><a href="Network.AWS.SSM.Types.Session.html#session_owner"><span class="hs-identifier hs-var hs-var">session_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe Text)
+</span><a href="#local-6989586621679815918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The name of the Session Manager SSM document used to define the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- parameters and plugin settings for the session. For example,</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- @SSM-SessionManagerRunShell@.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_documentName"><span class="hs-identifier hs-type">session_documentName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="session_documentName"><span class="annot"><span class="annottext">session_documentName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Session -&gt; f Session
+</span><a href="Network.AWS.SSM.Types.Session.html#session_documentName"><span class="hs-identifier hs-var hs-var">session_documentName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe Text)
 -&gt; (Session -&gt; Maybe Text -&gt; Session)
 -&gt; Lens Session Session (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814197"><span class="annot"><span class="annottext">Maybe Text
-owner :: Maybe Text
-$sel:owner:Session' :: Session -&gt; Maybe Text
-</span><a href="#local-6989586621679814197"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814197"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814196"><span class="annot"><span class="annottext">s :: Session
-</span><a href="#local-6989586621679814196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814195"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
-</span><a href="#local-6989586621679814196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:Session' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Aowner%3ASession%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The instance that the Session Manager session connected to.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_target"><span class="hs-identifier hs-type">session_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="session_target"><span class="annot"><span class="annottext">session_target :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Session -&gt; f Session
-</span><a href="Network.AWS.SSM.Types.Session.html#session_target"><span class="hs-identifier hs-var hs-var">session_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe Text)
--&gt; (Session -&gt; Maybe Text -&gt; Session)
--&gt; Lens Session Session (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814193"><span class="annot"><span class="annottext">Maybe Text
-target :: Maybe Text
-$sel:target:Session' :: Session -&gt; Maybe Text
-</span><a href="#local-6989586621679814193"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814193"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814192"><span class="annot"><span class="annottext">s :: Session
-</span><a href="#local-6989586621679814192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814191"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
-</span><a href="#local-6989586621679814192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:Session' :: Maybe Text
-</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Atarget%3ASession%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679814191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, when the session was</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- terminated.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_endDate"><span class="hs-identifier hs-type">session_endDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="session_endDate"><span class="annot"><span class="annottext">session_endDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Session -&gt; f Session
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815916"><span class="annot"><span class="annottext">Maybe Text
+documentName :: Maybe Text
+$sel:documentName:Session' :: Session -&gt; Maybe Text
+</span><a href="#local-6989586621679815916"><span class="hs-identifier hs-var hs-var">documentName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815916"><span class="hs-identifier hs-var">documentName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815915"><span class="annot"><span class="annottext">s :: Session
+</span><a href="#local-6989586621679815915"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815914"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815914"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
+</span><a href="#local-6989586621679815915"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:documentName:Session' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AdocumentName%3ASession%27"><span class="hs-identifier hs-var">documentName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815914"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, when the session was</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- terminated.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_endDate"><span class="hs-identifier hs-type">session_endDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="session_endDate"><span class="annot"><span class="annottext">session_endDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Session -&gt; f Session
 </span><a href="Network.AWS.SSM.Types.Session.html#session_endDate"><span class="hs-identifier hs-var hs-var">session_endDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe POSIX)
 -&gt; (Session -&gt; Maybe POSIX -&gt; Session)
 -&gt; Lens Session Session (Maybe POSIX) (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679814189"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815912"><span class="annot"><span class="annottext">Maybe POSIX
 endDate :: Maybe POSIX
 $sel:endDate:Session' :: Session -&gt; Maybe POSIX
-</span><a href="#local-6989586621679814189"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679814189"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679814188"><span class="annot"><span class="annottext">s :: Session
-</span><a href="#local-6989586621679814188"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679814187"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679814187"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
-</span><a href="#local-6989586621679814188"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDate:Session' :: Maybe POSIX
+</span><a href="#local-6989586621679815912"><span class="hs-identifier hs-var hs-var">endDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679815912"><span class="hs-identifier hs-var">endDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815911"><span class="annot"><span class="annottext">s :: Session
+</span><a href="#local-6989586621679815911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815910"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679815910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
+</span><a href="#local-6989586621679815911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endDate:Session' :: Maybe POSIX
 </span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AendDate%3ASession%27"><span class="hs-identifier hs-var">endDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679814187"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Session -&gt; f Session)
+</span><a href="#local-6989586621679815910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Session -&gt; f Session)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
 -&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
@@ -391,183 +287,285 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The ID of the Amazon Web Services user account that started the session.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_owner"><span class="hs-identifier hs-type">session_owner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="session_owner"><span class="annot"><span class="annottext">session_owner :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Session -&gt; f Session
+</span><a href="Network.AWS.SSM.Types.Session.html#session_owner"><span class="hs-identifier hs-var hs-var">session_owner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe Text)
+-&gt; (Session -&gt; Maybe Text -&gt; Session)
+-&gt; Lens Session Session (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815905"><span class="annot"><span class="annottext">Maybe Text
+owner :: Maybe Text
+$sel:owner:Session' :: Session -&gt; Maybe Text
+</span><a href="#local-6989586621679815905"><span class="hs-identifier hs-var hs-var">owner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815905"><span class="hs-identifier hs-var">owner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815904"><span class="annot"><span class="annottext">s :: Session
+</span><a href="#local-6989586621679815904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815903"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
+</span><a href="#local-6989586621679815904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:owner:Session' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Aowner%3ASession%27"><span class="hs-identifier hs-var">owner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The date and time, in ISO-8601 Extended format, when the session began.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_startDate"><span class="hs-identifier hs-type">session_startDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="session_startDate"><span class="annot"><span class="annottext">session_startDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Session -&gt; f Session
+</span><a href="Network.AWS.SSM.Types.Session.html#session_startDate"><span class="hs-identifier hs-var hs-var">session_startDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe POSIX)
+-&gt; (Session -&gt; Maybe POSIX -&gt; Session)
+-&gt; Lens Session Session (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815901"><span class="annot"><span class="annottext">Maybe POSIX
+startDate :: Maybe POSIX
+$sel:startDate:Session' :: Session -&gt; Maybe POSIX
+</span><a href="#local-6989586621679815901"><span class="hs-identifier hs-var hs-var">startDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679815901"><span class="hs-identifier hs-var">startDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815900"><span class="annot"><span class="annottext">s :: Session
+</span><a href="#local-6989586621679815900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815899"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679815899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
+</span><a href="#local-6989586621679815900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startDate:Session' :: Maybe POSIX
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AstartDate%3ASession%27"><span class="hs-identifier hs-var">startDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679815899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Session -&gt; f Session)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Session
+-&gt; f Session
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | Reserved for future use.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_details"><span class="hs-identifier hs-type">session_details</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="session_details"><span class="annot"><span class="annottext">session_details :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Session -&gt; f Session
+</span><a href="Network.AWS.SSM.Types.Session.html#session_details"><span class="hs-identifier hs-var hs-var">session_details</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe Text)
+-&gt; (Session -&gt; Maybe Text -&gt; Session)
+-&gt; Lens Session Session (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815897"><span class="annot"><span class="annottext">Maybe Text
+details :: Maybe Text
+$sel:details:Session' :: Session -&gt; Maybe Text
+</span><a href="#local-6989586621679815897"><span class="hs-identifier hs-var hs-var">details</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815897"><span class="hs-identifier hs-var">details</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815896"><span class="annot"><span class="annottext">s :: Session
+</span><a href="#local-6989586621679815896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
+</span><a href="#local-6989586621679815896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:details:Session' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Adetails%3ASession%27"><span class="hs-identifier hs-var">details</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The ID of the session.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_sessionId"><span class="hs-identifier hs-type">session_sessionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="session_sessionId"><span class="annot"><span class="annottext">session_sessionId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Session -&gt; f Session
+</span><a href="Network.AWS.SSM.Types.Session.html#session_sessionId"><span class="hs-identifier hs-var hs-var">session_sessionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe Text)
+-&gt; (Session -&gt; Maybe Text -&gt; Session)
+-&gt; Lens Session Session (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815893"><span class="annot"><span class="annottext">Maybe Text
+sessionId :: Maybe Text
+$sel:sessionId:Session' :: Session -&gt; Maybe Text
+</span><a href="#local-6989586621679815893"><span class="hs-identifier hs-var hs-var">sessionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815893"><span class="hs-identifier hs-var">sessionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815892"><span class="annot"><span class="annottext">s :: Session
+</span><a href="#local-6989586621679815892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815891"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
+</span><a href="#local-6989586621679815892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sessionId:Session' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3AsessionId%3ASession%27"><span class="hs-identifier hs-var">sessionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The instance that the Session Manager session connected to.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#session_target"><span class="hs-identifier hs-type">session_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="session_target"><span class="annot"><span class="annottext">session_target :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Session -&gt; f Session
+</span><a href="Network.AWS.SSM.Types.Session.html#session_target"><span class="hs-identifier hs-var hs-var">session_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Session -&gt; Maybe Text)
+-&gt; (Session -&gt; Maybe Text -&gt; Session)
+-&gt; Lens Session Session (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679815889"><span class="annot"><span class="annottext">Maybe Text
+target :: Maybe Text
+$sel:target:Session' :: Session -&gt; Maybe Text
+</span><a href="#local-6989586621679815889"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815889"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679815888"><span class="annot"><span class="annottext">s :: Session
+</span><a href="#local-6989586621679815888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-type">Session'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679815887"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Session
+</span><a href="#local-6989586621679815888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:Session' :: Maybe Text
+</span><a href="Network.AWS.SSM.Types.Session.html#%24sel%3Atarget%3ASession%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679815887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814184"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-139"></span><span>  </span><span id="local-6989586621679814182"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Session
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815884"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679815882"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Session
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Session) -&gt; Value -&gt; Parser Session
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Session&quot;</span></span><span>
-</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679814179"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814179"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679815879"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679815879"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Maybe SessionStatus
--&gt; Maybe POSIX
--&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe SessionManagerOutputUrl
 -&gt; Maybe Text
+-&gt; Maybe POSIX
 -&gt; Maybe Text
 -&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
 -&gt; Session
 </span><a href="Network.AWS.SSM.Types.Session.html#Session%27"><span class="hs-identifier hs-var">Session'</span></a></span><span>
 </span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SessionStatus
- -&gt; Maybe POSIX
- -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe SessionManagerOutputUrl
  -&gt; Maybe Text
+ -&gt; Maybe POSIX
  -&gt; Maybe Text
  -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
  -&gt; Session)
 -&gt; Parser (Maybe SessionStatus)
 -&gt; Parser
-     (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe SessionManagerOutputUrl
-      -&gt; Maybe Text
+     (Maybe SessionManagerOutputUrl
       -&gt; Maybe Text
       -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Session)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SessionStatus)
+</span><a href="#local-6989586621679815879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SessionStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe SessionManagerOutputUrl
-   -&gt; Maybe Text
+  (Maybe SessionManagerOutputUrl
    -&gt; Maybe Text
    -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Session)
+-&gt; Parser (Maybe SessionManagerOutputUrl)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Session)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679815879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SessionManagerOutputUrl)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Session)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Session)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679815879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocumentName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Session)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe SessionManagerOutputUrl
-      -&gt; Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Session)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;StartDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe SessionManagerOutputUrl
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Session)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe SessionManagerOutputUrl
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Session)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;SessionId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe SessionManagerOutputUrl
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Session)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe SessionManagerOutputUrl
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe POSIX
-      -&gt; Session)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DocumentName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe SessionManagerOutputUrl
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe POSIX
-   -&gt; Session)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe SessionManagerOutputUrl
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Session)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Details&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe SessionManagerOutputUrl
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Session)
--&gt; Parser (Maybe SessionManagerOutputUrl)
--&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Session)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SessionManagerOutputUrl)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OutputUrl&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; Session)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; Session)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Owner&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; Session)
--&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; Session)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Target&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Session)
--&gt; Parser (Maybe POSIX) -&gt; Parser Session
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679814179"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679815879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Session)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Session)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679815879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Owner&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Session)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Session)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679815879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Session)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Session)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679815879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Details&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Session)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Session)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679815879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SessionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Session)
+-&gt; Parser (Maybe Text) -&gt; Parser Session
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679815879"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Target&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814173"><span id="local-6989586621679814175"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815873"><span id="local-6989586621679815875"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679814170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679815870"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SSM.Types.Session.html#Session"><span class="hs-identifier hs-type">Session</span></a></span></span><span>
 </span><span id="line-158"></span></pre></body></html>

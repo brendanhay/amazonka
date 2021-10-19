@@ -34,12 +34,12 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#newGetVocabularyResponse"><span class="hs-identifier">newGetVocabularyResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_languageCode"><span class="hs-identifier">getVocabularyResponse_languageCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_failureReason"><span class="hs-identifier">getVocabularyResponse_failureReason</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_lastModifiedTime"><span class="hs-identifier">getVocabularyResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_failureReason"><span class="hs-identifier">getVocabularyResponse_failureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_languageCode"><span class="hs-identifier">getVocabularyResponse_languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_downloadUri"><span class="hs-identifier">getVocabularyResponse_downloadUri</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_vocabularyName"><span class="hs-identifier">getVocabularyResponse_vocabularyName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_vocabularyState"><span class="hs-identifier">getVocabularyResponse_vocabularyState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_downloadUri"><span class="hs-identifier">getVocabularyResponse_downloadUri</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_lastModifiedTime"><span class="hs-identifier">getVocabularyResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_vocabularyState"><span class="hs-identifier">getVocabularyResponse_vocabularyState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_httpStatus"><span class="hs-identifier">getVocabularyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span class="hs-keyword">where</span><span>
@@ -52,13 +52,13 @@
 </span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.html"><span class="hs-identifier">Network.AWS.Transcribe.Types</span></a></span><span>
 </span><span id="line-53"></span><span>
 </span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newGetVocabulary' smart constructor.</span><span>
-</span><span id="line-55"></span><span id="local-6989586621679283005"><span id="local-6989586621679283006"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVocabulary"><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-var">GetVocabulary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVocabulary%27"><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary%27"><span class="hs-identifier hs-var">GetVocabulary'</span></a></span></span><span>
+</span><span id="line-55"></span><span id="local-6989586621679283197"><span id="local-6989586621679283198"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVocabulary"><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-var">GetVocabulary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVocabulary%27"><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary%27"><span class="hs-identifier hs-var">GetVocabulary'</span></a></span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the vocabulary to return information about. The name is case</span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-comment">-- sensitive.</span><span>
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3AvocabularyName%3AGetVocabulary%27"><span class="annot"><span class="annottext">GetVocabulary -&gt; Text
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AvocabularyName%3AGetVocabulary%27"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282999"><span id="local-6989586621679283001"><span class="annot"><span class="annottext">GetVocabulary -&gt; GetVocabulary -&gt; Bool
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283191"><span id="local-6989586621679283193"><span class="annot"><span class="annottext">GetVocabulary -&gt; GetVocabulary -&gt; Bool
 (GetVocabulary -&gt; GetVocabulary -&gt; Bool)
 -&gt; (GetVocabulary -&gt; GetVocabulary -&gt; Bool) -&gt; Eq GetVocabulary
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -66,7 +66,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetVocabulary -&gt; GetVocabulary -&gt; Bool
 == :: GetVocabulary -&gt; GetVocabulary -&gt; Bool
 $c== :: GetVocabulary -&gt; GetVocabulary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282990"><span id="local-6989586621679282992"><span id="local-6989586621679282994"><span id="local-6989586621679282996"><span class="annot"><span class="annottext">ReadPrec [GetVocabulary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283182"><span id="local-6989586621679283184"><span id="local-6989586621679283186"><span id="local-6989586621679283188"><span class="annot"><span class="annottext">ReadPrec [GetVocabulary]
 ReadPrec GetVocabulary
 Int -&gt; ReadS GetVocabulary
 ReadS [GetVocabulary]
@@ -86,7 +86,7 @@ readList :: ReadS [GetVocabulary]
 $creadList :: ReadS [GetVocabulary]
 readsPrec :: Int -&gt; ReadS GetVocabulary
 $creadsPrec :: Int -&gt; ReadS GetVocabulary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282983"><span id="local-6989586621679282985"><span id="local-6989586621679282987"><span class="annot"><span class="annottext">Int -&gt; GetVocabulary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283175"><span id="local-6989586621679283177"><span id="local-6989586621679283179"><span class="annot"><span class="annottext">Int -&gt; GetVocabulary -&gt; ShowS
 [GetVocabulary] -&gt; ShowS
 GetVocabulary -&gt; String
 (Int -&gt; GetVocabulary -&gt; ShowS)
@@ -127,12 +127,12 @@ $cfrom :: forall x. GetVocabulary -&gt; Rep GetVocabulary x
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span><span>
 </span><span id="line-76"></span><span id="newGetVocabulary"><span class="annot"><span class="annottext">newGetVocabulary :: Text -&gt; GetVocabulary
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#newGetVocabulary"><span class="hs-identifier hs-var hs-var">newGetVocabulary</span></a></span></span><span> </span><span id="local-6989586621679282978"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282978"><span class="hs-identifier hs-var">pVocabularyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#newGetVocabulary"><span class="hs-identifier hs-var hs-var">newGetVocabulary</span></a></span></span><span> </span><span id="local-6989586621679283170"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283170"><span class="hs-identifier hs-var">pVocabularyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">GetVocabulary' :: Text -&gt; GetVocabulary
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary%27"><span class="hs-identifier hs-type">GetVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:GetVocabulary' :: Text
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AvocabularyName%3AGetVocabulary%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282978"><span class="hs-identifier hs-var">pVocabularyName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679283170"><span class="hs-identifier hs-var">pVocabularyName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-78"></span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- | The name of the vocabulary to return information about. The name is case</span><span>
 </span><span id="line-80"></span><span class="hs-comment">-- sensitive.</span><span>
@@ -142,27 +142,27 @@ $cfrom :: forall x. GetVocabulary -&gt; Rep GetVocabulary x
 -&gt; (GetVocabulary -&gt; Text -&gt; GetVocabulary)
 -&gt; Lens GetVocabulary GetVocabulary Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary%27"><span class="hs-identifier hs-type">GetVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282975"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary%27"><span class="hs-identifier hs-type">GetVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283167"><span class="annot"><span class="annottext">Text
 vocabularyName :: Text
 $sel:vocabularyName:GetVocabulary' :: GetVocabulary -&gt; Text
-</span><a href="#local-6989586621679282975"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282975"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282974"><span class="annot"><span class="annottext">s :: GetVocabulary
-</span><a href="#local-6989586621679282974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary%27"><span class="hs-identifier hs-type">GetVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282973"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabulary
-</span><a href="#local-6989586621679282974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:GetVocabulary' :: Text
+</span><a href="#local-6989586621679283167"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283167"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283166"><span class="annot"><span class="annottext">s :: GetVocabulary
+</span><a href="#local-6989586621679283166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary%27"><span class="hs-identifier hs-type">GetVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283165"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679283165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabulary
+</span><a href="#local-6989586621679283166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:GetVocabulary' :: Text
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AvocabularyName%3AGetVocabulary%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
 </span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>      </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679282969"><span class="annot"><span class="annottext">request :: GetVocabulary -&gt; Request GetVocabulary
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679283161"><span class="annot"><span class="annottext">request :: GetVocabulary -&gt; Request GetVocabulary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetVocabulary -&gt; Request GetVocabulary
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Transcribe.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679282965"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679283157"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetVocabulary
 -&gt; ClientResponse ClientBody
@@ -186,128 +186,130 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679282962"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282962"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679282961"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679282961"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679282960"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282960"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283154"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283154"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679283153"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679283153"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679283152"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283152"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe LanguageCode
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
 -&gt; Maybe VocabularyState
--&gt; Maybe Text
 -&gt; Int
 -&gt; GetVocabularyResponse
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-var">GetVocabularyResponse'</span></a></span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LanguageCode
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe LanguageCode
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe POSIX
- -&gt; Maybe Text
  -&gt; Maybe VocabularyState
- -&gt; Maybe Text
  -&gt; Int
  -&gt; GetVocabularyResponse)
--&gt; Either String (Maybe LanguageCode)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe LanguageCode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe POSIX
-      -&gt; Maybe Text
       -&gt; Maybe VocabularyState
-      -&gt; Maybe Text
       -&gt; Int
       -&gt; GetVocabularyResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LanguageCode)
+</span><a href="#local-6989586621679283152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe LanguageCode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe VocabularyState
+   -&gt; Int
+   -&gt; GetVocabularyResponse)
+-&gt; Either String (Maybe LanguageCode)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe VocabularyState
+      -&gt; Int
+      -&gt; GetVocabularyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LanguageCode)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe VocabularyState
+   -&gt; Int
+   -&gt; GetVocabularyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe VocabularyState
+      -&gt; Int
+      -&gt; GetVocabularyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DownloadUri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe POSIX
-   -&gt; Maybe Text
    -&gt; Maybe VocabularyState
-   -&gt; Maybe Text
    -&gt; Int
    -&gt; GetVocabularyResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe POSIX
-      -&gt; Maybe Text
-      -&gt; Maybe VocabularyState
-      -&gt; Maybe Text
-      -&gt; Int
-      -&gt; GetVocabularyResponse)
+      -&gt; Maybe VocabularyState -&gt; Int -&gt; GetVocabularyResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FailureReason&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe POSIX
-   -&gt; Maybe Text
-   -&gt; Maybe VocabularyState
-   -&gt; Maybe Text
-   -&gt; Int
-   -&gt; GetVocabularyResponse)
--&gt; Either String (Maybe POSIX)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe VocabularyState
-      -&gt; Maybe Text
-      -&gt; Int
-      -&gt; GetVocabularyResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe VocabularyState
-   -&gt; Maybe Text
-   -&gt; Int
-   -&gt; GetVocabularyResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe VocabularyState
-      -&gt; Maybe Text -&gt; Int -&gt; GetVocabularyResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679283152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe VocabularyState
-   -&gt; Maybe Text -&gt; Int -&gt; GetVocabularyResponse)
--&gt; Either String (Maybe VocabularyState)
--&gt; Either String (Maybe Text -&gt; Int -&gt; GetVocabularyResponse)
+  (Maybe POSIX
+   -&gt; Maybe VocabularyState -&gt; Int -&gt; GetVocabularyResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String (Maybe VocabularyState -&gt; Int -&gt; GetVocabularyResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VocabularyState)
+</span><a href="#local-6989586621679283152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;VocabularyState&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetVocabularyResponse)
--&gt; Either String (Maybe Text)
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe VocabularyState -&gt; Int -&gt; GetVocabularyResponse)
+-&gt; Either String (Maybe VocabularyState)
 -&gt; Either String (Int -&gt; GetVocabularyResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679282960"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679283152"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe VocabularyState)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;DownloadUri&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;VocabularyState&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetVocabularyResponse)
 -&gt; Either String Int -&gt; Either String GetVocabularyResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -316,15 +318,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282962"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283154"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282952"><span id="local-6989586621679282954"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span></span></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283144"><span id="local-6989586621679283146"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span></span></span><span>
 </span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282949"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283141"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span></span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-107"></span><span>  </span><span id="local-6989586621679282945"><span class="annot"><span class="annottext">toHeaders :: GetVocabulary -&gt; ResponseHeaders
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679283137"><span class="annot"><span class="annottext">toHeaders :: GetVocabulary -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetVocabulary -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -349,12 +351,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282935"><span id="local-6989586621679282937"><span id="local-6989586621679282939"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679282933"><span class="annot"><span class="annottext">toJSON :: GetVocabulary -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary%27"><span class="hs-identifier hs-type">GetVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282931"><span class="annot"><span class="annottext">Text
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283127"><span id="local-6989586621679283129"><span id="local-6989586621679283131"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679283125"><span class="annot"><span class="annottext">toJSON :: GetVocabulary -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary%27"><span class="hs-identifier hs-type">GetVocabulary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283123"><span class="annot"><span class="annottext">Text
 vocabularyName :: Text
 $sel:vocabularyName:GetVocabulary' :: GetVocabulary -&gt; Text
-</span><a href="#local-6989586621679282931"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679283123"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -367,19 +369,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;VocabularyName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679282931"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283123"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679282925"><span class="annot"><span class="annottext">toPath :: GetVocabulary -&gt; ByteString
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679283117"><span class="annot"><span class="annottext">toPath :: GetVocabulary -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetVocabulary -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-130"></span><span>
 </span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabulary"><span class="hs-identifier hs-type">GetVocabulary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679282921"><span class="annot"><span class="annottext">toQuery :: GetVocabulary -&gt; QueryString
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679283113"><span class="annot"><span class="annottext">toQuery :: GetVocabulary -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetVocabulary -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -387,32 +389,32 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newGetVocabularyResponse' smart constructor.</span><span>
-</span><span id="line-135"></span><span id="local-6989586621679282918"><span id="local-6989586621679282919"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVocabularyResponse"><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-var">GetVocabularyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVocabularyResponse%27"><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-var">GetVocabularyResponse'</span></a></span></span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The language code of the vocabulary entries.</span><span>
-</span><span id="line-137"></span><span>    </span><span id="%24sel%3AlanguageCode%3AGetVocabularyResponse%27"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; Maybe LanguageCode
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AlanguageCode%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | If the @VocabularyState@ field is @FAILED@, this field contains</span><span>
-</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- information about why the job failed.</span><span>
-</span><span id="line-140"></span><span>    </span><span id="%24sel%3AfailureReason%3AGetVocabularyResponse%27"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; Maybe Text
+</span><span id="line-135"></span><span id="local-6989586621679283110"><span id="local-6989586621679283111"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetVocabularyResponse"><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-var">GetVocabularyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetVocabularyResponse%27"><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-var">GetVocabularyResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the @VocabularyState@ field is @FAILED@, this field contains</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- information about why the job failed.</span><span>
+</span><span id="line-138"></span><span>    </span><span id="%24sel%3AfailureReason%3AGetVocabularyResponse%27"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AfailureReason%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The date and time that the vocabulary was last modified.</span><span>
-</span><span id="line-142"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AGetVocabularyResponse%27"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; Maybe POSIX
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AlastModifiedTime%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- | The name of the vocabulary to return.</span><span>
-</span><span id="line-144"></span><span>    </span><span id="%24sel%3AvocabularyName%3AGetVocabularyResponse%27"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AvocabularyName%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- | The processing state of the vocabulary.</span><span>
-</span><span id="line-146"></span><span>    </span><span id="%24sel%3AvocabularyState%3AGetVocabularyResponse%27"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; Maybe VocabularyState
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AvocabularyState%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">vocabularyState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.VocabularyState.html#VocabularyState"><span class="hs-identifier hs-type">VocabularyState</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The S3 location where the vocabulary is stored. Use this URI to get the</span><span>
-</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- contents of the vocabulary. The URI is available for a limited time.</span><span>
-</span><span id="line-149"></span><span>    </span><span id="%24sel%3AdownloadUri%3AGetVocabularyResponse%27"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; Maybe Text
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- | The language code of the vocabulary entries.</span><span>
+</span><span id="line-140"></span><span>    </span><span id="%24sel%3AlanguageCode%3AGetVocabularyResponse%27"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; Maybe LanguageCode
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AlanguageCode%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- | The S3 location where the vocabulary is stored. Use this URI to get the</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- contents of the vocabulary. The URI is available for a limited time.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AdownloadUri%3AGetVocabularyResponse%27"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AdownloadUri%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">downloadUri</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The name of the vocabulary to return.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AvocabularyName%3AGetVocabularyResponse%27"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AvocabularyName%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- | The date and time that the vocabulary was last modified.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3AGetVocabularyResponse%27"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; Maybe POSIX
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AlastModifiedTime%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The processing state of the vocabulary.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AvocabularyState%3AGetVocabularyResponse%27"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; Maybe VocabularyState
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AvocabularyState%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">vocabularyState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.VocabularyState.html#VocabularyState"><span class="hs-identifier hs-type">VocabularyState</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetVocabularyResponse%27"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; Int
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AhttpStatus%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282907"><span id="local-6989586621679282909"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; GetVocabularyResponse -&gt; Bool
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283099"><span id="local-6989586621679283101"><span class="annot"><span class="annottext">GetVocabularyResponse -&gt; GetVocabularyResponse -&gt; Bool
 (GetVocabularyResponse -&gt; GetVocabularyResponse -&gt; Bool)
 -&gt; (GetVocabularyResponse -&gt; GetVocabularyResponse -&gt; Bool)
 -&gt; Eq GetVocabularyResponse
@@ -421,7 +423,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetVocabularyResponse -&gt; GetVocabularyResponse -&gt; Bool
 == :: GetVocabularyResponse -&gt; GetVocabularyResponse -&gt; Bool
 $c== :: GetVocabularyResponse -&gt; GetVocabularyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282899"><span id="local-6989586621679282901"><span id="local-6989586621679282903"><span id="local-6989586621679282905"><span class="annot"><span class="annottext">ReadPrec [GetVocabularyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283091"><span id="local-6989586621679283093"><span id="local-6989586621679283095"><span id="local-6989586621679283097"><span class="annot"><span class="annottext">ReadPrec [GetVocabularyResponse]
 ReadPrec GetVocabularyResponse
 Int -&gt; ReadS GetVocabularyResponse
 ReadS [GetVocabularyResponse]
@@ -441,7 +443,7 @@ readList :: ReadS [GetVocabularyResponse]
 $creadList :: ReadS [GetVocabularyResponse]
 readsPrec :: Int -&gt; ReadS GetVocabularyResponse
 $creadsPrec :: Int -&gt; ReadS GetVocabularyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282893"><span id="local-6989586621679282895"><span id="local-6989586621679282897"><span class="annot"><span class="annottext">Int -&gt; GetVocabularyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283085"><span id="local-6989586621679283087"><span id="local-6989586621679283089"><span class="annot"><span class="annottext">Int -&gt; GetVocabularyResponse -&gt; ShowS
 [GetVocabularyResponse] -&gt; ShowS
 GetVocabularyResponse -&gt; String
 (Int -&gt; GetVocabularyResponse -&gt; ShowS)
@@ -475,19 +477,19 @@ $cfrom :: forall x. GetVocabularyResponse -&gt; Rep GetVocabularyResponse x
 </span><span id="line-160"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-162"></span><span class="hs-comment">--</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- 'languageCode', 'getVocabularyResponse_languageCode' - The language code of the vocabulary entries.</span><span>
-</span><span id="line-164"></span><span class="hs-comment">--</span><span>
-</span><span id="line-165"></span><span class="hs-comment">-- 'failureReason', 'getVocabularyResponse_failureReason' - If the @VocabularyState@ field is @FAILED@, this field contains</span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- information about why the job failed.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'failureReason', 'getVocabularyResponse_failureReason' - If the @VocabularyState@ field is @FAILED@, this field contains</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- information about why the job failed.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'languageCode', 'getVocabularyResponse_languageCode' - The language code of the vocabulary entries.</span><span>
 </span><span id="line-167"></span><span class="hs-comment">--</span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- 'lastModifiedTime', 'getVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was last modified.</span><span>
-</span><span id="line-169"></span><span class="hs-comment">--</span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- 'vocabularyName', 'getVocabularyResponse_vocabularyName' - The name of the vocabulary to return.</span><span>
-</span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- 'vocabularyState', 'getVocabularyResponse_vocabularyState' - The processing state of the vocabulary.</span><span>
-</span><span id="line-173"></span><span class="hs-comment">--</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- 'downloadUri', 'getVocabularyResponse_downloadUri' - The S3 location where the vocabulary is stored. Use this URI to get the</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- contents of the vocabulary. The URI is available for a limited time.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'downloadUri', 'getVocabularyResponse_downloadUri' - The S3 location where the vocabulary is stored. Use this URI to get the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- contents of the vocabulary. The URI is available for a limited time.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'vocabularyName', 'getVocabularyResponse_vocabularyName' - The name of the vocabulary to return.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'lastModifiedTime', 'getVocabularyResponse_lastModifiedTime' - The date and time that the vocabulary was last modified.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'vocabularyState', 'getVocabularyResponse_vocabularyState' - The processing state of the vocabulary.</span><span>
 </span><span id="line-176"></span><span class="hs-comment">--</span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- 'httpStatus', 'getVocabularyResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#newGetVocabularyResponse"><span class="hs-identifier hs-type">newGetVocabularyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -495,50 +497,74 @@ $cfrom :: forall x. GetVocabularyResponse -&gt; Rep GetVocabularyResponse x
 </span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-181"></span><span>  </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span>
 </span><span id="line-182"></span><span id="newGetVocabularyResponse"><span class="annot"><span class="annottext">newGetVocabularyResponse :: Int -&gt; GetVocabularyResponse
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#newGetVocabularyResponse"><span class="hs-identifier hs-var hs-var">newGetVocabularyResponse</span></a></span></span><span> </span><span id="local-6989586621679282890"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282890"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">GetVocabularyResponse' :: Maybe LanguageCode
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#newGetVocabularyResponse"><span class="hs-identifier hs-var hs-var">newGetVocabularyResponse</span></a></span></span><span> </span><span id="local-6989586621679283082"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283082"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">GetVocabularyResponse' :: Maybe Text
+-&gt; Maybe LanguageCode
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe POSIX
--&gt; Maybe Text
 -&gt; Maybe VocabularyState
--&gt; Maybe Text
 -&gt; Int
 -&gt; GetVocabularyResponse
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span>
-</span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:languageCode:GetVocabularyResponse' :: Maybe LanguageCode
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AlanguageCode%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failureReason:GetVocabularyResponse' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AfailureReason%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureReason:GetVocabularyResponse' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AfailureReason%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:languageCode:GetVocabularyResponse' :: Maybe LanguageCode
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AlanguageCode%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:GetVocabularyResponse' :: Maybe POSIX
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AlastModifiedTime%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:downloadUri:GetVocabularyResponse' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AdownloadUri%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">downloadUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyName:GetVocabularyResponse' :: Maybe Text
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AvocabularyName%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyState:GetVocabularyResponse' :: Maybe VocabularyState
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AvocabularyState%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:GetVocabularyResponse' :: Maybe POSIX
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AlastModifiedTime%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:downloadUri:GetVocabularyResponse' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AdownloadUri%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">downloadUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">$sel:vocabularyState:GetVocabularyResponse' :: Maybe VocabularyState
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AvocabularyState%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetVocabularyResponse' :: Int
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AhttpStatus%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282890"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679283082"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-192"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-193"></span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- | The language code of the vocabulary entries.</span><span>
-</span><span id="line-195"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_languageCode"><span class="hs-identifier hs-type">getVocabularyResponse_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-196"></span><span id="getVocabularyResponse_languageCode"><span class="annot"><span class="annottext">getVocabularyResponse_languageCode :: (Maybe LanguageCode -&gt; f (Maybe LanguageCode))
+</span><span id="line-194"></span><span class="hs-comment">-- | If the @VocabularyState@ field is @FAILED@, this field contains</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- information about why the job failed.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_failureReason"><span class="hs-identifier hs-type">getVocabularyResponse_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="getVocabularyResponse_failureReason"><span class="annot"><span class="annottext">getVocabularyResponse_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetVocabularyResponse -&gt; f GetVocabularyResponse
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_failureReason"><span class="hs-identifier hs-var hs-var">getVocabularyResponse_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVocabularyResponse -&gt; Maybe Text)
+-&gt; (GetVocabularyResponse -&gt; Maybe Text -&gt; GetVocabularyResponse)
+-&gt; Lens
+     GetVocabularyResponse
+     GetVocabularyResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283081"><span class="annot"><span class="annottext">Maybe Text
+failureReason :: Maybe Text
+$sel:failureReason:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679283081"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283081"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283080"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
+</span><a href="#local-6989586621679283080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283079"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
+</span><a href="#local-6989586621679283080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:GetVocabularyResponse' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AfailureReason%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The language code of the vocabulary entries.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_languageCode"><span class="hs-identifier hs-type">getVocabularyResponse_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="getVocabularyResponse_languageCode"><span class="annot"><span class="annottext">getVocabularyResponse_languageCode :: (Maybe LanguageCode -&gt; f (Maybe LanguageCode))
 -&gt; GetVocabularyResponse -&gt; f GetVocabularyResponse
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_languageCode"><span class="hs-identifier hs-var hs-var">getVocabularyResponse_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVocabularyResponse -&gt; Maybe LanguageCode)
 -&gt; (GetVocabularyResponse
@@ -549,23 +575,23 @@ forall a. Maybe a
      (Maybe LanguageCode)
      (Maybe LanguageCode)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282889"><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283078"><span class="annot"><span class="annottext">Maybe LanguageCode
 languageCode :: Maybe LanguageCode
 $sel:languageCode:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Maybe LanguageCode
-</span><a href="#local-6989586621679282889"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
-</span><a href="#local-6989586621679282889"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282888"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
-</span><a href="#local-6989586621679282888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282887"><span class="annot"><span class="annottext">Maybe LanguageCode
-</span><a href="#local-6989586621679282887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
-</span><a href="#local-6989586621679282888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:GetVocabularyResponse' :: Maybe LanguageCode
+</span><a href="#local-6989586621679283078"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679283078"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283077"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
+</span><a href="#local-6989586621679283077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283076"><span class="annot"><span class="annottext">Maybe LanguageCode
+</span><a href="#local-6989586621679283076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
+</span><a href="#local-6989586621679283077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:GetVocabularyResponse' :: Maybe LanguageCode
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AlanguageCode%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LanguageCode
-</span><a href="#local-6989586621679282887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-197"></span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- | If the @VocabularyState@ field is @FAILED@, this field contains</span><span>
-</span><span id="line-199"></span><span class="hs-comment">-- information about why the job failed.</span><span>
-</span><span id="line-200"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_failureReason"><span class="hs-identifier hs-type">getVocabularyResponse_failureReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-201"></span><span id="getVocabularyResponse_failureReason"><span class="annot"><span class="annottext">getVocabularyResponse_failureReason :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679283076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The S3 location where the vocabulary is stored. Use this URI to get the</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- contents of the vocabulary. The URI is available for a limited time.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_downloadUri"><span class="hs-identifier hs-type">getVocabularyResponse_downloadUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="getVocabularyResponse_downloadUri"><span class="annot"><span class="annottext">getVocabularyResponse_downloadUri :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; GetVocabularyResponse -&gt; f GetVocabularyResponse
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_failureReason"><span class="hs-identifier hs-var hs-var">getVocabularyResponse_failureReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVocabularyResponse -&gt; Maybe Text)
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_downloadUri"><span class="hs-identifier hs-var hs-var">getVocabularyResponse_downloadUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVocabularyResponse -&gt; Maybe Text)
 -&gt; (GetVocabularyResponse -&gt; Maybe Text -&gt; GetVocabularyResponse)
 -&gt; Lens
      GetVocabularyResponse
@@ -573,20 +599,43 @@ $sel:languageCode:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Maybe La
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282886"><span class="annot"><span class="annottext">Maybe Text
-failureReason :: Maybe Text
-$sel:failureReason:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679282886"><span class="hs-identifier hs-var hs-var">failureReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282886"><span class="hs-identifier hs-var">failureReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282885"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
-</span><a href="#local-6989586621679282885"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282884"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282884"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
-</span><a href="#local-6989586621679282885"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureReason:GetVocabularyResponse' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AfailureReason%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">failureReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282884"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- | The date and time that the vocabulary was last modified.</span><span>
-</span><span id="line-204"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_lastModifiedTime"><span class="hs-identifier hs-type">getVocabularyResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-205"></span><span id="getVocabularyResponse_lastModifiedTime"><span class="annot"><span class="annottext">getVocabularyResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283075"><span class="annot"><span class="annottext">Maybe Text
+downloadUri :: Maybe Text
+$sel:downloadUri:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679283075"><span class="hs-identifier hs-var hs-var">downloadUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283075"><span class="hs-identifier hs-var">downloadUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283074"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
+</span><a href="#local-6989586621679283074"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283073"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283073"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
+</span><a href="#local-6989586621679283074"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:downloadUri:GetVocabularyResponse' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AdownloadUri%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">downloadUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283073"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The name of the vocabulary to return.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_vocabularyName"><span class="hs-identifier hs-type">getVocabularyResponse_vocabularyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="getVocabularyResponse_vocabularyName"><span class="annot"><span class="annottext">getVocabularyResponse_vocabularyName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetVocabularyResponse -&gt; f GetVocabularyResponse
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_vocabularyName"><span class="hs-identifier hs-var hs-var">getVocabularyResponse_vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVocabularyResponse -&gt; Maybe Text)
+-&gt; (GetVocabularyResponse -&gt; Maybe Text -&gt; GetVocabularyResponse)
+-&gt; Lens
+     GetVocabularyResponse
+     GetVocabularyResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283072"><span class="annot"><span class="annottext">Maybe Text
+vocabularyName :: Maybe Text
+$sel:vocabularyName:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679283072"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283072"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283071"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
+</span><a href="#local-6989586621679283071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283070"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
+</span><a href="#local-6989586621679283071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:GetVocabularyResponse' :: Maybe Text
+</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AvocabularyName%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679283070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The date and time that the vocabulary was last modified.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_lastModifiedTime"><span class="hs-identifier hs-type">getVocabularyResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="getVocabularyResponse_lastModifiedTime"><span class="annot"><span class="annottext">getVocabularyResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; GetVocabularyResponse -&gt; f GetVocabularyResponse
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_lastModifiedTime"><span class="hs-identifier hs-var hs-var">getVocabularyResponse_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVocabularyResponse -&gt; Maybe POSIX)
 -&gt; (GetVocabularyResponse -&gt; Maybe POSIX -&gt; GetVocabularyResponse)
@@ -596,16 +645,16 @@ $sel:failureReason:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Maybe T
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282883"><span class="annot"><span class="annottext">Maybe POSIX
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283069"><span class="annot"><span class="annottext">Maybe POSIX
 lastModifiedTime :: Maybe POSIX
 $sel:lastModifiedTime:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Maybe POSIX
-</span><a href="#local-6989586621679282883"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679282883"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282882"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
-</span><a href="#local-6989586621679282882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282881"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679282881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
-</span><a href="#local-6989586621679282882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:GetVocabularyResponse' :: Maybe POSIX
+</span><a href="#local-6989586621679283069"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283069"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283068"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
+</span><a href="#local-6989586621679283068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283067"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679283067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
+</span><a href="#local-6989586621679283068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:GetVocabularyResponse' :: Maybe POSIX
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AlastModifiedTime%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679282881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><a href="#local-6989586621679283067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; GetVocabularyResponse -&gt; f GetVocabularyResponse)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -621,33 +670,10 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-206"></span><span>
-</span><span id="line-207"></span><span class="hs-comment">-- | The name of the vocabulary to return.</span><span>
-</span><span id="line-208"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_vocabularyName"><span class="hs-identifier hs-type">getVocabularyResponse_vocabularyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-209"></span><span id="getVocabularyResponse_vocabularyName"><span class="annot"><span class="annottext">getVocabularyResponse_vocabularyName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetVocabularyResponse -&gt; f GetVocabularyResponse
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_vocabularyName"><span class="hs-identifier hs-var hs-var">getVocabularyResponse_vocabularyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVocabularyResponse -&gt; Maybe Text)
--&gt; (GetVocabularyResponse -&gt; Maybe Text -&gt; GetVocabularyResponse)
--&gt; Lens
-     GetVocabularyResponse
-     GetVocabularyResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282877"><span class="annot"><span class="annottext">Maybe Text
-vocabularyName :: Maybe Text
-$sel:vocabularyName:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679282877"><span class="hs-identifier hs-var hs-var">vocabularyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282877"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282876"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
-</span><a href="#local-6989586621679282876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282875"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
-</span><a href="#local-6989586621679282876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyName:GetVocabularyResponse' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AvocabularyName%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-210"></span><span>
-</span><span id="line-211"></span><span class="hs-comment">-- | The processing state of the vocabulary.</span><span>
-</span><span id="line-212"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_vocabularyState"><span class="hs-identifier hs-type">getVocabularyResponse_vocabularyState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.VocabularyState.html#VocabularyState"><span class="hs-identifier hs-type">VocabularyState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-213"></span><span id="getVocabularyResponse_vocabularyState"><span class="annot"><span class="annottext">getVocabularyResponse_vocabularyState :: (Maybe VocabularyState -&gt; f (Maybe VocabularyState))
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The processing state of the vocabulary.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_vocabularyState"><span class="hs-identifier hs-type">getVocabularyResponse_vocabularyState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.Types.VocabularyState.html#VocabularyState"><span class="hs-identifier hs-type">VocabularyState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="getVocabularyResponse_vocabularyState"><span class="annot"><span class="annottext">getVocabularyResponse_vocabularyState :: (Maybe VocabularyState -&gt; f (Maybe VocabularyState))
 -&gt; GetVocabularyResponse -&gt; f GetVocabularyResponse
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_vocabularyState"><span class="hs-identifier hs-var hs-var">getVocabularyResponse_vocabularyState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVocabularyResponse -&gt; Maybe VocabularyState)
 -&gt; (GetVocabularyResponse
@@ -658,40 +684,16 @@ $sel:vocabularyName:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Maybe 
      (Maybe VocabularyState)
      (Maybe VocabularyState)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282874"><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283063"><span class="annot"><span class="annottext">Maybe VocabularyState
 vocabularyState :: Maybe VocabularyState
 $sel:vocabularyState:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Maybe VocabularyState
-</span><a href="#local-6989586621679282874"><span class="hs-identifier hs-var hs-var">vocabularyState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
-</span><a href="#local-6989586621679282874"><span class="hs-identifier hs-var">vocabularyState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282873"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
-</span><a href="#local-6989586621679282873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282872"><span class="annot"><span class="annottext">Maybe VocabularyState
-</span><a href="#local-6989586621679282872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
-</span><a href="#local-6989586621679282873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyState:GetVocabularyResponse' :: Maybe VocabularyState
+</span><a href="#local-6989586621679283063"><span class="hs-identifier hs-var hs-var">vocabularyState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679283063"><span class="hs-identifier hs-var">vocabularyState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283062"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
+</span><a href="#local-6989586621679283062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283061"><span class="annot"><span class="annottext">Maybe VocabularyState
+</span><a href="#local-6989586621679283061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
+</span><a href="#local-6989586621679283062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vocabularyState:GetVocabularyResponse' :: Maybe VocabularyState
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AvocabularyState%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">vocabularyState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VocabularyState
-</span><a href="#local-6989586621679282872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-214"></span><span>
-</span><span id="line-215"></span><span class="hs-comment">-- | The S3 location where the vocabulary is stored. Use this URI to get the</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- contents of the vocabulary. The URI is available for a limited time.</span><span>
-</span><span id="line-217"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_downloadUri"><span class="hs-identifier hs-type">getVocabularyResponse_downloadUri</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-218"></span><span id="getVocabularyResponse_downloadUri"><span class="annot"><span class="annottext">getVocabularyResponse_downloadUri :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetVocabularyResponse -&gt; f GetVocabularyResponse
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_downloadUri"><span class="hs-identifier hs-var hs-var">getVocabularyResponse_downloadUri</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetVocabularyResponse -&gt; Maybe Text)
--&gt; (GetVocabularyResponse -&gt; Maybe Text -&gt; GetVocabularyResponse)
--&gt; Lens
-     GetVocabularyResponse
-     GetVocabularyResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282871"><span class="annot"><span class="annottext">Maybe Text
-downloadUri :: Maybe Text
-$sel:downloadUri:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679282871"><span class="hs-identifier hs-var hs-var">downloadUri</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282871"><span class="hs-identifier hs-var">downloadUri</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282870"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
-</span><a href="#local-6989586621679282870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282869"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
-</span><a href="#local-6989586621679282870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:downloadUri:GetVocabularyResponse' :: Maybe Text
-</span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AdownloadUri%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">downloadUri</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679282869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-221"></span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#getVocabularyResponse_httpStatus"><span class="hs-identifier hs-type">getVocabularyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -700,16 +702,16 @@ $sel:downloadUri:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Maybe Tex
 -&gt; (GetVocabularyResponse -&gt; Int -&gt; GetVocabularyResponse)
 -&gt; Lens GetVocabularyResponse GetVocabularyResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282868"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283060"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetVocabularyResponse' :: GetVocabularyResponse -&gt; Int
-</span><a href="#local-6989586621679282868"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282868"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282867"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
-</span><a href="#local-6989586621679282867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282866"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
-</span><a href="#local-6989586621679282867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetVocabularyResponse' :: Int
+</span><a href="#local-6989586621679283060"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283060"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283059"><span class="annot"><span class="annottext">s :: GetVocabularyResponse
+</span><a href="#local-6989586621679283059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse%27"><span class="hs-identifier hs-type">GetVocabularyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283058"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679283058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetVocabularyResponse
+</span><a href="#local-6989586621679283059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetVocabularyResponse' :: Int
 </span><a href="Network.AWS.Transcribe.GetVocabulary.html#%24sel%3AhttpStatus%3AGetVocabularyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679282866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679283058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-223"></span><span>
-</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679282864"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283056"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Transcribe.GetVocabulary.html#GetVocabularyResponse"><span class="hs-identifier hs-type">GetVocabularyResponse</span></a></span></span><span>
 </span><span id="line-225"></span></pre></body></html>

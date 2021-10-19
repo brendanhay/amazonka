@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Webvtt Destination Style Control</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679925098"><span id="local-6989586621679925099"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WebvttDestinationStyleControl"><span class="annot"><a href="Network.AWS.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl"><span class="hs-identifier hs-var">WebvttDestinationStyleControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebvttDestinationStyleControl%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl%27"><span class="hs-identifier hs-var">WebvttDestinationStyleControl'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679932625"><span id="local-6989586621679932626"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="WebvttDestinationStyleControl"><span class="annot"><a href="Network.AWS.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl"><span class="hs-identifier hs-var">WebvttDestinationStyleControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="WebvttDestinationStyleControl%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.WebvttDestinationStyleControl.html#WebvttDestinationStyleControl%27"><span class="hs-identifier hs-var">WebvttDestinationStyleControl'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromWebvttDestinationStyleControl"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.WebvttDestinationStyleControl.html#fromWebvttDestinationStyleControl"><span class="hs-identifier hs-var hs-var">fromWebvttDestinationStyleControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679925090"><span id="local-6989586621679925092"><span id="local-6989586621679925094"><span class="annot"><span class="annottext">Int -&gt; WebvttDestinationStyleControl -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679932617"><span id="local-6989586621679932619"><span id="local-6989586621679932621"><span class="annot"><span class="annottext">Int -&gt; WebvttDestinationStyleControl -&gt; ShowS
 [WebvttDestinationStyleControl] -&gt; ShowS
 WebvttDestinationStyleControl -&gt; String
 (Int -&gt; WebvttDestinationStyleControl -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: WebvttDestinationStyleControl -&gt; String
 showsPrec :: Int -&gt; WebvttDestinationStyleControl -&gt; ShowS
 $cshowsPrec :: Int -&gt; WebvttDestinationStyleControl -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679925081"><span id="local-6989586621679925083"><span id="local-6989586621679925085"><span id="local-6989586621679925087"><span class="annot"><span class="annottext">ReadPrec [WebvttDestinationStyleControl]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679932608"><span id="local-6989586621679932610"><span id="local-6989586621679932612"><span id="local-6989586621679932614"><span class="annot"><span class="annottext">ReadPrec [WebvttDestinationStyleControl]
 ReadPrec WebvttDestinationStyleControl
 Int -&gt; ReadS WebvttDestinationStyleControl
 ReadS [WebvttDestinationStyleControl]
@@ -73,7 +73,7 @@ $creadList :: ReadS [WebvttDestinationStyleControl]
 readsPrec :: Int -&gt; ReadS WebvttDestinationStyleControl
 $creadsPrec :: Int -&gt; ReadS WebvttDestinationStyleControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679925076"><span id="local-6989586621679925078"><span class="annot"><span class="annottext">WebvttDestinationStyleControl
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679932603"><span id="local-6989586621679932605"><span class="annot"><span class="annottext">WebvttDestinationStyleControl
 -&gt; WebvttDestinationStyleControl -&gt; Bool
 (WebvttDestinationStyleControl
  -&gt; WebvttDestinationStyleControl -&gt; Bool)
@@ -90,7 +90,7 @@ $c/= :: WebvttDestinationStyleControl
 $c== :: WebvttDestinationStyleControl
 -&gt; WebvttDestinationStyleControl -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679925060"><span id="local-6989586621679925062"><span id="local-6989586621679925064"><span id="local-6989586621679925066"><span id="local-6989586621679925068"><span id="local-6989586621679925070"><span id="local-6989586621679925072"><span class="annot"><span class="annottext">Eq WebvttDestinationStyleControl
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679932587"><span id="local-6989586621679932589"><span id="local-6989586621679932591"><span id="local-6989586621679932593"><span id="local-6989586621679932595"><span id="local-6989586621679932597"><span id="local-6989586621679932599"><span class="annot"><span class="annottext">Eq WebvttDestinationStyleControl
 Eq WebvttDestinationStyleControl
 -&gt; (WebvttDestinationStyleControl
     -&gt; WebvttDestinationStyleControl -&gt; Ordering)
@@ -177,7 +177,7 @@ WebvttDestinationStyleControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679925052"><span id="local-6989586621679925054"><span class="annot"><span class="annottext">Int -&gt; WebvttDestinationStyleControl -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679932579"><span id="local-6989586621679932581"><span class="annot"><span class="annottext">Int -&gt; WebvttDestinationStyleControl -&gt; Int
 WebvttDestinationStyleControl -&gt; Int
 (Int -&gt; WebvttDestinationStyleControl -&gt; Int)
 -&gt; (WebvttDestinationStyleControl -&gt; Int)
@@ -188,56 +188,56 @@ $chash :: WebvttDestinationStyleControl -&gt; Int
 hashWithSalt :: Int -&gt; WebvttDestinationStyleControl -&gt; Int
 $chashWithSalt :: Int -&gt; WebvttDestinationStyleControl -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679925049"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679932576"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; ()
 (WebvttDestinationStyleControl -&gt; ())
 -&gt; NFData WebvttDestinationStyleControl
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: WebvttDestinationStyleControl -&gt; ()
 $crnf :: WebvttDestinationStyleControl -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679925046"><span class="annot"><span class="annottext">Text -&gt; Either String WebvttDestinationStyleControl
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679932573"><span class="annot"><span class="annottext">Text -&gt; Either String WebvttDestinationStyleControl
 (Text -&gt; Either String WebvttDestinationStyleControl)
 -&gt; FromText WebvttDestinationStyleControl
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String WebvttDestinationStyleControl
 $cfromText :: Text -&gt; Either String WebvttDestinationStyleControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679925043"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679932570"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; Text
 (WebvttDestinationStyleControl -&gt; Text)
 -&gt; ToText WebvttDestinationStyleControl
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: WebvttDestinationStyleControl -&gt; Text
 $ctoText :: WebvttDestinationStyleControl -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679925040"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679932567"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; ByteString
 (WebvttDestinationStyleControl -&gt; ByteString)
 -&gt; ToByteString WebvttDestinationStyleControl
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: WebvttDestinationStyleControl -&gt; ByteString
 $ctoBS :: WebvttDestinationStyleControl -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679925037"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679932564"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; ByteStringBuilder
 (WebvttDestinationStyleControl -&gt; ByteStringBuilder)
 -&gt; ToLog WebvttDestinationStyleControl
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: WebvttDestinationStyleControl -&gt; ByteStringBuilder
 $cbuild :: WebvttDestinationStyleControl -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679925034"><span class="annot"><span class="annottext">HeaderName -&gt; WebvttDestinationStyleControl -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679932561"><span class="annot"><span class="annottext">HeaderName -&gt; WebvttDestinationStyleControl -&gt; [Header]
 (HeaderName -&gt; WebvttDestinationStyleControl -&gt; [Header])
 -&gt; ToHeader WebvttDestinationStyleControl
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; WebvttDestinationStyleControl -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; WebvttDestinationStyleControl -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679925031"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679932558"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; QueryString
 (WebvttDestinationStyleControl -&gt; QueryString)
 -&gt; ToQuery WebvttDestinationStyleControl
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: WebvttDestinationStyleControl -&gt; QueryString
 $ctoQuery :: WebvttDestinationStyleControl -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679925026"><span id="local-6989586621679925028"><span class="annot"><span class="annottext">Value -&gt; Parser [WebvttDestinationStyleControl]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679932553"><span id="local-6989586621679932555"><span class="annot"><span class="annottext">Value -&gt; Parser [WebvttDestinationStyleControl]
 Value -&gt; Parser WebvttDestinationStyleControl
 (Value -&gt; Parser WebvttDestinationStyleControl)
 -&gt; (Value -&gt; Parser [WebvttDestinationStyleControl])
@@ -249,7 +249,7 @@ $cparseJSONList :: Value -&gt; Parser [WebvttDestinationStyleControl]
 parseJSON :: Value -&gt; Parser WebvttDestinationStyleControl
 $cparseJSON :: Value -&gt; Parser WebvttDestinationStyleControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679925021"><span id="local-6989586621679925023"><span class="annot"><span class="annottext">FromJSONKeyFunction [WebvttDestinationStyleControl]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679932548"><span id="local-6989586621679932550"><span class="annot"><span class="annottext">FromJSONKeyFunction [WebvttDestinationStyleControl]
 FromJSONKeyFunction WebvttDestinationStyleControl
 FromJSONKeyFunction WebvttDestinationStyleControl
 -&gt; FromJSONKeyFunction [WebvttDestinationStyleControl]
@@ -261,7 +261,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [WebvttDestinationStyleControl]
 fromJSONKey :: FromJSONKeyFunction WebvttDestinationStyleControl
 $cfromJSONKey :: FromJSONKeyFunction WebvttDestinationStyleControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679925012"><span id="local-6989586621679925014"><span id="local-6989586621679925016"><span id="local-6989586621679925018"><span class="annot"><span class="annottext">[WebvttDestinationStyleControl] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679932539"><span id="local-6989586621679932541"><span id="local-6989586621679932543"><span id="local-6989586621679932545"><span class="annot"><span class="annottext">[WebvttDestinationStyleControl] -&gt; Encoding
 [WebvttDestinationStyleControl] -&gt; Value
 WebvttDestinationStyleControl -&gt; Encoding
 WebvttDestinationStyleControl -&gt; Value
@@ -285,7 +285,7 @@ $ctoEncoding :: WebvttDestinationStyleControl -&gt; Encoding
 toJSON :: WebvttDestinationStyleControl -&gt; Value
 $ctoJSON :: WebvttDestinationStyleControl -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679925007"><span id="local-6989586621679925009"><span class="annot"><span class="annottext">ToJSONKeyFunction [WebvttDestinationStyleControl]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679932534"><span id="local-6989586621679932536"><span class="annot"><span class="annottext">ToJSONKeyFunction [WebvttDestinationStyleControl]
 ToJSONKeyFunction WebvttDestinationStyleControl
 ToJSONKeyFunction WebvttDestinationStyleControl
 -&gt; ToJSONKeyFunction [WebvttDestinationStyleControl]
@@ -297,14 +297,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [WebvttDestinationStyleControl]
 toJSONKey :: ToJSONKeyFunction WebvttDestinationStyleControl
 $ctoJSONKey :: ToJSONKeyFunction WebvttDestinationStyleControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679925004"><span class="annot"><span class="annottext">[Node] -&gt; Either String WebvttDestinationStyleControl
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679932531"><span class="annot"><span class="annottext">[Node] -&gt; Either String WebvttDestinationStyleControl
 ([Node] -&gt; Either String WebvttDestinationStyleControl)
 -&gt; FromXML WebvttDestinationStyleControl
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String WebvttDestinationStyleControl
 $cparseXML :: [Node] -&gt; Either String WebvttDestinationStyleControl
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679925001"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679932528"><span class="annot"><span class="annottext">WebvttDestinationStyleControl -&gt; XML
 (WebvttDestinationStyleControl -&gt; XML)
 -&gt; ToXML WebvttDestinationStyleControl
 forall a. (a -&gt; XML) -&gt; ToXML a

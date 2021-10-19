@@ -45,13 +45,13 @@
 </span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-46"></span><span>
 </span><span id="line-47"></span><span class="hs-comment">-- | H264 Level</span><span>
-</span><span id="line-48"></span><span id="local-6989586621679873814"><span id="local-6989586621679873815"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264Level"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-var">H264Level</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264Level%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-var">H264Level'</span></a></span></span><span>
+</span><span id="line-48"></span><span id="local-6989586621679880475"><span id="local-6989586621679880476"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264Level"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level"><span class="hs-identifier hs-var">H264Level</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264Level%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.H264Level.html#H264Level%27"><span class="hs-identifier hs-var">H264Level'</span></a></span></span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264Level"><span class="annot"><span class="annottext">H264Level -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.H264Level.html#fromH264Level"><span class="hs-identifier hs-var hs-var">fromH264Level</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679873806"><span id="local-6989586621679873808"><span id="local-6989586621679873810"><span class="annot"><span class="annottext">Int -&gt; H264Level -&gt; ShowS
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679880467"><span id="local-6989586621679880469"><span id="local-6989586621679880471"><span class="annot"><span class="annottext">Int -&gt; H264Level -&gt; ShowS
 [H264Level] -&gt; ShowS
 H264Level -&gt; String
 (Int -&gt; H264Level -&gt; ShowS)
@@ -67,7 +67,7 @@ $cshow :: H264Level -&gt; String
 showsPrec :: Int -&gt; H264Level -&gt; ShowS
 $cshowsPrec :: Int -&gt; H264Level -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679873797"><span id="local-6989586621679873799"><span id="local-6989586621679873801"><span id="local-6989586621679873803"><span class="annot"><span class="annottext">ReadPrec [H264Level]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679880458"><span id="local-6989586621679880460"><span id="local-6989586621679880462"><span id="local-6989586621679880464"><span class="annot"><span class="annottext">ReadPrec [H264Level]
 ReadPrec H264Level
 Int -&gt; ReadS H264Level
 ReadS [H264Level]
@@ -88,7 +88,7 @@ $creadList :: ReadS [H264Level]
 readsPrec :: Int -&gt; ReadS H264Level
 $creadsPrec :: Int -&gt; ReadS H264Level
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679873792"><span id="local-6989586621679873794"><span class="annot"><span class="annottext">H264Level -&gt; H264Level -&gt; Bool
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679880453"><span id="local-6989586621679880455"><span class="annot"><span class="annottext">H264Level -&gt; H264Level -&gt; Bool
 (H264Level -&gt; H264Level -&gt; Bool)
 -&gt; (H264Level -&gt; H264Level -&gt; Bool) -&gt; Eq H264Level
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -97,7 +97,7 @@ $c/= :: H264Level -&gt; H264Level -&gt; Bool
 == :: H264Level -&gt; H264Level -&gt; Bool
 $c== :: H264Level -&gt; H264Level -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679873776"><span id="local-6989586621679873778"><span id="local-6989586621679873780"><span id="local-6989586621679873782"><span id="local-6989586621679873784"><span id="local-6989586621679873786"><span id="local-6989586621679873788"><span class="annot"><span class="annottext">Eq H264Level
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679880437"><span id="local-6989586621679880439"><span id="local-6989586621679880441"><span id="local-6989586621679880443"><span id="local-6989586621679880445"><span id="local-6989586621679880447"><span id="local-6989586621679880449"><span class="annot"><span class="annottext">Eq H264Level
 Eq H264Level
 -&gt; (H264Level -&gt; H264Level -&gt; Ordering)
 -&gt; (H264Level -&gt; H264Level -&gt; Bool)
@@ -147,7 +147,7 @@ $cfrom :: forall x. H264Level -&gt; Rep H264Level x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679873768"><span id="local-6989586621679873770"><span class="annot"><span class="annottext">Int -&gt; H264Level -&gt; Int
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679880429"><span id="local-6989586621679880431"><span class="annot"><span class="annottext">Int -&gt; H264Level -&gt; Int
 H264Level -&gt; Int
 (Int -&gt; H264Level -&gt; Int)
 -&gt; (H264Level -&gt; Int) -&gt; Hashable H264Level
@@ -157,49 +157,49 @@ $chash :: H264Level -&gt; Int
 hashWithSalt :: Int -&gt; H264Level -&gt; Int
 $chashWithSalt :: Int -&gt; H264Level -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621679873765"><span class="annot"><span class="annottext">H264Level -&gt; ()
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679880426"><span class="annot"><span class="annottext">H264Level -&gt; ()
 (H264Level -&gt; ()) -&gt; NFData H264Level
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: H264Level -&gt; ()
 $crnf :: H264Level -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span id="local-6989586621679873762"><span class="annot"><span class="annottext">Text -&gt; Either String H264Level
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679880423"><span class="annot"><span class="annottext">Text -&gt; Either String H264Level
 (Text -&gt; Either String H264Level) -&gt; FromText H264Level
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String H264Level
 $cfromText :: Text -&gt; Either String H264Level
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span id="local-6989586621679873759"><span class="annot"><span class="annottext">H264Level -&gt; Text
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679880420"><span class="annot"><span class="annottext">H264Level -&gt; Text
 (H264Level -&gt; Text) -&gt; ToText H264Level
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: H264Level -&gt; Text
 $ctoText :: H264Level -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span id="local-6989586621679873756"><span class="annot"><span class="annottext">H264Level -&gt; ByteString
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679880417"><span class="annot"><span class="annottext">H264Level -&gt; ByteString
 (H264Level -&gt; ByteString) -&gt; ToByteString H264Level
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: H264Level -&gt; ByteString
 $ctoBS :: H264Level -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span id="local-6989586621679873753"><span class="annot"><span class="annottext">H264Level -&gt; ByteStringBuilder
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679880414"><span class="annot"><span class="annottext">H264Level -&gt; ByteStringBuilder
 (H264Level -&gt; ByteStringBuilder) -&gt; ToLog H264Level
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: H264Level -&gt; ByteStringBuilder
 $cbuild :: H264Level -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>      </span><span id="local-6989586621679873750"><span class="annot"><span class="annottext">HeaderName -&gt; H264Level -&gt; [Header]
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679880411"><span class="annot"><span class="annottext">HeaderName -&gt; H264Level -&gt; [Header]
 (HeaderName -&gt; H264Level -&gt; [Header]) -&gt; ToHeader H264Level
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; H264Level -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; H264Level -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-67"></span><span>      </span><span id="local-6989586621679873747"><span class="annot"><span class="annottext">H264Level -&gt; QueryString
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679880408"><span class="annot"><span class="annottext">H264Level -&gt; QueryString
 (H264Level -&gt; QueryString) -&gt; ToQuery H264Level
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: H264Level -&gt; QueryString
 $ctoQuery :: H264Level -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-68"></span><span>      </span><span id="local-6989586621679873742"><span id="local-6989586621679873744"><span class="annot"><span class="annottext">Value -&gt; Parser [H264Level]
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679880403"><span id="local-6989586621679880405"><span class="annot"><span class="annottext">Value -&gt; Parser [H264Level]
 Value -&gt; Parser H264Level
 (Value -&gt; Parser H264Level)
 -&gt; (Value -&gt; Parser [H264Level]) -&gt; FromJSON H264Level
@@ -210,7 +210,7 @@ $cparseJSONList :: Value -&gt; Parser [H264Level]
 parseJSON :: Value -&gt; Parser H264Level
 $cparseJSON :: Value -&gt; Parser H264Level
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-69"></span><span>      </span><span id="local-6989586621679873737"><span id="local-6989586621679873739"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264Level]
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679880398"><span id="local-6989586621679880400"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264Level]
 FromJSONKeyFunction H264Level
 FromJSONKeyFunction H264Level
 -&gt; FromJSONKeyFunction [H264Level] -&gt; FromJSONKey H264Level
@@ -221,7 +221,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [H264Level]
 fromJSONKey :: FromJSONKeyFunction H264Level
 $cfromJSONKey :: FromJSONKeyFunction H264Level
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679873728"><span id="local-6989586621679873730"><span id="local-6989586621679873732"><span id="local-6989586621679873734"><span class="annot"><span class="annottext">[H264Level] -&gt; Encoding
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679880389"><span id="local-6989586621679880391"><span id="local-6989586621679880393"><span id="local-6989586621679880395"><span class="annot"><span class="annottext">[H264Level] -&gt; Encoding
 [H264Level] -&gt; Value
 H264Level -&gt; Encoding
 H264Level -&gt; Value
@@ -245,7 +245,7 @@ $ctoEncoding :: H264Level -&gt; Encoding
 toJSON :: H264Level -&gt; Value
 $ctoJSON :: H264Level -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679873723"><span id="local-6989586621679873725"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264Level]
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679880384"><span id="local-6989586621679880386"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264Level]
 ToJSONKeyFunction H264Level
 ToJSONKeyFunction H264Level
 -&gt; ToJSONKeyFunction [H264Level] -&gt; ToJSONKey H264Level
@@ -256,13 +256,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [H264Level]
 toJSONKey :: ToJSONKeyFunction H264Level
 $ctoJSONKey :: ToJSONKeyFunction H264Level
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679873720"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264Level
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679880381"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264Level
 ([Node] -&gt; Either String H264Level) -&gt; FromXML H264Level
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String H264Level
 $cparseXML :: [Node] -&gt; Either String H264Level
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-73"></span><span>      </span><span id="local-6989586621679873717"><span class="annot"><span class="annottext">H264Level -&gt; XML
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679880378"><span class="annot"><span class="annottext">H264Level -&gt; XML
 (H264Level -&gt; XML) -&gt; ToXML H264Level
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: H264Level -&gt; XML

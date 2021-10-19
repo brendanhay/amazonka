@@ -26,29 +26,29 @@
 </span><span id="line-26"></span><span class="hs-comment">-- | Information about a document that matches the search request.</span><span>
 </span><span id="line-27"></span><span class="hs-comment">--</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newHit' smart constructor.</span><span>
-</span><span id="line-29"></span><span id="local-6989586621679152712"><span id="local-6989586621679152713"></span></span><span class="hs-keyword">data</span><span> </span><span id="Hit"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-var">Hit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Hit%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-var">Hit'</span></a></span></span><span>
-</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The document ID of a document that matches the search request.</span><span>
-</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aid%3AHit%27"><span class="annot"><span class="annottext">Hit -&gt; Maybe Text
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Aid%3AHit%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The expressions returned from a document that matches the search</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aexprs%3AHit%27"><span class="annot"><span class="annottext">Hit -&gt; Maybe (HashMap Text Text)
+</span><span id="line-29"></span><span id="local-6989586621679152757"><span id="local-6989586621679152758"></span></span><span class="hs-keyword">data</span><span> </span><span id="Hit"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-var">Hit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Hit%27"><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-var">Hit'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The expressions returned from a document that matches the search</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aexprs%3AHit%27"><span class="annot"><span class="annottext">Hit -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Aexprs%3AHit%27"><span class="hs-identifier hs-var hs-var">exprs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The fields returned from a document that matches the search request.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Afields%3AHit%27"><span class="annot"><span class="annottext">Hit -&gt; Maybe (HashMap Text [Text])
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Afields%3AHit%27"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The highlights returned from a document that matches the search request.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Ahighlights%3AHit%27"><span class="annot"><span class="annottext">Hit -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Ahighlights%3AHit%27"><span class="hs-identifier hs-var hs-var">highlights</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The document ID of a document that matches the search request.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aid%3AHit%27"><span class="annot"><span class="annottext">Hit -&gt; Maybe Text
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Aid%3AHit%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The highlights returned from a document that matches the search request.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Ahighlights%3AHit%27"><span class="annot"><span class="annottext">Hit -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Ahighlights%3AHit%27"><span class="hs-identifier hs-var hs-var">highlights</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The fields returned from a document that matches the search request.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Afields%3AHit%27"><span class="annot"><span class="annottext">Hit -&gt; Maybe (HashMap Text [Text])
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Afields%3AHit%27"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152703"><span id="local-6989586621679152705"><span class="annot"><span class="annottext">Hit -&gt; Hit -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152748"><span id="local-6989586621679152750"><span class="annot"><span class="annottext">Hit -&gt; Hit -&gt; Bool
 (Hit -&gt; Hit -&gt; Bool) -&gt; (Hit -&gt; Hit -&gt; Bool) -&gt; Eq Hit
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 /= :: Hit -&gt; Hit -&gt; Bool
 $c/= :: Hit -&gt; Hit -&gt; Bool
 == :: Hit -&gt; Hit -&gt; Bool
 $c== :: Hit -&gt; Hit -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152694"><span id="local-6989586621679152696"><span id="local-6989586621679152698"><span id="local-6989586621679152700"><span class="annot"><span class="annottext">ReadPrec [Hit]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152739"><span id="local-6989586621679152741"><span id="local-6989586621679152743"><span id="local-6989586621679152745"><span class="annot"><span class="annottext">ReadPrec [Hit]
 ReadPrec Hit
 Int -&gt; ReadS Hit
 ReadS [Hit]
@@ -65,7 +65,7 @@ readList :: ReadS [Hit]
 $creadList :: ReadS [Hit]
 readsPrec :: Int -&gt; ReadS Hit
 $creadsPrec :: Int -&gt; ReadS Hit
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152687"><span id="local-6989586621679152689"><span id="local-6989586621679152691"><span class="annot"><span class="annottext">Int -&gt; Hit -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152732"><span id="local-6989586621679152734"><span id="local-6989586621679152736"><span class="annot"><span class="annottext">Int -&gt; Hit -&gt; ShowS
 [Hit] -&gt; ShowS
 Hit -&gt; String
 (Int -&gt; Hit -&gt; ShowS)
@@ -96,80 +96,62 @@ $cfrom :: forall x. Hit -&gt; Rep Hit x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'id', 'hit_id' - The document ID of a document that matches the search request.</span><span>
-</span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'exprs', 'hit_exprs' - The expressions returned from a document that matches the search</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'exprs', 'hit_exprs' - The expressions returned from a document that matches the search</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'id', 'hit_id' - The document ID of a document that matches the search request.</span><span>
 </span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'fields', 'hit_fields' - The fields returned from a document that matches the search request.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'highlights', 'hit_highlights' - The highlights returned from a document that matches the search request.</span><span>
 </span><span id="line-56"></span><span class="hs-comment">--</span><span>
-</span><span id="line-57"></span><span class="hs-comment">-- 'highlights', 'hit_highlights' - The highlights returned from a document that matches the search request.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'fields', 'hit_fields' - The fields returned from a document that matches the search request.</span><span>
 </span><span id="line-58"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#newHit"><span class="hs-identifier hs-type">newHit</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-59"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span>
 </span><span id="line-60"></span><span id="newHit"><span class="annot"><span class="annottext">newHit :: Hit
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#newHit"><span class="hs-identifier hs-var hs-var">newHit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">Hit' :: Maybe Text
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">Hit' :: Maybe (HashMap Text Text)
+-&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
 -&gt; Maybe (HashMap Text [Text])
--&gt; Maybe (HashMap Text Text)
 -&gt; Hit
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:Hit' :: Maybe Text
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Aid%3AHit%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:exprs:Hit' :: Maybe (HashMap Text Text)
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:exprs:Hit' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Aexprs%3AHit%27"><span class="hs-identifier hs-var">exprs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:fields:Hit' :: Maybe (HashMap Text [Text])
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Afields%3AHit%27"><span class="hs-identifier hs-var">fields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Hit' :: Maybe Text
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Aid%3AHit%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:highlights:Hit' :: Maybe (HashMap Text Text)
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:highlights:Hit' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Ahighlights%3AHit%27"><span class="hs-identifier hs-var">highlights</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:fields:Hit' :: Maybe (HashMap Text [Text])
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Afields%3AHit%27"><span class="hs-identifier hs-var">fields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | The document ID of a document that matches the search request.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_id"><span class="hs-identifier hs-type">hit_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="hit_id"><span class="annot"><span class="annottext">hit_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Hit -&gt; f Hit
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_id"><span class="hs-identifier hs-var hs-var">hit_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hit -&gt; Maybe Text)
--&gt; (Hit -&gt; Maybe Text -&gt; Hit)
--&gt; Lens Hit Hit (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152678"><span class="annot"><span class="annottext">Maybe Text
-id :: Maybe Text
-$sel:id:Hit' :: Hit -&gt; Maybe Text
-</span><a href="#local-6989586621679152678"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152678"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152677"><span class="annot"><span class="annottext">s :: Hit
-</span><a href="#local-6989586621679152677"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152676"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152676"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hit
-</span><a href="#local-6989586621679152677"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Hit' :: Maybe Text
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Aid%3AHit%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679152676"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- | The expressions returned from a document that matches the search</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_exprs"><span class="hs-identifier hs-type">hit_exprs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-75"></span><span id="hit_exprs"><span class="annot"><span class="annottext">hit_exprs :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-68"></span><span class="hs-comment">-- | The expressions returned from a document that matches the search</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_exprs"><span class="hs-identifier hs-type">hit_exprs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="hit_exprs"><span class="annot"><span class="annottext">hit_exprs :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; Hit -&gt; f Hit
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_exprs"><span class="hs-identifier hs-var hs-var">hit_exprs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hit -&gt; Maybe (HashMap Text Text))
 -&gt; (Hit -&gt; Maybe (HashMap Text Text) -&gt; Hit)
 -&gt; Lens
      Hit Hit (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152674"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152723"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 exprs :: Maybe (HashMap Text Text)
 $sel:exprs:Hit' :: Hit -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679152674"><span class="hs-identifier hs-var hs-var">exprs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679152674"><span class="hs-identifier hs-var">exprs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152673"><span class="annot"><span class="annottext">s :: Hit
-</span><a href="#local-6989586621679152673"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152672"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679152672"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hit
-</span><a href="#local-6989586621679152673"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exprs:Hit' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152723"><span class="hs-identifier hs-var hs-var">exprs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152723"><span class="hs-identifier hs-var">exprs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152722"><span class="annot"><span class="annottext">s :: Hit
+</span><a href="#local-6989586621679152722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152721"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hit
+</span><a href="#local-6989586621679152722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exprs:Hit' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Aexprs%3AHit%27"><span class="hs-identifier hs-var">exprs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679152672"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679152721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Hit -&gt; f Hit)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -195,28 +177,93 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The document ID of a document that matches the search request.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_id"><span class="hs-identifier hs-type">hit_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="hit_id"><span class="annot"><span class="annottext">hit_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Hit -&gt; f Hit
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_id"><span class="hs-identifier hs-var hs-var">hit_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hit -&gt; Maybe Text)
+-&gt; (Hit -&gt; Maybe Text -&gt; Hit)
+-&gt; Lens Hit Hit (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152716"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:Hit' :: Hit -&gt; Maybe Text
+</span><a href="#local-6989586621679152716"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152716"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152715"><span class="annot"><span class="annottext">s :: Hit
+</span><a href="#local-6989586621679152715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152714"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hit
+</span><a href="#local-6989586621679152715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Hit' :: Maybe Text
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Aid%3AHit%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- | The fields returned from a document that matches the search request.</span><span>
-</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_fields"><span class="hs-identifier hs-type">hit_fields</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span id="hit_fields"><span class="annot"><span class="annottext">hit_fields :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+</span><span id="line-77"></span><span class="hs-comment">-- | The highlights returned from a document that matches the search request.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_highlights"><span class="hs-identifier hs-type">hit_highlights</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="hit_highlights"><span class="annot"><span class="annottext">hit_highlights :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Hit -&gt; f Hit
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_highlights"><span class="hs-identifier hs-var hs-var">hit_highlights</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hit -&gt; Maybe (HashMap Text Text))
+-&gt; (Hit -&gt; Maybe (HashMap Text Text) -&gt; Hit)
+-&gt; Lens
+     Hit Hit (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152712"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+highlights :: Maybe (HashMap Text Text)
+$sel:highlights:Hit' :: Hit -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152712"><span class="hs-identifier hs-var hs-var">highlights</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152712"><span class="hs-identifier hs-var">highlights</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152711"><span class="annot"><span class="annottext">s :: Hit
+</span><a href="#local-6989586621679152711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152710"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hit
+</span><a href="#local-6989586621679152711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:highlights:Hit' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Ahighlights%3AHit%27"><span class="hs-identifier hs-var">highlights</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679152710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Hit -&gt; f Hit)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Hit
+-&gt; f Hit
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The fields returned from a document that matches the search request.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_fields"><span class="hs-identifier hs-type">hit_fields</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="hit_fields"><span class="annot"><span class="annottext">hit_fields :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
 -&gt; Hit -&gt; f Hit
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_fields"><span class="hs-identifier hs-var hs-var">hit_fields</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hit -&gt; Maybe (HashMap Text [Text]))
 -&gt; (Hit -&gt; Maybe (HashMap Text [Text]) -&gt; Hit)
 -&gt; Lens
      Hit Hit (Maybe (HashMap Text [Text])) (Maybe (HashMap Text [Text]))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152667"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152708"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 fields :: Maybe (HashMap Text [Text])
 $sel:fields:Hit' :: Hit -&gt; Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679152667"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679152667"><span class="hs-identifier hs-var">fields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152666"><span class="annot"><span class="annottext">s :: Hit
-</span><a href="#local-6989586621679152666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152665"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679152665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hit
-</span><a href="#local-6989586621679152666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fields:Hit' :: Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679152708"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679152708"><span class="hs-identifier hs-var">fields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152707"><span class="annot"><span class="annottext">s :: Hit
+</span><a href="#local-6989586621679152707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152706"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679152706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hit
+</span><a href="#local-6989586621679152707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fields:Hit' :: Maybe (HashMap Text [Text])
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Afields%3AHit%27"><span class="hs-identifier hs-var">fields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
-</span><a href="#local-6989586621679152665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+</span><a href="#local-6989586621679152706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
  -&gt; Hit -&gt; f Hit)
 -&gt; ((Maybe (HashMap Text [Text])
      -&gt; f (Maybe (HashMap Text [Text])))
@@ -243,96 +290,37 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text [Text])
   (HashMap Text [Text])
   (HashMap Text [Text])
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- | The highlights returned from a document that matches the search request.</span><span>
-</span><span id="line-82"></span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_highlights"><span class="hs-identifier hs-type">hit_highlights</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-83"></span><span id="hit_highlights"><span class="annot"><span class="annottext">hit_highlights :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
--&gt; Hit -&gt; f Hit
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#hit_highlights"><span class="hs-identifier hs-var hs-var">hit_highlights</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Hit -&gt; Maybe (HashMap Text Text))
--&gt; (Hit -&gt; Maybe (HashMap Text Text) -&gt; Hit)
--&gt; Lens
-     Hit Hit (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152663"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-highlights :: Maybe (HashMap Text Text)
-$sel:highlights:Hit' :: Hit -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679152663"><span class="hs-identifier hs-var hs-var">highlights</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679152663"><span class="hs-identifier hs-var">highlights</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152662"><span class="annot"><span class="annottext">s :: Hit
-</span><a href="#local-6989586621679152662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-type">Hit'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152661"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679152661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Hit
-</span><a href="#local-6989586621679152662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:highlights:Hit' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#%24sel%3Ahighlights%3AHit%27"><span class="hs-identifier hs-var">highlights</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679152661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
- -&gt; Hit -&gt; f Hit)
--&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
-    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
--&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
--&gt; Hit
--&gt; f Hit
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
--&gt; Iso
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-     (Maybe (HashMap Text Text))
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-  (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152658"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679152656"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Hit
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152703"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679152701"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Hit
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Hit) -&gt; Value -&gt; Parser Hit
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Hit&quot;</span></span><span>
-</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152653"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152653"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152698"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152698"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+-&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
 -&gt; Maybe (HashMap Text [Text])
--&gt; Maybe (HashMap Text Text)
 -&gt; Hit
 </span><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit%27"><span class="hs-identifier hs-var">Hit'</span></a></span><span>
-</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
+ -&gt; Maybe Text
  -&gt; Maybe (HashMap Text Text)
  -&gt; Maybe (HashMap Text [Text])
- -&gt; Maybe (HashMap Text Text)
  -&gt; Hit)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe (HashMap Text Text)
-      -&gt; Maybe (HashMap Text [Text]) -&gt; Maybe (HashMap Text Text) -&gt; Hit)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (HashMap Text Text)
-   -&gt; Maybe (HashMap Text [Text]) -&gt; Maybe (HashMap Text Text) -&gt; Hit)
 -&gt; Parser (Maybe (HashMap Text Text))
 -&gt; Parser
-     (Maybe (HashMap Text [Text]) -&gt; Maybe (HashMap Text Text) -&gt; Hit)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text) -&gt; Maybe (HashMap Text [Text]) -&gt; Hit)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;exprs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -341,13 +329,38 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (HashMap Text [Text]) -&gt; Maybe (HashMap Text Text) -&gt; Hit)
--&gt; Parser (Maybe (HashMap Text [Text]))
--&gt; Parser (Maybe (HashMap Text Text) -&gt; Hit)
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text) -&gt; Maybe (HashMap Text [Text]) -&gt; Hit)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (HashMap Text Text) -&gt; Maybe (HashMap Text [Text]) -&gt; Hit)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text [Text])))
+</span><a href="#local-6989586621679152698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text) -&gt; Maybe (HashMap Text [Text]) -&gt; Hit)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser (Maybe (HashMap Text [Text]) -&gt; Hit)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;highlights&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text [Text]) -&gt; Hit)
+-&gt; Parser (Maybe (HashMap Text [Text])) -&gt; Parser Hit
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152698"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text [Text])))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;fields&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text [Text])))
@@ -357,22 +370,9 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; Hit)
--&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser Hit
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679152653"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;highlights&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
--&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
-forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
-</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152646"><span id="local-6989586621679152648"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span></span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152691"><span id="local-6989586621679152693"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span></span></span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152643"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152688"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudSearchDomains.Types.Hit.html#Hit"><span class="hs-identifier hs-type">Hit</span></a></span></span><span>
 </span><span id="line-100"></span></pre></body></html>

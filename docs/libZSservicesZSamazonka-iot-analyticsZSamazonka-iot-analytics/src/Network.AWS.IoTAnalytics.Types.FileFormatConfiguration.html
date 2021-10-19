@@ -33,15 +33,15 @@
 </span><span id="line-33"></span><span class="hs-comment">-- You can\'t change the file format after you create the data store.</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newFileFormatConfiguration' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679259205"><span id="local-6989586621679259206"></span></span><span class="hs-keyword">data</span><span> </span><span id="FileFormatConfiguration"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-var">FileFormatConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileFormatConfiguration%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-var">FileFormatConfiguration'</span></a></span></span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the configuration information of the Parquet format.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AparquetConfiguration%3AFileFormatConfiguration%27"><span class="annot"><span class="annottext">FileFormatConfiguration -&gt; Maybe ParquetConfiguration
-</span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#%24sel%3AparquetConfiguration%3AFileFormatConfiguration%27"><span class="hs-identifier hs-var hs-var">parquetConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Contains the configuration information of the JSON format.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AjsonConfiguration%3AFileFormatConfiguration%27"><span class="annot"><span class="annottext">FileFormatConfiguration -&gt; Maybe JsonConfiguration
-</span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#%24sel%3AjsonConfiguration%3AFileFormatConfiguration%27"><span class="hs-identifier hs-var hs-var">jsonConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.JsonConfiguration.html#JsonConfiguration"><span class="hs-identifier hs-type">JsonConfiguration</span></a></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679259412"><span id="local-6989586621679259413"></span></span><span class="hs-keyword">data</span><span> </span><span id="FileFormatConfiguration"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-var">FileFormatConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FileFormatConfiguration%27"><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-var">FileFormatConfiguration'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains the configuration information of the JSON format.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AjsonConfiguration%3AFileFormatConfiguration%27"><span class="annot"><span class="annottext">FileFormatConfiguration -&gt; Maybe JsonConfiguration
+</span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#%24sel%3AjsonConfiguration%3AFileFormatConfiguration%27"><span class="hs-identifier hs-var hs-var">jsonConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.JsonConfiguration.html#JsonConfiguration"><span class="hs-identifier hs-type">JsonConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Contains the configuration information of the Parquet format.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AparquetConfiguration%3AFileFormatConfiguration%27"><span class="annot"><span class="annottext">FileFormatConfiguration -&gt; Maybe ParquetConfiguration
+</span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#%24sel%3AparquetConfiguration%3AFileFormatConfiguration%27"><span class="hs-identifier hs-var hs-var">parquetConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span><span>
 </span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259198"><span id="local-6989586621679259200"><span class="annot"><span class="annottext">FileFormatConfiguration -&gt; FileFormatConfiguration -&gt; Bool
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679259405"><span id="local-6989586621679259407"><span class="annot"><span class="annottext">FileFormatConfiguration -&gt; FileFormatConfiguration -&gt; Bool
 (FileFormatConfiguration -&gt; FileFormatConfiguration -&gt; Bool)
 -&gt; (FileFormatConfiguration -&gt; FileFormatConfiguration -&gt; Bool)
 -&gt; Eq FileFormatConfiguration
@@ -50,7 +50,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: FileFormatConfiguration -&gt; FileFormatConfiguration -&gt; Bool
 == :: FileFormatConfiguration -&gt; FileFormatConfiguration -&gt; Bool
 $c== :: FileFormatConfiguration -&gt; FileFormatConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259189"><span id="local-6989586621679259191"><span id="local-6989586621679259193"><span id="local-6989586621679259195"><span class="annot"><span class="annottext">ReadPrec [FileFormatConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259396"><span id="local-6989586621679259398"><span id="local-6989586621679259400"><span id="local-6989586621679259402"><span class="annot"><span class="annottext">ReadPrec [FileFormatConfiguration]
 ReadPrec FileFormatConfiguration
 Int -&gt; ReadS FileFormatConfiguration
 ReadS [FileFormatConfiguration]
@@ -70,7 +70,7 @@ readList :: ReadS [FileFormatConfiguration]
 $creadList :: ReadS [FileFormatConfiguration]
 readsPrec :: Int -&gt; ReadS FileFormatConfiguration
 $creadsPrec :: Int -&gt; ReadS FileFormatConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259182"><span id="local-6989586621679259184"><span id="local-6989586621679259186"><span class="annot"><span class="annottext">Int -&gt; FileFormatConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679259389"><span id="local-6989586621679259391"><span id="local-6989586621679259393"><span class="annot"><span class="annottext">Int -&gt; FileFormatConfiguration -&gt; ShowS
 [FileFormatConfiguration] -&gt; ShowS
 FileFormatConfiguration -&gt; String
 (Int -&gt; FileFormatConfiguration -&gt; ShowS)
@@ -106,54 +106,30 @@ $cfrom :: forall x. FileFormatConfiguration -&gt; Rep FileFormatConfiguration x
 </span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-51"></span><span class="hs-comment">--</span><span>
-</span><span id="line-52"></span><span class="hs-comment">-- 'parquetConfiguration', 'fileFormatConfiguration_parquetConfiguration' - Contains the configuration information of the Parquet format.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'jsonConfiguration', 'fileFormatConfiguration_jsonConfiguration' - Contains the configuration information of the JSON format.</span><span>
 </span><span id="line-53"></span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span class="hs-comment">-- 'jsonConfiguration', 'fileFormatConfiguration_jsonConfiguration' - Contains the configuration information of the JSON format.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'parquetConfiguration', 'fileFormatConfiguration_parquetConfiguration' - Contains the configuration information of the Parquet format.</span><span>
 </span><span id="line-55"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#newFileFormatConfiguration"><span class="hs-identifier hs-type">newFileFormatConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span><span>
 </span><span id="line-57"></span><span id="newFileFormatConfiguration"><span class="annot"><span class="annottext">newFileFormatConfiguration :: FileFormatConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#newFileFormatConfiguration"><span class="hs-identifier hs-var hs-var">newFileFormatConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">FileFormatConfiguration' :: Maybe ParquetConfiguration
--&gt; Maybe JsonConfiguration -&gt; FileFormatConfiguration
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">FileFormatConfiguration' :: Maybe JsonConfiguration
+-&gt; Maybe ParquetConfiguration -&gt; FileFormatConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-type">FileFormatConfiguration'</span></a></span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:parquetConfiguration:FileFormatConfiguration' :: Maybe ParquetConfiguration
-</span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#%24sel%3AparquetConfiguration%3AFileFormatConfiguration%27"><span class="hs-identifier hs-var">parquetConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe ParquetConfiguration
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jsonConfiguration:FileFormatConfiguration' :: Maybe JsonConfiguration
+</span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#%24sel%3AjsonConfiguration%3AFileFormatConfiguration%27"><span class="hs-identifier hs-var">jsonConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>        </span><span class="annot"><span class="annottext">Maybe JsonConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:jsonConfiguration:FileFormatConfiguration' :: Maybe JsonConfiguration
-</span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#%24sel%3AjsonConfiguration%3AFileFormatConfiguration%27"><span class="hs-identifier hs-var">jsonConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JsonConfiguration
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:parquetConfiguration:FileFormatConfiguration' :: Maybe ParquetConfiguration
+</span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#%24sel%3AparquetConfiguration%3AFileFormatConfiguration%27"><span class="hs-identifier hs-var">parquetConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetConfiguration
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- | Contains the configuration information of the Parquet format.</span><span>
-</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#fileFormatConfiguration_parquetConfiguration"><span class="hs-identifier hs-type">fileFormatConfiguration_parquetConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-66"></span><span id="fileFormatConfiguration_parquetConfiguration"><span class="annot"><span class="annottext">fileFormatConfiguration_parquetConfiguration :: (Maybe ParquetConfiguration -&gt; f (Maybe ParquetConfiguration))
--&gt; FileFormatConfiguration -&gt; f FileFormatConfiguration
-</span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#fileFormatConfiguration_parquetConfiguration"><span class="hs-identifier hs-var hs-var">fileFormatConfiguration_parquetConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileFormatConfiguration -&gt; Maybe ParquetConfiguration)
--&gt; (FileFormatConfiguration
-    -&gt; Maybe ParquetConfiguration -&gt; FileFormatConfiguration)
--&gt; Lens
-     FileFormatConfiguration
-     FileFormatConfiguration
-     (Maybe ParquetConfiguration)
-     (Maybe ParquetConfiguration)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-type">FileFormatConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259173"><span class="annot"><span class="annottext">Maybe ParquetConfiguration
-parquetConfiguration :: Maybe ParquetConfiguration
-$sel:parquetConfiguration:FileFormatConfiguration' :: FileFormatConfiguration -&gt; Maybe ParquetConfiguration
-</span><a href="#local-6989586621679259173"><span class="hs-identifier hs-var hs-var">parquetConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetConfiguration
-</span><a href="#local-6989586621679259173"><span class="hs-identifier hs-var">parquetConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259172"><span class="annot"><span class="annottext">s :: FileFormatConfiguration
-</span><a href="#local-6989586621679259172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-type">FileFormatConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259171"><span class="annot"><span class="annottext">Maybe ParquetConfiguration
-</span><a href="#local-6989586621679259171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileFormatConfiguration
-</span><a href="#local-6989586621679259172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parquetConfiguration:FileFormatConfiguration' :: Maybe ParquetConfiguration
-</span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#%24sel%3AparquetConfiguration%3AFileFormatConfiguration%27"><span class="hs-identifier hs-var">parquetConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetConfiguration
-</span><a href="#local-6989586621679259171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- | Contains the configuration information of the JSON format.</span><span>
-</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#fileFormatConfiguration_jsonConfiguration"><span class="hs-identifier hs-type">fileFormatConfiguration_jsonConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.JsonConfiguration.html#JsonConfiguration"><span class="hs-identifier hs-type">JsonConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span id="fileFormatConfiguration_jsonConfiguration"><span class="annot"><span class="annottext">fileFormatConfiguration_jsonConfiguration :: (Maybe JsonConfiguration -&gt; f (Maybe JsonConfiguration))
+</span><span id="line-64"></span><span class="hs-comment">-- | Contains the configuration information of the JSON format.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#fileFormatConfiguration_jsonConfiguration"><span class="hs-identifier hs-type">fileFormatConfiguration_jsonConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.JsonConfiguration.html#JsonConfiguration"><span class="hs-identifier hs-type">JsonConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="fileFormatConfiguration_jsonConfiguration"><span class="annot"><span class="annottext">fileFormatConfiguration_jsonConfiguration :: (Maybe JsonConfiguration -&gt; f (Maybe JsonConfiguration))
 -&gt; FileFormatConfiguration -&gt; f FileFormatConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#fileFormatConfiguration_jsonConfiguration"><span class="hs-identifier hs-var hs-var">fileFormatConfiguration_jsonConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileFormatConfiguration -&gt; Maybe JsonConfiguration)
 -&gt; (FileFormatConfiguration
@@ -164,19 +140,43 @@ $sel:parquetConfiguration:FileFormatConfiguration' :: FileFormatConfiguration -&
      (Maybe JsonConfiguration)
      (Maybe JsonConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-type">FileFormatConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259169"><span class="annot"><span class="annottext">Maybe JsonConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-type">FileFormatConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259380"><span class="annot"><span class="annottext">Maybe JsonConfiguration
 jsonConfiguration :: Maybe JsonConfiguration
 $sel:jsonConfiguration:FileFormatConfiguration' :: FileFormatConfiguration -&gt; Maybe JsonConfiguration
-</span><a href="#local-6989586621679259169"><span class="hs-identifier hs-var hs-var">jsonConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JsonConfiguration
-</span><a href="#local-6989586621679259169"><span class="hs-identifier hs-var">jsonConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259168"><span class="annot"><span class="annottext">s :: FileFormatConfiguration
-</span><a href="#local-6989586621679259168"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-type">FileFormatConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259167"><span class="annot"><span class="annottext">Maybe JsonConfiguration
-</span><a href="#local-6989586621679259167"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileFormatConfiguration
-</span><a href="#local-6989586621679259168"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jsonConfiguration:FileFormatConfiguration' :: Maybe JsonConfiguration
+</span><a href="#local-6989586621679259380"><span class="hs-identifier hs-var hs-var">jsonConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JsonConfiguration
+</span><a href="#local-6989586621679259380"><span class="hs-identifier hs-var">jsonConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259379"><span class="annot"><span class="annottext">s :: FileFormatConfiguration
+</span><a href="#local-6989586621679259379"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-type">FileFormatConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259378"><span class="annot"><span class="annottext">Maybe JsonConfiguration
+</span><a href="#local-6989586621679259378"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileFormatConfiguration
+</span><a href="#local-6989586621679259379"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jsonConfiguration:FileFormatConfiguration' :: Maybe JsonConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#%24sel%3AjsonConfiguration%3AFileFormatConfiguration%27"><span class="hs-identifier hs-var">jsonConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JsonConfiguration
-</span><a href="#local-6989586621679259167"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679259378"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Contains the configuration information of the Parquet format.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#fileFormatConfiguration_parquetConfiguration"><span class="hs-identifier hs-type">fileFormatConfiguration_parquetConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.ParquetConfiguration.html#ParquetConfiguration"><span class="hs-identifier hs-type">ParquetConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="fileFormatConfiguration_parquetConfiguration"><span class="annot"><span class="annottext">fileFormatConfiguration_parquetConfiguration :: (Maybe ParquetConfiguration -&gt; f (Maybe ParquetConfiguration))
+-&gt; FileFormatConfiguration -&gt; f FileFormatConfiguration
+</span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#fileFormatConfiguration_parquetConfiguration"><span class="hs-identifier hs-var hs-var">fileFormatConfiguration_parquetConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FileFormatConfiguration -&gt; Maybe ParquetConfiguration)
+-&gt; (FileFormatConfiguration
+    -&gt; Maybe ParquetConfiguration -&gt; FileFormatConfiguration)
+-&gt; Lens
+     FileFormatConfiguration
+     FileFormatConfiguration
+     (Maybe ParquetConfiguration)
+     (Maybe ParquetConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-type">FileFormatConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259376"><span class="annot"><span class="annottext">Maybe ParquetConfiguration
+parquetConfiguration :: Maybe ParquetConfiguration
+$sel:parquetConfiguration:FileFormatConfiguration' :: FileFormatConfiguration -&gt; Maybe ParquetConfiguration
+</span><a href="#local-6989586621679259376"><span class="hs-identifier hs-var hs-var">parquetConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetConfiguration
+</span><a href="#local-6989586621679259376"><span class="hs-identifier hs-var">parquetConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679259375"><span class="annot"><span class="annottext">s :: FileFormatConfiguration
+</span><a href="#local-6989586621679259375"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-type">FileFormatConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679259374"><span class="annot"><span class="annottext">Maybe ParquetConfiguration
+</span><a href="#local-6989586621679259374"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FileFormatConfiguration
+</span><a href="#local-6989586621679259375"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parquetConfiguration:FileFormatConfiguration' :: Maybe ParquetConfiguration
+</span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#%24sel%3AparquetConfiguration%3AFileFormatConfiguration%27"><span class="hs-identifier hs-var">parquetConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParquetConfiguration
+</span><a href="#local-6989586621679259374"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-71"></span><span>
-</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259164"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621679259162"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FileFormatConfiguration
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259371"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679259369"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FileFormatConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser FileFormatConfiguration)
@@ -186,68 +186,68 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;FileFormatConfiguration&quot;</span></span><span>
-</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259159"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259159"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe ParquetConfiguration
--&gt; Maybe JsonConfiguration -&gt; FileFormatConfiguration
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679259366"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259366"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Maybe JsonConfiguration
+-&gt; Maybe ParquetConfiguration -&gt; FileFormatConfiguration
 </span><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-var">FileFormatConfiguration'</span></a></span><span>
-</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ParquetConfiguration
- -&gt; Maybe JsonConfiguration -&gt; FileFormatConfiguration)
--&gt; Parser (Maybe ParquetConfiguration)
--&gt; Parser (Maybe JsonConfiguration -&gt; FileFormatConfiguration)
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Maybe JsonConfiguration
+ -&gt; Maybe ParquetConfiguration -&gt; FileFormatConfiguration)
+-&gt; Parser (Maybe JsonConfiguration)
+-&gt; Parser (Maybe ParquetConfiguration -&gt; FileFormatConfiguration)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParquetConfiguration)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;parquetConfiguration&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe JsonConfiguration -&gt; FileFormatConfiguration)
--&gt; Parser (Maybe JsonConfiguration)
--&gt; Parser FileFormatConfiguration
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679259159"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JsonConfiguration)
+</span><a href="#local-6989586621679259366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JsonConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jsonConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ParquetConfiguration -&gt; FileFormatConfiguration)
+-&gt; Parser (Maybe ParquetConfiguration)
+-&gt; Parser FileFormatConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679259366"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParquetConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parquetConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-81"></span><span>
-</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259153"><span id="local-6989586621679259155"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span></span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259360"><span id="local-6989586621679259362"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span></span></span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259150"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259357"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259142"><span id="local-6989586621679259144"><span id="local-6989586621679259146"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679259140"><span class="annot"><span class="annottext">toJSON :: FileFormatConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-type">FileFormatConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259137"><span id="local-6989586621679259138"><span class="annot"><span class="annottext">Maybe JsonConfiguration
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679259349"><span id="local-6989586621679259351"><span id="local-6989586621679259353"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration"><span class="hs-identifier hs-type">FileFormatConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679259347"><span class="annot"><span class="annottext">toJSON :: FileFormatConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.IoTAnalytics.Types.FileFormatConfiguration.html#FileFormatConfiguration%27"><span class="hs-identifier hs-type">FileFormatConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679259344"><span id="local-6989586621679259345"><span class="annot"><span class="annottext">Maybe JsonConfiguration
 Maybe ParquetConfiguration
-jsonConfiguration :: Maybe JsonConfiguration
 parquetConfiguration :: Maybe ParquetConfiguration
-$sel:jsonConfiguration:FileFormatConfiguration' :: FileFormatConfiguration -&gt; Maybe JsonConfiguration
+jsonConfiguration :: Maybe JsonConfiguration
 $sel:parquetConfiguration:FileFormatConfiguration' :: FileFormatConfiguration -&gt; Maybe ParquetConfiguration
-</span><a href="#local-6989586621679259137"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:jsonConfiguration:FileFormatConfiguration' :: FileFormatConfiguration -&gt; Maybe JsonConfiguration
+</span><a href="#local-6989586621679259344"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-90"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;parquetConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParquetConfiguration -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span>              </span><span class="annot"><span class="annottext">(ParquetConfiguration -&gt; Pair)
--&gt; Maybe ParquetConfiguration -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParquetConfiguration
-</span><a href="#local-6989586621679259138"><span class="hs-identifier hs-var">parquetConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;jsonConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JsonConfiguration -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">(JsonConfiguration -&gt; Pair)
+</span><span id="line-91"></span><span>              </span><span class="annot"><span class="annottext">(JsonConfiguration -&gt; Pair)
 -&gt; Maybe JsonConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe JsonConfiguration
-</span><a href="#local-6989586621679259137"><span class="hs-identifier hs-var">jsonConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679259345"><span class="hs-identifier hs-var">jsonConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;parquetConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ParquetConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>              </span><span class="annot"><span class="annottext">(ParquetConfiguration -&gt; Pair)
+-&gt; Maybe ParquetConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ParquetConfiguration
+</span><a href="#local-6989586621679259344"><span class="hs-identifier hs-var">parquetConfiguration</span></a></span><span>
 </span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span></pre></body></html>

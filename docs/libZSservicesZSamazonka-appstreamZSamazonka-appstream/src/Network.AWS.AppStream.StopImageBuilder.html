@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newStopImageBuilder' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679293352"><span id="local-6989586621679293353"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopImageBuilder"><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-var">StopImageBuilder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopImageBuilder%27"><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-var">StopImageBuilder'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679293616"><span id="local-6989586621679293617"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopImageBuilder"><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-var">StopImageBuilder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopImageBuilder%27"><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-var">StopImageBuilder'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the image builder.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3AStopImageBuilder%27"><span class="annot"><span class="annottext">StopImageBuilder -&gt; Text
 </span><a href="Network.AWS.AppStream.StopImageBuilder.html#%24sel%3Aname%3AStopImageBuilder%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293346"><span id="local-6989586621679293348"><span class="annot"><span class="annottext">StopImageBuilder -&gt; StopImageBuilder -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293610"><span id="local-6989586621679293612"><span class="annot"><span class="annottext">StopImageBuilder -&gt; StopImageBuilder -&gt; Bool
 (StopImageBuilder -&gt; StopImageBuilder -&gt; Bool)
 -&gt; (StopImageBuilder -&gt; StopImageBuilder -&gt; Bool)
 -&gt; Eq StopImageBuilder
@@ -61,7 +61,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopImageBuilder -&gt; StopImageBuilder -&gt; Bool
 == :: StopImageBuilder -&gt; StopImageBuilder -&gt; Bool
 $c== :: StopImageBuilder -&gt; StopImageBuilder -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293337"><span id="local-6989586621679293339"><span id="local-6989586621679293341"><span id="local-6989586621679293343"><span class="annot"><span class="annottext">ReadPrec [StopImageBuilder]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293601"><span id="local-6989586621679293603"><span id="local-6989586621679293605"><span id="local-6989586621679293607"><span class="annot"><span class="annottext">ReadPrec [StopImageBuilder]
 ReadPrec StopImageBuilder
 Int -&gt; ReadS StopImageBuilder
 ReadS [StopImageBuilder]
@@ -81,7 +81,7 @@ readList :: ReadS [StopImageBuilder]
 $creadList :: ReadS [StopImageBuilder]
 readsPrec :: Int -&gt; ReadS StopImageBuilder
 $creadsPrec :: Int -&gt; ReadS StopImageBuilder
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293330"><span id="local-6989586621679293332"><span id="local-6989586621679293334"><span class="annot"><span class="annottext">Int -&gt; StopImageBuilder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293594"><span id="local-6989586621679293596"><span id="local-6989586621679293598"><span class="annot"><span class="annottext">Int -&gt; StopImageBuilder -&gt; ShowS
 [StopImageBuilder] -&gt; ShowS
 StopImageBuilder -&gt; String
 (Int -&gt; StopImageBuilder -&gt; ShowS)
@@ -121,12 +121,12 @@ $cfrom :: forall x. StopImageBuilder -&gt; Rep StopImageBuilder x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span>
 </span><span id="line-69"></span><span id="newStopImageBuilder"><span class="annot"><span class="annottext">newStopImageBuilder :: Text -&gt; StopImageBuilder
-</span><a href="Network.AWS.AppStream.StopImageBuilder.html#newStopImageBuilder"><span class="hs-identifier hs-var hs-var">newStopImageBuilder</span></a></span></span><span> </span><span id="local-6989586621679293325"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293325"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.StopImageBuilder.html#newStopImageBuilder"><span class="hs-identifier hs-var hs-var">newStopImageBuilder</span></a></span></span><span> </span><span id="local-6989586621679293589"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293589"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">StopImageBuilder' :: Text -&gt; StopImageBuilder
 </span><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-type">StopImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopImageBuilder' :: Text
 </span><a href="Network.AWS.AppStream.StopImageBuilder.html#%24sel%3Aname%3AStopImageBuilder%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293325"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679293589"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the image builder.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#stopImageBuilder_name"><span class="hs-identifier hs-type">stopImageBuilder_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -135,27 +135,27 @@ $cfrom :: forall x. StopImageBuilder -&gt; Rep StopImageBuilder x
 -&gt; (StopImageBuilder -&gt; Text -&gt; StopImageBuilder)
 -&gt; Lens StopImageBuilder StopImageBuilder Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-type">StopImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293322"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-type">StopImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293586"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:StopImageBuilder' :: StopImageBuilder -&gt; Text
-</span><a href="#local-6989586621679293322"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293322"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293321"><span class="annot"><span class="annottext">s :: StopImageBuilder
-</span><a href="#local-6989586621679293321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-type">StopImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293320"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopImageBuilder
-</span><a href="#local-6989586621679293321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopImageBuilder' :: Text
+</span><a href="#local-6989586621679293586"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293586"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293585"><span class="annot"><span class="annottext">s :: StopImageBuilder
+</span><a href="#local-6989586621679293585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-type">StopImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293584"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopImageBuilder
+</span><a href="#local-6989586621679293585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StopImageBuilder' :: Text
 </span><a href="Network.AWS.AppStream.StopImageBuilder.html#%24sel%3Aname%3AStopImageBuilder%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679293316"><span class="annot"><span class="annottext">request :: StopImageBuilder -&gt; Request StopImageBuilder
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679293580"><span class="annot"><span class="annottext">request :: StopImageBuilder -&gt; Request StopImageBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopImageBuilder -&gt; Request StopImageBuilder
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.AppStream.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679293312"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679293576"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopImageBuilder
 -&gt; ClientResponse ClientBody
@@ -179,10 +179,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293309"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293309"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679293308"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679293308"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679293307"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293307"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293573"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293573"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679293572"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679293572"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679293571"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe ImageBuilder -&gt; Int -&gt; StopImageBuilderResponse
 </span><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-var">StopImageBuilderResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ImageBuilder -&gt; Int -&gt; StopImageBuilderResponse)
@@ -190,7 +190,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; StopImageBuilderResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679293307"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImageBuilder)
+</span><a href="#local-6989586621679293571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ImageBuilder)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ImageBuilder&quot;</span></span><span class="hs-special">)</span><span>
@@ -202,15 +202,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293309"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293573"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
-</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293299"><span id="local-6989586621679293301"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span></span></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293563"><span id="local-6989586621679293565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span></span></span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293296"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span></span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679293292"><span class="annot"><span class="annottext">toHeaders :: StopImageBuilder -&gt; ResponseHeaders
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679293556"><span class="annot"><span class="annottext">toHeaders :: StopImageBuilder -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopImageBuilder -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -237,12 +237,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293282"><span id="local-6989586621679293284"><span id="local-6989586621679293286"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679293280"><span class="annot"><span class="annottext">toJSON :: StopImageBuilder -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-type">StopImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293278"><span class="annot"><span class="annottext">Text
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293546"><span id="local-6989586621679293548"><span id="local-6989586621679293550"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679293544"><span class="annot"><span class="annottext">toJSON :: StopImageBuilder -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder%27"><span class="hs-identifier hs-type">StopImageBuilder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293542"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:StopImageBuilder' :: StopImageBuilder -&gt; Text
-</span><a href="#local-6989586621679293278"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679293542"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -254,18 +254,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679293278"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679293542"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679293272"><span class="annot"><span class="annottext">toPath :: StopImageBuilder -&gt; ByteString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679293536"><span class="annot"><span class="annottext">toPath :: StopImageBuilder -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopImageBuilder -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-117"></span><span>
 </span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilder"><span class="hs-identifier hs-type">StopImageBuilder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679293268"><span class="annot"><span class="annottext">toQuery :: StopImageBuilder -&gt; QueryString
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679293532"><span class="annot"><span class="annottext">toQuery :: StopImageBuilder -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopImageBuilder -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -273,7 +273,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-120"></span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newStopImageBuilderResponse' smart constructor.</span><span>
-</span><span id="line-122"></span><span id="local-6989586621679293265"><span id="local-6989586621679293266"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopImageBuilderResponse"><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-var">StopImageBuilderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopImageBuilderResponse%27"><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-var">StopImageBuilderResponse'</span></a></span></span><span>
+</span><span id="line-122"></span><span id="local-6989586621679293529"><span id="local-6989586621679293530"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopImageBuilderResponse"><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-var">StopImageBuilderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopImageBuilderResponse%27"><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-var">StopImageBuilderResponse'</span></a></span></span><span>
 </span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the image builder.</span><span>
 </span><span id="line-124"></span><span>    </span><span id="%24sel%3AimageBuilder%3AStopImageBuilderResponse%27"><span class="annot"><span class="annottext">StopImageBuilderResponse -&gt; Maybe ImageBuilder
 </span><a href="Network.AWS.AppStream.StopImageBuilder.html#%24sel%3AimageBuilder%3AStopImageBuilderResponse%27"><span class="hs-identifier hs-var hs-var">imageBuilder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.Types.ImageBuilder.html#ImageBuilder"><span class="hs-identifier hs-type">ImageBuilder</span></a></span><span class="hs-special">,</span><span>
@@ -281,7 +281,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopImageBuilderResponse%27"><span class="annot"><span class="annottext">StopImageBuilderResponse -&gt; Int
 </span><a href="Network.AWS.AppStream.StopImageBuilder.html#%24sel%3AhttpStatus%3AStopImageBuilderResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293259"><span id="local-6989586621679293261"><span class="annot"><span class="annottext">StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293523"><span id="local-6989586621679293525"><span class="annot"><span class="annottext">StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool
 (StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool)
 -&gt; (StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool)
 -&gt; Eq StopImageBuilderResponse
@@ -290,7 +290,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool
 == :: StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool
 $c== :: StopImageBuilderResponse -&gt; StopImageBuilderResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293251"><span id="local-6989586621679293253"><span id="local-6989586621679293255"><span id="local-6989586621679293257"><span class="annot"><span class="annottext">ReadPrec [StopImageBuilderResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293515"><span id="local-6989586621679293517"><span id="local-6989586621679293519"><span id="local-6989586621679293521"><span class="annot"><span class="annottext">ReadPrec [StopImageBuilderResponse]
 ReadPrec StopImageBuilderResponse
 Int -&gt; ReadS StopImageBuilderResponse
 ReadS [StopImageBuilderResponse]
@@ -310,7 +310,7 @@ readList :: ReadS [StopImageBuilderResponse]
 $creadList :: ReadS [StopImageBuilderResponse]
 readsPrec :: Int -&gt; ReadS StopImageBuilderResponse
 $creadsPrec :: Int -&gt; ReadS StopImageBuilderResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293245"><span id="local-6989586621679293247"><span id="local-6989586621679293249"><span class="annot"><span class="annottext">Int -&gt; StopImageBuilderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293509"><span id="local-6989586621679293511"><span id="local-6989586621679293513"><span class="annot"><span class="annottext">Int -&gt; StopImageBuilderResponse -&gt; ShowS
 [StopImageBuilderResponse] -&gt; ShowS
 StopImageBuilderResponse -&gt; String
 (Int -&gt; StopImageBuilderResponse -&gt; ShowS)
@@ -358,8 +358,8 @@ StopImageBuilderResponse -&gt; Rep StopImageBuilderResponse x
 </span><span id="line-143"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-144"></span><span>  </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span><span>
 </span><span id="line-145"></span><span id="newStopImageBuilderResponse"><span class="annot"><span class="annottext">newStopImageBuilderResponse :: Int -&gt; StopImageBuilderResponse
-</span><a href="Network.AWS.AppStream.StopImageBuilder.html#newStopImageBuilderResponse"><span class="hs-identifier hs-var hs-var">newStopImageBuilderResponse</span></a></span></span><span> </span><span id="local-6989586621679293242"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293242"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.AppStream.StopImageBuilder.html#newStopImageBuilderResponse"><span class="hs-identifier hs-var hs-var">newStopImageBuilderResponse</span></a></span></span><span> </span><span id="local-6989586621679293506"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293506"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>  </span><span class="annot"><span class="annottext">StopImageBuilderResponse' :: Maybe ImageBuilder -&gt; Int -&gt; StopImageBuilderResponse
 </span><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span>
 </span><span id="line-147"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imageBuilder:StopImageBuilderResponse' :: Maybe ImageBuilder
@@ -369,7 +369,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopImageBuilderResponse' :: Int
 </span><a href="Network.AWS.AppStream.StopImageBuilder.html#%24sel%3AhttpStatus%3AStopImageBuilderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293242"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679293506"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-150"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | Information about the image builder.</span><span>
@@ -385,16 +385,16 @@ forall a. Maybe a
      (Maybe ImageBuilder)
      (Maybe ImageBuilder)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293241"><span class="annot"><span class="annottext">Maybe ImageBuilder
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293505"><span class="annot"><span class="annottext">Maybe ImageBuilder
 imageBuilder :: Maybe ImageBuilder
 $sel:imageBuilder:StopImageBuilderResponse' :: StopImageBuilderResponse -&gt; Maybe ImageBuilder
-</span><a href="#local-6989586621679293241"><span class="hs-identifier hs-var hs-var">imageBuilder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageBuilder
-</span><a href="#local-6989586621679293241"><span class="hs-identifier hs-var">imageBuilder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293240"><span class="annot"><span class="annottext">s :: StopImageBuilderResponse
-</span><a href="#local-6989586621679293240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293239"><span class="annot"><span class="annottext">Maybe ImageBuilder
-</span><a href="#local-6989586621679293239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopImageBuilderResponse
-</span><a href="#local-6989586621679293240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageBuilder:StopImageBuilderResponse' :: Maybe ImageBuilder
+</span><a href="#local-6989586621679293505"><span class="hs-identifier hs-var hs-var">imageBuilder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ImageBuilder
+</span><a href="#local-6989586621679293505"><span class="hs-identifier hs-var">imageBuilder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293504"><span class="annot"><span class="annottext">s :: StopImageBuilderResponse
+</span><a href="#local-6989586621679293504"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293503"><span class="annot"><span class="annottext">Maybe ImageBuilder
+</span><a href="#local-6989586621679293503"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopImageBuilderResponse
+</span><a href="#local-6989586621679293504"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageBuilder:StopImageBuilderResponse' :: Maybe ImageBuilder
 </span><a href="Network.AWS.AppStream.StopImageBuilder.html#%24sel%3AimageBuilder%3AStopImageBuilderResponse%27"><span class="hs-identifier hs-var">imageBuilder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ImageBuilder
-</span><a href="#local-6989586621679293239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293503"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-157"></span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#stopImageBuilderResponse_httpStatus"><span class="hs-identifier hs-type">stopImageBuilderResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -404,16 +404,16 @@ $sel:imageBuilder:StopImageBuilderResponse' :: StopImageBuilderResponse -&gt; Ma
 -&gt; (StopImageBuilderResponse -&gt; Int -&gt; StopImageBuilderResponse)
 -&gt; Lens StopImageBuilderResponse StopImageBuilderResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293238"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293502"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopImageBuilderResponse' :: StopImageBuilderResponse -&gt; Int
-</span><a href="#local-6989586621679293238"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293238"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293237"><span class="annot"><span class="annottext">s :: StopImageBuilderResponse
-</span><a href="#local-6989586621679293237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293236"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopImageBuilderResponse
-</span><a href="#local-6989586621679293237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopImageBuilderResponse' :: Int
+</span><a href="#local-6989586621679293502"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293502"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293501"><span class="annot"><span class="annottext">s :: StopImageBuilderResponse
+</span><a href="#local-6989586621679293501"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse%27"><span class="hs-identifier hs-type">StopImageBuilderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293500"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293500"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopImageBuilderResponse
+</span><a href="#local-6989586621679293501"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopImageBuilderResponse' :: Int
 </span><a href="Network.AWS.AppStream.StopImageBuilder.html#%24sel%3AhttpStatus%3AStopImageBuilderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679293236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679293500"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293234"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293498"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.AppStream.StopImageBuilder.html#StopImageBuilderResponse"><span class="hs-identifier hs-type">StopImageBuilderResponse</span></a></span></span><span>
 </span><span id="line-161"></span></pre></body></html>

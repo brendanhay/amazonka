@@ -27,20 +27,20 @@
 </span><span id="line-27"></span><span class="hs-comment">-- supports a limited set of reactions.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newReactionValueFormats' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679352637"><span id="local-6989586621679352638"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReactionValueFormats"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-var">ReactionValueFormats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReactionValueFormats%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-var">ReactionValueFormats'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The emoji short code for the reaction. Short codes are interpreted</span><span>
-</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- slightly differently on different operating systems.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3AshortCode%3AReactionValueFormats%27"><span class="annot"><span class="annottext">ReactionValueFormats -&gt; Maybe Text
+</span><span id="line-30"></span><span id="local-6989586621679352911"><span id="local-6989586621679352912"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReactionValueFormats"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-var">ReactionValueFormats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReactionValueFormats%27"><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-var">ReactionValueFormats'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Emoji Version 1.0 graphic of the reaction. These graphics are</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- interpreted slightly differently on different operating systems.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aemoji%3AReactionValueFormats%27"><span class="annot"><span class="annottext">ReactionValueFormats -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3Aemoji%3AReactionValueFormats%27"><span class="hs-identifier hs-var hs-var">emoji</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The emoji short code for the reaction. Short codes are interpreted</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- slightly differently on different operating systems.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AshortCode%3AReactionValueFormats%27"><span class="annot"><span class="annottext">ReactionValueFormats -&gt; Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3AshortCode%3AReactionValueFormats%27"><span class="hs-identifier hs-var hs-var">shortCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Unicode codepoint for the reaction.</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aunicode%3AReactionValueFormats%27"><span class="annot"><span class="annottext">ReactionValueFormats -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3Aunicode%3AReactionValueFormats%27"><span class="hs-identifier hs-var hs-var">unicode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The Emoji Version 1.0 graphic of the reaction. These graphics are</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- interpreted slightly differently on different operating systems.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aemoji%3AReactionValueFormats%27"><span class="annot"><span class="annottext">ReactionValueFormats -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3Aemoji%3AReactionValueFormats%27"><span class="hs-identifier hs-var hs-var">emoji</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Unicode codepoint for the reaction.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aunicode%3AReactionValueFormats%27"><span class="annot"><span class="annottext">ReactionValueFormats -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3Aunicode%3AReactionValueFormats%27"><span class="hs-identifier hs-var hs-var">unicode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352629"><span id="local-6989586621679352631"><span class="annot"><span class="annottext">ReactionValueFormats -&gt; ReactionValueFormats -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679352903"><span id="local-6989586621679352905"><span class="annot"><span class="annottext">ReactionValueFormats -&gt; ReactionValueFormats -&gt; Bool
 (ReactionValueFormats -&gt; ReactionValueFormats -&gt; Bool)
 -&gt; (ReactionValueFormats -&gt; ReactionValueFormats -&gt; Bool)
 -&gt; Eq ReactionValueFormats
@@ -49,7 +49,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReactionValueFormats -&gt; ReactionValueFormats -&gt; Bool
 == :: ReactionValueFormats -&gt; ReactionValueFormats -&gt; Bool
 $c== :: ReactionValueFormats -&gt; ReactionValueFormats -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352620"><span id="local-6989586621679352622"><span id="local-6989586621679352624"><span id="local-6989586621679352626"><span class="annot"><span class="annottext">ReadPrec [ReactionValueFormats]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352894"><span id="local-6989586621679352896"><span id="local-6989586621679352898"><span id="local-6989586621679352900"><span class="annot"><span class="annottext">ReadPrec [ReactionValueFormats]
 ReadPrec ReactionValueFormats
 Int -&gt; ReadS ReactionValueFormats
 ReadS [ReactionValueFormats]
@@ -69,7 +69,7 @@ readList :: ReadS [ReactionValueFormats]
 $creadList :: ReadS [ReactionValueFormats]
 readsPrec :: Int -&gt; ReadS ReactionValueFormats
 $creadsPrec :: Int -&gt; ReadS ReactionValueFormats
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352613"><span id="local-6989586621679352615"><span id="local-6989586621679352617"><span class="annot"><span class="annottext">Int -&gt; ReactionValueFormats -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679352887"><span id="local-6989586621679352889"><span id="local-6989586621679352891"><span class="annot"><span class="annottext">Int -&gt; ReactionValueFormats -&gt; ShowS
 [ReactionValueFormats] -&gt; ShowS
 ReactionValueFormats -&gt; String
 (Int -&gt; ReactionValueFormats -&gt; ShowS)
@@ -103,97 +103,97 @@ $cfrom :: forall x. ReactionValueFormats -&gt; Rep ReactionValueFormats x
 </span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-49"></span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span class="hs-comment">-- 'shortCode', 'reactionValueFormats_shortCode' - The emoji short code for the reaction. Short codes are interpreted</span><span>
-</span><span id="line-51"></span><span class="hs-comment">-- slightly differently on different operating systems.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'emoji', 'reactionValueFormats_emoji' - The Emoji Version 1.0 graphic of the reaction. These graphics are</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- interpreted slightly differently on different operating systems.</span><span>
 </span><span id="line-52"></span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span class="hs-comment">-- 'unicode', 'reactionValueFormats_unicode' - The Unicode codepoint for the reaction.</span><span>
-</span><span id="line-54"></span><span class="hs-comment">--</span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- 'emoji', 'reactionValueFormats_emoji' - The Emoji Version 1.0 graphic of the reaction. These graphics are</span><span>
-</span><span id="line-56"></span><span class="hs-comment">-- interpreted slightly differently on different operating systems.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'shortCode', 'reactionValueFormats_shortCode' - The emoji short code for the reaction. Short codes are interpreted</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- slightly differently on different operating systems.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'unicode', 'reactionValueFormats_unicode' - The Unicode codepoint for the reaction.</span><span>
 </span><span id="line-57"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#newReactionValueFormats"><span class="hs-identifier hs-type">newReactionValueFormats</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-58"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span><span>
 </span><span id="line-59"></span><span id="newReactionValueFormats"><span class="annot"><span class="annottext">newReactionValueFormats :: ReactionValueFormats
 </span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#newReactionValueFormats"><span class="hs-identifier hs-var hs-var">newReactionValueFormats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">ReactionValueFormats' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ReactionValueFormats
 </span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-type">ReactionValueFormats'</span></a></span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:shortCode:ReactionValueFormats' :: Maybe Text
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:emoji:ReactionValueFormats' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3Aemoji%3AReactionValueFormats%27"><span class="hs-identifier hs-var">emoji</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:shortCode:ReactionValueFormats' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3AshortCode%3AReactionValueFormats%27"><span class="hs-identifier hs-var">shortCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:unicode:ReactionValueFormats' :: Maybe Text
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:unicode:ReactionValueFormats' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3Aunicode%3AReactionValueFormats%27"><span class="hs-identifier hs-var">unicode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:emoji:ReactionValueFormats' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3Aemoji%3AReactionValueFormats%27"><span class="hs-identifier hs-var">emoji</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- | The emoji short code for the reaction. Short codes are interpreted</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- slightly differently on different operating systems.</span><span>
-</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#reactionValueFormats_shortCode"><span class="hs-identifier hs-type">reactionValueFormats_shortCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-69"></span><span id="reactionValueFormats_shortCode"><span class="annot"><span class="annottext">reactionValueFormats_shortCode :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReactionValueFormats -&gt; f ReactionValueFormats
-</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#reactionValueFormats_shortCode"><span class="hs-identifier hs-var hs-var">reactionValueFormats_shortCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReactionValueFormats -&gt; Maybe Text)
--&gt; (ReactionValueFormats -&gt; Maybe Text -&gt; ReactionValueFormats)
--&gt; Lens
-     ReactionValueFormats ReactionValueFormats (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-type">ReactionValueFormats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352604"><span class="annot"><span class="annottext">Maybe Text
-shortCode :: Maybe Text
-$sel:shortCode:ReactionValueFormats' :: ReactionValueFormats -&gt; Maybe Text
-</span><a href="#local-6989586621679352604"><span class="hs-identifier hs-var hs-var">shortCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679352604"><span class="hs-identifier hs-var">shortCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352603"><span class="annot"><span class="annottext">s :: ReactionValueFormats
-</span><a href="#local-6989586621679352603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-type">ReactionValueFormats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352602"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679352602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReactionValueFormats
-</span><a href="#local-6989586621679352603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shortCode:ReactionValueFormats' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3AshortCode%3AReactionValueFormats%27"><span class="hs-identifier hs-var">shortCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679352602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- | The Unicode codepoint for the reaction.</span><span>
-</span><span id="line-72"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#reactionValueFormats_unicode"><span class="hs-identifier hs-type">reactionValueFormats_unicode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-73"></span><span id="reactionValueFormats_unicode"><span class="annot"><span class="annottext">reactionValueFormats_unicode :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReactionValueFormats -&gt; f ReactionValueFormats
-</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#reactionValueFormats_unicode"><span class="hs-identifier hs-var hs-var">reactionValueFormats_unicode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReactionValueFormats -&gt; Maybe Text)
--&gt; (ReactionValueFormats -&gt; Maybe Text -&gt; ReactionValueFormats)
--&gt; Lens
-     ReactionValueFormats ReactionValueFormats (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-type">ReactionValueFormats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352600"><span class="annot"><span class="annottext">Maybe Text
-unicode :: Maybe Text
-$sel:unicode:ReactionValueFormats' :: ReactionValueFormats -&gt; Maybe Text
-</span><a href="#local-6989586621679352600"><span class="hs-identifier hs-var hs-var">unicode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679352600"><span class="hs-identifier hs-var">unicode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352599"><span class="annot"><span class="annottext">s :: ReactionValueFormats
-</span><a href="#local-6989586621679352599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-type">ReactionValueFormats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352598"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679352598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReactionValueFormats
-</span><a href="#local-6989586621679352599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unicode:ReactionValueFormats' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3Aunicode%3AReactionValueFormats%27"><span class="hs-identifier hs-var">unicode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679352598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- | The Emoji Version 1.0 graphic of the reaction. These graphics are</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- interpreted slightly differently on different operating systems.</span><span>
-</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#reactionValueFormats_emoji"><span class="hs-identifier hs-type">reactionValueFormats_emoji</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-78"></span><span id="reactionValueFormats_emoji"><span class="annot"><span class="annottext">reactionValueFormats_emoji :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-66"></span><span class="hs-comment">-- | The Emoji Version 1.0 graphic of the reaction. These graphics are</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- interpreted slightly differently on different operating systems.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#reactionValueFormats_emoji"><span class="hs-identifier hs-type">reactionValueFormats_emoji</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="reactionValueFormats_emoji"><span class="annot"><span class="annottext">reactionValueFormats_emoji :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReactionValueFormats -&gt; f ReactionValueFormats
 </span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#reactionValueFormats_emoji"><span class="hs-identifier hs-var hs-var">reactionValueFormats_emoji</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReactionValueFormats -&gt; Maybe Text)
 -&gt; (ReactionValueFormats -&gt; Maybe Text -&gt; ReactionValueFormats)
 -&gt; Lens
      ReactionValueFormats ReactionValueFormats (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-type">ReactionValueFormats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352596"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-type">ReactionValueFormats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352878"><span class="annot"><span class="annottext">Maybe Text
 emoji :: Maybe Text
 $sel:emoji:ReactionValueFormats' :: ReactionValueFormats -&gt; Maybe Text
-</span><a href="#local-6989586621679352596"><span class="hs-identifier hs-var hs-var">emoji</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679352596"><span class="hs-identifier hs-var">emoji</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352595"><span class="annot"><span class="annottext">s :: ReactionValueFormats
-</span><a href="#local-6989586621679352595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-type">ReactionValueFormats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352594"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679352594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReactionValueFormats
-</span><a href="#local-6989586621679352595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emoji:ReactionValueFormats' :: Maybe Text
+</span><a href="#local-6989586621679352878"><span class="hs-identifier hs-var hs-var">emoji</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352878"><span class="hs-identifier hs-var">emoji</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352877"><span class="annot"><span class="annottext">s :: ReactionValueFormats
+</span><a href="#local-6989586621679352877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-type">ReactionValueFormats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352876"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReactionValueFormats
+</span><a href="#local-6989586621679352877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emoji:ReactionValueFormats' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3Aemoji%3AReactionValueFormats%27"><span class="hs-identifier hs-var">emoji</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679352594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679352876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The emoji short code for the reaction. Short codes are interpreted</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- slightly differently on different operating systems.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#reactionValueFormats_shortCode"><span class="hs-identifier hs-type">reactionValueFormats_shortCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="reactionValueFormats_shortCode"><span class="annot"><span class="annottext">reactionValueFormats_shortCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReactionValueFormats -&gt; f ReactionValueFormats
+</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#reactionValueFormats_shortCode"><span class="hs-identifier hs-var hs-var">reactionValueFormats_shortCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReactionValueFormats -&gt; Maybe Text)
+-&gt; (ReactionValueFormats -&gt; Maybe Text -&gt; ReactionValueFormats)
+-&gt; Lens
+     ReactionValueFormats ReactionValueFormats (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-type">ReactionValueFormats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352874"><span class="annot"><span class="annottext">Maybe Text
+shortCode :: Maybe Text
+$sel:shortCode:ReactionValueFormats' :: ReactionValueFormats -&gt; Maybe Text
+</span><a href="#local-6989586621679352874"><span class="hs-identifier hs-var hs-var">shortCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352874"><span class="hs-identifier hs-var">shortCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352873"><span class="annot"><span class="annottext">s :: ReactionValueFormats
+</span><a href="#local-6989586621679352873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-type">ReactionValueFormats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352872"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReactionValueFormats
+</span><a href="#local-6989586621679352873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shortCode:ReactionValueFormats' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3AshortCode%3AReactionValueFormats%27"><span class="hs-identifier hs-var">shortCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The Unicode codepoint for the reaction.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#reactionValueFormats_unicode"><span class="hs-identifier hs-type">reactionValueFormats_unicode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="reactionValueFormats_unicode"><span class="annot"><span class="annottext">reactionValueFormats_unicode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReactionValueFormats -&gt; f ReactionValueFormats
+</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#reactionValueFormats_unicode"><span class="hs-identifier hs-var hs-var">reactionValueFormats_unicode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReactionValueFormats -&gt; Maybe Text)
+-&gt; (ReactionValueFormats -&gt; Maybe Text -&gt; ReactionValueFormats)
+-&gt; Lens
+     ReactionValueFormats ReactionValueFormats (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-type">ReactionValueFormats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679352870"><span class="annot"><span class="annottext">Maybe Text
+unicode :: Maybe Text
+$sel:unicode:ReactionValueFormats' :: ReactionValueFormats -&gt; Maybe Text
+</span><a href="#local-6989586621679352870"><span class="hs-identifier hs-var hs-var">unicode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352870"><span class="hs-identifier hs-var">unicode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679352869"><span class="annot"><span class="annottext">s :: ReactionValueFormats
+</span><a href="#local-6989586621679352869"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-type">ReactionValueFormats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679352868"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352868"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReactionValueFormats
+</span><a href="#local-6989586621679352869"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unicode:ReactionValueFormats' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#%24sel%3Aunicode%3AReactionValueFormats%27"><span class="hs-identifier hs-var">unicode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679352868"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span><span>
-</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352591"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679352589"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReactionValueFormats
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352865"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679352863"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReactionValueFormats
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ReactionValueFormats)
@@ -203,8 +203,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ReactionValueFormats&quot;</span></span><span>
-</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679352586"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679352586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679352860"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679352860"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ReactionValueFormats
 </span><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats%27"><span class="hs-identifier hs-var">ReactionValueFormats'</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; ReactionValueFormats)
@@ -212,30 +212,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ReactionValueFormats)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679352586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679352860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;shortCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;emoji&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ReactionValueFormats)
 -&gt; Parser (Maybe Text)
 -&gt; Parser (Maybe Text -&gt; ReactionValueFormats)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679352586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679352860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;unicode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;shortCode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ReactionValueFormats)
 -&gt; Parser (Maybe Text) -&gt; Parser ReactionValueFormats
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679352586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679352860"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;emoji&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;unicode&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352580"><span id="local-6989586621679352582"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span></span></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352854"><span id="local-6989586621679352856"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span></span></span><span>
 </span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352577"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679352851"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.Types.ReactionValueFormats.html#ReactionValueFormats"><span class="hs-identifier hs-type">ReactionValueFormats</span></a></span></span><span>
 </span><span id="line-94"></span></pre></body></html>

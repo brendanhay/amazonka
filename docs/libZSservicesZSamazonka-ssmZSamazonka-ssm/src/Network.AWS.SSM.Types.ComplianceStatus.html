@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679789667"><span id="local-6989586621679789668"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComplianceStatus"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStatus.html#ComplianceStatus"><span class="hs-identifier hs-var">ComplianceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStatus.html#ComplianceStatus%27"><span class="hs-identifier hs-var">ComplianceStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679791288"><span id="local-6989586621679791289"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ComplianceStatus"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStatus.html#ComplianceStatus"><span class="hs-identifier hs-var">ComplianceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ComplianceStatus%27"><span class="annot"><a href="Network.AWS.SSM.Types.ComplianceStatus.html#ComplianceStatus%27"><span class="hs-identifier hs-var">ComplianceStatus'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromComplianceStatus"><span class="annot"><span class="annottext">ComplianceStatus -&gt; Text
 </span><a href="Network.AWS.SSM.Types.ComplianceStatus.html#fromComplianceStatus"><span class="hs-identifier hs-var hs-var">fromComplianceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789659"><span id="local-6989586621679789661"><span id="local-6989586621679789663"><span class="annot"><span class="annottext">Int -&gt; ComplianceStatus -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791280"><span id="local-6989586621679791282"><span id="local-6989586621679791284"><span class="annot"><span class="annottext">Int -&gt; ComplianceStatus -&gt; ShowS
 [ComplianceStatus] -&gt; ShowS
 ComplianceStatus -&gt; String
 (Int -&gt; ComplianceStatus -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ComplianceStatus -&gt; String
 showsPrec :: Int -&gt; ComplianceStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; ComplianceStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679789650"><span id="local-6989586621679789652"><span id="local-6989586621679789654"><span id="local-6989586621679789656"><span class="annot"><span class="annottext">ReadPrec [ComplianceStatus]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679791271"><span id="local-6989586621679791273"><span id="local-6989586621679791275"><span id="local-6989586621679791277"><span class="annot"><span class="annottext">ReadPrec [ComplianceStatus]
 ReadPrec ComplianceStatus
 Int -&gt; ReadS ComplianceStatus
 ReadS [ComplianceStatus]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ComplianceStatus]
 readsPrec :: Int -&gt; ReadS ComplianceStatus
 $creadsPrec :: Int -&gt; ReadS ComplianceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679789645"><span id="local-6989586621679789647"><span class="annot"><span class="annottext">ComplianceStatus -&gt; ComplianceStatus -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679791266"><span id="local-6989586621679791268"><span class="annot"><span class="annottext">ComplianceStatus -&gt; ComplianceStatus -&gt; Bool
 (ComplianceStatus -&gt; ComplianceStatus -&gt; Bool)
 -&gt; (ComplianceStatus -&gt; ComplianceStatus -&gt; Bool)
 -&gt; Eq ComplianceStatus
@@ -82,7 +82,7 @@ $c/= :: ComplianceStatus -&gt; ComplianceStatus -&gt; Bool
 == :: ComplianceStatus -&gt; ComplianceStatus -&gt; Bool
 $c== :: ComplianceStatus -&gt; ComplianceStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679789629"><span id="local-6989586621679789631"><span id="local-6989586621679789633"><span id="local-6989586621679789635"><span id="local-6989586621679789637"><span id="local-6989586621679789639"><span id="local-6989586621679789641"><span class="annot"><span class="annottext">Eq ComplianceStatus
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679791250"><span id="local-6989586621679791252"><span id="local-6989586621679791254"><span id="local-6989586621679791256"><span id="local-6989586621679791258"><span id="local-6989586621679791260"><span id="local-6989586621679791262"><span class="annot"><span class="annottext">Eq ComplianceStatus
 Eq ComplianceStatus
 -&gt; (ComplianceStatus -&gt; ComplianceStatus -&gt; Ordering)
 -&gt; (ComplianceStatus -&gt; ComplianceStatus -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. ComplianceStatus -&gt; Rep ComplianceStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679789621"><span id="local-6989586621679789623"><span class="annot"><span class="annottext">Int -&gt; ComplianceStatus -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679791242"><span id="local-6989586621679791244"><span class="annot"><span class="annottext">Int -&gt; ComplianceStatus -&gt; Int
 ComplianceStatus -&gt; Int
 (Int -&gt; ComplianceStatus -&gt; Int)
 -&gt; (ComplianceStatus -&gt; Int) -&gt; Hashable ComplianceStatus
@@ -143,51 +143,51 @@ $chash :: ComplianceStatus -&gt; Int
 hashWithSalt :: Int -&gt; ComplianceStatus -&gt; Int
 $chashWithSalt :: Int -&gt; ComplianceStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679789618"><span class="annot"><span class="annottext">ComplianceStatus -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679791239"><span class="annot"><span class="annottext">ComplianceStatus -&gt; ()
 (ComplianceStatus -&gt; ()) -&gt; NFData ComplianceStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ComplianceStatus -&gt; ()
 $crnf :: ComplianceStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679789615"><span class="annot"><span class="annottext">Text -&gt; Either String ComplianceStatus
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679791236"><span class="annot"><span class="annottext">Text -&gt; Either String ComplianceStatus
 (Text -&gt; Either String ComplianceStatus)
 -&gt; FromText ComplianceStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ComplianceStatus
 $cfromText :: Text -&gt; Either String ComplianceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679789612"><span class="annot"><span class="annottext">ComplianceStatus -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679791233"><span class="annot"><span class="annottext">ComplianceStatus -&gt; Text
 (ComplianceStatus -&gt; Text) -&gt; ToText ComplianceStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ComplianceStatus -&gt; Text
 $ctoText :: ComplianceStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679789609"><span class="annot"><span class="annottext">ComplianceStatus -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679791230"><span class="annot"><span class="annottext">ComplianceStatus -&gt; ByteString
 (ComplianceStatus -&gt; ByteString) -&gt; ToByteString ComplianceStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ComplianceStatus -&gt; ByteString
 $ctoBS :: ComplianceStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679789606"><span class="annot"><span class="annottext">ComplianceStatus -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679791227"><span class="annot"><span class="annottext">ComplianceStatus -&gt; ByteStringBuilder
 (ComplianceStatus -&gt; ByteStringBuilder) -&gt; ToLog ComplianceStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ComplianceStatus -&gt; ByteStringBuilder
 $cbuild :: ComplianceStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679789603"><span class="annot"><span class="annottext">HeaderName -&gt; ComplianceStatus -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679791224"><span class="annot"><span class="annottext">HeaderName -&gt; ComplianceStatus -&gt; [Header]
 (HeaderName -&gt; ComplianceStatus -&gt; [Header])
 -&gt; ToHeader ComplianceStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ComplianceStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ComplianceStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679789600"><span class="annot"><span class="annottext">ComplianceStatus -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679791221"><span class="annot"><span class="annottext">ComplianceStatus -&gt; QueryString
 (ComplianceStatus -&gt; QueryString) -&gt; ToQuery ComplianceStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ComplianceStatus -&gt; QueryString
 $ctoQuery :: ComplianceStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679789595"><span id="local-6989586621679789597"><span class="annot"><span class="annottext">Value -&gt; Parser [ComplianceStatus]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679791216"><span id="local-6989586621679791218"><span class="annot"><span class="annottext">Value -&gt; Parser [ComplianceStatus]
 Value -&gt; Parser ComplianceStatus
 (Value -&gt; Parser ComplianceStatus)
 -&gt; (Value -&gt; Parser [ComplianceStatus])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [ComplianceStatus]
 parseJSON :: Value -&gt; Parser ComplianceStatus
 $cparseJSON :: Value -&gt; Parser ComplianceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679789590"><span id="local-6989586621679789592"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComplianceStatus]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679791211"><span id="local-6989586621679791213"><span class="annot"><span class="annottext">FromJSONKeyFunction [ComplianceStatus]
 FromJSONKeyFunction ComplianceStatus
 FromJSONKeyFunction ComplianceStatus
 -&gt; FromJSONKeyFunction [ComplianceStatus]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ComplianceStatus]
 fromJSONKey :: FromJSONKeyFunction ComplianceStatus
 $cfromJSONKey :: FromJSONKeyFunction ComplianceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679789581"><span id="local-6989586621679789583"><span id="local-6989586621679789585"><span id="local-6989586621679789587"><span class="annot"><span class="annottext">[ComplianceStatus] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679791202"><span id="local-6989586621679791204"><span id="local-6989586621679791206"><span id="local-6989586621679791208"><span class="annot"><span class="annottext">[ComplianceStatus] -&gt; Encoding
 [ComplianceStatus] -&gt; Value
 ComplianceStatus -&gt; Encoding
 ComplianceStatus -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: ComplianceStatus -&gt; Encoding
 toJSON :: ComplianceStatus -&gt; Value
 $ctoJSON :: ComplianceStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679789576"><span id="local-6989586621679789578"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComplianceStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679791197"><span id="local-6989586621679791199"><span class="annot"><span class="annottext">ToJSONKeyFunction [ComplianceStatus]
 ToJSONKeyFunction ComplianceStatus
 ToJSONKeyFunction ComplianceStatus
 -&gt; ToJSONKeyFunction [ComplianceStatus]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ComplianceStatus]
 toJSONKey :: ToJSONKeyFunction ComplianceStatus
 $ctoJSONKey :: ToJSONKeyFunction ComplianceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679789573"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComplianceStatus
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679791194"><span class="annot"><span class="annottext">[Node] -&gt; Either String ComplianceStatus
 ([Node] -&gt; Either String ComplianceStatus)
 -&gt; FromXML ComplianceStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ComplianceStatus
 $cparseXML :: [Node] -&gt; Either String ComplianceStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679789570"><span class="annot"><span class="annottext">ComplianceStatus -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679791191"><span class="annot"><span class="annottext">ComplianceStatus -&gt; XML
 (ComplianceStatus -&gt; XML) -&gt; ToXML ComplianceStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ComplianceStatus -&gt; XML

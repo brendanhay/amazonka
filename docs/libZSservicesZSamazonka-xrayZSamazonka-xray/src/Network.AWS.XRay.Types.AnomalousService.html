@@ -28,11 +28,11 @@
 </span><span id="line-28"></span><span class="hs-comment">-- rates.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAnomalousService' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679255497"><span id="local-6989586621679255498"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnomalousService"><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-var">AnomalousService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalousService%27"><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService%27"><span class="hs-identifier hs-var">AnomalousService'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679255780"><span id="local-6989586621679255781"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnomalousService"><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-var">AnomalousService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalousService%27"><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService%27"><span class="hs-identifier hs-var">AnomalousService'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AserviceId%3AAnomalousService%27"><span class="annot"><span class="annottext">AnomalousService -&gt; Maybe ServiceId
 </span><a href="Network.AWS.XRay.Types.AnomalousService.html#%24sel%3AserviceId%3AAnomalousService%27"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.ServiceId.html#ServiceId"><span class="hs-identifier hs-type">ServiceId</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255491"><span id="local-6989586621679255493"><span class="annot"><span class="annottext">AnomalousService -&gt; AnomalousService -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255774"><span id="local-6989586621679255776"><span class="annot"><span class="annottext">AnomalousService -&gt; AnomalousService -&gt; Bool
 (AnomalousService -&gt; AnomalousService -&gt; Bool)
 -&gt; (AnomalousService -&gt; AnomalousService -&gt; Bool)
 -&gt; Eq AnomalousService
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AnomalousService -&gt; AnomalousService -&gt; Bool
 == :: AnomalousService -&gt; AnomalousService -&gt; Bool
 $c== :: AnomalousService -&gt; AnomalousService -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255482"><span id="local-6989586621679255484"><span id="local-6989586621679255486"><span id="local-6989586621679255488"><span class="annot"><span class="annottext">ReadPrec [AnomalousService]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255765"><span id="local-6989586621679255767"><span id="local-6989586621679255769"><span id="local-6989586621679255771"><span class="annot"><span class="annottext">ReadPrec [AnomalousService]
 ReadPrec AnomalousService
 Int -&gt; ReadS AnomalousService
 ReadS [AnomalousService]
@@ -61,7 +61,7 @@ readList :: ReadS [AnomalousService]
 $creadList :: ReadS [AnomalousService]
 readsPrec :: Int -&gt; ReadS AnomalousService
 $creadsPrec :: Int -&gt; ReadS AnomalousService
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255475"><span id="local-6989586621679255477"><span id="local-6989586621679255479"><span class="annot"><span class="annottext">Int -&gt; AnomalousService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255758"><span id="local-6989586621679255760"><span id="local-6989586621679255762"><span class="annot"><span class="annottext">Int -&gt; AnomalousService -&gt; ShowS
 [AnomalousService] -&gt; ShowS
 AnomalousService -&gt; String
 (Int -&gt; AnomalousService -&gt; ShowS)
@@ -118,19 +118,19 @@ forall a. Maybe a
      (Maybe ServiceId)
      (Maybe ServiceId)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService%27"><span class="hs-identifier hs-type">AnomalousService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255466"><span class="annot"><span class="annottext">Maybe ServiceId
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService%27"><span class="hs-identifier hs-type">AnomalousService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255749"><span class="annot"><span class="annottext">Maybe ServiceId
 serviceId :: Maybe ServiceId
 $sel:serviceId:AnomalousService' :: AnomalousService -&gt; Maybe ServiceId
-</span><a href="#local-6989586621679255466"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceId
-</span><a href="#local-6989586621679255466"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255465"><span class="annot"><span class="annottext">s :: AnomalousService
-</span><a href="#local-6989586621679255465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService%27"><span class="hs-identifier hs-type">AnomalousService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255464"><span class="annot"><span class="annottext">Maybe ServiceId
-</span><a href="#local-6989586621679255464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalousService
-</span><a href="#local-6989586621679255465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceId:AnomalousService' :: Maybe ServiceId
+</span><a href="#local-6989586621679255749"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceId
+</span><a href="#local-6989586621679255749"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255748"><span class="annot"><span class="annottext">s :: AnomalousService
+</span><a href="#local-6989586621679255748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService%27"><span class="hs-identifier hs-type">AnomalousService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255747"><span class="annot"><span class="annottext">Maybe ServiceId
+</span><a href="#local-6989586621679255747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalousService
+</span><a href="#local-6989586621679255748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceId:AnomalousService' :: Maybe ServiceId
 </span><a href="Network.AWS.XRay.Types.AnomalousService.html#%24sel%3AserviceId%3AAnomalousService%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceId
-</span><a href="#local-6989586621679255464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-type">AnomalousService</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-type">AnomalousService</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-53"></span><span>
-</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255461"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-type">AnomalousService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-55"></span><span>  </span><span id="local-6989586621679255459"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AnomalousService
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255744"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-type">AnomalousService</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679255742"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AnomalousService
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AnomalousService)
@@ -140,21 +140,21 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AnomalousService&quot;</span></span><span>
-</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255456"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255456"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679255739"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679255739"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-59"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceId -&gt; AnomalousService
 </span><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService%27"><span class="hs-identifier hs-var">AnomalousService'</span></a></span><span>
 </span><span id="line-60"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServiceId -&gt; AnomalousService)
 -&gt; Parser (Maybe ServiceId) -&gt; Parser AnomalousService
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679255456"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceId)
+</span><a href="#local-6989586621679255739"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ServiceId)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-61"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255450"><span id="local-6989586621679255452"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-type">AnomalousService</span></a></span></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255733"><span id="local-6989586621679255735"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-type">AnomalousService</span></a></span></span></span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255447"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-type">AnomalousService</span></a></span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255730"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.AnomalousService.html#AnomalousService"><span class="hs-identifier hs-type">AnomalousService</span></a></span></span><span>
 </span><span id="line-66"></span></pre></body></html>

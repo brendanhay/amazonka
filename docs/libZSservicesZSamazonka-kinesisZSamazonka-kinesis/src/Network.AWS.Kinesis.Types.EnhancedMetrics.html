@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Represents enhanced metrics types.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newEnhancedMetrics' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679197305"><span id="local-6989586621679197306"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnhancedMetrics"><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics"><span class="hs-identifier hs-var">EnhancedMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnhancedMetrics%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics%27"><span class="hs-identifier hs-var">EnhancedMetrics'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679197399"><span id="local-6989586621679197400"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnhancedMetrics"><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics"><span class="hs-identifier hs-var">EnhancedMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnhancedMetrics%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics%27"><span class="hs-identifier hs-var">EnhancedMetrics'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | List of shard-level metrics.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- The following are the valid shard-level metrics. The value \&quot;@ALL@\&quot;</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AshardLevelMetrics%3AEnhancedMetrics%27"><span class="annot"><span class="annottext">EnhancedMetrics -&gt; Maybe [MetricsName]
 </span><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#%24sel%3AshardLevelMetrics%3AEnhancedMetrics%27"><span class="hs-identifier hs-var hs-var">shardLevelMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Kinesis.Types.MetricsName.html#MetricsName"><span class="hs-identifier hs-type">MetricsName</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197299"><span id="local-6989586621679197301"><span class="annot"><span class="annottext">EnhancedMetrics -&gt; EnhancedMetrics -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197393"><span id="local-6989586621679197395"><span class="annot"><span class="annottext">EnhancedMetrics -&gt; EnhancedMetrics -&gt; Bool
 (EnhancedMetrics -&gt; EnhancedMetrics -&gt; Bool)
 -&gt; (EnhancedMetrics -&gt; EnhancedMetrics -&gt; Bool)
 -&gt; Eq EnhancedMetrics
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: EnhancedMetrics -&gt; EnhancedMetrics -&gt; Bool
 == :: EnhancedMetrics -&gt; EnhancedMetrics -&gt; Bool
 $c== :: EnhancedMetrics -&gt; EnhancedMetrics -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197290"><span id="local-6989586621679197292"><span id="local-6989586621679197294"><span id="local-6989586621679197296"><span class="annot"><span class="annottext">ReadPrec [EnhancedMetrics]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197384"><span id="local-6989586621679197386"><span id="local-6989586621679197388"><span id="local-6989586621679197390"><span class="annot"><span class="annottext">ReadPrec [EnhancedMetrics]
 ReadPrec EnhancedMetrics
 Int -&gt; ReadS EnhancedMetrics
 ReadS [EnhancedMetrics]
@@ -84,7 +84,7 @@ readList :: ReadS [EnhancedMetrics]
 $creadList :: ReadS [EnhancedMetrics]
 readsPrec :: Int -&gt; ReadS EnhancedMetrics
 $creadsPrec :: Int -&gt; ReadS EnhancedMetrics
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197283"><span id="local-6989586621679197285"><span id="local-6989586621679197287"><span class="annot"><span class="annottext">Int -&gt; EnhancedMetrics -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197377"><span id="local-6989586621679197379"><span id="local-6989586621679197381"><span class="annot"><span class="annottext">Int -&gt; EnhancedMetrics -&gt; ShowS
 [EnhancedMetrics] -&gt; ShowS
 EnhancedMetrics -&gt; String
 (Int -&gt; EnhancedMetrics -&gt; ShowS)
@@ -190,16 +190,16 @@ forall a. Maybe a
      (Maybe [MetricsName])
      (Maybe [MetricsName])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics%27"><span class="hs-identifier hs-type">EnhancedMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197274"><span class="annot"><span class="annottext">Maybe [MetricsName]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics%27"><span class="hs-identifier hs-type">EnhancedMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197368"><span class="annot"><span class="annottext">Maybe [MetricsName]
 shardLevelMetrics :: Maybe [MetricsName]
 $sel:shardLevelMetrics:EnhancedMetrics' :: EnhancedMetrics -&gt; Maybe [MetricsName]
-</span><a href="#local-6989586621679197274"><span class="hs-identifier hs-var hs-var">shardLevelMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricsName]
-</span><a href="#local-6989586621679197274"><span class="hs-identifier hs-var">shardLevelMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197273"><span class="annot"><span class="annottext">s :: EnhancedMetrics
-</span><a href="#local-6989586621679197273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics%27"><span class="hs-identifier hs-type">EnhancedMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197272"><span class="annot"><span class="annottext">Maybe [MetricsName]
-</span><a href="#local-6989586621679197272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnhancedMetrics
-</span><a href="#local-6989586621679197273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardLevelMetrics:EnhancedMetrics' :: Maybe [MetricsName]
+</span><a href="#local-6989586621679197368"><span class="hs-identifier hs-var hs-var">shardLevelMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricsName]
+</span><a href="#local-6989586621679197368"><span class="hs-identifier hs-var">shardLevelMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197367"><span class="annot"><span class="annottext">s :: EnhancedMetrics
+</span><a href="#local-6989586621679197367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics%27"><span class="hs-identifier hs-type">EnhancedMetrics'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197366"><span class="annot"><span class="annottext">Maybe [MetricsName]
+</span><a href="#local-6989586621679197366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnhancedMetrics
+</span><a href="#local-6989586621679197367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shardLevelMetrics:EnhancedMetrics' :: Maybe [MetricsName]
 </span><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#%24sel%3AshardLevelMetrics%3AEnhancedMetrics%27"><span class="hs-identifier hs-var">shardLevelMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MetricsName]
-</span><a href="#local-6989586621679197272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics"><span class="hs-identifier hs-type">EnhancedMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricsName] -&gt; f (Maybe [MetricsName]))
+</span><a href="#local-6989586621679197366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics"><span class="hs-identifier hs-type">EnhancedMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MetricsName] -&gt; f (Maybe [MetricsName]))
  -&gt; EnhancedMetrics -&gt; f EnhancedMetrics)
 -&gt; ((Maybe [MetricsName] -&gt; f (Maybe [MetricsName]))
     -&gt; Maybe [MetricsName] -&gt; f (Maybe [MetricsName]))
@@ -217,11 +217,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [MetricsName] [MetricsName] [MetricsName] [MetricsName]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197266"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics"><span class="hs-identifier hs-type">EnhancedMetrics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679197264"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnhancedMetrics
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197360"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics"><span class="hs-identifier hs-type">EnhancedMetrics</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679197358"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser EnhancedMetrics
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser EnhancedMetrics)
@@ -231,15 +231,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;EnhancedMetrics&quot;</span></span><span>
-</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197261"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197261"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197355"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197355"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe [MetricsName] -&gt; EnhancedMetrics
 </span><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics%27"><span class="hs-identifier hs-var">EnhancedMetrics'</span></a></span><span>
 </span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [MetricsName] -&gt; EnhancedMetrics)
 -&gt; Parser (Maybe [MetricsName]) -&gt; Parser EnhancedMetrics
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679197261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MetricsName]))
+</span><a href="#local-6989586621679197355"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [MetricsName]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ShardLevelMetrics&quot;</span></span><span>
@@ -252,7 +252,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-134"></span><span>                        </span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197254"><span id="local-6989586621679197256"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics"><span class="hs-identifier hs-type">EnhancedMetrics</span></a></span></span></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197348"><span id="local-6989586621679197350"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics"><span class="hs-identifier hs-type">EnhancedMetrics</span></a></span></span></span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197251"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics"><span class="hs-identifier hs-type">EnhancedMetrics</span></a></span></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197345"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.EnhancedMetrics.html#EnhancedMetrics"><span class="hs-identifier hs-type">EnhancedMetrics</span></a></span></span><span>
 </span><span id="line-140"></span></pre></body></html>

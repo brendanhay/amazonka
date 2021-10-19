@@ -47,8 +47,8 @@
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#newAddLayerVersionPermissionResponse"><span class="hs-identifier">newAddLayerVersionPermissionResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermissionResponse_revisionId"><span class="hs-identifier">addLayerVersionPermissionResponse_revisionId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermissionResponse_statement"><span class="hs-identifier">addLayerVersionPermissionResponse_statement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermissionResponse_statement"><span class="hs-identifier">addLayerVersionPermissionResponse_statement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermissionResponse_revisionId"><span class="hs-identifier">addLayerVersionPermissionResponse_revisionId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermissionResponse_httpStatus"><span class="hs-identifier">addLayerVersionPermissionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-54"></span><span class="hs-keyword">where</span><span>
@@ -61,7 +61,7 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newAddLayerVersionPermission' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679307337"><span id="local-6989586621679307338"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddLayerVersionPermission"><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-var">AddLayerVersionPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddLayerVersionPermission%27"><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-var">AddLayerVersionPermission'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679312290"><span id="local-6989586621679312291"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddLayerVersionPermission"><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-var">AddLayerVersionPermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddLayerVersionPermission%27"><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-var">AddLayerVersionPermission'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Only update the policy if the revision ID matches the ID specified. Use</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- this option to avoid modifying a policy that has changed since you last</span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-comment">-- read it.</span><span>
@@ -93,7 +93,7 @@
 </span><span id="line-87"></span><span>    </span><span id="%24sel%3Aprincipal%3AAddLayerVersionPermission%27"><span class="annot"><span class="annottext">AddLayerVersionPermission -&gt; Text
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3Aprincipal%3AAddLayerVersionPermission%27"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307325"><span id="local-6989586621679307327"><span class="annot"><span class="annottext">AddLayerVersionPermission -&gt; AddLayerVersionPermission -&gt; Bool
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312278"><span id="local-6989586621679312280"><span class="annot"><span class="annottext">AddLayerVersionPermission -&gt; AddLayerVersionPermission -&gt; Bool
 (AddLayerVersionPermission -&gt; AddLayerVersionPermission -&gt; Bool)
 -&gt; (AddLayerVersionPermission -&gt; AddLayerVersionPermission -&gt; Bool)
 -&gt; Eq AddLayerVersionPermission
@@ -102,7 +102,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AddLayerVersionPermission -&gt; AddLayerVersionPermission -&gt; Bool
 == :: AddLayerVersionPermission -&gt; AddLayerVersionPermission -&gt; Bool
 $c== :: AddLayerVersionPermission -&gt; AddLayerVersionPermission -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307316"><span id="local-6989586621679307318"><span id="local-6989586621679307320"><span id="local-6989586621679307322"><span class="annot"><span class="annottext">ReadPrec [AddLayerVersionPermission]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312269"><span id="local-6989586621679312271"><span id="local-6989586621679312273"><span id="local-6989586621679312275"><span class="annot"><span class="annottext">ReadPrec [AddLayerVersionPermission]
 ReadPrec AddLayerVersionPermission
 Int -&gt; ReadS AddLayerVersionPermission
 ReadS [AddLayerVersionPermission]
@@ -122,7 +122,7 @@ readList :: ReadS [AddLayerVersionPermission]
 $creadList :: ReadS [AddLayerVersionPermission]
 readsPrec :: Int -&gt; ReadS AddLayerVersionPermission
 $creadsPrec :: Int -&gt; ReadS AddLayerVersionPermission
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307309"><span id="local-6989586621679307311"><span id="local-6989586621679307313"><span class="annot"><span class="annottext">Int -&gt; AddLayerVersionPermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312262"><span id="local-6989586621679312264"><span id="local-6989586621679312266"><span class="annot"><span class="annottext">Int -&gt; AddLayerVersionPermission -&gt; ShowS
 [AddLayerVersionPermission] -&gt; ShowS
 AddLayerVersionPermission -&gt; String
 (Int -&gt; AddLayerVersionPermission -&gt; ShowS)
@@ -199,16 +199,16 @@ AddLayerVersionPermission -&gt; Rep AddLayerVersionPermission x
 </span><span id="line-133"></span><span id="newAddLayerVersionPermission"><span class="annot"><span class="annottext">newAddLayerVersionPermission :: Text
 -&gt; Integer -&gt; Text -&gt; Text -&gt; Text -&gt; AddLayerVersionPermission
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#newAddLayerVersionPermission"><span class="hs-identifier hs-var hs-var">newAddLayerVersionPermission</span></a></span></span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679307304"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307304"><span class="hs-identifier hs-var">pLayerName_</span></a></span></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621679307303"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679307303"><span class="hs-identifier hs-var">pVersionNumber_</span></a></span></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679307302"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307302"><span class="hs-identifier hs-var">pStatementId_</span></a></span></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621679307301"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307301"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621679307300"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307300"><span class="hs-identifier hs-var">pPrincipal_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679312257"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312257"><span class="hs-identifier hs-var">pLayerName_</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679312256"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679312256"><span class="hs-identifier hs-var">pVersionNumber_</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679312255"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312255"><span class="hs-identifier hs-var">pStatementId_</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679312254"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312254"><span class="hs-identifier hs-var">pAction_</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679312253"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312253"><span class="hs-identifier hs-var">pPrincipal_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">AddLayerVersionPermission' :: Maybe Text
 -&gt; Maybe Text
 -&gt; Text
@@ -229,19 +229,19 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:layerName:AddLayerVersionPermission' :: Text
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3AlayerName%3AAddLayerVersionPermission%27"><span class="hs-identifier hs-var">layerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307304"><span class="hs-identifier hs-var">pLayerName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312257"><span class="hs-identifier hs-var">pLayerName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:versionNumber:AddLayerVersionPermission' :: Integer
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3AversionNumber%3AAddLayerVersionPermission%27"><span class="hs-identifier hs-var">versionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679307303"><span class="hs-identifier hs-var">pVersionNumber_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312256"><span class="hs-identifier hs-var">pVersionNumber_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:statementId:AddLayerVersionPermission' :: Text
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3AstatementId%3AAddLayerVersionPermission%27"><span class="hs-identifier hs-var">statementId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307302"><span class="hs-identifier hs-var">pStatementId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312255"><span class="hs-identifier hs-var">pStatementId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:action:AddLayerVersionPermission' :: Text
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3Aaction%3AAddLayerVersionPermission%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307301"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312254"><span class="hs-identifier hs-var">pAction_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:principal:AddLayerVersionPermission' :: Text
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3Aprincipal%3AAddLayerVersionPermission%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307300"><span class="hs-identifier hs-var">pPrincipal_</span></a></span><span>
+</span><a href="#local-6989586621679312253"><span class="hs-identifier hs-var">pPrincipal_</span></a></span><span>
 </span><span id="line-148"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | Only update the policy if the revision ID matches the ID specified. Use</span><span>
@@ -259,16 +259,16 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307297"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312250"><span class="annot"><span class="annottext">Maybe Text
 revisionId :: Maybe Text
 $sel:revisionId:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679307297"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307297"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307296"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
-</span><a href="#local-6989586621679307296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307295"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
-</span><a href="#local-6989586621679307296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:AddLayerVersionPermission' :: Maybe Text
+</span><a href="#local-6989586621679312250"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312250"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312249"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
+</span><a href="#local-6989586621679312249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312248"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
+</span><a href="#local-6989586621679312249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:AddLayerVersionPermission' :: Maybe Text
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3ArevisionId%3AAddLayerVersionPermission%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | With the principal set to @*@, grant permission to all accounts in the</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- specified organization.</span><span>
@@ -284,16 +284,16 @@ $sel:revisionId:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Ma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307294"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312247"><span class="annot"><span class="annottext">Maybe Text
 organizationId :: Maybe Text
 $sel:organizationId:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679307294"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307294"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307293"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
-</span><a href="#local-6989586621679307293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307292"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
-</span><a href="#local-6989586621679307293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:AddLayerVersionPermission' :: Maybe Text
+</span><a href="#local-6989586621679312247"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312247"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312246"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
+</span><a href="#local-6989586621679312246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312245"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
+</span><a href="#local-6989586621679312246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:AddLayerVersionPermission' :: Maybe Text
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3AorganizationId%3AAddLayerVersionPermission%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-160"></span><span>
 </span><span id="line-161"></span><span class="hs-comment">-- | The name or Amazon Resource Name (ARN) of the layer.</span><span>
 </span><span id="line-162"></span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermission_layerName"><span class="hs-identifier hs-type">addLayerVersionPermission_layerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -304,16 +304,16 @@ $sel:organizationId:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt
 -&gt; Lens
      AddLayerVersionPermission AddLayerVersionPermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307291"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312244"><span class="annot"><span class="annottext">Text
 layerName :: Text
 $sel:layerName:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Text
-</span><a href="#local-6989586621679307291"><span class="hs-identifier hs-var hs-var">layerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307291"><span class="hs-identifier hs-var">layerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307290"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
-</span><a href="#local-6989586621679307290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307289"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
-</span><a href="#local-6989586621679307290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerName:AddLayerVersionPermission' :: Text
+</span><a href="#local-6989586621679312244"><span class="hs-identifier hs-var hs-var">layerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312244"><span class="hs-identifier hs-var">layerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312243"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
+</span><a href="#local-6989586621679312243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312242"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
+</span><a href="#local-6989586621679312243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerName:AddLayerVersionPermission' :: Text
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3AlayerName%3AAddLayerVersionPermission%27"><span class="hs-identifier hs-var">layerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-164"></span><span>
 </span><span id="line-165"></span><span class="hs-comment">-- | The version number.</span><span>
 </span><span id="line-166"></span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermission_versionNumber"><span class="hs-identifier hs-type">addLayerVersionPermission_versionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
@@ -325,16 +325,16 @@ $sel:layerName:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Tex
 -&gt; Lens
      AddLayerVersionPermission AddLayerVersionPermission Integer Integer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307288"><span class="annot"><span class="annottext">Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312241"><span class="annot"><span class="annottext">Integer
 versionNumber :: Integer
 $sel:versionNumber:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Integer
-</span><a href="#local-6989586621679307288"><span class="hs-identifier hs-var hs-var">versionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679307288"><span class="hs-identifier hs-var">versionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307287"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
-</span><a href="#local-6989586621679307287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307286"><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679307286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
-</span><a href="#local-6989586621679307287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionNumber:AddLayerVersionPermission' :: Integer
+</span><a href="#local-6989586621679312241"><span class="hs-identifier hs-var hs-var">versionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679312241"><span class="hs-identifier hs-var">versionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312240"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
+</span><a href="#local-6989586621679312240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312239"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679312239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
+</span><a href="#local-6989586621679312240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionNumber:AddLayerVersionPermission' :: Integer
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3AversionNumber%3AAddLayerVersionPermission%27"><span class="hs-identifier hs-var">versionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679307286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>
 </span><span id="line-169"></span><span class="hs-comment">-- | An identifier that distinguishes the policy from others on the same</span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- layer version.</span><span>
@@ -346,16 +346,16 @@ $sel:versionNumber:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt;
 -&gt; Lens
      AddLayerVersionPermission AddLayerVersionPermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307285"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312238"><span class="annot"><span class="annottext">Text
 statementId :: Text
 $sel:statementId:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Text
-</span><a href="#local-6989586621679307285"><span class="hs-identifier hs-var hs-var">statementId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307285"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307284"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
-</span><a href="#local-6989586621679307284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307283"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
-</span><a href="#local-6989586621679307284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementId:AddLayerVersionPermission' :: Text
+</span><a href="#local-6989586621679312238"><span class="hs-identifier hs-var hs-var">statementId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312238"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312237"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
+</span><a href="#local-6989586621679312237"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312236"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312236"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
+</span><a href="#local-6989586621679312237"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statementId:AddLayerVersionPermission' :: Text
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3AstatementId%3AAddLayerVersionPermission%27"><span class="hs-identifier hs-var">statementId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312236"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-173"></span><span>
 </span><span id="line-174"></span><span class="hs-comment">-- | The API action that grants access to the layer. For example,</span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- @lambda:GetLayerVersion@.</span><span>
@@ -367,16 +367,16 @@ $sel:statementId:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; T
 -&gt; Lens
      AddLayerVersionPermission AddLayerVersionPermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307282"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312235"><span class="annot"><span class="annottext">Text
 action :: Text
 $sel:action:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Text
-</span><a href="#local-6989586621679307282"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307282"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307281"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
-</span><a href="#local-6989586621679307281"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307280"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307280"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
-</span><a href="#local-6989586621679307281"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:AddLayerVersionPermission' :: Text
+</span><a href="#local-6989586621679312235"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312235"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312234"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
+</span><a href="#local-6989586621679312234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312233"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
+</span><a href="#local-6989586621679312234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:AddLayerVersionPermission' :: Text
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3Aaction%3AAddLayerVersionPermission%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307280"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-comment">-- | An account ID, or @*@ to grant layer usage permission to all accounts in</span><span>
 </span><span id="line-180"></span><span class="hs-comment">-- an organization, or all Amazon Web Services accounts (if</span><span>
@@ -391,28 +391,28 @@ $sel:action:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Text
 -&gt; Lens
      AddLayerVersionPermission AddLayerVersionPermission Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307279"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312232"><span class="annot"><span class="annottext">Text
 principal :: Text
 $sel:principal:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Text
-</span><a href="#local-6989586621679307279"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307279"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307278"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
-</span><a href="#local-6989586621679307278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307277"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
-</span><a href="#local-6989586621679307278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:AddLayerVersionPermission' :: Text
+</span><a href="#local-6989586621679312232"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312232"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312231"><span class="annot"><span class="annottext">s :: AddLayerVersionPermission
+</span><a href="#local-6989586621679312231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312230"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermission
+</span><a href="#local-6989586621679312231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:AddLayerVersionPermission' :: Text
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3Aprincipal%3AAddLayerVersionPermission%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>
 </span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-188"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-189"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-190"></span><span>      </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span><span>
-</span><span id="line-191"></span><span>  </span><span id="local-6989586621679307273"><span class="annot"><span class="annottext">request :: AddLayerVersionPermission -&gt; Request AddLayerVersionPermission
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679312226"><span class="annot"><span class="annottext">request :: AddLayerVersionPermission -&gt; Request AddLayerVersionPermission
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AddLayerVersionPermission -&gt; Request AddLayerVersionPermission
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Lambda.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-192"></span><span>  </span><span id="local-6989586621679307269"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679312222"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AddLayerVersionPermission
 -&gt; ClientResponse ClientBody
@@ -438,10 +438,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307266"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307266"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679307265"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679307265"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679307264"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307264"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312219"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312219"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312218"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312218"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312217"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312217"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text -&gt; Int -&gt; AddLayerVersionPermissionResponse
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">AddLayerVersionPermissionResponse'</span></a></span><span>
@@ -452,20 +452,20 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; AddLayerVersionPermissionResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679312217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;RevisionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Statement&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Int -&gt; AddLayerVersionPermissionResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; AddLayerVersionPermissionResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679307264"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679312217"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Statement&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;RevisionId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AddLayerVersionPermissionResponse)
 -&gt; Either String Int
 -&gt; Either String AddLayerVersionPermissionResponse
@@ -475,24 +475,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307266"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312219"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-200"></span><span>
-</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307256"><span id="local-6989586621679307258"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span></span></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312209"><span id="local-6989586621679312211"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span></span></span><span>
 </span><span id="line-202"></span><span>
-</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307253"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312206"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span></span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679307249"><span class="annot"><span class="annottext">toHeaders :: AddLayerVersionPermission -&gt; ResponseHeaders
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679312202"><span class="annot"><span class="annottext">toHeaders :: AddLayerVersionPermission -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AddLayerVersionPermission -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307240"><span id="local-6989586621679307242"><span id="local-6989586621679307244"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-209"></span><span>  </span><span id="local-6989586621679307238"><span class="annot"><span class="annottext">toJSON :: AddLayerVersionPermission -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307230"><span id="local-6989586621679307231"><span id="local-6989586621679307232"><span id="local-6989586621679307233"><span id="local-6989586621679307234"><span id="local-6989586621679307235"><span id="local-6989586621679307236"><span class="annot"><span class="annottext">Integer
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312193"><span id="local-6989586621679312195"><span id="local-6989586621679312197"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679312191"><span class="annot"><span class="annottext">toJSON :: AddLayerVersionPermission -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312183"><span id="local-6989586621679312184"><span id="local-6989586621679312185"><span id="local-6989586621679312186"><span id="local-6989586621679312187"><span id="local-6989586621679312188"><span id="local-6989586621679312189"><span class="annot"><span class="annottext">Integer
 Maybe Text
 Text
 principal :: Text
@@ -509,7 +509,7 @@ $sel:versionNumber:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt;
 $sel:layerName:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Text
 $sel:organizationId:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Maybe Text
 $sel:revisionId:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679307230"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679312183"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-210"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-211"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -522,34 +522,34 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-213"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307235"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312188"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatementId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307232"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312185"><span class="hs-identifier hs-var">statementId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Action&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307231"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312184"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Principal&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307230"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312183"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-218"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-219"></span><span>
 </span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-221"></span><span>  </span><span id="local-6989586621679307224"><span class="annot"><span class="annottext">toPath :: AddLayerVersionPermission -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307216"><span id="local-6989586621679307217"><span id="local-6989586621679307218"><span id="local-6989586621679307219"><span id="local-6989586621679307220"><span id="local-6989586621679307221"><span id="local-6989586621679307222"><span class="annot"><span class="annottext">Integer
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679312177"><span class="annot"><span class="annottext">toPath :: AddLayerVersionPermission -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312169"><span id="local-6989586621679312170"><span id="local-6989586621679312171"><span id="local-6989586621679312172"><span id="local-6989586621679312173"><span id="local-6989586621679312174"><span id="local-6989586621679312175"><span class="annot"><span class="annottext">Integer
 Maybe Text
 Text
 principal :: Text
@@ -566,7 +566,7 @@ $sel:versionNumber:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt;
 $sel:layerName:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Text
 $sel:organizationId:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Maybe Text
 $sel:revisionId:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679307216"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679312169"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -575,20 +575,20 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679307220"><span class="hs-identifier hs-var">layerName</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312173"><span class="hs-identifier hs-var">layerName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/versions/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Integer -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Integer
-</span><a href="#local-6989586621679307219"><span class="hs-identifier hs-var">versionNumber</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679312172"><span class="hs-identifier hs-var">versionNumber</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/policy&quot;</span></span><span>
 </span><span id="line-228"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-229"></span><span>
 </span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission"><span class="hs-identifier hs-type">AddLayerVersionPermission</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679307212"><span class="annot"><span class="annottext">toQuery :: AddLayerVersionPermission -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307204"><span id="local-6989586621679307205"><span id="local-6989586621679307206"><span id="local-6989586621679307207"><span id="local-6989586621679307208"><span id="local-6989586621679307209"><span id="local-6989586621679307210"><span class="annot"><span class="annottext">Integer
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679312165"><span class="annot"><span class="annottext">toQuery :: AddLayerVersionPermission -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermission%27"><span class="hs-identifier hs-type">AddLayerVersionPermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312157"><span id="local-6989586621679312158"><span id="local-6989586621679312159"><span id="local-6989586621679312160"><span id="local-6989586621679312161"><span id="local-6989586621679312162"><span id="local-6989586621679312163"><span class="annot"><span class="annottext">Integer
 Maybe Text
 Text
 principal :: Text
@@ -605,28 +605,28 @@ $sel:versionNumber:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt;
 $sel:layerName:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Text
 $sel:organizationId:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Maybe Text
 $sel:revisionId:AddLayerVersionPermission' :: AddLayerVersionPermission -&gt; Maybe Text
-</span><a href="#local-6989586621679307204"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679312157"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-232"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;RevisionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307210"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679312163"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-233"></span><span>
 </span><span id="line-234"></span><span class="hs-comment">-- | /See:/ 'newAddLayerVersionPermissionResponse' smart constructor.</span><span>
-</span><span id="line-235"></span><span id="local-6989586621679307201"><span id="local-6989586621679307202"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddLayerVersionPermissionResponse"><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-var">AddLayerVersionPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddLayerVersionPermissionResponse%27"><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">AddLayerVersionPermissionResponse'</span></a></span></span><span>
-</span><span id="line-236"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the current revision of the policy.</span><span>
-</span><span id="line-237"></span><span>    </span><span id="%24sel%3ArevisionId%3AAddLayerVersionPermissionResponse%27"><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse -&gt; Maybe Text
-</span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3ArevisionId%3AAddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- | The permission statement.</span><span>
-</span><span id="line-239"></span><span>    </span><span id="%24sel%3Astatement%3AAddLayerVersionPermissionResponse%27"><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse -&gt; Maybe Text
+</span><span id="line-235"></span><span id="local-6989586621679312154"><span id="local-6989586621679312155"></span></span><span class="hs-keyword">data</span><span> </span><span id="AddLayerVersionPermissionResponse"><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-var">AddLayerVersionPermissionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AddLayerVersionPermissionResponse%27"><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">AddLayerVersionPermissionResponse'</span></a></span></span><span>
+</span><span id="line-236"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The permission statement.</span><span>
+</span><span id="line-237"></span><span>    </span><span id="%24sel%3Astatement%3AAddLayerVersionPermissionResponse%27"><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse -&gt; Maybe Text
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3Astatement%3AAddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var hs-var">statement</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the current revision of the policy.</span><span>
+</span><span id="line-239"></span><span>    </span><span id="%24sel%3ArevisionId%3AAddLayerVersionPermissionResponse%27"><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse -&gt; Maybe Text
+</span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3ArevisionId%3AAddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-240"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-241"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAddLayerVersionPermissionResponse%27"><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse -&gt; Int
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3AhttpStatus%3AAddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-242"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307194"><span id="local-6989586621679307196"><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse
+</span><span id="line-243"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312147"><span id="local-6989586621679312149"><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse
 -&gt; AddLayerVersionPermissionResponse -&gt; Bool
 (AddLayerVersionPermissionResponse
  -&gt; AddLayerVersionPermissionResponse -&gt; Bool)
@@ -642,7 +642,7 @@ $c/= :: AddLayerVersionPermissionResponse
 -&gt; AddLayerVersionPermissionResponse -&gt; Bool
 $c== :: AddLayerVersionPermissionResponse
 -&gt; AddLayerVersionPermissionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307186"><span id="local-6989586621679307188"><span id="local-6989586621679307190"><span id="local-6989586621679307192"><span class="annot"><span class="annottext">ReadPrec [AddLayerVersionPermissionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312139"><span id="local-6989586621679312141"><span id="local-6989586621679312143"><span id="local-6989586621679312145"><span class="annot"><span class="annottext">ReadPrec [AddLayerVersionPermissionResponse]
 ReadPrec AddLayerVersionPermissionResponse
 Int -&gt; ReadS AddLayerVersionPermissionResponse
 ReadS [AddLayerVersionPermissionResponse]
@@ -662,7 +662,7 @@ readList :: ReadS [AddLayerVersionPermissionResponse]
 $creadList :: ReadS [AddLayerVersionPermissionResponse]
 readsPrec :: Int -&gt; ReadS AddLayerVersionPermissionResponse
 $creadsPrec :: Int -&gt; ReadS AddLayerVersionPermissionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307180"><span id="local-6989586621679307182"><span id="local-6989586621679307184"><span class="annot"><span class="annottext">Int -&gt; AddLayerVersionPermissionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312133"><span id="local-6989586621679312135"><span id="local-6989586621679312137"><span class="annot"><span class="annottext">Int -&gt; AddLayerVersionPermissionResponse -&gt; ShowS
 [AddLayerVersionPermissionResponse] -&gt; ShowS
 AddLayerVersionPermissionResponse -&gt; String
 (Int -&gt; AddLayerVersionPermissionResponse -&gt; ShowS)
@@ -708,9 +708,9 @@ AddLayerVersionPermissionResponse
 </span><span id="line-250"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-251"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-252"></span><span class="hs-comment">--</span><span>
-</span><span id="line-253"></span><span class="hs-comment">-- 'revisionId', 'addLayerVersionPermissionResponse_revisionId' - A unique identifier for the current revision of the policy.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- 'statement', 'addLayerVersionPermissionResponse_statement' - The permission statement.</span><span>
 </span><span id="line-254"></span><span class="hs-comment">--</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- 'statement', 'addLayerVersionPermissionResponse_statement' - The permission statement.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- 'revisionId', 'addLayerVersionPermissionResponse_revisionId' - A unique identifier for the current revision of the policy.</span><span>
 </span><span id="line-256"></span><span class="hs-comment">--</span><span>
 </span><span id="line-257"></span><span class="hs-comment">-- 'httpStatus', 'addLayerVersionPermissionResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-258"></span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#newAddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">newAddLayerVersionPermissionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -718,53 +718,28 @@ AddLayerVersionPermissionResponse
 </span><span id="line-260"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-261"></span><span>  </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span><span>
 </span><span id="line-262"></span><span id="newAddLayerVersionPermissionResponse"><span class="annot"><span class="annottext">newAddLayerVersionPermissionResponse :: Int -&gt; AddLayerVersionPermissionResponse
-</span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#newAddLayerVersionPermissionResponse"><span class="hs-identifier hs-var hs-var">newAddLayerVersionPermissionResponse</span></a></span></span><span> </span><span id="local-6989586621679307177"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307177"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#newAddLayerVersionPermissionResponse"><span class="hs-identifier hs-var hs-var">newAddLayerVersionPermissionResponse</span></a></span></span><span> </span><span id="local-6989586621679312130"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312130"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-263"></span><span>  </span><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse' :: Maybe Text
 -&gt; Maybe Text -&gt; Int -&gt; AddLayerVersionPermissionResponse
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse'</span></a></span><span>
-</span><span id="line-264"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:revisionId:AddLayerVersionPermissionResponse' :: Maybe Text
-</span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3ArevisionId%3AAddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:statement:AddLayerVersionPermissionResponse' :: Maybe Text
+</span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3Astatement%3AAddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">statement</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:statement:AddLayerVersionPermissionResponse' :: Maybe Text
-</span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3Astatement%3AAddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">statement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-266"></span><span>      </span><span class="annot"><span class="annottext">$sel:revisionId:AddLayerVersionPermissionResponse' :: Maybe Text
+</span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3ArevisionId%3AAddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AddLayerVersionPermissionResponse' :: Int
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3AhttpStatus%3AAddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307177"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679312130"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-268"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-269"></span><span>
-</span><span id="line-270"></span><span class="hs-comment">-- | A unique identifier for the current revision of the policy.</span><span>
-</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermissionResponse_revisionId"><span class="hs-identifier hs-type">addLayerVersionPermissionResponse_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-272"></span><span id="addLayerVersionPermissionResponse_revisionId"><span class="annot"><span class="annottext">addLayerVersionPermissionResponse_revisionId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AddLayerVersionPermissionResponse
--&gt; f AddLayerVersionPermissionResponse
-</span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermissionResponse_revisionId"><span class="hs-identifier hs-var hs-var">addLayerVersionPermissionResponse_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddLayerVersionPermissionResponse -&gt; Maybe Text)
--&gt; (AddLayerVersionPermissionResponse
-    -&gt; Maybe Text -&gt; AddLayerVersionPermissionResponse)
--&gt; Lens
-     AddLayerVersionPermissionResponse
-     AddLayerVersionPermissionResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307176"><span class="annot"><span class="annottext">Maybe Text
-revisionId :: Maybe Text
-$sel:revisionId:AddLayerVersionPermissionResponse' :: AddLayerVersionPermissionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679307176"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307176"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307175"><span class="annot"><span class="annottext">s :: AddLayerVersionPermissionResponse
-</span><a href="#local-6989586621679307175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307174"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse
-</span><a href="#local-6989586621679307175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:AddLayerVersionPermissionResponse' :: Maybe Text
-</span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3ArevisionId%3AAddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-273"></span><span>
-</span><span id="line-274"></span><span class="hs-comment">-- | The permission statement.</span><span>
-</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermissionResponse_statement"><span class="hs-identifier hs-type">addLayerVersionPermissionResponse_statement</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-276"></span><span id="addLayerVersionPermissionResponse_statement"><span class="annot"><span class="annottext">addLayerVersionPermissionResponse_statement :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-270"></span><span class="hs-comment">-- | The permission statement.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermissionResponse_statement"><span class="hs-identifier hs-type">addLayerVersionPermissionResponse_statement</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span id="addLayerVersionPermissionResponse_statement"><span class="annot"><span class="annottext">addLayerVersionPermissionResponse_statement :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AddLayerVersionPermissionResponse
 -&gt; f AddLayerVersionPermissionResponse
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermissionResponse_statement"><span class="hs-identifier hs-var hs-var">addLayerVersionPermissionResponse_statement</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddLayerVersionPermissionResponse -&gt; Maybe Text)
@@ -776,16 +751,41 @@ $sel:revisionId:AddLayerVersionPermissionResponse' :: AddLayerVersionPermissionR
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307173"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312129"><span class="annot"><span class="annottext">Maybe Text
 statement :: Maybe Text
 $sel:statement:AddLayerVersionPermissionResponse' :: AddLayerVersionPermissionResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679307173"><span class="hs-identifier hs-var hs-var">statement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307173"><span class="hs-identifier hs-var">statement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307172"><span class="annot"><span class="annottext">s :: AddLayerVersionPermissionResponse
-</span><a href="#local-6989586621679307172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307171"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse
-</span><a href="#local-6989586621679307172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statement:AddLayerVersionPermissionResponse' :: Maybe Text
+</span><a href="#local-6989586621679312129"><span class="hs-identifier hs-var hs-var">statement</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312129"><span class="hs-identifier hs-var">statement</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312128"><span class="annot"><span class="annottext">s :: AddLayerVersionPermissionResponse
+</span><a href="#local-6989586621679312128"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312127"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312127"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse
+</span><a href="#local-6989586621679312128"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statement:AddLayerVersionPermissionResponse' :: Maybe Text
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3Astatement%3AAddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">statement</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679307171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312127"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- | A unique identifier for the current revision of the policy.</span><span>
+</span><span id="line-275"></span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermissionResponse_revisionId"><span class="hs-identifier hs-type">addLayerVersionPermissionResponse_revisionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span id="addLayerVersionPermissionResponse_revisionId"><span class="annot"><span class="annottext">addLayerVersionPermissionResponse_revisionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AddLayerVersionPermissionResponse
+-&gt; f AddLayerVersionPermissionResponse
+</span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermissionResponse_revisionId"><span class="hs-identifier hs-var hs-var">addLayerVersionPermissionResponse_revisionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AddLayerVersionPermissionResponse -&gt; Maybe Text)
+-&gt; (AddLayerVersionPermissionResponse
+    -&gt; Maybe Text -&gt; AddLayerVersionPermissionResponse)
+-&gt; Lens
+     AddLayerVersionPermissionResponse
+     AddLayerVersionPermissionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312126"><span class="annot"><span class="annottext">Maybe Text
+revisionId :: Maybe Text
+$sel:revisionId:AddLayerVersionPermissionResponse' :: AddLayerVersionPermissionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679312126"><span class="hs-identifier hs-var hs-var">revisionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312126"><span class="hs-identifier hs-var">revisionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312125"><span class="annot"><span class="annottext">s :: AddLayerVersionPermissionResponse
+</span><a href="#local-6989586621679312125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312124"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse
+</span><a href="#local-6989586621679312125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:revisionId:AddLayerVersionPermissionResponse' :: Maybe Text
+</span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3ArevisionId%3AAddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">revisionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>
 </span><span id="line-278"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-279"></span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#addLayerVersionPermissionResponse_httpStatus"><span class="hs-identifier hs-type">addLayerVersionPermissionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -801,18 +801,18 @@ $sel:statement:AddLayerVersionPermissionResponse' :: AddLayerVersionPermissionRe
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307170"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312123"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AddLayerVersionPermissionResponse' :: AddLayerVersionPermissionResponse -&gt; Int
-</span><a href="#local-6989586621679307170"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307170"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307169"><span class="annot"><span class="annottext">s :: AddLayerVersionPermissionResponse
-</span><a href="#local-6989586621679307169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307168"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse
-</span><a href="#local-6989586621679307169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddLayerVersionPermissionResponse' :: Int
+</span><a href="#local-6989586621679312123"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312123"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312122"><span class="annot"><span class="annottext">s :: AddLayerVersionPermissionResponse
+</span><a href="#local-6989586621679312122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312121"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AddLayerVersionPermissionResponse
+</span><a href="#local-6989586621679312122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AddLayerVersionPermissionResponse' :: Int
 </span><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#%24sel%3AhttpStatus%3AAddLayerVersionPermissionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679307168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679312121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-281"></span><span>
 </span><span id="line-282"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-283"></span><span>  </span><span id="local-6989586621679307166"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679312119"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-284"></span><span>    </span><span class="annot"><a href="Network.AWS.Lambda.AddLayerVersionPermission.html#AddLayerVersionPermissionResponse"><span class="hs-identifier hs-type">AddLayerVersionPermissionResponse</span></a></span></span><span>
 </span><span id="line-285"></span></pre></body></html>

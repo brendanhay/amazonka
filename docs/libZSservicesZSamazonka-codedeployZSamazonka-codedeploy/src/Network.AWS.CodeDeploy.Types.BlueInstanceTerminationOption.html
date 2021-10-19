@@ -29,7 +29,7 @@
 </span><span id="line-29"></span><span class="hs-comment">-- @BlueInstanceTerminationOption@ does not apply to Lambda deployments.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBlueInstanceTerminationOption' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679309134"><span id="local-6989586621679309135"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlueInstanceTerminationOption"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-var">BlueInstanceTerminationOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlueInstanceTerminationOption%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption%27"><span class="hs-identifier hs-var">BlueInstanceTerminationOption'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679309420"><span id="local-6989586621679309421"></span></span><span class="hs-keyword">data</span><span> </span><span id="BlueInstanceTerminationOption"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-var">BlueInstanceTerminationOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BlueInstanceTerminationOption%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption%27"><span class="hs-identifier hs-var">BlueInstanceTerminationOption'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The action to take on instances in the original environment after a</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- successful blue\/green deployment.</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
@@ -52,7 +52,7 @@
 </span><span id="line-51"></span><span>    </span><span id="%24sel%3AterminationWaitTimeInMinutes%3ABlueInstanceTerminationOption%27"><span class="annot"><span class="annottext">BlueInstanceTerminationOption -&gt; Maybe Int
 </span><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#%24sel%3AterminationWaitTimeInMinutes%3ABlueInstanceTerminationOption%27"><span class="hs-identifier hs-var hs-var">terminationWaitTimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309127"><span id="local-6989586621679309129"><span class="annot"><span class="annottext">BlueInstanceTerminationOption
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679309413"><span id="local-6989586621679309415"><span class="annot"><span class="annottext">BlueInstanceTerminationOption
 -&gt; BlueInstanceTerminationOption -&gt; Bool
 (BlueInstanceTerminationOption
  -&gt; BlueInstanceTerminationOption -&gt; Bool)
@@ -68,7 +68,7 @@ $c/= :: BlueInstanceTerminationOption
 -&gt; BlueInstanceTerminationOption -&gt; Bool
 $c== :: BlueInstanceTerminationOption
 -&gt; BlueInstanceTerminationOption -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309118"><span id="local-6989586621679309120"><span id="local-6989586621679309122"><span id="local-6989586621679309124"><span class="annot"><span class="annottext">ReadPrec [BlueInstanceTerminationOption]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309404"><span id="local-6989586621679309406"><span id="local-6989586621679309408"><span id="local-6989586621679309410"><span class="annot"><span class="annottext">ReadPrec [BlueInstanceTerminationOption]
 ReadPrec BlueInstanceTerminationOption
 Int -&gt; ReadS BlueInstanceTerminationOption
 ReadS [BlueInstanceTerminationOption]
@@ -88,7 +88,7 @@ readList :: ReadS [BlueInstanceTerminationOption]
 $creadList :: ReadS [BlueInstanceTerminationOption]
 readsPrec :: Int -&gt; ReadS BlueInstanceTerminationOption
 $creadsPrec :: Int -&gt; ReadS BlueInstanceTerminationOption
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309111"><span id="local-6989586621679309113"><span id="local-6989586621679309115"><span class="annot"><span class="annottext">Int -&gt; BlueInstanceTerminationOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679309397"><span id="local-6989586621679309399"><span id="local-6989586621679309401"><span class="annot"><span class="annottext">Int -&gt; BlueInstanceTerminationOption -&gt; ShowS
 [BlueInstanceTerminationOption] -&gt; ShowS
 BlueInstanceTerminationOption -&gt; String
 (Int -&gt; BlueInstanceTerminationOption -&gt; ShowS)
@@ -189,16 +189,16 @@ forall a. Maybe a
      (Maybe InstanceAction)
      (Maybe InstanceAction)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption%27"><span class="hs-identifier hs-type">BlueInstanceTerminationOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309102"><span class="annot"><span class="annottext">Maybe InstanceAction
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption%27"><span class="hs-identifier hs-type">BlueInstanceTerminationOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309388"><span class="annot"><span class="annottext">Maybe InstanceAction
 action :: Maybe InstanceAction
 $sel:action:BlueInstanceTerminationOption' :: BlueInstanceTerminationOption -&gt; Maybe InstanceAction
-</span><a href="#local-6989586621679309102"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAction
-</span><a href="#local-6989586621679309102"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309101"><span class="annot"><span class="annottext">s :: BlueInstanceTerminationOption
-</span><a href="#local-6989586621679309101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption%27"><span class="hs-identifier hs-type">BlueInstanceTerminationOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309100"><span class="annot"><span class="annottext">Maybe InstanceAction
-</span><a href="#local-6989586621679309100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueInstanceTerminationOption
-</span><a href="#local-6989586621679309101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:BlueInstanceTerminationOption' :: Maybe InstanceAction
+</span><a href="#local-6989586621679309388"><span class="hs-identifier hs-var hs-var">action</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAction
+</span><a href="#local-6989586621679309388"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309387"><span class="annot"><span class="annottext">s :: BlueInstanceTerminationOption
+</span><a href="#local-6989586621679309387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption%27"><span class="hs-identifier hs-type">BlueInstanceTerminationOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309386"><span class="annot"><span class="annottext">Maybe InstanceAction
+</span><a href="#local-6989586621679309386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueInstanceTerminationOption
+</span><a href="#local-6989586621679309387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:action:BlueInstanceTerminationOption' :: Maybe InstanceAction
 </span><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#%24sel%3Aaction%3ABlueInstanceTerminationOption%27"><span class="hs-identifier hs-var">action</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAction
-</span><a href="#local-6989586621679309100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | For an Amazon EC2 deployment, the number of minutes to wait after a</span><span>
 </span><span id="line-102"></span><span class="hs-comment">-- successful blue\/green deployment before terminating instances from the</span><span>
@@ -222,19 +222,19 @@ $sel:action:BlueInstanceTerminationOption' :: BlueInstanceTerminationOption -&gt
      (Maybe Int)
      (Maybe Int)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption%27"><span class="hs-identifier hs-type">BlueInstanceTerminationOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309098"><span class="annot"><span class="annottext">Maybe Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption%27"><span class="hs-identifier hs-type">BlueInstanceTerminationOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309384"><span class="annot"><span class="annottext">Maybe Int
 terminationWaitTimeInMinutes :: Maybe Int
 $sel:terminationWaitTimeInMinutes:BlueInstanceTerminationOption' :: BlueInstanceTerminationOption -&gt; Maybe Int
-</span><a href="#local-6989586621679309098"><span class="hs-identifier hs-var hs-var">terminationWaitTimeInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679309098"><span class="hs-identifier hs-var">terminationWaitTimeInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309097"><span class="annot"><span class="annottext">s :: BlueInstanceTerminationOption
-</span><a href="#local-6989586621679309097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption%27"><span class="hs-identifier hs-type">BlueInstanceTerminationOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309096"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679309096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueInstanceTerminationOption
-</span><a href="#local-6989586621679309097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:terminationWaitTimeInMinutes:BlueInstanceTerminationOption' :: Maybe Int
+</span><a href="#local-6989586621679309384"><span class="hs-identifier hs-var hs-var">terminationWaitTimeInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679309384"><span class="hs-identifier hs-var">terminationWaitTimeInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679309383"><span class="annot"><span class="annottext">s :: BlueInstanceTerminationOption
+</span><a href="#local-6989586621679309383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption%27"><span class="hs-identifier hs-type">BlueInstanceTerminationOption'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679309382"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679309382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BlueInstanceTerminationOption
+</span><a href="#local-6989586621679309383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:terminationWaitTimeInMinutes:BlueInstanceTerminationOption' :: Maybe Int
 </span><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#%24sel%3AterminationWaitTimeInMinutes%3ABlueInstanceTerminationOption%27"><span class="hs-identifier hs-var">terminationWaitTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679309096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679309382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309093"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679309091"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BlueInstanceTerminationOption
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309379"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679309377"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BlueInstanceTerminationOption
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BlueInstanceTerminationOption)
@@ -244,8 +244,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BlueInstanceTerminationOption&quot;</span></span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309088"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309088"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679309374"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679309374"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe InstanceAction -&gt; Maybe Int -&gt; BlueInstanceTerminationOption
 </span><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption%27"><span class="hs-identifier hs-var">BlueInstanceTerminationOption'</span></a></span><span>
 </span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InstanceAction
@@ -254,7 +254,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Int -&gt; BlueInstanceTerminationOption)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceAction)
+</span><a href="#local-6989586621679309374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InstanceAction)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;action&quot;</span></span><span class="hs-special">)</span><span>
@@ -262,27 +262,27 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Int) -&gt; Parser BlueInstanceTerminationOption
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679309088"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+</span><a href="#local-6989586621679309374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;terminationWaitTimeInMinutes&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
 </span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679309082"><span id="local-6989586621679309084"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679309368"><span id="local-6989586621679309370"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-126"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309079"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309365"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span></span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309071"><span id="local-6989586621679309073"><span id="local-6989586621679309075"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679309069"><span class="annot"><span class="annottext">toJSON :: BlueInstanceTerminationOption -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption%27"><span class="hs-identifier hs-type">BlueInstanceTerminationOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309066"><span id="local-6989586621679309067"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679309357"><span id="local-6989586621679309359"><span id="local-6989586621679309361"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption"><span class="hs-identifier hs-type">BlueInstanceTerminationOption</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679309355"><span class="annot"><span class="annottext">toJSON :: BlueInstanceTerminationOption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption.html#BlueInstanceTerminationOption%27"><span class="hs-identifier hs-type">BlueInstanceTerminationOption'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679309352"><span id="local-6989586621679309353"><span class="annot"><span class="annottext">Maybe Int
 Maybe InstanceAction
 terminationWaitTimeInMinutes :: Maybe Int
 action :: Maybe InstanceAction
 $sel:terminationWaitTimeInMinutes:BlueInstanceTerminationOption' :: BlueInstanceTerminationOption -&gt; Maybe Int
 $sel:action:BlueInstanceTerminationOption' :: BlueInstanceTerminationOption -&gt; Maybe InstanceAction
-</span><a href="#local-6989586621679309066"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679309352"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -294,7 +294,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(InstanceAction -&gt; Pair) -&gt; Maybe InstanceAction -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InstanceAction
-</span><a href="#local-6989586621679309067"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679309353"><span class="hs-identifier hs-var">action</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-135"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;terminationWaitTimeInMinutes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
@@ -302,7 +302,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-136"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679309066"><span class="hs-identifier hs-var">terminationWaitTimeInMinutes</span></a></span><span>
+</span><a href="#local-6989586621679309352"><span class="hs-identifier hs-var">terminationWaitTimeInMinutes</span></a></span><span>
 </span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span></pre></body></html>

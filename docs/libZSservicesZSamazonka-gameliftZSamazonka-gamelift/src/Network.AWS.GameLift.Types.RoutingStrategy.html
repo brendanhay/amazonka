@@ -33,29 +33,29 @@
 </span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task&gt;</span><span>
 </span><span id="line-34"></span><span class="hs-comment">--</span><span>
 </span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newRoutingStrategy' smart constructor.</span><span>
-</span><span id="line-36"></span><span id="local-6989586621679439716"><span id="local-6989586621679439717"></span></span><span class="hs-keyword">data</span><span> </span><span id="RoutingStrategy"><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-var">RoutingStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoutingStrategy%27"><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-var">RoutingStrategy'</span></a></span></span><span>
-</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier for the fleet that the alias points to. This value</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- is the fleet ID, not the fleet ARN.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AfleetId%3ARoutingStrategy%27"><span class="annot"><span class="annottext">RoutingStrategy -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3AfleetId%3ARoutingStrategy%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The message text to be used with a terminal routing strategy.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Amessage%3ARoutingStrategy%27"><span class="annot"><span class="annottext">RoutingStrategy -&gt; Maybe Text
-</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3Amessage%3ARoutingStrategy%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The type of routing strategy for the alias.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679440178"><span id="local-6989586621679440179"></span></span><span class="hs-keyword">data</span><span> </span><span id="RoutingStrategy"><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-var">RoutingStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoutingStrategy%27"><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-var">RoutingStrategy'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of routing strategy for the alias.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- Possible routing types include the following:</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   __SIMPLE__ - The alias resolves to one specific fleet. Use this type</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     when routing to active fleets.</span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Possible routing types include the following:</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   __SIMPLE__ - The alias resolves to one specific fleet. Use this type</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     when routing to active fleets.</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   __TERMINAL__ - The alias does not resolve to a fleet but instead can</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     be used to display a message to the user. A terminal alias throws a</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     TerminalRoutingStrategyException with the RoutingStrategy message</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     embedded.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3Atype%27%3ARoutingStrategy%27"><span class="annot"><span class="annottext">RoutingStrategy -&gt; Maybe RoutingStrategyType
-</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3Atype%27%3ARoutingStrategy%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategyType.html#RoutingStrategyType"><span class="hs-identifier hs-type">RoutingStrategyType</span></a></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   __TERMINAL__ - The alias does not resolve to a fleet but instead can</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     be used to display a message to the user. A terminal alias throws a</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     TerminalRoutingStrategyException with the RoutingStrategy message</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     embedded.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Atype%27%3ARoutingStrategy%27"><span class="annot"><span class="annottext">RoutingStrategy -&gt; Maybe RoutingStrategyType
+</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3Atype%27%3ARoutingStrategy%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategyType.html#RoutingStrategyType"><span class="hs-identifier hs-type">RoutingStrategyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The message text to be used with a terminal routing strategy.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Amessage%3ARoutingStrategy%27"><span class="annot"><span class="annottext">RoutingStrategy -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3Amessage%3ARoutingStrategy%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the fleet that the alias points to. This value</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- is the fleet ID, not the fleet ARN.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AfleetId%3ARoutingStrategy%27"><span class="annot"><span class="annottext">RoutingStrategy -&gt; Maybe Text
+</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3AfleetId%3ARoutingStrategy%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679439708"><span id="local-6989586621679439710"><span class="annot"><span class="annottext">RoutingStrategy -&gt; RoutingStrategy -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679440170"><span id="local-6989586621679440172"><span class="annot"><span class="annottext">RoutingStrategy -&gt; RoutingStrategy -&gt; Bool
 (RoutingStrategy -&gt; RoutingStrategy -&gt; Bool)
 -&gt; (RoutingStrategy -&gt; RoutingStrategy -&gt; Bool)
 -&gt; Eq RoutingStrategy
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RoutingStrategy -&gt; RoutingStrategy -&gt; Bool
 == :: RoutingStrategy -&gt; RoutingStrategy -&gt; Bool
 $c== :: RoutingStrategy -&gt; RoutingStrategy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439699"><span id="local-6989586621679439701"><span id="local-6989586621679439703"><span id="local-6989586621679439705"><span class="annot"><span class="annottext">ReadPrec [RoutingStrategy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440161"><span id="local-6989586621679440163"><span id="local-6989586621679440165"><span id="local-6989586621679440167"><span class="annot"><span class="annottext">ReadPrec [RoutingStrategy]
 ReadPrec RoutingStrategy
 Int -&gt; ReadS RoutingStrategy
 ReadS [RoutingStrategy]
@@ -84,7 +84,7 @@ readList :: ReadS [RoutingStrategy]
 $creadList :: ReadS [RoutingStrategy]
 readsPrec :: Int -&gt; ReadS RoutingStrategy
 $creadsPrec :: Int -&gt; ReadS RoutingStrategy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679439692"><span id="local-6989586621679439694"><span id="local-6989586621679439696"><span class="annot"><span class="annottext">Int -&gt; RoutingStrategy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679440154"><span id="local-6989586621679440156"><span id="local-6989586621679440158"><span class="annot"><span class="annottext">Int -&gt; RoutingStrategy -&gt; ShowS
 [RoutingStrategy] -&gt; ShowS
 RoutingStrategy -&gt; String
 (Int -&gt; RoutingStrategy -&gt; ShowS)
@@ -118,95 +118,56 @@ $cfrom :: forall x. RoutingStrategy -&gt; Rep RoutingStrategy x
 </span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-64"></span><span class="hs-comment">--</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- 'fleetId', 'routingStrategy_fleetId' - A unique identifier for the fleet that the alias points to. This value</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- is the fleet ID, not the fleet ARN.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'message', 'routingStrategy_message' - The message text to be used with a terminal routing strategy.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'type'', 'routingStrategy_type' - The type of routing strategy for the alias.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'type'', 'routingStrategy_type' - The type of routing strategy for the alias.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Possible routing types include the following:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- -   __SIMPLE__ - The alias resolves to one specific fleet. Use this type</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--     when routing to active fleets.</span><span>
 </span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- Possible routing types include the following:</span><span>
-</span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- -   __SIMPLE__ - The alias resolves to one specific fleet. Use this type</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--     when routing to active fleets.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- -   __TERMINAL__ - The alias does not resolve to a fleet but instead can</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--     be used to display a message to the user. A terminal alias throws a</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--     TerminalRoutingStrategyException with the RoutingStrategy message</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--     embedded.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- -   __TERMINAL__ - The alias does not resolve to a fleet but instead can</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--     be used to display a message to the user. A terminal alias throws a</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--     TerminalRoutingStrategyException with the RoutingStrategy message</span><span>
-</span><span id="line-80"></span><span class="hs-comment">--     embedded.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'message', 'routingStrategy_message' - The message text to be used with a terminal routing strategy.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'fleetId', 'routingStrategy_fleetId' - A unique identifier for the fleet that the alias points to. This value</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- is the fleet ID, not the fleet ARN.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#newRoutingStrategy"><span class="hs-identifier hs-type">newRoutingStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span><span>
 </span><span id="line-83"></span><span id="newRoutingStrategy"><span class="annot"><span class="annottext">newRoutingStrategy :: RoutingStrategy
 </span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#newRoutingStrategy"><span class="hs-identifier hs-var hs-var">newRoutingStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">RoutingStrategy' :: Maybe Text
--&gt; Maybe Text -&gt; Maybe RoutingStrategyType -&gt; RoutingStrategy
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">RoutingStrategy' :: Maybe RoutingStrategyType
+-&gt; Maybe Text -&gt; Maybe Text -&gt; RoutingStrategy
 </span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fleetId:RoutingStrategy' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3AfleetId%3ARoutingStrategy%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:type':RoutingStrategy' :: Maybe RoutingStrategyType
+</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3Atype%27%3ARoutingStrategy%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RoutingStrategyType
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:RoutingStrategy' :: Maybe Text
 </span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3Amessage%3ARoutingStrategy%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':RoutingStrategy' :: Maybe RoutingStrategyType
-</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3Atype%27%3ARoutingStrategy%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RoutingStrategyType
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:RoutingStrategy' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3AfleetId%3ARoutingStrategy%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-comment">-- | A unique identifier for the fleet that the alias points to. This value</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- is the fleet ID, not the fleet ARN.</span><span>
-</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#routingStrategy_fleetId"><span class="hs-identifier hs-type">routingStrategy_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-93"></span><span id="routingStrategy_fleetId"><span class="annot"><span class="annottext">routingStrategy_fleetId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RoutingStrategy -&gt; f RoutingStrategy
-</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#routingStrategy_fleetId"><span class="hs-identifier hs-var hs-var">routingStrategy_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoutingStrategy -&gt; Maybe Text)
--&gt; (RoutingStrategy -&gt; Maybe Text -&gt; RoutingStrategy)
--&gt; Lens RoutingStrategy RoutingStrategy (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439683"><span class="annot"><span class="annottext">Maybe Text
-fleetId :: Maybe Text
-$sel:fleetId:RoutingStrategy' :: RoutingStrategy -&gt; Maybe Text
-</span><a href="#local-6989586621679439683"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439683"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439682"><span class="annot"><span class="annottext">s :: RoutingStrategy
-</span><a href="#local-6989586621679439682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439681"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingStrategy
-</span><a href="#local-6989586621679439682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:RoutingStrategy' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3AfleetId%3ARoutingStrategy%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-94"></span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- | The message text to be used with a terminal routing strategy.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#routingStrategy_message"><span class="hs-identifier hs-type">routingStrategy_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="routingStrategy_message"><span class="annot"><span class="annottext">routingStrategy_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; RoutingStrategy -&gt; f RoutingStrategy
-</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#routingStrategy_message"><span class="hs-identifier hs-var hs-var">routingStrategy_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoutingStrategy -&gt; Maybe Text)
--&gt; (RoutingStrategy -&gt; Maybe Text -&gt; RoutingStrategy)
--&gt; Lens RoutingStrategy RoutingStrategy (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439679"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:RoutingStrategy' :: RoutingStrategy -&gt; Maybe Text
-</span><a href="#local-6989586621679439679"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439679"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439678"><span class="annot"><span class="annottext">s :: RoutingStrategy
-</span><a href="#local-6989586621679439678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439677"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingStrategy
-</span><a href="#local-6989586621679439678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:RoutingStrategy' :: Maybe Text
-</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3Amessage%3ARoutingStrategy%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The type of routing strategy for the alias.</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- Possible routing types include the following:</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- -   __SIMPLE__ - The alias resolves to one specific fleet. Use this type</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--     when routing to active fleets.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- -   __TERMINAL__ - The alias does not resolve to a fleet but instead can</span><span>
-</span><span id="line-107"></span><span class="hs-comment">--     be used to display a message to the user. A terminal alias throws a</span><span>
-</span><span id="line-108"></span><span class="hs-comment">--     TerminalRoutingStrategyException with the RoutingStrategy message</span><span>
-</span><span id="line-109"></span><span class="hs-comment">--     embedded.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#routingStrategy_type"><span class="hs-identifier hs-type">routingStrategy_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategyType.html#RoutingStrategyType"><span class="hs-identifier hs-type">RoutingStrategyType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="routingStrategy_type"><span class="annot"><span class="annottext">routingStrategy_type :: (Maybe RoutingStrategyType -&gt; f (Maybe RoutingStrategyType))
+</span><span id="line-90"></span><span class="hs-comment">-- | The type of routing strategy for the alias.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Possible routing types include the following:</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   __SIMPLE__ - The alias resolves to one specific fleet. Use this type</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--     when routing to active fleets.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   __TERMINAL__ - The alias does not resolve to a fleet but instead can</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     be used to display a message to the user. A terminal alias throws a</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     TerminalRoutingStrategyException with the RoutingStrategy message</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--     embedded.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#routingStrategy_type"><span class="hs-identifier hs-type">routingStrategy_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategyType.html#RoutingStrategyType"><span class="hs-identifier hs-type">RoutingStrategyType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="routingStrategy_type"><span class="annot"><span class="annottext">routingStrategy_type :: (Maybe RoutingStrategyType -&gt; f (Maybe RoutingStrategyType))
 -&gt; RoutingStrategy -&gt; f RoutingStrategy
 </span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#routingStrategy_type"><span class="hs-identifier hs-var hs-var">routingStrategy_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoutingStrategy -&gt; Maybe RoutingStrategyType)
 -&gt; (RoutingStrategy
@@ -217,19 +178,58 @@ $sel:message:RoutingStrategy' :: RoutingStrategy -&gt; Maybe Text
      (Maybe RoutingStrategyType)
      (Maybe RoutingStrategyType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439675"><span class="annot"><span class="annottext">Maybe RoutingStrategyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440145"><span class="annot"><span class="annottext">Maybe RoutingStrategyType
 type' :: Maybe RoutingStrategyType
 $sel:type':RoutingStrategy' :: RoutingStrategy -&gt; Maybe RoutingStrategyType
-</span><a href="#local-6989586621679439675"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RoutingStrategyType
-</span><a href="#local-6989586621679439675"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679439674"><span class="annot"><span class="annottext">s :: RoutingStrategy
-</span><a href="#local-6989586621679439674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679439673"><span class="annot"><span class="annottext">Maybe RoutingStrategyType
-</span><a href="#local-6989586621679439673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingStrategy
-</span><a href="#local-6989586621679439674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':RoutingStrategy' :: Maybe RoutingStrategyType
+</span><a href="#local-6989586621679440145"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RoutingStrategyType
+</span><a href="#local-6989586621679440145"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440144"><span class="annot"><span class="annottext">s :: RoutingStrategy
+</span><a href="#local-6989586621679440144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440143"><span class="annot"><span class="annottext">Maybe RoutingStrategyType
+</span><a href="#local-6989586621679440143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingStrategy
+</span><a href="#local-6989586621679440144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':RoutingStrategy' :: Maybe RoutingStrategyType
 </span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3Atype%27%3ARoutingStrategy%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RoutingStrategyType
-</span><a href="#local-6989586621679439673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679440143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The message text to be used with a terminal routing strategy.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#routingStrategy_message"><span class="hs-identifier hs-type">routingStrategy_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="routingStrategy_message"><span class="annot"><span class="annottext">routingStrategy_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RoutingStrategy -&gt; f RoutingStrategy
+</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#routingStrategy_message"><span class="hs-identifier hs-var hs-var">routingStrategy_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoutingStrategy -&gt; Maybe Text)
+-&gt; (RoutingStrategy -&gt; Maybe Text -&gt; RoutingStrategy)
+-&gt; Lens RoutingStrategy RoutingStrategy (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440141"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:RoutingStrategy' :: RoutingStrategy -&gt; Maybe Text
+</span><a href="#local-6989586621679440141"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440141"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440140"><span class="annot"><span class="annottext">s :: RoutingStrategy
+</span><a href="#local-6989586621679440140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440139"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingStrategy
+</span><a href="#local-6989586621679440140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:RoutingStrategy' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3Amessage%3ARoutingStrategy%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | A unique identifier for the fleet that the alias points to. This value</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- is the fleet ID, not the fleet ARN.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#routingStrategy_fleetId"><span class="hs-identifier hs-type">routingStrategy_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="routingStrategy_fleetId"><span class="annot"><span class="annottext">routingStrategy_fleetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RoutingStrategy -&gt; f RoutingStrategy
+</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#routingStrategy_fleetId"><span class="hs-identifier hs-var hs-var">routingStrategy_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RoutingStrategy -&gt; Maybe Text)
+-&gt; (RoutingStrategy -&gt; Maybe Text -&gt; RoutingStrategy)
+-&gt; Lens RoutingStrategy RoutingStrategy (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440137"><span class="annot"><span class="annottext">Maybe Text
+fleetId :: Maybe Text
+$sel:fleetId:RoutingStrategy' :: RoutingStrategy -&gt; Maybe Text
+</span><a href="#local-6989586621679440137"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440137"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679440136"><span class="annot"><span class="annottext">s :: RoutingStrategy
+</span><a href="#local-6989586621679440136"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679440135"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440135"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RoutingStrategy
+</span><a href="#local-6989586621679440136"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:RoutingStrategy' :: Maybe Text
+</span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#%24sel%3AfleetId%3ARoutingStrategy%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440135"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439670"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679439668"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RoutingStrategy
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440132"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679440130"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser RoutingStrategy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser RoutingStrategy)
@@ -239,83 +239,81 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;RoutingStrategy&quot;</span></span><span>
-</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679439665"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439665"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Text -&gt; Maybe RoutingStrategyType -&gt; RoutingStrategy
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679440127"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679440127"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe RoutingStrategyType
+-&gt; Maybe Text -&gt; Maybe Text -&gt; RoutingStrategy
 </span><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-var">RoutingStrategy'</span></a></span><span>
-</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Text -&gt; Maybe RoutingStrategyType -&gt; RoutingStrategy)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text -&gt; Maybe RoutingStrategyType -&gt; RoutingStrategy)
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RoutingStrategyType
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; RoutingStrategy)
+-&gt; Parser (Maybe RoutingStrategyType)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; RoutingStrategy)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439665"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FleetId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe RoutingStrategyType -&gt; RoutingStrategy)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe RoutingStrategyType -&gt; RoutingStrategy)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439665"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe RoutingStrategyType -&gt; RoutingStrategy)
--&gt; Parser (Maybe RoutingStrategyType) -&gt; Parser RoutingStrategy
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679439665"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RoutingStrategyType)
+</span><a href="#local-6989586621679440127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RoutingStrategyType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; RoutingStrategy)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; RoutingStrategy)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679440127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; RoutingStrategy)
+-&gt; Parser (Maybe Text) -&gt; Parser RoutingStrategy
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679440127"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439659"><span id="local-6989586621679439661"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440121"><span id="local-6989586621679440123"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span></span></span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439656"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440118"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679439648"><span id="local-6989586621679439650"><span id="local-6989586621679439652"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679439646"><span class="annot"><span class="annottext">toJSON :: RoutingStrategy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679439642"><span id="local-6989586621679439643"><span id="local-6989586621679439644"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679440110"><span id="local-6989586621679440112"><span id="local-6989586621679440114"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy"><span class="hs-identifier hs-type">RoutingStrategy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679440108"><span class="annot"><span class="annottext">toJSON :: RoutingStrategy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.GameLift.Types.RoutingStrategy.html#RoutingStrategy%27"><span class="hs-identifier hs-type">RoutingStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679440104"><span id="local-6989586621679440105"><span id="local-6989586621679440106"><span class="annot"><span class="annottext">Maybe Text
 Maybe RoutingStrategyType
-type' :: Maybe RoutingStrategyType
-message :: Maybe Text
 fleetId :: Maybe Text
-$sel:type':RoutingStrategy' :: RoutingStrategy -&gt; Maybe RoutingStrategyType
-$sel:message:RoutingStrategy' :: RoutingStrategy -&gt; Maybe Text
+message :: Maybe Text
+type' :: Maybe RoutingStrategyType
 $sel:fleetId:RoutingStrategy' :: RoutingStrategy -&gt; Maybe Text
-</span><a href="#local-6989586621679439642"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:message:RoutingStrategy' :: RoutingStrategy -&gt; Maybe Text
+$sel:type':RoutingStrategy' :: RoutingStrategy -&gt; Maybe RoutingStrategyType
+</span><a href="#local-6989586621679440104"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;FleetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439644"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Message&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679439643"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; RoutingStrategyType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(RoutingStrategyType -&gt; Pair)
 -&gt; Maybe RoutingStrategyType -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe RoutingStrategyType
-</span><a href="#local-6989586621679439642"><span class="hs-identifier hs-var">type'</span></a></span><span>
+</span><a href="#local-6989586621679440106"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Message&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440105"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679440104"><span class="hs-identifier hs-var">fleetId</span></a></span><span>
 </span><span id="line-135"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-136"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span></pre></body></html>

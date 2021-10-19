@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Network.AWS.EC2.Types.FleetCapacityReservationTenancy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EC2.Types.FleetCapacityReservationTenancy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetCapacityReservationTenancy.html#FleetCapacityReservationTenancy"><span class="hs-identifier">FleetCapacityReservationTenancy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetCapacityReservationTenancy.html#FleetCapacityReservationTenancy_Default"><span class="hs-identifier">FleetCapacityReservationTenancy_Default</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681107372"><span id="local-6989586621681107373"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FleetCapacityReservationTenancy"><span class="annot"><a href="Network.AWS.EC2.Types.FleetCapacityReservationTenancy.html#FleetCapacityReservationTenancy"><span class="hs-identifier hs-var">FleetCapacityReservationTenancy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetCapacityReservationTenancy%27"><span class="annot"><a href="Network.AWS.EC2.Types.FleetCapacityReservationTenancy.html#FleetCapacityReservationTenancy%27"><span class="hs-identifier hs-var">FleetCapacityReservationTenancy'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFleetCapacityReservationTenancy"><span class="annot"><span class="annottext">FleetCapacityReservationTenancy -&gt; Text
+</span><a href="Network.AWS.EC2.Types.FleetCapacityReservationTenancy.html#fromFleetCapacityReservationTenancy"><span class="hs-identifier hs-var hs-var">fromFleetCapacityReservationTenancy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681107364"><span id="local-6989586621681107366"><span id="local-6989586621681107368"><span class="annot"><span class="annottext">Int -&gt; FleetCapacityReservationTenancy -&gt; ShowS
+[FleetCapacityReservationTenancy] -&gt; ShowS
+FleetCapacityReservationTenancy -&gt; String
+(Int -&gt; FleetCapacityReservationTenancy -&gt; ShowS)
+-&gt; (FleetCapacityReservationTenancy -&gt; String)
+-&gt; ([FleetCapacityReservationTenancy] -&gt; ShowS)
+-&gt; Show FleetCapacityReservationTenancy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FleetCapacityReservationTenancy] -&gt; ShowS
+$cshowList :: [FleetCapacityReservationTenancy] -&gt; ShowS
+show :: FleetCapacityReservationTenancy -&gt; String
+$cshow :: FleetCapacityReservationTenancy -&gt; String
+showsPrec :: Int -&gt; FleetCapacityReservationTenancy -&gt; ShowS
+$cshowsPrec :: Int -&gt; FleetCapacityReservationTenancy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621681107355"><span id="local-6989586621681107357"><span id="local-6989586621681107359"><span id="local-6989586621681107361"><span class="annot"><span class="annottext">ReadPrec [FleetCapacityReservationTenancy]
+ReadPrec FleetCapacityReservationTenancy
+Int -&gt; ReadS FleetCapacityReservationTenancy
+ReadS [FleetCapacityReservationTenancy]
+(Int -&gt; ReadS FleetCapacityReservationTenancy)
+-&gt; ReadS [FleetCapacityReservationTenancy]
+-&gt; ReadPrec FleetCapacityReservationTenancy
+-&gt; ReadPrec [FleetCapacityReservationTenancy]
+-&gt; Read FleetCapacityReservationTenancy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FleetCapacityReservationTenancy]
+$creadListPrec :: ReadPrec [FleetCapacityReservationTenancy]
+readPrec :: ReadPrec FleetCapacityReservationTenancy
+$creadPrec :: ReadPrec FleetCapacityReservationTenancy
+readList :: ReadS [FleetCapacityReservationTenancy]
+$creadList :: ReadS [FleetCapacityReservationTenancy]
+readsPrec :: Int -&gt; ReadS FleetCapacityReservationTenancy
+$creadsPrec :: Int -&gt; ReadS FleetCapacityReservationTenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621681107350"><span id="local-6989586621681107352"><span class="annot"><span class="annottext">FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+(FleetCapacityReservationTenancy
+ -&gt; FleetCapacityReservationTenancy -&gt; Bool)
+-&gt; (FleetCapacityReservationTenancy
+    -&gt; FleetCapacityReservationTenancy -&gt; Bool)
+-&gt; Eq FleetCapacityReservationTenancy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+$c/= :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+== :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+$c== :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621681107334"><span id="local-6989586621681107336"><span id="local-6989586621681107338"><span id="local-6989586621681107340"><span id="local-6989586621681107342"><span id="local-6989586621681107344"><span id="local-6989586621681107346"><span class="annot"><span class="annottext">Eq FleetCapacityReservationTenancy
+Eq FleetCapacityReservationTenancy
+-&gt; (FleetCapacityReservationTenancy
+    -&gt; FleetCapacityReservationTenancy -&gt; Ordering)
+-&gt; (FleetCapacityReservationTenancy
+    -&gt; FleetCapacityReservationTenancy -&gt; Bool)
+-&gt; (FleetCapacityReservationTenancy
+    -&gt; FleetCapacityReservationTenancy -&gt; Bool)
+-&gt; (FleetCapacityReservationTenancy
+    -&gt; FleetCapacityReservationTenancy -&gt; Bool)
+-&gt; (FleetCapacityReservationTenancy
+    -&gt; FleetCapacityReservationTenancy -&gt; Bool)
+-&gt; (FleetCapacityReservationTenancy
+    -&gt; FleetCapacityReservationTenancy
+    -&gt; FleetCapacityReservationTenancy)
+-&gt; (FleetCapacityReservationTenancy
+    -&gt; FleetCapacityReservationTenancy
+    -&gt; FleetCapacityReservationTenancy)
+-&gt; Ord FleetCapacityReservationTenancy
+FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Ordering
+FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy
+$cmin :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy
+max :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy
+$cmax :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy
+&gt;= :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+$c&gt;= :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+&gt; :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+$c&gt; :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+&lt;= :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+$c&lt;= :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+&lt; :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+$c&lt; :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Bool
+compare :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Ordering
+$ccompare :: FleetCapacityReservationTenancy
+-&gt; FleetCapacityReservationTenancy -&gt; Ordering
+$cp1Ord :: Eq FleetCapacityReservationTenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ FleetCapacityReservationTenancy
+ -&gt; Rep FleetCapacityReservationTenancy x)
+-&gt; (forall x.
+    Rep FleetCapacityReservationTenancy x
+    -&gt; FleetCapacityReservationTenancy)
+-&gt; Generic FleetCapacityReservationTenancy
+forall x.
+Rep FleetCapacityReservationTenancy x
+-&gt; FleetCapacityReservationTenancy
+forall x.
+FleetCapacityReservationTenancy
+-&gt; Rep FleetCapacityReservationTenancy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep FleetCapacityReservationTenancy x
+-&gt; FleetCapacityReservationTenancy
+$cfrom :: forall x.
+FleetCapacityReservationTenancy
+-&gt; Rep FleetCapacityReservationTenancy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681107326"><span id="local-6989586621681107328"><span class="annot"><span class="annottext">Int -&gt; FleetCapacityReservationTenancy -&gt; Int
+FleetCapacityReservationTenancy -&gt; Int
+(Int -&gt; FleetCapacityReservationTenancy -&gt; Int)
+-&gt; (FleetCapacityReservationTenancy -&gt; Int)
+-&gt; Hashable FleetCapacityReservationTenancy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FleetCapacityReservationTenancy -&gt; Int
+$chash :: FleetCapacityReservationTenancy -&gt; Int
+hashWithSalt :: Int -&gt; FleetCapacityReservationTenancy -&gt; Int
+$chashWithSalt :: Int -&gt; FleetCapacityReservationTenancy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681107323"><span class="annot"><span class="annottext">FleetCapacityReservationTenancy -&gt; ()
+(FleetCapacityReservationTenancy -&gt; ())
+-&gt; NFData FleetCapacityReservationTenancy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FleetCapacityReservationTenancy -&gt; ()
+$crnf :: FleetCapacityReservationTenancy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681107320"><span class="annot"><span class="annottext">Text -&gt; Either String FleetCapacityReservationTenancy
+(Text -&gt; Either String FleetCapacityReservationTenancy)
+-&gt; FromText FleetCapacityReservationTenancy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FleetCapacityReservationTenancy
+$cfromText :: Text -&gt; Either String FleetCapacityReservationTenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621681107317"><span class="annot"><span class="annottext">FleetCapacityReservationTenancy -&gt; Text
+(FleetCapacityReservationTenancy -&gt; Text)
+-&gt; ToText FleetCapacityReservationTenancy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FleetCapacityReservationTenancy -&gt; Text
+$ctoText :: FleetCapacityReservationTenancy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621681107314"><span class="annot"><span class="annottext">FleetCapacityReservationTenancy -&gt; ByteString
+(FleetCapacityReservationTenancy -&gt; ByteString)
+-&gt; ToByteString FleetCapacityReservationTenancy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FleetCapacityReservationTenancy -&gt; ByteString
+$ctoBS :: FleetCapacityReservationTenancy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681107311"><span class="annot"><span class="annottext">FleetCapacityReservationTenancy -&gt; ByteStringBuilder
+(FleetCapacityReservationTenancy -&gt; ByteStringBuilder)
+-&gt; ToLog FleetCapacityReservationTenancy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FleetCapacityReservationTenancy -&gt; ByteStringBuilder
+$cbuild :: FleetCapacityReservationTenancy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681107308"><span class="annot"><span class="annottext">HeaderName -&gt; FleetCapacityReservationTenancy -&gt; [Header]
+(HeaderName -&gt; FleetCapacityReservationTenancy -&gt; [Header])
+-&gt; ToHeader FleetCapacityReservationTenancy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FleetCapacityReservationTenancy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FleetCapacityReservationTenancy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681107305"><span class="annot"><span class="annottext">FleetCapacityReservationTenancy -&gt; QueryString
+(FleetCapacityReservationTenancy -&gt; QueryString)
+-&gt; ToQuery FleetCapacityReservationTenancy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FleetCapacityReservationTenancy -&gt; QueryString
+$ctoQuery :: FleetCapacityReservationTenancy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681107300"><span id="local-6989586621681107302"><span class="annot"><span class="annottext">Value -&gt; Parser [FleetCapacityReservationTenancy]
+Value -&gt; Parser FleetCapacityReservationTenancy
+(Value -&gt; Parser FleetCapacityReservationTenancy)
+-&gt; (Value -&gt; Parser [FleetCapacityReservationTenancy])
+-&gt; FromJSON FleetCapacityReservationTenancy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FleetCapacityReservationTenancy]
+$cparseJSONList :: Value -&gt; Parser [FleetCapacityReservationTenancy]
+parseJSON :: Value -&gt; Parser FleetCapacityReservationTenancy
+$cparseJSON :: Value -&gt; Parser FleetCapacityReservationTenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681107295"><span id="local-6989586621681107297"><span class="annot"><span class="annottext">FromJSONKeyFunction [FleetCapacityReservationTenancy]
+FromJSONKeyFunction FleetCapacityReservationTenancy
+FromJSONKeyFunction FleetCapacityReservationTenancy
+-&gt; FromJSONKeyFunction [FleetCapacityReservationTenancy]
+-&gt; FromJSONKey FleetCapacityReservationTenancy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FleetCapacityReservationTenancy]
+$cfromJSONKeyList :: FromJSONKeyFunction [FleetCapacityReservationTenancy]
+fromJSONKey :: FromJSONKeyFunction FleetCapacityReservationTenancy
+$cfromJSONKey :: FromJSONKeyFunction FleetCapacityReservationTenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681107286"><span id="local-6989586621681107288"><span id="local-6989586621681107290"><span id="local-6989586621681107292"><span class="annot"><span class="annottext">[FleetCapacityReservationTenancy] -&gt; Encoding
+[FleetCapacityReservationTenancy] -&gt; Value
+FleetCapacityReservationTenancy -&gt; Encoding
+FleetCapacityReservationTenancy -&gt; Value
+(FleetCapacityReservationTenancy -&gt; Value)
+-&gt; (FleetCapacityReservationTenancy -&gt; Encoding)
+-&gt; ([FleetCapacityReservationTenancy] -&gt; Value)
+-&gt; ([FleetCapacityReservationTenancy] -&gt; Encoding)
+-&gt; ToJSON FleetCapacityReservationTenancy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FleetCapacityReservationTenancy] -&gt; Encoding
+$ctoEncodingList :: [FleetCapacityReservationTenancy] -&gt; Encoding
+toJSONList :: [FleetCapacityReservationTenancy] -&gt; Value
+$ctoJSONList :: [FleetCapacityReservationTenancy] -&gt; Value
+toEncoding :: FleetCapacityReservationTenancy -&gt; Encoding
+$ctoEncoding :: FleetCapacityReservationTenancy -&gt; Encoding
+toJSON :: FleetCapacityReservationTenancy -&gt; Value
+$ctoJSON :: FleetCapacityReservationTenancy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681107281"><span id="local-6989586621681107283"><span class="annot"><span class="annottext">ToJSONKeyFunction [FleetCapacityReservationTenancy]
+ToJSONKeyFunction FleetCapacityReservationTenancy
+ToJSONKeyFunction FleetCapacityReservationTenancy
+-&gt; ToJSONKeyFunction [FleetCapacityReservationTenancy]
+-&gt; ToJSONKey FleetCapacityReservationTenancy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FleetCapacityReservationTenancy]
+$ctoJSONKeyList :: ToJSONKeyFunction [FleetCapacityReservationTenancy]
+toJSONKey :: ToJSONKeyFunction FleetCapacityReservationTenancy
+$ctoJSONKey :: ToJSONKeyFunction FleetCapacityReservationTenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681107278"><span class="annot"><span class="annottext">[Node] -&gt; Either String FleetCapacityReservationTenancy
+([Node] -&gt; Either String FleetCapacityReservationTenancy)
+-&gt; FromXML FleetCapacityReservationTenancy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FleetCapacityReservationTenancy
+$cparseXML :: [Node] -&gt; Either String FleetCapacityReservationTenancy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681107275"><span class="annot"><span class="annottext">FleetCapacityReservationTenancy -&gt; XML
+(FleetCapacityReservationTenancy -&gt; XML)
+-&gt; ToXML FleetCapacityReservationTenancy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FleetCapacityReservationTenancy -&gt; XML
+$ctoXML :: FleetCapacityReservationTenancy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetCapacityReservationTenancy.html#FleetCapacityReservationTenancy_Default"><span class="hs-identifier hs-type">FleetCapacityReservationTenancy_Default</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetCapacityReservationTenancy.html#FleetCapacityReservationTenancy"><span class="hs-identifier hs-type">FleetCapacityReservationTenancy</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFleetCapacityReservationTenancy_Default"><span id="%24mFleetCapacityReservationTenancy_Default"><span id="FleetCapacityReservationTenancy_Default"><span class="annot"><span class="annottext">$bFleetCapacityReservationTenancy_Default :: FleetCapacityReservationTenancy
+$mFleetCapacityReservationTenancy_Default :: forall r.
+FleetCapacityReservationTenancy
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Network.AWS.EC2.Types.FleetCapacityReservationTenancy.html#%24bFleetCapacityReservationTenancy_Default"><span class="hs-identifier hs-var hs-var hs-var">FleetCapacityReservationTenancy_Default</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetCapacityReservationTenancy.html#FleetCapacityReservationTenancy%27"><span class="hs-identifier hs-type">FleetCapacityReservationTenancy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;default&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetCapacityReservationTenancy.html#FleetCapacityReservationTenancy_Default"><span class="hs-pragma hs-type">FleetCapacityReservationTenancy_Default</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.FleetCapacityReservationTenancy.html#FleetCapacityReservationTenancy%27"><span class="hs-pragma hs-type">FleetCapacityReservationTenancy'</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-67"></span></pre></body></html>

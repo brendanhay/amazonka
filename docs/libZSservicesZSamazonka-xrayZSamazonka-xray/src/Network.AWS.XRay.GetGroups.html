@@ -50,12 +50,12 @@
 </span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.XRay.Types.html"><span class="hs-identifier">Network.AWS.XRay.Types</span></a></span><span>
 </span><span id="line-51"></span><span>
 </span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetGroups' smart constructor.</span><span>
-</span><span id="line-53"></span><span id="local-6989586621679262817"><span id="local-6989586621679262818"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroups"><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-var">GetGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroups%27"><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups%27"><span class="hs-identifier hs-var">GetGroups'</span></a></span></span><span>
+</span><span id="line-53"></span><span id="local-6989586621679263137"><span id="local-6989586621679263138"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroups"><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-var">GetGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroups%27"><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups%27"><span class="hs-identifier hs-var">GetGroups'</span></a></span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Pagination token.</span><span>
 </span><span id="line-55"></span><span>    </span><span id="%24sel%3AnextToken%3AGetGroups%27"><span class="annot"><span class="annottext">GetGroups -&gt; Maybe Text
 </span><a href="Network.AWS.XRay.GetGroups.html#%24sel%3AnextToken%3AGetGroups%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262811"><span id="local-6989586621679262813"><span class="annot"><span class="annottext">GetGroups -&gt; GetGroups -&gt; Bool
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263131"><span id="local-6989586621679263133"><span class="annot"><span class="annottext">GetGroups -&gt; GetGroups -&gt; Bool
 (GetGroups -&gt; GetGroups -&gt; Bool)
 -&gt; (GetGroups -&gt; GetGroups -&gt; Bool) -&gt; Eq GetGroups
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetGroups -&gt; GetGroups -&gt; Bool
 == :: GetGroups -&gt; GetGroups -&gt; Bool
 $c== :: GetGroups -&gt; GetGroups -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262802"><span id="local-6989586621679262804"><span id="local-6989586621679262806"><span id="local-6989586621679262808"><span class="annot"><span class="annottext">ReadPrec [GetGroups]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263122"><span id="local-6989586621679263124"><span id="local-6989586621679263126"><span id="local-6989586621679263128"><span class="annot"><span class="annottext">ReadPrec [GetGroups]
 ReadPrec GetGroups
 Int -&gt; ReadS GetGroups
 ReadS [GetGroups]
@@ -83,7 +83,7 @@ readList :: ReadS [GetGroups]
 $creadList :: ReadS [GetGroups]
 readsPrec :: Int -&gt; ReadS GetGroups
 $creadsPrec :: Int -&gt; ReadS GetGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262795"><span id="local-6989586621679262797"><span id="local-6989586621679262799"><span class="annot"><span class="annottext">Int -&gt; GetGroups -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263115"><span id="local-6989586621679263117"><span id="local-6989586621679263119"><span class="annot"><span class="annottext">Int -&gt; GetGroups -&gt; ShowS
 [GetGroups] -&gt; ShowS
 GetGroups -&gt; String
 (Int -&gt; GetGroups -&gt; ShowS)
@@ -134,28 +134,28 @@ forall a. Maybe a
 -&gt; (GetGroups -&gt; Maybe Text -&gt; GetGroups)
 -&gt; Lens GetGroups GetGroups (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups%27"><span class="hs-identifier hs-type">GetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262789"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups%27"><span class="hs-identifier hs-type">GetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263109"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetGroups' :: GetGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679262789"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262789"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262788"><span class="annot"><span class="annottext">s :: GetGroups
-</span><a href="#local-6989586621679262788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups%27"><span class="hs-identifier hs-type">GetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262787"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroups
-</span><a href="#local-6989586621679262788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetGroups' :: Maybe Text
+</span><a href="#local-6989586621679263109"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263109"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263108"><span class="annot"><span class="annottext">s :: GetGroups
+</span><a href="#local-6989586621679263108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups%27"><span class="hs-identifier hs-type">GetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263107"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroups
+</span><a href="#local-6989586621679263108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetGroups' :: Maybe Text
 </span><a href="Network.AWS.XRay.GetGroups.html#%24sel%3AnextToken%3AGetGroups%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679263107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679262783"><span class="annot"><span class="annottext">page :: GetGroups -&gt; AWSResponse GetGroups -&gt; Maybe GetGroups
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679262781"><span class="annot"><span class="annottext">GetGroups
-</span><a href="#local-6989586621679262781"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679262780"><span class="annot"><span class="annottext">AWSResponse GetGroups
-</span><a href="#local-6989586621679262780"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679263103"><span class="annot"><span class="annottext">page :: GetGroups -&gt; AWSResponse GetGroups -&gt; Maybe GetGroups
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679263101"><span class="annot"><span class="annottext">GetGroups
+</span><a href="#local-6989586621679263101"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679263100"><span class="annot"><span class="annottext">AWSResponse GetGroups
+</span><a href="#local-6989586621679263100"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-80"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetGroups
 GetGroupsResponse
-</span><a href="#local-6989586621679262780"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679263100"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">GetGroupsResponse
 -&gt; Getting (First Text) GetGroupsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -181,7 +181,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-85"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse GetGroups
 GetGroupsResponse
-</span><a href="#local-6989586621679262780"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679263100"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">GetGroupsResponse
 -&gt; Getting (First [GroupSummary]) GetGroupsResponse [GroupSummary]
 -&gt; Maybe [GroupSummary]
@@ -217,7 +217,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">GetGroups
-</span><a href="#local-6989586621679262781"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679263101"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">GetGroups -&gt; (GetGroups -&gt; GetGroups) -&gt; GetGroups
 forall a b. a -&gt; (a -&gt; b) -&gt; b
 </span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
@@ -230,7 +230,7 @@ Lens GetGroups GetGroups (Maybe Text) (Maybe Text)
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse GetGroups
 GetGroupsResponse
-</span><a href="#local-6989586621679262780"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679263100"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-94"></span><span>          </span><span class="annot"><span class="annottext">GetGroupsResponse
 -&gt; Getting (First Text) GetGroupsResponse Text -&gt; Maybe Text
 forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
@@ -250,12 +250,12 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-95"></span><span>
 </span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-97"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-type">GetGroupsResponse</span></a></span><span>
-</span><span id="line-98"></span><span>  </span><span id="local-6989586621679262770"><span class="annot"><span class="annottext">request :: GetGroups -&gt; Request GetGroups
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679263090"><span class="annot"><span class="annottext">request :: GetGroups -&gt; Request GetGroups
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetGroups -&gt; Request GetGroups
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.XRay.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-99"></span><span>  </span><span id="local-6989586621679262766"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679263086"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetGroups
 -&gt; ClientResponse ClientBody
@@ -279,10 +279,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262763"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262763"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679262762"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679262762"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679262761"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262761"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679263083"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263083"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679263082"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679263082"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679263081"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679263081"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe [GroupSummary] -&gt; Maybe Text -&gt; Int -&gt; GetGroupsResponse
 </span><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-var">GetGroupsResponse'</span></a></span><span>
 </span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [GroupSummary] -&gt; Maybe Text -&gt; Int -&gt; GetGroupsResponse)
@@ -290,7 +290,7 @@ MonadResource m =&gt;
 -&gt; Either String (Maybe Text -&gt; Int -&gt; GetGroupsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [GroupSummary]))
+</span><a href="#local-6989586621679263081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [GroupSummary]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Groups&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [GroupSummary]))
@@ -304,7 +304,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; GetGroupsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679262761"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679263081"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -316,27 +316,27 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262763"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679263083"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262752"><span id="local-6989586621679262754"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span></span></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263072"><span id="local-6989586621679263074"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span></span></span><span>
 </span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262749"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263069"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span></span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679262745"><span class="annot"><span class="annottext">toHeaders :: GetGroups -&gt; ResponseHeaders
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679263065"><span class="annot"><span class="annottext">toHeaders :: GetGroups -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetGroups -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262736"><span id="local-6989586621679262738"><span id="local-6989586621679262740"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679262734"><span class="annot"><span class="annottext">toJSON :: GetGroups -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups%27"><span class="hs-identifier hs-type">GetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262732"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263056"><span id="local-6989586621679263058"><span id="local-6989586621679263060"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679263054"><span class="annot"><span class="annottext">toJSON :: GetGroups -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups%27"><span class="hs-identifier hs-type">GetGroups'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263052"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetGroups' :: GetGroups -&gt; Maybe Text
-</span><a href="#local-6989586621679262732"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679263052"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -348,18 +348,18 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262732"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679263052"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
 </span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679262726"><span class="annot"><span class="annottext">toPath :: GetGroups -&gt; ByteString
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679263046"><span class="annot"><span class="annottext">toPath :: GetGroups -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetGroups -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/Groups&quot;</span></span><span>
 </span><span id="line-124"></span><span>
 </span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroups"><span class="hs-identifier hs-type">GetGroups</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-126"></span><span>  </span><span id="local-6989586621679262722"><span class="annot"><span class="annottext">toQuery :: GetGroups -&gt; QueryString
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679263042"><span class="annot"><span class="annottext">toQuery :: GetGroups -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetGroups -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -367,7 +367,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newGetGroupsResponse' smart constructor.</span><span>
-</span><span id="line-129"></span><span id="local-6989586621679262719"><span id="local-6989586621679262720"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupsResponse"><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-var">GetGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupsResponse%27"><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-var">GetGroupsResponse'</span></a></span></span><span>
+</span><span id="line-129"></span><span id="local-6989586621679263039"><span id="local-6989586621679263040"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetGroupsResponse"><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-var">GetGroupsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetGroupsResponse%27"><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-var">GetGroupsResponse'</span></a></span></span><span>
 </span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The collection of all active groups.</span><span>
 </span><span id="line-131"></span><span>    </span><span id="%24sel%3Agroups%3AGetGroupsResponse%27"><span class="annot"><span class="annottext">GetGroupsResponse -&gt; Maybe [GroupSummary]
 </span><a href="Network.AWS.XRay.GetGroups.html#%24sel%3Agroups%3AGetGroupsResponse%27"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.XRay.Types.GroupSummary.html#GroupSummary"><span class="hs-identifier hs-type">GroupSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -378,7 +378,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetGroupsResponse%27"><span class="annot"><span class="annottext">GetGroupsResponse -&gt; Int
 </span><a href="Network.AWS.XRay.GetGroups.html#%24sel%3AhttpStatus%3AGetGroupsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262712"><span id="local-6989586621679262714"><span class="annot"><span class="annottext">GetGroupsResponse -&gt; GetGroupsResponse -&gt; Bool
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679263032"><span id="local-6989586621679263034"><span class="annot"><span class="annottext">GetGroupsResponse -&gt; GetGroupsResponse -&gt; Bool
 (GetGroupsResponse -&gt; GetGroupsResponse -&gt; Bool)
 -&gt; (GetGroupsResponse -&gt; GetGroupsResponse -&gt; Bool)
 -&gt; Eq GetGroupsResponse
@@ -387,7 +387,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetGroupsResponse -&gt; GetGroupsResponse -&gt; Bool
 == :: GetGroupsResponse -&gt; GetGroupsResponse -&gt; Bool
 $c== :: GetGroupsResponse -&gt; GetGroupsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262704"><span id="local-6989586621679262706"><span id="local-6989586621679262708"><span id="local-6989586621679262710"><span class="annot"><span class="annottext">ReadPrec [GetGroupsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263024"><span id="local-6989586621679263026"><span id="local-6989586621679263028"><span id="local-6989586621679263030"><span class="annot"><span class="annottext">ReadPrec [GetGroupsResponse]
 ReadPrec GetGroupsResponse
 Int -&gt; ReadS GetGroupsResponse
 ReadS [GetGroupsResponse]
@@ -407,7 +407,7 @@ readList :: ReadS [GetGroupsResponse]
 $creadList :: ReadS [GetGroupsResponse]
 readsPrec :: Int -&gt; ReadS GetGroupsResponse
 $creadsPrec :: Int -&gt; ReadS GetGroupsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262698"><span id="local-6989586621679262700"><span id="local-6989586621679262702"><span class="annot"><span class="annottext">Int -&gt; GetGroupsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679263018"><span id="local-6989586621679263020"><span id="local-6989586621679263022"><span class="annot"><span class="annottext">Int -&gt; GetGroupsResponse -&gt; ShowS
 [GetGroupsResponse] -&gt; ShowS
 GetGroupsResponse -&gt; String
 (Int -&gt; GetGroupsResponse -&gt; ShowS)
@@ -451,8 +451,8 @@ $cfrom :: forall x. GetGroupsResponse -&gt; Rep GetGroupsResponse x
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-type">GetGroupsResponse</span></a></span><span>
 </span><span id="line-156"></span><span id="newGetGroupsResponse"><span class="annot"><span class="annottext">newGetGroupsResponse :: Int -&gt; GetGroupsResponse
-</span><a href="Network.AWS.XRay.GetGroups.html#newGetGroupsResponse"><span class="hs-identifier hs-var hs-var">newGetGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679262695"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262695"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.XRay.GetGroups.html#newGetGroupsResponse"><span class="hs-identifier hs-var hs-var">newGetGroupsResponse</span></a></span></span><span> </span><span id="local-6989586621679263015"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263015"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">GetGroupsResponse' :: Maybe [GroupSummary] -&gt; Maybe Text -&gt; Int -&gt; GetGroupsResponse
 </span><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-type">GetGroupsResponse'</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:groups:GetGroupsResponse' :: Maybe [GroupSummary]
@@ -465,7 +465,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupsResponse' :: Int
 </span><a href="Network.AWS.XRay.GetGroups.html#%24sel%3AhttpStatus%3AGetGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262695"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679263015"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | The collection of all active groups.</span><span>
@@ -476,16 +476,16 @@ forall a. Maybe a
 -&gt; (GetGroupsResponse -&gt; Maybe [GroupSummary] -&gt; GetGroupsResponse)
 -&gt; Lens' GetGroupsResponse (Maybe [GroupSummary])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-type">GetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262694"><span class="annot"><span class="annottext">Maybe [GroupSummary]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-type">GetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263014"><span class="annot"><span class="annottext">Maybe [GroupSummary]
 groups :: Maybe [GroupSummary]
 $sel:groups:GetGroupsResponse' :: GetGroupsResponse -&gt; Maybe [GroupSummary]
-</span><a href="#local-6989586621679262694"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupSummary]
-</span><a href="#local-6989586621679262694"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262693"><span class="annot"><span class="annottext">s :: GetGroupsResponse
-</span><a href="#local-6989586621679262693"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-type">GetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262692"><span class="annot"><span class="annottext">Maybe [GroupSummary]
-</span><a href="#local-6989586621679262692"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsResponse
-</span><a href="#local-6989586621679262693"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:GetGroupsResponse' :: Maybe [GroupSummary]
+</span><a href="#local-6989586621679263014"><span class="hs-identifier hs-var hs-var">groups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupSummary]
+</span><a href="#local-6989586621679263014"><span class="hs-identifier hs-var">groups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263013"><span class="annot"><span class="annottext">s :: GetGroupsResponse
+</span><a href="#local-6989586621679263013"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-type">GetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263012"><span class="annot"><span class="annottext">Maybe [GroupSummary]
+</span><a href="#local-6989586621679263012"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsResponse
+</span><a href="#local-6989586621679263013"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:groups:GetGroupsResponse' :: Maybe [GroupSummary]
 </span><a href="Network.AWS.XRay.GetGroups.html#%24sel%3Agroups%3AGetGroupsResponse%27"><span class="hs-identifier hs-var">groups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GroupSummary]
-</span><a href="#local-6989586621679262692"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-type">GetGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupSummary] -&gt; f (Maybe [GroupSummary]))
+</span><a href="#local-6989586621679263012"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-type">GetGroupsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GroupSummary] -&gt; f (Maybe [GroupSummary]))
  -&gt; GetGroupsResponse -&gt; f GetGroupsResponse)
 -&gt; ((Maybe [GroupSummary] -&gt; f (Maybe [GroupSummary]))
     -&gt; Maybe [GroupSummary] -&gt; f (Maybe [GroupSummary]))
@@ -503,8 +503,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [GroupSummary] [GroupSummary] [GroupSummary] [GroupSummary]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-comment">-- | Pagination token.</span><span>
 </span><span id="line-168"></span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#getGroupsResponse_nextToken"><span class="hs-identifier hs-type">getGroupsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-type">GetGroupsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -514,16 +514,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetGroupsResponse -&gt; Maybe Text -&gt; GetGroupsResponse)
 -&gt; Lens' GetGroupsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-type">GetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262689"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-type">GetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263009"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetGroupsResponse' :: GetGroupsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679262689"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262689"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262688"><span class="annot"><span class="annottext">s :: GetGroupsResponse
-</span><a href="#local-6989586621679262688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-type">GetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262687"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsResponse
-</span><a href="#local-6989586621679262688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetGroupsResponse' :: Maybe Text
+</span><a href="#local-6989586621679263009"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263009"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263008"><span class="annot"><span class="annottext">s :: GetGroupsResponse
+</span><a href="#local-6989586621679263008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-type">GetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263007"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679263007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsResponse
+</span><a href="#local-6989586621679263008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetGroupsResponse' :: Maybe Text
 </span><a href="Network.AWS.XRay.GetGroups.html#%24sel%3AnextToken%3AGetGroupsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679262687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-type">GetGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679263007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-type">GetGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#getGroupsResponse_httpStatus"><span class="hs-identifier hs-type">getGroupsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-type">GetGroupsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -532,16 +532,16 @@ $sel:nextToken:GetGroupsResponse' :: GetGroupsResponse -&gt; Maybe Text
 -&gt; (GetGroupsResponse -&gt; Int -&gt; GetGroupsResponse)
 -&gt; Lens GetGroupsResponse GetGroupsResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-type">GetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262686"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-type">GetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679263006"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetGroupsResponse' :: GetGroupsResponse -&gt; Int
-</span><a href="#local-6989586621679262686"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262686"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262685"><span class="annot"><span class="annottext">s :: GetGroupsResponse
-</span><a href="#local-6989586621679262685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-type">GetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262684"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsResponse
-</span><a href="#local-6989586621679262685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupsResponse' :: Int
+</span><a href="#local-6989586621679263006"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263006"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679263005"><span class="annot"><span class="annottext">s :: GetGroupsResponse
+</span><a href="#local-6989586621679263005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse%27"><span class="hs-identifier hs-type">GetGroupsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679263004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679263004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetGroupsResponse
+</span><a href="#local-6989586621679263005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetGroupsResponse' :: Int
 </span><a href="Network.AWS.XRay.GetGroups.html#%24sel%3AhttpStatus%3AGetGroupsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679262684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-type">GetGroupsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679263004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-type">GetGroupsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
-</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262682"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-type">GetGroupsResponse</span></a></span></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679263002"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.XRay.GetGroups.html#GetGroupsResponse"><span class="hs-identifier hs-type">GetGroupsResponse</span></a></span></span><span>
 </span><span id="line-176"></span></pre></body></html>

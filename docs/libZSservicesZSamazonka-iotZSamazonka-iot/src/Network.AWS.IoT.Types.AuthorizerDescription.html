@@ -27,38 +27,38 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The authorizer description.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAuthorizerDescription' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679776655"><span id="local-6989586621679776656"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizerDescription"><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-var">AuthorizerDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizerDescription%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-var">AuthorizerDescription'</span></a></span></span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The UNIX timestamp of when the authorizer was last updated.</span><span>
-</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AlastModifiedDate%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The authorizer ARN.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AauthorizerArn%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerArn%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">authorizerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The status of the authorizer.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe AuthorizerStatus
+</span><span id="line-30"></span><span id="local-6989586621679777501"><span id="local-6989586621679777502"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthorizerDescription"><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-var">AuthorizerDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthorizerDescription%27"><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-var">AuthorizerDescription'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the authorizer.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Astatus%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe AuthorizerStatus
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3Astatus%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerStatus.html#AuthorizerStatus"><span class="hs-identifier hs-type">AuthorizerStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The authorizer\'s Lambda function ARN.</span><span>
-</span><span id="line-38"></span><span>    </span><span id="%24sel%3AauthorizerFunctionArn%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerFunctionArn%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">authorizerFunctionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The UNIX timestamp of when the authorizer was created.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcreationDate%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AcreationDate%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The public keys used to validate the token signature returned by your</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- custom authentication service.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AtokenSigningPublicKeys%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe (HashMap Text Text)
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AtokenSigningPublicKeys%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">tokenSigningPublicKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The authorizer name.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AauthorizerName%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe Text
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The UNIX timestamp of when the authorizer was last updated.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastModifiedDate%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AlastModifiedDate%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Specifies whether IoT validates the token signature in an authorization</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsigningDisabled%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe Bool
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AsigningDisabled%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">signingDisabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The authorizer name.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AauthorizerName%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe Text
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerName%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">authorizerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The key used to extract the token from the HTTP headers.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AtokenKeyName%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe Text
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AtokenKeyName%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">tokenKeyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Specifies whether IoT validates the token signature in an authorization</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3AsigningDisabled%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe Bool
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AsigningDisabled%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">signingDisabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The authorizer\'s Lambda function ARN.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AauthorizerFunctionArn%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerFunctionArn%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">authorizerFunctionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The authorizer ARN.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AauthorizerArn%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerArn%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">authorizerArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The UNIX timestamp of when the authorizer was created.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcreationDate%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AcreationDate%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The public keys used to validate the token signature returned by your</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- custom authentication service.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AtokenSigningPublicKeys%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe (HashMap Text Text)
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AtokenSigningPublicKeys%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">tokenSigningPublicKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The key used to extract the token from the HTTP headers.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AtokenKeyName%3AAuthorizerDescription%27"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AtokenKeyName%3AAuthorizerDescription%27"><span class="hs-identifier hs-var hs-var">tokenKeyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679776641"><span id="local-6989586621679776643"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; AuthorizerDescription -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679777487"><span id="local-6989586621679777489"><span class="annot"><span class="annottext">AuthorizerDescription -&gt; AuthorizerDescription -&gt; Bool
 (AuthorizerDescription -&gt; AuthorizerDescription -&gt; Bool)
 -&gt; (AuthorizerDescription -&gt; AuthorizerDescription -&gt; Bool)
 -&gt; Eq AuthorizerDescription
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AuthorizerDescription -&gt; AuthorizerDescription -&gt; Bool
 == :: AuthorizerDescription -&gt; AuthorizerDescription -&gt; Bool
 $c== :: AuthorizerDescription -&gt; AuthorizerDescription -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679776632"><span id="local-6989586621679776634"><span id="local-6989586621679776636"><span id="local-6989586621679776638"><span class="annot"><span class="annottext">ReadPrec [AuthorizerDescription]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777478"><span id="local-6989586621679777480"><span id="local-6989586621679777482"><span id="local-6989586621679777484"><span class="annot"><span class="annottext">ReadPrec [AuthorizerDescription]
 ReadPrec AuthorizerDescription
 Int -&gt; ReadS AuthorizerDescription
 ReadS [AuthorizerDescription]
@@ -87,7 +87,7 @@ readList :: ReadS [AuthorizerDescription]
 $creadList :: ReadS [AuthorizerDescription]
 readsPrec :: Int -&gt; ReadS AuthorizerDescription
 $creadsPrec :: Int -&gt; ReadS AuthorizerDescription
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679776625"><span id="local-6989586621679776627"><span id="local-6989586621679776629"><span class="annot"><span class="annottext">Int -&gt; AuthorizerDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679777471"><span id="local-6989586621679777473"><span id="local-6989586621679777475"><span class="annot"><span class="annottext">Int -&gt; AuthorizerDescription -&gt; ShowS
 [AuthorizerDescription] -&gt; ShowS
 AuthorizerDescription -&gt; String
 (Int -&gt; AuthorizerDescription -&gt; ShowS)
@@ -121,143 +121,81 @@ $cfrom :: forall x. AuthorizerDescription -&gt; Rep AuthorizerDescription x
 </span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'lastModifiedDate', 'authorizerDescription_lastModifiedDate' - The UNIX timestamp of when the authorizer was last updated.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'status', 'authorizerDescription_status' - The status of the authorizer.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'authorizerArn', 'authorizerDescription_authorizerArn' - The authorizer ARN.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'lastModifiedDate', 'authorizerDescription_lastModifiedDate' - The UNIX timestamp of when the authorizer was last updated.</span><span>
 </span><span id="line-65"></span><span class="hs-comment">--</span><span>
-</span><span id="line-66"></span><span class="hs-comment">-- 'status', 'authorizerDescription_status' - The status of the authorizer.</span><span>
-</span><span id="line-67"></span><span class="hs-comment">--</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- 'authorizerFunctionArn', 'authorizerDescription_authorizerFunctionArn' - The authorizer\'s Lambda function ARN.</span><span>
-</span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'creationDate', 'authorizerDescription_creationDate' - The UNIX timestamp of when the authorizer was created.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'tokenSigningPublicKeys', 'authorizerDescription_tokenSigningPublicKeys' - The public keys used to validate the token signature returned by your</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- custom authentication service.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'signingDisabled', 'authorizerDescription_signingDisabled' - Specifies whether IoT validates the token signature in an authorization</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'authorizerName', 'authorizerDescription_authorizerName' - The authorizer name.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'authorizerFunctionArn', 'authorizerDescription_authorizerFunctionArn' - The authorizer\'s Lambda function ARN.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'authorizerArn', 'authorizerDescription_authorizerArn' - The authorizer ARN.</span><span>
 </span><span id="line-74"></span><span class="hs-comment">--</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- 'authorizerName', 'authorizerDescription_authorizerName' - The authorizer name.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'creationDate', 'authorizerDescription_creationDate' - The UNIX timestamp of when the authorizer was created.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
-</span><span id="line-77"></span><span class="hs-comment">-- 'tokenKeyName', 'authorizerDescription_tokenKeyName' - The key used to extract the token from the HTTP headers.</span><span>
-</span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'signingDisabled', 'authorizerDescription_signingDisabled' - Specifies whether IoT validates the token signature in an authorization</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'tokenSigningPublicKeys', 'authorizerDescription_tokenSigningPublicKeys' - The public keys used to validate the token signature returned by your</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- custom authentication service.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'tokenKeyName', 'authorizerDescription_tokenKeyName' - The key used to extract the token from the HTTP headers.</span><span>
 </span><span id="line-81"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#newAuthorizerDescription"><span class="hs-identifier hs-type">newAuthorizerDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span>
 </span><span id="line-83"></span><span id="newAuthorizerDescription"><span class="annot"><span class="annottext">newAuthorizerDescription :: AuthorizerDescription
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#newAuthorizerDescription"><span class="hs-identifier hs-var hs-var">newAuthorizerDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">AuthorizerDescription' :: Maybe POSIX
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">AuthorizerDescription' :: Maybe AuthorizerStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
 -&gt; Maybe Text
--&gt; Maybe AuthorizerStatus
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe (HashMap Text Text)
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Bool
 -&gt; AuthorizerDescription
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:AuthorizerDescription' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AlastModifiedDate%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizerArn:AuthorizerDescription' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerArn%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">authorizerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:AuthorizerDescription' :: Maybe AuthorizerStatus
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:AuthorizerDescription' :: Maybe AuthorizerStatus
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3Astatus%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedDate:AuthorizerDescription' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AlastModifiedDate%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:signingDisabled:AuthorizerDescription' :: Maybe Bool
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AsigningDisabled%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">signingDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizerName:AuthorizerDescription' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerName%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">authorizerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizerFunctionArn:AuthorizerDescription' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerFunctionArn%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">authorizerFunctionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:AuthorizerDescription' :: Maybe POSIX
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizerArn:AuthorizerDescription' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerArn%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">authorizerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:creationDate:AuthorizerDescription' :: Maybe POSIX
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AcreationDate%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:tokenSigningPublicKeys:AuthorizerDescription' :: Maybe (HashMap Text Text)
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:tokenSigningPublicKeys:AuthorizerDescription' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AtokenSigningPublicKeys%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">tokenSigningPublicKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorizerName:AuthorizerDescription' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerName%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">authorizerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:tokenKeyName:AuthorizerDescription' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AtokenKeyName%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">tokenKeyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:signingDisabled:AuthorizerDescription' :: Maybe Bool
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AsigningDisabled%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">signingDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The UNIX timestamp of when the authorizer was last updated.</span><span>
-</span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_lastModifiedDate"><span class="hs-identifier hs-type">authorizerDescription_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-99"></span><span id="authorizerDescription_lastModifiedDate"><span class="annot"><span class="annottext">authorizerDescription_lastModifiedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AuthorizerDescription -&gt; f AuthorizerDescription
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_lastModifiedDate"><span class="hs-identifier hs-var hs-var">authorizerDescription_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe POSIX)
--&gt; (AuthorizerDescription -&gt; Maybe POSIX -&gt; AuthorizerDescription)
--&gt; Lens
-     AuthorizerDescription
-     AuthorizerDescription
-     (Maybe POSIX)
-     (Maybe POSIX)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776616"><span class="annot"><span class="annottext">Maybe POSIX
-lastModifiedDate :: Maybe POSIX
-$sel:lastModifiedDate:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe POSIX
-</span><a href="#local-6989586621679776616"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679776616"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776615"><span class="annot"><span class="annottext">s :: AuthorizerDescription
-</span><a href="#local-6989586621679776615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776614"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679776614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
-</span><a href="#local-6989586621679776615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:AuthorizerDescription' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AlastModifiedDate%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679776614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
- -&gt; AuthorizerDescription -&gt; f AuthorizerDescription)
--&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
-    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
--&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AuthorizerDescription
--&gt; f AuthorizerDescription
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
--&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
-forall (a :: Format). Iso' (Time a) UTCTime
-</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The authorizer ARN.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_authorizerArn"><span class="hs-identifier hs-type">authorizerDescription_authorizerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="authorizerDescription_authorizerArn"><span class="annot"><span class="annottext">authorizerDescription_authorizerArn :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AuthorizerDescription -&gt; f AuthorizerDescription
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_authorizerArn"><span class="hs-identifier hs-var hs-var">authorizerDescription_authorizerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe Text)
--&gt; (AuthorizerDescription -&gt; Maybe Text -&gt; AuthorizerDescription)
--&gt; Lens
-     AuthorizerDescription
-     AuthorizerDescription
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776609"><span class="annot"><span class="annottext">Maybe Text
-authorizerArn :: Maybe Text
-$sel:authorizerArn:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679776609"><span class="hs-identifier hs-var hs-var">authorizerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776609"><span class="hs-identifier hs-var">authorizerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776608"><span class="annot"><span class="annottext">s :: AuthorizerDescription
-</span><a href="#local-6989586621679776608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776607"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
-</span><a href="#local-6989586621679776608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerArn:AuthorizerDescription' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerArn%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">authorizerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The status of the authorizer.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_status"><span class="hs-identifier hs-type">authorizerDescription_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerStatus.html#AuthorizerStatus"><span class="hs-identifier hs-type">AuthorizerStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="authorizerDescription_status"><span class="annot"><span class="annottext">authorizerDescription_status :: (Maybe AuthorizerStatus -&gt; f (Maybe AuthorizerStatus))
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The status of the authorizer.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_status"><span class="hs-identifier hs-type">authorizerDescription_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerStatus.html#AuthorizerStatus"><span class="hs-identifier hs-type">AuthorizerStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="authorizerDescription_status"><span class="annot"><span class="annottext">authorizerDescription_status :: (Maybe AuthorizerStatus -&gt; f (Maybe AuthorizerStatus))
 -&gt; AuthorizerDescription -&gt; f AuthorizerDescription
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_status"><span class="hs-identifier hs-var hs-var">authorizerDescription_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe AuthorizerStatus)
 -&gt; (AuthorizerDescription
@@ -268,45 +206,22 @@ $sel:authorizerArn:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe T
      (Maybe AuthorizerStatus)
      (Maybe AuthorizerStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776605"><span class="annot"><span class="annottext">Maybe AuthorizerStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777462"><span class="annot"><span class="annottext">Maybe AuthorizerStatus
 status :: Maybe AuthorizerStatus
 $sel:status:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe AuthorizerStatus
-</span><a href="#local-6989586621679776605"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerStatus
-</span><a href="#local-6989586621679776605"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776604"><span class="annot"><span class="annottext">s :: AuthorizerDescription
-</span><a href="#local-6989586621679776604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776603"><span class="annot"><span class="annottext">Maybe AuthorizerStatus
-</span><a href="#local-6989586621679776603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
-</span><a href="#local-6989586621679776604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AuthorizerDescription' :: Maybe AuthorizerStatus
+</span><a href="#local-6989586621679777462"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerStatus
+</span><a href="#local-6989586621679777462"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777461"><span class="annot"><span class="annottext">s :: AuthorizerDescription
+</span><a href="#local-6989586621679777461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777460"><span class="annot"><span class="annottext">Maybe AuthorizerStatus
+</span><a href="#local-6989586621679777460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
+</span><a href="#local-6989586621679777461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AuthorizerDescription' :: Maybe AuthorizerStatus
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3Astatus%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthorizerStatus
-</span><a href="#local-6989586621679776603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The authorizer\'s Lambda function ARN.</span><span>
-</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_authorizerFunctionArn"><span class="hs-identifier hs-type">authorizerDescription_authorizerFunctionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-111"></span><span id="authorizerDescription_authorizerFunctionArn"><span class="annot"><span class="annottext">authorizerDescription_authorizerFunctionArn :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679777460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The UNIX timestamp of when the authorizer was last updated.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_lastModifiedDate"><span class="hs-identifier hs-type">authorizerDescription_lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="authorizerDescription_lastModifiedDate"><span class="annot"><span class="annottext">authorizerDescription_lastModifiedDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
 -&gt; AuthorizerDescription -&gt; f AuthorizerDescription
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_authorizerFunctionArn"><span class="hs-identifier hs-var hs-var">authorizerDescription_authorizerFunctionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe Text)
--&gt; (AuthorizerDescription -&gt; Maybe Text -&gt; AuthorizerDescription)
--&gt; Lens
-     AuthorizerDescription
-     AuthorizerDescription
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776601"><span class="annot"><span class="annottext">Maybe Text
-authorizerFunctionArn :: Maybe Text
-$sel:authorizerFunctionArn:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679776601"><span class="hs-identifier hs-var hs-var">authorizerFunctionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776601"><span class="hs-identifier hs-var">authorizerFunctionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776600"><span class="annot"><span class="annottext">s :: AuthorizerDescription
-</span><a href="#local-6989586621679776600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776599"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
-</span><a href="#local-6989586621679776600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerFunctionArn:AuthorizerDescription' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerFunctionArn%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">authorizerFunctionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- | The UNIX timestamp of when the authorizer was created.</span><span>
-</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_creationDate"><span class="hs-identifier hs-type">authorizerDescription_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span id="authorizerDescription_creationDate"><span class="annot"><span class="annottext">authorizerDescription_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
--&gt; AuthorizerDescription -&gt; f AuthorizerDescription
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_creationDate"><span class="hs-identifier hs-var hs-var">authorizerDescription_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe POSIX)
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_lastModifiedDate"><span class="hs-identifier hs-var hs-var">authorizerDescription_lastModifiedDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe POSIX)
 -&gt; (AuthorizerDescription -&gt; Maybe POSIX -&gt; AuthorizerDescription)
 -&gt; Lens
      AuthorizerDescription
@@ -314,16 +229,16 @@ $sel:authorizerFunctionArn:AuthorizerDescription' :: AuthorizerDescription -&gt;
      (Maybe POSIX)
      (Maybe POSIX)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776597"><span class="annot"><span class="annottext">Maybe POSIX
-creationDate :: Maybe POSIX
-$sel:creationDate:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe POSIX
-</span><a href="#local-6989586621679776597"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679776597"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776596"><span class="annot"><span class="annottext">s :: AuthorizerDescription
-</span><a href="#local-6989586621679776596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776595"><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679776595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
-</span><a href="#local-6989586621679776596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:AuthorizerDescription' :: Maybe POSIX
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AcreationDate%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
-</span><a href="#local-6989586621679776595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777458"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedDate :: Maybe POSIX
+$sel:lastModifiedDate:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679777458"><span class="hs-identifier hs-var hs-var">lastModifiedDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679777458"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777457"><span class="annot"><span class="annottext">s :: AuthorizerDescription
+</span><a href="#local-6989586621679777457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777456"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679777456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
+</span><a href="#local-6989586621679777457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedDate:AuthorizerDescription' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AlastModifiedDate%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">lastModifiedDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679777456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
  -&gt; AuthorizerDescription -&gt; f AuthorizerDescription)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
@@ -339,11 +254,142 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
 forall (a :: Format). Iso' (Time a) UTCTime
 </span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | Specifies whether IoT validates the token signature in an authorization</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_signingDisabled"><span class="hs-identifier hs-type">authorizerDescription_signingDisabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="authorizerDescription_signingDisabled"><span class="annot"><span class="annottext">authorizerDescription_signingDisabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AuthorizerDescription -&gt; f AuthorizerDescription
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_signingDisabled"><span class="hs-identifier hs-var hs-var">authorizerDescription_signingDisabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe Bool)
+-&gt; (AuthorizerDescription -&gt; Maybe Bool -&gt; AuthorizerDescription)
+-&gt; Lens
+     AuthorizerDescription
+     AuthorizerDescription
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777451"><span class="annot"><span class="annottext">Maybe Bool
+signingDisabled :: Maybe Bool
+$sel:signingDisabled:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe Bool
+</span><a href="#local-6989586621679777451"><span class="hs-identifier hs-var hs-var">signingDisabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679777451"><span class="hs-identifier hs-var">signingDisabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777450"><span class="annot"><span class="annottext">s :: AuthorizerDescription
+</span><a href="#local-6989586621679777450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777449"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679777449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
+</span><a href="#local-6989586621679777450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingDisabled:AuthorizerDescription' :: Maybe Bool
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AsigningDisabled%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">signingDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679777449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The authorizer name.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_authorizerName"><span class="hs-identifier hs-type">authorizerDescription_authorizerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="authorizerDescription_authorizerName"><span class="annot"><span class="annottext">authorizerDescription_authorizerName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthorizerDescription -&gt; f AuthorizerDescription
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_authorizerName"><span class="hs-identifier hs-var hs-var">authorizerDescription_authorizerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe Text)
+-&gt; (AuthorizerDescription -&gt; Maybe Text -&gt; AuthorizerDescription)
+-&gt; Lens
+     AuthorizerDescription
+     AuthorizerDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777447"><span class="annot"><span class="annottext">Maybe Text
+authorizerName :: Maybe Text
+$sel:authorizerName:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679777447"><span class="hs-identifier hs-var hs-var">authorizerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679777447"><span class="hs-identifier hs-var">authorizerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777446"><span class="annot"><span class="annottext">s :: AuthorizerDescription
+</span><a href="#local-6989586621679777446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777445"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679777445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
+</span><a href="#local-6989586621679777446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerName:AuthorizerDescription' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerName%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">authorizerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679777445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The authorizer\'s Lambda function ARN.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_authorizerFunctionArn"><span class="hs-identifier hs-type">authorizerDescription_authorizerFunctionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="authorizerDescription_authorizerFunctionArn"><span class="annot"><span class="annottext">authorizerDescription_authorizerFunctionArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthorizerDescription -&gt; f AuthorizerDescription
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_authorizerFunctionArn"><span class="hs-identifier hs-var hs-var">authorizerDescription_authorizerFunctionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe Text)
+-&gt; (AuthorizerDescription -&gt; Maybe Text -&gt; AuthorizerDescription)
+-&gt; Lens
+     AuthorizerDescription
+     AuthorizerDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777443"><span class="annot"><span class="annottext">Maybe Text
+authorizerFunctionArn :: Maybe Text
+$sel:authorizerFunctionArn:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679777443"><span class="hs-identifier hs-var hs-var">authorizerFunctionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679777443"><span class="hs-identifier hs-var">authorizerFunctionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777442"><span class="annot"><span class="annottext">s :: AuthorizerDescription
+</span><a href="#local-6989586621679777442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777441"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679777441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
+</span><a href="#local-6989586621679777442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerFunctionArn:AuthorizerDescription' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerFunctionArn%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">authorizerFunctionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679777441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-116"></span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- | The public keys used to validate the token signature returned by your</span><span>
-</span><span id="line-118"></span><span class="hs-comment">-- custom authentication service.</span><span>
-</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_tokenSigningPublicKeys"><span class="hs-identifier hs-type">authorizerDescription_tokenSigningPublicKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-120"></span><span id="authorizerDescription_tokenSigningPublicKeys"><span class="annot"><span class="annottext">authorizerDescription_tokenSigningPublicKeys :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-117"></span><span class="hs-comment">-- | The authorizer ARN.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_authorizerArn"><span class="hs-identifier hs-type">authorizerDescription_authorizerArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="authorizerDescription_authorizerArn"><span class="annot"><span class="annottext">authorizerDescription_authorizerArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthorizerDescription -&gt; f AuthorizerDescription
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_authorizerArn"><span class="hs-identifier hs-var hs-var">authorizerDescription_authorizerArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe Text)
+-&gt; (AuthorizerDescription -&gt; Maybe Text -&gt; AuthorizerDescription)
+-&gt; Lens
+     AuthorizerDescription
+     AuthorizerDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777439"><span class="annot"><span class="annottext">Maybe Text
+authorizerArn :: Maybe Text
+$sel:authorizerArn:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679777439"><span class="hs-identifier hs-var hs-var">authorizerArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679777439"><span class="hs-identifier hs-var">authorizerArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777438"><span class="annot"><span class="annottext">s :: AuthorizerDescription
+</span><a href="#local-6989586621679777438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777437"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679777437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
+</span><a href="#local-6989586621679777438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerArn:AuthorizerDescription' :: Maybe Text
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerArn%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">authorizerArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679777437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The UNIX timestamp of when the authorizer was created.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_creationDate"><span class="hs-identifier hs-type">authorizerDescription_creationDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="authorizerDescription_creationDate"><span class="annot"><span class="annottext">authorizerDescription_creationDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AuthorizerDescription -&gt; f AuthorizerDescription
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_creationDate"><span class="hs-identifier hs-var hs-var">authorizerDescription_creationDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe POSIX)
+-&gt; (AuthorizerDescription -&gt; Maybe POSIX -&gt; AuthorizerDescription)
+-&gt; Lens
+     AuthorizerDescription
+     AuthorizerDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777435"><span class="annot"><span class="annottext">Maybe POSIX
+creationDate :: Maybe POSIX
+$sel:creationDate:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679777435"><span class="hs-identifier hs-var hs-var">creationDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679777435"><span class="hs-identifier hs-var">creationDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777434"><span class="annot"><span class="annottext">s :: AuthorizerDescription
+</span><a href="#local-6989586621679777434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777433"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679777433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
+</span><a href="#local-6989586621679777434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationDate:AuthorizerDescription' :: Maybe POSIX
+</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AcreationDate%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">creationDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679777433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AuthorizerDescription -&gt; f AuthorizerDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AuthorizerDescription
+-&gt; f AuthorizerDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The public keys used to validate the token signature returned by your</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- custom authentication service.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_tokenSigningPublicKeys"><span class="hs-identifier hs-type">authorizerDescription_tokenSigningPublicKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="authorizerDescription_tokenSigningPublicKeys"><span class="annot"><span class="annottext">authorizerDescription_tokenSigningPublicKeys :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; AuthorizerDescription -&gt; f AuthorizerDescription
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_tokenSigningPublicKeys"><span class="hs-identifier hs-var hs-var">authorizerDescription_tokenSigningPublicKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe (HashMap Text Text))
 -&gt; (AuthorizerDescription
@@ -354,16 +400,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776593"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777431"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 tokenSigningPublicKeys :: Maybe (HashMap Text Text)
 $sel:tokenSigningPublicKeys:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679776593"><span class="hs-identifier hs-var hs-var">tokenSigningPublicKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679776593"><span class="hs-identifier hs-var">tokenSigningPublicKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776592"><span class="annot"><span class="annottext">s :: AuthorizerDescription
-</span><a href="#local-6989586621679776592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776591"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679776591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
-</span><a href="#local-6989586621679776592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenSigningPublicKeys:AuthorizerDescription' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679777431"><span class="hs-identifier hs-var hs-var">tokenSigningPublicKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679777431"><span class="hs-identifier hs-var">tokenSigningPublicKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777430"><span class="annot"><span class="annottext">s :: AuthorizerDescription
+</span><a href="#local-6989586621679777430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777429"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679777429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
+</span><a href="#local-6989586621679777430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenSigningPublicKeys:AuthorizerDescription' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AtokenSigningPublicKeys%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">tokenSigningPublicKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679776591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679777429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; AuthorizerDescription -&gt; f AuthorizerDescription)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -389,35 +435,12 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- | The authorizer name.</span><span>
-</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_authorizerName"><span class="hs-identifier hs-type">authorizerDescription_authorizerName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span id="authorizerDescription_authorizerName"><span class="annot"><span class="annottext">authorizerDescription_authorizerName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AuthorizerDescription -&gt; f AuthorizerDescription
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_authorizerName"><span class="hs-identifier hs-var hs-var">authorizerDescription_authorizerName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe Text)
--&gt; (AuthorizerDescription -&gt; Maybe Text -&gt; AuthorizerDescription)
--&gt; Lens
-     AuthorizerDescription
-     AuthorizerDescription
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776588"><span class="annot"><span class="annottext">Maybe Text
-authorizerName :: Maybe Text
-$sel:authorizerName:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679776588"><span class="hs-identifier hs-var hs-var">authorizerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776588"><span class="hs-identifier hs-var">authorizerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776587"><span class="annot"><span class="annottext">s :: AuthorizerDescription
-</span><a href="#local-6989586621679776587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776586"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
-</span><a href="#local-6989586621679776587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorizerName:AuthorizerDescription' :: Maybe Text
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AauthorizerName%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">authorizerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- | The key used to extract the token from the HTTP headers.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_tokenKeyName"><span class="hs-identifier hs-type">authorizerDescription_tokenKeyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="authorizerDescription_tokenKeyName"><span class="annot"><span class="annottext">authorizerDescription_tokenKeyName :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The key used to extract the token from the HTTP headers.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_tokenKeyName"><span class="hs-identifier hs-type">authorizerDescription_tokenKeyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="authorizerDescription_tokenKeyName"><span class="annot"><span class="annottext">authorizerDescription_tokenKeyName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AuthorizerDescription -&gt; f AuthorizerDescription
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_tokenKeyName"><span class="hs-identifier hs-var hs-var">authorizerDescription_tokenKeyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe Text)
 -&gt; (AuthorizerDescription -&gt; Maybe Text -&gt; AuthorizerDescription)
@@ -427,230 +450,220 @@ $sel:authorizerName:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776584"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679777426"><span class="annot"><span class="annottext">Maybe Text
 tokenKeyName :: Maybe Text
 $sel:tokenKeyName:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe Text
-</span><a href="#local-6989586621679776584"><span class="hs-identifier hs-var hs-var">tokenKeyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776584"><span class="hs-identifier hs-var">tokenKeyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776583"><span class="annot"><span class="annottext">s :: AuthorizerDescription
-</span><a href="#local-6989586621679776583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776582"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
-</span><a href="#local-6989586621679776583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenKeyName:AuthorizerDescription' :: Maybe Text
+</span><a href="#local-6989586621679777426"><span class="hs-identifier hs-var hs-var">tokenKeyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679777426"><span class="hs-identifier hs-var">tokenKeyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679777425"><span class="annot"><span class="annottext">s :: AuthorizerDescription
+</span><a href="#local-6989586621679777425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679777424"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679777424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
+</span><a href="#local-6989586621679777425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tokenKeyName:AuthorizerDescription' :: Maybe Text
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AtokenKeyName%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">tokenKeyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679776582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | Specifies whether IoT validates the token signature in an authorization</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_signingDisabled"><span class="hs-identifier hs-type">authorizerDescription_signingDisabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="authorizerDescription_signingDisabled"><span class="annot"><span class="annottext">authorizerDescription_signingDisabled :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; AuthorizerDescription -&gt; f AuthorizerDescription
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#authorizerDescription_signingDisabled"><span class="hs-identifier hs-var hs-var">authorizerDescription_signingDisabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthorizerDescription -&gt; Maybe Bool)
--&gt; (AuthorizerDescription -&gt; Maybe Bool -&gt; AuthorizerDescription)
--&gt; Lens
-     AuthorizerDescription
-     AuthorizerDescription
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679776580"><span class="annot"><span class="annottext">Maybe Bool
-signingDisabled :: Maybe Bool
-$sel:signingDisabled:AuthorizerDescription' :: AuthorizerDescription -&gt; Maybe Bool
-</span><a href="#local-6989586621679776580"><span class="hs-identifier hs-var hs-var">signingDisabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679776580"><span class="hs-identifier hs-var">signingDisabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679776579"><span class="annot"><span class="annottext">s :: AuthorizerDescription
-</span><a href="#local-6989586621679776579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-type">AuthorizerDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679776578"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679776578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthorizerDescription
-</span><a href="#local-6989586621679776579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:signingDisabled:AuthorizerDescription' :: Maybe Bool
-</span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#%24sel%3AsigningDisabled%3AAuthorizerDescription%27"><span class="hs-identifier hs-var">signingDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679776578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679776575"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621679776573"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AuthorizerDescription
+</span><a href="#local-6989586621679777424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777421"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679777419"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AuthorizerDescription
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser AuthorizerDescription)
 -&gt; Value
 -&gt; Parser AuthorizerDescription
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;AuthorizerDescription&quot;</span></span><span>
-</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679776570"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776570"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679777416"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679777416"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe AuthorizerStatus
+-&gt; Maybe POSIX
+-&gt; Maybe Bool
 -&gt; Maybe Text
--&gt; Maybe AuthorizerStatus
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe POSIX
 -&gt; Maybe (HashMap Text Text)
 -&gt; Maybe Text
--&gt; Maybe Text
--&gt; Maybe Bool
 -&gt; AuthorizerDescription
 </span><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription%27"><span class="hs-identifier hs-var">AuthorizerDescription'</span></a></span><span>
-</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AuthorizerStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe Bool
  -&gt; Maybe Text
- -&gt; Maybe AuthorizerStatus
+ -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe POSIX
  -&gt; Maybe (HashMap Text Text)
  -&gt; Maybe Text
- -&gt; Maybe Text
- -&gt; Maybe Bool
  -&gt; AuthorizerDescription)
--&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe AuthorizerStatus)
 -&gt; Parser
-     (Maybe Text
-      -&gt; Maybe AuthorizerStatus
+     (Maybe POSIX
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Bool
       -&gt; AuthorizerDescription)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679777416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthorizerStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; AuthorizerDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; AuthorizerDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679777416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;lastModifiedDate&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe AuthorizerStatus
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Bool
    -&gt; AuthorizerDescription)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Bool)
 -&gt; Parser
-     (Maybe AuthorizerStatus
+     (Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe POSIX
       -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Bool
       -&gt; AuthorizerDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679777416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;authorizerArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;signingDisabled&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe AuthorizerStatus
+  (Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe POSIX
    -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Bool
    -&gt; AuthorizerDescription)
--&gt; Parser (Maybe AuthorizerStatus)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; AuthorizerDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679777416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authorizerName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; AuthorizerDescription)
+-&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
       -&gt; Maybe POSIX
       -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Bool
       -&gt; AuthorizerDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthorizerStatus)
+</span><a href="#local-6989586621679777416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;authorizerFunctionArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
    -&gt; Maybe POSIX
    -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Bool
    -&gt; AuthorizerDescription)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe POSIX
       -&gt; Maybe (HashMap Text Text)
       -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Bool
       -&gt; AuthorizerDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679777416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;authorizerFunctionArn&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;authorizerArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe POSIX
    -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Bool
    -&gt; AuthorizerDescription)
 -&gt; Parser (Maybe POSIX)
 -&gt; Parser
-     (Maybe (HashMap Text Text)
-      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; AuthorizerDescription)
+     (Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; AuthorizerDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+</span><a href="#local-6989586621679777416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;creationDate&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe (HashMap Text Text)
-   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; AuthorizerDescription)
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text) -&gt; Maybe Text -&gt; AuthorizerDescription)
 -&gt; Parser (Maybe (HashMap Text Text))
--&gt; Parser
-     (Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; AuthorizerDescription)
+-&gt; Parser (Maybe Text -&gt; AuthorizerDescription)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679777416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tokenSigningPublicKeys&quot;</span></span><span>
-</span><span id="line-147"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+</span><span id="line-148"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
 -&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-148"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text -&gt; Maybe Text -&gt; Maybe Bool -&gt; AuthorizerDescription)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Text -&gt; Maybe Bool -&gt; AuthorizerDescription)
+</span><span id="line-149"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AuthorizerDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser AuthorizerDescription
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;authorizerName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Bool -&gt; AuthorizerDescription)
--&gt; Parser (Maybe Text)
--&gt; Parser (Maybe Bool -&gt; AuthorizerDescription)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679777416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tokenKeyName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Bool -&gt; AuthorizerDescription)
--&gt; Parser (Maybe Bool) -&gt; Parser AuthorizerDescription
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679776570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;signingDisabled&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-153"></span><span>
-</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679776563"><span id="local-6989586621679776565"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span></span></span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679776560"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span></span><span>
-</span><span id="line-157"></span></pre></body></html>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777409"><span id="local-6989586621679777411"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679777406"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IoT.Types.AuthorizerDescription.html#AuthorizerDescription"><span class="hs-identifier hs-type">AuthorizerDescription</span></a></span></span><span>
+</span><span id="line-156"></span></pre></body></html>

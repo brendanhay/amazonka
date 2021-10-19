@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- ordered contiguous positive integers.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHashKeyRange' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679196787"><span id="local-6989586621679196788"></span></span><span class="hs-keyword">data</span><span> </span><span id="HashKeyRange"><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-var">HashKeyRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HashKeyRange%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange%27"><span class="hs-identifier hs-var">HashKeyRange'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679196878"><span id="local-6989586621679196879"></span></span><span class="hs-keyword">data</span><span> </span><span id="HashKeyRange"><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-var">HashKeyRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HashKeyRange%27"><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange%27"><span class="hs-identifier hs-var">HashKeyRange'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The starting hash key of the hash key range.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AstartingHashKey%3AHashKeyRange%27"><span class="annot"><span class="annottext">HashKeyRange -&gt; Text
 </span><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#%24sel%3AstartingHashKey%3AHashKeyRange%27"><span class="hs-identifier hs-var hs-var">startingHashKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AendingHashKey%3AHashKeyRange%27"><span class="annot"><span class="annottext">HashKeyRange -&gt; Text
 </span><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#%24sel%3AendingHashKey%3AHashKeyRange%27"><span class="hs-identifier hs-var hs-var">endingHashKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196780"><span id="local-6989586621679196782"><span class="annot"><span class="annottext">HashKeyRange -&gt; HashKeyRange -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679196871"><span id="local-6989586621679196873"><span class="annot"><span class="annottext">HashKeyRange -&gt; HashKeyRange -&gt; Bool
 (HashKeyRange -&gt; HashKeyRange -&gt; Bool)
 -&gt; (HashKeyRange -&gt; HashKeyRange -&gt; Bool) -&gt; Eq HashKeyRange
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HashKeyRange -&gt; HashKeyRange -&gt; Bool
 == :: HashKeyRange -&gt; HashKeyRange -&gt; Bool
 $c== :: HashKeyRange -&gt; HashKeyRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196771"><span id="local-6989586621679196773"><span id="local-6989586621679196775"><span id="local-6989586621679196777"><span class="annot"><span class="annottext">ReadPrec [HashKeyRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196862"><span id="local-6989586621679196864"><span id="local-6989586621679196866"><span id="local-6989586621679196868"><span class="annot"><span class="annottext">ReadPrec [HashKeyRange]
 ReadPrec HashKeyRange
 Int -&gt; ReadS HashKeyRange
 ReadS [HashKeyRange]
@@ -63,7 +63,7 @@ readList :: ReadS [HashKeyRange]
 $creadList :: ReadS [HashKeyRange]
 readsPrec :: Int -&gt; ReadS HashKeyRange
 $creadsPrec :: Int -&gt; ReadS HashKeyRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196764"><span id="local-6989586621679196766"><span id="local-6989586621679196768"><span class="annot"><span class="annottext">Int -&gt; HashKeyRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679196855"><span id="local-6989586621679196857"><span id="local-6989586621679196859"><span class="annot"><span class="annottext">Int -&gt; HashKeyRange -&gt; ShowS
 [HashKeyRange] -&gt; ShowS
 HashKeyRange -&gt; String
 (Int -&gt; HashKeyRange -&gt; ShowS)
@@ -107,17 +107,17 @@ $cfrom :: forall x. HashKeyRange -&gt; Rep HashKeyRange x
 </span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-54"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span><span>
 </span><span id="line-55"></span><span id="newHashKeyRange"><span class="annot"><span class="annottext">newHashKeyRange :: Text -&gt; Text -&gt; HashKeyRange
-</span><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#newHashKeyRange"><span class="hs-identifier hs-var hs-var">newHashKeyRange</span></a></span></span><span> </span><span id="local-6989586621679196758"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196758"><span class="hs-identifier hs-var">pStartingHashKey_</span></a></span></span><span> </span><span id="local-6989586621679196757"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196757"><span class="hs-identifier hs-var">pEndingHashKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#newHashKeyRange"><span class="hs-identifier hs-var hs-var">newHashKeyRange</span></a></span></span><span> </span><span id="local-6989586621679196849"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196849"><span class="hs-identifier hs-var">pStartingHashKey_</span></a></span></span><span> </span><span id="local-6989586621679196848"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196848"><span class="hs-identifier hs-var">pEndingHashKey_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">HashKeyRange' :: Text -&gt; Text -&gt; HashKeyRange
 </span><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange%27"><span class="hs-identifier hs-type">HashKeyRange'</span></a></span><span>
 </span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:startingHashKey:HashKeyRange' :: Text
 </span><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#%24sel%3AstartingHashKey%3AHashKeyRange%27"><span class="hs-identifier hs-var">startingHashKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196758"><span class="hs-identifier hs-var">pStartingHashKey_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679196849"><span class="hs-identifier hs-var">pStartingHashKey_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:endingHashKey:HashKeyRange' :: Text
 </span><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#%24sel%3AendingHashKey%3AHashKeyRange%27"><span class="hs-identifier hs-var">endingHashKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196757"><span class="hs-identifier hs-var">pEndingHashKey_</span></a></span><span>
+</span><a href="#local-6989586621679196848"><span class="hs-identifier hs-var">pEndingHashKey_</span></a></span><span>
 </span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The starting hash key of the hash key range.</span><span>
@@ -127,16 +127,16 @@ $cfrom :: forall x. HashKeyRange -&gt; Rep HashKeyRange x
 -&gt; (HashKeyRange -&gt; Text -&gt; HashKeyRange)
 -&gt; Lens HashKeyRange HashKeyRange Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange%27"><span class="hs-identifier hs-type">HashKeyRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196753"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange%27"><span class="hs-identifier hs-type">HashKeyRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196844"><span class="annot"><span class="annottext">Text
 startingHashKey :: Text
 $sel:startingHashKey:HashKeyRange' :: HashKeyRange -&gt; Text
-</span><a href="#local-6989586621679196753"><span class="hs-identifier hs-var hs-var">startingHashKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196753"><span class="hs-identifier hs-var">startingHashKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196752"><span class="annot"><span class="annottext">s :: HashKeyRange
-</span><a href="#local-6989586621679196752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange%27"><span class="hs-identifier hs-type">HashKeyRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196751"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashKeyRange
-</span><a href="#local-6989586621679196752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startingHashKey:HashKeyRange' :: Text
+</span><a href="#local-6989586621679196844"><span class="hs-identifier hs-var hs-var">startingHashKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196844"><span class="hs-identifier hs-var">startingHashKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196843"><span class="annot"><span class="annottext">s :: HashKeyRange
+</span><a href="#local-6989586621679196843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange%27"><span class="hs-identifier hs-type">HashKeyRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196842"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashKeyRange
+</span><a href="#local-6989586621679196843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startingHashKey:HashKeyRange' :: Text
 </span><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#%24sel%3AstartingHashKey%3AHashKeyRange%27"><span class="hs-identifier hs-var">startingHashKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- | The ending hash key of the hash key range.</span><span>
 </span><span id="line-66"></span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#hashKeyRange_endingHashKey"><span class="hs-identifier hs-type">hashKeyRange_endingHashKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -145,19 +145,19 @@ $sel:startingHashKey:HashKeyRange' :: HashKeyRange -&gt; Text
 -&gt; (HashKeyRange -&gt; Text -&gt; HashKeyRange)
 -&gt; Lens HashKeyRange HashKeyRange Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange%27"><span class="hs-identifier hs-type">HashKeyRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196749"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange%27"><span class="hs-identifier hs-type">HashKeyRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679196840"><span class="annot"><span class="annottext">Text
 endingHashKey :: Text
 $sel:endingHashKey:HashKeyRange' :: HashKeyRange -&gt; Text
-</span><a href="#local-6989586621679196749"><span class="hs-identifier hs-var hs-var">endingHashKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196749"><span class="hs-identifier hs-var">endingHashKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196748"><span class="annot"><span class="annottext">s :: HashKeyRange
-</span><a href="#local-6989586621679196748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange%27"><span class="hs-identifier hs-type">HashKeyRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196747"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashKeyRange
-</span><a href="#local-6989586621679196748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endingHashKey:HashKeyRange' :: Text
+</span><a href="#local-6989586621679196840"><span class="hs-identifier hs-var hs-var">endingHashKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196840"><span class="hs-identifier hs-var">endingHashKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679196839"><span class="annot"><span class="annottext">s :: HashKeyRange
+</span><a href="#local-6989586621679196839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange%27"><span class="hs-identifier hs-type">HashKeyRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679196838"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679196838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashKeyRange
+</span><a href="#local-6989586621679196839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endingHashKey:HashKeyRange' :: Text
 </span><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#%24sel%3AendingHashKey%3AHashKeyRange%27"><span class="hs-identifier hs-var">endingHashKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679196747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679196838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196744"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-70"></span><span>  </span><span id="local-6989586621679196742"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HashKeyRange
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196835"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679196833"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HashKeyRange
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HashKeyRange) -&gt; Value -&gt; Parser HashKeyRange
@@ -165,28 +165,28 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HashKeyRange&quot;</span></span><span>
-</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196739"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196739"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679196830"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679196830"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; HashKeyRange
 </span><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange%27"><span class="hs-identifier hs-var">HashKeyRange'</span></a></span><span>
 </span><span id="line-75"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; HashKeyRange)
 -&gt; Parser Text -&gt; Parser (Text -&gt; HashKeyRange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196739"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679196830"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StartingHashKey&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; HashKeyRange) -&gt; Parser Text -&gt; Parser HashKeyRange
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679196739"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679196830"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;EndingHashKey&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span><span>
-</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196733"><span id="local-6989586621679196735"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span></span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196824"><span id="local-6989586621679196826"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span></span></span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196730"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679196821"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.HashKeyRange.html#HashKeyRange"><span class="hs-identifier hs-type">HashKeyRange</span></a></span></span><span>
 </span><span id="line-82"></span></pre></body></html>

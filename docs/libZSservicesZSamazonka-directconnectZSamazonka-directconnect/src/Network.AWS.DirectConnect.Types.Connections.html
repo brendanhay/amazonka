@@ -25,12 +25,12 @@
 </span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-26"></span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- | /See:/ 'newConnections' smart constructor.</span><span>
-</span><span id="line-28"></span><span id="local-6989586621679283224"><span id="local-6989586621679283225"></span></span><span class="hs-keyword">data</span><span> </span><span id="Connections"><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections"><span class="hs-identifier hs-var">Connections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Connections%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections%27"><span class="hs-identifier hs-var">Connections'</span></a></span></span><span>
+</span><span id="line-28"></span><span id="local-6989586621679283462"><span id="local-6989586621679283463"></span></span><span class="hs-keyword">data</span><span> </span><span id="Connections"><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections"><span class="hs-identifier hs-var">Connections</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Connections%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections%27"><span class="hs-identifier hs-var">Connections'</span></a></span></span><span>
 </span><span id="line-29"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The connections.</span><span>
 </span><span id="line-30"></span><span>    </span><span id="%24sel%3Aconnections%3AConnections%27"><span class="annot"><span class="annottext">Connections -&gt; Maybe [Connection]
 </span><a href="Network.AWS.DirectConnect.Types.Connections.html#%24sel%3Aconnections%3AConnections%27"><span class="hs-identifier hs-var hs-var">connections</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connection.html#Connection"><span class="hs-identifier hs-type">Connection</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283218"><span id="local-6989586621679283220"><span class="annot"><span class="annottext">Connections -&gt; Connections -&gt; Bool
+</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679283456"><span id="local-6989586621679283458"><span class="annot"><span class="annottext">Connections -&gt; Connections -&gt; Bool
 (Connections -&gt; Connections -&gt; Bool)
 -&gt; (Connections -&gt; Connections -&gt; Bool) -&gt; Eq Connections
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -38,7 +38,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Connections -&gt; Connections -&gt; Bool
 == :: Connections -&gt; Connections -&gt; Bool
 $c== :: Connections -&gt; Connections -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283209"><span id="local-6989586621679283211"><span id="local-6989586621679283213"><span id="local-6989586621679283215"><span class="annot"><span class="annottext">ReadPrec [Connections]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283447"><span id="local-6989586621679283449"><span id="local-6989586621679283451"><span id="local-6989586621679283453"><span class="annot"><span class="annottext">ReadPrec [Connections]
 ReadPrec Connections
 Int -&gt; ReadS Connections
 ReadS [Connections]
@@ -58,7 +58,7 @@ readList :: ReadS [Connections]
 $creadList :: ReadS [Connections]
 readsPrec :: Int -&gt; ReadS Connections
 $creadsPrec :: Int -&gt; ReadS Connections
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283202"><span id="local-6989586621679283204"><span id="local-6989586621679283206"><span class="annot"><span class="annottext">Int -&gt; Connections -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679283440"><span id="local-6989586621679283442"><span id="local-6989586621679283444"><span class="annot"><span class="annottext">Int -&gt; Connections -&gt; ShowS
 [Connections] -&gt; ShowS
 Connections -&gt; String
 (Int -&gt; Connections -&gt; ShowS)
@@ -112,16 +112,16 @@ forall a. Maybe a
 -&gt; Lens
      Connections Connections (Maybe [Connection]) (Maybe [Connection])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections%27"><span class="hs-identifier hs-type">Connections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283193"><span class="annot"><span class="annottext">Maybe [Connection]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections%27"><span class="hs-identifier hs-type">Connections'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679283431"><span class="annot"><span class="annottext">Maybe [Connection]
 connections :: Maybe [Connection]
 $sel:connections:Connections' :: Connections -&gt; Maybe [Connection]
-</span><a href="#local-6989586621679283193"><span class="hs-identifier hs-var hs-var">connections</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Connection]
-</span><a href="#local-6989586621679283193"><span class="hs-identifier hs-var">connections</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283192"><span class="annot"><span class="annottext">s :: Connections
-</span><a href="#local-6989586621679283192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections%27"><span class="hs-identifier hs-type">Connections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283191"><span class="annot"><span class="annottext">Maybe [Connection]
-</span><a href="#local-6989586621679283191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connections
-</span><a href="#local-6989586621679283192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connections:Connections' :: Maybe [Connection]
+</span><a href="#local-6989586621679283431"><span class="hs-identifier hs-var hs-var">connections</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Connection]
+</span><a href="#local-6989586621679283431"><span class="hs-identifier hs-var">connections</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679283430"><span class="annot"><span class="annottext">s :: Connections
+</span><a href="#local-6989586621679283430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections%27"><span class="hs-identifier hs-type">Connections'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679283429"><span class="annot"><span class="annottext">Maybe [Connection]
+</span><a href="#local-6989586621679283429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Connections
+</span><a href="#local-6989586621679283430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connections:Connections' :: Maybe [Connection]
 </span><a href="Network.AWS.DirectConnect.Types.Connections.html#%24sel%3Aconnections%3AConnections%27"><span class="hs-identifier hs-var">connections</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Connection]
-</span><a href="#local-6989586621679283191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections"><span class="hs-identifier hs-type">Connections</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Connection] -&gt; f (Maybe [Connection]))
+</span><a href="#local-6989586621679283429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections"><span class="hs-identifier hs-type">Connections</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Connection] -&gt; f (Maybe [Connection]))
  -&gt; Connections -&gt; f Connections)
 -&gt; ((Maybe [Connection] -&gt; f (Maybe [Connection]))
     -&gt; Maybe [Connection] -&gt; f (Maybe [Connection]))
@@ -139,11 +139,11 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Connection] [Connection] [Connection] [Connection]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-51"></span><span>
-</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283185"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections"><span class="hs-identifier hs-type">Connections</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-53"></span><span>  </span><span id="local-6989586621679283183"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Connections
+</span><span id="line-52"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283423"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections"><span class="hs-identifier hs-type">Connections</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>  </span><span id="local-6989586621679283421"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Connections
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-54"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser Connections) -&gt; Value -&gt; Parser Connections
@@ -151,15 +151,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Connections&quot;</span></span><span>
-</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283180"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283180"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679283418"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679283418"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-57"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Connection] -&gt; Connections
 </span><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections%27"><span class="hs-identifier hs-var">Connections'</span></a></span><span>
 </span><span id="line-58"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Connection] -&gt; Connections)
 -&gt; Parser (Maybe [Connection]) -&gt; Parser Connections
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679283180"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Connection]))
+</span><a href="#local-6989586621679283418"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Connection]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;connections&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Connection]))
@@ -170,7 +170,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
-</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283173"><span id="local-6989586621679283175"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections"><span class="hs-identifier hs-type">Connections</span></a></span></span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283411"><span id="local-6989586621679283413"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections"><span class="hs-identifier hs-type">Connections</span></a></span></span></span><span>
 </span><span id="line-62"></span><span>
-</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283170"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections"><span class="hs-identifier hs-type">Connections</span></a></span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679283408"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Connections.html#Connections"><span class="hs-identifier hs-type">Connections</span></a></span></span><span>
 </span><span id="line-64"></span></pre></body></html>

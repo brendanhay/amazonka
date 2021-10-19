@@ -32,8 +32,8 @@
 </span><span id="line-32"></span><span>
 </span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_nextToken"><span class="hs-identifier">getInstancesHealthStatus_nextToken</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_maxResults"><span class="hs-identifier">getInstancesHealthStatus_maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_instances"><span class="hs-identifier">getInstancesHealthStatus_instances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_instances"><span class="hs-identifier">getInstancesHealthStatus_instances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_maxResults"><span class="hs-identifier">getInstancesHealthStatus_maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_serviceId"><span class="hs-identifier">getInstancesHealthStatus_serviceId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.html"><span class="hs-identifier">Network.AWS.Route53AutoNaming.Types</span></a></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetInstancesHealthStatus' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679228543"><span id="local-6989586621679228544"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstancesHealthStatus"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-var">GetInstancesHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstancesHealthStatus%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-var">GetInstancesHealthStatus'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679228694"><span id="local-6989586621679228695"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstancesHealthStatus"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-var">GetInstancesHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstancesHealthStatus%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-var">GetInstancesHealthStatus'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For the first @GetInstancesHealthStatus@ request, omit this value.</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- If more than @MaxResults@ instances match the specified criteria, you</span><span>
@@ -64,28 +64,28 @@
 </span><span id="line-64"></span><span>    </span><span class="hs-comment">-- response in the next request.</span><span>
 </span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3AGetInstancesHealthStatus%27"><span class="annot"><span class="annottext">GetInstancesHealthStatus -&gt; Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AnextToken%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The maximum number of instances that you want Cloud Map to return in the</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- response to a @GetInstancesHealthStatus@ request. If you don\'t specify</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- a value for @MaxResults@, Cloud Map returns up to 100 instances.</span><span>
-</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetInstancesHealthStatus%27"><span class="annot"><span class="annottext">GetInstancesHealthStatus -&gt; Maybe Natural
-</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AmaxResults%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | An array that contains the IDs of all the instances that you want to get</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- the health status for.</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- If you omit @Instances@, Cloud Map returns the health status for all the</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- instances that are associated with the specified service.</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- To get the IDs for the instances that you\'ve registered by using a</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- specified service, submit a</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances&gt;</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-80"></span><span>    </span><span id="%24sel%3Ainstances%3AGetInstancesHealthStatus%27"><span class="annot"><span class="annottext">GetInstancesHealthStatus -&gt; Maybe (NonEmpty Text)
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | An array that contains the IDs of all the instances that you want to get</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- the health status for.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- If you omit @Instances@, Cloud Map returns the health status for all the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- instances that are associated with the specified service.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- To get the IDs for the instances that you\'ve registered by using a</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- specified service, submit a</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances&gt;</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Ainstances%3AGetInstancesHealthStatus%27"><span class="annot"><span class="annottext">GetInstancesHealthStatus -&gt; Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3Ainstances%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The maximum number of instances that you want Cloud Map to return in the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- response to a @GetInstancesHealthStatus@ request. If you don\'t specify</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- a value for @MaxResults@, Cloud Map returns up to 100 instances.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetInstancesHealthStatus%27"><span class="annot"><span class="annottext">GetInstancesHealthStatus -&gt; Maybe Natural
+</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AmaxResults%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The ID of the service that the instance is associated with.</span><span>
 </span><span id="line-82"></span><span>    </span><span id="%24sel%3AserviceId%3AGetInstancesHealthStatus%27"><span class="annot"><span class="annottext">GetInstancesHealthStatus -&gt; Text
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AserviceId%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-83"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228534"><span id="local-6989586621679228536"><span class="annot"><span class="annottext">GetInstancesHealthStatus -&gt; GetInstancesHealthStatus -&gt; Bool
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228685"><span id="local-6989586621679228687"><span class="annot"><span class="annottext">GetInstancesHealthStatus -&gt; GetInstancesHealthStatus -&gt; Bool
 (GetInstancesHealthStatus -&gt; GetInstancesHealthStatus -&gt; Bool)
 -&gt; (GetInstancesHealthStatus -&gt; GetInstancesHealthStatus -&gt; Bool)
 -&gt; Eq GetInstancesHealthStatus
@@ -94,7 +94,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetInstancesHealthStatus -&gt; GetInstancesHealthStatus -&gt; Bool
 == :: GetInstancesHealthStatus -&gt; GetInstancesHealthStatus -&gt; Bool
 $c== :: GetInstancesHealthStatus -&gt; GetInstancesHealthStatus -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228525"><span id="local-6989586621679228527"><span id="local-6989586621679228529"><span id="local-6989586621679228531"><span class="annot"><span class="annottext">ReadPrec [GetInstancesHealthStatus]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228676"><span id="local-6989586621679228678"><span id="local-6989586621679228680"><span id="local-6989586621679228682"><span class="annot"><span class="annottext">ReadPrec [GetInstancesHealthStatus]
 ReadPrec GetInstancesHealthStatus
 Int -&gt; ReadS GetInstancesHealthStatus
 ReadS [GetInstancesHealthStatus]
@@ -114,7 +114,7 @@ readList :: ReadS [GetInstancesHealthStatus]
 $creadList :: ReadS [GetInstancesHealthStatus]
 readsPrec :: Int -&gt; ReadS GetInstancesHealthStatus
 $creadsPrec :: Int -&gt; ReadS GetInstancesHealthStatus
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228518"><span id="local-6989586621679228520"><span id="local-6989586621679228522"><span class="annot"><span class="annottext">Int -&gt; GetInstancesHealthStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228669"><span id="local-6989586621679228671"><span id="local-6989586621679228673"><span class="annot"><span class="annottext">Int -&gt; GetInstancesHealthStatus -&gt; ShowS
 [GetInstancesHealthStatus] -&gt; ShowS
 GetInstancesHealthStatus -&gt; String
 (Int -&gt; GetInstancesHealthStatus -&gt; ShowS)
@@ -161,20 +161,20 @@ GetInstancesHealthStatus -&gt; Rep GetInstancesHealthStatus x
 </span><span id="line-98"></span><span class="hs-comment">-- group of results. Specify the value of @NextToken@ from the previous</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- response in the next request.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- 'maxResults', 'getInstancesHealthStatus_maxResults' - The maximum number of instances that you want Cloud Map to return in the</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- response to a @GetInstancesHealthStatus@ request. If you don\'t specify</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- a value for @MaxResults@, Cloud Map returns up to 100 instances.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- 'instances', 'getInstancesHealthStatus_instances' - An array that contains the IDs of all the instances that you want to get</span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- the health status for.</span><span>
-</span><span id="line-107"></span><span class="hs-comment">--</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- If you omit @Instances@, Cloud Map returns the health status for all the</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- instances that are associated with the specified service.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- To get the IDs for the instances that you\'ve registered by using a</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- specified service, submit a</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances&gt;</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'instances', 'getInstancesHealthStatus_instances' - An array that contains the IDs of all the instances that you want to get</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- the health status for.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- If you omit @Instances@, Cloud Map returns the health status for all the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- instances that are associated with the specified service.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- To get the IDs for the instances that you\'ve registered by using a</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- specified service, submit a</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances&gt;</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'maxResults', 'getInstancesHealthStatus_maxResults' - The maximum number of instances that you want Cloud Map to return in the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- response to a @GetInstancesHealthStatus@ request. If you don\'t specify</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- a value for @MaxResults@, Cloud Map returns up to 100 instances.</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- 'serviceId', 'getInstancesHealthStatus_serviceId' - The ID of the service that the instance is associated with.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#newGetInstancesHealthStatus"><span class="hs-identifier hs-type">newGetInstancesHealthStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -182,11 +182,11 @@ GetInstancesHealthStatus -&gt; Rep GetInstancesHealthStatus x
 </span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-120"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span>
 </span><span id="line-121"></span><span id="newGetInstancesHealthStatus"><span class="annot"><span class="annottext">newGetInstancesHealthStatus :: Text -&gt; GetInstancesHealthStatus
-</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#newGetInstancesHealthStatus"><span class="hs-identifier hs-var hs-var">newGetInstancesHealthStatus</span></a></span></span><span> </span><span id="local-6989586621679228513"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228513"><span class="hs-identifier hs-var">pServiceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#newGetInstancesHealthStatus"><span class="hs-identifier hs-var hs-var">newGetInstancesHealthStatus</span></a></span></span><span> </span><span id="local-6989586621679228664"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228664"><span class="hs-identifier hs-var">pServiceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>  </span><span class="annot"><span class="annottext">GetInstancesHealthStatus' :: Maybe Text
--&gt; Maybe Natural
 -&gt; Maybe (NonEmpty Text)
+-&gt; Maybe Natural
 -&gt; Text
 -&gt; GetInstancesHealthStatus
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span>
@@ -195,17 +195,17 @@ GetInstancesHealthStatus -&gt; Rep GetInstancesHealthStatus x
 </span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetInstancesHealthStatus' :: Maybe Natural
-</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AmaxResults%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:instances:GetInstancesHealthStatus' :: Maybe (NonEmpty Text)
+</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3Ainstances%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:instances:GetInstancesHealthStatus' :: Maybe (NonEmpty Text)
-</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3Ainstances%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetInstancesHealthStatus' :: Maybe Natural
+</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AmaxResults%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceId:GetInstancesHealthStatus' :: Text
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AserviceId%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228513"><span class="hs-identifier hs-var">pServiceId_</span></a></span><span>
+</span><a href="#local-6989586621679228664"><span class="hs-identifier hs-var">pServiceId_</span></a></span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-comment">-- | For the first @GetInstancesHealthStatus@ request, omit this value.</span><span>
@@ -226,55 +226,29 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228510"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228661"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetInstancesHealthStatus' :: GetInstancesHealthStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679228510"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228510"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228509"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatus
-</span><a href="#local-6989586621679228509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228508"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatus
-</span><a href="#local-6989586621679228509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetInstancesHealthStatus' :: Maybe Text
+</span><a href="#local-6989586621679228661"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228661"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228660"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatus
+</span><a href="#local-6989586621679228660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228659"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatus
+</span><a href="#local-6989586621679228660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetInstancesHealthStatus' :: Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AnextToken%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-138"></span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- | The maximum number of instances that you want Cloud Map to return in the</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- response to a @GetInstancesHealthStatus@ request. If you don\'t specify</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- a value for @MaxResults@, Cloud Map returns up to 100 instances.</span><span>
-</span><span id="line-142"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_maxResults"><span class="hs-identifier hs-type">getInstancesHealthStatus_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span id="getInstancesHealthStatus_maxResults"><span class="annot"><span class="annottext">getInstancesHealthStatus_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
--&gt; GetInstancesHealthStatus -&gt; f GetInstancesHealthStatus
-</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_maxResults"><span class="hs-identifier hs-var hs-var">getInstancesHealthStatus_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInstancesHealthStatus -&gt; Maybe Natural)
--&gt; (GetInstancesHealthStatus
-    -&gt; Maybe Natural -&gt; GetInstancesHealthStatus)
--&gt; Lens
-     GetInstancesHealthStatus
-     GetInstancesHealthStatus
-     (Maybe Natural)
-     (Maybe Natural)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228507"><span class="annot"><span class="annottext">Maybe Natural
-maxResults :: Maybe Natural
-$sel:maxResults:GetInstancesHealthStatus' :: GetInstancesHealthStatus -&gt; Maybe Natural
-</span><a href="#local-6989586621679228507"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228507"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228506"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatus
-</span><a href="#local-6989586621679228506"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228505"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228505"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatus
-</span><a href="#local-6989586621679228506"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetInstancesHealthStatus' :: Maybe Natural
-</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AmaxResults%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228505"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- | An array that contains the IDs of all the instances that you want to get</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- the health status for.</span><span>
-</span><span id="line-147"></span><span class="hs-comment">--</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- If you omit @Instances@, Cloud Map returns the health status for all the</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- instances that are associated with the specified service.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- To get the IDs for the instances that you\'ve registered by using a</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- specified service, submit a</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances&gt;</span><span>
-</span><span id="line-154"></span><span class="hs-comment">-- request.</span><span>
-</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_instances"><span class="hs-identifier hs-type">getInstancesHealthStatus_instances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-156"></span><span id="getInstancesHealthStatus_instances"><span class="annot"><span class="annottext">getInstancesHealthStatus_instances :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><span id="line-139"></span><span class="hs-comment">-- | An array that contains the IDs of all the instances that you want to get</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- the health status for.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- If you omit @Instances@, Cloud Map returns the health status for all the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- instances that are associated with the specified service.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- To get the IDs for the instances that you\'ve registered by using a</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- specified service, submit a</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_ListInstances.html ListInstances&gt;</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_instances"><span class="hs-identifier hs-type">getInstancesHealthStatus_instances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="getInstancesHealthStatus_instances"><span class="annot"><span class="annottext">getInstancesHealthStatus_instances :: (Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
 -&gt; GetInstancesHealthStatus -&gt; f GetInstancesHealthStatus
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_instances"><span class="hs-identifier hs-var hs-var">getInstancesHealthStatus_instances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInstancesHealthStatus -&gt; Maybe (NonEmpty Text))
 -&gt; (GetInstancesHealthStatus
@@ -285,16 +259,16 @@ $sel:maxResults:GetInstancesHealthStatus' :: GetInstancesHealthStatus -&gt; Mayb
      (Maybe (NonEmpty Text))
      (Maybe (NonEmpty Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228504"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228658"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
 instances :: Maybe (NonEmpty Text)
 $sel:instances:GetInstancesHealthStatus' :: GetInstancesHealthStatus -&gt; Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679228504"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679228504"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228503"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatus
-</span><a href="#local-6989586621679228503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228502"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679228502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatus
-</span><a href="#local-6989586621679228503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:GetInstancesHealthStatus' :: Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679228658"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679228658"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228657"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatus
+</span><a href="#local-6989586621679228657"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228656"><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
+</span><a href="#local-6989586621679228656"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatus
+</span><a href="#local-6989586621679228657"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:GetInstancesHealthStatus' :: Maybe (NonEmpty Text)
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3Ainstances%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679228502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
+</span><a href="#local-6989586621679228656"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
  -&gt; GetInstancesHealthStatus -&gt; f GetInstancesHealthStatus)
 -&gt; ((Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
     -&gt; Maybe (NonEmpty Text) -&gt; f (Maybe (NonEmpty Text)))
@@ -314,8 +288,34 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
   (NonEmpty Text) (NonEmpty Text) (NonEmpty Text) (NonEmpty Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The maximum number of instances that you want Cloud Map to return in the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- response to a @GetInstancesHealthStatus@ request. If you don\'t specify</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- a value for @MaxResults@, Cloud Map returns up to 100 instances.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_maxResults"><span class="hs-identifier hs-type">getInstancesHealthStatus_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="getInstancesHealthStatus_maxResults"><span class="annot"><span class="annottext">getInstancesHealthStatus_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetInstancesHealthStatus -&gt; f GetInstancesHealthStatus
+</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_maxResults"><span class="hs-identifier hs-var hs-var">getInstancesHealthStatus_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetInstancesHealthStatus -&gt; Maybe Natural)
+-&gt; (GetInstancesHealthStatus
+    -&gt; Maybe Natural -&gt; GetInstancesHealthStatus)
+-&gt; Lens
+     GetInstancesHealthStatus
+     GetInstancesHealthStatus
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228652"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetInstancesHealthStatus' :: GetInstancesHealthStatus -&gt; Maybe Natural
+</span><a href="#local-6989586621679228652"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679228652"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228651"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatus
+</span><a href="#local-6989586621679228651"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228650"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679228650"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatus
+</span><a href="#local-6989586621679228651"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetInstancesHealthStatus' :: Maybe Natural
+</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AmaxResults%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679228650"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
 </span><span id="line-158"></span><span class="hs-comment">-- | The ID of the service that the instance is associated with.</span><span>
 </span><span id="line-159"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatus_serviceId"><span class="hs-identifier hs-type">getInstancesHealthStatus_serviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -325,28 +325,28 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetInstancesHealthStatus -&gt; Text -&gt; GetInstancesHealthStatus)
 -&gt; Lens GetInstancesHealthStatus GetInstancesHealthStatus Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228498"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228649"><span class="annot"><span class="annottext">Text
 serviceId :: Text
 $sel:serviceId:GetInstancesHealthStatus' :: GetInstancesHealthStatus -&gt; Text
-</span><a href="#local-6989586621679228498"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228498"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228497"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatus
-</span><a href="#local-6989586621679228497"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228496"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228496"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatus
-</span><a href="#local-6989586621679228497"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceId:GetInstancesHealthStatus' :: Text
+</span><a href="#local-6989586621679228649"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228649"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228648"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatus
+</span><a href="#local-6989586621679228648"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228647"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679228647"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatus
+</span><a href="#local-6989586621679228648"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceId:GetInstancesHealthStatus' :: Text
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AserviceId%3AGetInstancesHealthStatus%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228496"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228647"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-163"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-164"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>      </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse</span></a></span><span>
-</span><span id="line-166"></span><span>  </span><span id="local-6989586621679228492"><span class="annot"><span class="annottext">request :: GetInstancesHealthStatus -&gt; Request GetInstancesHealthStatus
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679228643"><span class="annot"><span class="annottext">request :: GetInstancesHealthStatus -&gt; Request GetInstancesHealthStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; GetInstancesHealthStatus -&gt; Request GetInstancesHealthStatus
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679228488"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679228639"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetInstancesHealthStatus
 -&gt; ClientResponse ClientBody
@@ -372,10 +372,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228485"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228485"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679228484"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679228484"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679228483"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228483"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679228636"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228636"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679228635"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679228635"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679228634"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228634"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text HealthStatus)
 -&gt; Maybe Text -&gt; Int -&gt; GetInstancesHealthStatusResponse
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-var">GetInstancesHealthStatusResponse'</span></a></span><span>
@@ -386,7 +386,7 @@ MonadResource m =&gt;
      String (Maybe Text -&gt; Int -&gt; GetInstancesHealthStatusResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679228634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
 -&gt; Text
 -&gt; Either String (Maybe (Maybe (HashMap Text HealthStatus)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
@@ -404,7 +404,7 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Int -&gt; GetInstancesHealthStatusResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679228483"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679228634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
@@ -417,15 +417,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228485"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228636"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228474"><span id="local-6989586621679228476"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228625"><span id="local-6989586621679228627"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228471"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228622"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span></span><span>
 </span><span id="line-179"></span><span>
 </span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-181"></span><span>  </span><span id="local-6989586621679228467"><span class="annot"><span class="annottext">toHeaders :: GetInstancesHealthStatus -&gt; ResponseHeaders
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679228618"><span class="annot"><span class="annottext">toHeaders :: GetInstancesHealthStatus -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetInstancesHealthStatus -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -452,21 +452,21 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
-</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228457"><span id="local-6989586621679228459"><span id="local-6989586621679228461"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-196"></span><span>  </span><span id="local-6989586621679228455"><span class="annot"><span class="annottext">toJSON :: GetInstancesHealthStatus -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228450"><span id="local-6989586621679228451"><span id="local-6989586621679228452"><span id="local-6989586621679228453"><span class="annot"><span class="annottext">Maybe Natural
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228608"><span id="local-6989586621679228610"><span id="local-6989586621679228612"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679228606"><span class="annot"><span class="annottext">toJSON :: GetInstancesHealthStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus%27"><span class="hs-identifier hs-type">GetInstancesHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228601"><span id="local-6989586621679228602"><span id="local-6989586621679228603"><span id="local-6989586621679228604"><span class="annot"><span class="annottext">Maybe Natural
 Maybe (NonEmpty Text)
 Maybe Text
 Text
 serviceId :: Text
-instances :: Maybe (NonEmpty Text)
 maxResults :: Maybe Natural
+instances :: Maybe (NonEmpty Text)
 nextToken :: Maybe Text
 $sel:serviceId:GetInstancesHealthStatus' :: GetInstancesHealthStatus -&gt; Text
-$sel:instances:GetInstancesHealthStatus' :: GetInstancesHealthStatus -&gt; Maybe (NonEmpty Text)
 $sel:maxResults:GetInstancesHealthStatus' :: GetInstancesHealthStatus -&gt; Maybe Natural
+$sel:instances:GetInstancesHealthStatus' :: GetInstancesHealthStatus -&gt; Maybe (NonEmpty Text)
 $sel:nextToken:GetInstancesHealthStatus' :: GetInstancesHealthStatus -&gt; Maybe Text
-</span><a href="#local-6989586621679228450"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679228601"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-197"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-198"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -478,40 +478,40 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228453"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679228604"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-200"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621679228452"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Instances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; Pair) -&gt; Maybe (NonEmpty Text) -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Text)
-</span><a href="#local-6989586621679228451"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679228603"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679228602"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ServiceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679228450"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228601"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-203"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-204"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-207"></span><span>  </span><span id="local-6989586621679228444"><span class="annot"><span class="annottext">toPath :: GetInstancesHealthStatus -&gt; ByteString
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679228595"><span class="annot"><span class="annottext">toPath :: GetInstancesHealthStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetInstancesHealthStatus -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-208"></span><span>
 </span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatus"><span class="hs-identifier hs-type">GetInstancesHealthStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-210"></span><span>  </span><span id="local-6989586621679228440"><span class="annot"><span class="annottext">toQuery :: GetInstancesHealthStatus -&gt; QueryString
+</span><span id="line-210"></span><span>  </span><span id="local-6989586621679228591"><span class="annot"><span class="annottext">toQuery :: GetInstancesHealthStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetInstancesHealthStatus -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -519,7 +519,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-comment">-- | /See:/ 'newGetInstancesHealthStatusResponse' smart constructor.</span><span>
-</span><span id="line-213"></span><span id="local-6989586621679228437"><span id="local-6989586621679228438"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstancesHealthStatusResponse"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse"><span class="hs-identifier hs-var">GetInstancesHealthStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstancesHealthStatusResponse%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-var">GetInstancesHealthStatusResponse'</span></a></span></span><span>
+</span><span id="line-213"></span><span id="local-6989586621679228588"><span id="local-6989586621679228589"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetInstancesHealthStatusResponse"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse"><span class="hs-identifier hs-var">GetInstancesHealthStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetInstancesHealthStatusResponse%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-var">GetInstancesHealthStatusResponse'</span></a></span></span><span>
 </span><span id="line-214"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A complex type that contains the IDs and the health status of the</span><span>
 </span><span id="line-215"></span><span>    </span><span class="hs-comment">-- instances that you specified in the @GetInstancesHealthStatus@ request.</span><span>
 </span><span id="line-216"></span><span>    </span><span id="%24sel%3Astatus%3AGetInstancesHealthStatusResponse%27"><span class="annot"><span class="annottext">GetInstancesHealthStatusResponse
@@ -535,7 +535,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-223"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetInstancesHealthStatusResponse%27"><span class="annot"><span class="annottext">GetInstancesHealthStatusResponse -&gt; Int
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AhttpStatus%3AGetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-224"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228430"><span id="local-6989586621679228432"><span class="annot"><span class="annottext">GetInstancesHealthStatusResponse
+</span><span id="line-225"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679228581"><span id="local-6989586621679228583"><span class="annot"><span class="annottext">GetInstancesHealthStatusResponse
 -&gt; GetInstancesHealthStatusResponse -&gt; Bool
 (GetInstancesHealthStatusResponse
  -&gt; GetInstancesHealthStatusResponse -&gt; Bool)
@@ -551,7 +551,7 @@ $c/= :: GetInstancesHealthStatusResponse
 -&gt; GetInstancesHealthStatusResponse -&gt; Bool
 $c== :: GetInstancesHealthStatusResponse
 -&gt; GetInstancesHealthStatusResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228422"><span id="local-6989586621679228424"><span id="local-6989586621679228426"><span id="local-6989586621679228428"><span class="annot"><span class="annottext">ReadPrec [GetInstancesHealthStatusResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228573"><span id="local-6989586621679228575"><span id="local-6989586621679228577"><span id="local-6989586621679228579"><span class="annot"><span class="annottext">ReadPrec [GetInstancesHealthStatusResponse]
 ReadPrec GetInstancesHealthStatusResponse
 Int -&gt; ReadS GetInstancesHealthStatusResponse
 ReadS [GetInstancesHealthStatusResponse]
@@ -571,7 +571,7 @@ readList :: ReadS [GetInstancesHealthStatusResponse]
 $creadList :: ReadS [GetInstancesHealthStatusResponse]
 readsPrec :: Int -&gt; ReadS GetInstancesHealthStatusResponse
 $creadsPrec :: Int -&gt; ReadS GetInstancesHealthStatusResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228416"><span id="local-6989586621679228418"><span id="local-6989586621679228420"><span class="annot"><span class="annottext">Int -&gt; GetInstancesHealthStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679228567"><span id="local-6989586621679228569"><span id="local-6989586621679228571"><span class="annot"><span class="annottext">Int -&gt; GetInstancesHealthStatusResponse -&gt; ShowS
 [GetInstancesHealthStatusResponse] -&gt; ShowS
 GetInstancesHealthStatusResponse -&gt; String
 (Int -&gt; GetInstancesHealthStatusResponse -&gt; ShowS)
@@ -631,8 +631,8 @@ GetInstancesHealthStatusResponse
 </span><span id="line-246"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-247"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse</span></a></span><span>
 </span><span id="line-248"></span><span id="newGetInstancesHealthStatusResponse"><span class="annot"><span class="annottext">newGetInstancesHealthStatusResponse :: Int -&gt; GetInstancesHealthStatusResponse
-</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#newGetInstancesHealthStatusResponse"><span class="hs-identifier hs-var hs-var">newGetInstancesHealthStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679228413"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228413"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#newGetInstancesHealthStatusResponse"><span class="hs-identifier hs-var hs-var">newGetInstancesHealthStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679228564"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228564"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-249"></span><span>  </span><span class="annot"><span class="annottext">GetInstancesHealthStatusResponse' :: Maybe (HashMap Text HealthStatus)
 -&gt; Maybe Text -&gt; Int -&gt; GetInstancesHealthStatusResponse
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse'</span></a></span><span>
@@ -647,7 +647,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstancesHealthStatusResponse' :: Int
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AhttpStatus%3AGetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228413"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679228564"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-254"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-255"></span><span>
 </span><span id="line-256"></span><span class="hs-comment">-- | A complex type that contains the IDs and the health status of the</span><span>
@@ -668,17 +668,17 @@ forall a. Maybe a
      (Maybe (HashMap Text HealthStatus))
      (Maybe (HashMap Text HealthStatus))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228412"><span class="annot"><span class="annottext">Maybe (HashMap Text HealthStatus)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228563"><span class="annot"><span class="annottext">Maybe (HashMap Text HealthStatus)
 status :: Maybe (HashMap Text HealthStatus)
 $sel:status:GetInstancesHealthStatusResponse' :: GetInstancesHealthStatusResponse
 -&gt; Maybe (HashMap Text HealthStatus)
-</span><a href="#local-6989586621679228412"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text HealthStatus)
-</span><a href="#local-6989586621679228412"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228411"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatusResponse
-</span><a href="#local-6989586621679228411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228410"><span class="annot"><span class="annottext">Maybe (HashMap Text HealthStatus)
-</span><a href="#local-6989586621679228410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatusResponse
-</span><a href="#local-6989586621679228411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetInstancesHealthStatusResponse' :: Maybe (HashMap Text HealthStatus)
+</span><a href="#local-6989586621679228563"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text HealthStatus)
+</span><a href="#local-6989586621679228563"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228562"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatusResponse
+</span><a href="#local-6989586621679228562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228561"><span class="annot"><span class="annottext">Maybe (HashMap Text HealthStatus)
+</span><a href="#local-6989586621679228561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatusResponse
+</span><a href="#local-6989586621679228562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:GetInstancesHealthStatusResponse' :: Maybe (HashMap Text HealthStatus)
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3Astatus%3AGetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text HealthStatus)
-</span><a href="#local-6989586621679228410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text HealthStatus)
+</span><a href="#local-6989586621679228561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text HealthStatus)
   -&gt; f (Maybe (HashMap Text HealthStatus)))
  -&gt; GetInstancesHealthStatusResponse
  -&gt; f GetInstancesHealthStatusResponse)
@@ -709,8 +709,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text HealthStatus)
   (HashMap Text HealthStatus)
   (HashMap Text HealthStatus)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-260"></span><span>
 </span><span id="line-261"></span><span class="hs-comment">-- | If more than @MaxResults@ instances match the specified criteria, you</span><span>
 </span><span id="line-262"></span><span class="hs-comment">-- can submit another @GetInstancesHealthStatus@ request to get the next</span><span>
@@ -729,16 +729,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228409"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228560"><span class="annot"><span class="annottext">Maybe Text
 nextToken :: Maybe Text
 $sel:nextToken:GetInstancesHealthStatusResponse' :: GetInstancesHealthStatusResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679228409"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228409"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228408"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatusResponse
-</span><a href="#local-6989586621679228408"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228407"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228407"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatusResponse
-</span><a href="#local-6989586621679228408"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetInstancesHealthStatusResponse' :: Maybe Text
+</span><a href="#local-6989586621679228560"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228560"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228559"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatusResponse
+</span><a href="#local-6989586621679228559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228558"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679228558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatusResponse
+</span><a href="#local-6989586621679228559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetInstancesHealthStatusResponse' :: Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AnextToken%3AGetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679228407"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-267"></span><span>
 </span><span id="line-268"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-269"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#getInstancesHealthStatusResponse_httpStatus"><span class="hs-identifier hs-type">getInstancesHealthStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -754,18 +754,18 @@ $sel:nextToken:GetInstancesHealthStatusResponse' :: GetInstancesHealthStatusResp
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228406"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679228557"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetInstancesHealthStatusResponse' :: GetInstancesHealthStatusResponse -&gt; Int
-</span><a href="#local-6989586621679228406"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228406"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228405"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatusResponse
-</span><a href="#local-6989586621679228405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228404"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatusResponse
-</span><a href="#local-6989586621679228405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstancesHealthStatusResponse' :: Int
+</span><a href="#local-6989586621679228557"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228557"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228556"><span class="annot"><span class="annottext">s :: GetInstancesHealthStatusResponse
+</span><a href="#local-6989586621679228556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228555"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetInstancesHealthStatusResponse
+</span><a href="#local-6989586621679228556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetInstancesHealthStatusResponse' :: Int
 </span><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#%24sel%3AhttpStatus%3AGetInstancesHealthStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679228404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679228555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-271"></span><span>
 </span><span id="line-272"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-273"></span><span>  </span><span id="local-6989586621679228402"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621679228553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-274"></span><span>    </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.GetInstancesHealthStatus.html#GetInstancesHealthStatusResponse"><span class="hs-identifier hs-type">GetInstancesHealthStatusResponse</span></a></span></span><span>
 </span><span id="line-275"></span></pre></body></html>

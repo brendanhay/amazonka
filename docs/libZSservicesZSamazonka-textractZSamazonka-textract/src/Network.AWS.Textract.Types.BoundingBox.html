@@ -41,25 +41,25 @@
 </span><span id="line-41"></span><span class="hs-comment">-- is 70 pixels, the width returned is 0.1.</span><span>
 </span><span id="line-42"></span><span class="hs-comment">--</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- /See:/ 'newBoundingBox' smart constructor.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679174670"><span id="local-6989586621679174671"></span></span><span class="hs-keyword">data</span><span> </span><span id="BoundingBox"><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-var">BoundingBox</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BoundingBox%27"><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-var">BoundingBox'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679174751"><span id="local-6989586621679174752"></span></span><span class="hs-keyword">data</span><span> </span><span id="BoundingBox"><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-var">BoundingBox</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BoundingBox%27"><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-var">BoundingBox'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The height of the bounding box as a ratio of the overall document page</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- height.</span><span>
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3Aheight%3ABoundingBox%27"><span class="annot"><span class="annottext">BoundingBox -&gt; Maybe Double
 </span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Aheight%3ABoundingBox%27"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The width of the bounding box as a ratio of the overall document page</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- width.</span><span>
-</span><span id="line-50"></span><span>    </span><span id="%24sel%3Awidth%3ABoundingBox%27"><span class="annot"><span class="annottext">BoundingBox -&gt; Maybe Double
-</span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Awidth%3ABoundingBox%27"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The left coordinate of the bounding box as a ratio of overall document</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- page width.</span><span>
-</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aleft%3ABoundingBox%27"><span class="annot"><span class="annottext">BoundingBox -&gt; Maybe Double
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The left coordinate of the bounding box as a ratio of overall document</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- page width.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aleft%3ABoundingBox%27"><span class="annot"><span class="annottext">BoundingBox -&gt; Maybe Double
 </span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Aleft%3ABoundingBox%27"><span class="hs-identifier hs-var hs-var">left</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The width of the bounding box as a ratio of the overall document page</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- width.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Awidth%3ABoundingBox%27"><span class="annot"><span class="annottext">BoundingBox -&gt; Maybe Double
+</span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Awidth%3ABoundingBox%27"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
 </span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The top coordinate of the bounding box as a ratio of overall document</span><span>
 </span><span id="line-55"></span><span>    </span><span class="hs-comment">-- page height.</span><span>
 </span><span id="line-56"></span><span>    </span><span id="%24sel%3Atop%3ABoundingBox%27"><span class="annot"><span class="annottext">BoundingBox -&gt; Maybe Double
 </span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Atop%3ABoundingBox%27"><span class="hs-identifier hs-var hs-var">top</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
 </span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174661"><span id="local-6989586621679174663"><span class="annot"><span class="annottext">BoundingBox -&gt; BoundingBox -&gt; Bool
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174742"><span id="local-6989586621679174744"><span class="annot"><span class="annottext">BoundingBox -&gt; BoundingBox -&gt; Bool
 (BoundingBox -&gt; BoundingBox -&gt; Bool)
 -&gt; (BoundingBox -&gt; BoundingBox -&gt; Bool) -&gt; Eq BoundingBox
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -67,7 +67,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: BoundingBox -&gt; BoundingBox -&gt; Bool
 == :: BoundingBox -&gt; BoundingBox -&gt; Bool
 $c== :: BoundingBox -&gt; BoundingBox -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174652"><span id="local-6989586621679174654"><span id="local-6989586621679174656"><span id="local-6989586621679174658"><span class="annot"><span class="annottext">ReadPrec [BoundingBox]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174733"><span id="local-6989586621679174735"><span id="local-6989586621679174737"><span id="local-6989586621679174739"><span class="annot"><span class="annottext">ReadPrec [BoundingBox]
 ReadPrec BoundingBox
 Int -&gt; ReadS BoundingBox
 ReadS [BoundingBox]
@@ -87,7 +87,7 @@ readList :: ReadS [BoundingBox]
 $creadList :: ReadS [BoundingBox]
 readsPrec :: Int -&gt; ReadS BoundingBox
 $creadsPrec :: Int -&gt; ReadS BoundingBox
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174645"><span id="local-6989586621679174647"><span id="local-6989586621679174649"><span class="annot"><span class="annottext">Int -&gt; BoundingBox -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174726"><span id="local-6989586621679174728"><span id="local-6989586621679174730"><span class="annot"><span class="annottext">Int -&gt; BoundingBox -&gt; ShowS
 [BoundingBox] -&gt; ShowS
 BoundingBox -&gt; String
 (Int -&gt; BoundingBox -&gt; ShowS)
@@ -124,11 +124,11 @@ $cfrom :: forall x. BoundingBox -&gt; Rep BoundingBox x
 </span><span id="line-68"></span><span class="hs-comment">-- 'height', 'boundingBox_height' - The height of the bounding box as a ratio of the overall document page</span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- height.</span><span>
 </span><span id="line-70"></span><span class="hs-comment">--</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- 'width', 'boundingBox_width' - The width of the bounding box as a ratio of the overall document page</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- width.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'left', 'boundingBox_left' - The left coordinate of the bounding box as a ratio of overall document</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- page width.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'left', 'boundingBox_left' - The left coordinate of the bounding box as a ratio of overall document</span><span>
-</span><span id="line-75"></span><span class="hs-comment">-- page width.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'width', 'boundingBox_width' - The width of the bounding box as a ratio of the overall document page</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- width.</span><span>
 </span><span id="line-76"></span><span class="hs-comment">--</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- 'top', 'boundingBox_top' - The top coordinate of the bounding box as a ratio of overall document</span><span>
 </span><span id="line-78"></span><span class="hs-comment">-- page height.</span><span>
@@ -143,12 +143,12 @@ $cfrom :: forall x. BoundingBox -&gt; Rep BoundingBox x
 </span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Aheight%3ABoundingBox%27"><span class="hs-identifier hs-var">height</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:width:BoundingBox' :: Maybe Double
-</span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Awidth%3ABoundingBox%27"><span class="hs-identifier hs-var">width</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:left:BoundingBox' :: Maybe Double
+</span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Aleft%3ABoundingBox%27"><span class="hs-identifier hs-var">left</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:left:BoundingBox' :: Maybe Double
-</span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Aleft%3ABoundingBox%27"><span class="hs-identifier hs-var">left</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:width:BoundingBox' :: Maybe Double
+</span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Awidth%3ABoundingBox%27"><span class="hs-identifier hs-var">width</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:top:BoundingBox' :: Maybe Double
@@ -165,54 +165,54 @@ forall a. Maybe a
 -&gt; (BoundingBox -&gt; Maybe Double -&gt; BoundingBox)
 -&gt; Lens BoundingBox BoundingBox (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174636"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174717"><span class="annot"><span class="annottext">Maybe Double
 height :: Maybe Double
 $sel:height:BoundingBox' :: BoundingBox -&gt; Maybe Double
-</span><a href="#local-6989586621679174636"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679174636"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174635"><span class="annot"><span class="annottext">s :: BoundingBox
-</span><a href="#local-6989586621679174635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174634"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679174634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BoundingBox
-</span><a href="#local-6989586621679174635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:height:BoundingBox' :: Maybe Double
+</span><a href="#local-6989586621679174717"><span class="hs-identifier hs-var hs-var">height</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679174717"><span class="hs-identifier hs-var">height</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174716"><span class="annot"><span class="annottext">s :: BoundingBox
+</span><a href="#local-6989586621679174716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174715"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679174715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BoundingBox
+</span><a href="#local-6989586621679174716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:height:BoundingBox' :: Maybe Double
 </span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Aheight%3ABoundingBox%27"><span class="hs-identifier hs-var">height</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679174634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- | The width of the bounding box as a ratio of the overall document page</span><span>
-</span><span id="line-95"></span><span class="hs-comment">-- width.</span><span>
-</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#boundingBox_width"><span class="hs-identifier hs-type">boundingBox_width</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-97"></span><span id="boundingBox_width"><span class="annot"><span class="annottext">boundingBox_width :: (Maybe Double -&gt; f (Maybe Double)) -&gt; BoundingBox -&gt; f BoundingBox
-</span><a href="Network.AWS.Textract.Types.BoundingBox.html#boundingBox_width"><span class="hs-identifier hs-var hs-var">boundingBox_width</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BoundingBox -&gt; Maybe Double)
--&gt; (BoundingBox -&gt; Maybe Double -&gt; BoundingBox)
--&gt; Lens BoundingBox BoundingBox (Maybe Double) (Maybe Double)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174632"><span class="annot"><span class="annottext">Maybe Double
-width :: Maybe Double
-$sel:width:BoundingBox' :: BoundingBox -&gt; Maybe Double
-</span><a href="#local-6989586621679174632"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679174632"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174631"><span class="annot"><span class="annottext">s :: BoundingBox
-</span><a href="#local-6989586621679174631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174630"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679174630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BoundingBox
-</span><a href="#local-6989586621679174631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:width:BoundingBox' :: Maybe Double
-</span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Awidth%3ABoundingBox%27"><span class="hs-identifier hs-var">width</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679174630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- | The left coordinate of the bounding box as a ratio of overall document</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- page width.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#boundingBox_left"><span class="hs-identifier hs-type">boundingBox_left</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="boundingBox_left"><span class="annot"><span class="annottext">boundingBox_left :: (Maybe Double -&gt; f (Maybe Double)) -&gt; BoundingBox -&gt; f BoundingBox
+</span><span id="line-94"></span><span class="hs-comment">-- | The left coordinate of the bounding box as a ratio of overall document</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- page width.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#boundingBox_left"><span class="hs-identifier hs-type">boundingBox_left</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="boundingBox_left"><span class="annot"><span class="annottext">boundingBox_left :: (Maybe Double -&gt; f (Maybe Double)) -&gt; BoundingBox -&gt; f BoundingBox
 </span><a href="Network.AWS.Textract.Types.BoundingBox.html#boundingBox_left"><span class="hs-identifier hs-var hs-var">boundingBox_left</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BoundingBox -&gt; Maybe Double)
 -&gt; (BoundingBox -&gt; Maybe Double -&gt; BoundingBox)
 -&gt; Lens BoundingBox BoundingBox (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174628"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174713"><span class="annot"><span class="annottext">Maybe Double
 left :: Maybe Double
 $sel:left:BoundingBox' :: BoundingBox -&gt; Maybe Double
-</span><a href="#local-6989586621679174628"><span class="hs-identifier hs-var hs-var">left</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679174628"><span class="hs-identifier hs-var">left</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174627"><span class="annot"><span class="annottext">s :: BoundingBox
-</span><a href="#local-6989586621679174627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174626"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679174626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BoundingBox
-</span><a href="#local-6989586621679174627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:left:BoundingBox' :: Maybe Double
+</span><a href="#local-6989586621679174713"><span class="hs-identifier hs-var hs-var">left</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679174713"><span class="hs-identifier hs-var">left</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174712"><span class="annot"><span class="annottext">s :: BoundingBox
+</span><a href="#local-6989586621679174712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174711"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679174711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BoundingBox
+</span><a href="#local-6989586621679174712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:left:BoundingBox' :: Maybe Double
 </span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Aleft%3ABoundingBox%27"><span class="hs-identifier hs-var">left</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679174626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The width of the bounding box as a ratio of the overall document page</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- width.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#boundingBox_width"><span class="hs-identifier hs-type">boundingBox_width</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="boundingBox_width"><span class="annot"><span class="annottext">boundingBox_width :: (Maybe Double -&gt; f (Maybe Double)) -&gt; BoundingBox -&gt; f BoundingBox
+</span><a href="Network.AWS.Textract.Types.BoundingBox.html#boundingBox_width"><span class="hs-identifier hs-var hs-var">boundingBox_width</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BoundingBox -&gt; Maybe Double)
+-&gt; (BoundingBox -&gt; Maybe Double -&gt; BoundingBox)
+-&gt; Lens BoundingBox BoundingBox (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174709"><span class="annot"><span class="annottext">Maybe Double
+width :: Maybe Double
+$sel:width:BoundingBox' :: BoundingBox -&gt; Maybe Double
+</span><a href="#local-6989586621679174709"><span class="hs-identifier hs-var hs-var">width</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679174709"><span class="hs-identifier hs-var">width</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174708"><span class="annot"><span class="annottext">s :: BoundingBox
+</span><a href="#local-6989586621679174708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174707"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679174707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BoundingBox
+</span><a href="#local-6989586621679174708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:width:BoundingBox' :: Maybe Double
+</span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Awidth%3ABoundingBox%27"><span class="hs-identifier hs-var">width</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679174707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-103"></span><span>
 </span><span id="line-104"></span><span class="hs-comment">-- | The top coordinate of the bounding box as a ratio of overall document</span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- page height.</span><span>
@@ -222,19 +222,19 @@ $sel:left:BoundingBox' :: BoundingBox -&gt; Maybe Double
 -&gt; (BoundingBox -&gt; Maybe Double -&gt; BoundingBox)
 -&gt; Lens BoundingBox BoundingBox (Maybe Double) (Maybe Double)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174624"><span class="annot"><span class="annottext">Maybe Double
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174705"><span class="annot"><span class="annottext">Maybe Double
 top :: Maybe Double
 $sel:top:BoundingBox' :: BoundingBox -&gt; Maybe Double
-</span><a href="#local-6989586621679174624"><span class="hs-identifier hs-var hs-var">top</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679174624"><span class="hs-identifier hs-var">top</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174623"><span class="annot"><span class="annottext">s :: BoundingBox
-</span><a href="#local-6989586621679174623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174622"><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679174622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BoundingBox
-</span><a href="#local-6989586621679174623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:top:BoundingBox' :: Maybe Double
+</span><a href="#local-6989586621679174705"><span class="hs-identifier hs-var hs-var">top</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679174705"><span class="hs-identifier hs-var">top</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174704"><span class="annot"><span class="annottext">s :: BoundingBox
+</span><a href="#local-6989586621679174704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-type">BoundingBox'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174703"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679174703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BoundingBox
+</span><a href="#local-6989586621679174704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:top:BoundingBox' :: Maybe Double
 </span><a href="Network.AWS.Textract.Types.BoundingBox.html#%24sel%3Atop%3ABoundingBox%27"><span class="hs-identifier hs-var">top</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
-</span><a href="#local-6989586621679174622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679174703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174619"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679174617"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BoundingBox
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174700"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679174698"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BoundingBox
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser BoundingBox) -&gt; Value -&gt; Parser BoundingBox
@@ -242,8 +242,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;BoundingBox&quot;</span></span><span>
-</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174614"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174614"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174695"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174695"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Double
 -&gt; Maybe Double -&gt; Maybe Double -&gt; Maybe Double -&gt; BoundingBox
 </span><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox%27"><span class="hs-identifier hs-var">BoundingBox'</span></a></span><span>
@@ -254,7 +254,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
      (Maybe Double -&gt; Maybe Double -&gt; Maybe Double -&gt; BoundingBox)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679174695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Height&quot;</span></span><span class="hs-special">)</span><span>
@@ -264,29 +264,29 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Double -&gt; Maybe Double -&gt; BoundingBox)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679174695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Width&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Left&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe Double -&gt; BoundingBox)
 -&gt; Parser (Maybe Double) -&gt; Parser (Maybe Double -&gt; BoundingBox)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679174695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Left&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Width&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; BoundingBox)
 -&gt; Parser (Maybe Double) -&gt; Parser BoundingBox
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679174614"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+</span><a href="#local-6989586621679174695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Top&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174608"><span id="local-6989586621679174610"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174689"><span id="local-6989586621679174691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span></span></span><span>
 </span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174605"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Textract.Types.BoundingBox.html#BoundingBox"><span class="hs-identifier hs-type">BoundingBox</span></a></span></span><span>
 </span><span id="line-124"></span></pre></body></html>

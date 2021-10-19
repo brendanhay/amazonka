@@ -31,30 +31,30 @@
 </span><span id="line-31"></span><span class="hs-comment">-- expected normal values when the metric is graphed.</span><span>
 </span><span id="line-32"></span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newAnomalyDetector' smart constructor.</span><span>
-</span><span id="line-34"></span><span id="local-6989586621679255682"><span id="local-6989586621679255683"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnomalyDetector"><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-var">AnomalyDetector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalyDetector%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-var">AnomalyDetector'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679256011"><span id="local-6989586621679256012"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnomalyDetector"><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-var">AnomalyDetector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnomalyDetector%27"><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-var">AnomalyDetector'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the metric associated with the anomaly detection model.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AmetricName%3AAnomalyDetector%27"><span class="annot"><span class="annottext">AnomalyDetector -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3AmetricName%3AAnomalyDetector%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The configuration specifies details about how the anomaly detection</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- model is to be trained, including time ranges to exclude from use for</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- training the model, and the time zone to use for the metric.</span><span>
-</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aconfiguration%3AAnomalyDetector%27"><span class="annot"><span class="annottext">AnomalyDetector -&gt; Maybe AnomalyDetectorConfiguration
-</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Aconfiguration%3AAnomalyDetector%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorConfiguration.html#AnomalyDetectorConfiguration"><span class="hs-identifier hs-type">AnomalyDetectorConfiguration</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The current status of the anomaly detector\'s training. The possible</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- values are @TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA@</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AstateValue%3AAnomalyDetector%27"><span class="annot"><span class="annottext">AnomalyDetector -&gt; Maybe AnomalyDetectorStateValue
-</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3AstateValue%3AAnomalyDetector%27"><span class="hs-identifier hs-var hs-var">stateValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue"><span class="hs-identifier hs-type">AnomalyDetectorStateValue</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The namespace of the metric associated with the anomaly detection model.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3Anamespace%3AAnomalyDetector%27"><span class="annot"><span class="annottext">AnomalyDetector -&gt; Maybe Text
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The namespace of the metric associated with the anomaly detection model.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Anamespace%3AAnomalyDetector%27"><span class="annot"><span class="annottext">AnomalyDetector -&gt; Maybe Text
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Anamespace%3AAnomalyDetector%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The metric dimensions associated with the anomaly detection model.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Adimensions%3AAnomalyDetector%27"><span class="annot"><span class="annottext">AnomalyDetector -&gt; Maybe [Dimension]
-</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Adimensions%3AAnomalyDetector%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The statistic associated with the anomaly detection model.</span><span>
-</span><span id="line-49"></span><span>    </span><span id="%24sel%3Astat%3AAnomalyDetector%27"><span class="annot"><span class="annottext">AnomalyDetector -&gt; Maybe Text
-</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Astat%3AAnomalyDetector%27"><span class="hs-identifier hs-var hs-var">stat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The current status of the anomaly detector\'s training. The possible</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- values are @TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA@</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AstateValue%3AAnomalyDetector%27"><span class="annot"><span class="annottext">AnomalyDetector -&gt; Maybe AnomalyDetectorStateValue
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3AstateValue%3AAnomalyDetector%27"><span class="hs-identifier hs-var hs-var">stateValue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue"><span class="hs-identifier hs-type">AnomalyDetectorStateValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The statistic associated with the anomaly detection model.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Astat%3AAnomalyDetector%27"><span class="annot"><span class="annottext">AnomalyDetector -&gt; Maybe Text
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Astat%3AAnomalyDetector%27"><span class="hs-identifier hs-var hs-var">stat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The configuration specifies details about how the anomaly detection</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- model is to be trained, including time ranges to exclude from use for</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- training the model, and the time zone to use for the metric.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aconfiguration%3AAnomalyDetector%27"><span class="annot"><span class="annottext">AnomalyDetector -&gt; Maybe AnomalyDetectorConfiguration
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Aconfiguration%3AAnomalyDetector%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorConfiguration.html#AnomalyDetectorConfiguration"><span class="hs-identifier hs-type">AnomalyDetectorConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The metric dimensions associated with the anomaly detection model.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Adimensions%3AAnomalyDetector%27"><span class="annot"><span class="annottext">AnomalyDetector -&gt; Maybe [Dimension]
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Adimensions%3AAnomalyDetector%27"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-50"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679255671"><span id="local-6989586621679255673"><span class="annot"><span class="annottext">AnomalyDetector -&gt; AnomalyDetector -&gt; Bool
+</span><span id="line-51"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256000"><span id="local-6989586621679256002"><span class="annot"><span class="annottext">AnomalyDetector -&gt; AnomalyDetector -&gt; Bool
 (AnomalyDetector -&gt; AnomalyDetector -&gt; Bool)
 -&gt; (AnomalyDetector -&gt; AnomalyDetector -&gt; Bool)
 -&gt; Eq AnomalyDetector
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AnomalyDetector -&gt; AnomalyDetector -&gt; Bool
 == :: AnomalyDetector -&gt; AnomalyDetector -&gt; Bool
 $c== :: AnomalyDetector -&gt; AnomalyDetector -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255662"><span id="local-6989586621679255664"><span id="local-6989586621679255666"><span id="local-6989586621679255668"><span class="annot"><span class="annottext">ReadPrec [AnomalyDetector]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255991"><span id="local-6989586621679255993"><span id="local-6989586621679255995"><span id="local-6989586621679255997"><span class="annot"><span class="annottext">ReadPrec [AnomalyDetector]
 ReadPrec AnomalyDetector
 Int -&gt; ReadS AnomalyDetector
 ReadS [AnomalyDetector]
@@ -83,7 +83,7 @@ readList :: ReadS [AnomalyDetector]
 $creadList :: ReadS [AnomalyDetector]
 readsPrec :: Int -&gt; ReadS AnomalyDetector
 $creadsPrec :: Int -&gt; ReadS AnomalyDetector
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255655"><span id="local-6989586621679255657"><span id="local-6989586621679255659"><span class="annot"><span class="annottext">Int -&gt; AnomalyDetector -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679255984"><span id="local-6989586621679255986"><span id="local-6989586621679255988"><span class="annot"><span class="annottext">Int -&gt; AnomalyDetector -&gt; ShowS
 [AnomalyDetector] -&gt; ShowS
 AnomalyDetector -&gt; String
 (Int -&gt; AnomalyDetector -&gt; ShowS)
@@ -119,52 +119,52 @@ $cfrom :: forall x. AnomalyDetector -&gt; Rep AnomalyDetector x
 </span><span id="line-60"></span><span class="hs-comment">--</span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- 'metricName', 'anomalyDetector_metricName' - The name of the metric associated with the anomaly detection model.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
-</span><span id="line-63"></span><span class="hs-comment">-- 'configuration', 'anomalyDetector_configuration' - The configuration specifies details about how the anomaly detection</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- model is to be trained, including time ranges to exclude from use for</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- training the model, and the time zone to use for the metric.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- 'stateValue', 'anomalyDetector_stateValue' - The current status of the anomaly detector\'s training. The possible</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- values are @TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA@</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'namespace', 'anomalyDetector_namespace' - The namespace of the metric associated with the anomaly detection model.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'stateValue', 'anomalyDetector_stateValue' - The current status of the anomaly detector\'s training. The possible</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- values are @TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA@</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'stat', 'anomalyDetector_stat' - The statistic associated with the anomaly detection model.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'namespace', 'anomalyDetector_namespace' - The namespace of the metric associated with the anomaly detection model.</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'dimensions', 'anomalyDetector_dimensions' - The metric dimensions associated with the anomaly detection model.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'configuration', 'anomalyDetector_configuration' - The configuration specifies details about how the anomaly detection</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- model is to be trained, including time ranges to exclude from use for</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- training the model, and the time zone to use for the metric.</span><span>
 </span><span id="line-73"></span><span class="hs-comment">--</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- 'stat', 'anomalyDetector_stat' - The statistic associated with the anomaly detection model.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'dimensions', 'anomalyDetector_dimensions' - The metric dimensions associated with the anomaly detection model.</span><span>
 </span><span id="line-75"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#newAnomalyDetector"><span class="hs-identifier hs-type">newAnomalyDetector</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-76"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span>
 </span><span id="line-77"></span><span id="newAnomalyDetector"><span class="annot"><span class="annottext">newAnomalyDetector :: AnomalyDetector
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#newAnomalyDetector"><span class="hs-identifier hs-var hs-var">newAnomalyDetector</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">AnomalyDetector' :: Maybe Text
--&gt; Maybe AnomalyDetectorConfiguration
+-&gt; Maybe Text
 -&gt; Maybe AnomalyDetectorStateValue
 -&gt; Maybe Text
+-&gt; Maybe AnomalyDetectorConfiguration
 -&gt; Maybe [Dimension]
--&gt; Maybe Text
 -&gt; AnomalyDetector
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricName:AnomalyDetector' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3AmetricName%3AAnomalyDetector%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:AnomalyDetector' :: Maybe AnomalyDetectorConfiguration
-</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Aconfiguration%3AAnomalyDetector%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalyDetectorConfiguration
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespace:AnomalyDetector' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Anamespace%3AAnomalyDetector%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:stateValue:AnomalyDetector' :: Maybe AnomalyDetectorStateValue
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3AstateValue%3AAnomalyDetector%27"><span class="hs-identifier hs-var">stateValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalyDetectorStateValue
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:namespace:AnomalyDetector' :: Maybe Text
-</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Anamespace%3AAnomalyDetector%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:dimensions:AnomalyDetector' :: Maybe [Dimension]
-</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Adimensions%3AAnomalyDetector%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:stat:AnomalyDetector' :: Maybe Text
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:stat:AnomalyDetector' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Astat%3AAnomalyDetector%27"><span class="hs-identifier hs-var">stat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:AnomalyDetector' :: Maybe AnomalyDetectorConfiguration
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Aconfiguration%3AAnomalyDetector%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalyDetectorConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:dimensions:AnomalyDetector' :: Maybe [Dimension]
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Adimensions%3AAnomalyDetector%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
@@ -177,48 +177,40 @@ forall a. Maybe a
 -&gt; (AnomalyDetector -&gt; Maybe Text -&gt; AnomalyDetector)
 -&gt; Lens AnomalyDetector AnomalyDetector (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255646"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255975"><span class="annot"><span class="annottext">Maybe Text
 metricName :: Maybe Text
 $sel:metricName:AnomalyDetector' :: AnomalyDetector -&gt; Maybe Text
-</span><a href="#local-6989586621679255646"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255646"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255645"><span class="annot"><span class="annottext">s :: AnomalyDetector
-</span><a href="#local-6989586621679255645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255644"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyDetector
-</span><a href="#local-6989586621679255645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:AnomalyDetector' :: Maybe Text
+</span><a href="#local-6989586621679255975"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255975"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255974"><span class="annot"><span class="annottext">s :: AnomalyDetector
+</span><a href="#local-6989586621679255974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255973"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyDetector
+</span><a href="#local-6989586621679255974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:AnomalyDetector' :: Maybe Text
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3AmetricName%3AAnomalyDetector%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679255973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- | The configuration specifies details about how the anomaly detection</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- model is to be trained, including time ranges to exclude from use for</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- training the model, and the time zone to use for the metric.</span><span>
-</span><span id="line-94"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_configuration"><span class="hs-identifier hs-type">anomalyDetector_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorConfiguration.html#AnomalyDetectorConfiguration"><span class="hs-identifier hs-type">AnomalyDetectorConfiguration</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-95"></span><span id="anomalyDetector_configuration"><span class="annot"><span class="annottext">anomalyDetector_configuration :: (Maybe AnomalyDetectorConfiguration
- -&gt; f (Maybe AnomalyDetectorConfiguration))
+</span><span id="line-91"></span><span class="hs-comment">-- | The namespace of the metric associated with the anomaly detection model.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_namespace"><span class="hs-identifier hs-type">anomalyDetector_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="anomalyDetector_namespace"><span class="annot"><span class="annottext">anomalyDetector_namespace :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AnomalyDetector -&gt; f AnomalyDetector
-</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_configuration"><span class="hs-identifier hs-var hs-var">anomalyDetector_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnomalyDetector -&gt; Maybe AnomalyDetectorConfiguration)
--&gt; (AnomalyDetector
-    -&gt; Maybe AnomalyDetectorConfiguration -&gt; AnomalyDetector)
--&gt; Lens
-     AnomalyDetector
-     AnomalyDetector
-     (Maybe AnomalyDetectorConfiguration)
-     (Maybe AnomalyDetectorConfiguration)
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_namespace"><span class="hs-identifier hs-var hs-var">anomalyDetector_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnomalyDetector -&gt; Maybe Text)
+-&gt; (AnomalyDetector -&gt; Maybe Text -&gt; AnomalyDetector)
+-&gt; Lens AnomalyDetector AnomalyDetector (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255642"><span class="annot"><span class="annottext">Maybe AnomalyDetectorConfiguration
-configuration :: Maybe AnomalyDetectorConfiguration
-$sel:configuration:AnomalyDetector' :: AnomalyDetector -&gt; Maybe AnomalyDetectorConfiguration
-</span><a href="#local-6989586621679255642"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalyDetectorConfiguration
-</span><a href="#local-6989586621679255642"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255641"><span class="annot"><span class="annottext">s :: AnomalyDetector
-</span><a href="#local-6989586621679255641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255640"><span class="annot"><span class="annottext">Maybe AnomalyDetectorConfiguration
-</span><a href="#local-6989586621679255640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyDetector
-</span><a href="#local-6989586621679255641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:AnomalyDetector' :: Maybe AnomalyDetectorConfiguration
-</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Aconfiguration%3AAnomalyDetector%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalyDetectorConfiguration
-</span><a href="#local-6989586621679255640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-96"></span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- | The current status of the anomaly detector\'s training. The possible</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- values are @TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA@</span><span>
-</span><span id="line-99"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_stateValue"><span class="hs-identifier hs-type">anomalyDetector_stateValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue"><span class="hs-identifier hs-type">AnomalyDetectorStateValue</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-100"></span><span id="anomalyDetector_stateValue"><span class="annot"><span class="annottext">anomalyDetector_stateValue :: (Maybe AnomalyDetectorStateValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255971"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:AnomalyDetector' :: AnomalyDetector -&gt; Maybe Text
+</span><a href="#local-6989586621679255971"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255971"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255970"><span class="annot"><span class="annottext">s :: AnomalyDetector
+</span><a href="#local-6989586621679255970"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255969"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255969"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyDetector
+</span><a href="#local-6989586621679255970"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:AnomalyDetector' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Anamespace%3AAnomalyDetector%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255969"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The current status of the anomaly detector\'s training. The possible</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- values are @TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA@</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_stateValue"><span class="hs-identifier hs-type">anomalyDetector_stateValue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue.html#AnomalyDetectorStateValue"><span class="hs-identifier hs-type">AnomalyDetectorStateValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="anomalyDetector_stateValue"><span class="annot"><span class="annottext">anomalyDetector_stateValue :: (Maybe AnomalyDetectorStateValue
  -&gt; f (Maybe AnomalyDetectorStateValue))
 -&gt; AnomalyDetector -&gt; f AnomalyDetector
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_stateValue"><span class="hs-identifier hs-var hs-var">anomalyDetector_stateValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnomalyDetector -&gt; Maybe AnomalyDetectorStateValue)
@@ -230,39 +222,66 @@ $sel:configuration:AnomalyDetector' :: AnomalyDetector -&gt; Maybe AnomalyDetect
      (Maybe AnomalyDetectorStateValue)
      (Maybe AnomalyDetectorStateValue)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255638"><span class="annot"><span class="annottext">Maybe AnomalyDetectorStateValue
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255967"><span class="annot"><span class="annottext">Maybe AnomalyDetectorStateValue
 stateValue :: Maybe AnomalyDetectorStateValue
 $sel:stateValue:AnomalyDetector' :: AnomalyDetector -&gt; Maybe AnomalyDetectorStateValue
-</span><a href="#local-6989586621679255638"><span class="hs-identifier hs-var hs-var">stateValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalyDetectorStateValue
-</span><a href="#local-6989586621679255638"><span class="hs-identifier hs-var">stateValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255637"><span class="annot"><span class="annottext">s :: AnomalyDetector
-</span><a href="#local-6989586621679255637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255636"><span class="annot"><span class="annottext">Maybe AnomalyDetectorStateValue
-</span><a href="#local-6989586621679255636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyDetector
-</span><a href="#local-6989586621679255637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateValue:AnomalyDetector' :: Maybe AnomalyDetectorStateValue
+</span><a href="#local-6989586621679255967"><span class="hs-identifier hs-var hs-var">stateValue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalyDetectorStateValue
+</span><a href="#local-6989586621679255967"><span class="hs-identifier hs-var">stateValue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255966"><span class="annot"><span class="annottext">s :: AnomalyDetector
+</span><a href="#local-6989586621679255966"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255965"><span class="annot"><span class="annottext">Maybe AnomalyDetectorStateValue
+</span><a href="#local-6989586621679255965"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyDetector
+</span><a href="#local-6989586621679255966"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateValue:AnomalyDetector' :: Maybe AnomalyDetectorStateValue
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3AstateValue%3AAnomalyDetector%27"><span class="hs-identifier hs-var">stateValue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalyDetectorStateValue
-</span><a href="#local-6989586621679255636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- | The namespace of the metric associated with the anomaly detection model.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_namespace"><span class="hs-identifier hs-type">anomalyDetector_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="anomalyDetector_namespace"><span class="annot"><span class="annottext">anomalyDetector_namespace :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679255965"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The statistic associated with the anomaly detection model.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_stat"><span class="hs-identifier hs-type">anomalyDetector_stat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="anomalyDetector_stat"><span class="annot"><span class="annottext">anomalyDetector_stat :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; AnomalyDetector -&gt; f AnomalyDetector
-</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_namespace"><span class="hs-identifier hs-var hs-var">anomalyDetector_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnomalyDetector -&gt; Maybe Text)
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_stat"><span class="hs-identifier hs-var hs-var">anomalyDetector_stat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnomalyDetector -&gt; Maybe Text)
 -&gt; (AnomalyDetector -&gt; Maybe Text -&gt; AnomalyDetector)
 -&gt; Lens AnomalyDetector AnomalyDetector (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255634"><span class="annot"><span class="annottext">Maybe Text
-namespace :: Maybe Text
-$sel:namespace:AnomalyDetector' :: AnomalyDetector -&gt; Maybe Text
-</span><a href="#local-6989586621679255634"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255634"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255633"><span class="annot"><span class="annottext">s :: AnomalyDetector
-</span><a href="#local-6989586621679255633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255632"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyDetector
-</span><a href="#local-6989586621679255633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:AnomalyDetector' :: Maybe Text
-</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Anamespace%3AAnomalyDetector%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | The metric dimensions associated with the anomaly detection model.</span><span>
-</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_dimensions"><span class="hs-identifier hs-type">anomalyDetector_dimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-108"></span><span id="anomalyDetector_dimensions"><span class="annot"><span class="annottext">anomalyDetector_dimensions :: (Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255963"><span class="annot"><span class="annottext">Maybe Text
+stat :: Maybe Text
+$sel:stat:AnomalyDetector' :: AnomalyDetector -&gt; Maybe Text
+</span><a href="#local-6989586621679255963"><span class="hs-identifier hs-var hs-var">stat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255963"><span class="hs-identifier hs-var">stat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255962"><span class="annot"><span class="annottext">s :: AnomalyDetector
+</span><a href="#local-6989586621679255962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255961"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyDetector
+</span><a href="#local-6989586621679255962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stat:AnomalyDetector' :: Maybe Text
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Astat%3AAnomalyDetector%27"><span class="hs-identifier hs-var">stat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679255961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The configuration specifies details about how the anomaly detection</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- model is to be trained, including time ranges to exclude from use for</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- training the model, and the time zone to use for the metric.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_configuration"><span class="hs-identifier hs-type">anomalyDetector_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetectorConfiguration.html#AnomalyDetectorConfiguration"><span class="hs-identifier hs-type">AnomalyDetectorConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="anomalyDetector_configuration"><span class="annot"><span class="annottext">anomalyDetector_configuration :: (Maybe AnomalyDetectorConfiguration
+ -&gt; f (Maybe AnomalyDetectorConfiguration))
+-&gt; AnomalyDetector -&gt; f AnomalyDetector
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_configuration"><span class="hs-identifier hs-var hs-var">anomalyDetector_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnomalyDetector -&gt; Maybe AnomalyDetectorConfiguration)
+-&gt; (AnomalyDetector
+    -&gt; Maybe AnomalyDetectorConfiguration -&gt; AnomalyDetector)
+-&gt; Lens
+     AnomalyDetector
+     AnomalyDetector
+     (Maybe AnomalyDetectorConfiguration)
+     (Maybe AnomalyDetectorConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255959"><span class="annot"><span class="annottext">Maybe AnomalyDetectorConfiguration
+configuration :: Maybe AnomalyDetectorConfiguration
+$sel:configuration:AnomalyDetector' :: AnomalyDetector -&gt; Maybe AnomalyDetectorConfiguration
+</span><a href="#local-6989586621679255959"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalyDetectorConfiguration
+</span><a href="#local-6989586621679255959"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255958"><span class="annot"><span class="annottext">s :: AnomalyDetector
+</span><a href="#local-6989586621679255958"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255957"><span class="annot"><span class="annottext">Maybe AnomalyDetectorConfiguration
+</span><a href="#local-6989586621679255957"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyDetector
+</span><a href="#local-6989586621679255958"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:AnomalyDetector' :: Maybe AnomalyDetectorConfiguration
+</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Aconfiguration%3AAnomalyDetector%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AnomalyDetectorConfiguration
+</span><a href="#local-6989586621679255957"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The metric dimensions associated with the anomaly detection model.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_dimensions"><span class="hs-identifier hs-type">anomalyDetector_dimensions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.Dimension.html#Dimension"><span class="hs-identifier hs-type">Dimension</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="anomalyDetector_dimensions"><span class="annot"><span class="annottext">anomalyDetector_dimensions :: (Maybe [Dimension] -&gt; f (Maybe [Dimension]))
 -&gt; AnomalyDetector -&gt; f AnomalyDetector
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_dimensions"><span class="hs-identifier hs-var hs-var">anomalyDetector_dimensions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnomalyDetector -&gt; Maybe [Dimension])
 -&gt; (AnomalyDetector -&gt; Maybe [Dimension] -&gt; AnomalyDetector)
@@ -272,16 +291,16 @@ $sel:namespace:AnomalyDetector' :: AnomalyDetector -&gt; Maybe Text
      (Maybe [Dimension])
      (Maybe [Dimension])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255630"><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255955"><span class="annot"><span class="annottext">Maybe [Dimension]
 dimensions :: Maybe [Dimension]
 $sel:dimensions:AnomalyDetector' :: AnomalyDetector -&gt; Maybe [Dimension]
-</span><a href="#local-6989586621679255630"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
-</span><a href="#local-6989586621679255630"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255629"><span class="annot"><span class="annottext">s :: AnomalyDetector
-</span><a href="#local-6989586621679255629"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255628"><span class="annot"><span class="annottext">Maybe [Dimension]
-</span><a href="#local-6989586621679255628"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyDetector
-</span><a href="#local-6989586621679255629"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:AnomalyDetector' :: Maybe [Dimension]
+</span><a href="#local-6989586621679255955"><span class="hs-identifier hs-var hs-var">dimensions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679255955"><span class="hs-identifier hs-var">dimensions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255954"><span class="annot"><span class="annottext">s :: AnomalyDetector
+</span><a href="#local-6989586621679255954"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255953"><span class="annot"><span class="annottext">Maybe [Dimension]
+</span><a href="#local-6989586621679255953"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyDetector
+</span><a href="#local-6989586621679255954"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dimensions:AnomalyDetector' :: Maybe [Dimension]
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Adimensions%3AAnomalyDetector%27"><span class="hs-identifier hs-var">dimensions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Dimension]
-</span><a href="#local-6989586621679255628"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Dimension] -&gt; f (Maybe [Dimension]))
+</span><a href="#local-6989586621679255953"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Dimension] -&gt; f (Maybe [Dimension]))
  -&gt; AnomalyDetector -&gt; f AnomalyDetector)
 -&gt; ((Maybe [Dimension] -&gt; f (Maybe [Dimension]))
     -&gt; Maybe [Dimension] -&gt; f (Maybe [Dimension]))
@@ -299,120 +318,121 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Dimension] [Dimension] [Dimension] [Dimension]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-109"></span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- | The statistic associated with the anomaly detection model.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_stat"><span class="hs-identifier hs-type">anomalyDetector_stat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-112"></span><span id="anomalyDetector_stat"><span class="annot"><span class="annottext">anomalyDetector_stat :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AnomalyDetector -&gt; f AnomalyDetector
-</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#anomalyDetector_stat"><span class="hs-identifier hs-var hs-var">anomalyDetector_stat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnomalyDetector -&gt; Maybe Text)
--&gt; (AnomalyDetector -&gt; Maybe Text -&gt; AnomalyDetector)
--&gt; Lens AnomalyDetector AnomalyDetector (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679255623"><span class="annot"><span class="annottext">Maybe Text
-stat :: Maybe Text
-$sel:stat:AnomalyDetector' :: AnomalyDetector -&gt; Maybe Text
-</span><a href="#local-6989586621679255623"><span class="hs-identifier hs-var hs-var">stat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255623"><span class="hs-identifier hs-var">stat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679255622"><span class="annot"><span class="annottext">s :: AnomalyDetector
-</span><a href="#local-6989586621679255622"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-type">AnomalyDetector'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679255621"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255621"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnomalyDetector
-</span><a href="#local-6989586621679255622"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stat:AnomalyDetector' :: Maybe Text
-</span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#%24sel%3Astat%3AAnomalyDetector%27"><span class="hs-identifier hs-var">stat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679255621"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679255618"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AnomalyDetector
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679255616"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255616"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679255947"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AnomalyDetector
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679255945"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679255945"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe AnomalyDetectorConfiguration
+-&gt; Maybe Text
 -&gt; Maybe AnomalyDetectorStateValue
 -&gt; Maybe Text
+-&gt; Maybe AnomalyDetectorConfiguration
 -&gt; Maybe [Dimension]
--&gt; Maybe Text
 -&gt; AnomalyDetector
 </span><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector%27"><span class="hs-identifier hs-var">AnomalyDetector'</span></a></span><span>
 </span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe AnomalyDetectorConfiguration
+ -&gt; Maybe Text
  -&gt; Maybe AnomalyDetectorStateValue
  -&gt; Maybe Text
+ -&gt; Maybe AnomalyDetectorConfiguration
  -&gt; Maybe [Dimension]
- -&gt; Maybe Text
  -&gt; AnomalyDetector)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe AnomalyDetectorConfiguration
+     (Maybe Text
       -&gt; Maybe AnomalyDetectorStateValue
       -&gt; Maybe Text
+      -&gt; Maybe AnomalyDetectorConfiguration
       -&gt; Maybe [Dimension]
-      -&gt; Maybe Text
       -&gt; AnomalyDetector)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679255945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MetricName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe AnomalyDetectorConfiguration
+  (Maybe Text
    -&gt; Maybe AnomalyDetectorStateValue
    -&gt; Maybe Text
+   -&gt; Maybe AnomalyDetectorConfiguration
    -&gt; Maybe [Dimension]
-   -&gt; Maybe Text
    -&gt; AnomalyDetector)
--&gt; Either String (Maybe AnomalyDetectorConfiguration)
+-&gt; Either String (Maybe Text)
 -&gt; Either
      String
      (Maybe AnomalyDetectorStateValue
       -&gt; Maybe Text
+      -&gt; Maybe AnomalyDetectorConfiguration
       -&gt; Maybe [Dimension]
-      -&gt; Maybe Text
       -&gt; AnomalyDetector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
--&gt; Text -&gt; Either String (Maybe AnomalyDetectorConfiguration)
+</span><a href="#local-6989586621679255945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Configuration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;Namespace&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe AnomalyDetectorStateValue
    -&gt; Maybe Text
+   -&gt; Maybe AnomalyDetectorConfiguration
    -&gt; Maybe [Dimension]
-   -&gt; Maybe Text
    -&gt; AnomalyDetector)
 -&gt; Either String (Maybe AnomalyDetectorStateValue)
 -&gt; Either
      String
-     (Maybe Text -&gt; Maybe [Dimension] -&gt; Maybe Text -&gt; AnomalyDetector)
+     (Maybe Text
+      -&gt; Maybe AnomalyDetectorConfiguration
+      -&gt; Maybe [Dimension]
+      -&gt; AnomalyDetector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AnomalyDetectorStateValue)
+</span><a href="#local-6989586621679255945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AnomalyDetectorStateValue)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StateValue&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text -&gt; Maybe [Dimension] -&gt; Maybe Text -&gt; AnomalyDetector)
+  (Maybe Text
+   -&gt; Maybe AnomalyDetectorConfiguration
+   -&gt; Maybe [Dimension]
+   -&gt; AnomalyDetector)
 -&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe [Dimension] -&gt; Maybe Text -&gt; AnomalyDetector)
+     String
+     (Maybe AnomalyDetectorConfiguration
+      -&gt; Maybe [Dimension] -&gt; AnomalyDetector)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679255945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Namespace&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Dimension] -&gt; Maybe Text -&gt; AnomalyDetector)
+</span><span class="hs-string">&quot;Stat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe AnomalyDetectorConfiguration
+   -&gt; Maybe [Dimension] -&gt; AnomalyDetector)
+-&gt; Either String (Maybe AnomalyDetectorConfiguration)
+-&gt; Either String (Maybe [Dimension] -&gt; AnomalyDetector)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679255945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe AnomalyDetectorConfiguration)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Configuration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Dimension] -&gt; AnomalyDetector)
 -&gt; Either String (Maybe [Dimension])
--&gt; Either String (Maybe Text -&gt; AnomalyDetector)
+-&gt; Either String AnomalyDetector
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679255945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Dimensions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -420,7 +440,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-122"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-123"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Dimension]))
 -&gt; Either String (Maybe [Dimension])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -433,17 +453,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; AnomalyDetector)
--&gt; Either String (Maybe Text) -&gt; Either String AnomalyDetector
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679255616"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Stat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>
-</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255607"><span id="local-6989586621679255609"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span></span></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255936"><span id="local-6989586621679255938"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span></span></span><span>
 </span><span id="line-127"></span><span>
-</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679255933"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudWatch.Types.AnomalyDetector.html#AnomalyDetector"><span class="hs-identifier hs-type">AnomalyDetector</span></a></span></span><span>
 </span><span id="line-129"></span></pre></body></html>

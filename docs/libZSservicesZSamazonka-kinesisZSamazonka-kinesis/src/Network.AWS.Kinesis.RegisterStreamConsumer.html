@@ -65,7 +65,7 @@
 </span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newRegisterStreamConsumer' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679200953"><span id="local-6989586621679200954"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterStreamConsumer"><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-var">RegisterStreamConsumer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterStreamConsumer%27"><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer%27"><span class="hs-identifier hs-var">RegisterStreamConsumer'</span></a></span></span><span>
+</span><span id="line-68"></span><span id="local-6989586621679201057"><span id="local-6989586621679201058"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterStreamConsumer"><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-var">RegisterStreamConsumer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterStreamConsumer%27"><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer%27"><span class="hs-identifier hs-var">RegisterStreamConsumer'</span></a></span></span><span>
 </span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the Kinesis data stream that you want to register the</span><span>
 </span><span id="line-70"></span><span>    </span><span class="hs-comment">-- consumer with. For more info, see</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams Amazon Resource Names (ARNs) and AWS Service Namespaces&gt;.</span><span>
@@ -76,7 +76,7 @@
 </span><span id="line-75"></span><span>    </span><span id="%24sel%3AconsumerName%3ARegisterStreamConsumer%27"><span class="annot"><span class="annottext">RegisterStreamConsumer -&gt; Text
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#%24sel%3AconsumerName%3ARegisterStreamConsumer%27"><span class="hs-identifier hs-var hs-var">consumerName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200946"><span id="local-6989586621679200948"><span class="annot"><span class="annottext">RegisterStreamConsumer -&gt; RegisterStreamConsumer -&gt; Bool
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679201050"><span id="local-6989586621679201052"><span class="annot"><span class="annottext">RegisterStreamConsumer -&gt; RegisterStreamConsumer -&gt; Bool
 (RegisterStreamConsumer -&gt; RegisterStreamConsumer -&gt; Bool)
 -&gt; (RegisterStreamConsumer -&gt; RegisterStreamConsumer -&gt; Bool)
 -&gt; Eq RegisterStreamConsumer
@@ -85,7 +85,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RegisterStreamConsumer -&gt; RegisterStreamConsumer -&gt; Bool
 == :: RegisterStreamConsumer -&gt; RegisterStreamConsumer -&gt; Bool
 $c== :: RegisterStreamConsumer -&gt; RegisterStreamConsumer -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200937"><span id="local-6989586621679200939"><span id="local-6989586621679200941"><span id="local-6989586621679200943"><span class="annot"><span class="annottext">ReadPrec [RegisterStreamConsumer]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201041"><span id="local-6989586621679201043"><span id="local-6989586621679201045"><span id="local-6989586621679201047"><span class="annot"><span class="annottext">ReadPrec [RegisterStreamConsumer]
 ReadPrec RegisterStreamConsumer
 Int -&gt; ReadS RegisterStreamConsumer
 ReadS [RegisterStreamConsumer]
@@ -105,7 +105,7 @@ readList :: ReadS [RegisterStreamConsumer]
 $creadList :: ReadS [RegisterStreamConsumer]
 readsPrec :: Int -&gt; ReadS RegisterStreamConsumer
 $creadsPrec :: Int -&gt; ReadS RegisterStreamConsumer
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200930"><span id="local-6989586621679200932"><span id="local-6989586621679200934"><span class="annot"><span class="annottext">Int -&gt; RegisterStreamConsumer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679201034"><span id="local-6989586621679201036"><span id="local-6989586621679201038"><span class="annot"><span class="annottext">Int -&gt; RegisterStreamConsumer -&gt; ShowS
 [RegisterStreamConsumer] -&gt; ShowS
 RegisterStreamConsumer -&gt; String
 (Int -&gt; RegisterStreamConsumer -&gt; ShowS)
@@ -153,17 +153,17 @@ $cfrom :: forall x. RegisterStreamConsumer -&gt; Rep RegisterStreamConsumer x
 </span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-98"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span><span>
 </span><span id="line-99"></span><span id="newRegisterStreamConsumer"><span class="annot"><span class="annottext">newRegisterStreamConsumer :: Text -&gt; Text -&gt; RegisterStreamConsumer
-</span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#newRegisterStreamConsumer"><span class="hs-identifier hs-var hs-var">newRegisterStreamConsumer</span></a></span></span><span> </span><span id="local-6989586621679200925"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200925"><span class="hs-identifier hs-var">pStreamARN_</span></a></span></span><span> </span><span id="local-6989586621679200924"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200924"><span class="hs-identifier hs-var">pConsumerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#newRegisterStreamConsumer"><span class="hs-identifier hs-var hs-var">newRegisterStreamConsumer</span></a></span></span><span> </span><span id="local-6989586621679201029"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201029"><span class="hs-identifier hs-var">pStreamARN_</span></a></span></span><span> </span><span id="local-6989586621679201028"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201028"><span class="hs-identifier hs-var">pConsumerName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">RegisterStreamConsumer' :: Text -&gt; Text -&gt; RegisterStreamConsumer
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer%27"><span class="hs-identifier hs-type">RegisterStreamConsumer'</span></a></span><span>
 </span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:streamARN:RegisterStreamConsumer' :: Text
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#%24sel%3AstreamARN%3ARegisterStreamConsumer%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200925"><span class="hs-identifier hs-var">pStreamARN_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679201029"><span class="hs-identifier hs-var">pStreamARN_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:consumerName:RegisterStreamConsumer' :: Text
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#%24sel%3AconsumerName%3ARegisterStreamConsumer%27"><span class="hs-identifier hs-var">consumerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200924"><span class="hs-identifier hs-var">pConsumerName_</span></a></span><span>
+</span><a href="#local-6989586621679201028"><span class="hs-identifier hs-var">pConsumerName_</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The ARN of the Kinesis data stream that you want to register the</span><span>
@@ -176,16 +176,16 @@ $cfrom :: forall x. RegisterStreamConsumer -&gt; Rep RegisterStreamConsumer x
 -&gt; (RegisterStreamConsumer -&gt; Text -&gt; RegisterStreamConsumer)
 -&gt; Lens RegisterStreamConsumer RegisterStreamConsumer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer%27"><span class="hs-identifier hs-type">RegisterStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200921"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer%27"><span class="hs-identifier hs-type">RegisterStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201025"><span class="annot"><span class="annottext">Text
 streamARN :: Text
 $sel:streamARN:RegisterStreamConsumer' :: RegisterStreamConsumer -&gt; Text
-</span><a href="#local-6989586621679200921"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200921"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200920"><span class="annot"><span class="annottext">s :: RegisterStreamConsumer
-</span><a href="#local-6989586621679200920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer%27"><span class="hs-identifier hs-type">RegisterStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200919"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterStreamConsumer
-</span><a href="#local-6989586621679200920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:RegisterStreamConsumer' :: Text
+</span><a href="#local-6989586621679201025"><span class="hs-identifier hs-var hs-var">streamARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201025"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201024"><span class="annot"><span class="annottext">s :: RegisterStreamConsumer
+</span><a href="#local-6989586621679201024"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer%27"><span class="hs-identifier hs-type">RegisterStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201023"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201023"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterStreamConsumer
+</span><a href="#local-6989586621679201024"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamARN:RegisterStreamConsumer' :: Text
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#%24sel%3AstreamARN%3ARegisterStreamConsumer%27"><span class="hs-identifier hs-var">streamARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201023"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | For a given Kinesis data stream, each consumer must have a unique name.</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- However, consumer names don\'t have to be unique across data streams.</span><span>
@@ -196,27 +196,27 @@ $sel:streamARN:RegisterStreamConsumer' :: RegisterStreamConsumer -&gt; Text
 -&gt; (RegisterStreamConsumer -&gt; Text -&gt; RegisterStreamConsumer)
 -&gt; Lens RegisterStreamConsumer RegisterStreamConsumer Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer%27"><span class="hs-identifier hs-type">RegisterStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200918"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer%27"><span class="hs-identifier hs-type">RegisterStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679201022"><span class="annot"><span class="annottext">Text
 consumerName :: Text
 $sel:consumerName:RegisterStreamConsumer' :: RegisterStreamConsumer -&gt; Text
-</span><a href="#local-6989586621679200918"><span class="hs-identifier hs-var hs-var">consumerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200918"><span class="hs-identifier hs-var">consumerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200917"><span class="annot"><span class="annottext">s :: RegisterStreamConsumer
-</span><a href="#local-6989586621679200917"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer%27"><span class="hs-identifier hs-type">RegisterStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200916"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200916"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterStreamConsumer
-</span><a href="#local-6989586621679200917"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerName:RegisterStreamConsumer' :: Text
+</span><a href="#local-6989586621679201022"><span class="hs-identifier hs-var hs-var">consumerName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201022"><span class="hs-identifier hs-var">consumerName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679201021"><span class="annot"><span class="annottext">s :: RegisterStreamConsumer
+</span><a href="#local-6989586621679201021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer%27"><span class="hs-identifier hs-type">RegisterStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679201020"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679201020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterStreamConsumer
+</span><a href="#local-6989586621679201021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumerName:RegisterStreamConsumer' :: Text
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#%24sel%3AconsumerName%3ARegisterStreamConsumer%27"><span class="hs-identifier hs-var">consumerName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200916"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse</span></a></span><span>
-</span><span id="line-120"></span><span>  </span><span id="local-6989586621679200912"><span class="annot"><span class="annottext">request :: RegisterStreamConsumer -&gt; Request RegisterStreamConsumer
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679201016"><span class="annot"><span class="annottext">request :: RegisterStreamConsumer -&gt; Request RegisterStreamConsumer
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterStreamConsumer -&gt; Request RegisterStreamConsumer
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679200908"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679201012"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RegisterStreamConsumer
 -&gt; ClientResponse ClientBody
@@ -242,10 +242,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200905"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200905"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200904"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679200904"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200903"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679200903"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679201009"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679201009"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679201008"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679201008"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679201007"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679201007"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Consumer -&gt; RegisterStreamConsumerResponse
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse%27"><span class="hs-identifier hs-var">RegisterStreamConsumerResponse'</span></a></span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Consumer -&gt; RegisterStreamConsumerResponse)
@@ -257,24 +257,24 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200905"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679201009"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either String (Consumer -&gt; RegisterStreamConsumerResponse)
 -&gt; Either String Consumer
 -&gt; Either String RegisterStreamConsumerResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679200903"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Consumer
+</span><a href="#local-6989586621679201007"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Consumer
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Consumer&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200895"><span id="local-6989586621679200897"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200999"><span id="local-6989586621679201001"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200892"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679200888"><span class="annot"><span class="annottext">toHeaders :: RegisterStreamConsumer -&gt; ResponseHeaders
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679200992"><span class="annot"><span class="annottext">toHeaders :: RegisterStreamConsumer -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterStreamConsumer -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -301,14 +301,14 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200878"><span id="local-6989586621679200880"><span id="local-6989586621679200882"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679200876"><span class="annot"><span class="annottext">toJSON :: RegisterStreamConsumer -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer%27"><span class="hs-identifier hs-type">RegisterStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200873"><span id="local-6989586621679200874"><span class="annot"><span class="annottext">Text
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200982"><span id="local-6989586621679200984"><span id="local-6989586621679200986"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679200980"><span class="annot"><span class="annottext">toJSON :: RegisterStreamConsumer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer%27"><span class="hs-identifier hs-type">RegisterStreamConsumer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200977"><span id="local-6989586621679200978"><span class="annot"><span class="annottext">Text
 consumerName :: Text
 streamARN :: Text
 $sel:consumerName:RegisterStreamConsumer' :: RegisterStreamConsumer -&gt; Text
 $sel:streamARN:RegisterStreamConsumer' :: RegisterStreamConsumer -&gt; Text
-</span><a href="#local-6989586621679200873"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679200977"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -320,26 +320,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;StreamARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200874"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200978"><span class="hs-identifier hs-var">streamARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ConsumerName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679200873"><span class="hs-identifier hs-var">consumerName</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200977"><span class="hs-identifier hs-var">consumerName</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-156"></span><span>
 </span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-158"></span><span>  </span><span id="local-6989586621679200867"><span class="annot"><span class="annottext">toPath :: RegisterStreamConsumer -&gt; ByteString
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679200971"><span class="annot"><span class="annottext">toPath :: RegisterStreamConsumer -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterStreamConsumer -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-159"></span><span>
 </span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumer"><span class="hs-identifier hs-type">RegisterStreamConsumer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-161"></span><span>  </span><span id="local-6989586621679200863"><span class="annot"><span class="annottext">toQuery :: RegisterStreamConsumer -&gt; QueryString
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679200967"><span class="annot"><span class="annottext">toQuery :: RegisterStreamConsumer -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterStreamConsumer -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -347,7 +347,7 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newRegisterStreamConsumerResponse' smart constructor.</span><span>
-</span><span id="line-164"></span><span id="local-6989586621679200860"><span id="local-6989586621679200861"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterStreamConsumerResponse"><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse"><span class="hs-identifier hs-var">RegisterStreamConsumerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterStreamConsumerResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse%27"><span class="hs-identifier hs-var">RegisterStreamConsumerResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span id="local-6989586621679200964"><span id="local-6989586621679200965"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterStreamConsumerResponse"><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse"><span class="hs-identifier hs-var">RegisterStreamConsumerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterStreamConsumerResponse%27"><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse%27"><span class="hs-identifier hs-var">RegisterStreamConsumerResponse'</span></a></span></span><span>
 </span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-166"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterStreamConsumerResponse%27"><span class="annot"><span class="annottext">RegisterStreamConsumerResponse -&gt; Int
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#%24sel%3AhttpStatus%3ARegisterStreamConsumerResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -357,7 +357,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-170"></span><span>    </span><span id="%24sel%3Aconsumer%3ARegisterStreamConsumerResponse%27"><span class="annot"><span class="annottext">RegisterStreamConsumerResponse -&gt; Consumer
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#%24sel%3Aconsumer%3ARegisterStreamConsumerResponse%27"><span class="hs-identifier hs-var hs-var">consumer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.Types.Consumer.html#Consumer"><span class="hs-identifier hs-type">Consumer</span></a></span><span>
 </span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200854"><span id="local-6989586621679200856"><span class="annot"><span class="annottext">RegisterStreamConsumerResponse
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200958"><span id="local-6989586621679200960"><span class="annot"><span class="annottext">RegisterStreamConsumerResponse
 -&gt; RegisterStreamConsumerResponse -&gt; Bool
 (RegisterStreamConsumerResponse
  -&gt; RegisterStreamConsumerResponse -&gt; Bool)
@@ -373,7 +373,7 @@ $c/= :: RegisterStreamConsumerResponse
 -&gt; RegisterStreamConsumerResponse -&gt; Bool
 $c== :: RegisterStreamConsumerResponse
 -&gt; RegisterStreamConsumerResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200846"><span id="local-6989586621679200848"><span id="local-6989586621679200850"><span id="local-6989586621679200852"><span class="annot"><span class="annottext">ReadPrec [RegisterStreamConsumerResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200950"><span id="local-6989586621679200952"><span id="local-6989586621679200954"><span id="local-6989586621679200956"><span class="annot"><span class="annottext">ReadPrec [RegisterStreamConsumerResponse]
 ReadPrec RegisterStreamConsumerResponse
 Int -&gt; ReadS RegisterStreamConsumerResponse
 ReadS [RegisterStreamConsumerResponse]
@@ -393,7 +393,7 @@ readList :: ReadS [RegisterStreamConsumerResponse]
 $creadList :: ReadS [RegisterStreamConsumerResponse]
 readsPrec :: Int -&gt; ReadS RegisterStreamConsumerResponse
 $creadsPrec :: Int -&gt; ReadS RegisterStreamConsumerResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200840"><span id="local-6989586621679200842"><span id="local-6989586621679200844"><span class="annot"><span class="annottext">Int -&gt; RegisterStreamConsumerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200944"><span id="local-6989586621679200946"><span id="local-6989586621679200948"><span class="annot"><span class="annottext">Int -&gt; RegisterStreamConsumerResponse -&gt; ShowS
 [RegisterStreamConsumerResponse] -&gt; ShowS
 RegisterStreamConsumerResponse -&gt; String
 (Int -&gt; RegisterStreamConsumerResponse -&gt; ShowS)
@@ -452,19 +452,19 @@ RegisterStreamConsumerResponse
 </span><span id="line-192"></span><span>  </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse</span></a></span><span>
 </span><span id="line-193"></span><span id="newRegisterStreamConsumerResponse"><span class="annot"><span class="annottext">newRegisterStreamConsumerResponse :: Int -&gt; Consumer -&gt; RegisterStreamConsumerResponse
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#newRegisterStreamConsumerResponse"><span class="hs-identifier hs-var hs-var">newRegisterStreamConsumerResponse</span></a></span></span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679200837"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200837"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-195"></span><span>  </span><span id="local-6989586621679200836"><span class="annot"><span class="annottext">Consumer
-</span><a href="#local-6989586621679200836"><span class="hs-identifier hs-var">pConsumer_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679200941"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200941"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679200940"><span class="annot"><span class="annottext">Consumer
+</span><a href="#local-6989586621679200940"><span class="hs-identifier hs-var">pConsumer_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">RegisterStreamConsumerResponse' :: Int -&gt; Consumer -&gt; RegisterStreamConsumerResponse
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse%27"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse'</span></a></span><span>
 </span><span id="line-197"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterStreamConsumerResponse' :: Int
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#%24sel%3AhttpStatus%3ARegisterStreamConsumerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200837"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679200941"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">$sel:consumer:RegisterStreamConsumerResponse' :: Consumer
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#%24sel%3Aconsumer%3ARegisterStreamConsumerResponse%27"><span class="hs-identifier hs-var">consumer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Consumer
-</span><a href="#local-6989586621679200836"><span class="hs-identifier hs-var">pConsumer_</span></a></span><span>
+</span><a href="#local-6989586621679200940"><span class="hs-identifier hs-var">pConsumer_</span></a></span><span>
 </span><span id="line-200"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-201"></span><span>
 </span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -481,16 +481,16 @@ RegisterStreamConsumerResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse%27"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200835"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse%27"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200939"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RegisterStreamConsumerResponse' :: RegisterStreamConsumerResponse -&gt; Int
-</span><a href="#local-6989586621679200835"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200835"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200834"><span class="annot"><span class="annottext">s :: RegisterStreamConsumerResponse
-</span><a href="#local-6989586621679200834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse%27"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200833"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterStreamConsumerResponse
-</span><a href="#local-6989586621679200834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterStreamConsumerResponse' :: Int
+</span><a href="#local-6989586621679200939"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200939"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200938"><span class="annot"><span class="annottext">s :: RegisterStreamConsumerResponse
+</span><a href="#local-6989586621679200938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse%27"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200937"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterStreamConsumerResponse
+</span><a href="#local-6989586621679200938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterStreamConsumerResponse' :: Int
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#%24sel%3AhttpStatus%3ARegisterStreamConsumerResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679200833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-205"></span><span>
 </span><span id="line-206"></span><span class="hs-comment">-- | An object that represents the details of the consumer you registered.</span><span>
 </span><span id="line-207"></span><span class="hs-comment">-- When you register a consumer, it gets an ARN that is generated by</span><span>
@@ -508,18 +508,18 @@ $sel:httpStatus:RegisterStreamConsumerResponse' :: RegisterStreamConsumerRespons
      Consumer
      Consumer
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse%27"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200832"><span class="annot"><span class="annottext">Consumer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse%27"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200936"><span class="annot"><span class="annottext">Consumer
 consumer :: Consumer
 $sel:consumer:RegisterStreamConsumerResponse' :: RegisterStreamConsumerResponse -&gt; Consumer
-</span><a href="#local-6989586621679200832"><span class="hs-identifier hs-var hs-var">consumer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Consumer
-</span><a href="#local-6989586621679200832"><span class="hs-identifier hs-var">consumer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200831"><span class="annot"><span class="annottext">s :: RegisterStreamConsumerResponse
-</span><a href="#local-6989586621679200831"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse%27"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200830"><span class="annot"><span class="annottext">Consumer
-</span><a href="#local-6989586621679200830"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterStreamConsumerResponse
-</span><a href="#local-6989586621679200831"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumer:RegisterStreamConsumerResponse' :: Consumer
+</span><a href="#local-6989586621679200936"><span class="hs-identifier hs-var hs-var">consumer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Consumer
+</span><a href="#local-6989586621679200936"><span class="hs-identifier hs-var">consumer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200935"><span class="annot"><span class="annottext">s :: RegisterStreamConsumerResponse
+</span><a href="#local-6989586621679200935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse%27"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200934"><span class="annot"><span class="annottext">Consumer
+</span><a href="#local-6989586621679200934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterStreamConsumerResponse
+</span><a href="#local-6989586621679200935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:consumer:RegisterStreamConsumerResponse' :: Consumer
 </span><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#%24sel%3Aconsumer%3ARegisterStreamConsumerResponse%27"><span class="hs-identifier hs-var">consumer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Consumer
-</span><a href="#local-6989586621679200830"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679200934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621679200828"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679200932"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-214"></span><span>    </span><span class="annot"><a href="Network.AWS.Kinesis.RegisterStreamConsumer.html#RegisterStreamConsumerResponse"><span class="hs-identifier hs-type">RegisterStreamConsumerResponse</span></a></span></span><span>
 </span><span id="line-215"></span></pre></body></html>

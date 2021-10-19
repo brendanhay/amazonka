@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679323956"><span id="local-6989586621679323957"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FaceSearchSortBy"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceSearchSortBy.html#FaceSearchSortBy"><span class="hs-identifier hs-var">FaceSearchSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FaceSearchSortBy%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceSearchSortBy.html#FaceSearchSortBy%27"><span class="hs-identifier hs-var">FaceSearchSortBy'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679324233"><span id="local-6989586621679324234"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FaceSearchSortBy"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceSearchSortBy.html#FaceSearchSortBy"><span class="hs-identifier hs-var">FaceSearchSortBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FaceSearchSortBy%27"><span class="annot"><a href="Network.AWS.Rekognition.Types.FaceSearchSortBy.html#FaceSearchSortBy%27"><span class="hs-identifier hs-var">FaceSearchSortBy'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFaceSearchSortBy"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; Text
 </span><a href="Network.AWS.Rekognition.Types.FaceSearchSortBy.html#fromFaceSearchSortBy"><span class="hs-identifier hs-var hs-var">fromFaceSearchSortBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323948"><span id="local-6989586621679323950"><span id="local-6989586621679323952"><span class="annot"><span class="annottext">Int -&gt; FaceSearchSortBy -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324225"><span id="local-6989586621679324227"><span id="local-6989586621679324229"><span class="annot"><span class="annottext">Int -&gt; FaceSearchSortBy -&gt; ShowS
 [FaceSearchSortBy] -&gt; ShowS
 FaceSearchSortBy -&gt; String
 (Int -&gt; FaceSearchSortBy -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: FaceSearchSortBy -&gt; String
 showsPrec :: Int -&gt; FaceSearchSortBy -&gt; ShowS
 $cshowsPrec :: Int -&gt; FaceSearchSortBy -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679323939"><span id="local-6989586621679323941"><span id="local-6989586621679323943"><span id="local-6989586621679323945"><span class="annot"><span class="annottext">ReadPrec [FaceSearchSortBy]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679324216"><span id="local-6989586621679324218"><span id="local-6989586621679324220"><span id="local-6989586621679324222"><span class="annot"><span class="annottext">ReadPrec [FaceSearchSortBy]
 ReadPrec FaceSearchSortBy
 Int -&gt; ReadS FaceSearchSortBy
 ReadS [FaceSearchSortBy]
@@ -72,7 +72,7 @@ $creadList :: ReadS [FaceSearchSortBy]
 readsPrec :: Int -&gt; ReadS FaceSearchSortBy
 $creadsPrec :: Int -&gt; ReadS FaceSearchSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679323934"><span id="local-6989586621679323936"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; FaceSearchSortBy -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679324211"><span id="local-6989586621679324213"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; FaceSearchSortBy -&gt; Bool
 (FaceSearchSortBy -&gt; FaceSearchSortBy -&gt; Bool)
 -&gt; (FaceSearchSortBy -&gt; FaceSearchSortBy -&gt; Bool)
 -&gt; Eq FaceSearchSortBy
@@ -82,7 +82,7 @@ $c/= :: FaceSearchSortBy -&gt; FaceSearchSortBy -&gt; Bool
 == :: FaceSearchSortBy -&gt; FaceSearchSortBy -&gt; Bool
 $c== :: FaceSearchSortBy -&gt; FaceSearchSortBy -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679323918"><span id="local-6989586621679323920"><span id="local-6989586621679323922"><span id="local-6989586621679323924"><span id="local-6989586621679323926"><span id="local-6989586621679323928"><span id="local-6989586621679323930"><span class="annot"><span class="annottext">Eq FaceSearchSortBy
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679324195"><span id="local-6989586621679324197"><span id="local-6989586621679324199"><span id="local-6989586621679324201"><span id="local-6989586621679324203"><span id="local-6989586621679324205"><span id="local-6989586621679324207"><span class="annot"><span class="annottext">Eq FaceSearchSortBy
 Eq FaceSearchSortBy
 -&gt; (FaceSearchSortBy -&gt; FaceSearchSortBy -&gt; Ordering)
 -&gt; (FaceSearchSortBy -&gt; FaceSearchSortBy -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. FaceSearchSortBy -&gt; Rep FaceSearchSortBy x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679323910"><span id="local-6989586621679323912"><span class="annot"><span class="annottext">Int -&gt; FaceSearchSortBy -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679324187"><span id="local-6989586621679324189"><span class="annot"><span class="annottext">Int -&gt; FaceSearchSortBy -&gt; Int
 FaceSearchSortBy -&gt; Int
 (Int -&gt; FaceSearchSortBy -&gt; Int)
 -&gt; (FaceSearchSortBy -&gt; Int) -&gt; Hashable FaceSearchSortBy
@@ -143,51 +143,51 @@ $chash :: FaceSearchSortBy -&gt; Int
 hashWithSalt :: Int -&gt; FaceSearchSortBy -&gt; Int
 $chashWithSalt :: Int -&gt; FaceSearchSortBy -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679323907"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679324184"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; ()
 (FaceSearchSortBy -&gt; ()) -&gt; NFData FaceSearchSortBy
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FaceSearchSortBy -&gt; ()
 $crnf :: FaceSearchSortBy -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679323904"><span class="annot"><span class="annottext">Text -&gt; Either String FaceSearchSortBy
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679324181"><span class="annot"><span class="annottext">Text -&gt; Either String FaceSearchSortBy
 (Text -&gt; Either String FaceSearchSortBy)
 -&gt; FromText FaceSearchSortBy
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FaceSearchSortBy
 $cfromText :: Text -&gt; Either String FaceSearchSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679323901"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679324178"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; Text
 (FaceSearchSortBy -&gt; Text) -&gt; ToText FaceSearchSortBy
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FaceSearchSortBy -&gt; Text
 $ctoText :: FaceSearchSortBy -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679323898"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679324175"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; ByteString
 (FaceSearchSortBy -&gt; ByteString) -&gt; ToByteString FaceSearchSortBy
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FaceSearchSortBy -&gt; ByteString
 $ctoBS :: FaceSearchSortBy -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679323895"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679324172"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; ByteStringBuilder
 (FaceSearchSortBy -&gt; ByteStringBuilder) -&gt; ToLog FaceSearchSortBy
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FaceSearchSortBy -&gt; ByteStringBuilder
 $cbuild :: FaceSearchSortBy -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679323892"><span class="annot"><span class="annottext">HeaderName -&gt; FaceSearchSortBy -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679324169"><span class="annot"><span class="annottext">HeaderName -&gt; FaceSearchSortBy -&gt; [Header]
 (HeaderName -&gt; FaceSearchSortBy -&gt; [Header])
 -&gt; ToHeader FaceSearchSortBy
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FaceSearchSortBy -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FaceSearchSortBy -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679323889"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679324166"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; QueryString
 (FaceSearchSortBy -&gt; QueryString) -&gt; ToQuery FaceSearchSortBy
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FaceSearchSortBy -&gt; QueryString
 $ctoQuery :: FaceSearchSortBy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679323884"><span id="local-6989586621679323886"><span class="annot"><span class="annottext">Value -&gt; Parser [FaceSearchSortBy]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679324161"><span id="local-6989586621679324163"><span class="annot"><span class="annottext">Value -&gt; Parser [FaceSearchSortBy]
 Value -&gt; Parser FaceSearchSortBy
 (Value -&gt; Parser FaceSearchSortBy)
 -&gt; (Value -&gt; Parser [FaceSearchSortBy])
@@ -199,7 +199,7 @@ $cparseJSONList :: Value -&gt; Parser [FaceSearchSortBy]
 parseJSON :: Value -&gt; Parser FaceSearchSortBy
 $cparseJSON :: Value -&gt; Parser FaceSearchSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679323879"><span id="local-6989586621679323881"><span class="annot"><span class="annottext">FromJSONKeyFunction [FaceSearchSortBy]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679324156"><span id="local-6989586621679324158"><span class="annot"><span class="annottext">FromJSONKeyFunction [FaceSearchSortBy]
 FromJSONKeyFunction FaceSearchSortBy
 FromJSONKeyFunction FaceSearchSortBy
 -&gt; FromJSONKeyFunction [FaceSearchSortBy]
@@ -211,7 +211,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FaceSearchSortBy]
 fromJSONKey :: FromJSONKeyFunction FaceSearchSortBy
 $cfromJSONKey :: FromJSONKeyFunction FaceSearchSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679323870"><span id="local-6989586621679323872"><span id="local-6989586621679323874"><span id="local-6989586621679323876"><span class="annot"><span class="annottext">[FaceSearchSortBy] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679324147"><span id="local-6989586621679324149"><span id="local-6989586621679324151"><span id="local-6989586621679324153"><span class="annot"><span class="annottext">[FaceSearchSortBy] -&gt; Encoding
 [FaceSearchSortBy] -&gt; Value
 FaceSearchSortBy -&gt; Encoding
 FaceSearchSortBy -&gt; Value
@@ -235,7 +235,7 @@ $ctoEncoding :: FaceSearchSortBy -&gt; Encoding
 toJSON :: FaceSearchSortBy -&gt; Value
 $ctoJSON :: FaceSearchSortBy -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679323865"><span id="local-6989586621679323867"><span class="annot"><span class="annottext">ToJSONKeyFunction [FaceSearchSortBy]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679324142"><span id="local-6989586621679324144"><span class="annot"><span class="annottext">ToJSONKeyFunction [FaceSearchSortBy]
 ToJSONKeyFunction FaceSearchSortBy
 ToJSONKeyFunction FaceSearchSortBy
 -&gt; ToJSONKeyFunction [FaceSearchSortBy]
@@ -247,14 +247,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FaceSearchSortBy]
 toJSONKey :: ToJSONKeyFunction FaceSearchSortBy
 $ctoJSONKey :: ToJSONKeyFunction FaceSearchSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679323862"><span class="annot"><span class="annottext">[Node] -&gt; Either String FaceSearchSortBy
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679324139"><span class="annot"><span class="annottext">[Node] -&gt; Either String FaceSearchSortBy
 ([Node] -&gt; Either String FaceSearchSortBy)
 -&gt; FromXML FaceSearchSortBy
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FaceSearchSortBy
 $cparseXML :: [Node] -&gt; Either String FaceSearchSortBy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679323859"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679324136"><span class="annot"><span class="annottext">FaceSearchSortBy -&gt; XML
 (FaceSearchSortBy -&gt; XML) -&gt; ToXML FaceSearchSortBy
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FaceSearchSortBy -&gt; XML

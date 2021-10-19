@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-iot-dataplaneZSamazonka-iot-dataplane
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.IoTData.Types.RetainedMessageSummary
@@ -11,21 +11,21 @@ module Network.AWS.IoTData.Types.RetainedMessageSummary
 --   
 --   <i>See:</i> <a>newRetainedMessageSummary</a> smart constructor.
 data RetainedMessageSummary
-RetainedMessageSummary' :: Maybe Integer -> Maybe Text -> Maybe Integer -> Maybe Natural -> RetainedMessageSummary
-
--- | The size of the retained message's payload in bytes.
-[$sel:payloadSize:RetainedMessageSummary'] :: RetainedMessageSummary -> Maybe Integer
-
--- | The topic name to which the retained message was published.
-[$sel:topic:RetainedMessageSummary'] :: RetainedMessageSummary -> Maybe Text
+RetainedMessageSummary' :: Maybe Integer -> Maybe Text -> Maybe Natural -> Maybe Integer -> RetainedMessageSummary
 
 -- | The Epoch date and time, in milliseconds, when the retained message
 --   was stored by IoT.
 [$sel:lastModifiedTime:RetainedMessageSummary'] :: RetainedMessageSummary -> Maybe Integer
 
+-- | The topic name to which the retained message was published.
+[$sel:topic:RetainedMessageSummary'] :: RetainedMessageSummary -> Maybe Text
+
 -- | The quality of service (QoS) level used to publish the retained
 --   message.
 [$sel:qos:RetainedMessageSummary'] :: RetainedMessageSummary -> Maybe Natural
+
+-- | The size of the retained message's payload in bytes.
+[$sel:payloadSize:RetainedMessageSummary'] :: RetainedMessageSummary -> Maybe Integer
 
 -- | Create a value of <a>RetainedMessageSummary</a> with all optional
 --   fields omitted.
@@ -36,36 +36,36 @@ RetainedMessageSummary' :: Maybe Integer -> Maybe Text -> Maybe Integer -> Maybe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:payloadSize:RetainedMessageSummary'</a>,
---   <a>retainedMessageSummary_payloadSize</a> - The size of the retained
---   message's payload in bytes.
+--   <a>$sel:lastModifiedTime:RetainedMessageSummary'</a>,
+--   <a>retainedMessageSummary_lastModifiedTime</a> - The Epoch date and
+--   time, in milliseconds, when the retained message was stored by IoT.
 --   
 --   <a>$sel:topic:RetainedMessageSummary'</a>,
 --   <a>retainedMessageSummary_topic</a> - The topic name to which the
 --   retained message was published.
 --   
---   <a>$sel:lastModifiedTime:RetainedMessageSummary'</a>,
---   <a>retainedMessageSummary_lastModifiedTime</a> - The Epoch date and
---   time, in milliseconds, when the retained message was stored by IoT.
---   
 --   <a>$sel:qos:RetainedMessageSummary'</a>,
 --   <a>retainedMessageSummary_qos</a> - The quality of service (QoS) level
 --   used to publish the retained message.
+--   
+--   <a>$sel:payloadSize:RetainedMessageSummary'</a>,
+--   <a>retainedMessageSummary_payloadSize</a> - The size of the retained
+--   message's payload in bytes.
 newRetainedMessageSummary :: RetainedMessageSummary
-
--- | The size of the retained message's payload in bytes.
-retainedMessageSummary_payloadSize :: Lens' RetainedMessageSummary (Maybe Integer)
-
--- | The topic name to which the retained message was published.
-retainedMessageSummary_topic :: Lens' RetainedMessageSummary (Maybe Text)
 
 -- | The Epoch date and time, in milliseconds, when the retained message
 --   was stored by IoT.
 retainedMessageSummary_lastModifiedTime :: Lens' RetainedMessageSummary (Maybe Integer)
 
+-- | The topic name to which the retained message was published.
+retainedMessageSummary_topic :: Lens' RetainedMessageSummary (Maybe Text)
+
 -- | The quality of service (QoS) level used to publish the retained
 --   message.
 retainedMessageSummary_qos :: Lens' RetainedMessageSummary (Maybe Natural)
+
+-- | The size of the retained message's payload in bytes.
+retainedMessageSummary_payloadSize :: Lens' RetainedMessageSummary (Maybe Integer)
 instance GHC.Generics.Generic Network.AWS.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
 instance GHC.Show.Show Network.AWS.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
 instance GHC.Read.Read Network.AWS.IoTData.Types.RetainedMessageSummary.RetainedMessageSummary
@@ -81,55 +81,55 @@ module Network.AWS.IoTData.Types
 --   configuration.
 defaultService :: Service
 
--- | The document encoding is not supported.
-_UnsupportedDocumentEncodingException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | You are not authorized to perform this operation.
-_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The service is temporarily unavailable.
-_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The rate exceeds the limit.
-_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The request is not valid.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The payload exceeds the maximum size allowed.
-_RequestEntityTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified version does not match the version of the document.
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified resource does not exist.
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The payload exceeds the maximum size allowed.
+_RequestEntityTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The rate exceeds the limit.
+_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified combination of HTTP verb and URI is not supported.
+_MethodNotAllowedException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | An unexpected error has occurred.
 _InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified combination of HTTP verb and URI is not supported.
-_MethodNotAllowedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The service is temporarily unavailable.
+_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | You are not authorized to perform this operation.
+_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified resource does not exist.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The document encoding is not supported.
+_UnsupportedDocumentEncodingException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Information about a single retained message.
 --   
 --   <i>See:</i> <a>newRetainedMessageSummary</a> smart constructor.
 data RetainedMessageSummary
-RetainedMessageSummary' :: Maybe Integer -> Maybe Text -> Maybe Integer -> Maybe Natural -> RetainedMessageSummary
-
--- | The size of the retained message's payload in bytes.
-[$sel:payloadSize:RetainedMessageSummary'] :: RetainedMessageSummary -> Maybe Integer
-
--- | The topic name to which the retained message was published.
-[$sel:topic:RetainedMessageSummary'] :: RetainedMessageSummary -> Maybe Text
+RetainedMessageSummary' :: Maybe Integer -> Maybe Text -> Maybe Natural -> Maybe Integer -> RetainedMessageSummary
 
 -- | The Epoch date and time, in milliseconds, when the retained message
 --   was stored by IoT.
 [$sel:lastModifiedTime:RetainedMessageSummary'] :: RetainedMessageSummary -> Maybe Integer
 
+-- | The topic name to which the retained message was published.
+[$sel:topic:RetainedMessageSummary'] :: RetainedMessageSummary -> Maybe Text
+
 -- | The quality of service (QoS) level used to publish the retained
 --   message.
 [$sel:qos:RetainedMessageSummary'] :: RetainedMessageSummary -> Maybe Natural
+
+-- | The size of the retained message's payload in bytes.
+[$sel:payloadSize:RetainedMessageSummary'] :: RetainedMessageSummary -> Maybe Integer
 
 -- | Create a value of <a>RetainedMessageSummary</a> with all optional
 --   fields omitted.
@@ -140,36 +140,36 @@ RetainedMessageSummary' :: Maybe Integer -> Maybe Text -> Maybe Integer -> Maybe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:payloadSize:RetainedMessageSummary'</a>,
---   <a>retainedMessageSummary_payloadSize</a> - The size of the retained
---   message's payload in bytes.
+--   <a>$sel:lastModifiedTime:RetainedMessageSummary'</a>,
+--   <a>retainedMessageSummary_lastModifiedTime</a> - The Epoch date and
+--   time, in milliseconds, when the retained message was stored by IoT.
 --   
 --   <a>$sel:topic:RetainedMessageSummary'</a>,
 --   <a>retainedMessageSummary_topic</a> - The topic name to which the
 --   retained message was published.
 --   
---   <a>$sel:lastModifiedTime:RetainedMessageSummary'</a>,
---   <a>retainedMessageSummary_lastModifiedTime</a> - The Epoch date and
---   time, in milliseconds, when the retained message was stored by IoT.
---   
 --   <a>$sel:qos:RetainedMessageSummary'</a>,
 --   <a>retainedMessageSummary_qos</a> - The quality of service (QoS) level
 --   used to publish the retained message.
+--   
+--   <a>$sel:payloadSize:RetainedMessageSummary'</a>,
+--   <a>retainedMessageSummary_payloadSize</a> - The size of the retained
+--   message's payload in bytes.
 newRetainedMessageSummary :: RetainedMessageSummary
-
--- | The size of the retained message's payload in bytes.
-retainedMessageSummary_payloadSize :: Lens' RetainedMessageSummary (Maybe Integer)
-
--- | The topic name to which the retained message was published.
-retainedMessageSummary_topic :: Lens' RetainedMessageSummary (Maybe Text)
 
 -- | The Epoch date and time, in milliseconds, when the retained message
 --   was stored by IoT.
 retainedMessageSummary_lastModifiedTime :: Lens' RetainedMessageSummary (Maybe Integer)
 
+-- | The topic name to which the retained message was published.
+retainedMessageSummary_topic :: Lens' RetainedMessageSummary (Maybe Text)
+
 -- | The quality of service (QoS) level used to publish the retained
 --   message.
 retainedMessageSummary_qos :: Lens' RetainedMessageSummary (Maybe Natural)
+
+-- | The size of the retained message's payload in bytes.
+retainedMessageSummary_payloadSize :: Lens' RetainedMessageSummary (Maybe Integer)
 
 
 -- | Publishes an MQTT message.
@@ -187,14 +187,7 @@ module Network.AWS.IoTData.Publish
 --   
 --   <i>See:</i> <a>newPublish</a> smart constructor.
 data Publish
-Publish' :: Maybe ByteString -> Maybe Bool -> Maybe Natural -> Text -> Publish
-
--- | The message body. MQTT accepts text, binary, and empty (null) message
---   payloads.
---   
---   Publishing an empty (null) payload with <b>retain</b> = <tt>true</tt>
---   deletes the retained message identified by <b>topic</b> from IoT Core.
-[$sel:payload:Publish'] :: Publish -> Maybe ByteString
+Publish' :: Maybe Bool -> Maybe ByteString -> Maybe Natural -> Text -> Publish
 
 -- | A Boolean value that determines whether to set the RETAIN flag when
 --   the message is published.
@@ -206,6 +199,13 @@ Publish' :: Maybe ByteString -> Maybe Bool -> Maybe Natural -> Text -> Publish
 --   
 --   Default value: <tt>false</tt>
 [$sel:retain:Publish'] :: Publish -> Maybe Bool
+
+-- | The message body. MQTT accepts text, binary, and empty (null) message
+--   payloads.
+--   
+--   Publishing an empty (null) payload with <b>retain</b> = <tt>true</tt>
+--   deletes the retained message identified by <b>topic</b> from IoT Core.
+[$sel:payload:Publish'] :: Publish -> Maybe ByteString
 
 -- | The Quality of Service (QoS) level.
 [$sel:qos:Publish'] :: Publish -> Maybe Natural
@@ -221,12 +221,6 @@ Publish' :: Maybe ByteString -> Maybe Bool -> Maybe Natural -> Text -> Publish
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:payload:Publish'</a>, <a>publish_payload</a> - The message
---   body. MQTT accepts text, binary, and empty (null) message payloads.
---   
---   Publishing an empty (null) payload with <b>retain</b> = <tt>true</tt>
---   deletes the retained message identified by <b>topic</b> from IoT Core.
---   
 --   <a>$sel:retain:Publish'</a>, <a>publish_retain</a> - A Boolean value
 --   that determines whether to set the RETAIN flag when the message is
 --   published.
@@ -238,19 +232,18 @@ Publish' :: Maybe ByteString -> Maybe Bool -> Maybe Natural -> Text -> Publish
 --   
 --   Default value: <tt>false</tt>
 --   
+--   <a>$sel:payload:Publish'</a>, <a>publish_payload</a> - The message
+--   body. MQTT accepts text, binary, and empty (null) message payloads.
+--   
+--   Publishing an empty (null) payload with <b>retain</b> = <tt>true</tt>
+--   deletes the retained message identified by <b>topic</b> from IoT Core.
+--   
 --   <a>$sel:qos:Publish'</a>, <a>publish_qos</a> - The Quality of Service
 --   (QoS) level.
 --   
 --   <a>$sel:topic:Publish'</a>, <a>publish_topic</a> - The name of the
 --   MQTT topic.
 newPublish :: Text -> Publish
-
--- | The message body. MQTT accepts text, binary, and empty (null) message
---   payloads.
---   
---   Publishing an empty (null) payload with <b>retain</b> = <tt>true</tt>
---   deletes the retained message identified by <b>topic</b> from IoT Core.
-publish_payload :: Lens' Publish (Maybe ByteString)
 
 -- | A Boolean value that determines whether to set the RETAIN flag when
 --   the message is published.
@@ -262,6 +255,13 @@ publish_payload :: Lens' Publish (Maybe ByteString)
 --   
 --   Default value: <tt>false</tt>
 publish_retain :: Lens' Publish (Maybe Bool)
+
+-- | The message body. MQTT accepts text, binary, and empty (null) message
+--   payloads.
+--   
+--   Publishing an empty (null) payload with <b>retain</b> = <tt>true</tt>
+--   deletes the retained message identified by <b>topic</b> from IoT Core.
+publish_payload :: Lens' Publish (Maybe ByteString)
 
 -- | The Quality of Service (QoS) level.
 publish_qos :: Lens' Publish (Maybe Natural)
@@ -356,16 +356,16 @@ listRetainedMessages_maxResults :: Lens' ListRetainedMessages (Maybe Natural)
 
 -- | <i>See:</i> <a>newListRetainedMessagesResponse</a> smart constructor.
 data ListRetainedMessagesResponse
-ListRetainedMessagesResponse' :: Maybe Text -> Maybe [RetainedMessageSummary] -> Int -> ListRetainedMessagesResponse
-
--- | The token for the next set of results, or null if there are no
---   additional results.
-[$sel:nextToken:ListRetainedMessagesResponse'] :: ListRetainedMessagesResponse -> Maybe Text
+ListRetainedMessagesResponse' :: Maybe [RetainedMessageSummary] -> Maybe Text -> Int -> ListRetainedMessagesResponse
 
 -- | A summary list the account's retained messages. The information
 --   returned doesn't include the message payloads of the retained
 --   messages.
 [$sel:retainedTopics:ListRetainedMessagesResponse'] :: ListRetainedMessagesResponse -> Maybe [RetainedMessageSummary]
+
+-- | The token for the next set of results, or null if there are no
+--   additional results.
+[$sel:nextToken:ListRetainedMessagesResponse'] :: ListRetainedMessagesResponse -> Maybe Text
 
 -- | The response's http status code.
 [$sel:httpStatus:ListRetainedMessagesResponse'] :: ListRetainedMessagesResponse -> Int
@@ -379,28 +379,28 @@ ListRetainedMessagesResponse' :: Maybe Text -> Maybe [RetainedMessageSummary] ->
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:nextToken:ListRetainedMessages'</a>,
---   <a>listRetainedMessagesResponse_nextToken</a> - The token for the next
---   set of results, or null if there are no additional results.
---   
 --   <a>$sel:retainedTopics:ListRetainedMessagesResponse'</a>,
 --   <a>listRetainedMessagesResponse_retainedTopics</a> - A summary list
 --   the account's retained messages. The information returned doesn't
 --   include the message payloads of the retained messages.
+--   
+--   <a>$sel:nextToken:ListRetainedMessages'</a>,
+--   <a>listRetainedMessagesResponse_nextToken</a> - The token for the next
+--   set of results, or null if there are no additional results.
 --   
 --   <a>$sel:httpStatus:ListRetainedMessagesResponse'</a>,
 --   <a>listRetainedMessagesResponse_httpStatus</a> - The response's http
 --   status code.
 newListRetainedMessagesResponse :: Int -> ListRetainedMessagesResponse
 
--- | The token for the next set of results, or null if there are no
---   additional results.
-listRetainedMessagesResponse_nextToken :: Lens' ListRetainedMessagesResponse (Maybe Text)
-
 -- | A summary list the account's retained messages. The information
 --   returned doesn't include the message payloads of the retained
 --   messages.
 listRetainedMessagesResponse_retainedTopics :: Lens' ListRetainedMessagesResponse (Maybe [RetainedMessageSummary])
+
+-- | The token for the next set of results, or null if there are no
+--   additional results.
+listRetainedMessagesResponse_nextToken :: Lens' ListRetainedMessagesResponse (Maybe Text)
 
 -- | The response's http status code.
 listRetainedMessagesResponse_httpStatus :: Lens' ListRetainedMessagesResponse Int
@@ -473,7 +473,10 @@ listNamedShadowsForThing_thingName :: Lens' ListNamedShadowsForThing Text
 -- | <i>See:</i> <a>newListNamedShadowsForThingResponse</a> smart
 --   constructor.
 data ListNamedShadowsForThingResponse
-ListNamedShadowsForThingResponse' :: Maybe Text -> Maybe Integer -> Maybe [Text] -> Int -> ListNamedShadowsForThingResponse
+ListNamedShadowsForThingResponse' :: Maybe [Text] -> Maybe Text -> Maybe Integer -> Int -> ListNamedShadowsForThingResponse
+
+-- | The list of shadows for the specified thing.
+[$sel:results:ListNamedShadowsForThingResponse'] :: ListNamedShadowsForThingResponse -> Maybe [Text]
 
 -- | The token to use to get the next set of results, or <b>null</b> if
 --   there are no additional results.
@@ -481,9 +484,6 @@ ListNamedShadowsForThingResponse' :: Maybe Text -> Maybe Integer -> Maybe [Text]
 
 -- | The Epoch date and time the response was generated by IoT.
 [$sel:timestamp:ListNamedShadowsForThingResponse'] :: ListNamedShadowsForThingResponse -> Maybe Integer
-
--- | The list of shadows for the specified thing.
-[$sel:results:ListNamedShadowsForThingResponse'] :: ListNamedShadowsForThingResponse -> Maybe [Text]
 
 -- | The response's http status code.
 [$sel:httpStatus:ListNamedShadowsForThingResponse'] :: ListNamedShadowsForThingResponse -> Int
@@ -497,6 +497,10 @@ ListNamedShadowsForThingResponse' :: Maybe Text -> Maybe Integer -> Maybe [Text]
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:results:ListNamedShadowsForThingResponse'</a>,
+--   <a>listNamedShadowsForThingResponse_results</a> - The list of shadows
+--   for the specified thing.
+--   
 --   <a>$sel:nextToken:ListNamedShadowsForThing'</a>,
 --   <a>listNamedShadowsForThingResponse_nextToken</a> - The token to use
 --   to get the next set of results, or <b>null</b> if there are no
@@ -506,14 +510,13 @@ ListNamedShadowsForThingResponse' :: Maybe Text -> Maybe Integer -> Maybe [Text]
 --   <a>listNamedShadowsForThingResponse_timestamp</a> - The Epoch date and
 --   time the response was generated by IoT.
 --   
---   <a>$sel:results:ListNamedShadowsForThingResponse'</a>,
---   <a>listNamedShadowsForThingResponse_results</a> - The list of shadows
---   for the specified thing.
---   
 --   <a>$sel:httpStatus:ListNamedShadowsForThingResponse'</a>,
 --   <a>listNamedShadowsForThingResponse_httpStatus</a> - The response's
 --   http status code.
 newListNamedShadowsForThingResponse :: Int -> ListNamedShadowsForThingResponse
+
+-- | The list of shadows for the specified thing.
+listNamedShadowsForThingResponse_results :: Lens' ListNamedShadowsForThingResponse (Maybe [Text])
 
 -- | The token to use to get the next set of results, or <b>null</b> if
 --   there are no additional results.
@@ -521,9 +524,6 @@ listNamedShadowsForThingResponse_nextToken :: Lens' ListNamedShadowsForThingResp
 
 -- | The Epoch date and time the response was generated by IoT.
 listNamedShadowsForThingResponse_timestamp :: Lens' ListNamedShadowsForThingResponse (Maybe Integer)
-
--- | The list of shadows for the specified thing.
-listNamedShadowsForThingResponse_results :: Lens' ListNamedShadowsForThingResponse (Maybe [Text])
 
 -- | The response's http status code.
 listNamedShadowsForThingResponse_httpStatus :: Lens' ListNamedShadowsForThingResponse Int
@@ -678,17 +678,17 @@ getRetainedMessage_topic :: Lens' GetRetainedMessage Text
 --   
 --   <i>See:</i> <a>newGetRetainedMessageResponse</a> smart constructor.
 data GetRetainedMessageResponse
-GetRetainedMessageResponse' :: Maybe Base64 -> Maybe Text -> Maybe Integer -> Maybe Natural -> Int -> GetRetainedMessageResponse
+GetRetainedMessageResponse' :: Maybe Integer -> Maybe Base64 -> Maybe Text -> Maybe Natural -> Int -> GetRetainedMessageResponse
+
+-- | The Epoch date and time, in milliseconds, when the retained message
+--   was stored by IoT.
+[$sel:lastModifiedTime:GetRetainedMessageResponse'] :: GetRetainedMessageResponse -> Maybe Integer
 
 -- | The Base64-encoded message payload of the retained message body.
 [$sel:payload:GetRetainedMessageResponse'] :: GetRetainedMessageResponse -> Maybe Base64
 
 -- | The topic name to which the retained message was published.
 [$sel:topic:GetRetainedMessageResponse'] :: GetRetainedMessageResponse -> Maybe Text
-
--- | The Epoch date and time, in milliseconds, when the retained message
---   was stored by IoT.
-[$sel:lastModifiedTime:GetRetainedMessageResponse'] :: GetRetainedMessageResponse -> Maybe Integer
 
 -- | The quality of service (QoS) level used to publish the retained
 --   message.
@@ -706,6 +706,11 @@ GetRetainedMessageResponse' :: Maybe Base64 -> Maybe Text -> Maybe Integer -> Ma
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:lastModifiedTime:GetRetainedMessageResponse'</a>,
+--   <a>getRetainedMessageResponse_lastModifiedTime</a> - The Epoch date
+--   and time, in milliseconds, when the retained message was stored by
+--   IoT.
+--   
 --   <a>$sel:payload:GetRetainedMessageResponse'</a>,
 --   <a>getRetainedMessageResponse_payload</a> - The Base64-encoded message
 --   payload of the retained message body.-- -- <i>Note:</i> This
@@ -719,11 +724,6 @@ GetRetainedMessageResponse' :: Maybe Base64 -> Maybe Text -> Maybe Integer -> Ma
 --   <a>getRetainedMessageResponse_topic</a> - The topic name to which the
 --   retained message was published.
 --   
---   <a>$sel:lastModifiedTime:GetRetainedMessageResponse'</a>,
---   <a>getRetainedMessageResponse_lastModifiedTime</a> - The Epoch date
---   and time, in milliseconds, when the retained message was stored by
---   IoT.
---   
 --   <a>$sel:qos:GetRetainedMessageResponse'</a>,
 --   <a>getRetainedMessageResponse_qos</a> - The quality of service (QoS)
 --   level used to publish the retained message.
@@ -732,6 +732,10 @@ GetRetainedMessageResponse' :: Maybe Base64 -> Maybe Text -> Maybe Integer -> Ma
 --   <a>getRetainedMessageResponse_httpStatus</a> - The response's http
 --   status code.
 newGetRetainedMessageResponse :: Int -> GetRetainedMessageResponse
+
+-- | The Epoch date and time, in milliseconds, when the retained message
+--   was stored by IoT.
+getRetainedMessageResponse_lastModifiedTime :: Lens' GetRetainedMessageResponse (Maybe Integer)
 
 -- | The Base64-encoded message payload of the retained message body.-- --
 --   <i>Note:</i> This <tt>Lens</tt> automatically encodes and decodes
@@ -743,10 +747,6 @@ getRetainedMessageResponse_payload :: Lens' GetRetainedMessageResponse (Maybe By
 
 -- | The topic name to which the retained message was published.
 getRetainedMessageResponse_topic :: Lens' GetRetainedMessageResponse (Maybe Text)
-
--- | The Epoch date and time, in milliseconds, when the retained message
---   was stored by IoT.
-getRetainedMessageResponse_lastModifiedTime :: Lens' GetRetainedMessageResponse (Maybe Integer)
 
 -- | The quality of service (QoS) level used to publish the retained
 --   message.
@@ -981,50 +981,6 @@ getThingShadowResponse_payload :: Lens' GetThingShadowResponse (Maybe ByteString
 -- | The response's http status code.
 getThingShadowResponse_httpStatus :: Lens' GetThingShadowResponse Int
 
--- | The message body. MQTT accepts text, binary, and empty (null) message
---   payloads.
---   
---   Publishing an empty (null) payload with <b>retain</b> = <tt>true</tt>
---   deletes the retained message identified by <b>topic</b> from IoT Core.
-publish_payload :: Lens' Publish (Maybe ByteString)
-
--- | A Boolean value that determines whether to set the RETAIN flag when
---   the message is published.
---   
---   Setting the RETAIN flag causes the message to be retained and sent to
---   new subscribers to the topic.
---   
---   Valid values: <tt>true</tt> | <tt>false</tt>
---   
---   Default value: <tt>false</tt>
-publish_retain :: Lens' Publish (Maybe Bool)
-
--- | The Quality of Service (QoS) level.
-publish_qos :: Lens' Publish (Maybe Natural)
-
--- | The name of the MQTT topic.
-publish_topic :: Lens' Publish Text
-
--- | To retrieve the next set of results, the <tt>nextToken</tt> value from
---   a previous response; otherwise <b>null</b> to receive the first set of
---   results.
-listRetainedMessages_nextToken :: Lens' ListRetainedMessages (Maybe Text)
-
--- | The maximum number of results to return at one time.
-listRetainedMessages_maxResults :: Lens' ListRetainedMessages (Maybe Natural)
-
--- | The token for the next set of results, or null if there are no
---   additional results.
-listRetainedMessagesResponse_nextToken :: Lens' ListRetainedMessagesResponse (Maybe Text)
-
--- | A summary list the account's retained messages. The information
---   returned doesn't include the message payloads of the retained
---   messages.
-listRetainedMessagesResponse_retainedTopics :: Lens' ListRetainedMessagesResponse (Maybe [RetainedMessageSummary])
-
--- | The response's http status code.
-listRetainedMessagesResponse_httpStatus :: Lens' ListRetainedMessagesResponse Int
-
 -- | The token to retrieve the next set of results.
 listNamedShadowsForThing_nextToken :: Lens' ListNamedShadowsForThing (Maybe Text)
 
@@ -1034,6 +990,9 @@ listNamedShadowsForThing_pageSize :: Lens' ListNamedShadowsForThing (Maybe Natur
 -- | The name of the thing.
 listNamedShadowsForThing_thingName :: Lens' ListNamedShadowsForThing Text
 
+-- | The list of shadows for the specified thing.
+listNamedShadowsForThingResponse_results :: Lens' ListNamedShadowsForThingResponse (Maybe [Text])
+
 -- | The token to use to get the next set of results, or <b>null</b> if
 --   there are no additional results.
 listNamedShadowsForThingResponse_nextToken :: Lens' ListNamedShadowsForThingResponse (Maybe Text)
@@ -1041,11 +1000,20 @@ listNamedShadowsForThingResponse_nextToken :: Lens' ListNamedShadowsForThingResp
 -- | The Epoch date and time the response was generated by IoT.
 listNamedShadowsForThingResponse_timestamp :: Lens' ListNamedShadowsForThingResponse (Maybe Integer)
 
--- | The list of shadows for the specified thing.
-listNamedShadowsForThingResponse_results :: Lens' ListNamedShadowsForThingResponse (Maybe [Text])
-
 -- | The response's http status code.
 listNamedShadowsForThingResponse_httpStatus :: Lens' ListNamedShadowsForThingResponse Int
+
+-- | The name of the shadow.
+deleteThingShadow_shadowName :: Lens' DeleteThingShadow (Maybe Text)
+
+-- | The name of the thing.
+deleteThingShadow_thingName :: Lens' DeleteThingShadow Text
+
+-- | The response's http status code.
+deleteThingShadowResponse_httpStatus :: Lens' DeleteThingShadowResponse Int
+
+-- | The state information, in JSON format.
+deleteThingShadowResponse_payload :: Lens' DeleteThingShadowResponse ByteString
 
 -- | The name of the shadow.
 updateThingShadow_shadowName :: Lens' UpdateThingShadow (Maybe Text)
@@ -1062,20 +1030,32 @@ updateThingShadowResponse_payload :: Lens' UpdateThingShadowResponse (Maybe Byte
 -- | The response's http status code.
 updateThingShadowResponse_httpStatus :: Lens' UpdateThingShadowResponse Int
 
--- | The name of the shadow.
-deleteThingShadow_shadowName :: Lens' DeleteThingShadow (Maybe Text)
+-- | To retrieve the next set of results, the <tt>nextToken</tt> value from
+--   a previous response; otherwise <b>null</b> to receive the first set of
+--   results.
+listRetainedMessages_nextToken :: Lens' ListRetainedMessages (Maybe Text)
 
--- | The name of the thing.
-deleteThingShadow_thingName :: Lens' DeleteThingShadow Text
+-- | The maximum number of results to return at one time.
+listRetainedMessages_maxResults :: Lens' ListRetainedMessages (Maybe Natural)
+
+-- | A summary list the account's retained messages. The information
+--   returned doesn't include the message payloads of the retained
+--   messages.
+listRetainedMessagesResponse_retainedTopics :: Lens' ListRetainedMessagesResponse (Maybe [RetainedMessageSummary])
+
+-- | The token for the next set of results, or null if there are no
+--   additional results.
+listRetainedMessagesResponse_nextToken :: Lens' ListRetainedMessagesResponse (Maybe Text)
 
 -- | The response's http status code.
-deleteThingShadowResponse_httpStatus :: Lens' DeleteThingShadowResponse Int
-
--- | The state information, in JSON format.
-deleteThingShadowResponse_payload :: Lens' DeleteThingShadowResponse ByteString
+listRetainedMessagesResponse_httpStatus :: Lens' ListRetainedMessagesResponse Int
 
 -- | The topic name of the retained message to retrieve.
 getRetainedMessage_topic :: Lens' GetRetainedMessage Text
+
+-- | The Epoch date and time, in milliseconds, when the retained message
+--   was stored by IoT.
+getRetainedMessageResponse_lastModifiedTime :: Lens' GetRetainedMessageResponse (Maybe Integer)
 
 -- | The Base64-encoded message payload of the retained message body.-- --
 --   <i>Note:</i> This <tt>Lens</tt> automatically encodes and decodes
@@ -1088,10 +1068,6 @@ getRetainedMessageResponse_payload :: Lens' GetRetainedMessageResponse (Maybe By
 -- | The topic name to which the retained message was published.
 getRetainedMessageResponse_topic :: Lens' GetRetainedMessageResponse (Maybe Text)
 
--- | The Epoch date and time, in milliseconds, when the retained message
---   was stored by IoT.
-getRetainedMessageResponse_lastModifiedTime :: Lens' GetRetainedMessageResponse (Maybe Integer)
-
 -- | The quality of service (QoS) level used to publish the retained
 --   message.
 getRetainedMessageResponse_qos :: Lens' GetRetainedMessageResponse (Maybe Natural)
@@ -1099,19 +1075,43 @@ getRetainedMessageResponse_qos :: Lens' GetRetainedMessageResponse (Maybe Natura
 -- | The response's http status code.
 getRetainedMessageResponse_httpStatus :: Lens' GetRetainedMessageResponse Int
 
--- | The size of the retained message's payload in bytes.
-retainedMessageSummary_payloadSize :: Lens' RetainedMessageSummary (Maybe Integer)
+-- | A Boolean value that determines whether to set the RETAIN flag when
+--   the message is published.
+--   
+--   Setting the RETAIN flag causes the message to be retained and sent to
+--   new subscribers to the topic.
+--   
+--   Valid values: <tt>true</tt> | <tt>false</tt>
+--   
+--   Default value: <tt>false</tt>
+publish_retain :: Lens' Publish (Maybe Bool)
 
--- | The topic name to which the retained message was published.
-retainedMessageSummary_topic :: Lens' RetainedMessageSummary (Maybe Text)
+-- | The message body. MQTT accepts text, binary, and empty (null) message
+--   payloads.
+--   
+--   Publishing an empty (null) payload with <b>retain</b> = <tt>true</tt>
+--   deletes the retained message identified by <b>topic</b> from IoT Core.
+publish_payload :: Lens' Publish (Maybe ByteString)
+
+-- | The Quality of Service (QoS) level.
+publish_qos :: Lens' Publish (Maybe Natural)
+
+-- | The name of the MQTT topic.
+publish_topic :: Lens' Publish Text
 
 -- | The Epoch date and time, in milliseconds, when the retained message
 --   was stored by IoT.
 retainedMessageSummary_lastModifiedTime :: Lens' RetainedMessageSummary (Maybe Integer)
 
+-- | The topic name to which the retained message was published.
+retainedMessageSummary_topic :: Lens' RetainedMessageSummary (Maybe Text)
+
 -- | The quality of service (QoS) level used to publish the retained
 --   message.
 retainedMessageSummary_qos :: Lens' RetainedMessageSummary (Maybe Natural)
+
+-- | The size of the retained message's payload in bytes.
+retainedMessageSummary_payloadSize :: Lens' RetainedMessageSummary (Maybe Integer)
 
 
 module Network.AWS.IoTData.Waiters
@@ -1145,35 +1145,35 @@ module Network.AWS.IoTData
 --   configuration.
 defaultService :: Service
 
--- | The document encoding is not supported.
-_UnsupportedDocumentEncodingException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | You are not authorized to perform this operation.
-_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The service is temporarily unavailable.
-_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The rate exceeds the limit.
-_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | The request is not valid.
 _InvalidRequestException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The payload exceeds the maximum size allowed.
-_RequestEntityTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The specified version does not match the version of the document.
 _ConflictException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified resource does not exist.
-_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The payload exceeds the maximum size allowed.
+_RequestEntityTooLargeException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The rate exceeds the limit.
+_ThrottlingException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified combination of HTTP verb and URI is not supported.
+_MethodNotAllowedException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | An unexpected error has occurred.
 _InternalFailureException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | The specified combination of HTTP verb and URI is not supported.
-_MethodNotAllowedException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The service is temporarily unavailable.
+_ServiceUnavailableException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | You are not authorized to perform this operation.
+_UnauthorizedException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified resource does not exist.
+_ResourceNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The document encoding is not supported.
+_UnsupportedDocumentEncodingException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | The input for the GetThingShadow operation.
 --   
@@ -1221,105 +1221,6 @@ GetThingShadowResponse' :: Maybe ByteString -> Int -> GetThingShadowResponse
 --   code.
 newGetThingShadowResponse :: Int -> GetThingShadowResponse
 
--- | The input for the Publish operation.
---   
---   <i>See:</i> <a>newPublish</a> smart constructor.
-data Publish
-Publish' :: Maybe ByteString -> Maybe Bool -> Maybe Natural -> Text -> Publish
-
--- | Create a value of <a>Publish</a> with all optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:payload:Publish'</a>, <a>publish_payload</a> - The message
---   body. MQTT accepts text, binary, and empty (null) message payloads.
---   
---   Publishing an empty (null) payload with <b>retain</b> = <tt>true</tt>
---   deletes the retained message identified by <b>topic</b> from IoT Core.
---   
---   <a>$sel:retain:Publish'</a>, <a>publish_retain</a> - A Boolean value
---   that determines whether to set the RETAIN flag when the message is
---   published.
---   
---   Setting the RETAIN flag causes the message to be retained and sent to
---   new subscribers to the topic.
---   
---   Valid values: <tt>true</tt> | <tt>false</tt>
---   
---   Default value: <tt>false</tt>
---   
---   <a>$sel:qos:Publish'</a>, <a>publish_qos</a> - The Quality of Service
---   (QoS) level.
---   
---   <a>$sel:topic:Publish'</a>, <a>publish_topic</a> - The name of the
---   MQTT topic.
-newPublish :: Text -> Publish
-
--- | <i>See:</i> <a>newPublishResponse</a> smart constructor.
-data PublishResponse
-PublishResponse' :: PublishResponse
-
--- | Create a value of <a>PublishResponse</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
-newPublishResponse :: PublishResponse
-
--- | <i>See:</i> <a>newListRetainedMessages</a> smart constructor.
-data ListRetainedMessages
-ListRetainedMessages' :: Maybe Text -> Maybe Natural -> ListRetainedMessages
-
--- | Create a value of <a>ListRetainedMessages</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListRetainedMessages'</a>,
---   <a>listRetainedMessages_nextToken</a> - To retrieve the next set of
---   results, the <tt>nextToken</tt> value from a previous response;
---   otherwise <b>null</b> to receive the first set of results.
---   
---   <a>$sel:maxResults:ListRetainedMessages'</a>,
---   <a>listRetainedMessages_maxResults</a> - The maximum number of results
---   to return at one time.
-newListRetainedMessages :: ListRetainedMessages
-
--- | <i>See:</i> <a>newListRetainedMessagesResponse</a> smart constructor.
-data ListRetainedMessagesResponse
-ListRetainedMessagesResponse' :: Maybe Text -> Maybe [RetainedMessageSummary] -> Int -> ListRetainedMessagesResponse
-
--- | Create a value of <a>ListRetainedMessagesResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:ListRetainedMessages'</a>,
---   <a>listRetainedMessagesResponse_nextToken</a> - The token for the next
---   set of results, or null if there are no additional results.
---   
---   <a>$sel:retainedTopics:ListRetainedMessagesResponse'</a>,
---   <a>listRetainedMessagesResponse_retainedTopics</a> - A summary list
---   the account's retained messages. The information returned doesn't
---   include the message payloads of the retained messages.
---   
---   <a>$sel:httpStatus:ListRetainedMessagesResponse'</a>,
---   <a>listRetainedMessagesResponse_httpStatus</a> - The response's http
---   status code.
-newListRetainedMessagesResponse :: Int -> ListRetainedMessagesResponse
-
 -- | <i>See:</i> <a>newListNamedShadowsForThing</a> smart constructor.
 data ListNamedShadowsForThing
 ListNamedShadowsForThing' :: Maybe Text -> Maybe Natural -> Text -> ListNamedShadowsForThing
@@ -1347,7 +1248,7 @@ newListNamedShadowsForThing :: Text -> ListNamedShadowsForThing
 -- | <i>See:</i> <a>newListNamedShadowsForThingResponse</a> smart
 --   constructor.
 data ListNamedShadowsForThingResponse
-ListNamedShadowsForThingResponse' :: Maybe Text -> Maybe Integer -> Maybe [Text] -> Int -> ListNamedShadowsForThingResponse
+ListNamedShadowsForThingResponse' :: Maybe [Text] -> Maybe Text -> Maybe Integer -> Int -> ListNamedShadowsForThingResponse
 
 -- | Create a value of <a>ListNamedShadowsForThingResponse</a> with all
 --   optional fields omitted.
@@ -1358,6 +1259,10 @@ ListNamedShadowsForThingResponse' :: Maybe Text -> Maybe Integer -> Maybe [Text]
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:results:ListNamedShadowsForThingResponse'</a>,
+--   <a>listNamedShadowsForThingResponse_results</a> - The list of shadows
+--   for the specified thing.
+--   
 --   <a>$sel:nextToken:ListNamedShadowsForThing'</a>,
 --   <a>listNamedShadowsForThingResponse_nextToken</a> - The token to use
 --   to get the next set of results, or <b>null</b> if there are no
@@ -1367,14 +1272,56 @@ ListNamedShadowsForThingResponse' :: Maybe Text -> Maybe Integer -> Maybe [Text]
 --   <a>listNamedShadowsForThingResponse_timestamp</a> - The Epoch date and
 --   time the response was generated by IoT.
 --   
---   <a>$sel:results:ListNamedShadowsForThingResponse'</a>,
---   <a>listNamedShadowsForThingResponse_results</a> - The list of shadows
---   for the specified thing.
---   
 --   <a>$sel:httpStatus:ListNamedShadowsForThingResponse'</a>,
 --   <a>listNamedShadowsForThingResponse_httpStatus</a> - The response's
 --   http status code.
 newListNamedShadowsForThingResponse :: Int -> ListNamedShadowsForThingResponse
+
+-- | The input for the DeleteThingShadow operation.
+--   
+--   <i>See:</i> <a>newDeleteThingShadow</a> smart constructor.
+data DeleteThingShadow
+DeleteThingShadow' :: Maybe Text -> Text -> DeleteThingShadow
+
+-- | Create a value of <a>DeleteThingShadow</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:shadowName:DeleteThingShadow'</a>,
+--   <a>deleteThingShadow_shadowName</a> - The name of the shadow.
+--   
+--   <a>$sel:thingName:DeleteThingShadow'</a>,
+--   <a>deleteThingShadow_thingName</a> - The name of the thing.
+newDeleteThingShadow :: Text -> DeleteThingShadow
+
+-- | The output from the DeleteThingShadow operation.
+--   
+--   <i>See:</i> <a>newDeleteThingShadowResponse</a> smart constructor.
+data DeleteThingShadowResponse
+DeleteThingShadowResponse' :: Int -> ByteString -> DeleteThingShadowResponse
+
+-- | Create a value of <a>DeleteThingShadowResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DeleteThingShadowResponse'</a>,
+--   <a>deleteThingShadowResponse_httpStatus</a> - The response's http
+--   status code.
+--   
+--   <a>$sel:payload:DeleteThingShadowResponse'</a>,
+--   <a>deleteThingShadowResponse_payload</a> - The state information, in
+--   JSON format.
+newDeleteThingShadowResponse :: Int -> ByteString -> DeleteThingShadowResponse
 
 -- | The input for the UpdateThingShadow operation.
 --   
@@ -1426,13 +1373,11 @@ UpdateThingShadowResponse' :: Maybe ByteString -> Int -> UpdateThingShadowRespon
 --   status code.
 newUpdateThingShadowResponse :: Int -> UpdateThingShadowResponse
 
--- | The input for the DeleteThingShadow operation.
---   
---   <i>See:</i> <a>newDeleteThingShadow</a> smart constructor.
-data DeleteThingShadow
-DeleteThingShadow' :: Maybe Text -> Text -> DeleteThingShadow
+-- | <i>See:</i> <a>newListRetainedMessages</a> smart constructor.
+data ListRetainedMessages
+ListRetainedMessages' :: Maybe Text -> Maybe Natural -> ListRetainedMessages
 
--- | Create a value of <a>DeleteThingShadow</a> with all optional fields
+-- | Create a value of <a>ListRetainedMessages</a> with all optional fields
 --   omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
@@ -1441,21 +1386,22 @@ DeleteThingShadow' :: Maybe Text -> Text -> DeleteThingShadow
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:shadowName:DeleteThingShadow'</a>,
---   <a>deleteThingShadow_shadowName</a> - The name of the shadow.
+--   <a>$sel:nextToken:ListRetainedMessages'</a>,
+--   <a>listRetainedMessages_nextToken</a> - To retrieve the next set of
+--   results, the <tt>nextToken</tt> value from a previous response;
+--   otherwise <b>null</b> to receive the first set of results.
 --   
---   <a>$sel:thingName:DeleteThingShadow'</a>,
---   <a>deleteThingShadow_thingName</a> - The name of the thing.
-newDeleteThingShadow :: Text -> DeleteThingShadow
+--   <a>$sel:maxResults:ListRetainedMessages'</a>,
+--   <a>listRetainedMessages_maxResults</a> - The maximum number of results
+--   to return at one time.
+newListRetainedMessages :: ListRetainedMessages
 
--- | The output from the DeleteThingShadow operation.
---   
---   <i>See:</i> <a>newDeleteThingShadowResponse</a> smart constructor.
-data DeleteThingShadowResponse
-DeleteThingShadowResponse' :: Int -> ByteString -> DeleteThingShadowResponse
+-- | <i>See:</i> <a>newListRetainedMessagesResponse</a> smart constructor.
+data ListRetainedMessagesResponse
+ListRetainedMessagesResponse' :: Maybe [RetainedMessageSummary] -> Maybe Text -> Int -> ListRetainedMessagesResponse
 
--- | Create a value of <a>DeleteThingShadowResponse</a> with all optional
---   fields omitted.
+-- | Create a value of <a>ListRetainedMessagesResponse</a> with all
+--   optional fields omitted.
 --   
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
@@ -1463,14 +1409,19 @@ DeleteThingShadowResponse' :: Int -> ByteString -> DeleteThingShadowResponse
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:httpStatus:DeleteThingShadowResponse'</a>,
---   <a>deleteThingShadowResponse_httpStatus</a> - The response's http
---   status code.
+--   <a>$sel:retainedTopics:ListRetainedMessagesResponse'</a>,
+--   <a>listRetainedMessagesResponse_retainedTopics</a> - A summary list
+--   the account's retained messages. The information returned doesn't
+--   include the message payloads of the retained messages.
 --   
---   <a>$sel:payload:DeleteThingShadowResponse'</a>,
---   <a>deleteThingShadowResponse_payload</a> - The state information, in
---   JSON format.
-newDeleteThingShadowResponse :: Int -> ByteString -> DeleteThingShadowResponse
+--   <a>$sel:nextToken:ListRetainedMessages'</a>,
+--   <a>listRetainedMessagesResponse_nextToken</a> - The token for the next
+--   set of results, or null if there are no additional results.
+--   
+--   <a>$sel:httpStatus:ListRetainedMessagesResponse'</a>,
+--   <a>listRetainedMessagesResponse_httpStatus</a> - The response's http
+--   status code.
+newListRetainedMessagesResponse :: Int -> ListRetainedMessagesResponse
 
 -- | The input for the GetRetainedMessage operation.
 --   
@@ -1495,7 +1446,7 @@ newGetRetainedMessage :: Text -> GetRetainedMessage
 --   
 --   <i>See:</i> <a>newGetRetainedMessageResponse</a> smart constructor.
 data GetRetainedMessageResponse
-GetRetainedMessageResponse' :: Maybe Base64 -> Maybe Text -> Maybe Integer -> Maybe Natural -> Int -> GetRetainedMessageResponse
+GetRetainedMessageResponse' :: Maybe Integer -> Maybe Base64 -> Maybe Text -> Maybe Natural -> Int -> GetRetainedMessageResponse
 
 -- | Create a value of <a>GetRetainedMessageResponse</a> with all optional
 --   fields omitted.
@@ -1505,6 +1456,11 @@ GetRetainedMessageResponse' :: Maybe Base64 -> Maybe Text -> Maybe Integer -> Ma
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:lastModifiedTime:GetRetainedMessageResponse'</a>,
+--   <a>getRetainedMessageResponse_lastModifiedTime</a> - The Epoch date
+--   and time, in milliseconds, when the retained message was stored by
+--   IoT.
 --   
 --   <a>$sel:payload:GetRetainedMessageResponse'</a>,
 --   <a>getRetainedMessageResponse_payload</a> - The Base64-encoded message
@@ -1519,11 +1475,6 @@ GetRetainedMessageResponse' :: Maybe Base64 -> Maybe Text -> Maybe Integer -> Ma
 --   <a>getRetainedMessageResponse_topic</a> - The topic name to which the
 --   retained message was published.
 --   
---   <a>$sel:lastModifiedTime:GetRetainedMessageResponse'</a>,
---   <a>getRetainedMessageResponse_lastModifiedTime</a> - The Epoch date
---   and time, in milliseconds, when the retained message was stored by
---   IoT.
---   
 --   <a>$sel:qos:GetRetainedMessageResponse'</a>,
 --   <a>getRetainedMessageResponse_qos</a> - The quality of service (QoS)
 --   level used to publish the retained message.
@@ -1533,11 +1484,60 @@ GetRetainedMessageResponse' :: Maybe Base64 -> Maybe Text -> Maybe Integer -> Ma
 --   status code.
 newGetRetainedMessageResponse :: Int -> GetRetainedMessageResponse
 
+-- | The input for the Publish operation.
+--   
+--   <i>See:</i> <a>newPublish</a> smart constructor.
+data Publish
+Publish' :: Maybe Bool -> Maybe ByteString -> Maybe Natural -> Text -> Publish
+
+-- | Create a value of <a>Publish</a> with all optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:retain:Publish'</a>, <a>publish_retain</a> - A Boolean value
+--   that determines whether to set the RETAIN flag when the message is
+--   published.
+--   
+--   Setting the RETAIN flag causes the message to be retained and sent to
+--   new subscribers to the topic.
+--   
+--   Valid values: <tt>true</tt> | <tt>false</tt>
+--   
+--   Default value: <tt>false</tt>
+--   
+--   <a>$sel:payload:Publish'</a>, <a>publish_payload</a> - The message
+--   body. MQTT accepts text, binary, and empty (null) message payloads.
+--   
+--   Publishing an empty (null) payload with <b>retain</b> = <tt>true</tt>
+--   deletes the retained message identified by <b>topic</b> from IoT Core.
+--   
+--   <a>$sel:qos:Publish'</a>, <a>publish_qos</a> - The Quality of Service
+--   (QoS) level.
+--   
+--   <a>$sel:topic:Publish'</a>, <a>publish_topic</a> - The name of the
+--   MQTT topic.
+newPublish :: Text -> Publish
+
+-- | <i>See:</i> <a>newPublishResponse</a> smart constructor.
+data PublishResponse
+PublishResponse' :: PublishResponse
+
+-- | Create a value of <a>PublishResponse</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+newPublishResponse :: PublishResponse
+
 -- | Information about a single retained message.
 --   
 --   <i>See:</i> <a>newRetainedMessageSummary</a> smart constructor.
 data RetainedMessageSummary
-RetainedMessageSummary' :: Maybe Integer -> Maybe Text -> Maybe Integer -> Maybe Natural -> RetainedMessageSummary
+RetainedMessageSummary' :: Maybe Integer -> Maybe Text -> Maybe Natural -> Maybe Integer -> RetainedMessageSummary
 
 -- | Create a value of <a>RetainedMessageSummary</a> with all optional
 --   fields omitted.
@@ -1548,19 +1548,19 @@ RetainedMessageSummary' :: Maybe Integer -> Maybe Text -> Maybe Integer -> Maybe
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:payloadSize:RetainedMessageSummary'</a>,
---   <a>retainedMessageSummary_payloadSize</a> - The size of the retained
---   message's payload in bytes.
+--   <a>$sel:lastModifiedTime:RetainedMessageSummary'</a>,
+--   <a>retainedMessageSummary_lastModifiedTime</a> - The Epoch date and
+--   time, in milliseconds, when the retained message was stored by IoT.
 --   
 --   <a>$sel:topic:RetainedMessageSummary'</a>,
 --   <a>retainedMessageSummary_topic</a> - The topic name to which the
 --   retained message was published.
 --   
---   <a>$sel:lastModifiedTime:RetainedMessageSummary'</a>,
---   <a>retainedMessageSummary_lastModifiedTime</a> - The Epoch date and
---   time, in milliseconds, when the retained message was stored by IoT.
---   
 --   <a>$sel:qos:RetainedMessageSummary'</a>,
 --   <a>retainedMessageSummary_qos</a> - The quality of service (QoS) level
 --   used to publish the retained message.
+--   
+--   <a>$sel:payloadSize:RetainedMessageSummary'</a>,
+--   <a>retainedMessageSummary_payloadSize</a> - The size of the retained
+--   message's payload in bytes.
 newRetainedMessageSummary :: RetainedMessageSummary

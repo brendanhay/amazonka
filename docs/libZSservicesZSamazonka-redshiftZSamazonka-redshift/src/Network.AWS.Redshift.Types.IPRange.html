@@ -28,7 +28,7 @@
 </span><span id="line-28"></span><span class="hs-comment">-- | Describes an IP range used in a security group.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newIPRange' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679499556"><span id="local-6989586621679499557"></span></span><span class="hs-keyword">data</span><span> </span><span id="IPRange"><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-var">IPRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IPRange%27"><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-var">IPRange'</span></a></span></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679500220"><span id="local-6989586621679500221"></span></span><span class="hs-keyword">data</span><span> </span><span id="IPRange"><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-var">IPRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IPRange%27"><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-var">IPRange'</span></a></span></span><span>
 </span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the IP range, for example, \&quot;authorized\&quot;.</span><span>
 </span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3AIPRange%27"><span class="annot"><span class="annottext">IPRange -&gt; Maybe Text
 </span><a href="Network.AWS.Redshift.Types.IPRange.html#%24sel%3Astatus%3AIPRange%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-37"></span><span>    </span><span id="%24sel%3Atags%3AIPRange%27"><span class="annot"><span class="annottext">IPRange -&gt; Maybe [Tag]
 </span><a href="Network.AWS.Redshift.Types.IPRange.html#%24sel%3Atags%3AIPRange%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679499548"><span id="local-6989586621679499550"><span class="annot"><span class="annottext">IPRange -&gt; IPRange -&gt; Bool
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679500212"><span id="local-6989586621679500214"><span class="annot"><span class="annottext">IPRange -&gt; IPRange -&gt; Bool
 (IPRange -&gt; IPRange -&gt; Bool)
 -&gt; (IPRange -&gt; IPRange -&gt; Bool) -&gt; Eq IPRange
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: IPRange -&gt; IPRange -&gt; Bool
 == :: IPRange -&gt; IPRange -&gt; Bool
 $c== :: IPRange -&gt; IPRange -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679499539"><span id="local-6989586621679499541"><span id="local-6989586621679499543"><span id="local-6989586621679499545"><span class="annot"><span class="annottext">ReadPrec [IPRange]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679500203"><span id="local-6989586621679500205"><span id="local-6989586621679500207"><span id="local-6989586621679500209"><span class="annot"><span class="annottext">ReadPrec [IPRange]
 ReadPrec IPRange
 Int -&gt; ReadS IPRange
 ReadS [IPRange]
@@ -67,7 +67,7 @@ readList :: ReadS [IPRange]
 $creadList :: ReadS [IPRange]
 readsPrec :: Int -&gt; ReadS IPRange
 $creadsPrec :: Int -&gt; ReadS IPRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679499532"><span id="local-6989586621679499534"><span id="local-6989586621679499536"><span class="annot"><span class="annottext">Int -&gt; IPRange -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679500196"><span id="local-6989586621679500198"><span id="local-6989586621679500200"><span class="annot"><span class="annottext">Int -&gt; IPRange -&gt; ShowS
 [IPRange] -&gt; ShowS
 IPRange -&gt; String
 (Int -&gt; IPRange -&gt; ShowS)
@@ -130,16 +130,16 @@ forall a. Maybe a
 -&gt; (IPRange -&gt; Maybe Text -&gt; IPRange)
 -&gt; Lens IPRange IPRange (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-type">IPRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499523"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-type">IPRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500187"><span class="annot"><span class="annottext">Maybe Text
 status :: Maybe Text
 $sel:status:IPRange' :: IPRange -&gt; Maybe Text
-</span><a href="#local-6989586621679499523"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679499523"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499522"><span class="annot"><span class="annottext">s :: IPRange
-</span><a href="#local-6989586621679499522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-type">IPRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499521"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679499521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPRange
-</span><a href="#local-6989586621679499522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:IPRange' :: Maybe Text
+</span><a href="#local-6989586621679500187"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500187"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500186"><span class="annot"><span class="annottext">s :: IPRange
+</span><a href="#local-6989586621679500186"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-type">IPRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500185"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500185"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPRange
+</span><a href="#local-6989586621679500186"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:IPRange' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.IPRange.html#%24sel%3Astatus%3AIPRange%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679499521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679500185"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-66"></span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- | The IP range in Classless Inter-Domain Routing (CIDR) notation.</span><span>
 </span><span id="line-68"></span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#iPRange_cidrip"><span class="hs-identifier hs-type">iPRange_cidrip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -148,16 +148,16 @@ $sel:status:IPRange' :: IPRange -&gt; Maybe Text
 -&gt; (IPRange -&gt; Maybe Text -&gt; IPRange)
 -&gt; Lens IPRange IPRange (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-type">IPRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499519"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-type">IPRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500183"><span class="annot"><span class="annottext">Maybe Text
 cidrip :: Maybe Text
 $sel:cidrip:IPRange' :: IPRange -&gt; Maybe Text
-</span><a href="#local-6989586621679499519"><span class="hs-identifier hs-var hs-var">cidrip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679499519"><span class="hs-identifier hs-var">cidrip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499518"><span class="annot"><span class="annottext">s :: IPRange
-</span><a href="#local-6989586621679499518"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-type">IPRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499517"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679499517"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPRange
-</span><a href="#local-6989586621679499518"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrip:IPRange' :: Maybe Text
+</span><a href="#local-6989586621679500183"><span class="hs-identifier hs-var hs-var">cidrip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500183"><span class="hs-identifier hs-var">cidrip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500182"><span class="annot"><span class="annottext">s :: IPRange
+</span><a href="#local-6989586621679500182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-type">IPRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500181"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPRange
+</span><a href="#local-6989586621679500182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrip:IPRange' :: Maybe Text
 </span><a href="Network.AWS.Redshift.Types.IPRange.html#%24sel%3Acidrip%3AIPRange%27"><span class="hs-identifier hs-var">cidrip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679499517"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679500181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-70"></span><span>
 </span><span id="line-71"></span><span class="hs-comment">-- | The list of tags for the IP range.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#iPRange_tags"><span class="hs-identifier hs-type">iPRange_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
@@ -166,16 +166,16 @@ $sel:cidrip:IPRange' :: IPRange -&gt; Maybe Text
 -&gt; (IPRange -&gt; Maybe [Tag] -&gt; IPRange)
 -&gt; Lens IPRange IPRange (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-type">IPRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679499515"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-type">IPRange'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500179"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:IPRange' :: IPRange -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679499515"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679499515"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679499514"><span class="annot"><span class="annottext">s :: IPRange
-</span><a href="#local-6989586621679499514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-type">IPRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679499513"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679499513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPRange
-</span><a href="#local-6989586621679499514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:IPRange' :: Maybe [Tag]
+</span><a href="#local-6989586621679500179"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679500179"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500178"><span class="annot"><span class="annottext">s :: IPRange
+</span><a href="#local-6989586621679500178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-type">IPRange'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500177"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679500177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IPRange
+</span><a href="#local-6989586621679500178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:IPRange' :: Maybe [Tag]
 </span><a href="Network.AWS.Redshift.Types.IPRange.html#%24sel%3Atags%3AIPRange%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679499513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; IPRange -&gt; f IPRange)
+</span><a href="#local-6989586621679500177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag])) -&gt; IPRange -&gt; f IPRange)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -188,13 +188,13 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-74"></span><span>
 </span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-76"></span><span>  </span><span id="local-6989586621679499507"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IPRange
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679499505"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679499505"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679500171"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IPRange
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679500169"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679500169"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; IPRange
 </span><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange%27"><span class="hs-identifier hs-var">IPRange'</span></a></span><span>
 </span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; IPRange)
@@ -202,7 +202,7 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; Either String (Maybe Text -&gt; Maybe [Tag] -&gt; IPRange)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679499505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679500169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -211,7 +211,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [Tag] -&gt; IPRange)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679499505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679500169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CIDRIP&quot;</span></span><span class="hs-special">)</span><span>
@@ -219,7 +219,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe [Tag]) -&gt; Either String IPRange
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679499505"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679500169"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -242,7 +242,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-83"></span><span>
-</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679499496"><span id="local-6989586621679499498"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span></span></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679500160"><span id="local-6989586621679500162"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span></span></span><span>
 </span><span id="line-85"></span><span>
-</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679499493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679500157"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.Types.IPRange.html#IPRange"><span class="hs-identifier hs-type">IPRange</span></a></span></span><span>
 </span><span id="line-87"></span></pre></body></html>

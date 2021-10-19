@@ -36,11 +36,11 @@
 </span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#newGetFolderResponse"><span class="hs-identifier">newGetFolderResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>
 </span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_symbolicLinks"><span class="hs-identifier">getFolderResponse_symbolicLinks</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_subFolders"><span class="hs-identifier">getFolderResponse_subFolders</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_treeId"><span class="hs-identifier">getFolderResponse_treeId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_files"><span class="hs-identifier">getFolderResponse_files</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_subModules"><span class="hs-identifier">getFolderResponse_subModules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_subModules"><span class="hs-identifier">getFolderResponse_subModules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_treeId"><span class="hs-identifier">getFolderResponse_treeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_subFolders"><span class="hs-identifier">getFolderResponse_subFolders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_symbolicLinks"><span class="hs-identifier">getFolderResponse_symbolicLinks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_files"><span class="hs-identifier">getFolderResponse_files</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_httpStatus"><span class="hs-identifier">getFolderResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_commitId"><span class="hs-identifier">getFolderResponse_commitId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_folderPath"><span class="hs-identifier">getFolderResponse_folderPath</span></a></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-56"></span><span>
 </span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newGetFolder' smart constructor.</span><span>
-</span><span id="line-58"></span><span id="local-6989586621679364590"><span id="local-6989586621679364591"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFolder"><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-var">GetFolder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFolder%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-var">GetFolder'</span></a></span></span><span>
+</span><span id="line-58"></span><span id="local-6989586621679364889"><span id="local-6989586621679364890"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFolder"><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-var">GetFolder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFolder%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-var">GetFolder'</span></a></span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A fully qualified reference used to identify a commit that contains the</span><span>
 </span><span id="line-60"></span><span>    </span><span class="hs-comment">-- version of the folder\'s content to return. A fully qualified reference</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- can be a commit ID, branch name, tag, or reference such as HEAD. If no</span><span>
@@ -73,7 +73,7 @@
 </span><span id="line-71"></span><span>    </span><span id="%24sel%3AfolderPath%3AGetFolder%27"><span class="annot"><span class="annottext">GetFolder -&gt; Text
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AfolderPath%3AGetFolder%27"><span class="hs-identifier hs-var hs-var">folderPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364582"><span id="local-6989586621679364584"><span class="annot"><span class="annottext">GetFolder -&gt; GetFolder -&gt; Bool
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364881"><span id="local-6989586621679364883"><span class="annot"><span class="annottext">GetFolder -&gt; GetFolder -&gt; Bool
 (GetFolder -&gt; GetFolder -&gt; Bool)
 -&gt; (GetFolder -&gt; GetFolder -&gt; Bool) -&gt; Eq GetFolder
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetFolder -&gt; GetFolder -&gt; Bool
 == :: GetFolder -&gt; GetFolder -&gt; Bool
 $c== :: GetFolder -&gt; GetFolder -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364573"><span id="local-6989586621679364575"><span id="local-6989586621679364577"><span id="local-6989586621679364579"><span class="annot"><span class="annottext">ReadPrec [GetFolder]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364872"><span id="local-6989586621679364874"><span id="local-6989586621679364876"><span id="local-6989586621679364878"><span class="annot"><span class="annottext">ReadPrec [GetFolder]
 ReadPrec GetFolder
 Int -&gt; ReadS GetFolder
 ReadS [GetFolder]
@@ -101,7 +101,7 @@ readList :: ReadS [GetFolder]
 $creadList :: ReadS [GetFolder]
 readsPrec :: Int -&gt; ReadS GetFolder
 $creadsPrec :: Int -&gt; ReadS GetFolder
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364566"><span id="local-6989586621679364568"><span id="local-6989586621679364570"><span class="annot"><span class="annottext">Int -&gt; GetFolder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364865"><span id="local-6989586621679364867"><span id="local-6989586621679364869"><span class="annot"><span class="annottext">Int -&gt; GetFolder -&gt; ShowS
 [GetFolder] -&gt; ShowS
 GetFolder -&gt; String
 (Int -&gt; GetFolder -&gt; ShowS)
@@ -153,9 +153,9 @@ $cfrom :: forall x. GetFolder -&gt; Rep GetFolder x
 </span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-100"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span><span>
 </span><span id="line-101"></span><span id="newGetFolder"><span class="annot"><span class="annottext">newGetFolder :: Text -&gt; Text -&gt; GetFolder
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#newGetFolder"><span class="hs-identifier hs-var hs-var">newGetFolder</span></a></span></span><span> </span><span id="local-6989586621679364561"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364561"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679364560"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364560"><span class="hs-identifier hs-var">pFolderPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#newGetFolder"><span class="hs-identifier hs-var hs-var">newGetFolder</span></a></span></span><span> </span><span id="local-6989586621679364860"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364860"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span></span><span> </span><span id="local-6989586621679364859"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364859"><span class="hs-identifier hs-var">pFolderPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">GetFolder' :: Maybe Text -&gt; Text -&gt; Text -&gt; GetFolder
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span>
 </span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:commitSpecifier:GetFolder' :: Maybe Text
@@ -164,10 +164,10 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:repositoryName:GetFolder' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3ArepositoryName%3AGetFolder%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364561"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679364860"><span class="hs-identifier hs-var">pRepositoryName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:folderPath:GetFolder' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AfolderPath%3AGetFolder%27"><span class="hs-identifier hs-var">folderPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364560"><span class="hs-identifier hs-var">pFolderPath_</span></a></span><span>
+</span><a href="#local-6989586621679364859"><span class="hs-identifier hs-var">pFolderPath_</span></a></span><span>
 </span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-107"></span><span>
 </span><span id="line-108"></span><span class="hs-comment">-- | A fully qualified reference used to identify a commit that contains the</span><span>
@@ -181,16 +181,16 @@ forall a. Maybe a
 -&gt; (GetFolder -&gt; Maybe Text -&gt; GetFolder)
 -&gt; Lens GetFolder GetFolder (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364557"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364856"><span class="annot"><span class="annottext">Maybe Text
 commitSpecifier :: Maybe Text
 $sel:commitSpecifier:GetFolder' :: GetFolder -&gt; Maybe Text
-</span><a href="#local-6989586621679364557"><span class="hs-identifier hs-var hs-var">commitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364557"><span class="hs-identifier hs-var">commitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364556"><span class="annot"><span class="annottext">s :: GetFolder
-</span><a href="#local-6989586621679364556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364555"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolder
-</span><a href="#local-6989586621679364556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitSpecifier:GetFolder' :: Maybe Text
+</span><a href="#local-6989586621679364856"><span class="hs-identifier hs-var hs-var">commitSpecifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364856"><span class="hs-identifier hs-var">commitSpecifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364855"><span class="annot"><span class="annottext">s :: GetFolder
+</span><a href="#local-6989586621679364855"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364854"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364854"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolder
+</span><a href="#local-6989586621679364855"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitSpecifier:GetFolder' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AcommitSpecifier%3AGetFolder%27"><span class="hs-identifier hs-var">commitSpecifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364854"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
 </span><span id="line-116"></span><span class="hs-comment">-- | The name of the repository.</span><span>
 </span><span id="line-117"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolder_repositoryName"><span class="hs-identifier hs-type">getFolder_repositoryName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -199,16 +199,16 @@ $sel:commitSpecifier:GetFolder' :: GetFolder -&gt; Maybe Text
 -&gt; (GetFolder -&gt; Text -&gt; GetFolder)
 -&gt; Lens GetFolder GetFolder Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364554"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364853"><span class="annot"><span class="annottext">Text
 repositoryName :: Text
 $sel:repositoryName:GetFolder' :: GetFolder -&gt; Text
-</span><a href="#local-6989586621679364554"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364554"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364553"><span class="annot"><span class="annottext">s :: GetFolder
-</span><a href="#local-6989586621679364553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364552"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolder
-</span><a href="#local-6989586621679364553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetFolder' :: Text
+</span><a href="#local-6989586621679364853"><span class="hs-identifier hs-var hs-var">repositoryName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364853"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364852"><span class="annot"><span class="annottext">s :: GetFolder
+</span><a href="#local-6989586621679364852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364851"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolder
+</span><a href="#local-6989586621679364852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repositoryName:GetFolder' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3ArepositoryName%3AGetFolder%27"><span class="hs-identifier hs-var">repositoryName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | The fully qualified path to the folder whose contents are returned,</span><span>
 </span><span id="line-121"></span><span class="hs-comment">-- including the folder name. For example, \/examples is a fully-qualified</span><span>
@@ -220,25 +220,25 @@ $sel:repositoryName:GetFolder' :: GetFolder -&gt; Text
 -&gt; (GetFolder -&gt; Text -&gt; GetFolder)
 -&gt; Lens GetFolder GetFolder Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364551"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364850"><span class="annot"><span class="annottext">Text
 folderPath :: Text
 $sel:folderPath:GetFolder' :: GetFolder -&gt; Text
-</span><a href="#local-6989586621679364551"><span class="hs-identifier hs-var hs-var">folderPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364551"><span class="hs-identifier hs-var">folderPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364550"><span class="annot"><span class="annottext">s :: GetFolder
-</span><a href="#local-6989586621679364550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364549"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolder
-</span><a href="#local-6989586621679364550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderPath:GetFolder' :: Text
+</span><a href="#local-6989586621679364850"><span class="hs-identifier hs-var hs-var">folderPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364850"><span class="hs-identifier hs-var">folderPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364849"><span class="annot"><span class="annottext">s :: GetFolder
+</span><a href="#local-6989586621679364849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364848"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolder
+</span><a href="#local-6989586621679364849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderPath:GetFolder' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AfolderPath%3AGetFolder%27"><span class="hs-identifier hs-var">folderPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span>
-</span><span id="line-129"></span><span>  </span><span id="local-6989586621679364545"><span class="annot"><span class="annottext">request :: GetFolder -&gt; Request GetFolder
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679364844"><span class="annot"><span class="annottext">request :: GetFolder -&gt; Request GetFolder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetFolder -&gt; Request GetFolder
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeCommit.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679364541"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679364840"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetFolder
 -&gt; ClientResponse ClientBody
@@ -262,57 +262,82 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679364538"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364538"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679364537"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679364537"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679364536"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364536"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SymbolicLink]
--&gt; Maybe [Folder]
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679364837"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364837"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679364836"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679364836"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679364835"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364835"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SubModule]
 -&gt; Maybe Text
+-&gt; Maybe [Folder]
+-&gt; Maybe [SymbolicLink]
 -&gt; Maybe [File]
--&gt; Maybe [SubModule]
 -&gt; Int
 -&gt; Text
 -&gt; Text
 -&gt; GetFolderResponse
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-var">GetFolderResponse'</span></a></span><span>
-</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SymbolicLink]
- -&gt; Maybe [Folder]
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SubModule]
  -&gt; Maybe Text
+ -&gt; Maybe [Folder]
+ -&gt; Maybe [SymbolicLink]
  -&gt; Maybe [File]
- -&gt; Maybe [SubModule]
  -&gt; Int
  -&gt; Text
  -&gt; Text
  -&gt; GetFolderResponse)
--&gt; Either String (Maybe [SymbolicLink])
+-&gt; Either String (Maybe [SubModule])
 -&gt; Either
      String
-     (Maybe [Folder]
-      -&gt; Maybe Text
+     (Maybe Text
+      -&gt; Maybe [Folder]
+      -&gt; Maybe [SymbolicLink]
       -&gt; Maybe [File]
-      -&gt; Maybe [SubModule]
       -&gt; Int
       -&gt; Text
       -&gt; Text
       -&gt; GetFolderResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SymbolicLink]))
+</span><a href="#local-6989586621679364835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SubModule]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;symbolicLinks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SymbolicLink]))
--&gt; Maybe [SymbolicLink] -&gt; Either String (Maybe [SymbolicLink])
+</span><span class="hs-string">&quot;subModules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SubModule]))
+-&gt; Maybe [SubModule] -&gt; Either String (Maybe [SubModule])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SymbolicLink]
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SubModule]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [Folder]
-   -&gt; Maybe Text
+  (Maybe Text
+   -&gt; Maybe [Folder]
+   -&gt; Maybe [SymbolicLink]
    -&gt; Maybe [File]
-   -&gt; Maybe [SubModule]
+   -&gt; Int
+   -&gt; Text
+   -&gt; Text
+   -&gt; GetFolderResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Folder]
+      -&gt; Maybe [SymbolicLink]
+      -&gt; Maybe [File]
+      -&gt; Int
+      -&gt; Text
+      -&gt; Text
+      -&gt; GetFolderResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;treeId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Folder]
+   -&gt; Maybe [SymbolicLink]
+   -&gt; Maybe [File]
    -&gt; Int
    -&gt; Text
    -&gt; Text
@@ -320,16 +345,11 @@ forall a. Monoid a =&gt; a
 -&gt; Either String (Maybe [Folder])
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe [File]
-      -&gt; Maybe [SubModule]
-      -&gt; Int
-      -&gt; Text
-      -&gt; Text
-      -&gt; GetFolderResponse)
+     (Maybe [SymbolicLink]
+      -&gt; Maybe [File] -&gt; Int -&gt; Text -&gt; Text -&gt; GetFolderResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Folder]))
+</span><a href="#local-6989586621679364835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Folder]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;subFolders&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Folder]))
@@ -338,59 +358,37 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Folder]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe Text
-   -&gt; Maybe [File]
-   -&gt; Maybe [SubModule]
-   -&gt; Int
-   -&gt; Text
-   -&gt; Text
-   -&gt; GetFolderResponse)
--&gt; Either String (Maybe Text)
--&gt; Either
-     String
-     (Maybe [File]
-      -&gt; Maybe [SubModule] -&gt; Int -&gt; Text -&gt; Text -&gt; GetFolderResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;treeId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe [File]
-   -&gt; Maybe [SubModule] -&gt; Int -&gt; Text -&gt; Text -&gt; GetFolderResponse)
--&gt; Either String (Maybe [File])
+  (Maybe [SymbolicLink]
+   -&gt; Maybe [File] -&gt; Int -&gt; Text -&gt; Text -&gt; GetFolderResponse)
+-&gt; Either String (Maybe [SymbolicLink])
 -&gt; Either
-     String
-     (Maybe [SubModule] -&gt; Int -&gt; Text -&gt; Text -&gt; GetFolderResponse)
+     String (Maybe [File] -&gt; Int -&gt; Text -&gt; Text -&gt; GetFolderResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [File]))
+</span><a href="#local-6989586621679364835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SymbolicLink]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;symbolicLinks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SymbolicLink]))
+-&gt; Maybe [SymbolicLink] -&gt; Either String (Maybe [SymbolicLink])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SymbolicLink]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [File] -&gt; Int -&gt; Text -&gt; Text -&gt; GetFolderResponse)
+-&gt; Either String (Maybe [File])
+-&gt; Either String (Int -&gt; Text -&gt; Text -&gt; GetFolderResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [File]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;files&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [File]))
 -&gt; Maybe [File] -&gt; Either String (Maybe [File])
 forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [File]
-forall a. Monoid a =&gt; a
-</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [SubModule] -&gt; Int -&gt; Text -&gt; Text -&gt; GetFolderResponse)
--&gt; Either String (Maybe [SubModule])
--&gt; Either String (Int -&gt; Text -&gt; Text -&gt; GetFolderResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [SubModule]))
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;subModules&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [SubModule]))
--&gt; Maybe [SubModule] -&gt; Either String (Maybe [SubModule])
-forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
-</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SubModule]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
 </span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; Text -&gt; Text -&gt; GetFolderResponse)
@@ -402,12 +400,12 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364538"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364837"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; GetFolderResponse)
 -&gt; Either String Text -&gt; Either String (Text -&gt; GetFolderResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679364835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;commitId&quot;</span></span><span class="hs-special">)</span><span>
@@ -415,18 +413,18 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 -&gt; Either String Text -&gt; Either String GetFolderResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679364536"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679364835"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;folderPath&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-143"></span><span>
-</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364526"><span id="local-6989586621679364528"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span></span></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364825"><span id="local-6989586621679364827"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span></span></span><span>
 </span><span id="line-145"></span><span>
-</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364523"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span></span><span>
 </span><span id="line-147"></span><span>
 </span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-149"></span><span>  </span><span id="local-6989586621679364519"><span class="annot"><span class="annottext">toHeaders :: GetFolder -&gt; ResponseHeaders
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679364818"><span class="annot"><span class="annottext">toHeaders :: GetFolder -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetFolder -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -453,9 +451,9 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364509"><span id="local-6989586621679364511"><span id="local-6989586621679364513"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679364507"><span class="annot"><span class="annottext">toJSON :: GetFolder -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364503"><span id="local-6989586621679364504"><span id="local-6989586621679364505"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364808"><span id="local-6989586621679364810"><span id="local-6989586621679364812"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679364806"><span class="annot"><span class="annottext">toJSON :: GetFolder -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder%27"><span class="hs-identifier hs-type">GetFolder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364802"><span id="local-6989586621679364803"><span id="local-6989586621679364804"><span class="annot"><span class="annottext">Maybe Text
 Text
 folderPath :: Text
 repositoryName :: Text
@@ -463,7 +461,7 @@ commitSpecifier :: Maybe Text
 $sel:folderPath:GetFolder' :: GetFolder -&gt; Text
 $sel:repositoryName:GetFolder' :: GetFolder -&gt; Text
 $sel:commitSpecifier:GetFolder' :: GetFolder -&gt; Maybe Text
-</span><a href="#local-6989586621679364503"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679364802"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -476,7 +474,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364505"><span class="hs-identifier hs-var">commitSpecifier</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679364804"><span class="hs-identifier hs-var">commitSpecifier</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -484,26 +482,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;repositoryName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364504"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679364803"><span class="hs-identifier hs-var">repositoryName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;folderPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364503"><span class="hs-identifier hs-var">folderPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364802"><span class="hs-identifier hs-var">folderPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-176"></span><span>  </span><span id="local-6989586621679364497"><span class="annot"><span class="annottext">toPath :: GetFolder -&gt; ByteString
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679364796"><span class="annot"><span class="annottext">toPath :: GetFolder -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetFolder -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-177"></span><span>
 </span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolder"><span class="hs-identifier hs-type">GetFolder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-179"></span><span>  </span><span id="local-6989586621679364493"><span class="annot"><span class="annottext">toQuery :: GetFolder -&gt; QueryString
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679364792"><span class="annot"><span class="annottext">toQuery :: GetFolder -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetFolder -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -511,24 +509,24 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | /See:/ 'newGetFolderResponse' smart constructor.</span><span>
-</span><span id="line-182"></span><span id="local-6989586621679364490"><span id="local-6989586621679364491"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFolderResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-var">GetFolderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFolderResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-var">GetFolderResponse'</span></a></span></span><span>
-</span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of symbolic links to other files and folders in the specified</span><span>
-</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- folder, if any.</span><span>
-</span><span id="line-185"></span><span>    </span><span id="%24sel%3AsymbolicLinks%3AGetFolderResponse%27"><span class="annot"><span class="annottext">GetFolderResponse -&gt; Maybe [SymbolicLink]
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsymbolicLinks%3AGetFolderResponse%27"><span class="hs-identifier hs-var hs-var">symbolicLinks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SymbolicLink.html#SymbolicLink"><span class="hs-identifier hs-type">SymbolicLink</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The list of folders that exist under the specified folder, if any.</span><span>
-</span><span id="line-187"></span><span>    </span><span id="%24sel%3AsubFolders%3AGetFolderResponse%27"><span class="annot"><span class="annottext">GetFolderResponse -&gt; Maybe [Folder]
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsubFolders%3AGetFolderResponse%27"><span class="hs-identifier hs-var hs-var">subFolders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | The full SHA-1 pointer of the tree information for the commit that</span><span>
-</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- contains the folder.</span><span>
-</span><span id="line-190"></span><span>    </span><span id="%24sel%3AtreeId%3AGetFolderResponse%27"><span class="annot"><span class="annottext">GetFolderResponse -&gt; Maybe Text
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AtreeId%3AGetFolderResponse%27"><span class="hs-identifier hs-var hs-var">treeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The list of files in the specified folder, if any.</span><span>
-</span><span id="line-192"></span><span>    </span><span id="%24sel%3Afiles%3AGetFolderResponse%27"><span class="annot"><span class="annottext">GetFolderResponse -&gt; Maybe [File]
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3Afiles%3AGetFolderResponse%27"><span class="hs-identifier hs-var hs-var">files</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The list of submodules in the specified folder, if any.</span><span>
-</span><span id="line-194"></span><span>    </span><span id="%24sel%3AsubModules%3AGetFolderResponse%27"><span class="annot"><span class="annottext">GetFolderResponse -&gt; Maybe [SubModule]
+</span><span id="line-182"></span><span id="local-6989586621679364789"><span id="local-6989586621679364790"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetFolderResponse"><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-var">GetFolderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetFolderResponse%27"><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-var">GetFolderResponse'</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of submodules in the specified folder, if any.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AsubModules%3AGetFolderResponse%27"><span class="annot"><span class="annottext">GetFolderResponse -&gt; Maybe [SubModule]
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsubModules%3AGetFolderResponse%27"><span class="hs-identifier hs-var hs-var">subModules</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">-- | The full SHA-1 pointer of the tree information for the commit that</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- contains the folder.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AtreeId%3AGetFolderResponse%27"><span class="annot"><span class="annottext">GetFolderResponse -&gt; Maybe Text
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AtreeId%3AGetFolderResponse%27"><span class="hs-identifier hs-var hs-var">treeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | The list of folders that exist under the specified folder, if any.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3AsubFolders%3AGetFolderResponse%27"><span class="annot"><span class="annottext">GetFolderResponse -&gt; Maybe [Folder]
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsubFolders%3AGetFolderResponse%27"><span class="hs-identifier hs-var hs-var">subFolders</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | The list of symbolic links to other files and folders in the specified</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- folder, if any.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AsymbolicLinks%3AGetFolderResponse%27"><span class="annot"><span class="annottext">GetFolderResponse -&gt; Maybe [SymbolicLink]
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsymbolicLinks%3AGetFolderResponse%27"><span class="hs-identifier hs-var hs-var">symbolicLinks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SymbolicLink.html#SymbolicLink"><span class="hs-identifier hs-type">SymbolicLink</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The list of files in the specified folder, if any.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3Afiles%3AGetFolderResponse%27"><span class="annot"><span class="annottext">GetFolderResponse -&gt; Maybe [File]
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3Afiles%3AGetFolderResponse%27"><span class="hs-identifier hs-var hs-var">files</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
 </span><span id="line-195"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-196"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetFolderResponse%27"><span class="annot"><span class="annottext">GetFolderResponse -&gt; Int
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AhttpStatus%3AGetFolderResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
@@ -540,7 +538,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-201"></span><span>    </span><span id="%24sel%3AfolderPath%3AGetFolderResponse%27"><span class="annot"><span class="annottext">GetFolderResponse -&gt; Text
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AfolderPath%3AGetFolderResponse%27"><span class="hs-identifier hs-var hs-var">folderPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364478"><span id="local-6989586621679364480"><span class="annot"><span class="annottext">GetFolderResponse -&gt; GetFolderResponse -&gt; Bool
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364777"><span id="local-6989586621679364779"><span class="annot"><span class="annottext">GetFolderResponse -&gt; GetFolderResponse -&gt; Bool
 (GetFolderResponse -&gt; GetFolderResponse -&gt; Bool)
 -&gt; (GetFolderResponse -&gt; GetFolderResponse -&gt; Bool)
 -&gt; Eq GetFolderResponse
@@ -549,7 +547,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetFolderResponse -&gt; GetFolderResponse -&gt; Bool
 == :: GetFolderResponse -&gt; GetFolderResponse -&gt; Bool
 $c== :: GetFolderResponse -&gt; GetFolderResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364470"><span id="local-6989586621679364472"><span id="local-6989586621679364474"><span id="local-6989586621679364476"><span class="annot"><span class="annottext">ReadPrec [GetFolderResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364769"><span id="local-6989586621679364771"><span id="local-6989586621679364773"><span id="local-6989586621679364775"><span class="annot"><span class="annottext">ReadPrec [GetFolderResponse]
 ReadPrec GetFolderResponse
 Int -&gt; ReadS GetFolderResponse
 ReadS [GetFolderResponse]
@@ -569,7 +567,7 @@ readList :: ReadS [GetFolderResponse]
 $creadList :: ReadS [GetFolderResponse]
 readsPrec :: Int -&gt; ReadS GetFolderResponse
 $creadsPrec :: Int -&gt; ReadS GetFolderResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364464"><span id="local-6989586621679364466"><span id="local-6989586621679364468"><span class="annot"><span class="annottext">Int -&gt; GetFolderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364763"><span id="local-6989586621679364765"><span id="local-6989586621679364767"><span class="annot"><span class="annottext">Int -&gt; GetFolderResponse -&gt; ShowS
 [GetFolderResponse] -&gt; ShowS
 GetFolderResponse -&gt; String
 (Int -&gt; GetFolderResponse -&gt; ShowS)
@@ -603,17 +601,17 @@ $cfrom :: forall x. GetFolderResponse -&gt; Rep GetFolderResponse x
 </span><span id="line-210"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-211"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-212"></span><span class="hs-comment">--</span><span>
-</span><span id="line-213"></span><span class="hs-comment">-- 'symbolicLinks', 'getFolderResponse_symbolicLinks' - The list of symbolic links to other files and folders in the specified</span><span>
-</span><span id="line-214"></span><span class="hs-comment">-- folder, if any.</span><span>
-</span><span id="line-215"></span><span class="hs-comment">--</span><span>
-</span><span id="line-216"></span><span class="hs-comment">-- 'subFolders', 'getFolderResponse_subFolders' - The list of folders that exist under the specified folder, if any.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'subModules', 'getFolderResponse_subModules' - The list of submodules in the specified folder, if any.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'treeId', 'getFolderResponse_treeId' - The full SHA-1 pointer of the tree information for the commit that</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- contains the folder.</span><span>
 </span><span id="line-217"></span><span class="hs-comment">--</span><span>
-</span><span id="line-218"></span><span class="hs-comment">-- 'treeId', 'getFolderResponse_treeId' - The full SHA-1 pointer of the tree information for the commit that</span><span>
-</span><span id="line-219"></span><span class="hs-comment">-- contains the folder.</span><span>
-</span><span id="line-220"></span><span class="hs-comment">--</span><span>
-</span><span id="line-221"></span><span class="hs-comment">-- 'files', 'getFolderResponse_files' - The list of files in the specified folder, if any.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'subFolders', 'getFolderResponse_subFolders' - The list of folders that exist under the specified folder, if any.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'symbolicLinks', 'getFolderResponse_symbolicLinks' - The list of symbolic links to other files and folders in the specified</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- folder, if any.</span><span>
 </span><span id="line-222"></span><span class="hs-comment">--</span><span>
-</span><span id="line-223"></span><span class="hs-comment">-- 'subModules', 'getFolderResponse_subModules' - The list of submodules in the specified folder, if any.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'files', 'getFolderResponse_files' - The list of files in the specified folder, if any.</span><span>
 </span><span id="line-224"></span><span class="hs-comment">--</span><span>
 </span><span id="line-225"></span><span class="hs-comment">-- 'httpStatus', 'getFolderResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-226"></span><span class="hs-comment">--</span><span>
@@ -631,194 +629,56 @@ $cfrom :: forall x. GetFolderResponse -&gt; Rep GetFolderResponse x
 </span><span id="line-238"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span>
 </span><span id="line-239"></span><span id="newGetFolderResponse"><span class="annot"><span class="annottext">newGetFolderResponse :: Int -&gt; Text -&gt; Text -&gt; GetFolderResponse
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#newGetFolderResponse"><span class="hs-identifier hs-var hs-var">newGetFolderResponse</span></a></span></span><span>
-</span><span id="line-240"></span><span>  </span><span id="local-6989586621679364461"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
-</span><span id="line-241"></span><span>  </span><span id="local-6989586621679364460"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364460"><span class="hs-identifier hs-var">pCommitId_</span></a></span></span><span>
-</span><span id="line-242"></span><span>  </span><span id="local-6989586621679364459"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364459"><span class="hs-identifier hs-var">pFolderPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">GetFolderResponse' :: Maybe [SymbolicLink]
--&gt; Maybe [Folder]
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621679364760"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364760"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-241"></span><span>  </span><span id="local-6989586621679364759"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364759"><span class="hs-identifier hs-var">pCommitId_</span></a></span></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679364758"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364758"><span class="hs-identifier hs-var">pFolderPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><span class="annottext">GetFolderResponse' :: Maybe [SubModule]
 -&gt; Maybe Text
+-&gt; Maybe [Folder]
+-&gt; Maybe [SymbolicLink]
 -&gt; Maybe [File]
--&gt; Maybe [SubModule]
 -&gt; Int
 -&gt; Text
 -&gt; Text
 -&gt; GetFolderResponse
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span>
-</span><span id="line-244"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:symbolicLinks:GetFolderResponse' :: Maybe [SymbolicLink]
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsymbolicLinks%3AGetFolderResponse%27"><span class="hs-identifier hs-var">symbolicLinks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SymbolicLink]
+</span><span id="line-244"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subModules:GetFolderResponse' :: Maybe [SubModule]
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsubModules%3AGetFolderResponse%27"><span class="hs-identifier hs-var">subModules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SubModule]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">$sel:subFolders:GetFolderResponse' :: Maybe [Folder]
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsubFolders%3AGetFolderResponse%27"><span class="hs-identifier hs-var">subFolders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Folder]
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">$sel:treeId:GetFolderResponse' :: Maybe Text
+</span><span id="line-245"></span><span>        </span><span class="annot"><span class="annottext">$sel:treeId:GetFolderResponse' :: Maybe Text
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AtreeId%3AGetFolderResponse%27"><span class="hs-identifier hs-var">treeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">$sel:files:GetFolderResponse' :: Maybe [File]
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3Afiles%3AGetFolderResponse%27"><span class="hs-identifier hs-var">files</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [File]
+</span><span id="line-246"></span><span>        </span><span class="annot"><span class="annottext">$sel:subFolders:GetFolderResponse' :: Maybe [Folder]
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsubFolders%3AGetFolderResponse%27"><span class="hs-identifier hs-var">subFolders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Folder]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">$sel:subModules:GetFolderResponse' :: Maybe [SubModule]
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsubModules%3AGetFolderResponse%27"><span class="hs-identifier hs-var">subModules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SubModule]
+</span><span id="line-247"></span><span>        </span><span class="annot"><span class="annottext">$sel:symbolicLinks:GetFolderResponse' :: Maybe [SymbolicLink]
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsymbolicLinks%3AGetFolderResponse%27"><span class="hs-identifier hs-var">symbolicLinks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SymbolicLink]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>        </span><span class="annot"><span class="annottext">$sel:files:GetFolderResponse' :: Maybe [File]
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3Afiles%3AGetFolderResponse%27"><span class="hs-identifier hs-var">files</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [File]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetFolderResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AhttpStatus%3AGetFolderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364461"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679364760"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-250"></span><span>        </span><span class="annot"><span class="annottext">$sel:commitId:GetFolderResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AcommitId%3AGetFolderResponse%27"><span class="hs-identifier hs-var">commitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364460"><span class="hs-identifier hs-var">pCommitId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679364759"><span class="hs-identifier hs-var">pCommitId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">$sel:folderPath:GetFolderResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AfolderPath%3AGetFolderResponse%27"><span class="hs-identifier hs-var">folderPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364459"><span class="hs-identifier hs-var">pFolderPath_</span></a></span><span>
+</span><a href="#local-6989586621679364758"><span class="hs-identifier hs-var">pFolderPath_</span></a></span><span>
 </span><span id="line-252"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-253"></span><span>
-</span><span id="line-254"></span><span class="hs-comment">-- | The list of symbolic links to other files and folders in the specified</span><span>
-</span><span id="line-255"></span><span class="hs-comment">-- folder, if any.</span><span>
-</span><span id="line-256"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_symbolicLinks"><span class="hs-identifier hs-type">getFolderResponse_symbolicLinks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SymbolicLink.html#SymbolicLink"><span class="hs-identifier hs-type">SymbolicLink</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-257"></span><span id="getFolderResponse_symbolicLinks"><span class="annot"><span class="annottext">getFolderResponse_symbolicLinks :: (Maybe [SymbolicLink] -&gt; f (Maybe [SymbolicLink]))
--&gt; GetFolderResponse -&gt; f GetFolderResponse
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_symbolicLinks"><span class="hs-identifier hs-var hs-var">getFolderResponse_symbolicLinks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFolderResponse -&gt; Maybe [SymbolicLink])
--&gt; (GetFolderResponse -&gt; Maybe [SymbolicLink] -&gt; GetFolderResponse)
--&gt; Lens
-     GetFolderResponse
-     GetFolderResponse
-     (Maybe [SymbolicLink])
-     (Maybe [SymbolicLink])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364458"><span class="annot"><span class="annottext">Maybe [SymbolicLink]
-symbolicLinks :: Maybe [SymbolicLink]
-$sel:symbolicLinks:GetFolderResponse' :: GetFolderResponse -&gt; Maybe [SymbolicLink]
-</span><a href="#local-6989586621679364458"><span class="hs-identifier hs-var hs-var">symbolicLinks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SymbolicLink]
-</span><a href="#local-6989586621679364458"><span class="hs-identifier hs-var">symbolicLinks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364457"><span class="annot"><span class="annottext">s :: GetFolderResponse
-</span><a href="#local-6989586621679364457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364456"><span class="annot"><span class="annottext">Maybe [SymbolicLink]
-</span><a href="#local-6989586621679364456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
-</span><a href="#local-6989586621679364457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:symbolicLinks:GetFolderResponse' :: Maybe [SymbolicLink]
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsymbolicLinks%3AGetFolderResponse%27"><span class="hs-identifier hs-var">symbolicLinks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SymbolicLink]
-</span><a href="#local-6989586621679364456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SymbolicLink] -&gt; f (Maybe [SymbolicLink]))
- -&gt; GetFolderResponse -&gt; f GetFolderResponse)
--&gt; ((Maybe [SymbolicLink] -&gt; f (Maybe [SymbolicLink]))
-    -&gt; Maybe [SymbolicLink] -&gt; f (Maybe [SymbolicLink]))
--&gt; (Maybe [SymbolicLink] -&gt; f (Maybe [SymbolicLink]))
--&gt; GetFolderResponse
--&gt; f GetFolderResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SymbolicLink] [SymbolicLink] [SymbolicLink] [SymbolicLink]
--&gt; Iso
-     (Maybe [SymbolicLink])
-     (Maybe [SymbolicLink])
-     (Maybe [SymbolicLink])
-     (Maybe [SymbolicLink])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SymbolicLink] [SymbolicLink] [SymbolicLink] [SymbolicLink]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-258"></span><span>
-</span><span id="line-259"></span><span class="hs-comment">-- | The list of folders that exist under the specified folder, if any.</span><span>
-</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_subFolders"><span class="hs-identifier hs-type">getFolderResponse_subFolders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-261"></span><span id="getFolderResponse_subFolders"><span class="annot"><span class="annottext">getFolderResponse_subFolders :: (Maybe [Folder] -&gt; f (Maybe [Folder]))
--&gt; GetFolderResponse -&gt; f GetFolderResponse
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_subFolders"><span class="hs-identifier hs-var hs-var">getFolderResponse_subFolders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFolderResponse -&gt; Maybe [Folder])
--&gt; (GetFolderResponse -&gt; Maybe [Folder] -&gt; GetFolderResponse)
--&gt; Lens
-     GetFolderResponse
-     GetFolderResponse
-     (Maybe [Folder])
-     (Maybe [Folder])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364452"><span class="annot"><span class="annottext">Maybe [Folder]
-subFolders :: Maybe [Folder]
-$sel:subFolders:GetFolderResponse' :: GetFolderResponse -&gt; Maybe [Folder]
-</span><a href="#local-6989586621679364452"><span class="hs-identifier hs-var hs-var">subFolders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Folder]
-</span><a href="#local-6989586621679364452"><span class="hs-identifier hs-var">subFolders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364451"><span class="annot"><span class="annottext">s :: GetFolderResponse
-</span><a href="#local-6989586621679364451"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364450"><span class="annot"><span class="annottext">Maybe [Folder]
-</span><a href="#local-6989586621679364450"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
-</span><a href="#local-6989586621679364451"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subFolders:GetFolderResponse' :: Maybe [Folder]
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsubFolders%3AGetFolderResponse%27"><span class="hs-identifier hs-var">subFolders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Folder]
-</span><a href="#local-6989586621679364450"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Folder] -&gt; f (Maybe [Folder]))
- -&gt; GetFolderResponse -&gt; f GetFolderResponse)
--&gt; ((Maybe [Folder] -&gt; f (Maybe [Folder]))
-    -&gt; Maybe [Folder] -&gt; f (Maybe [Folder]))
--&gt; (Maybe [Folder] -&gt; f (Maybe [Folder]))
--&gt; GetFolderResponse
--&gt; f GetFolderResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Folder] [Folder] [Folder] [Folder]
--&gt; Iso
-     (Maybe [Folder]) (Maybe [Folder]) (Maybe [Folder]) (Maybe [Folder])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Folder] [Folder] [Folder] [Folder]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-262"></span><span>
-</span><span id="line-263"></span><span class="hs-comment">-- | The full SHA-1 pointer of the tree information for the commit that</span><span>
-</span><span id="line-264"></span><span class="hs-comment">-- contains the folder.</span><span>
-</span><span id="line-265"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_treeId"><span class="hs-identifier hs-type">getFolderResponse_treeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-266"></span><span id="getFolderResponse_treeId"><span class="annot"><span class="annottext">getFolderResponse_treeId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; GetFolderResponse -&gt; f GetFolderResponse
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_treeId"><span class="hs-identifier hs-var hs-var">getFolderResponse_treeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFolderResponse -&gt; Maybe Text)
--&gt; (GetFolderResponse -&gt; Maybe Text -&gt; GetFolderResponse)
--&gt; Lens
-     GetFolderResponse GetFolderResponse (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364449"><span class="annot"><span class="annottext">Maybe Text
-treeId :: Maybe Text
-$sel:treeId:GetFolderResponse' :: GetFolderResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679364449"><span class="hs-identifier hs-var hs-var">treeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364449"><span class="hs-identifier hs-var">treeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364448"><span class="annot"><span class="annottext">s :: GetFolderResponse
-</span><a href="#local-6989586621679364448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364447"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
-</span><a href="#local-6989586621679364448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:treeId:GetFolderResponse' :: Maybe Text
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AtreeId%3AGetFolderResponse%27"><span class="hs-identifier hs-var">treeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679364447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-267"></span><span>
-</span><span id="line-268"></span><span class="hs-comment">-- | The list of files in the specified folder, if any.</span><span>
-</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_files"><span class="hs-identifier hs-type">getFolderResponse_files</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-270"></span><span id="getFolderResponse_files"><span class="annot"><span class="annottext">getFolderResponse_files :: (Maybe [File] -&gt; f (Maybe [File]))
--&gt; GetFolderResponse -&gt; f GetFolderResponse
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_files"><span class="hs-identifier hs-var hs-var">getFolderResponse_files</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFolderResponse -&gt; Maybe [File])
--&gt; (GetFolderResponse -&gt; Maybe [File] -&gt; GetFolderResponse)
--&gt; Lens
-     GetFolderResponse GetFolderResponse (Maybe [File]) (Maybe [File])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364446"><span class="annot"><span class="annottext">Maybe [File]
-files :: Maybe [File]
-$sel:files:GetFolderResponse' :: GetFolderResponse -&gt; Maybe [File]
-</span><a href="#local-6989586621679364446"><span class="hs-identifier hs-var hs-var">files</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [File]
-</span><a href="#local-6989586621679364446"><span class="hs-identifier hs-var">files</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364445"><span class="annot"><span class="annottext">s :: GetFolderResponse
-</span><a href="#local-6989586621679364445"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364444"><span class="annot"><span class="annottext">Maybe [File]
-</span><a href="#local-6989586621679364444"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
-</span><a href="#local-6989586621679364445"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:files:GetFolderResponse' :: Maybe [File]
-</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3Afiles%3AGetFolderResponse%27"><span class="hs-identifier hs-var">files</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [File]
-</span><a href="#local-6989586621679364444"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [File] -&gt; f (Maybe [File]))
- -&gt; GetFolderResponse -&gt; f GetFolderResponse)
--&gt; ((Maybe [File] -&gt; f (Maybe [File]))
-    -&gt; Maybe [File] -&gt; f (Maybe [File]))
--&gt; (Maybe [File] -&gt; f (Maybe [File]))
--&gt; GetFolderResponse
--&gt; f GetFolderResponse
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [File] [File] [File] [File]
--&gt; Iso (Maybe [File]) (Maybe [File]) (Maybe [File]) (Maybe [File])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [File] [File] [File] [File]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-271"></span><span>
-</span><span id="line-272"></span><span class="hs-comment">-- | The list of submodules in the specified folder, if any.</span><span>
-</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_subModules"><span class="hs-identifier hs-type">getFolderResponse_subModules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-274"></span><span id="getFolderResponse_subModules"><span class="annot"><span class="annottext">getFolderResponse_subModules :: (Maybe [SubModule] -&gt; f (Maybe [SubModule]))
+</span><span id="line-254"></span><span class="hs-comment">-- | The list of submodules in the specified folder, if any.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_subModules"><span class="hs-identifier hs-type">getFolderResponse_subModules</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SubModule.html#SubModule"><span class="hs-identifier hs-type">SubModule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="getFolderResponse_subModules"><span class="annot"><span class="annottext">getFolderResponse_subModules :: (Maybe [SubModule] -&gt; f (Maybe [SubModule]))
 -&gt; GetFolderResponse -&gt; f GetFolderResponse
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_subModules"><span class="hs-identifier hs-var hs-var">getFolderResponse_subModules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFolderResponse -&gt; Maybe [SubModule])
 -&gt; (GetFolderResponse -&gt; Maybe [SubModule] -&gt; GetFolderResponse)
@@ -828,16 +688,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe [SubModule])
      (Maybe [SubModule])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364443"><span class="annot"><span class="annottext">Maybe [SubModule]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364757"><span class="annot"><span class="annottext">Maybe [SubModule]
 subModules :: Maybe [SubModule]
 $sel:subModules:GetFolderResponse' :: GetFolderResponse -&gt; Maybe [SubModule]
-</span><a href="#local-6989586621679364443"><span class="hs-identifier hs-var hs-var">subModules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SubModule]
-</span><a href="#local-6989586621679364443"><span class="hs-identifier hs-var">subModules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364442"><span class="annot"><span class="annottext">s :: GetFolderResponse
-</span><a href="#local-6989586621679364442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364441"><span class="annot"><span class="annottext">Maybe [SubModule]
-</span><a href="#local-6989586621679364441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
-</span><a href="#local-6989586621679364442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subModules:GetFolderResponse' :: Maybe [SubModule]
+</span><a href="#local-6989586621679364757"><span class="hs-identifier hs-var hs-var">subModules</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SubModule]
+</span><a href="#local-6989586621679364757"><span class="hs-identifier hs-var">subModules</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364756"><span class="annot"><span class="annottext">s :: GetFolderResponse
+</span><a href="#local-6989586621679364756"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364755"><span class="annot"><span class="annottext">Maybe [SubModule]
+</span><a href="#local-6989586621679364755"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
+</span><a href="#local-6989586621679364756"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subModules:GetFolderResponse' :: Maybe [SubModule]
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsubModules%3AGetFolderResponse%27"><span class="hs-identifier hs-var">subModules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SubModule]
-</span><a href="#local-6989586621679364441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SubModule] -&gt; f (Maybe [SubModule]))
+</span><a href="#local-6989586621679364755"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SubModule] -&gt; f (Maybe [SubModule]))
  -&gt; GetFolderResponse -&gt; f GetFolderResponse)
 -&gt; ((Maybe [SubModule] -&gt; f (Maybe [SubModule]))
     -&gt; Maybe [SubModule] -&gt; f (Maybe [SubModule]))
@@ -855,8 +715,146 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SubModule] [SubModule] [SubModule] [SubModule]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The full SHA-1 pointer of the tree information for the commit that</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- contains the folder.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_treeId"><span class="hs-identifier hs-type">getFolderResponse_treeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="getFolderResponse_treeId"><span class="annot"><span class="annottext">getFolderResponse_treeId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetFolderResponse -&gt; f GetFolderResponse
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_treeId"><span class="hs-identifier hs-var hs-var">getFolderResponse_treeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFolderResponse -&gt; Maybe Text)
+-&gt; (GetFolderResponse -&gt; Maybe Text -&gt; GetFolderResponse)
+-&gt; Lens
+     GetFolderResponse GetFolderResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364751"><span class="annot"><span class="annottext">Maybe Text
+treeId :: Maybe Text
+$sel:treeId:GetFolderResponse' :: GetFolderResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679364751"><span class="hs-identifier hs-var hs-var">treeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364751"><span class="hs-identifier hs-var">treeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364750"><span class="annot"><span class="annottext">s :: GetFolderResponse
+</span><a href="#local-6989586621679364750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364749"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
+</span><a href="#local-6989586621679364750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:treeId:GetFolderResponse' :: Maybe Text
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AtreeId%3AGetFolderResponse%27"><span class="hs-identifier hs-var">treeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The list of folders that exist under the specified folder, if any.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_subFolders"><span class="hs-identifier hs-type">getFolderResponse_subFolders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.Folder.html#Folder"><span class="hs-identifier hs-type">Folder</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="getFolderResponse_subFolders"><span class="annot"><span class="annottext">getFolderResponse_subFolders :: (Maybe [Folder] -&gt; f (Maybe [Folder]))
+-&gt; GetFolderResponse -&gt; f GetFolderResponse
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_subFolders"><span class="hs-identifier hs-var hs-var">getFolderResponse_subFolders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFolderResponse -&gt; Maybe [Folder])
+-&gt; (GetFolderResponse -&gt; Maybe [Folder] -&gt; GetFolderResponse)
+-&gt; Lens
+     GetFolderResponse
+     GetFolderResponse
+     (Maybe [Folder])
+     (Maybe [Folder])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364748"><span class="annot"><span class="annottext">Maybe [Folder]
+subFolders :: Maybe [Folder]
+$sel:subFolders:GetFolderResponse' :: GetFolderResponse -&gt; Maybe [Folder]
+</span><a href="#local-6989586621679364748"><span class="hs-identifier hs-var hs-var">subFolders</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Folder]
+</span><a href="#local-6989586621679364748"><span class="hs-identifier hs-var">subFolders</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364747"><span class="annot"><span class="annottext">s :: GetFolderResponse
+</span><a href="#local-6989586621679364747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364746"><span class="annot"><span class="annottext">Maybe [Folder]
+</span><a href="#local-6989586621679364746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
+</span><a href="#local-6989586621679364747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subFolders:GetFolderResponse' :: Maybe [Folder]
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsubFolders%3AGetFolderResponse%27"><span class="hs-identifier hs-var">subFolders</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Folder]
+</span><a href="#local-6989586621679364746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Folder] -&gt; f (Maybe [Folder]))
+ -&gt; GetFolderResponse -&gt; f GetFolderResponse)
+-&gt; ((Maybe [Folder] -&gt; f (Maybe [Folder]))
+    -&gt; Maybe [Folder] -&gt; f (Maybe [Folder]))
+-&gt; (Maybe [Folder] -&gt; f (Maybe [Folder]))
+-&gt; GetFolderResponse
+-&gt; f GetFolderResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Folder] [Folder] [Folder] [Folder]
+-&gt; Iso
+     (Maybe [Folder]) (Maybe [Folder]) (Maybe [Folder]) (Maybe [Folder])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Folder] [Folder] [Folder] [Folder]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The list of symbolic links to other files and folders in the specified</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- folder, if any.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_symbolicLinks"><span class="hs-identifier hs-type">getFolderResponse_symbolicLinks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.SymbolicLink.html#SymbolicLink"><span class="hs-identifier hs-type">SymbolicLink</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="getFolderResponse_symbolicLinks"><span class="annot"><span class="annottext">getFolderResponse_symbolicLinks :: (Maybe [SymbolicLink] -&gt; f (Maybe [SymbolicLink]))
+-&gt; GetFolderResponse -&gt; f GetFolderResponse
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_symbolicLinks"><span class="hs-identifier hs-var hs-var">getFolderResponse_symbolicLinks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFolderResponse -&gt; Maybe [SymbolicLink])
+-&gt; (GetFolderResponse -&gt; Maybe [SymbolicLink] -&gt; GetFolderResponse)
+-&gt; Lens
+     GetFolderResponse
+     GetFolderResponse
+     (Maybe [SymbolicLink])
+     (Maybe [SymbolicLink])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364745"><span class="annot"><span class="annottext">Maybe [SymbolicLink]
+symbolicLinks :: Maybe [SymbolicLink]
+$sel:symbolicLinks:GetFolderResponse' :: GetFolderResponse -&gt; Maybe [SymbolicLink]
+</span><a href="#local-6989586621679364745"><span class="hs-identifier hs-var hs-var">symbolicLinks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SymbolicLink]
+</span><a href="#local-6989586621679364745"><span class="hs-identifier hs-var">symbolicLinks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364744"><span class="annot"><span class="annottext">s :: GetFolderResponse
+</span><a href="#local-6989586621679364744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364743"><span class="annot"><span class="annottext">Maybe [SymbolicLink]
+</span><a href="#local-6989586621679364743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
+</span><a href="#local-6989586621679364744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:symbolicLinks:GetFolderResponse' :: Maybe [SymbolicLink]
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AsymbolicLinks%3AGetFolderResponse%27"><span class="hs-identifier hs-var">symbolicLinks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SymbolicLink]
+</span><a href="#local-6989586621679364743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SymbolicLink] -&gt; f (Maybe [SymbolicLink]))
+ -&gt; GetFolderResponse -&gt; f GetFolderResponse)
+-&gt; ((Maybe [SymbolicLink] -&gt; f (Maybe [SymbolicLink]))
+    -&gt; Maybe [SymbolicLink] -&gt; f (Maybe [SymbolicLink]))
+-&gt; (Maybe [SymbolicLink] -&gt; f (Maybe [SymbolicLink]))
+-&gt; GetFolderResponse
+-&gt; f GetFolderResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SymbolicLink] [SymbolicLink] [SymbolicLink] [SymbolicLink]
+-&gt; Iso
+     (Maybe [SymbolicLink])
+     (Maybe [SymbolicLink])
+     (Maybe [SymbolicLink])
+     (Maybe [SymbolicLink])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [SymbolicLink] [SymbolicLink] [SymbolicLink] [SymbolicLink]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The list of files in the specified folder, if any.</span><span>
+</span><span id="line-273"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_files"><span class="hs-identifier hs-type">getFolderResponse_files</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.CodeCommit.Types.File.html#File"><span class="hs-identifier hs-type">File</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span id="getFolderResponse_files"><span class="annot"><span class="annottext">getFolderResponse_files :: (Maybe [File] -&gt; f (Maybe [File]))
+-&gt; GetFolderResponse -&gt; f GetFolderResponse
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_files"><span class="hs-identifier hs-var hs-var">getFolderResponse_files</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetFolderResponse -&gt; Maybe [File])
+-&gt; (GetFolderResponse -&gt; Maybe [File] -&gt; GetFolderResponse)
+-&gt; Lens
+     GetFolderResponse GetFolderResponse (Maybe [File]) (Maybe [File])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364742"><span class="annot"><span class="annottext">Maybe [File]
+files :: Maybe [File]
+$sel:files:GetFolderResponse' :: GetFolderResponse -&gt; Maybe [File]
+</span><a href="#local-6989586621679364742"><span class="hs-identifier hs-var hs-var">files</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [File]
+</span><a href="#local-6989586621679364742"><span class="hs-identifier hs-var">files</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364741"><span class="annot"><span class="annottext">s :: GetFolderResponse
+</span><a href="#local-6989586621679364741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364740"><span class="annot"><span class="annottext">Maybe [File]
+</span><a href="#local-6989586621679364740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
+</span><a href="#local-6989586621679364741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:files:GetFolderResponse' :: Maybe [File]
+</span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3Afiles%3AGetFolderResponse%27"><span class="hs-identifier hs-var">files</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [File]
+</span><a href="#local-6989586621679364740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [File] -&gt; f (Maybe [File]))
+ -&gt; GetFolderResponse -&gt; f GetFolderResponse)
+-&gt; ((Maybe [File] -&gt; f (Maybe [File]))
+    -&gt; Maybe [File] -&gt; f (Maybe [File]))
+-&gt; (Maybe [File] -&gt; f (Maybe [File]))
+-&gt; GetFolderResponse
+-&gt; f GetFolderResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [File] [File] [File] [File]
+-&gt; Iso (Maybe [File]) (Maybe [File]) (Maybe [File]) (Maybe [File])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [File] [File] [File] [File]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-275"></span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-277"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_httpStatus"><span class="hs-identifier hs-type">getFolderResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -865,16 +863,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (GetFolderResponse -&gt; Int -&gt; GetFolderResponse)
 -&gt; Lens GetFolderResponse GetFolderResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364440"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364739"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetFolderResponse' :: GetFolderResponse -&gt; Int
-</span><a href="#local-6989586621679364440"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364440"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364439"><span class="annot"><span class="annottext">s :: GetFolderResponse
-</span><a href="#local-6989586621679364439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364438"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
-</span><a href="#local-6989586621679364439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFolderResponse' :: Int
+</span><a href="#local-6989586621679364739"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364739"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364738"><span class="annot"><span class="annottext">s :: GetFolderResponse
+</span><a href="#local-6989586621679364738"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364737"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679364737"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
+</span><a href="#local-6989586621679364738"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetFolderResponse' :: Int
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AhttpStatus%3AGetFolderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679364438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364737"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-279"></span><span>
 </span><span id="line-280"></span><span class="hs-comment">-- | The full commit ID used as a reference for the returned version of the</span><span>
 </span><span id="line-281"></span><span class="hs-comment">-- folder content.</span><span>
@@ -884,16 +882,16 @@ $sel:httpStatus:GetFolderResponse' :: GetFolderResponse -&gt; Int
 -&gt; (GetFolderResponse -&gt; Text -&gt; GetFolderResponse)
 -&gt; Lens GetFolderResponse GetFolderResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364437"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364736"><span class="annot"><span class="annottext">Text
 commitId :: Text
 $sel:commitId:GetFolderResponse' :: GetFolderResponse -&gt; Text
-</span><a href="#local-6989586621679364437"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364437"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364436"><span class="annot"><span class="annottext">s :: GetFolderResponse
-</span><a href="#local-6989586621679364436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364435"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
-</span><a href="#local-6989586621679364436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitId:GetFolderResponse' :: Text
+</span><a href="#local-6989586621679364736"><span class="hs-identifier hs-var hs-var">commitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364736"><span class="hs-identifier hs-var">commitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364735"><span class="annot"><span class="annottext">s :: GetFolderResponse
+</span><a href="#local-6989586621679364735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364734"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
+</span><a href="#local-6989586621679364735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:commitId:GetFolderResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AcommitId%3AGetFolderResponse%27"><span class="hs-identifier hs-var">commitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-284"></span><span>
 </span><span id="line-285"></span><span class="hs-comment">-- | The fully qualified path of the folder whose contents are returned.</span><span>
 </span><span id="line-286"></span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#getFolderResponse_folderPath"><span class="hs-identifier hs-type">getFolderResponse_folderPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -902,16 +900,16 @@ $sel:commitId:GetFolderResponse' :: GetFolderResponse -&gt; Text
 -&gt; (GetFolderResponse -&gt; Text -&gt; GetFolderResponse)
 -&gt; Lens GetFolderResponse GetFolderResponse Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364434"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364733"><span class="annot"><span class="annottext">Text
 folderPath :: Text
 $sel:folderPath:GetFolderResponse' :: GetFolderResponse -&gt; Text
-</span><a href="#local-6989586621679364434"><span class="hs-identifier hs-var hs-var">folderPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364434"><span class="hs-identifier hs-var">folderPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364433"><span class="annot"><span class="annottext">s :: GetFolderResponse
-</span><a href="#local-6989586621679364433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364432"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
-</span><a href="#local-6989586621679364433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderPath:GetFolderResponse' :: Text
+</span><a href="#local-6989586621679364733"><span class="hs-identifier hs-var hs-var">folderPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364733"><span class="hs-identifier hs-var">folderPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364732"><span class="annot"><span class="annottext">s :: GetFolderResponse
+</span><a href="#local-6989586621679364732"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse%27"><span class="hs-identifier hs-type">GetFolderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364731"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679364731"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetFolderResponse
+</span><a href="#local-6989586621679364732"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderPath:GetFolderResponse' :: Text
 </span><a href="Network.AWS.CodeCommit.GetFolder.html#%24sel%3AfolderPath%3AGetFolderResponse%27"><span class="hs-identifier hs-var">folderPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679364432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679364731"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-288"></span><span>
-</span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364430"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeCommit.GetFolder.html#GetFolderResponse"><span class="hs-identifier hs-type">GetFolderResponse</span></a></span></span><span>
 </span><span id="line-290"></span></pre></body></html>

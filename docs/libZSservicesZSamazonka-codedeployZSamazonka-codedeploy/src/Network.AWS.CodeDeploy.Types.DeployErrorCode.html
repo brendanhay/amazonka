@@ -61,13 +61,13 @@
 </span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span id="local-6989586621679305809"><span id="local-6989586621679305810"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeployErrorCode"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeployErrorCode.html#DeployErrorCode"><span class="hs-identifier hs-var">DeployErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeployErrorCode%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeployErrorCode.html#DeployErrorCode%27"><span class="hs-identifier hs-var">DeployErrorCode'</span></a></span></span><span>
+</span><span id="line-64"></span><span id="local-6989586621679306092"><span id="local-6989586621679306093"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DeployErrorCode"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeployErrorCode.html#DeployErrorCode"><span class="hs-identifier hs-var">DeployErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeployErrorCode%27"><span class="annot"><a href="Network.AWS.CodeDeploy.Types.DeployErrorCode.html#DeployErrorCode%27"><span class="hs-identifier hs-var">DeployErrorCode'</span></a></span></span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDeployErrorCode"><span class="annot"><span class="annottext">DeployErrorCode -&gt; Text
 </span><a href="Network.AWS.CodeDeploy.Types.DeployErrorCode.html#fromDeployErrorCode"><span class="hs-identifier hs-var hs-var">fromDeployErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305801"><span id="local-6989586621679305803"><span id="local-6989586621679305805"><span class="annot"><span class="annottext">Int -&gt; DeployErrorCode -&gt; ShowS
+</span><span id="line-69"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306084"><span id="local-6989586621679306086"><span id="local-6989586621679306088"><span class="annot"><span class="annottext">Int -&gt; DeployErrorCode -&gt; ShowS
 [DeployErrorCode] -&gt; ShowS
 DeployErrorCode -&gt; String
 (Int -&gt; DeployErrorCode -&gt; ShowS)
@@ -83,7 +83,7 @@ $cshow :: DeployErrorCode -&gt; String
 showsPrec :: Int -&gt; DeployErrorCode -&gt; ShowS
 $cshowsPrec :: Int -&gt; DeployErrorCode -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-70"></span><span>      </span><span id="local-6989586621679305792"><span id="local-6989586621679305794"><span id="local-6989586621679305796"><span id="local-6989586621679305798"><span class="annot"><span class="annottext">ReadPrec [DeployErrorCode]
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679306075"><span id="local-6989586621679306077"><span id="local-6989586621679306079"><span id="local-6989586621679306081"><span class="annot"><span class="annottext">ReadPrec [DeployErrorCode]
 ReadPrec DeployErrorCode
 Int -&gt; ReadS DeployErrorCode
 ReadS [DeployErrorCode]
@@ -104,7 +104,7 @@ $creadList :: ReadS [DeployErrorCode]
 readsPrec :: Int -&gt; ReadS DeployErrorCode
 $creadsPrec :: Int -&gt; ReadS DeployErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>      </span><span id="local-6989586621679305787"><span id="local-6989586621679305789"><span class="annot"><span class="annottext">DeployErrorCode -&gt; DeployErrorCode -&gt; Bool
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679306070"><span id="local-6989586621679306072"><span class="annot"><span class="annottext">DeployErrorCode -&gt; DeployErrorCode -&gt; Bool
 (DeployErrorCode -&gt; DeployErrorCode -&gt; Bool)
 -&gt; (DeployErrorCode -&gt; DeployErrorCode -&gt; Bool)
 -&gt; Eq DeployErrorCode
@@ -114,7 +114,7 @@ $c/= :: DeployErrorCode -&gt; DeployErrorCode -&gt; Bool
 == :: DeployErrorCode -&gt; DeployErrorCode -&gt; Bool
 $c== :: DeployErrorCode -&gt; DeployErrorCode -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>      </span><span id="local-6989586621679305771"><span id="local-6989586621679305773"><span id="local-6989586621679305775"><span id="local-6989586621679305777"><span id="local-6989586621679305779"><span id="local-6989586621679305781"><span id="local-6989586621679305783"><span class="annot"><span class="annottext">Eq DeployErrorCode
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679306054"><span id="local-6989586621679306056"><span id="local-6989586621679306058"><span id="local-6989586621679306060"><span id="local-6989586621679306062"><span id="local-6989586621679306064"><span id="local-6989586621679306066"><span class="annot"><span class="annottext">Eq DeployErrorCode
 Eq DeployErrorCode
 -&gt; (DeployErrorCode -&gt; DeployErrorCode -&gt; Ordering)
 -&gt; (DeployErrorCode -&gt; DeployErrorCode -&gt; Bool)
@@ -165,7 +165,7 @@ $cfrom :: forall x. DeployErrorCode -&gt; Rep DeployErrorCode x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679305763"><span id="local-6989586621679305765"><span class="annot"><span class="annottext">Int -&gt; DeployErrorCode -&gt; Int
+</span><span id="line-76"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679306046"><span id="local-6989586621679306048"><span class="annot"><span class="annottext">Int -&gt; DeployErrorCode -&gt; Int
 DeployErrorCode -&gt; Int
 (Int -&gt; DeployErrorCode -&gt; Int)
 -&gt; (DeployErrorCode -&gt; Int) -&gt; Hashable DeployErrorCode
@@ -175,50 +175,50 @@ $chash :: DeployErrorCode -&gt; Int
 hashWithSalt :: Int -&gt; DeployErrorCode -&gt; Int
 $chashWithSalt :: Int -&gt; DeployErrorCode -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>      </span><span id="local-6989586621679305760"><span class="annot"><span class="annottext">DeployErrorCode -&gt; ()
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679306043"><span class="annot"><span class="annottext">DeployErrorCode -&gt; ()
 (DeployErrorCode -&gt; ()) -&gt; NFData DeployErrorCode
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: DeployErrorCode -&gt; ()
 $crnf :: DeployErrorCode -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span id="local-6989586621679305757"><span class="annot"><span class="annottext">Text -&gt; Either String DeployErrorCode
+</span><span id="line-78"></span><span>      </span><span id="local-6989586621679306040"><span class="annot"><span class="annottext">Text -&gt; Either String DeployErrorCode
 (Text -&gt; Either String DeployErrorCode) -&gt; FromText DeployErrorCode
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String DeployErrorCode
 $cfromText :: Text -&gt; Either String DeployErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-79"></span><span>      </span><span id="local-6989586621679305754"><span class="annot"><span class="annottext">DeployErrorCode -&gt; Text
+</span><span id="line-79"></span><span>      </span><span id="local-6989586621679306037"><span class="annot"><span class="annottext">DeployErrorCode -&gt; Text
 (DeployErrorCode -&gt; Text) -&gt; ToText DeployErrorCode
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: DeployErrorCode -&gt; Text
 $ctoText :: DeployErrorCode -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span id="local-6989586621679305751"><span class="annot"><span class="annottext">DeployErrorCode -&gt; ByteString
+</span><span id="line-80"></span><span>      </span><span id="local-6989586621679306034"><span class="annot"><span class="annottext">DeployErrorCode -&gt; ByteString
 (DeployErrorCode -&gt; ByteString) -&gt; ToByteString DeployErrorCode
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: DeployErrorCode -&gt; ByteString
 $ctoBS :: DeployErrorCode -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>      </span><span id="local-6989586621679305748"><span class="annot"><span class="annottext">DeployErrorCode -&gt; ByteStringBuilder
+</span><span id="line-81"></span><span>      </span><span id="local-6989586621679306031"><span class="annot"><span class="annottext">DeployErrorCode -&gt; ByteStringBuilder
 (DeployErrorCode -&gt; ByteStringBuilder) -&gt; ToLog DeployErrorCode
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: DeployErrorCode -&gt; ByteStringBuilder
 $cbuild :: DeployErrorCode -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-82"></span><span>      </span><span id="local-6989586621679305745"><span class="annot"><span class="annottext">HeaderName -&gt; DeployErrorCode -&gt; [Header]
+</span><span id="line-82"></span><span>      </span><span id="local-6989586621679306028"><span class="annot"><span class="annottext">HeaderName -&gt; DeployErrorCode -&gt; [Header]
 (HeaderName -&gt; DeployErrorCode -&gt; [Header])
 -&gt; ToHeader DeployErrorCode
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; DeployErrorCode -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; DeployErrorCode -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-83"></span><span>      </span><span id="local-6989586621679305742"><span class="annot"><span class="annottext">DeployErrorCode -&gt; QueryString
+</span><span id="line-83"></span><span>      </span><span id="local-6989586621679306025"><span class="annot"><span class="annottext">DeployErrorCode -&gt; QueryString
 (DeployErrorCode -&gt; QueryString) -&gt; ToQuery DeployErrorCode
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: DeployErrorCode -&gt; QueryString
 $ctoQuery :: DeployErrorCode -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span id="local-6989586621679305737"><span id="local-6989586621679305739"><span class="annot"><span class="annottext">Value -&gt; Parser [DeployErrorCode]
+</span><span id="line-84"></span><span>      </span><span id="local-6989586621679306020"><span id="local-6989586621679306022"><span class="annot"><span class="annottext">Value -&gt; Parser [DeployErrorCode]
 Value -&gt; Parser DeployErrorCode
 (Value -&gt; Parser DeployErrorCode)
 -&gt; (Value -&gt; Parser [DeployErrorCode]) -&gt; FromJSON DeployErrorCode
@@ -229,7 +229,7 @@ $cparseJSONList :: Value -&gt; Parser [DeployErrorCode]
 parseJSON :: Value -&gt; Parser DeployErrorCode
 $cparseJSON :: Value -&gt; Parser DeployErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span id="local-6989586621679305732"><span id="local-6989586621679305734"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeployErrorCode]
+</span><span id="line-85"></span><span>      </span><span id="local-6989586621679306015"><span id="local-6989586621679306017"><span class="annot"><span class="annottext">FromJSONKeyFunction [DeployErrorCode]
 FromJSONKeyFunction DeployErrorCode
 FromJSONKeyFunction DeployErrorCode
 -&gt; FromJSONKeyFunction [DeployErrorCode]
@@ -241,7 +241,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [DeployErrorCode]
 fromJSONKey :: FromJSONKeyFunction DeployErrorCode
 $cfromJSONKey :: FromJSONKeyFunction DeployErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-86"></span><span>      </span><span id="local-6989586621679305723"><span id="local-6989586621679305725"><span id="local-6989586621679305727"><span id="local-6989586621679305729"><span class="annot"><span class="annottext">[DeployErrorCode] -&gt; Encoding
+</span><span id="line-86"></span><span>      </span><span id="local-6989586621679306006"><span id="local-6989586621679306008"><span id="local-6989586621679306010"><span id="local-6989586621679306012"><span class="annot"><span class="annottext">[DeployErrorCode] -&gt; Encoding
 [DeployErrorCode] -&gt; Value
 DeployErrorCode -&gt; Encoding
 DeployErrorCode -&gt; Value
@@ -265,7 +265,7 @@ $ctoEncoding :: DeployErrorCode -&gt; Encoding
 toJSON :: DeployErrorCode -&gt; Value
 $ctoJSON :: DeployErrorCode -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-87"></span><span>      </span><span id="local-6989586621679305718"><span id="local-6989586621679305720"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeployErrorCode]
+</span><span id="line-87"></span><span>      </span><span id="local-6989586621679306001"><span id="local-6989586621679306003"><span class="annot"><span class="annottext">ToJSONKeyFunction [DeployErrorCode]
 ToJSONKeyFunction DeployErrorCode
 ToJSONKeyFunction DeployErrorCode
 -&gt; ToJSONKeyFunction [DeployErrorCode] -&gt; ToJSONKey DeployErrorCode
@@ -276,14 +276,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [DeployErrorCode]
 toJSONKey :: ToJSONKeyFunction DeployErrorCode
 $ctoJSONKey :: ToJSONKeyFunction DeployErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-88"></span><span>      </span><span id="local-6989586621679305715"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeployErrorCode
+</span><span id="line-88"></span><span>      </span><span id="local-6989586621679305998"><span class="annot"><span class="annottext">[Node] -&gt; Either String DeployErrorCode
 ([Node] -&gt; Either String DeployErrorCode)
 -&gt; FromXML DeployErrorCode
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String DeployErrorCode
 $cparseXML :: [Node] -&gt; Either String DeployErrorCode
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-89"></span><span>      </span><span id="local-6989586621679305712"><span class="annot"><span class="annottext">DeployErrorCode -&gt; XML
+</span><span id="line-89"></span><span>      </span><span id="local-6989586621679305995"><span class="annot"><span class="annottext">DeployErrorCode -&gt; XML
 (DeployErrorCode -&gt; XML) -&gt; ToXML DeployErrorCode
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: DeployErrorCode -&gt; XML

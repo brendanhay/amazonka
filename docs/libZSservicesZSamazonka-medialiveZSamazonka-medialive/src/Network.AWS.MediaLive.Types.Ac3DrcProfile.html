@@ -30,13 +30,13 @@
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- | Ac3 Drc Profile</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679856972"><span id="local-6989586621679856973"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Ac3DrcProfile"><span class="annot"><a href="Network.AWS.MediaLive.Types.Ac3DrcProfile.html#Ac3DrcProfile"><span class="hs-identifier hs-var">Ac3DrcProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ac3DrcProfile%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Ac3DrcProfile.html#Ac3DrcProfile%27"><span class="hs-identifier hs-var">Ac3DrcProfile'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679863629"><span id="local-6989586621679863630"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Ac3DrcProfile"><span class="annot"><a href="Network.AWS.MediaLive.Types.Ac3DrcProfile.html#Ac3DrcProfile"><span class="hs-identifier hs-var">Ac3DrcProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ac3DrcProfile%27"><span class="annot"><a href="Network.AWS.MediaLive.Types.Ac3DrcProfile.html#Ac3DrcProfile%27"><span class="hs-identifier hs-var">Ac3DrcProfile'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAc3DrcProfile"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; Text
 </span><a href="Network.AWS.MediaLive.Types.Ac3DrcProfile.html#fromAc3DrcProfile"><span class="hs-identifier hs-var hs-var">fromAc3DrcProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679856964"><span id="local-6989586621679856966"><span id="local-6989586621679856968"><span class="annot"><span class="annottext">Int -&gt; Ac3DrcProfile -&gt; ShowS
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679863621"><span id="local-6989586621679863623"><span id="local-6989586621679863625"><span class="annot"><span class="annottext">Int -&gt; Ac3DrcProfile -&gt; ShowS
 [Ac3DrcProfile] -&gt; ShowS
 Ac3DrcProfile -&gt; String
 (Int -&gt; Ac3DrcProfile -&gt; ShowS)
@@ -52,7 +52,7 @@ $cshow :: Ac3DrcProfile -&gt; String
 showsPrec :: Int -&gt; Ac3DrcProfile -&gt; ShowS
 $cshowsPrec :: Int -&gt; Ac3DrcProfile -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679856955"><span id="local-6989586621679856957"><span id="local-6989586621679856959"><span id="local-6989586621679856961"><span class="annot"><span class="annottext">ReadPrec [Ac3DrcProfile]
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679863612"><span id="local-6989586621679863614"><span id="local-6989586621679863616"><span id="local-6989586621679863618"><span class="annot"><span class="annottext">ReadPrec [Ac3DrcProfile]
 ReadPrec Ac3DrcProfile
 Int -&gt; ReadS Ac3DrcProfile
 ReadS [Ac3DrcProfile]
@@ -73,7 +73,7 @@ $creadList :: ReadS [Ac3DrcProfile]
 readsPrec :: Int -&gt; ReadS Ac3DrcProfile
 $creadsPrec :: Int -&gt; ReadS Ac3DrcProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679856950"><span id="local-6989586621679856952"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; Ac3DrcProfile -&gt; Bool
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679863607"><span id="local-6989586621679863609"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; Ac3DrcProfile -&gt; Bool
 (Ac3DrcProfile -&gt; Ac3DrcProfile -&gt; Bool)
 -&gt; (Ac3DrcProfile -&gt; Ac3DrcProfile -&gt; Bool) -&gt; Eq Ac3DrcProfile
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -82,7 +82,7 @@ $c/= :: Ac3DrcProfile -&gt; Ac3DrcProfile -&gt; Bool
 == :: Ac3DrcProfile -&gt; Ac3DrcProfile -&gt; Bool
 $c== :: Ac3DrcProfile -&gt; Ac3DrcProfile -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679856934"><span id="local-6989586621679856936"><span id="local-6989586621679856938"><span id="local-6989586621679856940"><span id="local-6989586621679856942"><span id="local-6989586621679856944"><span id="local-6989586621679856946"><span class="annot"><span class="annottext">Eq Ac3DrcProfile
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679863591"><span id="local-6989586621679863593"><span id="local-6989586621679863595"><span id="local-6989586621679863597"><span id="local-6989586621679863599"><span id="local-6989586621679863601"><span id="local-6989586621679863603"><span class="annot"><span class="annottext">Eq Ac3DrcProfile
 Eq Ac3DrcProfile
 -&gt; (Ac3DrcProfile -&gt; Ac3DrcProfile -&gt; Ordering)
 -&gt; (Ac3DrcProfile -&gt; Ac3DrcProfile -&gt; Bool)
@@ -133,7 +133,7 @@ $cfrom :: forall x. Ac3DrcProfile -&gt; Rep Ac3DrcProfile x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679856926"><span id="local-6989586621679856928"><span class="annot"><span class="annottext">Int -&gt; Ac3DrcProfile -&gt; Int
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679863583"><span id="local-6989586621679863585"><span class="annot"><span class="annottext">Int -&gt; Ac3DrcProfile -&gt; Int
 Ac3DrcProfile -&gt; Int
 (Int -&gt; Ac3DrcProfile -&gt; Int)
 -&gt; (Ac3DrcProfile -&gt; Int) -&gt; Hashable Ac3DrcProfile
@@ -143,49 +143,49 @@ $chash :: Ac3DrcProfile -&gt; Int
 hashWithSalt :: Int -&gt; Ac3DrcProfile -&gt; Int
 $chashWithSalt :: Int -&gt; Ac3DrcProfile -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679856923"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; ()
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679863580"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; ()
 (Ac3DrcProfile -&gt; ()) -&gt; NFData Ac3DrcProfile
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: Ac3DrcProfile -&gt; ()
 $crnf :: Ac3DrcProfile -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679856920"><span class="annot"><span class="annottext">Text -&gt; Either String Ac3DrcProfile
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679863577"><span class="annot"><span class="annottext">Text -&gt; Either String Ac3DrcProfile
 (Text -&gt; Either String Ac3DrcProfile) -&gt; FromText Ac3DrcProfile
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String Ac3DrcProfile
 $cfromText :: Text -&gt; Either String Ac3DrcProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679856917"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; Text
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679863574"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; Text
 (Ac3DrcProfile -&gt; Text) -&gt; ToText Ac3DrcProfile
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: Ac3DrcProfile -&gt; Text
 $ctoText :: Ac3DrcProfile -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679856914"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; ByteString
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679863571"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; ByteString
 (Ac3DrcProfile -&gt; ByteString) -&gt; ToByteString Ac3DrcProfile
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: Ac3DrcProfile -&gt; ByteString
 $ctoBS :: Ac3DrcProfile -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679856911"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; ByteStringBuilder
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679863568"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; ByteStringBuilder
 (Ac3DrcProfile -&gt; ByteStringBuilder) -&gt; ToLog Ac3DrcProfile
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: Ac3DrcProfile -&gt; ByteStringBuilder
 $cbuild :: Ac3DrcProfile -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679856908"><span class="annot"><span class="annottext">HeaderName -&gt; Ac3DrcProfile -&gt; [Header]
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679863565"><span class="annot"><span class="annottext">HeaderName -&gt; Ac3DrcProfile -&gt; [Header]
 (HeaderName -&gt; Ac3DrcProfile -&gt; [Header]) -&gt; ToHeader Ac3DrcProfile
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; Ac3DrcProfile -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; Ac3DrcProfile -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679856905"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; QueryString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679863562"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; QueryString
 (Ac3DrcProfile -&gt; QueryString) -&gt; ToQuery Ac3DrcProfile
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: Ac3DrcProfile -&gt; QueryString
 $ctoQuery :: Ac3DrcProfile -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679856900"><span id="local-6989586621679856902"><span class="annot"><span class="annottext">Value -&gt; Parser [Ac3DrcProfile]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679863557"><span id="local-6989586621679863559"><span class="annot"><span class="annottext">Value -&gt; Parser [Ac3DrcProfile]
 Value -&gt; Parser Ac3DrcProfile
 (Value -&gt; Parser Ac3DrcProfile)
 -&gt; (Value -&gt; Parser [Ac3DrcProfile]) -&gt; FromJSON Ac3DrcProfile
@@ -196,7 +196,7 @@ $cparseJSONList :: Value -&gt; Parser [Ac3DrcProfile]
 parseJSON :: Value -&gt; Parser Ac3DrcProfile
 $cparseJSON :: Value -&gt; Parser Ac3DrcProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679856895"><span id="local-6989586621679856897"><span class="annot"><span class="annottext">FromJSONKeyFunction [Ac3DrcProfile]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679863552"><span id="local-6989586621679863554"><span class="annot"><span class="annottext">FromJSONKeyFunction [Ac3DrcProfile]
 FromJSONKeyFunction Ac3DrcProfile
 FromJSONKeyFunction Ac3DrcProfile
 -&gt; FromJSONKeyFunction [Ac3DrcProfile] -&gt; FromJSONKey Ac3DrcProfile
@@ -207,7 +207,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [Ac3DrcProfile]
 fromJSONKey :: FromJSONKeyFunction Ac3DrcProfile
 $cfromJSONKey :: FromJSONKeyFunction Ac3DrcProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679856886"><span id="local-6989586621679856888"><span id="local-6989586621679856890"><span id="local-6989586621679856892"><span class="annot"><span class="annottext">[Ac3DrcProfile] -&gt; Encoding
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679863543"><span id="local-6989586621679863545"><span id="local-6989586621679863547"><span id="local-6989586621679863549"><span class="annot"><span class="annottext">[Ac3DrcProfile] -&gt; Encoding
 [Ac3DrcProfile] -&gt; Value
 Ac3DrcProfile -&gt; Encoding
 Ac3DrcProfile -&gt; Value
@@ -231,7 +231,7 @@ $ctoEncoding :: Ac3DrcProfile -&gt; Encoding
 toJSON :: Ac3DrcProfile -&gt; Value
 $ctoJSON :: Ac3DrcProfile -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679856881"><span id="local-6989586621679856883"><span class="annot"><span class="annottext">ToJSONKeyFunction [Ac3DrcProfile]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679863538"><span id="local-6989586621679863540"><span class="annot"><span class="annottext">ToJSONKeyFunction [Ac3DrcProfile]
 ToJSONKeyFunction Ac3DrcProfile
 ToJSONKeyFunction Ac3DrcProfile
 -&gt; ToJSONKeyFunction [Ac3DrcProfile] -&gt; ToJSONKey Ac3DrcProfile
@@ -242,13 +242,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [Ac3DrcProfile]
 toJSONKey :: ToJSONKeyFunction Ac3DrcProfile
 $ctoJSONKey :: ToJSONKeyFunction Ac3DrcProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679856878"><span class="annot"><span class="annottext">[Node] -&gt; Either String Ac3DrcProfile
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679863535"><span class="annot"><span class="annottext">[Node] -&gt; Either String Ac3DrcProfile
 ([Node] -&gt; Either String Ac3DrcProfile) -&gt; FromXML Ac3DrcProfile
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String Ac3DrcProfile
 $cparseXML :: [Node] -&gt; Either String Ac3DrcProfile
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679856875"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; XML
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679863532"><span class="annot"><span class="annottext">Ac3DrcProfile -&gt; XML
 (Ac3DrcProfile -&gt; XML) -&gt; ToXML Ac3DrcProfile
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: Ac3DrcProfile -&gt; XML

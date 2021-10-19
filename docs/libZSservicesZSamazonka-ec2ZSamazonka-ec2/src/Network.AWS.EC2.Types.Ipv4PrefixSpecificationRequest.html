@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Describes the IPv4 prefix option for a network interface.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIpv4PrefixSpecificationRequest' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621681086723"><span id="local-6989586621681086724"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ipv4PrefixSpecificationRequest"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest"><span class="hs-identifier hs-var">Ipv4PrefixSpecificationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ipv4PrefixSpecificationRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest%27"><span class="hs-identifier hs-var">Ipv4PrefixSpecificationRequest'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621681121414"><span id="local-6989586621681121415"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ipv4PrefixSpecificationRequest"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest"><span class="hs-identifier hs-var">Ipv4PrefixSpecificationRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ipv4PrefixSpecificationRequest%27"><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest%27"><span class="hs-identifier hs-var">Ipv4PrefixSpecificationRequest'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPv4 prefix. For information, see</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html Assigning prefixes to Amazon EC2 network interfaces&gt;</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- in the /Amazon Elastic Compute Cloud User Guide/.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Aipv4Prefix%3AIpv4PrefixSpecificationRequest%27"><span class="annot"><span class="annottext">Ipv4PrefixSpecificationRequest -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#%24sel%3Aipv4Prefix%3AIpv4PrefixSpecificationRequest%27"><span class="hs-identifier hs-var hs-var">ipv4Prefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681086717"><span id="local-6989586621681086719"><span class="annot"><span class="annottext">Ipv4PrefixSpecificationRequest
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681121408"><span id="local-6989586621681121410"><span class="annot"><span class="annottext">Ipv4PrefixSpecificationRequest
 -&gt; Ipv4PrefixSpecificationRequest -&gt; Bool
 (Ipv4PrefixSpecificationRequest
  -&gt; Ipv4PrefixSpecificationRequest -&gt; Bool)
@@ -50,7 +50,7 @@ $c/= :: Ipv4PrefixSpecificationRequest
 -&gt; Ipv4PrefixSpecificationRequest -&gt; Bool
 $c== :: Ipv4PrefixSpecificationRequest
 -&gt; Ipv4PrefixSpecificationRequest -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681086708"><span id="local-6989586621681086710"><span id="local-6989586621681086712"><span id="local-6989586621681086714"><span class="annot"><span class="annottext">ReadPrec [Ipv4PrefixSpecificationRequest]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681121399"><span id="local-6989586621681121401"><span id="local-6989586621681121403"><span id="local-6989586621681121405"><span class="annot"><span class="annottext">ReadPrec [Ipv4PrefixSpecificationRequest]
 ReadPrec Ipv4PrefixSpecificationRequest
 Int -&gt; ReadS Ipv4PrefixSpecificationRequest
 ReadS [Ipv4PrefixSpecificationRequest]
@@ -70,7 +70,7 @@ readList :: ReadS [Ipv4PrefixSpecificationRequest]
 $creadList :: ReadS [Ipv4PrefixSpecificationRequest]
 readsPrec :: Int -&gt; ReadS Ipv4PrefixSpecificationRequest
 $creadsPrec :: Int -&gt; ReadS Ipv4PrefixSpecificationRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681086701"><span id="local-6989586621681086703"><span id="local-6989586621681086705"><span class="annot"><span class="annottext">Int -&gt; Ipv4PrefixSpecificationRequest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681121392"><span id="local-6989586621681121394"><span id="local-6989586621681121396"><span class="annot"><span class="annottext">Int -&gt; Ipv4PrefixSpecificationRequest -&gt; ShowS
 [Ipv4PrefixSpecificationRequest] -&gt; ShowS
 Ipv4PrefixSpecificationRequest -&gt; String
 (Int -&gt; Ipv4PrefixSpecificationRequest -&gt; ShowS)
@@ -148,21 +148,21 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest%27"><span class="hs-identifier hs-type">Ipv4PrefixSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681086692"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest%27"><span class="hs-identifier hs-type">Ipv4PrefixSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121383"><span class="annot"><span class="annottext">Maybe Text
 ipv4Prefix :: Maybe Text
 $sel:ipv4Prefix:Ipv4PrefixSpecificationRequest' :: Ipv4PrefixSpecificationRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681086692"><span class="hs-identifier hs-var hs-var">ipv4Prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681086692"><span class="hs-identifier hs-var">ipv4Prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681086691"><span class="annot"><span class="annottext">s :: Ipv4PrefixSpecificationRequest
-</span><a href="#local-6989586621681086691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest%27"><span class="hs-identifier hs-type">Ipv4PrefixSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681086690"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681086690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv4PrefixSpecificationRequest
-</span><a href="#local-6989586621681086691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv4Prefix:Ipv4PrefixSpecificationRequest' :: Maybe Text
+</span><a href="#local-6989586621681121383"><span class="hs-identifier hs-var hs-var">ipv4Prefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681121383"><span class="hs-identifier hs-var">ipv4Prefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681121382"><span class="annot"><span class="annottext">s :: Ipv4PrefixSpecificationRequest
+</span><a href="#local-6989586621681121382"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest%27"><span class="hs-identifier hs-type">Ipv4PrefixSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681121381"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681121381"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ipv4PrefixSpecificationRequest
+</span><a href="#local-6989586621681121382"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv4Prefix:Ipv4PrefixSpecificationRequest' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#%24sel%3Aipv4Prefix%3AIpv4PrefixSpecificationRequest%27"><span class="hs-identifier hs-var">ipv4Prefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681086690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest"><span class="hs-identifier hs-type">Ipv4PrefixSpecificationRequest</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681121381"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest"><span class="hs-identifier hs-type">Ipv4PrefixSpecificationRequest</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-62"></span><span>
 </span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest"><span class="hs-identifier hs-type">Ipv4PrefixSpecificationRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-64"></span><span>  </span><span id="local-6989586621681086687"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Ipv4PrefixSpecificationRequest
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681086685"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681086685"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621681121378"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String Ipv4PrefixSpecificationRequest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681121376"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681121376"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; Ipv4PrefixSpecificationRequest
 </span><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest%27"><span class="hs-identifier hs-var">Ipv4PrefixSpecificationRequest'</span></a></span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Ipv4PrefixSpecificationRequest)
@@ -170,30 +170,30 @@ $sel:ipv4Prefix:Ipv4PrefixSpecificationRequest' :: Ipv4PrefixSpecificationReques
 -&gt; Either String Ipv4PrefixSpecificationRequest
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681086685"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681121376"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Ipv4Prefix&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>
 </span><span id="line-68"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-69"></span><span>  </span><span id="local-6989586621681086679"><span id="local-6989586621681086681"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621681121370"><span id="local-6989586621681121372"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-70"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest"><span class="hs-identifier hs-type">Ipv4PrefixSpecificationRequest</span></a></span></span></span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-73"></span><span>  </span><span id="local-6989586621681086676"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621681121367"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-74"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest"><span class="hs-identifier hs-type">Ipv4PrefixSpecificationRequest</span></a></span></span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest"><span class="hs-identifier hs-type">Ipv4PrefixSpecificationRequest</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621681086672"><span class="annot"><span class="annottext">toQuery :: Ipv4PrefixSpecificationRequest -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest%27"><span class="hs-identifier hs-type">Ipv4PrefixSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681086670"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621681121363"><span class="annot"><span class="annottext">toQuery :: Ipv4PrefixSpecificationRequest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Ipv4PrefixSpecificationRequest.html#Ipv4PrefixSpecificationRequest%27"><span class="hs-identifier hs-type">Ipv4PrefixSpecificationRequest'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681121361"><span class="annot"><span class="annottext">Maybe Text
 ipv4Prefix :: Maybe Text
 $sel:ipv4Prefix:Ipv4PrefixSpecificationRequest' :: Ipv4PrefixSpecificationRequest -&gt; Maybe Text
-</span><a href="#local-6989586621681086670"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681121361"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Ipv4Prefix&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681086670"><span class="hs-identifier hs-var">ipv4Prefix</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621681121361"><span class="hs-identifier hs-var">ipv4Prefix</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-79"></span></pre></body></html>

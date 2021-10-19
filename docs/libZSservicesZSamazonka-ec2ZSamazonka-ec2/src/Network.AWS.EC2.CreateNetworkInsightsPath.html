@@ -32,11 +32,11 @@
 </span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#newCreateNetworkInsightsPath"><span class="hs-identifier">newCreateNetworkInsightsPath</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-33"></span><span>
 </span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_tagSpecifications"><span class="hs-identifier">createNetworkInsightsPath_tagSpecifications</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_dryRun"><span class="hs-identifier">createNetworkInsightsPath_dryRun</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_destinationIp"><span class="hs-identifier">createNetworkInsightsPath_destinationIp</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_sourceIp"><span class="hs-identifier">createNetworkInsightsPath_sourceIp</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_destinationPort"><span class="hs-identifier">createNetworkInsightsPath_destinationPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_destinationIp"><span class="hs-identifier">createNetworkInsightsPath_destinationIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_tagSpecifications"><span class="hs-identifier">createNetworkInsightsPath_tagSpecifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_sourceIp"><span class="hs-identifier">createNetworkInsightsPath_sourceIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_destinationPort"><span class="hs-identifier">createNetworkInsightsPath_destinationPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_dryRun"><span class="hs-identifier">createNetworkInsightsPath_dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_source"><span class="hs-identifier">createNetworkInsightsPath_source</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_destination"><span class="hs-identifier">createNetworkInsightsPath_destination</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_protocol"><span class="hs-identifier">createNetworkInsightsPath_protocol</span></a></span><span class="hs-special">,</span><span>
@@ -60,27 +60,27 @@
 </span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-61"></span><span>
 </span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newCreateNetworkInsightsPath' smart constructor.</span><span>
-</span><span id="line-63"></span><span id="local-6989586621681257710"><span id="local-6989586621681257711"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNetworkInsightsPath"><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-var">CreateNetworkInsightsPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNetworkInsightsPath%27"><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">CreateNetworkInsightsPath'</span></a></span></span><span>
-</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags to add to the path.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3AtagSpecifications%3ACreateNetworkInsightsPath%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; Maybe [TagSpecification]
-</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AtagSpecifications%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdryRun%3ACreateNetworkInsightsPath%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; Maybe Bool
-</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdryRun%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
-</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The IP address of the Amazon Web Services resource that is the</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- destination of the path.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AdestinationIp%3ACreateNetworkInsightsPath%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; Maybe Text
+</span><span id="line-63"></span><span id="local-6989586621681293824"><span id="local-6989586621681293825"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNetworkInsightsPath"><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-var">CreateNetworkInsightsPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNetworkInsightsPath%27"><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">CreateNetworkInsightsPath'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP address of the Amazon Web Services resource that is the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- destination of the path.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AdestinationIp%3ACreateNetworkInsightsPath%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdestinationIp%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var hs-var">destinationIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The IP address of the Amazon Web Services resource that is the source of</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- the path.</span><span>
-</span><span id="line-76"></span><span>    </span><span id="%24sel%3AsourceIp%3ACreateNetworkInsightsPath%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; Maybe Text
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The tags to add to the path.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AtagSpecifications%3ACreateNetworkInsightsPath%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; Maybe [TagSpecification]
+</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AtagSpecifications%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The IP address of the Amazon Web Services resource that is the source of</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- the path.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AsourceIp%3ACreateNetworkInsightsPath%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AsourceIp%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var hs-var">sourceIp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The destination port.</span><span>
-</span><span id="line-78"></span><span>    </span><span id="%24sel%3AdestinationPort%3ACreateNetworkInsightsPath%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; Maybe Natural
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The destination port.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AdestinationPort%3ACreateNetworkInsightsPath%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; Maybe Natural
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdestinationPort%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var hs-var">destinationPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AdryRun%3ACreateNetworkInsightsPath%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; Maybe Bool
+</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdryRun%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
 </span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services resource that is the source of the path.</span><span>
 </span><span id="line-80"></span><span>    </span><span id="%24sel%3Asource%3ACreateNetworkInsightsPath%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; Text
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3Asource%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -96,7 +96,7 @@
 </span><span id="line-88"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateNetworkInsightsPath%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; Text
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AclientToken%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-89"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681257696"><span id="local-6989586621681257698"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; CreateNetworkInsightsPath -&gt; Bool
+</span><span id="line-90"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681293810"><span id="local-6989586621681293812"><span class="annot"><span class="annottext">CreateNetworkInsightsPath -&gt; CreateNetworkInsightsPath -&gt; Bool
 (CreateNetworkInsightsPath -&gt; CreateNetworkInsightsPath -&gt; Bool)
 -&gt; (CreateNetworkInsightsPath -&gt; CreateNetworkInsightsPath -&gt; Bool)
 -&gt; Eq CreateNetworkInsightsPath
@@ -105,7 +105,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateNetworkInsightsPath -&gt; CreateNetworkInsightsPath -&gt; Bool
 == :: CreateNetworkInsightsPath -&gt; CreateNetworkInsightsPath -&gt; Bool
 $c== :: CreateNetworkInsightsPath -&gt; CreateNetworkInsightsPath -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681257687"><span id="local-6989586621681257689"><span id="local-6989586621681257691"><span id="local-6989586621681257693"><span class="annot"><span class="annottext">ReadPrec [CreateNetworkInsightsPath]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681293801"><span id="local-6989586621681293803"><span id="local-6989586621681293805"><span id="local-6989586621681293807"><span class="annot"><span class="annottext">ReadPrec [CreateNetworkInsightsPath]
 ReadPrec CreateNetworkInsightsPath
 Int -&gt; ReadS CreateNetworkInsightsPath
 ReadS [CreateNetworkInsightsPath]
@@ -125,7 +125,7 @@ readList :: ReadS [CreateNetworkInsightsPath]
 $creadList :: ReadS [CreateNetworkInsightsPath]
 readsPrec :: Int -&gt; ReadS CreateNetworkInsightsPath
 $creadsPrec :: Int -&gt; ReadS CreateNetworkInsightsPath
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681257680"><span id="local-6989586621681257682"><span id="local-6989586621681257684"><span class="annot"><span class="annottext">Int -&gt; CreateNetworkInsightsPath -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681293794"><span id="local-6989586621681293796"><span id="local-6989586621681293798"><span class="annot"><span class="annottext">Int -&gt; CreateNetworkInsightsPath -&gt; ShowS
 [CreateNetworkInsightsPath] -&gt; ShowS
 CreateNetworkInsightsPath -&gt; String
 (Int -&gt; CreateNetworkInsightsPath -&gt; ShowS)
@@ -165,20 +165,20 @@ CreateNetworkInsightsPath -&gt; Rep CreateNetworkInsightsPath x
 </span><span id="line-97"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-99"></span><span class="hs-comment">--</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- 'tagSpecifications', 'createNetworkInsightsPath_tagSpecifications' - The tags to add to the path.</span><span>
-</span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- 'dryRun', 'createNetworkInsightsPath_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-103"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'destinationIp', 'createNetworkInsightsPath_destinationIp' - The IP address of the Amazon Web Services resource that is the</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- destination of the path.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'destinationIp', 'createNetworkInsightsPath_destinationIp' - The IP address of the Amazon Web Services resource that is the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- destination of the path.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'tagSpecifications', 'createNetworkInsightsPath_tagSpecifications' - The tags to add to the path.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'sourceIp', 'createNetworkInsightsPath_sourceIp' - The IP address of the Amazon Web Services resource that is the source of</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- the path.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'destinationPort', 'createNetworkInsightsPath_destinationPort' - The destination port.</span><span>
 </span><span id="line-109"></span><span class="hs-comment">--</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- 'sourceIp', 'createNetworkInsightsPath_sourceIp' - The IP address of the Amazon Web Services resource that is the source of</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- the path.</span><span>
-</span><span id="line-112"></span><span class="hs-comment">--</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- 'destinationPort', 'createNetworkInsightsPath_destinationPort' - The destination port.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'dryRun', 'createNetworkInsightsPath_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
 </span><span id="line-114"></span><span class="hs-comment">--</span><span>
 </span><span id="line-115"></span><span class="hs-comment">-- 'source', 'createNetworkInsightsPath_source' - The Amazon Web Services resource that is the source of the path.</span><span>
 </span><span id="line-116"></span><span class="hs-comment">--</span><span>
@@ -201,63 +201,88 @@ CreateNetworkInsightsPath -&gt; Rep CreateNetworkInsightsPath x
 </span><span id="line-133"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span>
 </span><span id="line-134"></span><span id="newCreateNetworkInsightsPath"><span class="annot"><span class="annottext">newCreateNetworkInsightsPath :: Text -&gt; Text -&gt; Protocol -&gt; Text -&gt; CreateNetworkInsightsPath
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#newCreateNetworkInsightsPath"><span class="hs-identifier hs-var hs-var">newCreateNetworkInsightsPath</span></a></span></span><span>
-</span><span id="line-135"></span><span>  </span><span id="local-6989586621681257675"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257675"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span>
-</span><span id="line-136"></span><span>  </span><span id="local-6989586621681257674"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257674"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span>
-</span><span id="line-137"></span><span>  </span><span id="local-6989586621681257673"><span class="annot"><span class="annottext">Protocol
-</span><a href="#local-6989586621681257673"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span>
-</span><span id="line-138"></span><span>  </span><span id="local-6989586621681257672"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257672"><span class="hs-identifier hs-var">pClientToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath' :: Maybe [TagSpecification]
--&gt; Maybe Bool
--&gt; Maybe Text
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621681293789"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681293789"><span class="hs-identifier hs-var">pSource_</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621681293788"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681293788"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621681293787"><span class="annot"><span class="annottext">Protocol
+</span><a href="#local-6989586621681293787"><span class="hs-identifier hs-var">pProtocol_</span></a></span></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621681293786"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681293786"><span class="hs-identifier hs-var">pClientToken_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath' :: Maybe Text
+-&gt; Maybe [TagSpecification]
 -&gt; Maybe Text
 -&gt; Maybe Natural
+-&gt; Maybe Bool
 -&gt; Text
 -&gt; Text
 -&gt; Protocol
 -&gt; Text
 -&gt; CreateNetworkInsightsPath
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span>
-</span><span id="line-140"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateNetworkInsightsPath' :: Maybe [TagSpecification]
-</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AtagSpecifications%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><span id="line-140"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destinationIp:CreateNetworkInsightsPath' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdestinationIp%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">destinationIp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:CreateNetworkInsightsPath' :: Maybe Bool
-</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdryRun%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateNetworkInsightsPath' :: Maybe [TagSpecification]
+</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AtagSpecifications%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationIp:CreateNetworkInsightsPath' :: Maybe Text
-</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdestinationIp%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">destinationIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceIp:CreateNetworkInsightsPath' :: Maybe Text
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceIp:CreateNetworkInsightsPath' :: Maybe Text
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AsourceIp%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">sourceIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationPort:CreateNetworkInsightsPath' :: Maybe Natural
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationPort:CreateNetworkInsightsPath' :: Maybe Natural
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdestinationPort%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">destinationPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:CreateNetworkInsightsPath' :: Maybe Bool
+</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdryRun%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">$sel:source:CreateNetworkInsightsPath' :: Text
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3Asource%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257675"><span class="hs-identifier hs-var">pSource_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681293789"><span class="hs-identifier hs-var">pSource_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>        </span><span class="annot"><span class="annottext">$sel:destination:CreateNetworkInsightsPath' :: Text
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3Adestination%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257674"><span class="hs-identifier hs-var">pDestination_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681293788"><span class="hs-identifier hs-var">pDestination_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:protocol:CreateNetworkInsightsPath' :: Protocol
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3Aprotocol%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Protocol
-</span><a href="#local-6989586621681257673"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681293787"><span class="hs-identifier hs-var">pProtocol_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientToken:CreateNetworkInsightsPath' :: Text
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AclientToken%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257672"><span class="hs-identifier hs-var">pClientToken_</span></a></span><span>
+</span><a href="#local-6989586621681293786"><span class="hs-identifier hs-var">pClientToken_</span></a></span><span>
 </span><span id="line-150"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-151"></span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- | The tags to add to the path.</span><span>
-</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_tagSpecifications"><span class="hs-identifier hs-type">createNetworkInsightsPath_tagSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-154"></span><span id="createNetworkInsightsPath_tagSpecifications"><span class="annot"><span class="annottext">createNetworkInsightsPath_tagSpecifications :: (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+</span><span id="line-152"></span><span class="hs-comment">-- | The IP address of the Amazon Web Services resource that is the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- destination of the path.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_destinationIp"><span class="hs-identifier hs-type">createNetworkInsightsPath_destinationIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="createNetworkInsightsPath_destinationIp"><span class="annot"><span class="annottext">createNetworkInsightsPath_destinationIp :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateNetworkInsightsPath -&gt; f CreateNetworkInsightsPath
+</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_destinationIp"><span class="hs-identifier hs-var hs-var">createNetworkInsightsPath_destinationIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkInsightsPath -&gt; Maybe Text)
+-&gt; (CreateNetworkInsightsPath
+    -&gt; Maybe Text -&gt; CreateNetworkInsightsPath)
+-&gt; Lens
+     CreateNetworkInsightsPath
+     CreateNetworkInsightsPath
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681293783"><span class="annot"><span class="annottext">Maybe Text
+destinationIp :: Maybe Text
+$sel:destinationIp:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe Text
+</span><a href="#local-6989586621681293783"><span class="hs-identifier hs-var hs-var">destinationIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681293783"><span class="hs-identifier hs-var">destinationIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681293782"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681293781"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681293781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationIp:CreateNetworkInsightsPath' :: Maybe Text
+</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdestinationIp%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">destinationIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681293781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The tags to add to the path.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_tagSpecifications"><span class="hs-identifier hs-type">createNetworkInsightsPath_tagSpecifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.TagSpecification.html#TagSpecification"><span class="hs-identifier hs-type">TagSpecification</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="createNetworkInsightsPath_tagSpecifications"><span class="annot"><span class="annottext">createNetworkInsightsPath_tagSpecifications :: (Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
 -&gt; CreateNetworkInsightsPath -&gt; f CreateNetworkInsightsPath
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_tagSpecifications"><span class="hs-identifier hs-var hs-var">createNetworkInsightsPath_tagSpecifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkInsightsPath -&gt; Maybe [TagSpecification])
 -&gt; (CreateNetworkInsightsPath
@@ -268,16 +293,16 @@ forall a. Maybe a
      (Maybe [TagSpecification])
      (Maybe [TagSpecification])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257669"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681293780"><span class="annot"><span class="annottext">Maybe [TagSpecification]
 tagSpecifications :: Maybe [TagSpecification]
 $sel:tagSpecifications:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe [TagSpecification]
-</span><a href="#local-6989586621681257669"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681257669"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257668"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257667"><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681257667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateNetworkInsightsPath' :: Maybe [TagSpecification]
+</span><a href="#local-6989586621681293780"><span class="hs-identifier hs-var hs-var">tagSpecifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681293780"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681293779"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293779"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681293778"><span class="annot"><span class="annottext">Maybe [TagSpecification]
+</span><a href="#local-6989586621681293778"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293779"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagSpecifications:CreateNetworkInsightsPath' :: Maybe [TagSpecification]
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AtagSpecifications%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681257667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
+</span><a href="#local-6989586621681293778"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
  -&gt; CreateNetworkInsightsPath -&gt; f CreateNetworkInsightsPath)
 -&gt; ((Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
     -&gt; Maybe [TagSpecification] -&gt; f (Maybe [TagSpecification]))
@@ -303,65 +328,13 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [TagSpecification]
   [TagSpecification]
   [TagSpecification]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-155"></span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
-</span><span id="line-158"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
-</span><span id="line-160"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_dryRun"><span class="hs-identifier hs-type">createNetworkInsightsPath_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
-</span><span id="line-161"></span><span id="createNetworkInsightsPath_dryRun"><span class="annot"><span class="annottext">createNetworkInsightsPath_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
--&gt; CreateNetworkInsightsPath -&gt; f CreateNetworkInsightsPath
-</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_dryRun"><span class="hs-identifier hs-var hs-var">createNetworkInsightsPath_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkInsightsPath -&gt; Maybe Bool)
--&gt; (CreateNetworkInsightsPath
-    -&gt; Maybe Bool -&gt; CreateNetworkInsightsPath)
--&gt; Lens
-     CreateNetworkInsightsPath
-     CreateNetworkInsightsPath
-     (Maybe Bool)
-     (Maybe Bool)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257663"><span class="annot"><span class="annottext">Maybe Bool
-dryRun :: Maybe Bool
-$sel:dryRun:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe Bool
-</span><a href="#local-6989586621681257663"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681257663"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257662"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257661"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681257661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateNetworkInsightsPath' :: Maybe Bool
-</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdryRun%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681257661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- | The IP address of the Amazon Web Services resource that is the</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- destination of the path.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_destinationIp"><span class="hs-identifier hs-type">createNetworkInsightsPath_destinationIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="createNetworkInsightsPath_destinationIp"><span class="annot"><span class="annottext">createNetworkInsightsPath_destinationIp :: (Maybe Text -&gt; f (Maybe Text))
--&gt; CreateNetworkInsightsPath -&gt; f CreateNetworkInsightsPath
-</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_destinationIp"><span class="hs-identifier hs-var hs-var">createNetworkInsightsPath_destinationIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkInsightsPath -&gt; Maybe Text)
--&gt; (CreateNetworkInsightsPath
-    -&gt; Maybe Text -&gt; CreateNetworkInsightsPath)
--&gt; Lens
-     CreateNetworkInsightsPath
-     CreateNetworkInsightsPath
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257660"><span class="annot"><span class="annottext">Maybe Text
-destinationIp :: Maybe Text
-$sel:destinationIp:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe Text
-</span><a href="#local-6989586621681257660"><span class="hs-identifier hs-var hs-var">destinationIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681257660"><span class="hs-identifier hs-var">destinationIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257659"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257659"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257658"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681257658"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257659"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationIp:CreateNetworkInsightsPath' :: Maybe Text
-</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdestinationIp%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">destinationIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681257658"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | The IP address of the Amazon Web Services resource that is the source of</span><span>
-</span><span id="line-169"></span><span class="hs-comment">-- the path.</span><span>
-</span><span id="line-170"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_sourceIp"><span class="hs-identifier hs-type">createNetworkInsightsPath_sourceIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span id="createNetworkInsightsPath_sourceIp"><span class="annot"><span class="annottext">createNetworkInsightsPath_sourceIp :: (Maybe Text -&gt; f (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The IP address of the Amazon Web Services resource that is the source of</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- the path.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_sourceIp"><span class="hs-identifier hs-type">createNetworkInsightsPath_sourceIp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="createNetworkInsightsPath_sourceIp"><span class="annot"><span class="annottext">createNetworkInsightsPath_sourceIp :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; CreateNetworkInsightsPath -&gt; f CreateNetworkInsightsPath
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_sourceIp"><span class="hs-identifier hs-var hs-var">createNetworkInsightsPath_sourceIp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkInsightsPath -&gt; Maybe Text)
 -&gt; (CreateNetworkInsightsPath
@@ -372,20 +345,20 @@ $sel:destinationIp:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt;
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257657"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681293774"><span class="annot"><span class="annottext">Maybe Text
 sourceIp :: Maybe Text
 $sel:sourceIp:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe Text
-</span><a href="#local-6989586621681257657"><span class="hs-identifier hs-var hs-var">sourceIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681257657"><span class="hs-identifier hs-var">sourceIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257656"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257656"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257655"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681257655"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257656"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIp:CreateNetworkInsightsPath' :: Maybe Text
+</span><a href="#local-6989586621681293774"><span class="hs-identifier hs-var hs-var">sourceIp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681293774"><span class="hs-identifier hs-var">sourceIp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681293773"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293773"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681293772"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681293772"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293773"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIp:CreateNetworkInsightsPath' :: Maybe Text
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AsourceIp%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">sourceIp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681257655"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- | The destination port.</span><span>
-</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_destinationPort"><span class="hs-identifier hs-type">createNetworkInsightsPath_destinationPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
-</span><span id="line-175"></span><span id="createNetworkInsightsPath_destinationPort"><span class="annot"><span class="annottext">createNetworkInsightsPath_destinationPort :: (Maybe Natural -&gt; f (Maybe Natural))
+</span><a href="#local-6989586621681293772"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The destination port.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_destinationPort"><span class="hs-identifier hs-type">createNetworkInsightsPath_destinationPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="createNetworkInsightsPath_destinationPort"><span class="annot"><span class="annottext">createNetworkInsightsPath_destinationPort :: (Maybe Natural -&gt; f (Maybe Natural))
 -&gt; CreateNetworkInsightsPath -&gt; f CreateNetworkInsightsPath
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_destinationPort"><span class="hs-identifier hs-var hs-var">createNetworkInsightsPath_destinationPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkInsightsPath -&gt; Maybe Natural)
 -&gt; (CreateNetworkInsightsPath
@@ -396,16 +369,43 @@ $sel:sourceIp:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Mayb
      (Maybe Natural)
      (Maybe Natural)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257654"><span class="annot"><span class="annottext">Maybe Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681293771"><span class="annot"><span class="annottext">Maybe Natural
 destinationPort :: Maybe Natural
 $sel:destinationPort:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe Natural
-</span><a href="#local-6989586621681257654"><span class="hs-identifier hs-var hs-var">destinationPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681257654"><span class="hs-identifier hs-var">destinationPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257653"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257652"><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681257652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPort:CreateNetworkInsightsPath' :: Maybe Natural
+</span><a href="#local-6989586621681293771"><span class="hs-identifier hs-var hs-var">destinationPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681293771"><span class="hs-identifier hs-var">destinationPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681293770"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293770"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681293769"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681293769"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293770"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPort:CreateNetworkInsightsPath' :: Maybe Natural
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdestinationPort%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">destinationPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681257652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681293769"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_dryRun"><span class="hs-identifier hs-type">createNetworkInsightsPath_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="createNetworkInsightsPath_dryRun"><span class="annot"><span class="annottext">createNetworkInsightsPath_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateNetworkInsightsPath -&gt; f CreateNetworkInsightsPath
+</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_dryRun"><span class="hs-identifier hs-var hs-var">createNetworkInsightsPath_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateNetworkInsightsPath -&gt; Maybe Bool)
+-&gt; (CreateNetworkInsightsPath
+    -&gt; Maybe Bool -&gt; CreateNetworkInsightsPath)
+-&gt; Lens
+     CreateNetworkInsightsPath
+     CreateNetworkInsightsPath
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681293768"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe Bool
+</span><a href="#local-6989586621681293768"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681293768"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681293767"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293767"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681293766"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681293766"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293767"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateNetworkInsightsPath' :: Maybe Bool
+</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AdryRun%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681293766"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-comment">-- | The Amazon Web Services resource that is the source of the path.</span><span>
 </span><span id="line-178"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_source"><span class="hs-identifier hs-type">createNetworkInsightsPath_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -416,16 +416,16 @@ $sel:destinationPort:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&g
 -&gt; Lens
      CreateNetworkInsightsPath CreateNetworkInsightsPath Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257651"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681293765"><span class="annot"><span class="annottext">Text
 source :: Text
 $sel:source:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Text
-</span><a href="#local-6989586621681257651"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257651"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257650"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257649"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:CreateNetworkInsightsPath' :: Text
+</span><a href="#local-6989586621681293765"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681293765"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681293764"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681293763"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681293763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:CreateNetworkInsightsPath' :: Text
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3Asource%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681293763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-180"></span><span>
 </span><span id="line-181"></span><span class="hs-comment">-- | The Amazon Web Services resource that is the destination of the path.</span><span>
 </span><span id="line-182"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_destination"><span class="hs-identifier hs-type">createNetworkInsightsPath_destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -436,16 +436,16 @@ $sel:source:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Text
 -&gt; Lens
      CreateNetworkInsightsPath CreateNetworkInsightsPath Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257648"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681293762"><span class="annot"><span class="annottext">Text
 destination :: Text
 $sel:destination:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Text
-</span><a href="#local-6989586621681257648"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257648"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257647"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257646"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:CreateNetworkInsightsPath' :: Text
+</span><a href="#local-6989586621681293762"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681293762"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681293761"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681293760"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681293760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:CreateNetworkInsightsPath' :: Text
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3Adestination%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681293760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-184"></span><span>
 </span><span id="line-185"></span><span class="hs-comment">-- | The protocol.</span><span>
 </span><span id="line-186"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPath_protocol"><span class="hs-identifier hs-type">createNetworkInsightsPath_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span>
@@ -460,16 +460,16 @@ $sel:destination:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; T
      Protocol
      Protocol
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257645"><span class="annot"><span class="annottext">Protocol
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681293759"><span class="annot"><span class="annottext">Protocol
 protocol :: Protocol
 $sel:protocol:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Protocol
-</span><a href="#local-6989586621681257645"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Protocol
-</span><a href="#local-6989586621681257645"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257644"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257644"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257643"><span class="annot"><span class="annottext">Protocol
-</span><a href="#local-6989586621681257643"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257644"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:CreateNetworkInsightsPath' :: Protocol
+</span><a href="#local-6989586621681293759"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Protocol
+</span><a href="#local-6989586621681293759"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681293758"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681293757"><span class="annot"><span class="annottext">Protocol
+</span><a href="#local-6989586621681293757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:CreateNetworkInsightsPath' :: Protocol
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3Aprotocol%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Protocol
-</span><a href="#local-6989586621681257643"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681293757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
 </span><span id="line-190"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
@@ -482,28 +482,28 @@ $sel:protocol:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Prot
 -&gt; Lens
      CreateNetworkInsightsPath CreateNetworkInsightsPath Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257642"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681293756"><span class="annot"><span class="annottext">Text
 clientToken :: Text
 $sel:clientToken:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Text
-</span><a href="#local-6989586621681257642"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257642"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257641"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257640"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
-</span><a href="#local-6989586621681257641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateNetworkInsightsPath' :: Text
+</span><a href="#local-6989586621681293756"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681293756"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681293755"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681293754"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681293754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPath
+</span><a href="#local-6989586621681293755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateNetworkInsightsPath' :: Text
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AclientToken%3ACreateNetworkInsightsPath%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681293754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span><span>
 </span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-197"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-198"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse</span></a></span><span>
-</span><span id="line-199"></span><span>  </span><span id="local-6989586621681257636"><span class="annot"><span class="annottext">request :: CreateNetworkInsightsPath -&gt; Request CreateNetworkInsightsPath
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621681293750"><span class="annot"><span class="annottext">request :: CreateNetworkInsightsPath -&gt; Request CreateNetworkInsightsPath
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreateNetworkInsightsPath -&gt; Request CreateNetworkInsightsPath
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-200"></span><span>  </span><span id="local-6989586621681257632"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-200"></span><span>  </span><span id="local-6989586621681293746"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateNetworkInsightsPath
 -&gt; ClientResponse ClientBody
@@ -529,10 +529,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681257629"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681257629"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681257628"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681257628"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681257627"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681257627"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681293743"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681293743"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681293742"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681293742"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681293741"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681293741"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">Maybe NetworkInsightsPath
 -&gt; Int -&gt; CreateNetworkInsightsPathResponse
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-var">CreateNetworkInsightsPathResponse'</span></a></span><span>
@@ -542,7 +542,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; CreateNetworkInsightsPathResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681257627"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe NetworkInsightsPath)
+</span><a href="#local-6989586621681293741"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe NetworkInsightsPath)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;networkInsightsPath&quot;</span></span><span class="hs-special">)</span><span>
@@ -555,15 +555,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681257629"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681293743"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-206"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-207"></span><span>
-</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681257619"><span id="local-6989586621681257621"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span></span></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681293733"><span id="local-6989586621681293735"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span></span></span><span>
 </span><span id="line-209"></span><span>
-</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681257616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681293730"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span></span><span>
 </span><span id="line-211"></span><span>
 </span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-213"></span><span>  </span><span id="local-6989586621681257612"><span class="annot"><span class="annottext">toHeaders :: CreateNetworkInsightsPath -&gt; ResponseHeaders
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621681293726"><span class="annot"><span class="annottext">toHeaders :: CreateNetworkInsightsPath -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateNetworkInsightsPath -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -571,15 +571,15 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-214"></span><span>
 </span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-216"></span><span>  </span><span id="local-6989586621681257607"><span class="annot"><span class="annottext">toPath :: CreateNetworkInsightsPath -&gt; ByteString
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621681293721"><span class="annot"><span class="annottext">toPath :: CreateNetworkInsightsPath -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateNetworkInsightsPath -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath"><span class="hs-identifier hs-type">CreateNetworkInsightsPath</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-219"></span><span>  </span><span id="local-6989586621681257603"><span class="annot"><span class="annottext">toQuery :: CreateNetworkInsightsPath -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257593"><span id="local-6989586621681257594"><span id="local-6989586621681257595"><span id="local-6989586621681257596"><span id="local-6989586621681257597"><span id="local-6989586621681257598"><span id="local-6989586621681257599"><span id="local-6989586621681257600"><span id="local-6989586621681257601"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621681293717"><span class="annot"><span class="annottext">toQuery :: CreateNetworkInsightsPath -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPath%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPath'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681293707"><span id="local-6989586621681293708"><span id="local-6989586621681293709"><span id="local-6989586621681293710"><span id="local-6989586621681293711"><span id="local-6989586621681293712"><span id="local-6989586621681293713"><span id="local-6989586621681293714"><span id="local-6989586621681293715"><span class="annot"><span class="annottext">Maybe Bool
 Maybe Natural
 Maybe [TagSpecification]
 Maybe Text
@@ -589,21 +589,21 @@ clientToken :: Text
 protocol :: Protocol
 destination :: Text
 source :: Text
+dryRun :: Maybe Bool
 destinationPort :: Maybe Natural
 sourceIp :: Maybe Text
-destinationIp :: Maybe Text
-dryRun :: Maybe Bool
 tagSpecifications :: Maybe [TagSpecification]
+destinationIp :: Maybe Text
 $sel:clientToken:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Text
 $sel:protocol:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Protocol
 $sel:destination:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Text
 $sel:source:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Text
+$sel:dryRun:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe Bool
 $sel:destinationPort:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe Natural
 $sel:sourceIp:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe Text
-$sel:destinationIp:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe Text
-$sel:dryRun:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe Bool
 $sel:tagSpecifications:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe [TagSpecification]
-</span><a href="#local-6989586621681257593"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:destinationIp:CreateNetworkInsightsPath' :: CreateNetworkInsightsPath -&gt; Maybe Text
+</span><a href="#local-6989586621681293707"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-220"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -619,65 +619,65 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DestinationIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681293715"><span class="hs-identifier hs-var">destinationIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-226"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [TagSpecification] -&gt; QueryString
+</span><span id="line-227"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [TagSpecification] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;TagSpecification&quot;</span></span><span>
-</span><span id="line-227"></span><span>              </span><span class="annot"><span class="annottext">([TagSpecification] -&gt; QueryString)
+</span><span id="line-228"></span><span>              </span><span class="annot"><span class="annottext">([TagSpecification] -&gt; QueryString)
 -&gt; Maybe [TagSpecification] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagSpecification]
-</span><a href="#local-6989586621681257601"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
-</span><span id="line-228"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621681257600"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681293714"><span class="hs-identifier hs-var">tagSpecifications</span></a></span><span>
+</span><span id="line-229"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-230"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;DestinationIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681257599"><span class="hs-identifier hs-var">destinationIp</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SourceIp&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681257598"><span class="hs-identifier hs-var">sourceIp</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621681293713"><span class="hs-identifier hs-var">sourceIp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;DestinationPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
-</span><a href="#local-6989586621681257597"><span class="hs-identifier hs-var">destinationPort</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681293712"><span class="hs-identifier hs-var">destinationPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681293711"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257596"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681293710"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-234"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257595"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681293709"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-235"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Protocol -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Protocol
-</span><a href="#local-6989586621681257594"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681293708"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681257593"><span class="hs-identifier hs-var">clientToken</span></a></span><span>
+</span><a href="#local-6989586621681293707"><span class="hs-identifier hs-var">clientToken</span></a></span><span>
 </span><span id="line-237"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-238"></span><span>
 </span><span id="line-239"></span><span class="hs-comment">-- | /See:/ 'newCreateNetworkInsightsPathResponse' smart constructor.</span><span>
-</span><span id="line-240"></span><span id="local-6989586621681257589"><span id="local-6989586621681257590"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNetworkInsightsPathResponse"><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse"><span class="hs-identifier hs-var">CreateNetworkInsightsPathResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNetworkInsightsPathResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-var">CreateNetworkInsightsPathResponse'</span></a></span></span><span>
+</span><span id="line-240"></span><span id="local-6989586621681293703"><span id="local-6989586621681293704"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateNetworkInsightsPathResponse"><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse"><span class="hs-identifier hs-var">CreateNetworkInsightsPathResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateNetworkInsightsPathResponse%27"><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-var">CreateNetworkInsightsPathResponse'</span></a></span></span><span>
 </span><span id="line-241"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the path.</span><span>
 </span><span id="line-242"></span><span>    </span><span id="%24sel%3AnetworkInsightsPath%3ACreateNetworkInsightsPathResponse%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPathResponse -&gt; Maybe NetworkInsightsPath
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AnetworkInsightsPath%3ACreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-var hs-var">networkInsightsPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.NetworkInsightsPath.html#NetworkInsightsPath"><span class="hs-identifier hs-type">NetworkInsightsPath</span></a></span><span class="hs-special">,</span><span>
@@ -685,7 +685,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-244"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateNetworkInsightsPathResponse%27"><span class="annot"><span class="annottext">CreateNetworkInsightsPathResponse -&gt; Int
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AhttpStatus%3ACreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-245"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-246"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681257583"><span id="local-6989586621681257585"><span class="annot"><span class="annottext">CreateNetworkInsightsPathResponse
+</span><span id="line-246"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681293697"><span id="local-6989586621681293699"><span class="annot"><span class="annottext">CreateNetworkInsightsPathResponse
 -&gt; CreateNetworkInsightsPathResponse -&gt; Bool
 (CreateNetworkInsightsPathResponse
  -&gt; CreateNetworkInsightsPathResponse -&gt; Bool)
@@ -701,7 +701,7 @@ $c/= :: CreateNetworkInsightsPathResponse
 -&gt; CreateNetworkInsightsPathResponse -&gt; Bool
 $c== :: CreateNetworkInsightsPathResponse
 -&gt; CreateNetworkInsightsPathResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681257575"><span id="local-6989586621681257577"><span id="local-6989586621681257579"><span id="local-6989586621681257581"><span class="annot"><span class="annottext">ReadPrec [CreateNetworkInsightsPathResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681293689"><span id="local-6989586621681293691"><span id="local-6989586621681293693"><span id="local-6989586621681293695"><span class="annot"><span class="annottext">ReadPrec [CreateNetworkInsightsPathResponse]
 ReadPrec CreateNetworkInsightsPathResponse
 Int -&gt; ReadS CreateNetworkInsightsPathResponse
 ReadS [CreateNetworkInsightsPathResponse]
@@ -721,7 +721,7 @@ readList :: ReadS [CreateNetworkInsightsPathResponse]
 $creadList :: ReadS [CreateNetworkInsightsPathResponse]
 readsPrec :: Int -&gt; ReadS CreateNetworkInsightsPathResponse
 $creadsPrec :: Int -&gt; ReadS CreateNetworkInsightsPathResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681257569"><span id="local-6989586621681257571"><span id="local-6989586621681257573"><span class="annot"><span class="annottext">Int -&gt; CreateNetworkInsightsPathResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681293683"><span id="local-6989586621681293685"><span id="local-6989586621681293687"><span class="annot"><span class="annottext">Int -&gt; CreateNetworkInsightsPathResponse -&gt; ShowS
 [CreateNetworkInsightsPathResponse] -&gt; ShowS
 CreateNetworkInsightsPathResponse -&gt; String
 (Int -&gt; CreateNetworkInsightsPathResponse -&gt; ShowS)
@@ -775,8 +775,8 @@ CreateNetworkInsightsPathResponse
 </span><span id="line-261"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-262"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse</span></a></span><span>
 </span><span id="line-263"></span><span id="newCreateNetworkInsightsPathResponse"><span class="annot"><span class="annottext">newCreateNetworkInsightsPathResponse :: Int -&gt; CreateNetworkInsightsPathResponse
-</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#newCreateNetworkInsightsPathResponse"><span class="hs-identifier hs-var hs-var">newCreateNetworkInsightsPathResponse</span></a></span></span><span> </span><span id="local-6989586621681257566"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681257566"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#newCreateNetworkInsightsPathResponse"><span class="hs-identifier hs-var hs-var">newCreateNetworkInsightsPathResponse</span></a></span></span><span> </span><span id="local-6989586621681293680"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681293680"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-264"></span><span>  </span><span class="annot"><span class="annottext">CreateNetworkInsightsPathResponse' :: Maybe NetworkInsightsPath
 -&gt; Int -&gt; CreateNetworkInsightsPathResponse
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse'</span></a></span><span>
@@ -787,7 +787,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-267"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateNetworkInsightsPathResponse' :: Int
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AhttpStatus%3ACreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681257566"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621681293680"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-268"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-269"></span><span>
 </span><span id="line-270"></span><span class="hs-comment">-- | Information about the path.</span><span>
@@ -804,16 +804,16 @@ forall a. Maybe a
      (Maybe NetworkInsightsPath)
      (Maybe NetworkInsightsPath)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257565"><span class="annot"><span class="annottext">Maybe NetworkInsightsPath
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681293679"><span class="annot"><span class="annottext">Maybe NetworkInsightsPath
 networkInsightsPath :: Maybe NetworkInsightsPath
 $sel:networkInsightsPath:CreateNetworkInsightsPathResponse' :: CreateNetworkInsightsPathResponse -&gt; Maybe NetworkInsightsPath
-</span><a href="#local-6989586621681257565"><span class="hs-identifier hs-var hs-var">networkInsightsPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInsightsPath
-</span><a href="#local-6989586621681257565"><span class="hs-identifier hs-var">networkInsightsPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257564"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPathResponse
-</span><a href="#local-6989586621681257564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257563"><span class="annot"><span class="annottext">Maybe NetworkInsightsPath
-</span><a href="#local-6989586621681257563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPathResponse
-</span><a href="#local-6989586621681257564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInsightsPath:CreateNetworkInsightsPathResponse' :: Maybe NetworkInsightsPath
+</span><a href="#local-6989586621681293679"><span class="hs-identifier hs-var hs-var">networkInsightsPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInsightsPath
+</span><a href="#local-6989586621681293679"><span class="hs-identifier hs-var">networkInsightsPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681293678"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPathResponse
+</span><a href="#local-6989586621681293678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681293677"><span class="annot"><span class="annottext">Maybe NetworkInsightsPath
+</span><a href="#local-6989586621681293677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPathResponse
+</span><a href="#local-6989586621681293678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInsightsPath:CreateNetworkInsightsPathResponse' :: Maybe NetworkInsightsPath
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AnetworkInsightsPath%3ACreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-var">networkInsightsPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkInsightsPath
-</span><a href="#local-6989586621681257563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681293677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-275"></span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#createNetworkInsightsPathResponse_httpStatus"><span class="hs-identifier hs-type">createNetworkInsightsPathResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -829,18 +829,18 @@ $sel:networkInsightsPath:CreateNetworkInsightsPathResponse' :: CreateNetworkInsi
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681257562"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681293676"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateNetworkInsightsPathResponse' :: CreateNetworkInsightsPathResponse -&gt; Int
-</span><a href="#local-6989586621681257562"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681257562"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681257561"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPathResponse
-</span><a href="#local-6989586621681257561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681257560"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681257560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPathResponse
-</span><a href="#local-6989586621681257561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateNetworkInsightsPathResponse' :: Int
+</span><a href="#local-6989586621681293676"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681293676"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681293675"><span class="annot"><span class="annottext">s :: CreateNetworkInsightsPathResponse
+</span><a href="#local-6989586621681293675"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681293674"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681293674"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateNetworkInsightsPathResponse
+</span><a href="#local-6989586621681293675"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateNetworkInsightsPathResponse' :: Int
 </span><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#%24sel%3AhttpStatus%3ACreateNetworkInsightsPathResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681257560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681293674"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-277"></span><span>
 </span><span id="line-278"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-279"></span><span>  </span><span id="local-6989586621681257558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-279"></span><span>  </span><span id="local-6989586621681293672"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-280"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.CreateNetworkInsightsPath.html#CreateNetworkInsightsPathResponse"><span class="hs-identifier hs-type">CreateNetworkInsightsPathResponse</span></a></span></span><span>
 </span><span id="line-281"></span></pre></body></html>

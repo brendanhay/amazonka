@@ -27,12 +27,12 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | The execute command configuration for the cluster.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newClusterConfiguration' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679452244"><span id="local-6989586621679452245"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterConfiguration"><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-var">ClusterConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterConfiguration%27"><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration%27"><span class="hs-identifier hs-var">ClusterConfiguration'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679452956"><span id="local-6989586621679452957"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClusterConfiguration"><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-var">ClusterConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClusterConfiguration%27"><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration%27"><span class="hs-identifier hs-var">ClusterConfiguration'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the execute command configuration.</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AexecuteCommandConfiguration%3AClusterConfiguration%27"><span class="annot"><span class="annottext">ClusterConfiguration -&gt; Maybe ExecuteCommandConfiguration
 </span><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#%24sel%3AexecuteCommandConfiguration%3AClusterConfiguration%27"><span class="hs-identifier hs-var hs-var">executeCommandConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ExecuteCommandConfiguration.html#ExecuteCommandConfiguration"><span class="hs-identifier hs-type">ExecuteCommandConfiguration</span></a></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452238"><span id="local-6989586621679452240"><span class="annot"><span class="annottext">ClusterConfiguration -&gt; ClusterConfiguration -&gt; Bool
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679452950"><span id="local-6989586621679452952"><span class="annot"><span class="annottext">ClusterConfiguration -&gt; ClusterConfiguration -&gt; Bool
 (ClusterConfiguration -&gt; ClusterConfiguration -&gt; Bool)
 -&gt; (ClusterConfiguration -&gt; ClusterConfiguration -&gt; Bool)
 -&gt; Eq ClusterConfiguration
@@ -41,7 +41,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ClusterConfiguration -&gt; ClusterConfiguration -&gt; Bool
 == :: ClusterConfiguration -&gt; ClusterConfiguration -&gt; Bool
 $c== :: ClusterConfiguration -&gt; ClusterConfiguration -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452229"><span id="local-6989586621679452231"><span id="local-6989586621679452233"><span id="local-6989586621679452235"><span class="annot"><span class="annottext">ReadPrec [ClusterConfiguration]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452941"><span id="local-6989586621679452943"><span id="local-6989586621679452945"><span id="local-6989586621679452947"><span class="annot"><span class="annottext">ReadPrec [ClusterConfiguration]
 ReadPrec ClusterConfiguration
 Int -&gt; ReadS ClusterConfiguration
 ReadS [ClusterConfiguration]
@@ -61,7 +61,7 @@ readList :: ReadS [ClusterConfiguration]
 $creadList :: ReadS [ClusterConfiguration]
 readsPrec :: Int -&gt; ReadS ClusterConfiguration
 $creadsPrec :: Int -&gt; ReadS ClusterConfiguration
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452222"><span id="local-6989586621679452224"><span id="local-6989586621679452226"><span class="annot"><span class="annottext">Int -&gt; ClusterConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679452934"><span id="local-6989586621679452936"><span id="local-6989586621679452938"><span class="annot"><span class="annottext">Int -&gt; ClusterConfiguration -&gt; ShowS
 [ClusterConfiguration] -&gt; ShowS
 ClusterConfiguration -&gt; String
 (Int -&gt; ClusterConfiguration -&gt; ShowS)
@@ -123,19 +123,19 @@ forall a. Maybe a
      (Maybe ExecuteCommandConfiguration)
      (Maybe ExecuteCommandConfiguration)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration%27"><span class="hs-identifier hs-type">ClusterConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452213"><span class="annot"><span class="annottext">Maybe ExecuteCommandConfiguration
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration%27"><span class="hs-identifier hs-type">ClusterConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452925"><span class="annot"><span class="annottext">Maybe ExecuteCommandConfiguration
 executeCommandConfiguration :: Maybe ExecuteCommandConfiguration
 $sel:executeCommandConfiguration:ClusterConfiguration' :: ClusterConfiguration -&gt; Maybe ExecuteCommandConfiguration
-</span><a href="#local-6989586621679452213"><span class="hs-identifier hs-var hs-var">executeCommandConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteCommandConfiguration
-</span><a href="#local-6989586621679452213"><span class="hs-identifier hs-var">executeCommandConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452212"><span class="annot"><span class="annottext">s :: ClusterConfiguration
-</span><a href="#local-6989586621679452212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration%27"><span class="hs-identifier hs-type">ClusterConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452211"><span class="annot"><span class="annottext">Maybe ExecuteCommandConfiguration
-</span><a href="#local-6989586621679452211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterConfiguration
-</span><a href="#local-6989586621679452212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executeCommandConfiguration:ClusterConfiguration' :: Maybe ExecuteCommandConfiguration
+</span><a href="#local-6989586621679452925"><span class="hs-identifier hs-var hs-var">executeCommandConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteCommandConfiguration
+</span><a href="#local-6989586621679452925"><span class="hs-identifier hs-var">executeCommandConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679452924"><span class="annot"><span class="annottext">s :: ClusterConfiguration
+</span><a href="#local-6989586621679452924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration%27"><span class="hs-identifier hs-type">ClusterConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679452923"><span class="annot"><span class="annottext">Maybe ExecuteCommandConfiguration
+</span><a href="#local-6989586621679452923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClusterConfiguration
+</span><a href="#local-6989586621679452924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executeCommandConfiguration:ClusterConfiguration' :: Maybe ExecuteCommandConfiguration
 </span><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#%24sel%3AexecuteCommandConfiguration%3AClusterConfiguration%27"><span class="hs-identifier hs-var">executeCommandConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteCommandConfiguration
-</span><a href="#local-6989586621679452211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-type">ClusterConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679452923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-type">ClusterConfiguration</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-56"></span><span>
-</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452208"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-type">ClusterConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-58"></span><span>  </span><span id="local-6989586621679452206"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClusterConfiguration
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452920"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-type">ClusterConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679452918"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ClusterConfiguration
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ClusterConfiguration)
@@ -145,8 +145,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ClusterConfiguration&quot;</span></span><span>
-</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452203"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452203"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679452915"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679452915"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe ExecuteCommandConfiguration -&gt; ClusterConfiguration
 </span><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration%27"><span class="hs-identifier hs-var">ClusterConfiguration'</span></a></span><span>
 </span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ExecuteCommandConfiguration -&gt; ClusterConfiguration)
@@ -154,22 +154,22 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser ClusterConfiguration
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679452203"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecuteCommandConfiguration)
+</span><a href="#local-6989586621679452915"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ExecuteCommandConfiguration)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;executeCommandConfiguration&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-65"></span><span>
-</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452197"><span id="local-6989586621679452199"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-type">ClusterConfiguration</span></a></span></span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452909"><span id="local-6989586621679452911"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-type">ClusterConfiguration</span></a></span></span></span><span>
 </span><span id="line-67"></span><span>
-</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452194"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-type">ClusterConfiguration</span></a></span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452906"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-type">ClusterConfiguration</span></a></span></span><span>
 </span><span id="line-69"></span><span>
-</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452186"><span id="local-6989586621679452188"><span id="local-6989586621679452190"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-type">ClusterConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-71"></span><span>  </span><span id="local-6989586621679452184"><span class="annot"><span class="annottext">toJSON :: ClusterConfiguration -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration%27"><span class="hs-identifier hs-type">ClusterConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452182"><span class="annot"><span class="annottext">Maybe ExecuteCommandConfiguration
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679452898"><span id="local-6989586621679452900"><span id="local-6989586621679452902"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration"><span class="hs-identifier hs-type">ClusterConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621679452896"><span class="annot"><span class="annottext">toJSON :: ClusterConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.ECS.Types.ClusterConfiguration.html#ClusterConfiguration%27"><span class="hs-identifier hs-type">ClusterConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679452894"><span class="annot"><span class="annottext">Maybe ExecuteCommandConfiguration
 executeCommandConfiguration :: Maybe ExecuteCommandConfiguration
 $sel:executeCommandConfiguration:ClusterConfiguration' :: ClusterConfiguration -&gt; Maybe ExecuteCommandConfiguration
-</span><a href="#local-6989586621679452182"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679452894"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-72"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -183,7 +183,7 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 -&gt; Maybe ExecuteCommandConfiguration -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ExecuteCommandConfiguration
-</span><a href="#local-6989586621679452182"><span class="hs-identifier hs-var">executeCommandConfiguration</span></a></span><span>
+</span><a href="#local-6989586621679452894"><span class="hs-identifier hs-var">executeCommandConfiguration</span></a></span><span>
 </span><span id="line-76"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-78"></span></pre></body></html>

@@ -27,14 +27,14 @@
 </span><span id="line-27"></span><span class="hs-comment">-- participants in a journey.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newJourneyEmailMessage' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679601675"><span id="local-6989586621679601676"></span></span><span class="hs-keyword">data</span><span> </span><span id="JourneyEmailMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage"><span class="hs-identifier hs-var">JourneyEmailMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JourneyEmailMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage%27"><span class="hs-identifier hs-var">JourneyEmailMessage'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679602137"><span id="local-6989586621679602138"></span></span><span class="hs-keyword">data</span><span> </span><span id="JourneyEmailMessage"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage"><span class="hs-identifier hs-var">JourneyEmailMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JourneyEmailMessage%27"><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage%27"><span class="hs-identifier hs-var">JourneyEmailMessage'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The verified email address to send the email message from. The default</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- address is the FromAddress specified for the email channel for the</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- application.</span><span>
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3AfromAddress%3AJourneyEmailMessage%27"><span class="annot"><span class="annottext">JourneyEmailMessage -&gt; Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#%24sel%3AfromAddress%3AJourneyEmailMessage%27"><span class="hs-identifier hs-var hs-var">fromAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679601669"><span id="local-6989586621679601671"><span class="annot"><span class="annottext">JourneyEmailMessage -&gt; JourneyEmailMessage -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679602131"><span id="local-6989586621679602133"><span class="annot"><span class="annottext">JourneyEmailMessage -&gt; JourneyEmailMessage -&gt; Bool
 (JourneyEmailMessage -&gt; JourneyEmailMessage -&gt; Bool)
 -&gt; (JourneyEmailMessage -&gt; JourneyEmailMessage -&gt; Bool)
 -&gt; Eq JourneyEmailMessage
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: JourneyEmailMessage -&gt; JourneyEmailMessage -&gt; Bool
 == :: JourneyEmailMessage -&gt; JourneyEmailMessage -&gt; Bool
 $c== :: JourneyEmailMessage -&gt; JourneyEmailMessage -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601660"><span id="local-6989586621679601662"><span id="local-6989586621679601664"><span id="local-6989586621679601666"><span class="annot"><span class="annottext">ReadPrec [JourneyEmailMessage]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679602122"><span id="local-6989586621679602124"><span id="local-6989586621679602126"><span id="local-6989586621679602128"><span class="annot"><span class="annottext">ReadPrec [JourneyEmailMessage]
 ReadPrec JourneyEmailMessage
 Int -&gt; ReadS JourneyEmailMessage
 ReadS [JourneyEmailMessage]
@@ -63,7 +63,7 @@ readList :: ReadS [JourneyEmailMessage]
 $creadList :: ReadS [JourneyEmailMessage]
 readsPrec :: Int -&gt; ReadS JourneyEmailMessage
 $creadsPrec :: Int -&gt; ReadS JourneyEmailMessage
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601653"><span id="local-6989586621679601655"><span id="local-6989586621679601657"><span class="annot"><span class="annottext">Int -&gt; JourneyEmailMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679602115"><span id="local-6989586621679602117"><span id="local-6989586621679602119"><span class="annot"><span class="annottext">Int -&gt; JourneyEmailMessage -&gt; ShowS
 [JourneyEmailMessage] -&gt; ShowS
 JourneyEmailMessage -&gt; String
 (Int -&gt; JourneyEmailMessage -&gt; ShowS)
@@ -121,19 +121,19 @@ forall a. Maybe a
 -&gt; Lens
      JourneyEmailMessage JourneyEmailMessage (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage%27"><span class="hs-identifier hs-type">JourneyEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601644"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage%27"><span class="hs-identifier hs-type">JourneyEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602106"><span class="annot"><span class="annottext">Maybe Text
 fromAddress :: Maybe Text
 $sel:fromAddress:JourneyEmailMessage' :: JourneyEmailMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679601644"><span class="hs-identifier hs-var hs-var">fromAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679601644"><span class="hs-identifier hs-var">fromAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601643"><span class="annot"><span class="annottext">s :: JourneyEmailMessage
-</span><a href="#local-6989586621679601643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage%27"><span class="hs-identifier hs-type">JourneyEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601642"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679601642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyEmailMessage
-</span><a href="#local-6989586621679601643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromAddress:JourneyEmailMessage' :: Maybe Text
+</span><a href="#local-6989586621679602106"><span class="hs-identifier hs-var hs-var">fromAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679602106"><span class="hs-identifier hs-var">fromAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679602105"><span class="annot"><span class="annottext">s :: JourneyEmailMessage
+</span><a href="#local-6989586621679602105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage%27"><span class="hs-identifier hs-type">JourneyEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679602104"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679602104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyEmailMessage
+</span><a href="#local-6989586621679602105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromAddress:JourneyEmailMessage' :: Maybe Text
 </span><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#%24sel%3AfromAddress%3AJourneyEmailMessage%27"><span class="hs-identifier hs-var">fromAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679601642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage"><span class="hs-identifier hs-type">JourneyEmailMessage</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679602104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage"><span class="hs-identifier hs-type">JourneyEmailMessage</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-59"></span><span>
-</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601639"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage"><span class="hs-identifier hs-type">JourneyEmailMessage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-61"></span><span>  </span><span id="local-6989586621679601637"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JourneyEmailMessage
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602101"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage"><span class="hs-identifier hs-type">JourneyEmailMessage</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679602099"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser JourneyEmailMessage
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser JourneyEmailMessage)
@@ -143,30 +143,30 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;JourneyEmailMessage&quot;</span></span><span>
-</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679601634"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679601634"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679602096"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679602096"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-65"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; JourneyEmailMessage
 </span><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage%27"><span class="hs-identifier hs-var">JourneyEmailMessage'</span></a></span><span>
 </span><span id="line-66"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; JourneyEmailMessage)
 -&gt; Parser (Maybe Text) -&gt; Parser JourneyEmailMessage
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679601634"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679602096"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;FromAddress&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-67"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-68"></span><span>
-</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601628"><span id="local-6989586621679601630"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage"><span class="hs-identifier hs-type">JourneyEmailMessage</span></a></span></span></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602090"><span id="local-6989586621679602092"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage"><span class="hs-identifier hs-type">JourneyEmailMessage</span></a></span></span></span><span>
 </span><span id="line-70"></span><span>
-</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601625"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage"><span class="hs-identifier hs-type">JourneyEmailMessage</span></a></span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602087"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage"><span class="hs-identifier hs-type">JourneyEmailMessage</span></a></span></span><span>
 </span><span id="line-72"></span><span>
-</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601617"><span id="local-6989586621679601619"><span id="local-6989586621679601621"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage"><span class="hs-identifier hs-type">JourneyEmailMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679601615"><span class="annot"><span class="annottext">toJSON :: JourneyEmailMessage -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage%27"><span class="hs-identifier hs-type">JourneyEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601613"><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679602079"><span id="local-6989586621679602081"><span id="local-6989586621679602083"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage"><span class="hs-identifier hs-type">JourneyEmailMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679602077"><span class="annot"><span class="annottext">toJSON :: JourneyEmailMessage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Pinpoint.Types.JourneyEmailMessage.html#JourneyEmailMessage%27"><span class="hs-identifier hs-type">JourneyEmailMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679602075"><span class="annot"><span class="annottext">Maybe Text
 fromAddress :: Maybe Text
 $sel:fromAddress:JourneyEmailMessage' :: JourneyEmailMessage -&gt; Maybe Text
-</span><a href="#local-6989586621679601613"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679602075"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -178,6 +178,6 @@ forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679601613"><span class="hs-identifier hs-var">fromAddress</span></a></span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679602075"><span class="hs-identifier hs-var">fromAddress</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-78"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-79"></span></pre></body></html>

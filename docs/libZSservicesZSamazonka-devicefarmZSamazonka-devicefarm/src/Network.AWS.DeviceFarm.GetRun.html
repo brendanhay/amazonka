@@ -49,12 +49,12 @@
 </span><span id="line-49"></span><span class="hs-comment">-- | Represents a request to the get run operation.</span><span>
 </span><span id="line-50"></span><span class="hs-comment">--</span><span>
 </span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newGetRun' smart constructor.</span><span>
-</span><span id="line-52"></span><span id="local-6989586621679382562"><span id="local-6989586621679382563"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRun"><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-var">GetRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRun%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun%27"><span class="hs-identifier hs-var">GetRun'</span></a></span></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679382841"><span id="local-6989586621679382842"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRun"><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-var">GetRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRun%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun%27"><span class="hs-identifier hs-var">GetRun'</span></a></span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The run\'s ARN.</span><span>
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3Aarn%3AGetRun%27"><span class="annot"><span class="annottext">GetRun -&gt; Text
 </span><a href="Network.AWS.DeviceFarm.GetRun.html#%24sel%3Aarn%3AGetRun%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382556"><span id="local-6989586621679382558"><span class="annot"><span class="annottext">GetRun -&gt; GetRun -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382835"><span id="local-6989586621679382837"><span class="annot"><span class="annottext">GetRun -&gt; GetRun -&gt; Bool
 (GetRun -&gt; GetRun -&gt; Bool)
 -&gt; (GetRun -&gt; GetRun -&gt; Bool) -&gt; Eq GetRun
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRun -&gt; GetRun -&gt; Bool
 == :: GetRun -&gt; GetRun -&gt; Bool
 $c== :: GetRun -&gt; GetRun -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382547"><span id="local-6989586621679382549"><span id="local-6989586621679382551"><span id="local-6989586621679382553"><span class="annot"><span class="annottext">ReadPrec [GetRun]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382826"><span id="local-6989586621679382828"><span id="local-6989586621679382830"><span id="local-6989586621679382832"><span class="annot"><span class="annottext">ReadPrec [GetRun]
 ReadPrec GetRun
 Int -&gt; ReadS GetRun
 ReadS [GetRun]
@@ -82,7 +82,7 @@ readList :: ReadS [GetRun]
 $creadList :: ReadS [GetRun]
 readsPrec :: Int -&gt; ReadS GetRun
 $creadsPrec :: Int -&gt; ReadS GetRun
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382540"><span id="local-6989586621679382542"><span id="local-6989586621679382544"><span class="annot"><span class="annottext">Int -&gt; GetRun -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382819"><span id="local-6989586621679382821"><span id="local-6989586621679382823"><span class="annot"><span class="annottext">Int -&gt; GetRun -&gt; ShowS
 [GetRun] -&gt; ShowS
 GetRun -&gt; String
 (Int -&gt; GetRun -&gt; ShowS)
@@ -119,11 +119,11 @@ $cfrom :: forall x. GetRun -&gt; Rep GetRun x
 </span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span><span>
 </span><span id="line-71"></span><span id="newGetRun"><span class="annot"><span class="annottext">newGetRun :: Text -&gt; GetRun
-</span><a href="Network.AWS.DeviceFarm.GetRun.html#newGetRun"><span class="hs-identifier hs-var hs-var">newGetRun</span></a></span></span><span> </span><span id="local-6989586621679382535"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382535"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetRun' :: Text -&gt; GetRun
+</span><a href="Network.AWS.DeviceFarm.GetRun.html#newGetRun"><span class="hs-identifier hs-var hs-var">newGetRun</span></a></span></span><span> </span><span id="local-6989586621679382814"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382814"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetRun' :: Text -&gt; GetRun
 </span><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun%27"><span class="hs-identifier hs-type">GetRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetRun' :: Text
 </span><a href="Network.AWS.DeviceFarm.GetRun.html#%24sel%3Aarn%3AGetRun%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382535"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679382814"><span class="hs-identifier hs-var">pArn_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-72"></span><span>
 </span><span id="line-73"></span><span class="hs-comment">-- | The run\'s ARN.</span><span>
 </span><span id="line-74"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#getRun_arn"><span class="hs-identifier hs-type">getRun_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -131,25 +131,25 @@ $cfrom :: forall x. GetRun -&gt; Rep GetRun x
 </span><a href="Network.AWS.DeviceFarm.GetRun.html#getRun_arn"><span class="hs-identifier hs-var hs-var">getRun_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRun -&gt; Text)
 -&gt; (GetRun -&gt; Text -&gt; GetRun) -&gt; Lens GetRun GetRun Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun%27"><span class="hs-identifier hs-type">GetRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382532"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun%27"><span class="hs-identifier hs-type">GetRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382811"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:GetRun' :: GetRun -&gt; Text
-</span><a href="#local-6989586621679382532"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382532"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382531"><span class="annot"><span class="annottext">s :: GetRun
-</span><a href="#local-6989586621679382531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun%27"><span class="hs-identifier hs-type">GetRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382530"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRun
-</span><a href="#local-6989586621679382531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetRun' :: Text
+</span><a href="#local-6989586621679382811"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382811"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382810"><span class="annot"><span class="annottext">s :: GetRun
+</span><a href="#local-6989586621679382810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun%27"><span class="hs-identifier hs-type">GetRun'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382809"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679382809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRun
+</span><a href="#local-6989586621679382810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:GetRun' :: Text
 </span><a href="Network.AWS.DeviceFarm.GetRun.html#%24sel%3Aarn%3AGetRun%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-76"></span><span>
 </span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse"><span class="hs-identifier hs-type">GetRunResponse</span></a></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679382526"><span class="annot"><span class="annottext">request :: GetRun -&gt; Request GetRun
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679382805"><span class="annot"><span class="annottext">request :: GetRun -&gt; Request GetRun
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetRun -&gt; Request GetRun
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679382522"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679382801"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy GetRun
 -&gt; ClientResponse ClientBody
@@ -171,10 +171,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679382519"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382519"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679382518"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679382518"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679382517"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679382517"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679382798"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382798"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679382797"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679382797"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679382796"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679382796"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Run -&gt; Int -&gt; GetRunResponse
 </span><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse%27"><span class="hs-identifier hs-var">GetRunResponse'</span></a></span><span>
 </span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Run -&gt; Int -&gt; GetRunResponse)
@@ -182,7 +182,7 @@ MonadResource m =&gt;
 -&gt; Either String (Int -&gt; GetRunResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679382517"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Run)
+</span><a href="#local-6989586621679382796"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Run)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;run&quot;</span></span><span class="hs-special">)</span><span>
@@ -194,15 +194,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382519"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382798"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382509"><span id="local-6989586621679382511"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382788"><span id="local-6989586621679382790"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382506"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679382502"><span class="annot"><span class="annottext">toHeaders :: GetRun -&gt; ResponseHeaders
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679382781"><span class="annot"><span class="annottext">toHeaders :: GetRun -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetRun -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -227,12 +227,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-102"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382492"><span id="local-6989586621679382494"><span id="local-6989586621679382496"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679382490"><span class="annot"><span class="annottext">toJSON :: GetRun -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun%27"><span class="hs-identifier hs-type">GetRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382488"><span class="annot"><span class="annottext">Text
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382771"><span id="local-6989586621679382773"><span id="local-6989586621679382775"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679382769"><span class="annot"><span class="annottext">toJSON :: GetRun -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun%27"><span class="hs-identifier hs-type">GetRun'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382767"><span class="annot"><span class="annottext">Text
 arn :: Text
 $sel:arn:GetRun' :: GetRun -&gt; Text
-</span><a href="#local-6989586621679382488"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679382767"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -244,18 +244,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679382488"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679382767"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>
 </span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-113"></span><span>  </span><span id="local-6989586621679382482"><span class="annot"><span class="annottext">toPath :: GetRun -&gt; ByteString
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679382761"><span class="annot"><span class="annottext">toPath :: GetRun -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetRun -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-114"></span><span>
 </span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRun"><span class="hs-identifier hs-type">GetRun</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679382478"><span class="annot"><span class="annottext">toQuery :: GetRun -&gt; QueryString
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679382757"><span class="annot"><span class="annottext">toQuery :: GetRun -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRun -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -265,7 +265,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-118"></span><span class="hs-comment">-- | Represents the result of a get run request.</span><span>
 </span><span id="line-119"></span><span class="hs-comment">--</span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- /See:/ 'newGetRunResponse' smart constructor.</span><span>
-</span><span id="line-121"></span><span id="local-6989586621679382475"><span id="local-6989586621679382476"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRunResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse"><span class="hs-identifier hs-var">GetRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRunResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse%27"><span class="hs-identifier hs-var">GetRunResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span id="local-6989586621679382754"><span id="local-6989586621679382755"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRunResponse"><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse"><span class="hs-identifier hs-var">GetRunResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRunResponse%27"><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse%27"><span class="hs-identifier hs-var">GetRunResponse'</span></a></span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The run to get results from.</span><span>
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3Arun%3AGetRunResponse%27"><span class="annot"><span class="annottext">GetRunResponse -&gt; Maybe Run
 </span><a href="Network.AWS.DeviceFarm.GetRun.html#%24sel%3Arun%3AGetRunResponse%27"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.Types.Run.html#Run"><span class="hs-identifier hs-type">Run</span></a></span><span class="hs-special">,</span><span>
@@ -273,7 +273,7 @@ forall a. Monoid a =&gt; a
 </span><span id="line-125"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetRunResponse%27"><span class="annot"><span class="annottext">GetRunResponse -&gt; Int
 </span><a href="Network.AWS.DeviceFarm.GetRun.html#%24sel%3AhttpStatus%3AGetRunResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-126"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382469"><span id="local-6989586621679382471"><span class="annot"><span class="annottext">GetRunResponse -&gt; GetRunResponse -&gt; Bool
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679382748"><span id="local-6989586621679382750"><span class="annot"><span class="annottext">GetRunResponse -&gt; GetRunResponse -&gt; Bool
 (GetRunResponse -&gt; GetRunResponse -&gt; Bool)
 -&gt; (GetRunResponse -&gt; GetRunResponse -&gt; Bool) -&gt; Eq GetRunResponse
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -281,7 +281,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: GetRunResponse -&gt; GetRunResponse -&gt; Bool
 == :: GetRunResponse -&gt; GetRunResponse -&gt; Bool
 $c== :: GetRunResponse -&gt; GetRunResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382461"><span id="local-6989586621679382463"><span id="local-6989586621679382465"><span id="local-6989586621679382467"><span class="annot"><span class="annottext">ReadPrec [GetRunResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382740"><span id="local-6989586621679382742"><span id="local-6989586621679382744"><span id="local-6989586621679382746"><span class="annot"><span class="annottext">ReadPrec [GetRunResponse]
 ReadPrec GetRunResponse
 Int -&gt; ReadS GetRunResponse
 ReadS [GetRunResponse]
@@ -301,7 +301,7 @@ readList :: ReadS [GetRunResponse]
 $creadList :: ReadS [GetRunResponse]
 readsPrec :: Int -&gt; ReadS GetRunResponse
 $creadsPrec :: Int -&gt; ReadS GetRunResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382455"><span id="local-6989586621679382457"><span id="local-6989586621679382459"><span class="annot"><span class="annottext">Int -&gt; GetRunResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679382734"><span id="local-6989586621679382736"><span id="local-6989586621679382738"><span class="annot"><span class="annottext">Int -&gt; GetRunResponse -&gt; ShowS
 [GetRunResponse] -&gt; ShowS
 GetRunResponse -&gt; String
 (Int -&gt; GetRunResponse -&gt; ShowS)
@@ -343,8 +343,8 @@ $cfrom :: forall x. GetRunResponse -&gt; Rep GetRunResponse x
 </span><span id="line-142"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-143"></span><span>  </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse"><span class="hs-identifier hs-type">GetRunResponse</span></a></span><span>
 </span><span id="line-144"></span><span id="newGetRunResponse"><span class="annot"><span class="annottext">newGetRunResponse :: Int -&gt; GetRunResponse
-</span><a href="Network.AWS.DeviceFarm.GetRun.html#newGetRunResponse"><span class="hs-identifier hs-var hs-var">newGetRunResponse</span></a></span></span><span> </span><span id="local-6989586621679382452"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382452"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DeviceFarm.GetRun.html#newGetRunResponse"><span class="hs-identifier hs-var hs-var">newGetRunResponse</span></a></span></span><span> </span><span id="local-6989586621679382731"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382731"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">GetRunResponse' :: Maybe Run -&gt; Int -&gt; GetRunResponse
 </span><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse%27"><span class="hs-identifier hs-type">GetRunResponse'</span></a></span><span>
 </span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:run:GetRunResponse' :: Maybe Run
@@ -353,7 +353,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRunResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.GetRun.html#%24sel%3AhttpStatus%3AGetRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382452"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679382731"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-149"></span><span>
 </span><span id="line-150"></span><span class="hs-comment">-- | The run to get results from.</span><span>
@@ -363,16 +363,16 @@ forall a. Maybe a
 -&gt; (GetRunResponse -&gt; Maybe Run -&gt; GetRunResponse)
 -&gt; Lens GetRunResponse GetRunResponse (Maybe Run) (Maybe Run)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse%27"><span class="hs-identifier hs-type">GetRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382451"><span class="annot"><span class="annottext">Maybe Run
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse%27"><span class="hs-identifier hs-type">GetRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382730"><span class="annot"><span class="annottext">Maybe Run
 run :: Maybe Run
 $sel:run:GetRunResponse' :: GetRunResponse -&gt; Maybe Run
-</span><a href="#local-6989586621679382451"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Run
-</span><a href="#local-6989586621679382451"><span class="hs-identifier hs-var">run</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382450"><span class="annot"><span class="annottext">s :: GetRunResponse
-</span><a href="#local-6989586621679382450"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse%27"><span class="hs-identifier hs-type">GetRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382449"><span class="annot"><span class="annottext">Maybe Run
-</span><a href="#local-6989586621679382449"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRunResponse
-</span><a href="#local-6989586621679382450"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:run:GetRunResponse' :: Maybe Run
+</span><a href="#local-6989586621679382730"><span class="hs-identifier hs-var hs-var">run</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Run
+</span><a href="#local-6989586621679382730"><span class="hs-identifier hs-var">run</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382729"><span class="annot"><span class="annottext">s :: GetRunResponse
+</span><a href="#local-6989586621679382729"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse%27"><span class="hs-identifier hs-type">GetRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382728"><span class="annot"><span class="annottext">Maybe Run
+</span><a href="#local-6989586621679382728"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRunResponse
+</span><a href="#local-6989586621679382729"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:run:GetRunResponse' :: Maybe Run
 </span><a href="Network.AWS.DeviceFarm.GetRun.html#%24sel%3Arun%3AGetRunResponse%27"><span class="hs-identifier hs-var">run</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Run
-</span><a href="#local-6989586621679382449"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse"><span class="hs-identifier hs-type">GetRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382728"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse"><span class="hs-identifier hs-type">GetRunResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>
 </span><span id="line-154"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-155"></span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#getRunResponse_httpStatus"><span class="hs-identifier hs-type">getRunResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse"><span class="hs-identifier hs-type">GetRunResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -381,16 +381,16 @@ $sel:run:GetRunResponse' :: GetRunResponse -&gt; Maybe Run
 -&gt; (GetRunResponse -&gt; Int -&gt; GetRunResponse)
 -&gt; Lens GetRunResponse GetRunResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse%27"><span class="hs-identifier hs-type">GetRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382448"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse%27"><span class="hs-identifier hs-type">GetRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679382727"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:GetRunResponse' :: GetRunResponse -&gt; Int
-</span><a href="#local-6989586621679382448"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382448"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382447"><span class="annot"><span class="annottext">s :: GetRunResponse
-</span><a href="#local-6989586621679382447"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse%27"><span class="hs-identifier hs-type">GetRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382446"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382446"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRunResponse
-</span><a href="#local-6989586621679382447"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRunResponse' :: Int
+</span><a href="#local-6989586621679382727"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382727"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679382726"><span class="annot"><span class="annottext">s :: GetRunResponse
+</span><a href="#local-6989586621679382726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse%27"><span class="hs-identifier hs-type">GetRunResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679382725"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679382725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRunResponse
+</span><a href="#local-6989586621679382726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRunResponse' :: Int
 </span><a href="Network.AWS.DeviceFarm.GetRun.html#%24sel%3AhttpStatus%3AGetRunResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679382446"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse"><span class="hs-identifier hs-type">GetRunResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679382725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse"><span class="hs-identifier hs-type">GetRunResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-157"></span><span>
-</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382444"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse"><span class="hs-identifier hs-type">GetRunResponse</span></a></span></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679382723"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DeviceFarm.GetRun.html#GetRunResponse"><span class="hs-identifier hs-type">GetRunResponse</span></a></span></span><span>
 </span><span id="line-159"></span></pre></body></html>

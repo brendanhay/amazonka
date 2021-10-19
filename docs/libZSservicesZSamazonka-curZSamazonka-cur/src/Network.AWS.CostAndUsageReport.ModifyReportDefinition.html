@@ -47,13 +47,13 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newModifyReportDefinition' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679152014"><span id="local-6989586621679152015"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyReportDefinition"><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-var">ModifyReportDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyReportDefinition%27"><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition%27"><span class="hs-identifier hs-var">ModifyReportDefinition'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679152026"><span id="local-6989586621679152027"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyReportDefinition"><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-var">ModifyReportDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyReportDefinition%27"><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition%27"><span class="hs-identifier hs-var">ModifyReportDefinition'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AreportName%3AModifyReportDefinition%27"><span class="annot"><span class="annottext">ModifyReportDefinition -&gt; Text
 </span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#%24sel%3AreportName%3AModifyReportDefinition%27"><span class="hs-identifier hs-var hs-var">reportName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AreportDefinition%3AModifyReportDefinition%27"><span class="annot"><span class="annottext">ModifyReportDefinition -&gt; ReportDefinition
 </span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#%24sel%3AreportDefinition%3AModifyReportDefinition%27"><span class="hs-identifier hs-var hs-var">reportDefinition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152007"><span id="local-6989586621679152009"><span class="annot"><span class="annottext">ModifyReportDefinition -&gt; ModifyReportDefinition -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152019"><span id="local-6989586621679152021"><span class="annot"><span class="annottext">ModifyReportDefinition -&gt; ModifyReportDefinition -&gt; Bool
 (ModifyReportDefinition -&gt; ModifyReportDefinition -&gt; Bool)
 -&gt; (ModifyReportDefinition -&gt; ModifyReportDefinition -&gt; Bool)
 -&gt; Eq ModifyReportDefinition
@@ -62,7 +62,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ModifyReportDefinition -&gt; ModifyReportDefinition -&gt; Bool
 == :: ModifyReportDefinition -&gt; ModifyReportDefinition -&gt; Bool
 $c== :: ModifyReportDefinition -&gt; ModifyReportDefinition -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151998"><span id="local-6989586621679152000"><span id="local-6989586621679152002"><span id="local-6989586621679152004"><span class="annot"><span class="annottext">ReadPrec [ModifyReportDefinition]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152010"><span id="local-6989586621679152012"><span id="local-6989586621679152014"><span id="local-6989586621679152016"><span class="annot"><span class="annottext">ReadPrec [ModifyReportDefinition]
 ReadPrec ModifyReportDefinition
 Int -&gt; ReadS ModifyReportDefinition
 ReadS [ModifyReportDefinition]
@@ -82,7 +82,7 @@ readList :: ReadS [ModifyReportDefinition]
 $creadList :: ReadS [ModifyReportDefinition]
 readsPrec :: Int -&gt; ReadS ModifyReportDefinition
 $creadsPrec :: Int -&gt; ReadS ModifyReportDefinition
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151991"><span id="local-6989586621679151993"><span id="local-6989586621679151995"><span class="annot"><span class="annottext">Int -&gt; ModifyReportDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152003"><span id="local-6989586621679152005"><span id="local-6989586621679152007"><span class="annot"><span class="annottext">Int -&gt; ModifyReportDefinition -&gt; ShowS
 [ModifyReportDefinition] -&gt; ShowS
 ModifyReportDefinition -&gt; String
 (Int -&gt; ModifyReportDefinition -&gt; ShowS)
@@ -128,18 +128,18 @@ $cfrom :: forall x. ModifyReportDefinition -&gt; Rep ModifyReportDefinition x
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span><span>
 </span><span id="line-73"></span><span id="newModifyReportDefinition"><span class="annot"><span class="annottext">newModifyReportDefinition :: Text -&gt; ReportDefinition -&gt; ModifyReportDefinition
 </span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#newModifyReportDefinition"><span class="hs-identifier hs-var hs-var">newModifyReportDefinition</span></a></span></span><span>
-</span><span id="line-74"></span><span>  </span><span id="local-6989586621679151986"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151986"><span class="hs-identifier hs-var">pReportName_</span></a></span></span><span>
-</span><span id="line-75"></span><span>  </span><span id="local-6989586621679151985"><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151985"><span class="hs-identifier hs-var">pReportDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679151998"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151998"><span class="hs-identifier hs-var">pReportName_</span></a></span></span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679151997"><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151997"><span class="hs-identifier hs-var">pReportDefinition_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">ModifyReportDefinition' :: Text -&gt; ReportDefinition -&gt; ModifyReportDefinition
 </span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition%27"><span class="hs-identifier hs-type">ModifyReportDefinition'</span></a></span><span>
 </span><span id="line-77"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reportName:ModifyReportDefinition' :: Text
 </span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#%24sel%3AreportName%3AModifyReportDefinition%27"><span class="hs-identifier hs-var">reportName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151986"><span class="hs-identifier hs-var">pReportName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151998"><span class="hs-identifier hs-var">pReportName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-78"></span><span>        </span><span class="annot"><span class="annottext">$sel:reportDefinition:ModifyReportDefinition' :: ReportDefinition
 </span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#%24sel%3AreportDefinition%3AModifyReportDefinition%27"><span class="hs-identifier hs-var">reportDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151985"><span class="hs-identifier hs-var">pReportDefinition_</span></a></span><span>
+</span><a href="#local-6989586621679151997"><span class="hs-identifier hs-var">pReportDefinition_</span></a></span><span>
 </span><span id="line-79"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-80"></span><span>
 </span><span id="line-81"></span><span class="hs-comment">-- | Undocumented member.</span><span>
@@ -150,16 +150,16 @@ $cfrom :: forall x. ModifyReportDefinition -&gt; Rep ModifyReportDefinition x
 -&gt; (ModifyReportDefinition -&gt; Text -&gt; ModifyReportDefinition)
 -&gt; Lens ModifyReportDefinition ModifyReportDefinition Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition%27"><span class="hs-identifier hs-type">ModifyReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151982"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition%27"><span class="hs-identifier hs-type">ModifyReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151994"><span class="annot"><span class="annottext">Text
 reportName :: Text
 $sel:reportName:ModifyReportDefinition' :: ModifyReportDefinition -&gt; Text
-</span><a href="#local-6989586621679151982"><span class="hs-identifier hs-var hs-var">reportName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151982"><span class="hs-identifier hs-var">reportName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151981"><span class="annot"><span class="annottext">s :: ModifyReportDefinition
-</span><a href="#local-6989586621679151981"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition%27"><span class="hs-identifier hs-type">ModifyReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151980"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151980"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReportDefinition
-</span><a href="#local-6989586621679151981"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportName:ModifyReportDefinition' :: Text
+</span><a href="#local-6989586621679151994"><span class="hs-identifier hs-var hs-var">reportName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151994"><span class="hs-identifier hs-var">reportName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151993"><span class="annot"><span class="annottext">s :: ModifyReportDefinition
+</span><a href="#local-6989586621679151993"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition%27"><span class="hs-identifier hs-type">ModifyReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151992"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679151992"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReportDefinition
+</span><a href="#local-6989586621679151993"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportName:ModifyReportDefinition' :: Text
 </span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#%24sel%3AreportName%3AModifyReportDefinition%27"><span class="hs-identifier hs-var">reportName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151980"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151992"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-84"></span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- | Undocumented member.</span><span>
 </span><span id="line-86"></span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#modifyReportDefinition_reportDefinition"><span class="hs-identifier hs-type">modifyReportDefinition_reportDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span>
@@ -174,27 +174,27 @@ $sel:reportName:ModifyReportDefinition' :: ModifyReportDefinition -&gt; Text
      ReportDefinition
      ReportDefinition
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition%27"><span class="hs-identifier hs-type">ModifyReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151979"><span class="annot"><span class="annottext">ReportDefinition
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition%27"><span class="hs-identifier hs-type">ModifyReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151991"><span class="annot"><span class="annottext">ReportDefinition
 reportDefinition :: ReportDefinition
 $sel:reportDefinition:ModifyReportDefinition' :: ModifyReportDefinition -&gt; ReportDefinition
-</span><a href="#local-6989586621679151979"><span class="hs-identifier hs-var hs-var">reportDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151979"><span class="hs-identifier hs-var">reportDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151978"><span class="annot"><span class="annottext">s :: ModifyReportDefinition
-</span><a href="#local-6989586621679151978"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition%27"><span class="hs-identifier hs-type">ModifyReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151977"><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151977"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReportDefinition
-</span><a href="#local-6989586621679151978"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportDefinition:ModifyReportDefinition' :: ReportDefinition
+</span><a href="#local-6989586621679151991"><span class="hs-identifier hs-var hs-var">reportDefinition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151991"><span class="hs-identifier hs-var">reportDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151990"><span class="annot"><span class="annottext">s :: ModifyReportDefinition
+</span><a href="#local-6989586621679151990"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition%27"><span class="hs-identifier hs-type">ModifyReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151989"><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679151989"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReportDefinition
+</span><a href="#local-6989586621679151990"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportDefinition:ModifyReportDefinition' :: ReportDefinition
 </span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#%24sel%3AreportDefinition%3AModifyReportDefinition%27"><span class="hs-identifier hs-var">reportDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151977"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151989"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-90"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-91"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse"><span class="hs-identifier hs-type">ModifyReportDefinitionResponse</span></a></span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679151973"><span class="annot"><span class="annottext">request :: ModifyReportDefinition -&gt; Request ModifyReportDefinition
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679151985"><span class="annot"><span class="annottext">request :: ModifyReportDefinition -&gt; Request ModifyReportDefinition
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyReportDefinition -&gt; Request ModifyReportDefinition
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CostAndUsageReport.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-94"></span><span>  </span><span id="local-6989586621679151969"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679151981"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy ModifyReportDefinition
 -&gt; ClientResponse ClientBody
@@ -220,10 +220,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679151966"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151966"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679151965"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679151965"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679151964"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679151964"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679151978"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151978"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679151977"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679151977"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679151976"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679151976"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; ModifyReportDefinitionResponse
 </span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse%27"><span class="hs-identifier hs-var">ModifyReportDefinitionResponse'</span></a></span><span>
 </span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; ModifyReportDefinitionResponse)
@@ -235,15 +235,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151966"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151978"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151957"><span id="local-6989586621679151959"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151969"><span id="local-6989586621679151971"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span></span></span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151954"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151966"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span></span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-106"></span><span>  </span><span id="local-6989586621679151950"><span class="annot"><span class="annottext">toHeaders :: ModifyReportDefinition -&gt; ResponseHeaders
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679151962"><span class="annot"><span class="annottext">toHeaders :: ModifyReportDefinition -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyReportDefinition -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -270,15 +270,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151940"><span id="local-6989586621679151942"><span id="local-6989586621679151944"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679151938"><span class="annot"><span class="annottext">toJSON :: ModifyReportDefinition -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition%27"><span class="hs-identifier hs-type">ModifyReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151935"><span id="local-6989586621679151936"><span class="annot"><span class="annottext">Text
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679151952"><span id="local-6989586621679151954"><span id="local-6989586621679151956"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679151950"><span class="annot"><span class="annottext">toJSON :: ModifyReportDefinition -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition%27"><span class="hs-identifier hs-type">ModifyReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151947"><span id="local-6989586621679151948"><span class="annot"><span class="annottext">Text
 ReportDefinition
 reportDefinition :: ReportDefinition
 reportName :: Text
 $sel:reportDefinition:ModifyReportDefinition' :: ModifyReportDefinition -&gt; ReportDefinition
 $sel:reportName:ModifyReportDefinition' :: ModifyReportDefinition -&gt; Text
-</span><a href="#local-6989586621679151935"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679151947"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -290,7 +290,7 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ReportName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679151936"><span class="hs-identifier hs-var">reportName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679151948"><span class="hs-identifier hs-var">reportName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -298,19 +298,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ReportDefinition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReportDefinition -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ReportDefinition
-</span><a href="#local-6989586621679151935"><span class="hs-identifier hs-var">reportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151947"><span class="hs-identifier hs-var">reportDefinition</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679151929"><span class="annot"><span class="annottext">toPath :: ModifyReportDefinition -&gt; ByteString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679151941"><span class="annot"><span class="annottext">toPath :: ModifyReportDefinition -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyReportDefinition -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinition"><span class="hs-identifier hs-type">ModifyReportDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-134"></span><span>  </span><span id="local-6989586621679151925"><span class="annot"><span class="annottext">toQuery :: ModifyReportDefinition -&gt; QueryString
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679151937"><span class="annot"><span class="annottext">toQuery :: ModifyReportDefinition -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ModifyReportDefinition -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -318,12 +318,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-135"></span><span>
 </span><span id="line-136"></span><span class="hs-comment">-- | /See:/ 'newModifyReportDefinitionResponse' smart constructor.</span><span>
-</span><span id="line-137"></span><span id="local-6989586621679151922"><span id="local-6989586621679151923"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyReportDefinitionResponse"><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse"><span class="hs-identifier hs-var">ModifyReportDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyReportDefinitionResponse%27"><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse%27"><span class="hs-identifier hs-var">ModifyReportDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span id="local-6989586621679151934"><span id="local-6989586621679151935"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyReportDefinitionResponse"><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse"><span class="hs-identifier hs-var">ModifyReportDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyReportDefinitionResponse%27"><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse%27"><span class="hs-identifier hs-var">ModifyReportDefinitionResponse'</span></a></span></span><span>
 </span><span id="line-138"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyReportDefinitionResponse%27"><span class="annot"><span class="annottext">ModifyReportDefinitionResponse -&gt; Int
 </span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#%24sel%3AhttpStatus%3AModifyReportDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151917"><span id="local-6989586621679151919"><span class="annot"><span class="annottext">ModifyReportDefinitionResponse
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151929"><span id="local-6989586621679151931"><span class="annot"><span class="annottext">ModifyReportDefinitionResponse
 -&gt; ModifyReportDefinitionResponse -&gt; Bool
 (ModifyReportDefinitionResponse
  -&gt; ModifyReportDefinitionResponse -&gt; Bool)
@@ -339,7 +339,7 @@ $c/= :: ModifyReportDefinitionResponse
 -&gt; ModifyReportDefinitionResponse -&gt; Bool
 $c== :: ModifyReportDefinitionResponse
 -&gt; ModifyReportDefinitionResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151909"><span id="local-6989586621679151911"><span id="local-6989586621679151913"><span id="local-6989586621679151915"><span class="annot"><span class="annottext">ReadPrec [ModifyReportDefinitionResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151921"><span id="local-6989586621679151923"><span id="local-6989586621679151925"><span id="local-6989586621679151927"><span class="annot"><span class="annottext">ReadPrec [ModifyReportDefinitionResponse]
 ReadPrec ModifyReportDefinitionResponse
 Int -&gt; ReadS ModifyReportDefinitionResponse
 ReadS [ModifyReportDefinitionResponse]
@@ -359,7 +359,7 @@ readList :: ReadS [ModifyReportDefinitionResponse]
 $creadList :: ReadS [ModifyReportDefinitionResponse]
 readsPrec :: Int -&gt; ReadS ModifyReportDefinitionResponse
 $creadsPrec :: Int -&gt; ReadS ModifyReportDefinitionResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151903"><span id="local-6989586621679151905"><span id="local-6989586621679151907"><span class="annot"><span class="annottext">Int -&gt; ModifyReportDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151915"><span id="local-6989586621679151917"><span id="local-6989586621679151919"><span class="annot"><span class="annottext">Int -&gt; ModifyReportDefinitionResponse -&gt; ShowS
 [ModifyReportDefinitionResponse] -&gt; ShowS
 ModifyReportDefinitionResponse -&gt; String
 (Int -&gt; ModifyReportDefinitionResponse -&gt; ShowS)
@@ -411,14 +411,14 @@ ModifyReportDefinitionResponse
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-155"></span><span>  </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse"><span class="hs-identifier hs-type">ModifyReportDefinitionResponse</span></a></span><span>
 </span><span id="line-156"></span><span id="newModifyReportDefinitionResponse"><span class="annot"><span class="annottext">newModifyReportDefinitionResponse :: Int -&gt; ModifyReportDefinitionResponse
-</span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#newModifyReportDefinitionResponse"><span class="hs-identifier hs-var hs-var">newModifyReportDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679151900"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151900"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#newModifyReportDefinitionResponse"><span class="hs-identifier hs-var hs-var">newModifyReportDefinitionResponse</span></a></span></span><span> </span><span id="local-6989586621679151912"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">ModifyReportDefinitionResponse' :: Int -&gt; ModifyReportDefinitionResponse
 </span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse%27"><span class="hs-identifier hs-type">ModifyReportDefinitionResponse'</span></a></span><span>
 </span><span id="line-158"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyReportDefinitionResponse' :: Int
 </span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#%24sel%3AhttpStatus%3AModifyReportDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151900"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679151912"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-160"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-161"></span><span>
 </span><span id="line-162"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -435,18 +435,18 @@ ModifyReportDefinitionResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse%27"><span class="hs-identifier hs-type">ModifyReportDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151899"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse%27"><span class="hs-identifier hs-type">ModifyReportDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679151911"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:ModifyReportDefinitionResponse' :: ModifyReportDefinitionResponse -&gt; Int
-</span><a href="#local-6989586621679151899"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151899"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151898"><span class="annot"><span class="annottext">s :: ModifyReportDefinitionResponse
-</span><a href="#local-6989586621679151898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse%27"><span class="hs-identifier hs-type">ModifyReportDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151897"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReportDefinitionResponse
-</span><a href="#local-6989586621679151898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyReportDefinitionResponse' :: Int
+</span><a href="#local-6989586621679151911"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151911"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679151910"><span class="annot"><span class="annottext">s :: ModifyReportDefinitionResponse
+</span><a href="#local-6989586621679151910"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse%27"><span class="hs-identifier hs-type">ModifyReportDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679151909"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679151909"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyReportDefinitionResponse
+</span><a href="#local-6989586621679151910"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyReportDefinitionResponse' :: Int
 </span><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#%24sel%3AhttpStatus%3AModifyReportDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679151897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse"><span class="hs-identifier hs-type">ModifyReportDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679151909"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse"><span class="hs-identifier hs-type">ModifyReportDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-165"></span><span>
 </span><span id="line-166"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-167"></span><span>  </span><span id="local-6989586621679151895"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679151907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-168"></span><span>    </span><span class="annot"><a href="Network.AWS.CostAndUsageReport.ModifyReportDefinition.html#ModifyReportDefinitionResponse"><span class="hs-identifier hs-type">ModifyReportDefinitionResponse</span></a></span></span><span>
 </span><span id="line-169"></span></pre></body></html>

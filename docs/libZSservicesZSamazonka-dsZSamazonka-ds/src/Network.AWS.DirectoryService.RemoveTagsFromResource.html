@@ -47,7 +47,7 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newRemoveTagsFromResource' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679303913"><span id="local-6989586621679303914"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsFromResource"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-var">RemoveTagsFromResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsFromResource%27"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource%27"><span class="hs-identifier hs-var">RemoveTagsFromResource'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679304113"><span id="local-6989586621679304114"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsFromResource"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-var">RemoveTagsFromResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsFromResource%27"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource%27"><span class="hs-identifier hs-var">RemoveTagsFromResource'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier (ID) of the directory from which to remove the tag.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3AresourceId%3ARemoveTagsFromResource%27"><span class="annot"><span class="annottext">RemoveTagsFromResource -&gt; Text
 </span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#%24sel%3AresourceId%3ARemoveTagsFromResource%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -55,7 +55,7 @@
 </span><span id="line-54"></span><span>    </span><span id="%24sel%3AtagKeys%3ARemoveTagsFromResource%27"><span class="annot"><span class="annottext">RemoveTagsFromResource -&gt; [Text]
 </span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#%24sel%3AtagKeys%3ARemoveTagsFromResource%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303906"><span id="local-6989586621679303908"><span class="annot"><span class="annottext">RemoveTagsFromResource -&gt; RemoveTagsFromResource -&gt; Bool
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304106"><span id="local-6989586621679304108"><span class="annot"><span class="annottext">RemoveTagsFromResource -&gt; RemoveTagsFromResource -&gt; Bool
 (RemoveTagsFromResource -&gt; RemoveTagsFromResource -&gt; Bool)
 -&gt; (RemoveTagsFromResource -&gt; RemoveTagsFromResource -&gt; Bool)
 -&gt; Eq RemoveTagsFromResource
@@ -64,7 +64,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: RemoveTagsFromResource -&gt; RemoveTagsFromResource -&gt; Bool
 == :: RemoveTagsFromResource -&gt; RemoveTagsFromResource -&gt; Bool
 $c== :: RemoveTagsFromResource -&gt; RemoveTagsFromResource -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303897"><span id="local-6989586621679303899"><span id="local-6989586621679303901"><span id="local-6989586621679303903"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsFromResource]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304097"><span id="local-6989586621679304099"><span id="local-6989586621679304101"><span id="local-6989586621679304103"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsFromResource]
 ReadPrec RemoveTagsFromResource
 Int -&gt; ReadS RemoveTagsFromResource
 ReadS [RemoveTagsFromResource]
@@ -84,7 +84,7 @@ readList :: ReadS [RemoveTagsFromResource]
 $creadList :: ReadS [RemoveTagsFromResource]
 readsPrec :: Int -&gt; ReadS RemoveTagsFromResource
 $creadsPrec :: Int -&gt; ReadS RemoveTagsFromResource
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303890"><span id="local-6989586621679303892"><span id="local-6989586621679303894"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsFromResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304090"><span id="local-6989586621679304092"><span id="local-6989586621679304094"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsFromResource -&gt; ShowS
 [RemoveTagsFromResource] -&gt; ShowS
 RemoveTagsFromResource -&gt; String
 (Int -&gt; RemoveTagsFromResource -&gt; ShowS)
@@ -127,13 +127,13 @@ $cfrom :: forall x. RemoveTagsFromResource -&gt; Rep RemoveTagsFromResource x
 </span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-72"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span><span>
 </span><span id="line-73"></span><span id="newRemoveTagsFromResource"><span class="annot"><span class="annottext">newRemoveTagsFromResource :: Text -&gt; RemoveTagsFromResource
-</span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#newRemoveTagsFromResource"><span class="hs-identifier hs-var hs-var">newRemoveTagsFromResource</span></a></span></span><span> </span><span id="local-6989586621679303885"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303885"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#newRemoveTagsFromResource"><span class="hs-identifier hs-var hs-var">newRemoveTagsFromResource</span></a></span></span><span> </span><span id="local-6989586621679304085"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304085"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-74"></span><span>  </span><span class="annot"><span class="annottext">RemoveTagsFromResource' :: Text -&gt; [Text] -&gt; RemoveTagsFromResource
 </span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource%27"><span class="hs-identifier hs-type">RemoveTagsFromResource'</span></a></span><span>
 </span><span id="line-75"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceId:RemoveTagsFromResource' :: Text
 </span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#%24sel%3AresourceId%3ARemoveTagsFromResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303885"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304085"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:RemoveTagsFromResource' :: [Text]
 </span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#%24sel%3AtagKeys%3ARemoveTagsFromResource%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
 forall a. Monoid a =&gt; a
@@ -148,16 +148,16 @@ forall a. Monoid a =&gt; a
 -&gt; (RemoveTagsFromResource -&gt; Text -&gt; RemoveTagsFromResource)
 -&gt; Lens RemoveTagsFromResource RemoveTagsFromResource Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource%27"><span class="hs-identifier hs-type">RemoveTagsFromResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303882"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource%27"><span class="hs-identifier hs-type">RemoveTagsFromResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304082"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:RemoveTagsFromResource' :: RemoveTagsFromResource -&gt; Text
-</span><a href="#local-6989586621679303882"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303882"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303881"><span class="annot"><span class="annottext">s :: RemoveTagsFromResource
-</span><a href="#local-6989586621679303881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource%27"><span class="hs-identifier hs-type">RemoveTagsFromResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303880"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsFromResource
-</span><a href="#local-6989586621679303881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:RemoveTagsFromResource' :: Text
+</span><a href="#local-6989586621679304082"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304082"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304081"><span class="annot"><span class="annottext">s :: RemoveTagsFromResource
+</span><a href="#local-6989586621679304081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource%27"><span class="hs-identifier hs-type">RemoveTagsFromResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304080"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsFromResource
+</span><a href="#local-6989586621679304081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:RemoveTagsFromResource' :: Text
 </span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#%24sel%3AresourceId%3ARemoveTagsFromResource%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-82"></span><span>
 </span><span id="line-83"></span><span class="hs-comment">-- | The tag key (name) of the tag to be removed.</span><span>
 </span><span id="line-84"></span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#removeTagsFromResource_tagKeys"><span class="hs-identifier hs-type">removeTagsFromResource_tagKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
@@ -167,16 +167,16 @@ $sel:resourceId:RemoveTagsFromResource' :: RemoveTagsFromResource -&gt; Text
 -&gt; (RemoveTagsFromResource -&gt; [Text] -&gt; RemoveTagsFromResource)
 -&gt; Lens RemoveTagsFromResource RemoveTagsFromResource [Text] [Text]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource%27"><span class="hs-identifier hs-type">RemoveTagsFromResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303879"><span class="annot"><span class="annottext">[Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource%27"><span class="hs-identifier hs-type">RemoveTagsFromResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304079"><span class="annot"><span class="annottext">[Text]
 tagKeys :: [Text]
 $sel:tagKeys:RemoveTagsFromResource' :: RemoveTagsFromResource -&gt; [Text]
-</span><a href="#local-6989586621679303879"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679303879"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303878"><span class="annot"><span class="annottext">s :: RemoveTagsFromResource
-</span><a href="#local-6989586621679303878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource%27"><span class="hs-identifier hs-type">RemoveTagsFromResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303877"><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679303877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsFromResource
-</span><a href="#local-6989586621679303878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:RemoveTagsFromResource' :: [Text]
+</span><a href="#local-6989586621679304079"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679304079"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304078"><span class="annot"><span class="annottext">s :: RemoveTagsFromResource
+</span><a href="#local-6989586621679304078"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource%27"><span class="hs-identifier hs-type">RemoveTagsFromResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304077"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679304077"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsFromResource
+</span><a href="#local-6989586621679304078"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:RemoveTagsFromResource' :: [Text]
 </span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#%24sel%3AtagKeys%3ARemoveTagsFromResource%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679303877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+</span><a href="#local-6989586621679304077"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
  -&gt; RemoveTagsFromResource -&gt; f RemoveTagsFromResource)
 -&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
 -&gt; ([Text] -&gt; f [Text])
@@ -184,19 +184,19 @@ $sel:tagKeys:RemoveTagsFromResource' :: RemoveTagsFromResource -&gt; [Text]
 -&gt; f RemoveTagsFromResource
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-86"></span><span>
 </span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-90"></span><span>      </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse"><span class="hs-identifier hs-type">RemoveTagsFromResourceResponse</span></a></span><span>
-</span><span id="line-91"></span><span>  </span><span id="local-6989586621679303871"><span class="annot"><span class="annottext">request :: RemoveTagsFromResource -&gt; Request RemoveTagsFromResource
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679304071"><span class="annot"><span class="annottext">request :: RemoveTagsFromResource -&gt; Request RemoveTagsFromResource
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RemoveTagsFromResource -&gt; Request RemoveTagsFromResource
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-92"></span><span>  </span><span id="local-6989586621679303867"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679304067"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy RemoveTagsFromResource
 -&gt; ClientResponse ClientBody
@@ -222,10 +222,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679303864"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303864"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679303863"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679303863"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679303862"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679303862"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304064"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304064"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304063"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304063"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304062"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679304062"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RemoveTagsFromResourceResponse
 </span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse%27"><span class="hs-identifier hs-var">RemoveTagsFromResourceResponse'</span></a></span><span>
 </span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RemoveTagsFromResourceResponse)
@@ -237,15 +237,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303864"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304064"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
-</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303855"><span id="local-6989586621679303857"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span></span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304055"><span id="local-6989586621679304057"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span></span></span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303852"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304052"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span></span><span>
 </span><span id="line-102"></span><span>
 </span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679303848"><span class="annot"><span class="annottext">toHeaders :: RemoveTagsFromResource -&gt; ResponseHeaders
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679304048"><span class="annot"><span class="annottext">toHeaders :: RemoveTagsFromResource -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RemoveTagsFromResource -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -272,15 +272,15 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679303838"><span id="local-6989586621679303840"><span id="local-6989586621679303842"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679303836"><span class="annot"><span class="annottext">toJSON :: RemoveTagsFromResource -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource%27"><span class="hs-identifier hs-type">RemoveTagsFromResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303833"><span id="local-6989586621679303834"><span class="annot"><span class="annottext">[Text]
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304038"><span id="local-6989586621679304040"><span id="local-6989586621679304042"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679304036"><span class="annot"><span class="annottext">toJSON :: RemoveTagsFromResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource%27"><span class="hs-identifier hs-type">RemoveTagsFromResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304033"><span id="local-6989586621679304034"><span class="annot"><span class="annottext">[Text]
 Text
 tagKeys :: [Text]
 resourceId :: Text
 $sel:tagKeys:RemoveTagsFromResource' :: RemoveTagsFromResource -&gt; [Text]
 $sel:resourceId:RemoveTagsFromResource' :: RemoveTagsFromResource -&gt; Text
-</span><a href="#local-6989586621679303833"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679304033"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -292,26 +292,26 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679303834"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679304034"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;TagKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
-</span><a href="#local-6989586621679303833"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679304033"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-125"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>
 </span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-128"></span><span>  </span><span id="local-6989586621679303827"><span class="annot"><span class="annottext">toPath :: RemoveTagsFromResource -&gt; ByteString
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679304027"><span class="annot"><span class="annottext">toPath :: RemoveTagsFromResource -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RemoveTagsFromResource -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-129"></span><span>
 </span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResource"><span class="hs-identifier hs-type">RemoveTagsFromResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-131"></span><span>  </span><span id="local-6989586621679303823"><span class="annot"><span class="annottext">toQuery :: RemoveTagsFromResource -&gt; QueryString
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679304023"><span class="annot"><span class="annottext">toQuery :: RemoveTagsFromResource -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RemoveTagsFromResource -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -319,12 +319,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-132"></span><span>
 </span><span id="line-133"></span><span class="hs-comment">-- | /See:/ 'newRemoveTagsFromResourceResponse' smart constructor.</span><span>
-</span><span id="line-134"></span><span id="local-6989586621679303820"><span id="local-6989586621679303821"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsFromResourceResponse"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse"><span class="hs-identifier hs-var">RemoveTagsFromResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsFromResourceResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse%27"><span class="hs-identifier hs-var">RemoveTagsFromResourceResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span id="local-6989586621679304020"><span id="local-6989586621679304021"></span></span><span class="hs-keyword">data</span><span> </span><span id="RemoveTagsFromResourceResponse"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse"><span class="hs-identifier hs-var">RemoveTagsFromResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RemoveTagsFromResourceResponse%27"><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse%27"><span class="hs-identifier hs-var">RemoveTagsFromResourceResponse'</span></a></span></span><span>
 </span><span id="line-135"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARemoveTagsFromResourceResponse%27"><span class="annot"><span class="annottext">RemoveTagsFromResourceResponse -&gt; Int
 </span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#%24sel%3AhttpStatus%3ARemoveTagsFromResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679303815"><span id="local-6989586621679303817"><span class="annot"><span class="annottext">RemoveTagsFromResourceResponse
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304015"><span id="local-6989586621679304017"><span class="annot"><span class="annottext">RemoveTagsFromResourceResponse
 -&gt; RemoveTagsFromResourceResponse -&gt; Bool
 (RemoveTagsFromResourceResponse
  -&gt; RemoveTagsFromResourceResponse -&gt; Bool)
@@ -340,7 +340,7 @@ $c/= :: RemoveTagsFromResourceResponse
 -&gt; RemoveTagsFromResourceResponse -&gt; Bool
 $c== :: RemoveTagsFromResourceResponse
 -&gt; RemoveTagsFromResourceResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303807"><span id="local-6989586621679303809"><span id="local-6989586621679303811"><span id="local-6989586621679303813"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsFromResourceResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304007"><span id="local-6989586621679304009"><span id="local-6989586621679304011"><span id="local-6989586621679304013"><span class="annot"><span class="annottext">ReadPrec [RemoveTagsFromResourceResponse]
 ReadPrec RemoveTagsFromResourceResponse
 Int -&gt; ReadS RemoveTagsFromResourceResponse
 ReadS [RemoveTagsFromResourceResponse]
@@ -360,7 +360,7 @@ readList :: ReadS [RemoveTagsFromResourceResponse]
 $creadList :: ReadS [RemoveTagsFromResourceResponse]
 readsPrec :: Int -&gt; ReadS RemoveTagsFromResourceResponse
 $creadsPrec :: Int -&gt; ReadS RemoveTagsFromResourceResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679303801"><span id="local-6989586621679303803"><span id="local-6989586621679303805"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsFromResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304001"><span id="local-6989586621679304003"><span id="local-6989586621679304005"><span class="annot"><span class="annottext">Int -&gt; RemoveTagsFromResourceResponse -&gt; ShowS
 [RemoveTagsFromResourceResponse] -&gt; ShowS
 RemoveTagsFromResourceResponse -&gt; String
 (Int -&gt; RemoveTagsFromResourceResponse -&gt; ShowS)
@@ -412,14 +412,14 @@ RemoveTagsFromResourceResponse
 </span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-152"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse"><span class="hs-identifier hs-type">RemoveTagsFromResourceResponse</span></a></span><span>
 </span><span id="line-153"></span><span id="newRemoveTagsFromResourceResponse"><span class="annot"><span class="annottext">newRemoveTagsFromResourceResponse :: Int -&gt; RemoveTagsFromResourceResponse
-</span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#newRemoveTagsFromResourceResponse"><span class="hs-identifier hs-var hs-var">newRemoveTagsFromResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679303798"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303798"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#newRemoveTagsFromResourceResponse"><span class="hs-identifier hs-var hs-var">newRemoveTagsFromResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679303998"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303998"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">RemoveTagsFromResourceResponse' :: Int -&gt; RemoveTagsFromResourceResponse
 </span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse%27"><span class="hs-identifier hs-type">RemoveTagsFromResourceResponse'</span></a></span><span>
 </span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveTagsFromResourceResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#%24sel%3AhttpStatus%3ARemoveTagsFromResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303798"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679303998"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -436,18 +436,18 @@ RemoveTagsFromResourceResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse%27"><span class="hs-identifier hs-type">RemoveTagsFromResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303797"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse%27"><span class="hs-identifier hs-type">RemoveTagsFromResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679303997"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:RemoveTagsFromResourceResponse' :: RemoveTagsFromResourceResponse -&gt; Int
-</span><a href="#local-6989586621679303797"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303797"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303796"><span class="annot"><span class="annottext">s :: RemoveTagsFromResourceResponse
-</span><a href="#local-6989586621679303796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse%27"><span class="hs-identifier hs-type">RemoveTagsFromResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303795"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsFromResourceResponse
-</span><a href="#local-6989586621679303796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveTagsFromResourceResponse' :: Int
+</span><a href="#local-6989586621679303997"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303997"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679303996"><span class="annot"><span class="annottext">s :: RemoveTagsFromResourceResponse
+</span><a href="#local-6989586621679303996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse%27"><span class="hs-identifier hs-type">RemoveTagsFromResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679303995"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679303995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RemoveTagsFromResourceResponse
+</span><a href="#local-6989586621679303996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RemoveTagsFromResourceResponse' :: Int
 </span><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#%24sel%3AhttpStatus%3ARemoveTagsFromResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679303795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse"><span class="hs-identifier hs-type">RemoveTagsFromResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679303995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse"><span class="hs-identifier hs-type">RemoveTagsFromResourceResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679303793"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679303993"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectoryService.RemoveTagsFromResource.html#RemoveTagsFromResourceResponse"><span class="hs-identifier hs-type">RemoveTagsFromResourceResponse</span></a></span></span><span>
 </span><span id="line-166"></span></pre></body></html>

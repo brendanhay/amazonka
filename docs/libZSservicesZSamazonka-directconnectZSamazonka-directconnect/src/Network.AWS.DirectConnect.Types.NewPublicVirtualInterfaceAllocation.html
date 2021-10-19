@@ -30,27 +30,27 @@
 </span><span id="line-30"></span><span class="hs-comment">-- connection.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newNewPublicVirtualInterfaceAllocation' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679281880"><span id="local-6989586621679281881"></span></span><span class="hs-keyword">data</span><span> </span><span id="NewPublicVirtualInterfaceAllocation"><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-var">NewPublicVirtualInterfaceAllocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NewPublicVirtualInterfaceAllocation%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">NewPublicVirtualInterfaceAllocation'</span></a></span></span><span>
-</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The authentication key for BGP configuration. This string has a minimum</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AauthKey%3ANewPublicVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AauthKey%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">authKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The routes to be advertised to the Amazon Web Services network in this</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Region. Applies to public virtual interfaces.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3ArouteFilterPrefixes%3ANewPublicVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation -&gt; Maybe [RouteFilterPrefix]
+</span><span id="line-33"></span><span id="local-6989586621679282109"><span id="local-6989586621679282110"></span></span><span class="hs-keyword">data</span><span> </span><span id="NewPublicVirtualInterfaceAllocation"><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-var">NewPublicVirtualInterfaceAllocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NewPublicVirtualInterfaceAllocation%27"><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">NewPublicVirtualInterfaceAllocation'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The routes to be advertised to the Amazon Web Services network in this</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Region. Applies to public virtual interfaces.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3ArouteFilterPrefixes%3ANewPublicVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation -&gt; Maybe [RouteFilterPrefix]
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3ArouteFilterPrefixes%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">routeFilterPrefixes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The tags associated with the public virtual interface.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3Atags%3ANewPublicVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation -&gt; Maybe (NonEmpty Tag)
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3Atags%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the Amazon interface.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3AamazonAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AamazonAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">amazonAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The address family for the BGP peer.</span><span>
-</span><span id="line-45"></span><span>    </span><span id="%24sel%3AaddressFamily%3ANewPublicVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation -&gt; Maybe AddressFamily
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AaddressFamily%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">addressFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3AcustomerAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcustomerAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AcustomerAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The IP address assigned to the Amazon interface.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AamazonAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AamazonAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">amazonAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The address family for the BGP peer.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AaddressFamily%3ANewPublicVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation -&gt; Maybe AddressFamily
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AaddressFamily%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">addressFamily</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The authentication key for BGP configuration. This string has a minimum</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AauthKey%3ANewPublicVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AauthKey%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">authKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The tags associated with the public virtual interface.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Atags%3ANewPublicVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation -&gt; Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3Atags%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The name of the virtual interface assigned by the customer network. The</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">-- name has a maximum of 100 characters. The following are valid</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">-- characters: a-z, 0-9 and a hyphen (-).</span><span>
@@ -66,7 +66,7 @@
 </span><span id="line-58"></span><span>    </span><span id="%24sel%3Aasn%3ANewPublicVirtualInterfaceAllocation%27"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation -&gt; Int
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3Aasn%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679281866"><span id="local-6989586621679281868"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679282095"><span id="local-6989586621679282097"><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
 -&gt; NewPublicVirtualInterfaceAllocation -&gt; Bool
 (NewPublicVirtualInterfaceAllocation
  -&gt; NewPublicVirtualInterfaceAllocation -&gt; Bool)
@@ -82,7 +82,7 @@ $c/= :: NewPublicVirtualInterfaceAllocation
 -&gt; NewPublicVirtualInterfaceAllocation -&gt; Bool
 $c== :: NewPublicVirtualInterfaceAllocation
 -&gt; NewPublicVirtualInterfaceAllocation -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281857"><span id="local-6989586621679281859"><span id="local-6989586621679281861"><span id="local-6989586621679281863"><span class="annot"><span class="annottext">ReadPrec [NewPublicVirtualInterfaceAllocation]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282086"><span id="local-6989586621679282088"><span id="local-6989586621679282090"><span id="local-6989586621679282092"><span class="annot"><span class="annottext">ReadPrec [NewPublicVirtualInterfaceAllocation]
 ReadPrec NewPublicVirtualInterfaceAllocation
 Int -&gt; ReadS NewPublicVirtualInterfaceAllocation
 ReadS [NewPublicVirtualInterfaceAllocation]
@@ -102,7 +102,7 @@ readList :: ReadS [NewPublicVirtualInterfaceAllocation]
 $creadList :: ReadS [NewPublicVirtualInterfaceAllocation]
 readsPrec :: Int -&gt; ReadS NewPublicVirtualInterfaceAllocation
 $creadsPrec :: Int -&gt; ReadS NewPublicVirtualInterfaceAllocation
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679281850"><span id="local-6989586621679281852"><span id="local-6989586621679281854"><span class="annot"><span class="annottext">Int -&gt; NewPublicVirtualInterfaceAllocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679282079"><span id="local-6989586621679282081"><span id="local-6989586621679282083"><span class="annot"><span class="annottext">Int -&gt; NewPublicVirtualInterfaceAllocation -&gt; ShowS
 [NewPublicVirtualInterfaceAllocation] -&gt; ShowS
 NewPublicVirtualInterfaceAllocation -&gt; String
 (Int -&gt; NewPublicVirtualInterfaceAllocation -&gt; ShowS)
@@ -148,19 +148,19 @@ NewPublicVirtualInterfaceAllocation
 </span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'authKey', 'newPublicVirtualInterfaceAllocation_authKey' - The authentication key for BGP configuration. This string has a minimum</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'routeFilterPrefixes', 'newPublicVirtualInterfaceAllocation_routeFilterPrefixes' - The routes to be advertised to the Amazon Web Services network in this</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Region. Applies to public virtual interfaces.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'routeFilterPrefixes', 'newPublicVirtualInterfaceAllocation_routeFilterPrefixes' - The routes to be advertised to the Amazon Web Services network in this</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- Region. Applies to public virtual interfaces.</span><span>
-</span><span id="line-75"></span><span class="hs-comment">--</span><span>
-</span><span id="line-76"></span><span class="hs-comment">-- 'tags', 'newPublicVirtualInterfaceAllocation_tags' - The tags associated with the public virtual interface.</span><span>
-</span><span id="line-77"></span><span class="hs-comment">--</span><span>
-</span><span id="line-78"></span><span class="hs-comment">-- 'amazonAddress', 'newPublicVirtualInterfaceAllocation_amazonAddress' - The IP address assigned to the Amazon interface.</span><span>
-</span><span id="line-79"></span><span class="hs-comment">--</span><span>
-</span><span id="line-80"></span><span class="hs-comment">-- 'addressFamily', 'newPublicVirtualInterfaceAllocation_addressFamily' - The address family for the BGP peer.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'customerAddress', 'newPublicVirtualInterfaceAllocation_customerAddress' - The IP address assigned to the customer interface.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'amazonAddress', 'newPublicVirtualInterfaceAllocation_amazonAddress' - The IP address assigned to the Amazon interface.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'addressFamily', 'newPublicVirtualInterfaceAllocation_addressFamily' - The address family for the BGP peer.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'authKey', 'newPublicVirtualInterfaceAllocation_authKey' - The authentication key for BGP configuration. This string has a minimum</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
 </span><span id="line-81"></span><span class="hs-comment">--</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- 'customerAddress', 'newPublicVirtualInterfaceAllocation_customerAddress' - The IP address assigned to the customer interface.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'tags', 'newPublicVirtualInterfaceAllocation_tags' - The tags associated with the public virtual interface.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
 </span><span id="line-84"></span><span class="hs-comment">-- 'virtualInterfaceName', 'newPublicVirtualInterfaceAllocation_virtualInterfaceName' - The name of the virtual interface assigned by the customer network. The</span><span>
 </span><span id="line-85"></span><span class="hs-comment">-- name has a maximum of 100 characters. The following are valid</span><span>
@@ -182,90 +182,64 @@ NewPublicVirtualInterfaceAllocation
 </span><span id="line-101"></span><span>  </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span>
 </span><span id="line-102"></span><span id="newNewPublicVirtualInterfaceAllocation"><span class="annot"><span class="annottext">newNewPublicVirtualInterfaceAllocation :: Text -&gt; Int -&gt; Int -&gt; NewPublicVirtualInterfaceAllocation
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newNewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-var hs-var">newNewPublicVirtualInterfaceAllocation</span></a></span></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621679281844"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679281844"><span class="hs-identifier hs-var">pVirtualInterfaceName_</span></a></span></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679281843"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281843"><span class="hs-identifier hs-var">pVlan_</span></a></span></span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679281842"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281842"><span class="hs-identifier hs-var">pAsn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation' :: Maybe Text
--&gt; Maybe [RouteFilterPrefix]
--&gt; Maybe (NonEmpty Tag)
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679282073"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282073"><span class="hs-identifier hs-var">pVirtualInterfaceName_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679282072"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282072"><span class="hs-identifier hs-var">pVlan_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679282071"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282071"><span class="hs-identifier hs-var">pAsn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation' :: Maybe [RouteFilterPrefix]
+-&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe AddressFamily
 -&gt; Maybe Text
+-&gt; Maybe (NonEmpty Tag)
 -&gt; Text
 -&gt; Int
 -&gt; Int
 -&gt; NewPublicVirtualInterfaceAllocation
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authKey:NewPublicVirtualInterfaceAllocation' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AauthKey%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">authKey</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-107"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:routeFilterPrefixes:NewPublicVirtualInterfaceAllocation' :: Maybe [RouteFilterPrefix]
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3ArouteFilterPrefixes%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">routeFilterPrefixes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:routeFilterPrefixes:NewPublicVirtualInterfaceAllocation' :: Maybe [RouteFilterPrefix]
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3ArouteFilterPrefixes%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">routeFilterPrefixes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:customerAddress:NewPublicVirtualInterfaceAllocation' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AcustomerAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:NewPublicVirtualInterfaceAllocation' :: Maybe (NonEmpty Tag)
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3Atags%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:amazonAddress:NewPublicVirtualInterfaceAllocation' :: Maybe Text
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:amazonAddress:NewPublicVirtualInterfaceAllocation' :: Maybe Text
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AamazonAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:addressFamily:NewPublicVirtualInterfaceAllocation' :: Maybe AddressFamily
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:addressFamily:NewPublicVirtualInterfaceAllocation' :: Maybe AddressFamily
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AaddressFamily%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">addressFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:customerAddress:NewPublicVirtualInterfaceAllocation' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AcustomerAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:authKey:NewPublicVirtualInterfaceAllocation' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AauthKey%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">authKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:NewPublicVirtualInterfaceAllocation' :: Maybe (NonEmpty Tag)
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3Atags%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:virtualInterfaceName:NewPublicVirtualInterfaceAllocation' :: Text
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AvirtualInterfaceName%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679281844"><span class="hs-identifier hs-var">pVirtualInterfaceName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679282073"><span class="hs-identifier hs-var">pVirtualInterfaceName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:vlan:NewPublicVirtualInterfaceAllocation' :: Int
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3Avlan%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">vlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281843"><span class="hs-identifier hs-var">pVlan_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679282072"><span class="hs-identifier hs-var">pVlan_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:asn:NewPublicVirtualInterfaceAllocation' :: Int
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3Aasn%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281842"><span class="hs-identifier hs-var">pAsn_</span></a></span><span>
+</span><a href="#local-6989586621679282071"><span class="hs-identifier hs-var">pAsn_</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-comment">-- | The authentication key for BGP configuration. This string has a minimum</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
-</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_authKey"><span class="hs-identifier hs-type">newPublicVirtualInterfaceAllocation_authKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-123"></span><span id="newPublicVirtualInterfaceAllocation_authKey"><span class="annot"><span class="annottext">newPublicVirtualInterfaceAllocation_authKey :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NewPublicVirtualInterfaceAllocation
--&gt; f NewPublicVirtualInterfaceAllocation
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_authKey"><span class="hs-identifier hs-var hs-var">newPublicVirtualInterfaceAllocation_authKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewPublicVirtualInterfaceAllocation -&gt; Maybe Text)
--&gt; (NewPublicVirtualInterfaceAllocation
-    -&gt; Maybe Text -&gt; NewPublicVirtualInterfaceAllocation)
--&gt; Lens
-     NewPublicVirtualInterfaceAllocation
-     NewPublicVirtualInterfaceAllocation
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281838"><span class="annot"><span class="annottext">Maybe Text
-authKey :: Maybe Text
-$sel:authKey:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
-</span><a href="#local-6989586621679281838"><span class="hs-identifier hs-var hs-var">authKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281838"><span class="hs-identifier hs-var">authKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281837"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281836"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authKey:NewPublicVirtualInterfaceAllocation' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AauthKey%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">authKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The routes to be advertised to the Amazon Web Services network in this</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- Region. Applies to public virtual interfaces.</span><span>
-</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_routeFilterPrefixes"><span class="hs-identifier hs-type">newPublicVirtualInterfaceAllocation_routeFilterPrefixes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span id="newPublicVirtualInterfaceAllocation_routeFilterPrefixes"><span class="annot"><span class="annottext">newPublicVirtualInterfaceAllocation_routeFilterPrefixes :: (Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
+</span><span id="line-120"></span><span class="hs-comment">-- | The routes to be advertised to the Amazon Web Services network in this</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Region. Applies to public virtual interfaces.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_routeFilterPrefixes"><span class="hs-identifier hs-type">newPublicVirtualInterfaceAllocation_routeFilterPrefixes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.RouteFilterPrefix.html#RouteFilterPrefix"><span class="hs-identifier hs-type">RouteFilterPrefix</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="newPublicVirtualInterfaceAllocation_routeFilterPrefixes"><span class="annot"><span class="annottext">newPublicVirtualInterfaceAllocation_routeFilterPrefixes :: (Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
 -&gt; NewPublicVirtualInterfaceAllocation
 -&gt; f NewPublicVirtualInterfaceAllocation
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_routeFilterPrefixes"><span class="hs-identifier hs-var hs-var">newPublicVirtualInterfaceAllocation_routeFilterPrefixes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewPublicVirtualInterfaceAllocation -&gt; Maybe [RouteFilterPrefix])
@@ -278,16 +252,16 @@ $sel:authKey:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAl
      (Maybe [RouteFilterPrefix])
      (Maybe [RouteFilterPrefix])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281834"><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282067"><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
 routeFilterPrefixes :: Maybe [RouteFilterPrefix]
 $sel:routeFilterPrefixes:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe [RouteFilterPrefix]
-</span><a href="#local-6989586621679281834"><span class="hs-identifier hs-var hs-var">routeFilterPrefixes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
-</span><a href="#local-6989586621679281834"><span class="hs-identifier hs-var">routeFilterPrefixes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281833"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281832"><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
-</span><a href="#local-6989586621679281832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeFilterPrefixes:NewPublicVirtualInterfaceAllocation' :: Maybe [RouteFilterPrefix]
+</span><a href="#local-6989586621679282067"><span class="hs-identifier hs-var hs-var">routeFilterPrefixes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+</span><a href="#local-6989586621679282067"><span class="hs-identifier hs-var">routeFilterPrefixes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282066"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282065"><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
+</span><a href="#local-6989586621679282065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routeFilterPrefixes:NewPublicVirtualInterfaceAllocation' :: Maybe [RouteFilterPrefix]
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3ArouteFilterPrefixes%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">routeFilterPrefixes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
-</span><a href="#local-6989586621679281832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
+</span><a href="#local-6989586621679282065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
  -&gt; NewPublicVirtualInterfaceAllocation
  -&gt; f NewPublicVirtualInterfaceAllocation)
 -&gt; ((Maybe [RouteFilterPrefix] -&gt; f (Maybe [RouteFilterPrefix]))
@@ -314,12 +288,113 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [RouteFilterPrefix]
   [RouteFilterPrefix]
   [RouteFilterPrefix]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The tags associated with the public virtual interface.</span><span>
-</span><span id="line-131"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_tags"><span class="hs-identifier hs-type">newPublicVirtualInterfaceAllocation_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span id="newPublicVirtualInterfaceAllocation_tags"><span class="annot"><span class="annottext">newPublicVirtualInterfaceAllocation_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_customerAddress"><span class="hs-identifier hs-type">newPublicVirtualInterfaceAllocation_customerAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="newPublicVirtualInterfaceAllocation_customerAddress"><span class="annot"><span class="annottext">newPublicVirtualInterfaceAllocation_customerAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NewPublicVirtualInterfaceAllocation
+-&gt; f NewPublicVirtualInterfaceAllocation
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_customerAddress"><span class="hs-identifier hs-var hs-var">newPublicVirtualInterfaceAllocation_customerAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewPublicVirtualInterfaceAllocation -&gt; Maybe Text)
+-&gt; (NewPublicVirtualInterfaceAllocation
+    -&gt; Maybe Text -&gt; NewPublicVirtualInterfaceAllocation)
+-&gt; Lens
+     NewPublicVirtualInterfaceAllocation
+     NewPublicVirtualInterfaceAllocation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282060"><span class="annot"><span class="annottext">Maybe Text
+customerAddress :: Maybe Text
+$sel:customerAddress:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
+</span><a href="#local-6989586621679282060"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282060"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282059"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282058"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerAddress:NewPublicVirtualInterfaceAllocation' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AcustomerAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The IP address assigned to the Amazon interface.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_amazonAddress"><span class="hs-identifier hs-type">newPublicVirtualInterfaceAllocation_amazonAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="newPublicVirtualInterfaceAllocation_amazonAddress"><span class="annot"><span class="annottext">newPublicVirtualInterfaceAllocation_amazonAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NewPublicVirtualInterfaceAllocation
+-&gt; f NewPublicVirtualInterfaceAllocation
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_amazonAddress"><span class="hs-identifier hs-var hs-var">newPublicVirtualInterfaceAllocation_amazonAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewPublicVirtualInterfaceAllocation -&gt; Maybe Text)
+-&gt; (NewPublicVirtualInterfaceAllocation
+    -&gt; Maybe Text -&gt; NewPublicVirtualInterfaceAllocation)
+-&gt; Lens
+     NewPublicVirtualInterfaceAllocation
+     NewPublicVirtualInterfaceAllocation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282056"><span class="annot"><span class="annottext">Maybe Text
+amazonAddress :: Maybe Text
+$sel:amazonAddress:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
+</span><a href="#local-6989586621679282056"><span class="hs-identifier hs-var hs-var">amazonAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282056"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282055"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282054"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amazonAddress:NewPublicVirtualInterfaceAllocation' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AamazonAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The address family for the BGP peer.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_addressFamily"><span class="hs-identifier hs-type">newPublicVirtualInterfaceAllocation_addressFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="newPublicVirtualInterfaceAllocation_addressFamily"><span class="annot"><span class="annottext">newPublicVirtualInterfaceAllocation_addressFamily :: (Maybe AddressFamily -&gt; f (Maybe AddressFamily))
+-&gt; NewPublicVirtualInterfaceAllocation
+-&gt; f NewPublicVirtualInterfaceAllocation
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_addressFamily"><span class="hs-identifier hs-var hs-var">newPublicVirtualInterfaceAllocation_addressFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewPublicVirtualInterfaceAllocation -&gt; Maybe AddressFamily)
+-&gt; (NewPublicVirtualInterfaceAllocation
+    -&gt; Maybe AddressFamily -&gt; NewPublicVirtualInterfaceAllocation)
+-&gt; Lens
+     NewPublicVirtualInterfaceAllocation
+     NewPublicVirtualInterfaceAllocation
+     (Maybe AddressFamily)
+     (Maybe AddressFamily)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282052"><span class="annot"><span class="annottext">Maybe AddressFamily
+addressFamily :: Maybe AddressFamily
+$sel:addressFamily:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe AddressFamily
+</span><a href="#local-6989586621679282052"><span class="hs-identifier hs-var hs-var">addressFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679282052"><span class="hs-identifier hs-var">addressFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282051"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282051"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282050"><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679282050"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282051"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressFamily:NewPublicVirtualInterfaceAllocation' :: Maybe AddressFamily
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AaddressFamily%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">addressFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
+</span><a href="#local-6989586621679282050"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The authentication key for BGP configuration. This string has a minimum</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- length of 6 characters and and a maximun lenth of 80 characters.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_authKey"><span class="hs-identifier hs-type">newPublicVirtualInterfaceAllocation_authKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="newPublicVirtualInterfaceAllocation_authKey"><span class="annot"><span class="annottext">newPublicVirtualInterfaceAllocation_authKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NewPublicVirtualInterfaceAllocation
+-&gt; f NewPublicVirtualInterfaceAllocation
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_authKey"><span class="hs-identifier hs-var hs-var">newPublicVirtualInterfaceAllocation_authKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewPublicVirtualInterfaceAllocation -&gt; Maybe Text)
+-&gt; (NewPublicVirtualInterfaceAllocation
+    -&gt; Maybe Text -&gt; NewPublicVirtualInterfaceAllocation)
+-&gt; Lens
+     NewPublicVirtualInterfaceAllocation
+     NewPublicVirtualInterfaceAllocation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282048"><span class="annot"><span class="annottext">Maybe Text
+authKey :: Maybe Text
+$sel:authKey:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
+</span><a href="#local-6989586621679282048"><span class="hs-identifier hs-var hs-var">authKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282048"><span class="hs-identifier hs-var">authKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282047"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282047"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282046"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282046"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282047"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authKey:NewPublicVirtualInterfaceAllocation' :: Maybe Text
+</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AauthKey%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">authKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282046"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The tags associated with the public virtual interface.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_tags"><span class="hs-identifier hs-type">newPublicVirtualInterfaceAllocation_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="newPublicVirtualInterfaceAllocation_tags"><span class="annot"><span class="annottext">newPublicVirtualInterfaceAllocation_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
 -&gt; NewPublicVirtualInterfaceAllocation
 -&gt; f NewPublicVirtualInterfaceAllocation
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_tags"><span class="hs-identifier hs-var hs-var">newPublicVirtualInterfaceAllocation_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewPublicVirtualInterfaceAllocation -&gt; Maybe (NonEmpty Tag))
@@ -331,16 +406,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe (NonEmpty Tag))
      (Maybe (NonEmpty Tag))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281827"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282044"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
 tags :: Maybe (NonEmpty Tag)
 $sel:tags:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679281827"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679281827"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281826"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281825"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679281825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:NewPublicVirtualInterfaceAllocation' :: Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679282044"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679282044"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282043"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282042"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679282042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:NewPublicVirtualInterfaceAllocation' :: Maybe (NonEmpty Tag)
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3Atags%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679281825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+</span><a href="#local-6989586621679282042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
  -&gt; NewPublicVirtualInterfaceAllocation
  -&gt; f NewPublicVirtualInterfaceAllocation)
 -&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
@@ -359,83 +434,8 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-133"></span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- | The IP address assigned to the Amazon interface.</span><span>
-</span><span id="line-135"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_amazonAddress"><span class="hs-identifier hs-type">newPublicVirtualInterfaceAllocation_amazonAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span id="newPublicVirtualInterfaceAllocation_amazonAddress"><span class="annot"><span class="annottext">newPublicVirtualInterfaceAllocation_amazonAddress :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NewPublicVirtualInterfaceAllocation
--&gt; f NewPublicVirtualInterfaceAllocation
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_amazonAddress"><span class="hs-identifier hs-var hs-var">newPublicVirtualInterfaceAllocation_amazonAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewPublicVirtualInterfaceAllocation -&gt; Maybe Text)
--&gt; (NewPublicVirtualInterfaceAllocation
-    -&gt; Maybe Text -&gt; NewPublicVirtualInterfaceAllocation)
--&gt; Lens
-     NewPublicVirtualInterfaceAllocation
-     NewPublicVirtualInterfaceAllocation
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281823"><span class="annot"><span class="annottext">Maybe Text
-amazonAddress :: Maybe Text
-$sel:amazonAddress:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
-</span><a href="#local-6989586621679281823"><span class="hs-identifier hs-var hs-var">amazonAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281823"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281822"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281821"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:amazonAddress:NewPublicVirtualInterfaceAllocation' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AamazonAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-137"></span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- | The address family for the BGP peer.</span><span>
-</span><span id="line-139"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_addressFamily"><span class="hs-identifier hs-type">newPublicVirtualInterfaceAllocation_addressFamily</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.AddressFamily.html#AddressFamily"><span class="hs-identifier hs-type">AddressFamily</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span id="newPublicVirtualInterfaceAllocation_addressFamily"><span class="annot"><span class="annottext">newPublicVirtualInterfaceAllocation_addressFamily :: (Maybe AddressFamily -&gt; f (Maybe AddressFamily))
--&gt; NewPublicVirtualInterfaceAllocation
--&gt; f NewPublicVirtualInterfaceAllocation
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_addressFamily"><span class="hs-identifier hs-var hs-var">newPublicVirtualInterfaceAllocation_addressFamily</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewPublicVirtualInterfaceAllocation -&gt; Maybe AddressFamily)
--&gt; (NewPublicVirtualInterfaceAllocation
-    -&gt; Maybe AddressFamily -&gt; NewPublicVirtualInterfaceAllocation)
--&gt; Lens
-     NewPublicVirtualInterfaceAllocation
-     NewPublicVirtualInterfaceAllocation
-     (Maybe AddressFamily)
-     (Maybe AddressFamily)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281819"><span class="annot"><span class="annottext">Maybe AddressFamily
-addressFamily :: Maybe AddressFamily
-$sel:addressFamily:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe AddressFamily
-</span><a href="#local-6989586621679281819"><span class="hs-identifier hs-var hs-var">addressFamily</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
-</span><a href="#local-6989586621679281819"><span class="hs-identifier hs-var">addressFamily</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281818"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281817"><span class="annot"><span class="annottext">Maybe AddressFamily
-</span><a href="#local-6989586621679281817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:addressFamily:NewPublicVirtualInterfaceAllocation' :: Maybe AddressFamily
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AaddressFamily%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">addressFamily</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
-</span><a href="#local-6989586621679281817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- | The IP address assigned to the customer interface.</span><span>
-</span><span id="line-143"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_customerAddress"><span class="hs-identifier hs-type">newPublicVirtualInterfaceAllocation_customerAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-144"></span><span id="newPublicVirtualInterfaceAllocation_customerAddress"><span class="annot"><span class="annottext">newPublicVirtualInterfaceAllocation_customerAddress :: (Maybe Text -&gt; f (Maybe Text))
--&gt; NewPublicVirtualInterfaceAllocation
--&gt; f NewPublicVirtualInterfaceAllocation
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_customerAddress"><span class="hs-identifier hs-var hs-var">newPublicVirtualInterfaceAllocation_customerAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NewPublicVirtualInterfaceAllocation -&gt; Maybe Text)
--&gt; (NewPublicVirtualInterfaceAllocation
-    -&gt; Maybe Text -&gt; NewPublicVirtualInterfaceAllocation)
--&gt; Lens
-     NewPublicVirtualInterfaceAllocation
-     NewPublicVirtualInterfaceAllocation
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281815"><span class="annot"><span class="annottext">Maybe Text
-customerAddress :: Maybe Text
-$sel:customerAddress:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
-</span><a href="#local-6989586621679281815"><span class="hs-identifier hs-var hs-var">customerAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281815"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281814"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281813"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerAddress:NewPublicVirtualInterfaceAllocation' :: Maybe Text
-</span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AcustomerAddress%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">customerAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-145"></span><span>
 </span><span id="line-146"></span><span class="hs-comment">-- | The name of the virtual interface assigned by the customer network. The</span><span>
 </span><span id="line-147"></span><span class="hs-comment">-- name has a maximum of 100 characters. The following are valid</span><span>
@@ -453,16 +453,16 @@ $sel:customerAddress:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInt
      Text
      Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281811"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282040"><span class="annot"><span class="annottext">Text
 virtualInterfaceName :: Text
 $sel:virtualInterfaceName:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Text
-</span><a href="#local-6989586621679281811"><span class="hs-identifier hs-var hs-var">virtualInterfaceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679281811"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281810"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281809"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679281809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceName:NewPublicVirtualInterfaceAllocation' :: Text
+</span><a href="#local-6989586621679282040"><span class="hs-identifier hs-var hs-var">virtualInterfaceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282040"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282039"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282039"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282038"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679282038"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282039"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:virtualInterfaceName:NewPublicVirtualInterfaceAllocation' :: Text
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3AvirtualInterfaceName%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679281809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282038"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-151"></span><span>
 </span><span id="line-152"></span><span class="hs-comment">-- | The ID of the VLAN.</span><span>
 </span><span id="line-153"></span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#newPublicVirtualInterfaceAllocation_vlan"><span class="hs-identifier hs-type">newPublicVirtualInterfaceAllocation_vlan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -478,16 +478,16 @@ $sel:virtualInterfaceName:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtu
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281807"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282036"><span class="annot"><span class="annottext">Int
 vlan :: Int
 $sel:vlan:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Int
-</span><a href="#local-6989586621679281807"><span class="hs-identifier hs-var hs-var">vlan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281807"><span class="hs-identifier hs-var">vlan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281806"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281805"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vlan:NewPublicVirtualInterfaceAllocation' :: Int
+</span><a href="#local-6989586621679282036"><span class="hs-identifier hs-var hs-var">vlan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282036"><span class="hs-identifier hs-var">vlan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282035"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282035"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282034"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282034"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282035"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vlan:NewPublicVirtualInterfaceAllocation' :: Int
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3Avlan%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">vlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282034"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-155"></span><span>
 </span><span id="line-156"></span><span class="hs-comment">-- | The autonomous system (AS) number for Border Gateway Protocol (BGP)</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- configuration.</span><span>
@@ -506,31 +506,31 @@ $sel:vlan:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAlloc
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281803"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282032"><span class="annot"><span class="annottext">Int
 asn :: Int
 $sel:asn:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Int
-</span><a href="#local-6989586621679281803"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281803"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679281802"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679281801"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
-</span><a href="#local-6989586621679281802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asn:NewPublicVirtualInterfaceAllocation' :: Int
+</span><a href="#local-6989586621679282032"><span class="hs-identifier hs-var hs-var">asn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282032"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679282031"><span class="annot"><span class="annottext">s :: NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679282030"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679282030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NewPublicVirtualInterfaceAllocation
+</span><a href="#local-6989586621679282031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:asn:NewPublicVirtualInterfaceAllocation' :: Int
 </span><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#%24sel%3Aasn%3ANewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-var">asn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-162"></span><span>
 </span><span id="line-163"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-164"></span><span>  </span><span id="local-6989586621679281797"><span id="local-6989586621679281799"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679282026"><span id="local-6989586621679282028"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-165"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span></span></span><span>
 </span><span id="line-166"></span><span>
 </span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-168"></span><span>  </span><span id="local-6989586621679281794"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679282023"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-169"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span></span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-172"></span><span>  </span><span id="local-6989586621679281786"><span id="local-6989586621679281788"><span id="local-6989586621679281790"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679282015"><span id="local-6989586621679282017"><span id="local-6989586621679282019"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
 </span><span id="line-173"></span><span>    </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation</span></a></span></span></span></span><span>
 </span><span id="line-174"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-175"></span><span>  </span><span id="local-6989586621679281784"><span class="annot"><span class="annottext">toJSON :: NewPublicVirtualInterfaceAllocation -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679281774"><span id="local-6989586621679281775"><span id="local-6989586621679281776"><span id="local-6989586621679281777"><span id="local-6989586621679281778"><span id="local-6989586621679281779"><span id="local-6989586621679281780"><span id="local-6989586621679281781"><span id="local-6989586621679281782"><span class="annot"><span class="annottext">Int
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679282013"><span class="annot"><span class="annottext">toJSON :: NewPublicVirtualInterfaceAllocation -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation.html#NewPublicVirtualInterfaceAllocation%27"><span class="hs-identifier hs-type">NewPublicVirtualInterfaceAllocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679282003"><span id="local-6989586621679282004"><span id="local-6989586621679282005"><span id="local-6989586621679282006"><span id="local-6989586621679282007"><span id="local-6989586621679282008"><span id="local-6989586621679282009"><span id="local-6989586621679282010"><span id="local-6989586621679282011"><span class="annot"><span class="annottext">Int
 Maybe [RouteFilterPrefix]
 Maybe (NonEmpty Tag)
 Maybe Text
@@ -539,72 +539,72 @@ Text
 asn :: Int
 vlan :: Int
 virtualInterfaceName :: Text
-customerAddress :: Maybe Text
+tags :: Maybe (NonEmpty Tag)
+authKey :: Maybe Text
 addressFamily :: Maybe AddressFamily
 amazonAddress :: Maybe Text
-tags :: Maybe (NonEmpty Tag)
+customerAddress :: Maybe Text
 routeFilterPrefixes :: Maybe [RouteFilterPrefix]
-authKey :: Maybe Text
 $sel:asn:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Int
 $sel:vlan:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Int
 $sel:virtualInterfaceName:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Text
-$sel:customerAddress:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
+$sel:tags:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe (NonEmpty Tag)
+$sel:authKey:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
 $sel:addressFamily:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe AddressFamily
 $sel:amazonAddress:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
-$sel:tags:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe (NonEmpty Tag)
+$sel:customerAddress:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
 $sel:routeFilterPrefixes:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe [RouteFilterPrefix]
-$sel:authKey:NewPublicVirtualInterfaceAllocation' :: NewPublicVirtualInterfaceAllocation -&gt; Maybe Text
-</span><a href="#local-6989586621679281774"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679282003"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
 </span><span id="line-178"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;authKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
-forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281782"><span class="hs-identifier hs-var">authKey</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;routeFilterPrefixes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [RouteFilterPrefix] -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-180"></span><span>              </span><span class="annot"><span class="annottext">([RouteFilterPrefix] -&gt; Pair)
+</span><span id="line-179"></span><span>              </span><span class="annot"><span class="annottext">([RouteFilterPrefix] -&gt; Pair)
 -&gt; Maybe [RouteFilterPrefix] -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RouteFilterPrefix]
-</span><a href="#local-6989586621679281781"><span class="hs-identifier hs-var">routeFilterPrefixes</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
+</span><a href="#local-6989586621679282011"><span class="hs-identifier hs-var">routeFilterPrefixes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;customerAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
-</span><a href="#local-6989586621679281780"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679282010"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;amazonAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281779"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679282009"><span class="hs-identifier hs-var">amazonAddress</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;addressFamily&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AddressFamily -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AddressFamily -&gt; Pair) -&gt; Maybe AddressFamily -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AddressFamily
-</span><a href="#local-6989586621679281778"><span class="hs-identifier hs-var">addressFamily</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679282008"><span class="hs-identifier hs-var">addressFamily</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-184"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;customerAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+</span><span class="hs-string">&quot;authKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
-</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
-</span><span id="line-185"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679281777"><span class="hs-identifier hs-var">customerAddress</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679282007"><span class="hs-identifier hs-var">authKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Tag -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NonEmpty Tag -&gt; Pair) -&gt; Maybe (NonEmpty Tag) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679282006"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-186"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
@@ -613,7 +613,7 @@ forall a. a -&gt; Maybe a
 </span><span id="line-188"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679281776"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span>
+</span><a href="#local-6989586621679282005"><span class="hs-identifier hs-var">virtualInterfaceName</span></a></span><span>
 </span><span id="line-189"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-190"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
@@ -621,14 +621,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;vlan&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281775"><span class="hs-identifier hs-var">vlan</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679282004"><span class="hs-identifier hs-var">vlan</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;asn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679281774"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679282003"><span class="hs-identifier hs-var">asn</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-194"></span></pre></body></html>

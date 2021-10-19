@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-31"></span><span>
-</span><span id="line-32"></span><span id="local-6989586621679400476"><span id="local-6989586621679400477"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProductType"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductType.html#ProductType"><span class="hs-identifier hs-var">ProductType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProductType%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductType.html#ProductType%27"><span class="hs-identifier hs-var">ProductType'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679400922"><span id="local-6989586621679400923"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ProductType"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductType.html#ProductType"><span class="hs-identifier hs-var">ProductType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProductType%27"><span class="annot"><a href="Network.AWS.ServiceCatalog.Types.ProductType.html#ProductType%27"><span class="hs-identifier hs-var">ProductType'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromProductType"><span class="annot"><span class="annottext">ProductType -&gt; Text
 </span><a href="Network.AWS.ServiceCatalog.Types.ProductType.html#fromProductType"><span class="hs-identifier hs-var hs-var">fromProductType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679400468"><span id="local-6989586621679400470"><span id="local-6989586621679400472"><span class="annot"><span class="annottext">Int -&gt; ProductType -&gt; ShowS
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679400914"><span id="local-6989586621679400916"><span id="local-6989586621679400918"><span class="annot"><span class="annottext">Int -&gt; ProductType -&gt; ShowS
 [ProductType] -&gt; ShowS
 ProductType -&gt; String
 (Int -&gt; ProductType -&gt; ShowS)
@@ -51,7 +51,7 @@ $cshow :: ProductType -&gt; String
 showsPrec :: Int -&gt; ProductType -&gt; ShowS
 $cshowsPrec :: Int -&gt; ProductType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>      </span><span id="local-6989586621679400459"><span id="local-6989586621679400461"><span id="local-6989586621679400463"><span id="local-6989586621679400465"><span class="annot"><span class="annottext">ReadPrec [ProductType]
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679400905"><span id="local-6989586621679400907"><span id="local-6989586621679400909"><span id="local-6989586621679400911"><span class="annot"><span class="annottext">ReadPrec [ProductType]
 ReadPrec ProductType
 Int -&gt; ReadS ProductType
 ReadS [ProductType]
@@ -72,7 +72,7 @@ $creadList :: ReadS [ProductType]
 readsPrec :: Int -&gt; ReadS ProductType
 $creadsPrec :: Int -&gt; ReadS ProductType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>      </span><span id="local-6989586621679400454"><span id="local-6989586621679400456"><span class="annot"><span class="annottext">ProductType -&gt; ProductType -&gt; Bool
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679400900"><span id="local-6989586621679400902"><span class="annot"><span class="annottext">ProductType -&gt; ProductType -&gt; Bool
 (ProductType -&gt; ProductType -&gt; Bool)
 -&gt; (ProductType -&gt; ProductType -&gt; Bool) -&gt; Eq ProductType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -81,7 +81,7 @@ $c/= :: ProductType -&gt; ProductType -&gt; Bool
 == :: ProductType -&gt; ProductType -&gt; Bool
 $c== :: ProductType -&gt; ProductType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679400438"><span id="local-6989586621679400440"><span id="local-6989586621679400442"><span id="local-6989586621679400444"><span id="local-6989586621679400446"><span id="local-6989586621679400448"><span id="local-6989586621679400450"><span class="annot"><span class="annottext">Eq ProductType
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679400884"><span id="local-6989586621679400886"><span id="local-6989586621679400888"><span id="local-6989586621679400890"><span id="local-6989586621679400892"><span id="local-6989586621679400894"><span id="local-6989586621679400896"><span class="annot"><span class="annottext">Eq ProductType
 Eq ProductType
 -&gt; (ProductType -&gt; ProductType -&gt; Ordering)
 -&gt; (ProductType -&gt; ProductType -&gt; Bool)
@@ -132,7 +132,7 @@ $cfrom :: forall x. ProductType -&gt; Rep ProductType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679400430"><span id="local-6989586621679400432"><span class="annot"><span class="annottext">Int -&gt; ProductType -&gt; Int
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679400876"><span id="local-6989586621679400878"><span class="annot"><span class="annottext">Int -&gt; ProductType -&gt; Int
 ProductType -&gt; Int
 (Int -&gt; ProductType -&gt; Int)
 -&gt; (ProductType -&gt; Int) -&gt; Hashable ProductType
@@ -142,49 +142,49 @@ $chash :: ProductType -&gt; Int
 hashWithSalt :: Int -&gt; ProductType -&gt; Int
 $chashWithSalt :: Int -&gt; ProductType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>      </span><span id="local-6989586621679400427"><span class="annot"><span class="annottext">ProductType -&gt; ()
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679400873"><span class="annot"><span class="annottext">ProductType -&gt; ()
 (ProductType -&gt; ()) -&gt; NFData ProductType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: ProductType -&gt; ()
 $crnf :: ProductType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>      </span><span id="local-6989586621679400424"><span class="annot"><span class="annottext">Text -&gt; Either String ProductType
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679400870"><span class="annot"><span class="annottext">Text -&gt; Either String ProductType
 (Text -&gt; Either String ProductType) -&gt; FromText ProductType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String ProductType
 $cfromText :: Text -&gt; Either String ProductType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679400421"><span class="annot"><span class="annottext">ProductType -&gt; Text
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679400867"><span class="annot"><span class="annottext">ProductType -&gt; Text
 (ProductType -&gt; Text) -&gt; ToText ProductType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: ProductType -&gt; Text
 $ctoText :: ProductType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679400418"><span class="annot"><span class="annottext">ProductType -&gt; ByteString
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679400864"><span class="annot"><span class="annottext">ProductType -&gt; ByteString
 (ProductType -&gt; ByteString) -&gt; ToByteString ProductType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: ProductType -&gt; ByteString
 $ctoBS :: ProductType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679400415"><span class="annot"><span class="annottext">ProductType -&gt; ByteStringBuilder
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679400861"><span class="annot"><span class="annottext">ProductType -&gt; ByteStringBuilder
 (ProductType -&gt; ByteStringBuilder) -&gt; ToLog ProductType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: ProductType -&gt; ByteStringBuilder
 $cbuild :: ProductType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679400412"><span class="annot"><span class="annottext">HeaderName -&gt; ProductType -&gt; [Header]
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679400858"><span class="annot"><span class="annottext">HeaderName -&gt; ProductType -&gt; [Header]
 (HeaderName -&gt; ProductType -&gt; [Header]) -&gt; ToHeader ProductType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; ProductType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; ProductType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679400409"><span class="annot"><span class="annottext">ProductType -&gt; QueryString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679400855"><span class="annot"><span class="annottext">ProductType -&gt; QueryString
 (ProductType -&gt; QueryString) -&gt; ToQuery ProductType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: ProductType -&gt; QueryString
 $ctoQuery :: ProductType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679400404"><span id="local-6989586621679400406"><span class="annot"><span class="annottext">Value -&gt; Parser [ProductType]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679400850"><span id="local-6989586621679400852"><span class="annot"><span class="annottext">Value -&gt; Parser [ProductType]
 Value -&gt; Parser ProductType
 (Value -&gt; Parser ProductType)
 -&gt; (Value -&gt; Parser [ProductType]) -&gt; FromJSON ProductType
@@ -195,7 +195,7 @@ $cparseJSONList :: Value -&gt; Parser [ProductType]
 parseJSON :: Value -&gt; Parser ProductType
 $cparseJSON :: Value -&gt; Parser ProductType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679400399"><span id="local-6989586621679400401"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProductType]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679400845"><span id="local-6989586621679400847"><span class="annot"><span class="annottext">FromJSONKeyFunction [ProductType]
 FromJSONKeyFunction ProductType
 FromJSONKeyFunction ProductType
 -&gt; FromJSONKeyFunction [ProductType] -&gt; FromJSONKey ProductType
@@ -206,7 +206,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [ProductType]
 fromJSONKey :: FromJSONKeyFunction ProductType
 $cfromJSONKey :: FromJSONKeyFunction ProductType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679400390"><span id="local-6989586621679400392"><span id="local-6989586621679400394"><span id="local-6989586621679400396"><span class="annot"><span class="annottext">[ProductType] -&gt; Encoding
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679400836"><span id="local-6989586621679400838"><span id="local-6989586621679400840"><span id="local-6989586621679400842"><span class="annot"><span class="annottext">[ProductType] -&gt; Encoding
 [ProductType] -&gt; Value
 ProductType -&gt; Encoding
 ProductType -&gt; Value
@@ -230,7 +230,7 @@ $ctoEncoding :: ProductType -&gt; Encoding
 toJSON :: ProductType -&gt; Value
 $ctoJSON :: ProductType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679400385"><span id="local-6989586621679400387"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProductType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679400831"><span id="local-6989586621679400833"><span class="annot"><span class="annottext">ToJSONKeyFunction [ProductType]
 ToJSONKeyFunction ProductType
 ToJSONKeyFunction ProductType
 -&gt; ToJSONKeyFunction [ProductType] -&gt; ToJSONKey ProductType
@@ -241,13 +241,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [ProductType]
 toJSONKey :: ToJSONKeyFunction ProductType
 $ctoJSONKey :: ToJSONKeyFunction ProductType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679400382"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProductType
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679400828"><span class="annot"><span class="annottext">[Node] -&gt; Either String ProductType
 ([Node] -&gt; Either String ProductType) -&gt; FromXML ProductType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String ProductType
 $cparseXML :: [Node] -&gt; Either String ProductType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679400379"><span class="annot"><span class="annottext">ProductType -&gt; XML
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679400825"><span class="annot"><span class="annottext">ProductType -&gt; XML
 (ProductType -&gt; XML) -&gt; ToXML ProductType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: ProductType -&gt; XML

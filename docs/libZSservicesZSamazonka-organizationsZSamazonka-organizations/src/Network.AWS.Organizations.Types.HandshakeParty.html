@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | Identifies a participant in a handshake.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHandshakeParty' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679237326"><span id="local-6989586621679237327"></span></span><span class="hs-keyword">data</span><span> </span><span id="HandshakeParty"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-var">HandshakeParty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HandshakeParty%27"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-var">HandshakeParty'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679237445"><span id="local-6989586621679237446"></span></span><span class="hs-keyword">data</span><span> </span><span id="HandshakeParty"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-var">HandshakeParty</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HandshakeParty%27"><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-var">HandshakeParty'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier (ID) for the party.</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- The &lt;http://wikipedia.org/wiki/regex regex pattern&gt; for handshake ID</span><span>
@@ -39,7 +39,7 @@
 </span><span id="line-38"></span><span>    </span><span id="%24sel%3Atype%27%3AHandshakeParty%27"><span class="annot"><span class="annottext">HandshakeParty -&gt; HandshakePartyType
 </span><a href="Network.AWS.Organizations.Types.HandshakeParty.html#%24sel%3Atype%27%3AHandshakeParty%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakePartyType.html#HandshakePartyType"><span class="hs-identifier hs-type">HandshakePartyType</span></a></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237319"><span id="local-6989586621679237321"><span class="annot"><span class="annottext">HandshakeParty -&gt; HandshakeParty -&gt; Bool
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237438"><span id="local-6989586621679237440"><span class="annot"><span class="annottext">HandshakeParty -&gt; HandshakeParty -&gt; Bool
 (HandshakeParty -&gt; HandshakeParty -&gt; Bool)
 -&gt; (HandshakeParty -&gt; HandshakeParty -&gt; Bool) -&gt; Eq HandshakeParty
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -47,7 +47,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HandshakeParty -&gt; HandshakeParty -&gt; Bool
 == :: HandshakeParty -&gt; HandshakeParty -&gt; Bool
 $c== :: HandshakeParty -&gt; HandshakeParty -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237312"><span id="local-6989586621679237314"><span id="local-6989586621679237316"><span class="annot"><span class="annottext">Int -&gt; HandshakeParty -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237431"><span id="local-6989586621679237433"><span id="local-6989586621679237435"><span class="annot"><span class="annottext">Int -&gt; HandshakeParty -&gt; ShowS
 [HandshakeParty] -&gt; ShowS
 HandshakeParty -&gt; String
 (Int -&gt; HandshakeParty -&gt; ShowS)
@@ -95,9 +95,9 @@ $cfrom :: forall x. HandshakeParty -&gt; Rep HandshakeParty x
 </span><span id="line-61"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakePartyType.html#HandshakePartyType"><span class="hs-identifier hs-type">HandshakePartyType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-62"></span><span>  </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span><span>
 </span><span id="line-63"></span><span id="newHandshakeParty"><span class="annot"><span class="annottext">newHandshakeParty :: Text -&gt; HandshakePartyType -&gt; HandshakeParty
-</span><a href="Network.AWS.Organizations.Types.HandshakeParty.html#newHandshakeParty"><span class="hs-identifier hs-var hs-var">newHandshakeParty</span></a></span></span><span> </span><span id="local-6989586621679237306"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237306"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679237305"><span class="annot"><span class="annottext">HandshakePartyType
-</span><a href="#local-6989586621679237305"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Organizations.Types.HandshakeParty.html#newHandshakeParty"><span class="hs-identifier hs-var hs-var">newHandshakeParty</span></a></span></span><span> </span><span id="local-6989586621679237425"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237425"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679237424"><span class="annot"><span class="annottext">HandshakePartyType
+</span><a href="#local-6989586621679237424"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">HandshakeParty' :: Sensitive Text -&gt; HandshakePartyType -&gt; HandshakeParty
 </span><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-type">HandshakeParty'</span></a></span><span>
 </span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:HandshakeParty' :: Sensitive Text
@@ -109,10 +109,10 @@ forall a. Iso' (Sensitive a) a
 -&gt; Text -&gt; Sensitive Text
 forall t b. AReview t b -&gt; b -&gt; t
 </span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679237306"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679237425"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':HandshakeParty' :: HandshakePartyType
 </span><a href="Network.AWS.Organizations.Types.HandshakeParty.html#%24sel%3Atype%27%3AHandshakeParty%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HandshakePartyType
-</span><a href="#local-6989586621679237305"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><a href="#local-6989586621679237424"><span class="hs-identifier hs-var">pType_</span></a></span><span>
 </span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-68"></span><span>
 </span><span id="line-69"></span><span class="hs-comment">-- | The unique identifier (ID) for the party.</span><span>
@@ -127,16 +127,16 @@ forall t b. AReview t b -&gt; b -&gt; t
 -&gt; Lens
      HandshakeParty HandshakeParty (Sensitive Text) (Sensitive Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-type">HandshakeParty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237299"><span class="annot"><span class="annottext">Sensitive Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-type">HandshakeParty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237418"><span class="annot"><span class="annottext">Sensitive Text
 id :: Sensitive Text
 $sel:id:HandshakeParty' :: HandshakeParty -&gt; Sensitive Text
-</span><a href="#local-6989586621679237299"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679237299"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237298"><span class="annot"><span class="annottext">s :: HandshakeParty
-</span><a href="#local-6989586621679237298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-type">HandshakeParty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237297"><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679237297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HandshakeParty
-</span><a href="#local-6989586621679237298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:HandshakeParty' :: Sensitive Text
+</span><a href="#local-6989586621679237418"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679237418"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237417"><span class="annot"><span class="annottext">s :: HandshakeParty
+</span><a href="#local-6989586621679237417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-type">HandshakeParty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237416"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679237416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HandshakeParty
+</span><a href="#local-6989586621679237417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:HandshakeParty' :: Sensitive Text
 </span><a href="Network.AWS.Organizations.Types.HandshakeParty.html#%24sel%3Aid%3AHandshakeParty%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679237297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+</span><a href="#local-6989586621679237416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
  -&gt; HandshakeParty -&gt; f HandshakeParty)
 -&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
 -&gt; (Text -&gt; f Text)
@@ -156,19 +156,19 @@ forall a. Iso' (Sensitive a) a
 -&gt; Lens
      HandshakeParty HandshakeParty HandshakePartyType HandshakePartyType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-type">HandshakeParty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237294"><span class="annot"><span class="annottext">HandshakePartyType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-type">HandshakeParty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237413"><span class="annot"><span class="annottext">HandshakePartyType
 type' :: HandshakePartyType
 $sel:type':HandshakeParty' :: HandshakeParty -&gt; HandshakePartyType
-</span><a href="#local-6989586621679237294"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HandshakePartyType
-</span><a href="#local-6989586621679237294"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237293"><span class="annot"><span class="annottext">s :: HandshakeParty
-</span><a href="#local-6989586621679237293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-type">HandshakeParty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237292"><span class="annot"><span class="annottext">HandshakePartyType
-</span><a href="#local-6989586621679237292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HandshakeParty
-</span><a href="#local-6989586621679237293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':HandshakeParty' :: HandshakePartyType
+</span><a href="#local-6989586621679237413"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HandshakePartyType
+</span><a href="#local-6989586621679237413"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237412"><span class="annot"><span class="annottext">s :: HandshakeParty
+</span><a href="#local-6989586621679237412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-type">HandshakeParty'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237411"><span class="annot"><span class="annottext">HandshakePartyType
+</span><a href="#local-6989586621679237411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HandshakeParty
+</span><a href="#local-6989586621679237412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':HandshakeParty' :: HandshakePartyType
 </span><a href="Network.AWS.Organizations.Types.HandshakeParty.html#%24sel%3Atype%27%3AHandshakeParty%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HandshakePartyType
-</span><a href="#local-6989586621679237292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-80"></span><span>
-</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237289"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621679237287"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HandshakeParty
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237408"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679237406"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HandshakeParty
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HandshakeParty)
@@ -178,8 +178,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HandshakeParty&quot;</span></span><span>
-</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237284"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237284"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237403"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237403"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Sensitive Text -&gt; HandshakePartyType -&gt; HandshakeParty
 </span><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-var">HandshakeParty'</span></a></span><span>
 </span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; HandshakePartyType -&gt; HandshakeParty)
@@ -187,32 +187,32 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (HandshakePartyType -&gt; HandshakeParty)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237284"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive Text)
+</span><a href="#local-6989586621679237403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Sensitive Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (HandshakePartyType -&gt; HandshakeParty)
 -&gt; Parser HandshakePartyType -&gt; Parser HandshakeParty
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679237284"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser HandshakePartyType
+</span><a href="#local-6989586621679237403"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser HandshakePartyType
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237278"><span id="local-6989586621679237280"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237397"><span id="local-6989586621679237399"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span></span></span><span>
 </span><span id="line-91"></span><span>
-</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237275"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237394"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span></span><span>
 </span><span id="line-93"></span><span>
-</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237267"><span id="local-6989586621679237269"><span id="local-6989586621679237271"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679237265"><span class="annot"><span class="annottext">toJSON :: HandshakeParty -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-type">HandshakeParty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237262"><span id="local-6989586621679237263"><span class="annot"><span class="annottext">Sensitive Text
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237386"><span id="local-6989586621679237388"><span id="local-6989586621679237390"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty"><span class="hs-identifier hs-type">HandshakeParty</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679237384"><span class="annot"><span class="annottext">toJSON :: HandshakeParty -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Organizations.Types.HandshakeParty.html#HandshakeParty%27"><span class="hs-identifier hs-type">HandshakeParty'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237381"><span id="local-6989586621679237382"><span class="annot"><span class="annottext">Sensitive Text
 HandshakePartyType
 type' :: HandshakePartyType
 id :: Sensitive Text
 $sel:type':HandshakeParty' :: HandshakeParty -&gt; HandshakePartyType
 $sel:id:HandshakeParty' :: HandshakeParty -&gt; Sensitive Text
-</span><a href="#local-6989586621679237262"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679237381"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -224,14 +224,14 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
-</span><a href="#local-6989586621679237263"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679237382"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HandshakePartyType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HandshakePartyType
-</span><a href="#local-6989586621679237262"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679237381"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span></pre></body></html>

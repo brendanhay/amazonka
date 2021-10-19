@@ -29,45 +29,45 @@
 </span><span id="line-29"></span><span class="hs-comment">-- results for a given account in a given Region.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newStackSetOperationResultSummary' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679424875"><span id="local-6989586621679424876"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackSetOperationResultSummary"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-var">StackSetOperationResultSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackSetOperationResultSummary%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-var">StackSetOperationResultSummary'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The results of the account gate function CloudFormation invokes, if</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- present, before proceeding with stack set operations in an account</span><span>
-</span><span id="line-35"></span><span>    </span><span id="%24sel%3AaccountGateResult%3AStackSetOperationResultSummary%27"><span class="annot"><span class="annottext">StackSetOperationResultSummary -&gt; Maybe AccountGateResult
-</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AaccountGateResult%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var hs-var">accountGateResult</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountGateResult.html#AccountGateResult"><span class="hs-identifier hs-type">AccountGateResult</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The result status of the stack set operation for the given account in</span><span>
-</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the given Region.</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   @CANCELLED@: The operation in the specified account and Region has</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     been cancelled. This is either because a user has stopped the stack</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     set operation, or because the failure tolerance of the stack set</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     operation has been exceeded.</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   @FAILED@: The operation in the specified account and Region failed.</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">--     If the stack set operation fails in enough accounts within a Region,</span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     the failure tolerance for the stack set operation as a whole might</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     be exceeded.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679425287"><span id="local-6989586621679425288"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackSetOperationResultSummary"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-var">StackSetOperationResultSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackSetOperationResultSummary%27"><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-var">StackSetOperationResultSummary'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The result status of the stack set operation for the given account in</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- the given Region.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   @CANCELLED@: The operation in the specified account and Region has</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--     been cancelled. This is either because a user has stopped the stack</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--     set operation, or because the failure tolerance of the stack set</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--     operation has been exceeded.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   @FAILED@: The operation in the specified account and Region failed.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     If the stack set operation fails in enough accounts within a Region,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     the failure tolerance for the stack set operation as a whole might</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--     be exceeded.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   @RUNNING@: The operation in the specified account and Region is</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     currently in progress.</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @RUNNING@: The operation in the specified account and Region is</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     currently in progress.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- -   @PENDING@: The operation in the specified account and Region has yet</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--     to start.</span><span>
 </span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   @PENDING@: The operation in the specified account and Region has yet</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     to start.</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   @SUCCEEDED@: The operation in the specified account and Region</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     completed successfully.</span><span>
-</span><span id="line-58"></span><span>    </span><span id="%24sel%3Astatus%3AStackSetOperationResultSummary%27"><span class="annot"><span class="annottext">StackSetOperationResultSummary
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   @SUCCEEDED@: The operation in the specified account and Region</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     completed successfully.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Astatus%3AStackSetOperationResultSummary%27"><span class="annot"><span class="annottext">StackSetOperationResultSummary
 -&gt; Maybe StackSetOperationResultStatus
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3Astatus%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultStatus.html#StackSetOperationResultStatus"><span class="hs-identifier hs-type">StackSetOperationResultStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | [Service-managed permissions] The organization root ID or organizational</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- unit (OU) IDs that you specified for</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets&gt;.</span><span>
-</span><span id="line-62"></span><span>    </span><span id="%24sel%3AorganizationalUnitId%3AStackSetOperationResultSummary%27"><span class="annot"><span class="annottext">StackSetOperationResultSummary -&gt; Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AorganizationalUnitId%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var hs-var">organizationalUnitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | [Self-managed permissions] The name of the Amazon Web Services account</span><span>
-</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- for this operation result.</span><span>
-</span><span id="line-65"></span><span>    </span><span id="%24sel%3Aaccount%3AStackSetOperationResultSummary%27"><span class="annot"><span class="annottext">StackSetOperationResultSummary -&gt; Maybe Text
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | [Self-managed permissions] The name of the Amazon Web Services account</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- for this operation result.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aaccount%3AStackSetOperationResultSummary%27"><span class="annot"><span class="annottext">StackSetOperationResultSummary -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3Aaccount%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The results of the account gate function CloudFormation invokes, if</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- present, before proceeding with stack set operations in an account</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AaccountGateResult%3AStackSetOperationResultSummary%27"><span class="annot"><span class="annottext">StackSetOperationResultSummary -&gt; Maybe AccountGateResult
+</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AaccountGateResult%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var hs-var">accountGateResult</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountGateResult.html#AccountGateResult"><span class="hs-identifier hs-type">AccountGateResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | [Service-managed permissions] The organization root ID or organizational</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- unit (OU) IDs that you specified for</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets&gt;.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AorganizationalUnitId%3AStackSetOperationResultSummary%27"><span class="annot"><span class="annottext">StackSetOperationResultSummary -&gt; Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AorganizationalUnitId%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var hs-var">organizationalUnitId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon Web Services Region for this operation result.</span><span>
 </span><span id="line-67"></span><span>    </span><span id="%24sel%3Aregion%3AStackSetOperationResultSummary%27"><span class="annot"><span class="annottext">StackSetOperationResultSummary -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3Aregion%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
@@ -75,7 +75,7 @@
 </span><span id="line-69"></span><span>    </span><span id="%24sel%3AstatusReason%3AStackSetOperationResultSummary%27"><span class="annot"><span class="annottext">StackSetOperationResultSummary -&gt; Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AstatusReason%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679424864"><span id="local-6989586621679424866"><span class="annot"><span class="annottext">StackSetOperationResultSummary
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679425276"><span id="local-6989586621679425278"><span class="annot"><span class="annottext">StackSetOperationResultSummary
 -&gt; StackSetOperationResultSummary -&gt; Bool
 (StackSetOperationResultSummary
  -&gt; StackSetOperationResultSummary -&gt; Bool)
@@ -91,7 +91,7 @@ $c/= :: StackSetOperationResultSummary
 -&gt; StackSetOperationResultSummary -&gt; Bool
 $c== :: StackSetOperationResultSummary
 -&gt; StackSetOperationResultSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424855"><span id="local-6989586621679424857"><span id="local-6989586621679424859"><span id="local-6989586621679424861"><span class="annot"><span class="annottext">ReadPrec [StackSetOperationResultSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425267"><span id="local-6989586621679425269"><span id="local-6989586621679425271"><span id="local-6989586621679425273"><span class="annot"><span class="annottext">ReadPrec [StackSetOperationResultSummary]
 ReadPrec StackSetOperationResultSummary
 Int -&gt; ReadS StackSetOperationResultSummary
 ReadS [StackSetOperationResultSummary]
@@ -111,7 +111,7 @@ readList :: ReadS [StackSetOperationResultSummary]
 $creadList :: ReadS [StackSetOperationResultSummary]
 readsPrec :: Int -&gt; ReadS StackSetOperationResultSummary
 $creadsPrec :: Int -&gt; ReadS StackSetOperationResultSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679424848"><span id="local-6989586621679424850"><span id="local-6989586621679424852"><span class="annot"><span class="annottext">Int -&gt; StackSetOperationResultSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679425260"><span id="local-6989586621679425262"><span id="local-6989586621679425264"><span class="annot"><span class="annottext">Int -&gt; StackSetOperationResultSummary -&gt; ShowS
 [StackSetOperationResultSummary] -&gt; ShowS
 StackSetOperationResultSummary -&gt; String
 (Int -&gt; StackSetOperationResultSummary -&gt; ShowS)
@@ -157,38 +157,38 @@ StackSetOperationResultSummary
 </span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'accountGateResult', 'stackSetOperationResultSummary_accountGateResult' - The results of the account gate function CloudFormation invokes, if</span><span>
-</span><span id="line-82"></span><span class="hs-comment">-- present, before proceeding with stack set operations in an account</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'status', 'stackSetOperationResultSummary_status' - The result status of the stack set operation for the given account in</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- the given Region.</span><span>
 </span><span id="line-83"></span><span class="hs-comment">--</span><span>
-</span><span id="line-84"></span><span class="hs-comment">-- 'status', 'stackSetOperationResultSummary_status' - The result status of the stack set operation for the given account in</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- the given Region.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- -   @CANCELLED@: The operation in the specified account and Region has</span><span>
-</span><span id="line-88"></span><span class="hs-comment">--     been cancelled. This is either because a user has stopped the stack</span><span>
-</span><span id="line-89"></span><span class="hs-comment">--     set operation, or because the failure tolerance of the stack set</span><span>
-</span><span id="line-90"></span><span class="hs-comment">--     operation has been exceeded.</span><span>
-</span><span id="line-91"></span><span class="hs-comment">--</span><span>
-</span><span id="line-92"></span><span class="hs-comment">-- -   @FAILED@: The operation in the specified account and Region failed.</span><span>
-</span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">--     If the stack set operation fails in enough accounts within a Region,</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--     the failure tolerance for the stack set operation as a whole might</span><span>
-</span><span id="line-96"></span><span class="hs-comment">--     be exceeded.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- -   @CANCELLED@: The operation in the specified account and Region has</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--     been cancelled. This is either because a user has stopped the stack</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     set operation, or because the failure tolerance of the stack set</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     operation has been exceeded.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   @FAILED@: The operation in the specified account and Region failed.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     If the stack set operation fails in enough accounts within a Region,</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--     the failure tolerance for the stack set operation as a whole might</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--     be exceeded.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   @RUNNING@: The operation in the specified account and Region is</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     currently in progress.</span><span>
 </span><span id="line-97"></span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- -   @RUNNING@: The operation in the specified account and Region is</span><span>
-</span><span id="line-99"></span><span class="hs-comment">--     currently in progress.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   @PENDING@: The operation in the specified account and Region has yet</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--     to start.</span><span>
 </span><span id="line-100"></span><span class="hs-comment">--</span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- -   @PENDING@: The operation in the specified account and Region has yet</span><span>
-</span><span id="line-102"></span><span class="hs-comment">--     to start.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- -   @SUCCEEDED@: The operation in the specified account and Region</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--     completed successfully.</span><span>
 </span><span id="line-103"></span><span class="hs-comment">--</span><span>
-</span><span id="line-104"></span><span class="hs-comment">-- -   @SUCCEEDED@: The operation in the specified account and Region</span><span>
-</span><span id="line-105"></span><span class="hs-comment">--     completed successfully.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'account', 'stackSetOperationResultSummary_account' - [Self-managed permissions] The name of the Amazon Web Services account</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- for this operation result.</span><span>
 </span><span id="line-106"></span><span class="hs-comment">--</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- 'organizationalUnitId', 'stackSetOperationResultSummary_organizationalUnitId' - [Service-managed permissions] The organization root ID or organizational</span><span>
-</span><span id="line-108"></span><span class="hs-comment">-- unit (OU) IDs that you specified for</span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets&gt;.</span><span>
-</span><span id="line-110"></span><span class="hs-comment">--</span><span>
-</span><span id="line-111"></span><span class="hs-comment">-- 'account', 'stackSetOperationResultSummary_account' - [Self-managed permissions] The name of the Amazon Web Services account</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- for this operation result.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'accountGateResult', 'stackSetOperationResultSummary_accountGateResult' - The results of the account gate function CloudFormation invokes, if</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- present, before proceeding with stack set operations in an account</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'organizationalUnitId', 'stackSetOperationResultSummary_organizationalUnitId' - [Service-managed permissions] The organization root ID or organizational</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- unit (OU) IDs that you specified for</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets&gt;.</span><span>
 </span><span id="line-113"></span><span class="hs-comment">--</span><span>
 </span><span id="line-114"></span><span class="hs-comment">-- 'region', 'stackSetOperationResultSummary_region' - The name of the Amazon Web Services Region for this operation result.</span><span>
 </span><span id="line-115"></span><span class="hs-comment">--</span><span>
@@ -197,29 +197,29 @@ StackSetOperationResultSummary
 </span><span id="line-118"></span><span>  </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span>
 </span><span id="line-119"></span><span id="newStackSetOperationResultSummary"><span class="annot"><span class="annottext">newStackSetOperationResultSummary :: StackSetOperationResultSummary
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#newStackSetOperationResultSummary"><span class="hs-identifier hs-var hs-var">newStackSetOperationResultSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-120"></span><span>  </span><span class="annot"><span class="annottext">StackSetOperationResultSummary' :: Maybe AccountGateResult
--&gt; Maybe StackSetOperationResultStatus
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="annottext">StackSetOperationResultSummary' :: Maybe StackSetOperationResultStatus
 -&gt; Maybe Text
+-&gt; Maybe AccountGateResult
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; StackSetOperationResultSummary
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span>
-</span><span id="line-121"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountGateResult:StackSetOperationResultSummary' :: Maybe AccountGateResult
-</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AaccountGateResult%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">accountGateResult</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Maybe AccountGateResult
+</span><span id="line-121"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:StackSetOperationResultSummary' :: Maybe StackSetOperationResultStatus
+</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3Astatus%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Maybe StackSetOperationResultStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:StackSetOperationResultSummary' :: Maybe StackSetOperationResultStatus
-</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3Astatus%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetOperationResultStatus
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationalUnitId:StackSetOperationResultSummary' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AorganizationalUnitId%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:account:StackSetOperationResultSummary' :: Maybe Text
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:account:StackSetOperationResultSummary' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3Aaccount%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountGateResult:StackSetOperationResultSummary' :: Maybe AccountGateResult
+</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AaccountGateResult%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">accountGateResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountGateResult
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationalUnitId:StackSetOperationResultSummary' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AorganizationalUnitId%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:region:StackSetOperationResultSummary' :: Maybe Text
@@ -232,56 +232,30 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-128"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-129"></span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- | The results of the account gate function CloudFormation invokes, if</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- present, before proceeding with stack set operations in an account</span><span>
-</span><span id="line-132"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_accountGateResult"><span class="hs-identifier hs-type">stackSetOperationResultSummary_accountGateResult</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountGateResult.html#AccountGateResult"><span class="hs-identifier hs-type">AccountGateResult</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-133"></span><span id="stackSetOperationResultSummary_accountGateResult"><span class="annot"><span class="annottext">stackSetOperationResultSummary_accountGateResult :: (Maybe AccountGateResult -&gt; f (Maybe AccountGateResult))
--&gt; StackSetOperationResultSummary
--&gt; f StackSetOperationResultSummary
-</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_accountGateResult"><span class="hs-identifier hs-var hs-var">stackSetOperationResultSummary_accountGateResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetOperationResultSummary -&gt; Maybe AccountGateResult)
--&gt; (StackSetOperationResultSummary
-    -&gt; Maybe AccountGateResult -&gt; StackSetOperationResultSummary)
--&gt; Lens
-     StackSetOperationResultSummary
-     StackSetOperationResultSummary
-     (Maybe AccountGateResult)
-     (Maybe AccountGateResult)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424839"><span class="annot"><span class="annottext">Maybe AccountGateResult
-accountGateResult :: Maybe AccountGateResult
-$sel:accountGateResult:StackSetOperationResultSummary' :: StackSetOperationResultSummary -&gt; Maybe AccountGateResult
-</span><a href="#local-6989586621679424839"><span class="hs-identifier hs-var hs-var">accountGateResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountGateResult
-</span><a href="#local-6989586621679424839"><span class="hs-identifier hs-var">accountGateResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424838"><span class="annot"><span class="annottext">s :: StackSetOperationResultSummary
-</span><a href="#local-6989586621679424838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424837"><span class="annot"><span class="annottext">Maybe AccountGateResult
-</span><a href="#local-6989586621679424837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetOperationResultSummary
-</span><a href="#local-6989586621679424838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountGateResult:StackSetOperationResultSummary' :: Maybe AccountGateResult
-</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AaccountGateResult%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">accountGateResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountGateResult
-</span><a href="#local-6989586621679424837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- | The result status of the stack set operation for the given account in</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- the given Region.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The result status of the stack set operation for the given account in</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- the given Region.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   @CANCELLED@: The operation in the specified account and Region has</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--     been cancelled. This is either because a user has stopped the stack</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     set operation, or because the failure tolerance of the stack set</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--     operation has been exceeded.</span><span>
 </span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- -   @CANCELLED@: The operation in the specified account and Region has</span><span>
-</span><span id="line-139"></span><span class="hs-comment">--     been cancelled. This is either because a user has stopped the stack</span><span>
-</span><span id="line-140"></span><span class="hs-comment">--     set operation, or because the failure tolerance of the stack set</span><span>
-</span><span id="line-141"></span><span class="hs-comment">--     operation has been exceeded.</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- -   @FAILED@: The operation in the specified account and Region failed.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">--     If the stack set operation fails in enough accounts within a Region,</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--     the failure tolerance for the stack set operation as a whole might</span><span>
-</span><span id="line-147"></span><span class="hs-comment">--     be exceeded.</span><span>
-</span><span id="line-148"></span><span class="hs-comment">--</span><span>
-</span><span id="line-149"></span><span class="hs-comment">-- -   @RUNNING@: The operation in the specified account and Region is</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--     currently in progress.</span><span>
-</span><span id="line-151"></span><span class="hs-comment">--</span><span>
-</span><span id="line-152"></span><span class="hs-comment">-- -   @PENDING@: The operation in the specified account and Region has yet</span><span>
-</span><span id="line-153"></span><span class="hs-comment">--     to start.</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- -   @SUCCEEDED@: The operation in the specified account and Region</span><span>
-</span><span id="line-156"></span><span class="hs-comment">--     completed successfully.</span><span>
-</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_status"><span class="hs-identifier hs-type">stackSetOperationResultSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultStatus.html#StackSetOperationResultStatus"><span class="hs-identifier hs-type">StackSetOperationResultStatus</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-158"></span><span id="stackSetOperationResultSummary_status"><span class="annot"><span class="annottext">stackSetOperationResultSummary_status :: (Maybe StackSetOperationResultStatus
+</span><span id="line-138"></span><span class="hs-comment">-- -   @FAILED@: The operation in the specified account and Region failed.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--     If the stack set operation fails in enough accounts within a Region,</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     the failure tolerance for the stack set operation as a whole might</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     be exceeded.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   @RUNNING@: The operation in the specified account and Region is</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     currently in progress.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- -   @PENDING@: The operation in the specified account and Region has yet</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--     to start.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- -   @SUCCEEDED@: The operation in the specified account and Region</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--     completed successfully.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_status"><span class="hs-identifier hs-type">stackSetOperationResultSummary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultStatus.html#StackSetOperationResultStatus"><span class="hs-identifier hs-type">StackSetOperationResultStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="stackSetOperationResultSummary_status"><span class="annot"><span class="annottext">stackSetOperationResultSummary_status :: (Maybe StackSetOperationResultStatus
  -&gt; f (Maybe StackSetOperationResultStatus))
 -&gt; StackSetOperationResultSummary
 -&gt; f StackSetOperationResultSummary
@@ -296,49 +270,22 @@ $sel:accountGateResult:StackSetOperationResultSummary' :: StackSetOperationResul
      (Maybe StackSetOperationResultStatus)
      (Maybe StackSetOperationResultStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424835"><span class="annot"><span class="annottext">Maybe StackSetOperationResultStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425251"><span class="annot"><span class="annottext">Maybe StackSetOperationResultStatus
 status :: Maybe StackSetOperationResultStatus
 $sel:status:StackSetOperationResultSummary' :: StackSetOperationResultSummary
 -&gt; Maybe StackSetOperationResultStatus
-</span><a href="#local-6989586621679424835"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetOperationResultStatus
-</span><a href="#local-6989586621679424835"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424834"><span class="annot"><span class="annottext">s :: StackSetOperationResultSummary
-</span><a href="#local-6989586621679424834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424833"><span class="annot"><span class="annottext">Maybe StackSetOperationResultStatus
-</span><a href="#local-6989586621679424833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetOperationResultSummary
-</span><a href="#local-6989586621679424834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StackSetOperationResultSummary' :: Maybe StackSetOperationResultStatus
+</span><a href="#local-6989586621679425251"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetOperationResultStatus
+</span><a href="#local-6989586621679425251"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425250"><span class="annot"><span class="annottext">s :: StackSetOperationResultSummary
+</span><a href="#local-6989586621679425250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425249"><span class="annot"><span class="annottext">Maybe StackSetOperationResultStatus
+</span><a href="#local-6989586621679425249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetOperationResultSummary
+</span><a href="#local-6989586621679425250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StackSetOperationResultSummary' :: Maybe StackSetOperationResultStatus
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3Astatus%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackSetOperationResultStatus
-</span><a href="#local-6989586621679424833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- | [Service-managed permissions] The organization root ID or organizational</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- unit (OU) IDs that you specified for</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets&gt;.</span><span>
-</span><span id="line-163"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_organizationalUnitId"><span class="hs-identifier hs-type">stackSetOperationResultSummary_organizationalUnitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span id="stackSetOperationResultSummary_organizationalUnitId"><span class="annot"><span class="annottext">stackSetOperationResultSummary_organizationalUnitId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StackSetOperationResultSummary
--&gt; f StackSetOperationResultSummary
-</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_organizationalUnitId"><span class="hs-identifier hs-var hs-var">stackSetOperationResultSummary_organizationalUnitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetOperationResultSummary -&gt; Maybe Text)
--&gt; (StackSetOperationResultSummary
-    -&gt; Maybe Text -&gt; StackSetOperationResultSummary)
--&gt; Lens
-     StackSetOperationResultSummary
-     StackSetOperationResultSummary
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424831"><span class="annot"><span class="annottext">Maybe Text
-organizationalUnitId :: Maybe Text
-$sel:organizationalUnitId:StackSetOperationResultSummary' :: StackSetOperationResultSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679424831"><span class="hs-identifier hs-var hs-var">organizationalUnitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424831"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424830"><span class="annot"><span class="annottext">s :: StackSetOperationResultSummary
-</span><a href="#local-6989586621679424830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424829"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetOperationResultSummary
-</span><a href="#local-6989586621679424830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitId:StackSetOperationResultSummary' :: Maybe Text
-</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AorganizationalUnitId%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-165"></span><span>
-</span><span id="line-166"></span><span class="hs-comment">-- | [Self-managed permissions] The name of the Amazon Web Services account</span><span>
-</span><span id="line-167"></span><span class="hs-comment">-- for this operation result.</span><span>
-</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_account"><span class="hs-identifier hs-type">stackSetOperationResultSummary_account</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-169"></span><span id="stackSetOperationResultSummary_account"><span class="annot"><span class="annottext">stackSetOperationResultSummary_account :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621679425249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | [Self-managed permissions] The name of the Amazon Web Services account</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- for this operation result.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_account"><span class="hs-identifier hs-type">stackSetOperationResultSummary_account</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="stackSetOperationResultSummary_account"><span class="annot"><span class="annottext">stackSetOperationResultSummary_account :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; StackSetOperationResultSummary
 -&gt; f StackSetOperationResultSummary
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_account"><span class="hs-identifier hs-var hs-var">stackSetOperationResultSummary_account</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetOperationResultSummary -&gt; Maybe Text)
@@ -350,16 +297,69 @@ $sel:organizationalUnitId:StackSetOperationResultSummary' :: StackSetOperationRe
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424827"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425247"><span class="annot"><span class="annottext">Maybe Text
 account :: Maybe Text
 $sel:account:StackSetOperationResultSummary' :: StackSetOperationResultSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679424827"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424827"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424826"><span class="annot"><span class="annottext">s :: StackSetOperationResultSummary
-</span><a href="#local-6989586621679424826"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424825"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424825"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetOperationResultSummary
-</span><a href="#local-6989586621679424826"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:account:StackSetOperationResultSummary' :: Maybe Text
+</span><a href="#local-6989586621679425247"><span class="hs-identifier hs-var hs-var">account</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425247"><span class="hs-identifier hs-var">account</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425246"><span class="annot"><span class="annottext">s :: StackSetOperationResultSummary
+</span><a href="#local-6989586621679425246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425245"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetOperationResultSummary
+</span><a href="#local-6989586621679425246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:account:StackSetOperationResultSummary' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3Aaccount%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">account</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424825"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The results of the account gate function CloudFormation invokes, if</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- present, before proceeding with stack set operations in an account</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_accountGateResult"><span class="hs-identifier hs-type">stackSetOperationResultSummary_accountGateResult</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.AccountGateResult.html#AccountGateResult"><span class="hs-identifier hs-type">AccountGateResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="stackSetOperationResultSummary_accountGateResult"><span class="annot"><span class="annottext">stackSetOperationResultSummary_accountGateResult :: (Maybe AccountGateResult -&gt; f (Maybe AccountGateResult))
+-&gt; StackSetOperationResultSummary
+-&gt; f StackSetOperationResultSummary
+</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_accountGateResult"><span class="hs-identifier hs-var hs-var">stackSetOperationResultSummary_accountGateResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetOperationResultSummary -&gt; Maybe AccountGateResult)
+-&gt; (StackSetOperationResultSummary
+    -&gt; Maybe AccountGateResult -&gt; StackSetOperationResultSummary)
+-&gt; Lens
+     StackSetOperationResultSummary
+     StackSetOperationResultSummary
+     (Maybe AccountGateResult)
+     (Maybe AccountGateResult)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425243"><span class="annot"><span class="annottext">Maybe AccountGateResult
+accountGateResult :: Maybe AccountGateResult
+$sel:accountGateResult:StackSetOperationResultSummary' :: StackSetOperationResultSummary -&gt; Maybe AccountGateResult
+</span><a href="#local-6989586621679425243"><span class="hs-identifier hs-var hs-var">accountGateResult</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccountGateResult
+</span><a href="#local-6989586621679425243"><span class="hs-identifier hs-var">accountGateResult</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425242"><span class="annot"><span class="annottext">s :: StackSetOperationResultSummary
+</span><a href="#local-6989586621679425242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425241"><span class="annot"><span class="annottext">Maybe AccountGateResult
+</span><a href="#local-6989586621679425241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetOperationResultSummary
+</span><a href="#local-6989586621679425242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountGateResult:StackSetOperationResultSummary' :: Maybe AccountGateResult
+</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AaccountGateResult%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">accountGateResult</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccountGateResult
+</span><a href="#local-6989586621679425241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | [Service-managed permissions] The organization root ID or organizational</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- unit (OU) IDs that you specified for</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets&gt;.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_organizationalUnitId"><span class="hs-identifier hs-type">stackSetOperationResultSummary_organizationalUnitId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="stackSetOperationResultSummary_organizationalUnitId"><span class="annot"><span class="annottext">stackSetOperationResultSummary_organizationalUnitId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StackSetOperationResultSummary
+-&gt; f StackSetOperationResultSummary
+</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_organizationalUnitId"><span class="hs-identifier hs-var hs-var">stackSetOperationResultSummary_organizationalUnitId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackSetOperationResultSummary -&gt; Maybe Text)
+-&gt; (StackSetOperationResultSummary
+    -&gt; Maybe Text -&gt; StackSetOperationResultSummary)
+-&gt; Lens
+     StackSetOperationResultSummary
+     StackSetOperationResultSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425239"><span class="annot"><span class="annottext">Maybe Text
+organizationalUnitId :: Maybe Text
+$sel:organizationalUnitId:StackSetOperationResultSummary' :: StackSetOperationResultSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679425239"><span class="hs-identifier hs-var hs-var">organizationalUnitId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425239"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425238"><span class="annot"><span class="annottext">s :: StackSetOperationResultSummary
+</span><a href="#local-6989586621679425238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425237"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetOperationResultSummary
+</span><a href="#local-6989586621679425238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationalUnitId:StackSetOperationResultSummary' :: Maybe Text
+</span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AorganizationalUnitId%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">organizationalUnitId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>
 </span><span id="line-171"></span><span class="hs-comment">-- | The name of the Amazon Web Services Region for this operation result.</span><span>
 </span><span id="line-172"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_region"><span class="hs-identifier hs-type">stackSetOperationResultSummary_region</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -375,16 +375,16 @@ $sel:account:StackSetOperationResultSummary' :: StackSetOperationResultSummary -
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424823"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425235"><span class="annot"><span class="annottext">Maybe Text
 region :: Maybe Text
 $sel:region:StackSetOperationResultSummary' :: StackSetOperationResultSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679424823"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424823"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424822"><span class="annot"><span class="annottext">s :: StackSetOperationResultSummary
-</span><a href="#local-6989586621679424822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424821"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetOperationResultSummary
-</span><a href="#local-6989586621679424822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:StackSetOperationResultSummary' :: Maybe Text
+</span><a href="#local-6989586621679425235"><span class="hs-identifier hs-var hs-var">region</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425235"><span class="hs-identifier hs-var">region</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425234"><span class="annot"><span class="annottext">s :: StackSetOperationResultSummary
+</span><a href="#local-6989586621679425234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425233"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetOperationResultSummary
+</span><a href="#local-6989586621679425234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:region:StackSetOperationResultSummary' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3Aregion%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">region</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-174"></span><span>
 </span><span id="line-175"></span><span class="hs-comment">-- | The reason for the assigned result status.</span><span>
 </span><span id="line-176"></span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#stackSetOperationResultSummary_statusReason"><span class="hs-identifier hs-type">stackSetOperationResultSummary_statusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
@@ -400,77 +400,56 @@ $sel:region:StackSetOperationResultSummary' :: StackSetOperationResultSummary -&
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679424819"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679425231"><span class="annot"><span class="annottext">Maybe Text
 statusReason :: Maybe Text
 $sel:statusReason:StackSetOperationResultSummary' :: StackSetOperationResultSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679424819"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424819"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679424818"><span class="annot"><span class="annottext">s :: StackSetOperationResultSummary
-</span><a href="#local-6989586621679424818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679424817"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetOperationResultSummary
-</span><a href="#local-6989586621679424818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:StackSetOperationResultSummary' :: Maybe Text
+</span><a href="#local-6989586621679425231"><span class="hs-identifier hs-var hs-var">statusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425231"><span class="hs-identifier hs-var">statusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679425230"><span class="annot"><span class="annottext">s :: StackSetOperationResultSummary
+</span><a href="#local-6989586621679425230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-type">StackSetOperationResultSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679425229"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679425229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackSetOperationResultSummary
+</span><a href="#local-6989586621679425230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusReason:StackSetOperationResultSummary' :: Maybe Text
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#%24sel%3AstatusReason%3AStackSetOperationResultSummary%27"><span class="hs-identifier hs-var">statusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679424817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679425229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-178"></span><span>
 </span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-180"></span><span>  </span><span id="local-6989586621679424814"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StackSetOperationResultSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679424812"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424812"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">Maybe AccountGateResult
--&gt; Maybe StackSetOperationResultStatus
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679425226"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StackSetOperationResultSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679425224"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679425224"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">Maybe StackSetOperationResultStatus
 -&gt; Maybe Text
+-&gt; Maybe AccountGateResult
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; StackSetOperationResultSummary
 </span><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary%27"><span class="hs-identifier hs-var">StackSetOperationResultSummary'</span></a></span><span>
-</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">(Maybe AccountGateResult
- -&gt; Maybe StackSetOperationResultStatus
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">(Maybe StackSetOperationResultStatus
  -&gt; Maybe Text
+ -&gt; Maybe AccountGateResult
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; StackSetOperationResultSummary)
--&gt; Either String (Maybe AccountGateResult)
+-&gt; Either String (Maybe StackSetOperationResultStatus)
 -&gt; Either
      String
-     (Maybe StackSetOperationResultStatus
-      -&gt; Maybe Text
+     (Maybe Text
+      -&gt; Maybe AccountGateResult
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; StackSetOperationResultSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AccountGateResult)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;AccountGateResult&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe StackSetOperationResultStatus
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; Maybe Text
-   -&gt; StackSetOperationResultSummary)
--&gt; Either String (Maybe StackSetOperationResultStatus)
--&gt; Either
-     String
-     (Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; Maybe Text
-      -&gt; StackSetOperationResultSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679425224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe StackSetOperationResultStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">Either
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
+   -&gt; Maybe AccountGateResult
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
@@ -478,14 +457,35 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
+     (Maybe AccountGateResult
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; StackSetOperationResultSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679425224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Account&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe AccountGateResult
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; StackSetOperationResultSummary)
+-&gt; Either String (Maybe AccountGateResult)
+-&gt; Either
+     String
      (Maybe Text
       -&gt; Maybe Text -&gt; Maybe Text -&gt; StackSetOperationResultSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679425224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe AccountGateResult)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;OrganizationalUnitId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;AccountGateResult&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
@@ -495,17 +495,17 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
      String (Maybe Text -&gt; Maybe Text -&gt; StackSetOperationResultSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679425224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;Account&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;OrganizationalUnitId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">Either
   String (Maybe Text -&gt; Maybe Text -&gt; StackSetOperationResultSummary)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Maybe Text -&gt; StackSetOperationResultSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679425224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Region&quot;</span></span><span class="hs-special">)</span><span>
@@ -514,16 +514,16 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String StackSetOperationResultSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679424812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679425224"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StatusReason&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-188"></span><span>
 </span><span id="line-189"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-190"></span><span>  </span><span id="local-6989586621679424806"><span id="local-6989586621679424808"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679425218"><span id="local-6989586621679425220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
 </span><span id="line-191"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span></span></span><span>
 </span><span id="line-192"></span><span>
 </span><span id="line-193"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-194"></span><span>  </span><span id="local-6989586621679424803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679425215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-195"></span><span>    </span><span class="annot"><a href="Network.AWS.CloudFormation.Types.StackSetOperationResultSummary.html#StackSetOperationResultSummary"><span class="hs-identifier hs-type">StackSetOperationResultSummary</span></a></span></span><span>
 </span><span id="line-196"></span></pre></body></html>

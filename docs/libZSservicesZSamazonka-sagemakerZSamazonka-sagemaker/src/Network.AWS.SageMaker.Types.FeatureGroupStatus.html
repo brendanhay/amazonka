@@ -32,13 +32,13 @@
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span id="local-6989586621680304182"><span id="local-6989586621680304183"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FeatureGroupStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupStatus.html#FeatureGroupStatus"><span class="hs-identifier hs-var">FeatureGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FeatureGroupStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupStatus.html#FeatureGroupStatus%27"><span class="hs-identifier hs-var">FeatureGroupStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span id="local-6989586621680305557"><span id="local-6989586621680305558"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FeatureGroupStatus"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupStatus.html#FeatureGroupStatus"><span class="hs-identifier hs-var">FeatureGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FeatureGroupStatus%27"><span class="annot"><a href="Network.AWS.SageMaker.Types.FeatureGroupStatus.html#FeatureGroupStatus%27"><span class="hs-identifier hs-var">FeatureGroupStatus'</span></a></span></span><span>
 </span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFeatureGroupStatus"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; Text
 </span><a href="Network.AWS.SageMaker.Types.FeatureGroupStatus.html#fromFeatureGroupStatus"><span class="hs-identifier hs-var hs-var">fromFeatureGroupStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680304174"><span id="local-6989586621680304176"><span id="local-6989586621680304178"><span class="annot"><span class="annottext">Int -&gt; FeatureGroupStatus -&gt; ShowS
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680305549"><span id="local-6989586621680305551"><span id="local-6989586621680305553"><span class="annot"><span class="annottext">Int -&gt; FeatureGroupStatus -&gt; ShowS
 [FeatureGroupStatus] -&gt; ShowS
 FeatureGroupStatus -&gt; String
 (Int -&gt; FeatureGroupStatus -&gt; ShowS)
@@ -54,7 +54,7 @@ $cshow :: FeatureGroupStatus -&gt; String
 showsPrec :: Int -&gt; FeatureGroupStatus -&gt; ShowS
 $cshowsPrec :: Int -&gt; FeatureGroupStatus -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621680304165"><span id="local-6989586621680304167"><span id="local-6989586621680304169"><span id="local-6989586621680304171"><span class="annot"><span class="annottext">ReadPrec [FeatureGroupStatus]
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621680305540"><span id="local-6989586621680305542"><span id="local-6989586621680305544"><span id="local-6989586621680305546"><span class="annot"><span class="annottext">ReadPrec [FeatureGroupStatus]
 ReadPrec FeatureGroupStatus
 Int -&gt; ReadS FeatureGroupStatus
 ReadS [FeatureGroupStatus]
@@ -75,7 +75,7 @@ $creadList :: ReadS [FeatureGroupStatus]
 readsPrec :: Int -&gt; ReadS FeatureGroupStatus
 $creadsPrec :: Int -&gt; ReadS FeatureGroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621680304160"><span id="local-6989586621680304162"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; FeatureGroupStatus -&gt; Bool
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621680305535"><span id="local-6989586621680305537"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; FeatureGroupStatus -&gt; Bool
 (FeatureGroupStatus -&gt; FeatureGroupStatus -&gt; Bool)
 -&gt; (FeatureGroupStatus -&gt; FeatureGroupStatus -&gt; Bool)
 -&gt; Eq FeatureGroupStatus
@@ -85,7 +85,7 @@ $c/= :: FeatureGroupStatus -&gt; FeatureGroupStatus -&gt; Bool
 == :: FeatureGroupStatus -&gt; FeatureGroupStatus -&gt; Bool
 $c== :: FeatureGroupStatus -&gt; FeatureGroupStatus -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621680304144"><span id="local-6989586621680304146"><span id="local-6989586621680304148"><span id="local-6989586621680304150"><span id="local-6989586621680304152"><span id="local-6989586621680304154"><span id="local-6989586621680304156"><span class="annot"><span class="annottext">Eq FeatureGroupStatus
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621680305519"><span id="local-6989586621680305521"><span id="local-6989586621680305523"><span id="local-6989586621680305525"><span id="local-6989586621680305527"><span id="local-6989586621680305529"><span id="local-6989586621680305531"><span class="annot"><span class="annottext">Eq FeatureGroupStatus
 Eq FeatureGroupStatus
 -&gt; (FeatureGroupStatus -&gt; FeatureGroupStatus -&gt; Ordering)
 -&gt; (FeatureGroupStatus -&gt; FeatureGroupStatus -&gt; Bool)
@@ -136,7 +136,7 @@ $cfrom :: forall x. FeatureGroupStatus -&gt; Rep FeatureGroupStatus x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680304136"><span id="local-6989586621680304138"><span class="annot"><span class="annottext">Int -&gt; FeatureGroupStatus -&gt; Int
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680305511"><span id="local-6989586621680305513"><span class="annot"><span class="annottext">Int -&gt; FeatureGroupStatus -&gt; Int
 FeatureGroupStatus -&gt; Int
 (Int -&gt; FeatureGroupStatus -&gt; Int)
 -&gt; (FeatureGroupStatus -&gt; Int) -&gt; Hashable FeatureGroupStatus
@@ -146,53 +146,53 @@ $chash :: FeatureGroupStatus -&gt; Int
 hashWithSalt :: Int -&gt; FeatureGroupStatus -&gt; Int
 $chashWithSalt :: Int -&gt; FeatureGroupStatus -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621680304133"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; ()
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680305508"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; ()
 (FeatureGroupStatus -&gt; ()) -&gt; NFData FeatureGroupStatus
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: FeatureGroupStatus -&gt; ()
 $crnf :: FeatureGroupStatus -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621680304130"><span class="annot"><span class="annottext">Text -&gt; Either String FeatureGroupStatus
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680305505"><span class="annot"><span class="annottext">Text -&gt; Either String FeatureGroupStatus
 (Text -&gt; Either String FeatureGroupStatus)
 -&gt; FromText FeatureGroupStatus
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String FeatureGroupStatus
 $cfromText :: Text -&gt; Either String FeatureGroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621680304127"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; Text
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680305502"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; Text
 (FeatureGroupStatus -&gt; Text) -&gt; ToText FeatureGroupStatus
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: FeatureGroupStatus -&gt; Text
 $ctoText :: FeatureGroupStatus -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621680304124"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; ByteString
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680305499"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; ByteString
 (FeatureGroupStatus -&gt; ByteString)
 -&gt; ToByteString FeatureGroupStatus
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: FeatureGroupStatus -&gt; ByteString
 $ctoBS :: FeatureGroupStatus -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621680304121"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; ByteStringBuilder
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680305496"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; ByteStringBuilder
 (FeatureGroupStatus -&gt; ByteStringBuilder)
 -&gt; ToLog FeatureGroupStatus
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: FeatureGroupStatus -&gt; ByteStringBuilder
 $cbuild :: FeatureGroupStatus -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621680304118"><span class="annot"><span class="annottext">HeaderName -&gt; FeatureGroupStatus -&gt; [Header]
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680305493"><span class="annot"><span class="annottext">HeaderName -&gt; FeatureGroupStatus -&gt; [Header]
 (HeaderName -&gt; FeatureGroupStatus -&gt; [Header])
 -&gt; ToHeader FeatureGroupStatus
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; FeatureGroupStatus -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; FeatureGroupStatus -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621680304115"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; QueryString
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680305490"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; QueryString
 (FeatureGroupStatus -&gt; QueryString) -&gt; ToQuery FeatureGroupStatus
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: FeatureGroupStatus -&gt; QueryString
 $ctoQuery :: FeatureGroupStatus -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621680304110"><span id="local-6989586621680304112"><span class="annot"><span class="annottext">Value -&gt; Parser [FeatureGroupStatus]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680305485"><span id="local-6989586621680305487"><span class="annot"><span class="annottext">Value -&gt; Parser [FeatureGroupStatus]
 Value -&gt; Parser FeatureGroupStatus
 (Value -&gt; Parser FeatureGroupStatus)
 -&gt; (Value -&gt; Parser [FeatureGroupStatus])
@@ -204,7 +204,7 @@ $cparseJSONList :: Value -&gt; Parser [FeatureGroupStatus]
 parseJSON :: Value -&gt; Parser FeatureGroupStatus
 $cparseJSON :: Value -&gt; Parser FeatureGroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621680304105"><span id="local-6989586621680304107"><span class="annot"><span class="annottext">FromJSONKeyFunction [FeatureGroupStatus]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680305480"><span id="local-6989586621680305482"><span class="annot"><span class="annottext">FromJSONKeyFunction [FeatureGroupStatus]
 FromJSONKeyFunction FeatureGroupStatus
 FromJSONKeyFunction FeatureGroupStatus
 -&gt; FromJSONKeyFunction [FeatureGroupStatus]
@@ -216,7 +216,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [FeatureGroupStatus]
 fromJSONKey :: FromJSONKeyFunction FeatureGroupStatus
 $cfromJSONKey :: FromJSONKeyFunction FeatureGroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621680304096"><span id="local-6989586621680304098"><span id="local-6989586621680304100"><span id="local-6989586621680304102"><span class="annot"><span class="annottext">[FeatureGroupStatus] -&gt; Encoding
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680305471"><span id="local-6989586621680305473"><span id="local-6989586621680305475"><span id="local-6989586621680305477"><span class="annot"><span class="annottext">[FeatureGroupStatus] -&gt; Encoding
 [FeatureGroupStatus] -&gt; Value
 FeatureGroupStatus -&gt; Encoding
 FeatureGroupStatus -&gt; Value
@@ -240,7 +240,7 @@ $ctoEncoding :: FeatureGroupStatus -&gt; Encoding
 toJSON :: FeatureGroupStatus -&gt; Value
 $ctoJSON :: FeatureGroupStatus -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621680304091"><span id="local-6989586621680304093"><span class="annot"><span class="annottext">ToJSONKeyFunction [FeatureGroupStatus]
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680305466"><span id="local-6989586621680305468"><span class="annot"><span class="annottext">ToJSONKeyFunction [FeatureGroupStatus]
 ToJSONKeyFunction FeatureGroupStatus
 ToJSONKeyFunction FeatureGroupStatus
 -&gt; ToJSONKeyFunction [FeatureGroupStatus]
@@ -252,14 +252,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [FeatureGroupStatus]
 toJSONKey :: ToJSONKeyFunction FeatureGroupStatus
 $ctoJSONKey :: ToJSONKeyFunction FeatureGroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621680304088"><span class="annot"><span class="annottext">[Node] -&gt; Either String FeatureGroupStatus
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680305463"><span class="annot"><span class="annottext">[Node] -&gt; Either String FeatureGroupStatus
 ([Node] -&gt; Either String FeatureGroupStatus)
 -&gt; FromXML FeatureGroupStatus
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String FeatureGroupStatus
 $cparseXML :: [Node] -&gt; Either String FeatureGroupStatus
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621680304085"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; XML
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680305460"><span class="annot"><span class="annottext">FeatureGroupStatus -&gt; XML
 (FeatureGroupStatus -&gt; XML) -&gt; ToXML FeatureGroupStatus
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: FeatureGroupStatus -&gt; XML

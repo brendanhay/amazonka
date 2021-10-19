@@ -29,47 +29,47 @@
 </span><span id="line-29"></span><span class="hs-comment">-- | Information about a root volume replacement task.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newReplaceRootVolumeTask' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621681122998"><span id="local-6989586621681122999"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplaceRootVolumeTask"><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-var">ReplaceRootVolumeTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplaceRootVolumeTask%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">ReplaceRootVolumeTask'</span></a></span></span><span>
+</span><span id="line-32"></span><span id="local-6989586621681157859"><span id="local-6989586621681157860"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplaceRootVolumeTask"><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-var">ReplaceRootVolumeTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplaceRootVolumeTask%27"><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">ReplaceRootVolumeTask'</span></a></span></span><span>
 </span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the instance for which the root volume replacement task was</span><span>
 </span><span id="line-34"></span><span>    </span><span class="hs-comment">-- created.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AinstanceId%3AReplaceRootVolumeTask%27"><span class="annot"><span class="annottext">ReplaceRootVolumeTask -&gt; Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AinstanceId%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The time the task was started.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AstartTime%3AReplaceRootVolumeTask%27"><span class="annot"><span class="annottext">ReplaceRootVolumeTask -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AstartTime%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The ID of the root volume replacement task.</span><span>
-</span><span id="line-39"></span><span>    </span><span id="%24sel%3AreplaceRootVolumeTaskId%3AReplaceRootVolumeTask%27"><span class="annot"><span class="annottext">ReplaceRootVolumeTask -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AreplaceRootVolumeTaskId%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var hs-var">replaceRootVolumeTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The time the task completed.</span><span>
-</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcompleteTime%3AReplaceRootVolumeTask%27"><span class="annot"><span class="annottext">ReplaceRootVolumeTask -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AcompleteTime%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var hs-var">completeTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The tags assigned to the task.</span><span>
-</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atags%3AReplaceRootVolumeTask%27"><span class="annot"><span class="annottext">ReplaceRootVolumeTask -&gt; Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3Atags%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The state of the task. The task can be in one of the following states:</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The state of the task. The task can be in one of the following states:</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   @pending@ - the replacement volume is being created.</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- -   @in-progress@ - the original volume is being detached and the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     replacement volume is being attached.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @succeeded@ - the replacement volume has been successfully attached</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     to the instance and the instance is available.</span><span>
 </span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @pending@ - the replacement volume is being created.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   @failing@ - the replacement task is in the process of failing.</span><span>
 </span><span id="line-47"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   @in-progress@ - the original volume is being detached and the</span><span>
-</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     replacement volume is being attached.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- -   @failed@ - the replacement task has failed but the original root</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     volume is still attached.</span><span>
 </span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   @succeeded@ - the replacement volume has been successfully attached</span><span>
-</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     to the instance and the instance is available.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   @failing-detached@ - the replacement task is in the process of</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     failing. The instance might have no root volume attached.</span><span>
 </span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   @failing@ - the replacement task is in the process of failing.</span><span>
-</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   @failed@ - the replacement task has failed but the original root</span><span>
-</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     volume is still attached.</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   @failing-detached@ - the replacement task is in the process of</span><span>
-</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     failing. The instance might have no root volume attached.</span><span>
-</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   @failed-detached@ - the replacement task has failed and the instance</span><span>
-</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     has no root volume attached.</span><span>
-</span><span id="line-64"></span><span>    </span><span id="%24sel%3AtaskState%3AReplaceRootVolumeTask%27"><span class="annot"><span class="annottext">ReplaceRootVolumeTask -&gt; Maybe ReplaceRootVolumeTaskState
-</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AtaskState%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var hs-var">taskState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState</span></a></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- -   @failed-detached@ - the replacement task has failed and the instance</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--     has no root volume attached.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AtaskState%3AReplaceRootVolumeTask%27"><span class="annot"><span class="annottext">ReplaceRootVolumeTask -&gt; Maybe ReplaceRootVolumeTaskState
+</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AtaskState%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var hs-var">taskState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The time the task was started.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AstartTime%3AReplaceRootVolumeTask%27"><span class="annot"><span class="annottext">ReplaceRootVolumeTask -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AstartTime%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The time the task completed.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AcompleteTime%3AReplaceRootVolumeTask%27"><span class="annot"><span class="annottext">ReplaceRootVolumeTask -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AcompleteTime%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var hs-var">completeTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ID of the root volume replacement task.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AreplaceRootVolumeTaskId%3AReplaceRootVolumeTask%27"><span class="annot"><span class="annottext">ReplaceRootVolumeTask -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AreplaceRootVolumeTaskId%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var hs-var">replaceRootVolumeTaskId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The tags assigned to the task.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Atags%3AReplaceRootVolumeTask%27"><span class="annot"><span class="annottext">ReplaceRootVolumeTask -&gt; Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3Atags%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681122987"><span id="local-6989586621681122989"><span class="annot"><span class="annottext">ReplaceRootVolumeTask -&gt; ReplaceRootVolumeTask -&gt; Bool
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681157848"><span id="local-6989586621681157850"><span class="annot"><span class="annottext">ReplaceRootVolumeTask -&gt; ReplaceRootVolumeTask -&gt; Bool
 (ReplaceRootVolumeTask -&gt; ReplaceRootVolumeTask -&gt; Bool)
 -&gt; (ReplaceRootVolumeTask -&gt; ReplaceRootVolumeTask -&gt; Bool)
 -&gt; Eq ReplaceRootVolumeTask
@@ -78,7 +78,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ReplaceRootVolumeTask -&gt; ReplaceRootVolumeTask -&gt; Bool
 == :: ReplaceRootVolumeTask -&gt; ReplaceRootVolumeTask -&gt; Bool
 $c== :: ReplaceRootVolumeTask -&gt; ReplaceRootVolumeTask -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681122978"><span id="local-6989586621681122980"><span id="local-6989586621681122982"><span id="local-6989586621681122984"><span class="annot"><span class="annottext">ReadPrec [ReplaceRootVolumeTask]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681157839"><span id="local-6989586621681157841"><span id="local-6989586621681157843"><span id="local-6989586621681157845"><span class="annot"><span class="annottext">ReadPrec [ReplaceRootVolumeTask]
 ReadPrec ReplaceRootVolumeTask
 Int -&gt; ReadS ReplaceRootVolumeTask
 ReadS [ReplaceRootVolumeTask]
@@ -98,7 +98,7 @@ readList :: ReadS [ReplaceRootVolumeTask]
 $creadList :: ReadS [ReplaceRootVolumeTask]
 readsPrec :: Int -&gt; ReadS ReplaceRootVolumeTask
 $creadsPrec :: Int -&gt; ReadS ReplaceRootVolumeTask
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681122971"><span id="local-6989586621681122973"><span id="local-6989586621681122975"><span class="annot"><span class="annottext">Int -&gt; ReplaceRootVolumeTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681157832"><span id="local-6989586621681157834"><span id="local-6989586621681157836"><span class="annot"><span class="annottext">Int -&gt; ReplaceRootVolumeTask -&gt; ShowS
 [ReplaceRootVolumeTask] -&gt; ShowS
 ReplaceRootVolumeTask -&gt; String
 (Int -&gt; ReplaceRootVolumeTask -&gt; ShowS)
@@ -135,44 +135,44 @@ $cfrom :: forall x. ReplaceRootVolumeTask -&gt; Rep ReplaceRootVolumeTask x
 </span><span id="line-76"></span><span class="hs-comment">-- 'instanceId', 'replaceRootVolumeTask_instanceId' - The ID of the instance for which the root volume replacement task was</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- created.</span><span>
 </span><span id="line-78"></span><span class="hs-comment">--</span><span>
-</span><span id="line-79"></span><span class="hs-comment">-- 'startTime', 'replaceRootVolumeTask_startTime' - The time the task was started.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'taskState', 'replaceRootVolumeTask_taskState' - The state of the task. The task can be in one of the following states:</span><span>
 </span><span id="line-80"></span><span class="hs-comment">--</span><span>
-</span><span id="line-81"></span><span class="hs-comment">-- 'replaceRootVolumeTaskId', 'replaceRootVolumeTask_replaceRootVolumeTaskId' - The ID of the root volume replacement task.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- -   @pending@ - the replacement volume is being created.</span><span>
 </span><span id="line-82"></span><span class="hs-comment">--</span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- 'completeTime', 'replaceRootVolumeTask_completeTime' - The time the task completed.</span><span>
-</span><span id="line-84"></span><span class="hs-comment">--</span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- 'tags', 'replaceRootVolumeTask_tags' - The tags assigned to the task.</span><span>
-</span><span id="line-86"></span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- 'taskState', 'replaceRootVolumeTask_taskState' - The state of the task. The task can be in one of the following states:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- -   @in-progress@ - the original volume is being detached and the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--     replacement volume is being attached.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   @succeeded@ - the replacement volume has been successfully attached</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     to the instance and the instance is available.</span><span>
 </span><span id="line-88"></span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- -   @pending@ - the replacement volume is being created.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- -   @failing@ - the replacement task is in the process of failing.</span><span>
 </span><span id="line-90"></span><span class="hs-comment">--</span><span>
-</span><span id="line-91"></span><span class="hs-comment">-- -   @in-progress@ - the original volume is being detached and the</span><span>
-</span><span id="line-92"></span><span class="hs-comment">--     replacement volume is being attached.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- -   @failed@ - the replacement task has failed but the original root</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--     volume is still attached.</span><span>
 </span><span id="line-93"></span><span class="hs-comment">--</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- -   @succeeded@ - the replacement volume has been successfully attached</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--     to the instance and the instance is available.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @failing-detached@ - the replacement task is in the process of</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--     failing. The instance might have no root volume attached.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- -   @failing@ - the replacement task is in the process of failing.</span><span>
-</span><span id="line-98"></span><span class="hs-comment">--</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- -   @failed@ - the replacement task has failed but the original root</span><span>
-</span><span id="line-100"></span><span class="hs-comment">--     volume is still attached.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- -   @failed-detached@ - the replacement task has failed and the instance</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     has no root volume attached.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'startTime', 'replaceRootVolumeTask_startTime' - The time the task was started.</span><span>
 </span><span id="line-101"></span><span class="hs-comment">--</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- -   @failing-detached@ - the replacement task is in the process of</span><span>
-</span><span id="line-103"></span><span class="hs-comment">--     failing. The instance might have no root volume attached.</span><span>
-</span><span id="line-104"></span><span class="hs-comment">--</span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- -   @failed-detached@ - the replacement task has failed and the instance</span><span>
-</span><span id="line-106"></span><span class="hs-comment">--     has no root volume attached.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'completeTime', 'replaceRootVolumeTask_completeTime' - The time the task completed.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'replaceRootVolumeTaskId', 'replaceRootVolumeTask_replaceRootVolumeTaskId' - The ID of the root volume replacement task.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'tags', 'replaceRootVolumeTask_tags' - The tags assigned to the task.</span><span>
 </span><span id="line-107"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#newReplaceRootVolumeTask"><span class="hs-identifier hs-type">newReplaceRootVolumeTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-108"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span>
 </span><span id="line-109"></span><span id="newReplaceRootVolumeTask"><span class="annot"><span class="annottext">newReplaceRootVolumeTask :: ReplaceRootVolumeTask
 </span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#newReplaceRootVolumeTask"><span class="hs-identifier hs-var hs-var">newReplaceRootVolumeTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-110"></span><span>  </span><span class="annot"><span class="annottext">ReplaceRootVolumeTask' :: Maybe Text
+-&gt; Maybe ReplaceRootVolumeTaskState
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Tag]
--&gt; Maybe ReplaceRootVolumeTaskState
 -&gt; ReplaceRootVolumeTask
 </span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span>
 </span><span id="line-111"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:instanceId:ReplaceRootVolumeTask' :: Maybe Text
@@ -180,24 +180,24 @@ $cfrom :: forall x. ReplaceRootVolumeTask -&gt; Rep ReplaceRootVolumeTask x
 </span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:ReplaceRootVolumeTask' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AstartTime%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskState:ReplaceRootVolumeTask' :: Maybe ReplaceRootVolumeTaskState
+</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AtaskState%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">taskState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplaceRootVolumeTaskState
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:replaceRootVolumeTaskId:ReplaceRootVolumeTask' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AreplaceRootVolumeTaskId%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">replaceRootVolumeTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:ReplaceRootVolumeTask' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AstartTime%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:completeTime:ReplaceRootVolumeTask' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AcompleteTime%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">completeTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ReplaceRootVolumeTask' :: Maybe [Tag]
-</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3Atags%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:replaceRootVolumeTaskId:ReplaceRootVolumeTask' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AreplaceRootVolumeTaskId%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">replaceRootVolumeTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskState:ReplaceRootVolumeTask' :: Maybe ReplaceRootVolumeTaskState
-</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AtaskState%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">taskState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplaceRootVolumeTaskState
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:ReplaceRootVolumeTask' :: Maybe [Tag]
+</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3Atags%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
@@ -215,20 +215,64 @@ forall a. Maybe a
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122962"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157823"><span class="annot"><span class="annottext">Maybe Text
 instanceId :: Maybe Text
 $sel:instanceId:ReplaceRootVolumeTask' :: ReplaceRootVolumeTask -&gt; Maybe Text
-</span><a href="#local-6989586621681122962"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122962"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122961"><span class="annot"><span class="annottext">s :: ReplaceRootVolumeTask
-</span><a href="#local-6989586621681122961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122960"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceRootVolumeTask
-</span><a href="#local-6989586621681122961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ReplaceRootVolumeTask' :: Maybe Text
+</span><a href="#local-6989586621681157823"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157823"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157822"><span class="annot"><span class="annottext">s :: ReplaceRootVolumeTask
+</span><a href="#local-6989586621681157822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157821"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceRootVolumeTask
+</span><a href="#local-6989586621681157822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ReplaceRootVolumeTask' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AinstanceId%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681157821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-124"></span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- | The time the task was started.</span><span>
-</span><span id="line-126"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_startTime"><span class="hs-identifier hs-type">replaceRootVolumeTask_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-127"></span><span id="replaceRootVolumeTask_startTime"><span class="annot"><span class="annottext">replaceRootVolumeTask_startTime :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-125"></span><span class="hs-comment">-- | The state of the task. The task can be in one of the following states:</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- -   @pending@ - the replacement volume is being created.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   @in-progress@ - the original volume is being detached and the</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     replacement volume is being attached.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   @succeeded@ - the replacement volume has been successfully attached</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--     to the instance and the instance is available.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   @failing@ - the replacement task is in the process of failing.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   @failed@ - the replacement task has failed but the original root</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--     volume is still attached.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   @failing-detached@ - the replacement task is in the process of</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--     failing. The instance might have no root volume attached.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   @failed-detached@ - the replacement task has failed and the instance</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     has no root volume attached.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_taskState"><span class="hs-identifier hs-type">replaceRootVolumeTask_taskState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="replaceRootVolumeTask_taskState"><span class="annot"><span class="annottext">replaceRootVolumeTask_taskState :: (Maybe ReplaceRootVolumeTaskState
+ -&gt; f (Maybe ReplaceRootVolumeTaskState))
+-&gt; ReplaceRootVolumeTask -&gt; f ReplaceRootVolumeTask
+</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_taskState"><span class="hs-identifier hs-var hs-var">replaceRootVolumeTask_taskState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplaceRootVolumeTask -&gt; Maybe ReplaceRootVolumeTaskState)
+-&gt; (ReplaceRootVolumeTask
+    -&gt; Maybe ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTask)
+-&gt; Lens
+     ReplaceRootVolumeTask
+     ReplaceRootVolumeTask
+     (Maybe ReplaceRootVolumeTaskState)
+     (Maybe ReplaceRootVolumeTaskState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157819"><span class="annot"><span class="annottext">Maybe ReplaceRootVolumeTaskState
+taskState :: Maybe ReplaceRootVolumeTaskState
+$sel:taskState:ReplaceRootVolumeTask' :: ReplaceRootVolumeTask -&gt; Maybe ReplaceRootVolumeTaskState
+</span><a href="#local-6989586621681157819"><span class="hs-identifier hs-var hs-var">taskState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplaceRootVolumeTaskState
+</span><a href="#local-6989586621681157819"><span class="hs-identifier hs-var">taskState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157818"><span class="annot"><span class="annottext">s :: ReplaceRootVolumeTask
+</span><a href="#local-6989586621681157818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157817"><span class="annot"><span class="annottext">Maybe ReplaceRootVolumeTaskState
+</span><a href="#local-6989586621681157817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceRootVolumeTask
+</span><a href="#local-6989586621681157818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskState:ReplaceRootVolumeTask' :: Maybe ReplaceRootVolumeTaskState
+</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AtaskState%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">taskState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplaceRootVolumeTaskState
+</span><a href="#local-6989586621681157817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The time the task was started.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_startTime"><span class="hs-identifier hs-type">replaceRootVolumeTask_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="replaceRootVolumeTask_startTime"><span class="annot"><span class="annottext">replaceRootVolumeTask_startTime :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReplaceRootVolumeTask -&gt; f ReplaceRootVolumeTask
 </span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_startTime"><span class="hs-identifier hs-var hs-var">replaceRootVolumeTask_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplaceRootVolumeTask -&gt; Maybe Text)
 -&gt; (ReplaceRootVolumeTask -&gt; Maybe Text -&gt; ReplaceRootVolumeTask)
@@ -238,43 +282,20 @@ $sel:instanceId:ReplaceRootVolumeTask' :: ReplaceRootVolumeTask -&gt; Maybe Text
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122958"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157815"><span class="annot"><span class="annottext">Maybe Text
 startTime :: Maybe Text
 $sel:startTime:ReplaceRootVolumeTask' :: ReplaceRootVolumeTask -&gt; Maybe Text
-</span><a href="#local-6989586621681122958"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122958"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122957"><span class="annot"><span class="annottext">s :: ReplaceRootVolumeTask
-</span><a href="#local-6989586621681122957"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122956"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122956"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceRootVolumeTask
-</span><a href="#local-6989586621681122957"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ReplaceRootVolumeTask' :: Maybe Text
+</span><a href="#local-6989586621681157815"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157815"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157814"><span class="annot"><span class="annottext">s :: ReplaceRootVolumeTask
+</span><a href="#local-6989586621681157814"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157813"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157813"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceRootVolumeTask
+</span><a href="#local-6989586621681157814"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ReplaceRootVolumeTask' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AstartTime%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122956"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- | The ID of the root volume replacement task.</span><span>
-</span><span id="line-130"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_replaceRootVolumeTaskId"><span class="hs-identifier hs-type">replaceRootVolumeTask_replaceRootVolumeTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-131"></span><span id="replaceRootVolumeTask_replaceRootVolumeTaskId"><span class="annot"><span class="annottext">replaceRootVolumeTask_replaceRootVolumeTaskId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ReplaceRootVolumeTask -&gt; f ReplaceRootVolumeTask
-</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_replaceRootVolumeTaskId"><span class="hs-identifier hs-var hs-var">replaceRootVolumeTask_replaceRootVolumeTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplaceRootVolumeTask -&gt; Maybe Text)
--&gt; (ReplaceRootVolumeTask -&gt; Maybe Text -&gt; ReplaceRootVolumeTask)
--&gt; Lens
-     ReplaceRootVolumeTask
-     ReplaceRootVolumeTask
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122954"><span class="annot"><span class="annottext">Maybe Text
-replaceRootVolumeTaskId :: Maybe Text
-$sel:replaceRootVolumeTaskId:ReplaceRootVolumeTask' :: ReplaceRootVolumeTask -&gt; Maybe Text
-</span><a href="#local-6989586621681122954"><span class="hs-identifier hs-var hs-var">replaceRootVolumeTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122954"><span class="hs-identifier hs-var">replaceRootVolumeTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122953"><span class="annot"><span class="annottext">s :: ReplaceRootVolumeTask
-</span><a href="#local-6989586621681122953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122952"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceRootVolumeTask
-</span><a href="#local-6989586621681122953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replaceRootVolumeTaskId:ReplaceRootVolumeTask' :: Maybe Text
-</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AreplaceRootVolumeTaskId%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">replaceRootVolumeTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-132"></span><span>
-</span><span id="line-133"></span><span class="hs-comment">-- | The time the task completed.</span><span>
-</span><span id="line-134"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_completeTime"><span class="hs-identifier hs-type">replaceRootVolumeTask_completeTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-135"></span><span id="replaceRootVolumeTask_completeTime"><span class="annot"><span class="annottext">replaceRootVolumeTask_completeTime :: (Maybe Text -&gt; f (Maybe Text))
+</span><a href="#local-6989586621681157813"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The time the task completed.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_completeTime"><span class="hs-identifier hs-type">replaceRootVolumeTask_completeTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="replaceRootVolumeTask_completeTime"><span class="annot"><span class="annottext">replaceRootVolumeTask_completeTime :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; ReplaceRootVolumeTask -&gt; f ReplaceRootVolumeTask
 </span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_completeTime"><span class="hs-identifier hs-var hs-var">replaceRootVolumeTask_completeTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplaceRootVolumeTask -&gt; Maybe Text)
 -&gt; (ReplaceRootVolumeTask -&gt; Maybe Text -&gt; ReplaceRootVolumeTask)
@@ -284,20 +305,43 @@ $sel:replaceRootVolumeTaskId:ReplaceRootVolumeTask' :: ReplaceRootVolumeTask -&g
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122950"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157811"><span class="annot"><span class="annottext">Maybe Text
 completeTime :: Maybe Text
 $sel:completeTime:ReplaceRootVolumeTask' :: ReplaceRootVolumeTask -&gt; Maybe Text
-</span><a href="#local-6989586621681122950"><span class="hs-identifier hs-var hs-var">completeTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122950"><span class="hs-identifier hs-var">completeTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122949"><span class="annot"><span class="annottext">s :: ReplaceRootVolumeTask
-</span><a href="#local-6989586621681122949"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122948"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122948"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceRootVolumeTask
-</span><a href="#local-6989586621681122949"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completeTime:ReplaceRootVolumeTask' :: Maybe Text
+</span><a href="#local-6989586621681157811"><span class="hs-identifier hs-var hs-var">completeTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157811"><span class="hs-identifier hs-var">completeTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157810"><span class="annot"><span class="annottext">s :: ReplaceRootVolumeTask
+</span><a href="#local-6989586621681157810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157809"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceRootVolumeTask
+</span><a href="#local-6989586621681157810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:completeTime:ReplaceRootVolumeTask' :: Maybe Text
 </span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AcompleteTime%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">completeTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681122948"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-136"></span><span>
-</span><span id="line-137"></span><span class="hs-comment">-- | The tags assigned to the task.</span><span>
-</span><span id="line-138"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_tags"><span class="hs-identifier hs-type">replaceRootVolumeTask_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span id="replaceRootVolumeTask_tags"><span class="annot"><span class="annottext">replaceRootVolumeTask_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681157809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The ID of the root volume replacement task.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_replaceRootVolumeTaskId"><span class="hs-identifier hs-type">replaceRootVolumeTask_replaceRootVolumeTaskId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="replaceRootVolumeTask_replaceRootVolumeTaskId"><span class="annot"><span class="annottext">replaceRootVolumeTask_replaceRootVolumeTaskId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplaceRootVolumeTask -&gt; f ReplaceRootVolumeTask
+</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_replaceRootVolumeTaskId"><span class="hs-identifier hs-var hs-var">replaceRootVolumeTask_replaceRootVolumeTaskId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplaceRootVolumeTask -&gt; Maybe Text)
+-&gt; (ReplaceRootVolumeTask -&gt; Maybe Text -&gt; ReplaceRootVolumeTask)
+-&gt; Lens
+     ReplaceRootVolumeTask
+     ReplaceRootVolumeTask
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157807"><span class="annot"><span class="annottext">Maybe Text
+replaceRootVolumeTaskId :: Maybe Text
+$sel:replaceRootVolumeTaskId:ReplaceRootVolumeTask' :: ReplaceRootVolumeTask -&gt; Maybe Text
+</span><a href="#local-6989586621681157807"><span class="hs-identifier hs-var hs-var">replaceRootVolumeTaskId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157807"><span class="hs-identifier hs-var">replaceRootVolumeTaskId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157806"><span class="annot"><span class="annottext">s :: ReplaceRootVolumeTask
+</span><a href="#local-6989586621681157806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157805"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceRootVolumeTask
+</span><a href="#local-6989586621681157806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replaceRootVolumeTaskId:ReplaceRootVolumeTask' :: Maybe Text
+</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AreplaceRootVolumeTaskId%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">replaceRootVolumeTaskId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681157805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The tags assigned to the task.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_tags"><span class="hs-identifier hs-type">replaceRootVolumeTask_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.EC2.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="replaceRootVolumeTask_tags"><span class="annot"><span class="annottext">replaceRootVolumeTask_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; ReplaceRootVolumeTask -&gt; f ReplaceRootVolumeTask
 </span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_tags"><span class="hs-identifier hs-var hs-var">replaceRootVolumeTask_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplaceRootVolumeTask -&gt; Maybe [Tag])
 -&gt; (ReplaceRootVolumeTask -&gt; Maybe [Tag] -&gt; ReplaceRootVolumeTask)
@@ -307,16 +351,16 @@ $sel:completeTime:ReplaceRootVolumeTask' :: ReplaceRootVolumeTask -&gt; Maybe Te
      (Maybe [Tag])
      (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122946"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681157803"><span class="annot"><span class="annottext">Maybe [Tag]
 tags :: Maybe [Tag]
 $sel:tags:ReplaceRootVolumeTask' :: ReplaceRootVolumeTask -&gt; Maybe [Tag]
-</span><a href="#local-6989586621681122946"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681122946"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122945"><span class="annot"><span class="annottext">s :: ReplaceRootVolumeTask
-</span><a href="#local-6989586621681122945"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122944"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681122944"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceRootVolumeTask
-</span><a href="#local-6989586621681122945"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ReplaceRootVolumeTask' :: Maybe [Tag]
+</span><a href="#local-6989586621681157803"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681157803"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681157802"><span class="annot"><span class="annottext">s :: ReplaceRootVolumeTask
+</span><a href="#local-6989586621681157802"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681157801"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621681157801"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceRootVolumeTask
+</span><a href="#local-6989586621681157802"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ReplaceRootVolumeTask' :: Maybe [Tag]
 </span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3Atags%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621681122944"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621681157801"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; ReplaceRootVolumeTask -&gt; f ReplaceRootVolumeTask)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -330,156 +374,109 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-140"></span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- | The state of the task. The task can be in one of the following states:</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- -   @pending@ - the replacement volume is being created.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- -   @in-progress@ - the original volume is being detached and the</span><span>
-</span><span id="line-146"></span><span class="hs-comment">--     replacement volume is being attached.</span><span>
-</span><span id="line-147"></span><span class="hs-comment">--</span><span>
-</span><span id="line-148"></span><span class="hs-comment">-- -   @succeeded@ - the replacement volume has been successfully attached</span><span>
-</span><span id="line-149"></span><span class="hs-comment">--     to the instance and the instance is available.</span><span>
-</span><span id="line-150"></span><span class="hs-comment">--</span><span>
-</span><span id="line-151"></span><span class="hs-comment">-- -   @failing@ - the replacement task is in the process of failing.</span><span>
-</span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- -   @failed@ - the replacement task has failed but the original root</span><span>
-</span><span id="line-154"></span><span class="hs-comment">--     volume is still attached.</span><span>
-</span><span id="line-155"></span><span class="hs-comment">--</span><span>
-</span><span id="line-156"></span><span class="hs-comment">-- -   @failing-detached@ - the replacement task is in the process of</span><span>
-</span><span id="line-157"></span><span class="hs-comment">--     failing. The instance might have no root volume attached.</span><span>
-</span><span id="line-158"></span><span class="hs-comment">--</span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- -   @failed-detached@ - the replacement task has failed and the instance</span><span>
-</span><span id="line-160"></span><span class="hs-comment">--     has no root volume attached.</span><span>
-</span><span id="line-161"></span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_taskState"><span class="hs-identifier hs-type">replaceRootVolumeTask_taskState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTaskState.html#ReplaceRootVolumeTaskState"><span class="hs-identifier hs-type">ReplaceRootVolumeTaskState</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-162"></span><span id="replaceRootVolumeTask_taskState"><span class="annot"><span class="annottext">replaceRootVolumeTask_taskState :: (Maybe ReplaceRootVolumeTaskState
- -&gt; f (Maybe ReplaceRootVolumeTaskState))
--&gt; ReplaceRootVolumeTask -&gt; f ReplaceRootVolumeTask
-</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#replaceRootVolumeTask_taskState"><span class="hs-identifier hs-var hs-var">replaceRootVolumeTask_taskState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplaceRootVolumeTask -&gt; Maybe ReplaceRootVolumeTaskState)
--&gt; (ReplaceRootVolumeTask
-    -&gt; Maybe ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTask)
--&gt; Lens
-     ReplaceRootVolumeTask
-     ReplaceRootVolumeTask
-     (Maybe ReplaceRootVolumeTaskState)
-     (Maybe ReplaceRootVolumeTaskState)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681122939"><span class="annot"><span class="annottext">Maybe ReplaceRootVolumeTaskState
-taskState :: Maybe ReplaceRootVolumeTaskState
-$sel:taskState:ReplaceRootVolumeTask' :: ReplaceRootVolumeTask -&gt; Maybe ReplaceRootVolumeTaskState
-</span><a href="#local-6989586621681122939"><span class="hs-identifier hs-var hs-var">taskState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplaceRootVolumeTaskState
-</span><a href="#local-6989586621681122939"><span class="hs-identifier hs-var">taskState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681122938"><span class="annot"><span class="annottext">s :: ReplaceRootVolumeTask
-</span><a href="#local-6989586621681122938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-type">ReplaceRootVolumeTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681122937"><span class="annot"><span class="annottext">Maybe ReplaceRootVolumeTaskState
-</span><a href="#local-6989586621681122937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplaceRootVolumeTask
-</span><a href="#local-6989586621681122938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskState:ReplaceRootVolumeTask' :: Maybe ReplaceRootVolumeTaskState
-</span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#%24sel%3AtaskState%3AReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">taskState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplaceRootVolumeTaskState
-</span><a href="#local-6989586621681122937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span class="hs-special">)</span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-163"></span><span>
 </span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-165"></span><span>  </span><span id="local-6989586621681122934"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReplaceRootVolumeTask
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681122932"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122932"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621681157795"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ReplaceRootVolumeTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681157793"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681157793"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ReplaceRootVolumeTaskState
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe Text
 -&gt; Maybe [Tag]
--&gt; Maybe ReplaceRootVolumeTaskState
 -&gt; ReplaceRootVolumeTask
 </span><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask%27"><span class="hs-identifier hs-var">ReplaceRootVolumeTask'</span></a></span><span>
 </span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ReplaceRootVolumeTaskState
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe Text
  -&gt; Maybe [Tag]
- -&gt; Maybe ReplaceRootVolumeTaskState
  -&gt; ReplaceRootVolumeTask)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
+     (Maybe ReplaceRootVolumeTaskState
+      -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe Text
       -&gt; Maybe [Tag]
-      -&gt; Maybe ReplaceRootVolumeTaskState
       -&gt; ReplaceRootVolumeTask)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681157793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;instanceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
+  (Maybe ReplaceRootVolumeTaskState
+   -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe Text
    -&gt; Maybe [Tag]
-   -&gt; Maybe ReplaceRootVolumeTaskState
    -&gt; ReplaceRootVolumeTask)
--&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe ReplaceRootVolumeTaskState)
 -&gt; Either
      String
      (Maybe Text
       -&gt; Maybe Text
+      -&gt; Maybe Text
       -&gt; Maybe [Tag]
-      -&gt; Maybe ReplaceRootVolumeTaskState
       -&gt; ReplaceRootVolumeTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681157793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReplaceRootVolumeTaskState)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;taskState&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
   (Maybe Text
    -&gt; Maybe Text
+   -&gt; Maybe Text
    -&gt; Maybe [Tag]
-   -&gt; Maybe ReplaceRootVolumeTaskState
    -&gt; ReplaceRootVolumeTask)
 -&gt; Either String (Maybe Text)
 -&gt; Either
      String
-     (Maybe Text
-      -&gt; Maybe [Tag]
-      -&gt; Maybe ReplaceRootVolumeTaskState
-      -&gt; ReplaceRootVolumeTask)
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; ReplaceRootVolumeTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681157793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;replaceRootVolumeTaskId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">Either
   String
-  (Maybe Text
-   -&gt; Maybe [Tag]
-   -&gt; Maybe ReplaceRootVolumeTaskState
-   -&gt; ReplaceRootVolumeTask)
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe [Tag] -&gt; ReplaceRootVolumeTask)
 -&gt; Either String (Maybe Text)
 -&gt; Either
-     String
-     (Maybe [Tag]
-      -&gt; Maybe ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTask)
+     String (Maybe Text -&gt; Maybe [Tag] -&gt; ReplaceRootVolumeTask)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621681157793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;completeTime&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String
-  (Maybe [Tag]
-   -&gt; Maybe ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTask)
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe [Tag] -&gt; ReplaceRootVolumeTask)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe [Tag] -&gt; ReplaceRootVolumeTask)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681157793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;replaceRootVolumeTaskId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; ReplaceRootVolumeTask)
 -&gt; Either String (Maybe [Tag])
--&gt; Either
-     String (Maybe ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTask)
+-&gt; Either String ReplaceRootVolumeTask
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621681157793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;tagSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
@@ -487,7 +484,7 @@ forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
 </span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-172"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+</span><span id="line-173"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
 -&gt; ([Node] -&gt; Either String (Maybe [Tag]))
 -&gt; Either String (Maybe [Tag])
 forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
@@ -500,19 +497,9 @@ Applicative f =&gt;
 forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 </span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>                  </span><span class="hs-special">)</span><span>
-</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">Either
-  String (Maybe ReplaceRootVolumeTaskState -&gt; ReplaceRootVolumeTask)
--&gt; Either String (Maybe ReplaceRootVolumeTaskState)
--&gt; Either String ReplaceRootVolumeTask
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681122932"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ReplaceRootVolumeTaskState)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;taskState&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>                  </span><span class="hs-special">)</span><span>
 </span><span id="line-175"></span><span>
-</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681122923"><span id="local-6989586621681122925"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span></span></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681157784"><span id="local-6989586621681157786"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span></span></span><span>
 </span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681122920"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681157781"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.ReplaceRootVolumeTask.html#ReplaceRootVolumeTask"><span class="hs-identifier hs-type">ReplaceRootVolumeTask</span></a></span></span><span>
 </span><span id="line-179"></span></pre></body></html>

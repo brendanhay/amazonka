@@ -34,11 +34,11 @@
 </span><span id="line-34"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#newDescribeSnapshotCopyGrants"><span class="hs-identifier">newDescribeSnapshotCopyGrants</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-35"></span><span>
 </span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_tagKeys"><span class="hs-identifier">describeSnapshotCopyGrants_tagKeys</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_snapshotCopyGrantName"><span class="hs-identifier">describeSnapshotCopyGrants_snapshotCopyGrantName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_tagValues"><span class="hs-identifier">describeSnapshotCopyGrants_tagValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_tagValues"><span class="hs-identifier">describeSnapshotCopyGrants_tagValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_tagKeys"><span class="hs-identifier">describeSnapshotCopyGrants_tagKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_marker"><span class="hs-identifier">describeSnapshotCopyGrants_marker</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_maxRecords"><span class="hs-identifier">describeSnapshotCopyGrants_maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_marker"><span class="hs-identifier">describeSnapshotCopyGrants_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_snapshotCopyGrantName"><span class="hs-identifier">describeSnapshotCopyGrants_snapshotCopyGrantName</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse"><span class="hs-identifier">DescribeSnapshotCopyGrantsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
@@ -61,50 +61,50 @@
 </span><span id="line-61"></span><span class="hs-comment">-- | The result of the @DescribeSnapshotCopyGrants@ action.</span><span>
 </span><span id="line-62"></span><span class="hs-comment">--</span><span>
 </span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newDescribeSnapshotCopyGrants' smart constructor.</span><span>
-</span><span id="line-64"></span><span id="local-6989586621679513284"><span id="local-6989586621679513285"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSnapshotCopyGrants"><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-var">DescribeSnapshotCopyGrants</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSnapshotCopyGrants%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">DescribeSnapshotCopyGrants'</span></a></span></span><span>
-</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching resources</span><span>
-</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- that are associated with the specified key or keys. For example, suppose</span><span>
-</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- that you have resources tagged with keys called @owner@ and</span><span>
-</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @environment@. If you specify both of these tag keys in the request,</span><span>
-</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Amazon Redshift returns a response with all resources that have either</span><span>
-</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- or both of these tag keys associated with them.</span><span>
-</span><span id="line-71"></span><span>    </span><span id="%24sel%3AtagKeys%3ADescribeSnapshotCopyGrants%27"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants -&gt; Maybe [Text]
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AtagKeys%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name of the snapshot copy grant.</span><span>
-</span><span id="line-73"></span><span>    </span><span id="%24sel%3AsnapshotCopyGrantName%3ADescribeSnapshotCopyGrants%27"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AsnapshotCopyGrantName%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var hs-var">snapshotCopyGrantName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | A tag value or values for which you want to return all matching</span><span>
-</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- resources that are associated with the specified value or values. For</span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- example, suppose that you have resources tagged with values called</span><span>
-</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- @admin@ and @test@. If you specify both of these tag values in the</span><span>
-</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- request, Amazon Redshift returns a response with all resources that have</span><span>
-</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- either or both of these tag values associated with them.</span><span>
-</span><span id="line-80"></span><span>    </span><span id="%24sel%3AtagValues%3ADescribeSnapshotCopyGrants%27"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants -&gt; Maybe [Text]
+</span><span id="line-64"></span><span id="local-6989586621679513986"><span id="local-6989586621679513987"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSnapshotCopyGrants"><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-var">DescribeSnapshotCopyGrants</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSnapshotCopyGrants%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">DescribeSnapshotCopyGrants'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A tag value or values for which you want to return all matching</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- resources that are associated with the specified value or values. For</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- example, suppose that you have resources tagged with values called</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- @admin@ and @test@. If you specify both of these tag values in the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- request, Amazon Redshift returns a response with all resources that have</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- either or both of these tag values associated with them.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AtagValues%3ADescribeSnapshotCopyGrants%27"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants -&gt; Maybe [Text]
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AtagValues%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
-</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
-</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
-</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- returned marker value.</span><span>
-</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- Default: @100@</span><span>
-</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
-</span><span id="line-90"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeSnapshotCopyGrants%27"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants -&gt; Maybe Int
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching resources</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- that are associated with the specified key or keys. For example, suppose</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- that you have resources tagged with keys called @owner@ and</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @environment@. If you specify both of these tag keys in the request,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Amazon Redshift returns a response with all resources that have either</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- or both of these tag keys associated with them.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AtagKeys%3ADescribeSnapshotCopyGrants%27"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants -&gt; Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AtagKeys%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- of response records. When the results of a @DescribeSnapshotCopyGrant@</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- Constraints: You can specify either the __SnapshotCopyGrantName__</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- parameter or the __Marker__ parameter, but not both.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeSnapshotCopyGrants%27"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3Amarker%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeSnapshotCopyGrants%27"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants -&gt; Maybe Int
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AmaxRecords%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
-</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
-</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- of response records. When the results of a @DescribeSnapshotCopyGrant@</span><span>
-</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
-</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
-</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
-</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
-</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- Constraints: You can specify either the __SnapshotCopyGrantName__</span><span>
-</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- parameter or the __Marker__ parameter, but not both.</span><span>
-</span><span id="line-100"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeSnapshotCopyGrants%27"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants -&gt; Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3Amarker%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The name of the snapshot copy grant.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AsnapshotCopyGrantName%3ADescribeSnapshotCopyGrants%27"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants -&gt; Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AsnapshotCopyGrantName%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var hs-var">snapshotCopyGrantName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-101"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679513274"><span id="local-6989586621679513276"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants -&gt; DescribeSnapshotCopyGrants -&gt; Bool
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679513976"><span id="local-6989586621679513978"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants -&gt; DescribeSnapshotCopyGrants -&gt; Bool
 (DescribeSnapshotCopyGrants -&gt; DescribeSnapshotCopyGrants -&gt; Bool)
 -&gt; (DescribeSnapshotCopyGrants
     -&gt; DescribeSnapshotCopyGrants -&gt; Bool)
@@ -114,7 +114,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DescribeSnapshotCopyGrants -&gt; DescribeSnapshotCopyGrants -&gt; Bool
 == :: DescribeSnapshotCopyGrants -&gt; DescribeSnapshotCopyGrants -&gt; Bool
 $c== :: DescribeSnapshotCopyGrants -&gt; DescribeSnapshotCopyGrants -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513265"><span id="local-6989586621679513267"><span id="local-6989586621679513269"><span id="local-6989586621679513271"><span class="annot"><span class="annottext">ReadPrec [DescribeSnapshotCopyGrants]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513967"><span id="local-6989586621679513969"><span id="local-6989586621679513971"><span id="local-6989586621679513973"><span class="annot"><span class="annottext">ReadPrec [DescribeSnapshotCopyGrants]
 ReadPrec DescribeSnapshotCopyGrants
 Int -&gt; ReadS DescribeSnapshotCopyGrants
 ReadS [DescribeSnapshotCopyGrants]
@@ -134,7 +134,7 @@ readList :: ReadS [DescribeSnapshotCopyGrants]
 $creadList :: ReadS [DescribeSnapshotCopyGrants]
 readsPrec :: Int -&gt; ReadS DescribeSnapshotCopyGrants
 $creadsPrec :: Int -&gt; ReadS DescribeSnapshotCopyGrants
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513258"><span id="local-6989586621679513260"><span id="local-6989586621679513262"><span class="annot"><span class="annottext">Int -&gt; DescribeSnapshotCopyGrants -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513960"><span id="local-6989586621679513962"><span id="local-6989586621679513964"><span class="annot"><span class="annottext">Int -&gt; DescribeSnapshotCopyGrants -&gt; ShowS
 [DescribeSnapshotCopyGrants] -&gt; ShowS
 DescribeSnapshotCopyGrants -&gt; String
 (Int -&gt; DescribeSnapshotCopyGrants -&gt; ShowS)
@@ -174,151 +174,83 @@ DescribeSnapshotCopyGrants -&gt; Rep DescribeSnapshotCopyGrants x
 </span><span id="line-109"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-110"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-111"></span><span class="hs-comment">--</span><span>
-</span><span id="line-112"></span><span class="hs-comment">-- 'tagKeys', 'describeSnapshotCopyGrants_tagKeys' - A tag key or keys for which you want to return all matching resources</span><span>
-</span><span id="line-113"></span><span class="hs-comment">-- that are associated with the specified key or keys. For example, suppose</span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- that you have resources tagged with keys called @owner@ and</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- @environment@. If you specify both of these tag keys in the request,</span><span>
-</span><span id="line-116"></span><span class="hs-comment">-- Amazon Redshift returns a response with all resources that have either</span><span>
-</span><span id="line-117"></span><span class="hs-comment">-- or both of these tag keys associated with them.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'tagValues', 'describeSnapshotCopyGrants_tagValues' - A tag value or values for which you want to return all matching</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- resources that are associated with the specified value or values. For</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- example, suppose that you have resources tagged with values called</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- @admin@ and @test@. If you specify both of these tag values in the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- request, Amazon Redshift returns a response with all resources that have</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- either or both of these tag values associated with them.</span><span>
 </span><span id="line-118"></span><span class="hs-comment">--</span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- 'snapshotCopyGrantName', 'describeSnapshotCopyGrants_snapshotCopyGrantName' - The name of the snapshot copy grant.</span><span>
-</span><span id="line-120"></span><span class="hs-comment">--</span><span>
-</span><span id="line-121"></span><span class="hs-comment">-- 'tagValues', 'describeSnapshotCopyGrants_tagValues' - A tag value or values for which you want to return all matching</span><span>
-</span><span id="line-122"></span><span class="hs-comment">-- resources that are associated with the specified value or values. For</span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- example, suppose that you have resources tagged with values called</span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- @admin@ and @test@. If you specify both of these tag values in the</span><span>
-</span><span id="line-125"></span><span class="hs-comment">-- request, Amazon Redshift returns a response with all resources that have</span><span>
-</span><span id="line-126"></span><span class="hs-comment">-- either or both of these tag values associated with them.</span><span>
-</span><span id="line-127"></span><span class="hs-comment">--</span><span>
-</span><span id="line-128"></span><span class="hs-comment">-- 'maxRecords', 'describeSnapshotCopyGrants_maxRecords' - The maximum number of response records to return in each call. If the</span><span>
-</span><span id="line-129"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
-</span><span id="line-130"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
-</span><span id="line-131"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
-</span><span id="line-132"></span><span class="hs-comment">-- returned marker value.</span><span>
-</span><span id="line-133"></span><span class="hs-comment">--</span><span>
-</span><span id="line-134"></span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'tagKeys', 'describeSnapshotCopyGrants_tagKeys' - A tag key or keys for which you want to return all matching resources</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- that are associated with the specified key or keys. For example, suppose</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- that you have resources tagged with keys called @owner@ and</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- @environment@. If you specify both of these tag keys in the request,</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Amazon Redshift returns a response with all resources that have either</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- or both of these tag keys associated with them.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'marker', 'describeSnapshotCopyGrants_marker' - An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- of response records. When the results of a @DescribeSnapshotCopyGrant@</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Constraints: You can specify either the __SnapshotCopyGrantName__</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- parameter or the __Marker__ parameter, but not both.</span><span>
 </span><span id="line-135"></span><span class="hs-comment">--</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- 'marker', 'describeSnapshotCopyGrants_marker' - An optional parameter that specifies the starting point to return a set</span><span>
-</span><span id="line-139"></span><span class="hs-comment">-- of response records. When the results of a @DescribeSnapshotCopyGrant@</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
-</span><span id="line-142"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- Constraints: You can specify either the __SnapshotCopyGrantName__</span><span>
-</span><span id="line-146"></span><span class="hs-comment">-- parameter or the __Marker__ parameter, but not both.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'maxRecords', 'describeSnapshotCopyGrants_maxRecords' - The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'snapshotCopyGrantName', 'describeSnapshotCopyGrants_snapshotCopyGrantName' - The name of the snapshot copy grant.</span><span>
 </span><span id="line-147"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#newDescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">newDescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-148"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span>
 </span><span id="line-149"></span><span id="newDescribeSnapshotCopyGrants"><span class="annot"><span class="annottext">newDescribeSnapshotCopyGrants :: DescribeSnapshotCopyGrants
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#newDescribeSnapshotCopyGrants"><span class="hs-identifier hs-var hs-var">newDescribeSnapshotCopyGrants</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants' :: Maybe [Text]
--&gt; Maybe Text
 -&gt; Maybe [Text]
+-&gt; Maybe Text
 -&gt; Maybe Int
 -&gt; Maybe Text
 -&gt; DescribeSnapshotCopyGrants
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeSnapshotCopyGrants' :: Maybe [Text]
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AtagKeys%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tagValues:DescribeSnapshotCopyGrants' :: Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AtagValues%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotCopyGrantName:DescribeSnapshotCopyGrants' :: Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AsnapshotCopyGrantName%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeSnapshotCopyGrants' :: Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AtagKeys%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagValues:DescribeSnapshotCopyGrants' :: Maybe [Text]
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AtagValues%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeSnapshotCopyGrants' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3Amarker%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeSnapshotCopyGrants' :: Maybe Int
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AmaxRecords%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeSnapshotCopyGrants' :: Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3Amarker%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:snapshotCopyGrantName:DescribeSnapshotCopyGrants' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AsnapshotCopyGrantName%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-158"></span><span>
-</span><span id="line-159"></span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching resources</span><span>
-</span><span id="line-160"></span><span class="hs-comment">-- that are associated with the specified key or keys. For example, suppose</span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- that you have resources tagged with keys called @owner@ and</span><span>
-</span><span id="line-162"></span><span class="hs-comment">-- @environment@. If you specify both of these tag keys in the request,</span><span>
-</span><span id="line-163"></span><span class="hs-comment">-- Amazon Redshift returns a response with all resources that have either</span><span>
-</span><span id="line-164"></span><span class="hs-comment">-- or both of these tag keys associated with them.</span><span>
-</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_tagKeys"><span class="hs-identifier hs-type">describeSnapshotCopyGrants_tagKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-166"></span><span id="describeSnapshotCopyGrants_tagKeys"><span class="annot"><span class="annottext">describeSnapshotCopyGrants_tagKeys :: (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeSnapshotCopyGrants -&gt; f DescribeSnapshotCopyGrants
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_tagKeys"><span class="hs-identifier hs-var hs-var">describeSnapshotCopyGrants_tagKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSnapshotCopyGrants -&gt; Maybe [Text])
--&gt; (DescribeSnapshotCopyGrants
-    -&gt; Maybe [Text] -&gt; DescribeSnapshotCopyGrants)
--&gt; Lens
-     DescribeSnapshotCopyGrants
-     DescribeSnapshotCopyGrants
-     (Maybe [Text])
-     (Maybe [Text])
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513252"><span class="annot"><span class="annottext">Maybe [Text]
-tagKeys :: Maybe [Text]
-$sel:tagKeys:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe [Text]
-</span><a href="#local-6989586621679513252"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679513252"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513251"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrants
-</span><a href="#local-6989586621679513251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513250"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679513250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
-</span><a href="#local-6989586621679513251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeSnapshotCopyGrants' :: Maybe [Text]
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AtagKeys%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679513250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
- -&gt; DescribeSnapshotCopyGrants -&gt; f DescribeSnapshotCopyGrants)
--&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
-    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
--&gt; DescribeSnapshotCopyGrants
--&gt; f DescribeSnapshotCopyGrants
-forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
-</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
--&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
-forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
-(Functor f, Functor g) =&gt;
-AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
-</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-167"></span><span>
-</span><span id="line-168"></span><span class="hs-comment">-- | The name of the snapshot copy grant.</span><span>
-</span><span id="line-169"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_snapshotCopyGrantName"><span class="hs-identifier hs-type">describeSnapshotCopyGrants_snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-170"></span><span id="describeSnapshotCopyGrants_snapshotCopyGrantName"><span class="annot"><span class="annottext">describeSnapshotCopyGrants_snapshotCopyGrantName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; DescribeSnapshotCopyGrants -&gt; f DescribeSnapshotCopyGrants
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_snapshotCopyGrantName"><span class="hs-identifier hs-var hs-var">describeSnapshotCopyGrants_snapshotCopyGrantName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSnapshotCopyGrants -&gt; Maybe Text)
--&gt; (DescribeSnapshotCopyGrants
-    -&gt; Maybe Text -&gt; DescribeSnapshotCopyGrants)
--&gt; Lens
-     DescribeSnapshotCopyGrants
-     DescribeSnapshotCopyGrants
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513246"><span class="annot"><span class="annottext">Maybe Text
-snapshotCopyGrantName :: Maybe Text
-$sel:snapshotCopyGrantName:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe Text
-</span><a href="#local-6989586621679513246"><span class="hs-identifier hs-var hs-var">snapshotCopyGrantName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679513246"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513245"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrants
-</span><a href="#local-6989586621679513245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513244"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679513244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
-</span><a href="#local-6989586621679513245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotCopyGrantName:DescribeSnapshotCopyGrants' :: Maybe Text
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AsnapshotCopyGrantName%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679513244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-171"></span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- | A tag value or values for which you want to return all matching</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- resources that are associated with the specified value or values. For</span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- example, suppose that you have resources tagged with values called</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- @admin@ and @test@. If you specify both of these tag values in the</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- request, Amazon Redshift returns a response with all resources that have</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- either or both of these tag values associated with them.</span><span>
-</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_tagValues"><span class="hs-identifier hs-type">describeSnapshotCopyGrants_tagValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-179"></span><span id="describeSnapshotCopyGrants_tagValues"><span class="annot"><span class="annottext">describeSnapshotCopyGrants_tagValues :: (Maybe [Text] -&gt; f (Maybe [Text]))
+</span><span id="line-159"></span><span class="hs-comment">-- | A tag value or values for which you want to return all matching</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- resources that are associated with the specified value or values. For</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- example, suppose that you have resources tagged with values called</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- @admin@ and @test@. If you specify both of these tag values in the</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- request, Amazon Redshift returns a response with all resources that have</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- either or both of these tag values associated with them.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_tagValues"><span class="hs-identifier hs-type">describeSnapshotCopyGrants_tagValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="describeSnapshotCopyGrants_tagValues"><span class="annot"><span class="annottext">describeSnapshotCopyGrants_tagValues :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DescribeSnapshotCopyGrants -&gt; f DescribeSnapshotCopyGrants
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_tagValues"><span class="hs-identifier hs-var hs-var">describeSnapshotCopyGrants_tagValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSnapshotCopyGrants -&gt; Maybe [Text])
 -&gt; (DescribeSnapshotCopyGrants
@@ -329,16 +261,16 @@ $sel:snapshotCopyGrantName:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGr
      (Maybe [Text])
      (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513243"><span class="annot"><span class="annottext">Maybe [Text]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513954"><span class="annot"><span class="annottext">Maybe [Text]
 tagValues :: Maybe [Text]
 $sel:tagValues:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe [Text]
-</span><a href="#local-6989586621679513243"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679513243"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513242"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrants
-</span><a href="#local-6989586621679513242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513241"><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679513241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
-</span><a href="#local-6989586621679513242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValues:DescribeSnapshotCopyGrants' :: Maybe [Text]
+</span><a href="#local-6989586621679513954"><span class="hs-identifier hs-var hs-var">tagValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679513954"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513953"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrants
+</span><a href="#local-6989586621679513953"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513952"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679513952"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
+</span><a href="#local-6989586621679513953"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagValues:DescribeSnapshotCopyGrants' :: Maybe [Text]
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AtagValues%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">tagValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679513241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+</span><a href="#local-6989586621679513952"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
  -&gt; DescribeSnapshotCopyGrants -&gt; f DescribeSnapshotCopyGrants)
 -&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
     -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
@@ -352,52 +284,64 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-180"></span><span>
-</span><span id="line-181"></span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
-</span><span id="line-182"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
-</span><span id="line-183"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
-</span><span id="line-184"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
-</span><span id="line-185"></span><span class="hs-comment">-- returned marker value.</span><span>
-</span><span id="line-186"></span><span class="hs-comment">--</span><span>
-</span><span id="line-187"></span><span class="hs-comment">-- Default: @100@</span><span>
-</span><span id="line-188"></span><span class="hs-comment">--</span><span>
-</span><span id="line-189"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
-</span><span id="line-190"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_maxRecords"><span class="hs-identifier hs-type">describeSnapshotCopyGrants_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
-</span><span id="line-191"></span><span id="describeSnapshotCopyGrants_maxRecords"><span class="annot"><span class="annottext">describeSnapshotCopyGrants_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | A tag key or keys for which you want to return all matching resources</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- that are associated with the specified key or keys. For example, suppose</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- that you have resources tagged with keys called @owner@ and</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- @environment@. If you specify both of these tag keys in the request,</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Amazon Redshift returns a response with all resources that have either</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- or both of these tag keys associated with them.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_tagKeys"><span class="hs-identifier hs-type">describeSnapshotCopyGrants_tagKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="describeSnapshotCopyGrants_tagKeys"><span class="annot"><span class="annottext">describeSnapshotCopyGrants_tagKeys :: (Maybe [Text] -&gt; f (Maybe [Text]))
 -&gt; DescribeSnapshotCopyGrants -&gt; f DescribeSnapshotCopyGrants
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_maxRecords"><span class="hs-identifier hs-var hs-var">describeSnapshotCopyGrants_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSnapshotCopyGrants -&gt; Maybe Int)
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_tagKeys"><span class="hs-identifier hs-var hs-var">describeSnapshotCopyGrants_tagKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSnapshotCopyGrants -&gt; Maybe [Text])
 -&gt; (DescribeSnapshotCopyGrants
-    -&gt; Maybe Int -&gt; DescribeSnapshotCopyGrants)
+    -&gt; Maybe [Text] -&gt; DescribeSnapshotCopyGrants)
 -&gt; Lens
      DescribeSnapshotCopyGrants
      DescribeSnapshotCopyGrants
-     (Maybe Int)
-     (Maybe Int)
+     (Maybe [Text])
+     (Maybe [Text])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513240"><span class="annot"><span class="annottext">Maybe Int
-maxRecords :: Maybe Int
-$sel:maxRecords:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe Int
-</span><a href="#local-6989586621679513240"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679513240"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513239"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrants
-</span><a href="#local-6989586621679513239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513238"><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679513238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
-</span><a href="#local-6989586621679513239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeSnapshotCopyGrants' :: Maybe Int
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AmaxRecords%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679513238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-192"></span><span>
-</span><span id="line-193"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
-</span><span id="line-194"></span><span class="hs-comment">-- of response records. When the results of a @DescribeSnapshotCopyGrant@</span><span>
-</span><span id="line-195"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
-</span><span id="line-196"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
-</span><span id="line-197"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
-</span><span id="line-198"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
-</span><span id="line-199"></span><span class="hs-comment">--</span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- Constraints: You can specify either the __SnapshotCopyGrantName__</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- parameter or the __Marker__ parameter, but not both.</span><span>
-</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_marker"><span class="hs-identifier hs-type">describeSnapshotCopyGrants_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-203"></span><span id="describeSnapshotCopyGrants_marker"><span class="annot"><span class="annottext">describeSnapshotCopyGrants_marker :: (Maybe Text -&gt; f (Maybe Text))
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513948"><span class="annot"><span class="annottext">Maybe [Text]
+tagKeys :: Maybe [Text]
+$sel:tagKeys:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe [Text]
+</span><a href="#local-6989586621679513948"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679513948"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513947"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrants
+</span><a href="#local-6989586621679513947"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513946"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679513946"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
+</span><a href="#local-6989586621679513947"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:DescribeSnapshotCopyGrants' :: Maybe [Text]
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AtagKeys%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679513946"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeSnapshotCopyGrants -&gt; f DescribeSnapshotCopyGrants)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeSnapshotCopyGrants
+-&gt; f DescribeSnapshotCopyGrants
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- of response records. When the results of a @DescribeSnapshotCopyGrant@</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- request exceed the value specified in @MaxRecords@, Amazon Web Services</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- returns a value in the @Marker@ field of the response. You can retrieve</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- the next set of response records by providing the returned marker value</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- in the @Marker@ parameter and retrying the request.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Constraints: You can specify either the __SnapshotCopyGrantName__</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- parameter or the __Marker__ parameter, but not both.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_marker"><span class="hs-identifier hs-type">describeSnapshotCopyGrants_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="describeSnapshotCopyGrants_marker"><span class="annot"><span class="annottext">describeSnapshotCopyGrants_marker :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; DescribeSnapshotCopyGrants -&gt; f DescribeSnapshotCopyGrants
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_marker"><span class="hs-identifier hs-var hs-var">describeSnapshotCopyGrants_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSnapshotCopyGrants -&gt; Maybe Text)
 -&gt; (DescribeSnapshotCopyGrants
@@ -408,30 +352,86 @@ $sel:maxRecords:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; 
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513237"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513945"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe Text
-</span><a href="#local-6989586621679513237"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679513237"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513236"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrants
-</span><a href="#local-6989586621679513236"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513235"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679513235"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
-</span><a href="#local-6989586621679513236"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeSnapshotCopyGrants' :: Maybe Text
+</span><a href="#local-6989586621679513945"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513945"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513944"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrants
+</span><a href="#local-6989586621679513944"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513943"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513943"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
+</span><a href="#local-6989586621679513944"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeSnapshotCopyGrants' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3Amarker%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679513235"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679513943"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The maximum number of response records to return in each call. If the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- number of remaining response records exceeds the specified @MaxRecords@</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- value, a value is returned in a @marker@ field of the response. You can</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- retrieve the next set of records by retrying the command with the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- returned marker value.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Default: @100@</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Constraints: minimum 20, maximum 100.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_maxRecords"><span class="hs-identifier hs-type">describeSnapshotCopyGrants_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="describeSnapshotCopyGrants_maxRecords"><span class="annot"><span class="annottext">describeSnapshotCopyGrants_maxRecords :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeSnapshotCopyGrants -&gt; f DescribeSnapshotCopyGrants
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_maxRecords"><span class="hs-identifier hs-var hs-var">describeSnapshotCopyGrants_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSnapshotCopyGrants -&gt; Maybe Int)
+-&gt; (DescribeSnapshotCopyGrants
+    -&gt; Maybe Int -&gt; DescribeSnapshotCopyGrants)
+-&gt; Lens
+     DescribeSnapshotCopyGrants
+     DescribeSnapshotCopyGrants
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513942"><span class="annot"><span class="annottext">Maybe Int
+maxRecords :: Maybe Int
+$sel:maxRecords:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe Int
+</span><a href="#local-6989586621679513942"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679513942"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513941"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrants
+</span><a href="#local-6989586621679513941"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513940"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679513940"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
+</span><a href="#local-6989586621679513941"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeSnapshotCopyGrants' :: Maybe Int
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AmaxRecords%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679513940"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The name of the snapshot copy grant.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_snapshotCopyGrantName"><span class="hs-identifier hs-type">describeSnapshotCopyGrants_snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="describeSnapshotCopyGrants_snapshotCopyGrantName"><span class="annot"><span class="annottext">describeSnapshotCopyGrants_snapshotCopyGrantName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeSnapshotCopyGrants -&gt; f DescribeSnapshotCopyGrants
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrants_snapshotCopyGrantName"><span class="hs-identifier hs-var hs-var">describeSnapshotCopyGrants_snapshotCopyGrantName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeSnapshotCopyGrants -&gt; Maybe Text)
+-&gt; (DescribeSnapshotCopyGrants
+    -&gt; Maybe Text -&gt; DescribeSnapshotCopyGrants)
+-&gt; Lens
+     DescribeSnapshotCopyGrants
+     DescribeSnapshotCopyGrants
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513939"><span class="annot"><span class="annottext">Maybe Text
+snapshotCopyGrantName :: Maybe Text
+$sel:snapshotCopyGrantName:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe Text
+</span><a href="#local-6989586621679513939"><span class="hs-identifier hs-var hs-var">snapshotCopyGrantName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513939"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513938"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrants
+</span><a href="#local-6989586621679513938"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513937"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513937"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
+</span><a href="#local-6989586621679513938"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotCopyGrantName:DescribeSnapshotCopyGrants' :: Maybe Text
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AsnapshotCopyGrantName%3ADescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513937"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-204"></span><span>
 </span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-206"></span><span>  </span><span id="local-6989586621679513231"><span class="annot"><span class="annottext">page :: DescribeSnapshotCopyGrants
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679513933"><span class="annot"><span class="annottext">page :: DescribeSnapshotCopyGrants
 -&gt; AWSResponse DescribeSnapshotCopyGrants
 -&gt; Maybe DescribeSnapshotCopyGrants
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679513229"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
-</span><a href="#local-6989586621679513229"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679513228"><span class="annot"><span class="annottext">AWSResponse DescribeSnapshotCopyGrants
-</span><a href="#local-6989586621679513228"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679513931"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
+</span><a href="#local-6989586621679513931"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679513930"><span class="annot"><span class="annottext">AWSResponse DescribeSnapshotCopyGrants
+</span><a href="#local-6989586621679513930"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
 </span><span id="line-207"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
 forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-208"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSnapshotCopyGrants
 DescribeSnapshotCopyGrantsResponse
-</span><a href="#local-6989586621679513228"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679513930"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse
 -&gt; Getting (First Text) DescribeSnapshotCopyGrantsResponse Text
 -&gt; Maybe Text
@@ -461,7 +461,7 @@ forall a. AWSTruncated a =&gt; a -&gt; Bool
 </span><span class="hs-identifier hs-var">Core.stop</span></span><span>
 </span><span id="line-214"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSnapshotCopyGrants
 DescribeSnapshotCopyGrantsResponse
-</span><a href="#local-6989586621679513228"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679513930"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse
 -&gt; Getting
      (First [SnapshotCopyGrant])
@@ -510,7 +510,7 @@ forall a. a -&gt; Maybe a
 forall a b. (a -&gt; b) -&gt; a -&gt; b
 </span><span class="hs-operator hs-var">Prelude.$</span></span><span>
 </span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
-</span><a href="#local-6989586621679513229"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><a href="#local-6989586621679513931"><span class="hs-identifier hs-var">rq</span></a></span><span>
 </span><span id="line-222"></span><span>          </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrants
 -&gt; (DescribeSnapshotCopyGrants -&gt; DescribeSnapshotCopyGrants)
 -&gt; DescribeSnapshotCopyGrants
@@ -533,7 +533,7 @@ Lens
 forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
 </span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeSnapshotCopyGrants
 DescribeSnapshotCopyGrantsResponse
-</span><a href="#local-6989586621679513228"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><a href="#local-6989586621679513930"><span class="hs-identifier hs-var">rs</span></a></span><span>
 </span><span id="line-224"></span><span>          </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse
 -&gt; Getting (First Text) DescribeSnapshotCopyGrantsResponse Text
 -&gt; Maybe Text
@@ -559,13 +559,13 @@ forall a b. Prism (Maybe a) (Maybe b) a b
 </span><span id="line-228"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-229"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-230"></span><span>      </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse</span></a></span><span>
-</span><span id="line-231"></span><span>  </span><span id="local-6989586621679513219"><span class="annot"><span class="annottext">request :: DescribeSnapshotCopyGrants -&gt; Request DescribeSnapshotCopyGrants
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679513921"><span class="annot"><span class="annottext">request :: DescribeSnapshotCopyGrants -&gt; Request DescribeSnapshotCopyGrants
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; DescribeSnapshotCopyGrants -&gt; Request DescribeSnapshotCopyGrants
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-232"></span><span>  </span><span id="local-6989586621679513215"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-232"></span><span>  </span><span id="local-6989586621679513917"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DescribeSnapshotCopyGrants
 -&gt; ClientResponse ClientBody
@@ -596,10 +596,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;DescribeSnapshotCopyGrantsResult&quot;</span></span><span>
-</span><span id="line-235"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679513212"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513212"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679513211"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679513211"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679513210"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679513210"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679513914"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513914"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679513913"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679513913"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679513912"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679513912"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-236"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SnapshotCopyGrant]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeSnapshotCopyGrantsResponse
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-var">DescribeSnapshotCopyGrantsResponse'</span></a></span><span>
@@ -610,7 +610,7 @@ Text
      String (Maybe Text -&gt; Int -&gt; DescribeSnapshotCopyGrantsResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679513210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+</span><a href="#local-6989586621679513912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;SnapshotCopyGrants&quot;</span></span><span>
@@ -639,7 +639,7 @@ forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
 -&gt; Either String (Int -&gt; DescribeSnapshotCopyGrantsResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679513210"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679513912"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
@@ -652,15 +652,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513212"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679513914"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-243"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-244"></span><span>
-</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679513199"><span id="local-6989586621679513201"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span></span></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679513901"><span id="local-6989586621679513903"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span></span></span><span>
 </span><span id="line-246"></span><span>
-</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679513196"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679513898"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span></span><span>
 </span><span id="line-248"></span><span>
 </span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-250"></span><span>  </span><span id="local-6989586621679513192"><span class="annot"><span class="annottext">toHeaders :: DescribeSnapshotCopyGrants -&gt; ResponseHeaders
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679513894"><span class="annot"><span class="annottext">toHeaders :: DescribeSnapshotCopyGrants -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeSnapshotCopyGrants -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -668,28 +668,28 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-251"></span><span>
 </span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-253"></span><span>  </span><span id="local-6989586621679513187"><span class="annot"><span class="annottext">toPath :: DescribeSnapshotCopyGrants -&gt; ByteString
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621679513889"><span class="annot"><span class="annottext">toPath :: DescribeSnapshotCopyGrants -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeSnapshotCopyGrants -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-254"></span><span>
 </span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-256"></span><span>  </span><span id="local-6989586621679513183"><span class="annot"><span class="annottext">toQuery :: DescribeSnapshotCopyGrants -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513177"><span id="local-6989586621679513178"><span id="local-6989586621679513179"><span id="local-6989586621679513180"><span id="local-6989586621679513181"><span class="annot"><span class="annottext">Maybe Int
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679513885"><span class="annot"><span class="annottext">toQuery :: DescribeSnapshotCopyGrants -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrants%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrants'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513879"><span id="local-6989586621679513880"><span id="local-6989586621679513881"><span id="local-6989586621679513882"><span id="local-6989586621679513883"><span class="annot"><span class="annottext">Maybe Int
 Maybe [Text]
 Maybe Text
-marker :: Maybe Text
-maxRecords :: Maybe Int
-tagValues :: Maybe [Text]
 snapshotCopyGrantName :: Maybe Text
+maxRecords :: Maybe Int
+marker :: Maybe Text
 tagKeys :: Maybe [Text]
-$sel:marker:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe Text
-$sel:maxRecords:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe Int
-$sel:tagValues:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe [Text]
+tagValues :: Maybe [Text]
 $sel:snapshotCopyGrantName:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe Text
+$sel:maxRecords:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe Int
+$sel:marker:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe Text
 $sel:tagKeys:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe [Text]
-</span><a href="#local-6989586621679513177"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+$sel:tagValues:DescribeSnapshotCopyGrants' :: DescribeSnapshotCopyGrants -&gt; Maybe [Text]
+</span><a href="#local-6989586621679513879"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -706,7 +706,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;2012-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TagKeys&quot;</span></span><span>
+</span><span class="hs-string">&quot;TagValues&quot;</span></span><span>
 </span><span id="line-263"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
@@ -717,48 +717,48 @@ forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TagKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+</span><span class="hs-string">&quot;TagValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679513181"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679513883"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-265"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;SnapshotCopyGrantName&quot;</span></span><span>
-</span><span id="line-266"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679513180"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-267"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TagValues&quot;</span></span><span>
-</span><span id="line-268"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><span class="hs-string">&quot;TagKeys&quot;</span></span><span>
+</span><span id="line-266"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
 forall a. ToQuery a =&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
-</span><span id="line-269"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+</span><span id="line-267"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
 forall a.
 (IsList a, ToQuery (Item a)) =&gt;
 ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;TagValue&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+</span><span class="hs-string">&quot;TagKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
-</span><a href="#local-6989586621679513179"><span class="hs-identifier hs-var">tagValues</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">ByteString
-</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
-forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
-</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
-</span><a href="#local-6989586621679513178"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-271"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679513882"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679513177"><span class="hs-identifier hs-var">marker</span></a></span><span>
+</span><a href="#local-6989586621679513881"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679513880"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SnapshotCopyGrantName&quot;</span></span><span>
+</span><span id="line-271"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513879"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span>
 </span><span id="line-272"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-273"></span><span>
 </span><span id="line-274"></span><span class="hs-comment">-- |</span><span>
 </span><span id="line-275"></span><span class="hs-comment">--</span><span>
 </span><span id="line-276"></span><span class="hs-comment">-- /See:/ 'newDescribeSnapshotCopyGrantsResponse' smart constructor.</span><span>
-</span><span id="line-277"></span><span id="local-6989586621679513173"><span id="local-6989586621679513174"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSnapshotCopyGrantsResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-var">DescribeSnapshotCopyGrantsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSnapshotCopyGrantsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-var">DescribeSnapshotCopyGrantsResponse'</span></a></span></span><span>
+</span><span id="line-277"></span><span id="local-6989586621679513875"><span id="local-6989586621679513876"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeSnapshotCopyGrantsResponse"><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-var">DescribeSnapshotCopyGrantsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeSnapshotCopyGrantsResponse%27"><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-var">DescribeSnapshotCopyGrantsResponse'</span></a></span></span><span>
 </span><span id="line-278"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of @SnapshotCopyGrant@ objects.</span><span>
 </span><span id="line-279"></span><span>    </span><span id="%24sel%3AsnapshotCopyGrants%3ADescribeSnapshotCopyGrantsResponse%27"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse -&gt; Maybe [SnapshotCopyGrant]
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AsnapshotCopyGrants%3ADescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-var hs-var">snapshotCopyGrants</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.Redshift.Types.SnapshotCopyGrant.html#SnapshotCopyGrant"><span class="hs-identifier hs-type">SnapshotCopyGrant</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
@@ -777,7 +777,7 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span id="line-291"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeSnapshotCopyGrantsResponse%27"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse -&gt; Int
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AhttpStatus%3ADescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-292"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-293"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679513166"><span id="local-6989586621679513168"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse
+</span><span id="line-293"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679513868"><span id="local-6989586621679513870"><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse
 -&gt; DescribeSnapshotCopyGrantsResponse -&gt; Bool
 (DescribeSnapshotCopyGrantsResponse
  -&gt; DescribeSnapshotCopyGrantsResponse -&gt; Bool)
@@ -793,7 +793,7 @@ $c/= :: DescribeSnapshotCopyGrantsResponse
 -&gt; DescribeSnapshotCopyGrantsResponse -&gt; Bool
 $c== :: DescribeSnapshotCopyGrantsResponse
 -&gt; DescribeSnapshotCopyGrantsResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513158"><span id="local-6989586621679513160"><span id="local-6989586621679513162"><span id="local-6989586621679513164"><span class="annot"><span class="annottext">ReadPrec [DescribeSnapshotCopyGrantsResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513860"><span id="local-6989586621679513862"><span id="local-6989586621679513864"><span id="local-6989586621679513866"><span class="annot"><span class="annottext">ReadPrec [DescribeSnapshotCopyGrantsResponse]
 ReadPrec DescribeSnapshotCopyGrantsResponse
 Int -&gt; ReadS DescribeSnapshotCopyGrantsResponse
 ReadS [DescribeSnapshotCopyGrantsResponse]
@@ -813,7 +813,7 @@ readList :: ReadS [DescribeSnapshotCopyGrantsResponse]
 $creadList :: ReadS [DescribeSnapshotCopyGrantsResponse]
 readsPrec :: Int -&gt; ReadS DescribeSnapshotCopyGrantsResponse
 $creadsPrec :: Int -&gt; ReadS DescribeSnapshotCopyGrantsResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513152"><span id="local-6989586621679513154"><span id="local-6989586621679513156"><span class="annot"><span class="annottext">Int -&gt; DescribeSnapshotCopyGrantsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679513854"><span id="local-6989586621679513856"><span id="local-6989586621679513858"><span class="annot"><span class="annottext">Int -&gt; DescribeSnapshotCopyGrantsResponse -&gt; ShowS
 [DescribeSnapshotCopyGrantsResponse] -&gt; ShowS
 DescribeSnapshotCopyGrantsResponse -&gt; String
 (Int -&gt; DescribeSnapshotCopyGrantsResponse -&gt; ShowS)
@@ -877,8 +877,8 @@ DescribeSnapshotCopyGrantsResponse
 </span><span id="line-318"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-319"></span><span>  </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse</span></a></span><span>
 </span><span id="line-320"></span><span id="newDescribeSnapshotCopyGrantsResponse"><span class="annot"><span class="annottext">newDescribeSnapshotCopyGrantsResponse :: Int -&gt; DescribeSnapshotCopyGrantsResponse
-</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#newDescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-var hs-var">newDescribeSnapshotCopyGrantsResponse</span></a></span></span><span> </span><span id="local-6989586621679513149"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513149"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#newDescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-var hs-var">newDescribeSnapshotCopyGrantsResponse</span></a></span></span><span> </span><span id="local-6989586621679513851"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513851"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-321"></span><span>  </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse' :: Maybe [SnapshotCopyGrant]
 -&gt; Maybe Text -&gt; Int -&gt; DescribeSnapshotCopyGrantsResponse
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse'</span></a></span><span>
@@ -893,7 +893,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-325"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSnapshotCopyGrantsResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AhttpStatus%3ADescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513149"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679513851"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-326"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-327"></span><span>
 </span><span id="line-328"></span><span class="hs-comment">-- | The list of @SnapshotCopyGrant@ objects.</span><span>
@@ -907,16 +907,16 @@ forall a. Maybe a
 -&gt; Lens'
      DescribeSnapshotCopyGrantsResponse (Maybe [SnapshotCopyGrant])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513148"><span class="annot"><span class="annottext">Maybe [SnapshotCopyGrant]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513850"><span class="annot"><span class="annottext">Maybe [SnapshotCopyGrant]
 snapshotCopyGrants :: Maybe [SnapshotCopyGrant]
 $sel:snapshotCopyGrants:DescribeSnapshotCopyGrantsResponse' :: DescribeSnapshotCopyGrantsResponse -&gt; Maybe [SnapshotCopyGrant]
-</span><a href="#local-6989586621679513148"><span class="hs-identifier hs-var hs-var">snapshotCopyGrants</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SnapshotCopyGrant]
-</span><a href="#local-6989586621679513148"><span class="hs-identifier hs-var">snapshotCopyGrants</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513147"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrantsResponse
-</span><a href="#local-6989586621679513147"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513146"><span class="annot"><span class="annottext">Maybe [SnapshotCopyGrant]
-</span><a href="#local-6989586621679513146"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse
-</span><a href="#local-6989586621679513147"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotCopyGrants:DescribeSnapshotCopyGrantsResponse' :: Maybe [SnapshotCopyGrant]
+</span><a href="#local-6989586621679513850"><span class="hs-identifier hs-var hs-var">snapshotCopyGrants</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SnapshotCopyGrant]
+</span><a href="#local-6989586621679513850"><span class="hs-identifier hs-var">snapshotCopyGrants</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513849"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrantsResponse
+</span><a href="#local-6989586621679513849"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513848"><span class="annot"><span class="annottext">Maybe [SnapshotCopyGrant]
+</span><a href="#local-6989586621679513848"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse
+</span><a href="#local-6989586621679513849"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotCopyGrants:DescribeSnapshotCopyGrantsResponse' :: Maybe [SnapshotCopyGrant]
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AsnapshotCopyGrants%3ADescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-var">snapshotCopyGrants</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SnapshotCopyGrant]
-</span><a href="#local-6989586621679513146"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SnapshotCopyGrant] -&gt; f (Maybe [SnapshotCopyGrant]))
+</span><a href="#local-6989586621679513848"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SnapshotCopyGrant] -&gt; f (Maybe [SnapshotCopyGrant]))
  -&gt; DescribeSnapshotCopyGrantsResponse
  -&gt; f DescribeSnapshotCopyGrantsResponse)
 -&gt; ((Maybe [SnapshotCopyGrant] -&gt; f (Maybe [SnapshotCopyGrant]))
@@ -943,8 +943,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   [SnapshotCopyGrant]
   [SnapshotCopyGrant]
   [SnapshotCopyGrant]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-331"></span><span>
 </span><span id="line-332"></span><span class="hs-comment">-- | An optional parameter that specifies the starting point to return a set</span><span>
 </span><span id="line-333"></span><span class="hs-comment">-- of response records. When the results of a @DescribeSnapshotCopyGrant@</span><span>
@@ -964,16 +964,16 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
     -&gt; Maybe Text -&gt; DescribeSnapshotCopyGrantsResponse)
 -&gt; Lens' DescribeSnapshotCopyGrantsResponse (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513145"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513847"><span class="annot"><span class="annottext">Maybe Text
 marker :: Maybe Text
 $sel:marker:DescribeSnapshotCopyGrantsResponse' :: DescribeSnapshotCopyGrantsResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679513145"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679513145"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513144"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrantsResponse
-</span><a href="#local-6989586621679513144"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513143"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679513143"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse
-</span><a href="#local-6989586621679513144"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeSnapshotCopyGrantsResponse' :: Maybe Text
+</span><a href="#local-6989586621679513847"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513847"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513846"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrantsResponse
+</span><a href="#local-6989586621679513846"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513845"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679513845"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse
+</span><a href="#local-6989586621679513846"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeSnapshotCopyGrantsResponse' :: Maybe Text
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3Amarker%3ADescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679513143"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679513845"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-343"></span><span>
 </span><span id="line-344"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-345"></span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#describeSnapshotCopyGrantsResponse_httpStatus"><span class="hs-identifier hs-type">describeSnapshotCopyGrantsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -989,18 +989,18 @@ $sel:marker:DescribeSnapshotCopyGrantsResponse' :: DescribeSnapshotCopyGrantsRes
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513142"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679513844"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DescribeSnapshotCopyGrantsResponse' :: DescribeSnapshotCopyGrantsResponse -&gt; Int
-</span><a href="#local-6989586621679513142"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513142"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513141"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrantsResponse
-</span><a href="#local-6989586621679513141"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513140"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513140"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse
-</span><a href="#local-6989586621679513141"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSnapshotCopyGrantsResponse' :: Int
+</span><a href="#local-6989586621679513844"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513844"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679513843"><span class="annot"><span class="annottext">s :: DescribeSnapshotCopyGrantsResponse
+</span><a href="#local-6989586621679513843"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679513842"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679513842"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeSnapshotCopyGrantsResponse
+</span><a href="#local-6989586621679513843"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeSnapshotCopyGrantsResponse' :: Int
 </span><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#%24sel%3AhttpStatus%3ADescribeSnapshotCopyGrantsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679513140"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679513842"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-347"></span><span>
 </span><span id="line-348"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-349"></span><span>  </span><span id="local-6989586621679513138"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-349"></span><span>  </span><span id="local-6989586621679513840"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-350"></span><span>    </span><span class="annot"><a href="Network.AWS.Redshift.DescribeSnapshotCopyGrants.html#DescribeSnapshotCopyGrantsResponse"><span class="hs-identifier hs-type">DescribeSnapshotCopyGrantsResponse</span></a></span></span><span>
 </span><span id="line-351"></span></pre></body></html>

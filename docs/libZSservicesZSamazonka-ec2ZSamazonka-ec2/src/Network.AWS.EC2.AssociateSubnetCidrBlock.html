@@ -37,8 +37,8 @@
 </span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#newAssociateSubnetCidrBlockResponse"><span class="hs-identifier">newAssociateSubnetCidrBlockResponse</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-38"></span><span>
 </span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation"><span class="hs-identifier">associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_subnetId"><span class="hs-identifier">associateSubnetCidrBlockResponse_subnetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_subnetId"><span class="hs-identifier">associateSubnetCidrBlockResponse_subnetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation"><span class="hs-identifier">associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-42"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_httpStatus"><span class="hs-identifier">associateSubnetCidrBlockResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-44"></span><span class="hs-keyword">where</span><span>
@@ -51,7 +51,7 @@
 </span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-52"></span><span>
 </span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newAssociateSubnetCidrBlock' smart constructor.</span><span>
-</span><span id="line-54"></span><span id="local-6989586621681269443"><span id="local-6989586621681269444"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateSubnetCidrBlock"><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-var">AssociateSubnetCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateSubnetCidrBlock%27"><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock%27"><span class="hs-identifier hs-var">AssociateSubnetCidrBlock'</span></a></span></span><span>
+</span><span id="line-54"></span><span id="local-6989586621681306173"><span id="local-6989586621681306174"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateSubnetCidrBlock"><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-var">AssociateSubnetCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateSubnetCidrBlock%27"><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock%27"><span class="hs-identifier hs-var">AssociateSubnetCidrBlock'</span></a></span></span><span>
 </span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPv6 CIDR block for your subnet. The subnet must have a \/64 prefix</span><span>
 </span><span id="line-56"></span><span>    </span><span class="hs-comment">-- length.</span><span>
 </span><span id="line-57"></span><span>    </span><span id="%24sel%3Aipv6CidrBlock%3AAssociateSubnetCidrBlock%27"><span class="annot"><span class="annottext">AssociateSubnetCidrBlock -&gt; Text
@@ -60,7 +60,7 @@
 </span><span id="line-59"></span><span>    </span><span id="%24sel%3AsubnetId%3AAssociateSubnetCidrBlock%27"><span class="annot"><span class="annottext">AssociateSubnetCidrBlock -&gt; Text
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3AsubnetId%3AAssociateSubnetCidrBlock%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681269436"><span id="local-6989586621681269438"><span class="annot"><span class="annottext">AssociateSubnetCidrBlock -&gt; AssociateSubnetCidrBlock -&gt; Bool
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681306166"><span id="local-6989586621681306168"><span class="annot"><span class="annottext">AssociateSubnetCidrBlock -&gt; AssociateSubnetCidrBlock -&gt; Bool
 (AssociateSubnetCidrBlock -&gt; AssociateSubnetCidrBlock -&gt; Bool)
 -&gt; (AssociateSubnetCidrBlock -&gt; AssociateSubnetCidrBlock -&gt; Bool)
 -&gt; Eq AssociateSubnetCidrBlock
@@ -69,7 +69,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: AssociateSubnetCidrBlock -&gt; AssociateSubnetCidrBlock -&gt; Bool
 == :: AssociateSubnetCidrBlock -&gt; AssociateSubnetCidrBlock -&gt; Bool
 $c== :: AssociateSubnetCidrBlock -&gt; AssociateSubnetCidrBlock -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681269427"><span id="local-6989586621681269429"><span id="local-6989586621681269431"><span id="local-6989586621681269433"><span class="annot"><span class="annottext">ReadPrec [AssociateSubnetCidrBlock]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681306157"><span id="local-6989586621681306159"><span id="local-6989586621681306161"><span id="local-6989586621681306163"><span class="annot"><span class="annottext">ReadPrec [AssociateSubnetCidrBlock]
 ReadPrec AssociateSubnetCidrBlock
 Int -&gt; ReadS AssociateSubnetCidrBlock
 ReadS [AssociateSubnetCidrBlock]
@@ -89,7 +89,7 @@ readList :: ReadS [AssociateSubnetCidrBlock]
 $creadList :: ReadS [AssociateSubnetCidrBlock]
 readsPrec :: Int -&gt; ReadS AssociateSubnetCidrBlock
 $creadsPrec :: Int -&gt; ReadS AssociateSubnetCidrBlock
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681269420"><span id="local-6989586621681269422"><span id="local-6989586621681269424"><span class="annot"><span class="annottext">Int -&gt; AssociateSubnetCidrBlock -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681306150"><span id="local-6989586621681306152"><span id="local-6989586621681306154"><span class="annot"><span class="annottext">Int -&gt; AssociateSubnetCidrBlock -&gt; ShowS
 [AssociateSubnetCidrBlock] -&gt; ShowS
 AssociateSubnetCidrBlock -&gt; String
 (Int -&gt; AssociateSubnetCidrBlock -&gt; ShowS)
@@ -141,19 +141,19 @@ AssociateSubnetCidrBlock -&gt; Rep AssociateSubnetCidrBlock x
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span><span>
 </span><span id="line-81"></span><span id="newAssociateSubnetCidrBlock"><span class="annot"><span class="annottext">newAssociateSubnetCidrBlock :: Text -&gt; Text -&gt; AssociateSubnetCidrBlock
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#newAssociateSubnetCidrBlock"><span class="hs-identifier hs-var hs-var">newAssociateSubnetCidrBlock</span></a></span></span><span>
-</span><span id="line-82"></span><span>  </span><span id="local-6989586621681269415"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681269415"><span class="hs-identifier hs-var">pIpv6CidrBlock_</span></a></span></span><span>
-</span><span id="line-83"></span><span>  </span><span id="local-6989586621681269414"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681269414"><span class="hs-identifier hs-var">pSubnetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621681306145"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681306145"><span class="hs-identifier hs-var">pIpv6CidrBlock_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621681306144"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681306144"><span class="hs-identifier hs-var">pSubnetId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-84"></span><span>    </span><span class="annot"><span class="annottext">AssociateSubnetCidrBlock' :: Text -&gt; Text -&gt; AssociateSubnetCidrBlock
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock'</span></a></span><span>
 </span><span id="line-85"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipv6CidrBlock:AssociateSubnetCidrBlock' :: Text
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3Aipv6CidrBlock%3AAssociateSubnetCidrBlock%27"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681269415"><span class="hs-identifier hs-var">pIpv6CidrBlock_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681306145"><span class="hs-identifier hs-var">pIpv6CidrBlock_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">$sel:subnetId:AssociateSubnetCidrBlock' :: Text
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3AsubnetId%3AAssociateSubnetCidrBlock%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681269414"><span class="hs-identifier hs-var">pSubnetId_</span></a></span><span>
+</span><a href="#local-6989586621681306144"><span class="hs-identifier hs-var">pSubnetId_</span></a></span><span>
 </span><span id="line-88"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-89"></span><span>
 </span><span id="line-90"></span><span class="hs-comment">-- | The IPv6 CIDR block for your subnet. The subnet must have a \/64 prefix</span><span>
@@ -165,16 +165,16 @@ AssociateSubnetCidrBlock -&gt; Rep AssociateSubnetCidrBlock x
 -&gt; (AssociateSubnetCidrBlock -&gt; Text -&gt; AssociateSubnetCidrBlock)
 -&gt; Lens AssociateSubnetCidrBlock AssociateSubnetCidrBlock Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269411"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681306141"><span class="annot"><span class="annottext">Text
 ipv6CidrBlock :: Text
 $sel:ipv6CidrBlock:AssociateSubnetCidrBlock' :: AssociateSubnetCidrBlock -&gt; Text
-</span><a href="#local-6989586621681269411"><span class="hs-identifier hs-var hs-var">ipv6CidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681269411"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269410"><span class="annot"><span class="annottext">s :: AssociateSubnetCidrBlock
-</span><a href="#local-6989586621681269410"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269409"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681269409"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateSubnetCidrBlock
-</span><a href="#local-6989586621681269410"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6CidrBlock:AssociateSubnetCidrBlock' :: Text
+</span><a href="#local-6989586621681306141"><span class="hs-identifier hs-var hs-var">ipv6CidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681306141"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681306140"><span class="annot"><span class="annottext">s :: AssociateSubnetCidrBlock
+</span><a href="#local-6989586621681306140"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681306139"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681306139"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateSubnetCidrBlock
+</span><a href="#local-6989586621681306140"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6CidrBlock:AssociateSubnetCidrBlock' :: Text
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3Aipv6CidrBlock%3AAssociateSubnetCidrBlock%27"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681269409"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681306139"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | The ID of your subnet.</span><span>
 </span><span id="line-96"></span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlock_subnetId"><span class="hs-identifier hs-type">associateSubnetCidrBlock_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -184,28 +184,28 @@ $sel:ipv6CidrBlock:AssociateSubnetCidrBlock' :: AssociateSubnetCidrBlock -&gt; T
 -&gt; (AssociateSubnetCidrBlock -&gt; Text -&gt; AssociateSubnetCidrBlock)
 -&gt; Lens AssociateSubnetCidrBlock AssociateSubnetCidrBlock Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269408"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681306138"><span class="annot"><span class="annottext">Text
 subnetId :: Text
 $sel:subnetId:AssociateSubnetCidrBlock' :: AssociateSubnetCidrBlock -&gt; Text
-</span><a href="#local-6989586621681269408"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681269408"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269407"><span class="annot"><span class="annottext">s :: AssociateSubnetCidrBlock
-</span><a href="#local-6989586621681269407"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269406"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681269406"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateSubnetCidrBlock
-</span><a href="#local-6989586621681269407"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:AssociateSubnetCidrBlock' :: Text
+</span><a href="#local-6989586621681306138"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681306138"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681306137"><span class="annot"><span class="annottext">s :: AssociateSubnetCidrBlock
+</span><a href="#local-6989586621681306137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681306136"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681306136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateSubnetCidrBlock
+</span><a href="#local-6989586621681306137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:AssociateSubnetCidrBlock' :: Text
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3AsubnetId%3AAssociateSubnetCidrBlock%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681269406"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681306136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-98"></span><span>
 </span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-102"></span><span>      </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span>
-</span><span id="line-103"></span><span>  </span><span id="local-6989586621681269402"><span class="annot"><span class="annottext">request :: AssociateSubnetCidrBlock -&gt; Request AssociateSubnetCidrBlock
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621681306132"><span class="annot"><span class="annottext">request :: AssociateSubnetCidrBlock -&gt; Request AssociateSubnetCidrBlock
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; AssociateSubnetCidrBlock -&gt; Request AssociateSubnetCidrBlock
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621681269398"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621681306128"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy AssociateSubnetCidrBlock
 -&gt; ClientResponse ClientBody
@@ -231,35 +231,43 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
-</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681269395"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681269395"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681269394"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621681269394"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681269393"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681269393"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe SubnetIpv6CidrBlockAssociation
--&gt; Maybe Text -&gt; Int -&gt; AssociateSubnetCidrBlockResponse
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681306125"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681306125"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681306124"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681306124"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681306123"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681306123"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe SubnetIpv6CidrBlockAssociation
+-&gt; Int
+-&gt; AssociateSubnetCidrBlockResponse
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var">AssociateSubnetCidrBlockResponse'</span></a></span><span>
-</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SubnetIpv6CidrBlockAssociation
- -&gt; Maybe Text -&gt; Int -&gt; AssociateSubnetCidrBlockResponse)
--&gt; Either String (Maybe SubnetIpv6CidrBlockAssociation)
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe SubnetIpv6CidrBlockAssociation
+ -&gt; Int
+ -&gt; AssociateSubnetCidrBlockResponse)
+-&gt; Either String (Maybe Text)
 -&gt; Either
-     String (Maybe Text -&gt; Int -&gt; AssociateSubnetCidrBlockResponse)
+     String
+     (Maybe SubnetIpv6CidrBlockAssociation
+      -&gt; Int -&gt; AssociateSubnetCidrBlockResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681269393"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681306123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subnetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe SubnetIpv6CidrBlockAssociation
+   -&gt; Int -&gt; AssociateSubnetCidrBlockResponse)
+-&gt; Either String (Maybe SubnetIpv6CidrBlockAssociation)
+-&gt; Either String (Int -&gt; AssociateSubnetCidrBlockResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681306123"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
 -&gt; Text -&gt; Either String (Maybe SubnetIpv6CidrBlockAssociation)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ipv6CidrBlockAssociation&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
-  String (Maybe Text -&gt; Int -&gt; AssociateSubnetCidrBlockResponse)
--&gt; Either String (Maybe Text)
--&gt; Either String (Int -&gt; AssociateSubnetCidrBlockResponse)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621681269393"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
-forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
-</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;subnetId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AssociateSubnetCidrBlockResponse)
 -&gt; Either String Int
 -&gt; Either String AssociateSubnetCidrBlockResponse
@@ -269,15 +277,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681269395"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621681306125"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>
-</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681269385"><span id="local-6989586621681269387"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span></span></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681306115"><span id="local-6989586621681306117"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span></span></span><span>
 </span><span id="line-114"></span><span>
-</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681269382"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681306112"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621681269378"><span class="annot"><span class="annottext">toHeaders :: AssociateSubnetCidrBlock -&gt; ResponseHeaders
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621681306108"><span class="annot"><span class="annottext">toHeaders :: AssociateSubnetCidrBlock -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AssociateSubnetCidrBlock -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -285,20 +293,20 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621681269373"><span class="annot"><span class="annottext">toPath :: AssociateSubnetCidrBlock -&gt; ByteString
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621681306103"><span class="annot"><span class="annottext">toPath :: AssociateSubnetCidrBlock -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AssociateSubnetCidrBlock -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-122"></span><span>
 </span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-124"></span><span>  </span><span id="local-6989586621681269369"><span class="annot"><span class="annottext">toQuery :: AssociateSubnetCidrBlock -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269366"><span id="local-6989586621681269367"><span class="annot"><span class="annottext">Text
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621681306099"><span class="annot"><span class="annottext">toQuery :: AssociateSubnetCidrBlock -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlock%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681306096"><span id="local-6989586621681306097"><span class="annot"><span class="annottext">Text
 subnetId :: Text
 ipv6CidrBlock :: Text
 $sel:subnetId:AssociateSubnetCidrBlock' :: AssociateSubnetCidrBlock -&gt; Text
 $sel:ipv6CidrBlock:AssociateSubnetCidrBlock' :: AssociateSubnetCidrBlock -&gt; Text
-</span><a href="#local-6989586621681269366"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621681306096"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -318,28 +326,28 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;Ipv6CidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681269367"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621681306097"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;SubnetId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621681269366"><span class="hs-identifier hs-var">subnetId</span></a></span><span>
+</span><a href="#local-6989586621681306096"><span class="hs-identifier hs-var">subnetId</span></a></span><span>
 </span><span id="line-132"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-133"></span><span>
 </span><span id="line-134"></span><span class="hs-comment">-- | /See:/ 'newAssociateSubnetCidrBlockResponse' smart constructor.</span><span>
-</span><span id="line-135"></span><span id="local-6989586621681269363"><span id="local-6989586621681269364"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateSubnetCidrBlockResponse"><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-var">AssociateSubnetCidrBlockResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateSubnetCidrBlockResponse%27"><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var">AssociateSubnetCidrBlockResponse'</span></a></span></span><span>
-</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the IPv6 CIDR block association.</span><span>
-</span><span id="line-137"></span><span>    </span><span id="%24sel%3Aipv6CidrBlockAssociation%3AAssociateSubnetCidrBlockResponse%27"><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse
+</span><span id="line-135"></span><span id="local-6989586621681306093"><span id="local-6989586621681306094"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssociateSubnetCidrBlockResponse"><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-var">AssociateSubnetCidrBlockResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssociateSubnetCidrBlockResponse%27"><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var">AssociateSubnetCidrBlockResponse'</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the subnet.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AsubnetId%3AAssociateSubnetCidrBlockResponse%27"><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse -&gt; Maybe Text
+</span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3AsubnetId%3AAssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | Information about the IPv6 CIDR block association.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3Aipv6CidrBlockAssociation%3AAssociateSubnetCidrBlockResponse%27"><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse
 -&gt; Maybe SubnetIpv6CidrBlockAssociation
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3Aipv6CidrBlockAssociation%3AAssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var hs-var">ipv6CidrBlockAssociation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetIpv6CidrBlockAssociation.html#SubnetIpv6CidrBlockAssociation"><span class="hs-identifier hs-type">SubnetIpv6CidrBlockAssociation</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The ID of the subnet.</span><span>
-</span><span id="line-139"></span><span>    </span><span id="%24sel%3AsubnetId%3AAssociateSubnetCidrBlockResponse%27"><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse -&gt; Maybe Text
-</span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3AsubnetId%3AAssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-141"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAssociateSubnetCidrBlockResponse%27"><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse -&gt; Int
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3AhttpStatus%3AAssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-142"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681269356"><span id="local-6989586621681269358"><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681306086"><span id="local-6989586621681306088"><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse
 -&gt; AssociateSubnetCidrBlockResponse -&gt; Bool
 (AssociateSubnetCidrBlockResponse
  -&gt; AssociateSubnetCidrBlockResponse -&gt; Bool)
@@ -355,7 +363,7 @@ $c/= :: AssociateSubnetCidrBlockResponse
 -&gt; AssociateSubnetCidrBlockResponse -&gt; Bool
 $c== :: AssociateSubnetCidrBlockResponse
 -&gt; AssociateSubnetCidrBlockResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681269348"><span id="local-6989586621681269350"><span id="local-6989586621681269352"><span id="local-6989586621681269354"><span class="annot"><span class="annottext">ReadPrec [AssociateSubnetCidrBlockResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681306078"><span id="local-6989586621681306080"><span id="local-6989586621681306082"><span id="local-6989586621681306084"><span class="annot"><span class="annottext">ReadPrec [AssociateSubnetCidrBlockResponse]
 ReadPrec AssociateSubnetCidrBlockResponse
 Int -&gt; ReadS AssociateSubnetCidrBlockResponse
 ReadS [AssociateSubnetCidrBlockResponse]
@@ -375,7 +383,7 @@ readList :: ReadS [AssociateSubnetCidrBlockResponse]
 $creadList :: ReadS [AssociateSubnetCidrBlockResponse]
 readsPrec :: Int -&gt; ReadS AssociateSubnetCidrBlockResponse
 $creadsPrec :: Int -&gt; ReadS AssociateSubnetCidrBlockResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681269342"><span id="local-6989586621681269344"><span id="local-6989586621681269346"><span class="annot"><span class="annottext">Int -&gt; AssociateSubnetCidrBlockResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681306072"><span id="local-6989586621681306074"><span id="local-6989586621681306076"><span class="annot"><span class="annottext">Int -&gt; AssociateSubnetCidrBlockResponse -&gt; ShowS
 [AssociateSubnetCidrBlockResponse] -&gt; ShowS
 AssociateSubnetCidrBlockResponse -&gt; String
 (Int -&gt; AssociateSubnetCidrBlockResponse -&gt; ShowS)
@@ -421,9 +429,9 @@ AssociateSubnetCidrBlockResponse
 </span><span id="line-150"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-151"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-152"></span><span class="hs-comment">--</span><span>
-</span><span id="line-153"></span><span class="hs-comment">-- 'ipv6CidrBlockAssociation', 'associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'subnetId', 'associateSubnetCidrBlockResponse_subnetId' - The ID of the subnet.</span><span>
 </span><span id="line-154"></span><span class="hs-comment">--</span><span>
-</span><span id="line-155"></span><span class="hs-comment">-- 'subnetId', 'associateSubnetCidrBlockResponse_subnetId' - The ID of the subnet.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'ipv6CidrBlockAssociation', 'associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation' - Information about the IPv6 CIDR block association.</span><span>
 </span><span id="line-156"></span><span class="hs-comment">--</span><span>
 </span><span id="line-157"></span><span class="hs-comment">-- 'httpStatus', 'associateSubnetCidrBlockResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-158"></span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#newAssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">newAssociateSubnetCidrBlockResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -431,28 +439,56 @@ AssociateSubnetCidrBlockResponse
 </span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-161"></span><span>  </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span>
 </span><span id="line-162"></span><span id="newAssociateSubnetCidrBlockResponse"><span class="annot"><span class="annottext">newAssociateSubnetCidrBlockResponse :: Int -&gt; AssociateSubnetCidrBlockResponse
-</span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#newAssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-var hs-var">newAssociateSubnetCidrBlockResponse</span></a></span></span><span> </span><span id="local-6989586621681269339"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681269339"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse' :: Maybe SubnetIpv6CidrBlockAssociation
--&gt; Maybe Text -&gt; Int -&gt; AssociateSubnetCidrBlockResponse
+</span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#newAssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-var hs-var">newAssociateSubnetCidrBlockResponse</span></a></span></span><span> </span><span id="local-6989586621681306069"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681306069"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse' :: Maybe Text
+-&gt; Maybe SubnetIpv6CidrBlockAssociation
+-&gt; Int
+-&gt; AssociateSubnetCidrBlockResponse
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse'</span></a></span><span>
-</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipv6CidrBlockAssociation:AssociateSubnetCidrBlockResponse' :: Maybe SubnetIpv6CidrBlockAssociation
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subnetId:AssociateSubnetCidrBlockResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3AsubnetId%3AAssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:ipv6CidrBlockAssociation:AssociateSubnetCidrBlockResponse' :: Maybe SubnetIpv6CidrBlockAssociation
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3Aipv6CidrBlockAssociation%3AAssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var">ipv6CidrBlockAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Maybe SubnetIpv6CidrBlockAssociation
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">Maybe SubnetIpv6CidrBlockAssociation
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetId:AssociateSubnetCidrBlockResponse' :: Maybe Text
-</span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3AsubnetId%3AAssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateSubnetCidrBlockResponse' :: Int
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateSubnetCidrBlockResponse' :: Int
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3AhttpStatus%3AAssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681269339"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-168"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-comment">-- | Information about the IPv6 CIDR block association.</span><span>
-</span><span id="line-171"></span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation"><span class="hs-identifier hs-type">associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetIpv6CidrBlockAssociation.html#SubnetIpv6CidrBlockAssociation"><span class="hs-identifier hs-type">SubnetIpv6CidrBlockAssociation</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-172"></span><span id="associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation"><span class="annot"><span class="annottext">associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation :: (Maybe SubnetIpv6CidrBlockAssociation
+</span><a href="#local-6989586621681306069"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The ID of the subnet.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_subnetId"><span class="hs-identifier hs-type">associateSubnetCidrBlockResponse_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="associateSubnetCidrBlockResponse_subnetId"><span class="annot"><span class="annottext">associateSubnetCidrBlockResponse_subnetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AssociateSubnetCidrBlockResponse
+-&gt; f AssociateSubnetCidrBlockResponse
+</span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_subnetId"><span class="hs-identifier hs-var hs-var">associateSubnetCidrBlockResponse_subnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateSubnetCidrBlockResponse -&gt; Maybe Text)
+-&gt; (AssociateSubnetCidrBlockResponse
+    -&gt; Maybe Text -&gt; AssociateSubnetCidrBlockResponse)
+-&gt; Lens
+     AssociateSubnetCidrBlockResponse
+     AssociateSubnetCidrBlockResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681306068"><span class="annot"><span class="annottext">Maybe Text
+subnetId :: Maybe Text
+$sel:subnetId:AssociateSubnetCidrBlockResponse' :: AssociateSubnetCidrBlockResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681306068"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681306068"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681306067"><span class="annot"><span class="annottext">s :: AssociateSubnetCidrBlockResponse
+</span><a href="#local-6989586621681306067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681306066"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681306066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse
+</span><a href="#local-6989586621681306067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:AssociateSubnetCidrBlockResponse' :: Maybe Text
+</span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3AsubnetId%3AAssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681306066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Information about the IPv6 CIDR block association.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation"><span class="hs-identifier hs-type">associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.Types.SubnetIpv6CidrBlockAssociation.html#SubnetIpv6CidrBlockAssociation"><span class="hs-identifier hs-type">SubnetIpv6CidrBlockAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation"><span class="annot"><span class="annottext">associateSubnetCidrBlockResponse_ipv6CidrBlockAssociation :: (Maybe SubnetIpv6CidrBlockAssociation
  -&gt; f (Maybe SubnetIpv6CidrBlockAssociation))
 -&gt; AssociateSubnetCidrBlockResponse
 -&gt; f AssociateSubnetCidrBlockResponse
@@ -467,46 +503,21 @@ forall a. Maybe a
      (Maybe SubnetIpv6CidrBlockAssociation)
      (Maybe SubnetIpv6CidrBlockAssociation)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269338"><span class="annot"><span class="annottext">Maybe SubnetIpv6CidrBlockAssociation
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681306065"><span class="annot"><span class="annottext">Maybe SubnetIpv6CidrBlockAssociation
 ipv6CidrBlockAssociation :: Maybe SubnetIpv6CidrBlockAssociation
 $sel:ipv6CidrBlockAssociation:AssociateSubnetCidrBlockResponse' :: AssociateSubnetCidrBlockResponse
 -&gt; Maybe SubnetIpv6CidrBlockAssociation
-</span><a href="#local-6989586621681269338"><span class="hs-identifier hs-var hs-var">ipv6CidrBlockAssociation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetIpv6CidrBlockAssociation
-</span><a href="#local-6989586621681269338"><span class="hs-identifier hs-var">ipv6CidrBlockAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269337"><span class="annot"><span class="annottext">s :: AssociateSubnetCidrBlockResponse
-</span><a href="#local-6989586621681269337"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269336"><span class="annot"><span class="annottext">Maybe SubnetIpv6CidrBlockAssociation
-</span><a href="#local-6989586621681269336"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse
-</span><a href="#local-6989586621681269337"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6CidrBlockAssociation:AssociateSubnetCidrBlockResponse' :: Maybe SubnetIpv6CidrBlockAssociation
+</span><a href="#local-6989586621681306065"><span class="hs-identifier hs-var hs-var">ipv6CidrBlockAssociation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetIpv6CidrBlockAssociation
+</span><a href="#local-6989586621681306065"><span class="hs-identifier hs-var">ipv6CidrBlockAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681306064"><span class="annot"><span class="annottext">s :: AssociateSubnetCidrBlockResponse
+</span><a href="#local-6989586621681306064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681306063"><span class="annot"><span class="annottext">Maybe SubnetIpv6CidrBlockAssociation
+</span><a href="#local-6989586621681306063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse
+</span><a href="#local-6989586621681306064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6CidrBlockAssociation:AssociateSubnetCidrBlockResponse' :: Maybe SubnetIpv6CidrBlockAssociation
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3Aipv6CidrBlockAssociation%3AAssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var">ipv6CidrBlockAssociation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SubnetIpv6CidrBlockAssociation
-</span><a href="#local-6989586621681269336"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-173"></span><span>
-</span><span id="line-174"></span><span class="hs-comment">-- | The ID of the subnet.</span><span>
-</span><span id="line-175"></span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_subnetId"><span class="hs-identifier hs-type">associateSubnetCidrBlockResponse_subnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-176"></span><span id="associateSubnetCidrBlockResponse_subnetId"><span class="annot"><span class="annottext">associateSubnetCidrBlockResponse_subnetId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; AssociateSubnetCidrBlockResponse
--&gt; f AssociateSubnetCidrBlockResponse
-</span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_subnetId"><span class="hs-identifier hs-var hs-var">associateSubnetCidrBlockResponse_subnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateSubnetCidrBlockResponse -&gt; Maybe Text)
--&gt; (AssociateSubnetCidrBlockResponse
-    -&gt; Maybe Text -&gt; AssociateSubnetCidrBlockResponse)
--&gt; Lens
-     AssociateSubnetCidrBlockResponse
-     AssociateSubnetCidrBlockResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269335"><span class="annot"><span class="annottext">Maybe Text
-subnetId :: Maybe Text
-$sel:subnetId:AssociateSubnetCidrBlockResponse' :: AssociateSubnetCidrBlockResponse -&gt; Maybe Text
-</span><a href="#local-6989586621681269335"><span class="hs-identifier hs-var hs-var">subnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681269335"><span class="hs-identifier hs-var">subnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269334"><span class="annot"><span class="annottext">s :: AssociateSubnetCidrBlockResponse
-</span><a href="#local-6989586621681269334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269333"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681269333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse
-</span><a href="#local-6989586621681269334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetId:AssociateSubnetCidrBlockResponse' :: Maybe Text
-</span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3AsubnetId%3AAssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var">subnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621681269333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-177"></span><span>
-</span><span id="line-178"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-179"></span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_httpStatus"><span class="hs-identifier hs-type">associateSubnetCidrBlockResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-180"></span><span id="associateSubnetCidrBlockResponse_httpStatus"><span class="annot"><span class="annottext">associateSubnetCidrBlockResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621681306063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_httpStatus"><span class="hs-identifier hs-type">associateSubnetCidrBlockResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span id="associateSubnetCidrBlockResponse_httpStatus"><span class="annot"><span class="annottext">associateSubnetCidrBlockResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; AssociateSubnetCidrBlockResponse
 -&gt; f AssociateSubnetCidrBlockResponse
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#associateSubnetCidrBlockResponse_httpStatus"><span class="hs-identifier hs-var hs-var">associateSubnetCidrBlockResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssociateSubnetCidrBlockResponse -&gt; Int)
@@ -518,18 +529,18 @@ $sel:subnetId:AssociateSubnetCidrBlockResponse' :: AssociateSubnetCidrBlockRespo
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269332"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681306062"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:AssociateSubnetCidrBlockResponse' :: AssociateSubnetCidrBlockResponse -&gt; Int
-</span><a href="#local-6989586621681269332"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681269332"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269331"><span class="annot"><span class="annottext">s :: AssociateSubnetCidrBlockResponse
-</span><a href="#local-6989586621681269331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269330"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681269330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse
-</span><a href="#local-6989586621681269331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateSubnetCidrBlockResponse' :: Int
+</span><a href="#local-6989586621681306062"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681306062"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681306061"><span class="annot"><span class="annottext">s :: AssociateSubnetCidrBlockResponse
+</span><a href="#local-6989586621681306061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681306060"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681306060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssociateSubnetCidrBlockResponse
+</span><a href="#local-6989586621681306061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AssociateSubnetCidrBlockResponse' :: Int
 </span><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#%24sel%3AhttpStatus%3AAssociateSubnetCidrBlockResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621681269330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-181"></span><span>
-</span><span id="line-182"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-183"></span><span>  </span><span id="local-6989586621681269328"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span></span><span>
-</span><span id="line-185"></span></pre></body></html>
+</span><a href="#local-6989586621681306060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621681306058"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Network.AWS.EC2.AssociateSubnetCidrBlock.html#AssociateSubnetCidrBlockResponse"><span class="hs-identifier hs-type">AssociateSubnetCidrBlockResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

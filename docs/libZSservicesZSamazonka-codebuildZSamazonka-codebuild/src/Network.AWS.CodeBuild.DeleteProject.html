@@ -47,12 +47,12 @@
 </span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-48"></span><span>
 </span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteProject' smart constructor.</span><span>
-</span><span id="line-50"></span><span id="local-6989586621679388994"><span id="local-6989586621679388995"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProject"><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-var">DeleteProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProject%27"><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-var">DeleteProject'</span></a></span></span><span>
+</span><span id="line-50"></span><span id="local-6989586621679390921"><span id="local-6989586621679390922"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProject"><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-var">DeleteProject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProject%27"><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-var">DeleteProject'</span></a></span></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the build project.</span><span>
 </span><span id="line-52"></span><span>    </span><span id="%24sel%3Aname%3ADeleteProject%27"><span class="annot"><span class="annottext">DeleteProject -&gt; Text
 </span><a href="Network.AWS.CodeBuild.DeleteProject.html#%24sel%3Aname%3ADeleteProject%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388988"><span id="local-6989586621679388990"><span class="annot"><span class="annottext">DeleteProject -&gt; DeleteProject -&gt; Bool
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390915"><span id="local-6989586621679390917"><span class="annot"><span class="annottext">DeleteProject -&gt; DeleteProject -&gt; Bool
 (DeleteProject -&gt; DeleteProject -&gt; Bool)
 -&gt; (DeleteProject -&gt; DeleteProject -&gt; Bool) -&gt; Eq DeleteProject
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -60,7 +60,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteProject -&gt; DeleteProject -&gt; Bool
 == :: DeleteProject -&gt; DeleteProject -&gt; Bool
 $c== :: DeleteProject -&gt; DeleteProject -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388979"><span id="local-6989586621679388981"><span id="local-6989586621679388983"><span id="local-6989586621679388985"><span class="annot"><span class="annottext">ReadPrec [DeleteProject]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390906"><span id="local-6989586621679390908"><span id="local-6989586621679390910"><span id="local-6989586621679390912"><span class="annot"><span class="annottext">ReadPrec [DeleteProject]
 ReadPrec DeleteProject
 Int -&gt; ReadS DeleteProject
 ReadS [DeleteProject]
@@ -80,7 +80,7 @@ readList :: ReadS [DeleteProject]
 $creadList :: ReadS [DeleteProject]
 readsPrec :: Int -&gt; ReadS DeleteProject
 $creadsPrec :: Int -&gt; ReadS DeleteProject
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388972"><span id="local-6989586621679388974"><span id="local-6989586621679388976"><span class="annot"><span class="annottext">Int -&gt; DeleteProject -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390899"><span id="local-6989586621679390901"><span id="local-6989586621679390903"><span class="annot"><span class="annottext">Int -&gt; DeleteProject -&gt; ShowS
 [DeleteProject] -&gt; ShowS
 DeleteProject -&gt; String
 (Int -&gt; DeleteProject -&gt; ShowS)
@@ -120,12 +120,12 @@ $cfrom :: forall x. DeleteProject -&gt; Rep DeleteProject x
 </span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-68"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span>
 </span><span id="line-69"></span><span id="newDeleteProject"><span class="annot"><span class="annottext">newDeleteProject :: Text -&gt; DeleteProject
-</span><a href="Network.AWS.CodeBuild.DeleteProject.html#newDeleteProject"><span class="hs-identifier hs-var hs-var">newDeleteProject</span></a></span></span><span> </span><span id="local-6989586621679388967"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388967"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.DeleteProject.html#newDeleteProject"><span class="hs-identifier hs-var hs-var">newDeleteProject</span></a></span></span><span> </span><span id="local-6989586621679390894"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390894"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteProject' :: Text -&gt; DeleteProject
 </span><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-type">DeleteProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteProject' :: Text
 </span><a href="Network.AWS.CodeBuild.DeleteProject.html#%24sel%3Aname%3ADeleteProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388967"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679390894"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-71"></span><span>
 </span><span id="line-72"></span><span class="hs-comment">-- | The name of the build project.</span><span>
 </span><span id="line-73"></span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#deleteProject_name"><span class="hs-identifier hs-type">deleteProject_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -134,27 +134,27 @@ $cfrom :: forall x. DeleteProject -&gt; Rep DeleteProject x
 -&gt; (DeleteProject -&gt; Text -&gt; DeleteProject)
 -&gt; Lens DeleteProject DeleteProject Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-type">DeleteProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388964"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-type">DeleteProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390891"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteProject' :: DeleteProject -&gt; Text
-</span><a href="#local-6989586621679388964"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388964"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388963"><span class="annot"><span class="annottext">s :: DeleteProject
-</span><a href="#local-6989586621679388963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-type">DeleteProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388962"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProject
-</span><a href="#local-6989586621679388963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteProject' :: Text
+</span><a href="#local-6989586621679390891"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390891"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390890"><span class="annot"><span class="annottext">s :: DeleteProject
+</span><a href="#local-6989586621679390890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-type">DeleteProject'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390889"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679390889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProject
+</span><a href="#local-6989586621679390890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:DeleteProject' :: Text
 </span><a href="Network.AWS.CodeBuild.DeleteProject.html#%24sel%3Aname%3ADeleteProject%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-75"></span><span>
 </span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-79"></span><span>      </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier hs-type">DeleteProjectResponse</span></a></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679388958"><span class="annot"><span class="annottext">request :: DeleteProject -&gt; Request DeleteProject
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679390885"><span class="annot"><span class="annottext">request :: DeleteProject -&gt; Request DeleteProject
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteProject -&gt; Request DeleteProject
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-81"></span><span>  </span><span id="local-6989586621679388954"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679390881"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy DeleteProject
 -&gt; ClientResponse ClientBody
@@ -178,10 +178,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388951"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388951"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388950"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679388950"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388949"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679388949"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679390878"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390878"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679390877"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679390877"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679390876"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679390876"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteProjectResponse
 </span><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse%27"><span class="hs-identifier hs-var">DeleteProjectResponse'</span></a></span><span>
 </span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteProjectResponse)
@@ -192,15 +192,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388951"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390878"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-87"></span><span>
-</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388942"><span id="local-6989586621679388944"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span></span></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390869"><span id="local-6989586621679390871"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span></span></span><span>
 </span><span id="line-89"></span><span>
-</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390866"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span></span><span>
 </span><span id="line-91"></span><span>
 </span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-93"></span><span>  </span><span id="local-6989586621679388935"><span class="annot"><span class="annottext">toHeaders :: DeleteProject -&gt; ResponseHeaders
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679390862"><span class="annot"><span class="annottext">toHeaders :: DeleteProject -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteProject -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -227,12 +227,12 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-104"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-105"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-106"></span><span>
-</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388925"><span id="local-6989586621679388927"><span id="local-6989586621679388929"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679388923"><span class="annot"><span class="annottext">toJSON :: DeleteProject -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-type">DeleteProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388921"><span class="annot"><span class="annottext">Text
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390852"><span id="local-6989586621679390854"><span id="local-6989586621679390856"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679390850"><span class="annot"><span class="annottext">toJSON :: DeleteProject -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject%27"><span class="hs-identifier hs-type">DeleteProject'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390848"><span class="annot"><span class="annottext">Text
 name :: Text
 $sel:name:DeleteProject' :: DeleteProject -&gt; Text
-</span><a href="#local-6989586621679388921"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679390848"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -244,18 +244,18 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679388921"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679390848"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
 </span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679388915"><span class="annot"><span class="annottext">toPath :: DeleteProject -&gt; ByteString
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679390842"><span class="annot"><span class="annottext">toPath :: DeleteProject -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteProject -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-116"></span><span>
 </span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProject"><span class="hs-identifier hs-type">DeleteProject</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-118"></span><span>  </span><span id="local-6989586621679388911"><span class="annot"><span class="annottext">toQuery :: DeleteProject -&gt; QueryString
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679390838"><span class="annot"><span class="annottext">toQuery :: DeleteProject -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteProject -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -263,12 +263,12 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-119"></span><span>
 </span><span id="line-120"></span><span class="hs-comment">-- | /See:/ 'newDeleteProjectResponse' smart constructor.</span><span>
-</span><span id="line-121"></span><span id="local-6989586621679388908"><span id="local-6989586621679388909"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProjectResponse"><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier hs-var">DeleteProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProjectResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse%27"><span class="hs-identifier hs-var">DeleteProjectResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span id="local-6989586621679390835"><span id="local-6989586621679390836"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteProjectResponse"><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier hs-var">DeleteProjectResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteProjectResponse%27"><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse%27"><span class="hs-identifier hs-var">DeleteProjectResponse'</span></a></span></span><span>
 </span><span id="line-122"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-123"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteProjectResponse%27"><span class="annot"><span class="annottext">DeleteProjectResponse -&gt; Int
 </span><a href="Network.AWS.CodeBuild.DeleteProject.html#%24sel%3AhttpStatus%3ADeleteProjectResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388903"><span id="local-6989586621679388905"><span class="annot"><span class="annottext">DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679390830"><span id="local-6989586621679390832"><span class="annot"><span class="annottext">DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool
 (DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool)
 -&gt; (DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool)
 -&gt; Eq DeleteProjectResponse
@@ -277,7 +277,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool
 == :: DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool
 $c== :: DeleteProjectResponse -&gt; DeleteProjectResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388895"><span id="local-6989586621679388897"><span id="local-6989586621679388899"><span id="local-6989586621679388901"><span class="annot"><span class="annottext">ReadPrec [DeleteProjectResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390822"><span id="local-6989586621679390824"><span id="local-6989586621679390826"><span id="local-6989586621679390828"><span class="annot"><span class="annottext">ReadPrec [DeleteProjectResponse]
 ReadPrec DeleteProjectResponse
 Int -&gt; ReadS DeleteProjectResponse
 ReadS [DeleteProjectResponse]
@@ -297,7 +297,7 @@ readList :: ReadS [DeleteProjectResponse]
 $creadList :: ReadS [DeleteProjectResponse]
 readsPrec :: Int -&gt; ReadS DeleteProjectResponse
 $creadsPrec :: Int -&gt; ReadS DeleteProjectResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388889"><span id="local-6989586621679388891"><span id="local-6989586621679388893"><span class="annot"><span class="annottext">Int -&gt; DeleteProjectResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679390816"><span id="local-6989586621679390818"><span id="local-6989586621679390820"><span class="annot"><span class="annottext">Int -&gt; DeleteProjectResponse -&gt; ShowS
 [DeleteProjectResponse] -&gt; ShowS
 DeleteProjectResponse -&gt; String
 (Int -&gt; DeleteProjectResponse -&gt; ShowS)
@@ -337,12 +337,12 @@ $cfrom :: forall x. DeleteProjectResponse -&gt; Rep DeleteProjectResponse x
 </span><span id="line-138"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-139"></span><span>  </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier hs-type">DeleteProjectResponse</span></a></span><span>
 </span><span id="line-140"></span><span id="newDeleteProjectResponse"><span class="annot"><span class="annottext">newDeleteProjectResponse :: Int -&gt; DeleteProjectResponse
-</span><a href="Network.AWS.CodeBuild.DeleteProject.html#newDeleteProjectResponse"><span class="hs-identifier hs-var hs-var">newDeleteProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679388886"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388886"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.CodeBuild.DeleteProject.html#newDeleteProjectResponse"><span class="hs-identifier hs-var hs-var">newDeleteProjectResponse</span></a></span></span><span> </span><span id="local-6989586621679390813"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390813"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">DeleteProjectResponse' :: Int -&gt; DeleteProjectResponse
 </span><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse%27"><span class="hs-identifier hs-type">DeleteProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteProjectResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.DeleteProject.html#%24sel%3AhttpStatus%3ADeleteProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388886"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><a href="#local-6989586621679390813"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-144"></span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#deleteProjectResponse_httpStatus"><span class="hs-identifier hs-type">deleteProjectResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier hs-type">DeleteProjectResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -351,16 +351,16 @@ $cfrom :: forall x. DeleteProjectResponse -&gt; Rep DeleteProjectResponse x
 -&gt; (DeleteProjectResponse -&gt; Int -&gt; DeleteProjectResponse)
 -&gt; Lens DeleteProjectResponse DeleteProjectResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse%27"><span class="hs-identifier hs-type">DeleteProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388885"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse%27"><span class="hs-identifier hs-type">DeleteProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679390812"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:DeleteProjectResponse' :: DeleteProjectResponse -&gt; Int
-</span><a href="#local-6989586621679388885"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388885"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388884"><span class="annot"><span class="annottext">s :: DeleteProjectResponse
-</span><a href="#local-6989586621679388884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse%27"><span class="hs-identifier hs-type">DeleteProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388883"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProjectResponse
-</span><a href="#local-6989586621679388884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteProjectResponse' :: Int
+</span><a href="#local-6989586621679390812"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390812"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679390811"><span class="annot"><span class="annottext">s :: DeleteProjectResponse
+</span><a href="#local-6989586621679390811"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse%27"><span class="hs-identifier hs-type">DeleteProjectResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679390810"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679390810"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteProjectResponse
+</span><a href="#local-6989586621679390811"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteProjectResponse' :: Int
 </span><a href="Network.AWS.CodeBuild.DeleteProject.html#%24sel%3AhttpStatus%3ADeleteProjectResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679388883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier hs-type">DeleteProjectResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679390810"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier hs-type">DeleteProjectResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-146"></span><span>
-</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388881"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier hs-type">DeleteProjectResponse</span></a></span></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679390808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.CodeBuild.DeleteProject.html#DeleteProjectResponse"><span class="hs-identifier hs-type">DeleteProjectResponse</span></a></span></span><span>
 </span><span id="line-148"></span></pre></body></html>

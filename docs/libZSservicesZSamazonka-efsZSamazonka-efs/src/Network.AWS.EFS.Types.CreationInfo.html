@@ -41,7 +41,7 @@
 </span><span id="line-41"></span><span class="hs-comment">-- will fail.</span><span>
 </span><span id="line-42"></span><span class="hs-comment">--</span><span>
 </span><span id="line-43"></span><span class="hs-comment">-- /See:/ 'newCreationInfo' smart constructor.</span><span>
-</span><span id="line-44"></span><span id="local-6989586621679185857"><span id="local-6989586621679185858"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreationInfo"><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-var">CreationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreationInfo%27"><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-var">CreationInfo'</span></a></span></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679185927"><span id="local-6989586621679185928"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreationInfo"><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-var">CreationInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreationInfo%27"><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-var">CreationInfo'</span></a></span></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the POSIX user ID to apply to the @RootDirectory@. Accepts</span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-comment">-- values from 0 to 2^32 (4294967295).</span><span>
 </span><span id="line-47"></span><span>    </span><span id="%24sel%3AownerUid%3ACreationInfo%27"><span class="annot"><span class="annottext">CreationInfo -&gt; Natural
@@ -55,7 +55,7 @@
 </span><span id="line-53"></span><span>    </span><span id="%24sel%3Apermissions%3ACreationInfo%27"><span class="annot"><span class="annottext">CreationInfo -&gt; Text
 </span><a href="Network.AWS.EFS.Types.CreationInfo.html#%24sel%3Apermissions%3ACreationInfo%27"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185849"><span id="local-6989586621679185851"><span class="annot"><span class="annottext">CreationInfo -&gt; CreationInfo -&gt; Bool
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185919"><span id="local-6989586621679185921"><span class="annot"><span class="annottext">CreationInfo -&gt; CreationInfo -&gt; Bool
 (CreationInfo -&gt; CreationInfo -&gt; Bool)
 -&gt; (CreationInfo -&gt; CreationInfo -&gt; Bool) -&gt; Eq CreationInfo
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreationInfo -&gt; CreationInfo -&gt; Bool
 == :: CreationInfo -&gt; CreationInfo -&gt; Bool
 $c== :: CreationInfo -&gt; CreationInfo -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185840"><span id="local-6989586621679185842"><span id="local-6989586621679185844"><span id="local-6989586621679185846"><span class="annot"><span class="annottext">ReadPrec [CreationInfo]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185910"><span id="local-6989586621679185912"><span id="local-6989586621679185914"><span id="local-6989586621679185916"><span class="annot"><span class="annottext">ReadPrec [CreationInfo]
 ReadPrec CreationInfo
 Int -&gt; ReadS CreationInfo
 ReadS [CreationInfo]
@@ -83,7 +83,7 @@ readList :: ReadS [CreationInfo]
 $creadList :: ReadS [CreationInfo]
 readsPrec :: Int -&gt; ReadS CreationInfo
 $creadsPrec :: Int -&gt; ReadS CreationInfo
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185833"><span id="local-6989586621679185835"><span id="local-6989586621679185837"><span class="annot"><span class="annottext">Int -&gt; CreationInfo -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185903"><span id="local-6989586621679185905"><span id="local-6989586621679185907"><span class="annot"><span class="annottext">Int -&gt; CreationInfo -&gt; ShowS
 [CreationInfo] -&gt; ShowS
 CreationInfo -&gt; String
 (Int -&gt; CreationInfo -&gt; ShowS)
@@ -134,21 +134,21 @@ $cfrom :: forall x. CreationInfo -&gt; Rep CreationInfo x
 </span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-80"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span><span>
 </span><span id="line-81"></span><span id="newCreationInfo"><span class="annot"><span class="annottext">newCreationInfo :: Natural -&gt; Natural -&gt; Text -&gt; CreationInfo
-</span><a href="Network.AWS.EFS.Types.CreationInfo.html#newCreationInfo"><span class="hs-identifier hs-var hs-var">newCreationInfo</span></a></span></span><span> </span><span id="local-6989586621679185827"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185827"><span class="hs-identifier hs-var">pOwnerUid_</span></a></span></span><span> </span><span id="local-6989586621679185826"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185826"><span class="hs-identifier hs-var">pOwnerGid_</span></a></span></span><span> </span><span id="local-6989586621679185825"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185825"><span class="hs-identifier hs-var">pPermissions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.EFS.Types.CreationInfo.html#newCreationInfo"><span class="hs-identifier hs-var hs-var">newCreationInfo</span></a></span></span><span> </span><span id="local-6989586621679185897"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679185897"><span class="hs-identifier hs-var">pOwnerUid_</span></a></span></span><span> </span><span id="local-6989586621679185896"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679185896"><span class="hs-identifier hs-var">pOwnerGid_</span></a></span></span><span> </span><span id="local-6989586621679185895"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185895"><span class="hs-identifier hs-var">pPermissions_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">CreationInfo' :: Natural -&gt; Natural -&gt; Text -&gt; CreationInfo
 </span><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span>
 </span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ownerUid:CreationInfo' :: Natural
 </span><a href="Network.AWS.EFS.Types.CreationInfo.html#%24sel%3AownerUid%3ACreationInfo%27"><span class="hs-identifier hs-var">ownerUid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185827"><span class="hs-identifier hs-var">pOwnerUid_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185897"><span class="hs-identifier hs-var">pOwnerUid_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:ownerGid:CreationInfo' :: Natural
 </span><a href="Network.AWS.EFS.Types.CreationInfo.html#%24sel%3AownerGid%3ACreationInfo%27"><span class="hs-identifier hs-var">ownerGid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185826"><span class="hs-identifier hs-var">pOwnerGid_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185896"><span class="hs-identifier hs-var">pOwnerGid_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissions:CreationInfo' :: Text
 </span><a href="Network.AWS.EFS.Types.CreationInfo.html#%24sel%3Apermissions%3ACreationInfo%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185825"><span class="hs-identifier hs-var">pPermissions_</span></a></span><span>
+</span><a href="#local-6989586621679185895"><span class="hs-identifier hs-var">pPermissions_</span></a></span><span>
 </span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-87"></span><span>
 </span><span id="line-88"></span><span class="hs-comment">-- | Specifies the POSIX user ID to apply to the @RootDirectory@. Accepts</span><span>
@@ -159,16 +159,16 @@ $cfrom :: forall x. CreationInfo -&gt; Rep CreationInfo x
 -&gt; (CreationInfo -&gt; Natural -&gt; CreationInfo)
 -&gt; Lens CreationInfo CreationInfo Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185821"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185891"><span class="annot"><span class="annottext">Natural
 ownerUid :: Natural
 $sel:ownerUid:CreationInfo' :: CreationInfo -&gt; Natural
-</span><a href="#local-6989586621679185821"><span class="hs-identifier hs-var hs-var">ownerUid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185821"><span class="hs-identifier hs-var">ownerUid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185820"><span class="annot"><span class="annottext">s :: CreationInfo
-</span><a href="#local-6989586621679185820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185819"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreationInfo
-</span><a href="#local-6989586621679185820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerUid:CreationInfo' :: Natural
+</span><a href="#local-6989586621679185891"><span class="hs-identifier hs-var hs-var">ownerUid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679185891"><span class="hs-identifier hs-var">ownerUid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185890"><span class="annot"><span class="annottext">s :: CreationInfo
+</span><a href="#local-6989586621679185890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185889"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679185889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreationInfo
+</span><a href="#local-6989586621679185890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerUid:CreationInfo' :: Natural
 </span><a href="Network.AWS.EFS.Types.CreationInfo.html#%24sel%3AownerUid%3ACreationInfo%27"><span class="hs-identifier hs-var">ownerUid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-92"></span><span>
 </span><span id="line-93"></span><span class="hs-comment">-- | Specifies the POSIX group ID to apply to the @RootDirectory@. Accepts</span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- values from 0 to 2^32 (4294967295).</span><span>
@@ -178,16 +178,16 @@ $sel:ownerUid:CreationInfo' :: CreationInfo -&gt; Natural
 -&gt; (CreationInfo -&gt; Natural -&gt; CreationInfo)
 -&gt; Lens CreationInfo CreationInfo Natural Natural
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185817"><span class="annot"><span class="annottext">Natural
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185887"><span class="annot"><span class="annottext">Natural
 ownerGid :: Natural
 $sel:ownerGid:CreationInfo' :: CreationInfo -&gt; Natural
-</span><a href="#local-6989586621679185817"><span class="hs-identifier hs-var hs-var">ownerGid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185817"><span class="hs-identifier hs-var">ownerGid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185816"><span class="annot"><span class="annottext">s :: CreationInfo
-</span><a href="#local-6989586621679185816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185815"><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreationInfo
-</span><a href="#local-6989586621679185816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerGid:CreationInfo' :: Natural
+</span><a href="#local-6989586621679185887"><span class="hs-identifier hs-var hs-var">ownerGid</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679185887"><span class="hs-identifier hs-var">ownerGid</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185886"><span class="annot"><span class="annottext">s :: CreationInfo
+</span><a href="#local-6989586621679185886"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185885"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679185885"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreationInfo
+</span><a href="#local-6989586621679185886"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ownerGid:CreationInfo' :: Natural
 </span><a href="Network.AWS.EFS.Types.CreationInfo.html#%24sel%3AownerGid%3ACreationInfo%27"><span class="hs-identifier hs-var">ownerGid</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185885"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-97"></span><span>
 </span><span id="line-98"></span><span class="hs-comment">-- | Specifies the POSIX permissions to apply to the @RootDirectory@, in the</span><span>
 </span><span id="line-99"></span><span class="hs-comment">-- format of an octal number representing the file\'s mode bits.</span><span>
@@ -197,19 +197,19 @@ $sel:ownerGid:CreationInfo' :: CreationInfo -&gt; Natural
 -&gt; (CreationInfo -&gt; Text -&gt; CreationInfo)
 -&gt; Lens CreationInfo CreationInfo Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185813"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185883"><span class="annot"><span class="annottext">Text
 permissions :: Text
 $sel:permissions:CreationInfo' :: CreationInfo -&gt; Text
-</span><a href="#local-6989586621679185813"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185813"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185812"><span class="annot"><span class="annottext">s :: CreationInfo
-</span><a href="#local-6989586621679185812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185811"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreationInfo
-</span><a href="#local-6989586621679185812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:CreationInfo' :: Text
+</span><a href="#local-6989586621679185883"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185883"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185882"><span class="annot"><span class="annottext">s :: CreationInfo
+</span><a href="#local-6989586621679185882"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185881"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679185881"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreationInfo
+</span><a href="#local-6989586621679185882"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:CreationInfo' :: Text
 </span><a href="Network.AWS.EFS.Types.CreationInfo.html#%24sel%3Apermissions%3ACreationInfo%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185881"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-102"></span><span>
-</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185808"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-104"></span><span>  </span><span id="local-6989586621679185806"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CreationInfo
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185878"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679185876"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CreationInfo
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser CreationInfo) -&gt; Value -&gt; Parser CreationInfo
@@ -217,15 +217,15 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;CreationInfo&quot;</span></span><span>
-</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185803"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185803"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185873"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185873"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Natural -&gt; Natural -&gt; Text -&gt; CreationInfo
 </span><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-var">CreationInfo'</span></a></span><span>
 </span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Natural -&gt; Natural -&gt; Text -&gt; CreationInfo)
 -&gt; Parser Natural -&gt; Parser (Natural -&gt; Text -&gt; CreationInfo)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679185873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OwnerUid&quot;</span></span><span class="hs-special">)</span><span>
@@ -233,26 +233,26 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 -&gt; Parser Natural -&gt; Parser (Text -&gt; CreationInfo)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
+</span><a href="#local-6989586621679185873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Natural
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OwnerGid&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; CreationInfo) -&gt; Parser Text -&gt; Parser CreationInfo
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679185803"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679185873"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Permissions&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185797"><span id="local-6989586621679185799"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span></span></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185867"><span id="local-6989586621679185869"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span></span></span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185794"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185864"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span></span><span>
 </span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185786"><span id="local-6989586621679185788"><span id="local-6989586621679185790"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679185784"><span class="annot"><span class="annottext">toJSON :: CreationInfo -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185780"><span id="local-6989586621679185781"><span id="local-6989586621679185782"><span class="annot"><span class="annottext">Natural
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185856"><span id="local-6989586621679185858"><span id="local-6989586621679185860"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo"><span class="hs-identifier hs-type">CreationInfo</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679185854"><span class="annot"><span class="annottext">toJSON :: CreationInfo -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.CreationInfo.html#CreationInfo%27"><span class="hs-identifier hs-type">CreationInfo'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185850"><span id="local-6989586621679185851"><span id="local-6989586621679185852"><span class="annot"><span class="annottext">Natural
 Text
 permissions :: Text
 ownerGid :: Natural
@@ -260,7 +260,7 @@ ownerUid :: Natural
 $sel:permissions:CreationInfo' :: CreationInfo -&gt; Text
 $sel:ownerGid:CreationInfo' :: CreationInfo -&gt; Natural
 $sel:ownerUid:CreationInfo' :: CreationInfo -&gt; Natural
-</span><a href="#local-6989586621679185780"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679185850"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -272,21 +272,21 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;OwnerUid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185782"><span class="hs-identifier hs-var">ownerUid</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185852"><span class="hs-identifier hs-var">ownerUid</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;OwnerGid&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
-</span><a href="#local-6989586621679185781"><span class="hs-identifier hs-var">ownerGid</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679185851"><span class="hs-identifier hs-var">ownerGid</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
 </span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Permissions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679185780"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679185850"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span></pre></body></html>

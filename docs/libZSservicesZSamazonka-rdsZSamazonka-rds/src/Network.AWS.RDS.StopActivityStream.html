@@ -42,8 +42,8 @@
 </span><span id="line-42"></span><span>
 </span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_status"><span class="hs-identifier">stopActivityStreamResponse_status</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_kmsKeyId"><span class="hs-identifier">stopActivityStreamResponse_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_kinesisStreamName"><span class="hs-identifier">stopActivityStreamResponse_kinesisStreamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_kinesisStreamName"><span class="hs-identifier">stopActivityStreamResponse_kinesisStreamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_kmsKeyId"><span class="hs-identifier">stopActivityStreamResponse_kmsKeyId</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-47"></span><span>    </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_httpStatus"><span class="hs-identifier">stopActivityStreamResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
 </span><span id="line-49"></span><span class="hs-keyword">where</span><span>
@@ -56,7 +56,7 @@
 </span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
 </span><span id="line-57"></span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newStopActivityStream' smart constructor.</span><span>
-</span><span id="line-59"></span><span id="local-6989586621679773462"><span id="local-6989586621679773463"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopActivityStream"><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-var">StopActivityStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopActivityStream%27"><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream%27"><span class="hs-identifier hs-var">StopActivityStream'</span></a></span></span><span>
+</span><span id="line-59"></span><span id="local-6989586621679774547"><span id="local-6989586621679774548"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopActivityStream"><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-var">StopActivityStream</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopActivityStream%27"><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream%27"><span class="hs-identifier hs-var">StopActivityStream'</span></a></span></span><span>
 </span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies whether or not the database activity stream is to stop as soon</span><span>
 </span><span id="line-61"></span><span>    </span><span class="hs-comment">-- as possible, regardless of the maintenance window for the database.</span><span>
 </span><span id="line-62"></span><span>    </span><span id="%24sel%3AapplyImmediately%3AStopActivityStream%27"><span class="annot"><span class="annottext">StopActivityStream -&gt; Maybe Bool
@@ -67,7 +67,7 @@
 </span><span id="line-66"></span><span>    </span><span id="%24sel%3AresourceArn%3AStopActivityStream%27"><span class="annot"><span class="annottext">StopActivityStream -&gt; Text
 </span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AresourceArn%3AStopActivityStream%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679773455"><span id="local-6989586621679773457"><span class="annot"><span class="annottext">StopActivityStream -&gt; StopActivityStream -&gt; Bool
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774540"><span id="local-6989586621679774542"><span class="annot"><span class="annottext">StopActivityStream -&gt; StopActivityStream -&gt; Bool
 (StopActivityStream -&gt; StopActivityStream -&gt; Bool)
 -&gt; (StopActivityStream -&gt; StopActivityStream -&gt; Bool)
 -&gt; Eq StopActivityStream
@@ -76,7 +76,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopActivityStream -&gt; StopActivityStream -&gt; Bool
 == :: StopActivityStream -&gt; StopActivityStream -&gt; Bool
 $c== :: StopActivityStream -&gt; StopActivityStream -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773446"><span id="local-6989586621679773448"><span id="local-6989586621679773450"><span id="local-6989586621679773452"><span class="annot"><span class="annottext">ReadPrec [StopActivityStream]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774531"><span id="local-6989586621679774533"><span id="local-6989586621679774535"><span id="local-6989586621679774537"><span class="annot"><span class="annottext">ReadPrec [StopActivityStream]
 ReadPrec StopActivityStream
 Int -&gt; ReadS StopActivityStream
 ReadS [StopActivityStream]
@@ -96,7 +96,7 @@ readList :: ReadS [StopActivityStream]
 $creadList :: ReadS [StopActivityStream]
 readsPrec :: Int -&gt; ReadS StopActivityStream
 $creadsPrec :: Int -&gt; ReadS StopActivityStream
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773439"><span id="local-6989586621679773441"><span id="local-6989586621679773443"><span class="annot"><span class="annottext">Int -&gt; StopActivityStream -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774524"><span id="local-6989586621679774526"><span id="local-6989586621679774528"><span class="annot"><span class="annottext">Int -&gt; StopActivityStream -&gt; ShowS
 [StopActivityStream] -&gt; ShowS
 StopActivityStream -&gt; String
 (Int -&gt; StopActivityStream -&gt; ShowS)
@@ -141,8 +141,8 @@ $cfrom :: forall x. StopActivityStream -&gt; Rep StopActivityStream x
 </span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-87"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span><span>
 </span><span id="line-88"></span><span id="newStopActivityStream"><span class="annot"><span class="annottext">newStopActivityStream :: Text -&gt; StopActivityStream
-</span><a href="Network.AWS.RDS.StopActivityStream.html#newStopActivityStream"><span class="hs-identifier hs-var hs-var">newStopActivityStream</span></a></span></span><span> </span><span id="local-6989586621679773434"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773434"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.StopActivityStream.html#newStopActivityStream"><span class="hs-identifier hs-var hs-var">newStopActivityStream</span></a></span></span><span> </span><span id="local-6989586621679774519"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774519"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">StopActivityStream' :: Maybe Bool -&gt; Text -&gt; StopActivityStream
 </span><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream%27"><span class="hs-identifier hs-type">StopActivityStream'</span></a></span><span>
 </span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:applyImmediately:StopActivityStream' :: Maybe Bool
@@ -152,7 +152,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArn:StopActivityStream' :: Text
 </span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AresourceArn%3AStopActivityStream%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773434"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
+</span><a href="#local-6989586621679774519"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span>
 </span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-94"></span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- | Specifies whether or not the database activity stream is to stop as soon</span><span>
@@ -165,16 +165,16 @@ forall a. Maybe a
 -&gt; Lens
      StopActivityStream StopActivityStream (Maybe Bool) (Maybe Bool)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream%27"><span class="hs-identifier hs-type">StopActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773431"><span class="annot"><span class="annottext">Maybe Bool
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream%27"><span class="hs-identifier hs-type">StopActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774516"><span class="annot"><span class="annottext">Maybe Bool
 applyImmediately :: Maybe Bool
 $sel:applyImmediately:StopActivityStream' :: StopActivityStream -&gt; Maybe Bool
-</span><a href="#local-6989586621679773431"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679773431"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773430"><span class="annot"><span class="annottext">s :: StopActivityStream
-</span><a href="#local-6989586621679773430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream%27"><span class="hs-identifier hs-type">StopActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773429"><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679773429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopActivityStream
-</span><a href="#local-6989586621679773430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyImmediately:StopActivityStream' :: Maybe Bool
+</span><a href="#local-6989586621679774516"><span class="hs-identifier hs-var hs-var">applyImmediately</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679774516"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774515"><span class="annot"><span class="annottext">s :: StopActivityStream
+</span><a href="#local-6989586621679774515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream%27"><span class="hs-identifier hs-type">StopActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774514"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679774514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopActivityStream
+</span><a href="#local-6989586621679774515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applyImmediately:StopActivityStream' :: Maybe Bool
 </span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AapplyImmediately%3AStopActivityStream%27"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679773429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-99"></span><span>
 </span><span id="line-100"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the DB cluster for the database</span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- activity stream. For example,</span><span>
@@ -185,27 +185,27 @@ $sel:applyImmediately:StopActivityStream' :: StopActivityStream -&gt; Maybe Bool
 -&gt; (StopActivityStream -&gt; Text -&gt; StopActivityStream)
 -&gt; Lens StopActivityStream StopActivityStream Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream%27"><span class="hs-identifier hs-type">StopActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773428"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream%27"><span class="hs-identifier hs-type">StopActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774513"><span class="annot"><span class="annottext">Text
 resourceArn :: Text
 $sel:resourceArn:StopActivityStream' :: StopActivityStream -&gt; Text
-</span><a href="#local-6989586621679773428"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773428"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773427"><span class="annot"><span class="annottext">s :: StopActivityStream
-</span><a href="#local-6989586621679773427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream%27"><span class="hs-identifier hs-type">StopActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773426"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopActivityStream
-</span><a href="#local-6989586621679773427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:StopActivityStream' :: Text
+</span><a href="#local-6989586621679774513"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774513"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774512"><span class="annot"><span class="annottext">s :: StopActivityStream
+</span><a href="#local-6989586621679774512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream%27"><span class="hs-identifier hs-type">StopActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774511"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679774511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopActivityStream
+</span><a href="#local-6989586621679774512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:StopActivityStream' :: Text
 </span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AresourceArn%3AStopActivityStream%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-105"></span><span>
 </span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-107"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-108"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-109"></span><span>      </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span>
-</span><span id="line-110"></span><span>  </span><span id="local-6989586621679773422"><span class="annot"><span class="annottext">request :: StopActivityStream -&gt; Request StopActivityStream
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679774507"><span class="annot"><span class="annottext">request :: StopActivityStream -&gt; Request StopActivityStream
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopActivityStream -&gt; Request StopActivityStream
 forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679773418"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679774503"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy StopActivityStream
 -&gt; ClientResponse ClientBody
@@ -236,10 +236,10 @@ Text
 </span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
 </span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;StopActivityStreamResult&quot;</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679773415"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773415"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679773414"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679773414"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679773413"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679773413"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679774500"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774500"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679774499"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679774499"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679774498"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679774498"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StopActivityStreamResponse
 </span><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-var">StopActivityStreamResponse'</span></a></span><span>
@@ -251,7 +251,7 @@ Text
      (Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StopActivityStreamResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679773413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActivityStreamStatus)
+</span><a href="#local-6989586621679774498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ActivityStreamStatus)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
@@ -262,19 +262,19 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Maybe Text -&gt; Int -&gt; StopActivityStreamResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679773413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679774498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;KinesisStreamName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; StopActivityStreamResponse)
 -&gt; Either String (Maybe Text)
 -&gt; Either String (Int -&gt; StopActivityStreamResponse)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679773413"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+</span><a href="#local-6989586621679774498"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;KinesisStreamName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StopActivityStreamResponse)
 -&gt; Either String Int -&gt; Either String StopActivityStreamResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
@@ -283,15 +283,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773415"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774500"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773405"><span id="local-6989586621679773407"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span></span></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774490"><span id="local-6989586621679774492"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span></span></span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773402"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774487"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span></span><span>
 </span><span id="line-125"></span><span>
 </span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-127"></span><span>  </span><span id="local-6989586621679773398"><span class="annot"><span class="annottext">toHeaders :: StopActivityStream -&gt; ResponseHeaders
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679774483"><span class="annot"><span class="annottext">toHeaders :: StopActivityStream -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopActivityStream -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
@@ -299,21 +299,21 @@ forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
 </span><span id="line-128"></span><span>
 </span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-130"></span><span>  </span><span id="local-6989586621679773393"><span class="annot"><span class="annottext">toPath :: StopActivityStream -&gt; ByteString
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679774478"><span class="annot"><span class="annottext">toPath :: StopActivityStream -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StopActivityStream -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/&quot;</span></span><span>
 </span><span id="line-131"></span><span>
 </span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream"><span class="hs-identifier hs-type">StopActivityStream</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-133"></span><span>  </span><span id="local-6989586621679773389"><span class="annot"><span class="annottext">toQuery :: StopActivityStream -&gt; QueryString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream%27"><span class="hs-identifier hs-type">StopActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773386"><span id="local-6989586621679773387"><span class="annot"><span class="annottext">Maybe Bool
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679774474"><span class="annot"><span class="annottext">toQuery :: StopActivityStream -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStream%27"><span class="hs-identifier hs-type">StopActivityStream'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774471"><span id="local-6989586621679774472"><span class="annot"><span class="annottext">Maybe Bool
 Text
 resourceArn :: Text
 applyImmediately :: Maybe Bool
 $sel:resourceArn:StopActivityStream' :: StopActivityStream -&gt; Text
 $sel:applyImmediately:StopActivityStream' :: StopActivityStream -&gt; Maybe Bool
-</span><a href="#local-6989586621679773386"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679774471"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -333,36 +333,36 @@ forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-string">&quot;ApplyImmediately&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
-</span><a href="#local-6989586621679773387"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679774472"><span class="hs-identifier hs-var">applyImmediately</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;ResourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
 forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
 </span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679773386"><span class="hs-identifier hs-var">resourceArn</span></a></span><span>
+</span><a href="#local-6989586621679774471"><span class="hs-identifier hs-var">resourceArn</span></a></span><span>
 </span><span id="line-141"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newStopActivityStreamResponse' smart constructor.</span><span>
-</span><span id="line-144"></span><span id="local-6989586621679773383"><span id="local-6989586621679773384"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopActivityStreamResponse"><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-var">StopActivityStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopActivityStreamResponse%27"><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-var">StopActivityStreamResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span id="local-6989586621679774468"><span id="local-6989586621679774469"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopActivityStreamResponse"><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-var">StopActivityStreamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopActivityStreamResponse%27"><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-var">StopActivityStreamResponse'</span></a></span></span><span>
 </span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the database activity stream.</span><span>
 </span><span id="line-146"></span><span>    </span><span id="%24sel%3Astatus%3AStopActivityStreamResponse%27"><span class="annot"><span class="annottext">StopActivityStreamResponse -&gt; Maybe ActivityStreamStatus
 </span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3Astatus%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.Types.ActivityStreamStatus.html#ActivityStreamStatus"><span class="hs-identifier hs-type">ActivityStreamStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services KMS key identifier used for encrypting messages</span><span>
-</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- in the database activity stream.</span><span>
-</span><span id="line-149"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias</span><span>
-</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- ARN, or alias name for the Amazon Web Services KMS customer master key</span><span>
-</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- (CMK).</span><span>
-</span><span id="line-153"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AStopActivityStreamResponse%27"><span class="annot"><span class="annottext">StopActivityStreamResponse -&gt; Maybe Text
-</span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AkmsKeyId%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon Kinesis data stream used for the database</span><span>
-</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- activity stream.</span><span>
-</span><span id="line-156"></span><span>    </span><span id="%24sel%3AkinesisStreamName%3AStopActivityStreamResponse%27"><span class="annot"><span class="annottext">StopActivityStreamResponse -&gt; Maybe Text
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon Kinesis data stream used for the database</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- activity stream.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AkinesisStreamName%3AStopActivityStreamResponse%27"><span class="annot"><span class="annottext">StopActivityStreamResponse -&gt; Maybe Text
 </span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AkinesisStreamName%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var hs-var">kinesisStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services KMS key identifier used for encrypting messages</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- in the database activity stream.</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- ARN, or alias name for the Amazon Web Services KMS customer master key</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- (CMK).</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AkmsKeyId%3AStopActivityStreamResponse%27"><span class="annot"><span class="annottext">StopActivityStreamResponse -&gt; Maybe Text
+</span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AkmsKeyId%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopActivityStreamResponse%27"><span class="annot"><span class="annottext">StopActivityStreamResponse -&gt; Int
 </span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AhttpStatus%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679773375"><span id="local-6989586621679773377"><span class="annot"><span class="annottext">StopActivityStreamResponse -&gt; StopActivityStreamResponse -&gt; Bool
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679774460"><span id="local-6989586621679774462"><span class="annot"><span class="annottext">StopActivityStreamResponse -&gt; StopActivityStreamResponse -&gt; Bool
 (StopActivityStreamResponse -&gt; StopActivityStreamResponse -&gt; Bool)
 -&gt; (StopActivityStreamResponse
     -&gt; StopActivityStreamResponse -&gt; Bool)
@@ -372,7 +372,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: StopActivityStreamResponse -&gt; StopActivityStreamResponse -&gt; Bool
 == :: StopActivityStreamResponse -&gt; StopActivityStreamResponse -&gt; Bool
 $c== :: StopActivityStreamResponse -&gt; StopActivityStreamResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773367"><span id="local-6989586621679773369"><span id="local-6989586621679773371"><span id="local-6989586621679773373"><span class="annot"><span class="annottext">ReadPrec [StopActivityStreamResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774452"><span id="local-6989586621679774454"><span id="local-6989586621679774456"><span id="local-6989586621679774458"><span class="annot"><span class="annottext">ReadPrec [StopActivityStreamResponse]
 ReadPrec StopActivityStreamResponse
 Int -&gt; ReadS StopActivityStreamResponse
 ReadS [StopActivityStreamResponse]
@@ -392,7 +392,7 @@ readList :: ReadS [StopActivityStreamResponse]
 $creadList :: ReadS [StopActivityStreamResponse]
 readsPrec :: Int -&gt; ReadS StopActivityStreamResponse
 $creadsPrec :: Int -&gt; ReadS StopActivityStreamResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679773361"><span id="local-6989586621679773363"><span id="local-6989586621679773365"><span class="annot"><span class="annottext">Int -&gt; StopActivityStreamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679774446"><span id="local-6989586621679774448"><span id="local-6989586621679774450"><span class="annot"><span class="annottext">Int -&gt; StopActivityStreamResponse -&gt; ShowS
 [StopActivityStreamResponse] -&gt; ShowS
 StopActivityStreamResponse -&gt; String
 (Int -&gt; StopActivityStreamResponse -&gt; ShowS)
@@ -434,15 +434,15 @@ StopActivityStreamResponse -&gt; Rep StopActivityStreamResponse x
 </span><span id="line-169"></span><span class="hs-comment">--</span><span>
 </span><span id="line-170"></span><span class="hs-comment">-- 'status', 'stopActivityStreamResponse_status' - The status of the database activity stream.</span><span>
 </span><span id="line-171"></span><span class="hs-comment">--</span><span>
-</span><span id="line-172"></span><span class="hs-comment">-- 'kmsKeyId', 'stopActivityStreamResponse_kmsKeyId' - The Amazon Web Services KMS key identifier used for encrypting messages</span><span>
-</span><span id="line-173"></span><span class="hs-comment">-- in the database activity stream.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'kinesisStreamName', 'stopActivityStreamResponse_kinesisStreamName' - The name of the Amazon Kinesis data stream used for the database</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- activity stream.</span><span>
 </span><span id="line-174"></span><span class="hs-comment">--</span><span>
-</span><span id="line-175"></span><span class="hs-comment">-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias</span><span>
-</span><span id="line-176"></span><span class="hs-comment">-- ARN, or alias name for the Amazon Web Services KMS customer master key</span><span>
-</span><span id="line-177"></span><span class="hs-comment">-- (CMK).</span><span>
-</span><span id="line-178"></span><span class="hs-comment">--</span><span>
-</span><span id="line-179"></span><span class="hs-comment">-- 'kinesisStreamName', 'stopActivityStreamResponse_kinesisStreamName' - The name of the Amazon Kinesis data stream used for the database</span><span>
-</span><span id="line-180"></span><span class="hs-comment">-- activity stream.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'kmsKeyId', 'stopActivityStreamResponse_kmsKeyId' - The Amazon Web Services KMS key identifier used for encrypting messages</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- in the database activity stream.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- ARN, or alias name for the Amazon Web Services KMS customer master key</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- (CMK).</span><span>
 </span><span id="line-181"></span><span class="hs-comment">--</span><span>
 </span><span id="line-182"></span><span class="hs-comment">-- 'httpStatus', 'stopActivityStreamResponse_httpStatus' - The response's http status code.</span><span>
 </span><span id="line-183"></span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#newStopActivityStreamResponse"><span class="hs-identifier hs-type">newStopActivityStreamResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
@@ -450,8 +450,8 @@ StopActivityStreamResponse -&gt; Rep StopActivityStreamResponse x
 </span><span id="line-185"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-186"></span><span>  </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span>
 </span><span id="line-187"></span><span id="newStopActivityStreamResponse"><span class="annot"><span class="annottext">newStopActivityStreamResponse :: Int -&gt; StopActivityStreamResponse
-</span><a href="Network.AWS.RDS.StopActivityStream.html#newStopActivityStreamResponse"><span class="hs-identifier hs-var hs-var">newStopActivityStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679773358"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773358"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.RDS.StopActivityStream.html#newStopActivityStreamResponse"><span class="hs-identifier hs-var hs-var">newStopActivityStreamResponse</span></a></span></span><span> </span><span id="local-6989586621679774443"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774443"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-188"></span><span>  </span><span class="annot"><span class="annottext">StopActivityStreamResponse' :: Maybe ActivityStreamStatus
 -&gt; Maybe Text -&gt; Maybe Text -&gt; Int -&gt; StopActivityStreamResponse
 </span><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span>
@@ -460,17 +460,17 @@ StopActivityStreamResponse -&gt; Rep StopActivityStreamResponse x
 </span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:StopActivityStreamResponse' :: Maybe Text
-</span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AkmsKeyId%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisStreamName:StopActivityStreamResponse' :: Maybe Text
+</span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AkinesisStreamName%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var">kinesisStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisStreamName:StopActivityStreamResponse' :: Maybe Text
-</span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AkinesisStreamName%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var">kinesisStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:StopActivityStreamResponse' :: Maybe Text
+</span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AkmsKeyId%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopActivityStreamResponse' :: Int
 </span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AhttpStatus%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773358"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679774443"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-194"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-195"></span><span>
 </span><span id="line-196"></span><span class="hs-comment">-- | The status of the database activity stream.</span><span>
@@ -486,50 +486,21 @@ forall a. Maybe a
      (Maybe ActivityStreamStatus)
      (Maybe ActivityStreamStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773357"><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774442"><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
 status :: Maybe ActivityStreamStatus
 $sel:status:StopActivityStreamResponse' :: StopActivityStreamResponse -&gt; Maybe ActivityStreamStatus
-</span><a href="#local-6989586621679773357"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
-</span><a href="#local-6989586621679773357"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773356"><span class="annot"><span class="annottext">s :: StopActivityStreamResponse
-</span><a href="#local-6989586621679773356"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773355"><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
-</span><a href="#local-6989586621679773355"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopActivityStreamResponse
-</span><a href="#local-6989586621679773356"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StopActivityStreamResponse' :: Maybe ActivityStreamStatus
+</span><a href="#local-6989586621679774442"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
+</span><a href="#local-6989586621679774442"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774441"><span class="annot"><span class="annottext">s :: StopActivityStreamResponse
+</span><a href="#local-6989586621679774441"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774440"><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
+</span><a href="#local-6989586621679774440"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopActivityStreamResponse
+</span><a href="#local-6989586621679774441"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StopActivityStreamResponse' :: Maybe ActivityStreamStatus
 </span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3Astatus%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ActivityStreamStatus
-</span><a href="#local-6989586621679773355"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774440"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-199"></span><span>
-</span><span id="line-200"></span><span class="hs-comment">-- | The Amazon Web Services KMS key identifier used for encrypting messages</span><span>
-</span><span id="line-201"></span><span class="hs-comment">-- in the database activity stream.</span><span>
-</span><span id="line-202"></span><span class="hs-comment">--</span><span>
-</span><span id="line-203"></span><span class="hs-comment">-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias</span><span>
-</span><span id="line-204"></span><span class="hs-comment">-- ARN, or alias name for the Amazon Web Services KMS customer master key</span><span>
-</span><span id="line-205"></span><span class="hs-comment">-- (CMK).</span><span>
-</span><span id="line-206"></span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_kmsKeyId"><span class="hs-identifier hs-type">stopActivityStreamResponse_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-207"></span><span id="stopActivityStreamResponse_kmsKeyId"><span class="annot"><span class="annottext">stopActivityStreamResponse_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StopActivityStreamResponse -&gt; f StopActivityStreamResponse
-</span><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_kmsKeyId"><span class="hs-identifier hs-var hs-var">stopActivityStreamResponse_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopActivityStreamResponse -&gt; Maybe Text)
--&gt; (StopActivityStreamResponse
-    -&gt; Maybe Text -&gt; StopActivityStreamResponse)
--&gt; Lens
-     StopActivityStreamResponse
-     StopActivityStreamResponse
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773354"><span class="annot"><span class="annottext">Maybe Text
-kmsKeyId :: Maybe Text
-$sel:kmsKeyId:StopActivityStreamResponse' :: StopActivityStreamResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679773354"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773354"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773353"><span class="annot"><span class="annottext">s :: StopActivityStreamResponse
-</span><a href="#local-6989586621679773353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773352"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopActivityStreamResponse
-</span><a href="#local-6989586621679773353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:StopActivityStreamResponse' :: Maybe Text
-</span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AkmsKeyId%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-208"></span><span>
-</span><span id="line-209"></span><span class="hs-comment">-- | The name of the Amazon Kinesis data stream used for the database</span><span>
-</span><span id="line-210"></span><span class="hs-comment">-- activity stream.</span><span>
-</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_kinesisStreamName"><span class="hs-identifier hs-type">stopActivityStreamResponse_kinesisStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-212"></span><span id="stopActivityStreamResponse_kinesisStreamName"><span class="annot"><span class="annottext">stopActivityStreamResponse_kinesisStreamName :: (Maybe Text -&gt; f (Maybe Text))
+</span><span id="line-200"></span><span class="hs-comment">-- | The name of the Amazon Kinesis data stream used for the database</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- activity stream.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_kinesisStreamName"><span class="hs-identifier hs-type">stopActivityStreamResponse_kinesisStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="stopActivityStreamResponse_kinesisStreamName"><span class="annot"><span class="annottext">stopActivityStreamResponse_kinesisStreamName :: (Maybe Text -&gt; f (Maybe Text))
 -&gt; StopActivityStreamResponse -&gt; f StopActivityStreamResponse
 </span><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_kinesisStreamName"><span class="hs-identifier hs-var hs-var">stopActivityStreamResponse_kinesisStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopActivityStreamResponse -&gt; Maybe Text)
 -&gt; (StopActivityStreamResponse
@@ -540,16 +511,45 @@ $sel:kmsKeyId:StopActivityStreamResponse' :: StopActivityStreamResponse -&gt; Ma
      (Maybe Text)
      (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773351"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774439"><span class="annot"><span class="annottext">Maybe Text
 kinesisStreamName :: Maybe Text
 $sel:kinesisStreamName:StopActivityStreamResponse' :: StopActivityStreamResponse -&gt; Maybe Text
-</span><a href="#local-6989586621679773351"><span class="hs-identifier hs-var hs-var">kinesisStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773351"><span class="hs-identifier hs-var">kinesisStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773350"><span class="annot"><span class="annottext">s :: StopActivityStreamResponse
-</span><a href="#local-6989586621679773350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773349"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopActivityStreamResponse
-</span><a href="#local-6989586621679773350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisStreamName:StopActivityStreamResponse' :: Maybe Text
+</span><a href="#local-6989586621679774439"><span class="hs-identifier hs-var hs-var">kinesisStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774439"><span class="hs-identifier hs-var">kinesisStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774438"><span class="annot"><span class="annottext">s :: StopActivityStreamResponse
+</span><a href="#local-6989586621679774438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774437"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopActivityStreamResponse
+</span><a href="#local-6989586621679774438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisStreamName:StopActivityStreamResponse' :: Maybe Text
 </span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AkinesisStreamName%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var">kinesisStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679773349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The Amazon Web Services KMS key identifier used for encrypting messages</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- in the database activity stream.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- The Amazon Web Services KMS key identifier is the key ARN, key ID, alias</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- ARN, or alias name for the Amazon Web Services KMS customer master key</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- (CMK).</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_kmsKeyId"><span class="hs-identifier hs-type">stopActivityStreamResponse_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="stopActivityStreamResponse_kmsKeyId"><span class="annot"><span class="annottext">stopActivityStreamResponse_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StopActivityStreamResponse -&gt; f StopActivityStreamResponse
+</span><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_kmsKeyId"><span class="hs-identifier hs-var hs-var">stopActivityStreamResponse_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopActivityStreamResponse -&gt; Maybe Text)
+-&gt; (StopActivityStreamResponse
+    -&gt; Maybe Text -&gt; StopActivityStreamResponse)
+-&gt; Lens
+     StopActivityStreamResponse
+     StopActivityStreamResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774436"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:StopActivityStreamResponse' :: StopActivityStreamResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679774436"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774436"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774435"><span class="annot"><span class="annottext">s :: StopActivityStreamResponse
+</span><a href="#local-6989586621679774435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774434"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopActivityStreamResponse
+</span><a href="#local-6989586621679774435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:StopActivityStreamResponse' :: Maybe Text
+</span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AkmsKeyId%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679774434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-213"></span><span>
 </span><span id="line-214"></span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-215"></span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#stopActivityStreamResponse_httpStatus"><span class="hs-identifier hs-type">stopActivityStreamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
@@ -561,16 +561,16 @@ $sel:kinesisStreamName:StopActivityStreamResponse' :: StopActivityStreamResponse
 -&gt; Lens
      StopActivityStreamResponse StopActivityStreamResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679773348"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679774433"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:StopActivityStreamResponse' :: StopActivityStreamResponse -&gt; Int
-</span><a href="#local-6989586621679773348"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773348"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679773347"><span class="annot"><span class="annottext">s :: StopActivityStreamResponse
-</span><a href="#local-6989586621679773347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679773346"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopActivityStreamResponse
-</span><a href="#local-6989586621679773347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopActivityStreamResponse' :: Int
+</span><a href="#local-6989586621679774433"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774433"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679774432"><span class="annot"><span class="annottext">s :: StopActivityStreamResponse
+</span><a href="#local-6989586621679774432"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse%27"><span class="hs-identifier hs-type">StopActivityStreamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679774431"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679774431"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopActivityStreamResponse
+</span><a href="#local-6989586621679774432"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopActivityStreamResponse' :: Int
 </span><a href="Network.AWS.RDS.StopActivityStream.html#%24sel%3AhttpStatus%3AStopActivityStreamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679773346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679774431"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-217"></span><span>
-</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679773344"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679774429"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.RDS.StopActivityStream.html#StopActivityStreamResponse"><span class="hs-identifier hs-type">StopActivityStreamResponse</span></a></span></span><span>
 </span><span id="line-219"></span></pre></body></html>

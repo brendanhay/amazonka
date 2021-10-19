@@ -33,13 +33,13 @@
 </span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EC2.Internal.html"><span class="hs-identifier">Network.AWS.EC2.Internal</span></a></span><span>
 </span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-35"></span><span>
-</span><span id="line-36"></span><span id="local-6989586621681091361"><span id="local-6989586621681091362"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LocalGatewayRouteState"><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRouteState.html#LocalGatewayRouteState"><span class="hs-identifier hs-var">LocalGatewayRouteState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocalGatewayRouteState%27"><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRouteState.html#LocalGatewayRouteState%27"><span class="hs-identifier hs-var">LocalGatewayRouteState'</span></a></span></span><span>
+</span><span id="line-36"></span><span id="local-6989586621681126053"><span id="local-6989586621681126054"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="LocalGatewayRouteState"><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRouteState.html#LocalGatewayRouteState"><span class="hs-identifier hs-var">LocalGatewayRouteState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LocalGatewayRouteState%27"><span class="annot"><a href="Network.AWS.EC2.Types.LocalGatewayRouteState.html#LocalGatewayRouteState%27"><span class="hs-identifier hs-var">LocalGatewayRouteState'</span></a></span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromLocalGatewayRouteState"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; Text
 </span><a href="Network.AWS.EC2.Types.LocalGatewayRouteState.html#fromLocalGatewayRouteState"><span class="hs-identifier hs-var hs-var">fromLocalGatewayRouteState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681091353"><span id="local-6989586621681091355"><span id="local-6989586621681091357"><span class="annot"><span class="annottext">Int -&gt; LocalGatewayRouteState -&gt; ShowS
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681126045"><span id="local-6989586621681126047"><span id="local-6989586621681126049"><span class="annot"><span class="annottext">Int -&gt; LocalGatewayRouteState -&gt; ShowS
 [LocalGatewayRouteState] -&gt; ShowS
 LocalGatewayRouteState -&gt; String
 (Int -&gt; LocalGatewayRouteState -&gt; ShowS)
@@ -55,7 +55,7 @@ $cshow :: LocalGatewayRouteState -&gt; String
 showsPrec :: Int -&gt; LocalGatewayRouteState -&gt; ShowS
 $cshowsPrec :: Int -&gt; LocalGatewayRouteState -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621681091344"><span id="local-6989586621681091346"><span id="local-6989586621681091348"><span id="local-6989586621681091350"><span class="annot"><span class="annottext">ReadPrec [LocalGatewayRouteState]
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681126036"><span id="local-6989586621681126038"><span id="local-6989586621681126040"><span id="local-6989586621681126042"><span class="annot"><span class="annottext">ReadPrec [LocalGatewayRouteState]
 ReadPrec LocalGatewayRouteState
 Int -&gt; ReadS LocalGatewayRouteState
 ReadS [LocalGatewayRouteState]
@@ -76,7 +76,7 @@ $creadList :: ReadS [LocalGatewayRouteState]
 readsPrec :: Int -&gt; ReadS LocalGatewayRouteState
 $creadsPrec :: Int -&gt; ReadS LocalGatewayRouteState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-43"></span><span>      </span><span id="local-6989586621681091339"><span id="local-6989586621681091341"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; LocalGatewayRouteState -&gt; Bool
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681126031"><span id="local-6989586621681126033"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; LocalGatewayRouteState -&gt; Bool
 (LocalGatewayRouteState -&gt; LocalGatewayRouteState -&gt; Bool)
 -&gt; (LocalGatewayRouteState -&gt; LocalGatewayRouteState -&gt; Bool)
 -&gt; Eq LocalGatewayRouteState
@@ -86,7 +86,7 @@ $c/= :: LocalGatewayRouteState -&gt; LocalGatewayRouteState -&gt; Bool
 == :: LocalGatewayRouteState -&gt; LocalGatewayRouteState -&gt; Bool
 $c== :: LocalGatewayRouteState -&gt; LocalGatewayRouteState -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>      </span><span id="local-6989586621681091323"><span id="local-6989586621681091325"><span id="local-6989586621681091327"><span id="local-6989586621681091329"><span id="local-6989586621681091331"><span id="local-6989586621681091333"><span id="local-6989586621681091335"><span class="annot"><span class="annottext">Eq LocalGatewayRouteState
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681126015"><span id="local-6989586621681126017"><span id="local-6989586621681126019"><span id="local-6989586621681126021"><span id="local-6989586621681126023"><span id="local-6989586621681126025"><span id="local-6989586621681126027"><span class="annot"><span class="annottext">Eq LocalGatewayRouteState
 Eq LocalGatewayRouteState
 -&gt; (LocalGatewayRouteState -&gt; LocalGatewayRouteState -&gt; Ordering)
 -&gt; (LocalGatewayRouteState -&gt; LocalGatewayRouteState -&gt; Bool)
@@ -145,7 +145,7 @@ $cfrom :: forall x. LocalGatewayRouteState -&gt; Rep LocalGatewayRouteState x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681091315"><span id="local-6989586621681091317"><span class="annot"><span class="annottext">Int -&gt; LocalGatewayRouteState -&gt; Int
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681126007"><span id="local-6989586621681126009"><span class="annot"><span class="annottext">Int -&gt; LocalGatewayRouteState -&gt; Int
 LocalGatewayRouteState -&gt; Int
 (Int -&gt; LocalGatewayRouteState -&gt; Int)
 -&gt; (LocalGatewayRouteState -&gt; Int)
@@ -156,54 +156,54 @@ $chash :: LocalGatewayRouteState -&gt; Int
 hashWithSalt :: Int -&gt; LocalGatewayRouteState -&gt; Int
 $chashWithSalt :: Int -&gt; LocalGatewayRouteState -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621681091312"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; ()
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681126004"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; ()
 (LocalGatewayRouteState -&gt; ()) -&gt; NFData LocalGatewayRouteState
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: LocalGatewayRouteState -&gt; ()
 $crnf :: LocalGatewayRouteState -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621681091309"><span class="annot"><span class="annottext">Text -&gt; Either String LocalGatewayRouteState
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681126001"><span class="annot"><span class="annottext">Text -&gt; Either String LocalGatewayRouteState
 (Text -&gt; Either String LocalGatewayRouteState)
 -&gt; FromText LocalGatewayRouteState
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String LocalGatewayRouteState
 $cfromText :: Text -&gt; Either String LocalGatewayRouteState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621681091306"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; Text
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681125998"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; Text
 (LocalGatewayRouteState -&gt; Text) -&gt; ToText LocalGatewayRouteState
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: LocalGatewayRouteState -&gt; Text
 $ctoText :: LocalGatewayRouteState -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621681091303"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; ByteString
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681125995"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; ByteString
 (LocalGatewayRouteState -&gt; ByteString)
 -&gt; ToByteString LocalGatewayRouteState
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: LocalGatewayRouteState -&gt; ByteString
 $ctoBS :: LocalGatewayRouteState -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621681091300"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; ByteStringBuilder
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681125992"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; ByteStringBuilder
 (LocalGatewayRouteState -&gt; ByteStringBuilder)
 -&gt; ToLog LocalGatewayRouteState
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: LocalGatewayRouteState -&gt; ByteStringBuilder
 $cbuild :: LocalGatewayRouteState -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621681091297"><span class="annot"><span class="annottext">HeaderName -&gt; LocalGatewayRouteState -&gt; [Header]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681125989"><span class="annot"><span class="annottext">HeaderName -&gt; LocalGatewayRouteState -&gt; [Header]
 (HeaderName -&gt; LocalGatewayRouteState -&gt; [Header])
 -&gt; ToHeader LocalGatewayRouteState
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; LocalGatewayRouteState -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; LocalGatewayRouteState -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621681091294"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; QueryString
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681125986"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; QueryString
 (LocalGatewayRouteState -&gt; QueryString)
 -&gt; ToQuery LocalGatewayRouteState
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: LocalGatewayRouteState -&gt; QueryString
 $ctoQuery :: LocalGatewayRouteState -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621681091289"><span id="local-6989586621681091291"><span class="annot"><span class="annottext">Value -&gt; Parser [LocalGatewayRouteState]
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681125981"><span id="local-6989586621681125983"><span class="annot"><span class="annottext">Value -&gt; Parser [LocalGatewayRouteState]
 Value -&gt; Parser LocalGatewayRouteState
 (Value -&gt; Parser LocalGatewayRouteState)
 -&gt; (Value -&gt; Parser [LocalGatewayRouteState])
@@ -215,7 +215,7 @@ $cparseJSONList :: Value -&gt; Parser [LocalGatewayRouteState]
 parseJSON :: Value -&gt; Parser LocalGatewayRouteState
 $cparseJSON :: Value -&gt; Parser LocalGatewayRouteState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621681091284"><span id="local-6989586621681091286"><span class="annot"><span class="annottext">FromJSONKeyFunction [LocalGatewayRouteState]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681125976"><span id="local-6989586621681125978"><span class="annot"><span class="annottext">FromJSONKeyFunction [LocalGatewayRouteState]
 FromJSONKeyFunction LocalGatewayRouteState
 FromJSONKeyFunction LocalGatewayRouteState
 -&gt; FromJSONKeyFunction [LocalGatewayRouteState]
@@ -227,7 +227,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [LocalGatewayRouteState]
 fromJSONKey :: FromJSONKeyFunction LocalGatewayRouteState
 $cfromJSONKey :: FromJSONKeyFunction LocalGatewayRouteState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621681091275"><span id="local-6989586621681091277"><span id="local-6989586621681091279"><span id="local-6989586621681091281"><span class="annot"><span class="annottext">[LocalGatewayRouteState] -&gt; Encoding
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681125967"><span id="local-6989586621681125969"><span id="local-6989586621681125971"><span id="local-6989586621681125973"><span class="annot"><span class="annottext">[LocalGatewayRouteState] -&gt; Encoding
 [LocalGatewayRouteState] -&gt; Value
 LocalGatewayRouteState -&gt; Encoding
 LocalGatewayRouteState -&gt; Value
@@ -251,7 +251,7 @@ $ctoEncoding :: LocalGatewayRouteState -&gt; Encoding
 toJSON :: LocalGatewayRouteState -&gt; Value
 $ctoJSON :: LocalGatewayRouteState -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621681091270"><span id="local-6989586621681091272"><span class="annot"><span class="annottext">ToJSONKeyFunction [LocalGatewayRouteState]
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681125962"><span id="local-6989586621681125964"><span class="annot"><span class="annottext">ToJSONKeyFunction [LocalGatewayRouteState]
 ToJSONKeyFunction LocalGatewayRouteState
 ToJSONKeyFunction LocalGatewayRouteState
 -&gt; ToJSONKeyFunction [LocalGatewayRouteState]
@@ -263,14 +263,14 @@ $ctoJSONKeyList :: ToJSONKeyFunction [LocalGatewayRouteState]
 toJSONKey :: ToJSONKeyFunction LocalGatewayRouteState
 $ctoJSONKey :: ToJSONKeyFunction LocalGatewayRouteState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-60"></span><span>      </span><span id="local-6989586621681091267"><span class="annot"><span class="annottext">[Node] -&gt; Either String LocalGatewayRouteState
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681125959"><span class="annot"><span class="annottext">[Node] -&gt; Either String LocalGatewayRouteState
 ([Node] -&gt; Either String LocalGatewayRouteState)
 -&gt; FromXML LocalGatewayRouteState
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String LocalGatewayRouteState
 $cparseXML :: [Node] -&gt; Either String LocalGatewayRouteState
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-61"></span><span>      </span><span id="local-6989586621681091264"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; XML
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681125956"><span class="annot"><span class="annottext">LocalGatewayRouteState -&gt; XML
 (LocalGatewayRouteState -&gt; XML) -&gt; ToXML LocalGatewayRouteState
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: LocalGatewayRouteState -&gt; XML

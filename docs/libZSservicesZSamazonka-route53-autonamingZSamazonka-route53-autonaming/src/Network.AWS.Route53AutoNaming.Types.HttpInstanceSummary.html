@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- that matches the values that you specified in the request.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newHttpInstanceSummary' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679219908"><span id="local-6989586621679219909"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpInstanceSummary"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-var">HttpInstanceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpInstanceSummary%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-var">HttpInstanceSummary'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679220035"><span id="local-6989586621679220036"></span></span><span class="hs-keyword">data</span><span> </span><span id="HttpInstanceSummary"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-var">HttpInstanceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HttpInstanceSummary%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-var">HttpInstanceSummary'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of an instance that matches the values that you specified in the</span><span>
 </span><span id="line-35"></span><span>    </span><span class="hs-comment">-- request.</span><span>
 </span><span id="line-36"></span><span>    </span><span id="%24sel%3AinstanceId%3AHttpInstanceSummary%27"><span class="annot"><span class="annottext">HttpInstanceSummary -&gt; Maybe Text
@@ -41,20 +41,20 @@
 </span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @HttpProperties@ member of the @Properties@ member of the namespace.</span><span>
 </span><span id="line-41"></span><span>    </span><span id="%24sel%3AnamespaceName%3AHttpInstanceSummary%27"><span class="annot"><span class="annottext">HttpInstanceSummary -&gt; Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3AnamespaceName%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var hs-var">namespaceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The name of the service that you specified when you registered the</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- instance.</span><span>
-</span><span id="line-44"></span><span>    </span><span id="%24sel%3AserviceName%3AHttpInstanceSummary%27"><span class="annot"><span class="annottext">HttpInstanceSummary -&gt; Maybe Text
-</span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3AserviceName%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | If you included any attributes when you registered the instance, the</span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- values of those attributes.</span><span>
-</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aattributes%3AHttpInstanceSummary%27"><span class="annot"><span class="annottext">HttpInstanceSummary -&gt; Maybe (HashMap Text Text)
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | If you included any attributes when you registered the instance, the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- values of those attributes.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aattributes%3AHttpInstanceSummary%27"><span class="annot"><span class="annottext">HttpInstanceSummary -&gt; Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3Aattributes%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the service that you specified when you registered the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AserviceName%3AHttpInstanceSummary%27"><span class="annot"><span class="annottext">HttpInstanceSummary -&gt; Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3AserviceName%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | If you configured health checking in the service, the current health</span><span>
 </span><span id="line-49"></span><span>    </span><span class="hs-comment">-- status of the service instance.</span><span>
 </span><span id="line-50"></span><span>    </span><span id="%24sel%3AhealthStatus%3AHttpInstanceSummary%27"><span class="annot"><span class="annottext">HttpInstanceSummary -&gt; Maybe HealthStatus
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3AhealthStatus%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HealthStatus.html#HealthStatus"><span class="hs-identifier hs-type">HealthStatus</span></a></span><span>
 </span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219898"><span id="local-6989586621679219900"><span class="annot"><span class="annottext">HttpInstanceSummary -&gt; HttpInstanceSummary -&gt; Bool
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220025"><span id="local-6989586621679220027"><span class="annot"><span class="annottext">HttpInstanceSummary -&gt; HttpInstanceSummary -&gt; Bool
 (HttpInstanceSummary -&gt; HttpInstanceSummary -&gt; Bool)
 -&gt; (HttpInstanceSummary -&gt; HttpInstanceSummary -&gt; Bool)
 -&gt; Eq HttpInstanceSummary
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: HttpInstanceSummary -&gt; HttpInstanceSummary -&gt; Bool
 == :: HttpInstanceSummary -&gt; HttpInstanceSummary -&gt; Bool
 $c== :: HttpInstanceSummary -&gt; HttpInstanceSummary -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219889"><span id="local-6989586621679219891"><span id="local-6989586621679219893"><span id="local-6989586621679219895"><span class="annot"><span class="annottext">ReadPrec [HttpInstanceSummary]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220016"><span id="local-6989586621679220018"><span id="local-6989586621679220020"><span id="local-6989586621679220022"><span class="annot"><span class="annottext">ReadPrec [HttpInstanceSummary]
 ReadPrec HttpInstanceSummary
 Int -&gt; ReadS HttpInstanceSummary
 ReadS [HttpInstanceSummary]
@@ -83,7 +83,7 @@ readList :: ReadS [HttpInstanceSummary]
 $creadList :: ReadS [HttpInstanceSummary]
 readsPrec :: Int -&gt; ReadS HttpInstanceSummary
 $creadsPrec :: Int -&gt; ReadS HttpInstanceSummary
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219882"><span id="local-6989586621679219884"><span id="local-6989586621679219886"><span class="annot"><span class="annottext">Int -&gt; HttpInstanceSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220009"><span id="local-6989586621679220011"><span id="local-6989586621679220013"><span class="annot"><span class="annottext">Int -&gt; HttpInstanceSummary -&gt; ShowS
 [HttpInstanceSummary] -&gt; ShowS
 HttpInstanceSummary -&gt; String
 (Int -&gt; HttpInstanceSummary -&gt; ShowS)
@@ -125,11 +125,11 @@ $cfrom :: forall x. HttpInstanceSummary -&gt; Rep HttpInstanceSummary x
 </span><span id="line-67"></span><span class="hs-comment">-- The @HttpName@ name of the namespace. It\'s found in the</span><span>
 </span><span id="line-68"></span><span class="hs-comment">-- @HttpProperties@ member of the @Properties@ member of the namespace.</span><span>
 </span><span id="line-69"></span><span class="hs-comment">--</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- 'serviceName', 'httpInstanceSummary_serviceName' - The name of the service that you specified when you registered the</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'attributes', 'httpInstanceSummary_attributes' - If you included any attributes when you registered the instance, the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- values of those attributes.</span><span>
 </span><span id="line-72"></span><span class="hs-comment">--</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- 'attributes', 'httpInstanceSummary_attributes' - If you included any attributes when you registered the instance, the</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- values of those attributes.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'serviceName', 'httpInstanceSummary_serviceName' - The name of the service that you specified when you registered the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- instance.</span><span>
 </span><span id="line-75"></span><span class="hs-comment">--</span><span>
 </span><span id="line-76"></span><span class="hs-comment">-- 'healthStatus', 'httpInstanceSummary_healthStatus' - If you configured health checking in the service, the current health</span><span>
 </span><span id="line-77"></span><span class="hs-comment">-- status of the service instance.</span><span>
@@ -139,8 +139,8 @@ $cfrom :: forall x. HttpInstanceSummary -&gt; Rep HttpInstanceSummary x
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#newHttpInstanceSummary"><span class="hs-identifier hs-var hs-var">newHttpInstanceSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>  </span><span class="annot"><span class="annottext">HttpInstanceSummary' :: Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
 -&gt; Maybe HealthStatus
 -&gt; HttpInstanceSummary
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span>
@@ -152,12 +152,12 @@ forall a. Maybe a
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3AnamespaceName%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var">namespaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceName:HttpInstanceSummary' :: Maybe Text
-</span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3AserviceName%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:HttpInstanceSummary' :: Maybe (HashMap Text Text)
+</span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3Aattributes%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:HttpInstanceSummary' :: Maybe (HashMap Text Text)
-</span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3Aattributes%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceName:HttpInstanceSummary' :: Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3AserviceName%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:healthStatus:HttpInstanceSummary' :: Maybe HealthStatus
@@ -176,16 +176,16 @@ forall a. Maybe a
 -&gt; Lens
      HttpInstanceSummary HttpInstanceSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219873"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220000"><span class="annot"><span class="annottext">Maybe Text
 instanceId :: Maybe Text
 $sel:instanceId:HttpInstanceSummary' :: HttpInstanceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679219873"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219873"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219872"><span class="annot"><span class="annottext">s :: HttpInstanceSummary
-</span><a href="#local-6989586621679219872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219871"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpInstanceSummary
-</span><a href="#local-6989586621679219872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:HttpInstanceSummary' :: Maybe Text
+</span><a href="#local-6989586621679220000"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220000"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219999"><span class="annot"><span class="annottext">s :: HttpInstanceSummary
+</span><a href="#local-6989586621679219999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219998"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpInstanceSummary
+</span><a href="#local-6989586621679219999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:HttpInstanceSummary' :: Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3AinstanceId%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679219998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-93"></span><span>
 </span><span id="line-94"></span><span class="hs-comment">-- | @@ @@ @@</span><span>
 </span><span id="line-95"></span><span class="hs-comment">--</span><span>
@@ -199,42 +199,21 @@ $sel:instanceId:HttpInstanceSummary' :: HttpInstanceSummary -&gt; Maybe Text
 -&gt; Lens
      HttpInstanceSummary HttpInstanceSummary (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219869"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219996"><span class="annot"><span class="annottext">Maybe Text
 namespaceName :: Maybe Text
 $sel:namespaceName:HttpInstanceSummary' :: HttpInstanceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679219869"><span class="hs-identifier hs-var hs-var">namespaceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219869"><span class="hs-identifier hs-var">namespaceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219868"><span class="annot"><span class="annottext">s :: HttpInstanceSummary
-</span><a href="#local-6989586621679219868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219867"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpInstanceSummary
-</span><a href="#local-6989586621679219868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceName:HttpInstanceSummary' :: Maybe Text
+</span><a href="#local-6989586621679219996"><span class="hs-identifier hs-var hs-var">namespaceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219996"><span class="hs-identifier hs-var">namespaceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219995"><span class="annot"><span class="annottext">s :: HttpInstanceSummary
+</span><a href="#local-6989586621679219995"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219994"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219994"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpInstanceSummary
+</span><a href="#local-6989586621679219995"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespaceName:HttpInstanceSummary' :: Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3AnamespaceName%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var">namespaceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679219994"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | The name of the service that you specified when you registered the</span><span>
-</span><span id="line-102"></span><span class="hs-comment">-- instance.</span><span>
-</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#httpInstanceSummary_serviceName"><span class="hs-identifier hs-type">httpInstanceSummary_serviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span id="httpInstanceSummary_serviceName"><span class="annot"><span class="annottext">httpInstanceSummary_serviceName :: (Maybe Text -&gt; f (Maybe Text))
--&gt; HttpInstanceSummary -&gt; f HttpInstanceSummary
-</span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#httpInstanceSummary_serviceName"><span class="hs-identifier hs-var hs-var">httpInstanceSummary_serviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpInstanceSummary -&gt; Maybe Text)
--&gt; (HttpInstanceSummary -&gt; Maybe Text -&gt; HttpInstanceSummary)
--&gt; Lens
-     HttpInstanceSummary HttpInstanceSummary (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219865"><span class="annot"><span class="annottext">Maybe Text
-serviceName :: Maybe Text
-$sel:serviceName:HttpInstanceSummary' :: HttpInstanceSummary -&gt; Maybe Text
-</span><a href="#local-6989586621679219865"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219865"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219864"><span class="annot"><span class="annottext">s :: HttpInstanceSummary
-</span><a href="#local-6989586621679219864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219863"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpInstanceSummary
-</span><a href="#local-6989586621679219864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:HttpInstanceSummary' :: Maybe Text
-</span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3AserviceName%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679219863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-comment">-- | If you included any attributes when you registered the instance, the</span><span>
-</span><span id="line-107"></span><span class="hs-comment">-- values of those attributes.</span><span>
-</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#httpInstanceSummary_attributes"><span class="hs-identifier hs-type">httpInstanceSummary_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-109"></span><span id="httpInstanceSummary_attributes"><span class="annot"><span class="annottext">httpInstanceSummary_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><span id="line-101"></span><span class="hs-comment">-- | If you included any attributes when you registered the instance, the</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- values of those attributes.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#httpInstanceSummary_attributes"><span class="hs-identifier hs-type">httpInstanceSummary_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="httpInstanceSummary_attributes"><span class="annot"><span class="annottext">httpInstanceSummary_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
 -&gt; HttpInstanceSummary -&gt; f HttpInstanceSummary
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#httpInstanceSummary_attributes"><span class="hs-identifier hs-var hs-var">httpInstanceSummary_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpInstanceSummary -&gt; Maybe (HashMap Text Text))
 -&gt; (HttpInstanceSummary
@@ -245,16 +224,16 @@ $sel:serviceName:HttpInstanceSummary' :: HttpInstanceSummary -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219861"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219992"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 attributes :: Maybe (HashMap Text Text)
 $sel:attributes:HttpInstanceSummary' :: HttpInstanceSummary -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679219861"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679219861"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219860"><span class="annot"><span class="annottext">s :: HttpInstanceSummary
-</span><a href="#local-6989586621679219860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219859"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679219859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpInstanceSummary
-</span><a href="#local-6989586621679219860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:HttpInstanceSummary' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679219992"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679219992"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219991"><span class="annot"><span class="annottext">s :: HttpInstanceSummary
+</span><a href="#local-6989586621679219991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219990"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679219990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpInstanceSummary
+</span><a href="#local-6989586621679219991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:HttpInstanceSummary' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3Aattributes%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679219859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679219990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; HttpInstanceSummary -&gt; f HttpInstanceSummary)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -280,8 +259,29 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The name of the service that you specified when you registered the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#httpInstanceSummary_serviceName"><span class="hs-identifier hs-type">httpInstanceSummary_serviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="httpInstanceSummary_serviceName"><span class="annot"><span class="annottext">httpInstanceSummary_serviceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; HttpInstanceSummary -&gt; f HttpInstanceSummary
+</span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#httpInstanceSummary_serviceName"><span class="hs-identifier hs-var hs-var">httpInstanceSummary_serviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HttpInstanceSummary -&gt; Maybe Text)
+-&gt; (HttpInstanceSummary -&gt; Maybe Text -&gt; HttpInstanceSummary)
+-&gt; Lens
+     HttpInstanceSummary HttpInstanceSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219985"><span class="annot"><span class="annottext">Maybe Text
+serviceName :: Maybe Text
+$sel:serviceName:HttpInstanceSummary' :: HttpInstanceSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679219985"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219985"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219984"><span class="annot"><span class="annottext">s :: HttpInstanceSummary
+</span><a href="#local-6989586621679219984"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219983"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219983"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpInstanceSummary
+</span><a href="#local-6989586621679219984"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:HttpInstanceSummary' :: Maybe Text
+</span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3AserviceName%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219983"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-110"></span><span>
 </span><span id="line-111"></span><span class="hs-comment">-- | If you configured health checking in the service, the current health</span><span>
 </span><span id="line-112"></span><span class="hs-comment">-- status of the service instance.</span><span>
@@ -297,19 +297,19 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
      (Maybe HealthStatus)
      (Maybe HealthStatus)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219854"><span class="annot"><span class="annottext">Maybe HealthStatus
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219981"><span class="annot"><span class="annottext">Maybe HealthStatus
 healthStatus :: Maybe HealthStatus
 $sel:healthStatus:HttpInstanceSummary' :: HttpInstanceSummary -&gt; Maybe HealthStatus
-</span><a href="#local-6989586621679219854"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HealthStatus
-</span><a href="#local-6989586621679219854"><span class="hs-identifier hs-var">healthStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219853"><span class="annot"><span class="annottext">s :: HttpInstanceSummary
-</span><a href="#local-6989586621679219853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219852"><span class="annot"><span class="annottext">Maybe HealthStatus
-</span><a href="#local-6989586621679219852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpInstanceSummary
-</span><a href="#local-6989586621679219853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthStatus:HttpInstanceSummary' :: Maybe HealthStatus
+</span><a href="#local-6989586621679219981"><span class="hs-identifier hs-var hs-var">healthStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HealthStatus
+</span><a href="#local-6989586621679219981"><span class="hs-identifier hs-var">healthStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219980"><span class="annot"><span class="annottext">s :: HttpInstanceSummary
+</span><a href="#local-6989586621679219980"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-type">HttpInstanceSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219979"><span class="annot"><span class="annottext">Maybe HealthStatus
+</span><a href="#local-6989586621679219979"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HttpInstanceSummary
+</span><a href="#local-6989586621679219980"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthStatus:HttpInstanceSummary' :: Maybe HealthStatus
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#%24sel%3AhealthStatus%3AHttpInstanceSummary%27"><span class="hs-identifier hs-var">healthStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HealthStatus
-</span><a href="#local-6989586621679219852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679219979"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-115"></span><span>
-</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219849"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-117"></span><span>  </span><span id="local-6989586621679219847"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpInstanceSummary
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219976"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679219974"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HttpInstanceSummary
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser HttpInstanceSummary)
@@ -319,75 +319,58 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;HttpInstanceSummary&quot;</span></span><span>
-</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679219844"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219844"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679219971"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219971"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
 -&gt; Maybe Text
--&gt; Maybe Text
 -&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
 -&gt; Maybe HealthStatus
 -&gt; HttpInstanceSummary
 </span><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary%27"><span class="hs-identifier hs-var">HttpInstanceSummary'</span></a></span><span>
 </span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
  -&gt; Maybe Text
- -&gt; Maybe Text
  -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
  -&gt; Maybe HealthStatus
  -&gt; HttpInstanceSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe Text
-      -&gt; Maybe Text
       -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
       -&gt; Maybe HealthStatus
       -&gt; HttpInstanceSummary)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679219971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;InstanceId&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe Text
-   -&gt; Maybe (HashMap Text Text)
-   -&gt; Maybe HealthStatus
-   -&gt; HttpInstanceSummary)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Text
-      -&gt; Maybe (HashMap Text Text)
-      -&gt; Maybe HealthStatus
-      -&gt; HttpInstanceSummary)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;NamespaceName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Text
-   -&gt; Maybe (HashMap Text Text)
    -&gt; Maybe HealthStatus
    -&gt; HttpInstanceSummary)
 -&gt; Parser (Maybe Text)
 -&gt; Parser
      (Maybe (HashMap Text Text)
-      -&gt; Maybe HealthStatus -&gt; HttpInstanceSummary)
+      -&gt; Maybe Text -&gt; Maybe HealthStatus -&gt; HttpInstanceSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679219971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ServiceName&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span class="hs-string">&quot;NamespaceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe (HashMap Text Text)
-   -&gt; Maybe HealthStatus -&gt; HttpInstanceSummary)
+   -&gt; Maybe Text -&gt; Maybe HealthStatus -&gt; HttpInstanceSummary)
 -&gt; Parser (Maybe (HashMap Text Text))
--&gt; Parser (Maybe HealthStatus -&gt; HttpInstanceSummary)
+-&gt; Parser (Maybe Text -&gt; Maybe HealthStatus -&gt; HttpInstanceSummary)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679219971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -396,17 +379,26 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe HealthStatus -&gt; HttpInstanceSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe HealthStatus -&gt; HttpInstanceSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceName&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe HealthStatus -&gt; HttpInstanceSummary)
 -&gt; Parser (Maybe HealthStatus) -&gt; Parser HttpInstanceSummary
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679219844"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HealthStatus)
+</span><a href="#local-6989586621679219971"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HealthStatus)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;HealthStatus&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-128"></span><span>
-</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219837"><span id="local-6989586621679219839"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span></span></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219964"><span id="local-6989586621679219966"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span></span></span><span>
 </span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219834"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary.html#HttpInstanceSummary"><span class="hs-identifier hs-type">HttpInstanceSummary</span></a></span></span><span>
 </span><span id="line-132"></span></pre></body></html>

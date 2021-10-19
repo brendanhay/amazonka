@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- Map creates when you submit a @RegisterInstance@ request.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newInstance' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679220217"><span id="local-6989586621679220218"></span></span><span class="hs-keyword">data</span><span> </span><span id="Instance"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-var">Instance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Instance%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-var">Instance'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679220345"><span id="local-6989586621679220346"></span></span><span class="hs-keyword">data</span><span> </span><span id="Instance"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-var">Instance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Instance%27"><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-var">Instance'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique string that identifies the request and that allows failed</span><span>
 </span><span id="line-32"></span><span>    </span><span class="hs-comment">-- @RegisterInstance@ requests to be retried without the risk of executing</span><span>
 </span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the operation twice. You must use a unique @CreatorRequestId@ string</span><span>
@@ -151,7 +151,7 @@
 </span><span id="line-149"></span><span>    </span><span id="%24sel%3Aid%3AInstance%27"><span class="annot"><span class="annottext">Instance -&gt; Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#%24sel%3Aid%3AInstance%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-150"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220209"><span id="local-6989586621679220211"><span class="annot"><span class="annottext">Instance -&gt; Instance -&gt; Bool
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679220337"><span id="local-6989586621679220339"><span class="annot"><span class="annottext">Instance -&gt; Instance -&gt; Bool
 (Instance -&gt; Instance -&gt; Bool)
 -&gt; (Instance -&gt; Instance -&gt; Bool) -&gt; Eq Instance
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -159,7 +159,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: Instance -&gt; Instance -&gt; Bool
 == :: Instance -&gt; Instance -&gt; Bool
 $c== :: Instance -&gt; Instance -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220200"><span id="local-6989586621679220202"><span id="local-6989586621679220204"><span id="local-6989586621679220206"><span class="annot"><span class="annottext">ReadPrec [Instance]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220328"><span id="local-6989586621679220330"><span id="local-6989586621679220332"><span id="local-6989586621679220334"><span class="annot"><span class="annottext">ReadPrec [Instance]
 ReadPrec Instance
 Int -&gt; ReadS Instance
 ReadS [Instance]
@@ -179,7 +179,7 @@ readList :: ReadS [Instance]
 $creadList :: ReadS [Instance]
 readsPrec :: Int -&gt; ReadS Instance
 $creadsPrec :: Int -&gt; ReadS Instance
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220193"><span id="local-6989586621679220195"><span id="local-6989586621679220197"><span class="annot"><span class="annottext">Int -&gt; Instance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679220321"><span id="local-6989586621679220323"><span id="local-6989586621679220325"><span class="annot"><span class="annottext">Int -&gt; Instance -&gt; ShowS
 [Instance] -&gt; ShowS
 Instance -&gt; String
 (Int -&gt; Instance -&gt; ShowS)
@@ -333,8 +333,8 @@ $cfrom :: forall x. Instance -&gt; Rep Instance x
 </span><span id="line-281"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-282"></span><span>  </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span>
 </span><span id="line-283"></span><span id="newInstance"><span class="annot"><span class="annottext">newInstance :: Text -&gt; Instance
-</span><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#newInstance"><span class="hs-identifier hs-var hs-var">newInstance</span></a></span></span><span> </span><span id="local-6989586621679220187"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220187"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#newInstance"><span class="hs-identifier hs-var hs-var">newInstance</span></a></span></span><span> </span><span id="local-6989586621679220315"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220315"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-284"></span><span>  </span><span class="annot"><span class="annottext">Instance' :: Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; Instance
 </span><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span>
 </span><span id="line-285"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creatorRequestId:Instance' :: Maybe Text
@@ -347,7 +347,7 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-287"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Instance' :: Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#%24sel%3Aid%3AInstance%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220187"><span class="hs-identifier hs-var">pId_</span></a></span><span>
+</span><a href="#local-6989586621679220315"><span class="hs-identifier hs-var">pId_</span></a></span><span>
 </span><span id="line-288"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-289"></span><span>
 </span><span id="line-290"></span><span class="hs-comment">-- | A unique string that identifies the request and that allows failed</span><span>
@@ -363,16 +363,16 @@ forall a. Maybe a
 -&gt; (Instance -&gt; Maybe Text -&gt; Instance)
 -&gt; Lens Instance Instance (Maybe Text) (Maybe Text)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220183"><span class="annot"><span class="annottext">Maybe Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220311"><span class="annot"><span class="annottext">Maybe Text
 creatorRequestId :: Maybe Text
 $sel:creatorRequestId:Instance' :: Instance -&gt; Maybe Text
-</span><a href="#local-6989586621679220183"><span class="hs-identifier hs-var hs-var">creatorRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679220183"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220182"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679220182"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220181"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679220181"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679220182"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creatorRequestId:Instance' :: Maybe Text
+</span><a href="#local-6989586621679220311"><span class="hs-identifier hs-var hs-var">creatorRequestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220311"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220310"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679220310"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220309"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679220309"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679220310"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creatorRequestId:Instance' :: Maybe Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#%24sel%3AcreatorRequestId%3AInstance%27"><span class="hs-identifier hs-var">creatorRequestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679220181"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220309"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-299"></span><span>
 </span><span id="line-300"></span><span class="hs-comment">-- | A string map that contains the following information for the service</span><span>
 </span><span id="line-301"></span><span class="hs-comment">-- that you specify in @ServiceId@:</span><span>
@@ -473,16 +473,16 @@ $sel:creatorRequestId:Instance' :: Instance -&gt; Maybe Text
      (Maybe (HashMap Text Text))
      (Maybe (HashMap Text Text))
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220179"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220307"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
 attributes :: Maybe (HashMap Text Text)
 $sel:attributes:Instance' :: Instance -&gt; Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679220179"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679220179"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220178"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679220178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220177"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679220177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679220178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Instance' :: Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679220307"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679220307"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220306"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679220306"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220305"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679220305"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679220306"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:Instance' :: Maybe (HashMap Text Text)
 </span><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#%24sel%3Aattributes%3AInstance%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
-</span><a href="#local-6989586621679220177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679220305"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
  -&gt; Instance -&gt; f Instance)
 -&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
     -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
@@ -508,8 +508,8 @@ AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
   (HashMap Text Text)
   (HashMap Text Text)
   (HashMap Text Text)
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
 </span><span id="line-390"></span><span>
 </span><span id="line-391"></span><span class="hs-comment">-- | An identifier that you want to associate with the instance. Note the</span><span>
 </span><span id="line-392"></span><span class="hs-comment">-- following:</span><span>
@@ -538,27 +538,27 @@ forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
 -&gt; (Instance -&gt; Text -&gt; Instance)
 -&gt; Lens Instance Instance Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220172"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679220300"><span class="annot"><span class="annottext">Text
 id :: Text
 $sel:id:Instance' :: Instance -&gt; Text
-</span><a href="#local-6989586621679220172"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220172"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220171"><span class="annot"><span class="annottext">s :: Instance
-</span><a href="#local-6989586621679220171"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220170"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220170"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
-</span><a href="#local-6989586621679220171"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Instance' :: Text
+</span><a href="#local-6989586621679220300"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220300"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679220299"><span class="annot"><span class="annottext">s :: Instance
+</span><a href="#local-6989586621679220299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-type">Instance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679220298"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679220298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Instance
+</span><a href="#local-6989586621679220299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Instance' :: Text
 </span><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#%24sel%3Aid%3AInstance%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679220170"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679220298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-414"></span><span>
-</span><span id="line-415"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220167"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-416"></span><span>  </span><span id="local-6989586621679220165"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Instance
+</span><span id="line-415"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220295"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-416"></span><span>  </span><span id="local-6989586621679220293"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Instance
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-417"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Instance) -&gt; Value -&gt; Parser Instance
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-418"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;Instance&quot;</span></span><span>
-</span><span id="line-419"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679220162"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679220162"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-419"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679220290"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679220290"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-420"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; Instance
 </span><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance%27"><span class="hs-identifier hs-var">Instance'</span></a></span><span>
 </span><span id="line-421"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Text -&gt; Instance)
@@ -566,7 +566,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe (HashMap Text Text) -&gt; Text -&gt; Instance)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679220162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+</span><a href="#local-6989586621679220290"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CreatorRequestId&quot;</span></span><span class="hs-special">)</span><span>
@@ -574,7 +574,7 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser (Text -&gt; Instance)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679220162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+</span><a href="#local-6989586621679220290"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
@@ -586,13 +586,13 @@ forall a. Monoid a =&gt; a
 </span><span id="line-423"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Instance) -&gt; Parser Text -&gt; Parser Instance
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679220162"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679220290"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-424"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-425"></span><span>
-</span><span id="line-426"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220154"><span id="local-6989586621679220156"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span></span><span>
+</span><span id="line-426"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220282"><span id="local-6989586621679220284"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span></span><span>
 </span><span id="line-427"></span><span>
-</span><span id="line-428"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220151"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span><span>
+</span><span id="line-428"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679220279"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Route53AutoNaming.Types.Instance.html#Instance"><span class="hs-identifier hs-type">Instance</span></a></span></span><span>
 </span><span id="line-429"></span></pre></body></html>

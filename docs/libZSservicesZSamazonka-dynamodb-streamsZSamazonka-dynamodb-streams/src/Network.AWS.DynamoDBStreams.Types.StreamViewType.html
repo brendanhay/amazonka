@@ -31,13 +31,13 @@
 </span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
 </span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
 </span><span id="line-33"></span><span>
-</span><span id="line-34"></span><span id="local-6989586621679158764"><span id="local-6989586621679158765"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StreamViewType"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.StreamViewType.html#StreamViewType"><span class="hs-identifier hs-var">StreamViewType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamViewType%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.StreamViewType.html#StreamViewType%27"><span class="hs-identifier hs-var">StreamViewType'</span></a></span></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679158816"><span id="local-6989586621679158817"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StreamViewType"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.StreamViewType.html#StreamViewType"><span class="hs-identifier hs-var">StreamViewType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamViewType%27"><span class="annot"><a href="Network.AWS.DynamoDBStreams.Types.StreamViewType.html#StreamViewType%27"><span class="hs-identifier hs-var">StreamViewType'</span></a></span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStreamViewType"><span class="annot"><span class="annottext">StreamViewType -&gt; Text
 </span><a href="Network.AWS.DynamoDBStreams.Types.StreamViewType.html#fromStreamViewType"><span class="hs-identifier hs-var hs-var">fromStreamViewType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
 </span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
 </span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679158756"><span id="local-6989586621679158758"><span id="local-6989586621679158760"><span class="annot"><span class="annottext">Int -&gt; StreamViewType -&gt; ShowS
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679158808"><span id="local-6989586621679158810"><span id="local-6989586621679158812"><span class="annot"><span class="annottext">Int -&gt; StreamViewType -&gt; ShowS
 [StreamViewType] -&gt; ShowS
 StreamViewType -&gt; String
 (Int -&gt; StreamViewType -&gt; ShowS)
@@ -53,7 +53,7 @@ $cshow :: StreamViewType -&gt; String
 showsPrec :: Int -&gt; StreamViewType -&gt; ShowS
 $cshowsPrec :: Int -&gt; StreamViewType -&gt; ShowS
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>      </span><span id="local-6989586621679158747"><span id="local-6989586621679158749"><span id="local-6989586621679158751"><span id="local-6989586621679158753"><span class="annot"><span class="annottext">ReadPrec [StreamViewType]
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679158799"><span id="local-6989586621679158801"><span id="local-6989586621679158803"><span id="local-6989586621679158805"><span class="annot"><span class="annottext">ReadPrec [StreamViewType]
 ReadPrec StreamViewType
 Int -&gt; ReadS StreamViewType
 ReadS [StreamViewType]
@@ -74,7 +74,7 @@ $creadList :: ReadS [StreamViewType]
 readsPrec :: Int -&gt; ReadS StreamViewType
 $creadsPrec :: Int -&gt; ReadS StreamViewType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>      </span><span id="local-6989586621679158742"><span id="local-6989586621679158744"><span class="annot"><span class="annottext">StreamViewType -&gt; StreamViewType -&gt; Bool
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679158794"><span id="local-6989586621679158796"><span class="annot"><span class="annottext">StreamViewType -&gt; StreamViewType -&gt; Bool
 (StreamViewType -&gt; StreamViewType -&gt; Bool)
 -&gt; (StreamViewType -&gt; StreamViewType -&gt; Bool) -&gt; Eq StreamViewType
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -83,7 +83,7 @@ $c/= :: StreamViewType -&gt; StreamViewType -&gt; Bool
 == :: StreamViewType -&gt; StreamViewType -&gt; Bool
 $c== :: StreamViewType -&gt; StreamViewType -&gt; Bool
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-42"></span><span>      </span><span id="local-6989586621679158726"><span id="local-6989586621679158728"><span id="local-6989586621679158730"><span id="local-6989586621679158732"><span id="local-6989586621679158734"><span id="local-6989586621679158736"><span id="local-6989586621679158738"><span class="annot"><span class="annottext">Eq StreamViewType
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679158778"><span id="local-6989586621679158780"><span id="local-6989586621679158782"><span id="local-6989586621679158784"><span id="local-6989586621679158786"><span id="local-6989586621679158788"><span id="local-6989586621679158790"><span class="annot"><span class="annottext">Eq StreamViewType
 Eq StreamViewType
 -&gt; (StreamViewType -&gt; StreamViewType -&gt; Ordering)
 -&gt; (StreamViewType -&gt; StreamViewType -&gt; Bool)
@@ -134,7 +134,7 @@ $cfrom :: forall x. StreamViewType -&gt; Rep StreamViewType x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
 </span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
-</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679158718"><span id="local-6989586621679158720"><span class="annot"><span class="annottext">Int -&gt; StreamViewType -&gt; Int
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679158770"><span id="local-6989586621679158772"><span class="annot"><span class="annottext">Int -&gt; StreamViewType -&gt; Int
 StreamViewType -&gt; Int
 (Int -&gt; StreamViewType -&gt; Int)
 -&gt; (StreamViewType -&gt; Int) -&gt; Hashable StreamViewType
@@ -144,50 +144,50 @@ $chash :: StreamViewType -&gt; Int
 hashWithSalt :: Int -&gt; StreamViewType -&gt; Int
 $chashWithSalt :: Int -&gt; StreamViewType -&gt; Int
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-47"></span><span>      </span><span id="local-6989586621679158715"><span class="annot"><span class="annottext">StreamViewType -&gt; ()
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679158767"><span class="annot"><span class="annottext">StreamViewType -&gt; ()
 (StreamViewType -&gt; ()) -&gt; NFData StreamViewType
 forall a. (a -&gt; ()) -&gt; NFData a
 rnf :: StreamViewType -&gt; ()
 $crnf :: StreamViewType -&gt; ()
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-48"></span><span>      </span><span id="local-6989586621679158712"><span class="annot"><span class="annottext">Text -&gt; Either String StreamViewType
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679158764"><span class="annot"><span class="annottext">Text -&gt; Either String StreamViewType
 (Text -&gt; Either String StreamViewType) -&gt; FromText StreamViewType
 forall a. (Text -&gt; Either String a) -&gt; FromText a
 fromText :: Text -&gt; Either String StreamViewType
 $cfromText :: Text -&gt; Either String StreamViewType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-49"></span><span>      </span><span id="local-6989586621679158709"><span class="annot"><span class="annottext">StreamViewType -&gt; Text
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679158761"><span class="annot"><span class="annottext">StreamViewType -&gt; Text
 (StreamViewType -&gt; Text) -&gt; ToText StreamViewType
 forall a. (a -&gt; Text) -&gt; ToText a
 toText :: StreamViewType -&gt; Text
 $ctoText :: StreamViewType -&gt; Text
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-50"></span><span>      </span><span id="local-6989586621679158706"><span class="annot"><span class="annottext">StreamViewType -&gt; ByteString
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679158758"><span class="annot"><span class="annottext">StreamViewType -&gt; ByteString
 (StreamViewType -&gt; ByteString) -&gt; ToByteString StreamViewType
 forall a. (a -&gt; ByteString) -&gt; ToByteString a
 toBS :: StreamViewType -&gt; ByteString
 $ctoBS :: StreamViewType -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-51"></span><span>      </span><span id="local-6989586621679158703"><span class="annot"><span class="annottext">StreamViewType -&gt; ByteStringBuilder
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679158755"><span class="annot"><span class="annottext">StreamViewType -&gt; ByteStringBuilder
 (StreamViewType -&gt; ByteStringBuilder) -&gt; ToLog StreamViewType
 forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
 build :: StreamViewType -&gt; ByteStringBuilder
 $cbuild :: StreamViewType -&gt; ByteStringBuilder
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-52"></span><span>      </span><span id="local-6989586621679158700"><span class="annot"><span class="annottext">HeaderName -&gt; StreamViewType -&gt; [Header]
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679158752"><span class="annot"><span class="annottext">HeaderName -&gt; StreamViewType -&gt; [Header]
 (HeaderName -&gt; StreamViewType -&gt; [Header])
 -&gt; ToHeader StreamViewType
 forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
 toHeader :: HeaderName -&gt; StreamViewType -&gt; [Header]
 $ctoHeader :: HeaderName -&gt; StreamViewType -&gt; [Header]
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-53"></span><span>      </span><span id="local-6989586621679158697"><span class="annot"><span class="annottext">StreamViewType -&gt; QueryString
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679158749"><span class="annot"><span class="annottext">StreamViewType -&gt; QueryString
 (StreamViewType -&gt; QueryString) -&gt; ToQuery StreamViewType
 forall a. (a -&gt; QueryString) -&gt; ToQuery a
 toQuery :: StreamViewType -&gt; QueryString
 $ctoQuery :: StreamViewType -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-54"></span><span>      </span><span id="local-6989586621679158692"><span id="local-6989586621679158694"><span class="annot"><span class="annottext">Value -&gt; Parser [StreamViewType]
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679158744"><span id="local-6989586621679158746"><span class="annot"><span class="annottext">Value -&gt; Parser [StreamViewType]
 Value -&gt; Parser StreamViewType
 (Value -&gt; Parser StreamViewType)
 -&gt; (Value -&gt; Parser [StreamViewType]) -&gt; FromJSON StreamViewType
@@ -198,7 +198,7 @@ $cparseJSONList :: Value -&gt; Parser [StreamViewType]
 parseJSON :: Value -&gt; Parser StreamViewType
 $cparseJSON :: Value -&gt; Parser StreamViewType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-55"></span><span>      </span><span id="local-6989586621679158687"><span id="local-6989586621679158689"><span class="annot"><span class="annottext">FromJSONKeyFunction [StreamViewType]
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679158739"><span id="local-6989586621679158741"><span class="annot"><span class="annottext">FromJSONKeyFunction [StreamViewType]
 FromJSONKeyFunction StreamViewType
 FromJSONKeyFunction StreamViewType
 -&gt; FromJSONKeyFunction [StreamViewType]
@@ -210,7 +210,7 @@ $cfromJSONKeyList :: FromJSONKeyFunction [StreamViewType]
 fromJSONKey :: FromJSONKeyFunction StreamViewType
 $cfromJSONKey :: FromJSONKeyFunction StreamViewType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-56"></span><span>      </span><span id="local-6989586621679158678"><span id="local-6989586621679158680"><span id="local-6989586621679158682"><span id="local-6989586621679158684"><span class="annot"><span class="annottext">[StreamViewType] -&gt; Encoding
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679158730"><span id="local-6989586621679158732"><span id="local-6989586621679158734"><span id="local-6989586621679158736"><span class="annot"><span class="annottext">[StreamViewType] -&gt; Encoding
 [StreamViewType] -&gt; Value
 StreamViewType -&gt; Encoding
 StreamViewType -&gt; Value
@@ -234,7 +234,7 @@ $ctoEncoding :: StreamViewType -&gt; Encoding
 toJSON :: StreamViewType -&gt; Value
 $ctoJSON :: StreamViewType -&gt; Value
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-57"></span><span>      </span><span id="local-6989586621679158673"><span id="local-6989586621679158675"><span class="annot"><span class="annottext">ToJSONKeyFunction [StreamViewType]
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679158725"><span id="local-6989586621679158727"><span class="annot"><span class="annottext">ToJSONKeyFunction [StreamViewType]
 ToJSONKeyFunction StreamViewType
 ToJSONKeyFunction StreamViewType
 -&gt; ToJSONKeyFunction [StreamViewType] -&gt; ToJSONKey StreamViewType
@@ -245,13 +245,13 @@ $ctoJSONKeyList :: ToJSONKeyFunction [StreamViewType]
 toJSONKey :: ToJSONKeyFunction StreamViewType
 $ctoJSONKey :: ToJSONKeyFunction StreamViewType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-58"></span><span>      </span><span id="local-6989586621679158670"><span class="annot"><span class="annottext">[Node] -&gt; Either String StreamViewType
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679158722"><span class="annot"><span class="annottext">[Node] -&gt; Either String StreamViewType
 ([Node] -&gt; Either String StreamViewType) -&gt; FromXML StreamViewType
 forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
 parseXML :: [Node] -&gt; Either String StreamViewType
 $cparseXML :: [Node] -&gt; Either String StreamViewType
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
-</span><span id="line-59"></span><span>      </span><span id="local-6989586621679158667"><span class="annot"><span class="annottext">StreamViewType -&gt; XML
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679158719"><span class="annot"><span class="annottext">StreamViewType -&gt; XML
 (StreamViewType -&gt; XML) -&gt; ToXML StreamViewType
 forall a. (a -&gt; XML) -&gt; ToXML a
 toXML :: StreamViewType -&gt; XML

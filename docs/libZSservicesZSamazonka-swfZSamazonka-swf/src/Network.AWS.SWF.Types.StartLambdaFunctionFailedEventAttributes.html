@@ -28,28 +28,28 @@
 </span><span id="line-28"></span><span class="hs-comment">-- set for other event types.</span><span>
 </span><span id="line-29"></span><span class="hs-comment">--</span><span>
 </span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newStartLambdaFunctionFailedEventAttributes' smart constructor.</span><span>
-</span><span id="line-31"></span><span id="local-6989586621679350582"><span id="local-6989586621679350583"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartLambdaFunctionFailedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-var">StartLambdaFunctionFailedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartLambdaFunctionFailedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var">StartLambdaFunctionFailedEventAttributes'</span></a></span></span><span>
-</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A description that can help diagnose the cause of the fault.</span><span>
-</span><span id="line-33"></span><span>    </span><span id="%24sel%3Amessage%3AStartLambdaFunctionFailedEventAttributes%27"><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes -&gt; Maybe Text
-</span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#%24sel%3Amessage%3AStartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- activity task was scheduled. To help diagnose issues, use this</span><span>
-</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- information to trace back the chain of events leading up to this event.</span><span>
-</span><span id="line-37"></span><span>    </span><span id="%24sel%3AscheduledEventId%3AStartLambdaFunctionFailedEventAttributes%27"><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes -&gt; Maybe Integer
+</span><span id="line-31"></span><span id="local-6989586621679350659"><span id="local-6989586621679350660"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartLambdaFunctionFailedEventAttributes"><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-var">StartLambdaFunctionFailedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartLambdaFunctionFailedEventAttributes%27"><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var">StartLambdaFunctionFailedEventAttributes'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- activity task was scheduled. To help diagnose issues, use this</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- information to trace back the chain of events leading up to this event.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AscheduledEventId%3AStartLambdaFunctionFailedEventAttributes%27"><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes -&gt; Maybe Integer
 </span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#%24sel%3AscheduledEventId%3AStartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
-</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The cause of the failure. To help diagnose issues, use this information</span><span>
-</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- to trace back the chain of events leading up to this event.</span><span>
-</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
-</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- If @cause@ is set to @OPERATION_NOT_PERMITTED@, the decision failed</span><span>
-</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- because the IAM role attached to the execution lacked sufficient</span><span>
-</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- permissions. For details and example IAM policies, see</span><span>
-</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html Lambda Tasks&gt;</span><span>
-</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
-</span><span id="line-46"></span><span>    </span><span id="%24sel%3Acause%3AStartLambdaFunctionFailedEventAttributes%27"><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The cause of the failure. To help diagnose issues, use this information</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- to trace back the chain of events leading up to this event.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- If @cause@ is set to @OPERATION_NOT_PERMITTED@, the decision failed</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- because the IAM role attached to the execution lacked sufficient</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- permissions. For details and example IAM policies, see</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html Lambda Tasks&gt;</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Acause%3AStartLambdaFunctionFailedEventAttributes%27"><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes
 -&gt; Maybe StartLambdaFunctionFailedCause
-</span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#%24sel%3Acause%3AStartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedCause.html#StartLambdaFunctionFailedCause"><span class="hs-identifier hs-type">StartLambdaFunctionFailedCause</span></a></span><span>
+</span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#%24sel%3Acause%3AStartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedCause.html#StartLambdaFunctionFailedCause"><span class="hs-identifier hs-type">StartLambdaFunctionFailedCause</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | A description that can help diagnose the cause of the fault.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Amessage%3AStartLambdaFunctionFailedEventAttributes%27"><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes -&gt; Maybe Text
+</span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#%24sel%3Amessage%3AStartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350574"><span id="local-6989586621679350576"><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350651"><span id="local-6989586621679350653"><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes
 -&gt; StartLambdaFunctionFailedEventAttributes -&gt; Bool
 (StartLambdaFunctionFailedEventAttributes
  -&gt; StartLambdaFunctionFailedEventAttributes -&gt; Bool)
@@ -65,7 +65,7 @@ $c/= :: StartLambdaFunctionFailedEventAttributes
 -&gt; StartLambdaFunctionFailedEventAttributes -&gt; Bool
 $c== :: StartLambdaFunctionFailedEventAttributes
 -&gt; StartLambdaFunctionFailedEventAttributes -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350565"><span id="local-6989586621679350567"><span id="local-6989586621679350569"><span id="local-6989586621679350571"><span class="annot"><span class="annottext">ReadPrec [StartLambdaFunctionFailedEventAttributes]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350642"><span id="local-6989586621679350644"><span id="local-6989586621679350646"><span id="local-6989586621679350648"><span class="annot"><span class="annottext">ReadPrec [StartLambdaFunctionFailedEventAttributes]
 ReadPrec StartLambdaFunctionFailedEventAttributes
 Int -&gt; ReadS StartLambdaFunctionFailedEventAttributes
 ReadS [StartLambdaFunctionFailedEventAttributes]
@@ -85,7 +85,7 @@ readList :: ReadS [StartLambdaFunctionFailedEventAttributes]
 $creadList :: ReadS [StartLambdaFunctionFailedEventAttributes]
 readsPrec :: Int -&gt; ReadS StartLambdaFunctionFailedEventAttributes
 $creadsPrec :: Int -&gt; ReadS StartLambdaFunctionFailedEventAttributes
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350558"><span id="local-6989586621679350560"><span id="local-6989586621679350562"><span class="annot"><span class="annottext">Int -&gt; StartLambdaFunctionFailedEventAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350635"><span id="local-6989586621679350637"><span id="local-6989586621679350639"><span class="annot"><span class="annottext">Int -&gt; StartLambdaFunctionFailedEventAttributes -&gt; ShowS
 [StartLambdaFunctionFailedEventAttributes] -&gt; ShowS
 StartLambdaFunctionFailedEventAttributes -&gt; String
 (Int -&gt; StartLambdaFunctionFailedEventAttributes -&gt; ShowS)
@@ -131,75 +131,49 @@ StartLambdaFunctionFailedEventAttributes
 </span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-57"></span><span class="hs-comment">--</span><span>
-</span><span id="line-58"></span><span class="hs-comment">-- 'message', 'startLambdaFunctionFailedEventAttributes_message' - A description that can help diagnose the cause of the fault.</span><span>
-</span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'scheduledEventId', 'startLambdaFunctionFailedEventAttributes_scheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this</span><span>
-</span><span id="line-61"></span><span class="hs-comment">-- activity task was scheduled. To help diagnose issues, use this</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- information to trace back the chain of events leading up to this event.</span><span>
-</span><span id="line-63"></span><span class="hs-comment">--</span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- 'cause', 'startLambdaFunctionFailedEventAttributes_cause' - The cause of the failure. To help diagnose issues, use this information</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- to trace back the chain of events leading up to this event.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- If @cause@ is set to @OPERATION_NOT_PERMITTED@, the decision failed</span><span>
-</span><span id="line-68"></span><span class="hs-comment">-- because the IAM role attached to the execution lacked sufficient</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- permissions. For details and example IAM policies, see</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html Lambda Tasks&gt;</span><span>
-</span><span id="line-71"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'scheduledEventId', 'startLambdaFunctionFailedEventAttributes_scheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- activity task was scheduled. To help diagnose issues, use this</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- information to trace back the chain of events leading up to this event.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'cause', 'startLambdaFunctionFailedEventAttributes_cause' - The cause of the failure. To help diagnose issues, use this information</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- to trace back the chain of events leading up to this event.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- If @cause@ is set to @OPERATION_NOT_PERMITTED@, the decision failed</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- because the IAM role attached to the execution lacked sufficient</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- permissions. For details and example IAM policies, see</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html Lambda Tasks&gt;</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'message', 'startLambdaFunctionFailedEventAttributes_message' - A description that can help diagnose the cause of the fault.</span><span>
 </span><span id="line-72"></span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#newStartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">newStartLambdaFunctionFailedEventAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
 </span><span id="line-73"></span><span>  </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span><span>
 </span><span id="line-74"></span><span id="newStartLambdaFunctionFailedEventAttributes"><span class="annot"><span class="annottext">newStartLambdaFunctionFailedEventAttributes :: StartLambdaFunctionFailedEventAttributes
 </span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#newStartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-var hs-var">newStartLambdaFunctionFailedEventAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes' :: Maybe Text
--&gt; Maybe Integer
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes' :: Maybe Integer
 -&gt; Maybe StartLambdaFunctionFailedCause
+-&gt; Maybe Text
 -&gt; StartLambdaFunctionFailedEventAttributes
 </span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes'</span></a></span><span>
-</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:message:StartLambdaFunctionFailedEventAttributes' :: Maybe Text
-</span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#%24sel%3Amessage%3AStartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduledEventId:StartLambdaFunctionFailedEventAttributes' :: Maybe Integer
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scheduledEventId:StartLambdaFunctionFailedEventAttributes' :: Maybe Integer
 </span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#%24sel%3AscheduledEventId%3AStartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:cause:StartLambdaFunctionFailedEventAttributes' :: Maybe StartLambdaFunctionFailedCause
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:cause:StartLambdaFunctionFailedEventAttributes' :: Maybe StartLambdaFunctionFailedCause
 </span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#%24sel%3Acause%3AStartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartLambdaFunctionFailedCause
 forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-82"></span><span>
-</span><span id="line-83"></span><span class="hs-comment">-- | A description that can help diagnose the cause of the fault.</span><span>
-</span><span id="line-84"></span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#startLambdaFunctionFailedEventAttributes_message"><span class="hs-identifier hs-type">startLambdaFunctionFailedEventAttributes_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-85"></span><span id="startLambdaFunctionFailedEventAttributes_message"><span class="annot"><span class="annottext">startLambdaFunctionFailedEventAttributes_message :: (Maybe Text -&gt; f (Maybe Text))
--&gt; StartLambdaFunctionFailedEventAttributes
--&gt; f StartLambdaFunctionFailedEventAttributes
-</span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#startLambdaFunctionFailedEventAttributes_message"><span class="hs-identifier hs-var hs-var">startLambdaFunctionFailedEventAttributes_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartLambdaFunctionFailedEventAttributes -&gt; Maybe Text)
--&gt; (StartLambdaFunctionFailedEventAttributes
-    -&gt; Maybe Text -&gt; StartLambdaFunctionFailedEventAttributes)
--&gt; Lens
-     StartLambdaFunctionFailedEventAttributes
-     StartLambdaFunctionFailedEventAttributes
-     (Maybe Text)
-     (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350549"><span class="annot"><span class="annottext">Maybe Text
-message :: Maybe Text
-$sel:message:StartLambdaFunctionFailedEventAttributes' :: StartLambdaFunctionFailedEventAttributes -&gt; Maybe Text
-</span><a href="#local-6989586621679350549"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350549"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350548"><span class="annot"><span class="annottext">s :: StartLambdaFunctionFailedEventAttributes
-</span><a href="#local-6989586621679350548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350547"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes
-</span><a href="#local-6989586621679350548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:StartLambdaFunctionFailedEventAttributes' :: Maybe Text
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:StartLambdaFunctionFailedEventAttributes' :: Maybe Text
 </span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#%24sel%3Amessage%3AStartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679350547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-86"></span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this</span><span>
-</span><span id="line-88"></span><span class="hs-comment">-- activity task was scheduled. To help diagnose issues, use this</span><span>
-</span><span id="line-89"></span><span class="hs-comment">-- information to trace back the chain of events leading up to this event.</span><span>
-</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#startLambdaFunctionFailedEventAttributes_scheduledEventId"><span class="hs-identifier hs-type">startLambdaFunctionFailedEventAttributes_scheduledEventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
-</span><span id="line-91"></span><span id="startLambdaFunctionFailedEventAttributes_scheduledEventId"><span class="annot"><span class="annottext">startLambdaFunctionFailedEventAttributes_scheduledEventId :: (Maybe Integer -&gt; f (Maybe Integer))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- activity task was scheduled. To help diagnose issues, use this</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- information to trace back the chain of events leading up to this event.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#startLambdaFunctionFailedEventAttributes_scheduledEventId"><span class="hs-identifier hs-type">startLambdaFunctionFailedEventAttributes_scheduledEventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="startLambdaFunctionFailedEventAttributes_scheduledEventId"><span class="annot"><span class="annottext">startLambdaFunctionFailedEventAttributes_scheduledEventId :: (Maybe Integer -&gt; f (Maybe Integer))
 -&gt; StartLambdaFunctionFailedEventAttributes
 -&gt; f StartLambdaFunctionFailedEventAttributes
 </span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#startLambdaFunctionFailedEventAttributes_scheduledEventId"><span class="hs-identifier hs-var hs-var">startLambdaFunctionFailedEventAttributes_scheduledEventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartLambdaFunctionFailedEventAttributes -&gt; Maybe Integer)
@@ -211,27 +185,27 @@ $sel:message:StartLambdaFunctionFailedEventAttributes' :: StartLambdaFunctionFai
      (Maybe Integer)
      (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350545"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350626"><span class="annot"><span class="annottext">Maybe Integer
 scheduledEventId :: Maybe Integer
 $sel:scheduledEventId:StartLambdaFunctionFailedEventAttributes' :: StartLambdaFunctionFailedEventAttributes -&gt; Maybe Integer
-</span><a href="#local-6989586621679350545"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679350545"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350544"><span class="annot"><span class="annottext">s :: StartLambdaFunctionFailedEventAttributes
-</span><a href="#local-6989586621679350544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350543"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679350543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes
-</span><a href="#local-6989586621679350544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:StartLambdaFunctionFailedEventAttributes' :: Maybe Integer
+</span><a href="#local-6989586621679350626"><span class="hs-identifier hs-var hs-var">scheduledEventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679350626"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350625"><span class="annot"><span class="annottext">s :: StartLambdaFunctionFailedEventAttributes
+</span><a href="#local-6989586621679350625"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350624"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679350624"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes
+</span><a href="#local-6989586621679350625"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledEventId:StartLambdaFunctionFailedEventAttributes' :: Maybe Integer
 </span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#%24sel%3AscheduledEventId%3AStartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var">scheduledEventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679350543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-92"></span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- | The cause of the failure. To help diagnose issues, use this information</span><span>
-</span><span id="line-94"></span><span class="hs-comment">-- to trace back the chain of events leading up to this event.</span><span>
-</span><span id="line-95"></span><span class="hs-comment">--</span><span>
-</span><span id="line-96"></span><span class="hs-comment">-- If @cause@ is set to @OPERATION_NOT_PERMITTED@, the decision failed</span><span>
-</span><span id="line-97"></span><span class="hs-comment">-- because the IAM role attached to the execution lacked sufficient</span><span>
-</span><span id="line-98"></span><span class="hs-comment">-- permissions. For details and example IAM policies, see</span><span>
-</span><span id="line-99"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html Lambda Tasks&gt;</span><span>
-</span><span id="line-100"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
-</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#startLambdaFunctionFailedEventAttributes_cause"><span class="hs-identifier hs-type">startLambdaFunctionFailedEventAttributes_cause</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedCause.html#StartLambdaFunctionFailedCause"><span class="hs-identifier hs-type">StartLambdaFunctionFailedCause</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span id="startLambdaFunctionFailedEventAttributes_cause"><span class="annot"><span class="annottext">startLambdaFunctionFailedEventAttributes_cause :: (Maybe StartLambdaFunctionFailedCause
+</span><a href="#local-6989586621679350624"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The cause of the failure. To help diagnose issues, use this information</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- to trace back the chain of events leading up to this event.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- If @cause@ is set to @OPERATION_NOT_PERMITTED@, the decision failed</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- because the IAM role attached to the execution lacked sufficient</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- permissions. For details and example IAM policies, see</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonswf/latest/developerguide/lambda-task.html Lambda Tasks&gt;</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- in the /Amazon SWF Developer Guide/.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#startLambdaFunctionFailedEventAttributes_cause"><span class="hs-identifier hs-type">startLambdaFunctionFailedEventAttributes_cause</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedCause.html#StartLambdaFunctionFailedCause"><span class="hs-identifier hs-type">StartLambdaFunctionFailedCause</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="startLambdaFunctionFailedEventAttributes_cause"><span class="annot"><span class="annottext">startLambdaFunctionFailedEventAttributes_cause :: (Maybe StartLambdaFunctionFailedCause
  -&gt; f (Maybe StartLambdaFunctionFailedCause))
 -&gt; StartLambdaFunctionFailedEventAttributes
 -&gt; f StartLambdaFunctionFailedEventAttributes
@@ -246,86 +220,105 @@ $sel:scheduledEventId:StartLambdaFunctionFailedEventAttributes' :: StartLambdaFu
      (Maybe StartLambdaFunctionFailedCause)
      (Maybe StartLambdaFunctionFailedCause)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350541"><span class="annot"><span class="annottext">Maybe StartLambdaFunctionFailedCause
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350622"><span class="annot"><span class="annottext">Maybe StartLambdaFunctionFailedCause
 cause :: Maybe StartLambdaFunctionFailedCause
 $sel:cause:StartLambdaFunctionFailedEventAttributes' :: StartLambdaFunctionFailedEventAttributes
 -&gt; Maybe StartLambdaFunctionFailedCause
-</span><a href="#local-6989586621679350541"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StartLambdaFunctionFailedCause
-</span><a href="#local-6989586621679350541"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350540"><span class="annot"><span class="annottext">s :: StartLambdaFunctionFailedEventAttributes
-</span><a href="#local-6989586621679350540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350539"><span class="annot"><span class="annottext">Maybe StartLambdaFunctionFailedCause
-</span><a href="#local-6989586621679350539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes
-</span><a href="#local-6989586621679350540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:StartLambdaFunctionFailedEventAttributes' :: Maybe StartLambdaFunctionFailedCause
+</span><a href="#local-6989586621679350622"><span class="hs-identifier hs-var hs-var">cause</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StartLambdaFunctionFailedCause
+</span><a href="#local-6989586621679350622"><span class="hs-identifier hs-var">cause</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350621"><span class="annot"><span class="annottext">s :: StartLambdaFunctionFailedEventAttributes
+</span><a href="#local-6989586621679350621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350620"><span class="annot"><span class="annottext">Maybe StartLambdaFunctionFailedCause
+</span><a href="#local-6989586621679350620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes
+</span><a href="#local-6989586621679350621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cause:StartLambdaFunctionFailedEventAttributes' :: Maybe StartLambdaFunctionFailedCause
 </span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#%24sel%3Acause%3AStartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var">cause</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StartLambdaFunctionFailedCause
-</span><a href="#local-6989586621679350539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-105"></span><span>  </span><span id="local-6989586621679350536"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
-</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span></span><span>
-</span><span id="line-107"></span><span>  </span><span class="hs-keyword">where</span><span>
-</span><span id="line-108"></span><span>  </span><span id="local-6989586621679350534"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StartLambdaFunctionFailedEventAttributes
+</span><a href="#local-6989586621679350620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | A description that can help diagnose the cause of the fault.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#startLambdaFunctionFailedEventAttributes_message"><span class="hs-identifier hs-type">startLambdaFunctionFailedEventAttributes_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="startLambdaFunctionFailedEventAttributes_message"><span class="annot"><span class="annottext">startLambdaFunctionFailedEventAttributes_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartLambdaFunctionFailedEventAttributes
+-&gt; f StartLambdaFunctionFailedEventAttributes
+</span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#startLambdaFunctionFailedEventAttributes_message"><span class="hs-identifier hs-var hs-var">startLambdaFunctionFailedEventAttributes_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartLambdaFunctionFailedEventAttributes -&gt; Maybe Text)
+-&gt; (StartLambdaFunctionFailedEventAttributes
+    -&gt; Maybe Text -&gt; StartLambdaFunctionFailedEventAttributes)
+-&gt; Lens
+     StartLambdaFunctionFailedEventAttributes
+     StartLambdaFunctionFailedEventAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350618"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:StartLambdaFunctionFailedEventAttributes' :: StartLambdaFunctionFailedEventAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679350618"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350618"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350617"><span class="annot"><span class="annottext">s :: StartLambdaFunctionFailedEventAttributes
+</span><a href="#local-6989586621679350617"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350616"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350616"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartLambdaFunctionFailedEventAttributes
+</span><a href="#local-6989586621679350617"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:StartLambdaFunctionFailedEventAttributes' :: Maybe Text
+</span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#%24sel%3Amessage%3AStartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679350616"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679350613"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679350611"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StartLambdaFunctionFailedEventAttributes
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser StartLambdaFunctionFailedEventAttributes)
 -&gt; Value
 -&gt; Parser StartLambdaFunctionFailedEventAttributes
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;StartLambdaFunctionFailedEventAttributes&quot;</span></span><span>
-</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350531"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350531"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-112"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe Integer
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350608"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350608"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
 -&gt; Maybe StartLambdaFunctionFailedCause
+-&gt; Maybe Text
 -&gt; StartLambdaFunctionFailedEventAttributes
 </span><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes%27"><span class="hs-identifier hs-var">StartLambdaFunctionFailedEventAttributes'</span></a></span><span>
-</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe Integer
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
  -&gt; Maybe StartLambdaFunctionFailedCause
+ -&gt; Maybe Text
  -&gt; StartLambdaFunctionFailedEventAttributes)
--&gt; Parser (Maybe Text)
--&gt; Parser
-     (Maybe Integer
-      -&gt; Maybe StartLambdaFunctionFailedCause
-      -&gt; StartLambdaFunctionFailedEventAttributes)
-forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe Integer
-   -&gt; Maybe StartLambdaFunctionFailedCause
-   -&gt; StartLambdaFunctionFailedEventAttributes)
 -&gt; Parser (Maybe Integer)
 -&gt; Parser
      (Maybe StartLambdaFunctionFailedCause
-      -&gt; StartLambdaFunctionFailedEventAttributes)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+      -&gt; Maybe Text -&gt; StartLambdaFunctionFailedEventAttributes)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350608"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;scheduledEventId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Maybe StartLambdaFunctionFailedCause
-   -&gt; StartLambdaFunctionFailedEventAttributes)
+   -&gt; Maybe Text -&gt; StartLambdaFunctionFailedEventAttributes)
 -&gt; Parser (Maybe StartLambdaFunctionFailedCause)
--&gt; Parser StartLambdaFunctionFailedEventAttributes
+-&gt; Parser (Maybe Text -&gt; StartLambdaFunctionFailedEventAttributes)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679350531"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StartLambdaFunctionFailedCause)
+</span><a href="#local-6989586621679350608"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StartLambdaFunctionFailedCause)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;cause&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>
-</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-119"></span><span>  </span><span id="local-6989586621679350525"><span id="local-6989586621679350527"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
-</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span></span></span><span>
-</span><span id="line-121"></span><span>
-</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-123"></span><span>  </span><span id="local-6989586621679350522"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
-</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span></span><span>
-</span><span id="line-125"></span></pre></body></html>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; StartLambdaFunctionFailedEventAttributes)
+-&gt; Parser (Maybe Text)
+-&gt; Parser StartLambdaFunctionFailedEventAttributes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679350608"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679350602"><span id="local-6989586621679350604"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679350599"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Network.AWS.SWF.Types.StartLambdaFunctionFailedEventAttributes.html#StartLambdaFunctionFailedEventAttributes"><span class="hs-identifier hs-type">StartLambdaFunctionFailedEventAttributes</span></a></span></span><span>
+</span><span id="line-124"></span></pre></body></html>

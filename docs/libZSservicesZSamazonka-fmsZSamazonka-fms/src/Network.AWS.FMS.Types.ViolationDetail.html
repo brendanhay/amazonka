@@ -29,13 +29,13 @@
 </span><span id="line-29"></span><span class="hs-comment">-- and Amazon Web Services account.</span><span>
 </span><span id="line-30"></span><span class="hs-comment">--</span><span>
 </span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newViolationDetail' smart constructor.</span><span>
-</span><span id="line-32"></span><span id="local-6989586621679251145"><span id="local-6989586621679251146"></span></span><span class="hs-keyword">data</span><span> </span><span id="ViolationDetail"><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-var">ViolationDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ViolationDetail%27"><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-var">ViolationDetail'</span></a></span></span><span>
-</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Brief description for the requested resource.</span><span>
-</span><span id="line-34"></span><span>    </span><span id="%24sel%3AresourceDescription%3AViolationDetail%27"><span class="annot"><span class="annottext">ViolationDetail -&gt; Maybe Text
-</span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceDescription%3AViolationDetail%27"><span class="hs-identifier hs-var hs-var">resourceDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
-</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The @ResourceTag@ objects associated with the resource.</span><span>
-</span><span id="line-36"></span><span>    </span><span id="%24sel%3AresourceTags%3AViolationDetail%27"><span class="annot"><span class="annottext">ViolationDetail -&gt; Maybe [Tag]
+</span><span id="line-32"></span><span id="local-6989586621679251395"><span id="local-6989586621679251396"></span></span><span class="hs-keyword">data</span><span> </span><span id="ViolationDetail"><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-var">ViolationDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ViolationDetail%27"><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-var">ViolationDetail'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @ResourceTag@ objects associated with the resource.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AresourceTags%3AViolationDetail%27"><span class="annot"><span class="annottext">ViolationDetail -&gt; Maybe [Tag]
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceTags%3AViolationDetail%27"><span class="hs-identifier hs-var hs-var">resourceTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Brief description for the requested resource.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AresourceDescription%3AViolationDetail%27"><span class="annot"><span class="annottext">ViolationDetail -&gt; Maybe Text
+</span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceDescription%3AViolationDetail%27"><span class="hs-identifier hs-var hs-var">resourceDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the Firewall Manager policy that the violation details were</span><span>
 </span><span id="line-38"></span><span>    </span><span class="hs-comment">-- requested for.</span><span>
 </span><span id="line-39"></span><span>    </span><span id="%24sel%3ApolicyId%3AViolationDetail%27"><span class="annot"><span class="annottext">ViolationDetail -&gt; Text
@@ -54,7 +54,7 @@
 </span><span id="line-48"></span><span>    </span><span id="%24sel%3AresourceViolations%3AViolationDetail%27"><span class="annot"><span class="annottext">ViolationDetail -&gt; [ResourceViolation]
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceViolations%3AViolationDetail%27"><span class="hs-identifier hs-var hs-var">resourceViolations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">]</span><span>
 </span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251133"><span id="local-6989586621679251135"><span class="annot"><span class="annottext">ViolationDetail -&gt; ViolationDetail -&gt; Bool
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679251383"><span id="local-6989586621679251385"><span class="annot"><span class="annottext">ViolationDetail -&gt; ViolationDetail -&gt; Bool
 (ViolationDetail -&gt; ViolationDetail -&gt; Bool)
 -&gt; (ViolationDetail -&gt; ViolationDetail -&gt; Bool)
 -&gt; Eq ViolationDetail
@@ -63,7 +63,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ViolationDetail -&gt; ViolationDetail -&gt; Bool
 == :: ViolationDetail -&gt; ViolationDetail -&gt; Bool
 $c== :: ViolationDetail -&gt; ViolationDetail -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251124"><span id="local-6989586621679251126"><span id="local-6989586621679251128"><span id="local-6989586621679251130"><span class="annot"><span class="annottext">ReadPrec [ViolationDetail]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251374"><span id="local-6989586621679251376"><span id="local-6989586621679251378"><span id="local-6989586621679251380"><span class="annot"><span class="annottext">ReadPrec [ViolationDetail]
 ReadPrec ViolationDetail
 Int -&gt; ReadS ViolationDetail
 ReadS [ViolationDetail]
@@ -83,7 +83,7 @@ readList :: ReadS [ViolationDetail]
 $creadList :: ReadS [ViolationDetail]
 readsPrec :: Int -&gt; ReadS ViolationDetail
 $creadsPrec :: Int -&gt; ReadS ViolationDetail
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251117"><span id="local-6989586621679251119"><span id="local-6989586621679251121"><span class="annot"><span class="annottext">Int -&gt; ViolationDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679251367"><span id="local-6989586621679251369"><span id="local-6989586621679251371"><span class="annot"><span class="annottext">Int -&gt; ViolationDetail -&gt; ShowS
 [ViolationDetail] -&gt; ShowS
 ViolationDetail -&gt; String
 (Int -&gt; ViolationDetail -&gt; ShowS)
@@ -117,9 +117,9 @@ $cfrom :: forall x. ViolationDetail -&gt; Rep ViolationDetail x
 </span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-59"></span><span class="hs-comment">--</span><span>
-</span><span id="line-60"></span><span class="hs-comment">-- 'resourceDescription', 'violationDetail_resourceDescription' - Brief description for the requested resource.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'resourceTags', 'violationDetail_resourceTags' - The @ResourceTag@ objects associated with the resource.</span><span>
 </span><span id="line-61"></span><span class="hs-comment">--</span><span>
-</span><span id="line-62"></span><span class="hs-comment">-- 'resourceTags', 'violationDetail_resourceTags' - The @ResourceTag@ objects associated with the resource.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'resourceDescription', 'violationDetail_resourceDescription' - Brief description for the requested resource.</span><span>
 </span><span id="line-63"></span><span class="hs-comment">--</span><span>
 </span><span id="line-64"></span><span class="hs-comment">-- 'policyId', 'violationDetail_policyId' - The ID of the Firewall Manager policy that the violation details were</span><span>
 </span><span id="line-65"></span><span class="hs-comment">-- requested for.</span><span>
@@ -144,16 +144,16 @@ $cfrom :: forall x. ViolationDetail -&gt; Rep ViolationDetail x
 </span><span id="line-84"></span><span>  </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span>
 </span><span id="line-85"></span><span id="newViolationDetail"><span class="annot"><span class="annottext">newViolationDetail :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; ViolationDetail
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#newViolationDetail"><span class="hs-identifier hs-var hs-var">newViolationDetail</span></a></span></span><span>
-</span><span id="line-86"></span><span>  </span><span id="local-6989586621679251111"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251111"><span class="hs-identifier hs-var">pPolicyId_</span></a></span></span><span>
-</span><span id="line-87"></span><span>  </span><span id="local-6989586621679251110"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251110"><span class="hs-identifier hs-var">pMemberAccount_</span></a></span></span><span>
-</span><span id="line-88"></span><span>  </span><span id="local-6989586621679251109"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251109"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
-</span><span id="line-89"></span><span>  </span><span id="local-6989586621679251108"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251108"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">ViolationDetail' :: Maybe Text
--&gt; Maybe [Tag]
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679251361"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251361"><span class="hs-identifier hs-var">pPolicyId_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679251360"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251360"><span class="hs-identifier hs-var">pMemberAccount_</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679251359"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251359"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679251358"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251358"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">ViolationDetail' :: Maybe [Tag]
+-&gt; Maybe Text
 -&gt; Text
 -&gt; Text
 -&gt; Text
@@ -161,70 +161,50 @@ $cfrom :: forall x. ViolationDetail -&gt; Rep ViolationDetail x
 -&gt; [ResourceViolation]
 -&gt; ViolationDetail
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span>
-</span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceDescription:ViolationDetail' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceDescription%3AViolationDetail%27"><span class="hs-identifier hs-var">resourceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
-forall a. Maybe a
-</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceTags:ViolationDetail' :: Maybe [Tag]
+</span><span id="line-91"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceTags:ViolationDetail' :: Maybe [Tag]
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceTags%3AViolationDetail%27"><span class="hs-identifier hs-var">resourceTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:policyId:ViolationDetail' :: Text
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceDescription:ViolationDetail' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceDescription%3AViolationDetail%27"><span class="hs-identifier hs-var">resourceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:policyId:ViolationDetail' :: Text
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3ApolicyId%3AViolationDetail%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251111"><span class="hs-identifier hs-var">pPolicyId_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:memberAccount:ViolationDetail' :: Text
+</span><a href="#local-6989586621679251361"><span class="hs-identifier hs-var">pPolicyId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:memberAccount:ViolationDetail' :: Text
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AmemberAccount%3AViolationDetail%27"><span class="hs-identifier hs-var">memberAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251110"><span class="hs-identifier hs-var">pMemberAccount_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:ViolationDetail' :: Text
+</span><a href="#local-6989586621679251360"><span class="hs-identifier hs-var">pMemberAccount_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:ViolationDetail' :: Text
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceId%3AViolationDetail%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251109"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:ViolationDetail' :: Text
+</span><a href="#local-6989586621679251359"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:ViolationDetail' :: Text
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceType%3AViolationDetail%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251108"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceViolations:ViolationDetail' :: [ResourceViolation]
+</span><a href="#local-6989586621679251358"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceViolations:ViolationDetail' :: [ResourceViolation]
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceViolations%3AViolationDetail%27"><span class="hs-identifier hs-var">resourceViolations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ResourceViolation]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-99"></span><span>      </span><span class="hs-special">}</span><span>
-</span><span id="line-100"></span><span>
-</span><span id="line-101"></span><span class="hs-comment">-- | Brief description for the requested resource.</span><span>
-</span><span id="line-102"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceDescription"><span class="hs-identifier hs-type">violationDetail_resourceDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span id="violationDetail_resourceDescription"><span class="annot"><span class="annottext">violationDetail_resourceDescription :: (Maybe Text -&gt; f (Maybe Text))
--&gt; ViolationDetail -&gt; f ViolationDetail
-</span><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceDescription"><span class="hs-identifier hs-var hs-var">violationDetail_resourceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViolationDetail -&gt; Maybe Text)
--&gt; (ViolationDetail -&gt; Maybe Text -&gt; ViolationDetail)
--&gt; Lens ViolationDetail ViolationDetail (Maybe Text) (Maybe Text)
-forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251104"><span class="annot"><span class="annottext">Maybe Text
-resourceDescription :: Maybe Text
-$sel:resourceDescription:ViolationDetail' :: ViolationDetail -&gt; Maybe Text
-</span><a href="#local-6989586621679251104"><span class="hs-identifier hs-var hs-var">resourceDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251104"><span class="hs-identifier hs-var">resourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251103"><span class="annot"><span class="annottext">s :: ViolationDetail
-</span><a href="#local-6989586621679251103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251102"><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
-</span><a href="#local-6989586621679251103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceDescription:ViolationDetail' :: Maybe Text
-</span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceDescription%3AViolationDetail%27"><span class="hs-identifier hs-var">resourceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
-</span><a href="#local-6989586621679251102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-104"></span><span>
-</span><span id="line-105"></span><span class="hs-comment">-- | The @ResourceTag@ objects associated with the resource.</span><span>
-</span><span id="line-106"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceTags"><span class="hs-identifier hs-type">violationDetail_resourceTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
-</span><span id="line-107"></span><span id="violationDetail_resourceTags"><span class="annot"><span class="annottext">violationDetail_resourceTags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><span id="line-98"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The @ResourceTag@ objects associated with the resource.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceTags"><span class="hs-identifier hs-type">violationDetail_resourceTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FMS.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="violationDetail_resourceTags"><span class="annot"><span class="annottext">violationDetail_resourceTags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
 -&gt; ViolationDetail -&gt; f ViolationDetail
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceTags"><span class="hs-identifier hs-var hs-var">violationDetail_resourceTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViolationDetail -&gt; Maybe [Tag])
 -&gt; (ViolationDetail -&gt; Maybe [Tag] -&gt; ViolationDetail)
 -&gt; Lens ViolationDetail ViolationDetail (Maybe [Tag]) (Maybe [Tag])
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251100"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251354"><span class="annot"><span class="annottext">Maybe [Tag]
 resourceTags :: Maybe [Tag]
 $sel:resourceTags:ViolationDetail' :: ViolationDetail -&gt; Maybe [Tag]
-</span><a href="#local-6989586621679251100"><span class="hs-identifier hs-var hs-var">resourceTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679251100"><span class="hs-identifier hs-var">resourceTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251099"><span class="annot"><span class="annottext">s :: ViolationDetail
-</span><a href="#local-6989586621679251099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251098"><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679251098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
-</span><a href="#local-6989586621679251099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTags:ViolationDetail' :: Maybe [Tag]
+</span><a href="#local-6989586621679251354"><span class="hs-identifier hs-var hs-var">resourceTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679251354"><span class="hs-identifier hs-var">resourceTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251353"><span class="annot"><span class="annottext">s :: ViolationDetail
+</span><a href="#local-6989586621679251353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251352"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679251352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
+</span><a href="#local-6989586621679251353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceTags:ViolationDetail' :: Maybe [Tag]
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceTags%3AViolationDetail%27"><span class="hs-identifier hs-var">resourceTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
-</span><a href="#local-6989586621679251098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+</span><a href="#local-6989586621679251352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
  -&gt; ViolationDetail -&gt; f ViolationDetail)
 -&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
     -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
@@ -238,86 +218,105 @@ forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
 (Functor f, Functor g) =&gt;
 AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
 </span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-108"></span><span>
-</span><span id="line-109"></span><span class="hs-comment">-- | The ID of the Firewall Manager policy that the violation details were</span><span>
-</span><span id="line-110"></span><span class="hs-comment">-- requested for.</span><span>
-</span><span id="line-111"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_policyId"><span class="hs-identifier hs-type">violationDetail_policyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-112"></span><span id="violationDetail_policyId"><span class="annot"><span class="annottext">violationDetail_policyId :: (Text -&gt; f Text) -&gt; ViolationDetail -&gt; f ViolationDetail
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | Brief description for the requested resource.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceDescription"><span class="hs-identifier hs-type">violationDetail_resourceDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="violationDetail_resourceDescription"><span class="annot"><span class="annottext">violationDetail_resourceDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ViolationDetail -&gt; f ViolationDetail
+</span><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceDescription"><span class="hs-identifier hs-var hs-var">violationDetail_resourceDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViolationDetail -&gt; Maybe Text)
+-&gt; (ViolationDetail -&gt; Maybe Text -&gt; ViolationDetail)
+-&gt; Lens ViolationDetail ViolationDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251347"><span class="annot"><span class="annottext">Maybe Text
+resourceDescription :: Maybe Text
+$sel:resourceDescription:ViolationDetail' :: ViolationDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679251347"><span class="hs-identifier hs-var hs-var">resourceDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251347"><span class="hs-identifier hs-var">resourceDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251346"><span class="annot"><span class="annottext">s :: ViolationDetail
+</span><a href="#local-6989586621679251346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251345"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
+</span><a href="#local-6989586621679251346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceDescription:ViolationDetail' :: Maybe Text
+</span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceDescription%3AViolationDetail%27"><span class="hs-identifier hs-var">resourceDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679251345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The ID of the Firewall Manager policy that the violation details were</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- requested for.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_policyId"><span class="hs-identifier hs-type">violationDetail_policyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-111"></span><span id="violationDetail_policyId"><span class="annot"><span class="annottext">violationDetail_policyId :: (Text -&gt; f Text) -&gt; ViolationDetail -&gt; f ViolationDetail
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_policyId"><span class="hs-identifier hs-var hs-var">violationDetail_policyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViolationDetail -&gt; Text)
 -&gt; (ViolationDetail -&gt; Text -&gt; ViolationDetail)
 -&gt; Lens ViolationDetail ViolationDetail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251093"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251343"><span class="annot"><span class="annottext">Text
 policyId :: Text
 $sel:policyId:ViolationDetail' :: ViolationDetail -&gt; Text
-</span><a href="#local-6989586621679251093"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251093"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251092"><span class="annot"><span class="annottext">s :: ViolationDetail
-</span><a href="#local-6989586621679251092"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251091"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251091"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
-</span><a href="#local-6989586621679251092"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyId:ViolationDetail' :: Text
+</span><a href="#local-6989586621679251343"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251343"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251342"><span class="annot"><span class="annottext">s :: ViolationDetail
+</span><a href="#local-6989586621679251342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
+</span><a href="#local-6989586621679251342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyId:ViolationDetail' :: Text
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3ApolicyId%3AViolationDetail%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251091"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-113"></span><span>
-</span><span id="line-114"></span><span class="hs-comment">-- | The Amazon Web Services account that the violation details were</span><span>
-</span><span id="line-115"></span><span class="hs-comment">-- requested for.</span><span>
-</span><span id="line-116"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_memberAccount"><span class="hs-identifier hs-type">violationDetail_memberAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-117"></span><span id="violationDetail_memberAccount"><span class="annot"><span class="annottext">violationDetail_memberAccount :: (Text -&gt; f Text) -&gt; ViolationDetail -&gt; f ViolationDetail
+</span><a href="#local-6989586621679251341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The Amazon Web Services account that the violation details were</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- requested for.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_memberAccount"><span class="hs-identifier hs-type">violationDetail_memberAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="violationDetail_memberAccount"><span class="annot"><span class="annottext">violationDetail_memberAccount :: (Text -&gt; f Text) -&gt; ViolationDetail -&gt; f ViolationDetail
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_memberAccount"><span class="hs-identifier hs-var hs-var">violationDetail_memberAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViolationDetail -&gt; Text)
 -&gt; (ViolationDetail -&gt; Text -&gt; ViolationDetail)
 -&gt; Lens ViolationDetail ViolationDetail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251089"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251339"><span class="annot"><span class="annottext">Text
 memberAccount :: Text
 $sel:memberAccount:ViolationDetail' :: ViolationDetail -&gt; Text
-</span><a href="#local-6989586621679251089"><span class="hs-identifier hs-var hs-var">memberAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251089"><span class="hs-identifier hs-var">memberAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251088"><span class="annot"><span class="annottext">s :: ViolationDetail
-</span><a href="#local-6989586621679251088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251087"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
-</span><a href="#local-6989586621679251088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberAccount:ViolationDetail' :: Text
+</span><a href="#local-6989586621679251339"><span class="hs-identifier hs-var hs-var">memberAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251339"><span class="hs-identifier hs-var">memberAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251338"><span class="annot"><span class="annottext">s :: ViolationDetail
+</span><a href="#local-6989586621679251338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251337"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
+</span><a href="#local-6989586621679251338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberAccount:ViolationDetail' :: Text
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AmemberAccount%3AViolationDetail%27"><span class="hs-identifier hs-var">memberAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-comment">-- | The resource ID that the violation details were requested for.</span><span>
-</span><span id="line-120"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceId"><span class="hs-identifier hs-type">violationDetail_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-121"></span><span id="violationDetail_resourceId"><span class="annot"><span class="annottext">violationDetail_resourceId :: (Text -&gt; f Text) -&gt; ViolationDetail -&gt; f ViolationDetail
+</span><a href="#local-6989586621679251337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The resource ID that the violation details were requested for.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceId"><span class="hs-identifier hs-type">violationDetail_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="violationDetail_resourceId"><span class="annot"><span class="annottext">violationDetail_resourceId :: (Text -&gt; f Text) -&gt; ViolationDetail -&gt; f ViolationDetail
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceId"><span class="hs-identifier hs-var hs-var">violationDetail_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViolationDetail -&gt; Text)
 -&gt; (ViolationDetail -&gt; Text -&gt; ViolationDetail)
 -&gt; Lens ViolationDetail ViolationDetail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251085"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251335"><span class="annot"><span class="annottext">Text
 resourceId :: Text
 $sel:resourceId:ViolationDetail' :: ViolationDetail -&gt; Text
-</span><a href="#local-6989586621679251085"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251085"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251084"><span class="annot"><span class="annottext">s :: ViolationDetail
-</span><a href="#local-6989586621679251084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251083"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
-</span><a href="#local-6989586621679251084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:ViolationDetail' :: Text
+</span><a href="#local-6989586621679251335"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251335"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251334"><span class="annot"><span class="annottext">s :: ViolationDetail
+</span><a href="#local-6989586621679251334"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251333"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251333"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
+</span><a href="#local-6989586621679251334"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:ViolationDetail' :: Text
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceId%3AViolationDetail%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-122"></span><span>
-</span><span id="line-123"></span><span class="hs-comment">-- | The resource type that the violation details were requested for.</span><span>
-</span><span id="line-124"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceType"><span class="hs-identifier hs-type">violationDetail_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
-</span><span id="line-125"></span><span id="violationDetail_resourceType"><span class="annot"><span class="annottext">violationDetail_resourceType :: (Text -&gt; f Text) -&gt; ViolationDetail -&gt; f ViolationDetail
+</span><a href="#local-6989586621679251333"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The resource type that the violation details were requested for.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceType"><span class="hs-identifier hs-type">violationDetail_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span id="violationDetail_resourceType"><span class="annot"><span class="annottext">violationDetail_resourceType :: (Text -&gt; f Text) -&gt; ViolationDetail -&gt; f ViolationDetail
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceType"><span class="hs-identifier hs-var hs-var">violationDetail_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViolationDetail -&gt; Text)
 -&gt; (ViolationDetail -&gt; Text -&gt; ViolationDetail)
 -&gt; Lens ViolationDetail ViolationDetail Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251081"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251331"><span class="annot"><span class="annottext">Text
 resourceType :: Text
 $sel:resourceType:ViolationDetail' :: ViolationDetail -&gt; Text
-</span><a href="#local-6989586621679251081"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251081"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251080"><span class="annot"><span class="annottext">s :: ViolationDetail
-</span><a href="#local-6989586621679251080"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251079"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251079"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
-</span><a href="#local-6989586621679251080"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ViolationDetail' :: Text
+</span><a href="#local-6989586621679251331"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251331"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251330"><span class="annot"><span class="annottext">s :: ViolationDetail
+</span><a href="#local-6989586621679251330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251329"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679251329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
+</span><a href="#local-6989586621679251330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ViolationDetail' :: Text
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceType%3AViolationDetail%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679251079"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | List of violations for the requested resource.</span><span>
-</span><span id="line-128"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceViolations"><span class="hs-identifier hs-type">violationDetail_resourceViolations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">]</span><span>
-</span><span id="line-129"></span><span id="violationDetail_resourceViolations"><span class="annot"><span class="annottext">violationDetail_resourceViolations :: ([ResourceViolation] -&gt; f [ResourceViolation])
+</span><a href="#local-6989586621679251329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | List of violations for the requested resource.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceViolations"><span class="hs-identifier hs-type">violationDetail_resourceViolations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Network.AWS.FMS.Types.ResourceViolation.html#ResourceViolation"><span class="hs-identifier hs-type">ResourceViolation</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-128"></span><span id="violationDetail_resourceViolations"><span class="annot"><span class="annottext">violationDetail_resourceViolations :: ([ResourceViolation] -&gt; f [ResourceViolation])
 -&gt; ViolationDetail -&gt; f ViolationDetail
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#violationDetail_resourceViolations"><span class="hs-identifier hs-var hs-var">violationDetail_resourceViolations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ViolationDetail -&gt; [ResourceViolation])
 -&gt; (ViolationDetail -&gt; [ResourceViolation] -&gt; ViolationDetail)
@@ -327,16 +326,16 @@ $sel:resourceType:ViolationDetail' :: ViolationDetail -&gt; Text
      [ResourceViolation]
      [ResourceViolation]
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251077"><span class="annot"><span class="annottext">[ResourceViolation]
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679251327"><span class="annot"><span class="annottext">[ResourceViolation]
 resourceViolations :: [ResourceViolation]
 $sel:resourceViolations:ViolationDetail' :: ViolationDetail -&gt; [ResourceViolation]
-</span><a href="#local-6989586621679251077"><span class="hs-identifier hs-var hs-var">resourceViolations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ResourceViolation]
-</span><a href="#local-6989586621679251077"><span class="hs-identifier hs-var">resourceViolations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251076"><span class="annot"><span class="annottext">s :: ViolationDetail
-</span><a href="#local-6989586621679251076"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251075"><span class="annot"><span class="annottext">[ResourceViolation]
-</span><a href="#local-6989586621679251075"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
-</span><a href="#local-6989586621679251076"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceViolations:ViolationDetail' :: [ResourceViolation]
+</span><a href="#local-6989586621679251327"><span class="hs-identifier hs-var hs-var">resourceViolations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ResourceViolation]
+</span><a href="#local-6989586621679251327"><span class="hs-identifier hs-var">resourceViolations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679251326"><span class="annot"><span class="annottext">s :: ViolationDetail
+</span><a href="#local-6989586621679251326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-type">ViolationDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679251325"><span class="annot"><span class="annottext">[ResourceViolation]
+</span><a href="#local-6989586621679251325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ViolationDetail
+</span><a href="#local-6989586621679251326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceViolations:ViolationDetail' :: [ResourceViolation]
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#%24sel%3AresourceViolations%3AViolationDetail%27"><span class="hs-identifier hs-var">resourceViolations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ResourceViolation]
-</span><a href="#local-6989586621679251075"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ResourceViolation] -&gt; f [ResourceViolation])
+</span><a href="#local-6989586621679251325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ResourceViolation] -&gt; f [ResourceViolation])
  -&gt; ViolationDetail -&gt; f ViolationDetail)
 -&gt; (([ResourceViolation] -&gt; f [ResourceViolation])
     -&gt; [ResourceViolation] -&gt; f [ResourceViolation])
@@ -346,24 +345,24 @@ $sel:resourceViolations:ViolationDetail' :: ViolationDetail -&gt; [ResourceViola
 forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
 </span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ResourceViolation] -&gt; f [ResourceViolation])
 -&gt; [ResourceViolation] -&gt; f [ResourceViolation]
-forall a b. (Coercible a b, Coercible b a) =&gt; Iso' a b
-</span><span class="hs-identifier hs-var">Lens._Coerce</span></span><span>
-</span><span id="line-130"></span><span>
-</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251072"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-132"></span><span>  </span><span id="local-6989586621679251070"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ViolationDetail
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251322"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679251320"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ViolationDetail
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">String
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ViolationDetail)
 -&gt; Value
 -&gt; Parser ViolationDetail
 forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
-</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ViolationDetail&quot;</span></span><span>
-</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251067"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251067"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
--&gt; Maybe [Tag]
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679251317"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251317"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Tag]
+-&gt; Maybe Text
 -&gt; Text
 -&gt; Text
 -&gt; Text
@@ -371,17 +370,17 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; [ResourceViolation]
 -&gt; ViolationDetail
 </span><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail%27"><span class="hs-identifier hs-var">ViolationDetail'</span></a></span><span>
-</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
- -&gt; Maybe [Tag]
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Tag]
+ -&gt; Maybe Text
  -&gt; Text
  -&gt; Text
  -&gt; Text
  -&gt; Text
  -&gt; [ResourceViolation]
  -&gt; ViolationDetail)
--&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Tag])
 -&gt; Parser
-     (Maybe [Tag]
+     (Maybe Text
       -&gt; Text
       -&gt; Text
       -&gt; Text
@@ -390,25 +389,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
       -&gt; ViolationDetail)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
-forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
-</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><span class="hs-string">&quot;ResourceDescription&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
-  (Maybe [Tag]
-   -&gt; Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; Text
-   -&gt; [ResourceViolation]
-   -&gt; ViolationDetail)
--&gt; Parser (Maybe [Tag])
--&gt; Parser
-     (Text
-      -&gt; Text -&gt; Text -&gt; Text -&gt; [ResourceViolation] -&gt; ViolationDetail)
-forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
-</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
+</span><a href="#local-6989586621679251317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Tag]))
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Tag])) -&gt; Maybe [Tag] -&gt; Parser (Maybe [Tag])
@@ -416,7 +397,25 @@ forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
-</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; [ResourceViolation]
+   -&gt; ViolationDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Text
+      -&gt; Text -&gt; Text -&gt; Text -&gt; [ResourceViolation] -&gt; ViolationDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679251317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Text
    -&gt; Text -&gt; Text -&gt; Text -&gt; [ResourceViolation] -&gt; ViolationDetail)
 -&gt; Parser Text
@@ -424,55 +423,55 @@ forall a. Monoid a =&gt; a
      (Text -&gt; Text -&gt; Text -&gt; [ResourceViolation] -&gt; ViolationDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679251317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;PolicyId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser
   (Text -&gt; Text -&gt; Text -&gt; [ResourceViolation] -&gt; ViolationDetail)
 -&gt; Parser Text
 -&gt; Parser (Text -&gt; Text -&gt; [ResourceViolation] -&gt; ViolationDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679251317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;MemberAccount&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; [ResourceViolation] -&gt; ViolationDetail)
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; [ResourceViolation] -&gt; ViolationDetail)
 -&gt; Parser Text
 -&gt; Parser (Text -&gt; [ResourceViolation] -&gt; ViolationDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679251317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceId&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [ResourceViolation] -&gt; ViolationDetail)
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [ResourceViolation] -&gt; ViolationDetail)
 -&gt; Parser Text -&gt; Parser ([ResourceViolation] -&gt; ViolationDetail)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+</span><a href="#local-6989586621679251317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Parser ([ResourceViolation] -&gt; ViolationDetail)
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Parser ([ResourceViolation] -&gt; ViolationDetail)
 -&gt; Parser [ResourceViolation] -&gt; Parser ViolationDetail
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679251067"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [ResourceViolation])
+</span><a href="#local-6989586621679251317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [ResourceViolation])
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceViolations&quot;</span></span><span>
-</span><span id="line-144"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe [ResourceViolation])
+</span><span id="line-143"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe [ResourceViolation])
 -&gt; [ResourceViolation] -&gt; Parser [ResourceViolation]
 forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
 </span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[ResourceViolation]
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-145"></span><span>                        </span><span class="hs-special">)</span><span>
-</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-147"></span><span>
-</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251059"><span id="local-6989586621679251061"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span></span></span><span>
-</span><span id="line-149"></span><span>
-</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251056"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span></span><span>
-</span><span id="line-151"></span></pre></body></html>
+</span><span id="line-144"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251309"><span id="local-6989586621679251311"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679251306"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.FMS.Types.ViolationDetail.html#ViolationDetail"><span class="hs-identifier hs-type">ViolationDetail</span></a></span></span><span>
+</span><span id="line-150"></span></pre></body></html>

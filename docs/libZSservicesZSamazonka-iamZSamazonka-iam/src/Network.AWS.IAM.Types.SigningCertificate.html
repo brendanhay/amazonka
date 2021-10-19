@@ -30,7 +30,7 @@
 </span><span id="line-30"></span><span class="hs-comment">-- UploadSigningCertificate and ListSigningCertificates operations.</span><span>
 </span><span id="line-31"></span><span class="hs-comment">--</span><span>
 </span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newSigningCertificate' smart constructor.</span><span>
-</span><span id="line-33"></span><span id="local-6989586621679430460"><span id="local-6989586621679430461"></span></span><span class="hs-keyword">data</span><span> </span><span id="SigningCertificate"><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-var">SigningCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SigningCertificate%27"><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-var">SigningCertificate'</span></a></span></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679430975"><span id="local-6989586621679430976"></span></span><span class="hs-keyword">data</span><span> </span><span id="SigningCertificate"><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-var">SigningCertificate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SigningCertificate%27"><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-var">SigningCertificate'</span></a></span></span><span>
 </span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date when the signing certificate was uploaded.</span><span>
 </span><span id="line-35"></span><span>    </span><span id="%24sel%3AuploadDate%3ASigningCertificate%27"><span class="annot"><span class="annottext">SigningCertificate -&gt; Maybe ISO8601
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#%24sel%3AuploadDate%3ASigningCertificate%27"><span class="hs-identifier hs-var hs-var">uploadDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
@@ -48,7 +48,7 @@
 </span><span id="line-44"></span><span>    </span><span id="%24sel%3Astatus%3ASigningCertificate%27"><span class="annot"><span class="annottext">SigningCertificate -&gt; StatusType
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#%24sel%3Astatus%3ASigningCertificate%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.StatusType.html#StatusType"><span class="hs-identifier hs-type">StatusType</span></a></span><span>
 </span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430450"><span id="local-6989586621679430452"><span class="annot"><span class="annottext">SigningCertificate -&gt; SigningCertificate -&gt; Bool
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430965"><span id="local-6989586621679430967"><span class="annot"><span class="annottext">SigningCertificate -&gt; SigningCertificate -&gt; Bool
 (SigningCertificate -&gt; SigningCertificate -&gt; Bool)
 -&gt; (SigningCertificate -&gt; SigningCertificate -&gt; Bool)
 -&gt; Eq SigningCertificate
@@ -57,7 +57,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: SigningCertificate -&gt; SigningCertificate -&gt; Bool
 == :: SigningCertificate -&gt; SigningCertificate -&gt; Bool
 $c== :: SigningCertificate -&gt; SigningCertificate -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430441"><span id="local-6989586621679430443"><span id="local-6989586621679430445"><span id="local-6989586621679430447"><span class="annot"><span class="annottext">ReadPrec [SigningCertificate]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430956"><span id="local-6989586621679430958"><span id="local-6989586621679430960"><span id="local-6989586621679430962"><span class="annot"><span class="annottext">ReadPrec [SigningCertificate]
 ReadPrec SigningCertificate
 Int -&gt; ReadS SigningCertificate
 ReadS [SigningCertificate]
@@ -77,7 +77,7 @@ readList :: ReadS [SigningCertificate]
 $creadList :: ReadS [SigningCertificate]
 readsPrec :: Int -&gt; ReadS SigningCertificate
 $creadsPrec :: Int -&gt; ReadS SigningCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430434"><span id="local-6989586621679430436"><span id="local-6989586621679430438"><span class="annot"><span class="annottext">Int -&gt; SigningCertificate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430949"><span id="local-6989586621679430951"><span id="local-6989586621679430953"><span class="annot"><span class="annottext">Int -&gt; SigningCertificate -&gt; ShowS
 [SigningCertificate] -&gt; ShowS
 SigningCertificate -&gt; String
 (Int -&gt; SigningCertificate -&gt; ShowS)
@@ -133,14 +133,14 @@ $cfrom :: forall x. SigningCertificate -&gt; Rep SigningCertificate x
 </span><span id="line-75"></span><span>  </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span>
 </span><span id="line-76"></span><span id="newSigningCertificate"><span class="annot"><span class="annottext">newSigningCertificate :: Text -&gt; Text -&gt; Text -&gt; StatusType -&gt; SigningCertificate
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#newSigningCertificate"><span class="hs-identifier hs-var hs-var">newSigningCertificate</span></a></span></span><span>
-</span><span id="line-77"></span><span>  </span><span id="local-6989586621679430428"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430428"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
-</span><span id="line-78"></span><span>  </span><span id="local-6989586621679430427"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430427"><span class="hs-identifier hs-var">pCertificateId_</span></a></span></span><span>
-</span><span id="line-79"></span><span>  </span><span id="local-6989586621679430426"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430426"><span class="hs-identifier hs-var">pCertificateBody_</span></a></span></span><span>
-</span><span id="line-80"></span><span>  </span><span id="local-6989586621679430425"><span class="annot"><span class="annottext">StatusType
-</span><a href="#local-6989586621679430425"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679430943"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430943"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679430942"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430942"><span class="hs-identifier hs-var">pCertificateId_</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679430941"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430941"><span class="hs-identifier hs-var">pCertificateBody_</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679430940"><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679430940"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">SigningCertificate' :: Maybe ISO8601
 -&gt; Text -&gt; Text -&gt; Text -&gt; StatusType -&gt; SigningCertificate
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span>
@@ -150,16 +150,16 @@ forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
 </span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">$sel:userName:SigningCertificate' :: Text
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#%24sel%3AuserName%3ASigningCertificate%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430428"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679430943"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">$sel:certificateId:SigningCertificate' :: Text
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#%24sel%3AcertificateId%3ASigningCertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430427"><span class="hs-identifier hs-var">pCertificateId_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679430942"><span class="hs-identifier hs-var">pCertificateId_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:certificateBody:SigningCertificate' :: Text
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#%24sel%3AcertificateBody%3ASigningCertificate%27"><span class="hs-identifier hs-var">certificateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430426"><span class="hs-identifier hs-var">pCertificateBody_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679430941"><span class="hs-identifier hs-var">pCertificateBody_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:SigningCertificate' :: StatusType
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#%24sel%3Astatus%3ASigningCertificate%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StatusType
-</span><a href="#local-6989586621679430425"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><a href="#local-6989586621679430940"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
 </span><span id="line-87"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-88"></span><span>
 </span><span id="line-89"></span><span class="hs-comment">-- | The date when the signing certificate was uploaded.</span><span>
@@ -174,16 +174,16 @@ forall a. Maybe a
      (Maybe ISO8601)
      (Maybe ISO8601)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430421"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430936"><span class="annot"><span class="annottext">Maybe ISO8601
 uploadDate :: Maybe ISO8601
 $sel:uploadDate:SigningCertificate' :: SigningCertificate -&gt; Maybe ISO8601
-</span><a href="#local-6989586621679430421"><span class="hs-identifier hs-var hs-var">uploadDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679430421"><span class="hs-identifier hs-var">uploadDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430420"><span class="annot"><span class="annottext">s :: SigningCertificate
-</span><a href="#local-6989586621679430420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430419"><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679430419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningCertificate
-</span><a href="#local-6989586621679430420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadDate:SigningCertificate' :: Maybe ISO8601
+</span><a href="#local-6989586621679430936"><span class="hs-identifier hs-var hs-var">uploadDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679430936"><span class="hs-identifier hs-var">uploadDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430935"><span class="annot"><span class="annottext">s :: SigningCertificate
+</span><a href="#local-6989586621679430935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430934"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679430934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningCertificate
+</span><a href="#local-6989586621679430935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadDate:SigningCertificate' :: Maybe ISO8601
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#%24sel%3AuploadDate%3ASigningCertificate%27"><span class="hs-identifier hs-var">uploadDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
-</span><a href="#local-6989586621679430419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+</span><a href="#local-6989586621679430934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
  -&gt; SigningCertificate -&gt; f SigningCertificate)
 -&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
     -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
@@ -208,16 +208,16 @@ forall (a :: Format). Iso' (Time a) UTCTime
 -&gt; (SigningCertificate -&gt; Text -&gt; SigningCertificate)
 -&gt; Lens SigningCertificate SigningCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430414"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430929"><span class="annot"><span class="annottext">Text
 userName :: Text
 $sel:userName:SigningCertificate' :: SigningCertificate -&gt; Text
-</span><a href="#local-6989586621679430414"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430414"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430413"><span class="annot"><span class="annottext">s :: SigningCertificate
-</span><a href="#local-6989586621679430413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430412"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningCertificate
-</span><a href="#local-6989586621679430413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:SigningCertificate' :: Text
+</span><a href="#local-6989586621679430929"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430929"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430928"><span class="annot"><span class="annottext">s :: SigningCertificate
+</span><a href="#local-6989586621679430928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430927"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningCertificate
+</span><a href="#local-6989586621679430928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:SigningCertificate' :: Text
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#%24sel%3AuserName%3ASigningCertificate%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-96"></span><span>
 </span><span id="line-97"></span><span class="hs-comment">-- | The ID for the signing certificate.</span><span>
 </span><span id="line-98"></span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#signingCertificate_certificateId"><span class="hs-identifier hs-type">signingCertificate_certificateId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -226,16 +226,16 @@ $sel:userName:SigningCertificate' :: SigningCertificate -&gt; Text
 -&gt; (SigningCertificate -&gt; Text -&gt; SigningCertificate)
 -&gt; Lens SigningCertificate SigningCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430410"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430925"><span class="annot"><span class="annottext">Text
 certificateId :: Text
 $sel:certificateId:SigningCertificate' :: SigningCertificate -&gt; Text
-</span><a href="#local-6989586621679430410"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430410"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430409"><span class="annot"><span class="annottext">s :: SigningCertificate
-</span><a href="#local-6989586621679430409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430408"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningCertificate
-</span><a href="#local-6989586621679430409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:SigningCertificate' :: Text
+</span><a href="#local-6989586621679430925"><span class="hs-identifier hs-var hs-var">certificateId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430925"><span class="hs-identifier hs-var">certificateId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430924"><span class="annot"><span class="annottext">s :: SigningCertificate
+</span><a href="#local-6989586621679430924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430923"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningCertificate
+</span><a href="#local-6989586621679430924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateId:SigningCertificate' :: Text
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#%24sel%3AcertificateId%3ASigningCertificate%27"><span class="hs-identifier hs-var">certificateId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-100"></span><span>
 </span><span id="line-101"></span><span class="hs-comment">-- | The contents of the signing certificate.</span><span>
 </span><span id="line-102"></span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#signingCertificate_certificateBody"><span class="hs-identifier hs-type">signingCertificate_certificateBody</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
@@ -244,16 +244,16 @@ $sel:certificateId:SigningCertificate' :: SigningCertificate -&gt; Text
 -&gt; (SigningCertificate -&gt; Text -&gt; SigningCertificate)
 -&gt; Lens SigningCertificate SigningCertificate Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430406"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430921"><span class="annot"><span class="annottext">Text
 certificateBody :: Text
 $sel:certificateBody:SigningCertificate' :: SigningCertificate -&gt; Text
-</span><a href="#local-6989586621679430406"><span class="hs-identifier hs-var hs-var">certificateBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430406"><span class="hs-identifier hs-var">certificateBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430405"><span class="annot"><span class="annottext">s :: SigningCertificate
-</span><a href="#local-6989586621679430405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430404"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningCertificate
-</span><a href="#local-6989586621679430405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateBody:SigningCertificate' :: Text
+</span><a href="#local-6989586621679430921"><span class="hs-identifier hs-var hs-var">certificateBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430921"><span class="hs-identifier hs-var">certificateBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430920"><span class="annot"><span class="annottext">s :: SigningCertificate
+</span><a href="#local-6989586621679430920"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430919"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430919"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningCertificate
+</span><a href="#local-6989586621679430920"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:certificateBody:SigningCertificate' :: Text
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#%24sel%3AcertificateBody%3ASigningCertificate%27"><span class="hs-identifier hs-var">certificateBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679430404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430919"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-104"></span><span>
 </span><span id="line-105"></span><span class="hs-comment">-- | The status of the signing certificate. @Active@ means that the key is</span><span>
 </span><span id="line-106"></span><span class="hs-comment">-- valid for API calls, while @Inactive@ means it is not.</span><span>
@@ -264,21 +264,21 @@ $sel:certificateBody:SigningCertificate' :: SigningCertificate -&gt; Text
 -&gt; (SigningCertificate -&gt; StatusType -&gt; SigningCertificate)
 -&gt; Lens SigningCertificate SigningCertificate StatusType StatusType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430402"><span class="annot"><span class="annottext">StatusType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430917"><span class="annot"><span class="annottext">StatusType
 status :: StatusType
 $sel:status:SigningCertificate' :: SigningCertificate -&gt; StatusType
-</span><a href="#local-6989586621679430402"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusType
-</span><a href="#local-6989586621679430402"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430401"><span class="annot"><span class="annottext">s :: SigningCertificate
-</span><a href="#local-6989586621679430401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430400"><span class="annot"><span class="annottext">StatusType
-</span><a href="#local-6989586621679430400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningCertificate
-</span><a href="#local-6989586621679430401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SigningCertificate' :: StatusType
+</span><a href="#local-6989586621679430917"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679430917"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430916"><span class="annot"><span class="annottext">s :: SigningCertificate
+</span><a href="#local-6989586621679430916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-type">SigningCertificate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430915"><span class="annot"><span class="annottext">StatusType
+</span><a href="#local-6989586621679430915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SigningCertificate
+</span><a href="#local-6989586621679430916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SigningCertificate' :: StatusType
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#%24sel%3Astatus%3ASigningCertificate%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StatusType
-</span><a href="#local-6989586621679430400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679430915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-109"></span><span>
 </span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-111"></span><span>  </span><span id="local-6989586621679430397"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SigningCertificate
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679430395"><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679430395"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679430912"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String SigningCertificate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679430910"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679430910"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
 -&gt; Text -&gt; Text -&gt; Text -&gt; StatusType -&gt; SigningCertificate
 </span><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate%27"><span class="hs-identifier hs-var">SigningCertificate'</span></a></span><span>
@@ -289,7 +289,7 @@ $sel:status:SigningCertificate' :: SigningCertificate -&gt; StatusType
      String (Text -&gt; Text -&gt; Text -&gt; StatusType -&gt; SigningCertificate)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679430395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+</span><a href="#local-6989586621679430910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UploadDate&quot;</span></span><span class="hs-special">)</span><span>
@@ -299,7 +299,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
 -&gt; Either String (Text -&gt; Text -&gt; StatusType -&gt; SigningCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679430395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679430910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;UserName&quot;</span></span><span class="hs-special">)</span><span>
@@ -308,7 +308,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (Text -&gt; StatusType -&gt; SigningCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679430395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679430910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CertificateId&quot;</span></span><span class="hs-special">)</span><span>
@@ -317,7 +317,7 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String (StatusType -&gt; SigningCertificate)
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679430395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+</span><a href="#local-6989586621679430910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;CertificateBody&quot;</span></span><span class="hs-special">)</span><span>
@@ -325,12 +325,12 @@ forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 -&gt; Either String StatusType -&gt; Either String SigningCertificate
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
-</span><a href="#local-6989586621679430395"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StatusType
+</span><a href="#local-6989586621679430910"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String StatusType
 forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
 </span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-118"></span><span>
-</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430388"><span id="local-6989586621679430390"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span></span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430903"><span id="local-6989586621679430905"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span></span></span><span>
 </span><span id="line-120"></span><span>
-</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430385"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430900"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.IAM.Types.SigningCertificate.html#SigningCertificate"><span class="hs-identifier hs-type">SigningCertificate</span></a></span></span><span>
 </span><span id="line-122"></span></pre></body></html>

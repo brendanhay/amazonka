@@ -27,7 +27,7 @@
 </span><span id="line-27"></span><span class="hs-comment">-- | An object that contains the resource type and the number of resources.</span><span>
 </span><span id="line-28"></span><span class="hs-comment">--</span><span>
 </span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newResourceCount' smart constructor.</span><span>
-</span><span id="line-30"></span><span id="local-6989586621679406732"><span id="local-6989586621679406733"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceCount"><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-var">ResourceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceCount%27"><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount%27"><span class="hs-identifier hs-var">ResourceCount'</span></a></span></span><span>
+</span><span id="line-30"></span><span id="local-6989586621679407332"><span id="local-6989586621679407333"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResourceCount"><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-var">ResourceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResourceCount%27"><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount%27"><span class="hs-identifier hs-var">ResourceCount'</span></a></span></span><span>
 </span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource type (for example, @\&quot;AWS::EC2::Instance\&quot;@).</span><span>
 </span><span id="line-32"></span><span>    </span><span id="%24sel%3AresourceType%3AResourceCount%27"><span class="annot"><span class="annottext">ResourceCount -&gt; Maybe ResourceType
 </span><a href="Network.AWS.Config.Types.ResourceCount.html#%24sel%3AresourceType%3AResourceCount%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceType.html#ResourceType"><span class="hs-identifier hs-type">ResourceType</span></a></span><span class="hs-special">,</span><span>
@@ -35,7 +35,7 @@
 </span><span id="line-34"></span><span>    </span><span id="%24sel%3Acount%3AResourceCount%27"><span class="annot"><span class="annottext">ResourceCount -&gt; Maybe Integer
 </span><a href="Network.AWS.Config.Types.ResourceCount.html#%24sel%3Acount%3AResourceCount%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
 </span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679406725"><span id="local-6989586621679406727"><span class="annot"><span class="annottext">ResourceCount -&gt; ResourceCount -&gt; Bool
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679407325"><span id="local-6989586621679407327"><span class="annot"><span class="annottext">ResourceCount -&gt; ResourceCount -&gt; Bool
 (ResourceCount -&gt; ResourceCount -&gt; Bool)
 -&gt; (ResourceCount -&gt; ResourceCount -&gt; Bool) -&gt; Eq ResourceCount
 forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
@@ -43,7 +43,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: ResourceCount -&gt; ResourceCount -&gt; Bool
 == :: ResourceCount -&gt; ResourceCount -&gt; Bool
 $c== :: ResourceCount -&gt; ResourceCount -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406716"><span id="local-6989586621679406718"><span id="local-6989586621679406720"><span id="local-6989586621679406722"><span class="annot"><span class="annottext">ReadPrec [ResourceCount]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407316"><span id="local-6989586621679407318"><span id="local-6989586621679407320"><span id="local-6989586621679407322"><span class="annot"><span class="annottext">ReadPrec [ResourceCount]
 ReadPrec ResourceCount
 Int -&gt; ReadS ResourceCount
 ReadS [ResourceCount]
@@ -63,7 +63,7 @@ readList :: ReadS [ResourceCount]
 $creadList :: ReadS [ResourceCount]
 readsPrec :: Int -&gt; ReadS ResourceCount
 $creadsPrec :: Int -&gt; ReadS ResourceCount
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679406709"><span id="local-6989586621679406711"><span id="local-6989586621679406713"><span class="annot"><span class="annottext">Int -&gt; ResourceCount -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679407309"><span id="local-6989586621679407311"><span id="local-6989586621679407313"><span class="annot"><span class="annottext">Int -&gt; ResourceCount -&gt; ShowS
 [ResourceCount] -&gt; ShowS
 ResourceCount -&gt; String
 (Int -&gt; ResourceCount -&gt; ShowS)
@@ -128,16 +128,16 @@ forall a. Maybe a
      (Maybe ResourceType)
      (Maybe ResourceType)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount%27"><span class="hs-identifier hs-type">ResourceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406700"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount%27"><span class="hs-identifier hs-type">ResourceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407300"><span class="annot"><span class="annottext">Maybe ResourceType
 resourceType :: Maybe ResourceType
 $sel:resourceType:ResourceCount' :: ResourceCount -&gt; Maybe ResourceType
-</span><a href="#local-6989586621679406700"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679406700"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406699"><span class="annot"><span class="annottext">s :: ResourceCount
-</span><a href="#local-6989586621679406699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount%27"><span class="hs-identifier hs-type">ResourceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406698"><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679406698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceCount
-</span><a href="#local-6989586621679406699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ResourceCount' :: Maybe ResourceType
+</span><a href="#local-6989586621679407300"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679407300"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407299"><span class="annot"><span class="annottext">s :: ResourceCount
+</span><a href="#local-6989586621679407299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount%27"><span class="hs-identifier hs-type">ResourceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407298"><span class="annot"><span class="annottext">Maybe ResourceType
+</span><a href="#local-6989586621679407298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceCount
+</span><a href="#local-6989586621679407299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:ResourceCount' :: Maybe ResourceType
 </span><a href="Network.AWS.Config.Types.ResourceCount.html#%24sel%3AresourceType%3AResourceCount%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceType
-</span><a href="#local-6989586621679406698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-type">ResourceCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679407298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-type">ResourceCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-60"></span><span>
 </span><span id="line-61"></span><span class="hs-comment">-- | The number of resources.</span><span>
 </span><span id="line-62"></span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#resourceCount_count"><span class="hs-identifier hs-type">resourceCount_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-type">ResourceCount</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
@@ -147,19 +147,19 @@ $sel:resourceType:ResourceCount' :: ResourceCount -&gt; Maybe ResourceType
 -&gt; (ResourceCount -&gt; Maybe Integer -&gt; ResourceCount)
 -&gt; Lens ResourceCount ResourceCount (Maybe Integer) (Maybe Integer)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount%27"><span class="hs-identifier hs-type">ResourceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679406696"><span class="annot"><span class="annottext">Maybe Integer
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount%27"><span class="hs-identifier hs-type">ResourceCount'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679407296"><span class="annot"><span class="annottext">Maybe Integer
 count :: Maybe Integer
 $sel:count:ResourceCount' :: ResourceCount -&gt; Maybe Integer
-</span><a href="#local-6989586621679406696"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679406696"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679406695"><span class="annot"><span class="annottext">s :: ResourceCount
-</span><a href="#local-6989586621679406695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount%27"><span class="hs-identifier hs-type">ResourceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679406694"><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679406694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceCount
-</span><a href="#local-6989586621679406695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:ResourceCount' :: Maybe Integer
+</span><a href="#local-6989586621679407296"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679407296"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679407295"><span class="annot"><span class="annottext">s :: ResourceCount
+</span><a href="#local-6989586621679407295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount%27"><span class="hs-identifier hs-type">ResourceCount'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679407294"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679407294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceCount
+</span><a href="#local-6989586621679407295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:ResourceCount' :: Maybe Integer
 </span><a href="Network.AWS.Config.Types.ResourceCount.html#%24sel%3Acount%3AResourceCount%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
-</span><a href="#local-6989586621679406694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-type">ResourceCount</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679407294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-type">ResourceCount</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-64"></span><span>
-</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406691"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-type">ResourceCount</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-66"></span><span>  </span><span id="local-6989586621679406689"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceCount
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407291"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-type">ResourceCount</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679407289"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ResourceCount
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
 -&gt; (Object -&gt; Parser ResourceCount)
@@ -169,8 +169,8 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 </span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
 </span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
 </span><span class="hs-string">&quot;ResourceCount&quot;</span></span><span>
-</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679406686"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406686"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679407286"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679407286"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceType -&gt; Maybe Integer -&gt; ResourceCount
 </span><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount%27"><span class="hs-identifier hs-var">ResourceCount'</span></a></span><span>
 </span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResourceType -&gt; Maybe Integer -&gt; ResourceCount)
@@ -178,7 +178,7 @@ forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
 -&gt; Parser (Maybe Integer -&gt; ResourceCount)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
+</span><a href="#local-6989586621679407286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ResourceType)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;resourceType&quot;</span></span><span class="hs-special">)</span><span>
@@ -186,13 +186,13 @@ forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 -&gt; Parser (Maybe Integer) -&gt; Parser ResourceCount
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679406686"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+</span><a href="#local-6989586621679407286"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
 </span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
 </span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-74"></span><span>
-</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406680"><span id="local-6989586621679406682"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-type">ResourceCount</span></a></span></span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407280"><span id="local-6989586621679407282"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-type">ResourceCount</span></a></span></span></span><span>
 </span><span id="line-76"></span><span>
-</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679406677"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-type">ResourceCount</span></a></span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679407277"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.Config.Types.ResourceCount.html#ResourceCount"><span class="hs-identifier hs-type">ResourceCount</span></a></span></span><span>
 </span><span id="line-78"></span></pre></body></html>

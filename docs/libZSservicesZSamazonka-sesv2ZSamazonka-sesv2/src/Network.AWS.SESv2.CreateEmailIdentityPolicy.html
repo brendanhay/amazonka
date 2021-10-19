@@ -65,8 +65,8 @@
 </span><span id="line-65"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html Amazon SES Developer Guide&gt;.</span><span>
 </span><span id="line-66"></span><span class="hs-comment">--</span><span>
 </span><span id="line-67"></span><span class="hs-comment">-- /See:/ 'newCreateEmailIdentityPolicy' smart constructor.</span><span>
-</span><span id="line-68"></span><span id="local-6989586621679348190"><span id="local-6989586621679348191"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateEmailIdentityPolicy"><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-var">CreateEmailIdentityPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateEmailIdentityPolicy%27"><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-var">CreateEmailIdentityPolicy'</span></a></span></span><span>
-</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email identity for which you want to create a policy.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679350768"><span id="local-6989586621679350769"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateEmailIdentityPolicy"><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-var">CreateEmailIdentityPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateEmailIdentityPolicy%27"><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-var">CreateEmailIdentityPolicy'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The email identity.</span><span>
 </span><span id="line-70"></span><span>    </span><span id="%24sel%3AemailIdentity%3ACreateEmailIdentityPolicy%27"><span class="annot"><span class="annottext">CreateEmailIdentityPolicy -&gt; Text
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#%24sel%3AemailIdentity%3ACreateEmailIdentityPolicy%27"><span class="hs-identifier hs-var hs-var">emailIdentity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
 </span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The name of the policy.</span><span>
@@ -83,7 +83,7 @@
 </span><span id="line-81"></span><span>    </span><span id="%24sel%3Apolicy%3ACreateEmailIdentityPolicy%27"><span class="annot"><span class="annottext">CreateEmailIdentityPolicy -&gt; Text
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#%24sel%3Apolicy%3ACreateEmailIdentityPolicy%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348182"><span id="local-6989586621679348184"><span class="annot"><span class="annottext">CreateEmailIdentityPolicy -&gt; CreateEmailIdentityPolicy -&gt; Bool
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350760"><span id="local-6989586621679350762"><span class="annot"><span class="annottext">CreateEmailIdentityPolicy -&gt; CreateEmailIdentityPolicy -&gt; Bool
 (CreateEmailIdentityPolicy -&gt; CreateEmailIdentityPolicy -&gt; Bool)
 -&gt; (CreateEmailIdentityPolicy -&gt; CreateEmailIdentityPolicy -&gt; Bool)
 -&gt; Eq CreateEmailIdentityPolicy
@@ -92,7 +92,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: CreateEmailIdentityPolicy -&gt; CreateEmailIdentityPolicy -&gt; Bool
 == :: CreateEmailIdentityPolicy -&gt; CreateEmailIdentityPolicy -&gt; Bool
 $c== :: CreateEmailIdentityPolicy -&gt; CreateEmailIdentityPolicy -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348173"><span id="local-6989586621679348175"><span id="local-6989586621679348177"><span id="local-6989586621679348179"><span class="annot"><span class="annottext">ReadPrec [CreateEmailIdentityPolicy]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350751"><span id="local-6989586621679350753"><span id="local-6989586621679350755"><span id="local-6989586621679350757"><span class="annot"><span class="annottext">ReadPrec [CreateEmailIdentityPolicy]
 ReadPrec CreateEmailIdentityPolicy
 Int -&gt; ReadS CreateEmailIdentityPolicy
 ReadS [CreateEmailIdentityPolicy]
@@ -112,7 +112,7 @@ readList :: ReadS [CreateEmailIdentityPolicy]
 $creadList :: ReadS [CreateEmailIdentityPolicy]
 readsPrec :: Int -&gt; ReadS CreateEmailIdentityPolicy
 $creadsPrec :: Int -&gt; ReadS CreateEmailIdentityPolicy
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348166"><span id="local-6989586621679348168"><span id="local-6989586621679348170"><span class="annot"><span class="annottext">Int -&gt; CreateEmailIdentityPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350744"><span id="local-6989586621679350746"><span id="local-6989586621679350748"><span class="annot"><span class="annottext">Int -&gt; CreateEmailIdentityPolicy -&gt; ShowS
 [CreateEmailIdentityPolicy] -&gt; ShowS
 CreateEmailIdentityPolicy -&gt; String
 (Int -&gt; CreateEmailIdentityPolicy -&gt; ShowS)
@@ -152,7 +152,7 @@ CreateEmailIdentityPolicy -&gt; Rep CreateEmailIdentityPolicy x
 </span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
 </span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
 </span><span id="line-92"></span><span class="hs-comment">--</span><span>
-</span><span id="line-93"></span><span class="hs-comment">-- 'emailIdentity', 'createEmailIdentityPolicy_emailIdentity' - The email identity for which you want to create a policy.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'emailIdentity', 'createEmailIdentityPolicy_emailIdentity' - The email identity.</span><span>
 </span><span id="line-94"></span><span class="hs-comment">--</span><span>
 </span><span id="line-95"></span><span class="hs-comment">-- 'policyName', 'createEmailIdentityPolicy_policyName' - The name of the policy.</span><span>
 </span><span id="line-96"></span><span class="hs-comment">--</span><span>
@@ -174,27 +174,27 @@ CreateEmailIdentityPolicy -&gt; Rep CreateEmailIdentityPolicy x
 </span><span id="line-112"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span><span>
 </span><span id="line-113"></span><span id="newCreateEmailIdentityPolicy"><span class="annot"><span class="annottext">newCreateEmailIdentityPolicy :: Text -&gt; Text -&gt; Text -&gt; CreateEmailIdentityPolicy
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#newCreateEmailIdentityPolicy"><span class="hs-identifier hs-var hs-var">newCreateEmailIdentityPolicy</span></a></span></span><span>
-</span><span id="line-114"></span><span>  </span><span id="local-6989586621679348161"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348161"><span class="hs-identifier hs-var">pEmailIdentity_</span></a></span></span><span>
-</span><span id="line-115"></span><span>  </span><span id="local-6989586621679348160"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348160"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span>
-</span><span id="line-116"></span><span>  </span><span id="local-6989586621679348159"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348159"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679350739"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350739"><span class="hs-identifier hs-var">pEmailIdentity_</span></a></span></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679350738"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350738"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679350737"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350737"><span class="hs-identifier hs-var">pPolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">CreateEmailIdentityPolicy' :: Text -&gt; Text -&gt; Text -&gt; CreateEmailIdentityPolicy
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span>
 </span><span id="line-118"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:emailIdentity:CreateEmailIdentityPolicy' :: Text
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#%24sel%3AemailIdentity%3ACreateEmailIdentityPolicy%27"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348161"><span class="hs-identifier hs-var">pEmailIdentity_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679350739"><span class="hs-identifier hs-var">pEmailIdentity_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:policyName:CreateEmailIdentityPolicy' :: Text
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#%24sel%3ApolicyName%3ACreateEmailIdentityPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348160"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679350738"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">$sel:policy:CreateEmailIdentityPolicy' :: Text
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#%24sel%3Apolicy%3ACreateEmailIdentityPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348159"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span>
+</span><a href="#local-6989586621679350737"><span class="hs-identifier hs-var">pPolicy_</span></a></span><span>
 </span><span id="line-122"></span><span>      </span><span class="hs-special">}</span><span>
 </span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-comment">-- | The email identity for which you want to create a policy.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The email identity.</span><span>
 </span><span id="line-125"></span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#createEmailIdentityPolicy_emailIdentity"><span class="hs-identifier hs-type">createEmailIdentityPolicy_emailIdentity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
 </span><span id="line-126"></span><span id="createEmailIdentityPolicy_emailIdentity"><span class="annot"><span class="annottext">createEmailIdentityPolicy_emailIdentity :: (Text -&gt; f Text)
 -&gt; CreateEmailIdentityPolicy -&gt; f CreateEmailIdentityPolicy
@@ -203,16 +203,16 @@ CreateEmailIdentityPolicy -&gt; Rep CreateEmailIdentityPolicy x
 -&gt; Lens
      CreateEmailIdentityPolicy CreateEmailIdentityPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348156"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350734"><span class="annot"><span class="annottext">Text
 emailIdentity :: Text
 $sel:emailIdentity:CreateEmailIdentityPolicy' :: CreateEmailIdentityPolicy -&gt; Text
-</span><a href="#local-6989586621679348156"><span class="hs-identifier hs-var hs-var">emailIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348156"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348155"><span class="annot"><span class="annottext">s :: CreateEmailIdentityPolicy
-</span><a href="#local-6989586621679348155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348154"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEmailIdentityPolicy
-</span><a href="#local-6989586621679348155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailIdentity:CreateEmailIdentityPolicy' :: Text
+</span><a href="#local-6989586621679350734"><span class="hs-identifier hs-var hs-var">emailIdentity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350734"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350733"><span class="annot"><span class="annottext">s :: CreateEmailIdentityPolicy
+</span><a href="#local-6989586621679350733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350732"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEmailIdentityPolicy
+</span><a href="#local-6989586621679350733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailIdentity:CreateEmailIdentityPolicy' :: Text
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#%24sel%3AemailIdentity%3ACreateEmailIdentityPolicy%27"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-127"></span><span>
 </span><span id="line-128"></span><span class="hs-comment">-- | The name of the policy.</span><span>
 </span><span id="line-129"></span><span class="hs-comment">--</span><span>
@@ -226,16 +226,16 @@ $sel:emailIdentity:CreateEmailIdentityPolicy' :: CreateEmailIdentityPolicy -&gt;
 -&gt; Lens
      CreateEmailIdentityPolicy CreateEmailIdentityPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348153"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350731"><span class="annot"><span class="annottext">Text
 policyName :: Text
 $sel:policyName:CreateEmailIdentityPolicy' :: CreateEmailIdentityPolicy -&gt; Text
-</span><a href="#local-6989586621679348153"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348153"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348152"><span class="annot"><span class="annottext">s :: CreateEmailIdentityPolicy
-</span><a href="#local-6989586621679348152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348151"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEmailIdentityPolicy
-</span><a href="#local-6989586621679348152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:CreateEmailIdentityPolicy' :: Text
+</span><a href="#local-6989586621679350731"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350731"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350730"><span class="annot"><span class="annottext">s :: CreateEmailIdentityPolicy
+</span><a href="#local-6989586621679350730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350729"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEmailIdentityPolicy
+</span><a href="#local-6989586621679350730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:CreateEmailIdentityPolicy' :: Text
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#%24sel%3ApolicyName%3ACreateEmailIdentityPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-134"></span><span>
 </span><span id="line-135"></span><span class="hs-comment">-- | The text of the policy in JSON format. The policy cannot exceed 4 KB.</span><span>
 </span><span id="line-136"></span><span class="hs-comment">--</span><span>
@@ -250,28 +250,28 @@ $sel:policyName:CreateEmailIdentityPolicy' :: CreateEmailIdentityPolicy -&gt; Te
 -&gt; Lens
      CreateEmailIdentityPolicy CreateEmailIdentityPolicy Text Text
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348150"><span class="annot"><span class="annottext">Text
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350728"><span class="annot"><span class="annottext">Text
 policy :: Text
 $sel:policy:CreateEmailIdentityPolicy' :: CreateEmailIdentityPolicy -&gt; Text
-</span><a href="#local-6989586621679348150"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348150"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348149"><span class="annot"><span class="annottext">s :: CreateEmailIdentityPolicy
-</span><a href="#local-6989586621679348149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348148"><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEmailIdentityPolicy
-</span><a href="#local-6989586621679348149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:CreateEmailIdentityPolicy' :: Text
+</span><a href="#local-6989586621679350728"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350728"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350727"><span class="annot"><span class="annottext">s :: CreateEmailIdentityPolicy
+</span><a href="#local-6989586621679350727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350726"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679350726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEmailIdentityPolicy
+</span><a href="#local-6989586621679350727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:CreateEmailIdentityPolicy' :: Text
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#%24sel%3Apolicy%3ACreateEmailIdentityPolicy%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-142"></span><span>
 </span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
 </span><span id="line-144"></span><span>  </span><span class="hs-keyword">type</span><span>
 </span><span id="line-145"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-146"></span><span>      </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse"><span class="hs-identifier hs-type">CreateEmailIdentityPolicyResponse</span></a></span><span>
-</span><span id="line-147"></span><span>  </span><span id="local-6989586621679348144"><span class="annot"><span class="annottext">request :: CreateEmailIdentityPolicy -&gt; Request CreateEmailIdentityPolicy
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679350722"><span class="annot"><span class="annottext">request :: CreateEmailIdentityPolicy -&gt; Request CreateEmailIdentityPolicy
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
 -&gt; CreateEmailIdentityPolicy -&gt; Request CreateEmailIdentityPolicy
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.SESv2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-148"></span><span>  </span><span id="local-6989586621679348140"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679350718"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy CreateEmailIdentityPolicy
 -&gt; ClientResponse ClientBody
@@ -297,10 +297,10 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
-</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679348137"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348137"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679348136"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679348136"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679348135"><span class="annot"><span class="annottext">()
-</span><a href="#local-6989586621679348135"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679350715"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350715"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679350714"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679350714"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679350713"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679350713"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; CreateEmailIdentityPolicyResponse
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-var">CreateEmailIdentityPolicyResponse'</span></a></span><span>
 </span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; CreateEmailIdentityPolicyResponse)
@@ -312,15 +312,15 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348137"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350715"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
 </span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-154"></span><span>
-</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348128"><span id="local-6989586621679348130"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span></span></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350706"><span id="local-6989586621679350708"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span></span></span><span>
 </span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348125"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350703"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span></span><span>
 </span><span id="line-158"></span><span>
 </span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-160"></span><span>  </span><span id="local-6989586621679348121"><span class="annot"><span class="annottext">toHeaders :: CreateEmailIdentityPolicy -&gt; ResponseHeaders
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679350699"><span class="annot"><span class="annottext">toHeaders :: CreateEmailIdentityPolicy -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateEmailIdentityPolicy -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
@@ -339,16 +339,16 @@ forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
 </span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
 </span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-169"></span><span>
-</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679348111"><span id="local-6989586621679348113"><span id="local-6989586621679348115"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-171"></span><span>  </span><span id="local-6989586621679348109"><span class="annot"><span class="annottext">toJSON :: CreateEmailIdentityPolicy -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348105"><span id="local-6989586621679348106"><span id="local-6989586621679348107"><span class="annot"><span class="annottext">Text
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679350689"><span id="local-6989586621679350691"><span id="local-6989586621679350693"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679350687"><span class="annot"><span class="annottext">toJSON :: CreateEmailIdentityPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350683"><span id="local-6989586621679350684"><span id="local-6989586621679350685"><span class="annot"><span class="annottext">Text
 policy :: Text
 policyName :: Text
 emailIdentity :: Text
 $sel:policy:CreateEmailIdentityPolicy' :: CreateEmailIdentityPolicy -&gt; Text
 $sel:policyName:CreateEmailIdentityPolicy' :: CreateEmailIdentityPolicy -&gt; Text
 $sel:emailIdentity:CreateEmailIdentityPolicy' :: CreateEmailIdentityPolicy -&gt; Text
-</span><a href="#local-6989586621679348105"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679350683"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
 </span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
@@ -360,19 +360,19 @@ forall a. a -&gt; Maybe a
 </span><span class="hs-string">&quot;Policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348105"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><a href="#local-6989586621679350683"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
 </span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
 </span><span id="line-176"></span><span>
 </span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-178"></span><span>  </span><span id="local-6989586621679348099"><span class="annot"><span class="annottext">toPath :: CreateEmailIdentityPolicy -&gt; ByteString
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348095"><span id="local-6989586621679348096"><span id="local-6989586621679348097"><span class="annot"><span class="annottext">Text
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679350677"><span class="annot"><span class="annottext">toPath :: CreateEmailIdentityPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350673"><span id="local-6989586621679350674"><span id="local-6989586621679350675"><span class="annot"><span class="annottext">Text
 policy :: Text
 policyName :: Text
 emailIdentity :: Text
 $sel:policy:CreateEmailIdentityPolicy' :: CreateEmailIdentityPolicy -&gt; Text
 $sel:policyName:CreateEmailIdentityPolicy' :: CreateEmailIdentityPolicy -&gt; Text
 $sel:emailIdentity:CreateEmailIdentityPolicy' :: CreateEmailIdentityPolicy -&gt; Text
-</span><a href="#local-6989586621679348095"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="#local-6989586621679350673"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
 forall a. Monoid a =&gt; [a] -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
@@ -381,17 +381,17 @@ forall a. Monoid a =&gt; [a] -&gt; a
 </span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348097"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span class="hs-special">,</span><span>
+</span><a href="#local-6989586621679350675"><span class="hs-identifier hs-var">emailIdentity</span></a></span><span class="hs-special">,</span><span>
 </span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/policies/&quot;</span></span><span class="hs-special">,</span><span>
 </span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
 forall a. ToByteString a =&gt; a -&gt; ByteString
 </span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
-</span><a href="#local-6989586621679348096"><span class="hs-identifier hs-var">policyName</span></a></span><span>
+</span><a href="#local-6989586621679350674"><span class="hs-identifier hs-var">policyName</span></a></span><span>
 </span><span id="line-184"></span><span>      </span><span class="hs-special">]</span><span>
 </span><span id="line-185"></span><span>
 </span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicy"><span class="hs-identifier hs-type">CreateEmailIdentityPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-187"></span><span>  </span><span id="local-6989586621679348091"><span class="annot"><span class="annottext">toQuery :: CreateEmailIdentityPolicy -&gt; QueryString
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679350669"><span class="annot"><span class="annottext">toQuery :: CreateEmailIdentityPolicy -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateEmailIdentityPolicy -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
@@ -402,12 +402,12 @@ forall a. Monoid a =&gt; a
 </span><span id="line-190"></span><span class="hs-comment">-- request fails.</span><span>
 </span><span id="line-191"></span><span class="hs-comment">--</span><span>
 </span><span id="line-192"></span><span class="hs-comment">-- /See:/ 'newCreateEmailIdentityPolicyResponse' smart constructor.</span><span>
-</span><span id="line-193"></span><span id="local-6989586621679348088"><span id="local-6989586621679348089"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateEmailIdentityPolicyResponse"><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse"><span class="hs-identifier hs-var">CreateEmailIdentityPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateEmailIdentityPolicyResponse%27"><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-var">CreateEmailIdentityPolicyResponse'</span></a></span></span><span>
+</span><span id="line-193"></span><span id="local-6989586621679350666"><span id="local-6989586621679350667"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateEmailIdentityPolicyResponse"><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse"><span class="hs-identifier hs-var">CreateEmailIdentityPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateEmailIdentityPolicyResponse%27"><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-var">CreateEmailIdentityPolicyResponse'</span></a></span></span><span>
 </span><span id="line-194"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
 </span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateEmailIdentityPolicyResponse%27"><span class="annot"><span class="annottext">CreateEmailIdentityPolicyResponse -&gt; Int
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#%24sel%3AhttpStatus%3ACreateEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
 </span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679348083"><span id="local-6989586621679348085"><span class="annot"><span class="annottext">CreateEmailIdentityPolicyResponse
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679350661"><span id="local-6989586621679350663"><span class="annot"><span class="annottext">CreateEmailIdentityPolicyResponse
 -&gt; CreateEmailIdentityPolicyResponse -&gt; Bool
 (CreateEmailIdentityPolicyResponse
  -&gt; CreateEmailIdentityPolicyResponse -&gt; Bool)
@@ -423,7 +423,7 @@ $c/= :: CreateEmailIdentityPolicyResponse
 -&gt; CreateEmailIdentityPolicyResponse -&gt; Bool
 $c== :: CreateEmailIdentityPolicyResponse
 -&gt; CreateEmailIdentityPolicyResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348075"><span id="local-6989586621679348077"><span id="local-6989586621679348079"><span id="local-6989586621679348081"><span class="annot"><span class="annottext">ReadPrec [CreateEmailIdentityPolicyResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350653"><span id="local-6989586621679350655"><span id="local-6989586621679350657"><span id="local-6989586621679350659"><span class="annot"><span class="annottext">ReadPrec [CreateEmailIdentityPolicyResponse]
 ReadPrec CreateEmailIdentityPolicyResponse
 Int -&gt; ReadS CreateEmailIdentityPolicyResponse
 ReadS [CreateEmailIdentityPolicyResponse]
@@ -443,7 +443,7 @@ readList :: ReadS [CreateEmailIdentityPolicyResponse]
 $creadList :: ReadS [CreateEmailIdentityPolicyResponse]
 readsPrec :: Int -&gt; ReadS CreateEmailIdentityPolicyResponse
 $creadsPrec :: Int -&gt; ReadS CreateEmailIdentityPolicyResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679348069"><span id="local-6989586621679348071"><span id="local-6989586621679348073"><span class="annot"><span class="annottext">Int -&gt; CreateEmailIdentityPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679350647"><span id="local-6989586621679350649"><span id="local-6989586621679350651"><span class="annot"><span class="annottext">Int -&gt; CreateEmailIdentityPolicyResponse -&gt; ShowS
 [CreateEmailIdentityPolicyResponse] -&gt; ShowS
 CreateEmailIdentityPolicyResponse -&gt; String
 (Int -&gt; CreateEmailIdentityPolicyResponse -&gt; ShowS)
@@ -495,14 +495,14 @@ CreateEmailIdentityPolicyResponse
 </span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
 </span><span id="line-211"></span><span>  </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse"><span class="hs-identifier hs-type">CreateEmailIdentityPolicyResponse</span></a></span><span>
 </span><span id="line-212"></span><span id="newCreateEmailIdentityPolicyResponse"><span class="annot"><span class="annottext">newCreateEmailIdentityPolicyResponse :: Int -&gt; CreateEmailIdentityPolicyResponse
-</span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#newCreateEmailIdentityPolicyResponse"><span class="hs-identifier hs-var hs-var">newCreateEmailIdentityPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679348066"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348066"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#newCreateEmailIdentityPolicyResponse"><span class="hs-identifier hs-var hs-var">newCreateEmailIdentityPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679350644"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350644"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">CreateEmailIdentityPolicyResponse' :: Int -&gt; CreateEmailIdentityPolicyResponse
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicyResponse'</span></a></span><span>
 </span><span id="line-214"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateEmailIdentityPolicyResponse' :: Int
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#%24sel%3AhttpStatus%3ACreateEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
 </span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348066"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><a href="#local-6989586621679350644"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
 </span><span id="line-216"></span><span>    </span><span class="hs-special">}</span><span>
 </span><span id="line-217"></span><span>
 </span><span id="line-218"></span><span class="hs-comment">-- | The response's http status code.</span><span>
@@ -519,18 +519,18 @@ CreateEmailIdentityPolicyResponse
      Int
      Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679348065"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679350643"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:CreateEmailIdentityPolicyResponse' :: CreateEmailIdentityPolicyResponse -&gt; Int
-</span><a href="#local-6989586621679348065"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348065"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679348064"><span class="annot"><span class="annottext">s :: CreateEmailIdentityPolicyResponse
-</span><a href="#local-6989586621679348064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679348063"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEmailIdentityPolicyResponse
-</span><a href="#local-6989586621679348064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateEmailIdentityPolicyResponse' :: Int
+</span><a href="#local-6989586621679350643"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350643"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679350642"><span class="annot"><span class="annottext">s :: CreateEmailIdentityPolicyResponse
+</span><a href="#local-6989586621679350642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-type">CreateEmailIdentityPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679350641"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679350641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateEmailIdentityPolicyResponse
+</span><a href="#local-6989586621679350642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateEmailIdentityPolicyResponse' :: Int
 </span><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#%24sel%3AhttpStatus%3ACreateEmailIdentityPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679348063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse"><span class="hs-identifier hs-type">CreateEmailIdentityPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><a href="#local-6989586621679350641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse"><span class="hs-identifier hs-type">CreateEmailIdentityPolicyResponse</span></a></span><span class="hs-special">)</span><span>
 </span><span id="line-221"></span><span>
 </span><span id="line-222"></span><span class="hs-keyword">instance</span><span>
-</span><span id="line-223"></span><span>  </span><span id="local-6989586621679348061"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679350639"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
 </span><span id="line-224"></span><span>    </span><span class="annot"><a href="Network.AWS.SESv2.CreateEmailIdentityPolicy.html#CreateEmailIdentityPolicyResponse"><span class="hs-identifier hs-type">CreateEmailIdentityPolicyResponse</span></a></span></span><span>
 </span><span id="line-225"></span></pre></body></html>

@@ -21,46 +21,56 @@
 </span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
 </span><span id="line-22"></span><span class="hs-comment">--</span><span>
 </span><span id="line-23"></span><span class="hs-comment">-- Use this operation to set the account preference in the current Amazon</span><span>
-</span><span id="line-24"></span><span class="hs-comment">-- Web Services Region to use either long 17 character (63 bit) or short 8</span><span>
-</span><span id="line-25"></span><span class="hs-comment">-- character (32 bit) IDs for new EFS file systems and mount targets</span><span>
-</span><span id="line-26"></span><span class="hs-comment">-- created. All existing resource IDs are not affected by any changes you</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Web Services Region to use long 17 character (63 bit) or short 8</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- character (32 bit) resource IDs for new EFS file system and mount target</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- resources. All existing resource IDs are not affected by any changes you</span><span>
 </span><span id="line-27"></span><span class="hs-comment">-- make. You can set the ID preference during the opt-in period as EFS</span><span>
 </span><span id="line-28"></span><span class="hs-comment">-- transitions to long resource IDs. For more information, see</span><span>
-</span><span id="line-29"></span><span class="hs-comment">-- &lt;efs/latest/ug/manage-efs-resource-ids.html Managing Amazon EFS resource IDs&gt;.</span><span>
-</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EFS.PutAccountPreferences</span><span>
-</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
-</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier">PutAccountPreferences</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#newPutAccountPreferences"><span class="hs-identifier">newPutAccountPreferences</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-34"></span><span>
-</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
-</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferences_resourceIdType"><span class="hs-identifier">putAccountPreferences_resourceIdType</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-37"></span><span>
-</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
-</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier">PutAccountPreferencesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
-</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#newPutAccountPreferencesResponse"><span class="hs-identifier">newPutAccountPreferencesResponse</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-41"></span><span>
-</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
-</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferencesResponse_resourceIdPreference"><span class="hs-identifier">putAccountPreferencesResponse_resourceIdPreference</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferencesResponse_httpStatus"><span class="hs-identifier">putAccountPreferencesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
-</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
-</span><span id="line-47"></span><span>
-</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
-</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.html"><span class="hs-identifier">Network.AWS.EFS.Types</span></a></span><span>
-</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
-</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
-</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
-</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
-</span><span id="line-54"></span><span>
-</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newPutAccountPreferences' smart constructor.</span><span>
-</span><span id="line-56"></span><span id="local-6989586621679189783"><span id="local-6989586621679189784"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAccountPreferences"><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-var">PutAccountPreferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAccountPreferences%27"><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences%27"><span class="hs-identifier hs-var">PutAccountPreferences'</span></a></span></span><span>
-</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the EFS resource ID preference to set for the user\'s Amazon</span><span>
-</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Web Services account, in the current Amazon Web Services Region, either</span><span>
-</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- @LONG_ID@ (17 characters), or @SHORT_ID@ (8 characters).</span><span>
-</span><span id="line-60"></span><span>    </span><span id="%24sel%3AresourceIdType%3APutAccountPreferences%27"><span class="annot"><span class="annottext">PutAccountPreferences -&gt; ResourceIdType
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/efs/latest/ug/manage-efs-resource-ids.html Managing Amazon EFS resource IDs&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Starting in October, 2021, you will receive an error if you try to set</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- the account preference to use the short 8 character format resource ID.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Contact Amazon Web Services support if you receive an error and need to</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- use short IDs for file system and mount target resources.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Network.AWS.EFS.PutAccountPreferences</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier">PutAccountPreferences</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#newPutAccountPreferences"><span class="hs-identifier">newPutAccountPreferences</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferences_resourceIdType"><span class="hs-identifier">putAccountPreferences_resourceIdType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier">PutAccountPreferencesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#newPutAccountPreferencesResponse"><span class="hs-identifier">newPutAccountPreferencesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferencesResponse_resourceIdPreference"><span class="hs-identifier">putAccountPreferencesResponse_resourceIdPreference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferencesResponse_httpStatus"><span class="hs-identifier">putAccountPreferencesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.html"><span class="hs-identifier">Network.AWS.EFS.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.AWS.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newPutAccountPreferences' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679189864"><span id="local-6989586621679189865"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAccountPreferences"><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-var">PutAccountPreferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAccountPreferences%27"><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences%27"><span class="hs-identifier hs-var">PutAccountPreferences'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the EFS resource ID preference to set for the user\'s Amazon</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- Web Services account, in the current Amazon Web Services Region, either</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- @LONG_ID@ (17 characters), or @SHORT_ID@ (8 characters).</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- Starting in October, 2021, you will receive an error when setting the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- account preference to @SHORT_ID@. Contact Amazon Web Services support if</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- you receive an error and need to use short IDs for file system and mount</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- target resources.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AresourceIdType%3APutAccountPreferences%27"><span class="annot"><span class="annottext">PutAccountPreferences -&gt; ResourceIdType
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#%24sel%3AresourceIdType%3APutAccountPreferences%27"><span class="hs-identifier hs-var hs-var">resourceIdType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdType.html#ResourceIdType"><span class="hs-identifier hs-type">ResourceIdType</span></a></span><span>
-</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189777"><span id="local-6989586621679189779"><span class="annot"><span class="annottext">PutAccountPreferences -&gt; PutAccountPreferences -&gt; Bool
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189858"><span id="local-6989586621679189860"><span class="annot"><span class="annottext">PutAccountPreferences -&gt; PutAccountPreferences -&gt; Bool
 (PutAccountPreferences -&gt; PutAccountPreferences -&gt; Bool)
 -&gt; (PutAccountPreferences -&gt; PutAccountPreferences -&gt; Bool)
 -&gt; Eq PutAccountPreferences
@@ -69,7 +79,7 @@ forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
 $c/= :: PutAccountPreferences -&gt; PutAccountPreferences -&gt; Bool
 == :: PutAccountPreferences -&gt; PutAccountPreferences -&gt; Bool
 $c== :: PutAccountPreferences -&gt; PutAccountPreferences -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189768"><span id="local-6989586621679189770"><span id="local-6989586621679189772"><span id="local-6989586621679189774"><span class="annot"><span class="annottext">ReadPrec [PutAccountPreferences]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189849"><span id="local-6989586621679189851"><span id="local-6989586621679189853"><span id="local-6989586621679189855"><span class="annot"><span class="annottext">ReadPrec [PutAccountPreferences]
 ReadPrec PutAccountPreferences
 Int -&gt; ReadS PutAccountPreferences
 ReadS [PutAccountPreferences]
@@ -89,7 +99,7 @@ readList :: ReadS [PutAccountPreferences]
 $creadList :: ReadS [PutAccountPreferences]
 readsPrec :: Int -&gt; ReadS PutAccountPreferences
 $creadsPrec :: Int -&gt; ReadS PutAccountPreferences
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189761"><span id="local-6989586621679189763"><span id="local-6989586621679189765"><span class="annot"><span class="annottext">Int -&gt; PutAccountPreferences -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189842"><span id="local-6989586621679189844"><span id="local-6989586621679189846"><span class="annot"><span class="annottext">Int -&gt; PutAccountPreferences -&gt; ShowS
 [PutAccountPreferences] -&gt; ShowS
 PutAccountPreferences -&gt; String
 (Int -&gt; PutAccountPreferences -&gt; ShowS)
@@ -114,38 +124,48 @@ forall a.
 $cto :: forall x. Rep PutAccountPreferences x -&gt; PutAccountPreferences
 $cfrom :: forall x. PutAccountPreferences -&gt; Rep PutAccountPreferences x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-63"></span><span>
-</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'PutAccountPreferences' with all optional fields omitted.</span><span>
-</span><span id="line-66"></span><span class="hs-comment">--</span><span>
-</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-68"></span><span class="hs-comment">--</span><span>
-</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-71"></span><span class="hs-comment">--</span><span>
-</span><span id="line-72"></span><span class="hs-comment">-- 'resourceIdType', 'putAccountPreferences_resourceIdType' - Specifies the EFS resource ID preference to set for the user\'s Amazon</span><span>
-</span><span id="line-73"></span><span class="hs-comment">-- Web Services account, in the current Amazon Web Services Region, either</span><span>
-</span><span id="line-74"></span><span class="hs-comment">-- @LONG_ID@ (17 characters), or @SHORT_ID@ (8 characters).</span><span>
-</span><span id="line-75"></span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#newPutAccountPreferences"><span class="hs-identifier hs-type">newPutAccountPreferences</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'resourceIdType'</span><span>
-</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdType.html#ResourceIdType"><span class="hs-identifier hs-type">ResourceIdType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span>
-</span><span id="line-79"></span><span id="newPutAccountPreferences"><span class="annot"><span class="annottext">newPutAccountPreferences :: ResourceIdType -&gt; PutAccountPreferences
-</span><a href="Network.AWS.EFS.PutAccountPreferences.html#newPutAccountPreferences"><span class="hs-identifier hs-var hs-var">newPutAccountPreferences</span></a></span></span><span> </span><span id="local-6989586621679189756"><span class="annot"><span class="annottext">ResourceIdType
-</span><a href="#local-6989586621679189756"><span class="hs-identifier hs-var">pResourceIdType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">PutAccountPreferences' :: ResourceIdType -&gt; PutAccountPreferences
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'PutAccountPreferences' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'resourceIdType', 'putAccountPreferences_resourceIdType' - Specifies the EFS resource ID preference to set for the user\'s Amazon</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Web Services account, in the current Amazon Web Services Region, either</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- @LONG_ID@ (17 characters), or @SHORT_ID@ (8 characters).</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Starting in October, 2021, you will receive an error when setting the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- account preference to @SHORT_ID@. Contact Amazon Web Services support if</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- you receive an error and need to use short IDs for file system and mount</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- target resources.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#newPutAccountPreferences"><span class="hs-identifier hs-type">newPutAccountPreferences</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'resourceIdType'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdType.html#ResourceIdType"><span class="hs-identifier hs-type">ResourceIdType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span>
+</span><span id="line-94"></span><span id="newPutAccountPreferences"><span class="annot"><span class="annottext">newPutAccountPreferences :: ResourceIdType -&gt; PutAccountPreferences
+</span><a href="Network.AWS.EFS.PutAccountPreferences.html#newPutAccountPreferences"><span class="hs-identifier hs-var hs-var">newPutAccountPreferences</span></a></span></span><span> </span><span id="local-6989586621679189837"><span class="annot"><span class="annottext">ResourceIdType
+</span><a href="#local-6989586621679189837"><span class="hs-identifier hs-var">pResourceIdType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">PutAccountPreferences' :: ResourceIdType -&gt; PutAccountPreferences
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences%27"><span class="hs-identifier hs-type">PutAccountPreferences'</span></a></span><span>
-</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceIdType:PutAccountPreferences' :: ResourceIdType
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceIdType:PutAccountPreferences' :: ResourceIdType
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#%24sel%3AresourceIdType%3APutAccountPreferences%27"><span class="hs-identifier hs-var">resourceIdType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">ResourceIdType
-</span><a href="#local-6989586621679189756"><span class="hs-identifier hs-var">pResourceIdType_</span></a></span><span>
-</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-84"></span><span>
-</span><span id="line-85"></span><span class="hs-comment">-- | Specifies the EFS resource ID preference to set for the user\'s Amazon</span><span>
-</span><span id="line-86"></span><span class="hs-comment">-- Web Services account, in the current Amazon Web Services Region, either</span><span>
-</span><span id="line-87"></span><span class="hs-comment">-- @LONG_ID@ (17 characters), or @SHORT_ID@ (8 characters).</span><span>
-</span><span id="line-88"></span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferences_resourceIdType"><span class="hs-identifier hs-type">putAccountPreferences_resourceIdType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdType.html#ResourceIdType"><span class="hs-identifier hs-type">ResourceIdType</span></a></span><span>
-</span><span id="line-89"></span><span id="putAccountPreferences_resourceIdType"><span class="annot"><span class="annottext">putAccountPreferences_resourceIdType :: (ResourceIdType -&gt; f ResourceIdType)
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">ResourceIdType
+</span><a href="#local-6989586621679189837"><span class="hs-identifier hs-var">pResourceIdType_</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Specifies the EFS resource ID preference to set for the user\'s Amazon</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Web Services account, in the current Amazon Web Services Region, either</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- @LONG_ID@ (17 characters), or @SHORT_ID@ (8 characters).</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Starting in October, 2021, you will receive an error when setting the</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- account preference to @SHORT_ID@. Contact Amazon Web Services support if</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- you receive an error and need to use short IDs for file system and mount</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- target resources.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferences_resourceIdType"><span class="hs-identifier hs-type">putAccountPreferences_resourceIdType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdType.html#ResourceIdType"><span class="hs-identifier hs-type">ResourceIdType</span></a></span><span>
+</span><span id="line-109"></span><span id="putAccountPreferences_resourceIdType"><span class="annot"><span class="annottext">putAccountPreferences_resourceIdType :: (ResourceIdType -&gt; f ResourceIdType)
 -&gt; PutAccountPreferences -&gt; f PutAccountPreferences
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferences_resourceIdType"><span class="hs-identifier hs-var hs-var">putAccountPreferences_resourceIdType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccountPreferences -&gt; ResourceIdType)
 -&gt; (PutAccountPreferences
@@ -156,34 +176,34 @@ $cfrom :: forall x. PutAccountPreferences -&gt; Rep PutAccountPreferences x
      ResourceIdType
      ResourceIdType
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences%27"><span class="hs-identifier hs-type">PutAccountPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189753"><span class="annot"><span class="annottext">ResourceIdType
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences%27"><span class="hs-identifier hs-type">PutAccountPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189834"><span class="annot"><span class="annottext">ResourceIdType
 resourceIdType :: ResourceIdType
 $sel:resourceIdType:PutAccountPreferences' :: PutAccountPreferences -&gt; ResourceIdType
-</span><a href="#local-6989586621679189753"><span class="hs-identifier hs-var hs-var">resourceIdType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceIdType
-</span><a href="#local-6989586621679189753"><span class="hs-identifier hs-var">resourceIdType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189752"><span class="annot"><span class="annottext">s :: PutAccountPreferences
-</span><a href="#local-6989586621679189752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences%27"><span class="hs-identifier hs-type">PutAccountPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189751"><span class="annot"><span class="annottext">ResourceIdType
-</span><a href="#local-6989586621679189751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccountPreferences
-</span><a href="#local-6989586621679189752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdType:PutAccountPreferences' :: ResourceIdType
+</span><a href="#local-6989586621679189834"><span class="hs-identifier hs-var hs-var">resourceIdType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceIdType
+</span><a href="#local-6989586621679189834"><span class="hs-identifier hs-var">resourceIdType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189833"><span class="annot"><span class="annottext">s :: PutAccountPreferences
+</span><a href="#local-6989586621679189833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences%27"><span class="hs-identifier hs-type">PutAccountPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189832"><span class="annot"><span class="annottext">ResourceIdType
+</span><a href="#local-6989586621679189832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccountPreferences
+</span><a href="#local-6989586621679189833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdType:PutAccountPreferences' :: ResourceIdType
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#%24sel%3AresourceIdType%3APutAccountPreferences%27"><span class="hs-identifier hs-var">resourceIdType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceIdType
-</span><a href="#local-6989586621679189751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-90"></span><span>
-</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
-</span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-94"></span><span>      </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span><span>
-</span><span id="line-95"></span><span>  </span><span id="local-6989586621679189747"><span class="annot"><span class="annottext">request :: PutAccountPreferences -&gt; Request PutAccountPreferences
+</span><a href="#local-6989586621679189832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679189828"><span class="annot"><span class="annottext">request :: PutAccountPreferences -&gt; Request PutAccountPreferences
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutAccountPreferences -&gt; Request PutAccountPreferences
 forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
 </span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
 </span><a href="Network.AWS.EFS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
-</span><span id="line-96"></span><span>  </span><span id="local-6989586621679189743"><span class="annot"><span class="annottext">response :: Logger
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679189824"><span class="annot"><span class="annottext">response :: Logger
 -&gt; Service
 -&gt; Proxy PutAccountPreferences
 -&gt; ClientResponse ClientBody
 -&gt; m (Either
         Error (ClientResponse (AWSResponse PutAccountPreferences)))
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">(Int
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">(Int
  -&gt; ResponseHeaders
  -&gt; Object
  -&gt; Either String (AWSResponse PutAccountPreferences))
@@ -202,23 +222,23 @@ MonadResource m =&gt;
 -&gt; ClientResponse ClientBody
 -&gt; m (Either Error (ClientResponse (AWSResponse a)))
 </span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
-</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679189740"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189740"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679189739"><span class="annot"><span class="annottext">ResponseHeaders
-</span><a href="#local-6989586621679189739"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679189738"><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679189738"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceIdPreference -&gt; Int -&gt; PutAccountPreferencesResponse
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679189821"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189821"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679189820"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679189820"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679189819"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679189819"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe ResourceIdPreference -&gt; Int -&gt; PutAccountPreferencesResponse
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse%27"><span class="hs-identifier hs-var">PutAccountPreferencesResponse'</span></a></span><span>
-</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResourceIdPreference
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ResourceIdPreference
  -&gt; Int -&gt; PutAccountPreferencesResponse)
 -&gt; Either String (Maybe ResourceIdPreference)
 -&gt; Either String (Int -&gt; PutAccountPreferencesResponse)
 forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
-</span><a href="#local-6989586621679189738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ResourceIdPreference)
+</span><a href="#local-6989586621679189819"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ResourceIdPreference)
 forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
 </span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceIdPreference&quot;</span></span><span class="hs-special">)</span><span>
-</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; PutAccountPreferencesResponse)
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; PutAccountPreferencesResponse)
 -&gt; Either String Int -&gt; Either String PutAccountPreferencesResponse
 forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
 </span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
@@ -226,68 +246,68 @@ forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
 </span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
 forall a. Enum a =&gt; a -&gt; Int
 </span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189740"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
-</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-103"></span><span>
-</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189730"><span id="local-6989586621679189732"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span></span></span><span>
-</span><span id="line-105"></span><span>
-</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189727"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span></span><span>
-</span><span id="line-107"></span><span>
-</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-109"></span><span>  </span><span id="local-6989586621679189723"><span class="annot"><span class="annottext">toHeaders :: PutAccountPreferences -&gt; ResponseHeaders
+</span><a href="#local-6989586621679189821"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189811"><span id="local-6989586621679189813"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189808"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679189804"><span class="annot"><span class="annottext">toHeaders :: PutAccountPreferences -&gt; ResponseHeaders
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutAccountPreferences -&gt; ResponseHeaders
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-110"></span><span>
-</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189714"><span id="local-6989586621679189716"><span id="local-6989586621679189718"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-112"></span><span>  </span><span id="local-6989586621679189712"><span class="annot"><span class="annottext">toJSON :: PutAccountPreferences -&gt; Value
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences%27"><span class="hs-identifier hs-type">PutAccountPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189710"><span class="annot"><span class="annottext">ResourceIdType
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189795"><span id="local-6989586621679189797"><span id="local-6989586621679189799"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679189793"><span class="annot"><span class="annottext">toJSON :: PutAccountPreferences -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences%27"><span class="hs-identifier hs-type">PutAccountPreferences'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189791"><span class="annot"><span class="annottext">ResourceIdType
 resourceIdType :: ResourceIdType
 $sel:resourceIdType:PutAccountPreferences' :: PutAccountPreferences -&gt; ResourceIdType
-</span><a href="#local-6989586621679189710"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><a href="#local-6989586621679189791"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
 </span><span class="hs-identifier hs-var">Core.object</span></span><span>
-</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
 forall a. [Maybe a] -&gt; [a]
 </span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
-</span><span id="line-115"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+</span><span id="line-135"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
 forall a. a -&gt; Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
-</span><span id="line-116"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span id="line-136"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
 </span><span class="hs-string">&quot;ResourceIdType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ResourceIdType -&gt; Pair
 forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
 </span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ResourceIdType
-</span><a href="#local-6989586621679189710"><span class="hs-identifier hs-var">resourceIdType</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
-</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
-</span><span id="line-119"></span><span>
-</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-121"></span><span>  </span><span id="local-6989586621679189704"><span class="annot"><span class="annottext">toPath :: PutAccountPreferences -&gt; ByteString
+</span><a href="#local-6989586621679189791"><span class="hs-identifier hs-var">resourceIdType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679189785"><span class="annot"><span class="annottext">toPath :: PutAccountPreferences -&gt; ByteString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; PutAccountPreferences -&gt; ByteString
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; PutAccountPreferences -&gt; ByteString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
 </span><span class="hs-string">&quot;/2015-02-01/account-preferences&quot;</span></span><span>
-</span><span id="line-123"></span><span>
-</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
-</span><span id="line-125"></span><span>  </span><span id="local-6989586621679189700"><span class="annot"><span class="annottext">toQuery :: PutAccountPreferences -&gt; QueryString
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferences"><span class="hs-identifier hs-type">PutAccountPreferences</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679189781"><span class="annot"><span class="annottext">toQuery :: PutAccountPreferences -&gt; QueryString
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutAccountPreferences -&gt; QueryString
 forall a b. a -&gt; b -&gt; a
 </span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
 forall a. Monoid a =&gt; a
 </span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
-</span><span id="line-126"></span><span>
-</span><span id="line-127"></span><span class="hs-comment">-- | /See:/ 'newPutAccountPreferencesResponse' smart constructor.</span><span>
-</span><span id="line-128"></span><span id="local-6989586621679189697"><span id="local-6989586621679189698"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAccountPreferencesResponse"><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-var">PutAccountPreferencesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAccountPreferencesResponse%27"><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse%27"><span class="hs-identifier hs-var">PutAccountPreferencesResponse'</span></a></span></span><span>
-</span><span id="line-129"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AresourceIdPreference%3APutAccountPreferencesResponse%27"><span class="annot"><span class="annottext">PutAccountPreferencesResponse -&gt; Maybe ResourceIdPreference
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | /See:/ 'newPutAccountPreferencesResponse' smart constructor.</span><span>
+</span><span id="line-148"></span><span id="local-6989586621679189778"><span id="local-6989586621679189779"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutAccountPreferencesResponse"><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-var">PutAccountPreferencesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutAccountPreferencesResponse%27"><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse%27"><span class="hs-identifier hs-var">PutAccountPreferencesResponse'</span></a></span></span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AresourceIdPreference%3APutAccountPreferencesResponse%27"><span class="annot"><span class="annottext">PutAccountPreferencesResponse -&gt; Maybe ResourceIdPreference
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#%24sel%3AresourceIdPreference%3APutAccountPreferencesResponse%27"><span class="hs-identifier hs-var hs-var">resourceIdPreference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-type">ResourceIdPreference</span></a></span><span class="hs-special">,</span><span>
-</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-131"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutAccountPreferencesResponse%27"><span class="annot"><span class="annottext">PutAccountPreferencesResponse -&gt; Int
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutAccountPreferencesResponse%27"><span class="annot"><span class="annottext">PutAccountPreferencesResponse -&gt; Int
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#%24sel%3AhttpStatus%3APutAccountPreferencesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
-</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189691"><span id="local-6989586621679189693"><span class="annot"><span class="annottext">PutAccountPreferencesResponse
+</span><span id="line-152"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679189772"><span id="local-6989586621679189774"><span class="annot"><span class="annottext">PutAccountPreferencesResponse
 -&gt; PutAccountPreferencesResponse -&gt; Bool
 (PutAccountPreferencesResponse
  -&gt; PutAccountPreferencesResponse -&gt; Bool)
@@ -303,7 +323,7 @@ $c/= :: PutAccountPreferencesResponse
 -&gt; PutAccountPreferencesResponse -&gt; Bool
 $c== :: PutAccountPreferencesResponse
 -&gt; PutAccountPreferencesResponse -&gt; Bool
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189683"><span id="local-6989586621679189685"><span id="local-6989586621679189687"><span id="local-6989586621679189689"><span class="annot"><span class="annottext">ReadPrec [PutAccountPreferencesResponse]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189764"><span id="local-6989586621679189766"><span id="local-6989586621679189768"><span id="local-6989586621679189770"><span class="annot"><span class="annottext">ReadPrec [PutAccountPreferencesResponse]
 ReadPrec PutAccountPreferencesResponse
 Int -&gt; ReadS PutAccountPreferencesResponse
 ReadS [PutAccountPreferencesResponse]
@@ -323,7 +343,7 @@ readList :: ReadS [PutAccountPreferencesResponse]
 $creadList :: ReadS [PutAccountPreferencesResponse]
 readsPrec :: Int -&gt; ReadS PutAccountPreferencesResponse
 $creadsPrec :: Int -&gt; ReadS PutAccountPreferencesResponse
-</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189677"><span id="local-6989586621679189679"><span id="local-6989586621679189681"><span class="annot"><span class="annottext">Int -&gt; PutAccountPreferencesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679189758"><span id="local-6989586621679189760"><span id="local-6989586621679189762"><span class="annot"><span class="annottext">Int -&gt; PutAccountPreferencesResponse -&gt; ShowS
 [PutAccountPreferencesResponse] -&gt; ShowS
 PutAccountPreferencesResponse -&gt; String
 (Int -&gt; PutAccountPreferencesResponse -&gt; ShowS)
@@ -360,40 +380,40 @@ $cfrom :: forall x.
 PutAccountPreferencesResponse
 -&gt; Rep PutAccountPreferencesResponse x
 </span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
-</span><span id="line-134"></span><span>
-</span><span id="line-135"></span><span class="hs-comment">-- |</span><span>
-</span><span id="line-136"></span><span class="hs-comment">-- Create a value of 'PutAccountPreferencesResponse' with all optional fields omitted.</span><span>
-</span><span id="line-137"></span><span class="hs-comment">--</span><span>
-</span><span id="line-138"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
-</span><span id="line-139"></span><span class="hs-comment">--</span><span>
-</span><span id="line-140"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
-</span><span id="line-141"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
-</span><span id="line-142"></span><span class="hs-comment">--</span><span>
-</span><span id="line-143"></span><span class="hs-comment">-- 'resourceIdPreference', 'putAccountPreferencesResponse_resourceIdPreference' - Undocumented member.</span><span>
-</span><span id="line-144"></span><span class="hs-comment">--</span><span>
-</span><span id="line-145"></span><span class="hs-comment">-- 'httpStatus', 'putAccountPreferencesResponse_httpStatus' - The response's http status code.</span><span>
-</span><span id="line-146"></span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#newPutAccountPreferencesResponse"><span class="hs-identifier hs-type">newPutAccountPreferencesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
-</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
-</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
-</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span><span>
-</span><span id="line-150"></span><span id="newPutAccountPreferencesResponse"><span class="annot"><span class="annottext">newPutAccountPreferencesResponse :: Int -&gt; PutAccountPreferencesResponse
-</span><a href="Network.AWS.EFS.PutAccountPreferences.html#newPutAccountPreferencesResponse"><span class="hs-identifier hs-var hs-var">newPutAccountPreferencesResponse</span></a></span></span><span> </span><span id="local-6989586621679189674"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189674"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-151"></span><span>  </span><span class="annot"><span class="annottext">PutAccountPreferencesResponse' :: Maybe ResourceIdPreference -&gt; Int -&gt; PutAccountPreferencesResponse
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Create a value of 'PutAccountPreferencesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'resourceIdPreference', 'putAccountPreferencesResponse_resourceIdPreference' - Undocumented member.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'httpStatus', 'putAccountPreferencesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#newPutAccountPreferencesResponse"><span class="hs-identifier hs-type">newPutAccountPreferencesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span><span>
+</span><span id="line-170"></span><span id="newPutAccountPreferencesResponse"><span class="annot"><span class="annottext">newPutAccountPreferencesResponse :: Int -&gt; PutAccountPreferencesResponse
+</span><a href="Network.AWS.EFS.PutAccountPreferences.html#newPutAccountPreferencesResponse"><span class="hs-identifier hs-var hs-var">newPutAccountPreferencesResponse</span></a></span></span><span> </span><span id="local-6989586621679189755"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189755"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">PutAccountPreferencesResponse' :: Maybe ResourceIdPreference -&gt; Int -&gt; PutAccountPreferencesResponse
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse%27"><span class="hs-identifier hs-type">PutAccountPreferencesResponse'</span></a></span><span>
-</span><span id="line-152"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceIdPreference:PutAccountPreferencesResponse' :: Maybe ResourceIdPreference
+</span><span id="line-172"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceIdPreference:PutAccountPreferencesResponse' :: Maybe ResourceIdPreference
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#%24sel%3AresourceIdPreference%3APutAccountPreferencesResponse%27"><span class="hs-identifier hs-var">resourceIdPreference</span></a></span><span> </span><span class="hs-glyph">=</span><span>
-</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">Maybe ResourceIdPreference
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">Maybe ResourceIdPreference
 forall a. Maybe a
 </span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
-</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutAccountPreferencesResponse' :: Int
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutAccountPreferencesResponse' :: Int
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#%24sel%3AhttpStatus%3APutAccountPreferencesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189674"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
-</span><span id="line-155"></span><span>    </span><span class="hs-special">}</span><span>
-</span><span id="line-156"></span><span>
-</span><span id="line-157"></span><span class="hs-comment">-- | Undocumented member.</span><span>
-</span><span id="line-158"></span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferencesResponse_resourceIdPreference"><span class="hs-identifier hs-type">putAccountPreferencesResponse_resourceIdPreference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-type">ResourceIdPreference</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-159"></span><span id="putAccountPreferencesResponse_resourceIdPreference"><span class="annot"><span class="annottext">putAccountPreferencesResponse_resourceIdPreference :: (Maybe ResourceIdPreference -&gt; f (Maybe ResourceIdPreference))
+</span><a href="#local-6989586621679189755"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferencesResponse_resourceIdPreference"><span class="hs-identifier hs-type">putAccountPreferencesResponse_resourceIdPreference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.Types.ResourceIdPreference.html#ResourceIdPreference"><span class="hs-identifier hs-type">ResourceIdPreference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="putAccountPreferencesResponse_resourceIdPreference"><span class="annot"><span class="annottext">putAccountPreferencesResponse_resourceIdPreference :: (Maybe ResourceIdPreference -&gt; f (Maybe ResourceIdPreference))
 -&gt; PutAccountPreferencesResponse -&gt; f PutAccountPreferencesResponse
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferencesResponse_resourceIdPreference"><span class="hs-identifier hs-var hs-var">putAccountPreferencesResponse_resourceIdPreference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccountPreferencesResponse -&gt; Maybe ResourceIdPreference)
 -&gt; (PutAccountPreferencesResponse
@@ -404,20 +424,20 @@ forall a. Maybe a
      (Maybe ResourceIdPreference)
      (Maybe ResourceIdPreference)
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse%27"><span class="hs-identifier hs-type">PutAccountPreferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189673"><span class="annot"><span class="annottext">Maybe ResourceIdPreference
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse%27"><span class="hs-identifier hs-type">PutAccountPreferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189754"><span class="annot"><span class="annottext">Maybe ResourceIdPreference
 resourceIdPreference :: Maybe ResourceIdPreference
 $sel:resourceIdPreference:PutAccountPreferencesResponse' :: PutAccountPreferencesResponse -&gt; Maybe ResourceIdPreference
-</span><a href="#local-6989586621679189673"><span class="hs-identifier hs-var hs-var">resourceIdPreference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceIdPreference
-</span><a href="#local-6989586621679189673"><span class="hs-identifier hs-var">resourceIdPreference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189672"><span class="annot"><span class="annottext">s :: PutAccountPreferencesResponse
-</span><a href="#local-6989586621679189672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse%27"><span class="hs-identifier hs-type">PutAccountPreferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189671"><span class="annot"><span class="annottext">Maybe ResourceIdPreference
-</span><a href="#local-6989586621679189671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccountPreferencesResponse
-</span><a href="#local-6989586621679189672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdPreference:PutAccountPreferencesResponse' :: Maybe ResourceIdPreference
+</span><a href="#local-6989586621679189754"><span class="hs-identifier hs-var hs-var">resourceIdPreference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceIdPreference
+</span><a href="#local-6989586621679189754"><span class="hs-identifier hs-var">resourceIdPreference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189753"><span class="annot"><span class="annottext">s :: PutAccountPreferencesResponse
+</span><a href="#local-6989586621679189753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse%27"><span class="hs-identifier hs-type">PutAccountPreferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189752"><span class="annot"><span class="annottext">Maybe ResourceIdPreference
+</span><a href="#local-6989586621679189752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccountPreferencesResponse
+</span><a href="#local-6989586621679189753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceIdPreference:PutAccountPreferencesResponse' :: Maybe ResourceIdPreference
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#%24sel%3AresourceIdPreference%3APutAccountPreferencesResponse%27"><span class="hs-identifier hs-var">resourceIdPreference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ResourceIdPreference
-</span><a href="#local-6989586621679189671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-160"></span><span>
-</span><span id="line-161"></span><span class="hs-comment">-- | The response's http status code.</span><span>
-</span><span id="line-162"></span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferencesResponse_httpStatus"><span class="hs-identifier hs-type">putAccountPreferencesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
-</span><span id="line-163"></span><span id="putAccountPreferencesResponse_httpStatus"><span class="annot"><span class="annottext">putAccountPreferencesResponse_httpStatus :: (Int -&gt; f Int)
+</span><a href="#local-6989586621679189752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferencesResponse_httpStatus"><span class="hs-identifier hs-type">putAccountPreferencesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-183"></span><span id="putAccountPreferencesResponse_httpStatus"><span class="annot"><span class="annottext">putAccountPreferencesResponse_httpStatus :: (Int -&gt; f Int)
 -&gt; PutAccountPreferencesResponse -&gt; f PutAccountPreferencesResponse
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#putAccountPreferencesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putAccountPreferencesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutAccountPreferencesResponse -&gt; Int)
 -&gt; (PutAccountPreferencesResponse
@@ -425,16 +445,16 @@ $sel:resourceIdPreference:PutAccountPreferencesResponse' :: PutAccountPreference
 -&gt; Lens
      PutAccountPreferencesResponse PutAccountPreferencesResponse Int Int
 forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
-</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse%27"><span class="hs-identifier hs-type">PutAccountPreferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189670"><span class="annot"><span class="annottext">Int
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse%27"><span class="hs-identifier hs-type">PutAccountPreferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679189751"><span class="annot"><span class="annottext">Int
 httpStatus :: Int
 $sel:httpStatus:PutAccountPreferencesResponse' :: PutAccountPreferencesResponse -&gt; Int
-</span><a href="#local-6989586621679189670"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189670"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189669"><span class="annot"><span class="annottext">s :: PutAccountPreferencesResponse
-</span><a href="#local-6989586621679189669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse%27"><span class="hs-identifier hs-type">PutAccountPreferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189668"><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccountPreferencesResponse
-</span><a href="#local-6989586621679189669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutAccountPreferencesResponse' :: Int
+</span><a href="#local-6989586621679189751"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189751"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679189750"><span class="annot"><span class="annottext">s :: PutAccountPreferencesResponse
+</span><a href="#local-6989586621679189750"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse%27"><span class="hs-identifier hs-type">PutAccountPreferencesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679189749"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679189749"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutAccountPreferencesResponse
+</span><a href="#local-6989586621679189750"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutAccountPreferencesResponse' :: Int
 </span><a href="Network.AWS.EFS.PutAccountPreferences.html#%24sel%3AhttpStatus%3APutAccountPreferencesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
-</span><a href="#local-6989586621679189668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span><span class="hs-special">)</span><span>
-</span><span id="line-164"></span><span>
-</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189666"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span></span><span>
-</span><span id="line-166"></span></pre></body></html>
+</span><a href="#local-6989586621679189749"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679189747"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Network.AWS.EFS.PutAccountPreferences.html#PutAccountPreferencesResponse"><span class="hs-identifier hs-type">PutAccountPreferencesResponse</span></a></span></span><span>
+</span><span id="line-186"></span></pre></body></html>

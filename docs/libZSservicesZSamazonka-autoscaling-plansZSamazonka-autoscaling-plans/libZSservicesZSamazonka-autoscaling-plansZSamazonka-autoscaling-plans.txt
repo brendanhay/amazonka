@@ -2,7 +2,7 @@
 -- See Hoogle, http://www.haskell.org/hoogle/
 
 @package libZSservicesZSamazonka-autoscaling-plansZSamazonka-autoscaling-plans
-@version 1.6.1
+@version 2.0
 
 
 module Network.AWS.AutoScalingPlans.Types.Datapoint
@@ -12,13 +12,13 @@ module Network.AWS.AutoScalingPlans.Types.Datapoint
 --   
 --   <i>See:</i> <a>newDatapoint</a> smart constructor.
 data Datapoint
-Datapoint' :: Maybe POSIX -> Maybe Double -> Datapoint
-
--- | The time stamp for the data point in UTC format.
-[$sel:timestamp:Datapoint'] :: Datapoint -> Maybe POSIX
+Datapoint' :: Maybe Double -> Maybe POSIX -> Datapoint
 
 -- | The value of the data point.
 [$sel:value:Datapoint'] :: Datapoint -> Maybe Double
+
+-- | The time stamp for the data point in UTC format.
+[$sel:timestamp:Datapoint'] :: Datapoint -> Maybe POSIX
 
 -- | Create a value of <a>Datapoint</a> with all optional fields omitted.
 --   
@@ -28,18 +28,18 @@ Datapoint' :: Maybe POSIX -> Maybe Double -> Datapoint
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:timestamp:Datapoint'</a>, <a>datapoint_timestamp</a> - The
---   time stamp for the data point in UTC format.
---   
 --   <a>$sel:value:Datapoint'</a>, <a>datapoint_value</a> - The value of
 --   the data point.
+--   
+--   <a>$sel:timestamp:Datapoint'</a>, <a>datapoint_timestamp</a> - The
+--   time stamp for the data point in UTC format.
 newDatapoint :: Datapoint
-
--- | The time stamp for the data point in UTC format.
-datapoint_timestamp :: Lens' Datapoint (Maybe UTCTime)
 
 -- | The value of the data point.
 datapoint_value :: Lens' Datapoint (Maybe Double)
+
+-- | The time stamp for the data point in UTC format.
+datapoint_timestamp :: Lens' Datapoint (Maybe UTCTime)
 instance GHC.Generics.Generic Network.AWS.AutoScalingPlans.Types.Datapoint.Datapoint
 instance GHC.Show.Show Network.AWS.AutoScalingPlans.Types.Datapoint.Datapoint
 instance GHC.Read.Read Network.AWS.AutoScalingPlans.Types.Datapoint.Datapoint
@@ -208,10 +208,7 @@ module Network.AWS.AutoScalingPlans.Types.CustomizedScalingMetricSpecification
 --   <i>See:</i> <a>newCustomizedScalingMetricSpecification</a> smart
 --   constructor.
 data CustomizedScalingMetricSpecification
-CustomizedScalingMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> Text -> Text -> MetricStatistic -> CustomizedScalingMetricSpecification
-
--- | The unit of the metric.
-[$sel:unit:CustomizedScalingMetricSpecification'] :: CustomizedScalingMetricSpecification -> Maybe Text
+CustomizedScalingMetricSpecification' :: Maybe [MetricDimension] -> Maybe Text -> Text -> Text -> MetricStatistic -> CustomizedScalingMetricSpecification
 
 -- | The dimensions of the metric.
 --   
@@ -219,6 +216,9 @@ CustomizedScalingMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -
 --   specify the same dimensions in your customized scaling metric
 --   specification.
 [$sel:dimensions:CustomizedScalingMetricSpecification'] :: CustomizedScalingMetricSpecification -> Maybe [MetricDimension]
+
+-- | The unit of the metric.
+[$sel:unit:CustomizedScalingMetricSpecification'] :: CustomizedScalingMetricSpecification -> Maybe Text
 
 -- | The name of the metric.
 [$sel:metricName:CustomizedScalingMetricSpecification'] :: CustomizedScalingMetricSpecification -> Text
@@ -238,10 +238,6 @@ CustomizedScalingMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:unit:CustomizedScalingMetricSpecification'</a>,
---   <a>customizedScalingMetricSpecification_unit</a> - The unit of the
---   metric.
---   
 --   <a>$sel:dimensions:CustomizedScalingMetricSpecification'</a>,
 --   <a>customizedScalingMetricSpecification_dimensions</a> - The
 --   dimensions of the metric.
@@ -249,6 +245,10 @@ CustomizedScalingMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -
 --   Conditional: If you published your metric with dimensions, you must
 --   specify the same dimensions in your customized scaling metric
 --   specification.
+--   
+--   <a>$sel:unit:CustomizedScalingMetricSpecification'</a>,
+--   <a>customizedScalingMetricSpecification_unit</a> - The unit of the
+--   metric.
 --   
 --   <a>$sel:metricName:CustomizedScalingMetricSpecification'</a>,
 --   <a>customizedScalingMetricSpecification_metricName</a> - The name of
@@ -263,15 +263,15 @@ CustomizedScalingMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -
 --   of the metric.
 newCustomizedScalingMetricSpecification :: Text -> Text -> MetricStatistic -> CustomizedScalingMetricSpecification
 
--- | The unit of the metric.
-customizedScalingMetricSpecification_unit :: Lens' CustomizedScalingMetricSpecification (Maybe Text)
-
 -- | The dimensions of the metric.
 --   
 --   Conditional: If you published your metric with dimensions, you must
 --   specify the same dimensions in your customized scaling metric
 --   specification.
 customizedScalingMetricSpecification_dimensions :: Lens' CustomizedScalingMetricSpecification (Maybe [MetricDimension])
+
+-- | The unit of the metric.
+customizedScalingMetricSpecification_unit :: Lens' CustomizedScalingMetricSpecification (Maybe Text)
 
 -- | The name of the metric.
 customizedScalingMetricSpecification_metricName :: Lens' CustomizedScalingMetricSpecification Text
@@ -330,10 +330,7 @@ module Network.AWS.AutoScalingPlans.Types.CustomizedLoadMetricSpecification
 --   <i>See:</i> <a>newCustomizedLoadMetricSpecification</a> smart
 --   constructor.
 data CustomizedLoadMetricSpecification
-CustomizedLoadMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> Text -> Text -> MetricStatistic -> CustomizedLoadMetricSpecification
-
--- | The unit of the metric.
-[$sel:unit:CustomizedLoadMetricSpecification'] :: CustomizedLoadMetricSpecification -> Maybe Text
+CustomizedLoadMetricSpecification' :: Maybe [MetricDimension] -> Maybe Text -> Text -> Text -> MetricStatistic -> CustomizedLoadMetricSpecification
 
 -- | The dimensions of the metric.
 --   
@@ -341,6 +338,9 @@ CustomizedLoadMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> T
 --   specify the same dimensions in your customized load metric
 --   specification.
 [$sel:dimensions:CustomizedLoadMetricSpecification'] :: CustomizedLoadMetricSpecification -> Maybe [MetricDimension]
+
+-- | The unit of the metric.
+[$sel:unit:CustomizedLoadMetricSpecification'] :: CustomizedLoadMetricSpecification -> Maybe Text
 
 -- | The name of the metric.
 [$sel:metricName:CustomizedLoadMetricSpecification'] :: CustomizedLoadMetricSpecification -> Text
@@ -360,10 +360,6 @@ CustomizedLoadMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> T
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:unit:CustomizedLoadMetricSpecification'</a>,
---   <a>customizedLoadMetricSpecification_unit</a> - The unit of the
---   metric.
---   
 --   <a>$sel:dimensions:CustomizedLoadMetricSpecification'</a>,
 --   <a>customizedLoadMetricSpecification_dimensions</a> - The dimensions
 --   of the metric.
@@ -371,6 +367,10 @@ CustomizedLoadMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> T
 --   Conditional: If you published your metric with dimensions, you must
 --   specify the same dimensions in your customized load metric
 --   specification.
+--   
+--   <a>$sel:unit:CustomizedLoadMetricSpecification'</a>,
+--   <a>customizedLoadMetricSpecification_unit</a> - The unit of the
+--   metric.
 --   
 --   <a>$sel:metricName:CustomizedLoadMetricSpecification'</a>,
 --   <a>customizedLoadMetricSpecification_metricName</a> - The name of the
@@ -385,15 +385,15 @@ CustomizedLoadMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> T
 --   the metric. The only valid value is <tt>Sum</tt>.
 newCustomizedLoadMetricSpecification :: Text -> Text -> MetricStatistic -> CustomizedLoadMetricSpecification
 
--- | The unit of the metric.
-customizedLoadMetricSpecification_unit :: Lens' CustomizedLoadMetricSpecification (Maybe Text)
-
 -- | The dimensions of the metric.
 --   
 --   Conditional: If you published your metric with dimensions, you must
 --   specify the same dimensions in your customized load metric
 --   specification.
 customizedLoadMetricSpecification_dimensions :: Lens' CustomizedLoadMetricSpecification (Maybe [MetricDimension])
+
+-- | The unit of the metric.
+customizedLoadMetricSpecification_unit :: Lens' CustomizedLoadMetricSpecification (Maybe Text)
 
 -- | The name of the metric.
 customizedLoadMetricSpecification_metricName :: Lens' CustomizedLoadMetricSpecification Text
@@ -941,13 +941,13 @@ module Network.AWS.AutoScalingPlans.Types.TagFilter
 --   
 --   <i>See:</i> <a>newTagFilter</a> smart constructor.
 data TagFilter
-TagFilter' :: Maybe Text -> Maybe [Text] -> TagFilter
-
--- | The tag key.
-[$sel:key:TagFilter'] :: TagFilter -> Maybe Text
+TagFilter' :: Maybe [Text] -> Maybe Text -> TagFilter
 
 -- | The tag values (0 to 20).
 [$sel:values:TagFilter'] :: TagFilter -> Maybe [Text]
+
+-- | The tag key.
+[$sel:key:TagFilter'] :: TagFilter -> Maybe Text
 
 -- | Create a value of <a>TagFilter</a> with all optional fields omitted.
 --   
@@ -957,17 +957,17 @@ TagFilter' :: Maybe Text -> Maybe [Text] -> TagFilter
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:key:TagFilter'</a>, <a>tagFilter_key</a> - The tag key.
---   
 --   <a>$sel:values:TagFilter'</a>, <a>tagFilter_values</a> - The tag
 --   values (0 to 20).
+--   
+--   <a>$sel:key:TagFilter'</a>, <a>tagFilter_key</a> - The tag key.
 newTagFilter :: TagFilter
-
--- | The tag key.
-tagFilter_key :: Lens' TagFilter (Maybe Text)
 
 -- | The tag values (0 to 20).
 tagFilter_values :: Lens' TagFilter (Maybe [Text])
+
+-- | The tag key.
+tagFilter_key :: Lens' TagFilter (Maybe Text)
 instance GHC.Generics.Generic Network.AWS.AutoScalingPlans.Types.TagFilter.TagFilter
 instance GHC.Show.Show Network.AWS.AutoScalingPlans.Types.TagFilter.TagFilter
 instance GHC.Read.Read Network.AWS.AutoScalingPlans.Types.TagFilter.TagFilter
@@ -1031,7 +1031,28 @@ module Network.AWS.AutoScalingPlans.Types.TargetTrackingConfiguration
 --   
 --   <i>See:</i> <a>newTargetTrackingConfiguration</a> smart constructor.
 data TargetTrackingConfiguration
-TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpecification -> Maybe PredefinedScalingMetricSpecification -> Maybe Int -> Maybe Int -> Maybe Int -> Double -> TargetTrackingConfiguration
+TargetTrackingConfiguration' :: Maybe Int -> Maybe PredefinedScalingMetricSpecification -> Maybe Int -> Maybe Bool -> Maybe CustomizedScalingMetricSpecification -> Maybe Int -> Double -> TargetTrackingConfiguration
+
+-- | The estimated time, in seconds, until a newly launched instance can
+--   contribute to the CloudWatch metrics. This value is used only if the
+--   resource is an Auto Scaling group.
+[$sel:estimatedInstanceWarmup:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe Int
+
+-- | A predefined metric. You can specify either a predefined metric or a
+--   customized metric.
+[$sel:predefinedScalingMetricSpecification:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe PredefinedScalingMetricSpecification
+
+-- | The amount of time, in seconds, after a scale-in activity completes
+--   before another scale-in activity can start. This property is not used
+--   if the scalable resource is an Auto Scaling group.
+--   
+--   With the <i>scale-in cooldown period</i>, the intention is to scale in
+--   conservatively to protect your application’s availability, so scale-in
+--   activities are blocked until the cooldown period has expired. However,
+--   if another alarm triggers a scale-out activity during the scale-in
+--   cooldown period, Auto Scaling scales out the target immediately. In
+--   this case, the scale-in cooldown period stops and doesn't complete.
+[$sel:scaleInCooldown:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe Int
 
 -- | Indicates whether scale in by the target tracking scaling policy is
 --   disabled. If the value is <tt>true</tt>, scale in is disabled and the
@@ -1047,15 +1068,6 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   customized metric.
 [$sel:customizedScalingMetricSpecification:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe CustomizedScalingMetricSpecification
 
--- | A predefined metric. You can specify either a predefined metric or a
---   customized metric.
-[$sel:predefinedScalingMetricSpecification:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe PredefinedScalingMetricSpecification
-
--- | The estimated time, in seconds, until a newly launched instance can
---   contribute to the CloudWatch metrics. This value is used only if the
---   resource is an Auto Scaling group.
-[$sel:estimatedInstanceWarmup:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe Int
-
 -- | The amount of time, in seconds, to wait for a previous scale-out
 --   activity to take effect. This property is not used if the scalable
 --   resource is an Auto Scaling group.
@@ -1067,18 +1079,6 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   increase the desired capacity again unless either a larger scale out
 --   is triggered or the cooldown period ends.
 [$sel:scaleOutCooldown:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe Int
-
--- | The amount of time, in seconds, after a scale-in activity completes
---   before another scale-in activity can start. This property is not used
---   if the scalable resource is an Auto Scaling group.
---   
---   With the <i>scale-in cooldown period</i>, the intention is to scale in
---   conservatively to protect your application’s availability, so scale-in
---   activities are blocked until the cooldown period has expired. However,
---   if another alarm triggers a scale-out activity during the scale-in
---   cooldown period, Auto Scaling scales out the target immediately. In
---   this case, the scale-in cooldown period stops and doesn't complete.
-[$sel:scaleInCooldown:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe Int
 
 -- | The target value for the metric. Although this property accepts
 --   numbers of type Double, it won't accept values that are either too
@@ -1093,6 +1093,31 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:estimatedInstanceWarmup:TargetTrackingConfiguration'</a>,
+--   <a>targetTrackingConfiguration_estimatedInstanceWarmup</a> - The
+--   estimated time, in seconds, until a newly launched instance can
+--   contribute to the CloudWatch metrics. This value is used only if the
+--   resource is an Auto Scaling group.
+--   
+--   
+--   <a>$sel:predefinedScalingMetricSpecification:TargetTrackingConfiguration'</a>,
+--   <a>targetTrackingConfiguration_predefinedScalingMetricSpecification</a>
+--   - A predefined metric. You can specify either a predefined metric or a
+--   customized metric.
+--   
+--   <a>$sel:scaleInCooldown:TargetTrackingConfiguration'</a>,
+--   <a>targetTrackingConfiguration_scaleInCooldown</a> - The amount of
+--   time, in seconds, after a scale-in activity completes before another
+--   scale-in activity can start. This property is not used if the scalable
+--   resource is an Auto Scaling group.
+--   
+--   With the <i>scale-in cooldown period</i>, the intention is to scale in
+--   conservatively to protect your application’s availability, so scale-in
+--   activities are blocked until the cooldown period has expired. However,
+--   if another alarm triggers a scale-out activity during the scale-in
+--   cooldown period, Auto Scaling scales out the target immediately. In
+--   this case, the scale-in cooldown period stops and doesn't complete.
 --   
 --   <a>$sel:disableScaleIn:TargetTrackingConfiguration'</a>,
 --   <a>targetTrackingConfiguration_disableScaleIn</a> - Indicates whether
@@ -1110,18 +1135,6 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   - A customized metric. You can specify either a predefined metric or a
 --   customized metric.
 --   
---   
---   <a>$sel:predefinedScalingMetricSpecification:TargetTrackingConfiguration'</a>,
---   <a>targetTrackingConfiguration_predefinedScalingMetricSpecification</a>
---   - A predefined metric. You can specify either a predefined metric or a
---   customized metric.
---   
---   <a>$sel:estimatedInstanceWarmup:TargetTrackingConfiguration'</a>,
---   <a>targetTrackingConfiguration_estimatedInstanceWarmup</a> - The
---   estimated time, in seconds, until a newly launched instance can
---   contribute to the CloudWatch metrics. This value is used only if the
---   resource is an Auto Scaling group.
---   
 --   <a>$sel:scaleOutCooldown:TargetTrackingConfiguration'</a>,
 --   <a>targetTrackingConfiguration_scaleOutCooldown</a> - The amount of
 --   time, in seconds, to wait for a previous scale-out activity to take
@@ -1135,11 +1148,25 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   increase the desired capacity again unless either a larger scale out
 --   is triggered or the cooldown period ends.
 --   
---   <a>$sel:scaleInCooldown:TargetTrackingConfiguration'</a>,
---   <a>targetTrackingConfiguration_scaleInCooldown</a> - The amount of
---   time, in seconds, after a scale-in activity completes before another
---   scale-in activity can start. This property is not used if the scalable
+--   <a>$sel:targetValue:TargetTrackingConfiguration'</a>,
+--   <a>targetTrackingConfiguration_targetValue</a> - The target value for
+--   the metric. Although this property accepts numbers of type Double, it
+--   won't accept values that are either too small or too large. Values
+--   must be in the range of -2^360 to 2^360.
+newTargetTrackingConfiguration :: Double -> TargetTrackingConfiguration
+
+-- | The estimated time, in seconds, until a newly launched instance can
+--   contribute to the CloudWatch metrics. This value is used only if the
 --   resource is an Auto Scaling group.
+targetTrackingConfiguration_estimatedInstanceWarmup :: Lens' TargetTrackingConfiguration (Maybe Int)
+
+-- | A predefined metric. You can specify either a predefined metric or a
+--   customized metric.
+targetTrackingConfiguration_predefinedScalingMetricSpecification :: Lens' TargetTrackingConfiguration (Maybe PredefinedScalingMetricSpecification)
+
+-- | The amount of time, in seconds, after a scale-in activity completes
+--   before another scale-in activity can start. This property is not used
+--   if the scalable resource is an Auto Scaling group.
 --   
 --   With the <i>scale-in cooldown period</i>, the intention is to scale in
 --   conservatively to protect your application’s availability, so scale-in
@@ -1147,13 +1174,7 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   if another alarm triggers a scale-out activity during the scale-in
 --   cooldown period, Auto Scaling scales out the target immediately. In
 --   this case, the scale-in cooldown period stops and doesn't complete.
---   
---   <a>$sel:targetValue:TargetTrackingConfiguration'</a>,
---   <a>targetTrackingConfiguration_targetValue</a> - The target value for
---   the metric. Although this property accepts numbers of type Double, it
---   won't accept values that are either too small or too large. Values
---   must be in the range of -2^360 to 2^360.
-newTargetTrackingConfiguration :: Double -> TargetTrackingConfiguration
+targetTrackingConfiguration_scaleInCooldown :: Lens' TargetTrackingConfiguration (Maybe Int)
 
 -- | Indicates whether scale in by the target tracking scaling policy is
 --   disabled. If the value is <tt>true</tt>, scale in is disabled and the
@@ -1169,15 +1190,6 @@ targetTrackingConfiguration_disableScaleIn :: Lens' TargetTrackingConfiguration 
 --   customized metric.
 targetTrackingConfiguration_customizedScalingMetricSpecification :: Lens' TargetTrackingConfiguration (Maybe CustomizedScalingMetricSpecification)
 
--- | A predefined metric. You can specify either a predefined metric or a
---   customized metric.
-targetTrackingConfiguration_predefinedScalingMetricSpecification :: Lens' TargetTrackingConfiguration (Maybe PredefinedScalingMetricSpecification)
-
--- | The estimated time, in seconds, until a newly launched instance can
---   contribute to the CloudWatch metrics. This value is used only if the
---   resource is an Auto Scaling group.
-targetTrackingConfiguration_estimatedInstanceWarmup :: Lens' TargetTrackingConfiguration (Maybe Int)
-
 -- | The amount of time, in seconds, to wait for a previous scale-out
 --   activity to take effect. This property is not used if the scalable
 --   resource is an Auto Scaling group.
@@ -1189,18 +1201,6 @@ targetTrackingConfiguration_estimatedInstanceWarmup :: Lens' TargetTrackingConfi
 --   increase the desired capacity again unless either a larger scale out
 --   is triggered or the cooldown period ends.
 targetTrackingConfiguration_scaleOutCooldown :: Lens' TargetTrackingConfiguration (Maybe Int)
-
--- | The amount of time, in seconds, after a scale-in activity completes
---   before another scale-in activity can start. This property is not used
---   if the scalable resource is an Auto Scaling group.
---   
---   With the <i>scale-in cooldown period</i>, the intention is to scale in
---   conservatively to protect your application’s availability, so scale-in
---   activities are blocked until the cooldown period has expired. However,
---   if another alarm triggers a scale-out activity during the scale-in
---   cooldown period, Auto Scaling scales out the target immediately. In
---   this case, the scale-in cooldown period stops and doesn't complete.
-targetTrackingConfiguration_scaleInCooldown :: Lens' TargetTrackingConfiguration (Maybe Int)
 
 -- | The target value for the metric. Although this property accepts
 --   numbers of type Double, it won't accept values that are either too
@@ -1278,13 +1278,13 @@ module Network.AWS.AutoScalingPlans.Types.ScalingPlanResource
 --   
 --   <i>See:</i> <a>newScalingPlanResource</a> smart constructor.
 data ScalingPlanResource
-ScalingPlanResource' :: Maybe [ScalingPolicy] -> Maybe Text -> Text -> Integer -> ServiceNamespace -> Text -> ScalableDimension -> ScalingStatusCode -> ScalingPlanResource
-
--- | The scaling policies.
-[$sel:scalingPolicies:ScalingPlanResource'] :: ScalingPlanResource -> Maybe [ScalingPolicy]
+ScalingPlanResource' :: Maybe Text -> Maybe [ScalingPolicy] -> Text -> Integer -> ServiceNamespace -> Text -> ScalableDimension -> ScalingStatusCode -> ScalingPlanResource
 
 -- | A simple message about the current scaling status of the resource.
 [$sel:scalingStatusMessage:ScalingPlanResource'] :: ScalingPlanResource -> Maybe Text
+
+-- | The scaling policies.
+[$sel:scalingPolicies:ScalingPlanResource'] :: ScalingPlanResource -> Maybe [ScalingPolicy]
 
 -- | The name of the scaling plan.
 [$sel:scalingPlanName:ScalingPlanResource'] :: ScalingPlanResource -> Text
@@ -1369,12 +1369,12 @@ ScalingPlanResource' :: Maybe [ScalingPolicy] -> Maybe Text -> Text -> Integer -
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:scalingPolicies:ScalingPlanResource'</a>,
---   <a>scalingPlanResource_scalingPolicies</a> - The scaling policies.
---   
 --   <a>$sel:scalingStatusMessage:ScalingPlanResource'</a>,
 --   <a>scalingPlanResource_scalingStatusMessage</a> - A simple message
 --   about the current scaling status of the resource.
+--   
+--   <a>$sel:scalingPolicies:ScalingPlanResource'</a>,
+--   <a>scalingPlanResource_scalingPolicies</a> - The scaling policies.
 --   
 --   <a>$sel:scalingPlanName:ScalingPlanResource'</a>,
 --   <a>scalingPlanResource_scalingPlanName</a> - The name of the scaling
@@ -1456,11 +1456,11 @@ ScalingPlanResource' :: Maybe [ScalingPolicy] -> Maybe Text -> Text -> Integer -
 --   </ul>
 newScalingPlanResource :: Text -> Integer -> ServiceNamespace -> Text -> ScalableDimension -> ScalingStatusCode -> ScalingPlanResource
 
--- | The scaling policies.
-scalingPlanResource_scalingPolicies :: Lens' ScalingPlanResource (Maybe [ScalingPolicy])
-
 -- | A simple message about the current scaling status of the resource.
 scalingPlanResource_scalingStatusMessage :: Lens' ScalingPlanResource (Maybe Text)
+
+-- | The scaling policies.
+scalingPlanResource_scalingPolicies :: Lens' ScalingPlanResource (Maybe [ScalingPolicy])
 
 -- | The name of the scaling plan.
 scalingPlanResource_scalingPlanName :: Lens' ScalingPlanResource Text
@@ -1572,7 +1572,65 @@ module Network.AWS.AutoScalingPlans.Types.ScalingInstruction
 --   
 --   <i>See:</i> <a>newScalingInstruction</a> smart constructor.
 data ScalingInstruction
-ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> Maybe PredictiveScalingMaxCapacityBehavior -> Maybe CustomizedLoadMetricSpecification -> Maybe Int -> Maybe PredictiveScalingMode -> Maybe ScalingPolicyUpdateBehavior -> Maybe Natural -> ServiceNamespace -> Text -> ScalableDimension -> Int -> Int -> [TargetTrackingConfiguration] -> ScalingInstruction
+ScalingInstruction' :: Maybe Natural -> Maybe Int -> Maybe ScalingPolicyUpdateBehavior -> Maybe CustomizedLoadMetricSpecification -> Maybe PredictiveScalingMode -> Maybe Bool -> Maybe PredictiveScalingMaxCapacityBehavior -> Maybe PredefinedLoadMetricSpecification -> ServiceNamespace -> Text -> ScalableDimension -> Int -> Int -> [TargetTrackingConfiguration] -> ScalingInstruction
+
+-- | The amount of time, in seconds, to buffer the run time of scheduled
+--   scaling actions when scaling out. For example, if the forecast says to
+--   add capacity at 10:00 AM, and the buffer time is 5 minutes, then the
+--   run time of the corresponding scheduled scaling action will be 9:55
+--   AM. The intention is to give resources time to be provisioned. For
+--   example, it can take a few minutes to launch an EC2 instance. The
+--   actual amount of time required depends on several factors, such as the
+--   size of the instance and whether there are startup scripts to
+--   complete.
+--   
+--   The value must be less than the forecast interval duration of 3600
+--   seconds (60 minutes). The default is 300 seconds.
+--   
+--   Only valid when configuring predictive scaling.
+[$sel:scheduledActionBufferTime:ScalingInstruction'] :: ScalingInstruction -> Maybe Natural
+
+-- | The size of the capacity buffer to use when the forecast capacity is
+--   close to or exceeds the maximum capacity. The value is specified as a
+--   percentage relative to the forecast capacity. For example, if the
+--   buffer is 10, this means a 10 percent buffer, such that if the
+--   forecast capacity is 50, and the maximum capacity is 40, then the
+--   effective maximum capacity is 55.
+--   
+--   Only valid when configuring predictive scaling. Required if the
+--   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
+--   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
+--   otherwise.
+--   
+--   The range is 1-100.
+[$sel:predictiveScalingMaxCapacityBuffer:ScalingInstruction'] :: ScalingInstruction -> Maybe Int
+
+-- | Controls whether a resource's externally created scaling policies are
+--   kept or replaced.
+--   
+--   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
+--   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
+--   are external to AWS Auto Scaling are deleted and new target tracking
+--   scaling policies created.
+--   
+--   Only valid when configuring dynamic scaling.
+--   
+--   Condition: The number of existing policies to be replaced must be less
+--   than or equal to 50. If there are more than 50 policies to be
+--   replaced, AWS Auto Scaling keeps all existing policies and does not
+--   create new ones.
+[$sel:scalingPolicyUpdateBehavior:ScalingInstruction'] :: ScalingInstruction -> Maybe ScalingPolicyUpdateBehavior
+
+-- | The customized load metric to use for predictive scaling. This
+--   parameter or a <b>PredefinedLoadMetricSpecification</b> is required
+--   when configuring predictive scaling, and cannot be used otherwise.
+[$sel:customizedLoadMetricSpecification:ScalingInstruction'] :: ScalingInstruction -> Maybe CustomizedLoadMetricSpecification
+
+-- | The predictive scaling mode. The default value is
+--   <tt>ForecastAndScale</tt>. Otherwise, AWS Auto Scaling forecasts
+--   capacity but does not create any scheduled scaling actions based on
+--   the capacity forecast.
+[$sel:predictiveScalingMode:ScalingInstruction'] :: ScalingInstruction -> Maybe PredictiveScalingMode
 
 -- | Controls whether dynamic scaling by AWS Auto Scaling is disabled. When
 --   dynamic scaling is enabled, AWS Auto Scaling creates target tracking
@@ -1581,11 +1639,6 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   
 --   The default is enabled (<tt>false</tt>).
 [$sel:disableDynamicScaling:ScalingInstruction'] :: ScalingInstruction -> Maybe Bool
-
--- | The predefined load metric to use for predictive scaling. This
---   parameter or a <b>CustomizedLoadMetricSpecification</b> is required
---   when configuring predictive scaling, and cannot be used otherwise.
-[$sel:predefinedLoadMetricSpecification:ScalingInstruction'] :: ScalingInstruction -> Maybe PredefinedLoadMetricSpecification
 
 -- | Defines the behavior that should be applied if the forecast capacity
 --   approaches or exceeds the maximum capacity specified for the resource.
@@ -1609,63 +1662,10 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   Only valid when configuring predictive scaling.
 [$sel:predictiveScalingMaxCapacityBehavior:ScalingInstruction'] :: ScalingInstruction -> Maybe PredictiveScalingMaxCapacityBehavior
 
--- | The customized load metric to use for predictive scaling. This
---   parameter or a <b>PredefinedLoadMetricSpecification</b> is required
+-- | The predefined load metric to use for predictive scaling. This
+--   parameter or a <b>CustomizedLoadMetricSpecification</b> is required
 --   when configuring predictive scaling, and cannot be used otherwise.
-[$sel:customizedLoadMetricSpecification:ScalingInstruction'] :: ScalingInstruction -> Maybe CustomizedLoadMetricSpecification
-
--- | The size of the capacity buffer to use when the forecast capacity is
---   close to or exceeds the maximum capacity. The value is specified as a
---   percentage relative to the forecast capacity. For example, if the
---   buffer is 10, this means a 10 percent buffer, such that if the
---   forecast capacity is 50, and the maximum capacity is 40, then the
---   effective maximum capacity is 55.
---   
---   Only valid when configuring predictive scaling. Required if the
---   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
---   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
---   otherwise.
---   
---   The range is 1-100.
-[$sel:predictiveScalingMaxCapacityBuffer:ScalingInstruction'] :: ScalingInstruction -> Maybe Int
-
--- | The predictive scaling mode. The default value is
---   <tt>ForecastAndScale</tt>. Otherwise, AWS Auto Scaling forecasts
---   capacity but does not create any scheduled scaling actions based on
---   the capacity forecast.
-[$sel:predictiveScalingMode:ScalingInstruction'] :: ScalingInstruction -> Maybe PredictiveScalingMode
-
--- | Controls whether a resource's externally created scaling policies are
---   kept or replaced.
---   
---   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
---   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
---   are external to AWS Auto Scaling are deleted and new target tracking
---   scaling policies created.
---   
---   Only valid when configuring dynamic scaling.
---   
---   Condition: The number of existing policies to be replaced must be less
---   than or equal to 50. If there are more than 50 policies to be
---   replaced, AWS Auto Scaling keeps all existing policies and does not
---   create new ones.
-[$sel:scalingPolicyUpdateBehavior:ScalingInstruction'] :: ScalingInstruction -> Maybe ScalingPolicyUpdateBehavior
-
--- | The amount of time, in seconds, to buffer the run time of scheduled
---   scaling actions when scaling out. For example, if the forecast says to
---   add capacity at 10:00 AM, and the buffer time is 5 minutes, then the
---   run time of the corresponding scheduled scaling action will be 9:55
---   AM. The intention is to give resources time to be provisioned. For
---   example, it can take a few minutes to launch an EC2 instance. The
---   actual amount of time required depends on several factors, such as the
---   size of the instance and whether there are startup scripts to
---   complete.
---   
---   The value must be less than the forecast interval duration of 3600
---   seconds (60 minutes). The default is 300 seconds.
---   
---   Only valid when configuring predictive scaling.
-[$sel:scheduledActionBufferTime:ScalingInstruction'] :: ScalingInstruction -> Maybe Natural
+[$sel:predefinedLoadMetricSpecification:ScalingInstruction'] :: ScalingInstruction -> Maybe PredefinedLoadMetricSpecification
 
 -- | The namespace of the AWS service.
 [$sel:serviceNamespace:ScalingInstruction'] :: ScalingInstruction -> ServiceNamespace
@@ -1742,6 +1742,67 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:scheduledActionBufferTime:ScalingInstruction'</a>,
+--   <a>scalingInstruction_scheduledActionBufferTime</a> - The amount of
+--   time, in seconds, to buffer the run time of scheduled scaling actions
+--   when scaling out. For example, if the forecast says to add capacity at
+--   10:00 AM, and the buffer time is 5 minutes, then the run time of the
+--   corresponding scheduled scaling action will be 9:55 AM. The intention
+--   is to give resources time to be provisioned. For example, it can take
+--   a few minutes to launch an EC2 instance. The actual amount of time
+--   required depends on several factors, such as the size of the instance
+--   and whether there are startup scripts to complete.
+--   
+--   The value must be less than the forecast interval duration of 3600
+--   seconds (60 minutes). The default is 300 seconds.
+--   
+--   Only valid when configuring predictive scaling.
+--   
+--   <a>$sel:predictiveScalingMaxCapacityBuffer:ScalingInstruction'</a>,
+--   <a>scalingInstruction_predictiveScalingMaxCapacityBuffer</a> - The
+--   size of the capacity buffer to use when the forecast capacity is close
+--   to or exceeds the maximum capacity. The value is specified as a
+--   percentage relative to the forecast capacity. For example, if the
+--   buffer is 10, this means a 10 percent buffer, such that if the
+--   forecast capacity is 50, and the maximum capacity is 40, then the
+--   effective maximum capacity is 55.
+--   
+--   Only valid when configuring predictive scaling. Required if the
+--   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
+--   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
+--   otherwise.
+--   
+--   The range is 1-100.
+--   
+--   <a>$sel:scalingPolicyUpdateBehavior:ScalingInstruction'</a>,
+--   <a>scalingInstruction_scalingPolicyUpdateBehavior</a> - Controls
+--   whether a resource's externally created scaling policies are kept or
+--   replaced.
+--   
+--   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
+--   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
+--   are external to AWS Auto Scaling are deleted and new target tracking
+--   scaling policies created.
+--   
+--   Only valid when configuring dynamic scaling.
+--   
+--   Condition: The number of existing policies to be replaced must be less
+--   than or equal to 50. If there are more than 50 policies to be
+--   replaced, AWS Auto Scaling keeps all existing policies and does not
+--   create new ones.
+--   
+--   <a>$sel:customizedLoadMetricSpecification:ScalingInstruction'</a>,
+--   <a>scalingInstruction_customizedLoadMetricSpecification</a> - The
+--   customized load metric to use for predictive scaling. This parameter
+--   or a <b>PredefinedLoadMetricSpecification</b> is required when
+--   configuring predictive scaling, and cannot be used otherwise.
+--   
+--   <a>$sel:predictiveScalingMode:ScalingInstruction'</a>,
+--   <a>scalingInstruction_predictiveScalingMode</a> - The predictive
+--   scaling mode. The default value is <tt>ForecastAndScale</tt>.
+--   Otherwise, AWS Auto Scaling forecasts capacity but does not create any
+--   scheduled scaling actions based on the capacity forecast.
+--   
 --   <a>$sel:disableDynamicScaling:ScalingInstruction'</a>,
 --   <a>scalingInstruction_disableDynamicScaling</a> - Controls whether
 --   dynamic scaling by AWS Auto Scaling is disabled. When dynamic scaling
@@ -1749,12 +1810,6 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   based on the specified target tracking configurations.
 --   
 --   The default is enabled (<tt>false</tt>).
---   
---   <a>$sel:predefinedLoadMetricSpecification:ScalingInstruction'</a>,
---   <a>scalingInstruction_predefinedLoadMetricSpecification</a> - The
---   predefined load metric to use for predictive scaling. This parameter
---   or a <b>CustomizedLoadMetricSpecification</b> is required when
---   configuring predictive scaling, and cannot be used otherwise.
 --   
 --   <a>$sel:predictiveScalingMaxCapacityBehavior:ScalingInstruction'</a>,
 --   <a>scalingInstruction_predictiveScalingMaxCapacityBehavior</a> -
@@ -1779,66 +1834,11 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   
 --   Only valid when configuring predictive scaling.
 --   
---   <a>$sel:customizedLoadMetricSpecification:ScalingInstruction'</a>,
---   <a>scalingInstruction_customizedLoadMetricSpecification</a> - The
---   customized load metric to use for predictive scaling. This parameter
---   or a <b>PredefinedLoadMetricSpecification</b> is required when
+--   <a>$sel:predefinedLoadMetricSpecification:ScalingInstruction'</a>,
+--   <a>scalingInstruction_predefinedLoadMetricSpecification</a> - The
+--   predefined load metric to use for predictive scaling. This parameter
+--   or a <b>CustomizedLoadMetricSpecification</b> is required when
 --   configuring predictive scaling, and cannot be used otherwise.
---   
---   <a>$sel:predictiveScalingMaxCapacityBuffer:ScalingInstruction'</a>,
---   <a>scalingInstruction_predictiveScalingMaxCapacityBuffer</a> - The
---   size of the capacity buffer to use when the forecast capacity is close
---   to or exceeds the maximum capacity. The value is specified as a
---   percentage relative to the forecast capacity. For example, if the
---   buffer is 10, this means a 10 percent buffer, such that if the
---   forecast capacity is 50, and the maximum capacity is 40, then the
---   effective maximum capacity is 55.
---   
---   Only valid when configuring predictive scaling. Required if the
---   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
---   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
---   otherwise.
---   
---   The range is 1-100.
---   
---   <a>$sel:predictiveScalingMode:ScalingInstruction'</a>,
---   <a>scalingInstruction_predictiveScalingMode</a> - The predictive
---   scaling mode. The default value is <tt>ForecastAndScale</tt>.
---   Otherwise, AWS Auto Scaling forecasts capacity but does not create any
---   scheduled scaling actions based on the capacity forecast.
---   
---   <a>$sel:scalingPolicyUpdateBehavior:ScalingInstruction'</a>,
---   <a>scalingInstruction_scalingPolicyUpdateBehavior</a> - Controls
---   whether a resource's externally created scaling policies are kept or
---   replaced.
---   
---   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
---   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
---   are external to AWS Auto Scaling are deleted and new target tracking
---   scaling policies created.
---   
---   Only valid when configuring dynamic scaling.
---   
---   Condition: The number of existing policies to be replaced must be less
---   than or equal to 50. If there are more than 50 policies to be
---   replaced, AWS Auto Scaling keeps all existing policies and does not
---   create new ones.
---   
---   <a>$sel:scheduledActionBufferTime:ScalingInstruction'</a>,
---   <a>scalingInstruction_scheduledActionBufferTime</a> - The amount of
---   time, in seconds, to buffer the run time of scheduled scaling actions
---   when scaling out. For example, if the forecast says to add capacity at
---   10:00 AM, and the buffer time is 5 minutes, then the run time of the
---   corresponding scheduled scaling action will be 9:55 AM. The intention
---   is to give resources time to be provisioned. For example, it can take
---   a few minutes to launch an EC2 instance. The actual amount of time
---   required depends on several factors, such as the size of the instance
---   and whether there are startup scripts to complete.
---   
---   The value must be less than the forecast interval duration of 3600
---   seconds (60 minutes). The default is 300 seconds.
---   
---   Only valid when configuring predictive scaling.
 --   
 --   <a>$sel:serviceNamespace:ScalingInstruction'</a>,
 --   <a>scalingInstruction_serviceNamespace</a> - The namespace of the AWS
@@ -1910,6 +1910,64 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   specify a unique scaling metric and a target value for the metric.
 newScalingInstruction :: ServiceNamespace -> Text -> ScalableDimension -> Int -> Int -> ScalingInstruction
 
+-- | The amount of time, in seconds, to buffer the run time of scheduled
+--   scaling actions when scaling out. For example, if the forecast says to
+--   add capacity at 10:00 AM, and the buffer time is 5 minutes, then the
+--   run time of the corresponding scheduled scaling action will be 9:55
+--   AM. The intention is to give resources time to be provisioned. For
+--   example, it can take a few minutes to launch an EC2 instance. The
+--   actual amount of time required depends on several factors, such as the
+--   size of the instance and whether there are startup scripts to
+--   complete.
+--   
+--   The value must be less than the forecast interval duration of 3600
+--   seconds (60 minutes). The default is 300 seconds.
+--   
+--   Only valid when configuring predictive scaling.
+scalingInstruction_scheduledActionBufferTime :: Lens' ScalingInstruction (Maybe Natural)
+
+-- | The size of the capacity buffer to use when the forecast capacity is
+--   close to or exceeds the maximum capacity. The value is specified as a
+--   percentage relative to the forecast capacity. For example, if the
+--   buffer is 10, this means a 10 percent buffer, such that if the
+--   forecast capacity is 50, and the maximum capacity is 40, then the
+--   effective maximum capacity is 55.
+--   
+--   Only valid when configuring predictive scaling. Required if the
+--   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
+--   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
+--   otherwise.
+--   
+--   The range is 1-100.
+scalingInstruction_predictiveScalingMaxCapacityBuffer :: Lens' ScalingInstruction (Maybe Int)
+
+-- | Controls whether a resource's externally created scaling policies are
+--   kept or replaced.
+--   
+--   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
+--   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
+--   are external to AWS Auto Scaling are deleted and new target tracking
+--   scaling policies created.
+--   
+--   Only valid when configuring dynamic scaling.
+--   
+--   Condition: The number of existing policies to be replaced must be less
+--   than or equal to 50. If there are more than 50 policies to be
+--   replaced, AWS Auto Scaling keeps all existing policies and does not
+--   create new ones.
+scalingInstruction_scalingPolicyUpdateBehavior :: Lens' ScalingInstruction (Maybe ScalingPolicyUpdateBehavior)
+
+-- | The customized load metric to use for predictive scaling. This
+--   parameter or a <b>PredefinedLoadMetricSpecification</b> is required
+--   when configuring predictive scaling, and cannot be used otherwise.
+scalingInstruction_customizedLoadMetricSpecification :: Lens' ScalingInstruction (Maybe CustomizedLoadMetricSpecification)
+
+-- | The predictive scaling mode. The default value is
+--   <tt>ForecastAndScale</tt>. Otherwise, AWS Auto Scaling forecasts
+--   capacity but does not create any scheduled scaling actions based on
+--   the capacity forecast.
+scalingInstruction_predictiveScalingMode :: Lens' ScalingInstruction (Maybe PredictiveScalingMode)
+
 -- | Controls whether dynamic scaling by AWS Auto Scaling is disabled. When
 --   dynamic scaling is enabled, AWS Auto Scaling creates target tracking
 --   scaling policies based on the specified target tracking
@@ -1917,11 +1975,6 @@ newScalingInstruction :: ServiceNamespace -> Text -> ScalableDimension -> Int ->
 --   
 --   The default is enabled (<tt>false</tt>).
 scalingInstruction_disableDynamicScaling :: Lens' ScalingInstruction (Maybe Bool)
-
--- | The predefined load metric to use for predictive scaling. This
---   parameter or a <b>CustomizedLoadMetricSpecification</b> is required
---   when configuring predictive scaling, and cannot be used otherwise.
-scalingInstruction_predefinedLoadMetricSpecification :: Lens' ScalingInstruction (Maybe PredefinedLoadMetricSpecification)
 
 -- | Defines the behavior that should be applied if the forecast capacity
 --   approaches or exceeds the maximum capacity specified for the resource.
@@ -1945,63 +1998,10 @@ scalingInstruction_predefinedLoadMetricSpecification :: Lens' ScalingInstruction
 --   Only valid when configuring predictive scaling.
 scalingInstruction_predictiveScalingMaxCapacityBehavior :: Lens' ScalingInstruction (Maybe PredictiveScalingMaxCapacityBehavior)
 
--- | The customized load metric to use for predictive scaling. This
---   parameter or a <b>PredefinedLoadMetricSpecification</b> is required
+-- | The predefined load metric to use for predictive scaling. This
+--   parameter or a <b>CustomizedLoadMetricSpecification</b> is required
 --   when configuring predictive scaling, and cannot be used otherwise.
-scalingInstruction_customizedLoadMetricSpecification :: Lens' ScalingInstruction (Maybe CustomizedLoadMetricSpecification)
-
--- | The size of the capacity buffer to use when the forecast capacity is
---   close to or exceeds the maximum capacity. The value is specified as a
---   percentage relative to the forecast capacity. For example, if the
---   buffer is 10, this means a 10 percent buffer, such that if the
---   forecast capacity is 50, and the maximum capacity is 40, then the
---   effective maximum capacity is 55.
---   
---   Only valid when configuring predictive scaling. Required if the
---   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
---   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
---   otherwise.
---   
---   The range is 1-100.
-scalingInstruction_predictiveScalingMaxCapacityBuffer :: Lens' ScalingInstruction (Maybe Int)
-
--- | The predictive scaling mode. The default value is
---   <tt>ForecastAndScale</tt>. Otherwise, AWS Auto Scaling forecasts
---   capacity but does not create any scheduled scaling actions based on
---   the capacity forecast.
-scalingInstruction_predictiveScalingMode :: Lens' ScalingInstruction (Maybe PredictiveScalingMode)
-
--- | Controls whether a resource's externally created scaling policies are
---   kept or replaced.
---   
---   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
---   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
---   are external to AWS Auto Scaling are deleted and new target tracking
---   scaling policies created.
---   
---   Only valid when configuring dynamic scaling.
---   
---   Condition: The number of existing policies to be replaced must be less
---   than or equal to 50. If there are more than 50 policies to be
---   replaced, AWS Auto Scaling keeps all existing policies and does not
---   create new ones.
-scalingInstruction_scalingPolicyUpdateBehavior :: Lens' ScalingInstruction (Maybe ScalingPolicyUpdateBehavior)
-
--- | The amount of time, in seconds, to buffer the run time of scheduled
---   scaling actions when scaling out. For example, if the forecast says to
---   add capacity at 10:00 AM, and the buffer time is 5 minutes, then the
---   run time of the corresponding scheduled scaling action will be 9:55
---   AM. The intention is to give resources time to be provisioned. For
---   example, it can take a few minutes to launch an EC2 instance. The
---   actual amount of time required depends on several factors, such as the
---   size of the instance and whether there are startup scripts to
---   complete.
---   
---   The value must be less than the forecast interval duration of 3600
---   seconds (60 minutes). The default is 300 seconds.
---   
---   Only valid when configuring predictive scaling.
-scalingInstruction_scheduledActionBufferTime :: Lens' ScalingInstruction (Maybe Natural)
+scalingInstruction_predefinedLoadMetricSpecification :: Lens' ScalingInstruction (Maybe PredefinedLoadMetricSpecification)
 
 -- | The namespace of the AWS service.
 scalingInstruction_serviceNamespace :: Lens' ScalingInstruction ServiceNamespace
@@ -2084,16 +2084,16 @@ module Network.AWS.AutoScalingPlans.Types.ScalingPlan
 --   
 --   <i>See:</i> <a>newScalingPlan</a> smart constructor.
 data ScalingPlan
-ScalingPlan' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Text -> Integer -> ApplicationSource -> [ScalingInstruction] -> ScalingPlanStatusCode -> ScalingPlan
-
--- | A simple message about the current status of the scaling plan.
-[$sel:statusMessage:ScalingPlan'] :: ScalingPlan -> Maybe Text
+ScalingPlan' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Text -> Integer -> ApplicationSource -> [ScalingInstruction] -> ScalingPlanStatusCode -> ScalingPlan
 
 -- | The Unix time stamp when the scaling plan was created.
 [$sel:creationTime:ScalingPlan'] :: ScalingPlan -> Maybe POSIX
 
 -- | The Unix time stamp when the scaling plan entered the current status.
 [$sel:statusStartTime:ScalingPlan'] :: ScalingPlan -> Maybe POSIX
+
+-- | A simple message about the current status of the scaling plan.
+[$sel:statusMessage:ScalingPlan'] :: ScalingPlan -> Maybe Text
 
 -- | The name of the scaling plan.
 [$sel:scalingPlanName:ScalingPlan'] :: ScalingPlan -> Text
@@ -2138,16 +2138,16 @@ ScalingPlan' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Text -> Integer -> A
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:statusMessage:ScalingPlan'</a>,
---   <a>scalingPlan_statusMessage</a> - A simple message about the current
---   status of the scaling plan.
---   
 --   <a>$sel:creationTime:ScalingPlan'</a>, <a>scalingPlan_creationTime</a>
 --   - The Unix time stamp when the scaling plan was created.
 --   
 --   <a>$sel:statusStartTime:ScalingPlan'</a>,
 --   <a>scalingPlan_statusStartTime</a> - The Unix time stamp when the
 --   scaling plan entered the current status.
+--   
+--   <a>$sel:statusMessage:ScalingPlan'</a>,
+--   <a>scalingPlan_statusMessage</a> - A simple message about the current
+--   status of the scaling plan.
 --   
 --   <a>$sel:scalingPlanName:ScalingPlan'</a>,
 --   <a>scalingPlan_scalingPlanName</a> - The name of the scaling plan.
@@ -2186,14 +2186,14 @@ ScalingPlan' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Text -> Integer -> A
 --   </ul>
 newScalingPlan :: Text -> Integer -> ApplicationSource -> ScalingPlanStatusCode -> ScalingPlan
 
--- | A simple message about the current status of the scaling plan.
-scalingPlan_statusMessage :: Lens' ScalingPlan (Maybe Text)
-
 -- | The Unix time stamp when the scaling plan was created.
 scalingPlan_creationTime :: Lens' ScalingPlan (Maybe UTCTime)
 
 -- | The Unix time stamp when the scaling plan entered the current status.
 scalingPlan_statusStartTime :: Lens' ScalingPlan (Maybe UTCTime)
+
+-- | A simple message about the current status of the scaling plan.
+scalingPlan_statusMessage :: Lens' ScalingPlan (Maybe Text)
 
 -- | The name of the scaling plan.
 scalingPlan_scalingPlanName :: Lens' ScalingPlan Text
@@ -2244,26 +2244,26 @@ module Network.AWS.AutoScalingPlans.Types
 --   configuration.
 defaultService :: Service
 
--- | The specified object could not be found.
-_ObjectNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The service encountered an internal error.
-_InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The token provided is not valid.
-_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | An exception was thrown for a validation issue. Review the parameters
 --   provided.
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Your account exceeded a limit. This exception is thrown when a
---   per-account resource limit is exceeded.
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The token provided is not valid.
+_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Concurrent updates caused an exception, for example, if you request an
 --   update to a scaling plan that already has a pending update.
 _ConcurrentUpdateException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The service encountered an internal error.
+_InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | The specified object could not be found.
+_ObjectNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
+
+-- | Your account exceeded a limit. This exception is thrown when a
+--   per-account resource limit is exceeded.
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 newtype ForecastDataType
 ForecastDataType' :: Text -> ForecastDataType
 [fromForecastDataType] :: ForecastDataType -> Text
@@ -2431,10 +2431,7 @@ applicationSource_cloudFormationStackARN :: Lens' ApplicationSource (Maybe Text)
 --   <i>See:</i> <a>newCustomizedLoadMetricSpecification</a> smart
 --   constructor.
 data CustomizedLoadMetricSpecification
-CustomizedLoadMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> Text -> Text -> MetricStatistic -> CustomizedLoadMetricSpecification
-
--- | The unit of the metric.
-[$sel:unit:CustomizedLoadMetricSpecification'] :: CustomizedLoadMetricSpecification -> Maybe Text
+CustomizedLoadMetricSpecification' :: Maybe [MetricDimension] -> Maybe Text -> Text -> Text -> MetricStatistic -> CustomizedLoadMetricSpecification
 
 -- | The dimensions of the metric.
 --   
@@ -2442,6 +2439,9 @@ CustomizedLoadMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> T
 --   specify the same dimensions in your customized load metric
 --   specification.
 [$sel:dimensions:CustomizedLoadMetricSpecification'] :: CustomizedLoadMetricSpecification -> Maybe [MetricDimension]
+
+-- | The unit of the metric.
+[$sel:unit:CustomizedLoadMetricSpecification'] :: CustomizedLoadMetricSpecification -> Maybe Text
 
 -- | The name of the metric.
 [$sel:metricName:CustomizedLoadMetricSpecification'] :: CustomizedLoadMetricSpecification -> Text
@@ -2461,10 +2461,6 @@ CustomizedLoadMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> T
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:unit:CustomizedLoadMetricSpecification'</a>,
---   <a>customizedLoadMetricSpecification_unit</a> - The unit of the
---   metric.
---   
 --   <a>$sel:dimensions:CustomizedLoadMetricSpecification'</a>,
 --   <a>customizedLoadMetricSpecification_dimensions</a> - The dimensions
 --   of the metric.
@@ -2472,6 +2468,10 @@ CustomizedLoadMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> T
 --   Conditional: If you published your metric with dimensions, you must
 --   specify the same dimensions in your customized load metric
 --   specification.
+--   
+--   <a>$sel:unit:CustomizedLoadMetricSpecification'</a>,
+--   <a>customizedLoadMetricSpecification_unit</a> - The unit of the
+--   metric.
 --   
 --   <a>$sel:metricName:CustomizedLoadMetricSpecification'</a>,
 --   <a>customizedLoadMetricSpecification_metricName</a> - The name of the
@@ -2486,15 +2486,15 @@ CustomizedLoadMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> T
 --   the metric. The only valid value is <tt>Sum</tt>.
 newCustomizedLoadMetricSpecification :: Text -> Text -> MetricStatistic -> CustomizedLoadMetricSpecification
 
--- | The unit of the metric.
-customizedLoadMetricSpecification_unit :: Lens' CustomizedLoadMetricSpecification (Maybe Text)
-
 -- | The dimensions of the metric.
 --   
 --   Conditional: If you published your metric with dimensions, you must
 --   specify the same dimensions in your customized load metric
 --   specification.
 customizedLoadMetricSpecification_dimensions :: Lens' CustomizedLoadMetricSpecification (Maybe [MetricDimension])
+
+-- | The unit of the metric.
+customizedLoadMetricSpecification_unit :: Lens' CustomizedLoadMetricSpecification (Maybe Text)
 
 -- | The name of the metric.
 customizedLoadMetricSpecification_metricName :: Lens' CustomizedLoadMetricSpecification Text
@@ -2529,10 +2529,7 @@ customizedLoadMetricSpecification_statistic :: Lens' CustomizedLoadMetricSpecifi
 --   <i>See:</i> <a>newCustomizedScalingMetricSpecification</a> smart
 --   constructor.
 data CustomizedScalingMetricSpecification
-CustomizedScalingMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> Text -> Text -> MetricStatistic -> CustomizedScalingMetricSpecification
-
--- | The unit of the metric.
-[$sel:unit:CustomizedScalingMetricSpecification'] :: CustomizedScalingMetricSpecification -> Maybe Text
+CustomizedScalingMetricSpecification' :: Maybe [MetricDimension] -> Maybe Text -> Text -> Text -> MetricStatistic -> CustomizedScalingMetricSpecification
 
 -- | The dimensions of the metric.
 --   
@@ -2540,6 +2537,9 @@ CustomizedScalingMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -
 --   specify the same dimensions in your customized scaling metric
 --   specification.
 [$sel:dimensions:CustomizedScalingMetricSpecification'] :: CustomizedScalingMetricSpecification -> Maybe [MetricDimension]
+
+-- | The unit of the metric.
+[$sel:unit:CustomizedScalingMetricSpecification'] :: CustomizedScalingMetricSpecification -> Maybe Text
 
 -- | The name of the metric.
 [$sel:metricName:CustomizedScalingMetricSpecification'] :: CustomizedScalingMetricSpecification -> Text
@@ -2559,10 +2559,6 @@ CustomizedScalingMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:unit:CustomizedScalingMetricSpecification'</a>,
---   <a>customizedScalingMetricSpecification_unit</a> - The unit of the
---   metric.
---   
 --   <a>$sel:dimensions:CustomizedScalingMetricSpecification'</a>,
 --   <a>customizedScalingMetricSpecification_dimensions</a> - The
 --   dimensions of the metric.
@@ -2570,6 +2566,10 @@ CustomizedScalingMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -
 --   Conditional: If you published your metric with dimensions, you must
 --   specify the same dimensions in your customized scaling metric
 --   specification.
+--   
+--   <a>$sel:unit:CustomizedScalingMetricSpecification'</a>,
+--   <a>customizedScalingMetricSpecification_unit</a> - The unit of the
+--   metric.
 --   
 --   <a>$sel:metricName:CustomizedScalingMetricSpecification'</a>,
 --   <a>customizedScalingMetricSpecification_metricName</a> - The name of
@@ -2584,15 +2584,15 @@ CustomizedScalingMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -
 --   of the metric.
 newCustomizedScalingMetricSpecification :: Text -> Text -> MetricStatistic -> CustomizedScalingMetricSpecification
 
--- | The unit of the metric.
-customizedScalingMetricSpecification_unit :: Lens' CustomizedScalingMetricSpecification (Maybe Text)
-
 -- | The dimensions of the metric.
 --   
 --   Conditional: If you published your metric with dimensions, you must
 --   specify the same dimensions in your customized scaling metric
 --   specification.
 customizedScalingMetricSpecification_dimensions :: Lens' CustomizedScalingMetricSpecification (Maybe [MetricDimension])
+
+-- | The unit of the metric.
+customizedScalingMetricSpecification_unit :: Lens' CustomizedScalingMetricSpecification (Maybe Text)
 
 -- | The name of the metric.
 customizedScalingMetricSpecification_metricName :: Lens' CustomizedScalingMetricSpecification Text
@@ -2608,13 +2608,13 @@ customizedScalingMetricSpecification_statistic :: Lens' CustomizedScalingMetricS
 --   
 --   <i>See:</i> <a>newDatapoint</a> smart constructor.
 data Datapoint
-Datapoint' :: Maybe POSIX -> Maybe Double -> Datapoint
-
--- | The time stamp for the data point in UTC format.
-[$sel:timestamp:Datapoint'] :: Datapoint -> Maybe POSIX
+Datapoint' :: Maybe Double -> Maybe POSIX -> Datapoint
 
 -- | The value of the data point.
 [$sel:value:Datapoint'] :: Datapoint -> Maybe Double
+
+-- | The time stamp for the data point in UTC format.
+[$sel:timestamp:Datapoint'] :: Datapoint -> Maybe POSIX
 
 -- | Create a value of <a>Datapoint</a> with all optional fields omitted.
 --   
@@ -2624,18 +2624,18 @@ Datapoint' :: Maybe POSIX -> Maybe Double -> Datapoint
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:timestamp:Datapoint'</a>, <a>datapoint_timestamp</a> - The
---   time stamp for the data point in UTC format.
---   
 --   <a>$sel:value:Datapoint'</a>, <a>datapoint_value</a> - The value of
 --   the data point.
+--   
+--   <a>$sel:timestamp:Datapoint'</a>, <a>datapoint_timestamp</a> - The
+--   time stamp for the data point in UTC format.
 newDatapoint :: Datapoint
-
--- | The time stamp for the data point in UTC format.
-datapoint_timestamp :: Lens' Datapoint (Maybe UTCTime)
 
 -- | The value of the data point.
 datapoint_value :: Lens' Datapoint (Maybe Double)
+
+-- | The time stamp for the data point in UTC format.
+datapoint_timestamp :: Lens' Datapoint (Maybe UTCTime)
 
 -- | Represents a dimension for a customized metric.
 --   
@@ -2927,7 +2927,65 @@ predefinedScalingMetricSpecification_predefinedScalingMetricType :: Lens' Predef
 --   
 --   <i>See:</i> <a>newScalingInstruction</a> smart constructor.
 data ScalingInstruction
-ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> Maybe PredictiveScalingMaxCapacityBehavior -> Maybe CustomizedLoadMetricSpecification -> Maybe Int -> Maybe PredictiveScalingMode -> Maybe ScalingPolicyUpdateBehavior -> Maybe Natural -> ServiceNamespace -> Text -> ScalableDimension -> Int -> Int -> [TargetTrackingConfiguration] -> ScalingInstruction
+ScalingInstruction' :: Maybe Natural -> Maybe Int -> Maybe ScalingPolicyUpdateBehavior -> Maybe CustomizedLoadMetricSpecification -> Maybe PredictiveScalingMode -> Maybe Bool -> Maybe PredictiveScalingMaxCapacityBehavior -> Maybe PredefinedLoadMetricSpecification -> ServiceNamespace -> Text -> ScalableDimension -> Int -> Int -> [TargetTrackingConfiguration] -> ScalingInstruction
+
+-- | The amount of time, in seconds, to buffer the run time of scheduled
+--   scaling actions when scaling out. For example, if the forecast says to
+--   add capacity at 10:00 AM, and the buffer time is 5 minutes, then the
+--   run time of the corresponding scheduled scaling action will be 9:55
+--   AM. The intention is to give resources time to be provisioned. For
+--   example, it can take a few minutes to launch an EC2 instance. The
+--   actual amount of time required depends on several factors, such as the
+--   size of the instance and whether there are startup scripts to
+--   complete.
+--   
+--   The value must be less than the forecast interval duration of 3600
+--   seconds (60 minutes). The default is 300 seconds.
+--   
+--   Only valid when configuring predictive scaling.
+[$sel:scheduledActionBufferTime:ScalingInstruction'] :: ScalingInstruction -> Maybe Natural
+
+-- | The size of the capacity buffer to use when the forecast capacity is
+--   close to or exceeds the maximum capacity. The value is specified as a
+--   percentage relative to the forecast capacity. For example, if the
+--   buffer is 10, this means a 10 percent buffer, such that if the
+--   forecast capacity is 50, and the maximum capacity is 40, then the
+--   effective maximum capacity is 55.
+--   
+--   Only valid when configuring predictive scaling. Required if the
+--   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
+--   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
+--   otherwise.
+--   
+--   The range is 1-100.
+[$sel:predictiveScalingMaxCapacityBuffer:ScalingInstruction'] :: ScalingInstruction -> Maybe Int
+
+-- | Controls whether a resource's externally created scaling policies are
+--   kept or replaced.
+--   
+--   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
+--   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
+--   are external to AWS Auto Scaling are deleted and new target tracking
+--   scaling policies created.
+--   
+--   Only valid when configuring dynamic scaling.
+--   
+--   Condition: The number of existing policies to be replaced must be less
+--   than or equal to 50. If there are more than 50 policies to be
+--   replaced, AWS Auto Scaling keeps all existing policies and does not
+--   create new ones.
+[$sel:scalingPolicyUpdateBehavior:ScalingInstruction'] :: ScalingInstruction -> Maybe ScalingPolicyUpdateBehavior
+
+-- | The customized load metric to use for predictive scaling. This
+--   parameter or a <b>PredefinedLoadMetricSpecification</b> is required
+--   when configuring predictive scaling, and cannot be used otherwise.
+[$sel:customizedLoadMetricSpecification:ScalingInstruction'] :: ScalingInstruction -> Maybe CustomizedLoadMetricSpecification
+
+-- | The predictive scaling mode. The default value is
+--   <tt>ForecastAndScale</tt>. Otherwise, AWS Auto Scaling forecasts
+--   capacity but does not create any scheduled scaling actions based on
+--   the capacity forecast.
+[$sel:predictiveScalingMode:ScalingInstruction'] :: ScalingInstruction -> Maybe PredictiveScalingMode
 
 -- | Controls whether dynamic scaling by AWS Auto Scaling is disabled. When
 --   dynamic scaling is enabled, AWS Auto Scaling creates target tracking
@@ -2936,11 +2994,6 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   
 --   The default is enabled (<tt>false</tt>).
 [$sel:disableDynamicScaling:ScalingInstruction'] :: ScalingInstruction -> Maybe Bool
-
--- | The predefined load metric to use for predictive scaling. This
---   parameter or a <b>CustomizedLoadMetricSpecification</b> is required
---   when configuring predictive scaling, and cannot be used otherwise.
-[$sel:predefinedLoadMetricSpecification:ScalingInstruction'] :: ScalingInstruction -> Maybe PredefinedLoadMetricSpecification
 
 -- | Defines the behavior that should be applied if the forecast capacity
 --   approaches or exceeds the maximum capacity specified for the resource.
@@ -2964,63 +3017,10 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   Only valid when configuring predictive scaling.
 [$sel:predictiveScalingMaxCapacityBehavior:ScalingInstruction'] :: ScalingInstruction -> Maybe PredictiveScalingMaxCapacityBehavior
 
--- | The customized load metric to use for predictive scaling. This
---   parameter or a <b>PredefinedLoadMetricSpecification</b> is required
+-- | The predefined load metric to use for predictive scaling. This
+--   parameter or a <b>CustomizedLoadMetricSpecification</b> is required
 --   when configuring predictive scaling, and cannot be used otherwise.
-[$sel:customizedLoadMetricSpecification:ScalingInstruction'] :: ScalingInstruction -> Maybe CustomizedLoadMetricSpecification
-
--- | The size of the capacity buffer to use when the forecast capacity is
---   close to or exceeds the maximum capacity. The value is specified as a
---   percentage relative to the forecast capacity. For example, if the
---   buffer is 10, this means a 10 percent buffer, such that if the
---   forecast capacity is 50, and the maximum capacity is 40, then the
---   effective maximum capacity is 55.
---   
---   Only valid when configuring predictive scaling. Required if the
---   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
---   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
---   otherwise.
---   
---   The range is 1-100.
-[$sel:predictiveScalingMaxCapacityBuffer:ScalingInstruction'] :: ScalingInstruction -> Maybe Int
-
--- | The predictive scaling mode. The default value is
---   <tt>ForecastAndScale</tt>. Otherwise, AWS Auto Scaling forecasts
---   capacity but does not create any scheduled scaling actions based on
---   the capacity forecast.
-[$sel:predictiveScalingMode:ScalingInstruction'] :: ScalingInstruction -> Maybe PredictiveScalingMode
-
--- | Controls whether a resource's externally created scaling policies are
---   kept or replaced.
---   
---   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
---   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
---   are external to AWS Auto Scaling are deleted and new target tracking
---   scaling policies created.
---   
---   Only valid when configuring dynamic scaling.
---   
---   Condition: The number of existing policies to be replaced must be less
---   than or equal to 50. If there are more than 50 policies to be
---   replaced, AWS Auto Scaling keeps all existing policies and does not
---   create new ones.
-[$sel:scalingPolicyUpdateBehavior:ScalingInstruction'] :: ScalingInstruction -> Maybe ScalingPolicyUpdateBehavior
-
--- | The amount of time, in seconds, to buffer the run time of scheduled
---   scaling actions when scaling out. For example, if the forecast says to
---   add capacity at 10:00 AM, and the buffer time is 5 minutes, then the
---   run time of the corresponding scheduled scaling action will be 9:55
---   AM. The intention is to give resources time to be provisioned. For
---   example, it can take a few minutes to launch an EC2 instance. The
---   actual amount of time required depends on several factors, such as the
---   size of the instance and whether there are startup scripts to
---   complete.
---   
---   The value must be less than the forecast interval duration of 3600
---   seconds (60 minutes). The default is 300 seconds.
---   
---   Only valid when configuring predictive scaling.
-[$sel:scheduledActionBufferTime:ScalingInstruction'] :: ScalingInstruction -> Maybe Natural
+[$sel:predefinedLoadMetricSpecification:ScalingInstruction'] :: ScalingInstruction -> Maybe PredefinedLoadMetricSpecification
 
 -- | The namespace of the AWS service.
 [$sel:serviceNamespace:ScalingInstruction'] :: ScalingInstruction -> ServiceNamespace
@@ -3097,6 +3097,67 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:scheduledActionBufferTime:ScalingInstruction'</a>,
+--   <a>scalingInstruction_scheduledActionBufferTime</a> - The amount of
+--   time, in seconds, to buffer the run time of scheduled scaling actions
+--   when scaling out. For example, if the forecast says to add capacity at
+--   10:00 AM, and the buffer time is 5 minutes, then the run time of the
+--   corresponding scheduled scaling action will be 9:55 AM. The intention
+--   is to give resources time to be provisioned. For example, it can take
+--   a few minutes to launch an EC2 instance. The actual amount of time
+--   required depends on several factors, such as the size of the instance
+--   and whether there are startup scripts to complete.
+--   
+--   The value must be less than the forecast interval duration of 3600
+--   seconds (60 minutes). The default is 300 seconds.
+--   
+--   Only valid when configuring predictive scaling.
+--   
+--   <a>$sel:predictiveScalingMaxCapacityBuffer:ScalingInstruction'</a>,
+--   <a>scalingInstruction_predictiveScalingMaxCapacityBuffer</a> - The
+--   size of the capacity buffer to use when the forecast capacity is close
+--   to or exceeds the maximum capacity. The value is specified as a
+--   percentage relative to the forecast capacity. For example, if the
+--   buffer is 10, this means a 10 percent buffer, such that if the
+--   forecast capacity is 50, and the maximum capacity is 40, then the
+--   effective maximum capacity is 55.
+--   
+--   Only valid when configuring predictive scaling. Required if the
+--   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
+--   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
+--   otherwise.
+--   
+--   The range is 1-100.
+--   
+--   <a>$sel:scalingPolicyUpdateBehavior:ScalingInstruction'</a>,
+--   <a>scalingInstruction_scalingPolicyUpdateBehavior</a> - Controls
+--   whether a resource's externally created scaling policies are kept or
+--   replaced.
+--   
+--   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
+--   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
+--   are external to AWS Auto Scaling are deleted and new target tracking
+--   scaling policies created.
+--   
+--   Only valid when configuring dynamic scaling.
+--   
+--   Condition: The number of existing policies to be replaced must be less
+--   than or equal to 50. If there are more than 50 policies to be
+--   replaced, AWS Auto Scaling keeps all existing policies and does not
+--   create new ones.
+--   
+--   <a>$sel:customizedLoadMetricSpecification:ScalingInstruction'</a>,
+--   <a>scalingInstruction_customizedLoadMetricSpecification</a> - The
+--   customized load metric to use for predictive scaling. This parameter
+--   or a <b>PredefinedLoadMetricSpecification</b> is required when
+--   configuring predictive scaling, and cannot be used otherwise.
+--   
+--   <a>$sel:predictiveScalingMode:ScalingInstruction'</a>,
+--   <a>scalingInstruction_predictiveScalingMode</a> - The predictive
+--   scaling mode. The default value is <tt>ForecastAndScale</tt>.
+--   Otherwise, AWS Auto Scaling forecasts capacity but does not create any
+--   scheduled scaling actions based on the capacity forecast.
+--   
 --   <a>$sel:disableDynamicScaling:ScalingInstruction'</a>,
 --   <a>scalingInstruction_disableDynamicScaling</a> - Controls whether
 --   dynamic scaling by AWS Auto Scaling is disabled. When dynamic scaling
@@ -3104,12 +3165,6 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   based on the specified target tracking configurations.
 --   
 --   The default is enabled (<tt>false</tt>).
---   
---   <a>$sel:predefinedLoadMetricSpecification:ScalingInstruction'</a>,
---   <a>scalingInstruction_predefinedLoadMetricSpecification</a> - The
---   predefined load metric to use for predictive scaling. This parameter
---   or a <b>CustomizedLoadMetricSpecification</b> is required when
---   configuring predictive scaling, and cannot be used otherwise.
 --   
 --   <a>$sel:predictiveScalingMaxCapacityBehavior:ScalingInstruction'</a>,
 --   <a>scalingInstruction_predictiveScalingMaxCapacityBehavior</a> -
@@ -3134,66 +3189,11 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   
 --   Only valid when configuring predictive scaling.
 --   
---   <a>$sel:customizedLoadMetricSpecification:ScalingInstruction'</a>,
---   <a>scalingInstruction_customizedLoadMetricSpecification</a> - The
---   customized load metric to use for predictive scaling. This parameter
---   or a <b>PredefinedLoadMetricSpecification</b> is required when
+--   <a>$sel:predefinedLoadMetricSpecification:ScalingInstruction'</a>,
+--   <a>scalingInstruction_predefinedLoadMetricSpecification</a> - The
+--   predefined load metric to use for predictive scaling. This parameter
+--   or a <b>CustomizedLoadMetricSpecification</b> is required when
 --   configuring predictive scaling, and cannot be used otherwise.
---   
---   <a>$sel:predictiveScalingMaxCapacityBuffer:ScalingInstruction'</a>,
---   <a>scalingInstruction_predictiveScalingMaxCapacityBuffer</a> - The
---   size of the capacity buffer to use when the forecast capacity is close
---   to or exceeds the maximum capacity. The value is specified as a
---   percentage relative to the forecast capacity. For example, if the
---   buffer is 10, this means a 10 percent buffer, such that if the
---   forecast capacity is 50, and the maximum capacity is 40, then the
---   effective maximum capacity is 55.
---   
---   Only valid when configuring predictive scaling. Required if the
---   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
---   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
---   otherwise.
---   
---   The range is 1-100.
---   
---   <a>$sel:predictiveScalingMode:ScalingInstruction'</a>,
---   <a>scalingInstruction_predictiveScalingMode</a> - The predictive
---   scaling mode. The default value is <tt>ForecastAndScale</tt>.
---   Otherwise, AWS Auto Scaling forecasts capacity but does not create any
---   scheduled scaling actions based on the capacity forecast.
---   
---   <a>$sel:scalingPolicyUpdateBehavior:ScalingInstruction'</a>,
---   <a>scalingInstruction_scalingPolicyUpdateBehavior</a> - Controls
---   whether a resource's externally created scaling policies are kept or
---   replaced.
---   
---   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
---   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
---   are external to AWS Auto Scaling are deleted and new target tracking
---   scaling policies created.
---   
---   Only valid when configuring dynamic scaling.
---   
---   Condition: The number of existing policies to be replaced must be less
---   than or equal to 50. If there are more than 50 policies to be
---   replaced, AWS Auto Scaling keeps all existing policies and does not
---   create new ones.
---   
---   <a>$sel:scheduledActionBufferTime:ScalingInstruction'</a>,
---   <a>scalingInstruction_scheduledActionBufferTime</a> - The amount of
---   time, in seconds, to buffer the run time of scheduled scaling actions
---   when scaling out. For example, if the forecast says to add capacity at
---   10:00 AM, and the buffer time is 5 minutes, then the run time of the
---   corresponding scheduled scaling action will be 9:55 AM. The intention
---   is to give resources time to be provisioned. For example, it can take
---   a few minutes to launch an EC2 instance. The actual amount of time
---   required depends on several factors, such as the size of the instance
---   and whether there are startup scripts to complete.
---   
---   The value must be less than the forecast interval duration of 3600
---   seconds (60 minutes). The default is 300 seconds.
---   
---   Only valid when configuring predictive scaling.
 --   
 --   <a>$sel:serviceNamespace:ScalingInstruction'</a>,
 --   <a>scalingInstruction_serviceNamespace</a> - The namespace of the AWS
@@ -3265,6 +3265,64 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   specify a unique scaling metric and a target value for the metric.
 newScalingInstruction :: ServiceNamespace -> Text -> ScalableDimension -> Int -> Int -> ScalingInstruction
 
+-- | The amount of time, in seconds, to buffer the run time of scheduled
+--   scaling actions when scaling out. For example, if the forecast says to
+--   add capacity at 10:00 AM, and the buffer time is 5 minutes, then the
+--   run time of the corresponding scheduled scaling action will be 9:55
+--   AM. The intention is to give resources time to be provisioned. For
+--   example, it can take a few minutes to launch an EC2 instance. The
+--   actual amount of time required depends on several factors, such as the
+--   size of the instance and whether there are startup scripts to
+--   complete.
+--   
+--   The value must be less than the forecast interval duration of 3600
+--   seconds (60 minutes). The default is 300 seconds.
+--   
+--   Only valid when configuring predictive scaling.
+scalingInstruction_scheduledActionBufferTime :: Lens' ScalingInstruction (Maybe Natural)
+
+-- | The size of the capacity buffer to use when the forecast capacity is
+--   close to or exceeds the maximum capacity. The value is specified as a
+--   percentage relative to the forecast capacity. For example, if the
+--   buffer is 10, this means a 10 percent buffer, such that if the
+--   forecast capacity is 50, and the maximum capacity is 40, then the
+--   effective maximum capacity is 55.
+--   
+--   Only valid when configuring predictive scaling. Required if the
+--   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
+--   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
+--   otherwise.
+--   
+--   The range is 1-100.
+scalingInstruction_predictiveScalingMaxCapacityBuffer :: Lens' ScalingInstruction (Maybe Int)
+
+-- | Controls whether a resource's externally created scaling policies are
+--   kept or replaced.
+--   
+--   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
+--   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
+--   are external to AWS Auto Scaling are deleted and new target tracking
+--   scaling policies created.
+--   
+--   Only valid when configuring dynamic scaling.
+--   
+--   Condition: The number of existing policies to be replaced must be less
+--   than or equal to 50. If there are more than 50 policies to be
+--   replaced, AWS Auto Scaling keeps all existing policies and does not
+--   create new ones.
+scalingInstruction_scalingPolicyUpdateBehavior :: Lens' ScalingInstruction (Maybe ScalingPolicyUpdateBehavior)
+
+-- | The customized load metric to use for predictive scaling. This
+--   parameter or a <b>PredefinedLoadMetricSpecification</b> is required
+--   when configuring predictive scaling, and cannot be used otherwise.
+scalingInstruction_customizedLoadMetricSpecification :: Lens' ScalingInstruction (Maybe CustomizedLoadMetricSpecification)
+
+-- | The predictive scaling mode. The default value is
+--   <tt>ForecastAndScale</tt>. Otherwise, AWS Auto Scaling forecasts
+--   capacity but does not create any scheduled scaling actions based on
+--   the capacity forecast.
+scalingInstruction_predictiveScalingMode :: Lens' ScalingInstruction (Maybe PredictiveScalingMode)
+
 -- | Controls whether dynamic scaling by AWS Auto Scaling is disabled. When
 --   dynamic scaling is enabled, AWS Auto Scaling creates target tracking
 --   scaling policies based on the specified target tracking
@@ -3272,11 +3330,6 @@ newScalingInstruction :: ServiceNamespace -> Text -> ScalableDimension -> Int ->
 --   
 --   The default is enabled (<tt>false</tt>).
 scalingInstruction_disableDynamicScaling :: Lens' ScalingInstruction (Maybe Bool)
-
--- | The predefined load metric to use for predictive scaling. This
---   parameter or a <b>CustomizedLoadMetricSpecification</b> is required
---   when configuring predictive scaling, and cannot be used otherwise.
-scalingInstruction_predefinedLoadMetricSpecification :: Lens' ScalingInstruction (Maybe PredefinedLoadMetricSpecification)
 
 -- | Defines the behavior that should be applied if the forecast capacity
 --   approaches or exceeds the maximum capacity specified for the resource.
@@ -3300,63 +3353,10 @@ scalingInstruction_predefinedLoadMetricSpecification :: Lens' ScalingInstruction
 --   Only valid when configuring predictive scaling.
 scalingInstruction_predictiveScalingMaxCapacityBehavior :: Lens' ScalingInstruction (Maybe PredictiveScalingMaxCapacityBehavior)
 
--- | The customized load metric to use for predictive scaling. This
---   parameter or a <b>PredefinedLoadMetricSpecification</b> is required
+-- | The predefined load metric to use for predictive scaling. This
+--   parameter or a <b>CustomizedLoadMetricSpecification</b> is required
 --   when configuring predictive scaling, and cannot be used otherwise.
-scalingInstruction_customizedLoadMetricSpecification :: Lens' ScalingInstruction (Maybe CustomizedLoadMetricSpecification)
-
--- | The size of the capacity buffer to use when the forecast capacity is
---   close to or exceeds the maximum capacity. The value is specified as a
---   percentage relative to the forecast capacity. For example, if the
---   buffer is 10, this means a 10 percent buffer, such that if the
---   forecast capacity is 50, and the maximum capacity is 40, then the
---   effective maximum capacity is 55.
---   
---   Only valid when configuring predictive scaling. Required if the
---   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
---   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
---   otherwise.
---   
---   The range is 1-100.
-scalingInstruction_predictiveScalingMaxCapacityBuffer :: Lens' ScalingInstruction (Maybe Int)
-
--- | The predictive scaling mode. The default value is
---   <tt>ForecastAndScale</tt>. Otherwise, AWS Auto Scaling forecasts
---   capacity but does not create any scheduled scaling actions based on
---   the capacity forecast.
-scalingInstruction_predictiveScalingMode :: Lens' ScalingInstruction (Maybe PredictiveScalingMode)
-
--- | Controls whether a resource's externally created scaling policies are
---   kept or replaced.
---   
---   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
---   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
---   are external to AWS Auto Scaling are deleted and new target tracking
---   scaling policies created.
---   
---   Only valid when configuring dynamic scaling.
---   
---   Condition: The number of existing policies to be replaced must be less
---   than or equal to 50. If there are more than 50 policies to be
---   replaced, AWS Auto Scaling keeps all existing policies and does not
---   create new ones.
-scalingInstruction_scalingPolicyUpdateBehavior :: Lens' ScalingInstruction (Maybe ScalingPolicyUpdateBehavior)
-
--- | The amount of time, in seconds, to buffer the run time of scheduled
---   scaling actions when scaling out. For example, if the forecast says to
---   add capacity at 10:00 AM, and the buffer time is 5 minutes, then the
---   run time of the corresponding scheduled scaling action will be 9:55
---   AM. The intention is to give resources time to be provisioned. For
---   example, it can take a few minutes to launch an EC2 instance. The
---   actual amount of time required depends on several factors, such as the
---   size of the instance and whether there are startup scripts to
---   complete.
---   
---   The value must be less than the forecast interval duration of 3600
---   seconds (60 minutes). The default is 300 seconds.
---   
---   Only valid when configuring predictive scaling.
-scalingInstruction_scheduledActionBufferTime :: Lens' ScalingInstruction (Maybe Natural)
+scalingInstruction_predefinedLoadMetricSpecification :: Lens' ScalingInstruction (Maybe PredefinedLoadMetricSpecification)
 
 -- | The namespace of the AWS service.
 scalingInstruction_serviceNamespace :: Lens' ScalingInstruction ServiceNamespace
@@ -3428,16 +3428,16 @@ scalingInstruction_targetTrackingConfigurations :: Lens' ScalingInstruction [Tar
 --   
 --   <i>See:</i> <a>newScalingPlan</a> smart constructor.
 data ScalingPlan
-ScalingPlan' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Text -> Integer -> ApplicationSource -> [ScalingInstruction] -> ScalingPlanStatusCode -> ScalingPlan
-
--- | A simple message about the current status of the scaling plan.
-[$sel:statusMessage:ScalingPlan'] :: ScalingPlan -> Maybe Text
+ScalingPlan' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Text -> Integer -> ApplicationSource -> [ScalingInstruction] -> ScalingPlanStatusCode -> ScalingPlan
 
 -- | The Unix time stamp when the scaling plan was created.
 [$sel:creationTime:ScalingPlan'] :: ScalingPlan -> Maybe POSIX
 
 -- | The Unix time stamp when the scaling plan entered the current status.
 [$sel:statusStartTime:ScalingPlan'] :: ScalingPlan -> Maybe POSIX
+
+-- | A simple message about the current status of the scaling plan.
+[$sel:statusMessage:ScalingPlan'] :: ScalingPlan -> Maybe Text
 
 -- | The name of the scaling plan.
 [$sel:scalingPlanName:ScalingPlan'] :: ScalingPlan -> Text
@@ -3482,16 +3482,16 @@ ScalingPlan' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Text -> Integer -> A
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:statusMessage:ScalingPlan'</a>,
---   <a>scalingPlan_statusMessage</a> - A simple message about the current
---   status of the scaling plan.
---   
 --   <a>$sel:creationTime:ScalingPlan'</a>, <a>scalingPlan_creationTime</a>
 --   - The Unix time stamp when the scaling plan was created.
 --   
 --   <a>$sel:statusStartTime:ScalingPlan'</a>,
 --   <a>scalingPlan_statusStartTime</a> - The Unix time stamp when the
 --   scaling plan entered the current status.
+--   
+--   <a>$sel:statusMessage:ScalingPlan'</a>,
+--   <a>scalingPlan_statusMessage</a> - A simple message about the current
+--   status of the scaling plan.
 --   
 --   <a>$sel:scalingPlanName:ScalingPlan'</a>,
 --   <a>scalingPlan_scalingPlanName</a> - The name of the scaling plan.
@@ -3530,14 +3530,14 @@ ScalingPlan' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Text -> Integer -> A
 --   </ul>
 newScalingPlan :: Text -> Integer -> ApplicationSource -> ScalingPlanStatusCode -> ScalingPlan
 
--- | A simple message about the current status of the scaling plan.
-scalingPlan_statusMessage :: Lens' ScalingPlan (Maybe Text)
-
 -- | The Unix time stamp when the scaling plan was created.
 scalingPlan_creationTime :: Lens' ScalingPlan (Maybe UTCTime)
 
 -- | The Unix time stamp when the scaling plan entered the current status.
 scalingPlan_statusStartTime :: Lens' ScalingPlan (Maybe UTCTime)
+
+-- | A simple message about the current status of the scaling plan.
+scalingPlan_statusMessage :: Lens' ScalingPlan (Maybe Text)
 
 -- | The name of the scaling plan.
 scalingPlan_scalingPlanName :: Lens' ScalingPlan Text
@@ -3578,13 +3578,13 @@ scalingPlan_statusCode :: Lens' ScalingPlan ScalingPlanStatusCode
 --   
 --   <i>See:</i> <a>newScalingPlanResource</a> smart constructor.
 data ScalingPlanResource
-ScalingPlanResource' :: Maybe [ScalingPolicy] -> Maybe Text -> Text -> Integer -> ServiceNamespace -> Text -> ScalableDimension -> ScalingStatusCode -> ScalingPlanResource
-
--- | The scaling policies.
-[$sel:scalingPolicies:ScalingPlanResource'] :: ScalingPlanResource -> Maybe [ScalingPolicy]
+ScalingPlanResource' :: Maybe Text -> Maybe [ScalingPolicy] -> Text -> Integer -> ServiceNamespace -> Text -> ScalableDimension -> ScalingStatusCode -> ScalingPlanResource
 
 -- | A simple message about the current scaling status of the resource.
 [$sel:scalingStatusMessage:ScalingPlanResource'] :: ScalingPlanResource -> Maybe Text
+
+-- | The scaling policies.
+[$sel:scalingPolicies:ScalingPlanResource'] :: ScalingPlanResource -> Maybe [ScalingPolicy]
 
 -- | The name of the scaling plan.
 [$sel:scalingPlanName:ScalingPlanResource'] :: ScalingPlanResource -> Text
@@ -3669,12 +3669,12 @@ ScalingPlanResource' :: Maybe [ScalingPolicy] -> Maybe Text -> Text -> Integer -
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:scalingPolicies:ScalingPlanResource'</a>,
---   <a>scalingPlanResource_scalingPolicies</a> - The scaling policies.
---   
 --   <a>$sel:scalingStatusMessage:ScalingPlanResource'</a>,
 --   <a>scalingPlanResource_scalingStatusMessage</a> - A simple message
 --   about the current scaling status of the resource.
+--   
+--   <a>$sel:scalingPolicies:ScalingPlanResource'</a>,
+--   <a>scalingPlanResource_scalingPolicies</a> - The scaling policies.
 --   
 --   <a>$sel:scalingPlanName:ScalingPlanResource'</a>,
 --   <a>scalingPlanResource_scalingPlanName</a> - The name of the scaling
@@ -3756,11 +3756,11 @@ ScalingPlanResource' :: Maybe [ScalingPolicy] -> Maybe Text -> Text -> Integer -
 --   </ul>
 newScalingPlanResource :: Text -> Integer -> ServiceNamespace -> Text -> ScalableDimension -> ScalingStatusCode -> ScalingPlanResource
 
--- | The scaling policies.
-scalingPlanResource_scalingPolicies :: Lens' ScalingPlanResource (Maybe [ScalingPolicy])
-
 -- | A simple message about the current scaling status of the resource.
 scalingPlanResource_scalingStatusMessage :: Lens' ScalingPlanResource (Maybe Text)
+
+-- | The scaling policies.
+scalingPlanResource_scalingPolicies :: Lens' ScalingPlanResource (Maybe [ScalingPolicy])
 
 -- | The name of the scaling plan.
 scalingPlanResource_scalingPlanName :: Lens' ScalingPlanResource Text
@@ -3886,13 +3886,13 @@ scalingPolicy_policyType :: Lens' ScalingPolicy PolicyType
 --   
 --   <i>See:</i> <a>newTagFilter</a> smart constructor.
 data TagFilter
-TagFilter' :: Maybe Text -> Maybe [Text] -> TagFilter
-
--- | The tag key.
-[$sel:key:TagFilter'] :: TagFilter -> Maybe Text
+TagFilter' :: Maybe [Text] -> Maybe Text -> TagFilter
 
 -- | The tag values (0 to 20).
 [$sel:values:TagFilter'] :: TagFilter -> Maybe [Text]
+
+-- | The tag key.
+[$sel:key:TagFilter'] :: TagFilter -> Maybe Text
 
 -- | Create a value of <a>TagFilter</a> with all optional fields omitted.
 --   
@@ -3902,24 +3902,45 @@ TagFilter' :: Maybe Text -> Maybe [Text] -> TagFilter
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:key:TagFilter'</a>, <a>tagFilter_key</a> - The tag key.
---   
 --   <a>$sel:values:TagFilter'</a>, <a>tagFilter_values</a> - The tag
 --   values (0 to 20).
+--   
+--   <a>$sel:key:TagFilter'</a>, <a>tagFilter_key</a> - The tag key.
 newTagFilter :: TagFilter
-
--- | The tag key.
-tagFilter_key :: Lens' TagFilter (Maybe Text)
 
 -- | The tag values (0 to 20).
 tagFilter_values :: Lens' TagFilter (Maybe [Text])
+
+-- | The tag key.
+tagFilter_key :: Lens' TagFilter (Maybe Text)
 
 -- | Describes a target tracking configuration to use with AWS Auto
 --   Scaling. Used with ScalingInstruction and ScalingPolicy.
 --   
 --   <i>See:</i> <a>newTargetTrackingConfiguration</a> smart constructor.
 data TargetTrackingConfiguration
-TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpecification -> Maybe PredefinedScalingMetricSpecification -> Maybe Int -> Maybe Int -> Maybe Int -> Double -> TargetTrackingConfiguration
+TargetTrackingConfiguration' :: Maybe Int -> Maybe PredefinedScalingMetricSpecification -> Maybe Int -> Maybe Bool -> Maybe CustomizedScalingMetricSpecification -> Maybe Int -> Double -> TargetTrackingConfiguration
+
+-- | The estimated time, in seconds, until a newly launched instance can
+--   contribute to the CloudWatch metrics. This value is used only if the
+--   resource is an Auto Scaling group.
+[$sel:estimatedInstanceWarmup:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe Int
+
+-- | A predefined metric. You can specify either a predefined metric or a
+--   customized metric.
+[$sel:predefinedScalingMetricSpecification:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe PredefinedScalingMetricSpecification
+
+-- | The amount of time, in seconds, after a scale-in activity completes
+--   before another scale-in activity can start. This property is not used
+--   if the scalable resource is an Auto Scaling group.
+--   
+--   With the <i>scale-in cooldown period</i>, the intention is to scale in
+--   conservatively to protect your application’s availability, so scale-in
+--   activities are blocked until the cooldown period has expired. However,
+--   if another alarm triggers a scale-out activity during the scale-in
+--   cooldown period, Auto Scaling scales out the target immediately. In
+--   this case, the scale-in cooldown period stops and doesn't complete.
+[$sel:scaleInCooldown:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe Int
 
 -- | Indicates whether scale in by the target tracking scaling policy is
 --   disabled. If the value is <tt>true</tt>, scale in is disabled and the
@@ -3935,15 +3956,6 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   customized metric.
 [$sel:customizedScalingMetricSpecification:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe CustomizedScalingMetricSpecification
 
--- | A predefined metric. You can specify either a predefined metric or a
---   customized metric.
-[$sel:predefinedScalingMetricSpecification:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe PredefinedScalingMetricSpecification
-
--- | The estimated time, in seconds, until a newly launched instance can
---   contribute to the CloudWatch metrics. This value is used only if the
---   resource is an Auto Scaling group.
-[$sel:estimatedInstanceWarmup:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe Int
-
 -- | The amount of time, in seconds, to wait for a previous scale-out
 --   activity to take effect. This property is not used if the scalable
 --   resource is an Auto Scaling group.
@@ -3955,18 +3967,6 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   increase the desired capacity again unless either a larger scale out
 --   is triggered or the cooldown period ends.
 [$sel:scaleOutCooldown:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe Int
-
--- | The amount of time, in seconds, after a scale-in activity completes
---   before another scale-in activity can start. This property is not used
---   if the scalable resource is an Auto Scaling group.
---   
---   With the <i>scale-in cooldown period</i>, the intention is to scale in
---   conservatively to protect your application’s availability, so scale-in
---   activities are blocked until the cooldown period has expired. However,
---   if another alarm triggers a scale-out activity during the scale-in
---   cooldown period, Auto Scaling scales out the target immediately. In
---   this case, the scale-in cooldown period stops and doesn't complete.
-[$sel:scaleInCooldown:TargetTrackingConfiguration'] :: TargetTrackingConfiguration -> Maybe Int
 
 -- | The target value for the metric. Although this property accepts
 --   numbers of type Double, it won't accept values that are either too
@@ -3981,6 +3981,31 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:estimatedInstanceWarmup:TargetTrackingConfiguration'</a>,
+--   <a>targetTrackingConfiguration_estimatedInstanceWarmup</a> - The
+--   estimated time, in seconds, until a newly launched instance can
+--   contribute to the CloudWatch metrics. This value is used only if the
+--   resource is an Auto Scaling group.
+--   
+--   
+--   <a>$sel:predefinedScalingMetricSpecification:TargetTrackingConfiguration'</a>,
+--   <a>targetTrackingConfiguration_predefinedScalingMetricSpecification</a>
+--   - A predefined metric. You can specify either a predefined metric or a
+--   customized metric.
+--   
+--   <a>$sel:scaleInCooldown:TargetTrackingConfiguration'</a>,
+--   <a>targetTrackingConfiguration_scaleInCooldown</a> - The amount of
+--   time, in seconds, after a scale-in activity completes before another
+--   scale-in activity can start. This property is not used if the scalable
+--   resource is an Auto Scaling group.
+--   
+--   With the <i>scale-in cooldown period</i>, the intention is to scale in
+--   conservatively to protect your application’s availability, so scale-in
+--   activities are blocked until the cooldown period has expired. However,
+--   if another alarm triggers a scale-out activity during the scale-in
+--   cooldown period, Auto Scaling scales out the target immediately. In
+--   this case, the scale-in cooldown period stops and doesn't complete.
 --   
 --   <a>$sel:disableScaleIn:TargetTrackingConfiguration'</a>,
 --   <a>targetTrackingConfiguration_disableScaleIn</a> - Indicates whether
@@ -3998,18 +4023,6 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   - A customized metric. You can specify either a predefined metric or a
 --   customized metric.
 --   
---   
---   <a>$sel:predefinedScalingMetricSpecification:TargetTrackingConfiguration'</a>,
---   <a>targetTrackingConfiguration_predefinedScalingMetricSpecification</a>
---   - A predefined metric. You can specify either a predefined metric or a
---   customized metric.
---   
---   <a>$sel:estimatedInstanceWarmup:TargetTrackingConfiguration'</a>,
---   <a>targetTrackingConfiguration_estimatedInstanceWarmup</a> - The
---   estimated time, in seconds, until a newly launched instance can
---   contribute to the CloudWatch metrics. This value is used only if the
---   resource is an Auto Scaling group.
---   
 --   <a>$sel:scaleOutCooldown:TargetTrackingConfiguration'</a>,
 --   <a>targetTrackingConfiguration_scaleOutCooldown</a> - The amount of
 --   time, in seconds, to wait for a previous scale-out activity to take
@@ -4023,11 +4036,25 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   increase the desired capacity again unless either a larger scale out
 --   is triggered or the cooldown period ends.
 --   
---   <a>$sel:scaleInCooldown:TargetTrackingConfiguration'</a>,
---   <a>targetTrackingConfiguration_scaleInCooldown</a> - The amount of
---   time, in seconds, after a scale-in activity completes before another
---   scale-in activity can start. This property is not used if the scalable
+--   <a>$sel:targetValue:TargetTrackingConfiguration'</a>,
+--   <a>targetTrackingConfiguration_targetValue</a> - The target value for
+--   the metric. Although this property accepts numbers of type Double, it
+--   won't accept values that are either too small or too large. Values
+--   must be in the range of -2^360 to 2^360.
+newTargetTrackingConfiguration :: Double -> TargetTrackingConfiguration
+
+-- | The estimated time, in seconds, until a newly launched instance can
+--   contribute to the CloudWatch metrics. This value is used only if the
 --   resource is an Auto Scaling group.
+targetTrackingConfiguration_estimatedInstanceWarmup :: Lens' TargetTrackingConfiguration (Maybe Int)
+
+-- | A predefined metric. You can specify either a predefined metric or a
+--   customized metric.
+targetTrackingConfiguration_predefinedScalingMetricSpecification :: Lens' TargetTrackingConfiguration (Maybe PredefinedScalingMetricSpecification)
+
+-- | The amount of time, in seconds, after a scale-in activity completes
+--   before another scale-in activity can start. This property is not used
+--   if the scalable resource is an Auto Scaling group.
 --   
 --   With the <i>scale-in cooldown period</i>, the intention is to scale in
 --   conservatively to protect your application’s availability, so scale-in
@@ -4035,13 +4062,7 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   if another alarm triggers a scale-out activity during the scale-in
 --   cooldown period, Auto Scaling scales out the target immediately. In
 --   this case, the scale-in cooldown period stops and doesn't complete.
---   
---   <a>$sel:targetValue:TargetTrackingConfiguration'</a>,
---   <a>targetTrackingConfiguration_targetValue</a> - The target value for
---   the metric. Although this property accepts numbers of type Double, it
---   won't accept values that are either too small or too large. Values
---   must be in the range of -2^360 to 2^360.
-newTargetTrackingConfiguration :: Double -> TargetTrackingConfiguration
+targetTrackingConfiguration_scaleInCooldown :: Lens' TargetTrackingConfiguration (Maybe Int)
 
 -- | Indicates whether scale in by the target tracking scaling policy is
 --   disabled. If the value is <tt>true</tt>, scale in is disabled and the
@@ -4057,15 +4078,6 @@ targetTrackingConfiguration_disableScaleIn :: Lens' TargetTrackingConfiguration 
 --   customized metric.
 targetTrackingConfiguration_customizedScalingMetricSpecification :: Lens' TargetTrackingConfiguration (Maybe CustomizedScalingMetricSpecification)
 
--- | A predefined metric. You can specify either a predefined metric or a
---   customized metric.
-targetTrackingConfiguration_predefinedScalingMetricSpecification :: Lens' TargetTrackingConfiguration (Maybe PredefinedScalingMetricSpecification)
-
--- | The estimated time, in seconds, until a newly launched instance can
---   contribute to the CloudWatch metrics. This value is used only if the
---   resource is an Auto Scaling group.
-targetTrackingConfiguration_estimatedInstanceWarmup :: Lens' TargetTrackingConfiguration (Maybe Int)
-
 -- | The amount of time, in seconds, to wait for a previous scale-out
 --   activity to take effect. This property is not used if the scalable
 --   resource is an Auto Scaling group.
@@ -4077,18 +4089,6 @@ targetTrackingConfiguration_estimatedInstanceWarmup :: Lens' TargetTrackingConfi
 --   increase the desired capacity again unless either a larger scale out
 --   is triggered or the cooldown period ends.
 targetTrackingConfiguration_scaleOutCooldown :: Lens' TargetTrackingConfiguration (Maybe Int)
-
--- | The amount of time, in seconds, after a scale-in activity completes
---   before another scale-in activity can start. This property is not used
---   if the scalable resource is an Auto Scaling group.
---   
---   With the <i>scale-in cooldown period</i>, the intention is to scale in
---   conservatively to protect your application’s availability, so scale-in
---   activities are blocked until the cooldown period has expired. However,
---   if another alarm triggers a scale-out activity during the scale-in
---   cooldown period, Auto Scaling scales out the target immediately. In
---   this case, the scale-in cooldown period stops and doesn't complete.
-targetTrackingConfiguration_scaleInCooldown :: Lens' TargetTrackingConfiguration (Maybe Int)
 
 -- | The target value for the metric. Although this property accepts
 --   numbers of type Double, it won't accept values that are either too
@@ -4339,7 +4339,7 @@ module Network.AWS.AutoScalingPlans.DescribeScalingPlans
 
 -- | <i>See:</i> <a>newDescribeScalingPlans</a> smart constructor.
 data DescribeScalingPlans
-DescribeScalingPlans' :: Maybe Integer -> Maybe Text -> Maybe Int -> Maybe [Text] -> Maybe [ApplicationSource] -> DescribeScalingPlans
+DescribeScalingPlans' :: Maybe Integer -> Maybe [Text] -> Maybe Text -> Maybe [ApplicationSource] -> Maybe Int -> DescribeScalingPlans
 
 -- | The version number of the scaling plan. Currently, the only valid
 --   value is <tt>1</tt>.
@@ -4348,20 +4348,20 @@ DescribeScalingPlans' :: Maybe Integer -> Maybe Text -> Maybe Int -> Maybe [Text
 --   plan name.
 [$sel:scalingPlanVersion:DescribeScalingPlans'] :: DescribeScalingPlans -> Maybe Integer
 
--- | The token for the next set of results.
-[$sel:nextToken:DescribeScalingPlans'] :: DescribeScalingPlans -> Maybe Text
-
--- | The maximum number of scalable resources to return. This value can be
---   between 1 and 50. The default value is 50.
-[$sel:maxResults:DescribeScalingPlans'] :: DescribeScalingPlans -> Maybe Int
-
 -- | The names of the scaling plans (up to 10). If you specify application
 --   sources, you cannot specify scaling plan names.
 [$sel:scalingPlanNames:DescribeScalingPlans'] :: DescribeScalingPlans -> Maybe [Text]
 
+-- | The token for the next set of results.
+[$sel:nextToken:DescribeScalingPlans'] :: DescribeScalingPlans -> Maybe Text
+
 -- | The sources for the applications (up to 10). If you specify scaling
 --   plan names, you cannot specify application sources.
 [$sel:applicationSources:DescribeScalingPlans'] :: DescribeScalingPlans -> Maybe [ApplicationSource]
+
+-- | The maximum number of scalable resources to return. This value can be
+--   between 1 and 50. The default value is 50.
+[$sel:maxResults:DescribeScalingPlans'] :: DescribeScalingPlans -> Maybe Int
 
 -- | Create a value of <a>DescribeScalingPlans</a> with all optional fields
 --   omitted.
@@ -4379,24 +4379,24 @@ DescribeScalingPlans' :: Maybe Integer -> Maybe Text -> Maybe Int -> Maybe [Text
 --   If you specify a scaling plan version, you must also specify a scaling
 --   plan name.
 --   
---   <a>$sel:nextToken:DescribeScalingPlans'</a>,
---   <a>describeScalingPlans_nextToken</a> - The token for the next set of
---   results.
---   
---   <a>$sel:maxResults:DescribeScalingPlans'</a>,
---   <a>describeScalingPlans_maxResults</a> - The maximum number of
---   scalable resources to return. This value can be between 1 and 50. The
---   default value is 50.
---   
 --   <a>$sel:scalingPlanNames:DescribeScalingPlans'</a>,
 --   <a>describeScalingPlans_scalingPlanNames</a> - The names of the
 --   scaling plans (up to 10). If you specify application sources, you
 --   cannot specify scaling plan names.
 --   
+--   <a>$sel:nextToken:DescribeScalingPlans'</a>,
+--   <a>describeScalingPlans_nextToken</a> - The token for the next set of
+--   results.
+--   
 --   <a>$sel:applicationSources:DescribeScalingPlans'</a>,
 --   <a>describeScalingPlans_applicationSources</a> - The sources for the
 --   applications (up to 10). If you specify scaling plan names, you cannot
 --   specify application sources.
+--   
+--   <a>$sel:maxResults:DescribeScalingPlans'</a>,
+--   <a>describeScalingPlans_maxResults</a> - The maximum number of
+--   scalable resources to return. This value can be between 1 and 50. The
+--   default value is 50.
 newDescribeScalingPlans :: DescribeScalingPlans
 
 -- | The version number of the scaling plan. Currently, the only valid
@@ -4406,31 +4406,31 @@ newDescribeScalingPlans :: DescribeScalingPlans
 --   plan name.
 describeScalingPlans_scalingPlanVersion :: Lens' DescribeScalingPlans (Maybe Integer)
 
--- | The token for the next set of results.
-describeScalingPlans_nextToken :: Lens' DescribeScalingPlans (Maybe Text)
-
--- | The maximum number of scalable resources to return. This value can be
---   between 1 and 50. The default value is 50.
-describeScalingPlans_maxResults :: Lens' DescribeScalingPlans (Maybe Int)
-
 -- | The names of the scaling plans (up to 10). If you specify application
 --   sources, you cannot specify scaling plan names.
 describeScalingPlans_scalingPlanNames :: Lens' DescribeScalingPlans (Maybe [Text])
+
+-- | The token for the next set of results.
+describeScalingPlans_nextToken :: Lens' DescribeScalingPlans (Maybe Text)
 
 -- | The sources for the applications (up to 10). If you specify scaling
 --   plan names, you cannot specify application sources.
 describeScalingPlans_applicationSources :: Lens' DescribeScalingPlans (Maybe [ApplicationSource])
 
+-- | The maximum number of scalable resources to return. This value can be
+--   between 1 and 50. The default value is 50.
+describeScalingPlans_maxResults :: Lens' DescribeScalingPlans (Maybe Int)
+
 -- | <i>See:</i> <a>newDescribeScalingPlansResponse</a> smart constructor.
 data DescribeScalingPlansResponse
-DescribeScalingPlansResponse' :: Maybe Text -> Maybe [ScalingPlan] -> Int -> DescribeScalingPlansResponse
+DescribeScalingPlansResponse' :: Maybe [ScalingPlan] -> Maybe Text -> Int -> DescribeScalingPlansResponse
+
+-- | Information about the scaling plans.
+[$sel:scalingPlans:DescribeScalingPlansResponse'] :: DescribeScalingPlansResponse -> Maybe [ScalingPlan]
 
 -- | The token required to get the next set of results. This value is
 --   <tt>null</tt> if there are no more results to return.
 [$sel:nextToken:DescribeScalingPlansResponse'] :: DescribeScalingPlansResponse -> Maybe Text
-
--- | Information about the scaling plans.
-[$sel:scalingPlans:DescribeScalingPlansResponse'] :: DescribeScalingPlansResponse -> Maybe [ScalingPlan]
 
 -- | The response's http status code.
 [$sel:httpStatus:DescribeScalingPlansResponse'] :: DescribeScalingPlansResponse -> Int
@@ -4444,26 +4444,26 @@ DescribeScalingPlansResponse' :: Maybe Text -> Maybe [ScalingPlan] -> Int -> Des
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:scalingPlans:DescribeScalingPlansResponse'</a>,
+--   <a>describeScalingPlansResponse_scalingPlans</a> - Information about
+--   the scaling plans.
+--   
 --   <a>$sel:nextToken:DescribeScalingPlans'</a>,
 --   <a>describeScalingPlansResponse_nextToken</a> - The token required to
 --   get the next set of results. This value is <tt>null</tt> if there are
 --   no more results to return.
---   
---   <a>$sel:scalingPlans:DescribeScalingPlansResponse'</a>,
---   <a>describeScalingPlansResponse_scalingPlans</a> - Information about
---   the scaling plans.
 --   
 --   <a>$sel:httpStatus:DescribeScalingPlansResponse'</a>,
 --   <a>describeScalingPlansResponse_httpStatus</a> - The response's http
 --   status code.
 newDescribeScalingPlansResponse :: Int -> DescribeScalingPlansResponse
 
+-- | Information about the scaling plans.
+describeScalingPlansResponse_scalingPlans :: Lens' DescribeScalingPlansResponse (Maybe [ScalingPlan])
+
 -- | The token required to get the next set of results. This value is
 --   <tt>null</tt> if there are no more results to return.
 describeScalingPlansResponse_nextToken :: Lens' DescribeScalingPlansResponse (Maybe Text)
-
--- | Information about the scaling plans.
-describeScalingPlansResponse_scalingPlans :: Lens' DescribeScalingPlansResponse (Maybe [ScalingPlan])
 
 -- | The response's http status code.
 describeScalingPlansResponse_httpStatus :: Lens' DescribeScalingPlansResponse Int
@@ -4835,19 +4835,19 @@ module Network.AWS.AutoScalingPlans.UpdateScalingPlan
 
 -- | <i>See:</i> <a>newUpdateScalingPlan</a> smart constructor.
 data UpdateScalingPlan
-UpdateScalingPlan' :: Maybe ApplicationSource -> Maybe [ScalingInstruction] -> Text -> Integer -> UpdateScalingPlan
-
--- | A CloudFormation stack or set of tags.
---   
---   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
---   Scaling API Reference</i>.
-[$sel:applicationSource:UpdateScalingPlan'] :: UpdateScalingPlan -> Maybe ApplicationSource
+UpdateScalingPlan' :: Maybe [ScalingInstruction] -> Maybe ApplicationSource -> Text -> Integer -> UpdateScalingPlan
 
 -- | The scaling instructions.
 --   
 --   For more information, see <a>ScalingInstruction</a> in the <i>AWS Auto
 --   Scaling API Reference</i>.
 [$sel:scalingInstructions:UpdateScalingPlan'] :: UpdateScalingPlan -> Maybe [ScalingInstruction]
+
+-- | A CloudFormation stack or set of tags.
+--   
+--   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
+--   Scaling API Reference</i>.
+[$sel:applicationSource:UpdateScalingPlan'] :: UpdateScalingPlan -> Maybe ApplicationSource
 
 -- | The name of the scaling plan.
 [$sel:scalingPlanName:UpdateScalingPlan'] :: UpdateScalingPlan -> Text
@@ -4865,18 +4865,18 @@ UpdateScalingPlan' :: Maybe ApplicationSource -> Maybe [ScalingInstruction] -> T
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:applicationSource:UpdateScalingPlan'</a>,
---   <a>updateScalingPlan_applicationSource</a> - A CloudFormation stack or
---   set of tags.
---   
---   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
---   Scaling API Reference</i>.
---   
 --   <a>$sel:scalingInstructions:UpdateScalingPlan'</a>,
 --   <a>updateScalingPlan_scalingInstructions</a> - The scaling
 --   instructions.
 --   
 --   For more information, see <a>ScalingInstruction</a> in the <i>AWS Auto
+--   Scaling API Reference</i>.
+--   
+--   <a>$sel:applicationSource:UpdateScalingPlan'</a>,
+--   <a>updateScalingPlan_applicationSource</a> - A CloudFormation stack or
+--   set of tags.
+--   
+--   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
 --   Scaling API Reference</i>.
 --   
 --   <a>$sel:scalingPlanName:UpdateScalingPlan'</a>,
@@ -4889,17 +4889,17 @@ UpdateScalingPlan' :: Maybe ApplicationSource -> Maybe [ScalingInstruction] -> T
 --   cannot have multiple scaling plan versions.
 newUpdateScalingPlan :: Text -> Integer -> UpdateScalingPlan
 
--- | A CloudFormation stack or set of tags.
---   
---   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
---   Scaling API Reference</i>.
-updateScalingPlan_applicationSource :: Lens' UpdateScalingPlan (Maybe ApplicationSource)
-
 -- | The scaling instructions.
 --   
 --   For more information, see <a>ScalingInstruction</a> in the <i>AWS Auto
 --   Scaling API Reference</i>.
 updateScalingPlan_scalingInstructions :: Lens' UpdateScalingPlan (Maybe [ScalingInstruction])
+
+-- | A CloudFormation stack or set of tags.
+--   
+--   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
+--   Scaling API Reference</i>.
+updateScalingPlan_applicationSource :: Lens' UpdateScalingPlan (Maybe ApplicationSource)
 
 -- | The name of the scaling plan.
 updateScalingPlan_scalingPlanName :: Lens' UpdateScalingPlan Text
@@ -4951,38 +4951,6 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.AutoScalingPlans.UpdateScali
 
 module Network.AWS.AutoScalingPlans.Lens
 
--- | A CloudFormation stack or set of tags.
---   
---   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
---   Scaling API Reference</i>.
-updateScalingPlan_applicationSource :: Lens' UpdateScalingPlan (Maybe ApplicationSource)
-
--- | The scaling instructions.
---   
---   For more information, see <a>ScalingInstruction</a> in the <i>AWS Auto
---   Scaling API Reference</i>.
-updateScalingPlan_scalingInstructions :: Lens' UpdateScalingPlan (Maybe [ScalingInstruction])
-
--- | The name of the scaling plan.
-updateScalingPlan_scalingPlanName :: Lens' UpdateScalingPlan Text
-
--- | The version number of the scaling plan. The only valid value is
---   <tt>1</tt>. Currently, you cannot have multiple scaling plan versions.
-updateScalingPlan_scalingPlanVersion :: Lens' UpdateScalingPlan Integer
-
--- | The response's http status code.
-updateScalingPlanResponse_httpStatus :: Lens' UpdateScalingPlanResponse Int
-
--- | The name of the scaling plan.
-deleteScalingPlan_scalingPlanName :: Lens' DeleteScalingPlan Text
-
--- | The version number of the scaling plan. Currently, the only valid
---   value is <tt>1</tt>.
-deleteScalingPlan_scalingPlanVersion :: Lens' DeleteScalingPlan Integer
-
--- | The response's http status code.
-deleteScalingPlanResponse_httpStatus :: Lens' DeleteScalingPlanResponse Int
-
 -- | The token for the next set of results.
 describeScalingPlanResources_nextToken :: Lens' DescribeScalingPlanResources (Maybe Text)
 
@@ -5006,6 +4974,94 @@ describeScalingPlanResourcesResponse_scalingPlanResources :: Lens' DescribeScali
 
 -- | The response's http status code.
 describeScalingPlanResourcesResponse_httpStatus :: Lens' DescribeScalingPlanResourcesResponse Int
+
+-- | The name of the scaling plan. Names cannot contain vertical bars,
+--   colons, or forward slashes.
+createScalingPlan_scalingPlanName :: Lens' CreateScalingPlan Text
+
+-- | A CloudFormation stack or set of tags. You can create one scaling plan
+--   per application source.
+--   
+--   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
+--   Scaling API Reference</i>.
+createScalingPlan_applicationSource :: Lens' CreateScalingPlan ApplicationSource
+
+-- | The scaling instructions.
+--   
+--   For more information, see <a>ScalingInstruction</a> in the <i>AWS Auto
+--   Scaling API Reference</i>.
+createScalingPlan_scalingInstructions :: Lens' CreateScalingPlan [ScalingInstruction]
+
+-- | The response's http status code.
+createScalingPlanResponse_httpStatus :: Lens' CreateScalingPlanResponse Int
+
+-- | The version number of the scaling plan. This value is always
+--   <tt>1</tt>. Currently, you cannot have multiple scaling plan versions.
+createScalingPlanResponse_scalingPlanVersion :: Lens' CreateScalingPlanResponse Integer
+
+-- | The name of the scaling plan.
+deleteScalingPlan_scalingPlanName :: Lens' DeleteScalingPlan Text
+
+-- | The version number of the scaling plan. Currently, the only valid
+--   value is <tt>1</tt>.
+deleteScalingPlan_scalingPlanVersion :: Lens' DeleteScalingPlan Integer
+
+-- | The response's http status code.
+deleteScalingPlanResponse_httpStatus :: Lens' DeleteScalingPlanResponse Int
+
+-- | The scaling instructions.
+--   
+--   For more information, see <a>ScalingInstruction</a> in the <i>AWS Auto
+--   Scaling API Reference</i>.
+updateScalingPlan_scalingInstructions :: Lens' UpdateScalingPlan (Maybe [ScalingInstruction])
+
+-- | A CloudFormation stack or set of tags.
+--   
+--   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
+--   Scaling API Reference</i>.
+updateScalingPlan_applicationSource :: Lens' UpdateScalingPlan (Maybe ApplicationSource)
+
+-- | The name of the scaling plan.
+updateScalingPlan_scalingPlanName :: Lens' UpdateScalingPlan Text
+
+-- | The version number of the scaling plan. The only valid value is
+--   <tt>1</tt>. Currently, you cannot have multiple scaling plan versions.
+updateScalingPlan_scalingPlanVersion :: Lens' UpdateScalingPlan Integer
+
+-- | The response's http status code.
+updateScalingPlanResponse_httpStatus :: Lens' UpdateScalingPlanResponse Int
+
+-- | The version number of the scaling plan. Currently, the only valid
+--   value is <tt>1</tt>.
+--   
+--   If you specify a scaling plan version, you must also specify a scaling
+--   plan name.
+describeScalingPlans_scalingPlanVersion :: Lens' DescribeScalingPlans (Maybe Integer)
+
+-- | The names of the scaling plans (up to 10). If you specify application
+--   sources, you cannot specify scaling plan names.
+describeScalingPlans_scalingPlanNames :: Lens' DescribeScalingPlans (Maybe [Text])
+
+-- | The token for the next set of results.
+describeScalingPlans_nextToken :: Lens' DescribeScalingPlans (Maybe Text)
+
+-- | The sources for the applications (up to 10). If you specify scaling
+--   plan names, you cannot specify application sources.
+describeScalingPlans_applicationSources :: Lens' DescribeScalingPlans (Maybe [ApplicationSource])
+
+-- | The maximum number of scalable resources to return. This value can be
+--   between 1 and 50. The default value is 50.
+describeScalingPlans_maxResults :: Lens' DescribeScalingPlans (Maybe Int)
+
+-- | Information about the scaling plans.
+describeScalingPlansResponse_scalingPlans :: Lens' DescribeScalingPlansResponse (Maybe [ScalingPlan])
+
+-- | The token required to get the next set of results. This value is
+--   <tt>null</tt> if there are no more results to return.
+describeScalingPlansResponse_nextToken :: Lens' DescribeScalingPlansResponse (Maybe Text)
+
+-- | The response's http status code.
+describeScalingPlansResponse_httpStatus :: Lens' DescribeScalingPlansResponse Int
 
 -- | The name of the scaling plan.
 getScalingPlanResourceForecastData_scalingPlanName :: Lens' GetScalingPlanResourceForecastData Text
@@ -5065,70 +5121,11 @@ getScalingPlanResourceForecastDataResponse_httpStatus :: Lens' GetScalingPlanRes
 -- | The data points to return.
 getScalingPlanResourceForecastDataResponse_datapoints :: Lens' GetScalingPlanResourceForecastDataResponse [Datapoint]
 
--- | The version number of the scaling plan. Currently, the only valid
---   value is <tt>1</tt>.
---   
---   If you specify a scaling plan version, you must also specify a scaling
---   plan name.
-describeScalingPlans_scalingPlanVersion :: Lens' DescribeScalingPlans (Maybe Integer)
-
--- | The token for the next set of results.
-describeScalingPlans_nextToken :: Lens' DescribeScalingPlans (Maybe Text)
-
--- | The maximum number of scalable resources to return. This value can be
---   between 1 and 50. The default value is 50.
-describeScalingPlans_maxResults :: Lens' DescribeScalingPlans (Maybe Int)
-
--- | The names of the scaling plans (up to 10). If you specify application
---   sources, you cannot specify scaling plan names.
-describeScalingPlans_scalingPlanNames :: Lens' DescribeScalingPlans (Maybe [Text])
-
--- | The sources for the applications (up to 10). If you specify scaling
---   plan names, you cannot specify application sources.
-describeScalingPlans_applicationSources :: Lens' DescribeScalingPlans (Maybe [ApplicationSource])
-
--- | The token required to get the next set of results. This value is
---   <tt>null</tt> if there are no more results to return.
-describeScalingPlansResponse_nextToken :: Lens' DescribeScalingPlansResponse (Maybe Text)
-
--- | Information about the scaling plans.
-describeScalingPlansResponse_scalingPlans :: Lens' DescribeScalingPlansResponse (Maybe [ScalingPlan])
-
--- | The response's http status code.
-describeScalingPlansResponse_httpStatus :: Lens' DescribeScalingPlansResponse Int
-
--- | The name of the scaling plan. Names cannot contain vertical bars,
---   colons, or forward slashes.
-createScalingPlan_scalingPlanName :: Lens' CreateScalingPlan Text
-
--- | A CloudFormation stack or set of tags. You can create one scaling plan
---   per application source.
---   
---   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
---   Scaling API Reference</i>.
-createScalingPlan_applicationSource :: Lens' CreateScalingPlan ApplicationSource
-
--- | The scaling instructions.
---   
---   For more information, see <a>ScalingInstruction</a> in the <i>AWS Auto
---   Scaling API Reference</i>.
-createScalingPlan_scalingInstructions :: Lens' CreateScalingPlan [ScalingInstruction]
-
--- | The response's http status code.
-createScalingPlanResponse_httpStatus :: Lens' CreateScalingPlanResponse Int
-
--- | The version number of the scaling plan. This value is always
---   <tt>1</tt>. Currently, you cannot have multiple scaling plan versions.
-createScalingPlanResponse_scalingPlanVersion :: Lens' CreateScalingPlanResponse Integer
-
 -- | A set of tags (up to 50).
 applicationSource_tagFilters :: Lens' ApplicationSource (Maybe [TagFilter])
 
 -- | The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
 applicationSource_cloudFormationStackARN :: Lens' ApplicationSource (Maybe Text)
-
--- | The unit of the metric.
-customizedLoadMetricSpecification_unit :: Lens' CustomizedLoadMetricSpecification (Maybe Text)
 
 -- | The dimensions of the metric.
 --   
@@ -5136,6 +5133,9 @@ customizedLoadMetricSpecification_unit :: Lens' CustomizedLoadMetricSpecificatio
 --   specify the same dimensions in your customized load metric
 --   specification.
 customizedLoadMetricSpecification_dimensions :: Lens' CustomizedLoadMetricSpecification (Maybe [MetricDimension])
+
+-- | The unit of the metric.
+customizedLoadMetricSpecification_unit :: Lens' CustomizedLoadMetricSpecification (Maybe Text)
 
 -- | The name of the metric.
 customizedLoadMetricSpecification_metricName :: Lens' CustomizedLoadMetricSpecification Text
@@ -5146,15 +5146,15 @@ customizedLoadMetricSpecification_namespace :: Lens' CustomizedLoadMetricSpecifi
 -- | The statistic of the metric. The only valid value is <tt>Sum</tt>.
 customizedLoadMetricSpecification_statistic :: Lens' CustomizedLoadMetricSpecification MetricStatistic
 
--- | The unit of the metric.
-customizedScalingMetricSpecification_unit :: Lens' CustomizedScalingMetricSpecification (Maybe Text)
-
 -- | The dimensions of the metric.
 --   
 --   Conditional: If you published your metric with dimensions, you must
 --   specify the same dimensions in your customized scaling metric
 --   specification.
 customizedScalingMetricSpecification_dimensions :: Lens' CustomizedScalingMetricSpecification (Maybe [MetricDimension])
+
+-- | The unit of the metric.
+customizedScalingMetricSpecification_unit :: Lens' CustomizedScalingMetricSpecification (Maybe Text)
 
 -- | The name of the metric.
 customizedScalingMetricSpecification_metricName :: Lens' CustomizedScalingMetricSpecification Text
@@ -5165,11 +5165,11 @@ customizedScalingMetricSpecification_namespace :: Lens' CustomizedScalingMetricS
 -- | The statistic of the metric.
 customizedScalingMetricSpecification_statistic :: Lens' CustomizedScalingMetricSpecification MetricStatistic
 
--- | The time stamp for the data point in UTC format.
-datapoint_timestamp :: Lens' Datapoint (Maybe UTCTime)
-
 -- | The value of the data point.
 datapoint_value :: Lens' Datapoint (Maybe Double)
+
+-- | The time stamp for the data point in UTC format.
+datapoint_timestamp :: Lens' Datapoint (Maybe UTCTime)
 
 -- | The name of the dimension.
 metricDimension_name :: Lens' MetricDimension Text
@@ -5238,6 +5238,64 @@ predefinedScalingMetricSpecification_resourceLabel :: Lens' PredefinedScalingMet
 --   services.
 predefinedScalingMetricSpecification_predefinedScalingMetricType :: Lens' PredefinedScalingMetricSpecification ScalingMetricType
 
+-- | The amount of time, in seconds, to buffer the run time of scheduled
+--   scaling actions when scaling out. For example, if the forecast says to
+--   add capacity at 10:00 AM, and the buffer time is 5 minutes, then the
+--   run time of the corresponding scheduled scaling action will be 9:55
+--   AM. The intention is to give resources time to be provisioned. For
+--   example, it can take a few minutes to launch an EC2 instance. The
+--   actual amount of time required depends on several factors, such as the
+--   size of the instance and whether there are startup scripts to
+--   complete.
+--   
+--   The value must be less than the forecast interval duration of 3600
+--   seconds (60 minutes). The default is 300 seconds.
+--   
+--   Only valid when configuring predictive scaling.
+scalingInstruction_scheduledActionBufferTime :: Lens' ScalingInstruction (Maybe Natural)
+
+-- | The size of the capacity buffer to use when the forecast capacity is
+--   close to or exceeds the maximum capacity. The value is specified as a
+--   percentage relative to the forecast capacity. For example, if the
+--   buffer is 10, this means a 10 percent buffer, such that if the
+--   forecast capacity is 50, and the maximum capacity is 40, then the
+--   effective maximum capacity is 55.
+--   
+--   Only valid when configuring predictive scaling. Required if the
+--   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
+--   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
+--   otherwise.
+--   
+--   The range is 1-100.
+scalingInstruction_predictiveScalingMaxCapacityBuffer :: Lens' ScalingInstruction (Maybe Int)
+
+-- | Controls whether a resource's externally created scaling policies are
+--   kept or replaced.
+--   
+--   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
+--   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
+--   are external to AWS Auto Scaling are deleted and new target tracking
+--   scaling policies created.
+--   
+--   Only valid when configuring dynamic scaling.
+--   
+--   Condition: The number of existing policies to be replaced must be less
+--   than or equal to 50. If there are more than 50 policies to be
+--   replaced, AWS Auto Scaling keeps all existing policies and does not
+--   create new ones.
+scalingInstruction_scalingPolicyUpdateBehavior :: Lens' ScalingInstruction (Maybe ScalingPolicyUpdateBehavior)
+
+-- | The customized load metric to use for predictive scaling. This
+--   parameter or a <b>PredefinedLoadMetricSpecification</b> is required
+--   when configuring predictive scaling, and cannot be used otherwise.
+scalingInstruction_customizedLoadMetricSpecification :: Lens' ScalingInstruction (Maybe CustomizedLoadMetricSpecification)
+
+-- | The predictive scaling mode. The default value is
+--   <tt>ForecastAndScale</tt>. Otherwise, AWS Auto Scaling forecasts
+--   capacity but does not create any scheduled scaling actions based on
+--   the capacity forecast.
+scalingInstruction_predictiveScalingMode :: Lens' ScalingInstruction (Maybe PredictiveScalingMode)
+
 -- | Controls whether dynamic scaling by AWS Auto Scaling is disabled. When
 --   dynamic scaling is enabled, AWS Auto Scaling creates target tracking
 --   scaling policies based on the specified target tracking
@@ -5245,11 +5303,6 @@ predefinedScalingMetricSpecification_predefinedScalingMetricType :: Lens' Predef
 --   
 --   The default is enabled (<tt>false</tt>).
 scalingInstruction_disableDynamicScaling :: Lens' ScalingInstruction (Maybe Bool)
-
--- | The predefined load metric to use for predictive scaling. This
---   parameter or a <b>CustomizedLoadMetricSpecification</b> is required
---   when configuring predictive scaling, and cannot be used otherwise.
-scalingInstruction_predefinedLoadMetricSpecification :: Lens' ScalingInstruction (Maybe PredefinedLoadMetricSpecification)
 
 -- | Defines the behavior that should be applied if the forecast capacity
 --   approaches or exceeds the maximum capacity specified for the resource.
@@ -5273,63 +5326,10 @@ scalingInstruction_predefinedLoadMetricSpecification :: Lens' ScalingInstruction
 --   Only valid when configuring predictive scaling.
 scalingInstruction_predictiveScalingMaxCapacityBehavior :: Lens' ScalingInstruction (Maybe PredictiveScalingMaxCapacityBehavior)
 
--- | The customized load metric to use for predictive scaling. This
---   parameter or a <b>PredefinedLoadMetricSpecification</b> is required
+-- | The predefined load metric to use for predictive scaling. This
+--   parameter or a <b>CustomizedLoadMetricSpecification</b> is required
 --   when configuring predictive scaling, and cannot be used otherwise.
-scalingInstruction_customizedLoadMetricSpecification :: Lens' ScalingInstruction (Maybe CustomizedLoadMetricSpecification)
-
--- | The size of the capacity buffer to use when the forecast capacity is
---   close to or exceeds the maximum capacity. The value is specified as a
---   percentage relative to the forecast capacity. For example, if the
---   buffer is 10, this means a 10 percent buffer, such that if the
---   forecast capacity is 50, and the maximum capacity is 40, then the
---   effective maximum capacity is 55.
---   
---   Only valid when configuring predictive scaling. Required if the
---   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
---   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
---   otherwise.
---   
---   The range is 1-100.
-scalingInstruction_predictiveScalingMaxCapacityBuffer :: Lens' ScalingInstruction (Maybe Int)
-
--- | The predictive scaling mode. The default value is
---   <tt>ForecastAndScale</tt>. Otherwise, AWS Auto Scaling forecasts
---   capacity but does not create any scheduled scaling actions based on
---   the capacity forecast.
-scalingInstruction_predictiveScalingMode :: Lens' ScalingInstruction (Maybe PredictiveScalingMode)
-
--- | Controls whether a resource's externally created scaling policies are
---   kept or replaced.
---   
---   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
---   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
---   are external to AWS Auto Scaling are deleted and new target tracking
---   scaling policies created.
---   
---   Only valid when configuring dynamic scaling.
---   
---   Condition: The number of existing policies to be replaced must be less
---   than or equal to 50. If there are more than 50 policies to be
---   replaced, AWS Auto Scaling keeps all existing policies and does not
---   create new ones.
-scalingInstruction_scalingPolicyUpdateBehavior :: Lens' ScalingInstruction (Maybe ScalingPolicyUpdateBehavior)
-
--- | The amount of time, in seconds, to buffer the run time of scheduled
---   scaling actions when scaling out. For example, if the forecast says to
---   add capacity at 10:00 AM, and the buffer time is 5 minutes, then the
---   run time of the corresponding scheduled scaling action will be 9:55
---   AM. The intention is to give resources time to be provisioned. For
---   example, it can take a few minutes to launch an EC2 instance. The
---   actual amount of time required depends on several factors, such as the
---   size of the instance and whether there are startup scripts to
---   complete.
---   
---   The value must be less than the forecast interval duration of 3600
---   seconds (60 minutes). The default is 300 seconds.
---   
---   Only valid when configuring predictive scaling.
-scalingInstruction_scheduledActionBufferTime :: Lens' ScalingInstruction (Maybe Natural)
+scalingInstruction_predefinedLoadMetricSpecification :: Lens' ScalingInstruction (Maybe PredefinedLoadMetricSpecification)
 
 -- | The namespace of the AWS service.
 scalingInstruction_serviceNamespace :: Lens' ScalingInstruction ServiceNamespace
@@ -5397,14 +5397,14 @@ scalingInstruction_maxCapacity :: Lens' ScalingInstruction Int
 --   the metric.
 scalingInstruction_targetTrackingConfigurations :: Lens' ScalingInstruction [TargetTrackingConfiguration]
 
--- | A simple message about the current status of the scaling plan.
-scalingPlan_statusMessage :: Lens' ScalingPlan (Maybe Text)
-
 -- | The Unix time stamp when the scaling plan was created.
 scalingPlan_creationTime :: Lens' ScalingPlan (Maybe UTCTime)
 
 -- | The Unix time stamp when the scaling plan entered the current status.
 scalingPlan_statusStartTime :: Lens' ScalingPlan (Maybe UTCTime)
+
+-- | A simple message about the current status of the scaling plan.
+scalingPlan_statusMessage :: Lens' ScalingPlan (Maybe Text)
 
 -- | The name of the scaling plan.
 scalingPlan_scalingPlanName :: Lens' ScalingPlan Text
@@ -5441,11 +5441,11 @@ scalingPlan_scalingInstructions :: Lens' ScalingPlan [ScalingInstruction]
 --   </ul>
 scalingPlan_statusCode :: Lens' ScalingPlan ScalingPlanStatusCode
 
--- | The scaling policies.
-scalingPlanResource_scalingPolicies :: Lens' ScalingPlanResource (Maybe [ScalingPolicy])
-
 -- | A simple message about the current scaling status of the resource.
 scalingPlanResource_scalingStatusMessage :: Lens' ScalingPlanResource (Maybe Text)
+
+-- | The scaling policies.
+scalingPlanResource_scalingPolicies :: Lens' ScalingPlanResource (Maybe [ScalingPolicy])
 
 -- | The name of the scaling plan.
 scalingPlanResource_scalingPlanName :: Lens' ScalingPlanResource Text
@@ -5531,11 +5531,32 @@ scalingPolicy_policyName :: Lens' ScalingPolicy Text
 -- | The type of scaling policy.
 scalingPolicy_policyType :: Lens' ScalingPolicy PolicyType
 
+-- | The tag values (0 to 20).
+tagFilter_values :: Lens' TagFilter (Maybe [Text])
+
 -- | The tag key.
 tagFilter_key :: Lens' TagFilter (Maybe Text)
 
--- | The tag values (0 to 20).
-tagFilter_values :: Lens' TagFilter (Maybe [Text])
+-- | The estimated time, in seconds, until a newly launched instance can
+--   contribute to the CloudWatch metrics. This value is used only if the
+--   resource is an Auto Scaling group.
+targetTrackingConfiguration_estimatedInstanceWarmup :: Lens' TargetTrackingConfiguration (Maybe Int)
+
+-- | A predefined metric. You can specify either a predefined metric or a
+--   customized metric.
+targetTrackingConfiguration_predefinedScalingMetricSpecification :: Lens' TargetTrackingConfiguration (Maybe PredefinedScalingMetricSpecification)
+
+-- | The amount of time, in seconds, after a scale-in activity completes
+--   before another scale-in activity can start. This property is not used
+--   if the scalable resource is an Auto Scaling group.
+--   
+--   With the <i>scale-in cooldown period</i>, the intention is to scale in
+--   conservatively to protect your application’s availability, so scale-in
+--   activities are blocked until the cooldown period has expired. However,
+--   if another alarm triggers a scale-out activity during the scale-in
+--   cooldown period, Auto Scaling scales out the target immediately. In
+--   this case, the scale-in cooldown period stops and doesn't complete.
+targetTrackingConfiguration_scaleInCooldown :: Lens' TargetTrackingConfiguration (Maybe Int)
 
 -- | Indicates whether scale in by the target tracking scaling policy is
 --   disabled. If the value is <tt>true</tt>, scale in is disabled and the
@@ -5551,15 +5572,6 @@ targetTrackingConfiguration_disableScaleIn :: Lens' TargetTrackingConfiguration 
 --   customized metric.
 targetTrackingConfiguration_customizedScalingMetricSpecification :: Lens' TargetTrackingConfiguration (Maybe CustomizedScalingMetricSpecification)
 
--- | A predefined metric. You can specify either a predefined metric or a
---   customized metric.
-targetTrackingConfiguration_predefinedScalingMetricSpecification :: Lens' TargetTrackingConfiguration (Maybe PredefinedScalingMetricSpecification)
-
--- | The estimated time, in seconds, until a newly launched instance can
---   contribute to the CloudWatch metrics. This value is used only if the
---   resource is an Auto Scaling group.
-targetTrackingConfiguration_estimatedInstanceWarmup :: Lens' TargetTrackingConfiguration (Maybe Int)
-
 -- | The amount of time, in seconds, to wait for a previous scale-out
 --   activity to take effect. This property is not used if the scalable
 --   resource is an Auto Scaling group.
@@ -5571,18 +5583,6 @@ targetTrackingConfiguration_estimatedInstanceWarmup :: Lens' TargetTrackingConfi
 --   increase the desired capacity again unless either a larger scale out
 --   is triggered or the cooldown period ends.
 targetTrackingConfiguration_scaleOutCooldown :: Lens' TargetTrackingConfiguration (Maybe Int)
-
--- | The amount of time, in seconds, after a scale-in activity completes
---   before another scale-in activity can start. This property is not used
---   if the scalable resource is an Auto Scaling group.
---   
---   With the <i>scale-in cooldown period</i>, the intention is to scale in
---   conservatively to protect your application’s availability, so scale-in
---   activities are blocked until the cooldown period has expired. However,
---   if another alarm triggers a scale-out activity during the scale-in
---   cooldown period, Auto Scaling scales out the target immediately. In
---   this case, the scale-in cooldown period stops and doesn't complete.
-targetTrackingConfiguration_scaleInCooldown :: Lens' TargetTrackingConfiguration (Maybe Int)
 
 -- | The target value for the metric. Although this property accepts
 --   numbers of type Double, it won't accept values that are either too
@@ -5627,121 +5627,26 @@ module Network.AWS.AutoScalingPlans
 --   configuration.
 defaultService :: Service
 
--- | The specified object could not be found.
-_ObjectNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The service encountered an internal error.
-_InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
-
--- | The token provided is not valid.
-_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
-
 -- | An exception was thrown for a validation issue. Review the parameters
 --   provided.
 _ValidationException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Your account exceeded a limit. This exception is thrown when a
---   per-account resource limit is exceeded.
-_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
+-- | The token provided is not valid.
+_InvalidNextTokenException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | Concurrent updates caused an exception, for example, if you request an
 --   update to a scaling plan that already has a pending update.
 _ConcurrentUpdateException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | <i>See:</i> <a>newUpdateScalingPlan</a> smart constructor.
-data UpdateScalingPlan
-UpdateScalingPlan' :: Maybe ApplicationSource -> Maybe [ScalingInstruction] -> Text -> Integer -> UpdateScalingPlan
+-- | The service encountered an internal error.
+_InternalServiceException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | Create a value of <a>UpdateScalingPlan</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:applicationSource:UpdateScalingPlan'</a>,
---   <a>updateScalingPlan_applicationSource</a> - A CloudFormation stack or
---   set of tags.
---   
---   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
---   Scaling API Reference</i>.
---   
---   <a>$sel:scalingInstructions:UpdateScalingPlan'</a>,
---   <a>updateScalingPlan_scalingInstructions</a> - The scaling
---   instructions.
---   
---   For more information, see <a>ScalingInstruction</a> in the <i>AWS Auto
---   Scaling API Reference</i>.
---   
---   <a>$sel:scalingPlanName:UpdateScalingPlan'</a>,
---   <a>updateScalingPlan_scalingPlanName</a> - The name of the scaling
---   plan.
---   
---   <a>$sel:scalingPlanVersion:UpdateScalingPlan'</a>,
---   <a>updateScalingPlan_scalingPlanVersion</a> - The version number of
---   the scaling plan. The only valid value is <tt>1</tt>. Currently, you
---   cannot have multiple scaling plan versions.
-newUpdateScalingPlan :: Text -> Integer -> UpdateScalingPlan
+-- | The specified object could not be found.
+_ObjectNotFoundException :: AsError a => Getting (First ServiceError) a ServiceError
 
--- | <i>See:</i> <a>newUpdateScalingPlanResponse</a> smart constructor.
-data UpdateScalingPlanResponse
-UpdateScalingPlanResponse' :: Int -> UpdateScalingPlanResponse
-
--- | Create a value of <a>UpdateScalingPlanResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:UpdateScalingPlanResponse'</a>,
---   <a>updateScalingPlanResponse_httpStatus</a> - The response's http
---   status code.
-newUpdateScalingPlanResponse :: Int -> UpdateScalingPlanResponse
-
--- | <i>See:</i> <a>newDeleteScalingPlan</a> smart constructor.
-data DeleteScalingPlan
-DeleteScalingPlan' :: Text -> Integer -> DeleteScalingPlan
-
--- | Create a value of <a>DeleteScalingPlan</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:scalingPlanName:DeleteScalingPlan'</a>,
---   <a>deleteScalingPlan_scalingPlanName</a> - The name of the scaling
---   plan.
---   
---   <a>$sel:scalingPlanVersion:DeleteScalingPlan'</a>,
---   <a>deleteScalingPlan_scalingPlanVersion</a> - The version number of
---   the scaling plan. Currently, the only valid value is <tt>1</tt>.
-newDeleteScalingPlan :: Text -> Integer -> DeleteScalingPlan
-
--- | <i>See:</i> <a>newDeleteScalingPlanResponse</a> smart constructor.
-data DeleteScalingPlanResponse
-DeleteScalingPlanResponse' :: Int -> DeleteScalingPlanResponse
-
--- | Create a value of <a>DeleteScalingPlanResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:DeleteScalingPlanResponse'</a>,
---   <a>deleteScalingPlanResponse_httpStatus</a> - The response's http
---   status code.
-newDeleteScalingPlanResponse :: Int -> DeleteScalingPlanResponse
+-- | Your account exceeded a limit. This exception is thrown when a
+--   per-account resource limit is exceeded.
+_LimitExceededException :: AsError a => Getting (First ServiceError) a ServiceError
 
 -- | <i>See:</i> <a>newDescribeScalingPlanResources</a> smart constructor.
 data DescribeScalingPlanResources
@@ -5803,6 +5708,223 @@ DescribeScalingPlanResourcesResponse' :: Maybe Text -> Maybe [ScalingPlanResourc
 --   <a>describeScalingPlanResourcesResponse_httpStatus</a> - The
 --   response's http status code.
 newDescribeScalingPlanResourcesResponse :: Int -> DescribeScalingPlanResourcesResponse
+
+-- | <i>See:</i> <a>newCreateScalingPlan</a> smart constructor.
+data CreateScalingPlan
+CreateScalingPlan' :: Text -> ApplicationSource -> [ScalingInstruction] -> CreateScalingPlan
+
+-- | Create a value of <a>CreateScalingPlan</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:scalingPlanName:CreateScalingPlan'</a>,
+--   <a>createScalingPlan_scalingPlanName</a> - The name of the scaling
+--   plan. Names cannot contain vertical bars, colons, or forward slashes.
+--   
+--   <a>$sel:applicationSource:CreateScalingPlan'</a>,
+--   <a>createScalingPlan_applicationSource</a> - A CloudFormation stack or
+--   set of tags. You can create one scaling plan per application source.
+--   
+--   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
+--   Scaling API Reference</i>.
+--   
+--   <a>$sel:scalingInstructions:CreateScalingPlan'</a>,
+--   <a>createScalingPlan_scalingInstructions</a> - The scaling
+--   instructions.
+--   
+--   For more information, see <a>ScalingInstruction</a> in the <i>AWS Auto
+--   Scaling API Reference</i>.
+newCreateScalingPlan :: Text -> ApplicationSource -> CreateScalingPlan
+
+-- | <i>See:</i> <a>newCreateScalingPlanResponse</a> smart constructor.
+data CreateScalingPlanResponse
+CreateScalingPlanResponse' :: Int -> Integer -> CreateScalingPlanResponse
+
+-- | Create a value of <a>CreateScalingPlanResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:CreateScalingPlanResponse'</a>,
+--   <a>createScalingPlanResponse_httpStatus</a> - The response's http
+--   status code.
+--   
+--   <a>$sel:scalingPlanVersion:CreateScalingPlanResponse'</a>,
+--   <a>createScalingPlanResponse_scalingPlanVersion</a> - The version
+--   number of the scaling plan. This value is always <tt>1</tt>.
+--   Currently, you cannot have multiple scaling plan versions.
+newCreateScalingPlanResponse :: Int -> Integer -> CreateScalingPlanResponse
+
+-- | <i>See:</i> <a>newDeleteScalingPlan</a> smart constructor.
+data DeleteScalingPlan
+DeleteScalingPlan' :: Text -> Integer -> DeleteScalingPlan
+
+-- | Create a value of <a>DeleteScalingPlan</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:scalingPlanName:DeleteScalingPlan'</a>,
+--   <a>deleteScalingPlan_scalingPlanName</a> - The name of the scaling
+--   plan.
+--   
+--   <a>$sel:scalingPlanVersion:DeleteScalingPlan'</a>,
+--   <a>deleteScalingPlan_scalingPlanVersion</a> - The version number of
+--   the scaling plan. Currently, the only valid value is <tt>1</tt>.
+newDeleteScalingPlan :: Text -> Integer -> DeleteScalingPlan
+
+-- | <i>See:</i> <a>newDeleteScalingPlanResponse</a> smart constructor.
+data DeleteScalingPlanResponse
+DeleteScalingPlanResponse' :: Int -> DeleteScalingPlanResponse
+
+-- | Create a value of <a>DeleteScalingPlanResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:DeleteScalingPlanResponse'</a>,
+--   <a>deleteScalingPlanResponse_httpStatus</a> - The response's http
+--   status code.
+newDeleteScalingPlanResponse :: Int -> DeleteScalingPlanResponse
+
+-- | <i>See:</i> <a>newUpdateScalingPlan</a> smart constructor.
+data UpdateScalingPlan
+UpdateScalingPlan' :: Maybe [ScalingInstruction] -> Maybe ApplicationSource -> Text -> Integer -> UpdateScalingPlan
+
+-- | Create a value of <a>UpdateScalingPlan</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:scalingInstructions:UpdateScalingPlan'</a>,
+--   <a>updateScalingPlan_scalingInstructions</a> - The scaling
+--   instructions.
+--   
+--   For more information, see <a>ScalingInstruction</a> in the <i>AWS Auto
+--   Scaling API Reference</i>.
+--   
+--   <a>$sel:applicationSource:UpdateScalingPlan'</a>,
+--   <a>updateScalingPlan_applicationSource</a> - A CloudFormation stack or
+--   set of tags.
+--   
+--   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
+--   Scaling API Reference</i>.
+--   
+--   <a>$sel:scalingPlanName:UpdateScalingPlan'</a>,
+--   <a>updateScalingPlan_scalingPlanName</a> - The name of the scaling
+--   plan.
+--   
+--   <a>$sel:scalingPlanVersion:UpdateScalingPlan'</a>,
+--   <a>updateScalingPlan_scalingPlanVersion</a> - The version number of
+--   the scaling plan. The only valid value is <tt>1</tt>. Currently, you
+--   cannot have multiple scaling plan versions.
+newUpdateScalingPlan :: Text -> Integer -> UpdateScalingPlan
+
+-- | <i>See:</i> <a>newUpdateScalingPlanResponse</a> smart constructor.
+data UpdateScalingPlanResponse
+UpdateScalingPlanResponse' :: Int -> UpdateScalingPlanResponse
+
+-- | Create a value of <a>UpdateScalingPlanResponse</a> with all optional
+--   fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:httpStatus:UpdateScalingPlanResponse'</a>,
+--   <a>updateScalingPlanResponse_httpStatus</a> - The response's http
+--   status code.
+newUpdateScalingPlanResponse :: Int -> UpdateScalingPlanResponse
+
+-- | <i>See:</i> <a>newDescribeScalingPlans</a> smart constructor.
+data DescribeScalingPlans
+DescribeScalingPlans' :: Maybe Integer -> Maybe [Text] -> Maybe Text -> Maybe [ApplicationSource] -> Maybe Int -> DescribeScalingPlans
+
+-- | Create a value of <a>DescribeScalingPlans</a> with all optional fields
+--   omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:scalingPlanVersion:DescribeScalingPlans'</a>,
+--   <a>describeScalingPlans_scalingPlanVersion</a> - The version number of
+--   the scaling plan. Currently, the only valid value is <tt>1</tt>.
+--   
+--   If you specify a scaling plan version, you must also specify a scaling
+--   plan name.
+--   
+--   <a>$sel:scalingPlanNames:DescribeScalingPlans'</a>,
+--   <a>describeScalingPlans_scalingPlanNames</a> - The names of the
+--   scaling plans (up to 10). If you specify application sources, you
+--   cannot specify scaling plan names.
+--   
+--   <a>$sel:nextToken:DescribeScalingPlans'</a>,
+--   <a>describeScalingPlans_nextToken</a> - The token for the next set of
+--   results.
+--   
+--   <a>$sel:applicationSources:DescribeScalingPlans'</a>,
+--   <a>describeScalingPlans_applicationSources</a> - The sources for the
+--   applications (up to 10). If you specify scaling plan names, you cannot
+--   specify application sources.
+--   
+--   <a>$sel:maxResults:DescribeScalingPlans'</a>,
+--   <a>describeScalingPlans_maxResults</a> - The maximum number of
+--   scalable resources to return. This value can be between 1 and 50. The
+--   default value is 50.
+newDescribeScalingPlans :: DescribeScalingPlans
+
+-- | <i>See:</i> <a>newDescribeScalingPlansResponse</a> smart constructor.
+data DescribeScalingPlansResponse
+DescribeScalingPlansResponse' :: Maybe [ScalingPlan] -> Maybe Text -> Int -> DescribeScalingPlansResponse
+
+-- | Create a value of <a>DescribeScalingPlansResponse</a> with all
+--   optional fields omitted.
+--   
+--   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
+--   fields.
+--   
+--   The following record fields are available, with the corresponding
+--   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:scalingPlans:DescribeScalingPlansResponse'</a>,
+--   <a>describeScalingPlansResponse_scalingPlans</a> - Information about
+--   the scaling plans.
+--   
+--   <a>$sel:nextToken:DescribeScalingPlans'</a>,
+--   <a>describeScalingPlansResponse_nextToken</a> - The token required to
+--   get the next set of results. This value is <tt>null</tt> if there are
+--   no more results to return.
+--   
+--   <a>$sel:httpStatus:DescribeScalingPlansResponse'</a>,
+--   <a>describeScalingPlansResponse_httpStatus</a> - The response's http
+--   status code.
+newDescribeScalingPlansResponse :: Int -> DescribeScalingPlansResponse
 
 -- | <i>See:</i> <a>newGetScalingPlanResourceForecastData</a> smart
 --   constructor.
@@ -5898,128 +6020,6 @@ GetScalingPlanResourceForecastDataResponse' :: Int -> [Datapoint] -> GetScalingP
 --   <a>getScalingPlanResourceForecastDataResponse_datapoints</a> - The
 --   data points to return.
 newGetScalingPlanResourceForecastDataResponse :: Int -> GetScalingPlanResourceForecastDataResponse
-
--- | <i>See:</i> <a>newDescribeScalingPlans</a> smart constructor.
-data DescribeScalingPlans
-DescribeScalingPlans' :: Maybe Integer -> Maybe Text -> Maybe Int -> Maybe [Text] -> Maybe [ApplicationSource] -> DescribeScalingPlans
-
--- | Create a value of <a>DescribeScalingPlans</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:scalingPlanVersion:DescribeScalingPlans'</a>,
---   <a>describeScalingPlans_scalingPlanVersion</a> - The version number of
---   the scaling plan. Currently, the only valid value is <tt>1</tt>.
---   
---   If you specify a scaling plan version, you must also specify a scaling
---   plan name.
---   
---   <a>$sel:nextToken:DescribeScalingPlans'</a>,
---   <a>describeScalingPlans_nextToken</a> - The token for the next set of
---   results.
---   
---   <a>$sel:maxResults:DescribeScalingPlans'</a>,
---   <a>describeScalingPlans_maxResults</a> - The maximum number of
---   scalable resources to return. This value can be between 1 and 50. The
---   default value is 50.
---   
---   <a>$sel:scalingPlanNames:DescribeScalingPlans'</a>,
---   <a>describeScalingPlans_scalingPlanNames</a> - The names of the
---   scaling plans (up to 10). If you specify application sources, you
---   cannot specify scaling plan names.
---   
---   <a>$sel:applicationSources:DescribeScalingPlans'</a>,
---   <a>describeScalingPlans_applicationSources</a> - The sources for the
---   applications (up to 10). If you specify scaling plan names, you cannot
---   specify application sources.
-newDescribeScalingPlans :: DescribeScalingPlans
-
--- | <i>See:</i> <a>newDescribeScalingPlansResponse</a> smart constructor.
-data DescribeScalingPlansResponse
-DescribeScalingPlansResponse' :: Maybe Text -> Maybe [ScalingPlan] -> Int -> DescribeScalingPlansResponse
-
--- | Create a value of <a>DescribeScalingPlansResponse</a> with all
---   optional fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:nextToken:DescribeScalingPlans'</a>,
---   <a>describeScalingPlansResponse_nextToken</a> - The token required to
---   get the next set of results. This value is <tt>null</tt> if there are
---   no more results to return.
---   
---   <a>$sel:scalingPlans:DescribeScalingPlansResponse'</a>,
---   <a>describeScalingPlansResponse_scalingPlans</a> - Information about
---   the scaling plans.
---   
---   <a>$sel:httpStatus:DescribeScalingPlansResponse'</a>,
---   <a>describeScalingPlansResponse_httpStatus</a> - The response's http
---   status code.
-newDescribeScalingPlansResponse :: Int -> DescribeScalingPlansResponse
-
--- | <i>See:</i> <a>newCreateScalingPlan</a> smart constructor.
-data CreateScalingPlan
-CreateScalingPlan' :: Text -> ApplicationSource -> [ScalingInstruction] -> CreateScalingPlan
-
--- | Create a value of <a>CreateScalingPlan</a> with all optional fields
---   omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:scalingPlanName:CreateScalingPlan'</a>,
---   <a>createScalingPlan_scalingPlanName</a> - The name of the scaling
---   plan. Names cannot contain vertical bars, colons, or forward slashes.
---   
---   <a>$sel:applicationSource:CreateScalingPlan'</a>,
---   <a>createScalingPlan_applicationSource</a> - A CloudFormation stack or
---   set of tags. You can create one scaling plan per application source.
---   
---   For more information, see <a>ApplicationSource</a> in the <i>AWS Auto
---   Scaling API Reference</i>.
---   
---   <a>$sel:scalingInstructions:CreateScalingPlan'</a>,
---   <a>createScalingPlan_scalingInstructions</a> - The scaling
---   instructions.
---   
---   For more information, see <a>ScalingInstruction</a> in the <i>AWS Auto
---   Scaling API Reference</i>.
-newCreateScalingPlan :: Text -> ApplicationSource -> CreateScalingPlan
-
--- | <i>See:</i> <a>newCreateScalingPlanResponse</a> smart constructor.
-data CreateScalingPlanResponse
-CreateScalingPlanResponse' :: Int -> Integer -> CreateScalingPlanResponse
-
--- | Create a value of <a>CreateScalingPlanResponse</a> with all optional
---   fields omitted.
---   
---   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
---   fields.
---   
---   The following record fields are available, with the corresponding
---   lenses provided for backwards compatibility:
---   
---   <a>$sel:httpStatus:CreateScalingPlanResponse'</a>,
---   <a>createScalingPlanResponse_httpStatus</a> - The response's http
---   status code.
---   
---   <a>$sel:scalingPlanVersion:CreateScalingPlanResponse'</a>,
---   <a>createScalingPlanResponse_scalingPlanVersion</a> - The version
---   number of the scaling plan. This value is always <tt>1</tt>.
---   Currently, you cannot have multiple scaling plan versions.
-newCreateScalingPlanResponse :: Int -> Integer -> CreateScalingPlanResponse
 newtype ForecastDataType
 ForecastDataType' :: Text -> ForecastDataType
 [fromForecastDataType] :: ForecastDataType -> Text
@@ -6175,7 +6175,7 @@ newApplicationSource :: ApplicationSource
 --   <i>See:</i> <a>newCustomizedLoadMetricSpecification</a> smart
 --   constructor.
 data CustomizedLoadMetricSpecification
-CustomizedLoadMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> Text -> Text -> MetricStatistic -> CustomizedLoadMetricSpecification
+CustomizedLoadMetricSpecification' :: Maybe [MetricDimension] -> Maybe Text -> Text -> Text -> MetricStatistic -> CustomizedLoadMetricSpecification
 
 -- | Create a value of <a>CustomizedLoadMetricSpecification</a> with all
 --   optional fields omitted.
@@ -6186,10 +6186,6 @@ CustomizedLoadMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> T
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:unit:CustomizedLoadMetricSpecification'</a>,
---   <a>customizedLoadMetricSpecification_unit</a> - The unit of the
---   metric.
---   
 --   <a>$sel:dimensions:CustomizedLoadMetricSpecification'</a>,
 --   <a>customizedLoadMetricSpecification_dimensions</a> - The dimensions
 --   of the metric.
@@ -6197,6 +6193,10 @@ CustomizedLoadMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> T
 --   Conditional: If you published your metric with dimensions, you must
 --   specify the same dimensions in your customized load metric
 --   specification.
+--   
+--   <a>$sel:unit:CustomizedLoadMetricSpecification'</a>,
+--   <a>customizedLoadMetricSpecification_unit</a> - The unit of the
+--   metric.
 --   
 --   <a>$sel:metricName:CustomizedLoadMetricSpecification'</a>,
 --   <a>customizedLoadMetricSpecification_metricName</a> - The name of the
@@ -6235,7 +6235,7 @@ newCustomizedLoadMetricSpecification :: Text -> Text -> MetricStatistic -> Custo
 --   <i>See:</i> <a>newCustomizedScalingMetricSpecification</a> smart
 --   constructor.
 data CustomizedScalingMetricSpecification
-CustomizedScalingMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -> Text -> Text -> MetricStatistic -> CustomizedScalingMetricSpecification
+CustomizedScalingMetricSpecification' :: Maybe [MetricDimension] -> Maybe Text -> Text -> Text -> MetricStatistic -> CustomizedScalingMetricSpecification
 
 -- | Create a value of <a>CustomizedScalingMetricSpecification</a> with all
 --   optional fields omitted.
@@ -6246,10 +6246,6 @@ CustomizedScalingMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:unit:CustomizedScalingMetricSpecification'</a>,
---   <a>customizedScalingMetricSpecification_unit</a> - The unit of the
---   metric.
---   
 --   <a>$sel:dimensions:CustomizedScalingMetricSpecification'</a>,
 --   <a>customizedScalingMetricSpecification_dimensions</a> - The
 --   dimensions of the metric.
@@ -6257,6 +6253,10 @@ CustomizedScalingMetricSpecification' :: Maybe Text -> Maybe [MetricDimension] -
 --   Conditional: If you published your metric with dimensions, you must
 --   specify the same dimensions in your customized scaling metric
 --   specification.
+--   
+--   <a>$sel:unit:CustomizedScalingMetricSpecification'</a>,
+--   <a>customizedScalingMetricSpecification_unit</a> - The unit of the
+--   metric.
 --   
 --   <a>$sel:metricName:CustomizedScalingMetricSpecification'</a>,
 --   <a>customizedScalingMetricSpecification_metricName</a> - The name of
@@ -6276,7 +6276,7 @@ newCustomizedScalingMetricSpecification :: Text -> Text -> MetricStatistic -> Cu
 --   
 --   <i>See:</i> <a>newDatapoint</a> smart constructor.
 data Datapoint
-Datapoint' :: Maybe POSIX -> Maybe Double -> Datapoint
+Datapoint' :: Maybe Double -> Maybe POSIX -> Datapoint
 
 -- | Create a value of <a>Datapoint</a> with all optional fields omitted.
 --   
@@ -6286,11 +6286,11 @@ Datapoint' :: Maybe POSIX -> Maybe Double -> Datapoint
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:timestamp:Datapoint'</a>, <a>datapoint_timestamp</a> - The
---   time stamp for the data point in UTC format.
---   
 --   <a>$sel:value:Datapoint'</a>, <a>datapoint_value</a> - The value of
 --   the data point.
+--   
+--   <a>$sel:timestamp:Datapoint'</a>, <a>datapoint_timestamp</a> - The
+--   time stamp for the data point in UTC format.
 newDatapoint :: Datapoint
 
 -- | Represents a dimension for a customized metric.
@@ -6449,7 +6449,7 @@ newPredefinedScalingMetricSpecification :: ScalingMetricType -> PredefinedScalin
 --   
 --   <i>See:</i> <a>newScalingInstruction</a> smart constructor.
 data ScalingInstruction
-ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> Maybe PredictiveScalingMaxCapacityBehavior -> Maybe CustomizedLoadMetricSpecification -> Maybe Int -> Maybe PredictiveScalingMode -> Maybe ScalingPolicyUpdateBehavior -> Maybe Natural -> ServiceNamespace -> Text -> ScalableDimension -> Int -> Int -> [TargetTrackingConfiguration] -> ScalingInstruction
+ScalingInstruction' :: Maybe Natural -> Maybe Int -> Maybe ScalingPolicyUpdateBehavior -> Maybe CustomizedLoadMetricSpecification -> Maybe PredictiveScalingMode -> Maybe Bool -> Maybe PredictiveScalingMaxCapacityBehavior -> Maybe PredefinedLoadMetricSpecification -> ServiceNamespace -> Text -> ScalableDimension -> Int -> Int -> [TargetTrackingConfiguration] -> ScalingInstruction
 
 -- | Create a value of <a>ScalingInstruction</a> with all optional fields
 --   omitted.
@@ -6460,6 +6460,67 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
+--   <a>$sel:scheduledActionBufferTime:ScalingInstruction'</a>,
+--   <a>scalingInstruction_scheduledActionBufferTime</a> - The amount of
+--   time, in seconds, to buffer the run time of scheduled scaling actions
+--   when scaling out. For example, if the forecast says to add capacity at
+--   10:00 AM, and the buffer time is 5 minutes, then the run time of the
+--   corresponding scheduled scaling action will be 9:55 AM. The intention
+--   is to give resources time to be provisioned. For example, it can take
+--   a few minutes to launch an EC2 instance. The actual amount of time
+--   required depends on several factors, such as the size of the instance
+--   and whether there are startup scripts to complete.
+--   
+--   The value must be less than the forecast interval duration of 3600
+--   seconds (60 minutes). The default is 300 seconds.
+--   
+--   Only valid when configuring predictive scaling.
+--   
+--   <a>$sel:predictiveScalingMaxCapacityBuffer:ScalingInstruction'</a>,
+--   <a>scalingInstruction_predictiveScalingMaxCapacityBuffer</a> - The
+--   size of the capacity buffer to use when the forecast capacity is close
+--   to or exceeds the maximum capacity. The value is specified as a
+--   percentage relative to the forecast capacity. For example, if the
+--   buffer is 10, this means a 10 percent buffer, such that if the
+--   forecast capacity is 50, and the maximum capacity is 40, then the
+--   effective maximum capacity is 55.
+--   
+--   Only valid when configuring predictive scaling. Required if the
+--   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
+--   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
+--   otherwise.
+--   
+--   The range is 1-100.
+--   
+--   <a>$sel:scalingPolicyUpdateBehavior:ScalingInstruction'</a>,
+--   <a>scalingInstruction_scalingPolicyUpdateBehavior</a> - Controls
+--   whether a resource's externally created scaling policies are kept or
+--   replaced.
+--   
+--   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
+--   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
+--   are external to AWS Auto Scaling are deleted and new target tracking
+--   scaling policies created.
+--   
+--   Only valid when configuring dynamic scaling.
+--   
+--   Condition: The number of existing policies to be replaced must be less
+--   than or equal to 50. If there are more than 50 policies to be
+--   replaced, AWS Auto Scaling keeps all existing policies and does not
+--   create new ones.
+--   
+--   <a>$sel:customizedLoadMetricSpecification:ScalingInstruction'</a>,
+--   <a>scalingInstruction_customizedLoadMetricSpecification</a> - The
+--   customized load metric to use for predictive scaling. This parameter
+--   or a <b>PredefinedLoadMetricSpecification</b> is required when
+--   configuring predictive scaling, and cannot be used otherwise.
+--   
+--   <a>$sel:predictiveScalingMode:ScalingInstruction'</a>,
+--   <a>scalingInstruction_predictiveScalingMode</a> - The predictive
+--   scaling mode. The default value is <tt>ForecastAndScale</tt>.
+--   Otherwise, AWS Auto Scaling forecasts capacity but does not create any
+--   scheduled scaling actions based on the capacity forecast.
+--   
 --   <a>$sel:disableDynamicScaling:ScalingInstruction'</a>,
 --   <a>scalingInstruction_disableDynamicScaling</a> - Controls whether
 --   dynamic scaling by AWS Auto Scaling is disabled. When dynamic scaling
@@ -6467,12 +6528,6 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   based on the specified target tracking configurations.
 --   
 --   The default is enabled (<tt>false</tt>).
---   
---   <a>$sel:predefinedLoadMetricSpecification:ScalingInstruction'</a>,
---   <a>scalingInstruction_predefinedLoadMetricSpecification</a> - The
---   predefined load metric to use for predictive scaling. This parameter
---   or a <b>CustomizedLoadMetricSpecification</b> is required when
---   configuring predictive scaling, and cannot be used otherwise.
 --   
 --   <a>$sel:predictiveScalingMaxCapacityBehavior:ScalingInstruction'</a>,
 --   <a>scalingInstruction_predictiveScalingMaxCapacityBehavior</a> -
@@ -6497,66 +6552,11 @@ ScalingInstruction' :: Maybe Bool -> Maybe PredefinedLoadMetricSpecification -> 
 --   
 --   Only valid when configuring predictive scaling.
 --   
---   <a>$sel:customizedLoadMetricSpecification:ScalingInstruction'</a>,
---   <a>scalingInstruction_customizedLoadMetricSpecification</a> - The
---   customized load metric to use for predictive scaling. This parameter
---   or a <b>PredefinedLoadMetricSpecification</b> is required when
+--   <a>$sel:predefinedLoadMetricSpecification:ScalingInstruction'</a>,
+--   <a>scalingInstruction_predefinedLoadMetricSpecification</a> - The
+--   predefined load metric to use for predictive scaling. This parameter
+--   or a <b>CustomizedLoadMetricSpecification</b> is required when
 --   configuring predictive scaling, and cannot be used otherwise.
---   
---   <a>$sel:predictiveScalingMaxCapacityBuffer:ScalingInstruction'</a>,
---   <a>scalingInstruction_predictiveScalingMaxCapacityBuffer</a> - The
---   size of the capacity buffer to use when the forecast capacity is close
---   to or exceeds the maximum capacity. The value is specified as a
---   percentage relative to the forecast capacity. For example, if the
---   buffer is 10, this means a 10 percent buffer, such that if the
---   forecast capacity is 50, and the maximum capacity is 40, then the
---   effective maximum capacity is 55.
---   
---   Only valid when configuring predictive scaling. Required if the
---   <b>PredictiveScalingMaxCapacityBehavior</b> is set to
---   <tt>SetMaxCapacityAboveForecastCapacity</tt>, and cannot be used
---   otherwise.
---   
---   The range is 1-100.
---   
---   <a>$sel:predictiveScalingMode:ScalingInstruction'</a>,
---   <a>scalingInstruction_predictiveScalingMode</a> - The predictive
---   scaling mode. The default value is <tt>ForecastAndScale</tt>.
---   Otherwise, AWS Auto Scaling forecasts capacity but does not create any
---   scheduled scaling actions based on the capacity forecast.
---   
---   <a>$sel:scalingPolicyUpdateBehavior:ScalingInstruction'</a>,
---   <a>scalingInstruction_scalingPolicyUpdateBehavior</a> - Controls
---   whether a resource's externally created scaling policies are kept or
---   replaced.
---   
---   The default value is <tt>KeepExternalPolicies</tt>. If the parameter
---   is set to <tt>ReplaceExternalPolicies</tt>, any scaling policies that
---   are external to AWS Auto Scaling are deleted and new target tracking
---   scaling policies created.
---   
---   Only valid when configuring dynamic scaling.
---   
---   Condition: The number of existing policies to be replaced must be less
---   than or equal to 50. If there are more than 50 policies to be
---   replaced, AWS Auto Scaling keeps all existing policies and does not
---   create new ones.
---   
---   <a>$sel:scheduledActionBufferTime:ScalingInstruction'</a>,
---   <a>scalingInstruction_scheduledActionBufferTime</a> - The amount of
---   time, in seconds, to buffer the run time of scheduled scaling actions
---   when scaling out. For example, if the forecast says to add capacity at
---   10:00 AM, and the buffer time is 5 minutes, then the run time of the
---   corresponding scheduled scaling action will be 9:55 AM. The intention
---   is to give resources time to be provisioned. For example, it can take
---   a few minutes to launch an EC2 instance. The actual amount of time
---   required depends on several factors, such as the size of the instance
---   and whether there are startup scripts to complete.
---   
---   The value must be less than the forecast interval duration of 3600
---   seconds (60 minutes). The default is 300 seconds.
---   
---   Only valid when configuring predictive scaling.
 --   
 --   <a>$sel:serviceNamespace:ScalingInstruction'</a>,
 --   <a>scalingInstruction_serviceNamespace</a> - The namespace of the AWS
@@ -6632,7 +6632,7 @@ newScalingInstruction :: ServiceNamespace -> Text -> ScalableDimension -> Int ->
 --   
 --   <i>See:</i> <a>newScalingPlan</a> smart constructor.
 data ScalingPlan
-ScalingPlan' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Text -> Integer -> ApplicationSource -> [ScalingInstruction] -> ScalingPlanStatusCode -> ScalingPlan
+ScalingPlan' :: Maybe POSIX -> Maybe POSIX -> Maybe Text -> Text -> Integer -> ApplicationSource -> [ScalingInstruction] -> ScalingPlanStatusCode -> ScalingPlan
 
 -- | Create a value of <a>ScalingPlan</a> with all optional fields omitted.
 --   
@@ -6642,16 +6642,16 @@ ScalingPlan' :: Maybe Text -> Maybe POSIX -> Maybe POSIX -> Text -> Integer -> A
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:statusMessage:ScalingPlan'</a>,
---   <a>scalingPlan_statusMessage</a> - A simple message about the current
---   status of the scaling plan.
---   
 --   <a>$sel:creationTime:ScalingPlan'</a>, <a>scalingPlan_creationTime</a>
 --   - The Unix time stamp when the scaling plan was created.
 --   
 --   <a>$sel:statusStartTime:ScalingPlan'</a>,
 --   <a>scalingPlan_statusStartTime</a> - The Unix time stamp when the
 --   scaling plan entered the current status.
+--   
+--   <a>$sel:statusMessage:ScalingPlan'</a>,
+--   <a>scalingPlan_statusMessage</a> - A simple message about the current
+--   status of the scaling plan.
 --   
 --   <a>$sel:scalingPlanName:ScalingPlan'</a>,
 --   <a>scalingPlan_scalingPlanName</a> - The name of the scaling plan.
@@ -6694,7 +6694,7 @@ newScalingPlan :: Text -> Integer -> ApplicationSource -> ScalingPlanStatusCode 
 --   
 --   <i>See:</i> <a>newScalingPlanResource</a> smart constructor.
 data ScalingPlanResource
-ScalingPlanResource' :: Maybe [ScalingPolicy] -> Maybe Text -> Text -> Integer -> ServiceNamespace -> Text -> ScalableDimension -> ScalingStatusCode -> ScalingPlanResource
+ScalingPlanResource' :: Maybe Text -> Maybe [ScalingPolicy] -> Text -> Integer -> ServiceNamespace -> Text -> ScalableDimension -> ScalingStatusCode -> ScalingPlanResource
 
 -- | Create a value of <a>ScalingPlanResource</a> with all optional fields
 --   omitted.
@@ -6705,12 +6705,12 @@ ScalingPlanResource' :: Maybe [ScalingPolicy] -> Maybe Text -> Text -> Integer -
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:scalingPolicies:ScalingPlanResource'</a>,
---   <a>scalingPlanResource_scalingPolicies</a> - The scaling policies.
---   
 --   <a>$sel:scalingStatusMessage:ScalingPlanResource'</a>,
 --   <a>scalingPlanResource_scalingStatusMessage</a> - A simple message
 --   about the current scaling status of the resource.
+--   
+--   <a>$sel:scalingPolicies:ScalingPlanResource'</a>,
+--   <a>scalingPlanResource_scalingPolicies</a> - The scaling policies.
 --   
 --   <a>$sel:scalingPlanName:ScalingPlanResource'</a>,
 --   <a>scalingPlanResource_scalingPlanName</a> - The name of the scaling
@@ -6822,7 +6822,7 @@ newScalingPolicy :: Text -> PolicyType -> ScalingPolicy
 --   
 --   <i>See:</i> <a>newTagFilter</a> smart constructor.
 data TagFilter
-TagFilter' :: Maybe Text -> Maybe [Text] -> TagFilter
+TagFilter' :: Maybe [Text] -> Maybe Text -> TagFilter
 
 -- | Create a value of <a>TagFilter</a> with all optional fields omitted.
 --   
@@ -6832,10 +6832,10 @@ TagFilter' :: Maybe Text -> Maybe [Text] -> TagFilter
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
 --   
---   <a>$sel:key:TagFilter'</a>, <a>tagFilter_key</a> - The tag key.
---   
 --   <a>$sel:values:TagFilter'</a>, <a>tagFilter_values</a> - The tag
 --   values (0 to 20).
+--   
+--   <a>$sel:key:TagFilter'</a>, <a>tagFilter_key</a> - The tag key.
 newTagFilter :: TagFilter
 
 -- | Describes a target tracking configuration to use with AWS Auto
@@ -6843,7 +6843,7 @@ newTagFilter :: TagFilter
 --   
 --   <i>See:</i> <a>newTargetTrackingConfiguration</a> smart constructor.
 data TargetTrackingConfiguration
-TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpecification -> Maybe PredefinedScalingMetricSpecification -> Maybe Int -> Maybe Int -> Maybe Int -> Double -> TargetTrackingConfiguration
+TargetTrackingConfiguration' :: Maybe Int -> Maybe PredefinedScalingMetricSpecification -> Maybe Int -> Maybe Bool -> Maybe CustomizedScalingMetricSpecification -> Maybe Int -> Double -> TargetTrackingConfiguration
 
 -- | Create a value of <a>TargetTrackingConfiguration</a> with all optional
 --   fields omitted.
@@ -6853,6 +6853,31 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   
 --   The following record fields are available, with the corresponding
 --   lenses provided for backwards compatibility:
+--   
+--   <a>$sel:estimatedInstanceWarmup:TargetTrackingConfiguration'</a>,
+--   <a>targetTrackingConfiguration_estimatedInstanceWarmup</a> - The
+--   estimated time, in seconds, until a newly launched instance can
+--   contribute to the CloudWatch metrics. This value is used only if the
+--   resource is an Auto Scaling group.
+--   
+--   
+--   <a>$sel:predefinedScalingMetricSpecification:TargetTrackingConfiguration'</a>,
+--   <a>targetTrackingConfiguration_predefinedScalingMetricSpecification</a>
+--   - A predefined metric. You can specify either a predefined metric or a
+--   customized metric.
+--   
+--   <a>$sel:scaleInCooldown:TargetTrackingConfiguration'</a>,
+--   <a>targetTrackingConfiguration_scaleInCooldown</a> - The amount of
+--   time, in seconds, after a scale-in activity completes before another
+--   scale-in activity can start. This property is not used if the scalable
+--   resource is an Auto Scaling group.
+--   
+--   With the <i>scale-in cooldown period</i>, the intention is to scale in
+--   conservatively to protect your application’s availability, so scale-in
+--   activities are blocked until the cooldown period has expired. However,
+--   if another alarm triggers a scale-out activity during the scale-in
+--   cooldown period, Auto Scaling scales out the target immediately. In
+--   this case, the scale-in cooldown period stops and doesn't complete.
 --   
 --   <a>$sel:disableScaleIn:TargetTrackingConfiguration'</a>,
 --   <a>targetTrackingConfiguration_disableScaleIn</a> - Indicates whether
@@ -6870,18 +6895,6 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   - A customized metric. You can specify either a predefined metric or a
 --   customized metric.
 --   
---   
---   <a>$sel:predefinedScalingMetricSpecification:TargetTrackingConfiguration'</a>,
---   <a>targetTrackingConfiguration_predefinedScalingMetricSpecification</a>
---   - A predefined metric. You can specify either a predefined metric or a
---   customized metric.
---   
---   <a>$sel:estimatedInstanceWarmup:TargetTrackingConfiguration'</a>,
---   <a>targetTrackingConfiguration_estimatedInstanceWarmup</a> - The
---   estimated time, in seconds, until a newly launched instance can
---   contribute to the CloudWatch metrics. This value is used only if the
---   resource is an Auto Scaling group.
---   
 --   <a>$sel:scaleOutCooldown:TargetTrackingConfiguration'</a>,
 --   <a>targetTrackingConfiguration_scaleOutCooldown</a> - The amount of
 --   time, in seconds, to wait for a previous scale-out activity to take
@@ -6894,19 +6907,6 @@ TargetTrackingConfiguration' :: Maybe Bool -> Maybe CustomizedScalingMetricSpeci
 --   starts to calculate the cooldown time. The scaling policy won't
 --   increase the desired capacity again unless either a larger scale out
 --   is triggered or the cooldown period ends.
---   
---   <a>$sel:scaleInCooldown:TargetTrackingConfiguration'</a>,
---   <a>targetTrackingConfiguration_scaleInCooldown</a> - The amount of
---   time, in seconds, after a scale-in activity completes before another
---   scale-in activity can start. This property is not used if the scalable
---   resource is an Auto Scaling group.
---   
---   With the <i>scale-in cooldown period</i>, the intention is to scale in
---   conservatively to protect your application’s availability, so scale-in
---   activities are blocked until the cooldown period has expired. However,
---   if another alarm triggers a scale-out activity during the scale-in
---   cooldown period, Auto Scaling scales out the target immediately. In
---   this case, the scale-in cooldown period stops and doesn't complete.
 --   
 --   <a>$sel:targetValue:TargetTrackingConfiguration'</a>,
 --   <a>targetTrackingConfiguration_targetValue</a> - The target value for
